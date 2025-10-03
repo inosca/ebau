@@ -78,6 +78,48 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "solaranlagen-v2",
+    "fields": {
+      "created_at": "2025-10-02T07:41:10.618Z",
+      "modified_at": "2025-10-02T09:52:56.172Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Solaranlagen\", \"fr\": null, \"it\": \"Impianto solare (solo sul tetto)\"}",
+      "description": "{\"de\": \"Solaranlagen\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "solaranlage-v2",
+    "fields": {
+      "created_at": "2025-10-02T09:50:42.496Z",
+      "modified_at": "2025-10-02T09:54:45.891Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Solaranlage (nur auf Dach)\", \"fr\": null, \"it\": \"Impianto solare (solo sul tetto)\"}",
+      "description": "{\"de\": \"Solaranlage (nur auf Dach)\", \"fr\": null, \"it\": \"Impianto solare (solo sul tetto)\"}",
+      "meta": {
+        "order": 2,
+        "category": "special-procedure",
+        "is-creatable": true,
+        "is-main-form": true,
+        "onCreatePopup": true
+      },
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "spezialformulare-v2",
     "fields": {
       "created_at": "2025-02-03T09:34:39.494Z",
@@ -935,6 +977,201 @@
       "form": "lageranlagen-wassergefaehrdenden-fluessigkeiten-v2",
       "question": "table-lageranlagen",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-v2.dachausrichtung-v2",
+    "fields": {
+      "created_at": "2025-10-02T07:41:10.634Z",
+      "modified_at": "2025-10-02T07:41:10.634Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-v2",
+      "question": "dachausrichtung-v2",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-v2.dachneigung-prozent-v2",
+    "fields": {
+      "created_at": "2025-10-02T07:41:10.658Z",
+      "modified_at": "2025-10-02T07:41:10.658Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-v2",
+      "question": "dachneigung-prozent-v2",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-v2.dachtyp-v2",
+    "fields": {
+      "created_at": "2025-10-02T07:41:10.663Z",
+      "modified_at": "2025-10-02T07:41:10.663Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-v2",
+      "question": "dachtyp-v2",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-v2.lastvorgaben-genuegen-v2",
+    "fields": {
+      "created_at": "2025-10-02T07:41:10.672Z",
+      "modified_at": "2025-10-02T07:41:10.672Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-v2",
+      "question": "lastvorgaben-genuegen-v2",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-v2.pv-anlagen-solaranlagen-v2",
+    "fields": {
+      "created_at": "2025-10-02T07:41:10.682Z",
+      "modified_at": "2025-10-02T07:41:10.682Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-v2",
+      "question": "pv-anlagen-solaranlagen-v2",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-v2.solaranlagen-titel-v2",
+    "fields": {
+      "created_at": "2025-10-02T07:41:10.685Z",
+      "modified_at": "2025-10-02T07:41:10.685Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-v2",
+      "question": "solaranlagen-titel-v2",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-v2.verantwortliches-installationsunternehmen-v2",
+    "fields": {
+      "created_at": "2025-10-02T07:41:10.688Z",
+      "modified_at": "2025-10-02T07:41:10.688Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-v2",
+      "question": "verantwortliches-installationsunternehmen-v2",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlage-v2.allgemeine-angaben-v2",
+    "fields": {
+      "created_at": "2025-10-02T09:50:42.511Z",
+      "modified_at": "2025-10-02T09:50:42.511Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlage-v2",
+      "question": "allgemeine-angaben-v2",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlage-v2.bauvorhaben-v2",
+    "fields": {
+      "created_at": "2025-10-02T09:50:42.517Z",
+      "modified_at": "2025-10-02T09:50:42.517Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlage-v2",
+      "question": "bauvorhaben-v2",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlage-v2.dokumente-ohne-pflichtdokumente-v2",
+    "fields": {
+      "created_at": "2025-10-02T09:50:42.523Z",
+      "modified_at": "2025-10-02T09:50:42.523Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlage-v2",
+      "question": "dokumente-ohne-pflichtdokumente-v2",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlage-v2.einreichen-v2",
+    "fields": {
+      "created_at": "2025-10-02T09:50:42.533Z",
+      "modified_at": "2025-10-02T09:50:42.533Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlage-v2",
+      "question": "einreichen-v2",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlage-v2.personalien-v2",
+    "fields": {
+      "created_at": "2025-10-02T09:50:42.540Z",
+      "modified_at": "2025-10-02T09:50:42.540Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlage-v2",
+      "question": "personalien-v2",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlage-v2.solaranlagen-v2",
+    "fields": {
+      "created_at": "2025-10-02T09:50:42.547Z",
+      "modified_at": "2025-10-02T09:50:42.547Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlage-v2",
+      "question": "solaranlagen-v2",
+      "sort": 3
     }
   },
   {
@@ -2350,6 +2587,91 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "dachausrichtung-sued-ost-v2",
+    "fields": {
+      "created_at": "2025-10-02T07:41:10.648Z",
+      "modified_at": "2025-10-02T07:41:10.648Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Süd-Ost\", \"fr\": null, \"it\": \"Sud-est\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "dachausrichtung-sued-v2",
+    "fields": {
+      "created_at": "2025-10-02T07:41:10.642Z",
+      "modified_at": "2025-10-02T07:41:10.642Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Süd\", \"fr\": null, \"it\": \"Sud\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "dachausrichtung-sued-west-v2",
+    "fields": {
+      "created_at": "2025-10-02T07:41:10.652Z",
+      "modified_at": "2025-10-02T07:41:10.652Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Süd-West\", \"fr\": null, \"it\": \"Sud-ovest\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "dachtyp-flachdach-v2",
+    "fields": {
+      "created_at": "2025-10-02T07:41:10.666Z",
+      "modified_at": "2025-10-02T07:41:10.666Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Flachdach\", \"fr\": null, \"it\": \"Tetto piano\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "dachtyp-schraegdach-v2",
+    "fields": {
+      "created_at": "2025-10-02T07:41:10.669Z",
+      "modified_at": "2025-10-02T07:41:10.669Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schrägdach\", \"fr\": null, \"it\": \"Tetto inclinato\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "form-des-behaelters-kugelfoermig-v2",
     "fields": {
       "created_at": "2025-07-17T11:07:16.823Z",
@@ -2707,6 +3029,40 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "lastvorgaben-genuegen-ja-v2",
+    "fields": {
+      "created_at": "2025-10-02T07:41:10.675Z",
+      "modified_at": "2025-10-02T07:41:10.675Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": \"Sì\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "lastvorgaben-genuegen-nein-v2",
+    "fields": {
+      "created_at": "2025-10-02T07:41:10.678Z",
+      "modified_at": "2025-10-02T07:41:10.678Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": \"No\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "platzierung-der-anlage-andere-v2",
     "fields": {
       "created_at": "2025-07-17T11:07:16.957Z",
@@ -3003,6 +3359,37 @@
       "data_source": null,
       "row_form": null,
       "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "allgemeine-angaben-v2",
+    "fields": {
+      "created_at": "2025-10-02T09:50:42.506Z",
+      "modified_at": "2025-10-02T09:50:42.506Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Lage des Vorhabens\", \"fr\": null, \"it\": \"Ubicazione del progetto\"}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "allgemeine-angaben-kurz",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -3336,6 +3723,37 @@
       "data_source": null,
       "row_form": null,
       "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bauvorhaben-v2",
+    "fields": {
+      "created_at": "2025-10-02T09:50:42.514Z",
+      "modified_at": "2025-10-02T09:50:42.514Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vorhaben\", \"fr\": null, \"it\": \"Progetto\"}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "bauvorhaben",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -4012,6 +4430,104 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "dachausrichtung-v2",
+    "fields": {
+      "created_at": "2025-10-02T07:41:10.630Z",
+      "modified_at": "2025-10-02T07:41:10.630Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dachausrichtung\", \"fr\": null, \"it\": \"Orientamento del tetto\"}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "dachneigung-prozent-v2",
+    "fields": {
+      "created_at": "2025-10-02T07:41:10.655Z",
+      "modified_at": "2025-10-02T07:41:10.697Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dachneigung (%)\", \"fr\": null, \"it\": \"Pendenza del tetto (%)\"}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "!(\"dachtyp-v2-schraegdach\" in \"dachtyp-v2\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "dachtyp-v2",
+    "fields": {
+      "created_at": "2025-10-02T07:41:10.661Z",
+      "modified_at": "2025-10-02T07:41:10.661Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dachtyp\", \"fr\": null, \"it\": \"Tipo di tetto\"}",
+      "type": "multiple_choice",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "dispositionsplan-heizungsraum-v2",
     "fields": {
       "created_at": "2025-01-31T14:30:10.087Z",
@@ -4037,6 +4553,45 @@
       "data_source": null,
       "row_form": null,
       "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "dokumente-ohne-pflichtdokumente-v2",
+    "fields": {
+      "created_at": "2025-10-02T09:50:42.520Z",
+      "modified_at": "2025-10-02T09:50:42.520Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dokumente\", \"fr\": null, \"it\": \"Documenti\"}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "alexandria-documents-form",
+        "alexandria-categories": [
+          "beilagen-zum-gesuch-grundstuecksangaben",
+          "beilagen-zum-gesuch-gutachten-nachweise-begruendungen",
+          "beilagen-zum-gesuch-brandschutz",
+          "beilagen-zum-gesuch-weitere-gesuchsunterlagen"
+        ]
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "dokumente-ohne-pflichtdokumente",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -4141,6 +4696,37 @@
       "data_source": null,
       "row_form": null,
       "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "einreichen-v2",
+    "fields": {
+      "created_at": "2025-10-02T09:50:42.529Z",
+      "modified_at": "2025-10-02T09:50:42.529Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Einreichen\", \"fr\": null, \"it\": \"Inoltra\"}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "einreichen",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -5281,6 +5867,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "lastvorgaben-genuegen-v2",
+    "fields": {
+      "created_at": "2025-10-02T07:41:10.671Z",
+      "modified_at": "2025-10-02T07:41:10.671Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die Ausführung der Solaranlage und des Unterbaus genügen den Lastvorgaben der spezifischen Tragwerksnormen (SIA Norm 261), Richtlinien und Wegleitungen (VKF). Wobei mindestens Schnee- und Windeinwirkungen zu berücksichtigen sind.\", \"fr\": null, \"it\": \"L'esecuzione dell'impianto solare e della sottostruttura soddisfa le direttive sui carichi contenute nelle norme specifiche sulle strutture portanti (norma SIA 261), direttive e istruzioni (AICAA). Vanno considerati almeno gli effetti della neve e del vento.\"}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "maximale-entnahmemenge-v2",
     "fields": {
       "created_at": "2025-01-31T12:11:01.215Z",
@@ -5490,6 +6107,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "personalien-v2",
+    "fields": {
+      "created_at": "2025-10-02T09:50:42.536Z",
+      "modified_at": "2025-10-02T09:50:42.536Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Personalien\", \"fr\": null, \"it\": \"Dati personali\"}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "personalien",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "platzierung-der-anlage-v2",
     "fields": {
       "created_at": "2025-07-17T11:07:16.950Z",
@@ -5544,6 +6192,39 @@
       },
       "data_source": null,
       "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "pv-anlagen-solaranlagen-v2",
+    "fields": {
+      "created_at": "2025-10-02T07:41:10.680Z",
+      "modified_at": "2025-10-02T07:41:10.680Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anlagen\", \"fr\": null, \"it\": \"Impianti\"}",
+      "type": "table",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "columnsToDisplay": ["typ-der-anlage", "standort-solaranlage"]
+      },
+      "data_source": null,
+      "row_form": "solaranlagen-tabelle",
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
@@ -5811,6 +6492,68 @@
       "data_source": null,
       "row_form": null,
       "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "solaranlagen-titel-v2",
+    "fields": {
+      "created_at": "2025-10-02T07:41:10.683Z",
+      "modified_at": "2025-10-02T07:41:10.683Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Solaranlagen Titel\", \"fr\": null, \"it\": \"Impianti solari titolo\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"### Selbstdeklaration über die korrekte Erstellung von Solaranlagen\", \"fr\": \"\", \"it\": \"### Autocertificazione relativa alla corretta installazione di impianti solari\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "solaranlagen-v2",
+    "fields": {
+      "created_at": "2025-10-02T09:50:42.543Z",
+      "modified_at": "2025-10-02T09:51:25.857Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Solaranlage\", \"fr\": null, \"it\": \"Impianti solari\"}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "solaranlagen-v2",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -6148,6 +6891,44 @@
       },
       "data_source": null,
       "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "verantwortliches-installationsunternehmen-v2",
+    "fields": {
+      "created_at": "2025-10-02T07:41:10.687Z",
+      "modified_at": "2025-10-02T07:41:10.687Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verantwortliches Installationsunternehmen\", \"fr\": null, \"it\": \"Azienda di installazione responsabile\"}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "columnsToDisplay": [
+          "name-gesuchstellerin",
+          "vorname-gesuchstellerin",
+          "e-mail-gesuchstellerin",
+          "telefon-oder-mobile-gesuchstellerin"
+        ]
+      },
+      "data_source": null,
+      "row_form": "personalien-tabelle",
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
@@ -7092,6 +7873,81 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "dachausrichtung-v2.dachausrichtung-sued-ost-v2",
+    "fields": {
+      "created_at": "2025-10-02T07:41:10.650Z",
+      "modified_at": "2025-10-02T07:41:10.650Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "dachausrichtung-v2",
+      "option": "dachausrichtung-sued-ost-v2",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "dachausrichtung-v2.dachausrichtung-sued-v2",
+    "fields": {
+      "created_at": "2025-10-02T07:41:10.645Z",
+      "modified_at": "2025-10-02T07:41:10.645Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "dachausrichtung-v2",
+      "option": "dachausrichtung-sued-v2",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "dachausrichtung-v2.dachausrichtung-sued-west-v2",
+    "fields": {
+      "created_at": "2025-10-02T07:41:10.653Z",
+      "modified_at": "2025-10-02T07:41:10.653Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "dachausrichtung-v2",
+      "option": "dachausrichtung-sued-west-v2",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "dachtyp-v2.dachtyp-flachdach-v2",
+    "fields": {
+      "created_at": "2025-10-02T07:41:10.668Z",
+      "modified_at": "2025-10-02T07:41:10.668Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "dachtyp-v2",
+      "option": "dachtyp-flachdach-v2",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "dachtyp-v2.dachtyp-schraegdach-v2",
+    "fields": {
+      "created_at": "2025-10-02T07:41:10.670Z",
+      "modified_at": "2025-10-02T07:41:10.670Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "dachtyp-v2",
+      "option": "dachtyp-schraegdach-v2",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "form-des-behaelters-v2.form-des-behaelters-kugelfoermig-v2",
     "fields": {
       "created_at": "2025-07-17T11:28:26.829Z",
@@ -7403,6 +8259,36 @@
       "question": "lagergut-v2",
       "option": "lagergut-v2-benzin",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "lastvorgaben-genuegen-v2.lastvorgaben-genuegen-ja-v2",
+    "fields": {
+      "created_at": "2025-10-02T07:41:10.677Z",
+      "modified_at": "2025-10-02T07:41:10.677Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "lastvorgaben-genuegen-v2",
+      "option": "lastvorgaben-genuegen-ja-v2",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "lastvorgaben-genuegen-v2.lastvorgaben-genuegen-nein-v2",
+    "fields": {
+      "created_at": "2025-10-02T07:41:10.679Z",
+      "modified_at": "2025-10-02T07:41:10.679Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "lastvorgaben-genuegen-v2",
+      "option": "lastvorgaben-genuegen-nein-v2",
+      "sort": 1
     }
   },
   {

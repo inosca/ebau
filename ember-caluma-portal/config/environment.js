@@ -486,6 +486,8 @@ module.exports = function (environment) {
             "bauanzeige",
             "bauanzeige-v3",
             "solaranlage",
+            "solaranlage-v2",
+            "solaranlage-andere",
           ],
         },
       ],

@@ -878,10 +878,10 @@
     "pk": "solaranlage",
     "fields": {
       "created_at": "2023-04-26T15:06:01.955Z",
-      "modified_at": "2024-08-28T12:24:54.638Z",
+      "modified_at": "2025-10-02T09:54:49.323Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "name": "{\"de\": \"Solaranlage (nur auf Dach)\", \"fr\": null, \"it\": \"Impianto solare (solo sul tetto)\"}",
       "description": "{\"de\": \"Solaranlage (nur auf Dach)\", \"fr\": null, \"it\": \"Impianto solare (solo sul tetto)\"}",
@@ -892,9 +892,33 @@
         "is-main-form": true,
         "onCreatePopup": true
       },
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "solaranlage-andere",
+    "fields": {
+      "created_at": "2025-10-03T07:33:22.508Z",
+      "modified_at": "2025-10-03T07:36:41.255Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Solaranlage\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {
+        "order": 2,
+        "category": "special-procedure",
+        "is-creatable": true,
+        "is-main-form": true,
+        "onCreatePopup": true
+      },
+      "is_published": true,
+      "is_archived": false,
+      "source": "solaranlage-v2"
     }
   },
   {
@@ -908,6 +932,24 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "name": "{\"de\": \"Solaranlagen\", \"fr\": null, \"it\": \"Impianti solari\"}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "solaranlagen-andere",
+    "fields": {
+      "created_at": "2025-10-02T07:51:10.606Z",
+      "modified_at": "2025-10-02T07:51:10.606Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Solaranlage\", \"fr\": null, \"it\": \"Impianto solare\"}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": false,
@@ -13096,6 +13138,96 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "solaranlage-andere.allgemeine-angaben-v2",
+    "fields": {
+      "created_at": "2025-10-03T07:33:22.520Z",
+      "modified_at": "2025-10-03T07:33:22.520Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "solaranlage-andere",
+      "question": "allgemeine-angaben-v2",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlage-andere.bauvorhaben-v2",
+    "fields": {
+      "created_at": "2025-10-03T07:33:22.536Z",
+      "modified_at": "2025-10-03T07:33:22.536Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "solaranlage-andere",
+      "question": "bauvorhaben-v2",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlage-andere.dokumente-ohne-pflichtdokumente-v2",
+    "fields": {
+      "created_at": "2025-10-03T07:33:22.541Z",
+      "modified_at": "2025-10-03T07:33:22.541Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "solaranlage-andere",
+      "question": "dokumente-ohne-pflichtdokumente-v2",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlage-andere.einreichen-v2",
+    "fields": {
+      "created_at": "2025-10-03T07:33:22.543Z",
+      "modified_at": "2025-10-03T07:33:22.544Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "solaranlage-andere",
+      "question": "einreichen-v2",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlage-andere.personalien-v2",
+    "fields": {
+      "created_at": "2025-10-03T07:33:22.532Z",
+      "modified_at": "2025-10-03T07:33:22.532Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "solaranlage-andere",
+      "question": "personalien-v2",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlage-andere.solaranlagen-andere",
+    "fields": {
+      "created_at": "2025-10-03T07:34:16.095Z",
+      "modified_at": "2025-10-03T07:34:16.095Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlage-andere",
+      "question": "solaranlagen-andere",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "solaranlage.bauvorhaben",
     "fields": {
       "created_at": "2023-04-26T15:44:14.621Z",
@@ -13136,6 +13268,126 @@
       "modified_by_group": null,
       "form": "solaranlage",
       "question": "einreichen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-andere.dachausrichtung-andere",
+    "fields": {
+      "created_at": "2025-10-02T07:51:10.618Z",
+      "modified_at": "2025-10-02T07:51:10.618Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-andere",
+      "question": "dachausrichtung-andere",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-andere.dachneigung-prozent-andere",
+    "fields": {
+      "created_at": "2025-10-02T07:51:10.639Z",
+      "modified_at": "2025-10-02T07:51:10.639Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-andere",
+      "question": "dachneigung-prozent-andere",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-andere.lastvorgaben-genuegen-andere",
+    "fields": {
+      "created_at": "2025-10-02T07:51:10.652Z",
+      "modified_at": "2025-10-02T07:51:10.652Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-andere",
+      "question": "lastvorgaben-genuegen-andere",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-andere.montageuntergrund-solaranlage-andere",
+    "fields": {
+      "created_at": "2025-10-02T08:14:39.367Z",
+      "modified_at": "2025-10-02T08:14:39.367Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-andere",
+      "question": "montageuntergrund-solaranlage-andere",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-andere.montageuntergrund-solaranlage-andere-bemerkung",
+    "fields": {
+      "created_at": "2025-10-02T08:19:10.196Z",
+      "modified_at": "2025-10-02T08:19:10.196Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-andere",
+      "question": "montageuntergrund-solaranlage-andere-bemerkung",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-andere.pv-anlagen-solaranlagen-andere",
+    "fields": {
+      "created_at": "2025-10-02T07:51:10.664Z",
+      "modified_at": "2025-10-02T07:51:10.664Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-andere",
+      "question": "pv-anlagen-solaranlagen-andere",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-andere.solaranlagen-titel-andere",
+    "fields": {
+      "created_at": "2025-10-02T07:51:10.668Z",
+      "modified_at": "2025-10-02T07:51:10.668Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-andere",
+      "question": "solaranlagen-titel-andere",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-andere.verantwortliches-installationsunternehmen-andere",
+    "fields": {
+      "created_at": "2025-10-02T07:51:10.672Z",
+      "modified_at": "2025-10-02T07:51:10.672Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-andere",
+      "question": "verantwortliches-installationsunternehmen-andere",
       "sort": 1
     }
   },
@@ -24885,10 +25137,44 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "dachausrichtung-sued-andere",
+    "fields": {
+      "created_at": "2025-10-02T07:51:10.631Z",
+      "modified_at": "2025-10-02T07:51:10.631Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Süd\", \"fr\": null, \"it\": \"Sud\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "dachausrichtung-sued-ost",
     "fields": {
       "created_at": "2023-06-16T14:42:33.722Z",
       "modified_at": "2024-08-28T12:24:51.704Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Süd-Ost\", \"fr\": null, \"it\": \"Sud-est\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "dachausrichtung-sued-ost-andere",
+    "fields": {
+      "created_at": "2025-10-02T07:51:10.625Z",
+      "modified_at": "2025-10-02T07:51:10.625Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
@@ -24919,6 +25205,23 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "dachausrichtung-sued-west-andere",
+    "fields": {
+      "created_at": "2025-10-02T07:51:10.633Z",
+      "modified_at": "2025-10-02T07:51:10.633Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Süd-West\", \"fr\": null, \"it\": \"Sud-ovest\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "dachtyp-flachdach",
     "fields": {
       "created_at": "2023-06-16T14:40:25.223Z",
@@ -24936,10 +25239,44 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "dachtyp-flachdach-andere",
+    "fields": {
+      "created_at": "2025-10-02T07:51:10.647Z",
+      "modified_at": "2025-10-02T07:51:10.647Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Flachdach\", \"fr\": null, \"it\": \"Tetto piano\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "dachtyp-schraegdach",
     "fields": {
       "created_at": "2023-06-16T14:40:25.230Z",
       "modified_at": "2024-08-28T12:24:51.712Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schrägdach\", \"fr\": null, \"it\": \"Tetto inclinato\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "dachtyp-schraegdach-andere",
+    "fields": {
+      "created_at": "2025-10-02T07:51:10.649Z",
+      "modified_at": "2025-10-02T07:51:10.649Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
@@ -30461,10 +30798,44 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "lastvorgaben-genuegen-ja-andere",
+    "fields": {
+      "created_at": "2025-10-02T07:51:10.657Z",
+      "modified_at": "2025-10-02T07:51:10.657Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": \"Sì\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "lastvorgaben-genuegen-nein",
     "fields": {
       "created_at": "2023-06-16T14:43:40.714Z",
       "modified_at": "2024-09-11T14:58:53.992Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": \"No\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "lastvorgaben-genuegen-nein-andere",
+    "fields": {
+      "created_at": "2025-10-02T07:51:10.660Z",
+      "modified_at": "2025-10-02T07:51:10.660Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
@@ -31439,6 +31810,108 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Montage über Dach\", \"fr\": null, \"it\": \"Montaggio sul tetto\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "montageuntergrund-solaranlage-andere-flachdach",
+    "fields": {
+      "created_at": "2025-10-02T08:16:01.173Z",
+      "modified_at": "2025-10-02T08:16:01.173Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Flachdach\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "montageuntergrund-solaranlage-andere-gewachsenes-terrain",
+    "fields": {
+      "created_at": "2025-10-02T08:16:01.172Z",
+      "modified_at": "2025-10-02T08:16:01.172Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gewachsenes Terrain\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "montageuntergrund-solaranlage-andere-schraegdach",
+    "fields": {
+      "created_at": "2025-10-02T08:16:01.188Z",
+      "modified_at": "2025-10-02T08:16:01.188Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schrägdach\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "montageuntergrund-solaranlage-andere-sonstige-anlage",
+    "fields": {
+      "created_at": "2025-10-02T08:16:01.174Z",
+      "modified_at": "2025-10-02T08:16:01.174Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sonstige Anlage (z.B. Mauer, Zaun etc.)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "montageuntergrund-solaranlage-andere-weitere",
+    "fields": {
+      "created_at": "2025-10-02T08:16:01.192Z",
+      "modified_at": "2025-10-02T08:16:01.192Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Weitere\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "montageuntergrund-solaranlage-fassade",
+    "fields": {
+      "created_at": "2025-10-02T08:16:01.187Z",
+      "modified_at": "2025-10-02T08:16:01.187Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fassade\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -54089,6 +54562,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "dachausrichtung-andere",
+    "fields": {
+      "created_at": "2025-10-02T07:51:10.611Z",
+      "modified_at": "2025-10-02T08:19:50.185Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dachausrichtung\", \"fr\": null, \"it\": \"Orientamento del tetto\"}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "!([\"montageuntergrund-solaranlage-andere-schraegdach\", \"montageuntergrund-solaranlage-andere-flachdach\"] intersects \"montageuntergrund-solaranlage-andere\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "dach-material-und-farbe",
     "fields": {
       "created_at": "2023-04-12T10:48:53.454Z",
@@ -54139,6 +54643,42 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "dachneigung-prozent-andere",
+    "fields": {
+      "created_at": "2025-10-02T07:51:10.635Z",
+      "modified_at": "2025-10-02T08:16:45.611Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dachneigung (%)\", \"fr\": null, \"it\": \"Pendenza del tetto (%)\"}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "!(\"montageuntergrund-solaranlage-andere-schraegdach\" in \"montageuntergrund-solaranlage-andere\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -55207,7 +55747,6 @@
       "label": "{\"de\": \"Bitte geben Sie hier die Ihnen bereits zugewiesene ID für die elektronische Entsorgungserklärung für Bauabfälle (eEBA) ein\", \"fr\": null, \"it\": \"La preghiamo di inserire qui l'ID per la dichiarazione elettronica di smaltimento per rifiuti edili (DESRE) che Le è già stato attribuito\"}",
       "type": "text",
       "is_required": "\"haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst\"|answer == \"haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-ja\"",
-      "is_required": "\"haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst\"|answer == \"haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-ja\"",
       "is_hidden": "('haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst'|answer != 'haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-ja')",
       "is_archived": false,
       "placeholder": "{\"de\": \"GR-EBA-ABCDEF\", \"fr\": null, \"it\": \"GR-EBA-ABCDEF\"}",
@@ -55238,17 +55777,12 @@
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"eEBA Abfrage\", \"fr\": null, \"it\": null}",
       "label": "{\"de\": \"eEBA Abfrage\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -55385,7 +55919,6 @@
       "modified_by_group": null,
       "label": "{\"de\": \"eEBA Abfrage\", \"fr\": null, \"it\": \"eEBA Abfrage\"}",
       "type": "text",
-      "is_required": "\"haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst\"|answer == \"haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-nein\"",
       "is_required": "\"haben-sie-bereits-eeba-direkt-auf-eeba-onlineservice-erfasst\"|answer == \"haben-sie-bereits-eeba-direkt-auf-dem-eeba-onlineservice-erfasst-nein\"",
       "is_hidden": "false",
       "is_archived": false,
@@ -56971,7 +57504,6 @@
       "label": "{\"de\": \"Entsorgung\", \"fr\": null, \"it\": \"Smaltimento\"}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "!( 'parzelle'|answer|mapby('parzellennummer') && 'parzelle'|answer|mapby('parzellennummer')|length > 0 && 'gemeinde'|answer && 'vorhaben'|answer && 'vorhaben'|answer|length > 0 && 'beschreibung-bauvorhaben'|answer && 'beschreibung-bauvorhaben-details'|answer && 'voraussichtlicher-baubeginn'|answer && 'voraussichtliche-fertigstellung'|answer && \"entsorgung-triage\"|answer == \"entsorgung-triage-yes\" )",
       "is_hidden": "!( 'parzelle'|answer|mapby('parzellennummer') && 'parzelle'|answer|mapby('parzellennummer')|length > 0 && 'gemeinde'|answer && 'vorhaben'|answer && 'vorhaben'|answer|length > 0 && 'beschreibung-bauvorhaben'|answer && 'beschreibung-bauvorhaben-details'|answer && 'voraussichtlicher-baubeginn'|answer && 'voraussichtliche-fertigstellung'|answer && \"entsorgung-triage\"|answer == \"entsorgung-triage-yes\" )",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -66612,6 +67144,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "lastvorgaben-genuegen-andere",
+    "fields": {
+      "created_at": "2025-10-02T07:51:10.651Z",
+      "modified_at": "2025-10-02T07:51:10.651Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die Ausführung der Solaranlage und des Unterbaus genügen den Lastvorgaben der spezifischen Tragwerksnormen (SIA Norm 261), Richtlinien und Wegleitungen (VKF). Wobei mindestens Schnee- und Windeinwirkungen zu berücksichtigen sind.\", \"fr\": null, \"it\": \"L'esecuzione dell'impianto solare e della sottostruttura soddisfa le direttive sui carichi contenute nelle norme specifiche sulle strutture portanti (norma SIA 261), direttive e istruzioni (AICAA). Vanno considerati almeno gli effetti della neve e del vento.\"}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "laufbreite-der-haupttreppe",
     "fields": {
       "created_at": "2023-05-25T07:27:12.850Z",
@@ -69273,6 +69836,71 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "montageuntergrund-solaranlage-andere",
+    "fields": {
+      "created_at": "2025-10-02T08:14:39.318Z",
+      "modified_at": "2025-10-02T08:16:01.280Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Montageuntergrund (solaranlage an/auf/...)\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "montageuntergrund-solaranlage-andere-bemerkung",
+    "fields": {
+      "created_at": "2025-10-02T08:19:10.134Z",
+      "modified_at": "2025-10-02T08:19:10.134Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Montageuntergrund\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "!([\"montageuntergrund-solaranlage-andere-weitere\"] in \"montageuntergrund-solaranlage-andere\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "motoren-und-chassisreinigungen-mit-chemikalien",
     "fields": {
       "created_at": "2023-04-19T09:16:39.037Z",
@@ -71653,6 +72281,39 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "pv-anlagen-solaranlagen-andere",
+    "fields": {
+      "created_at": "2025-10-02T07:51:10.663Z",
+      "modified_at": "2025-10-02T07:51:10.663Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anlagen\", \"fr\": null, \"it\": \"Impianti\"}",
+      "type": "table",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "columnsToDisplay": ["typ-der-anlage", "standort-solaranlage"]
+      },
+      "data_source": null,
+      "row_form": "solaranlagen-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "quadrat-cm-oben",
     "fields": {
       "created_at": "2023-04-24T07:55:07.865Z",
@@ -73555,6 +74216,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "solaranlagen-andere",
+    "fields": {
+      "created_at": "2025-10-03T07:34:16.029Z",
+      "modified_at": "2025-10-03T07:34:41.642Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Solaranlagen\", \"fr\": null, \"it\": \"Impianti solari\"}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "solaranlagen-andere",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "solaranlagen-auf-kulturobjekten",
     "fields": {
       "created_at": "2023-04-20T09:34:02.508Z",
@@ -73634,6 +74326,37 @@
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"### Selbstdeklaration über die korrekte Erstellung von Solaranlagen\", \"fr\": \"\", \"it\": \"### Autocertificazione relativa alla corretta installazione di impianti solari\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "solaranlagen-titel-andere",
+    "fields": {
+      "created_at": "2025-10-02T07:51:10.666Z",
+      "modified_at": "2025-10-02T07:51:10.666Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Solaranlagen Titel\", \"fr\": null, \"it\": \"Impianti solari titolo\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"### Solaranlagen\", \"fr\": \"\", \"it\": \"### Impianti solari\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -77055,6 +77778,44 @@
     "fields": {
       "created_at": "2023-04-20T11:35:26.772Z",
       "modified_at": "2024-09-11T14:58:45.718Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verantwortliches Installationsunternehmen\", \"fr\": null, \"it\": \"Azienda di installazione responsabile\"}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "columnsToDisplay": [
+          "name-gesuchstellerin",
+          "vorname-gesuchstellerin",
+          "e-mail-gesuchstellerin",
+          "telefon-oder-mobile-gesuchstellerin"
+        ]
+      },
+      "data_source": null,
+      "row_form": "personalien-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "verantwortliches-installationsunternehmen-andere",
+    "fields": {
+      "created_at": "2025-10-02T07:51:10.670Z",
+      "modified_at": "2025-10-02T07:51:10.670Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
@@ -87233,6 +87994,51 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "dachausrichtung-andere.dachausrichtung-sued-andere",
+    "fields": {
+      "created_at": "2025-10-02T08:19:50.189Z",
+      "modified_at": "2025-10-02T08:19:50.189Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "dachausrichtung-andere",
+      "option": "dachausrichtung-sued-andere",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "dachausrichtung-andere.dachausrichtung-sued-ost-andere",
+    "fields": {
+      "created_at": "2025-10-02T08:19:50.188Z",
+      "modified_at": "2025-10-02T08:19:50.188Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "dachausrichtung-andere",
+      "option": "dachausrichtung-sued-ost-andere",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "dachausrichtung-andere.dachausrichtung-sued-west-andere",
+    "fields": {
+      "created_at": "2025-10-02T08:19:50.188Z",
+      "modified_at": "2025-10-02T08:19:50.188Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "dachausrichtung-andere",
+      "option": "dachausrichtung-sued-west-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "dachausrichtung.dachausrichtung-sued",
     "fields": {
       "created_at": "2023-10-25T06:32:49.485Z",
@@ -91613,6 +92419,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "lastvorgaben-genuegen-andere.lastvorgaben-genuegen-ja-andere",
+    "fields": {
+      "created_at": "2025-10-02T07:51:10.659Z",
+      "modified_at": "2025-10-02T07:51:10.659Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "lastvorgaben-genuegen-andere",
+      "option": "lastvorgaben-genuegen-ja-andere",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "lastvorgaben-genuegen-andere.lastvorgaben-genuegen-nein-andere",
+    "fields": {
+      "created_at": "2025-10-02T07:51:10.661Z",
+      "modified_at": "2025-10-02T07:51:10.661Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "lastvorgaben-genuegen-andere",
+      "option": "lastvorgaben-genuegen-nein-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "lastvorgaben-genuegen.lastvorgaben-genuegen-ja",
     "fields": {
       "created_at": "2023-10-25T06:33:02.920Z",
@@ -92494,6 +93330,96 @@
       "question": "montageart",
       "option": "montageart-ueber-dach",
       "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "montageuntergrund-solaranlage-andere.montageuntergrund-solaranlage-andere-flachdach",
+    "fields": {
+      "created_at": "2025-10-02T08:16:01.294Z",
+      "modified_at": "2025-10-02T08:16:01.294Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "montageuntergrund-solaranlage-andere",
+      "option": "montageuntergrund-solaranlage-andere-flachdach",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "montageuntergrund-solaranlage-andere.montageuntergrund-solaranlage-andere-gewachsenes-terrain",
+    "fields": {
+      "created_at": "2025-10-02T08:16:01.289Z",
+      "modified_at": "2025-10-02T08:16:01.289Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "montageuntergrund-solaranlage-andere",
+      "option": "montageuntergrund-solaranlage-andere-gewachsenes-terrain",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "montageuntergrund-solaranlage-andere.montageuntergrund-solaranlage-andere-schraegdach",
+    "fields": {
+      "created_at": "2025-10-02T08:16:01.295Z",
+      "modified_at": "2025-10-02T08:16:01.295Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "montageuntergrund-solaranlage-andere",
+      "option": "montageuntergrund-solaranlage-andere-schraegdach",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "montageuntergrund-solaranlage-andere.montageuntergrund-solaranlage-andere-sonstige-anlage",
+    "fields": {
+      "created_at": "2025-10-02T08:16:01.291Z",
+      "modified_at": "2025-10-02T08:16:01.291Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "montageuntergrund-solaranlage-andere",
+      "option": "montageuntergrund-solaranlage-andere-sonstige-anlage",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "montageuntergrund-solaranlage-andere.montageuntergrund-solaranlage-andere-weitere",
+    "fields": {
+      "created_at": "2025-10-02T08:16:01.285Z",
+      "modified_at": "2025-10-02T08:16:01.285Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "montageuntergrund-solaranlage-andere",
+      "option": "montageuntergrund-solaranlage-andere-weitere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "montageuntergrund-solaranlage-andere.montageuntergrund-solaranlage-fassade",
+    "fields": {
+      "created_at": "2025-10-02T08:16:01.292Z",
+      "modified_at": "2025-10-02T08:16:01.292Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "montageuntergrund-solaranlage-andere",
+      "option": "montageuntergrund-solaranlage-fassade",
+      "sort": 4
     }
   },
   {

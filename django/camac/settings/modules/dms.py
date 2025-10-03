@@ -288,9 +288,7 @@ DMS = {
                 ],
             },
             "solaranlage": {
-                "forms": [
-                    "solaranlage",
-                ],
+                "forms": gr_constants.SOLARANLAGE_FORMS,
                 "template": "form",
                 "personalien": "personalien",
                 "exclude_slugs": [
