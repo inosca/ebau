@@ -25,8 +25,8 @@ corrections:
     description-finish-end: "N'oubliez pas de valider la correction à la fin."
     button-finish: "Clore la correction"
 
-    confirm: "Voulez-vous vraiment corriger le dossier ?"
-    confirm-finish: ""
+    confirm: "Veuillez noter que la correction du dossier n'est prévue que pour les modifications mineures (par exemple, correction des coordonnées, précision de la description de la construction). Le cas échéant, les personnes requérantes devront être informées des modifications."
+    confirm-finish: "En cas de modifications importantes, veuillez vérifier si un renvoi est approprié."
     error: "Erreur lors de la correction du dossier"
     invalid: "Le dossier ne peut pas être clôturé dans son état actuel. Certaines questions n'ont pas été remplies correctement."
 
