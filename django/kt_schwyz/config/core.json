@@ -22232,6 +22232,13 @@
     }
   },
   {
+    "model": "core.rpage",
+    "pk": 34,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
     "model": "core.rroleacl",
     "pk": 10,
     "fields": {
@@ -22760,6 +22767,54 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 112,
+    "fields": {
+      "resource": 34,
+      "role": 12
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 113,
+    "fields": {
+      "resource": 34,
+      "role": 5
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 114,
+    "fields": {
+      "resource": 34,
+      "role": 11
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 115,
+    "fields": {
+      "resource": 34,
+      "role": 7
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 116,
+    "fields": {
+      "resource": 34,
+      "role": 3
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 117,
+    "fields": {
+      "resource": 34,
+      "role": 8
+    }
+  },
+  {
     "model": "core.resource",
     "pk": 9,
     "fields": {
@@ -22769,7 +22824,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -22782,7 +22837,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -22795,7 +22850,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -22808,7 +22863,7 @@
       "template": "/ember-camac-ng/service-permissions.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -22821,7 +22876,7 @@
       "template": "/ember-camac-ng/snippets-admin.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -22834,7 +22889,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 0
+      "sort": 1
     }
   },
   {
@@ -22847,7 +22902,7 @@
       "template": "/ember-camac-ng/formbuilder.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -22860,7 +22915,7 @@
       "template": "/ember-camac-ng/dossierimport.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -22873,7 +22928,7 @@
       "template": "/ember-camac-ng/bussinesscontrol-create.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -22886,7 +22941,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -22899,7 +22954,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -22912,7 +22967,7 @@
       "template": "/ember-camac-ng/gwr-global.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -22925,7 +22980,7 @@
       "template": "/ember-camac-ng/communications-global.phtml",
       "class_field": "communications",
       "hidden": 0,
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -22938,7 +22993,7 @@
       "template": "/ember-camac-ng/sanction-templates.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -22951,7 +23006,7 @@
       "template": null,
       "class_field": null,
       "hidden": 1,
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -22964,7 +23019,20 @@
       "template": null,
       "class_field": null,
       "hidden": 1,
-      "sort": 2
+      "sort": 3
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 34,
+    "fields": {
+      "available_resource": "page",
+      "name": "News",
+      "description": null,
+      "template": "/ember-camac-ng/news.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 17
     }
   },
   {
