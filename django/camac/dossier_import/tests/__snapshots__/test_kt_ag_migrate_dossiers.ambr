@@ -1063,6 +1063,14 @@
               "creation_date": "2025-07-28T12:00:00Z",
               "modification_date": "2025-07-28T12:00:00Z",
               "service_id": 1,
+              "text": "AFB DATEN\n\nNutzungszonen:\n-\n\nSchutzzonen:\n-\n\nKantonsstrasse betroffen: -\nStrassen:\n-\n\nBahnen:\n-\n\nGewässer betroffen: ✓\nGewässer:\n-\n\nWaldabstand: ✓\nSonderfall Entw.: -\nGrundwasserabsenkung geplant: -\nAWA: -\nAltlasten: ✓\nBauvorhaben im Wald: -\nHochwassergefährdung: -\nDenkmalschutz: -\nWanderwege: -\nOrtsbildschutz: -\nStörfallverordnung betroffen: -\nArchäologie: -\nVerkehr: -\nLärmschutz: -\nMaterialabbau: -\nAGV: -\nRadwege: -\n\nKanalisation: Bestehend\nFlächenverbrauch: -\nKoKo Datum: -\nKoKo-Status: -\nBeschluss Gem: -\nBeschluss Art: -\nVerzögerung durch: -\nBegründung: -\nNachträgliches Gesuch: -\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-28T12:00:00Z",
+              "modification_date": "2025-07-28T12:00:00Z",
+              "service_id": 1,
               "text": "STATUS\nLetzter Kantonsstatus: 'Neues Gesuch'\n",
               "user_id": 2,
               "visibility": "own_organization"
@@ -2096,6 +2104,14 @@
               "modification_date": "2023-03-15T11:30:18Z",
               "service_id": 1,
               "text": "STATUS ÄNDERUNG\nSchritt: Vorläufiger Abschluss zurückgenommen\nWer: Kantons Admin eBau extended\nKommentar: Vorläufiger Abschluss zurückgenommen\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-28T12:00:00Z",
+              "modification_date": "2025-07-28T12:00:00Z",
+              "service_id": 1,
+              "text": "AFB DATEN\n\nNutzungszonen:\n-\n\nSchutzzonen:\n-\n\nKantonsstrasse betroffen: -\nStrassen:\n-\n\nBahnen:\n-\n\nGewässer betroffen: ✓\nGewässer:\n-\n\nWaldabstand: ✓\nSonderfall Entw.: -\nGrundwasserabsenkung geplant: -\nAWA: -\nAltlasten: ✓\nBauvorhaben im Wald: -\nHochwassergefährdung: -\nDenkmalschutz: -\nWanderwege: -\nOrtsbildschutz: -\nStörfallverordnung betroffen: -\nArchäologie: -\nVerkehr: -\nLärmschutz: -\nMaterialabbau: -\nAGV: -\nRadwege: -\n\nKanalisation: Bestehend\nFlächenverbrauch: -\nKoKo Datum: -\nKoKo-Status: -\nBeschluss Gem: -\nBeschluss Art: -\nVerzögerung durch: -\nBegründung: -\nNachträgliches Gesuch: -\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3294,6 +3310,22 @@
               "creation_date": "2025-07-28T12:00:00Z",
               "modification_date": "2025-07-28T12:00:00Z",
               "service_id": 1,
+              "text": "AFB DATEN\n\nNutzungszonen:\n-\n\nSchutzzonen:\n-\n\nKantonsstrasse betroffen: -\nStrassen:\n-\n\nBahnen:\n-\n\nGewässer betroffen: -\nGewässer:\n-\n\nWaldabstand: -\nSonderfall Entw.: -\nGrundwasserabsenkung geplant: -\nAWA: -\nAltlasten: -\nBauvorhaben im Wald: -\nHochwassergefährdung: -\nDenkmalschutz: -\nWanderwege: -\nOrtsbildschutz: -\nStörfallverordnung betroffen: -\nArchäologie: -\nVerkehr: -\nLärmschutz: -\nMaterialabbau: -\nAGV: -\nRadwege: -\n\nKanalisation: Keine\nFlächenverbrauch: -\nKoKo Datum: -\nKoKo-Status: -\nBeschluss Gem: -\nBeschluss Art: -\nVerzögerung durch: -\nBegründung: -\nNachträgliches Gesuch: -\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-28T12:00:00Z",
+              "modification_date": "2025-07-28T12:00:00Z",
+              "service_id": 1,
+              "text": "GEBÜHREN\n\nPreiskondition: ZAFU\nBeschreibung: Umweltschutzrechtiche Beurteilung AFU\nSchema: AFU AAUO\nSchemastelle: 0010\nAufgaben-ID: 000000057758\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-28T12:00:00Z",
+              "modification_date": "2025-07-28T12:00:00Z",
+              "service_id": 1,
               "text": "STATUS\nLetzter Kantonsstatus: 'Neues Gesuch'\n",
               "user_id": 2,
               "visibility": "own_organization"
@@ -3484,7 +3516,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "befindet-sich-das-geplante-bauvorhaben-im-wald-migration",
-              "value": "befindet-sich-das-geplante-bauvorhaben-im-wald-migration-nein"
+              "value": "befindet-sich-das-geplante-bauvorhaben-im-wald-migration-ja"
           },
           {
               "date": null,
@@ -3556,7 +3588,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "denkmalschutzobjekt-oder-steht-ein-denkmalschutz-in-sichtbeziehung-migration",
-              "value": "denkmalschutzobjekt-oder-steht-ein-denkmalschutz-in-sichtbeziehung-migration-nein"
+              "value": "denkmalschutzobjekt-oder-steht-ein-denkmalschutz-in-sichtbeziehung-migration-ja"
           },
           {
               "date": null,
@@ -3633,7 +3665,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "grundwasserabsenkungen-bauwasserhaltung-erforderlich-migration",
-              "value": "grundwasserabsenkungen-bauwasserhaltung-erforderlich-migration-nein"
+              "value": "grundwasserabsenkungen-bauwasserhaltung-erforderlich-migration-ja"
           },
           {
               "date": null,
@@ -3693,7 +3725,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "ist-ein-materialabbau-geplant-migration",
-              "value": "ist-ein-materialabbau-geplant-migration-nein"
+              "value": "ist-ein-materialabbau-geplant-migration-ja"
           },
           {
               "date": null,
@@ -3717,7 +3749,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration",
-              "value": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration-nein"
+              "value": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration-ja"
           },
           {
               "date": null,
@@ -3729,7 +3761,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "kantonsstrassen",
-              "value": "kantonsstrassen-nein"
+              "value": "kantonsstrassen-ja"
           },
           {
               "date": null,
@@ -3813,7 +3845,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "sind-altlasten-betroffen-migration",
-              "value": "sind-altlasten-betroffen-nein"
+              "value": "sind-altlasten-betroffen-ja"
           },
           {
               "date": null,
@@ -3831,7 +3863,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "sind-laermschutzmassnahmen-erforderlich-migration",
-              "value": "sind-laermschutzmassnahmen-erforderlich-nein"
+              "value": "sind-laermschutzmassnahmen-erforderlich-ja"
           },
           {
               "date": null,
@@ -3873,7 +3905,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "stoerfallverordnung-migration",
-              "value": "stoerfallverordnung-migration-nein"
+              "value": "stoerfallverordnung-migration-ja"
           },
           {
               "date": null,
@@ -3913,7 +3945,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "wird-der-mindestabstand-zum-wald-4-unterschritten-migration",
-              "value": "wird-der-mindestabstand-zum-wald-4-unterschritten-migration-nein"
+              "value": "wird-der-mindestabstand-zum-wald-4-unterschritten-migration-ja"
           },
           {
               "date": null,
@@ -3952,6 +3984,14 @@
               "document__form_id": "heizungen-migration-tabelle",
               "question_id": "typ-der-heizung",
               "value": "typ-der-heizung-oel"
+          },
+          {
+              "date": null,
+              "document__form_id": "kantonale-pruefung",
+              "question_id": "kantonale-pruefung-gesuchscodes",
+              "value": [
+                  "kantonale-pruefung-gesuchscodes-a02"
+              ]
           },
           {
               "date": null,
@@ -4782,6 +4822,14 @@
               "creation_date": "2025-07-28T12:00:00Z",
               "modification_date": "2025-07-28T12:00:00Z",
               "service_id": 1,
+              "text": "            AFB DATEN\n\n            Nutzungszonen:\n            • Innerhalb der Bauzone\n• Materialabbauzone\n\n            Schutzzonen:\n            • Grundwasserschutzzone\n• Landschaftsschutzzone\n\n            Kantonsstrasse betroffen: ✓\n            Strassen:\n            • Nationalstrasse (Hochleistungsstrasse, HLS) (123)\n• Hauptverkehrsstrasse (HVS) (111)\n\n            Bahnen:\n            • SBB\n• AVA\n\n            Gewässer betroffen: ✓\n            Gewässer:\n            • 1234 - DIBA-See\n• 2345 - eBau - Weiher\n\n            Waldabstand: ✓\n            Sonderfall Entw.: ✓\n            Grundwasserabsenkung geplant: ✓\n            AWA: ✓\n            Altlasten: ✓\n            Bauvorhaben im Wald: ✓\n            Hochwassergefährdung: ✓\n            Denkmalschutz: ✓\n            Wanderwege: ✓\n            Ortsbildschutz: ✓\n            Störfallverordnung betroffen: ✓\n            Archäologie: ✓\n            Verkehr: ✓\n            Lärmschutz: ✓\n            Materialabbau: ✓\n            AGV: ✓\n            Radwege: ✓\n\n            Kanalisation: Nicht angeschlossen\n            Flächenverbrauch: 2000\n            KoKo Datum: 21.06.2025\n            KoKo-Status: -\n            Beschluss Gem: 27.06.2025\n            Beschluss Art: Bewilligung (BEWIL)\n            Verzögerung durch: Interne kant. Fachstellen konnten ihre Termine nicht einhalten (INT)\n            Begründung: Sommerferien\n            Nachträgliches Gesuch: ✓\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-28T12:00:00Z",
+              "modification_date": "2025-07-28T12:00:00Z",
+              "service_id": 1,
               "text": "STATUS\nLetzter Kantonsstatus: 'Neues Gesuch'\n",
               "user_id": 2,
               "visibility": "own_organization"
@@ -4855,6 +4903,182 @@
               "modification_date": "2025-09-16T12:07:07Z",
               "service_id": 1,
               "text": "STATUS ÄNDERUNG\nSchritt: Vorläufiger Abschluss gesetzt\nWer: Markus Test Krause Test\nKommentar: Vorläufiger Abschluss gesetzt\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T08:32:01Z",
+              "modification_date": "2025-09-30T08:32:01Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T08:32:02Z",
+              "modification_date": "2025-09-30T08:32:02Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab AfB\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T08:36:58Z",
+              "modification_date": "2025-09-30T08:36:58Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab AfB\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T08:39:03Z",
+              "modification_date": "2025-09-30T08:39:03Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab AfB\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T08:39:03Z",
+              "modification_date": "2025-09-30T08:39:03Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T08:45:27Z",
+              "modification_date": "2025-09-30T08:45:27Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T08:45:28Z",
+              "modification_date": "2025-09-30T08:45:28Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab AfB\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T08:46:35Z",
+              "modification_date": "2025-09-30T08:46:35Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab AfB\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T08:46:35Z",
+              "modification_date": "2025-09-30T08:46:35Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T08:57:46Z",
+              "modification_date": "2025-09-30T08:57:46Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab AfB\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T08:57:46Z",
+              "modification_date": "2025-09-30T08:57:46Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T09:55:19Z",
+              "modification_date": "2025-09-30T09:55:19Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab AfB\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T09:55:19Z",
+              "modification_date": "2025-09-30T09:55:19Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T09:55:36Z",
+              "modification_date": "2025-09-30T09:55:36Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab AfB\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T09:55:36Z",
+              "modification_date": "2025-09-30T09:55:36Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T10:37:16Z",
+              "modification_date": "2025-09-30T10:37:16Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T10:37:17Z",
+              "modification_date": "2025-09-30T10:37:17Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab AfB\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T10:49:25Z",
+              "modification_date": "2025-09-30T10:49:25Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab AfB\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T10:50:22Z",
+              "modification_date": "2025-09-30T10:50:22Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab AfB\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T10:50:57Z",
+              "modification_date": "2025-09-30T10:50:57Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab AfB\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T10:51:27Z",
+              "modification_date": "2025-09-30T10:51:27Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab AfB\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T13:34:11Z",
+              "modification_date": "2025-09-30T13:34:11Z",
+              "service_id": 1,
+              "text": "DOKUMENT HINZUGEFÜGT\nSchritt: Gebührenverfügung erstellt.\nWer: Markus Test Krause Test\nKommentar: Gebührenverfügung erstellt mit der ID 0000000000000010000831829\n",
               "user_id": 2,
               "visibility": "own_organization"
           }
@@ -5726,6 +5950,14 @@
               "modification_date": "2025-07-23T13:56:32Z",
               "service_id": 55,
               "text": "VERFAHRENSSTAND\nAktion: 'Dokumente auflegen'\nSchritt: 'Dokumente auflegen'\nWer: 'Markus Test Krause Test'\nKommentar: 'Siehe Dokumente'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-28T12:00:00Z",
+              "modification_date": "2025-07-28T12:00:00Z",
+              "service_id": 1,
+              "text": "AFB DATEN\n\nNutzungszonen:\n-\n\nSchutzzonen:\n-\n\nKantonsstrasse betroffen: -\nStrassen:\n-\n\nBahnen:\n-\n\nGewässer betroffen: -\nGewässer:\n-\n\nWaldabstand: -\nSonderfall Entw.: -\nGrundwasserabsenkung geplant: -\nAWA: -\nAltlasten: -\nBauvorhaben im Wald: -\nHochwassergefährdung: -\nDenkmalschutz: -\nWanderwege: -\nOrtsbildschutz: -\nStörfallverordnung betroffen: -\nArchäologie: -\nVerkehr: -\nLärmschutz: -\nMaterialabbau: -\nAGV: -\nRadwege: -\n\nKanalisation: -\nFlächenverbrauch: -\nKoKo Datum: -\nKoKo-Status: -\nBeschluss Gem: -\nBeschluss Art: -\nVerzögerung durch: -\nBegründung: -\nNachträgliches Gesuch: -\n",
               "user_id": 2,
               "visibility": "own_organization"
           }
@@ -6668,6 +6900,14 @@
               "text": "VERFAHRENSSTAND\nAktion: 'Verfügung erstellt'\nSchritt: 'Entscheid erfassen'\nWer: 'EBP Monitoring WFAS'\nKommentar: 'Bewilligung'\n",
               "user_id": 2,
               "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-28T12:00:00Z",
+              "modification_date": "2025-07-28T12:00:00Z",
+              "service_id": 1,
+              "text": "AFB DATEN\n\nNutzungszonen:\n-\n\nSchutzzonen:\n-\n\nKantonsstrasse betroffen: -\nStrassen:\n-\n\nBahnen:\n-\n\nGewässer betroffen: -\nGewässer:\n-\n\nWaldabstand: -\nSonderfall Entw.: -\nGrundwasserabsenkung geplant: -\nAWA: -\nAltlasten: -\nBauvorhaben im Wald: -\nHochwassergefährdung: -\nDenkmalschutz: -\nWanderwege: -\nOrtsbildschutz: -\nStörfallverordnung betroffen: -\nArchäologie: -\nVerkehr: -\nLärmschutz: -\nMaterialabbau: -\nAGV: -\nRadwege: -\n\nKanalisation: -\nFlächenverbrauch: -\nKoKo Datum: -\nKoKo-Status: -\nBeschluss Gem: -\nBeschluss Art: -\nVerzögerung durch: -\nBegründung: -\nNachträgliches Gesuch: -\n",
+              "user_id": 2,
+              "visibility": "own_organization"
           }
       ],
       "keywords": [
@@ -7117,6 +7357,14 @@
           {
               "date": null,
               "document__form_id": "kantonale-pruefung",
+              "question_id": "kantonale-pruefung-gesuchscodes",
+              "value": [
+                  "kantonale-pruefung-gesuchscodes-a15"
+              ]
+          },
+          {
+              "date": null,
+              "document__form_id": "kantonale-pruefung",
               "question_id": "kantonale-pruefung-migriert-von-ebau-extended",
               "value": "Eingang AfB: 24.05.2023\nBearbeitungsfrist AfB: 19.07.2023\nGruppe: BVU AFB\nGruppenbezeichnung: Abteilung für Baubewilligungen\nSachbearbeiter: EB2_AFB_01\nVorläufiges Abschlussdatum: -\nAbschlusscode: -\nBearbeitungsdauer: -\n"
           },
@@ -7462,6 +7710,22 @@
               "modification_date": "2023-08-29T07:39:25Z",
               "service_id": 1,
               "text": "DOKUMENT HINZUGEFÜGT\nSchritt: Gesuch in Bearbeitung\nWer: Markus Test Krause Test\nKommentar: Dokument hinzugefügt mit der ID 0000000000000010001693879\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-28T12:00:00Z",
+              "modification_date": "2025-07-28T12:00:00Z",
+              "service_id": 1,
+              "text": "AFB DATEN\n\nNutzungszonen:\n• Landwirtschaftszone\n\nSchutzzonen:\n-\n\nKantonsstrasse betroffen: ✓\nStrassen:\n• Hauptverkehrsstrasse (HVS) (K007)\n\nBahnen:\n-\n\nGewässer betroffen: -\nGewässer:\n-\n\nWaldabstand: ✓\nSonderfall Entw.: -\nGrundwasserabsenkung geplant: -\nAWA: -\nAltlasten: -\nBauvorhaben im Wald: -\nHochwassergefährdung: -\nDenkmalschutz: -\nWanderwege: -\nOrtsbildschutz: -\nStörfallverordnung betroffen: -\nArchäologie: -\nVerkehr: -\nLärmschutz: -\nMaterialabbau: -\nAGV: -\nRadwege: -\n\nKanalisation: Keine\nFlächenverbrauch: -\nKoKo Datum: -\nKoKo-Status: -\nBeschluss Gem: -\nBeschluss Art: -\nVerzögerung durch: -\nBegründung: -\nNachträgliches Gesuch: -\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-28T12:00:00Z",
+              "modification_date": "2025-07-28T12:00:00Z",
+              "service_id": 1,
+              "text": "GEBÜHREN\n\nPreiskondition: ZROD\nBeschreibung: Rodungsbewilligung AW\nSchema: AW KFA 1\nSchemastelle: 0010\nAufgaben-ID: 000000028332\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n\nPreiskondition: ZATB\nBeschreibung: Behandlungsgebühr ATB\nSchema: ATB\nSchemastelle: 0010\nAufgaben-ID: 000000028333\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n\nPreiskondition: ZIAK\nBeschreibung: Aufbruchbewilligung ATB\nSchema: ATB\nSchemastelle: 0020\nAufgaben-ID: 000000028333\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -8224,7 +8488,16 @@
           "submit-date": "2025-01-31T00:00:00+0100"
       },
       "group": "support",
-      "journal": [],
+      "journal": [
+          {
+              "creation_date": "2025-07-28T12:00:00Z",
+              "modification_date": "2025-07-28T12:00:00Z",
+              "service_id": 1,
+              "text": "AFB DATEN\n\nNutzungszonen:\n-\n\nSchutzzonen:\n-\n\nKantonsstrasse betroffen: -\nStrassen:\n-\n\nBahnen:\n-\n\nGewässer betroffen: -\nGewässer:\n-\n\nWaldabstand: -\nSonderfall Entw.: -\nGrundwasserabsenkung geplant: -\nAWA: -\nAltlasten: -\nBauvorhaben im Wald: -\nHochwassergefährdung: -\nDenkmalschutz: -\nWanderwege: -\nOrtsbildschutz: -\nStörfallverordnung betroffen: -\nArchäologie: -\nVerkehr: -\nLärmschutz: -\nMaterialabbau: -\nAGV: -\nRadwege: -\n\nKanalisation: -\nFlächenverbrauch: -\nKoKo Datum: -\nKoKo-Status: -\nBeschluss Gem: -\nBeschluss Art: -\nVerzögerung durch: -\nBegründung: -\nNachträgliches Gesuch: -\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          }
+      ],
       "keywords": [
           {
               "name": "2025-120",
@@ -9361,6 +9634,14 @@
               "visibility": "own_organization"
           },
           {
+              "creation_date": "2025-07-28T12:00:00Z",
+              "modification_date": "2025-07-28T12:00:00Z",
+              "service_id": 1,
+              "text": "AFB DATEN\n\nNutzungszonen:\n-\n\nSchutzzonen:\n-\n\nKantonsstrasse betroffen: -\nStrassen:\n-\n\nBahnen:\n-\n\nGewässer betroffen: -\nGewässer:\n-\n\nWaldabstand: -\nSonderfall Entw.: -\nGrundwasserabsenkung geplant: -\nAWA: -\nAltlasten: ✓\nBauvorhaben im Wald: -\nHochwassergefährdung: -\nDenkmalschutz: -\nWanderwege: -\nOrtsbildschutz: -\nStörfallverordnung betroffen: -\nArchäologie: -\nVerkehr: -\nLärmschutz: -\nMaterialabbau: -\nAGV: -\nRadwege: -\n\nKanalisation: -\nFlächenverbrauch: -\nKoKo Datum: -\nKoKo-Status: -\nBeschluss Gem: -\nBeschluss Art: -\nVerzögerung durch: -\nBegründung: -\nNachträgliches Gesuch: -\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
               "creation_date": "2025-07-30T22:00:00Z",
               "modification_date": "2025-07-30T22:00:00Z",
               "service_id": 55,
@@ -10254,6 +10535,22 @@
               "modification_date": "2022-12-21T05:52:31Z",
               "service_id": 1,
               "text": "FREIGABE DURCHGEFÜHRT\nSchritt: Gesuch in Bearbeitung\nWer: Markus Test Krause Test\nKommentar: Freigabe Entscheid nicht erteilt\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-28T12:00:00Z",
+              "modification_date": "2025-07-28T12:00:00Z",
+              "service_id": 1,
+              "text": "AFB DATEN\n\nNutzungszonen:\n-\n\nSchutzzonen:\n-\n\nKantonsstrasse betroffen: -\nStrassen:\n-\n\nBahnen:\n-\n\nGewässer betroffen: -\nGewässer:\n-\n\nWaldabstand: -\nSonderfall Entw.: -\nGrundwasserabsenkung geplant: -\nAWA: -\nAltlasten: -\nBauvorhaben im Wald: -\nHochwassergefährdung: -\nDenkmalschutz: -\nWanderwege: -\nOrtsbildschutz: -\nStörfallverordnung betroffen: -\nArchäologie: -\nVerkehr: -\nLärmschutz: -\nMaterialabbau: -\nAGV: -\nRadwege: -\n\nKanalisation: Keine\nFlächenverbrauch: -\nKoKo Datum: -\nKoKo-Status: -\nBeschluss Gem: -\nBeschluss Art: -\nVerzögerung durch: -\nBegründung: -\nNachträgliches Gesuch: -\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-28T12:00:00Z",
+              "modification_date": "2025-07-28T12:00:00Z",
+              "service_id": 1,
+              "text": "GEBÜHREN\n\nPreiskondition: ZAFU\nBeschreibung: Umweltschutzrechtiche Beurteilung AFU\nSchema: AFU AS\nSchemastelle: 0010\nAufgaben-ID: 000000005913\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n\nPreiskondition: ZNUB\nBeschreibung: Nutzungsbewilligung ALGGN\nSchema: ALGGN\nSchemastelle: 0010\nAufgaben-ID: 000000005916\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n\nPreiskondition: ZNAU\nBeschreibung: Nautische Bewilligung ALGGN\nSchema: ALGGN\nSchemastelle: 0020\nAufgaben-ID: 000000005916\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n\nPreiskondition: ZATB\nBeschreibung: Behandlungsgebühr ATB\nSchema: ATB\nSchemastelle: 0010\nAufgaben-ID: 000000005917\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n\nPreiskondition: ZIAK\nBeschreibung: Aufbruchbewilligung ATB\nSchema: ATB\nSchemastelle: 0020\nAufgaben-ID: 000000005917\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n\nPreiskondition: ZAFU\nBeschreibung: Umweltschutzrechtiche Beurteilung AFU\nSchema: AFU AAUO\nSchemastelle: 0010\nAufgaben-ID: 000000005918\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -11411,6 +11708,22 @@
               "creation_date": "2025-07-28T12:00:00Z",
               "modification_date": "2025-07-28T12:00:00Z",
               "service_id": 1,
+              "text": "AFB DATEN\n\nNutzungszonen:\n-\n\nSchutzzonen:\n-\n\nKantonsstrasse betroffen: -\nStrassen:\n-\n\nBahnen:\n-\n\nGewässer betroffen: -\nGewässer:\n-\n\nWaldabstand: -\nSonderfall Entw.: -\nGrundwasserabsenkung geplant: -\nAWA: -\nAltlasten: -\nBauvorhaben im Wald: -\nHochwassergefährdung: -\nDenkmalschutz: -\nWanderwege: -\nOrtsbildschutz: -\nStörfallverordnung betroffen: -\nArchäologie: -\nVerkehr: -\nLärmschutz: -\nMaterialabbau: -\nAGV: -\nRadwege: -\n\nKanalisation: Keine\nFlächenverbrauch: -\nKoKo Datum: -\nKoKo-Status: -\nBeschluss Gem: -\nBeschluss Art: -\nVerzögerung durch: -\nBegründung: -\nNachträgliches Gesuch: -\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-28T12:00:00Z",
+              "modification_date": "2025-07-28T12:00:00Z",
+              "service_id": 1,
+              "text": "GEBÜHREN\n\nPreiskondition: ZAFU\nBeschreibung: Umweltschutzrechtiche Beurteilung AFU\nSchema: AFU AAUO\nSchemastelle: 0010\nAufgaben-ID: 000000057758\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-28T12:00:00Z",
+              "modification_date": "2025-07-28T12:00:00Z",
+              "service_id": 1,
               "text": "STATUS\nLetzter Kantonsstatus: 'Neues Gesuch'\n",
               "user_id": 2,
               "visibility": "own_organization"
@@ -12436,6 +12749,14 @@
               "modification_date": "2023-03-15T11:30:18Z",
               "service_id": 1,
               "text": "STATUS ÄNDERUNG\nSchritt: Vorläufiger Abschluss zurückgenommen\nWer: Kantons Admin eBau extended\nKommentar: Vorläufiger Abschluss zurückgenommen\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-28T12:00:00Z",
+              "modification_date": "2025-07-28T12:00:00Z",
+              "service_id": 1,
+              "text": "AFB DATEN\n\nNutzungszonen:\n-\n\nSchutzzonen:\n-\n\nKantonsstrasse betroffen: -\nStrassen:\n-\n\nBahnen:\n-\n\nGewässer betroffen: ✓\nGewässer:\n-\n\nWaldabstand: ✓\nSonderfall Entw.: -\nGrundwasserabsenkung geplant: -\nAWA: -\nAltlasten: ✓\nBauvorhaben im Wald: -\nHochwassergefährdung: -\nDenkmalschutz: -\nWanderwege: -\nOrtsbildschutz: -\nStörfallverordnung betroffen: -\nArchäologie: -\nVerkehr: -\nLärmschutz: -\nMaterialabbau: -\nAGV: -\nRadwege: -\n\nKanalisation: Bestehend\nFlächenverbrauch: -\nKoKo Datum: -\nKoKo-Status: -\nBeschluss Gem: -\nBeschluss Art: -\nVerzögerung durch: -\nBegründung: -\nNachträgliches Gesuch: -\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -13634,6 +13955,22 @@
               "creation_date": "2025-07-28T12:00:00Z",
               "modification_date": "2025-07-28T12:00:00Z",
               "service_id": 1,
+              "text": "AFB DATEN\n\nNutzungszonen:\n-\n\nSchutzzonen:\n-\n\nKantonsstrasse betroffen: -\nStrassen:\n-\n\nBahnen:\n-\n\nGewässer betroffen: -\nGewässer:\n-\n\nWaldabstand: -\nSonderfall Entw.: -\nGrundwasserabsenkung geplant: -\nAWA: -\nAltlasten: -\nBauvorhaben im Wald: -\nHochwassergefährdung: -\nDenkmalschutz: -\nWanderwege: -\nOrtsbildschutz: -\nStörfallverordnung betroffen: -\nArchäologie: -\nVerkehr: -\nLärmschutz: -\nMaterialabbau: -\nAGV: -\nRadwege: -\n\nKanalisation: Keine\nFlächenverbrauch: -\nKoKo Datum: -\nKoKo-Status: -\nBeschluss Gem: -\nBeschluss Art: -\nVerzögerung durch: -\nBegründung: -\nNachträgliches Gesuch: -\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-28T12:00:00Z",
+              "modification_date": "2025-07-28T12:00:00Z",
+              "service_id": 1,
+              "text": "GEBÜHREN\n\nPreiskondition: ZAFU\nBeschreibung: Umweltschutzrechtiche Beurteilung AFU\nSchema: AFU AAUO\nSchemastelle: 0010\nAufgaben-ID: 000000057758\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-28T12:00:00Z",
+              "modification_date": "2025-07-28T12:00:00Z",
+              "service_id": 1,
               "text": "STATUS\nLetzter Kantonsstatus: 'Neues Gesuch'\n",
               "user_id": 2,
               "visibility": "own_organization"
@@ -13824,7 +14161,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "befindet-sich-das-geplante-bauvorhaben-im-wald-migration",
-              "value": "befindet-sich-das-geplante-bauvorhaben-im-wald-migration-nein"
+              "value": "befindet-sich-das-geplante-bauvorhaben-im-wald-migration-ja"
           },
           {
               "date": null,
@@ -13896,7 +14233,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "denkmalschutzobjekt-oder-steht-ein-denkmalschutz-in-sichtbeziehung-migration",
-              "value": "denkmalschutzobjekt-oder-steht-ein-denkmalschutz-in-sichtbeziehung-migration-nein"
+              "value": "denkmalschutzobjekt-oder-steht-ein-denkmalschutz-in-sichtbeziehung-migration-ja"
           },
           {
               "date": null,
@@ -13973,7 +14310,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "grundwasserabsenkungen-bauwasserhaltung-erforderlich-migration",
-              "value": "grundwasserabsenkungen-bauwasserhaltung-erforderlich-migration-nein"
+              "value": "grundwasserabsenkungen-bauwasserhaltung-erforderlich-migration-ja"
           },
           {
               "date": null,
@@ -14033,7 +14370,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "ist-ein-materialabbau-geplant-migration",
-              "value": "ist-ein-materialabbau-geplant-migration-nein"
+              "value": "ist-ein-materialabbau-geplant-migration-ja"
           },
           {
               "date": null,
@@ -14057,7 +14394,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration",
-              "value": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration-nein"
+              "value": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration-ja"
           },
           {
               "date": null,
@@ -14069,7 +14406,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "kantonsstrassen",
-              "value": "kantonsstrassen-nein"
+              "value": "kantonsstrassen-ja"
           },
           {
               "date": null,
@@ -14153,7 +14490,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "sind-altlasten-betroffen-migration",
-              "value": "sind-altlasten-betroffen-nein"
+              "value": "sind-altlasten-betroffen-ja"
           },
           {
               "date": null,
@@ -14171,7 +14508,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "sind-laermschutzmassnahmen-erforderlich-migration",
-              "value": "sind-laermschutzmassnahmen-erforderlich-nein"
+              "value": "sind-laermschutzmassnahmen-erforderlich-ja"
           },
           {
               "date": null,
@@ -14213,7 +14550,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "stoerfallverordnung-migration",
-              "value": "stoerfallverordnung-migration-nein"
+              "value": "stoerfallverordnung-migration-ja"
           },
           {
               "date": null,
@@ -14253,7 +14590,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "wird-der-mindestabstand-zum-wald-4-unterschritten-migration",
-              "value": "wird-der-mindestabstand-zum-wald-4-unterschritten-migration-nein"
+              "value": "wird-der-mindestabstand-zum-wald-4-unterschritten-migration-ja"
           },
           {
               "date": null,
@@ -14292,6 +14629,14 @@
               "document__form_id": "heizungen-migration-tabelle",
               "question_id": "typ-der-heizung",
               "value": "typ-der-heizung-oel"
+          },
+          {
+              "date": null,
+              "document__form_id": "kantonale-pruefung",
+              "question_id": "kantonale-pruefung-gesuchscodes",
+              "value": [
+                  "kantonale-pruefung-gesuchscodes-a02"
+              ]
           },
           {
               "date": null,
@@ -15122,6 +15467,14 @@
               "creation_date": "2025-07-28T12:00:00Z",
               "modification_date": "2025-07-28T12:00:00Z",
               "service_id": 1,
+              "text": "            AFB DATEN\n\n            Nutzungszonen:\n            • Innerhalb der Bauzone\n• Materialabbauzone\n\n            Schutzzonen:\n            • Grundwasserschutzzone\n• Landschaftsschutzzone\n\n            Kantonsstrasse betroffen: ✓\n            Strassen:\n            • Nationalstrasse (Hochleistungsstrasse, HLS) (123)\n• Hauptverkehrsstrasse (HVS) (111)\n\n            Bahnen:\n            • SBB\n• AVA\n\n            Gewässer betroffen: ✓\n            Gewässer:\n            • 1234 - DIBA-See\n• 2345 - eBau - Weiher\n\n            Waldabstand: ✓\n            Sonderfall Entw.: ✓\n            Grundwasserabsenkung geplant: ✓\n            AWA: ✓\n            Altlasten: ✓\n            Bauvorhaben im Wald: ✓\n            Hochwassergefährdung: ✓\n            Denkmalschutz: ✓\n            Wanderwege: ✓\n            Ortsbildschutz: ✓\n            Störfallverordnung betroffen: ✓\n            Archäologie: ✓\n            Verkehr: ✓\n            Lärmschutz: ✓\n            Materialabbau: ✓\n            AGV: ✓\n            Radwege: ✓\n\n            Kanalisation: Nicht angeschlossen\n            Flächenverbrauch: 2000\n            KoKo Datum: 21.06.2025\n            KoKo-Status: -\n            Beschluss Gem: 27.06.2025\n            Beschluss Art: Bewilligung (BEWIL)\n            Verzögerung durch: Interne kant. Fachstellen konnten ihre Termine nicht einhalten (INT)\n            Begründung: Sommerferien\n            Nachträgliches Gesuch: ✓\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-28T12:00:00Z",
+              "modification_date": "2025-07-28T12:00:00Z",
+              "service_id": 1,
               "text": "STATUS\nLetzter Kantonsstatus: 'Neues Gesuch'\n",
               "user_id": 2,
               "visibility": "own_organization"
@@ -15195,6 +15548,182 @@
               "modification_date": "2025-09-16T12:07:07Z",
               "service_id": 1,
               "text": "STATUS ÄNDERUNG\nSchritt: Vorläufiger Abschluss gesetzt\nWer: Markus Test Krause Test\nKommentar: Vorläufiger Abschluss gesetzt\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T08:32:01Z",
+              "modification_date": "2025-09-30T08:32:01Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T08:32:02Z",
+              "modification_date": "2025-09-30T08:32:02Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab AfB\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T08:36:58Z",
+              "modification_date": "2025-09-30T08:36:58Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab AfB\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T08:39:03Z",
+              "modification_date": "2025-09-30T08:39:03Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab AfB\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T08:39:03Z",
+              "modification_date": "2025-09-30T08:39:03Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T08:45:27Z",
+              "modification_date": "2025-09-30T08:45:27Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T08:45:28Z",
+              "modification_date": "2025-09-30T08:45:28Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab AfB\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T08:46:35Z",
+              "modification_date": "2025-09-30T08:46:35Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab AfB\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T08:46:35Z",
+              "modification_date": "2025-09-30T08:46:35Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T08:57:46Z",
+              "modification_date": "2025-09-30T08:57:46Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab AfB\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T08:57:46Z",
+              "modification_date": "2025-09-30T08:57:46Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T09:55:19Z",
+              "modification_date": "2025-09-30T09:55:19Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab AfB\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T09:55:19Z",
+              "modification_date": "2025-09-30T09:55:19Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T09:55:36Z",
+              "modification_date": "2025-09-30T09:55:36Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab AfB\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T09:55:36Z",
+              "modification_date": "2025-09-30T09:55:36Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T10:37:16Z",
+              "modification_date": "2025-09-30T10:37:16Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T10:37:17Z",
+              "modification_date": "2025-09-30T10:37:17Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab AfB\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T10:49:25Z",
+              "modification_date": "2025-09-30T10:49:25Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab AfB\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T10:50:22Z",
+              "modification_date": "2025-09-30T10:50:22Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab AfB\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T10:50:57Z",
+              "modification_date": "2025-09-30T10:50:57Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab AfB\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T10:51:27Z",
+              "modification_date": "2025-09-30T10:51:27Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab AfB\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T13:34:11Z",
+              "modification_date": "2025-09-30T13:34:11Z",
+              "service_id": 1,
+              "text": "DOKUMENT HINZUGEFÜGT\nSchritt: Gebührenverfügung erstellt.\nWer: Markus Test Krause Test\nKommentar: Gebührenverfügung erstellt mit der ID 0000000000000010000831829\n",
               "user_id": 2,
               "visibility": "own_organization"
           }
@@ -16066,6 +16595,14 @@
               "modification_date": "2025-07-23T13:56:32Z",
               "service_id": 55,
               "text": "VERFAHRENSSTAND\nAktion: 'Dokumente auflegen'\nSchritt: 'Dokumente auflegen'\nWer: 'Markus Test Krause Test'\nKommentar: 'Siehe Dokumente'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-28T12:00:00Z",
+              "modification_date": "2025-07-28T12:00:00Z",
+              "service_id": 1,
+              "text": "AFB DATEN\n\nNutzungszonen:\n-\n\nSchutzzonen:\n-\n\nKantonsstrasse betroffen: -\nStrassen:\n-\n\nBahnen:\n-\n\nGewässer betroffen: -\nGewässer:\n-\n\nWaldabstand: -\nSonderfall Entw.: -\nGrundwasserabsenkung geplant: -\nAWA: -\nAltlasten: -\nBauvorhaben im Wald: -\nHochwassergefährdung: -\nDenkmalschutz: -\nWanderwege: -\nOrtsbildschutz: -\nStörfallverordnung betroffen: -\nArchäologie: -\nVerkehr: -\nLärmschutz: -\nMaterialabbau: -\nAGV: -\nRadwege: -\n\nKanalisation: -\nFlächenverbrauch: -\nKoKo Datum: -\nKoKo-Status: -\nBeschluss Gem: -\nBeschluss Art: -\nVerzögerung durch: -\nBegründung: -\nNachträgliches Gesuch: -\n",
               "user_id": 2,
               "visibility": "own_organization"
           }
@@ -17008,6 +17545,14 @@
               "text": "VERFAHRENSSTAND\nAktion: 'Verfügung erstellt'\nSchritt: 'Entscheid erfassen'\nWer: 'EBP Monitoring WFAS'\nKommentar: 'Bewilligung'\n",
               "user_id": 2,
               "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-28T12:00:00Z",
+              "modification_date": "2025-07-28T12:00:00Z",
+              "service_id": 1,
+              "text": "AFB DATEN\n\nNutzungszonen:\n-\n\nSchutzzonen:\n-\n\nKantonsstrasse betroffen: -\nStrassen:\n-\n\nBahnen:\n-\n\nGewässer betroffen: -\nGewässer:\n-\n\nWaldabstand: -\nSonderfall Entw.: -\nGrundwasserabsenkung geplant: -\nAWA: -\nAltlasten: -\nBauvorhaben im Wald: -\nHochwassergefährdung: -\nDenkmalschutz: -\nWanderwege: -\nOrtsbildschutz: -\nStörfallverordnung betroffen: -\nArchäologie: -\nVerkehr: -\nLärmschutz: -\nMaterialabbau: -\nAGV: -\nRadwege: -\n\nKanalisation: -\nFlächenverbrauch: -\nKoKo Datum: -\nKoKo-Status: -\nBeschluss Gem: -\nBeschluss Art: -\nVerzögerung durch: -\nBegründung: -\nNachträgliches Gesuch: -\n",
+              "user_id": 2,
+              "visibility": "own_organization"
           }
       ],
       "keywords": [
@@ -17457,6 +18002,14 @@
           {
               "date": null,
               "document__form_id": "kantonale-pruefung",
+              "question_id": "kantonale-pruefung-gesuchscodes",
+              "value": [
+                  "kantonale-pruefung-gesuchscodes-a15"
+              ]
+          },
+          {
+              "date": null,
+              "document__form_id": "kantonale-pruefung",
               "question_id": "kantonale-pruefung-migriert-von-ebau-extended",
               "value": "Eingang AfB: 24.05.2023\nBearbeitungsfrist AfB: 19.07.2023\nGruppe: BVU AFB\nGruppenbezeichnung: Abteilung für Baubewilligungen\nSachbearbeiter: EB2_AFB_01\nVorläufiges Abschlussdatum: -\nAbschlusscode: -\nBearbeitungsdauer: -\n"
           },
@@ -17802,6 +18355,22 @@
               "modification_date": "2023-08-29T07:39:25Z",
               "service_id": 1,
               "text": "DOKUMENT HINZUGEFÜGT\nSchritt: Gesuch in Bearbeitung\nWer: Markus Test Krause Test\nKommentar: Dokument hinzugefügt mit der ID 0000000000000010001693879\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-28T12:00:00Z",
+              "modification_date": "2025-07-28T12:00:00Z",
+              "service_id": 1,
+              "text": "AFB DATEN\n\nNutzungszonen:\n• Landwirtschaftszone\n\nSchutzzonen:\n-\n\nKantonsstrasse betroffen: ✓\nStrassen:\n• Hauptverkehrsstrasse (HVS) (K007)\n\nBahnen:\n-\n\nGewässer betroffen: -\nGewässer:\n-\n\nWaldabstand: ✓\nSonderfall Entw.: -\nGrundwasserabsenkung geplant: -\nAWA: -\nAltlasten: -\nBauvorhaben im Wald: -\nHochwassergefährdung: -\nDenkmalschutz: -\nWanderwege: -\nOrtsbildschutz: -\nStörfallverordnung betroffen: -\nArchäologie: -\nVerkehr: -\nLärmschutz: -\nMaterialabbau: -\nAGV: -\nRadwege: -\n\nKanalisation: Keine\nFlächenverbrauch: -\nKoKo Datum: -\nKoKo-Status: -\nBeschluss Gem: -\nBeschluss Art: -\nVerzögerung durch: -\nBegründung: -\nNachträgliches Gesuch: -\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-28T12:00:00Z",
+              "modification_date": "2025-07-28T12:00:00Z",
+              "service_id": 1,
+              "text": "GEBÜHREN\n\nPreiskondition: ZROD\nBeschreibung: Rodungsbewilligung AW\nSchema: AW KFA 1\nSchemastelle: 0010\nAufgaben-ID: 000000028332\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n\nPreiskondition: ZATB\nBeschreibung: Behandlungsgebühr ATB\nSchema: ATB\nSchemastelle: 0010\nAufgaben-ID: 000000028333\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n\nPreiskondition: ZIAK\nBeschreibung: Aufbruchbewilligung ATB\nSchema: ATB\nSchemastelle: 0020\nAufgaben-ID: 000000028333\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -18564,7 +19133,16 @@
           "submit-date": "2025-01-31T00:00:00+0100"
       },
       "group": "support",
-      "journal": [],
+      "journal": [
+          {
+              "creation_date": "2025-07-28T12:00:00Z",
+              "modification_date": "2025-07-28T12:00:00Z",
+              "service_id": 1,
+              "text": "AFB DATEN\n\nNutzungszonen:\n-\n\nSchutzzonen:\n-\n\nKantonsstrasse betroffen: -\nStrassen:\n-\n\nBahnen:\n-\n\nGewässer betroffen: -\nGewässer:\n-\n\nWaldabstand: -\nSonderfall Entw.: -\nGrundwasserabsenkung geplant: -\nAWA: -\nAltlasten: -\nBauvorhaben im Wald: -\nHochwassergefährdung: -\nDenkmalschutz: -\nWanderwege: -\nOrtsbildschutz: -\nStörfallverordnung betroffen: -\nArchäologie: -\nVerkehr: -\nLärmschutz: -\nMaterialabbau: -\nAGV: -\nRadwege: -\n\nKanalisation: -\nFlächenverbrauch: -\nKoKo Datum: -\nKoKo-Status: -\nBeschluss Gem: -\nBeschluss Art: -\nVerzögerung durch: -\nBegründung: -\nNachträgliches Gesuch: -\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          }
+      ],
       "keywords": [
           {
               "name": "2025-120",
@@ -19701,6 +20279,14 @@
               "visibility": "own_organization"
           },
           {
+              "creation_date": "2025-07-28T12:00:00Z",
+              "modification_date": "2025-07-28T12:00:00Z",
+              "service_id": 1,
+              "text": "AFB DATEN\n\nNutzungszonen:\n-\n\nSchutzzonen:\n-\n\nKantonsstrasse betroffen: -\nStrassen:\n-\n\nBahnen:\n-\n\nGewässer betroffen: -\nGewässer:\n-\n\nWaldabstand: -\nSonderfall Entw.: -\nGrundwasserabsenkung geplant: -\nAWA: -\nAltlasten: ✓\nBauvorhaben im Wald: -\nHochwassergefährdung: -\nDenkmalschutz: -\nWanderwege: -\nOrtsbildschutz: -\nStörfallverordnung betroffen: -\nArchäologie: -\nVerkehr: -\nLärmschutz: -\nMaterialabbau: -\nAGV: -\nRadwege: -\n\nKanalisation: -\nFlächenverbrauch: -\nKoKo Datum: -\nKoKo-Status: -\nBeschluss Gem: -\nBeschluss Art: -\nVerzögerung durch: -\nBegründung: -\nNachträgliches Gesuch: -\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
               "creation_date": "2025-07-30T22:00:00Z",
               "modification_date": "2025-07-30T22:00:00Z",
               "service_id": 55,
@@ -20601,6 +21187,22 @@
               "creation_date": "2025-07-28T12:00:00Z",
               "modification_date": "2025-07-28T12:00:00Z",
               "service_id": 1,
+              "text": "AFB DATEN\n\nNutzungszonen:\n-\n\nSchutzzonen:\n-\n\nKantonsstrasse betroffen: -\nStrassen:\n-\n\nBahnen:\n-\n\nGewässer betroffen: -\nGewässer:\n-\n\nWaldabstand: -\nSonderfall Entw.: -\nGrundwasserabsenkung geplant: -\nAWA: -\nAltlasten: -\nBauvorhaben im Wald: -\nHochwassergefährdung: -\nDenkmalschutz: -\nWanderwege: -\nOrtsbildschutz: -\nStörfallverordnung betroffen: -\nArchäologie: -\nVerkehr: -\nLärmschutz: -\nMaterialabbau: -\nAGV: -\nRadwege: -\n\nKanalisation: Keine\nFlächenverbrauch: -\nKoKo Datum: -\nKoKo-Status: -\nBeschluss Gem: -\nBeschluss Art: -\nVerzögerung durch: -\nBegründung: -\nNachträgliches Gesuch: -\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-28T12:00:00Z",
+              "modification_date": "2025-07-28T12:00:00Z",
+              "service_id": 1,
+              "text": "GEBÜHREN\n\nPreiskondition: ZAFU\nBeschreibung: Umweltschutzrechtiche Beurteilung AFU\nSchema: AFU AS\nSchemastelle: 0010\nAufgaben-ID: 000000005913\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n\nPreiskondition: ZNUB\nBeschreibung: Nutzungsbewilligung ALGGN\nSchema: ALGGN\nSchemastelle: 0010\nAufgaben-ID: 000000005916\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n\nPreiskondition: ZNAU\nBeschreibung: Nautische Bewilligung ALGGN\nSchema: ALGGN\nSchemastelle: 0020\nAufgaben-ID: 000000005916\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n\nPreiskondition: ZATB\nBeschreibung: Behandlungsgebühr ATB\nSchema: ATB\nSchemastelle: 0010\nAufgaben-ID: 000000005917\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n\nPreiskondition: ZIAK\nBeschreibung: Aufbruchbewilligung ATB\nSchema: ATB\nSchemastelle: 0020\nAufgaben-ID: 000000005917\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n\nPreiskondition: ZAFU\nBeschreibung: Umweltschutzrechtiche Beurteilung AFU\nSchema: AFU AAUO\nSchemastelle: 0010\nAufgaben-ID: 000000005918\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-28T12:00:00Z",
+              "modification_date": "2025-07-28T12:00:00Z",
+              "service_id": 1,
               "text": "STATUS\nLetzter Kantonsstatus: 'Neues Gesuch'\n",
               "user_id": 2,
               "visibility": "own_organization"
@@ -20758,7 +21360,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "befindet-sich-das-geplante-bauvorhaben-im-wald-migration",
-              "value": "befindet-sich-das-geplante-bauvorhaben-im-wald-migration-nein"
+              "value": "befindet-sich-das-geplante-bauvorhaben-im-wald-migration-ja"
           },
           {
               "date": null,
@@ -20830,7 +21432,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "denkmalschutzobjekt-oder-steht-ein-denkmalschutz-in-sichtbeziehung-migration",
-              "value": "denkmalschutzobjekt-oder-steht-ein-denkmalschutz-in-sichtbeziehung-migration-nein"
+              "value": "denkmalschutzobjekt-oder-steht-ein-denkmalschutz-in-sichtbeziehung-migration-ja"
           },
           {
               "date": null,
@@ -20907,7 +21509,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "grundwasserabsenkungen-bauwasserhaltung-erforderlich-migration",
-              "value": "grundwasserabsenkungen-bauwasserhaltung-erforderlich-migration-nein"
+              "value": "grundwasserabsenkungen-bauwasserhaltung-erforderlich-migration-ja"
           },
           {
               "date": null,
@@ -20967,7 +21569,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "ist-ein-materialabbau-geplant-migration",
-              "value": "ist-ein-materialabbau-geplant-migration-nein"
+              "value": "ist-ein-materialabbau-geplant-migration-ja"
           },
           {
               "date": null,
@@ -20991,7 +21593,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration",
-              "value": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration-nein"
+              "value": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration-ja"
           },
           {
               "date": null,
@@ -21003,7 +21605,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "kantonsstrassen",
-              "value": "kantonsstrassen-nein"
+              "value": "kantonsstrassen-ja"
           },
           {
               "date": null,
@@ -21087,7 +21689,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "sind-altlasten-betroffen-migration",
-              "value": "sind-altlasten-betroffen-nein"
+              "value": "sind-altlasten-betroffen-ja"
           },
           {
               "date": null,
@@ -21105,7 +21707,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "sind-laermschutzmassnahmen-erforderlich-migration",
-              "value": "sind-laermschutzmassnahmen-erforderlich-nein"
+              "value": "sind-laermschutzmassnahmen-erforderlich-ja"
           },
           {
               "date": null,
@@ -21147,7 +21749,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "stoerfallverordnung-migration",
-              "value": "stoerfallverordnung-migration-nein"
+              "value": "stoerfallverordnung-migration-ja"
           },
           {
               "date": null,
@@ -21187,7 +21789,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "wird-der-mindestabstand-zum-wald-4-unterschritten-migration",
-              "value": "wird-der-mindestabstand-zum-wald-4-unterschritten-migration-nein"
+              "value": "wird-der-mindestabstand-zum-wald-4-unterschritten-migration-ja"
           },
           {
               "date": null,
@@ -21226,6 +21828,14 @@
               "document__form_id": "heizungen-migration-tabelle",
               "question_id": "typ-der-heizung",
               "value": "typ-der-heizung-oel"
+          },
+          {
+              "date": null,
+              "document__form_id": "kantonale-pruefung",
+              "question_id": "kantonale-pruefung-gesuchscodes",
+              "value": [
+                  "kantonale-pruefung-gesuchscodes-a02"
+              ]
           },
           {
               "date": null,
@@ -22056,6 +22666,14 @@
               "creation_date": "2025-07-28T12:00:00Z",
               "modification_date": "2025-07-28T12:00:00Z",
               "service_id": 1,
+              "text": "            AFB DATEN\n\n            Nutzungszonen:\n            • Innerhalb der Bauzone\n• Materialabbauzone\n\n            Schutzzonen:\n            • Grundwasserschutzzone\n• Landschaftsschutzzone\n\n            Kantonsstrasse betroffen: ✓\n            Strassen:\n            • Nationalstrasse (Hochleistungsstrasse, HLS) (123)\n• Hauptverkehrsstrasse (HVS) (111)\n\n            Bahnen:\n            • SBB\n• AVA\n\n            Gewässer betroffen: ✓\n            Gewässer:\n            • 1234 - DIBA-See\n• 2345 - eBau - Weiher\n\n            Waldabstand: ✓\n            Sonderfall Entw.: ✓\n            Grundwasserabsenkung geplant: ✓\n            AWA: ✓\n            Altlasten: ✓\n            Bauvorhaben im Wald: ✓\n            Hochwassergefährdung: ✓\n            Denkmalschutz: ✓\n            Wanderwege: ✓\n            Ortsbildschutz: ✓\n            Störfallverordnung betroffen: ✓\n            Archäologie: ✓\n            Verkehr: ✓\n            Lärmschutz: ✓\n            Materialabbau: ✓\n            AGV: ✓\n            Radwege: ✓\n\n            Kanalisation: Nicht angeschlossen\n            Flächenverbrauch: 2000\n            KoKo Datum: 21.06.2025\n            KoKo-Status: -\n            Beschluss Gem: 27.06.2025\n            Beschluss Art: Bewilligung (BEWIL)\n            Verzögerung durch: Interne kant. Fachstellen konnten ihre Termine nicht einhalten (INT)\n            Begründung: Sommerferien\n            Nachträgliches Gesuch: ✓\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-28T12:00:00Z",
+              "modification_date": "2025-07-28T12:00:00Z",
+              "service_id": 1,
               "text": "STATUS\nLetzter Kantonsstatus: 'Neues Gesuch'\n",
               "user_id": 2,
               "visibility": "own_organization"
@@ -22129,6 +22747,182 @@
               "modification_date": "2025-09-16T12:07:07Z",
               "service_id": 1,
               "text": "STATUS ÄNDERUNG\nSchritt: Vorläufiger Abschluss gesetzt\nWer: Markus Test Krause Test\nKommentar: Vorläufiger Abschluss gesetzt\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T08:32:01Z",
+              "modification_date": "2025-09-30T08:32:01Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T08:32:02Z",
+              "modification_date": "2025-09-30T08:32:02Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab AfB\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T08:36:58Z",
+              "modification_date": "2025-09-30T08:36:58Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab AfB\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T08:39:03Z",
+              "modification_date": "2025-09-30T08:39:03Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab AfB\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T08:39:03Z",
+              "modification_date": "2025-09-30T08:39:03Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T08:45:27Z",
+              "modification_date": "2025-09-30T08:45:27Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T08:45:28Z",
+              "modification_date": "2025-09-30T08:45:28Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab AfB\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T08:46:35Z",
+              "modification_date": "2025-09-30T08:46:35Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab AfB\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T08:46:35Z",
+              "modification_date": "2025-09-30T08:46:35Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T08:57:46Z",
+              "modification_date": "2025-09-30T08:57:46Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab AfB\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T08:57:46Z",
+              "modification_date": "2025-09-30T08:57:46Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T09:55:19Z",
+              "modification_date": "2025-09-30T09:55:19Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab AfB\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T09:55:19Z",
+              "modification_date": "2025-09-30T09:55:19Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T09:55:36Z",
+              "modification_date": "2025-09-30T09:55:36Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab AfB\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T09:55:36Z",
+              "modification_date": "2025-09-30T09:55:36Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T10:37:16Z",
+              "modification_date": "2025-09-30T10:37:16Z",
+              "service_id": 81,
+              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T10:37:17Z",
+              "modification_date": "2025-09-30T10:37:17Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab AfB\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T10:49:25Z",
+              "modification_date": "2025-09-30T10:49:25Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab AfB\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T10:50:22Z",
+              "modification_date": "2025-09-30T10:50:22Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab AfB\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T10:50:57Z",
+              "modification_date": "2025-09-30T10:50:57Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab AfB\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T10:51:27Z",
+              "modification_date": "2025-09-30T10:51:27Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab AfB\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-09-30T13:34:11Z",
+              "modification_date": "2025-09-30T13:34:11Z",
+              "service_id": 1,
+              "text": "DOKUMENT HINZUGEFÜGT\nSchritt: Gebührenverfügung erstellt.\nWer: Markus Test Krause Test\nKommentar: Gebührenverfügung erstellt mit der ID 0000000000000010000831829\n",
               "user_id": 2,
               "visibility": "own_organization"
           }
@@ -23000,6 +23794,14 @@
               "modification_date": "2025-07-23T13:56:32Z",
               "service_id": 55,
               "text": "VERFAHRENSSTAND\nAktion: 'Dokumente auflegen'\nSchritt: 'Dokumente auflegen'\nWer: 'Markus Test Krause Test'\nKommentar: 'Siehe Dokumente'\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-28T12:00:00Z",
+              "modification_date": "2025-07-28T12:00:00Z",
+              "service_id": 1,
+              "text": "AFB DATEN\n\nNutzungszonen:\n-\n\nSchutzzonen:\n-\n\nKantonsstrasse betroffen: -\nStrassen:\n-\n\nBahnen:\n-\n\nGewässer betroffen: -\nGewässer:\n-\n\nWaldabstand: -\nSonderfall Entw.: -\nGrundwasserabsenkung geplant: -\nAWA: -\nAltlasten: -\nBauvorhaben im Wald: -\nHochwassergefährdung: -\nDenkmalschutz: -\nWanderwege: -\nOrtsbildschutz: -\nStörfallverordnung betroffen: -\nArchäologie: -\nVerkehr: -\nLärmschutz: -\nMaterialabbau: -\nAGV: -\nRadwege: -\n\nKanalisation: -\nFlächenverbrauch: -\nKoKo Datum: -\nKoKo-Status: -\nBeschluss Gem: -\nBeschluss Art: -\nVerzögerung durch: -\nBegründung: -\nNachträgliches Gesuch: -\n",
               "user_id": 2,
               "visibility": "own_organization"
           }
@@ -23942,6 +24744,14 @@
               "text": "VERFAHRENSSTAND\nAktion: 'Verfügung erstellt'\nSchritt: 'Entscheid erfassen'\nWer: 'EBP Monitoring WFAS'\nKommentar: 'Bewilligung'\n",
               "user_id": 2,
               "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-28T12:00:00Z",
+              "modification_date": "2025-07-28T12:00:00Z",
+              "service_id": 1,
+              "text": "AFB DATEN\n\nNutzungszonen:\n-\n\nSchutzzonen:\n-\n\nKantonsstrasse betroffen: -\nStrassen:\n-\n\nBahnen:\n-\n\nGewässer betroffen: -\nGewässer:\n-\n\nWaldabstand: -\nSonderfall Entw.: -\nGrundwasserabsenkung geplant: -\nAWA: -\nAltlasten: -\nBauvorhaben im Wald: -\nHochwassergefährdung: -\nDenkmalschutz: -\nWanderwege: -\nOrtsbildschutz: -\nStörfallverordnung betroffen: -\nArchäologie: -\nVerkehr: -\nLärmschutz: -\nMaterialabbau: -\nAGV: -\nRadwege: -\n\nKanalisation: -\nFlächenverbrauch: -\nKoKo Datum: -\nKoKo-Status: -\nBeschluss Gem: -\nBeschluss Art: -\nVerzögerung durch: -\nBegründung: -\nNachträgliches Gesuch: -\n",
+              "user_id": 2,
+              "visibility": "own_organization"
           }
       ],
       "keywords": [
@@ -24391,6 +25201,14 @@
           {
               "date": null,
               "document__form_id": "kantonale-pruefung",
+              "question_id": "kantonale-pruefung-gesuchscodes",
+              "value": [
+                  "kantonale-pruefung-gesuchscodes-a15"
+              ]
+          },
+          {
+              "date": null,
+              "document__form_id": "kantonale-pruefung",
               "question_id": "kantonale-pruefung-migriert-von-ebau-extended",
               "value": "Eingang AfB: 24.05.2023\nBearbeitungsfrist AfB: 19.07.2023\nGruppe: BVU AFB\nGruppenbezeichnung: Abteilung für Baubewilligungen\nSachbearbeiter: EB2_AFB_01\nVorläufiges Abschlussdatum: -\nAbschlusscode: -\nBearbeitungsdauer: -\n"
           },
@@ -24736,6 +25554,22 @@
               "modification_date": "2023-08-29T07:39:25Z",
               "service_id": 1,
               "text": "DOKUMENT HINZUGEFÜGT\nSchritt: Gesuch in Bearbeitung\nWer: Markus Test Krause Test\nKommentar: Dokument hinzugefügt mit der ID 0000000000000010001693879\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-28T12:00:00Z",
+              "modification_date": "2025-07-28T12:00:00Z",
+              "service_id": 1,
+              "text": "AFB DATEN\n\nNutzungszonen:\n• Landwirtschaftszone\n\nSchutzzonen:\n-\n\nKantonsstrasse betroffen: ✓\nStrassen:\n• Hauptverkehrsstrasse (HVS) (K007)\n\nBahnen:\n-\n\nGewässer betroffen: -\nGewässer:\n-\n\nWaldabstand: ✓\nSonderfall Entw.: -\nGrundwasserabsenkung geplant: -\nAWA: -\nAltlasten: -\nBauvorhaben im Wald: -\nHochwassergefährdung: -\nDenkmalschutz: -\nWanderwege: -\nOrtsbildschutz: -\nStörfallverordnung betroffen: -\nArchäologie: -\nVerkehr: -\nLärmschutz: -\nMaterialabbau: -\nAGV: -\nRadwege: -\n\nKanalisation: Keine\nFlächenverbrauch: -\nKoKo Datum: -\nKoKo-Status: -\nBeschluss Gem: -\nBeschluss Art: -\nVerzögerung durch: -\nBegründung: -\nNachträgliches Gesuch: -\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-28T12:00:00Z",
+              "modification_date": "2025-07-28T12:00:00Z",
+              "service_id": 1,
+              "text": "GEBÜHREN\n\nPreiskondition: ZROD\nBeschreibung: Rodungsbewilligung AW\nSchema: AW KFA 1\nSchemastelle: 0010\nAufgaben-ID: 000000028332\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n\nPreiskondition: ZATB\nBeschreibung: Behandlungsgebühr ATB\nSchema: ATB\nSchemastelle: 0010\nAufgaben-ID: 000000028333\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n\nPreiskondition: ZIAK\nBeschreibung: Aufbruchbewilligung ATB\nSchema: ATB\nSchemastelle: 0020\nAufgaben-ID: 000000028333\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -25498,7 +26332,16 @@
           "submit-date": "2025-01-31T00:00:00+0100"
       },
       "group": "support",
-      "journal": [],
+      "journal": [
+          {
+              "creation_date": "2025-07-28T12:00:00Z",
+              "modification_date": "2025-07-28T12:00:00Z",
+              "service_id": 1,
+              "text": "AFB DATEN\n\nNutzungszonen:\n-\n\nSchutzzonen:\n-\n\nKantonsstrasse betroffen: -\nStrassen:\n-\n\nBahnen:\n-\n\nGewässer betroffen: -\nGewässer:\n-\n\nWaldabstand: -\nSonderfall Entw.: -\nGrundwasserabsenkung geplant: -\nAWA: -\nAltlasten: -\nBauvorhaben im Wald: -\nHochwassergefährdung: -\nDenkmalschutz: -\nWanderwege: -\nOrtsbildschutz: -\nStörfallverordnung betroffen: -\nArchäologie: -\nVerkehr: -\nLärmschutz: -\nMaterialabbau: -\nAGV: -\nRadwege: -\n\nKanalisation: -\nFlächenverbrauch: -\nKoKo Datum: -\nKoKo-Status: -\nBeschluss Gem: -\nBeschluss Art: -\nVerzögerung durch: -\nBegründung: -\nNachträgliches Gesuch: -\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          }
+      ],
       "keywords": [
           {
               "name": "2025-120",
@@ -26635,6 +27478,14 @@
               "visibility": "own_organization"
           },
           {
+              "creation_date": "2025-07-28T12:00:00Z",
+              "modification_date": "2025-07-28T12:00:00Z",
+              "service_id": 1,
+              "text": "AFB DATEN\n\nNutzungszonen:\n-\n\nSchutzzonen:\n-\n\nKantonsstrasse betroffen: -\nStrassen:\n-\n\nBahnen:\n-\n\nGewässer betroffen: -\nGewässer:\n-\n\nWaldabstand: -\nSonderfall Entw.: -\nGrundwasserabsenkung geplant: -\nAWA: -\nAltlasten: ✓\nBauvorhaben im Wald: -\nHochwassergefährdung: -\nDenkmalschutz: -\nWanderwege: -\nOrtsbildschutz: -\nStörfallverordnung betroffen: -\nArchäologie: -\nVerkehr: -\nLärmschutz: -\nMaterialabbau: -\nAGV: -\nRadwege: -\n\nKanalisation: -\nFlächenverbrauch: -\nKoKo Datum: -\nKoKo-Status: -\nBeschluss Gem: -\nBeschluss Art: -\nVerzögerung durch: -\nBegründung: -\nNachträgliches Gesuch: -\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
               "creation_date": "2025-07-30T22:00:00Z",
               "modification_date": "2025-07-30T22:00:00Z",
               "service_id": 55,
@@ -27528,6 +28379,22 @@
               "modification_date": "2022-12-21T05:52:31Z",
               "service_id": 1,
               "text": "FREIGABE DURCHGEFÜHRT\nSchritt: Gesuch in Bearbeitung\nWer: Markus Test Krause Test\nKommentar: Freigabe Entscheid nicht erteilt\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-28T12:00:00Z",
+              "modification_date": "2025-07-28T12:00:00Z",
+              "service_id": 1,
+              "text": "AFB DATEN\n\nNutzungszonen:\n-\n\nSchutzzonen:\n-\n\nKantonsstrasse betroffen: -\nStrassen:\n-\n\nBahnen:\n-\n\nGewässer betroffen: -\nGewässer:\n-\n\nWaldabstand: -\nSonderfall Entw.: -\nGrundwasserabsenkung geplant: -\nAWA: -\nAltlasten: -\nBauvorhaben im Wald: -\nHochwassergefährdung: -\nDenkmalschutz: -\nWanderwege: -\nOrtsbildschutz: -\nStörfallverordnung betroffen: -\nArchäologie: -\nVerkehr: -\nLärmschutz: -\nMaterialabbau: -\nAGV: -\nRadwege: -\n\nKanalisation: Keine\nFlächenverbrauch: -\nKoKo Datum: -\nKoKo-Status: -\nBeschluss Gem: -\nBeschluss Art: -\nVerzögerung durch: -\nBegründung: -\nNachträgliches Gesuch: -\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-07-28T12:00:00Z",
+              "modification_date": "2025-07-28T12:00:00Z",
+              "service_id": 1,
+              "text": "GEBÜHREN\n\nPreiskondition: ZAFU\nBeschreibung: Umweltschutzrechtiche Beurteilung AFU\nSchema: AFU AS\nSchemastelle: 0010\nAufgaben-ID: 000000005913\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n\nPreiskondition: ZNUB\nBeschreibung: Nutzungsbewilligung ALGGN\nSchema: ALGGN\nSchemastelle: 0010\nAufgaben-ID: 000000005916\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n\nPreiskondition: ZNAU\nBeschreibung: Nautische Bewilligung ALGGN\nSchema: ALGGN\nSchemastelle: 0020\nAufgaben-ID: 000000005916\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n\nPreiskondition: ZATB\nBeschreibung: Behandlungsgebühr ATB\nSchema: ATB\nSchemastelle: 0010\nAufgaben-ID: 000000005917\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n\nPreiskondition: ZIAK\nBeschreibung: Aufbruchbewilligung ATB\nSchema: ATB\nSchemastelle: 0020\nAufgaben-ID: 000000005917\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n\nPreiskondition: ZAFU\nBeschreibung: Umweltschutzrechtiche Beurteilung AFU\nSchema: AFU AAUO\nSchemastelle: 0010\nAufgaben-ID: 000000005918\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n",
               "user_id": 2,
               "visibility": "own_organization"
           },
