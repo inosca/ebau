@@ -30,6 +30,7 @@ export default function makeServer(config) {
       this.resource("public-service-groups");
       this.resource("public-groups");
       this.resource("notification-templates");
+      this.resource("responsible-services", { except: ["delete"] });
       this.resource("responsible-user-rule");
       this.resource("application-type", { only: ["index", "show"] });
       this.delete(

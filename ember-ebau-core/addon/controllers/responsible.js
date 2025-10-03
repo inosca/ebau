@@ -1,7 +1,8 @@
 import Controller from "@ember/controller";
 import { service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
-import { dropTask } from "ember-concurrency";
+import { task } from "ember-concurrency";
+import { query } from "ember-data-resources";
 
 export default class ResponsibleController extends Controller {
   @service store;
@@ -10,11 +11,19 @@ export default class ResponsibleController extends Controller {
   @service intl;
 
   @tracked _selectedUser;
-  @tracked responsibilities = [];
-  @tracked users = [];
+
+  users = query(this, "user", () => ({
+    service: this.ebauModules.serviceId,
+    sort: "name,surname",
+  }));
+
+  responsibilities = query(this, "responsible-service", () => ({
+    instance: this.model,
+    include: "responsible_user,service",
+  }));
 
   get current() {
-    return this.responsibilities.find(
+    return this.responsibilities.records?.find(
       (responsibleService) =>
         parseInt(responsibleService.belongsTo("service").id()) ===
         this.ebauModules.serviceId,
@@ -29,37 +38,24 @@ export default class ResponsibleController extends Controller {
     this._selectedUser = user;
   }
 
-  @dropTask
-  *fetchData() {
-    this.responsibilities = yield this.store.query("responsible-service", {
-      instance: this.model,
-      include: "responsible_user,service",
-    });
-
-    this.users = yield this.store.query("user", {
-      service: this.ebauModules.serviceId,
-    });
-  }
-
-  @dropTask
-  *saveResponsibility(event) {
+  saveResponsibility = task({ drop: true }, async (event) => {
     event.preventDefault();
 
     try {
       const responsibility =
-        this.current ||
+        this.current ??
         this.store.createRecord("responsible-service", {
-          instance: yield this.store.findRecord("instance", this.model),
+          instance: await this.store.findRecord("instance", this.model),
         });
 
       responsibility.responsibleUser = this.selectedUser;
 
-      yield responsibility.save();
-      yield this.fetchData.perform();
+      await responsibility.save();
+      await this.responsibilities.retry();
 
       this.notification.success(this.intl.t("responsible.saveSuccess"));
     } catch {
       this.notification.danger(this.intl.t("responsible.saveError"));
     }
-  }
+  });
 }

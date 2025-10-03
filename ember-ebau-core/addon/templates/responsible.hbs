@@ -1,6 +1,4 @@
-<span {{did-insert (perform this.fetchData)}}></span>
-
-{{#if (and this.fetchData.isRunning (not this.fetchData.lastSuccessful))}}
+{{#if this.responsibilities.isLoading}}
   <div class="uk-text-center">
     <UkSpinner @ratio={{2}} />
   </div>
@@ -13,22 +11,24 @@
       </tr>
     </thead>
     <tbody>
-      {{#each this.responsibilities as |responsibility|}}
+      {{#each this.responsibilities.records as |responsibility|}}
         <tr>
           <td>{{responsibility.service.name}}</td>
           <td>{{responsibility.responsibleUser.fullName}}</td>
         </tr>
       {{else}}
-        <tr><td class="uk-text-center" colspan="2">{{t
-              "global.empty"
-            }}</td></tr>
+        <tr>
+          <td class="uk-text-center" colspan="2">
+            {{t "global.empty"}}
+          </td>
+        </tr>
       {{/each}}
     </tbody>
   </table>
 
   {{#if (can "edit responsible-service")}}
     <form
-      {{on "submit" (perform this.saveResponsibility)}}
+      {{on "submit" this.saveResponsibility.perform}}
       class="uk-form-stacked"
     >
       <label class="uk-form-label" for="responsible-user-select">
@@ -40,7 +40,7 @@
             @searchEnabled={{true}}
             @searchField="fullName"
             @renderInPlace={{true}}
-            @options={{this.users}}
+            @options={{this.users.records}}
             @selected={{this.selectedUser}}
             @noMatchesMessage={{t "global.noMatch"}}
             @onChange={{fn (mut this.selectedUser)}}
