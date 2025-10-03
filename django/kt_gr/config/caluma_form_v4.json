@@ -768,7 +768,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v4",
       "question": "abfallanlage-v4",
-      "sort": 20
+      "sort": 21
     }
   },
   {
@@ -783,7 +783,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v4",
       "question": "ableitung-von-industrie-und-gewerbeabwasser",
-      "sort": 19
+      "sort": 20
     }
   },
   {
@@ -798,7 +798,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v4",
       "question": "anlagedatenblatt",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -813,7 +813,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v4",
       "question": "bauliche-angaben-v3",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -828,7 +828,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v4",
       "question": "bauten-ausserhalb-bauzone",
-      "sort": 24
+      "sort": 25
     }
   },
   {
@@ -843,7 +843,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v4",
       "question": "betriebsleiterwohnhaus",
-      "sort": 23
+      "sort": 24
     }
   },
   {
@@ -858,7 +858,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v4",
       "question": "brandschutz-haustechnik",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -873,7 +873,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v4",
       "question": "eingriffe-in-gewaesserschutzbereichen",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -888,7 +888,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v4",
       "question": "emissionserklaerung-form",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -918,7 +918,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v4",
       "question": "feuerungsanlagen",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -933,7 +933,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v4",
       "question": "gewinnung-von-kies-v4",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -948,7 +948,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v4",
       "question": "grundwasserentnahme-brauchwasser-v4",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -963,7 +963,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v4",
       "question": "gwr",
-      "sort": 25
+      "sort": 26
     }
   },
   {
@@ -978,7 +978,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v4",
       "question": "hecken-feldgehoelze-und-ufervegetation",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -993,7 +993,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v4",
       "question": "komplexe-erdwaermesonden-v2",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -1008,7 +1008,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v4",
       "question": "lageranlagen-mit-wassergefaehrdenden-fluessigkeiten-v4",
-      "sort": 18
+      "sort": 19
     }
   },
   {
@@ -1023,7 +1023,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v4",
       "question": "mineralische-bauabfaelle",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -1038,7 +1038,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v4",
       "question": "schutzplaetze",
-      "sort": 21
+      "sort": 22
     }
   },
   {
@@ -1053,6 +1053,21 @@
       "modified_by_group": null,
       "form": "spezialformulare-v4",
       "question": "solaranlage-baugesuch-v4",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v4.solaranlage-baugesuch-v4-andere-v4",
+    "fields": {
+      "created_at": "2025-10-02T08:37:28.959Z",
+      "modified_at": "2025-10-02T08:37:28.959Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v4",
+      "question": "solaranlage-baugesuch-v4-andere-v4",
       "sort": 2
     }
   },
@@ -1068,7 +1083,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v4",
       "question": "stallbau-und-hofduengerlager",
-      "sort": 22
+      "sort": 23
     }
   },
   {
@@ -1083,7 +1098,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v4",
       "question": "stationaere-verbrennungsmotoren",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -1098,7 +1113,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v4",
       "question": "terrainveraenderungen",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -1113,7 +1128,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v4",
       "question": "waermepumpenanlage-v4",
-      "sort": 17
+      "sort": 18
     }
   },
   {
@@ -1128,7 +1143,7 @@
       "modified_by_group": null,
       "form": "spezialformulare-v4",
       "question": "wasserentnahme-aus-oberflaechengewaessern",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -1646,15 +1661,15 @@
     "pk": "solaranlage-baugesuch-v4",
     "fields": {
       "created_at": "2024-03-14T09:35:17.470Z",
-      "modified_at": "2024-09-11T14:58:44.635Z",
+      "modified_at": "2025-10-02T08:36:47.848Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Solaranlage\", \"fr\": null, \"it\": \"Impianto solare\"}",
+      "label": "{\"de\": \"Solaranlage (Nur auf Dach)\", \"fr\": null, \"it\": \"Impianto solare (solo sul tetto)\"}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "!(\n\t\"beschreibung-der-anlagen-solaranlagen-v4\" in \"beschreibung-der-anlagen-v4\"|answer\n)",
+      "is_hidden": "info.case.root.form in [\"baugesuch-v4\", \"vorlaeufige-beurteilung-v4\"]\n||\n!(\n\t\"beschreibung-der-anlagen-solaranlagen-v4\" in \"beschreibung-der-anlagen-v4\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -1664,7 +1679,38 @@
       "meta": {},
       "data_source": null,
       "row_form": null,
-      "sub_form": "solaranlagen",
+      "sub_form": "solaranlagen-v2",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "solaranlage-baugesuch-v4-andere-v4",
+    "fields": {
+      "created_at": "2025-10-02T08:37:28.905Z",
+      "modified_at": "2025-10-02T08:37:28.905Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Solaranlage\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!(info.case.root.form in [\"baugesuch-v4\", \"vorlaeufige-beurteilung-v4\"])\n||\n!(\n\t\"beschreibung-der-anlagen-solaranlagen-v4\" in \"beschreibung-der-anlagen-v4\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "solaranlagen-andere",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,

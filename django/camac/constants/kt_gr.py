@@ -24,4 +24,6 @@ VORLAEUFIGE_BEURTEILUNG_FORMS = [
 ]
 SOLARANLAGE_FORMS = [
     "solaranlage",
+    "solaranlage-v2",
+    "solaranlage-andere",
 ]

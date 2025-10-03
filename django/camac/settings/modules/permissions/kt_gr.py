@@ -1,4 +1,4 @@
-from camac.constants.kt_gr import ARE_SERVICE_GROUP, BAUGESUCH_FORMS
+from camac.constants.kt_gr import ARE_SERVICE_GROUP, BAUGESUCH_FORMS, SOLARANLAGE_FORMS
 from camac.permissions.conditions import (
     Always,
     HasApplicantRole,
@@ -31,7 +31,7 @@ STATES_ACCESSIBLE = STATES_ALL & ~RequireInstanceState(["rejected"])
 STATES_POST_DECISION = RequireInstanceState(["construction-acceptance", "finished"])
 
 # Form rules
-FORMS_ONLY_BUILDING_PERMIT = IsForm([*BAUGESUCH_FORMS, "solaranlage"])
+FORMS_ONLY_BUILDING_PERMIT = IsForm([*BAUGESUCH_FORMS, *SOLARANLAGE_FORMS])
 
 # Role rules
 ROLES_MUNICIPALITY = HasRole(["municipality-lead"])
