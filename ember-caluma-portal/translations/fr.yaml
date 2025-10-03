@@ -100,9 +100,7 @@ gis:
 support:
   type: "Avez-vous des questions au sujet de la procédure ou du formulaire ?"
   technical: |-
-    Pour les problèmes techniques avec eBau, veuillez contacter <b>le support
-    technique (24/7)</b> au numéro suivant :<br><a href="tel:+41 31 636 99
-    96">+41 31 636 99 96</a>
+    En cas de problèmes techniques liés à eBau, veuillez consulter la <a href="faq">page FAQ</a>.
   selectMunicipality: "Veuillez sélectionner la commune compétente"
   infoText: "L'autorité directrice compétente vous aidera volontiers :"
   phone: "Téléphone :"
