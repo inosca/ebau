@@ -3,6 +3,17 @@ from pydantic import Field
 from camac.settings.ebau_schema import EBauConfig, ModuleApplicationConfig
 
 
+class BillingDjangoAdminConfig(EBauConfig):
+    hidden_fields: list[str] = Field(
+        description="Billing entry fields that should be hidden in the django admin",
+        default_factory=list,
+    )
+    hidden_calculation_modes: list[str] = Field(
+        description="Billing entry calculation modes that should be hidden in the django admin",
+        default_factory=list,
+    )
+
+
 class ProductNumberConfig(EBauConfig):
     number: int = Field(description="Product number")
     name: str = Field(
@@ -70,3 +81,4 @@ class BillingConfig(ModuleApplicationConfig):
     cantonal_service_group_slugs: list[str] = Field(
         description="Which ServiceGroup's are cantonal. List of slugs.", default=[]
     )
+    admin: BillingDjangoAdminConfig = BillingDjangoAdminConfig()

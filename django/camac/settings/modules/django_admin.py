@@ -64,7 +64,15 @@ DJANGO_ADMIN = {
             "ech0211.Message",
         ],
     },
-    "kt_schwyz": {"ENABLED": True},
+    "kt_schwyz": {
+        "ENABLED": True,
+        "ENABLED_MODELS": [
+            "billing.BillingV2EntryTemplate",
+        ],
+        "CUSTOMER_MANAGED_MODELS": [
+            "billing.BillingV2EntryTemplate",
+        ],
+    },
     "kt_uri": {"ENABLED": True},
     "kt_ag": {
         "ENABLED": True,

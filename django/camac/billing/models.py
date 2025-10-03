@@ -72,7 +72,11 @@ class BillingV2CommonEntry(models.Model):
     # Organization: either municipal or cantonal but can be NULL
     # Used to distinguish which oranization collects part of the bill
     organization = models.CharField(
-        choices=Organizations.choices, max_length=20, null=True, blank=True
+        choices=Organizations.choices,
+        max_length=20,
+        null=True,
+        blank=True,
+        verbose_name=_("Type"),
     )
 
     class BillingTypes(models.TextChoices):
