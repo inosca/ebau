@@ -40,7 +40,7 @@ if settings.APPLICATION_NAME == "kt_ag":  # pragma: no cover
             return
 
     @shared_task(
-        soft_time_limit=60 * 60 * 6
+        soft_time_limit=60 * 60 * 10
     )  # 6 hours timeout to complete with all dossiers from one municipality
     def import_s3_docs_task(
         municipality: str, dossier_ids: List[str], segment_name: str, start_time: str
