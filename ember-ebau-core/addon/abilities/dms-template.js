@@ -21,4 +21,8 @@ export default class DmsTemplateAbility extends Ability {
       this.dms.serviceSlug,
     );
   }
+
+  get canCreate() {
+    return !this.ebauModules.isReadOnlyRole;
+  }
 }
