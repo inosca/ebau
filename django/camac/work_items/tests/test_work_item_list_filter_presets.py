@@ -9,6 +9,7 @@ from camac.work_items import serializers
     "role__name,expected_presets",
     [
         ("Applicant", set()),
+        ("Support", set()),
         (
             "Municipality",
             {
@@ -24,11 +25,17 @@ def test_work_item_filter_preset_list(
     work_item_list_filter_preset_factory,
     admin_client,
     expected_presets,
+    group,
+    role,
     service,
     service_group,
     service_factory,
     service_group_factory,
 ):
+    if role.name == "Support":
+        group.service = None
+        group.save()
+
     for name, services, service_groups in [
         ("global", None, None),
         ("my-service", [service], None),
