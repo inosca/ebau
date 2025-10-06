@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-14 12:05+0200\n"
+"POT-Creation-Date: 2025-10-06 11:29+0200\n"
 "PO-Revision-Date: 2025-05-09 15:48+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -36,59 +36,59 @@ msgstr "GBB"
 
 #: camac/instance/placeholders/fields.py
 msgid "BILLING_ENTRY_POSITION"
-msgstr "GEBUEHREN_POSITION"
+msgstr "POSITION"
 
 #: camac/instance/placeholders/fields.py
 msgid "BILLING_ENTRY_AMOUNT"
-msgstr "GEBUEHREN_BETRAG"
+msgstr "BETRAG"
 
 #: camac/instance/placeholders/fields.py
 msgid "BILLING_ENTRY_LEGAL_BASIS"
-msgstr "GEBUEHREN_RECHTSGRUNDLAGE"
+msgstr "RECHTSGRUNDLAGE"
 
 #: camac/instance/placeholders/fields.py
 msgid "BILLING_ENTRY_COST_CENTER"
-msgstr "GEBUEHREN_KOSTENSTELLE"
+msgstr "KOSTENSTELLE"
 
 #: camac/instance/placeholders/fields.py
 msgid "BILLING_ENTRY_HOURS"
-msgstr "GEBUEHREN_STUNDEN"
+msgstr "STUNDEN"
 
 #: camac/instance/placeholders/fields.py
 msgid "BILLING_ENTRY_HOURLY_RATE"
-msgstr "GEBUEHREN_STUNDENSATZ"
+msgstr "STUNDENSATZ"
 
 #: camac/instance/placeholders/fields.py
 msgid "BILLING_ENTRY_PERCENTAGE"
-msgstr "GEBUEHREN_ANTEIL_PROZENT"
+msgstr "ANTEIL_PROZENT"
 
 #: camac/instance/placeholders/fields.py
 msgid "BILLING_ENTRY_TOTAL_COST"
-msgstr "GEBUEHREN_GESAMTKOSTEN"
+msgstr "GESAMTKOSTEN"
 
 #: camac/instance/placeholders/fields.py
 msgid "BILLING_ENTRY_CALCULATION"
-msgstr "GEBUEHREN_BERECHNUNG"
+msgstr "BERECHNUNG"
 
 #: camac/instance/placeholders/fields.py
 msgid "BILLING_ENTRY_VAT"
-msgstr "GEBUEHREN_MEHRWERTSTEUER"
+msgstr "MEHRWERTSTEUER"
 
 #: camac/instance/placeholders/fields.py
-msgid "BILLING_ENTRY_ORGANISATION"
-msgstr "GEBUEHREN_ART"
+msgid "BILLING_ENTRY_TYPE"
+msgstr "ART"
 
 #: camac/instance/placeholders/fields.py
 msgid "BILLING_ENTRY_BILLING_TYPE"
-msgstr "GEBUEHREN_VERRECHNUNG"
+msgstr "VERRECHNUNG"
 
 #: camac/instance/placeholders/fields.py
 msgid "BILLING_ENTRY_REMARK"
-msgstr "GEBUEHREN_BEMERKUNG"
+msgstr "BEMERKUNG"
 
 #: camac/instance/placeholders/fields.py
-msgid "BILLING_ENTRY_SERVICE"
-msgstr "GEBUEHREN_ORGANISATION"
+msgid "BILLING_ENTRY_ORGANISATION"
+msgstr "ORGANISATION"
 
 #: camac/instance/placeholders/fields.py
 msgid "inclusive_short"
