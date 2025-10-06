@@ -7,6 +7,7 @@ from rest_framework import status
     "role__name,expected_names",
     [
         ("Applicant", set()),
+        ("Support", set()),
         ("Municipality", {"global", "my-service", "my-service-group"}),
     ],
 )
@@ -14,11 +15,17 @@ def test_work_item_template_list(
     work_item_template_factory,
     admin_client,
     expected_names,
+    group,
+    role,
     service,
     service_group,
     service_factory,
     service_group_factory,
 ):
+    if role.name == "Support":
+        group.service = None
+        group.save()
+
     for name, services, service_groups in [
         ("global", None, None),
         ("my-service", [service], None),

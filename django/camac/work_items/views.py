@@ -45,7 +45,14 @@ class WorkItemTemplateViewset(ReadOnlyModelViewSet):
 
     @permission_aware
     def get_queryset(self):
-        return self.queryset.for_service(self.request.group.service)
+        service = self.request.group.service
+
+        if not service:
+            # Don't return anything for internal groups without services such as
+            # admin and support
+            return self.queryset.none()
+
+        return self.queryset.for_service(service)
 
     def get_queryset_for_applicant(self):
         return self.queryset.none()
@@ -60,6 +67,11 @@ class WorkItemListFilterPresetViewset(ReadOnlyModelViewSet):
     @permission_aware
     def get_queryset(self):
         service = self.request.group.service
+
+        if not service:
+            # Don't return anything for internal groups without services such as
+            # admin and support
+            return self.queryset.none()
 
         return self.queryset.filter(
             # Template for current service
