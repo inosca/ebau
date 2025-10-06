@@ -162,6 +162,37 @@ class CamacNgPersonListAnswerWriter(CamacNgListAnswerWriter):
         super().write(instance, value)
 
 
+class CamacNgPointsWriter(CamacNgAnswerWriter):
+    """Wrap coordinates list in a list.
+
+    Coordinate tuples are treated as a single point. I. e. the import
+    does not allow importing of drawn objects.
+    """
+
+    def write(self, instance, values):
+        if not values:
+            return
+        if values == self.owner.delete_keyword or any(
+            [val == self.owner.delete_keyword for val in values]
+        ):
+            return super().write(instance, self.owner.delete_keyword)
+
+        result = []
+        for obj in values:
+            # Ignore if a dataclass without any meaningful data makes it this far
+            if not any(asdict(obj).values()):  # pragma: no cover
+                continue
+            result.append(
+                [
+                    {
+                        column_name: getattr(obj, key, None)
+                        for key, column_name in self.column_mapping.items()
+                    }
+                ]
+            )
+        super().write(instance, result)
+
+
 class CamacNgStreetWriter(CamacNgAnswerWriter):
     """Combine street and street-number into one field."""
 

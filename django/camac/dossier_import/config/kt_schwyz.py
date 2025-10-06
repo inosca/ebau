@@ -25,6 +25,7 @@ from camac.dossier_import.writers import (
     CamacNgAnswerWriter,
     CamacNgListAnswerWriter,
     CamacNgPersonListAnswerWriter,
+    CamacNgPointsWriter,
     CamacNgStreetWriter,
     DossierWriter,
     WorkflowEntryDateWriter,
@@ -71,7 +72,7 @@ class KtSchwyzDossierWriter(DossierWriter):
     plot_data = CamacNgListAnswerWriter(
         target="parzellen", column_mapping=PARCEL_MAPPING
     )
-    coordinates = CamacNgListAnswerWriter(
+    coordinates = CamacNgPointsWriter(
         target="punkte", column_mapping=COORDINATES_MAPPING
     )
     usage = CamacNgAnswerWriter(target="betroffene-nutzungszonen")

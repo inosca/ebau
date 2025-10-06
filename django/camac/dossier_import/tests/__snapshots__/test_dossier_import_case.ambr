@@ -384,10 +384,12 @@
 # name: test_record_loading_sz[False]
   OrderedDict({
     'coordinates': list([
-      dict({
-        'lat': 47.175669937318816,
-        'lng': 8.8984885140077,
-      }),
+      list([
+        dict({
+          'lat': 47.175669937318816,
+          'lng': 8.8984885140077,
+        }),
+      ]),
     ]),
     'plot_data': list([
       dict({
@@ -457,10 +459,12 @@
 # name: test_record_loading_sz[True]
   OrderedDict({
     'coordinates': list([
-      dict({
-        'lat': 47.175669937318816,
-        'lng': 8.8984885140077,
-      }),
+      list([
+        dict({
+          'lat': 47.175669937318816,
+          'lng': 8.8984885140077,
+        }),
+      ]),
     ]),
     'plot_data': list([
       dict({

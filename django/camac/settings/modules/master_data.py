@@ -378,11 +378,8 @@ MASTER_DATA = {
             "proceeding_type": (  # TODO: verify!
                 ("ng_answer", "verfahrensart")
             ),  # this is called "Verfahrensart" in context of eCH
-            "coordinates": (
-                "ng_table",
-                "punkte",
-                {"column_mapping": {"lat": "lat", "lng": "lng"}},
-            ),
+            # `coordinates` is a list of lists of { 'lat': <coord>, 'lng': <coord> } objects of arbitrary length.
+            "coordinates": (("ng_answer", "punkte")),
             "plot_data": (
                 "ng_table",
                 "parzellen",

@@ -1727,6 +1727,22 @@ def sz_master_data_case(db, sz_instance, form_field_factory, location_factory):
         ],
     )
 
+    # List of paths consisting of coordinate tuples
+    form_field_factory(
+        instance=sz_instance,
+        name="punkte",
+        value=[
+            [
+                {
+                    "lat": 47.175669937318816,
+                    "lng": 8.8984885140077,
+                },
+                {"lat": 47.03185841071765, "lng": 8.622585392467867},
+            ],
+            [{"lat": 47.03185841071765, "lng": 8.622585392467867}],
+        ],
+    )
+
     return sz_instance.case
 
 
