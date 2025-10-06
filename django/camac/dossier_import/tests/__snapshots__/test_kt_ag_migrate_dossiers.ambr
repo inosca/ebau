@@ -5604,12 +5604,6 @@
           },
           {
               "date": null,
-              "document__form_id": "kantonale-pruefung",
-              "question_id": "kantonale-pruefung-migriert-von-ebau-extended",
-              "value": "Eingang AfB: -\nBearbeitungsfrist AfB: -\nGruppe: -\nGruppenbezeichnung: -\nSachbearbeiter: -\nVorläufiges Abschlussdatum: -\nAbschlusscode: -\nBearbeitungsdauer: -\n"
-          },
-          {
-              "date": null,
               "document__form_id": "parzelle-tabelle",
               "question_id": "gemeinde",
               "value": "55"
@@ -5950,14 +5944,6 @@
               "modification_date": "2025-07-23T13:56:32Z",
               "service_id": 55,
               "text": "VERFAHRENSSTAND\nAktion: 'Dokumente auflegen'\nSchritt: 'Dokumente auflegen'\nWer: 'Markus Test Krause Test'\nKommentar: 'Siehe Dokumente'\n",
-              "user_id": 2,
-              "visibility": "own_organization"
-          },
-          {
-              "creation_date": "2025-07-28T12:00:00Z",
-              "modification_date": "2025-07-28T12:00:00Z",
-              "service_id": 1,
-              "text": "AFB DATEN\n\nNutzungszonen:\n-\n\nSchutzzonen:\n-\n\nKantonsstrasse betroffen: -\nStrassen:\n-\n\nBahnen:\n-\n\nGewässer betroffen: -\nGewässer:\n-\n\nWaldabstand: -\nSonderfall Entw.: -\nGrundwasserabsenkung geplant: -\nAWA: -\nAltlasten: -\nBauvorhaben im Wald: -\nHochwassergefährdung: -\nDenkmalschutz: -\nWanderwege: -\nOrtsbildschutz: -\nStörfallverordnung betroffen: -\nArchäologie: -\nVerkehr: -\nLärmschutz: -\nMaterialabbau: -\nAGV: -\nRadwege: -\n\nKanalisation: -\nFlächenverbrauch: -\nKoKo Datum: -\nKoKo-Status: -\nBeschluss Gem: -\nBeschluss Art: -\nVerzögerung durch: -\nBegründung: -\nNachträgliches Gesuch: -\n",
               "user_id": 2,
               "visibility": "own_organization"
           }
@@ -6570,12 +6556,6 @@
           },
           {
               "date": null,
-              "document__form_id": "kantonale-pruefung",
-              "question_id": "kantonale-pruefung-migriert-von-ebau-extended",
-              "value": "Eingang AfB: -\nBearbeitungsfrist AfB: -\nGruppe: -\nGruppenbezeichnung: -\nSachbearbeiter: -\nVorläufiges Abschlussdatum: -\nAbschlusscode: -\nBearbeitungsdauer: -\n"
-          },
-          {
-              "date": null,
               "document__form_id": "personalien-tabelle",
               "question_id": "e-mail-gesuchstellerin",
               "value": "Entwicklung.noReply@ag.ch"
@@ -6898,14 +6878,6 @@
               "modification_date": "2021-02-01T11:59:23Z",
               "service_id": 68,
               "text": "VERFAHRENSSTAND\nAktion: 'Verfügung erstellt'\nSchritt: 'Entscheid erfassen'\nWer: 'EBP Monitoring WFAS'\nKommentar: 'Bewilligung'\n",
-              "user_id": 2,
-              "visibility": "own_organization"
-          },
-          {
-              "creation_date": "2025-07-28T12:00:00Z",
-              "modification_date": "2025-07-28T12:00:00Z",
-              "service_id": 1,
-              "text": "AFB DATEN\n\nNutzungszonen:\n-\n\nSchutzzonen:\n-\n\nKantonsstrasse betroffen: -\nStrassen:\n-\n\nBahnen:\n-\n\nGewässer betroffen: -\nGewässer:\n-\n\nWaldabstand: -\nSonderfall Entw.: -\nGrundwasserabsenkung geplant: -\nAWA: -\nAltlasten: -\nBauvorhaben im Wald: -\nHochwassergefährdung: -\nDenkmalschutz: -\nWanderwege: -\nOrtsbildschutz: -\nStörfallverordnung betroffen: -\nArchäologie: -\nVerkehr: -\nLärmschutz: -\nMaterialabbau: -\nAGV: -\nRadwege: -\n\nKanalisation: -\nFlächenverbrauch: -\nKoKo Datum: -\nKoKo-Status: -\nBeschluss Gem: -\nBeschluss Art: -\nVerzögerung durch: -\nBegründung: -\nNachträgliches Gesuch: -\n",
               "user_id": 2,
               "visibility": "own_organization"
           }
@@ -8200,12 +8172,6 @@
           },
           {
               "date": null,
-              "document__form_id": "kantonale-pruefung",
-              "question_id": "kantonale-pruefung-migriert-von-ebau-extended",
-              "value": "Eingang AfB: -\nBearbeitungsfrist AfB: -\nGruppe: -\nGruppenbezeichnung: -\nSachbearbeiter: -\nVorläufiges Abschlussdatum: -\nAbschlusscode: -\nBearbeitungsdauer: -\n"
-          },
-          {
-              "date": null,
               "document__form_id": "parzelle-tabelle",
               "question_id": "gemeinde",
               "value": "55"
@@ -8488,16 +8454,7 @@
           "submit-date": "2025-01-31T00:00:00+0100"
       },
       "group": "support",
-      "journal": [
-          {
-              "creation_date": "2025-07-28T12:00:00Z",
-              "modification_date": "2025-07-28T12:00:00Z",
-              "service_id": 1,
-              "text": "AFB DATEN\n\nNutzungszonen:\n-\n\nSchutzzonen:\n-\n\nKantonsstrasse betroffen: -\nStrassen:\n-\n\nBahnen:\n-\n\nGewässer betroffen: -\nGewässer:\n-\n\nWaldabstand: -\nSonderfall Entw.: -\nGrundwasserabsenkung geplant: -\nAWA: -\nAltlasten: -\nBauvorhaben im Wald: -\nHochwassergefährdung: -\nDenkmalschutz: -\nWanderwege: -\nOrtsbildschutz: -\nStörfallverordnung betroffen: -\nArchäologie: -\nVerkehr: -\nLärmschutz: -\nMaterialabbau: -\nAGV: -\nRadwege: -\n\nKanalisation: -\nFlächenverbrauch: -\nKoKo Datum: -\nKoKo-Status: -\nBeschluss Gem: -\nBeschluss Art: -\nVerzögerung durch: -\nBegründung: -\nNachträgliches Gesuch: -\n",
-              "user_id": 2,
-              "visibility": "own_organization"
-          }
-      ],
+      "journal": [],
       "keywords": [
           {
               "name": "2025-120",
@@ -9248,12 +9205,6 @@
           },
           {
               "date": null,
-              "document__form_id": "kantonale-pruefung",
-              "question_id": "kantonale-pruefung-migriert-von-ebau-extended",
-              "value": "Eingang AfB: -\nBearbeitungsfrist AfB: -\nGruppe: -\nGruppenbezeichnung: -\nSachbearbeiter: -\nVorläufiges Abschlussdatum: -\nAbschlusscode: -\nBearbeitungsdauer: -\n"
-          },
-          {
-              "date": null,
               "document__form_id": "parzelle-tabelle",
               "question_id": "gemeinde",
               "value": "55"
@@ -9630,14 +9581,6 @@
               "modification_date": "2025-07-24T22:00:00Z",
               "service_id": 55,
               "text": "FRIST                         \nVon: 25.07.2025               Bis: None                     Abgeschlossen: ✓              \nBemerkung: Manuelle Kontrolle Mapping\nGrund:                        \n",
-              "user_id": 2,
-              "visibility": "own_organization"
-          },
-          {
-              "creation_date": "2025-07-28T12:00:00Z",
-              "modification_date": "2025-07-28T12:00:00Z",
-              "service_id": 1,
-              "text": "AFB DATEN\n\nNutzungszonen:\n-\n\nSchutzzonen:\n-\n\nKantonsstrasse betroffen: -\nStrassen:\n-\n\nBahnen:\n-\n\nGewässer betroffen: -\nGewässer:\n-\n\nWaldabstand: -\nSonderfall Entw.: -\nGrundwasserabsenkung geplant: -\nAWA: -\nAltlasten: ✓\nBauvorhaben im Wald: -\nHochwassergefährdung: -\nDenkmalschutz: -\nWanderwege: -\nOrtsbildschutz: -\nStörfallverordnung betroffen: -\nArchäologie: -\nVerkehr: -\nLärmschutz: -\nMaterialabbau: -\nAGV: -\nRadwege: -\n\nKanalisation: -\nFlächenverbrauch: -\nKoKo Datum: -\nKoKo-Status: -\nBeschluss Gem: -\nBeschluss Art: -\nVerzögerung durch: -\nBegründung: -\nNachträgliches Gesuch: -\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -16249,12 +16192,6 @@
           },
           {
               "date": null,
-              "document__form_id": "kantonale-pruefung",
-              "question_id": "kantonale-pruefung-migriert-von-ebau-extended",
-              "value": "Eingang AfB: -\nBearbeitungsfrist AfB: -\nGruppe: -\nGruppenbezeichnung: -\nSachbearbeiter: -\nVorläufiges Abschlussdatum: -\nAbschlusscode: -\nBearbeitungsdauer: -\n"
-          },
-          {
-              "date": null,
               "document__form_id": "parzelle-tabelle",
               "question_id": "gemeinde",
               "value": "55"
@@ -16595,14 +16532,6 @@
               "modification_date": "2025-07-23T13:56:32Z",
               "service_id": 55,
               "text": "VERFAHRENSSTAND\nAktion: 'Dokumente auflegen'\nSchritt: 'Dokumente auflegen'\nWer: 'Markus Test Krause Test'\nKommentar: 'Siehe Dokumente'\n",
-              "user_id": 2,
-              "visibility": "own_organization"
-          },
-          {
-              "creation_date": "2025-07-28T12:00:00Z",
-              "modification_date": "2025-07-28T12:00:00Z",
-              "service_id": 1,
-              "text": "AFB DATEN\n\nNutzungszonen:\n-\n\nSchutzzonen:\n-\n\nKantonsstrasse betroffen: -\nStrassen:\n-\n\nBahnen:\n-\n\nGewässer betroffen: -\nGewässer:\n-\n\nWaldabstand: -\nSonderfall Entw.: -\nGrundwasserabsenkung geplant: -\nAWA: -\nAltlasten: -\nBauvorhaben im Wald: -\nHochwassergefährdung: -\nDenkmalschutz: -\nWanderwege: -\nOrtsbildschutz: -\nStörfallverordnung betroffen: -\nArchäologie: -\nVerkehr: -\nLärmschutz: -\nMaterialabbau: -\nAGV: -\nRadwege: -\n\nKanalisation: -\nFlächenverbrauch: -\nKoKo Datum: -\nKoKo-Status: -\nBeschluss Gem: -\nBeschluss Art: -\nVerzögerung durch: -\nBegründung: -\nNachträgliches Gesuch: -\n",
               "user_id": 2,
               "visibility": "own_organization"
           }
@@ -17215,12 +17144,6 @@
           },
           {
               "date": null,
-              "document__form_id": "kantonale-pruefung",
-              "question_id": "kantonale-pruefung-migriert-von-ebau-extended",
-              "value": "Eingang AfB: -\nBearbeitungsfrist AfB: -\nGruppe: -\nGruppenbezeichnung: -\nSachbearbeiter: -\nVorläufiges Abschlussdatum: -\nAbschlusscode: -\nBearbeitungsdauer: -\n"
-          },
-          {
-              "date": null,
               "document__form_id": "personalien-tabelle",
               "question_id": "e-mail-gesuchstellerin",
               "value": "Entwicklung.noReply@ag.ch"
@@ -17543,14 +17466,6 @@
               "modification_date": "2021-02-01T11:59:23Z",
               "service_id": 68,
               "text": "VERFAHRENSSTAND\nAktion: 'Verfügung erstellt'\nSchritt: 'Entscheid erfassen'\nWer: 'EBP Monitoring WFAS'\nKommentar: 'Bewilligung'\n",
-              "user_id": 2,
-              "visibility": "own_organization"
-          },
-          {
-              "creation_date": "2025-07-28T12:00:00Z",
-              "modification_date": "2025-07-28T12:00:00Z",
-              "service_id": 1,
-              "text": "AFB DATEN\n\nNutzungszonen:\n-\n\nSchutzzonen:\n-\n\nKantonsstrasse betroffen: -\nStrassen:\n-\n\nBahnen:\n-\n\nGewässer betroffen: -\nGewässer:\n-\n\nWaldabstand: -\nSonderfall Entw.: -\nGrundwasserabsenkung geplant: -\nAWA: -\nAltlasten: -\nBauvorhaben im Wald: -\nHochwassergefährdung: -\nDenkmalschutz: -\nWanderwege: -\nOrtsbildschutz: -\nStörfallverordnung betroffen: -\nArchäologie: -\nVerkehr: -\nLärmschutz: -\nMaterialabbau: -\nAGV: -\nRadwege: -\n\nKanalisation: -\nFlächenverbrauch: -\nKoKo Datum: -\nKoKo-Status: -\nBeschluss Gem: -\nBeschluss Art: -\nVerzögerung durch: -\nBegründung: -\nNachträgliches Gesuch: -\n",
               "user_id": 2,
               "visibility": "own_organization"
           }
@@ -18845,12 +18760,6 @@
           },
           {
               "date": null,
-              "document__form_id": "kantonale-pruefung",
-              "question_id": "kantonale-pruefung-migriert-von-ebau-extended",
-              "value": "Eingang AfB: -\nBearbeitungsfrist AfB: -\nGruppe: -\nGruppenbezeichnung: -\nSachbearbeiter: -\nVorläufiges Abschlussdatum: -\nAbschlusscode: -\nBearbeitungsdauer: -\n"
-          },
-          {
-              "date": null,
               "document__form_id": "parzelle-tabelle",
               "question_id": "gemeinde",
               "value": "55"
@@ -19133,16 +19042,7 @@
           "submit-date": "2025-01-31T00:00:00+0100"
       },
       "group": "support",
-      "journal": [
-          {
-              "creation_date": "2025-07-28T12:00:00Z",
-              "modification_date": "2025-07-28T12:00:00Z",
-              "service_id": 1,
-              "text": "AFB DATEN\n\nNutzungszonen:\n-\n\nSchutzzonen:\n-\n\nKantonsstrasse betroffen: -\nStrassen:\n-\n\nBahnen:\n-\n\nGewässer betroffen: -\nGewässer:\n-\n\nWaldabstand: -\nSonderfall Entw.: -\nGrundwasserabsenkung geplant: -\nAWA: -\nAltlasten: -\nBauvorhaben im Wald: -\nHochwassergefährdung: -\nDenkmalschutz: -\nWanderwege: -\nOrtsbildschutz: -\nStörfallverordnung betroffen: -\nArchäologie: -\nVerkehr: -\nLärmschutz: -\nMaterialabbau: -\nAGV: -\nRadwege: -\n\nKanalisation: -\nFlächenverbrauch: -\nKoKo Datum: -\nKoKo-Status: -\nBeschluss Gem: -\nBeschluss Art: -\nVerzögerung durch: -\nBegründung: -\nNachträgliches Gesuch: -\n",
-              "user_id": 2,
-              "visibility": "own_organization"
-          }
-      ],
+      "journal": [],
       "keywords": [
           {
               "name": "2025-120",
@@ -19893,12 +19793,6 @@
           },
           {
               "date": null,
-              "document__form_id": "kantonale-pruefung",
-              "question_id": "kantonale-pruefung-migriert-von-ebau-extended",
-              "value": "Eingang AfB: -\nBearbeitungsfrist AfB: -\nGruppe: -\nGruppenbezeichnung: -\nSachbearbeiter: -\nVorläufiges Abschlussdatum: -\nAbschlusscode: -\nBearbeitungsdauer: -\n"
-          },
-          {
-              "date": null,
               "document__form_id": "parzelle-tabelle",
               "question_id": "gemeinde",
               "value": "55"
@@ -20275,14 +20169,6 @@
               "modification_date": "2025-07-24T22:00:00Z",
               "service_id": 55,
               "text": "FRIST                         \nVon: 25.07.2025               Bis: None                     Abgeschlossen: ✓              \nBemerkung: Manuelle Kontrolle Mapping\nGrund:                        \n",
-              "user_id": 2,
-              "visibility": "own_organization"
-          },
-          {
-              "creation_date": "2025-07-28T12:00:00Z",
-              "modification_date": "2025-07-28T12:00:00Z",
-              "service_id": 1,
-              "text": "AFB DATEN\n\nNutzungszonen:\n-\n\nSchutzzonen:\n-\n\nKantonsstrasse betroffen: -\nStrassen:\n-\n\nBahnen:\n-\n\nGewässer betroffen: -\nGewässer:\n-\n\nWaldabstand: -\nSonderfall Entw.: -\nGrundwasserabsenkung geplant: -\nAWA: -\nAltlasten: ✓\nBauvorhaben im Wald: -\nHochwassergefährdung: -\nDenkmalschutz: -\nWanderwege: -\nOrtsbildschutz: -\nStörfallverordnung betroffen: -\nArchäologie: -\nVerkehr: -\nLärmschutz: -\nMaterialabbau: -\nAGV: -\nRadwege: -\n\nKanalisation: -\nFlächenverbrauch: -\nKoKo Datum: -\nKoKo-Status: -\nBeschluss Gem: -\nBeschluss Art: -\nVerzögerung durch: -\nBegründung: -\nNachträgliches Gesuch: -\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -23448,12 +23334,6 @@
           },
           {
               "date": null,
-              "document__form_id": "kantonale-pruefung",
-              "question_id": "kantonale-pruefung-migriert-von-ebau-extended",
-              "value": "Eingang AfB: -\nBearbeitungsfrist AfB: -\nGruppe: -\nGruppenbezeichnung: -\nSachbearbeiter: -\nVorläufiges Abschlussdatum: -\nAbschlusscode: -\nBearbeitungsdauer: -\n"
-          },
-          {
-              "date": null,
               "document__form_id": "parzelle-tabelle",
               "question_id": "gemeinde",
               "value": "55"
@@ -23794,14 +23674,6 @@
               "modification_date": "2025-07-23T13:56:32Z",
               "service_id": 55,
               "text": "VERFAHRENSSTAND\nAktion: 'Dokumente auflegen'\nSchritt: 'Dokumente auflegen'\nWer: 'Markus Test Krause Test'\nKommentar: 'Siehe Dokumente'\n",
-              "user_id": 2,
-              "visibility": "own_organization"
-          },
-          {
-              "creation_date": "2025-07-28T12:00:00Z",
-              "modification_date": "2025-07-28T12:00:00Z",
-              "service_id": 1,
-              "text": "AFB DATEN\n\nNutzungszonen:\n-\n\nSchutzzonen:\n-\n\nKantonsstrasse betroffen: -\nStrassen:\n-\n\nBahnen:\n-\n\nGewässer betroffen: -\nGewässer:\n-\n\nWaldabstand: -\nSonderfall Entw.: -\nGrundwasserabsenkung geplant: -\nAWA: -\nAltlasten: -\nBauvorhaben im Wald: -\nHochwassergefährdung: -\nDenkmalschutz: -\nWanderwege: -\nOrtsbildschutz: -\nStörfallverordnung betroffen: -\nArchäologie: -\nVerkehr: -\nLärmschutz: -\nMaterialabbau: -\nAGV: -\nRadwege: -\n\nKanalisation: -\nFlächenverbrauch: -\nKoKo Datum: -\nKoKo-Status: -\nBeschluss Gem: -\nBeschluss Art: -\nVerzögerung durch: -\nBegründung: -\nNachträgliches Gesuch: -\n",
               "user_id": 2,
               "visibility": "own_organization"
           }
@@ -24414,12 +24286,6 @@
           },
           {
               "date": null,
-              "document__form_id": "kantonale-pruefung",
-              "question_id": "kantonale-pruefung-migriert-von-ebau-extended",
-              "value": "Eingang AfB: -\nBearbeitungsfrist AfB: -\nGruppe: -\nGruppenbezeichnung: -\nSachbearbeiter: -\nVorläufiges Abschlussdatum: -\nAbschlusscode: -\nBearbeitungsdauer: -\n"
-          },
-          {
-              "date": null,
               "document__form_id": "personalien-tabelle",
               "question_id": "e-mail-gesuchstellerin",
               "value": "Entwicklung.noReply@ag.ch"
@@ -24742,14 +24608,6 @@
               "modification_date": "2021-02-01T11:59:23Z",
               "service_id": 68,
               "text": "VERFAHRENSSTAND\nAktion: 'Verfügung erstellt'\nSchritt: 'Entscheid erfassen'\nWer: 'EBP Monitoring WFAS'\nKommentar: 'Bewilligung'\n",
-              "user_id": 2,
-              "visibility": "own_organization"
-          },
-          {
-              "creation_date": "2025-07-28T12:00:00Z",
-              "modification_date": "2025-07-28T12:00:00Z",
-              "service_id": 1,
-              "text": "AFB DATEN\n\nNutzungszonen:\n-\n\nSchutzzonen:\n-\n\nKantonsstrasse betroffen: -\nStrassen:\n-\n\nBahnen:\n-\n\nGewässer betroffen: -\nGewässer:\n-\n\nWaldabstand: -\nSonderfall Entw.: -\nGrundwasserabsenkung geplant: -\nAWA: -\nAltlasten: -\nBauvorhaben im Wald: -\nHochwassergefährdung: -\nDenkmalschutz: -\nWanderwege: -\nOrtsbildschutz: -\nStörfallverordnung betroffen: -\nArchäologie: -\nVerkehr: -\nLärmschutz: -\nMaterialabbau: -\nAGV: -\nRadwege: -\n\nKanalisation: -\nFlächenverbrauch: -\nKoKo Datum: -\nKoKo-Status: -\nBeschluss Gem: -\nBeschluss Art: -\nVerzögerung durch: -\nBegründung: -\nNachträgliches Gesuch: -\n",
               "user_id": 2,
               "visibility": "own_organization"
           }
@@ -26044,12 +25902,6 @@
           },
           {
               "date": null,
-              "document__form_id": "kantonale-pruefung",
-              "question_id": "kantonale-pruefung-migriert-von-ebau-extended",
-              "value": "Eingang AfB: -\nBearbeitungsfrist AfB: -\nGruppe: -\nGruppenbezeichnung: -\nSachbearbeiter: -\nVorläufiges Abschlussdatum: -\nAbschlusscode: -\nBearbeitungsdauer: -\n"
-          },
-          {
-              "date": null,
               "document__form_id": "parzelle-tabelle",
               "question_id": "gemeinde",
               "value": "55"
@@ -26332,16 +26184,7 @@
           "submit-date": "2025-01-31T00:00:00+0100"
       },
       "group": "support",
-      "journal": [
-          {
-              "creation_date": "2025-07-28T12:00:00Z",
-              "modification_date": "2025-07-28T12:00:00Z",
-              "service_id": 1,
-              "text": "AFB DATEN\n\nNutzungszonen:\n-\n\nSchutzzonen:\n-\n\nKantonsstrasse betroffen: -\nStrassen:\n-\n\nBahnen:\n-\n\nGewässer betroffen: -\nGewässer:\n-\n\nWaldabstand: -\nSonderfall Entw.: -\nGrundwasserabsenkung geplant: -\nAWA: -\nAltlasten: -\nBauvorhaben im Wald: -\nHochwassergefährdung: -\nDenkmalschutz: -\nWanderwege: -\nOrtsbildschutz: -\nStörfallverordnung betroffen: -\nArchäologie: -\nVerkehr: -\nLärmschutz: -\nMaterialabbau: -\nAGV: -\nRadwege: -\n\nKanalisation: -\nFlächenverbrauch: -\nKoKo Datum: -\nKoKo-Status: -\nBeschluss Gem: -\nBeschluss Art: -\nVerzögerung durch: -\nBegründung: -\nNachträgliches Gesuch: -\n",
-              "user_id": 2,
-              "visibility": "own_organization"
-          }
-      ],
+      "journal": [],
       "keywords": [
           {
               "name": "2025-120",
@@ -27092,12 +26935,6 @@
           },
           {
               "date": null,
-              "document__form_id": "kantonale-pruefung",
-              "question_id": "kantonale-pruefung-migriert-von-ebau-extended",
-              "value": "Eingang AfB: -\nBearbeitungsfrist AfB: -\nGruppe: -\nGruppenbezeichnung: -\nSachbearbeiter: -\nVorläufiges Abschlussdatum: -\nAbschlusscode: -\nBearbeitungsdauer: -\n"
-          },
-          {
-              "date": null,
               "document__form_id": "parzelle-tabelle",
               "question_id": "gemeinde",
               "value": "55"
@@ -27474,14 +27311,6 @@
               "modification_date": "2025-07-24T22:00:00Z",
               "service_id": 55,
               "text": "FRIST                         \nVon: 25.07.2025               Bis: None                     Abgeschlossen: ✓              \nBemerkung: Manuelle Kontrolle Mapping\nGrund:                        \n",
-              "user_id": 2,
-              "visibility": "own_organization"
-          },
-          {
-              "creation_date": "2025-07-28T12:00:00Z",
-              "modification_date": "2025-07-28T12:00:00Z",
-              "service_id": 1,
-              "text": "AFB DATEN\n\nNutzungszonen:\n-\n\nSchutzzonen:\n-\n\nKantonsstrasse betroffen: -\nStrassen:\n-\n\nBahnen:\n-\n\nGewässer betroffen: -\nGewässer:\n-\n\nWaldabstand: -\nSonderfall Entw.: -\nGrundwasserabsenkung geplant: -\nAWA: -\nAltlasten: ✓\nBauvorhaben im Wald: -\nHochwassergefährdung: -\nDenkmalschutz: -\nWanderwege: -\nOrtsbildschutz: -\nStörfallverordnung betroffen: -\nArchäologie: -\nVerkehr: -\nLärmschutz: -\nMaterialabbau: -\nAGV: -\nRadwege: -\n\nKanalisation: -\nFlächenverbrauch: -\nKoKo Datum: -\nKoKo-Status: -\nBeschluss Gem: -\nBeschluss Art: -\nVerzögerung durch: -\nBegründung: -\nNachträgliches Gesuch: -\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
