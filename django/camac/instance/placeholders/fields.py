@@ -195,10 +195,10 @@ class BillingEntriesField(AliasedMixin, serializers.ReadOnlyField):
             "GESAMTKOSTEN": [_("BILLING_ENTRY_TOTAL_COST")],
             "BERECHNUNG": [_("BILLING_ENTRY_CALCULATION")],
             "MEHRWERTSTEUER": [_("BILLING_ENTRY_VAT")],
-            "ART": [_("BILLING_ENTRY_ORGANISATION")],
+            "ART": [_("BILLING_ENTRY_TYPE")],
             "VERRECHNUNG": [_("BILLING_ENTRY_BILLING_TYPE")],
             "BEMERKUNG": [_("BILLING_ENTRY_REMARK")],
-            "ORGANISATION": [_("BILLING_ENTRY_SERVICE")],
+            "ORGANISATION": [_("BILLING_ENTRY_ORGANISATION")],
         }
 
         return {
