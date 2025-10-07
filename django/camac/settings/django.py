@@ -114,6 +114,7 @@ INSTALLED_APPS = [
     "camac.billing.apps.BillingConfig",
     "camac.eeba_integration.apps.EebaIntegrationConfig",
     "camac.gever.apps.GEVERConfig",
+    "camac.alert_message.apps.AlertMessageConfig",
     "sorl.thumbnail",
     "django_clamd",
     "django_q",

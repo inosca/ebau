@@ -89,12 +89,14 @@ DJANGO_ADMIN = {
             "ech0211.Message",
             "django_celery_beat.PeriodicTask",
             "django_celery_beat.CrontabSchedule",
+            "alert_message.AlertMessage",
         ],
         "CUSTOMER_MANAGED_MODELS": [
             "billing.BillingV2EntryTemplate",
             "work_items.WorkItemTemplate",
             "work_items.WorkItemListFilterPreset",
             "deadlines.DeadlineType",
+            "alert_message.AlertMessage",
         ],
     },
 }

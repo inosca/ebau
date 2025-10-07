@@ -39,6 +39,7 @@ from pytest_factoryboy.fixture import Box, get_model_name
 from rest_framework import status
 from rest_framework.test import APIClient, APIRequestFactory
 
+from camac.alert_message import factories as alert_message_factories
 from camac.applicants import factories as applicant_factories
 from camac.billing import factories as billing_factories
 from camac.caluma.utils import CalumaInfo
@@ -128,6 +129,7 @@ register_module(sanction_factories)
 register_module(work_items_factories)
 register_module(rulesets_factories)
 register_module(deadlines_factories)
+register_module(alert_message_factories)
 
 # do not register alexandria factories, as there are too many conflicts
 

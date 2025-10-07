@@ -1,0 +1,15 @@
+{{#if (gt this.count 0)}}
+  <a
+    href="#"
+    title="{{t 'alert-message.title'}}"
+    {{on "click" this.showAlertMessages}}
+  >
+    <FaIcon @icon="triangle-exclamation" class="uk-text-warning" @size="xl" />
+  </a>
+
+  <AlertMessagesModal
+    @messages={{this.messages}}
+    @visible={{this.showModal}}
+    @onHide={{this.hideModal}}
+  />
+{{/if}}
