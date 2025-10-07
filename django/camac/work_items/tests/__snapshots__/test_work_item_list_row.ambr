@@ -215,6 +215,222 @@
     }),
   })
 # ---
+# name: test_work_item_list_row_list[gr]
+  dict({
+    'data': list([
+      dict({
+        'attributes': dict({
+          'applicants': 'Test AG',
+          'closed-at': None,
+          'deadline': '2025-01-01T01:00:00+01:00',
+          'description': 'Einfamilienhaus',
+          'direct-link': None,
+          'edit-link': dict({
+            'models': list([
+              '<INSTANCE_ID>',
+              '7369d1b4-dc31-466b-8eb5-adb387939c30',
+            ]),
+            'route': 'cases.detail.work-items.edit',
+          }),
+          'instance-id': '<INSTANCE_ID>',
+          'instance-name': 'Baugesuch',
+          'is-addressed-to-current-service': True,
+          'is-assigned-to-current-user': False,
+          'is-controlled-by-current-service': False,
+          'is-created-by-current-service': False,
+          'is-manually-completable': False,
+          'is-ready': True,
+          'is-suspended': False,
+          'municipality': 'Chur',
+          'special-id': '2023-1',
+          'status': 'ready',
+          'task': 'from-template-and-read',
+          'unread': False,
+        }),
+        'id': '7369d1b4-dc31-466b-8eb5-adb387939c30',
+        'relationships': dict({
+          'addressed-service': dict({
+            'data': dict({
+              'id': '<SERVICE_ID>',
+              'type': 'public-services',
+            }),
+          }),
+          'assigned-user': dict({
+            'data': None,
+          }),
+          'closed-by-user': dict({
+            'data': None,
+          }),
+        }),
+        'type': 'work-item-list-rows',
+      }),
+      dict({
+        'attributes': dict({
+          'applicants': 'Test AG',
+          'closed-at': None,
+          'deadline': '2025-01-02T01:00:00+01:00',
+          'description': 'Einfamilienhaus',
+          'direct-link': dict({
+            'models': list([
+              '<INSTANCE_ID>',
+              'owner-car-kitchen',
+              'no-placeholder',
+            ]),
+            'route': 'foo.bar.baz',
+          }),
+          'edit-link': dict({
+            'models': list([
+              '<INSTANCE_ID>',
+              'a98d35fc-c5a6-4cfd-8262-caf205d14da5',
+            ]),
+            'route': 'cases.detail.work-items.edit',
+          }),
+          'instance-id': '<INSTANCE_ID>',
+          'instance-name': 'Baugesuch',
+          'is-addressed-to-current-service': True,
+          'is-assigned-to-current-user': False,
+          'is-controlled-by-current-service': False,
+          'is-created-by-current-service': False,
+          'is-manually-completable': False,
+          'is-ready': True,
+          'is-suspended': False,
+          'municipality': 'Chur',
+          'special-id': '2023-1',
+          'status': 'ready',
+          'task': 'from-task',
+          'unread': True,
+        }),
+        'id': 'a98d35fc-c5a6-4cfd-8262-caf205d14da5',
+        'relationships': dict({
+          'addressed-service': dict({
+            'data': dict({
+              'id': '<SERVICE_ID>',
+              'type': 'public-services',
+            }),
+          }),
+          'assigned-user': dict({
+            'data': None,
+          }),
+          'closed-by-user': dict({
+            'data': None,
+          }),
+        }),
+        'type': 'work-item-list-rows',
+      }),
+      dict({
+        'attributes': dict({
+          'applicants': 'Test AG',
+          'closed-at': None,
+          'deadline': '2025-01-03T01:00:00+01:00',
+          'description': 'Einfamilienhaus',
+          'direct-link': None,
+          'edit-link': dict({
+            'models': list([
+              '<INSTANCE_ID>',
+              '898139ce-ac32-4af1-b5e6-87f940795987',
+            ]),
+            'route': 'cases.detail.work-items.edit',
+          }),
+          'instance-id': '<INSTANCE_ID>',
+          'instance-name': 'Baugesuch',
+          'is-addressed-to-current-service': True,
+          'is-assigned-to-current-user': False,
+          'is-controlled-by-current-service': False,
+          'is-created-by-current-service': False,
+          'is-manually-completable': False,
+          'is-ready': True,
+          'is-suspended': False,
+          'municipality': 'Chur',
+          'special-id': '2023-1',
+          'status': 'ready',
+          'task': 'assigned',
+          'unread': True,
+        }),
+        'id': '898139ce-ac32-4af1-b5e6-87f940795987',
+        'relationships': dict({
+          'addressed-service': dict({
+            'data': dict({
+              'id': '<SERVICE_ID>',
+              'type': 'public-services',
+            }),
+          }),
+          'assigned-user': dict({
+            'data': dict({
+              'id': '<USER_ID>',
+              'type': 'public-users',
+            }),
+          }),
+          'closed-by-user': dict({
+            'data': None,
+          }),
+        }),
+        'type': 'work-item-list-rows',
+      }),
+      dict({
+        'attributes': dict({
+          'applicants': 'Test AG',
+          'closed-at': '2025-07-17T16:33:00+02:00',
+          'deadline': '2025-01-04T01:00:00+01:00',
+          'description': 'Einfamilienhaus',
+          'direct-link': None,
+          'edit-link': dict({
+            'models': list([
+              '<INSTANCE_ID>',
+              '149d3df0-25dd-4860-8097-723c40f5b623',
+            ]),
+            'route': 'cases.detail.work-items.edit',
+          }),
+          'instance-id': '<INSTANCE_ID>',
+          'instance-name': 'Baugesuch',
+          'is-addressed-to-current-service': True,
+          'is-assigned-to-current-user': False,
+          'is-controlled-by-current-service': False,
+          'is-created-by-current-service': False,
+          'is-manually-completable': False,
+          'is-ready': False,
+          'is-suspended': False,
+          'municipality': 'Chur',
+          'special-id': '2023-1',
+          'status': 'completed',
+          'task': 'completed',
+          'unread': True,
+        }),
+        'id': '149d3df0-25dd-4860-8097-723c40f5b623',
+        'relationships': dict({
+          'addressed-service': dict({
+            'data': dict({
+              'id': '<SERVICE_ID>',
+              'type': 'public-services',
+            }),
+          }),
+          'assigned-user': dict({
+            'data': None,
+          }),
+          'closed-by-user': dict({
+            'data': dict({
+              'id': '<USER_ID>',
+              'type': 'public-users',
+            }),
+          }),
+        }),
+        'type': 'work-item-list-rows',
+      }),
+    ]),
+    'links': dict({
+      'first': 'http://testserver/api/v1/work-item-list-rows?page%5Bnumber%5D=1&page%5Bsize%5D=20&role=active',
+      'last': 'http://testserver/api/v1/work-item-list-rows?page%5Bnumber%5D=1&page%5Bsize%5D=20&role=active',
+      'next': None,
+      'prev': None,
+    }),
+    'meta': dict({
+      'pagination': dict({
+        'count': 4,
+        'page': 1,
+        'pages': 1,
+      }),
+    }),
+  })
+# ---
 # name: test_work_item_list_row_list[so]
   dict({
     'data': list([

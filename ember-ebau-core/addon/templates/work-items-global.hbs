@@ -9,7 +9,7 @@
         @options={{this.allResponsibles.value}}
         @selected={{this.responsible}}
         @onChange={{this.setFilter}}
-        class="uk-width-medium"
+        class="uk-width-1-5"
       />
       <Filter.RadioButtons
         @name="type"
@@ -54,16 +54,26 @@
         @onChange={{this.setFilter}}
       />
       {{#if this.workItemListConfig.showTaskFilter}}
-        <Filter.Select
-          @name="task"
-          @searchEnabled={{true}}
-          @searchField="label"
-          @label={{t "workItems.filters.task.title"}}
-          @options={{this.availableTasks}}
-          @selected={{this.task}}
-          @onChange={{this.setFilter}}
-          class="uk-width-large"
-        />
+        {{#if this.workItemListConfig.taskFilterAsDropdown}}
+          <Filter.Select
+            @name="task"
+            @searchEnabled={{true}}
+            @searchField="label"
+            @label={{t "workItems.filters.task.title"}}
+            @options={{this.availableTasks}}
+            @selected={{this.task}}
+            @onChange={{this.setFilter}}
+            class="uk-width-large"
+          />
+        {{else}}
+          <Filter.RadioButtons
+            @name="task"
+            @label={{t "workItems.filters.task.title"}}
+            @selected={{this.task}}
+            @options={{this.availableTasks}}
+            @onChange={{this.setFilter}}
+          />
+        {{/if}}
       {{/if}}
     </Filters>
 

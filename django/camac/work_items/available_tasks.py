@@ -62,14 +62,17 @@ def get_task_options(
     if preset and preset.prefilter_tasks:
         tasks = tasks.filter(pk__in=preset.tasks.all())
 
-    return [
-        {
-            "id": task.pk,
-            "label": str(task.name),
-            "count": getattr(task, "count", None),
-        }
-        for task in tasks
-    ]
+    return sorted(
+        [
+            {
+                "id": task.pk,
+                "label": str(task.name),
+                "count": getattr(task, "count", None),
+            }
+            for task in tasks
+        ],
+        key=lambda t: task_slugs.index(t["id"]),
+    )
 
 
 def get_template_options(
@@ -135,10 +138,12 @@ def get_options(
         else None
     )
 
-    return sorted(
-        [
-            *get_task_options(group, work_items, preset),
-            *get_template_options(group, work_items, preset),
-        ],
-        key=lambda option: locale.strxfrm(option["label"]),
-    )
+    options = get_task_options(group, work_items, preset)
+
+    if settings.WORK_ITEM_LIST.available_tasks_include_templates:
+        options = sorted(
+            [*options, *get_template_options(group, work_items, preset)],
+            key=lambda option: locale.strxfrm(option["label"]),
+        )
+
+    return options

@@ -41,4 +41,20 @@ WORK_ITEM_LIST = ModuleConfig[WorkItemListConfig](
             applicants=None,
         ),
     ),
+    kt_gr=WorkItemListConfig(
+        enabled=True,
+        available_tasks_for_role={
+            "municipality": [
+                "formal-exam",
+                "publication",
+                "init-distribution",
+                "check-inquiries",
+                "decision",
+                "construction-acceptance",
+            ],
+            "service": ["inquiry", "check-inquiries", "check-additional-demand"],
+            "subservice": ["inquiry"],
+            "uso": ["inquiry"],
+        },
+    ),
 )
