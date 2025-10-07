@@ -270,6 +270,7 @@ def test_user_admin_for_service_filter(
             "geometer-admin",
             "municipality-admin",
             "service-admin",
+            "legal-authority-admin",
         ]
     ]
 

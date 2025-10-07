@@ -442,6 +442,8 @@ class UserFilterSet(FilterSet):
                 "geometer-admin",
                 "municipality-admin",
                 "service-admin",
+                # Kt. Bern Rechtsmittelbehörde
+                "legal-authority-admin",
             ],
         )
 
