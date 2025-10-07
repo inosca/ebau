@@ -1193,7 +1193,7 @@ def test_notification_validate_slug_create(admin_client, notification_template):
     assert response.status_code == status.HTTP_400_BAD_REQUEST
     assert (
         response.data[0]["detail"]
-        == "Vorlage für Benachrichtigung mit diesem slug existiert bereits."
+        == "Vorlage für Benachrichtigung mit diesem Wert für das Feld slug existiert bereits."
     )
 
 
