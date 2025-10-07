@@ -178,6 +178,14 @@
           {
               "date": null,
               "document__form_id": "baugesuch-migration",
+              "question_id": "art-des-gesuchs",
+              "value": [
+                  "art-des-gesuchs-baugesuch"
+              ]
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
               "question_id": "baugespann",
               "value": "baugespann-ja"
           },
@@ -1222,6 +1230,14 @@
               "document__form_id": "inquiry",
               "question_id": "inquiry-deadline",
               "value": null
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
+              "question_id": "art-des-gesuchs",
+              "value": [
+                  "art-des-gesuchs-baugesuch"
+              ]
           },
           {
               "date": null,
@@ -2282,6 +2298,14 @@
               "document__form_id": "entscheid",
               "question_id": "entscheid-datum",
               "value": null
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
+              "question_id": "art-des-gesuchs",
+              "value": [
+                  "art-des-gesuchs-baugesuch"
+              ]
           },
           {
               "date": null,
@@ -3481,6 +3505,14 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "anzahl-neue-parkplaetze-migration",
               "value": "1"
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
+              "question_id": "art-des-gesuchs",
+              "value": [
+                  "art-des-gesuchs-pgv"
+              ]
           },
           {
               "date": null,
@@ -5213,6 +5245,14 @@
           {
               "date": null,
               "document__form_id": "baugesuch-migration",
+              "question_id": "art-des-gesuchs",
+              "value": [
+                  "art-des-gesuchs-baugesuch"
+              ]
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
               "question_id": "baugespann",
               "value": "baugespann-nein"
           },
@@ -6062,6 +6102,21 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "anzahl-neue-parkplaetze-migration",
               "value": "1"
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
+              "question_id": "art-des-gesuchs",
+              "value": [
+                  "art-des-gesuchs-abbruch",
+                  "art-des-gesuchs-anfrage",
+                  "art-des-gesuchs-baugesuch",
+                  "art-des-gesuchs-reklame",
+                  "art-des-gesuchs-rodung",
+                  "art-des-gesuchs-umnutzung",
+                  "art-des-gesuchs-umweltvertraeglichkeitspruefung-uvp",
+                  "art-des-gesuchs-vorentscheid"
+              ]
           },
           {
               "date": null,
@@ -6981,6 +7036,14 @@
           {
               "date": null,
               "document__form_id": "baugesuch-migration",
+              "question_id": "art-des-gesuchs",
+              "value": [
+                  "art-des-gesuchs-pgv"
+              ]
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
               "question_id": "baugespann",
               "value": "baugespann-nein"
           },
@@ -7807,6 +7870,14 @@
           {
               "date": null,
               "document__form_id": "baugesuch-migration",
+              "question_id": "art-des-gesuchs",
+              "value": [
+                  "art-des-gesuchs-baugesuch"
+              ]
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
               "question_id": "baugespann",
               "value": "baugespann-nein"
           },
@@ -8556,6 +8627,14 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "anzahl-neue-parkplaetze-migration",
               "value": "4"
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
+              "question_id": "art-des-gesuchs",
+              "value": [
+                  "art-des-gesuchs-baugesuch"
+              ]
           },
           {
               "date": null,
@@ -9707,6 +9786,14 @@
           {
               "date": null,
               "document__form_id": "baugesuch-migration",
+              "question_id": "art-des-gesuchs",
+              "value": [
+                  "art-des-gesuchs-baugesuch"
+              ]
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
               "question_id": "baugespann",
               "value": "baugespann-ja"
           },
@@ -10623,6 +10710,14 @@
               "document__form_id": "entscheid",
               "question_id": "entscheid-datum",
               "value": null
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
+              "question_id": "art-des-gesuchs",
+              "value": [
+                  "art-des-gesuchs-baugesuch"
+              ]
           },
           {
               "date": null,
@@ -11814,6 +11909,14 @@
           {
               "date": null,
               "document__form_id": "baugesuch-migration",
+              "question_id": "art-des-gesuchs",
+              "value": [
+                  "art-des-gesuchs-baugesuch"
+              ]
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
               "question_id": "baugespann",
               "value": "baugespann-ja"
           },
@@ -12870,6 +12973,14 @@
               "document__form_id": "entscheid",
               "question_id": "entscheid-datum",
               "value": null
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
+              "question_id": "art-des-gesuchs",
+              "value": [
+                  "art-des-gesuchs-baugesuch"
+              ]
           },
           {
               "date": null,
@@ -14069,6 +14180,14 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "anzahl-neue-parkplaetze-migration",
               "value": "1"
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
+              "question_id": "art-des-gesuchs",
+              "value": [
+                  "art-des-gesuchs-pgv"
+              ]
           },
           {
               "date": null,
@@ -15801,6 +15920,14 @@
           {
               "date": null,
               "document__form_id": "baugesuch-migration",
+              "question_id": "art-des-gesuchs",
+              "value": [
+                  "art-des-gesuchs-baugesuch"
+              ]
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
               "question_id": "baugespann",
               "value": "baugespann-nein"
           },
@@ -16650,6 +16777,21 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "anzahl-neue-parkplaetze-migration",
               "value": "1"
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
+              "question_id": "art-des-gesuchs",
+              "value": [
+                  "art-des-gesuchs-abbruch",
+                  "art-des-gesuchs-anfrage",
+                  "art-des-gesuchs-baugesuch",
+                  "art-des-gesuchs-reklame",
+                  "art-des-gesuchs-rodung",
+                  "art-des-gesuchs-umnutzung",
+                  "art-des-gesuchs-umweltvertraeglichkeitspruefung-uvp",
+                  "art-des-gesuchs-vorentscheid"
+              ]
           },
           {
               "date": null,
@@ -17569,6 +17711,14 @@
           {
               "date": null,
               "document__form_id": "baugesuch-migration",
+              "question_id": "art-des-gesuchs",
+              "value": [
+                  "art-des-gesuchs-pgv"
+              ]
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
               "question_id": "baugespann",
               "value": "baugespann-nein"
           },
@@ -18395,6 +18545,14 @@
           {
               "date": null,
               "document__form_id": "baugesuch-migration",
+              "question_id": "art-des-gesuchs",
+              "value": [
+                  "art-des-gesuchs-baugesuch"
+              ]
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
               "question_id": "baugespann",
               "value": "baugespann-nein"
           },
@@ -19144,6 +19302,14 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "anzahl-neue-parkplaetze-migration",
               "value": "4"
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
+              "question_id": "art-des-gesuchs",
+              "value": [
+                  "art-des-gesuchs-baugesuch"
+              ]
           },
           {
               "date": null,
@@ -20295,6 +20461,14 @@
           {
               "date": null,
               "document__form_id": "baugesuch-migration",
+              "question_id": "art-des-gesuchs",
+              "value": [
+                  "art-des-gesuchs-baugesuch"
+              ]
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
               "question_id": "baugespann",
               "value": "baugespann-ja"
           },
@@ -21211,6 +21385,14 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "anzahl-neue-parkplaetze-migration",
               "value": "1"
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
+              "question_id": "art-des-gesuchs",
+              "value": [
+                  "art-des-gesuchs-pgv"
+              ]
           },
           {
               "date": null,
@@ -22943,6 +23125,14 @@
           {
               "date": null,
               "document__form_id": "baugesuch-migration",
+              "question_id": "art-des-gesuchs",
+              "value": [
+                  "art-des-gesuchs-baugesuch"
+              ]
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
               "question_id": "baugespann",
               "value": "baugespann-nein"
           },
@@ -23792,6 +23982,21 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "anzahl-neue-parkplaetze-migration",
               "value": "1"
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
+              "question_id": "art-des-gesuchs",
+              "value": [
+                  "art-des-gesuchs-abbruch",
+                  "art-des-gesuchs-anfrage",
+                  "art-des-gesuchs-baugesuch",
+                  "art-des-gesuchs-reklame",
+                  "art-des-gesuchs-rodung",
+                  "art-des-gesuchs-umnutzung",
+                  "art-des-gesuchs-umweltvertraeglichkeitspruefung-uvp",
+                  "art-des-gesuchs-vorentscheid"
+              ]
           },
           {
               "date": null,
@@ -24711,6 +24916,14 @@
           {
               "date": null,
               "document__form_id": "baugesuch-migration",
+              "question_id": "art-des-gesuchs",
+              "value": [
+                  "art-des-gesuchs-pgv"
+              ]
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
               "question_id": "baugespann",
               "value": "baugespann-nein"
           },
@@ -25537,6 +25750,14 @@
           {
               "date": null,
               "document__form_id": "baugesuch-migration",
+              "question_id": "art-des-gesuchs",
+              "value": [
+                  "art-des-gesuchs-baugesuch"
+              ]
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
               "question_id": "baugespann",
               "value": "baugespann-nein"
           },
@@ -26286,6 +26507,14 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "anzahl-neue-parkplaetze-migration",
               "value": "4"
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
+              "question_id": "art-des-gesuchs",
+              "value": [
+                  "art-des-gesuchs-baugesuch"
+              ]
           },
           {
               "date": null,
@@ -27433,6 +27662,14 @@
               "document__form_id": "kantonale-pruefung",
               "question_id": "kantonale-pruefung-frist",
               "value": null
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
+              "question_id": "art-des-gesuchs",
+              "value": [
+                  "art-des-gesuchs-baugesuch"
+              ]
           },
           {
               "date": null,
