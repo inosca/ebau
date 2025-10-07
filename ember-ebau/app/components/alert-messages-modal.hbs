@@ -1,0 +1,43 @@
+{{#if @visible}}
+  <UkModal
+    @visible={{@visible}}
+    @onHide={{@onHide}}
+    @dialogClass="uk-width-large"
+    as |modal|
+  >
+
+    <modal.body>
+      {{#if this.isLoading}}
+        <div class="uk-text-center uk-padding">
+          <UkSpinner @ratio="2" />
+        </div>
+      {{else if @messages.length}}
+        {{#each @messages as |message index|}}
+          <div class="alert-message-item">
+            <div class="uk-margin-top uk-margin-small-bottom">
+              <MarkdownToHtml
+                class="markdown-content"
+                @markdown={{message.message}}
+                @extensions="DOMPurify"
+              />
+            </div>
+            <div class="uk-text-right uk-text-meta">
+              {{format-date message.createdAt format="date"}}
+            </div>
+            {{#if (not-eq index (sub @messages.length 1))}}
+              <hr class="uk-margin" />
+            {{/if}}
+          </div>
+        {{/each}}
+      {{/if}}
+    </modal.body>
+
+    <modal.footer class="uk-text-right">
+      <UkButton
+        @color="primary"
+        @label="{{t 'global.close'}}"
+        @onClick={{@onHide}}
+      />
+    </modal.footer>
+  </UkModal>
+{{/if}}
