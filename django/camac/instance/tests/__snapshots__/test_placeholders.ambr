@@ -532,6 +532,7 @@
       }),
     ]),
     'GEBUEHREN_TOTAL': '2’213.39',
+    'GEBUEHREN_TOTAL_NICHT_VERRECHNET': '2’213.39',
     'GEFAEHRLICHE_STOFFE': list([
       dict({
         'BETRAG': 500,
@@ -1617,6 +1618,7 @@
         'BEMERKUNG': 'Nr. 1234',
         'BETRAG': '200.00',
         'POSITION': 'Nutzungsbewilligung',
+        'VERRECHNET_AM': '',
       }),
     ]),
     'EIGENE_GEBUEHREN_TOTAL': '200.00',
@@ -1628,9 +1630,11 @@
         'BEMERKUNG': 'Nr. 1234',
         'BETRAG': '200.00',
         'POSITION': 'Nutzungsbewilligung',
+        'VERRECHNET_AM': '',
       }),
     ]),
     'GEBUEHREN_TOTAL': '200.00',
+    'GEBUEHREN_TOTAL_NICHT_VERRECHNET': '200.00',
     'GEMEINDE': 'Aarburg',
     'GEMEINDE_ADRESSE': 'Rogersshire',
     'GEMEINDE_EMAIL': 'jocelyn77@example.org',
@@ -1727,6 +1731,1365 @@
     'ZUSTAENDIG_POSITION': 'Projektleiter',
     'ZUSTAENDIG_TELEFON': '012 345 67 89',
     'ZUSTAENDIG_TITEL': 'Master of Science',
+  })
+# ---
+# name: test_dms_placeholders_docs[ag_dms_config]
+  dict({
+    'ADDRESS': dict({
+      'aliases': list([
+        dict({
+          'de': 'ADRESSE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Adresse des betroffenen Grundstückes',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ALLE_GESUCHSTELLER': dict({
+      'aliases': list([
+        dict({
+          'de': 'ALLE_GESUCHSTELLER',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Namen aller Gesuchsteller/innen',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ALLE_GESUCHSTELLER_NAME_ADDRESS': dict({
+      'aliases': list([
+        dict({
+          'de': 'ALLE_GESUCHSTELLER_NAME_ADRESSE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Namen und Adressen aller Gesuchsteller/innen',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ALLE_GESUCHSTELLER_REFERENZNUMMER': dict({
+      'aliases': list([
+        dict({
+          'de': 'ALLE_GESUCHSTELLER_REFERENZNUMMER',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Referenznummern aller Gesuchsteller/innen',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ALLE_GRUNDEIGENTUEMER': dict({
+      'aliases': list([
+        dict({
+          'de': 'ALLE_GRUNDEIGENTUEMER',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Namen aller Grundeigentümer/innen',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ALLE_GRUNDEIGENTUEMER_NAME_ADDRESS': dict({
+      'aliases': list([
+        dict({
+          'de': 'ALLE_GRUNDEIGENTUEMER_NAME_ADRESSE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Namen und Adressen aller Grundeigentümer/innen',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ALLE_PROJEKTVERFASSER': dict({
+      'aliases': list([
+        dict({
+          'de': 'ALLE_PROJEKTVERFASSER',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Namen aller Projektverfasser/innen',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ALLE_PROJEKTVERFASSER_NAME_ADDRESS': dict({
+      'aliases': list([
+        dict({
+          'de': 'ALLE_PROJEKTVERFASSER_NAME_ADRESSE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Namen und Adressen aller Projektverfasser/innen',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ALLE_VERTRETER': dict({
+      'aliases': list([
+        dict({
+          'de': 'ALLE_VERTRETER',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Namen aller Vertreter/innen',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ALLE_VERTRETER_NAME_ADDRESS': dict({
+      'aliases': list([
+        dict({
+          'de': 'ALLE_VERTRETER_NAME_ADRESSE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Namen und Adressen aller Vertreter/innen',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ANGEMELDET_EMAIL': dict({
+      'aliases': list([
+        dict({
+          'de': 'ANGEMELDET_EMAIL',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Email-Adresse des/r momentan angemeldeten Benutzer/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ANGEMELDET_MOBILE': dict({
+      'aliases': list([
+        dict({
+          'de': 'ANGEMELDET_MOBILE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Mobilenummer des/r momentan angemeldeten Benutzer/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ANGEMELDET_NAME': dict({
+      'aliases': list([
+        dict({
+          'de': 'ANGEMELDET_NAME',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Name des/r momentan angemeldeten Benutzer/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ANGEMELDET_POSITION': dict({
+      'aliases': list([
+        dict({
+          'de': 'ANGEMELDET_POSITION',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Position des/r momentan angemeldeten Benutzer/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ANGEMELDET_TELEFON': dict({
+      'aliases': list([
+        dict({
+          'de': 'ANGEMELDET_TELEFON',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Telefonnummer des/r momentan angemeldeten Benutzer/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ANGEMELDET_TITEL': dict({
+      'aliases': list([
+        dict({
+          'de': 'ANGEMELDET_TITEL',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Titel des/r momentan angemeldeten Benutzer/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'AUSWAERTIGE_ANSTOESSER': dict({
+      'aliases': list([
+        dict({
+          'de': 'AUSWAERTIGE_ANSTOESSER',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Auswärtige Anstösser',
+      }),
+      'nested_aliases': dict({
+        'ADDRESS_1': list([
+          dict({
+            'de': 'ADRESSE_1',
+          }),
+        ]),
+        'ADDRESS_2': list([
+          dict({
+            'de': 'ADRESSE_2',
+          }),
+        ]),
+        'NAME': list([
+          dict({
+            'de': 'NAME',
+          }),
+        ]),
+      }),
+    }),
+    'BASE_URL': dict({
+      'aliases': list([
+        dict({
+          'de': 'EBAU_URL',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Die URL vom eBau-System',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'BAUEINGABE_DATUM': dict({
+      'aliases': list([
+        dict({
+          'de': 'BAUEINGABE_DATUM',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Datum an dem das Dossier eingereicht wurde',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'BAUKOSTEN': dict({
+      'aliases': list([
+        dict({
+          'de': 'BAUKOSTEN',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Baukosten',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'BESCHREIBUNG_BAUVORHABEN': dict({
+      'aliases': list([
+        dict({
+          'de': 'BESCHREIBUNG_BAUVORHABEN',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Beschreibung des Bauvorhabens',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'DECISION_DATE': dict({
+      'aliases': list([
+        dict({
+          'de': 'BAUENTSCHEID_DATUM',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Datum des Bauentscheids',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'DESCRIPTION_MODIFICATION': dict({
+      'aliases': list([
+        dict({
+          'de': 'BESCHREIBUNG_PROJEKTAENDERUNG',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Projektänderung',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'DOSSIER_NUMBER': dict({
+      'aliases': list([
+        dict({
+          'de': 'DOSSIER_NUMMER',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Die Nummer des Dossiers',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'EIGENE_GEBUEHREN': dict({
+      'aliases': list([
+        dict({
+          'de': 'EIGENE_GEBUEHREN',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Eigene Gebühren des Dossiers',
+      }),
+      'nested_aliases': dict({
+        'BEMERKUNG': list([
+          dict({
+            'de': 'BEMERKUNG',
+          }),
+        ]),
+        'BETRAG': list([
+          dict({
+            'de': 'BETRAG',
+          }),
+        ]),
+        'POSITION': list([
+          dict({
+            'de': 'POSITION',
+          }),
+        ]),
+        'VERRECHNET_AM': list([
+          dict({
+            'de': 'VERRECHNET_AM',
+          }),
+        ]),
+      }),
+    }),
+    'EIGENE_GEBUEHREN_TOTAL': dict({
+      'aliases': list([
+        dict({
+          'de': 'EIGENE_GEBUEHREN_TOTAL',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Totalbetrag aller eigenen Gebühren des Dossiers',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'FACHSTELLEN_KANTONAL': dict({
+      'aliases': list([
+        dict({
+          'de': 'ZIRKULATION_ALLE',
+        }),
+        dict({
+          'de': 'FACHSTELLEN_KANTONAL',
+        }),
+      ]),
+      'description': dict({
+        'de': 'In Dossier involvierte Stellen',
+      }),
+      'nested_aliases': dict({
+        'BEANTWORTET': list([
+          dict({
+            'de': 'BEANTWORTET',
+          }),
+        ]),
+        'ERSTELLT': list([
+          dict({
+            'de': 'ERSTELLT',
+          }),
+        ]),
+        'FRIST': list([
+          dict({
+            'de': 'FRIST',
+          }),
+        ]),
+        'NAME': list([
+          dict({
+            'de': 'NAME',
+          }),
+        ]),
+      }),
+    }),
+    'FORM_NAME': dict({
+      'aliases': list([
+        dict({
+          'de': 'DOSSIER_TYP',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Typ des Dossiers',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'GEBUEHREN': dict({
+      'aliases': list([
+        dict({
+          'de': 'GEBUEHREN',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Gebühren des Dossiers',
+      }),
+      'nested_aliases': dict({
+        'BEMERKUNG': list([
+          dict({
+            'de': 'BEMERKUNG',
+          }),
+        ]),
+        'BETRAG': list([
+          dict({
+            'de': 'BETRAG',
+          }),
+        ]),
+        'POSITION': list([
+          dict({
+            'de': 'POSITION',
+          }),
+        ]),
+        'VERRECHNET_AM': list([
+          dict({
+            'de': 'VERRECHNET_AM',
+          }),
+        ]),
+      }),
+    }),
+    'GEBUEHREN_TOTAL': dict({
+      'aliases': list([
+        dict({
+          'de': 'GEBUEHREN_TOTAL',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Totalbetrag aller Gebühren des Dossiers',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'GEBUEHREN_TOTAL_NICHT_VERRECHNET': dict({
+      'aliases': list([
+        dict({
+          'de': 'GEBUEHREN_TOTAL_NICHT_VERRECHNET',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Total of all not charged billing entries of the instance',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'GEMEINDE_EMAIL': dict({
+      'aliases': list([
+        dict({
+          'de': 'GEMEINDE_EMAIL',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Email-Adresse der Gemeinde',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'GEMEINDE_NAME_ADRESSE': dict({
+      'aliases': list([
+        dict({
+          'de': 'GEMEINDE_NAME_ADRESSE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Name und Adresse der Gemeinde',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'GEMEINDE_ORT': dict({
+      'aliases': list([
+        dict({
+          'de': 'GEMEINDE_ORT',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Ort der Gemeinde',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'GEMEINDE_SERVICE_CONTENT': dict({
+      'aliases': list([
+        dict({
+          'de': 'GEMEINDE_SERVICE_INHALT',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Service content for the municipality',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'GEMEINDE_TELEFON': dict({
+      'aliases': list([
+        dict({
+          'de': 'GEMEINDE_TELEFON',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Telefonnummer der Gemeinde',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'GEMEINDE_WEBSEITE': dict({
+      'aliases': list([
+        dict({
+          'de': 'GEMEINDE_WEBSEITE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Webseite der Gemeinde',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'GESUCHSTELLER': dict({
+      'aliases': list([
+        dict({
+          'de': 'GESUCHSTELLER',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Name des/r ersten Gesuchsteller/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'GESUCHSTELLER_ADDRESS_1': dict({
+      'aliases': list([
+        dict({
+          'de': 'GESUCHSTELLER_ADRESSE_1',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Adresslinie 1 des/r ersten Gesuchsteller/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'GESUCHSTELLER_ADDRESS_2': dict({
+      'aliases': list([
+        dict({
+          'de': 'GESUCHSTELLER_ADRESSE_2',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Adresslinie 2 des/r ersten Gesuchsteller/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'GESUCHSTELLER_NAME_ADDRESS': dict({
+      'aliases': list([
+        dict({
+          'de': 'GESUCHSTELLER_NAME_ADRESSE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Name und Adresse des/r ersten Gesuchsteller/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'GRUNDEIGENTUEMER': dict({
+      'aliases': list([
+        dict({
+          'de': 'GRUNDEIGENTUEMER',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Name des/r Grundeigentümer/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'GRUNDEIGENTUEMER_ADDRESS_1': dict({
+      'aliases': list([
+        dict({
+          'de': 'GRUNDEIGENTUEMER_ADRESSE_1',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Adresslinie 1 des/r ersten Grundeigentümer/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'GRUNDEIGENTUEMER_ADDRESS_2': dict({
+      'aliases': list([
+        dict({
+          'de': 'GRUNDEIGENTUEMER_ADRESSE_2',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Adresslinie 2 des/r ersten Grundeigentümer/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'GRUNDEIGENTUEMER_NAME_ADDRESS': dict({
+      'aliases': list([
+        dict({
+          'de': 'GRUNDEIGENTUEMER_NAME_ADRESSE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Name und Adresse des/r Grundeigentümer/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'INFORMATION_AUSWAERTIGE_ANSTOESSER_LINK': dict({
+      'aliases': list([
+        dict({
+          'de': 'INFORMATION_AUSWAERTIGE_ANSTOESSER_LINK',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Link um das Dossier als auswärtiger Anstösser anzusehen',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'INFORMATION_AUSWAERTIGE_ANSTOESSER_QR_CODE': dict({
+      'aliases': list([
+        dict({
+          'de': 'INFORMATION_AUSWAERTIGE_ANSTOESSER_QR_CODE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'QR Code um das Dossier als auswärtiger Anstösser anzusehen',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'JURISTIC_NAME': dict({
+      'aliases': list([
+        dict({
+          'de': 'JURISTISCHER_NAME',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Juristischer Name des/r ersten Gesuchsteller/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'KOORDINATEN': dict({
+      'aliases': list([
+        dict({
+          'de': 'KOORDINATEN',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Lagekoordinaten der Parzelle(n)',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'LANGUAGE': dict({
+      'aliases': list([
+        dict({
+          'de': 'SPRACHE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Die momentan ausgewählte Systemsprache',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'LEITBEHOERDE_ADDRESS_1': dict({
+      'aliases': list([
+        dict({
+          'de': 'LEITBEHOERDE_ADRESSE_1',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Adresslinie 1 der zuständigen Leitbehörde',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'LEITBEHOERDE_ADDRESS_2': dict({
+      'aliases': list([
+        dict({
+          'de': 'LEITBEHOERDE_ADRESSE_2',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Adresslinie 2 der zuständigen Leitbehörde',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'LEITBEHOERDE_CITY': dict({
+      'aliases': list([
+        dict({
+          'de': 'LEITBEHOERDE_STADT',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Ort der zuständigen Leitbehörde',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'LEITBEHOERDE_EMAIL': dict({
+      'aliases': list([
+        dict({
+          'de': 'LEITBEHOERDE_EMAIL',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Email-Adresse der zuständigen Leitbehörde',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'LEITBEHOERDE_NAME': dict({
+      'aliases': list([
+        dict({
+          'de': 'LEITBEHOERDE_NAME',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Name der zuständigen Leitbehörde',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'LEITBEHOERDE_NAME_ADRESSE': dict({
+      'aliases': list([
+        dict({
+          'de': 'LEITBEHOERDE_NAME_ADRESSE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Name und Adresse der zuständigen Leitbehörde',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'LEITBEHOERDE_NAME_KURZ': dict({
+      'aliases': list([
+        dict({
+          'de': 'LEITBEHOERDE_NAME_KURZ',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Abgekürzter Name der zuständigen Leitbehörde',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'LEITBEHOERDE_PHONE': dict({
+      'aliases': list([
+        dict({
+          'de': 'LEITBEHOERDE_TELEFON',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Telefonnummer der zuständigen Leitbehörde',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'LEITBEHOERDE_WEBSEITE': dict({
+      'aliases': list([
+        dict({
+          'de': 'LEITBEHOERDE_WEBSEITE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Webseite der zuständigen Leitbehörde',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'MEINE_ORGANISATION_ADRESSE_1': dict({
+      'aliases': list([
+        dict({
+          'de': 'MEINE_ORGANISATION_ADRESSE_1',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Adresslinie 1 der momentan ausgewählten Organisation',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'MEINE_ORGANISATION_ADRESSE_2': dict({
+      'aliases': list([
+        dict({
+          'de': 'MEINE_ORGANISATION_ADRESSE_2',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Adresslinie 2 der momentan ausgewählten Organisation',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'MEINE_ORGANISATION_DEPARTEMENT': dict({
+      'aliases': list([
+        dict({
+          'de': 'MEINE_ORGANISATION_DEPARTEMENT',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Departement der momentan ausgewählten Organisation',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'MEINE_ORGANISATION_EMAIL': dict({
+      'aliases': list([
+        dict({
+          'de': 'MEINE_ORGANISATION_EMAIL',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Email-Adresse der momentan ausgewählten Organisation',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'MEINE_ORGANISATION_NAME': dict({
+      'aliases': list([
+        dict({
+          'de': 'MEINE_ORGANISATION_NAME',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Name der momentan ausgewählten Organisation',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'MEINE_ORGANISATION_NAME_ADRESSE': dict({
+      'aliases': list([
+        dict({
+          'de': 'MEINE_ORGANISATION_NAME_ADRESSE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Name und Adresse der momentan ausgewählten Organisation',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'MEINE_ORGANISATION_NAME_KURZ': dict({
+      'aliases': list([
+        dict({
+          'de': 'MEINE_ORGANISATION_NAME_KURZ',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Abgekürzter Name der momentan ausgewählten Organisation',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'MEINE_ORGANISATION_ORT': dict({
+      'aliases': list([
+        dict({
+          'de': 'MEINE_ORGANISATION_ORT',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Ort der momentan ausgewählten Organisation',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'MEINE_ORGANISATION_TELEFON': dict({
+      'aliases': list([
+        dict({
+          'de': 'MEINE_ORGANISATION_TELEFON',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Telefonnummer der momentan ausgewählten Organisation',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'MEINE_ORGANISATION_WEBSEITE': dict({
+      'aliases': list([
+        dict({
+          'de': 'MEINE_ORGANISATION_WEBSEITE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Webseite der momentan ausgewählten Organisation',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'MUNICIPALITY': dict({
+      'aliases': list([
+        dict({
+          'de': 'GEMEINDE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Die ausgewählte Gemeinde des/der Gesuchsteller/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'MUNICIPALITY_ADDRESS': dict({
+      'aliases': list([
+        dict({
+          'de': 'GEMEINDE_ADRESSE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Die Adresse der ausgewählten Gemeinde des/der Gesuchsteller/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'NAME': dict({
+      'aliases': list([
+      ]),
+      'description': None,
+      'nested_aliases': dict({
+      }),
+    }),
+    'NUTZUNGSZONE': dict({
+      'aliases': list([
+        dict({
+          'de': 'NUTZUNGSZONE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Momentane Nutzungszone des Grundstückes',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ORT': dict({
+      'aliases': list([
+        dict({
+          'de': 'ORT',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Der Ort des Bauvorhabens',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'PARZELLE': dict({
+      'aliases': list([
+        dict({
+          'de': 'PARZELLE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Die ausgewählte Parzelle(n) des/der Gesuchsteller/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'PROJEKTVERFASSER': dict({
+      'aliases': list([
+        dict({
+          'de': 'PROJEKTVERFASSER',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Name des/r Projektverfasser/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'PROJEKTVERFASSER_ADDRESS_1': dict({
+      'aliases': list([
+        dict({
+          'de': 'PROJEKTVERFASSER_ADRESSE_1',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Adresslinie 1 des/r ersten Projektverfasser/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'PROJEKTVERFASSER_ADDRESS_2': dict({
+      'aliases': list([
+        dict({
+          'de': 'PROJEKTVERFASSER_ADRESSE_2',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Adresslinie 2 des/r ersten Projektverfasser/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'PROJEKTVERFASSER_NAME_ADDRESS': dict({
+      'aliases': list([
+        dict({
+          'de': 'PROJEKTVERFASSER_NAME_ADRESSE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Name und Adresse des/r Projektverfasser/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'PUBLIKATION_AMTSBLATT_ENDE': dict({
+      'aliases': list([
+        dict({
+          'de': 'PUBLIKATION_AMTSBLATT_ENDE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Enddatum der Publikation im Amtsblatt',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'PUBLIKATION_GEMEINDE_ENDE': dict({
+      'aliases': list([
+        dict({
+          'de': 'PUBLIKATION_GEMEINDE_ENDE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Enddatum der Publikation im Publikationsorgan der Gemeinde',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'PUBLIKATION_LINK': dict({
+      'aliases': list([
+        dict({
+          'de': 'PUBLIKATION_LINK',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Link zur öffentlichen Auflage',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'PUBLIKATION_TEXT': dict({
+      'aliases': list([
+        dict({
+          'de': 'PUBLIKATION_TEXT',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Publikationstext des Dossiers',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'RECHNUNGSEMPFAENGER': dict({
+      'aliases': list([
+        dict({
+          'de': 'RECHNUNGSEMPFAENGER',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Name des/r Rechnungsempfänger/in falls vorhanden, ansonsten der des/r Gesuchsteller/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'RECHNUNGSEMPFAENGER_ADRESSE_1': dict({
+      'aliases': list([
+        dict({
+          'de': 'RECHNUNGSEMPFAENGER_ADRESSE_1',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Adresslinie 1 des/r Rechnungsempfänger/in falls vorhanden, ansonsten die des/r Gesuchsteller/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'RECHNUNGSEMPFAENGER_ADRESSE_2': dict({
+      'aliases': list([
+        dict({
+          'de': 'RECHNUNGSEMPFAENGER_ADRESSE_2',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Adresslinie 2 des/r Rechnungsempfänger/in falls vorhanden, ansonsten die des/r Gesuchsteller/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'STATUS': dict({
+      'aliases': list([
+        dict({
+          'de': 'STATUS',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Momentaner Status des Dossiers',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'STRASSE': dict({
+      'aliases': list([
+        dict({
+          'de': 'STRASSE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Die Strasse des Bauvorhabens',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'TODAY': dict({
+      'aliases': list([
+        dict({
+          'de': 'HEUTE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Das heutige Datum',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'WEITERE_BETROFFENE_GEMEINDEN': dict({
+      'aliases': list([
+        dict({
+          'de': 'WEITERE_BETROFFENE_GEMEINDEN',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Weitere betroffene Gemeinden',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ZIRKULATION_ANGEFORDERT': dict({
+      'aliases': list([
+        dict({
+          'de': 'ZIRKULATION_ANGEFORDERT',
+        }),
+      ]),
+      'description': dict({
+        'de': 'In Dossier involvierte Stellen, welche von dieser Stelle angefragt wurden',
+      }),
+      'nested_aliases': dict({
+        'BEANTWORTET': list([
+          dict({
+            'de': 'BEANTWORTET',
+          }),
+        ]),
+        'ERSTELLT': list([
+          dict({
+            'de': 'ERSTELLT',
+          }),
+        ]),
+        'FRIST': list([
+          dict({
+            'de': 'FRIST',
+          }),
+        ]),
+        'NAME': list([
+          dict({
+            'de': 'NAME',
+          }),
+        ]),
+      }),
+    }),
+    'ZIRKULATION_FACHSTELLEN': dict({
+      'aliases': list([
+        dict({
+          'de': 'ZIRKULATION_FACHSTELLEN',
+        }),
+      ]),
+      'description': dict({
+        'de': 'In Dossier involvierte Fachstellen',
+      }),
+      'nested_aliases': dict({
+        'BEANTWORTET': list([
+          dict({
+            'de': 'BEANTWORTET',
+          }),
+        ]),
+        'ERSTELLT': list([
+          dict({
+            'de': 'ERSTELLT',
+          }),
+        ]),
+        'FRIST': list([
+          dict({
+            'de': 'FRIST',
+          }),
+        ]),
+        'NAME': list([
+          dict({
+            'de': 'NAME',
+          }),
+        ]),
+      }),
+    }),
+    'ZIRKULATION_GEMEINDEN': dict({
+      'aliases': list([
+        dict({
+          'de': 'ZIRKULATION_GEMEINDEN',
+        }),
+      ]),
+      'description': dict({
+        'de': 'In Dossier involvierte Gemeinden',
+      }),
+      'nested_aliases': dict({
+        'BEANTWORTET': list([
+          dict({
+            'de': 'BEANTWORTET',
+          }),
+        ]),
+        'ERSTELLT': list([
+          dict({
+            'de': 'ERSTELLT',
+          }),
+        ]),
+        'FRIST': list([
+          dict({
+            'de': 'FRIST',
+          }),
+        ]),
+        'NAME': list([
+          dict({
+            'de': 'NAME',
+          }),
+        ]),
+      }),
+    }),
+    'ZIRKULATION_RUECKMELDUNGEN': dict({
+      'aliases': list([
+        dict({
+          'de': 'ZIRKULATION_RUECKMELDUNGEN',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Rückmeldungen der eingeladenen Fachstellen',
+      }),
+      'nested_aliases': dict({
+        'ANTWORT': list([
+          dict({
+            'de': 'ANTWORT',
+          }),
+        ]),
+        'BEMERKUNGEN': list([
+          dict({
+            'de': 'BEMERKUNGEN',
+          }),
+        ]),
+      }),
+    }),
+    'ZUSTAENDIGE_BEHOERDE': dict({
+      'aliases': list([
+        dict({
+          'de': 'ZUSTAENDIGE_BEHOERDE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Zuständige Behörde für PGV Dossiers',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ZUSTAENDIG_EMAIL': dict({
+      'aliases': list([
+        dict({
+          'de': 'ZUSTAENDIG_EMAIL',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Email-Adresse des/r zuständigen/r Mitarbeiter/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ZUSTAENDIG_MOBILE': dict({
+      'aliases': list([
+        dict({
+          'de': 'ZUSTAENDIG_MOBILE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Mobilenummer des/r zuständigen/r Mitarbeiter/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ZUSTAENDIG_NAME': dict({
+      'aliases': list([
+        dict({
+          'de': 'ZUSTAENDIG_NAME',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Name des/r zuständigen/r Mitarbeiter/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ZUSTAENDIG_PHONE': dict({
+      'aliases': list([
+        dict({
+          'de': 'ZUSTAENDIG_TELEFON',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Telefonnummer des/r zuständigen/r Mitarbeiter/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ZUSTAENDIG_POSITION': dict({
+      'aliases': list([
+        dict({
+          'de': 'ZUSTAENDIG_POSITION',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Position des/r zuständigen/r Mitarbeiter/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ZUSTAENDIG_TITEL': dict({
+      'aliases': list([
+        dict({
+          'de': 'ZUSTAENDIG_TITEL',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Titel des/r zuständigen/r Mitarbeiter/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
   })
 # ---
 # name: test_dms_placeholders_docs[be_dms_config]
@@ -2593,6 +3956,20 @@
       'description': dict({
         'de': 'Totalbetrag aller Gebühren des Dossiers',
         'fr': 'Montant total de tous les frais de procédure',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'GEBUEHREN_TOTAL_NICHT_VERRECHNET': dict({
+      'aliases': list([
+        dict({
+          'de': 'GEBUEHREN_TOTAL_NICHT_VERRECHNET',
+          'fr': 'GEBUEHREN_TOTAL_NICHT_VERRECHNET',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Total of all not charged billing entries of the instance',
+        'fr': 'Total of all not charged billing entries of the instance',
       }),
       'nested_aliases': dict({
       }),
@@ -7462,6 +8839,18 @@
       'nested_aliases': dict({
       }),
     }),
+    'GEBUEHREN_TOTAL_NICHT_VERRECHNET': dict({
+      'aliases': list([
+        dict({
+          'de': 'GEBUEHREN_TOTAL_NICHT_VERRECHNET',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Total of all not charged billing entries of the instance',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'GEMEINDE_EMAIL': dict({
       'aliases': list([
         dict({
@@ -8797,6 +10186,153 @@
     }),
   })
 # ---
+# name: test_dms_placeholders_docs_available_placeholders[ag_dms_config]
+  list([
+    'ADRESSE',
+    'ALLE_GESUCHSTELLER',
+    'ALLE_GESUCHSTELLER_NAME_ADRESSE',
+    'ALLE_GESUCHSTELLER_REFERENZNUMMER',
+    'ALLE_GRUNDEIGENTUEMER',
+    'ALLE_GRUNDEIGENTUEMER_NAME_ADRESSE',
+    'ALLE_PROJEKTVERFASSER',
+    'ALLE_PROJEKTVERFASSER_NAME_ADRESSE',
+    'ALLE_VERTRETER',
+    'ALLE_VERTRETER_NAME_ADRESSE',
+    'ANGEMELDET_EMAIL',
+    'ANGEMELDET_MOBILE',
+    'ANGEMELDET_NAME',
+    'ANGEMELDET_POSITION',
+    'ANGEMELDET_TELEFON',
+    'ANGEMELDET_TITEL',
+    'AUSWAERTIGE_ANSTOESSER',
+    'AUSWAERTIGE_ANSTOESSER[]',
+    'AUSWAERTIGE_ANSTOESSER[].ADRESSE_1',
+    'AUSWAERTIGE_ANSTOESSER[].ADRESSE_2',
+    'AUSWAERTIGE_ANSTOESSER[].NAME',
+    'BAUEINGABE_DATUM',
+    'BAUENTSCHEID_DATUM',
+    'BAUKOSTEN',
+    'BESCHREIBUNG_BAUVORHABEN',
+    'BESCHREIBUNG_PROJEKTAENDERUNG',
+    'DOSSIER_NUMMER',
+    'DOSSIER_TYP',
+    'EBAU_URL',
+    'EIGENE_GEBUEHREN',
+    'EIGENE_GEBUEHREN[]',
+    'EIGENE_GEBUEHREN[].BEMERKUNG',
+    'EIGENE_GEBUEHREN[].BETRAG',
+    'EIGENE_GEBUEHREN[].POSITION',
+    'EIGENE_GEBUEHREN[].VERRECHNET_AM',
+    'EIGENE_GEBUEHREN_TOTAL',
+    'FACHSTELLEN_KANTONAL',
+    'FACHSTELLEN_KANTONAL[]',
+    'FACHSTELLEN_KANTONAL[].BEANTWORTET',
+    'FACHSTELLEN_KANTONAL[].ERSTELLT',
+    'FACHSTELLEN_KANTONAL[].FRIST',
+    'FACHSTELLEN_KANTONAL[].NAME',
+    'GEBUEHREN',
+    'GEBUEHREN[]',
+    'GEBUEHREN[].BEMERKUNG',
+    'GEBUEHREN[].BETRAG',
+    'GEBUEHREN[].POSITION',
+    'GEBUEHREN[].VERRECHNET_AM',
+    'GEBUEHREN_TOTAL',
+    'GEBUEHREN_TOTAL_NICHT_VERRECHNET',
+    'GEMEINDE',
+    'GEMEINDE_ADRESSE',
+    'GEMEINDE_EMAIL',
+    'GEMEINDE_NAME_ADRESSE',
+    'GEMEINDE_ORT',
+    'GEMEINDE_SERVICE_INHALT',
+    'GEMEINDE_TELEFON',
+    'GEMEINDE_WEBSEITE',
+    'GESUCHSTELLER',
+    'GESUCHSTELLER_ADRESSE_1',
+    'GESUCHSTELLER_ADRESSE_2',
+    'GESUCHSTELLER_NAME_ADRESSE',
+    'GRUNDEIGENTUEMER',
+    'GRUNDEIGENTUEMER_ADRESSE_1',
+    'GRUNDEIGENTUEMER_ADRESSE_2',
+    'GRUNDEIGENTUEMER_NAME_ADRESSE',
+    'HEUTE',
+    'INFORMATION_AUSWAERTIGE_ANSTOESSER_LINK',
+    'INFORMATION_AUSWAERTIGE_ANSTOESSER_QR_CODE',
+    'JURISTISCHER_NAME',
+    'KOORDINATEN',
+    'LEITBEHOERDE_ADRESSE_1',
+    'LEITBEHOERDE_ADRESSE_2',
+    'LEITBEHOERDE_EMAIL',
+    'LEITBEHOERDE_NAME',
+    'LEITBEHOERDE_NAME_ADRESSE',
+    'LEITBEHOERDE_NAME_KURZ',
+    'LEITBEHOERDE_STADT',
+    'LEITBEHOERDE_TELEFON',
+    'LEITBEHOERDE_WEBSEITE',
+    'MEINE_ORGANISATION_ADRESSE_1',
+    'MEINE_ORGANISATION_ADRESSE_2',
+    'MEINE_ORGANISATION_DEPARTEMENT',
+    'MEINE_ORGANISATION_EMAIL',
+    'MEINE_ORGANISATION_NAME',
+    'MEINE_ORGANISATION_NAME_ADRESSE',
+    'MEINE_ORGANISATION_NAME_KURZ',
+    'MEINE_ORGANISATION_ORT',
+    'MEINE_ORGANISATION_TELEFON',
+    'MEINE_ORGANISATION_WEBSEITE',
+    'NUTZUNGSZONE',
+    'ORT',
+    'PARZELLE',
+    'PROJEKTVERFASSER',
+    'PROJEKTVERFASSER_ADRESSE_1',
+    'PROJEKTVERFASSER_ADRESSE_2',
+    'PROJEKTVERFASSER_NAME_ADRESSE',
+    'PUBLIKATION_AMTSBLATT_ENDE',
+    'PUBLIKATION_GEMEINDE_ENDE',
+    'PUBLIKATION_LINK',
+    'PUBLIKATION_TEXT',
+    'RECHNUNGSEMPFAENGER',
+    'RECHNUNGSEMPFAENGER_ADRESSE_1',
+    'RECHNUNGSEMPFAENGER_ADRESSE_2',
+    'SPRACHE',
+    'STATUS',
+    'STRASSE',
+    'WEITERE_BETROFFENE_GEMEINDEN',
+    'ZIRKULATION_ALLE',
+    'ZIRKULATION_ALLE[]',
+    'ZIRKULATION_ALLE[].BEANTWORTET',
+    'ZIRKULATION_ALLE[].ERSTELLT',
+    'ZIRKULATION_ALLE[].FRIST',
+    'ZIRKULATION_ALLE[].NAME',
+    'ZIRKULATION_ANGEFORDERT',
+    'ZIRKULATION_ANGEFORDERT[]',
+    'ZIRKULATION_ANGEFORDERT[].BEANTWORTET',
+    'ZIRKULATION_ANGEFORDERT[].ERSTELLT',
+    'ZIRKULATION_ANGEFORDERT[].FRIST',
+    'ZIRKULATION_ANGEFORDERT[].NAME',
+    'ZIRKULATION_FACHSTELLEN',
+    'ZIRKULATION_FACHSTELLEN[]',
+    'ZIRKULATION_FACHSTELLEN[].BEANTWORTET',
+    'ZIRKULATION_FACHSTELLEN[].ERSTELLT',
+    'ZIRKULATION_FACHSTELLEN[].FRIST',
+    'ZIRKULATION_FACHSTELLEN[].NAME',
+    'ZIRKULATION_GEMEINDEN',
+    'ZIRKULATION_GEMEINDEN[]',
+    'ZIRKULATION_GEMEINDEN[].BEANTWORTET',
+    'ZIRKULATION_GEMEINDEN[].ERSTELLT',
+    'ZIRKULATION_GEMEINDEN[].FRIST',
+    'ZIRKULATION_GEMEINDEN[].NAME',
+    'ZIRKULATION_RUECKMELDUNGEN',
+    'ZIRKULATION_RUECKMELDUNGEN[]',
+    'ZIRKULATION_RUECKMELDUNGEN[].ANTWORT',
+    'ZIRKULATION_RUECKMELDUNGEN[].BEMERKUNGEN',
+    'ZUSTAENDIGE_BEHOERDE',
+    'ZUSTAENDIG_EMAIL',
+    'ZUSTAENDIG_MOBILE',
+    'ZUSTAENDIG_NAME',
+    'ZUSTAENDIG_POSITION',
+    'ZUSTAENDIG_TELEFON',
+    'ZUSTAENDIG_TITEL',
+  ])
+# ---
 # name: test_dms_placeholders_docs_available_placeholders[be_dms_config]
   list([
     'ACE',
@@ -9054,6 +10590,7 @@
     'GEBUEHREN[].BETRAG',
     'GEBUEHREN[].POSITION',
     'GEBUEHREN_TOTAL',
+    'GEBUEHREN_TOTAL_NICHT_VERRECHNET',
     'GEFAEHRLICHE_STOFFE',
     'GEFAEHRLICHE_STOFFE[]',
     'GEFAEHRLICHE_STOFFE[].BETRAG',
@@ -10020,6 +11557,7 @@
     'GEBUEHREN[].STUNDENSATZ',
     'GEBUEHREN[].VERRECHNUNG',
     'GEBUEHREN_TOTAL',
+    'GEBUEHREN_TOTAL_NICHT_VERRECHNET',
     'GEMEINDE',
     'GEMEINDE_ADRESSE',
     'GEMEINDE_EMAIL',
@@ -10357,6 +11895,7 @@
     'GEBUEHREN': list([
     ]),
     'GEBUEHREN_TOTAL': '0.00',
+    'GEBUEHREN_TOTAL_NICHT_VERRECHNET': '0.00',
     'GEFAEHRLICHE_STOFFE': list([
     ]),
     'GEMEINDE': '',
@@ -11868,6 +13407,7 @@
       }),
     ]),
     'GEBUEHREN_TOTAL': '4’292.26',
+    'GEBUEHREN_TOTAL_NICHT_VERRECHNET': '4’292.26',
     'GEMEINDE': 'Allen Mathis',
     'GEMEINDE_ADRESSE': 'North April',
     'GEMEINDE_EMAIL': 'lortega@example.org',

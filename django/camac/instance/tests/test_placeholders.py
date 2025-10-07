@@ -920,6 +920,7 @@ def test_human_readable_date(language, expected):
         lf("be_dms_config"),
         lf("gr_dms_config"),
         lf("so_dms_config"),
+        lf("ag_dms_config"),
     ],
 )
 def test_dms_placeholders_docs(admin_client, snapshot, dms_config):
@@ -934,6 +935,7 @@ def test_dms_placeholders_docs(admin_client, snapshot, dms_config):
         lf("be_dms_config"),
         lf("gr_dms_config"),
         lf("so_dms_config"),
+        lf("ag_dms_config"),
     ],
 )
 def test_dms_placeholders_docs_available_placeholders(
