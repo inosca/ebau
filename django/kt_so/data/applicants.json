@@ -258,5 +258,83 @@
       "username": "",
       "role": "ADMIN"
     }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 35,
+    "fields": {
+      "instance": 9,
+      "user": 1,
+      "invitee": 1,
+      "created": "2025-09-09T08:20:08.633Z",
+      "email": "admin@example.com",
+      "username": "",
+      "role": "ADMIN"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 36,
+    "fields": {
+      "instance": 10,
+      "user": 1,
+      "invitee": 1,
+      "created": "2025-09-09T08:20:13.498Z",
+      "email": "admin@example.com",
+      "username": "",
+      "role": "ADMIN"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 37,
+    "fields": {
+      "instance": 11,
+      "user": 1,
+      "invitee": 1,
+      "created": "2025-09-09T08:20:17.189Z",
+      "email": "admin@example.com",
+      "username": "",
+      "role": "ADMIN"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 38,
+    "fields": {
+      "instance": 12,
+      "user": 1,
+      "invitee": 1,
+      "created": "2025-09-09T08:20:22.403Z",
+      "email": "admin@example.com",
+      "username": "",
+      "role": "ADMIN"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 39,
+    "fields": {
+      "instance": 13,
+      "user": 1,
+      "invitee": 1,
+      "created": "2025-09-09T08:20:27.696Z",
+      "email": "admin@example.com",
+      "username": "",
+      "role": "ADMIN"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 40,
+    "fields": {
+      "instance": 14,
+      "user": 1,
+      "invitee": 1,
+      "created": "2025-09-09T08:20:31.351Z",
+      "email": "admin@example.com",
+      "username": "",
+      "role": "ADMIN"
+    }
   }
 ]
