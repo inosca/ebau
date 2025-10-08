@@ -1,6 +1,7 @@
 import Model, { attr } from "@ember-data/model";
 
 export default class AlertMessageModel extends Model {
+  @attr("string") title;
   @attr("date") createdAt;
   @attr("date") updatedAt;
   @attr("boolean") active;

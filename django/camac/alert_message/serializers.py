@@ -11,6 +11,7 @@ class AlertMessageSerializer(serializers.ModelSerializer):
             "created_at",
             "updated_at",
             "active",
+            "title",
             "start_date",
             "end_date",
             "message",

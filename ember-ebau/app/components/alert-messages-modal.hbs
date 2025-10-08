@@ -14,6 +14,9 @@
       {{else if @messages.length}}
         {{#each @messages as |message index|}}
           <div class="alert-message-item">
+            {{#if message.title}}
+              <h3 class="uk-margin-remove">{{message.title}}</h3>
+            {{/if}}
             <div class="uk-margin-top uk-margin-small-bottom">
               <MarkdownToHtml
                 class="markdown-content"

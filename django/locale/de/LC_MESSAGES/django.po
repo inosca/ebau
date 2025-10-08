@@ -186,13 +186,37 @@ msgstr "Gebührenvorlage"
 msgid "Billing entry templates"
 msgstr "Gebührenvorlagen"
 
-#: camac/billing/models.py
+#: camac/alert_message/models.py
 msgid "Alert Message"
 msgstr "Warnmeldung"
 
-#: camac/billing/models.py
+#: camac/alert_message/models.py
 msgid "Alert Messages"
 msgstr "Warnmeldungen"
+
+#: camac/alert_message/models.py
+msgid "Created at"
+msgstr "Erstellt am"
+
+#: camac/alert_message/models.py
+msgid "Updated at"
+msgstr "Aktualisiert am"
+
+#: camac/alert_message/models.py
+msgid "Title / Message Preview"
+msgstr "Titel / Nachrichtenvorschau"
+
+#: camac/alert_message/models.py
+msgid "Active"
+msgstr "Aktiv"
+
+#: camac/alert_message/models.py
+msgid "Start Date"
+msgstr "Startdatum"
+
+#: camac/alert_message/models.py
+msgid "End Date"
+msgstr "Enddatum"
 
 #: camac/billing/serializers.py
 msgid "Date added"

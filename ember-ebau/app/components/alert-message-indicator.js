@@ -9,9 +9,7 @@ export default class AlertMessageIndicatorComponent extends Component {
 
   @tracked showModal = false;
 
-  query = query(this, "alert-message", () => ({
-    show: true,
-  }));
+  query = query(this, "alert-message", () => ({}));
 
   get messages() {
     return this.query.records ?? [];
