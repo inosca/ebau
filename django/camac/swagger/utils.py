@@ -5,6 +5,7 @@ group_param = openapi.Parameter(
     openapi.IN_HEADER,
     description="Group ID the request should be made for.",
     type=openapi.TYPE_INTEGER,
+    required=True,
 )
 
 

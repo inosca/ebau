@@ -1,4 +1,7 @@
+import re
 import urllib.parse
+import zipfile
+from io import BytesIO
 
 import pytest
 from alexandria.core.factories import FileFactory
@@ -6,7 +9,7 @@ from alexandria.core.models import Document, File
 from django.urls import reverse
 from rest_framework import status
 
-from camac.document.models import AttachmentSection
+from camac.document.models import Attachment, AttachmentSection
 from camac.document.tests.data import django_file
 from camac.ech0211.models import ECH0211Document
 
@@ -24,8 +27,6 @@ def test_download(
 ):
     set_document_backend(document_backend)
 
-    # FIXME: Leaky tests - sometimes this is not set as expected, despite the
-    # default being "full" and GR using default
     gr_ech0211_settings["API_LEVEL"] = "full"
 
     visible_file, invisible_file_category, invisible_file_instance = file_setup()
@@ -49,93 +50,69 @@ def test_download(
             assert response.getvalue() == file.content.file.read()
 
 
+@pytest.mark.parametrize("document_backend", ["camac-ng", "alexandria"])
 @pytest.mark.parametrize("role__name", ["Municipality"])
-def test_upload_disabled_api_level(
+def test_download_multi(
     admin_client,
-    category_setup,
+    file_setup,
     gr_ech0211_settings,
     application_settings,
-    instance,
     reload_ech0211_urls,
+    document_backend,
     set_document_backend,
 ):
-    set_document_backend("alexandria")
-    gr_ech0211_settings["API_LEVEL"] = "basic"
+    set_document_backend(document_backend)
 
-    _, uploadable_category, __ = category_setup()
+    visible_file, secondary_file, invisible_file_instance = file_setup()
 
-    gr_ech0211_settings["ALLOWED_CATEGORIES"] = [uploadable_category.pk]
-    gr_ech0211_settings["ALLOWED_ATTACHMENT_SECTIONS"] = [uploadable_category.pk]
+    # We want to test multi-file download, and also we're not testing
+    # the file visibility here. Therefore the secondary_file, being
+    # "invisible-by-category", is now moved to the visible file's category
+    if document_backend == "camac-ng":
+        secondary_file.attachment.attachment_sections.set(
+            visible_file.attachment.attachment_sections.all()
+        )
+        # This does not suffice however, as it's now in another category,
+        # we need to fetch it again..
+        secondary_file = ECH0211Document.objects.get(
+            category=visible_file.category, attachment=secondary_file.attachment
+        )
+    else:
+        secondary_file.document.category = visible_file.document.category
+        secondary_file.document.save()
 
-    response = admin_client.post(
-        reverse("ech-file-list"),
-        data={
-            "instance": instance.pk,
-            "category": uploadable_category.pk,
-            "content": django_file("multiple-pages.pdf").file,
-        },
-        format="multipart",
-    )
+    all_files = visible_file, secondary_file, invisible_file_instance
 
-    assert response.status_code == status.HTTP_404_NOT_FOUND
+    download_url = reverse("ech-file-multi-download")
 
-
-@pytest.mark.parametrize("role__name", ["Municipality"])
-def test_upload_gr(
-    admin_client,
-    category_setup,
-    gr_ech0211_settings,
-    instance,
-    mocker,
-    application_settings,
-    reload_ech0211_urls,
-    set_document_backend,
-):
-    clamav = mocker.patch(
-        "camac.ech0211.serializers.validate_file_infection", return_value=None
-    )
-    set_document_backend("alexandria")
-
-    visible_category, uploadable_category, _ = category_setup()
-
-    gr_ech0211_settings["ALLOWED_CATEGORIES"] = [
-        visible_category.slug,
-        uploadable_category.slug,
+    # First: Check if ?ids=... is enforced
+    resp_no_ids = admin_client.get(download_url)
+    assert resp_no_ids.status_code == status.HTTP_400_BAD_REQUEST
+    assert resp_no_ids.json() == [
+        "Multi Download is only allowed when passing ?ids=..."
     ]
 
-    for category, expected_status in [
-        (uploadable_category, status.HTTP_201_CREATED),
-        (visible_category, status.HTTP_403_FORBIDDEN),
-    ]:
-        response = admin_client.post(
-            reverse("ech-file-list"),
-            data={
-                "instance": instance.pk,
-                "category": category.pk,
-                "content": django_file("multiple-pages.pdf").file,
-            },
-            format="multipart",
+    # We request all files - but at least the last one is invisible, and we
+    # ensure that it's not in the result even though it was requested
+    resp = admin_client.get(
+        download_url, {"ids": ",".join([str(f.pk) for f in all_files])}
+    )
+
+    assert resp.status_code == status.HTTP_200_OK
+
+    data = BytesIO(b"".join(resp.streaming_content))
+
+    with zipfile.ZipFile(data, "r") as archive:
+        # the download prefixes the files with numbers to avoid any duplication
+        # by filename. We un-prefix them here, as we know our example files
+        # don't clash
+        stripped_names = [
+            re.sub(r"^\d+-", "", file.filename) for file in archive.filelist
+        ]
+
+        assert sorted(stripped_names) == sorted(
+            [visible_file.name, secondary_file.name]
         )
-
-        assert response.status_code == expected_status
-
-        if response.status_code == status.HTTP_201_CREATED:
-            result = response.json()
-            assert result["document-uuid"]
-            assert result["file-uuid"]
-
-            file = File.objects.get(pk=result["file-uuid"])
-            document = Document.objects.get(pk=result["document-uuid"])
-
-            assert document.category == category
-            assert document.files.contains(file)
-
-            # make sure file was scanned by clamav
-            clamav.assert_called()
-
-            assert document.title == "multiple-pages.pdf"
-            assert document.files.filter(variant=File.Variant.ORIGINAL).count() == 1
-            assert document.files.filter(variant=File.Variant.THUMBNAIL).count() == 1
 
 
 @pytest.mark.parametrize("document_backend", ["camac-ng", "alexandria"])
@@ -158,10 +135,12 @@ def test_delete_disabled_api_level(
     visible_category, uploadable_category, invisible_category = category_setup()
 
     factory = {
-        "camac-ng": lambda: attachment_attachment_section_factory(
-            attachmentsection=uploadable_category,
-            attachment__instance=instance,
-        ).attachment,
+        "camac-ng": lambda: (
+            attachment_attachment_section_factory(
+                attachmentsection=uploadable_category,
+                attachment__instance=instance,
+            ).attachment
+        ),
         "alexandria": lambda: FileFactory(
             document__metainfo={"camac-instance-id": str(instance.pk)},
             document__category=uploadable_category,
@@ -315,48 +294,98 @@ def test_delete_camac(
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
-@pytest.mark.parametrize(
-    "use_file, expected_status",
-    [
-        ("visible", status.HTTP_204_NO_CONTENT),
-        ("hidden_cat", status.HTTP_404_NOT_FOUND),
-        ("hidden_inst", status.HTTP_404_NOT_FOUND),
-    ],
-)
-def test_delete_camac_forbidden(
+@pytest.mark.parametrize("document_backend", ["camac-ng", "alexandria"])
+def test_upload_switching(
     admin_client,
     category_setup,
-    use_file,
-    expected_status,
-    instance,
+    be_instance,
+    mocker,
     application_settings,
-    gr_ech0211_settings,
-    reload_ech0211_urls,
-    file_setup,
     set_document_backend,
+    ech0211_settings,
+    disable_alexandria_features,
+    document_backend,
 ):
-    # Testing for correct deletion of ech0211 documents.
-    # Especially, deleting of files must be disallowed if the instance
-    # is not visible to the client, or the document is in an inaccessible
-    # category
+    set_document_backend(document_backend)
 
-    set_document_backend("camac-ng")
+    visible_category, uploadable_category, _ = category_setup()
 
-    visible_file, invisible_by_category, invisible_by_instance = file_setup()
+    # clamav is not being tested here
+    mocker.patch("camac.ech0211.serializers.validate_file_infection", return_value=None)
 
-    files = {
-        "visible": visible_file,
-        "hidden_cat": invisible_by_category,
-        "hidden_inst": invisible_by_instance,
-    }
+    allowed_cats = [
+        uploadable_category.pk,
+        visible_category.pk,
+    ]
+    ech0211_settings["ALLOWED_ATTACHMENT_SECTIONS"] = allowed_cats
+    ech0211_settings["ALLOWED_CATEGORIES"] = allowed_cats
 
-    file = files[use_file]
+    for category, expected_status in [
+        (uploadable_category, status.HTTP_201_CREATED),
+        (visible_category, status.HTTP_403_FORBIDDEN),
+    ]:
+        response = admin_client.post(
+            reverse("ech-file-list"),
+            data={
+                "instance": be_instance.pk,
+                "category": category.pk,
+                "content": django_file("multiple-pages.pdf").file,
+            },
+            format="multipart",
+        )
 
-    # remaining files is not something that exists in the camac-document-module
-    # context, so we're not testing for that.
+        assert response.status_code == expected_status
 
-    response = admin_client.delete(reverse("ech-file-detail", args=[file.pk]))
-    assert response.status_code == expected_status
+        if response.status_code == status.HTTP_201_CREATED:
+            result = response.json()
+            assert result["document-uuid"]
+            assert result["file-uuid"]
 
-    if expected_status == status.HTTP_204_NO_CONTENT:
-        assert not ECH0211Document.objects.filter(pk=visible_file.pk).exists()
+            if document_backend == "alexandria":
+                assert Document.objects.filter(pk=result["document-uuid"]).exists()
+                assert File.objects.filter(pk=result["file-uuid"]).exists()
+            elif document_backend == "camac-ng":
+                # in this case, document and file are actually the same object, but
+                # we need to persist API consistency
+                assert Attachment.objects.filter(uuid=result["file-uuid"]).exists()
+                assert Attachment.objects.filter(uuid=result["document-uuid"]).exists()
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize("document_backend", ["camac-ng", "alexandria"])
+def test_upload_disabled_api_level(
+    admin_client,
+    category_setup,
+    be_instance,
+    mocker,
+    application_settings,
+    set_document_backend,
+    ech0211_settings,
+    disable_alexandria_features,
+    document_backend,
+):
+    set_document_backend(document_backend)
+
+    visible_category, uploadable_category, _ = category_setup()
+
+    allowed_cats = [
+        uploadable_category.pk,
+        visible_category.pk,
+    ]
+    ech0211_settings["API_LEVEL"] = "basic"
+    ech0211_settings["ALLOWED_ATTACHMENT_SECTIONS"] = allowed_cats
+    ech0211_settings["ALLOWED_CATEGORIES"] = allowed_cats
+
+    for category in [uploadable_category, visible_category]:
+        response = admin_client.post(
+            reverse("ech-file-list"),
+            data={
+                "instance": be_instance.pk,
+                "category": category.pk,
+                "content": django_file("multiple-pages.pdf").file,
+            },
+            format="multipart",
+        )
+
+        # API disabled, this should result in a 404
+        assert response.status_code == status.HTTP_404_NOT_FOUND

@@ -298,7 +298,6 @@ def test_send(
     be_ech0211_settings,
     ech_instance_be,
     ech_instance_case,
-    settings,
     instance_state_factory,
     role_factory,
     attachment_section_factory,
@@ -308,9 +307,10 @@ def test_send(
     caluma_workflow_config_be,
     caluma_admin_user,
     be_decision_settings,
-    reload_ech0211_urls,
     alexandria_settings,
+    set_document_backend,
 ):
+    set_document_backend("camac-ng")
     alexandria_settings["ENABLED"] = False
     if has_permission:
         service_group_baukontrolle = service_group_factory(name="construction-control")

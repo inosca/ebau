@@ -7,10 +7,11 @@ from camac.ech0211 import views
 
 r = SimpleRouter(trailing_slash=False)
 
-r.register(r"files", views.ECHFileView, "ech-file")
+r.register("documents", views.ECHDocumentView, "ech-document")
+r.register("categories", views.ECHCategoryView, "ech-category")
+r.register("files", views.ECHFileView, "ech-file")
 
 urlpatterns = r.urls
-
 
 urlpatterns += [
     re_path(

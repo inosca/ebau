@@ -217,29 +217,32 @@ class AttachmentView(
         return True
 
     @swagger_auto_schema(
-        tags=["File download service"],
+        tags=["File service (legacy)"],
         manual_parameters=[group_param],
         operation_description=get_operation_description(),
         operation_summary="Get file information",
+        deprecated=True,
     )
     def retrieve(self, request, *args, **kwargs):
         return super().retrieve(request, *args, **kwargs)
 
     @swagger_auto_schema(
-        tags=["File download service"],
+        tags=["File service (legacy)"],
         manual_parameters=[group_param],
         operation_description=get_operation_description(),
         operation_summary="Get list of file information",
+        deprecated=True,
     )
     def list(self, request, *args, **kwargs):
         return super().list(request, *args, **kwargs)
 
     @swagger_auto_schema(
-        tags=["File upload service"],
+        tags=["File service (legacy)"],
         manual_parameters=[group_param],
         operation_summary="Upload a file",
         operation_description=get_operation_description(),
         auto_schema=FileUploadSwaggerAutoSchema,
+        deprecated=True,
     )
     def create(self, request, *args, **kwargs):
         response = super().create(request, *args, **kwargs)
@@ -258,7 +261,7 @@ class AttachmentView(
             )
         return response
 
-    @swagger_auto_schema(auto_schema=None)
+    @swagger_auto_schema(auto_schema=None, deprecated=True)
     def partial_update(self, request, *args, **kwargs):
         response = super().partial_update(request, *args, **kwargs)
         if settings.LOG_FILE_WRITE_SIZES:
@@ -278,10 +281,11 @@ class AttachmentView(
         return response
 
     @swagger_auto_schema(
-        tags=["File delete service"],
+        tags=["File service (legacy)"],
         manual_parameters=[group_param],
         operation_description=get_operation_description(),
         operation_summary="Delete a file",
+        deprecated=True,
     )
     def destroy(self, request, *args, **kwargs):
         # If the document is linked to the communications module, we cannot
@@ -318,7 +322,7 @@ class AttachmentView(
         return response
 
     @action(methods=["get"], detail=True)
-    @swagger_auto_schema(auto_schema=None)
+    @swagger_auto_schema(auto_schema=None, deprecated=True)
     def thumbnail(self, request, pk=None):
         try:
             attachment = self.get_object()
@@ -337,7 +341,7 @@ class AttachmentView(
             raise exceptions.NotFound()
 
     @action(methods=["post"], detail=True)
-    @swagger_auto_schema(auto_schema=None)
+    @swagger_auto_schema(auto_schema=None, deprecated=True)
     def convert(self, request, **kwargs):
         attachment = self.get_object()
         temporary_pdf_file = DMSHandler().convert_docx_to_pdf(request, attachment)
@@ -402,7 +406,7 @@ class AttachmentDownloadView(
     def _get_mime_type(self, attachment):
         return attachment.mime_type
 
-    @swagger_auto_schema(auto_schema=None)
+    @swagger_auto_schema(auto_schema=None, deprecated=True)
     def retrieve(self, request, **kwargs):
         attachment = self.get_object()
 
@@ -425,13 +429,14 @@ class AttachmentDownloadView(
         )
 
     @swagger_auto_schema(
-        tags=["File download service"],
+        tags=["File service (legacy)"],
         manual_parameters=[attachments_param, group_param],
         operation_summary="Download one or multiple files",
         operation_description=(
             "If multiple files are requested, they are served together in a *.zip file."
             f"\n\n{get_operation_description()}"
         ),
+        deprecated=True,
     )
     def list(self, request, **kwargs):
         if not request.query_params.get("attachments"):
@@ -521,19 +526,21 @@ class AttachmentSectionView(ReadOnlyModelViewSet):
         )
 
     @swagger_auto_schema(
-        tags=["File-Section service"],
+        tags=["File service (legacy)"],
         manual_parameters=[group_param],
         operation_description=get_operation_description(),
         operation_summary="Get file section information",
+        deprecated=True,
     )
     def retrieve(self, request, *args, **kwargs):
         return super().retrieve(request, *args, **kwargs)
 
     @swagger_auto_schema(
-        tags=["File-Section service"],
+        tags=["File service (legacy)"],
         manual_parameters=[group_param],
         operation_description=get_operation_description(),
         operation_summary="Get list of file section information",
+        deprecated=True,
     )
     def list(self, request, *args, **kwargs):
         return super().list(request, *args, **kwargs)

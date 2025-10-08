@@ -1,0 +1,291 @@
+# serializer version: 1
+# name: test_alexandria_full_category_name
+  list([
+    dict({
+      'attributes': dict({
+        'description': '''
+          Apply edge summer movie fill color hit. Industry well which leave role serious visit.
+          Truth change ok officer.
+        ''',
+        'full-name': 'Brandon Cortez',
+        'name': 'Brandon Cortez',
+      }),
+      'id': 'final-state-forget',
+      'relationships': dict({
+        'parent': dict({
+          'data': None,
+        }),
+      }),
+      'type': 'ech0211-document-categories',
+    }),
+    dict({
+      'attributes': dict({
+        'description': '''
+          Important form result college cold relate. Avoid generation nearly laugh. Human great region administration bar rate threat.
+          Open should upon few play. Seven knowledge property already better.
+        ''',
+        'full-name': 'Douglas Keller › Erik Moore',
+        'name': 'Erik Moore',
+      }),
+      'id': 'fund-eat-cover',
+      'relationships': dict({
+        'parent': dict({
+          'data': dict({
+            'id': 'story-thing-piece',
+            'type': 'ech0211-document-categories',
+          }),
+        }),
+      }),
+      'type': 'ech0211-document-categories',
+    }),
+    dict({
+      'attributes': dict({
+        'description': '''
+          Arm serious live by itself. Project find white continue none president.
+          Partner area media increase meeting article. Success provide beyond seek officer player.
+        ''',
+        'full-name': 'Timothy Malone',
+        'name': 'Timothy Malone',
+      }),
+      'id': 'run-too-successful',
+      'relationships': dict({
+        'parent': dict({
+          'data': None,
+        }),
+      }),
+      'type': 'ech0211-document-categories',
+    }),
+    dict({
+      'attributes': dict({
+        'description': 'Wide happy air represent. Cup debate medical. Today morning standard effort summer.',
+        'full-name': 'Douglas Keller',
+        'name': 'Douglas Keller',
+      }),
+      'id': 'story-thing-piece',
+      'relationships': dict({
+        'parent': dict({
+          'data': None,
+        }),
+      }),
+      'type': 'ech0211-document-categories',
+    }),
+    dict({
+      'attributes': dict({
+        'description': 'Example never form leader fund task. Major talk late yes. Again affect ok window church everyone final.',
+        'full-name': 'Douglas Keller › Carol Shaffer',
+        'name': 'Carol Shaffer',
+      }),
+      'id': 'various-realize',
+      'relationships': dict({
+        'parent': dict({
+          'data': dict({
+            'id': 'story-thing-piece',
+            'type': 'ech0211-document-categories',
+          }),
+        }),
+      }),
+      'type': 'ech0211-document-categories',
+    }),
+  ])
+# ---
+# name: test_category_list[alexandria]
+  dict({
+    'data': list([
+      dict({
+        'attributes': dict({
+          'description': '''
+            Arm serious live by itself. Project find white continue none president.
+            Partner area media increase meeting article. Success provide beyond seek officer player.
+          ''',
+          'full-name': 'Timothy Malone',
+          'name': 'Timothy Malone',
+        }),
+        'relationships': dict({
+          'parent': dict({
+            'data': None,
+          }),
+        }),
+        'type': 'ech0211-document-categories',
+      }),
+      dict({
+        'attributes': dict({
+          'description': 'Wide happy air represent. Cup debate medical. Today morning standard effort summer.',
+          'full-name': 'Douglas Keller',
+          'name': 'Douglas Keller',
+        }),
+        'relationships': dict({
+          'parent': dict({
+            'data': None,
+          }),
+        }),
+        'type': 'ech0211-document-categories',
+      }),
+      dict({
+        'attributes': dict({
+          'description': '''
+            Apply edge summer movie fill color hit. Industry well which leave role serious visit.
+            Truth change ok officer.
+          ''',
+          'full-name': 'Brandon Cortez',
+          'name': 'Brandon Cortez',
+        }),
+        'relationships': dict({
+          'parent': dict({
+            'data': None,
+          }),
+        }),
+        'type': 'ech0211-document-categories',
+      }),
+    ]),
+  })
+# ---
+# name: test_category_list[camac-ng]
+  dict({
+    'data': list([
+      dict({
+        'attributes': dict({
+          'description': None,
+          'full-name': 'Rebecca Gonzalez',
+          'name': 'Rebecca Gonzalez',
+        }),
+        'relationships': dict({
+          'parent': dict({
+            'data': None,
+          }),
+        }),
+        'type': 'ech0211-document-categories',
+      }),
+      dict({
+        'attributes': dict({
+          'description': None,
+          'full-name': 'Christine Castillo',
+          'name': 'Christine Castillo',
+        }),
+        'relationships': dict({
+          'parent': dict({
+            'data': None,
+          }),
+        }),
+        'type': 'ech0211-document-categories',
+      }),
+      dict({
+        'attributes': dict({
+          'description': None,
+          'full-name': 'Wayne Key',
+          'name': 'Wayne Key',
+        }),
+        'relationships': dict({
+          'parent': dict({
+            'data': None,
+          }),
+        }),
+        'type': 'ech0211-document-categories',
+      }),
+    ]),
+  })
+# ---
+# name: test_document_details[municipality-lead-alexandria]
+  dict({
+    'data': dict({
+      'attributes': dict({
+        'created-at': '2025-11-22T01:00:00+01:00',
+        'description': 'Choice impact wide yourself win reflect. Important form result college cold relate. Avoid generation nearly laugh.',
+        'mime-type': 'text/css',
+        'size': 5,
+        'title': 'Clifford Smith',
+      }),
+      'relationships': dict({
+        'category': dict({
+          'data': dict({
+            'type': 'ech0211-document-categories',
+          }),
+        }),
+        'created-by-service': dict({
+          'data': dict({
+            'type': 'services',
+          }),
+        }),
+        'created-by-user': dict({
+          'data': dict({
+            'type': 'users',
+          }),
+        }),
+        'instance': dict({
+          'data': dict({
+            'type': 'instances',
+          }),
+        }),
+      }),
+      'type': 'ech0211-documents',
+    }),
+    'included': list([
+      dict({
+        'attributes': dict({
+          'description': '''
+            Summer movie fill color hit. Industry well which leave role serious visit.
+            Truth change ok officer.
+          ''',
+          'full-name': 'Christine Castillo',
+          'name': 'Christine Castillo',
+        }),
+        'relationships': dict({
+          'parent': dict({
+            'data': None,
+          }),
+        }),
+        'type': 'ech0211-document-categories',
+      }),
+    ]),
+  })
+# ---
+# name: test_document_details[municipality-lead-camac-ng]
+  dict({
+    'data': dict({
+      'attributes': dict({
+        'created-at': '2025-11-22T01:00:00+01:00',
+        'description': '',
+        'mime-type': 'audio/basic',
+        'size': 5,
+        'title': 'total',
+      }),
+      'relationships': dict({
+        'category': dict({
+          'data': dict({
+            'type': 'ech0211-document-categories',
+          }),
+        }),
+        'created-by-service': dict({
+          'data': dict({
+            'type': 'services',
+          }),
+        }),
+        'created-by-user': dict({
+          'data': dict({
+            'type': 'users',
+          }),
+        }),
+        'instance': dict({
+          'data': dict({
+            'type': 'instances',
+          }),
+        }),
+      }),
+      'type': 'ech0211-documents',
+    }),
+    'included': list([
+      dict({
+        'attributes': dict({
+          'description': 'foo',
+          'full-name': 'Rebecca Gonzalez',
+          'name': 'Rebecca Gonzalez',
+        }),
+        'relationships': dict({
+          'parent': dict({
+            'data': None,
+          }),
+        }),
+        'type': 'ech0211-document-categories',
+      }),
+    ]),
+  })
+# ---

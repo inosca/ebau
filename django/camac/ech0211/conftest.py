@@ -510,11 +510,12 @@ def mock_remote_file(requests_mock):
 
 
 @pytest.fixture
-def set_document_backend(settings):
+def set_document_backend(application_settings):
     def do_it(backend):
-        settings.APPLICATION["DOCUMENT_BACKEND"] = backend
-        reload_urlconf("camac.urls")
-        reload_urlconf("camac.ech0211.urls")
+        assert backend in ["camac-ng", "alexandria"], (
+            f"Unrecognized document backend: '{backend}'"
+        )
+        application_settings["DOCUMENT_BACKEND"] = backend
 
     return do_it
 

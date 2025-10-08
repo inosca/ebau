@@ -4,6 +4,8 @@ from django.urls import reverse
 from pytest_lazy_fixtures import lf
 from rest_framework import status
 
+from camac.conftest import reload_urlconf
+
 
 @pytest.mark.parametrize(
     "appconfig,_ech0211_settings",
@@ -35,6 +37,8 @@ def test_swagger_schema(
     caplog,
     reload_ech0211_urls,
 ):
+    reload_urlconf("camac.urls")
+    reload_urlconf("camac.ech0211.urls")
     response = admin_client.get(reverse("schema-json", args=["json"]))
     assert response.status_code == status.HTTP_200_OK
     assert not len(caplog.messages)
@@ -58,6 +62,9 @@ def test_swagger_paths(
         request.getfixturevalue("disable_ech0211_settings")
 
     request.getfixturevalue("reload_ech0211_urls")
+    reload_urlconf("camac.urls")
+    reload_urlconf("camac.ech0211.urls")
+
     response = admin_client.get(reverse("schema-json", args=["json"]))
     result = response.json()
 
