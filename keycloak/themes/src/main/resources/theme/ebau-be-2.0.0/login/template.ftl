@@ -1,7 +1,7 @@
 <#import "footer.ftl" as footer>
     <#import "header.ftl" as header>
-        <#macro registrationLayout pageId bodyClass="" displayInfo=false displayMessage=true displayRequiredFields=false
-            hideOtherWays=false>
+        <#macro registrationLayout pageId="" bodyClass="" displayInfo=false displayMessage=true
+            displayRequiredFields=false hideOtherWays=false>
             <!DOCTYPE html
                 PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
             <!DOCTYPE html>
@@ -50,8 +50,16 @@
     <body class="login" data-page-id="login-${pageId}">
         <div class="box-content">
             <@header.content pageId></@header.content>
-            <main class="content">
-                <#nested "header">
+            <main class="content js-contact-box">
+                <div class="main-column">
+                    <h1>CONTÄCT</h1>
+                    <p>Tel: 123123123</p>
+                </div>
+            </main>
+            <main class="content js-main-content">
+                <div class="title">
+                    <h1><#nested "header"></h1>
+                </div>
                 <div class="main-column">
                     <#if displayMessage && message?has_content>
                         <div class="feedback feedback-${message.type}">

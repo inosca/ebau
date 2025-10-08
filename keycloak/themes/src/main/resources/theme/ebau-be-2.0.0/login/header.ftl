@@ -9,14 +9,11 @@
         <div id="mobile-menu">
           <div class="mobile-menu-container sand">
             <ul class="mobile-menu-list">
-              <#list ["Login","Support"] as site>
-                <#if msg("nav"+site) !="nav" + site && msg("nav"+site)?has_content>
-                  <li><a role='listitem' href="${msg('nav'+site+'Link')}" class="item service-menue
-              <#if pageId == msg('nav' + site + 'Id')>
+              <li><a role='listitem' href="${url.loginUrl}" class="js-login-link item service-menue
+              <#if pageId == 'login'>
                 active
-              </#if>">${msg("nav"+site)}</a></li>
-                </#if>
-              </#list>
+              </#if>">${msg("navLogin")}</a></li>
+              <li><a role='listitem' href="#" class="js-contact-toggle item service-menue">${msg("navSupport")}</a></li>
             </ul>
             <#if realm.internationalizationEnabled && locale.supported?size gt 1>
               <div class="${properties.kcLocaleMainClass!}" id="kc-locale">
@@ -40,14 +37,11 @@
         </div>
       </div>
       <div class='service-nav login' role='list'>
-        <#list ["Login","Support"] as site>
-          <#if msg("nav"+site) !="nav" + site && msg("nav"+site)?has_content>
-            <a role='listitem' href="${msg('nav'+site+'Link')}" class="service-menue
-              <#if pageId == msg('nav' + site + 'Id')>
-                active
-              </#if>">${msg("nav"+site)}</a>
-          </#if>
-        </#list>
+        <a role='listitem' href="${url.loginUrl}" class="js-login-link service-menue
+            <#if pageId == 'login'>
+              active
+          </#if>">${msg("navLogin")}</a>
+        <a role='listitem' href="#" class="js-contact-toggle service-menue">${msg("navSupport")}</a>
         <#if realm.internationalizationEnabled && locale.supported?size gt 1>
           <div class="${properties.kcLocaleMainClass!}" id="kc-locale">
             <div id="kc-locale-wrapper" class="${properties.kcLocaleWrapperClass!}">

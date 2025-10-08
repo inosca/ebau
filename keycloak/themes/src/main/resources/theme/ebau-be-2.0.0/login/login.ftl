@@ -2,9 +2,7 @@
     <@layout.registrationLayout pageId="login" displayMessage=!messagesPerField.existsError('username') displayInfo=(realm.password &&
         realm.registrationAllowed && !registrationDisabled??); section>
         <#if section="header">
-            <div class="title">
-                <h1>${msg("loginHeading")}</h1>
-            </div>
+            ${msg("loginHeading")}
         </#if>
         <#if section="form">
             <div class="login-helpertext">

@@ -4,7 +4,11 @@
             <div class="footer-nav">
                 <#list ["Department","Contact","Privacy","Impressum"] as site>
                     <#if msg("nav"+site) !="nav" + site && msg("nav"+site)?has_content>
-                        <a href="${msg('nav'+site+'Link')}" class="service-menue">${msg("nav"+site)}</a>
+                        <a href="${msg('nav'+site+'Link')}" class="service-menue
+                            <#if site?matches(['Contact','Support']?join('|'))>
+                                js-contact-toggle
+                            </#if>"
+                        >${msg("nav"+site)}</a>
                     </#if>
                 </#list>
             </div>
