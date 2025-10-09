@@ -341,3 +341,51 @@ def test_inquiry_visibility_ag(
         assert sorted(set(inquiries.values_list("name__de", flat=True))) == snapshot(
             name=name
         )
+
+
+@pytest.mark.parametrize("role__name", ["Municipality", "Coordination"])
+def test_inquiry_visibility_ur(
+    db,
+    caluma_admin_schema_executor,
+    ur_distribution_settings,
+    active_inquiry_factory,
+    role,
+    mocker,
+    service,
+    ur_instance,
+    service_factory,
+    settings,
+    gql,
+):
+    settings.APPLICATION_NAME = "kt_uri"
+    mocker.patch("caluma.caluma_core.types.Node.visibility_classes", [CustomVisibility])
+
+    other_service = service_factory()
+
+    visible_inquiries = [
+        active_inquiry_factory(controlling_service=c, addressed_service=a)
+        for c, a in [
+            (other_service, service),
+            (service, other_service),
+            (service_factory(), other_service),
+        ]
+    ]
+
+    result = caluma_admin_schema_executor(
+        gql("work-items-for-task"),
+        variables={"task": ur_distribution_settings["INQUIRY_TASK"]},
+    )
+
+    assert not result.errors
+
+    ids = set(
+        [
+            extract_global_id(edge["node"]["id"])
+            for edge in result.data["allWorkItems"]["edges"]
+        ]
+    )
+
+    visible_ids = {str(i.pk) for i in visible_inquiries}
+
+    assert len(ids) == 3
+    assert visible_ids == ids
