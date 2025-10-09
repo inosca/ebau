@@ -249,7 +249,7 @@ services:
     command: devserver
 
   minio:
-    image: minio/minio:RELEASE.2024-08-03T04-33-23Z
+    image: minio/minio:RELEASE.2025-07-23T15-54-02Z
     user: ${UID}
     volumes:
       - minio_data:/data
@@ -262,7 +262,7 @@ services:
     command: server data --console-address ":9090"
 
   mc:
-    image: minio/mc:RELEASE.2024-07-31T15-58-33Z
+    image: minio/mc:RELEASE.2025-07-21T05-28-08Z
     depends_on:
       - minio
     restart: on-failure
