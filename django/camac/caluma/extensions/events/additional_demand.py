@@ -109,6 +109,9 @@ def post_complete_check_additional_demand(
         ),
         None,
     )
+    decision_is_positive = (
+        decision == settings.ADDITIONAL_DEMAND["ANSWERS"]["DECISION"]["ACCEPTED"]
+    )
 
     instance = get_instance(work_item)
     has_pending_checks = _has_pending_work_items(
@@ -132,7 +135,11 @@ def post_complete_check_additional_demand(
             gettext_noop(history_entry),
         )
 
-    if settings.ADDITIONAL_DEMAND.get("STATES") and not has_pending_checks:
+    if (
+        settings.ADDITIONAL_DEMAND.get("STATES")
+        and not has_pending_checks
+        and decision_is_positive
+    ):
         camac_user = User.objects.get(username=user.username)
 
         instance.set_instance_state(
@@ -143,10 +150,7 @@ def post_complete_check_additional_demand(
     if settings.APPLICATION_NAME == "kt_uri":
         # if the "init-distribution" work item has been suspended
         # because of the "Vollständigkeitsprüfung" we need to resume it
-        if (
-            decision == settings.ADDITIONAL_DEMAND["ANSWERS"]["DECISION"]["ACCEPTED"]
-            and not has_pending_checks
-        ):
+        if decision_is_positive and not has_pending_checks:
             if suspended_distribution_work_item := WorkItem.objects.filter(
                 task_id=settings.DISTRIBUTION["DISTRIBUTION_INIT_TASK"],
                 case__family=instance.case,
