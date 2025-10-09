@@ -40,7 +40,7 @@
         "is-creatable": true,
         "is-main-form": true
       },
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": "baugesuch-v2"
     }
@@ -99,7 +99,7 @@
         "is-creatable": true,
         "is-main-form": true
       },
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": "vorlaeufige-beurteilung"
     }
