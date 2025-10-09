@@ -250,7 +250,7 @@ DMS = {
                     "einreichen",
                     "bestaetigung",
                     "gis-map",
-                    # eeba questions
+                    # eeba questions that are technical and need to be excluded
                     "eeba-confirmation",
                     "eeba-state",
                     "eeba-error",
@@ -271,6 +271,13 @@ DMS = {
                     "einreichen",
                     "bestaetigung",
                     "gis-map",
+                    # eeba questions that are technical and need to be excluded
+                    "eeba-confirmation",
+                    "eeba-state",
+                    "eeba-error",
+                    "eeba-integration-id",
+                    "eeba-is-dirty",
+                    "eeba-link",
                 ],
             },
             "vorlaeufige-beurteilung": {
@@ -285,6 +292,13 @@ DMS = {
                     "einreichen",
                     "bestaetigung",
                     "gis-map",
+                    # eeba questions that are technical and need to be excluded
+                    "eeba-confirmation",
+                    "eeba-state",
+                    "eeba-error",
+                    "eeba-integration-id",
+                    "eeba-is-dirty",
+                    "eeba-link",
                 ],
             },
             "solaranlage": {
@@ -299,6 +313,13 @@ DMS = {
                     "einreichen",
                     "bestaetigung",
                     "gis-map",
+                    # eeba questions that are technical and need to be excluded
+                    "eeba-confirmation",
+                    "eeba-state",
+                    "eeba-error",
+                    "eeba-integration-id",
+                    "eeba-is-dirty",
+                    "eeba-link",
                 ],
             },
         },
