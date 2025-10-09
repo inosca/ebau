@@ -40,7 +40,7 @@ from camac.caluma.utils import CamacRequest
 from camac.constants.kt_bern import DASHBOARD_FORM_SLUG
 from camac.instance.serializers import CalumaInstanceSerializer
 from camac.permissions.api import PermissionManager
-from camac.permissions.switcher import is_permission_mode_fully_enabled
+from camac.permissions.switcher import is_permission_module_fully_enabled
 from camac.user.permissions import permission_aware
 from camac.utils import build_url, headers
 
@@ -507,7 +507,8 @@ class CustomPermission(BasePermission):
         else:  # pragma: no cover
             return False
 
-        if permission_key != "case-meta" and is_permission_mode_fully_enabled():
+        group = self.request.group
+        if permission_key != "case-meta" and is_permission_module_fully_enabled(group):
             # TODO: Use this logic for the case-meta permission as soon as Kt.
             # BE uses the full mode. This permission is needed for the feature
             # where the authority can add a "paper-submit-date" to the case

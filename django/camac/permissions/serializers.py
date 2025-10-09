@@ -5,7 +5,7 @@ from camac.instance import models as instance_models
 from camac.permissions import permissions
 from camac.permissions.switcher import (
     get_permission_mode,
-    is_permission_mode_fully_enabled,
+    is_permission_module_fully_enabled,
     permission_switching_method,
 )
 from camac.user.permissions import permission_aware
@@ -126,10 +126,14 @@ class InstancePermissionSerializer(serializers.ModelSerializer):
         #   level, more nuanced information regarding the current operating
         #   mode.
         # * fully_enabled is a boolean that is True when the old permissions
-        #   mode should be ignored.
+        #   mode should be ignored (either because the permissions module
+        #   is fully enabled or it is enabled for the current user's role
+        #   permission).
+
+        request = self.context["request"]
         return {
             "permission_mode": get_permission_mode().value,
-            "fully_enabled": is_permission_mode_fully_enabled(),
+            "fully_enabled": is_permission_module_fully_enabled(request.group),
         }
 
     def get_instance(self, instance):

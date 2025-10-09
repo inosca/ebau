@@ -113,8 +113,42 @@ def get_permission_mode():
         return set_mode
 
 
-def is_permission_mode_fully_enabled():
-    return get_permission_mode() in FULLY_ENABLED_MODES
+def is_permission_module_fully_enabled(group):
+    """Return whether permissions module should apply.
+
+    Check whether the permissions module is fully enabled or whether the
+    permissions module should apply for the current user's role permission.
+
+    The role permissions which have been migrated to the permissions module
+    are configured in the canton-specific permission setting
+    (MIGRATED_ROLE_PERMISSIONS). The current user's mapped role permission
+    is checked against this setting, to determine whether the permissions
+    module should apply.
+    """
+
+    if not settings.PERMISSIONS:
+        return False
+
+    # Check whether permissions module is fully enabled
+    if get_permission_mode() in FULLY_ENABLED_MODES:
+        return True
+
+    # Check whether role permission has been migrated to permissions module
+    migrated_role_permissions = settings.PERMISSIONS.get(
+        "MIGRATED_ROLE_PERMISSIONS", []
+    )
+    if not group or not migrated_role_permissions:
+        return False
+
+    from camac.user.permissions import get_role_name
+
+    perm = get_role_name(group)
+
+    # Role permission cannot be determined
+    if not perm:  # pragma: no cover
+        return False
+
+    return perm in migrated_role_permissions
 
 
 class PermissionMethod:
@@ -138,6 +172,26 @@ class PermissionMethod:
                 # Only "new"
                 return self._method._new_method(self._instance, *args, **kwargs)
             elif mode == PERMISSION_MODE.OFF:
+                from camac.user.permissions import get_group
+
+                group = None
+                try:
+                    group = get_group(self._instance)
+                except AttributeError:
+                    pass
+
+                # Return old method for cases where either no request or no
+                # group can be determined.
+                if not group:
+                    log.error(
+                        f"Permissions module switcher for method '{self._method}' "
+                        "cannot determine group. Returning OLD."
+                    )
+                    return self._method._old_method(self._instance, *args, **kwargs)
+
+                if is_permission_module_fully_enabled(group):
+                    return self._method._new_method(self._instance, *args, **kwargs)
+
                 # Only "old"
                 return self._method._old_method(self._instance, *args, **kwargs)
             else:
@@ -183,6 +237,30 @@ class PermissionMethod:
                 new_vals = sorted(new_vals)
 
             return old_vals == new_vals
+
+        def call_new_variant(self, *args, **kwargs):
+            """Call new variant of method registered by permission switching method.
+
+            Usually will be used together with a check whether the permissions
+            module should be used for the current user's role permission. This
+            allows a gradual migration to the permissions module based logic, when
+            the permissions module isn't fully enabled yet.
+
+            >>> class Foo:
+            ...     @permisson_method
+            ...     def do_thing(self):
+            ...         # Permission module logic
+            ...         ...
+            ...
+            ...     @do_thing.register_old
+            ...     def do_thing_old(self):
+            ...         if is_permission_module_fully_enabled(...):
+            ...             return self.do_thing.call_new_variant(self)
+            ...
+            ...         # RBAC logic
+            ...         ...
+            """
+            return self._method._new_method(*args, **kwargs)
 
         def __str__(self):
             return str(self._method)

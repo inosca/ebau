@@ -9,6 +9,7 @@ from camac.permissions.conditions import (
     RequireWorkItem,
 )
 from camac.permissions.switcher import PERMISSION_MODE
+from camac.settings.env import env
 
 STATES_ALL_INTERNAL = RequireInstanceState(
     [
@@ -342,6 +343,7 @@ GEOMETER_RW = (
 
 BE_PERMISSIONS_SETTINGS = {
     "PERMISSION_MODE": PERMISSION_MODE.OFF,
+    "MIGRATED_ROLE_PERMISSIONS": env.list("MIGRATED_ROLE_PERMISSIONS", default=[]),
     "ACCESS_LEVELS": {
         "geometer": [
             ("communications-read", GEOMETER_RW),

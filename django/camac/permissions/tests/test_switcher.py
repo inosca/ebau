@@ -1,7 +1,7 @@
 import pytest
 
 from .. import switcher
-from ..switcher import PERMISSION_MODE
+from ..switcher import PERMISSION_MODE, is_permission_module_fully_enabled
 
 
 @pytest.fixture(
@@ -120,3 +120,97 @@ def test_get_permission_mode(
 
     output = switcher.get_permission_mode()
     assert output == expected_out
+
+
+@pytest.mark.parametrize(
+    "use_permissions_module, expect_result",
+    [
+        (False, "oldvalue"),
+        (True, "newvalue"),
+    ],
+)
+def test_permissions_switcher_call_new_variant(
+    permissions_settings,
+    use_permissions_module,
+    expect_result,
+):
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.OFF
+
+    class TestThingy:
+        @switcher.permission_switching_method
+        def foo(self):
+            return "newvalue"
+
+        @foo.register_old
+        def foo_old(self):
+            if use_permissions_module:
+                return self.foo.call_new_variant(self)
+
+            return "oldvalue"
+
+    thing = TestThingy()
+    assert expect_result == thing.foo()
+
+
+@pytest.mark.parametrize(
+    "role__name, config, expect_result",
+    [
+        (None, [], "oldvalue"),
+        ("Applicant", [], "oldvalue"),
+        ("Municipality", [], "oldvalue"),
+        ("Applicant", ["applicant"], "newvalue"),
+        ("Municipality", ["applicant"], "oldvalue"),
+        ("Municipality", ["municipality"], "newvalue"),
+    ],
+)
+def test_permissions_switcher_role_based(
+    db,
+    fake_request,
+    permissions_settings,
+    role,
+    config,
+    expect_result,
+):
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.OFF
+    permissions_settings["MIGRATED_ROLE_PERMISSIONS"] = config
+
+    class TestThingy:
+        request = fake_request if role.name else None
+
+        @switcher.permission_switching_method
+        def foo(self):
+            return "newvalue"
+
+        @foo.register_old
+        def foo_old(self):
+            return "oldvalue"
+
+    thing = TestThingy()
+    assert expect_result == thing.foo()
+
+
+@pytest.mark.parametrize(
+    "role__name, mode, config, expected_result",
+    [
+        ("Applicant", PERMISSION_MODE.FULL, [], True),
+        ("Applicant", PERMISSION_MODE.OFF, [], False),
+        ("Municipality", PERMISSION_MODE.FULL, [], True),
+        ("Municipality", PERMISSION_MODE.OFF, [], False),
+        ("Applicant", PERMISSION_MODE.FULL, ["municipality"], True),
+        ("Applicant", PERMISSION_MODE.OFF, ["applicant"], True),
+        ("Municipality", PERMISSION_MODE.OFF, ["applicant"], False),
+        ("Municipality", PERMISSION_MODE.OFF, ["municipality"], True),
+    ],
+)
+def test_permission_module_fully_enabled(
+    db,
+    group,
+    permissions_settings,
+    mode,
+    config,
+    expected_result,
+):
+    permissions_settings["PERMISSION_MODE"] = mode
+    permissions_settings["MIGRATED_ROLE_PERMISSIONS"] = config
+
+    assert is_permission_module_fully_enabled(group) == expected_result

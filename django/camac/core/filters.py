@@ -4,7 +4,7 @@ from django_filters.rest_framework import FilterSet
 from camac.filters import CharMultiValueFilter, NumberFilter, NumberMultiValueFilter
 from camac.instance.models import Instance
 from camac.permissions.api import PermissionManager
-from camac.permissions.switcher import is_permission_mode_fully_enabled
+from camac.permissions.switcher import is_permission_module_fully_enabled
 
 from . import models
 
@@ -47,7 +47,7 @@ class InstanceResourceFilterSet(FilterSet):
             require_permission__isnull=False,
         )
 
-        if is_permission_mode_fully_enabled():
+        if is_permission_module_fully_enabled(group=self.request.group):
             # If the permissions module is in "fully on" mode, disregard
             # any old IR acls and only return the IRs with new permissions
             return qs.filter(permission_module_filter)

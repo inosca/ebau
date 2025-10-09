@@ -7,7 +7,7 @@ from camac.permissions.conditions import Callback, RequireInstanceState
 from camac.permissions.switcher import (
     PERMISSION_MODE,
     get_permission_mode,
-    is_permission_mode_fully_enabled,
+    is_permission_module_fully_enabled,
 )
 
 
@@ -44,13 +44,15 @@ def test_permissions_view(
 
     configure_access_levels(has_functional_permission=has_functional_permission)
 
+    group = admin_client.user.groups.first()
+
     # Check permissions before...
     result = admin_client.get(url, {"instance": instance.pk})
     assert result.json() == {
         "data": [],
         "meta": {
             "permission-mode": get_permission_mode().value,
-            "fully-enabled": is_permission_mode_fully_enabled(),
+            "fully-enabled": is_permission_module_fully_enabled(group),
         },
     }
 
@@ -88,7 +90,7 @@ def test_permissions_view(
         ],
         "meta": {
             "permission-mode": get_permission_mode().value,
-            "fully-enabled": is_permission_mode_fully_enabled(),
+            "fully-enabled": is_permission_module_fully_enabled(group),
         },
     }
 
@@ -132,6 +134,8 @@ def test_no_include_instance(
         )
 
     else:
+        group = admin_client.user.groups.first()
+
         # no includes = all good
         result = admin_client.get(url, params)
         assert result.json() == {
@@ -152,7 +156,7 @@ def test_no_include_instance(
             ],
             "meta": {
                 "permission-mode": get_permission_mode().value,
-                "fully-enabled": is_permission_mode_fully_enabled(),
+                "fully-enabled": is_permission_module_fully_enabled(group),
             },
         }
 
@@ -162,11 +166,17 @@ def test_no_include_instance(
     [
         (
             PERMISSION_MODE.OFF.value,
-            {"permission-mode": PERMISSION_MODE.OFF.value, "fully-enabled": False},
+            {
+                "permission-mode": PERMISSION_MODE.OFF.value,
+                "fully-enabled": False,
+            },
         ),
         (
             PERMISSION_MODE.FULL.value,
-            {"permission-mode": PERMISSION_MODE.FULL.value, "fully-enabled": True},
+            {
+                "permission-mode": PERMISSION_MODE.FULL.value,
+                "fully-enabled": True,
+            },
         ),
     ],
 )

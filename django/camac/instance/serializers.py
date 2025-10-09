@@ -63,7 +63,7 @@ from camac.instance.utils import (
 from camac.notification.utils import send_mail, send_mail_without_request
 from camac.permissions import api as permissions_api, events as permissions_events
 from camac.permissions.switcher import (
-    is_permission_mode_fully_enabled,
+    is_permission_module_fully_enabled,
     permission_switching_method,
 )
 from camac.responsible.domain_logic import ResponsibleServiceDomainLogic
@@ -1166,7 +1166,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
             is_paper = caluma_api.is_paper(source_instance)
 
-            if is_permission_mode_fully_enabled():
+            if is_permission_module_fully_enabled(group):
                 # "copy after rejection" means copying an instance that is not a modification
                 # and the source instance is actually rejected.
                 is_rejection = (
@@ -1225,7 +1225,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
         if (
             is_modification
-            and not is_permission_mode_fully_enabled()
+            and not is_permission_module_fully_enabled(group)
             and (
                 caluma_form not in settings.PROJECT_MODIFICATION.get("ALLOW_FORMS", [])
                 or source_instance.instance_state.name

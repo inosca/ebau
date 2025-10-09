@@ -14,7 +14,7 @@ from camac.instance import filters as instance_filters, models as instance_model
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.permissions.switcher import (
     get_permission_mode,
-    is_permission_mode_fully_enabled,
+    is_permission_module_fully_enabled,
     permission_switching_method,
 )
 from camac.user.permissions import (
@@ -270,6 +270,6 @@ class PermissionsMetaView(APIView):
         return Response(
             {
                 "permission-mode": get_permission_mode().value,
-                "fully-enabled": is_permission_mode_fully_enabled(),
+                "fully-enabled": is_permission_module_fully_enabled(request.group),
             }
         )
