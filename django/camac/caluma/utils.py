@@ -289,6 +289,8 @@ def get_additional_inquiries_filters(group: Group) -> Expression | Subquery | Q:
                     service_parent__service_group__name="service-cantonal",
                 )
             return work_item_by_addressed_service_condition(cantonal_visibility)
+        case "kt_uri":
+            return Value(True)
         case _:
             # Services only see their own inquiries
             return Value(False)
