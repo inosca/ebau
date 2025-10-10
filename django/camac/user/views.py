@@ -311,6 +311,31 @@ class PublicGroupView(MultilangMixin, ReadOnlyModelViewSet):
         return response.Response(status=status.HTTP_204_NO_CONTENT)
 
 
+class UserGroupInvitationView(ModelViewSet):
+    serializer_class = serializers.UserGroupInvitationSerializer
+    queryset = models.UserGroupInvitation.objects.annotate(
+        email_deterministic=Collate("email", "und-x-icu")
+    )
+    ordering = "-created_at"
+    filterset_class = filters.UserGroupInvitationFilterSet
+    http_method_names = ["get", "post", "delete"]
+    search_fields = [
+        "email_deterministic",
+        "group__trans__name",
+    ]
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        service = self.request.group.service if self.request.group else None
+
+        if not service:  # pragma: no cover
+            return queryset.none()
+
+        return queryset.filter(
+            Q(group__service=service) | Q(group__service__service_parent=service)
+        )
+
+
 class UserGroupView(ModelViewSet):
     serializer_class = serializers.UserGroupSerializer
     queryset = models.UserGroup.objects.annotate(

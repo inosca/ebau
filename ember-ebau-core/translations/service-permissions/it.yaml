@@ -8,7 +8,7 @@ service-permissions:
   group: "Gruppo"
   name: "Nome"
   name-hint: |-
-    <strong>Nota: </strong>per indicare nome e luogo del servizio di rango inferiore anche in un'altra lingua, 
+    <strong>Nota: </strong>per indicare nome e luogo del servizio di rango inferiore anche in un'altra lingua,
     cambiare la lingua, adeguare la designazione e cliccare di nuovo su «Salva».
   phone: "Telefono"
   website: "Sito web"
@@ -27,8 +27,17 @@ service-permissions:
 
   permissions: "Diritti"
   permissions-add: "Aggiungere diritti"
+  permissions-add-info: "Può creare autorizzazioni per utenti esistenti o inviare inviti di autorizzazione a nuovi utenti."
   permissions-save-success: "Il diritto è stato salvato."
   permissions-save-error: "Non è stato possibile salvare il diritto."
+
+  invitations: "Inviti"
+  invitation-modal-body: |-
+    <p>Non è stato trovato alcun utente con l’indirizzo e-mail <strong>{email}</strong>. Verifichi che l’indirizzo e-mail sia corretto. In tal caso, desidera invitare l’utente e assegnargli già l’autorizzazione?</p>
+    <p>Se l’utente non ha ancora inviti in corso, riceverà una notifica via e-mail.</p>
+  invitation-invite-user: "Invita utente"
+  invitation-save-success: "L’invito è stato salvato con successo."
+  invitation-save-error: "Impossibile salvare l’invito."
 
   sub-services: "Servizi di rango inferiore"
   sub-services-add: "Aggiungi servizio di rango inferiore"

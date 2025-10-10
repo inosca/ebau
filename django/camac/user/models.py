@@ -374,6 +374,16 @@ class GroupLocation(models.Model):
         unique_together = (("group", "location"),)
 
 
+class UserGroupInvitation(models.Model):
+    email = models.EmailField(db_collation="case_insensitive", db_index=True)
+    group = models.ForeignKey(Group, models.CASCADE, related_name="+")
+    created_at = models.DateTimeField(auto_now_add=True)
+    created_by = models.ForeignKey(User, models.CASCADE, related_name="+")
+
+    class Meta:
+        unique_together = (("email", "group"),)
+
+
 class UserGroup(models.Model):
     """Builds the n-to-n relationship between the users and the groups."""
 

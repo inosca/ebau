@@ -23,7 +23,7 @@ from camac.applicants.models import Applicant
 from camac.core.models import InstancePortal
 from camac.instance.models import Instance
 from camac.permissions.events import Trigger
-from camac.user.models import Group, UserGroup
+from camac.user.models import Group, UserGroup, UserGroupInvitation
 from camac.utils import clean_join
 
 request_logger = logging.getLogger("django.request")
@@ -211,6 +211,7 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
         self._assign_demo_groups(user)
 
         if created:
+            self._apply_user_group_invitations(user)
             if settings.URI_MIGRATE_PORTAL_USER and "portalid" in data:
                 migrate_portal_user(data.get("portalid"), user)
 
@@ -237,6 +238,18 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
                 request_logger.error(
                     f"Got invalid DEMO_MODE_GROUP ID ({group_id}), skipping"
                 )
+
+    @transaction.atomic
+    def _apply_user_group_invitations(self, user):
+        pending_invitations = UserGroupInvitation.objects.filter(email=user.email)
+        for invitation in pending_invitations:
+            UserGroup.objects.update_or_create(
+                user=user,
+                group=invitation.group,
+                default_group=0,
+                created_by=invitation.created_by,
+            )
+        pending_invitations.delete()
 
     def _update_applicants(self, user):
         # If token exchange is enabled, this logic must only be executed if the

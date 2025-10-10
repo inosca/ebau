@@ -288,6 +288,18 @@
     }
   },
   {
+    "model": "notification.notificationtemplate",
+    "pk": 25,
+    "fields": {
+      "slug": "user-invited",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
     "model": "notification.notificationtemplatet",
     "pk": 1,
     "fields": {
@@ -573,6 +585,18 @@
       "purpose": "Manuelle Aufgabe erstellt",
       "subject": "Aufgabe erstellt (Dossier-Nummer {{ DOSSIER_NR }})",
       "body": "Guten Tag\r\n\r\nIhnen wurde eine neue Aufgabe \"{{ WORK_ITEM_NAME_DE }}\" im Dossier mit der Dossier-Nummer {{ DOSSIER_NR }} ({{ FORM_NAME_DE }}, {{ MUNICIPALITY_DE }}) zugewiesen.\r\n\r\n{{ INTERNAL_DOSSIER_LINK }}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf."
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 25,
+    "fields": {
+      "template": 25,
+      "template_slug": "user-invited",
+      "language": "de",
+      "purpose": "Manuelle Aufgabe erstellt",
+      "subject": "Einladung zu eBau",
+      "body": "Guten Tag\r\n\r\nSie haben eine Berechtigung im internen Bereich von eBau für die Organisation \"{{ INVITED_TO_SERVICE }}\" erhalten. Um die Berechtigung zu aktivieren, ist eine Registrierung auf dem Online-Schalter des Kantons Solothurn erforderlich.\r\n\r\nUnter folgendem Link können Sie sich registrieren: {{ INTERNAL_BASE_URL }}\r\n\r\nDiese Einladung ist 14 Tage lang gültig. Falls die Frist abgelaufen ist, melden Sie sich beim Administrator in ihrer Organisation oder beim Support von eBau.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
     }
   }
 ]

@@ -1,0 +1,80 @@
+<div class="uk-grid-small" uk-grid>
+  <div class="uk-width-expand">
+    <div class="uk-search uk-search-default uk-width-1-1">
+      <span uk-search-icon></span>
+      <input
+        class="uk-search-input"
+        type="search"
+        placeholder={{t "global.search"}}
+        aria-label={{t "global.search"}}
+        value={{this.search}}
+        {{on "input" this.updateSearch.perform}}
+      />
+    </div>
+  </div>
+  <div class="uk-width-1-3">
+    <PowerSelect
+      @searchEnabled={{true}}
+      @searchField="name"
+      @renderInPlace={{true}}
+      @options={{this.groups.records}}
+      @selected={{this.selectedGroup}}
+      @noMatchesMessage={{t "global.noMatch"}}
+      @onChange={{fn (mut this.selectedGroup)}}
+      @allowClear={{true}}
+      @placeholder={{t "service-permissions.select-group"}}
+      class="uk-select"
+      as |group|
+    >
+      {{group.name}}
+    </PowerSelect>
+  </div>
+</div>
+
+<table class="uk-table uk-table-striped uk-table-middle">
+  <thead>
+    <tr>
+      <th>{{t "service-permissions.email"}}</th>
+      <th>{{t "service-permissions.group"}}</th>
+      <th>{{t "service-permissions.created-by"}}</th>
+      <th>{{t "service-permissions.created-at"}}</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#unless this.userGroupInvitations.isResetting}}
+      {{#each this.userGroupInvitations.records as |row|}}
+        <tr>
+          <td>{{row.email}}</td>
+          <td>{{row.group.name}}</td>
+          <td>{{or row.createdBy.fullName "-"}}</td>
+          <td>{{format-date row.createdAt format="date"}}</td>
+          <td class="uk-text-right">
+            <button
+              type="button"
+              class="uk-button uk-button-link"
+              {{on "click" (perform this.delete row)}}
+            >
+              <UkIcon @icon="trash" />
+            </button>
+          </td>
+        </tr>
+      {{else}}
+        <tr>
+          <td colspan="5" class="uk-text-center uk-text-italic">
+            {{t "global.empty"}}
+          </td>
+        </tr>
+      {{/each}}
+    {{/unless}}
+    {{#if this.userGroupInvitations.isLoading}}
+      <tr>
+        <td colspan="5" class="uk-text-center">
+          <UkSpinner @ratio="0.7" />
+        </td>
+      </tr>
+    {{else if this.userGroupInvitations.hasMore}}
+      <tr {{in-viewport onEnter=this.updatePage}}></tr>
+    {{/if}}
+  </tbody>
+</table>

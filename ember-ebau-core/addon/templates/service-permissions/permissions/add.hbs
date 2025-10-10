@@ -1,4 +1,7 @@
 <form class="uk-form-stacked" {{on "submit" (perform this.save)}}>
+  <div class="uk-alert uk-alert-warning">
+    <p>{{t "service-permissions.permissions-add-info"}}</p>
+  </div>
   <div class="uk-margin">
     <label class="uk-form-label uk-text-bold" for="email">
       {{t "service-permissions.email"}}

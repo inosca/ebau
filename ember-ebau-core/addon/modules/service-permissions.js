@@ -1,5 +1,6 @@
 import ServicePermissionsController from "ember-ebau-core/controllers/service-permissions";
-import ServicePermissionsOrganiationController from "ember-ebau-core/controllers/service-permissions/organisation";
+import ServicePermissionsInvitationsController from "ember-ebau-core/controllers/service-permissions/invitations";
+import ServicePermissionsOrganisationController from "ember-ebau-core/controllers/service-permissions/organisation";
 import ServicePermissionsPermissionsAddController from "ember-ebau-core/controllers/service-permissions/permissions/add";
 import ServicePermissionsPermissionsIndexController from "ember-ebau-core/controllers/service-permissions/permissions/index";
 import ServicePermissionsSubServicesAddController from "ember-ebau-core/controllers/service-permissions/sub-services/add";
@@ -7,6 +8,7 @@ import ServicePermissionsSubServicesIndexController from "ember-ebau-core/contro
 import { registerModule } from "ember-ebau-core/modules";
 import ServicePermissionsRoute from "ember-ebau-core/routes/service-permissions";
 import ServicePermissionsIndexRoute from "ember-ebau-core/routes/service-permissions/index";
+import ServicePermissionsInvitationsRoute from "ember-ebau-core/routes/service-permissions/invitations";
 import ServicePermissionsOrganisationRoute from "ember-ebau-core/routes/service-permissions/organisation";
 import ServicePermissionsPermissionsRoute from "ember-ebau-core/routes/service-permissions/permissions";
 import ServicePermissionsPermissionsAddRoute from "ember-ebau-core/routes/service-permissions/permissions/add";
@@ -16,6 +18,7 @@ import ServicePermissionsSubServicesAddRoute from "ember-ebau-core/routes/servic
 import ServicePermissionsSubServicesEditRoute from "ember-ebau-core/routes/service-permissions/sub-services/edit";
 import ServicePermissionsSubServicesIndexRoute from "ember-ebau-core/routes/service-permissions/sub-services/index";
 import ServicePermissionsTemplate from "ember-ebau-core/templates/service-permissions";
+import ServicePermissionsInvitationsTemplate from "ember-ebau-core/templates/service-permissions/invitations";
 import ServicePermissionsOrganisationTemplate from "ember-ebau-core/templates/service-permissions/organisation";
 import ServicePermissionsPermissionsTemplate from "ember-ebau-core/templates/service-permissions/permissions";
 import ServicePermissionsPermissionsAddTemplate from "ember-ebau-core/templates/service-permissions/permissions/add";
@@ -30,6 +33,7 @@ export default function register(router, options = {}) {
     this.route("permissions", function () {
       this.route("add");
     });
+    this.route("invitations");
     this.route("organisation");
     this.route("sub-services", function () {
       this.route("add");
@@ -46,6 +50,7 @@ export default function register(router, options = {}) {
         ServicePermissionsPermissionsAddRoute,
       "service-permissions/permissions/index":
         ServicePermissionsPermissionsIndexRoute,
+      "service-permissions/invitations": ServicePermissionsInvitationsRoute,
       "service-permissions/organisation": ServicePermissionsOrganisationRoute,
       "service-permissions/sub-services": ServicePermissionsSubServicesRoute,
       "service-permissions/sub-services/add":
@@ -61,8 +66,10 @@ export default function register(router, options = {}) {
         ServicePermissionsPermissionsIndexController,
       "service-permissions/permissions/add":
         ServicePermissionsPermissionsAddController,
+      "service-permissions/invitations":
+        ServicePermissionsInvitationsController,
       "service-permissions/organisation":
-        ServicePermissionsOrganiationController,
+        ServicePermissionsOrganisationController,
       "service-permissions/sub-services/add":
         ServicePermissionsSubServicesAddController,
       "service-permissions/sub-services/index":
@@ -75,6 +82,7 @@ export default function register(router, options = {}) {
         ServicePermissionsPermissionsAddTemplate,
       "service-permissions/permissions/index":
         ServicePermissionsPermissionsIndexTemplate,
+      "service-permissions/invitations": ServicePermissionsInvitationsTemplate,
       "service-permissions/organisation":
         ServicePermissionsOrganisationTemplate,
       "service-permissions/sub-services": ServicePermissionsSubServicesTemplate,

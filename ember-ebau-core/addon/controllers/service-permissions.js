@@ -11,6 +11,7 @@ export default class ServicePermissionsController extends Controller {
     return (
       mainConfig.servicePermissions?.includeSubRoutes || [
         "permissions",
+        "invitations",
         "organisation",
         "sub-services",
       ]

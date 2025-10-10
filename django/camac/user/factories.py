@@ -106,6 +106,15 @@ class UserGroupFactory(DjangoModelFactory):
         model = models.UserGroup
 
 
+class UserGroupInvitationFactory(DjangoModelFactory):
+    email = Faker("email")
+    group = SubFactory(GroupFactory)
+    created_by = SubFactory(UserFactory)
+
+    class Meta:
+        model = models.UserGroupInvitation
+
+
 class LocationFactory(DjangoModelFactory):
     name = Faker("city")
     communal_federal_number = Faker("pyint", min_value=1000, max_value=9999)
