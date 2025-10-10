@@ -28,16 +28,21 @@ if settings.APPLICATION_NAME == "kt_ag":  # pragma: no cover
         log.info(
             f"wait_for_docs_from_sap_to_s3_task for {municipality} and dossier_ids: {dossier_ids}"
         )
-        if not DocsExportResultCheck(
-            municipality, replication_id, dossier_ids, segment_name, start_time
-        ).finished_with_result_export():
-            self.retry(
-                countdown=settings.DOSSIER_IMPORT["EBAU_DOCUMENT_CLIENT"][
-                    "check_replication_interval_seconds"
-                ],
-                max_retries=MAX_RETRIES,
-            )
-            return
+        try:
+            if DocsExportResultCheck(
+                municipality, replication_id, dossier_ids, segment_name, start_time
+            ).finished_with_result_export():
+                return
+        except Exception:
+            # already logged
+            pass
+
+        self.retry(
+            countdown=settings.DOSSIER_IMPORT["EBAU_DOCUMENT_CLIENT"][
+                "check_replication_interval_seconds"
+            ],
+            max_retries=MAX_RETRIES,
+        )
 
     @shared_task(
         soft_time_limit=60 * 60 * 10
