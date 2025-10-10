@@ -46,7 +46,12 @@ from .schema import (
     ech_0147_t2_1 as ns_nachrichten_t2,
     ech_0211_2_0 as ns_application,
 )
-from .utils import decision_to_judgement, handle_string_values, strip_whitespace
+from .utils import (
+    clean_text_for_xml,
+    decision_to_judgement,
+    handle_string_values,
+    strip_whitespace,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -161,7 +166,7 @@ def get_camac_documents(documents):
     return [
         ns_nachrichten_t0.documentType(
             uuid=str(attachment.uuid),
-            titles=pyxb.BIND(title=[attachment.display_name]),
+            titles=pyxb.BIND(title=[clean_text_for_xml(attachment.display_name)]),
             status="signed",  # ech0039 documentStatusType
             documentKind="; ".join(
                 [s.get_name() for s in attachment.attachment_sections.all()]
