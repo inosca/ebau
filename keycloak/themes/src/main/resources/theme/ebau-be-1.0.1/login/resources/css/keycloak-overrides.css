@@ -61,35 +61,16 @@ hr#login-separator {
   border-left: none;
 }
 
-#kc-social-providers-buttons {
-  margin: 0 auto;
-  padding: 5px 5px 0 15px;
-}
-#kc-social-providers-buttons:after {
-  content: " ";
-  display: table;
-  clear: both;
-}
-
 button.zocial {
   margin-left: 15px;
 }
 
 a.zocial {
   display: block;
-  margin-bottom: 10px;
-  margin-right: 10px;
   padding: 10px;
   box-sizing: border-box;
   background-color: #eee;
   border: 1px #ccc solid;
   font-size: 1.2em;
   text-align: center;
-}
-
-@media (min-width: 1040px) {
-  #kc-social-providers-buttons > div {
-    width: 50%;
-    float: left;
-  }
 }

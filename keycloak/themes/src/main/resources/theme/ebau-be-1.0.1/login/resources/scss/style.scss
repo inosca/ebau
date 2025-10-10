@@ -1,0 +1,49 @@
+@import "_variables";
+
+@import "uikit/src/scss/variables-theme.scss";
+@import "uikit/src/scss/mixins-theme.scss";
+
+@import "uikit/src/scss/uikit-theme.scss";
+
+h2#app-title a {
+  font-weight: 700;
+}
+
+.uk-button-default {
+  padding: $global-font-size 30px;
+  line-height: inherit;
+}
+
+.uk-card-default {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.uk-form-label {
+  font-weight: bolder;
+}
+
+#kc-social-providers-buttons {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(calc(50% - $global-font-size), 1fr)
+  );
+  gap: calc($global-font-size / 2);
+  /* gap: 10px 0; /* if {a.zocial} margin changes re-add  */
+  align-content: stretch;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 5px 5px 0 15px;
+
+  div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    a {
+      height: 100%;
+      margin-bottom: auto;
+    }
+  }
+}
