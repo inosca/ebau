@@ -114,7 +114,7 @@
     "ember-template-lint-plugin-prettier": "5.0.0",
     "ember-test-selectors": "7.0.0",
     "ember-truth-helpers": "4.0.3",
-    "ember-uikit": "9.1.3",
+    "ember-uikit": "9.1.4",
     "eslint": "9.16.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-ember": "12.3.3",

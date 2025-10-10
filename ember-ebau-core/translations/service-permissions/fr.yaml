@@ -27,8 +27,17 @@ service-permissions:
 
   permissions: "Droits d'accès"
   permissions-add: "Ajout d'un droit d'accès"
+  permissions-add-info: "Vous pouvez créer des autorisations pour les utilisateurs existants ou envoyer des invitations d’autorisation à de nouveaux utilisateurs."
   permissions-save-success: "Le droit d'accès a été enregistré."
   permissions-save-error: "Le droit d'accès n'a pas pu être enregistré."
+
+  invitations: "Invitations"
+  invitation-modal-body: |-
+    <p>Aucun utilisateur n’a été trouvé avec l’adresse e-mail <strong>{email}</strong>. Veuillez vérifier que l’adresse e-mail est correctement saisie. Si tel est le cas, souhaitez-vous inviter cet utilisateur et lui attribuer dès maintenant les autorisations nécessaires&nbsp;?</p>
+    <p>Si l’utilisateur n’a pas encore d’invitations en cours, il sera informé par e-mail.</p>
+  invitation-invite-user: "Inviter un utilisateur"
+  invitation-save-success: "L’invitation a été enregistrée avec succès."
+  invitation-save-error: "L’invitation n’a pas pu être enregistrée."
 
   sub-services: "Unité d'un service spécialisé"
   sub-services-add: "Ajouter une unité d'un service spécialisé"

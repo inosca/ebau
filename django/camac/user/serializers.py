@@ -6,14 +6,15 @@ from django.contrib.auth.models import AnonymousUser
 from django.core.validators import validate_email
 from django.db import transaction
 from django.utils.translation import get_language, gettext as _
-from rest_framework.exceptions import PermissionDenied, ValidationError
+from rest_framework.exceptions import PermissionDenied
 from rest_framework.fields import BooleanField
-from rest_framework.serializers import Serializer as RestSerializer
+from rest_framework.serializers import Serializer as RestSerializer, ValidationError
 from rest_framework_json_api import relations, serializers
 
 from camac.core.serializers import MultilingualField, MultilingualSerializer
 from camac.fields import CamacBooleanField
 from camac.instance.utils import get_lead_authority
+from camac.notification.utils import send_mail_without_instance
 from camac.user.relations import CurrentUserResourceRelatedField
 
 from . import models
@@ -502,12 +503,9 @@ class PublicGroupSerializer(MultilingualSerializer, serializers.ModelSerializer)
         resource_name = "public-groups"
 
 
-class UserGroupSerializer(serializers.ModelSerializer):
-    email = serializers.EmailField(write_only=True)
+class UserGroupInvitationSerializer(serializers.ModelSerializer):
     created_by = CurrentUserResourceRelatedField()
-
     included_serializers = {
-        "user": UserSerializer,
         "group": GroupSerializer,
         "created_by": UserSerializer,
     }
@@ -520,28 +518,88 @@ class UserGroupSerializer(serializers.ModelSerializer):
             else None
         )
 
+        if group.service != service and group.service.service_parent != service:
+            # User does not have permission to add a user to this group
+            raise PermissionDenied()
+
+        return validated_data
+
+    def create(self, validated_data):
+        invitation = super().create(validated_data)
+
+        if notification := getattr(settings.USER.notifications, "user_invited", None):
+            send_mail_without_instance(
+                notification,
+                recipients=[validated_data.get("email")],
+                additional_placeholders={
+                    "INVITED_TO_SERVICE": invitation.group.service.get_name()
+                },
+            )
+
+        return invitation
+
+    class Meta:
+        model = models.UserGroupInvitation
+        fields = (
+            "email",
+            "group",
+            "created_at",
+            "created_by",
+        )
+        read_only_fields = (
+            "created_at",
+            "created_by",
+        )
+
+
+class UserGroupSerializer(serializers.ModelSerializer):
+    email = serializers.EmailField(write_only=True)
+    created_by = CurrentUserResourceRelatedField()
+
+    included_serializers = {
+        "user": UserSerializer,
+        "group": GroupSerializer,
+        "created_by": UserSerializer,
+    }
+
+    def _invitable_users_qs(self):
+        queryset = models.User.objects.filter(disabled=0)
+
+        if settings.ENABLE_TOKEN_EXCHANGE:
+            # If token exchange is enabled, we need to make sure that only
+            # users **not** using that login method can be granted access to
+            # a group.
+            queryset = queryset.exclude(
+                username__startswith=settings.TOKEN_EXCHANGE_USERNAME_PREFIX
+            )
+        return queryset
+
+    def validate_email(self, value):
         try:
-            queryset = models.User.objects.filter(disabled=0)
-
-            if settings.ENABLE_TOKEN_EXCHANGE:
-                # If token exchange is enabled, we need to make sure that only
-                # users **not** using that login method can be granted access to
-                # a group.
-                queryset = queryset.exclude(
-                    username__startswith=settings.TOKEN_EXCHANGE_USERNAME_PREFIX
-                )
-
-            user = queryset.get(email=validated_data.pop("email"))
+            self._invitable_users_qs().get(email=value)
         except models.User.DoesNotExist:
             raise ValidationError(
                 _(
                     "No user with this email address found. Please make sure"
                     "the person already has an account with this email address"
                     "or check the spelling of the email address."
-                )
+                ),
+                "not_found",
             )
         except models.User.MultipleObjectsReturned:
             raise ValidationError(_("Multiple users with that email exist"))
+
+        return value
+
+    def validate(self, validated_data):
+        group = validated_data["group"]
+        service = (
+            self.context["request"].group.service
+            if self.context["request"].group
+            else None
+        )
+
+        user = self._invitable_users_qs().get(email=validated_data.pop("email"))
 
         if models.UserGroup.objects.filter(group=group, user=user).exists():
             raise ValidationError(_("User is already in group"))

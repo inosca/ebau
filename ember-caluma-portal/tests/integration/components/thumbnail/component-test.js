@@ -10,7 +10,9 @@ module("Integration | Component | thumbnail", function (hooks) {
   setupMirage(hooks);
 
   test("it renders", async function (assert) {
-    await render(hbs`<Thumbnail />`);
+    await render(
+      hbs`<Thumbnail><button type="button">Download</button></Thumbnail>`,
+    );
     await triggerEvent("[uk-dropdown]", "beforeshow");
     // eslint-disable-next-line ember/no-settled-after-test-helper
     await settled();

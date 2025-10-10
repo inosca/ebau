@@ -1,5 +1,9 @@
 from collections import namedtuple
 
+import jinja2
+from django.conf import settings
+from django.core.mail import send_mail as django_send_mail
+
 from camac.notification.models import NotificationTemplate
 from camac.notification.serializers import (
     NotificationTemplateSendmailSerializer,
@@ -57,3 +61,38 @@ def send_mail(
     serializer.save()
 
     return serializer
+
+
+def send_mail_without_instance(
+    notification_template_slug: str,
+    recipients: list[str],
+    additional_placeholders: dict = {},
+):
+    notification_template = NotificationTemplate.objects.get(
+        slug=notification_template_slug
+    )
+    placeholder_data = (
+        _get_placeholder_data_without_instance() | additional_placeholders
+    )
+
+    subject = notification_template.get_trans_attr("subject")
+    body = notification_template.get_trans_attr("body")
+    subject = _merge(subject, placeholder_data)
+    body = _merge(body, placeholder_data)
+
+    django_send_mail(
+        subject,
+        body,
+        from_email=None,
+        recipient_list=recipients,
+    )
+
+
+def _merge(value, data):
+    value_template = jinja2.Template(value)
+
+    return value_template.render(data)
+
+
+def _get_placeholder_data_without_instance():
+    return {"INTERNAL_BASE_URL": settings.INTERNAL_BASE_URL}

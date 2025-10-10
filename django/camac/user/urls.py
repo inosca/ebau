@@ -19,6 +19,11 @@ r.register(
 r.register(r"users", views.UserView)
 r.register(r"public-users", views.PublicUserView, basename="publicuser")
 r.register(r"user-groups", views.UserGroupView, basename="usergroup")
+r.register(
+    r"user-group-invitations",
+    views.UserGroupInvitationView,
+    basename="usergroupinvitation",
+)
 
 urlpatterns = [
     re_path(

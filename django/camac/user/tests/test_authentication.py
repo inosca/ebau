@@ -315,6 +315,22 @@ def test_update_applicants_token_exchange(
         assert pending_applicant.invitee is None
 
 
+@pytest.mark.parametrize("is_invited", [False, True])
+def test_user_group_invitations(
+    db, is_invited, user_factory, user_group_invitation_factory
+):
+    user = user_factory()
+    user_group_invitation_factory.create_batch(
+        2, email=user.email if is_invited else "somthn-else@example.com"
+    )
+
+    JSONWebTokenKeycloakAuthentication()._apply_user_group_invitations(user)
+
+    user.refresh_from_db()
+
+    assert user.groups.count() == (2 if is_invited else 0)
+
+
 def test_authenticate_token_exchange_company_name(rf, mocker, settings, clear_cache):
     settings.ENABLE_TOKEN_EXCHANGE = True
 

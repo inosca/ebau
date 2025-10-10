@@ -28,8 +28,17 @@ service-permissions:
 
   permissions: "Berechtigungen"
   permissions-add: "Berechtigung hinzufügen"
+  permissions-add-info: "Sie können Berechtigungen für bestehende Nutzer erstellen oder Berechtigungseinladungen an neue Nutzer versenden."
   permissions-save-success: "Die Berechtigung wurde gespeichert."
   permissions-save-error: "Die Berechtigung konnte nicht gespeichert werden."
+
+  invitations: "Einladungen"
+  invitation-modal-body: |-
+    <p>Es wurde kein Benutzer mit der E-Mail Adresse <strong>{email}</strong> gefunden. Bitte überprüfen Sie, ob die E-Mail Adresse richtig geschrieben wurde. Falls ja, möchten Sie den Benutzer einladen und die Berechtigung bereits hinterlegen?</p>
+    <p>Falls der Benutzer noch keine bestehenden Einladungen hat, wird er per E-Mail informiert.</p>
+  invitation-invite-user: "Benutzer einladen"
+  invitation-save-success: "Die Einladung wurde gespeichert."
+  invitation-save-error: "Die Einladung konnte nicht gespeichert werden."
 
   sub-services: "Unterfachstellen"
   sub-services-add: "Unterfachstelle hinzufügen"

@@ -532,3 +532,11 @@ class UserGroupFilterSet(FilterSet):
     class Meta:
         model = models.UserGroup
         fields = ("in_group",)
+
+
+class UserGroupInvitationFilterSet(FilterSet):
+    in_group = NumberMultiValueFilter(field_name="group")
+
+    class Meta:
+        model = models.UserGroupInvitation
+        fields = ("in_group",)
