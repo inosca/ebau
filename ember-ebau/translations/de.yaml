@@ -54,3 +54,6 @@ case:
         title: "Baubewilligungsverfahren"
       special-procedure:
         title: "Weitere Verfahren"
+
+alert-message:
+  title: "Warnmeldungen"

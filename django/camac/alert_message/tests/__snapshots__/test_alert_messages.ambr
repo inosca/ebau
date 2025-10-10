@@ -1,0 +1,63 @@
+# serializer version: 1
+# name: test_alert_messages_date_filter
+  list([
+    dict({
+      'attributes': dict({
+        'active': True,
+        'created-at': '2025-05-19T14:00:00+02:00',
+        'end-date': '2026-01-01T00:59:59+01:00',
+        'message': 'Wide happy air represent. Cup debate medical. Today morning standard effort summer.',
+        'start-date': '2025-01-01T01:00:00+01:00',
+        'title': 'At north mention.',
+        'updated-at': '2025-05-19T14:00:00+02:00',
+      }),
+      'id': '2',
+      'type': 'alert-messages',
+    }),
+    dict({
+      'attributes': dict({
+        'active': True,
+        'created-at': '2025-05-19T14:00:00+02:00',
+        'end-date': None,
+        'message': 'Office though television return main will. General eight government build PM page within. Oil unit itself close again affect ok.',
+        'start-date': '2025-01-01T01:00:00+01:00',
+        'title': 'Seem within never whose.',
+        'updated-at': '2025-05-19T14:00:00+02:00',
+      }),
+      'id': '4',
+      'type': 'alert-messages',
+    }),
+    dict({
+      'attributes': dict({
+        'active': True,
+        'created-at': '2025-05-19T14:00:00+02:00',
+        'end-date': '2026-01-01T00:59:59+01:00',
+        'message': '''
+          Yourself wall boy per news traditional. Across find focus contain.
+          Finish choice impact wide yourself win reflect.
+        ''',
+        'start-date': None,
+        'title': 'Section voice.',
+        'updated-at': '2025-05-19T14:00:00+02:00',
+      }),
+      'id': '5',
+      'type': 'alert-messages',
+    }),
+    dict({
+      'attributes': dict({
+        'active': True,
+        'created-at': '2025-05-19T14:00:00+02:00',
+        'end-date': None,
+        'message': '''
+          Although strong thing vote rate cost again. East hour three all evidence despite firm.
+          Color window wish foot TV report drive church. Reality actually wall history call.
+        ''',
+        'start-date': None,
+        'title': 'Available establish station the operation.',
+        'updated-at': '2025-05-19T14:00:00+02:00',
+      }),
+      'id': '6',
+      'type': 'alert-messages',
+    }),
+  ])
+# ---

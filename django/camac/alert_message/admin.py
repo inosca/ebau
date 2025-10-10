@@ -9,17 +9,18 @@ from camac.alert_message.models import AlertMessage
 class AlertMessageAdmin(EbauAdminMixin, ModelAdmin):
     list_display = [
         "id",
-        "message_preview",
+        "title_or_message_preview",
         "active",
         "start_date",
         "end_date",
         "created_at",
     ]
     list_filter = ["active", "start_date", "end_date", "created_at"]
-    search_fields = ["message"]
+    search_fields = ["title", "message"]
     readonly_fields = ["created_at", "updated_at"]
     fields = [
         "active",
+        "title",
         "start_date",
         "end_date",
         "message",
@@ -29,8 +30,10 @@ class AlertMessageAdmin(EbauAdminMixin, ModelAdmin):
     list_per_page = 25
     ordering = ["-created_at"]
 
-    def message_preview(self, obj):
-        """Display a truncated version of the message in the list view."""
+    def title_or_message_preview(self, obj):
+        """Display title if available, otherwise a truncated version of the message."""
+        if obj.title:
+            return obj.title
         return obj.message[:50] + "..." if len(obj.message) > 50 else obj.message
 
-    message_preview.short_description = _("Message Preview")
+    title_or_message_preview.short_description = _("Title / Message Preview")

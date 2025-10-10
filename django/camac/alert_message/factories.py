@@ -9,6 +9,7 @@ from camac.alert_message import models
 
 class AlertMessageFactory(DjangoModelFactory):
     active = Faker("boolean")
+    title = Faker("sentence", nb_words=4)
     start_date = LazyFunction(lambda: datetime.now(pytz.UTC) - timedelta(days=365))
     end_date = LazyFunction(lambda: datetime.now(pytz.UTC) + timedelta(days=365))
     message = Faker("text", max_nb_chars=200)
