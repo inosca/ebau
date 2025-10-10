@@ -22,6 +22,7 @@ from camac.constants.kt_bern import ECH_BASE_DELIVERY
 from camac.document.models import Attachment
 from camac.ech0211 import formatters
 from camac.ech0211.formatters import CantonSpecific
+from camac.ech0211.utils import clean_text_for_xml
 
 logger = logging.getLogger(__name__)
 
@@ -256,3 +257,25 @@ def test_decision_formatter(
 )
 def test_assure_string_length(value, min, max, expected):
     assert formatters.assure_string_length(value, min, max) == expected
+
+
+@pytest.mark.parametrize(
+    "text,expected_result",
+    [
+        # Replacement of illegal characters
+        ("test\x0b.pdf", "test.pdf"),
+        ("test\x0c.pdf", "test.pdf"),
+        ("test\x0e.pdf", "test.pdf"),
+        ("test\u0001.pdf", "test.pdf"),
+        ("test\ud8ff.pdf", "test.pdf"),
+        ("test\ufffe.pdf", "test.pdf"),
+        ("test\x0b\x0c\x03.pdf", "test.pdf"),
+        # Ensure legal characters are kept
+        ("test.pdf", "test.pdf"),
+        ("test\u0009.pdf", "test\u0009.pdf"),
+        ("test\u000a.pdf", "test\u000a.pdf"),
+        ("test\u00f6.pdf", "test\u00f6.pdf"),
+    ],
+)
+def test_clean_text_for_xml(text, expected_result):
+    assert clean_text_for_xml(text) == expected_result

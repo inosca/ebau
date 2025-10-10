@@ -1,4 +1,17 @@
+import re
+
 from django.conf import settings
+
+LEGAL_XML_CHARACTER_RANGES = [
+    "\u0009",
+    "\u000a",
+    "\u000d",
+    "\u0020-\ud7ff",
+    "\ue000-\ufffd",
+    "\U00010000-\U0010ffff",
+]
+
+ILLEGAL_XML_CHARACTERS_RE = re.compile(f"[^{''.join(LEGAL_XML_CHARACTER_RANGES)}]")
 
 
 def strip_whitespace(value):
@@ -31,3 +44,13 @@ def judgement_to_decision(judgement: int, workflow_slug: str):
     return {
         v: k for k, v in settings.DECISION["ECH_JUDGEMENT_MAP"][workflow_slug].items()
     }[judgement]
+
+
+def clean_text_for_xml(value):
+    """Remove illegal characters from text to be used in XML.
+
+    Legal characters are defined in the XML standard:
+    https://www.w3.org/TR/xml/#charsets
+    """
+
+    return ILLEGAL_XML_CHARACTERS_RE.sub("", value)
