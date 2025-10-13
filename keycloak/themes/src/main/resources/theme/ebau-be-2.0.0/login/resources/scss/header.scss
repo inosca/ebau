@@ -59,6 +59,7 @@ header {
     .mobile-menu-nav {
       visibility: hidden;
       float: right;
+      width: 0;
 
       #mobile-menu-toggle {
         margin: 40px 30px 50% -1px;
@@ -151,6 +152,7 @@ header {
     @media screen and (max-width: 1119px) {
       .mobile-menu-nav {
         visibility: visible;
+        width: auto;
       }
     }
 
@@ -178,6 +180,7 @@ header {
       line-height: 18px;
       color: var(--black);
       margin-left: calc(0.25vw + 8px);
+      padding: 0;
       display: flex;
 
       &:after {

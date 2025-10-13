@@ -14,9 +14,7 @@ $page-footer-inner-max-height: 120px;
 $page-footer-padding-bottom: 25px;
 $page-footer-padding-horizontal: $page-content-margin-horizontal-l;
 $page-footer-padding-top: 20px;
-$page-footer-padding: $page-footer-padding-top $page-footer-padding-horizontal
-  $page-footer-padding-bottom;
-
+$page-footer-padding: $page-footer-padding-top 0 $page-footer-padding-bottom;
 
 // Font
 $global-font-family: "Roboto", sans-serif !important;
