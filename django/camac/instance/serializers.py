@@ -1965,14 +1965,16 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             self._ur_copy_oereb_instance_for_koor_afj(instance)
             self._init_deadline(instance)
 
+            permissions_events.Trigger.instance_submitted(
+                self.context["request"], instance
+            )
+            # eCH event needs to be triggered after permission event, because documents in message are
+            # visibility-checked - so municipality needs access, otherwise docs are empty!
             instance_submitted.send(
                 sender=self.__class__,
                 instance=instance,
                 user_pk=self.context["request"].user.pk,
                 group_pk=group.pk,
-            )
-            permissions_events.Trigger.instance_submitted(
-                self.context["request"], instance
             )
 
             self._send_notifications(case)
