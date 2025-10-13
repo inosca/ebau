@@ -5718,246 +5718,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "energetische-massnahmen.einzelbauteilnachweis",
-    "fields": {
-      "created_at": "2020-11-16T15:27:13.592Z",
-      "modified_at": "2020-11-16T15:27:13.592Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "energetische-massnahmen",
-      "question": "einzelbauteilnachweis",
-      "sort": 10
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "energetische-massnahmen.energiebezugsflaeche",
-    "fields": {
-      "created_at": "2022-11-23T11:50:01.573Z",
-      "modified_at": "2022-11-23T11:50:01.573Z",
-      "created_by_user": "paul.walker@ur.ch",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "energetische-massnahmen",
-      "question": "energiebezugsflaeche",
-      "sort": 24
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "energetische-massnahmen.energienachweis-nachtraeglich",
-    "fields": {
-      "created_at": "2021-03-22T12:58:19.138Z",
-      "modified_at": "2021-03-22T12:58:19.138Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "energetische-massnahmen",
-      "question": "energienachweis-nachtraeglich",
-      "sort": 22
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "energetische-massnahmen.energienachweis-nachtraeglich-einreichen-text",
-    "fields": {
-      "created_at": "2021-05-18T11:25:04.174Z",
-      "modified_at": "2021-05-18T11:25:04.174Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "energetische-massnahmen",
-      "question": "energienachweis-nachtraeglich-einreichen-text",
-      "sort": 23
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "energetische-massnahmen.formular-freiluftbaeder",
-    "fields": {
-      "created_at": "2020-11-16T16:12:10.138Z",
-      "modified_at": "2020-11-16T16:12:10.138Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "energetische-massnahmen",
-      "question": "formular-freiluftbaeder",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "energetische-massnahmen.formular-gewaechshaeuser",
-    "fields": {
-      "created_at": "2020-11-16T16:08:21.014Z",
-      "modified_at": "2020-11-16T16:08:21.014Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "energetische-massnahmen",
-      "question": "formular-gewaechshaeuser",
-      "sort": 6
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "energetische-massnahmen.formular-heizung-im-freien",
-    "fields": {
-      "created_at": "2020-11-16T16:11:06.881Z",
-      "modified_at": "2020-11-16T16:11:06.881Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "energetische-massnahmen",
-      "question": "formular-heizung-im-freien",
-      "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "energetische-massnahmen.formular-kuehlraeume",
-    "fields": {
-      "created_at": "2020-11-16T16:07:12.854Z",
-      "modified_at": "2020-11-16T16:07:12.854Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "energetische-massnahmen",
-      "question": "formular-kuehlraeume",
-      "sort": 7
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "energetische-massnahmen.formular-traglufthallen",
-    "fields": {
-      "created_at": "2020-11-16T16:09:33.434Z",
-      "modified_at": "2020-11-16T16:09:33.434Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "energetische-massnahmen",
-      "question": "formular-traglufthallen",
-      "sort": 5
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "energetische-massnahmen.gebaeudehuelle",
-    "fields": {
-      "created_at": "2020-11-02T10:58:43.980Z",
-      "modified_at": "2020-11-02T10:58:43.980Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "energetische-massnahmen",
-      "question": "gebaeudehuelle",
-      "sort": 12
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "energetische-massnahmen.heizung-und-warmwasser",
-    "fields": {
-      "created_at": "2020-11-16T15:34:18.300Z",
-      "modified_at": "2020-11-16T15:34:18.300Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "energetische-massnahmen",
-      "question": "heizung-und-warmwasser",
-      "sort": 11
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "energetische-massnahmen.hinweis-benutzergefuehrtes-formular",
-    "fields": {
-      "created_at": "2020-11-18T11:07:18.121Z",
-      "modified_at": "2020-11-18T11:07:18.121Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "energetische-massnahmen",
-      "question": "hinweis-benutzergefuehrtes-formular",
-      "sort": 21
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "energetische-massnahmen.hinweis-heizungsart",
-    "fields": {
-      "created_at": "2020-11-02T12:22:20.453Z",
-      "modified_at": "2020-11-02T12:22:20.453Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "energetische-massnahmen",
-      "question": "hinweis-heizungsart",
-      "sort": 18
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "energetische-massnahmen.hoechstanteil",
-    "fields": {
-      "created_at": "2020-11-02T11:38:24.400Z",
-      "modified_at": "2020-11-02T11:38:24.400Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "energetische-massnahmen",
-      "question": "hoechstanteil",
-      "sort": 15
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "energetische-massnahmen.hoechstanteil-rechnerisch",
-    "fields": {
-      "created_at": "2020-11-10T12:18:34.899Z",
-      "modified_at": "2020-11-10T12:18:34.899Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "energetische-massnahmen",
-      "question": "hoechstanteil-rechnerisch",
-      "sort": 14
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "energetische-massnahmen.hoechstanteil-standardloesung-link",
-    "fields": {
-      "created_at": "2020-11-02T14:54:24.782Z",
-      "modified_at": "2020-11-02T14:54:24.782Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "energetische-massnahmen",
-      "question": "hoechstanteil-standardloesung-link",
-      "sort": 13
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "energetische-massnahmen.kein-energienachweis",
     "fields": {
       "created_at": "2020-11-02T10:50:51.645Z",
@@ -5973,66 +5733,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "energetische-massnahmen.kuehlung",
-    "fields": {
-      "created_at": "2020-11-16T15:59:13.220Z",
-      "modified_at": "2020-11-16T15:59:13.220Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "energetische-massnahmen",
-      "question": "kuehlung",
-      "sort": 16
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "energetische-massnahmen.lueftung",
-    "fields": {
-      "created_at": "2020-11-16T15:49:04.257Z",
-      "modified_at": "2020-11-16T15:49:04.257Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "energetische-massnahmen",
-      "question": "lueftung",
-      "sort": 17
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "energetische-massnahmen.minergie-label",
-    "fields": {
-      "created_at": "2020-11-16T15:54:40.002Z",
-      "modified_at": "2020-11-16T15:54:40.002Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "energetische-massnahmen",
-      "question": "minergie-label",
-      "sort": 19
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "energetische-massnahmen.projekt-energienachweis",
-    "fields": {
-      "created_at": "2020-10-31T17:54:07.500Z",
-      "modified_at": "2020-10-31T17:54:07.500Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "energetische-massnahmen",
-      "question": "projekt-energienachweis",
-      "sort": 20
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "energetische-massnahmen.raumdetails-titel",
     "fields": {
       "created_at": "2020-10-29T14:02:45.590Z",
@@ -6044,51 +5744,6 @@
       "form": "energetische-massnahmen",
       "question": "raumdetails-titel",
       "sort": 26
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "energetische-massnahmen.spezielle-bauen",
-    "fields": {
-      "created_at": "2020-11-02T10:14:10.142Z",
-      "modified_at": "2020-11-02T10:14:10.142Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "energetische-massnahmen",
-      "question": "spezielle-bauen",
-      "sort": 8
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "energetische-massnahmen.systemnachweis",
-    "fields": {
-      "created_at": "2020-11-16T15:28:59.654Z",
-      "modified_at": "2020-11-16T15:28:59.654Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "energetische-massnahmen",
-      "question": "systemnachweis",
-      "sort": 9
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "energetische-massnahmen.weitere-en-formulare",
-    "fields": {
-      "created_at": "2020-11-16T16:25:51.290Z",
-      "modified_at": "2020-11-16T16:25:51.290Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "energetische-massnahmen",
-      "question": "weitere-en-formulare",
-      "sort": 1
     }
   },
   {
@@ -54790,20 +54445,20 @@
     "pk": "kein-energienachweis",
     "fields": {
       "created_at": "2020-11-02T10:50:51.543Z",
-      "modified_at": "2020-11-16T16:37:36.899Z",
+      "modified_at": "2025-10-13T11:48:29.960Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Energienachweis erforderlich\", \"fr\": null, \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "\"projekt-energienachweis-minergie\" in \"projekt-energienachweis\"|answer || \n\"projekt-energienachweis-hoechstanteil\" in \"projekt-energienachweis\"|answer || \n\"projekt-energienachweis-huelle\" in \"projekt-energienachweis\"|answer || \n\"projekt-energienachweis-heizungs-und-warmwasser\" in \"projekt-energienachweis\"|answer || \n\"projekt-energienachweis-kuehlung\" in \"projekt-energienachweis\"|answer || \n\"projekt-energienachweis-lueftung\" in \"projekt-energienachweis\"|answer || \n\"projekt-energienachweis-spezielle-bauten\" in \"projekt-energienachweis\"|answer",
+      "is_hidden": "!( [ \"das-vorhaben-betrifft-beheizte-oder-gekuehlte-neu-und-umbauten\", \"das-vorhaben-betrifft-aenderung-beheizter-oder-gekuehlter-bauten\", \"das-vorhaben-betrifft-installation-technischer-anlagen\" ] intersects (\"das-vorhaben-betrifft\"|answer || []) )",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"#####**Aufgrund Ihrer aktuellen Auswahl ist kein Energienachweis erforderlich**.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"######**Aufgrund Ihrer aktuellen Auswahl ist ein Energienachweis erforderlich**.\\n\\nBitte erstellen Sie den Energienachweis und laden Sie diesen anschliessend bei den Dokumenten hoch. Hier geht's zu den Formularen: **<a href=\\\"https://www.energie-zentralschweiz.ch/vollzug/energienachweise-muken-2008.html\\\" target=\\\"_blank\\\" style=\\\"color: blue;\\\">Energie-Zentralschweiz</a>**.\\n\\n(Ausnahmen sind im Energiereglement (EnR 40.7215) definiert. Im Zweifelsfall kontaktieren Sie bitte zur Klärung der Notwendigkeit eines Energienachweises direkt das **<a href=\\\"https://www.ur.ch/_rte/amt/828\\\" style=\\\"color: blue;\\\">Amt für Energie</a>**.)\\n\\nHinweis: per 1. Januar 2026 kann der Energienachweis auf der Plattform EVEN direkt online erstellt werden. Ein entsprechender Link zu dieser Plattform wird rechtzeitig aufgeschaltet.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -60018,10 +59673,10 @@
     "pk": "raumdetails-titel",
     "fields": {
       "created_at": "2020-09-19T10:24:26.447Z",
-      "modified_at": "2025-05-21T11:44:48.682Z",
+      "modified_at": "2025-10-13T11:46:00.749Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Energienachweis\", \"fr\": null, \"it\": null}",
       "type": "static",
@@ -60029,9 +59684,9 @@
       "is_hidden": "False",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"####Hinweise und Erklärungen\\n\\n- 0 Nachweis MINERGIE-Label\\nFür das Projekt besteht ein MINERGIE-Label: Kopie des provisorischen  Zertifikats beilegen. Auf Formular EN-2b «Systemnachweis Wärmedämmung»  bei Beilagen auf MINERGIE-Label hinweisen. Mit der Unterschrift bei «Nachweis erarbeitet durch» wird bestätigt, dass das Bauvorhaben gemäss MINERGIE- Label ausgeführt wird. Bei Privater Kontrolle sind ausser dem erwähnten Formu-lar EN-2b und der Kopie des provisorischen Zertifikats keine weiteren Beilagen zu den Bereichen Wärmedämmung und Höchstanteil nötig. Fehlt die Unterschrift Private Kontrolle, sind alle Unterlagen beizulegen, da die Behörde diese für die Ausführungskontrolle benötigt.\\n\\n- 1Nachweis Höchstanteil nichterneuerbarer Energien\\n(EnG Artikel 3 bis 5, EnR Artiekl 14 und 15)\\n\\nDer Nachweis kann entweder durch die Wahl einer Standardlösung oder durch eine Berechnung des Höchstanteils nichterneuerbarer Energien erbracht werden. Dieser Nachweis ist zu erbringen bei:\\n–Neubauten\\n–neubauartigen Umbauten\\n–Anbauten und Aufstockungen, wenn die neu geschaffene Energiebezugsfläche mehr als 50 m2 und gleichzeitig mehr als 20% der Energiebezugsfläche des bestehenden Gebäudeteiles beträgt; oder wenn mehr als 1000 m2 Energie-bezugsfläche neu geschaffen werden.\\n\\n- 2a Einzelbauteilnachweis Wärmedämmung\\nEnG Artiekl 3 bis 5; EnR Artikel 5 bis 7)\\n\\nGemäss Norm SIA 380/1 «Thermische Energie im Hochbau», Ausgabe 2009. Bei Neubauten sind alle Bauteile nachzuweisen, welche die beheizte oder gekühlte Zone lückenlos umschliessen. Bei Umbauten oder Umnutzungen sind nur die betroffenen Bauteile nachzuweisen.\\n\\n- 2b Systemnachweis Wärmedämmung\\n(EnG Artikel 3 bis 5; EnR Artiekl 5 bis 7)\\n\\nGemäss Norm SIA 380/1 «Thermische Energie im Hochbau», Ausgabe 2009. Bei Neubauten ist der Heizwärmebedarf für die gesamte beheizte oder gekühlte Zone nachzuweisen. Der Systemnachweis für Umbauten und Umnutzungen hat im Minimum alle Räume zu umfassen, die Bauteile aufweisen, die vom Umbau oder von der Umnutzung betroffen werden.\\n\\n- 3 Nachweis Heizungs- und Warmwasseranlagen\\n(EnG Artikel 3 bis 5; EnR Artikel 12 bis 13 und 20 bis 21)\\n\\nDer Nachweis ist für alle neuen und für die von einem Umbau betroffenen  bestehenden Anlagenteile zu erbringen.\\n\\n- 4 Nachweis Lüftungstechnische Anlagen\\n(EnG Artikel 3 bis 5; EnR Artikel 18 bis 21)\\n\\nDer Nachweis ist für alle neuen und für die von einem Umbau betroffenen  bestehenden Anlagenteile zu erbringen.\\n\\n- 5 Nachweis für Kühlung und/oder Befeuchtung\\n(EnG Artikel 3 bis 5; EnR Artikel 17,20,21)\\n\\nDer Nachweis ist für alle neuen und für die von einem Umbau betroffenen  bestehenden Anlagenteile zu erbringen.\\n\\n- 6/7/8 Nachweis Kühlräume/Gewächshäuser/Traglufthallen\\n(EnG Artikel 3 bis 5; EnR Artikel 9 bis 11)\\n\\nDer Nachweis ist für alle neuen und für die von einem Umbau oder einer  Umnutzung betroffenen Bauteile zu erbringen. Bei Kühlräumen: Angaben  über die bei der Kälteerzeugung allenfalls entstehende Abwärme sind bei  den Heizungsanlagen (vgl. EN-3) anzubringen.\\n\\n- 10/11 Nachweis Heizungen im Freien/Freiluftbäder\\n(EnG Artikel 3 bis 5; EnR Artikel 24 und 25)\\n\\nDer Nachweis ist für alle neuen, ersetzten und von einem Umbau betroffenen  bestehenden Anlagenteile, sowie bei einem Ersatz der Wärmeerzeugung zu erbringen.\\n\\n- 12 Nachweis ortsfeste elektrische Widerstandsheizungen\\n(EnG Artikel 7; EnR Artikel 23)\\n\\nDer Nachweis ist für alle neuen Elektroheizungen mit mehr als 3 kW oder für  die Erweiterung um mehr als 3 kW Anschlussleistung zu erbringen.\\n\\nEnG Energiegesetz des Kantons Uri vom 18. April 1999 - RB 40.7211\\nEnV Energiereglement des Kantons Uri vom 16. Dezember 2008 - RB40.7215\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"##Energienachweis\\n\\nEin Energienachweis ist in der Regel notwendig bei beheizten oder gekühlten Neubauten, Umbauten, Erweiterungen und Zweckänderungen, oder wenn in der Gebäudehülle einzelne Bauteile ersetzt, oder neu gedämmt werden. Ebenfalls notwendig ist der Nachweis, wenn gebäudetechnische Anlagen wie Heizungen, Lüftungen, Klima- und/oder Kälteanlagen ersetzt oder neu eingebaut werden. Bitte wählen Sie die entsprechenden baulichen Umstände aus, die bei Ihrem Vorhaben zutreffen.\\n\\nIm Zweifelsfall kontaktieren Sie bitte zur Klärung der Notwendigkeit eines Energienachweises direkt das **<a href=\\\"https://www.ur.ch/_rte/amt/828\\\" style=\\\"color: blue;\\\"> Amt für Energie</a>**.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"##Energienachweis\\n\\nEin Energienachweis ist in der Regel notwendig bei beheizten oder gekühlten Neubauten, Umbauten, Erweiterungen und Zweckänderungen, oder wenn in der Gebäudehülle einzelne Bauteile ersetzt, oder neu gedämmt werden. Ebenfalls notwendig ist der Nachweis, wenn gebäudetechnische Anlagen wie Heizungen, Lüftungen, Klima- und/oder Kälteanlagen ersetzt oder neu eingebaut werden. Bitte wählen Sie die entsprechenden baulichen Umstände aus, die bei Ihrem Vorhaben zutreffen.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
