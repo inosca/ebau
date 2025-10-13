@@ -52,8 +52,8 @@
             <@header.content pageId></@header.content>
             <main class="content js-contact-box">
                 <div class="main-column">
-                    <h1>CONTÄCT</h1>
-                    <p>Tel: 123123123</p>
+                    <h1>${kcSanitize(msg("contactHeading"))}</h1>
+                    <div id="contact-content">${kcSanitize(msg("contactContent"))?no_esc}</div>
                 </div>
             </main>
             <main class="content js-main-content">
