@@ -1,7 +1,7 @@
 rejection:
   info: |-
     <p>Le retour d'information doit être formulé d'une manière non sexiste et contenir les informations précises suivantes pour la personne requérante :</p>
-    <ul class="uk-list uk-list-bullet">
+    <ul class="uk-list uk-list-disc">
       <li>Modifications à apporter à la demande de permis de construire</li>
       <li>Référence à tout document divulgué par l'autorité directrice</li>
       <li>Documents qui doivent être soumis à nouveau sous forme signée (par exemple, le formulaire de demande de permis de construire)</li>

@@ -1,7 +1,7 @@
 rejection:
   info: |-
     <p>Die Rückmeldung sollte gendergerecht formuliert sein und folgende für die gesuchstellende Person präzise Angaben enthalten:</p>
-    <ul class="uk-list uk-list-bullet">
+    <ul class="uk-list uk-list-disc">
       <li>Anpassungen, welche am Baugesuch vorgenommen werden müssen</li>
       <li>Mitteilung auf allfällige von der Leitbehörde freigegebene Dokumente</li>
       <li>Dokumente, welche in unterschriebener Form nochmals eingereicht werden müssen (z.B. Baugesuchsformular)</li>

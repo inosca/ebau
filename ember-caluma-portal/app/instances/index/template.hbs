@@ -26,13 +26,14 @@
         }}"
     >
       <div>
-        <label class="uk-form-label" for="type">{{t "instances.type"}}</label>
+        <label class="uk-form-label">{{t "instances.type"}}</label>
         <div class="uk-form-controls">
           <PowerSelectMultiple
             @selected={{this.types}}
             @options={{this.formFilterOptions}}
             @searchField="name"
             @onChange={{fn (mut this.types)}}
+            aria-label={{t "instances.type"}}
             as |form|
           >
             {{form.name}}
@@ -295,6 +296,7 @@
         <object
           data="/assets/images/stamp-document.svg"
           class="uk-width-medium"
+          aria-label={{t "global.stampIcon"}}
         >{{t "instances.new.title"}}</object>
         <p class="uk-margin-remove-top uk-text-large">{{t
             "instances.emptyTitle"

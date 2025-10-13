@@ -15,6 +15,7 @@ global:
   urec: "URec"
   yes: "Ja"
   no: "Nein"
+  stampIcon: "Dokument mit Stempel"
 
 nav:
   form: "Formular"

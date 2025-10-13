@@ -1,5 +1,5 @@
 <div>
-  <label class="uk-form-label uk-text-center" for="type">{{@label}}</label>
+  <label class="uk-form-label uk-text-center">{{@label}}</label>
   <div class="uk-form-controls">
     <PowerSelect
       class="uk-margin-bottom"
@@ -9,6 +9,7 @@
       @searchField="label"
       @allowClear={{true}}
       @onChange={{@onChange}}
+      aria-label={{@label}}
       as |option|
     >
       {{option.label}}

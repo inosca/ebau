@@ -19,6 +19,7 @@ communications:
     readByEveryone: Lu par tous
     readByYou: Lu par vous
     readBy: Lu par
+    readStatus: Statut de lecture
     createdBy: "Créé par {entity} ({user})"
     empty: Aucun message disponible.
     markAsRead: Marquer comme lu

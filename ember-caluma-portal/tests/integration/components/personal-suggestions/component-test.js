@@ -162,8 +162,11 @@ module("Integration | Component | personal-suggestions", function (hooks) {
       },
     });
 
-    await render(hbs`<PersonalSuggestions>
-  <button type="button">trigger</button>
+    await render(hbs`<PersonalSuggestions as |dropdown|>
+  <button
+    type="button"
+    {{basic-dropdown-trigger dropdown=dropdown}}
+  >trigger</button>
 </PersonalSuggestions>`);
 
     await click("button");
