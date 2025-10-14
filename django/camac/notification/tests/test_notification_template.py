@@ -1724,7 +1724,7 @@ def test_notification_bauverwaltung_placeholders(
         "BAUVERWALTUNG:",
         "Foo Bar",
         "78",
-        f"{date.strftime(settings.MERGE_DATE_FORMAT)}",
+        f"{date.strftime(settings.SHORT_DATE_FORMAT)}",
     ]
 
 

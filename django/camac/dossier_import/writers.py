@@ -165,8 +165,8 @@ class CamacNgPersonListAnswerWriter(CamacNgListAnswerWriter):
 class CamacNgPointsWriter(CamacNgAnswerWriter):
     """Wrap coordinates list in a list.
 
-    Coordinate tuples are treated as a single point. I. e. the import
-    does not allow importing of drawn objects.
+    Coordinate tuples are treated as separate points. I. e. the import
+    does not allow importing of geometries consisting of multiple points.
     """
 
     def write(self, instance, values):

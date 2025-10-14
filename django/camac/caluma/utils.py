@@ -120,7 +120,7 @@ def find_answer(document: Document, question: str, **kwargs) -> str:
 def get_answer_display_value(
     answer: Answer,
     option_separator: Optional[str] = ", ",
-    date_format: Optional[str] = settings.MERGE_DATE_FORMAT,
+    date_format: Optional[str] = None,
     language: Optional[str] = get_language(),
     raw_value: Optional[bool] = False,
 ) -> str:
@@ -132,6 +132,11 @@ def get_answer_display_value(
     ... )
     '02.06.2022'
     """
+    # Avoid assigning defaults from django settings because this will
+    # behave unexpectedly, especially in tests
+    if not date_format:
+        date_format = settings.SHORT_DATE_FORMAT
+
     if raw_value:
         return answer.value
     elif answer.question.type in [Question.TYPE_MULTIPLE_CHOICE, Question.TYPE_CHOICE]:

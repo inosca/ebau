@@ -313,6 +313,7 @@ APPLICATIONS = {
     "kt_schwyz": {
         "SHORT_NAME": "sz",
         "INTERNAL_FRONTEND": "camac",
+        "SHORT_DATE_FORMAT": "%-d. %B %Y",
         "INCLUDE_STATIC_FILES": [("xml", "kt_schwyz/static/ech0211/xml/")],
         "USE_CAMAC_ADMIN": True,
         "LOG_NOTIFICATIONS": True,
@@ -3396,11 +3397,10 @@ EMAIL_PREFIX_BODY_SPECIAL_FORMS = env.str(
 )
 
 # Merge definition
-MERGE_DATE_FORMAT = env.str("DJANGO_MERGE_DATE_FORMAT", "%d.%m.%Y")
 MERGE_ANSWER_PERIOD = env.int("DJANGO_MERGE_ANSWER_PERIOD", 20)
 
-# override locale-based setting for template handling
-SHORT_DATE_FORMAT = MERGE_DATE_FORMAT
+# override Django's SHORT_DATE_FORMAT setting, unclear if still needed?
+SHORT_DATE_FORMAT = APPLICATION.get("SHORT_DATE_FORMAT") or "%d.%m.%Y"
 
 
 def parse_admins(admins):

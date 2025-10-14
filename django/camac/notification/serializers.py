@@ -117,13 +117,13 @@ RECIPIENT_TYPE_NAMES = {
 
 class InquiryMergeSerializer(serializers.Serializer):
     deadline_date = serializers.DateTimeField(
-        source="deadline", format=settings.MERGE_DATE_FORMAT
+        source="deadline", format=settings.SHORT_DATE_FORMAT
     )
     start_date = serializers.DateTimeField(
-        source="created_at", format=settings.MERGE_DATE_FORMAT
+        source="created_at", format=settings.SHORT_DATE_FORMAT
     )
     end_date = serializers.DateTimeField(
-        source="closed_at", format=settings.MERGE_DATE_FORMAT
+        source="closed_at", format=settings.SHORT_DATE_FORMAT
     )
     circulation_state = serializers.SerializerMethodField()
     service = serializers.SerializerMethodField()
@@ -180,7 +180,7 @@ class InquiryMergeSerializer(serializers.Serializer):
 class BillingEntryMergeSerializer(serializers.Serializer):
     amount = serializers.FloatField()
     service = serializers.StringRelatedField()
-    created = serializers.DateTimeField(format=settings.MERGE_DATE_FORMAT)
+    created = serializers.DateTimeField(format=settings.SHORT_DATE_FORMAT)
     account = serializers.SerializerMethodField()
     account_number = serializers.SerializerMethodField()
 
@@ -325,7 +325,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
     def format_date(self, date):
         current_tz = timezone.get_current_timezone()
-        return date.astimezone(current_tz).strftime(settings.MERGE_DATE_FORMAT)
+        return date.astimezone(current_tz).strftime(settings.SHORT_DATE_FORMAT)
 
     def get_vorhaben(self, instance):
         description_slugs = [
@@ -362,7 +362,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
     def get_answer_period_date(self, instace):
         answer_period_date = date.today() + timedelta(days=settings.MERGE_ANSWER_PERIOD)
-        return answer_period_date.strftime(settings.MERGE_DATE_FORMAT)
+        return answer_period_date.strftime(settings.SHORT_DATE_FORMAT)
 
     def get_publication_date(self, instance):
         publication_entry = instance.publication_entries.first()
@@ -805,7 +805,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
                 )
 
             objection.creation_date = objection.creation_date.strftime(
-                settings.MERGE_DATE_FORMAT
+                settings.SHORT_DATE_FORMAT
             )
 
         return objections

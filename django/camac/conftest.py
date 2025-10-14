@@ -240,7 +240,7 @@ class FakeRequest:
 
 
 @pytest.fixture
-def request_mock(mocker, admin_user, group):
+def request_mock(mocker, admin_user, group, settings):
     auth = {
         "sub": admin_user.username,
         settings.OIDC_USERNAME_CLAIM: admin_user.username,
@@ -284,7 +284,7 @@ def token(admin_user, settings):
 
 
 @pytest.fixture
-def caluma_admin_user(admin_user, group, token):
+def caluma_admin_user(admin_user, settings, group, token):
     user = OIDCUser(
         token=token,
         claims={
@@ -491,7 +491,7 @@ def unoconv_pdf_mock(requests_mock):
 
 
 @pytest.fixture
-def unoconv_invalid_mock(requests_mock):
+def unoconv_invalid_mock(requests_mock, settings):
     requests_mock.register_uri(
         "POST",
         build_url(settings.UNOCONV_URL, "/unoconv/invalid"),
