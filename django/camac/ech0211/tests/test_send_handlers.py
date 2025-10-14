@@ -21,7 +21,7 @@ from camac.core.models import InstanceService
 from camac.document.tests.data import django_file
 from camac.ech0211.tests.utils import xml_data
 from camac.instance.document_merge_service import DMSHandler
-from camac.instance.models import Instance
+from camac.instance.models import Instance, InstanceState
 from camac.permissions import api as permissions_api
 
 from ..constants import (
@@ -459,17 +459,26 @@ def test_close_dossier_send_handler(
     circulation_factory,
     decision_factory,
     caluma_admin_user,
+    snapshot,
     ech_snapshot,
     be_decision_settings,
     application_settings,
 ):
-    instance_state_factory(name="finished")
+    for inst_state in [
+        "coordination",
+        "sb1",
+        "sb2",
+        "conclusion",
+        "construction-acceptance",
+        "finished",
+    ]:
+        instance_state_factory(name=inst_state)
 
     inst_serv = instance_service_factory(
         instance=ech_instance_be, service__name="Baukontrolle Burgdorf", active=1
     )
 
-    ech_instance_be.instance_state = instance_state_factory(name=instance_state_name)
+    ech_instance_be.instance_state = InstanceState.objects.get(name=instance_state_name)
     ech_instance_be.save()
 
     circulation_factory(instance=ech_instance_be)
@@ -524,6 +533,8 @@ def test_close_dossier_send_handler(
         message = Message.objects.first()
         assert message.receiver == ech_instance_be.responsible_service()
         ech_snapshot(message.body)
+    else:
+        snapshot.assert_match(handler.has_permission()[1])
 
 
 @pytest.mark.freeze_time("2020-02-23")

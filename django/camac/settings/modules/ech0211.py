@@ -320,6 +320,9 @@ ECH0211 = {
             "inquiry-answer-status-negative": 4,
             "inquiry-answer-status-unknown": None,
         },
+        "CLOSE_DOSSIER": {
+            "ALLOWED_STATES": ["sb1", "sb2", "conclusion", "construction-acceptance"]
+        },
         "DOCS": {
             "GET_TABLE_DATA_FULL": {
                 ECH_STATUS_NOTIFICATION_EBAU_NR_VERGEBEN: {
@@ -447,6 +450,7 @@ ECH0211 = {
             "ALEXANDRIA_CATEGORY": "alle-beteiligten",
             "ALEXANDRIA_MARK": "decision",
         },
+        "CLOSE_DOSSIER": {"ALLOWED_STATES": ["construction-acceptance"]},
         "TASK_SEND": {
             "SKIP_WORK_ITEMS": ["formal-exam"],
             "COMPLETE_WORK_ITEMS": ["init-distribution"],
@@ -627,6 +631,7 @@ ECH0211 = {
             "ALEXANDRIA_CATEGORY": "beteiligte-behoerden",
             "ALEXANDRIA_MARK": "decision",
         },
+        "CLOSE_DOSSIER": {"ALLOWED_STATES": ["construction-monitoring"]},
         "JUDGEMENT_MAPPING": {
             "inquiry-answer-status-positive": 1,
             "inquiry-answer-status-negative": 4,
@@ -707,6 +712,7 @@ ECH0211 = {
             "ALEXANDRIA_CATEGORY": "alle-beteiligten",
             "ALEXANDRIA_MARK": "decision",
         },
+        "CLOSE_DOSSIER": {"ALLOWED_STATES": ["construction-monitoring", "to-finish"]},
         "TASK_SEND": {
             "SKIP_WORK_ITEMS": ["formal-exam"],
             "COMPLETE_WORK_ITEMS": ["init-distribution"],
@@ -742,7 +748,7 @@ ECH0211 = {
                 ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION: {
                     "desc": "Rückzug des Baugesuchs melden",
                 },
-                ECH_CLAIM: {"desc": "Nachforderungen durch Fachstelle"},
+                ECH_CLAIM: {"disabled": True},
             },
             "POST_TABLE_DATA": {
                 "5100011": {"disabled": True},  # Change responsibility
