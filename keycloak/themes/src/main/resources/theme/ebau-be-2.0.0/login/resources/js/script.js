@@ -1,4 +1,4 @@
-(function(window) {
+(function (window) {
   window.onload = init;
 
   function init() {
@@ -20,11 +20,10 @@ function toggleMenu() {
 function setupMobileMenuToggle() {
   const menuButton = document.getElementById("mobile-menu-toggle");
   if (menuButton) {
-    menuButton.addEventListener("click", function() {
+    menuButton.addEventListener("click", function () {
       toggleMenu();
     });
   }
-
 }
 
 /**
@@ -64,7 +63,7 @@ function setupContactPageToggle() {
   });
 
   toggleLinks.forEach((link) => {
-    link.addEventListener("click", function(event) {
+    link.addEventListener("click", function (event) {
       event.preventDefault();
       event.target.blur();
 
@@ -72,46 +71,9 @@ function setupContactPageToggle() {
         showContactBox(true);
         history.pushState({ contactVisible: true }, "", location.href);
       }
-      if(this.closest("#mobile-menu")) {
+      if (this.closest("#mobile-menu")) {
         toggleMenu();
       }
     });
   });
-}
-
-function setupPasswordInputs() {
-  let passwordIcon = document.getElementById("passwordIcon");
-  let passwordConfirmIcon = document.getElementById("passwordConfirmIcon");
-
-  let passwordInput = document.getElementById("password");
-  let passwordConfirmInput = document.getElementById("password-confirm");
-
-  // Add event listeners only if elements exist
-  if (passwordIcon && passwordInput) {
-    passwordIcon.addEventListener("click", function() {
-      toggleShowPassword();
-    });
-  }
-
-  if (passwordConfirmIcon && passwordConfirmInput) {
-    passwordConfirmIcon.addEventListener("click", function() {
-      toggleShowPasswordConfirm();
-    });
-  }
-
-  function toggleShowPassword() {
-    passwordIcon.classList.toggle("hidePassword");
-    passwordInput.type = passwordIcon.classList.contains("hidePassword")
-      ? "text"
-      : "password";
-  }
-
-  function toggleShowPasswordConfirm() {
-    passwordConfirmIcon.classList.toggle("hidePassword");
-    passwordConfirmInput.type = passwordConfirmIcon.classList.contains(
-      "hidePassword",
-    )
-      ? "text"
-      : "password";
-  }
 }
