@@ -742,7 +742,7 @@ ECH0211 = {
                 ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION: {
                     "desc": "Rückzug des Baugesuchs melden",
                 },
-                ECH_CLAIM: {"desc": "Nachforderungen durch Fachstelle"},
+                ECH_CLAIM: {"disabled": True},
             },
             "POST_TABLE_DATA": {
                 "5100011": {"disabled": True},  # Change responsibility
