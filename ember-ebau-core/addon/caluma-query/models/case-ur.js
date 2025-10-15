@@ -253,7 +253,6 @@ export default class CustomCaseModel extends CustomCaseBaseModel {
               "schutzobjekte"
               "typ-des-verfahrens"
               "oereb-thema"
-              "oereb-thema-gemeinde"
               "teilstatus"
               "beschreibung-reklame"
               "mbv-type"

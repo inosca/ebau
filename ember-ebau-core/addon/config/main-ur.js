@@ -49,7 +49,6 @@ export default {
     parcelNumber: "parcel-number",
     oerebProcedure: "typ-des-verfahrens",
     oerebTopicsCanton: "oereb-thema",
-    oerebTopicsMunicipality: "oereb-thema-gemeinde",
     oerebPartialState: "teilstatus",
     procedureCanton: "mbv-type",
     procedureConfederation: "mbv-bund-type",
