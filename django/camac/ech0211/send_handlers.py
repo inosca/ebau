@@ -505,21 +505,17 @@ class CloseArchiveDossierSendHandler(BaseSendHandler):
             and self.instance.responsible_service(filter_type="construction_control")
             != self.group.service
         ):
-            return False, None
-        if self.instance.instance_state.name in [
-            "sb1",
-            "sb2",
-            "conclusion",
-            "construction-acceptance",
-        ]:
+            return False, "The current service does not match the responsible service."
+
+        allowed_states = settings.ECH0211.get("CLOSE_DOSSIER", {}).get(
+            "ALLOWED_STATES", []
+        )
+        if self.instance.instance_state.name in allowed_states:
             return True, None
+
         return (
             False,
-            (
-                '"CloseDossier" is only allowed for instances in the states '
-                '"Selbstdeklaration (SB1)", "Abschluss (SB2)", "Zum Abschluss", and '
-                '"Bauabnahme".'
-            ),
+            f'"CloseDossier" is only allowed for instances in the states {", ".join(allowed_states)}',
         )
 
     def get_instance_id(self):

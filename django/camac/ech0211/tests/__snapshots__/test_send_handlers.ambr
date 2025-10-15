@@ -288,6 +288,9 @@
   
   '''
 # ---
+# name: test_close_dossier_send_handler[baukontrolle-coordination-False]
+  '"CloseDossier" is only allowed for instances in the states sb1, sb2, conclusion, construction-acceptance'
+# ---
 # name: test_close_dossier_send_handler[baukontrolle-sb1-True]
   '''
   <?xml version="1.0" ?>
@@ -325,6 +328,15 @@
   </ns1:delivery>
   
   '''
+# ---
+# name: test_close_dossier_send_handler[leitbehoerde-coordination-False]
+  'The current service does not match the responsible service.'
+# ---
+# name: test_close_dossier_send_handler[leitbehoerde-sb1-False]
+  'The current service does not match the responsible service.'
+# ---
+# name: test_close_dossier_send_handler[nobody-conclusion-False]
+  'The current service does not match the responsible service.'
 # ---
 # name: test_kind_of_proceedings_send_handler[True-alexandria]
   '''
