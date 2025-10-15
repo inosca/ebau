@@ -2631,6 +2631,7 @@ APPLICATIONS = {
                 "formal-exam": {
                     "next_instance_state": "init-distribution",
                     "history_text": _("Preliminary exam performed"),
+                    "ech_event": "camac.ech0211.signals.exam_completed",
                 },
                 "init-distribution": {
                     "next_instance_state": "circulation",
