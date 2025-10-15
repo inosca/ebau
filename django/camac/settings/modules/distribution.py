@@ -428,6 +428,7 @@ DISTRIBUTION = {
                 "STATEMENT": "inquiry-answer-status-statement",
                 "CLAIM": "inquiry-answer-status-claim",
                 "NOT_INVOLVED": "inquiry-answer-status-not-involved",
+                "UNKNOWN": "inquiry-answer-status-unknown",
             },
         },
         "HISTORY": {

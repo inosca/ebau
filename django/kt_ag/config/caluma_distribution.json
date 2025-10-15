@@ -265,6 +265,23 @@
     }
   },
   {
+    "model": "caluma_form.option",
+    "pk": "inquiry-answer-status-unknown",
+    "fields": {
+      "created_at": "2025-10-14T08:31:34.288Z",
+      "modified_at": "2025-10-14T08:31:51.173Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Siehe Fachbericht (Antwort via Schnittstelle)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": true,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
     "model": "caluma_form.question",
     "pk": "inquiry-answer-remarks",
     "fields": {
@@ -435,120 +452,135 @@
     "model": "caluma_form.questionoption",
     "pk": "inquiry-answer-status.inquiry-answer-status-claim",
     "fields": {
-      "created_at": "2025-01-16T12:34:09.068Z",
-      "modified_at": "2025-01-16T12:34:09.068Z",
+      "created_at": "2025-10-14T08:31:51.234Z",
+      "modified_at": "2025-10-14T08:31:51.234Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "inquiry-answer-status",
       "option": "inquiry-answer-status-claim",
-      "sort": 2
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "inquiry-answer-status.inquiry-answer-status-negative",
     "fields": {
-      "created_at": "2025-01-16T12:34:09.082Z",
-      "modified_at": "2025-01-16T12:34:09.082Z",
+      "created_at": "2025-10-14T08:31:51.237Z",
+      "modified_at": "2025-10-14T08:31:51.237Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "inquiry-answer-status",
       "option": "inquiry-answer-status-negative",
-      "sort": 5
+      "sort": 6
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "inquiry-answer-status.inquiry-answer-status-negative-deconstruction",
     "fields": {
-      "created_at": "2025-01-16T12:34:09.077Z",
-      "modified_at": "2025-01-16T12:34:09.077Z",
+      "created_at": "2025-10-14T08:31:51.236Z",
+      "modified_at": "2025-10-14T08:31:51.236Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "inquiry-answer-status",
       "option": "inquiry-answer-status-negative-deconstruction",
-      "sort": 4
+      "sort": 5
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "inquiry-answer-status.inquiry-answer-status-not-involved",
     "fields": {
-      "created_at": "2025-01-16T12:34:09.064Z",
-      "modified_at": "2025-01-16T12:34:09.065Z",
+      "created_at": "2025-10-14T08:31:51.233Z",
+      "modified_at": "2025-10-14T08:31:51.233Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "inquiry-answer-status",
       "option": "inquiry-answer-status-not-involved",
-      "sort": 1
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "inquiry-answer-status.inquiry-answer-status-positive",
     "fields": {
-      "created_at": "2025-01-16T12:34:09.094Z",
-      "modified_at": "2025-01-16T12:34:09.094Z",
+      "created_at": "2025-10-14T08:31:51.240Z",
+      "modified_at": "2025-10-14T08:31:51.240Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "inquiry-answer-status",
       "option": "inquiry-answer-status-positive",
-      "sort": 8
+      "sort": 9
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "inquiry-answer-status.inquiry-answer-status-positive-partially",
     "fields": {
-      "created_at": "2025-01-16T12:34:09.088Z",
-      "modified_at": "2025-01-16T12:34:09.088Z",
+      "created_at": "2025-10-14T08:31:51.238Z",
+      "modified_at": "2025-10-14T08:31:51.238Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "inquiry-answer-status",
       "option": "inquiry-answer-status-positive-partially",
-      "sort": 6
+      "sort": 7
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "inquiry-answer-status.inquiry-answer-status-positive-sanctions",
     "fields": {
-      "created_at": "2025-01-16T12:34:09.091Z",
-      "modified_at": "2025-01-16T12:34:09.091Z",
+      "created_at": "2025-10-14T08:31:51.239Z",
+      "modified_at": "2025-10-14T08:31:51.239Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "inquiry-answer-status",
       "option": "inquiry-answer-status-positive-sanctions",
-      "sort": 7
+      "sort": 8
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "inquiry-answer-status.inquiry-answer-status-statement",
     "fields": {
-      "created_at": "2025-01-16T12:34:09.072Z",
-      "modified_at": "2025-01-16T12:34:09.072Z",
+      "created_at": "2025-10-14T08:31:51.235Z",
+      "modified_at": "2025-10-14T08:31:51.235Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "inquiry-answer-status",
       "option": "inquiry-answer-status-statement",
-      "sort": 3
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "inquiry-answer-status.inquiry-answer-status-unknown",
+    "fields": {
+      "created_at": "2025-10-14T08:31:51.232Z",
+      "modified_at": "2025-10-14T08:31:51.232Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "inquiry-answer-status",
+      "option": "inquiry-answer-status-unknown",
+      "sort": 1
     }
   },
   {
