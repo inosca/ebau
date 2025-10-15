@@ -1,54 +1,57 @@
-<LoadingOrNotfound
-  @loading={{this.document.isLoading}}
-  @hasPermission={{await
-    (can
-      "read form of instance"
-      this.editController.instance
-      form=this.document.value.form
-    )
-  }}
->
-  {{#if (is-embedded)}}
-    <CfContent
-      @documentId={{decode-id this.document.value.id}}
-      @disabled={{await
-        (cannot
-          "write form of instance"
-          this.editController.instance
-          form=this.document.value.form
-        )
-      }}
-      @useAsHeading={{true}}
-      @headingBaseLevel={{2}}
-      @context={{hash instanceId=this.editController.model}}
-      as |content|
-    >
-      {{#if (gt content.document.fieldsets.length 1)}}
-        <div uk-grid>
-          <div class="uk-width-1-1 uk-width-1-3@s"><content.navigation /></div>
-          <div class="uk-width-1-1 uk-width-2-3@s">
-            <content.form />
-            <hr />
-            <content.pagination />
+{{#unless this.editController.isLoading}}
+  <LoadingOrNotfound
+    @loading={{this.document.isLoading}}
+    @hasPermission={{await
+      (can
+        "read form of instance"
+        this.editController.instance
+        form=this.document.value.form
+      )
+    }}
+  >
+    {{#if (is-embedded)}}
+      <CfContent
+        @documentId={{decode-id this.document.value.id}}
+        @disabled={{await
+          (cannot
+            "write form of instance"
+            this.editController.instance
+            form=this.document.value.form
+          )
+        }}
+        @useAsHeading={{true}}
+        @headingBaseLevel={{2}}
+        @context={{hash instanceId=this.editController.model}}
+        as |content|
+      >
+        {{#if (gt content.document.fieldsets.length 1)}}
+          <div uk-grid>
+            <div class="uk-width-1-1 uk-width-1-3@s"><content.navigation
+              /></div>
+            <div class="uk-width-1-1 uk-width-2-3@s">
+              <content.form />
+              <hr />
+              <content.pagination />
+            </div>
           </div>
-        </div>
-      {{else}}
-        <div class="embedded-content"><content.form /></div>
-      {{/if}}
-    </CfContent>
-  {{else}}
-    <CfContent
-      @documentId={{decode-id this.document.value.id}}
-      @disabled={{await
-        (cannot
-          "write form of instance"
-          this.editController.instance
-          form=this.document.value.form
-        )
-      }}
-      @useAsHeading={{true}}
-      @headingBaseLevel={{2}}
-      @context={{hash instanceId=this.editController.model}}
-    />
-  {{/if}}
-</LoadingOrNotfound>
+        {{else}}
+          <div class="embedded-content"><content.form /></div>
+        {{/if}}
+      </CfContent>
+    {{else}}
+      <CfContent
+        @documentId={{decode-id this.document.value.id}}
+        @disabled={{await
+          (cannot
+            "write form of instance"
+            this.editController.instance
+            form=this.document.value.form
+          )
+        }}
+        @useAsHeading={{true}}
+        @headingBaseLevel={{2}}
+        @context={{hash instanceId=this.editController.model}}
+      />
+    {{/if}}
+  </LoadingOrNotfound>
+{{/unless}}
