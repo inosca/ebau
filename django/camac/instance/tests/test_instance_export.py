@@ -3,7 +3,6 @@ import pathlib
 
 import pyexcel
 import pytest
-from caluma.caluma_form import api as form_api, models as caluma_form_models
 from caluma.caluma_workflow.models import WorkItem
 from django.urls import reverse
 from django.utils.timezone import make_aware
@@ -58,7 +57,7 @@ def test_caluma_export_visibilities(
     "role__name,expected_status,expected_count,expected_num_queries",
     [
         ("Municipality", status.HTTP_200_OK, 1, 3),
-        ("Service", status.HTTP_200_OK, 0, 3),
+        ("Service", status.HTTP_200_OK, 1, 3),
         ("Applicant", status.HTTP_200_OK, 0, 1),
         ("Public", status.HTTP_403_FORBIDDEN, 0, 0),
     ],
@@ -76,6 +75,14 @@ def test_caluma_export_be(
     admin_client,
     be_instance,
     instance_service_factory,
+    caluma_question_factory,
+    instance_state_t_factory,
+    responsible_service_factory,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    active_inquiry_factory,
+    caluma_forms_be,
+    be_master_data_case,
     service,
     application_settings,
     settings,
@@ -85,6 +92,8 @@ def test_caluma_export_be(
     expected_status,
     expected_count,
     expected_num_queries,
+    snapshot,
+    utils,
 ):
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
@@ -93,37 +102,47 @@ def test_caluma_export_be(
     )
     application_settings["IS_MULTILINGUAL"] = is_multilingual
 
+    # Ebau number
+    be_instance.case.meta["ebau-number"] = "2025-1"
+    be_instance.case.save()
+
+    # Instance state
+    be_instance.instance_state = instance_state_t_factory(
+        name="In Zirkulation"
+    ).instance_state
+    be_instance.save()
+
     instance_service_factory(
         instance=be_instance, service=admin_client.user.groups.first().service
     )
 
-    be_instance.case.document.answers.create(
-        value=str(service.pk), question_id="gemeinde"
+    responsible_service_factory(
+        responsible_user__name="John",
+        responsible_user__surname="Doe",
+        service=service,
+        instance=be_instance,
     )
 
-    row_doc = form_api.save_document(
-        caluma_form_models.Form.objects.get(pk="personalien-tabelle")
+    # Decision date
+    decision_work_item = caluma_work_item_factory(
+        case=be_instance.case,
+        task_id="decision",
+        status=WorkItem.STATUS_COMPLETED,
+        document=caluma_document_factory(form_id="decision"),
     )
-    form_api.save_answer(
-        caluma_form_models.Question.objects.get(pk="vorname-gesuchstellerin"),
-        row_doc,
-        value="Max",
-    )
-    form_api.save_answer(
-        caluma_form_models.Question.objects.get(pk="name-gesuchstellerin"),
-        row_doc,
-        value="Muster",
-    )
-    form_api.save_answer(
-        caluma_form_models.Question.objects.get(pk="e-mail-gesuchstellerin"),
-        row_doc,
-        value="foo@bar.ch",
+    utils.add_answer(
+        decision_work_item.document,
+        "decision-date",
+        datetime.date(2025, 5, 8),
     )
 
-    form_api.save_answer(
-        caluma_form_models.Question.objects.get(pk="personalien-gesuchstellerin"),
-        be_instance.case.document,
-        value=[str(row_doc.pk)],
+    # Inquiry
+    active_inquiry_factory(
+        for_instance=be_instance,
+        addressed_service=service,
+        status=WorkItem.STATUS_COMPLETED,
+        created_at=make_aware(datetime.datetime(2025, 1, 1)),
+        closed_at=make_aware(datetime.datetime(2025, 1, 30)),
     )
 
     url = reverse("instance-export")
@@ -141,7 +160,12 @@ def test_caluma_export_be(
         book = pyexcel.get_book(file_content=response.content, file_type="xlsx")
         assert len(book.get_dict()["pyexcel sheet"]) - 1 == expected_count
         if expected_count:
-            assert be_instance.pk in book.get_dict()["pyexcel sheet"][1]
+            # Remove instance id from snapshot since it is always generated new
+            del book.get_dict()["pyexcel sheet"][1][1]
+            book.get_dict()["pyexcel sheet"][0].remove("Dossier-Nr.")
+
+            data = book.get_dict()["pyexcel sheet"][1]
+            snapshot.assert_match(data)
 
 
 @pytest.mark.parametrize(

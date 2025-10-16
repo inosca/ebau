@@ -1869,6 +1869,7 @@ def be_master_data_case(db, be_instance, group, master_data_is_visible_mock, uti
                 "nummer-gesuchstellerin": 123,
                 "ort-gesuchstellerin": "Testhausen",
                 "plz-gesuchstellerin": 1234,
+                "e-mail-gesuchstellerin": "test@example.com",
             }
         ],
     )

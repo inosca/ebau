@@ -124,6 +124,8 @@ class InstanceExportSerializerBE(CalumaInstanceExportSerializer):
         label=_("SB2 submission date"),
     )
     tags = serializers.CharField(source="tag_names", label=_("Tags"))
+    coordinates_east = serializers.CharField(label=_("Coordinates east"))
+    coordinates_north = serializers.CharField(label=_("Coordinates north"))
 
     def load_municipality_sheet(self):
         reader = csv.DictReader(
@@ -161,6 +163,8 @@ class InstanceExportSerializerBE(CalumaInstanceExportSerializer):
             "form_name",
             "address",
             "parcels",
+            "coordinates_east",
+            "coordinates_north",
             "building_project",
             "submit_date",
             "instance_state_name",
