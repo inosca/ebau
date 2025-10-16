@@ -1266,7 +1266,7 @@ MASTER_DATA = {
             ),
             "oereb_topic": (
                 "answer",
-                ["oereb-thema", "oereb-thema-gemeinde"],
+                "oereb-thema",
             ),
             "legal_state": (
                 "answer",
