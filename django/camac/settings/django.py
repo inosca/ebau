@@ -61,6 +61,11 @@ SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 # that django infers the correct base uri in FileFields (build_absolute_uri).
 USE_X_FORWARDED_HOST = env.bool("DJANGO_USE_X_FORWARDED_HOST", default=False)
 
+# Captcha settings
+CAPTCHA_IMAGE_SIZE = (420, 100)
+CAPTCHA_FONT_SIZE = 40
+CAPTCHA_LENGTH = 8
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -74,6 +79,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "rest_framework_json_api",
+    "captcha",
     # Caluma and it's dependencies:
     "caluma.caluma_core.apps.DefaultConfig",
     "caluma.caluma_user.apps.DefaultConfig",
@@ -138,6 +144,7 @@ INSTALLED_APPS = [
     "camac.rulesets.apps.RulesetsConfig",
     "camac.deadlines.apps.DeadlinesConfig",
     "camac.gis_export.apps.GISExportConfig",
+    "camac.captcha.apps.DefaultConfig",
 ]
 
 if DEBUG:  # pragma: no cover
@@ -1311,6 +1318,7 @@ APPLICATIONS = {
         "INTERNAL_FRONTEND": "camac",
         "USE_CAMAC_ADMIN": True,
         "ENABLE_PUBLIC_CALUMA": True,
+        "ENABLE_PUBLIC_CALUMA_CAPTCHA": False,
         "LOG_NOTIFICATIONS": True,
         "LOG_NOTIFICATIONS_WITH_NO_RECEIVERS": True,
         "FORM_BACKEND": "caluma",
@@ -2009,6 +2017,8 @@ APPLICATIONS = {
         "AVAILABLE_LANGUAGES": ["de", "it"],
         "INTERNAL_FRONTEND": "ebau",
         "USE_CAMAC_ADMIN": False,
+        "ENABLE_PUBLIC_CALUMA": True,
+        "ENABLE_PUBLIC_CALUMA_CAPTCHA": True,
         "INCLUDE_STATIC_FILES": [("xml", "kt_bern/static/ech0211/xml")],
         "LOG_NOTIFICATIONS": True,
         "LOG_NOTIFICATIONS_WITH_NO_RECEIVERS": True,

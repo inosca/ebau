@@ -144,6 +144,10 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
 
         return queryset.order_by(*order_by) if order_by else queryset
 
+    @filter_queryset_for(workflow_schema.Workflow)
+    def filter_queryset_for_workflow(self, node, queryset, info):
+        return queryset
+
     @permission_aware
     @filter_queryset_for(workflow_schema.WorkItem)
     def filter_queryset_for_work_items(self, node, queryset, info):

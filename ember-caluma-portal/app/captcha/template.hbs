@@ -1,0 +1,55 @@
+<h1>{{t "captcha.title"}}</h1>
+
+<p class="uk-text-lead">
+  {{t "captcha.help" htmlSafe=true}}
+</p>
+
+{{#if this.captchaImageUrl}}
+  <div class="uk-width-1-2">
+    <div>
+      <label class="uk-form-label" for="captcha_key">{{t
+          "captcha.imageLabel"
+        }}</label>
+      <div class="uk-form-controls">
+        <input type="hidden" name="captcha_key" value={{this.captchaKey}} />
+        <img
+          src={{this.captchaImageUrl}}
+          alt={{t "captcha.alt"}}
+          class="uk-margin-small-bottom"
+        />
+
+        <UkButton
+          @color="link"
+          @title={{t "captcha.refresh"}}
+          @onClick={{this.refreshCaptcha}}
+          class="uk-margin-small-left"
+        >
+          <UkIcon @icon="refresh" />
+        </UkButton>
+      </div>
+    </div>
+    <div class="uk-margin">
+      <label class="uk-form-label" for="captcha">{{t "captcha.input"}}</label>
+      <div class="uk-form-controls">
+        <Input
+          @type="text"
+          id="captcha"
+          name="captcha"
+          @value={{this.captchaChallenge}}
+          class="uk-input uk-width-auto"
+          required
+        />
+      </div>
+    </div>
+    <div class="uk-margin">
+      <UkButton
+        @color="primary"
+        @title={{t "captcha.submit"}}
+        @onClick={{this.submitCaptcha}}
+        class="uk-width-1-2 uk-text-center"
+      >
+        {{t "global.save"}}
+      </UkButton>
+    </div>
+  </div>
+{{/if}}

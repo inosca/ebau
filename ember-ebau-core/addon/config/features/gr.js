@@ -5,7 +5,8 @@ export default {
     showMainForm: true,
     endDate: false,
     related: false,
-    disableAuthentication: false,
+    disableAuthentication: true,
+    useCaptchaAuthentication: true,
   },
   rejection: {
     useLegacyClaims: false,

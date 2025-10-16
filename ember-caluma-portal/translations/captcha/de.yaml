@@ -1,0 +1,7 @@
+captcha:
+  title: "Kontrollieren Sie bitte, dass Sie kein Roboter sind"
+  help: "Bitte geben Sie den Text im Bild ein, um fortzufahren. Dies dient der Sicherheit und verhindert automatisierte Anfragen."
+  alt: "Captcha-Bild"
+  imageLabel: "Captcha-Bild"
+  refresh: "Captcha-Bild aktualisieren"
+  input: "Captcha-Eingabe"

@@ -1,7 +1,13 @@
+from datetime import datetime, timedelta
+
 import pytest
 from caluma.caluma_user.models import AnonymousUser
 from caluma.caluma_user.views import HttpResponseUnauthorized
+from django.core.signing import Signer
+from django.utils.timezone import make_aware
 from graphene_django.views import HttpError
+
+from camac.caluma.views import HttpResponseForbidden
 
 from ..views import CamacAuthenticatedGraphQLView
 
@@ -67,6 +73,37 @@ def test_unauthorized_caluma(
             CamacAuthenticatedGraphQLView().get_user(request)
 
         assert isinstance(e.value.response, HttpResponseUnauthorized)
+    else:
+        assert isinstance(
+            CamacAuthenticatedGraphQLView().get_user(request), AnonymousUser
+        )
+
+
+@pytest.mark.parametrize("has_valid_token", [True, False])
+def test_forbidden_caluma_captcha(
+    rf,
+    settings,
+    application_settings,
+    has_valid_token,
+):
+    application_settings["ENABLE_PUBLIC_CALUMA"] = True
+    application_settings["ENABLE_PUBLIC_CALUMA_CAPTCHA"] = True
+
+    if has_valid_token:
+        signer = Signer()
+        expiry = make_aware(datetime.now() + timedelta(minutes=15)).timestamp()
+
+        header_value = signer.sign_object({"key": "abcd", "expiry": expiry})
+    else:
+        header_value = None
+
+    request = rf.request(HTTP_X_CAMAC_PUBLIC_TOKEN=header_value)
+
+    if not has_valid_token:
+        with pytest.raises(HttpError) as e:
+            CamacAuthenticatedGraphQLView().get_user(request)
+
+        assert isinstance(e.value.response, HttpResponseForbidden)
     else:
         assert isinstance(
             CamacAuthenticatedGraphQLView().get_user(request), AnonymousUser

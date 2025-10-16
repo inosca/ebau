@@ -4,6 +4,7 @@ from django.conf import settings
 from rest_framework import permissions
 from rest_framework.exceptions import PermissionDenied
 
+from camac.captcha.utils import validate_captcha_token
 from camac.request import get_request
 from camac.token_exchange.permissions import RequireLoT
 
@@ -163,7 +164,11 @@ class ReadOnly(permissions.BasePermission):
 
 class IsPublicAccess(permissions.BasePermission):
     def has_permission(self, request, view):
-        return is_public_access(request)
+        return is_public_access(request) and (
+            validate_captcha_token(request)
+            if settings.APPLICATION.get("ENABLE_PUBLIC_CALUMA_CAPTCHA")
+            else True
+        )
 
 
 class IsAllowedClientToken(permissions.BasePermission):
@@ -256,7 +261,7 @@ AuthenticatedPublication = permissions.IsAuthenticated & IsAllowedClientToken & 
 
 PublicationBE = IsApplication("kt_bern") & AuthenticatedPublication
 PublicationSZ = IsApplication("kt_schwyz") & AuthenticatedPublication
-PublicationGR = IsApplication("kt_gr") & AuthenticatedPublication
+PublicationGR = IsApplication("kt_gr") & ReadOnly
 PublicationSO = IsApplication("kt_so") & AuthenticatedPublication & RequireLoT
 PublicationAG = IsApplication("kt_ag") & AuthenticatedPublication
 PublicationUR = IsApplication("kt_uri") & ReadOnly
@@ -280,7 +285,13 @@ PublicationPermission = IsPublicAccess & (
     | (
         # Documents
         IsView("AttachmentView", "AttachmentDownloadView")
-        & (PublicationBE | PublicationSZ | PublicationUR | PublicationTest)
+        & (
+            PublicationBE
+            | PublicationSZ
+            | PublicationGR
+            | PublicationUR
+            | PublicationTest
+        )
     )
     | (
         # Alexandria

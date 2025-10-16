@@ -78,6 +78,59 @@ def test_document_visibility(
     assert len(cases_result.data["allCases"]["edges"]) == expected_count
 
 
+@pytest.mark.parametrize(
+    "is_public_user,expected_count",
+    [(True, 1), (False, 0)],
+)
+def test_public_workflow_visibility(
+    db,
+    caluma_admin_schema_executor,
+    caluma_admin_public_schema_executor,
+    create_caluma_publication,
+    be_instance,
+    is_public_user,
+    expected_count,
+):
+    create_caluma_publication(be_instance)
+
+    executor = (
+        caluma_admin_public_schema_executor
+        if is_public_user
+        else caluma_admin_schema_executor
+    )
+    result = executor(
+        """
+        query {
+            allDocuments(filter: [{ id: "%s" }]) {
+                edges {
+                    node {
+                        id
+                        case {
+                            __typename
+                            workflow {
+                                id
+                                slug
+                                __typename
+                            }
+                        }
+                        __typename
+                    }
+                }
+            }
+        }
+    """
+        % be_instance.case.document.pk
+    )
+
+    assert not result.errors
+    assert len(result.data["allDocuments"]["edges"]) == expected_count
+    if expected_count:
+        assert (
+            result.data["allDocuments"]["edges"][0]["node"]["case"]["workflow"]["slug"]
+            is not None
+        )
+
+
 @pytest.mark.parametrize("role__name", ["Support"])
 def test_document_visibility_filter(
     db,

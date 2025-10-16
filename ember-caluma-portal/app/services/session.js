@@ -1,13 +1,14 @@
 import { getOwner } from "@ember/application";
 import { service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
+import { enqueueTask } from "ember-concurrency";
 import { handleUnauthorized } from "ember-simple-auth-oidc";
 import { getConfig } from "ember-simple-auth-oidc/config";
 import Session from "ember-simple-auth-oidc/services/session";
 import { getUserLocales } from "get-user-locale";
 import { jwtDecode } from "jwt-decode";
 import { trackedFunction } from "reactiveweb/function";
-import { localCopy, cached } from "tracked-toolbox";
+import { cached, localCopy } from "tracked-toolbox";
 import UIkit from "uikit";
 
 import config from "caluma-portal/config/environment";
@@ -29,6 +30,7 @@ export default class CustomSession extends Session {
   @service router;
 
   @tracked enforcePublicAccess = false;
+  @tracked publicCaptchaToken = false;
 
   @localCopy("data.language") _language;
   @localCopy("data.groupId") _groupId;
@@ -170,6 +172,11 @@ export default class CustomSession extends Session {
       ...this.authHeaders,
       ...this.languageHeaders,
       ...(this.enforcePublicAccess ? { "x-camac-public-access": true } : {}),
+      ...(this.enforcePublicAccess &&
+      this.requireCaptchaToken &&
+      this.publicCaptchaToken
+        ? { "x-camac-public-token": this.publicCaptchaToken }
+        : {}),
       ...(publicAccessKey
         ? { "x-camac-public-access-key": publicAccessKey }
         : {}),
@@ -191,5 +198,44 @@ export default class CustomSession extends Session {
 
   handleUnauthorized() {
     if (this.isAuthenticated) handleUnauthorized(this);
+  }
+
+  @enqueueTask
+  *refreshAuthentication() {
+    if (this.requireCaptchaToken) {
+      if (!this.validateCaptchaAuth()) {
+        // use location.replace to break execution, and perform
+        // the redirect without allowing the page to continue performing
+        // further requests.
+        return yield document.location.replace(
+          this.router.urlFor("captcha", {
+            queryParams: {
+              nextURL: location.href,
+            },
+          }),
+        );
+      }
+
+      return;
+    }
+
+    return yield super.refreshAuthentication.perform();
+  }
+
+  validateCaptchaAuth() {
+    const token = `${localStorage.getItem("publicCaptchaToken") ?? ""}`;
+    const split = token.split(":");
+    if (split.length !== 2) {
+      return false;
+    }
+
+    try {
+      const decoded = JSON.parse(atob(split[0]));
+
+      return decoded.expiry > new Date().getTime() / 1000;
+    } catch (e) {
+      console.error("Failed to decode captcha token", e);
+      return false;
+    }
   }
 }

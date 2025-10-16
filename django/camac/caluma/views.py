@@ -8,6 +8,7 @@ from graphene_django.views import HttpError
 from rest_framework.exceptions import PermissionDenied
 
 from camac.caluma.utils import CamacRequest, extend_user
+from camac.captcha.utils import validate_captcha_token
 from camac.token_exchange.permissions import has_required_lot
 from camac.user.models import User
 from camac.user.permissions import is_allowed_client
@@ -26,6 +27,11 @@ class CamacAuthenticatedGraphQLView(AuthenticationGraphQLView):
 
         if not isinstance(oidc_user, OIDCUser):
             if settings.APPLICATION.get("ENABLE_PUBLIC_CALUMA"):
+                if settings.APPLICATION.get(
+                    "ENABLE_PUBLIC_CALUMA_CAPTCHA"
+                ) and not validate_captcha_token(request):
+                    raise HttpError(HttpResponseForbidden())
+
                 return AnonymousUser()
             else:
                 # Raise a 401 error if the user is anything else than an OIDCUser
