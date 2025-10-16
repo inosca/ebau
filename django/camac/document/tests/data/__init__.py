@@ -16,6 +16,7 @@ def django_file(name, mode="rb"):
     except FileExistsError:  # pragma: no cover
         pass
 
-    shutil.copy(abspath, f"{new_path}/{name}")
+    new_name = os.path.basename(name)
+    shutil.copy(abspath, f"{new_path}/{new_name}")
 
-    return File(open(abspath, mode), name=f"attachments/{name}")
+    return File(open(abspath, mode), name=f"attachments/{new_name}")
