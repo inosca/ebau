@@ -8,7 +8,7 @@ from caluma.caluma_workflow import (
     models as caluma_workflow_models,
 )
 from django.conf import settings
-from django.db.models import Q
+from django.db.models import Q, QuerySet
 
 from camac.caluma.models import Inquiry
 from camac.instance.models import Instance
@@ -286,12 +286,28 @@ class CalumaApi:
         )
 
     def reassign_work_items(
-        self, instance: Instance, from_group_id: str, to_group_id: str, user: OIDCUser
+        self,
+        instance: Instance,
+        from_group_id: str,
+        to_group_id: str,
+        user: OIDCUser,
+        work_items: QuerySet = None,
     ):
+        """
+        Reassign work-items of a specific instance from one group to another.
+
+        Cleanup and create work-items to ensure the new group has the adequate permissions.
+        """
         from_group_id = str(from_group_id)
         to_group_id = str(to_group_id)
 
-        for work_item in self.get_work_items_to_reassign(from_group_id, instance):
+        work_items_to_reassign = (
+            work_items
+            if work_items is not None
+            else self.get_work_items_to_reassign(from_group_id, instance)
+        )
+
+        for work_item in work_items_to_reassign:
             for groups_type in ["addressed_groups", "controlling_groups"]:
                 groups = set(getattr(work_item, groups_type))
 
@@ -315,6 +331,10 @@ class CalumaApi:
                 setattr(work_item, groups_type, list(groups))
 
             work_item.save()
+
+        # If we are provided a custom queryset, don't reassign any further workitems
+        if work_items:
+            return
 
         distribution = instance.case.work_items.filter(
             task_id=settings.DISTRIBUTION["DISTRIBUTION_TASK"],

@@ -66,6 +66,7 @@ DJANGO_ADMIN = {
             "gever.CMIConstantValue",
             "gever.CMIObjectTemplate",
             "ech0211.Message",
+            "user.GeometerChangeTask",
         ],
     },
     "kt_schwyz": {

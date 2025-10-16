@@ -80,4 +80,7 @@ export default {
     hideImportedWorkItems: true,
     v2: true,
   },
+  changeGeometer: {
+    enabled: false,
+  },
 };

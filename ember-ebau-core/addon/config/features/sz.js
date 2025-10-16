@@ -42,4 +42,7 @@ export default {
     hideInstanceId: true,
     snippets: true,
   },
+  changeGeometer: {
+    enabled: false,
+  },
 };

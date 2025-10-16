@@ -1,0 +1,11 @@
+change-geometer:
+  title: ""
+  municipality: ""
+  existingGeometer: ""
+  newGeometer: ""
+  info: ""
+  apply-change: ""
+  confirm: ""
+  taskFailed: ""
+  taskSuccessful: ""
+  taskRunning: ""

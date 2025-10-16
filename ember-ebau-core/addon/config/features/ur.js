@@ -26,4 +26,7 @@ export default {
   submitComponent: {
     requiredPermissions: ["instance-submit"],
   },
+  changeGeometer: {
+    enabled: false,
+  },
 };

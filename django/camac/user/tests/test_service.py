@@ -1,8 +1,11 @@
 import pytest
+from caluma.caluma_workflow.models import WorkItem
 from django.urls import reverse
 from rest_framework import status
 
-from camac.user.models import Service
+from camac.permissions import api as permissions_api
+from camac.user.models import GeometerChangeTask, Service, ServiceRelation
+from camac.user.tasks import change_geometer_task
 
 
 @pytest.mark.parametrize(
@@ -289,3 +292,165 @@ def test_service_create(
 
         assert new_service.service_parent == service
         assert new_service.service_group == service.service_group
+
+
+@pytest.mark.parametrize(
+    "role__name,expected_status,task_already_exists",
+    [
+        ("Support", status.HTTP_200_OK, False),
+        ("Support", status.HTTP_400_BAD_REQUEST, True),
+        ("Applicant", status.HTTP_400_BAD_REQUEST, False),
+        ("Municipality", status.HTTP_400_BAD_REQUEST, False),
+        ("Geometer", status.HTTP_400_BAD_REQUEST, False),
+    ],
+)
+def test_change_geometer_permission(
+    admin_client,
+    be_instance,
+    service_factory,
+    expected_status,
+    task_already_exists,
+    instance_acl_factory,
+    access_level_factory,
+    caluma_work_item_factory,
+):
+    selected_municipality = service_factory()
+    selected_geometer = service_factory()
+    existing_geometer = service_factory()
+
+    existing_geometer = service_factory()
+    ServiceRelation.objects.create(
+        provider=existing_geometer,
+        receiver=selected_municipality,
+        function=ServiceRelation.FUNCTION_GEOMETER,
+    )
+    instance_acl_factory(
+        user=admin_client.user,
+        grant_type="GEOMETER",
+        access_level=access_level_factory(slug="geometer"),
+        instance=be_instance,
+    )
+    caluma_work_item_factory(
+        task_id="geometer",
+        case=be_instance.case,
+        status=WorkItem.STATUS_READY,
+        addressed_groups=[existing_geometer.pk],
+    )
+
+    data = {
+        "data": {
+            "type": "services",
+            "attributes": {
+                "selected_geometer_service_id": selected_geometer.pk,
+            },
+        }
+    }
+
+    if task_already_exists:
+        GeometerChangeTask.objects.create(
+            municipality_id=selected_municipality.pk,
+            geometer_id=selected_geometer.pk,
+            status="scheduled",
+        )
+
+    response = admin_client.post(
+        reverse("service-change-geometer", args=[selected_municipality.pk]), data=data
+    )
+    assert response.status_code == expected_status
+
+
+@pytest.mark.parametrize("geometer_exists", [True, False])
+def test_change_geometer_task(
+    db,
+    admin_client,
+    be_instance,
+    geometer_exists,
+    service_factory,
+    instance_acl_factory,
+    caluma_work_item_factory,
+    access_level_factory,
+):
+    selected_geometer = service_factory()
+    selected_municipality = service_factory()
+    be_instance.services.add(selected_municipality)
+
+    if geometer_exists:
+        existing_geometer = service_factory()
+        ServiceRelation.objects.create(
+            provider=existing_geometer,
+            receiver=selected_municipality,
+            function=ServiceRelation.FUNCTION_GEOMETER,
+        )
+        instance_acl_factory(
+            service=existing_geometer,
+            grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+            access_level=access_level_factory(slug="geometer"),
+            instance=be_instance,
+        )
+        caluma_work_item_factory(
+            task_id="geometer",
+            case=be_instance.case,
+            status=WorkItem.STATUS_READY,
+            addressed_groups=[existing_geometer.pk],
+        )
+    geometer_change_task = GeometerChangeTask.objects.create(
+        municipality_id=selected_municipality.pk,
+        geometer_id=selected_geometer.pk,
+        status="scheduled",
+    )
+
+    change_geometer_task(task=geometer_change_task)
+
+    if geometer_exists:
+        assert (
+            str(selected_geometer.pk)
+            in WorkItem.objects.filter(task_id="geometer").first().addressed_groups
+        )
+
+    assert ServiceRelation.objects.first().provider == selected_geometer
+
+    class FakeTask:
+        def save(*args, **kwargs): ...
+
+    fake_task = FakeTask()
+    change_geometer_task(task=fake_task)
+    assert fake_task.status == "failed"
+
+
+@pytest.mark.parametrize(
+    "role__name,task_exists,task_status,expected_status",
+    [
+        ("Support", False, "", status.HTTP_200_OK),
+        ("Support", True, "running", status.HTTP_202_ACCEPTED),
+        ("Support", True, "failed", status.HTTP_200_OK),
+        ("Support", True, "completed", status.HTTP_200_OK),
+        ("Support", False, "", status.HTTP_200_OK),
+        ("Applicant", False, "", status.HTTP_400_BAD_REQUEST),
+        ("Municipality", False, "", status.HTTP_400_BAD_REQUEST),
+        ("Geometer", False, "", status.HTTP_400_BAD_REQUEST),
+    ],
+)
+def test_check_change_geometer_status(
+    db,
+    admin_client,
+    task_exists,
+    task_status,
+    expected_status,
+    service_factory,
+):
+    municipality = service_factory()
+    geometer = service_factory()
+
+    if task_exists:
+        GeometerChangeTask.objects.create(
+            municipality_id=municipality.pk,
+            geometer_id=geometer.pk,
+            status=task_status,
+            errors="There is an error" if task_status == "failed" else "",
+        )
+
+    resp = admin_client.get(reverse("service-check-change-geometer-status"))
+
+    if task_status == "failed":
+        assert resp.data["errors"] == "There is an error"
+    assert resp.status_code == expected_status

@@ -1,0 +1,11 @@
+change-geometer:
+  title: "Changement de géomètre conservateur"
+  municipality: "Commune"
+  existingGeometer: "Géomètre conservateur actuel"
+  newGeometer: "Nouveau géomètre conservateur"
+  info: "Dès le changement, les dossiers nouvellement traités, comme ceux en cours, seront transférés au nouveau géomètre conservateur."
+  apply-change: "Procéder au changement"
+  confirm: "Voulez-vous vraiment modifier le géomètre conservateur ?"
+  taskFailed: "<b>Dernière exécution:</b> une erreur s’est produite lors du changement du géomètre de la commune {municipality} pour le géomètre conservateur {geometer} le {completedAtDate} à {completedAtTime}. Erreur: {errors}."
+  taskSuccessful: "<b>Dernière exécution:</b> le changement du géomètre de la commune {municipality} pour le géomètre conservateur {geometer} a été effectué avec succès le {completedAtDate} à {completedAtTime}."
+  taskRunning: "<b>Actuelle exécution:</b> le changement du géomètre de la commune {municipality} pour le géomètre conservateur {geometer} est en cours."
