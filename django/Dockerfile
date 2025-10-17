@@ -40,13 +40,17 @@ RUN \
   libfile-mimeinfo-perl \
   libimage-exiftool-perl \
   libjpeg-dev \
-  libmagic1 \
   libsecret-1-0 \
   poppler-utils \
   webp \
   wait-for-it \
   zlib1g-dev \
-&& rm -rf /var/lib/apt/lists/*
+  # Install older version of libmagic because version 5.46 is broken: https://bugs.astron.com/view.php?id=622
+  && curl http://ftp.ch.debian.org/debian/pool/main/f/file/libmagic1_5.44-3_amd64.deb -o /tmp/libmagic1_5.44-3_amd64.deb \
+  && curl http://ftp.ch.debian.org/debian/pool/main/f/file/libmagic-mgc_5.44-3_amd64.deb -o /tmp/libmagic-mgc_5.44-3_amd64.deb \
+  && apt install /tmp/libmagic1_5.44-3_amd64.deb /tmp/libmagic-mgc_5.44-3_amd64.deb  -y --allow-downgrades \
+  && rm -rf /var/lib/apt/lists/*
+
 
 RUN \
   # Locale configuration
