@@ -10,6 +10,11 @@ def validate_captcha_token(request):
         return True
 
     token_str = (request.headers.get("X_CAMAC_PUBLIC_TOKEN") or "").strip()
+
+    # skip captcha auth for authenticated users.
+    if not token_str and request.headers.get("Authorization"):
+        return True
+
     signer = Signer()
 
     try:

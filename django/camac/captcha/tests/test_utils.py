@@ -10,15 +10,16 @@ from camac.captcha.utils import validate_captcha_token
 @pytest.mark.freeze_time("2023-05-22")
 @pytest.mark.parametrize("captcha_disabled", [False, True])
 @pytest.mark.parametrize(
-    "action",
+    "action,expected",
     [
-        ("bad_challenge_format"),
-        ("expired_token"),
-        ("ok"),
+        ("bad_challenge_format", False),
+        ("expired_token", False),
+        ("already_authenticated", True),
+        ("ok", True),
     ],
 )
-def test_validate_request(db, settings, captcha_disabled, action, mocker):
-    expected = captcha_disabled or action == "ok"
+def test_validate_request(db, settings, captcha_disabled, action, mocker, expected):
+    expected = captcha_disabled or expected
 
     settings.APPLICATION["ENABLE_PUBLIC_CALUMA"] = True
     settings.APPLICATION["ENABLE_PUBLIC_CALUMA_CAPTCHA"] = not captcha_disabled
@@ -32,15 +33,19 @@ def test_validate_request(db, settings, captcha_disabled, action, mocker):
         )
     ).timestamp()
 
-    header_value = (
-        "invalid_format"
-        if action == "bad_challenge_format"
-        else signer.sign_object({"key": "abcd", "expiry": expiry})
-    )
+    if action == "already_authenticated":
+        header_value = None
+    elif action == "bad_challenge_format":
+        header_value = "invalid_format"
+    else:
+        header_value = signer.sign_object({"key": "abcd", "expiry": expiry})
 
     mocked_request = mocker.Mock()
     mocked_request.headers = {
         "X_CAMAC_PUBLIC_TOKEN": header_value,
+        "Authorization": "Bearer some-valid-token"
+        if action == "already_authenticated"
+        else None,
     }
 
     assert validate_captcha_token(mocked_request) == expected
