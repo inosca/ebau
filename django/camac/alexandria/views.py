@@ -68,6 +68,8 @@ class PatchedTagViewSet(views.TagViewSet):
 
 
 class PatchedCategoryViewSet(views.CategoryViewSet):
+    permission_classes = [DefaultPermission | PublicationPermission]
+
     @canton_aware
     def get_queryset(self):
         return super().get_queryset()
