@@ -174,7 +174,9 @@ export default class CustomSession extends Session {
       ...(this.enforcePublicAccess ? { "x-camac-public-access": true } : {}),
       ...(this.enforcePublicAccess &&
       this.requireCaptchaToken &&
-      this.publicCaptchaToken
+      // Only add captcha token if token present and not already authenticated
+      this.publicCaptchaToken &&
+      !this.isAuthenticated
         ? { "x-camac-public-token": this.publicCaptchaToken }
         : {}),
       ...(publicAccessKey
@@ -202,7 +204,8 @@ export default class CustomSession extends Session {
 
   @enqueueTask
   *refreshAuthentication() {
-    if (this.requireCaptchaToken) {
+    // Don't use captcha auth when authenticated
+    if (this.requireCaptchaToken && !this.isAuthenticated) {
       if (!this.validateCaptchaAuth()) {
         // use location.replace to break execution, and perform
         // the redirect without allowing the page to continue performing
