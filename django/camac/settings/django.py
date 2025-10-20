@@ -3531,7 +3531,10 @@ SWAGGER_SETTINGS = {
 
 # Schwyz Publication
 PUBLICATION_API_URL = build_url(
-    env.str("PUBLICATION_API_URL", "https://amtsblatt-test.webtech.ch/api/v1/baugesuch")
+    env.str(
+        "PUBLICATION_API_URL",
+        "https://dev.amtsblatt.hostify1.webtech.ch/api/v1/baugesuch",
+    )
 )
 PUBLICATION_API_USER = env.str("PUBLICATION_API_USER", "")
 PUBLICATION_API_PASSWORD = env.str("PUBLICATION_API_PASSWORD", "")
