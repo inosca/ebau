@@ -1,8 +1,10 @@
 import json
+from datetime import timedelta
 
 import pytest
 from django.db import connection
 from django.test.utils import CaptureQueriesContext
+from django.utils import timezone
 from jwcrypto.common import JWException
 from jwcrypto.jwt import JWTExpired
 from mozilla_django_oidc.contrib.drf import OIDCAuthentication
@@ -353,6 +355,30 @@ def test_authenticate_token_exchange_company_name(rf, mocker, settings, clear_ca
     user, _ = JSONWebTokenKeycloakAuthentication().authenticate(request)
 
     assert user.get_full_name() == "Acme Inc."
+
+
+@pytest.mark.parametrize(
+    "days_offset,should_be_applied",
+    [
+        (-1, False),  # Expired 1 day ago
+        (1, True),  # Expires in 1 day
+    ],
+)
+def test_user_group_invitations_expiration(
+    db, user_factory, user_group_invitation_factory, days_offset, should_be_applied
+):
+    """Test that only non-expired invitations are applied during authentication."""
+    user = user_factory()
+
+    expires_at = timezone.now() + timedelta(days=days_offset)
+    user_group_invitation_factory(email=user.email, expires_at=expires_at)
+
+    JSONWebTokenKeycloakAuthentication()._apply_user_group_invitations(user)
+
+    user.refresh_from_db()
+
+    expected_groups = 1 if should_be_applied else 0
+    assert user.groups.count() == expected_groups
 
 
 @pytest.mark.parametrize(

@@ -5,6 +5,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.models import AnonymousUser
 from django.core.validators import validate_email
 from django.db import transaction
+from django.utils import timezone
 from django.utils.translation import get_language, gettext as _
 from rest_framework.exceptions import PermissionDenied
 from rest_framework.fields import BooleanField
@@ -527,7 +528,14 @@ class UserGroupInvitationSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         invitation = super().create(validated_data)
 
-        if notification := getattr(settings.USER.notifications, "user_invited", None):
+        if (
+            notification := getattr(settings.USER.notifications, "user_invited", None)
+        ) and not (
+            models.UserGroupInvitation.objects.filter(email=invitation.email)
+            .filter(expires_at__gt=timezone.now())
+            .exclude(pk=invitation.pk)
+            .exists()
+        ):
             send_mail_without_instance(
                 notification,
                 recipients=[validated_data.get("email")],
@@ -545,6 +553,7 @@ class UserGroupInvitationSerializer(serializers.ModelSerializer):
             "group",
             "created_at",
             "created_by",
+            "expires_at",
         )
         read_only_fields = (
             "created_at",
