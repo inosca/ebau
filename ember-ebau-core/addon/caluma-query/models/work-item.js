@@ -321,6 +321,10 @@ export default class CustomWorkItemModel extends WorkItemModel {
   }
 
   _getDirectLinkFor(configKey) {
+    if (configKey === "create-manual-workitems") {
+      // manual work items always go to the edit route
+      return null;
+    }
     if (this.isCompleted && this.ebauModules.isLegacyApp) {
       return Object.entries(this._getLinkPlaceholders()).reduce(
         (url, [key, value]) => url.replace(`{{${key}}}`, value),
