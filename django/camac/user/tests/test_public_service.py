@@ -300,6 +300,30 @@ def test_public_service_filter_exclude_other_subservices(
     assert {i["attributes"]["name"] for i in response.json()["data"]} == expected
 
 
+def test_public_service_filter_municipalities_for_rulesets(
+    admin_client, service_factory, ag_rulesets_settings
+):
+    muni_service = service_factory(
+        name="active municipality", service_group__name="municipality"
+    )
+    service_factory(
+        name="inactive municipality", service_group__name="municipality", disabled=1
+    )
+    service_factory(name="muni-subservice", service_parent=muni_service)
+    service_factory(name="cantonal service", service_group__name="cantonal-service")
+
+    response = admin_client.get(
+        reverse("publicservice-list"),
+        data={"municipalities_for_rulesets": True},
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+
+    data = response.json()["data"]
+    assert len(data) == 1
+    assert data[0]["id"] == str(muni_service.pk)
+
+
 @pytest.mark.parametrize(
     "has_rulesets_config,service_group_allowed,expected_count,expected_services",
     [

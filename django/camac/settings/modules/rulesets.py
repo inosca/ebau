@@ -30,5 +30,6 @@ RULESETS = ModuleConfig[RulesetsConfig](
                 "municipality": ["subservice"],
             }
         ),
+        municipality_service_groups=["municipality", "municipality-light"],
     ),
 )

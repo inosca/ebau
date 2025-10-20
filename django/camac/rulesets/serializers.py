@@ -28,7 +28,7 @@ class ResponsibleUserRuleSerializer(serializers.ModelSerializer):
     municipalities = serializers.ResourceRelatedField(
         required=False,
         many=True,
-        queryset=Service.objects.filter(service_group__name="municipality", disabled=0),
+        queryset=Service.objects.municipalities_for_rulesets(),
     )
 
     def validate(self, data: dict) -> dict:

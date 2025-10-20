@@ -34,7 +34,7 @@ export default class RulesetsResponsibleUserRuleEditComponent extends Component 
 
   applicationTypes = findAll(this, "application-type");
   municipalities = query(this, "public-service", () => ({
-    service_group_name: "municipality",
+    municipalities_for_rulesets: true,
   }));
   users = findAll(this, "user");
 

@@ -588,6 +588,15 @@ def logo_path(service, filename):  # pragma: no cover
     return f"services/{service.pk}/{filename}"
 
 
+class ServiceQuerySet(models.QuerySet):
+    def municipalities_for_rulesets(self):
+        return self.filter(
+            service_group__name__in=settings.RULESETS.municipality_service_groups,
+            service_parent_id__isnull=True,
+            disabled=False,
+        )
+
+
 class Service(core_models.MultilingualModel, models.Model):
     """Represents an organisational entity which can be hierarchically structured.
 
@@ -599,6 +608,8 @@ class Service(core_models.MultilingualModel, models.Model):
     Examples:
     - Leitbehörde Woppeln
     """
+
+    objects = ServiceQuerySet.as_manager()
 
     service_id = models.AutoField(
         db_column="SERVICE_ID", primary_key=True, verbose_name=_("ID")

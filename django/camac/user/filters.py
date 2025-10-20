@@ -55,6 +55,9 @@ class PublicServiceFilterSet(FilterSet):
     available_in_ruleset_for_service = BooleanFilter(
         method="filter_available_in_ruleset_for_service"
     )
+    municipalities_for_rulesets = BooleanFilter(
+        method="filter_municipalities_for_rulesets"
+    )
     is_active_service_for_instance = NumberFilter(
         method="filter_is_active_service_for_instance"
     )
@@ -323,6 +326,12 @@ class PublicServiceFilterSet(FilterSet):
         )
 
         return queryset.filter(pk__in=Subquery(providers.values("pk")))
+
+    def filter_municipalities_for_rulesets(self, queryset, name, value):
+        if not value:  # pragma: no cover
+            return queryset
+
+        return queryset.municipalities_for_rulesets()
 
     def filter_available_in_ruleset_for_service(self, queryset, name, value):
         """Filter services based on rulesets configuration for available services."""
