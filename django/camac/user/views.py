@@ -1,9 +1,12 @@
+from datetime import timedelta
+
 from caluma.caluma_form.models import Document
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.db import transaction
 from django.db.models import Q
 from django.db.models.functions import Collate
+from django.utils import timezone
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework import response, status
 from rest_framework.decorators import action
@@ -334,6 +337,16 @@ class UserGroupInvitationView(ModelViewSet):
         return queryset.filter(
             Q(group__service=service) | Q(group__service__service_parent=service)
         )
+
+    @action(methods=["post"], detail=True)
+    def renew(self, request, pk=None):
+        """Renew the invitation by setting `expires_at` to 14 days from now."""
+        invitation = self.get_object()
+        invitation.expires_at = timezone.now() + timedelta(days=14)
+        invitation.save()
+
+        serializer = self.get_serializer(invitation)
+        return response.Response(serializer.data)
 
 
 class UserGroupView(ModelViewSet):

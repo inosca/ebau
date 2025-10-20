@@ -38,6 +38,7 @@
       <th>{{t "service-permissions.group"}}</th>
       <th>{{t "service-permissions.created-by"}}</th>
       <th>{{t "service-permissions.created-at"}}</th>
+      <th>{{t "service-permissions.expires-at"}}</th>
       <th></th>
     </tr>
   </thead>
@@ -49,7 +50,16 @@
           <td>{{row.group.name}}</td>
           <td>{{or row.createdBy.fullName "-"}}</td>
           <td>{{format-date row.createdAt format="date"}}</td>
+          <td>{{format-date row.expiresAt format="date"}}</td>
           <td class="uk-text-right">
+            <button
+              type="button"
+              class="uk-button uk-button-link"
+              title="{{t 'service-permissions.invitation-renew'}}"
+              {{on "click" (perform this.renew row)}}
+            >
+              <UkIcon @icon="refresh" />
+            </button>
             <button
               type="button"
               class="uk-button uk-button-link"
@@ -61,7 +71,7 @@
         </tr>
       {{else}}
         <tr>
-          <td colspan="5" class="uk-text-center uk-text-italic">
+          <td colspan="6" class="uk-text-center uk-text-italic">
             {{t "global.empty"}}
           </td>
         </tr>
@@ -69,7 +79,7 @@
     {{/unless}}
     {{#if this.userGroupInvitations.isLoading}}
       <tr>
-        <td colspan="5" class="uk-text-center">
+        <td colspan="6" class="uk-text-center">
           <UkSpinner @ratio="0.7" />
         </td>
       </tr>

@@ -1,10 +1,12 @@
 import hashlib
+from datetime import timedelta
 from functools import cached_property
 
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.db import models
+from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
 from camac.models import dynamic_default_value
@@ -379,6 +381,12 @@ class UserGroupInvitation(models.Model):
     group = models.ForeignKey(Group, models.CASCADE, related_name="+")
     created_at = models.DateTimeField(auto_now_add=True)
     created_by = models.ForeignKey(User, models.CASCADE, related_name="+")
+    expires_at = models.DateTimeField(blank=True, null=True)
+
+    def save(self, *args, **kwargs):
+        if not self.pk and not self.expires_at:
+            self.expires_at = timezone.now() + timedelta(days=14)
+        super().save(*args, **kwargs)
 
     class Meta:
         unique_together = (("email", "group"),)
