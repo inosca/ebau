@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-02 14:45+0200\n"
-"PO-Revision-Date: 2025-08-28 10:10+0200\n"
+"POT-Creation-Date: 2025-10-08 13:19+0200\n"
+"PO-Revision-Date: 2025-10-08 13:26+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.0.1\n"
 "X-Poedit-Basepath: ../../..\n"
 "X-Poedit-SearchPath-0: .\n"
 
@@ -1294,6 +1294,14 @@ msgstr "Schlagworte"
 #: camac/instance/export/serializers.py
 msgid "Building permit type"
 msgstr "Verfahren"
+
+#: camac/instance/export/serializers.py
+msgid "Coordinates east"
+msgstr "Koordinaten Ost"
+
+#: camac/instance/export/serializers.py
+msgid "Coordinates north"
+msgstr "Koordinaten Nord"
 
 #: camac/instance/export/serializers.py
 msgid "Builder"

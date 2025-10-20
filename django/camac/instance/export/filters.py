@@ -271,6 +271,58 @@ class InstanceExportFilterBackend(BaseFilterBackend):
 
 
 class InstanceExportFilterBackendBE(InstanceExportFilterBackend):
+    def annotate_coordinates_east(self):
+        return StringAggSubquery(
+            Answer.objects.filter(
+                question_id="lagekoordinaten-ost",
+                document__family=OuterRef("case__document_id"),
+                value__isnull=False,
+            )
+            .annotate(
+                # Return NULL if the answer is empty so this function returns
+                # the same on empty answers as on no answer at all.
+                string_value=NullIf(
+                    Trim(
+                        Replace(
+                            Cast("value", output_field=CharField()),
+                            Value('"'),
+                            Value(""),
+                        )
+                    ),
+                    Value(""),
+                ),
+            )
+            .values("string_value"),
+            column_name="string_value",
+            delimiter=", ",
+        )
+
+    def annotate_coordinates_north(self):
+        return StringAggSubquery(
+            Answer.objects.filter(
+                question_id="lagekoordinaten-nord",
+                document__family=OuterRef("case__document_id"),
+                value__isnull=False,
+            )
+            .annotate(
+                # Return NULL if the answer is empty so this function returns
+                # the same on empty answers as on no answer at all.
+                string_value=NullIf(
+                    Trim(
+                        Replace(
+                            Cast("value", output_field=CharField()),
+                            Value('"'),
+                            Value(""),
+                        )
+                    ),
+                    Value(""),
+                ),
+            )
+            .values("string_value"),
+            column_name="string_value",
+            delimiter=", ",
+        )
+
     def filter_queryset(self, request, queryset, view):
         queryset = super().filter_queryset(request, queryset, view)
 
@@ -350,6 +402,8 @@ class InstanceExportFilterBackendBE(InstanceExportFilterBackend):
                 applicants=self.annotate_applicants(),
                 applicants_emails=self.annotate_applicants_emails(),
                 building_project=self.annotate_building_project(),
+                coordinates_east=self.annotate_coordinates_east(),
+                coordinates_north=self.annotate_coordinates_north(),
             )
             .select_related("case", "case__document", "case__document__form")
             .only(
