@@ -3,8 +3,10 @@ service-permissions:
   city: "Luogo"
   created-at: "Data di creazione"
   created-by: "Creato da"
+  expires-at: "Data di scadenza"
   email: "E-mail"
   email-hint: "È possibile indicare più indirizzi e-mail (separati da virgole)."
+  delete-confirm: "Vuoi davvero eliminare il diritto?"
   group: "Gruppo"
   name: "Nome"
   name-hint: |-
@@ -38,6 +40,10 @@ service-permissions:
   invitation-invite-user: "Invita utente"
   invitation-save-success: "L’invito è stato salvato con successo."
   invitation-save-error: "Impossibile salvare l’invito."
+  invitation-renew: "Rinnova invito"
+  invitation-delete-confirm: "Vuoi davvero eliminare l'invito?"
+  invitation-renew-success: "L'invito è stato rinnovato con successo."
+  invitation-renew-error: "Non è stato possibile rinnovare l'invito."
 
   sub-services: "Servizi di rango inferiore"
   sub-services-add: "Aggiungi servizio di rango inferiore"

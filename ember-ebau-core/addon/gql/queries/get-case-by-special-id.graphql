@@ -1,0 +1,15 @@
+query CaseBySpecialID($key: String!, $value: GenericScalar!) {
+  allCases(
+    first: 1
+    filter: [
+      { metaValue: [{ key: $key, value: $value }] }
+    ]
+  ) {
+    edges {
+      node {
+        id
+        meta
+      }
+    }
+  }
+}

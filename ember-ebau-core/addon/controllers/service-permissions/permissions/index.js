@@ -4,6 +4,7 @@ import { service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { dropTask, restartableTask, timeout } from "ember-concurrency";
 import { query } from "ember-data-resources";
+import { confirm } from "ember-uikit";
 
 import paginatedQuery from "ember-ebau-core/resources/paginated";
 
@@ -11,6 +12,7 @@ export default class ServicePermissionsPermissionsIndexController extends Contro
   @service store;
   @service session;
   @service ebauModules;
+  @service intl;
 
   @tracked search = "";
   @tracked inGroup = null;
@@ -35,18 +37,26 @@ export default class ServicePermissionsPermissionsIndexController extends Contro
   delete = dropTask(async (userGroup, event) => {
     event.preventDefault();
 
-    const affectedUser = userGroup.user.email;
-
-    await userGroup.destroyRecord();
-
-    const retries = [this.userGroups.retry()];
     if (
-      affectedUser === this.session.user.email &&
-      this.session.groups?.retry
+      await confirm(this.intl.t("service-permissions.delete-confirm"), {
+        i18n: {
+          ok: this.intl.t("global.delete"),
+        },
+      })
     ) {
-      retries.push(this.session.groups.retry());
+      const affectedUser = userGroup.user.email;
+
+      await userGroup.destroyRecord();
+
+      const retries = [this.userGroups.retry()];
+      if (
+        affectedUser === this.session.user.email &&
+        this.session.groups?.retry
+      ) {
+        retries.push(this.session.groups.retry());
+      }
+      await Promise.all(retries);
     }
-    await Promise.all(retries);
   });
 
   updateSearch = restartableTask(async (event) => {

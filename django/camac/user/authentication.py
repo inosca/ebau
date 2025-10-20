@@ -8,7 +8,7 @@ from django.core.cache import cache
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import transaction
 from django.db.models import Exists, OuterRef, Q
-from django.utils import translation
+from django.utils import timezone, translation
 from django.utils.encoding import force_bytes, smart_str
 from django.utils.translation import gettext as _
 from jwcrypto.common import JWException
@@ -241,7 +241,9 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
 
     @transaction.atomic
     def _apply_user_group_invitations(self, user):
-        pending_invitations = UserGroupInvitation.objects.filter(email=user.email)
+        pending_invitations = UserGroupInvitation.objects.filter(
+            email=user.email, expires_at__gt=timezone.now()
+        )
         for invitation in pending_invitations:
             UserGroup.objects.update_or_create(
                 user=user,

@@ -3,8 +3,10 @@ service-permissions:
   city: "Ort"
   created-at: "Erstellungsdatum"
   created-by: "Erstellt von"
+  expires-at: "Ablaufdatum"
   email: "E-Mail"
   email-hint: "Es können mehrere E-Mail-Adressen (mit Komma getrennt) angegeben werden."
+  delete-confirm: "Möchten Sie die Berechtigung wirklich löschen?"
   group: "Gruppe"
   name: "Name"
   name-hint: |-
@@ -39,6 +41,10 @@ service-permissions:
   invitation-invite-user: "Benutzer einladen"
   invitation-save-success: "Die Einladung wurde gespeichert."
   invitation-save-error: "Die Einladung konnte nicht gespeichert werden."
+  invitation-renew: "Einladung erneuern"
+  invitation-delete-confirm: "Möchten Sie die Einladung wirklich löschen?"
+  invitation-renew-success: "Die Einladung wurde erfolgreich erneuert."
+  invitation-renew-error: "Die Einladung konnte nicht erneuert werden."
 
   sub-services: "Unterfachstellen"
   sub-services-add: "Unterfachstelle hinzufügen"
