@@ -15,6 +15,7 @@
               </#if>">${msg("navLogin")}</a></li>
               <li><a role='listitem' href="#" class="js-contact-toggle item service-menue">${msg("navSupport")}</a></li>
             </ul>
+            <#-- Change: This part is copied from the original template.ftl -->
             <#if realm.internationalizationEnabled && locale.supported?size gt 1>
               <div class="${properties.kcLocaleMainClass!}" id="kc-locale">
                 <div id="kc-locale-wrapper" class="${properties.kcLocaleWrapperClass!}">

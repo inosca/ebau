@@ -6,12 +6,14 @@
     <#elseif section = "form">
         <form id="kc-register-form" action="${url.loginAction}" method="post">
             <div class="${properties.kcFormGroupClass!}">
+                <#-- TODO: Change: Remove "review profile" button since this should take place on the IdPs site -->
                 <!-- <#if !hideReviewButton?has_content> -->
                 <!--     <button type="submit" class="${properties.kcButtonClass!} ${properties.kcButtonDefaultClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" name="submitAction" id="updateProfile" value="updateProfile">${msg("confirmLinkIdpReviewProfile")}</button> -->
                 <!-- </#if> -->
                 <button type="submit" class="${properties.kcButtonClass!} ${properties.kcButtonDefaultClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" name="submitAction" id="linkAccount" value="linkAccount">${msg("confirmLinkIdpContinue", idpDisplayName)}</button>
             </div>
         </form>
+    <#-- Change: add context column -->
     <#elseif section = "context">
         <ul class='box-beige open' data-accordion data-allow-all-closed='true' data-multi-expand='false'>
             <li class="default infobox-wrapper is-active" data-accordion-item>

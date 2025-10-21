@@ -2,16 +2,35 @@
 <#import "template.ftl" as layout>
 <@layout.registrationLayout; section>
     <#if section = "header">
-        ${msg("emailLinkIdpTitle", idpDisplayName)}
+        <#-- Change: remove idpDisplayName argument -->
+        ${msg("emailLinkIdpTitle")}
     <#elseif section = "form">
+        <#-- Change: use custom texts & buttons -->
         <p id="instruction1" class="instruction">
-            ${msg("emailLinkIdp1", idpDisplayName, brokerContext.email, realm.displayName)}
+            ${msg("emailLinkIdpHint1", brokerContext.email)}
         </p>
         <p id="instruction2" class="instruction">
-            ${msg("emailLinkIdp2")} <a href="${url.loginAction}">${msg("doClickHere")}</a> ${msg("emailLinkIdp3")}
+            ${msg("emailLinkIdpHint2")}
         </p>
+        <a href="${url.loginAction}" class="button">${msg("emailLinkIdpHint2Button")}</a>
         <p id="instruction3" class="instruction">
-            ${msg("emailLinkIdp4")} <a href="${url.loginAction}">${msg("doClickHere")}</a> ${msg("emailLinkIdp5")}
+            ${msg("emailLinkIdpHint3")}
         </p>
+        <a href="${url.loginAction}" class="button">${msg("emailLinkIdpHint3Button")}</a>
+    <#-- Change: add context column -->
+    <#elseif section = "context">
+        <ul class='box-beige open' data-accordion data-allow-all-closed='true' data-multi-expand='false'>
+            <li class="default infobox-wrapper is-active" data-accordion-item>
+                <h4 class="infobox-title">${msg("loginFaqHeading")}</h4>
+                <div class="accordion-content" data-tab-content>
+                    <hr class="accordion">
+                    ${kcSanitize(msg("emailLinkIdpContextMessage"))?no_esc}
+                    <div class='arrow-link'>
+                        <span class='link-arrow'></span>
+                        <a class='text-link-2' href="${msg('emailLinkIdpContextMessageLinkTarget')}">${msg("emailLinkIdpContextMessageLinkText")}</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
     </#if>
 </@layout.registrationLayout>

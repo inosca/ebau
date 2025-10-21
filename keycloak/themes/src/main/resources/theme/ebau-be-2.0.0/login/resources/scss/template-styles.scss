@@ -159,18 +159,22 @@ button,
 }
 
 button:hover,
-button:focus {
+button:focus,
+.button:hover,
+.button:focus {
   -webkit-transform: scale(1.07);
   -ms-transform: scale(1.07);
   transform: scale(1.07);
 }
 
-button.primary {
+button.primary,
+.button.primary {
   background-color: var(--anthrazit);
   color: var(--white);
 }
 
-button.secondary {
+button.secondary,
+.button.secondary {
   background-color: var(--white);
   color: rgba(112, 112, 112, 1);
   border: 1px solid #4e4e4e;

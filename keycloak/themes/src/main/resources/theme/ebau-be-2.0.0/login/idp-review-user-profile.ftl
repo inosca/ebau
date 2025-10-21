@@ -20,6 +20,7 @@
                 </div>
             </div>
         </form>
+    <#-- Change: add context column -->
     <#elseif section = "context">
         <ul class='box-beige open' data-accordion data-allow-all-closed='true' data-multi-expand='false'>
             <li class="default infobox-wrapper is-active" data-accordion-item>
