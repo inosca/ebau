@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Configure mc to connect to our minio container
-mc config host add dc-minio http://minio:9000 $MINIO_ROOT_USER $MINIO_ROOT_PASSWORD --api S3v4;
+mc alias set dc-minio http://minio:9000 $MINIO_ROOT_USER $MINIO_ROOT_PASSWORD --api S3v4;
 # Only run if this is the initial setup
 if [ "$1" != "-u" ]; then
   # Create buckets for DMS and alexandria
