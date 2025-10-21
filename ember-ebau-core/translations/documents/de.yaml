@@ -1,4 +1,6 @@
 documents:
+  search: Mit der Dokumentensuche kann im Dateinamen oder im Dokumenteninhalt nach Stichworten über alle Baudossiers gesucht werden.
+
   buckets:
     descriptions:
       dokument-grundstucksangaben: Unter die Begriffe *Grundstücksangaben und Projektbeschrieb* fallen Gesuchsunterlagen wie z. B. Katasterplan (z. B. ÖREB-Kataster), Grundbuchauszug, Dienstbarkeiten, Projektbeschrieb.

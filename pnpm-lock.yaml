@@ -436,8 +436,8 @@ importers:
         specifier: 9.1.0
         version: 9.1.0
       ember-alexandria:
-        specifier: 10.8.0
-        version: 10.8.0(gdpu5vhxn4gdlpqn7vovluf5r4)
+        specifier: 10.8.2
+        version: 10.8.2(wmwnizuzerssrc7n34y2xgqrta)
       ember-apollo-client:
         specifier: 5.0.0
         version: 5.0.0(@glint/template@1.5.0)(graphql@15.10.1)(webpack@5.97.1)
@@ -774,6 +774,9 @@ importers:
       concurrently:
         specifier: 9.1.0
         version: 9.1.0
+      ember-alexandria:
+        specifier: 10.8.2
+        version: 10.8.2(wmwnizuzerssrc7n34y2xgqrta)
       ember-apollo-client:
         specifier: 5.0.0
         version: 5.0.0(@glint/template@1.5.0)(graphql@15.10.1)(webpack@5.97.1)
@@ -1081,8 +1084,8 @@ importers:
         specifier: 9.1.0
         version: 9.1.0
       ember-alexandria:
-        specifier: 10.8.0
-        version: 10.8.0(gdpu5vhxn4gdlpqn7vovluf5r4)
+        specifier: 10.8.2
+        version: 10.8.2(wmwnizuzerssrc7n34y2xgqrta)
       ember-apollo-client:
         specifier: 5.0.0
         version: 5.0.0(@glint/template@1.5.0)(graphql@15.10.1)(webpack@5.97.1)
@@ -1333,8 +1336,8 @@ importers:
         specifier: 3.2.6
         version: 3.2.6
       ember-alexandria:
-        specifier: 10.8.0
-        version: 10.8.0(gdpu5vhxn4gdlpqn7vovluf5r4)
+        specifier: 10.8.2
+        version: 10.8.2(wmwnizuzerssrc7n34y2xgqrta)
       ember-apollo-client:
         specifier: 5.0.0
         version: 5.0.0(@glint/template@1.5.0)(graphql@15.10.1)(webpack@5.97.1)
@@ -4667,9 +4670,9 @@ packages:
   electron-to-chromium@1.5.71:
     resolution: {integrity: sha512-dB68l59BI75W1BUGVTAEJy45CEVuEGy9qPVVQ8pnHyHMn36PLPPoE1mjLH+lo9rKulO3HC2OhbACI/8tCqJBcA==}
 
-  ember-alexandria@10.8.0:
-    resolution: {integrity: sha512-RZf7sr1MgELW+y+issxDaBAiGv3UeZ1Mt25BuO+3W1KJ8hxCv9hL6W55AMmYuv23sFYg3jRt/EAV0CbLbNB1sg==}
-    engines: {node: '>= 18'}
+  ember-alexandria@10.8.2:
+    resolution: {integrity: sha512-WYY0sekEcixkuqDKxkGmRqJcxpzz4yGR1GQtRX3lFccdVPF7LfZ8K+v3NDFhVov7RWVKLjKtmUXbtN+iQG7ebg==}
+    engines: {node: '>= 20.11'}
     peerDependencies:
       '@ember-data/model': ~4.12.8 || >= 5.0.0
       '@ember-data/serializer': ~4.12.8 || >= 5.0.0
@@ -7842,7 +7845,6 @@ packages:
     engines: {node: '>=0.6.0', teleport: '>=0.2.0'}
     deprecated: |-
       You or someone you depend on is using Q, the JavaScript Promise library that gave JavaScript developers strong feelings about promises. They can almost certainly migrate to the native JavaScript promise now. Thank you literally everyone for joining me in this bet against the odds. Be excellent to each other.
-
       (For a CapTP with native promises, see @endo/eventual-send and @endo/captp)
 
   qrcode@1.5.4:
@@ -13288,20 +13290,16 @@ snapshots:
 
   electron-to-chromium@1.5.71: {}
 
-  ember-alexandria@10.8.0(gdpu5vhxn4gdlpqn7vovluf5r4):
+  ember-alexandria@10.8.2(wmwnizuzerssrc7n34y2xgqrta):
     dependencies:
       '@babel/core': 7.26.10
       '@ember-data/model': 4.12.8(@babel/core@7.26.10)(@ember-data/debug@4.12.8)(@ember-data/graph@4.12.8)(@ember-data/json-api@4.12.8)(@ember-data/legacy-compat@4.12.8)(@ember-data/store@4.12.8)(@ember-data/tracking@4.12.8(@glint/template@1.5.0))(@ember/string@4.0.0)(@glint/template@1.5.0)(ember-inflector@4.0.3(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))
       '@ember-data/serializer': 4.12.8(@ember-data/store@4.12.8)(@ember/string@4.0.0)(@glint/template@1.5.0)(ember-inflector@4.0.3(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))
-      '@ember/legacy-built-in-components': 0.5.0(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))
-      '@ember/optional-features': 2.2.0
       '@ember/render-modifiers': 3.0.0(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))
       '@embroider/macros': 1.16.12(@glint/template@1.5.0)
       '@fortawesome/ember-fontawesome': 2.0.0(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))(rollup@2.79.2)(webpack@5.97.1)
       '@fortawesome/free-regular-svg-icons': 6.7.2
       '@fortawesome/free-solid-svg-icons': 6.7.2
-      '@glimmer/component': 1.1.2(@babel/core@7.26.10)
-      '@glimmer/tracking': 1.1.2
       animate-css-grid: 1.5.1
       ember-auto-import: 2.11.1(@glint/template@1.5.0)(webpack@5.97.1)
       ember-cli-babel: 8.2.0(@babel/core@7.26.10)
@@ -13335,6 +13333,8 @@ snapshots:
       - '@ember-data/store'
       - '@ember/test-helpers'
       - '@ember/test-waiters'
+      - '@glimmer/component'
+      - '@glimmer/tracking'
       - '@glint/environment-ember-loose'
       - '@glint/template'
       - ember-resources

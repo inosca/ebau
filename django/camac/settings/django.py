@@ -1294,7 +1294,7 @@ APPLICATIONS = {
             },
             "ALLOWED_SERVICE_GROUPS": {"SB1": [3], "SB2": [3], "DEFAULT": [2, 20000]},
         },
-        "DOCUMENT_BACKEND": "camac-ng",
+        "DOCUMENT_BACKEND": env.str("DJANGO_DOCUMENT_BACKEND", default="camac-ng"),
         "GROUP_RENAME_ON_SERVICE_RENAME": True,
         "SUBSERVICE_ROLES": ["subservice"],
         "SERVICE_UPDATE_ALLOWED_ROLES": [

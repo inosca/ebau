@@ -23,5 +23,11 @@ setupDeprecationWorkflow({
       handler: "silence",
       matchId: "ember-power-select.no-at-ember-render-modifiers",
     }, // until ember-power-select v9
+    { handler: "silence", matchId: "ember-data:no-a-with-array-like" }, // used in ember-alexandria
+    { handler: "silence", matchId: "ember-data:deprecate-array-like" }, // used in ember-alexandria
+    {
+      handler: "silence",
+      matchId: "ember-data:deprecate-promise-many-array-behaviors",
+    }, // used in ember-alexandria
   ],
 });
