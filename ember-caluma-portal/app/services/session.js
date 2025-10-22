@@ -3,7 +3,6 @@ import { service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 import { enqueueTask } from "ember-concurrency";
 import { handleUnauthorized } from "ember-simple-auth-oidc";
-import { getConfig } from "ember-simple-auth-oidc/config";
 import Session from "ember-simple-auth-oidc/services/session";
 import { getUserLocales } from "get-user-locale";
 import { jwtDecode } from "jwt-decode";
@@ -28,6 +27,7 @@ export default class CustomSession extends Session {
   @service store;
   @service intl;
   @service router;
+  @service("esa-oidc-config") config;
 
   @tracked enforcePublicAccess = false;
   @tracked publicCaptchaToken = false;
@@ -143,9 +143,7 @@ export default class CustomSession extends Session {
   get authHeaders() {
     if (!this.isAuthenticated) return {};
 
-    const { authHeaderName, authPrefix, tokenPropertyName } = getConfig(
-      getOwner(this),
-    );
+    const { authHeaderName, authPrefix, tokenPropertyName } = this.config;
 
     const token = this.data.authenticated[tokenPropertyName];
     const tokenKey = authHeaderName.toLowerCase();
@@ -190,7 +188,7 @@ export default class CustomSession extends Session {
       return false;
     }
 
-    const { tokenPropertyName } = getConfig(getOwner(this));
+    const { tokenPropertyName } = this.config;
 
     const token = this.data.authenticated[tokenPropertyName];
     const decoded = jwtDecode(token);

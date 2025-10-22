@@ -5323,8 +5323,78 @@
     "enabledEventTypes": [],
     "adminEventsEnabled": false,
     "adminEventsDetailsEnabled": false,
-    "identityProviders": [],
-    "identityProviderMappers": [],
+    "identityProviders": [
+      {
+        "alias": "ciam",
+        "displayName": "cIAM",
+        "internalId": "eb886930-bcac-42e9-9e04-31012617517c",
+        "providerId": "keycloak-oidc",
+        "enabled": true,
+        "updateProfileFirstLoginMode": "on",
+        "trustEmail": true,
+        "storeToken": false,
+        "addReadTokenRoleOnCreate": false,
+        "authenticateByDefault": false,
+        "linkOnly": false,
+        "config": {
+          "tokenUrl": "https://ciam-login-test.sz.ch/connect/token",
+          "acceptsPromptNoneForwardFromClient": "false",
+          "jwksUrl": "https://ciam-login-test.sz.ch/.well-known/openid-configuration/jwks",
+          "isAccessTokenJWT": "false",
+          "filteredByClaim": "false",
+          "backchannelSupported": "false",
+          "caseSensitiveOriginalUsername": "false",
+          "issuer": "https://ciam-login-test.sz.ch",
+          "pkceMethod": "S256",
+          "loginHint": "false",
+          "clientAuthMethod": "client_secret_post",
+          "syncMode": "FORCE",
+          "clientSecret": "****",
+          "allowedClockSkew": "0",
+          "defaultScope": "profile email",
+          "userInfoUrl": "https://ciam-login-test.sz.ch/connect/userinfo",
+          "validateSignature": "true",
+          "hideOnLoginPage": "false",
+          "clientId": "****",
+          "uiLocales": "false",
+          "disableNonce": "false",
+          "useJwksUrl": "true",
+          "sendClientIdOnLogout": "false",
+          "metadataDescriptorUrl": "https://ciam-login-test.sz.ch/.well-known/openid-configuration",
+          "pkceEnabled": "true",
+          "forwardParameters": "acr_value",
+          "authorizationUrl": "https://ciam-login-test.sz.ch/connect/authorize",
+          "disableUserInfo": "false",
+          "logoutUrl": "https://ciam-login-test.sz.ch/connect/endsession",
+          "sendIdTokenOnLogout": "true",
+          "passMaxAge": "false"
+        }
+      }
+    ],
+    "identityProviderMappers": [
+      {
+        "id": "37f5f112-4fc6-469f-840a-5688496247d9",
+        "name": "username",
+        "identityProviderAlias": "ciam",
+        "identityProviderMapper": "oidc-user-attribute-idp-mapper",
+        "config": {
+          "syncMode": "FORCE",
+          "claim": "sub",
+          "user.attribute": "username"
+        }
+      },
+      {
+        "id": "fc4d2e73-b751-4ace-b952-2cbfaeff4b9b",
+        "name": "email",
+        "identityProviderAlias": "ciam",
+        "identityProviderMapper": "oidc-user-attribute-idp-mapper",
+        "config": {
+          "syncMode": "FORCE",
+          "claim": "email",
+          "user.attribute": "email"
+        }
+      }
+    ],
     "components": {
       "org.keycloak.services.clientregistration.policy.ClientRegistrationPolicy": [
         {
@@ -5759,7 +5829,7 @@
             "authenticatorConfig": "review profile config",
             "authenticator": "idp-review-profile",
             "authenticatorFlow": false,
-            "requirement": "REQUIRED",
+            "requirement": "DISABLED",
             "priority": 10,
             "autheticatorFlow": false,
             "userSetupAllowed": false

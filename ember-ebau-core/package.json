@@ -85,7 +85,7 @@
     "slugify": "1.6.6",
     "tracked-built-ins": "3.4.0",
     "tracked-toolbox": "2.0.0",
-    "uuid": "11.0.3"
+    "uuid": "13.0.0"
   },
   "devDependencies": {
     "@adfinis/eslint-config": "3.0.0",
