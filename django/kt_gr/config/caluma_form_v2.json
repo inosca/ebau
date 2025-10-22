@@ -3515,9 +3515,9 @@
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "info_text": "{\"de\": \"pro Tank, Tankabteil oder Umschlagplatz ist je ein Eintrag zu erstellen\", \"fr\": null, \"it\": \"per ogni cisterna, compartimento di serbatoio oppure piazzale di travaso occorre presentare una registrazione separata\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_value": null,

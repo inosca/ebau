@@ -27,13 +27,13 @@
     "pk": "nutzung-bauvorhaben-v4",
     "fields": {
       "created_at": "2025-10-01T09:43:40.468Z",
-      "modified_at": "2025-10-01T09:43:40.468Z",
+      "modified_at": "2025-10-22T09:08:59.237Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "name": "{\"de\": \"Triage\", \"fr\": null, \"it\": null}",
-      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"v4\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": false,
       "is_archived": false,
@@ -1243,12 +1243,12 @@
     "pk": "beschreibung-der-anlagen-lageranlage-v4",
     "fields": {
       "created_at": "2025-10-01T08:54:47.846Z",
-      "modified_at": "2025-10-01T08:54:47.846Z",
+      "modified_at": "2025-10-22T09:04:58.235Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Lageranlage\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Lageranlage\", \"fr\": null, \"it\": \"Impianto di stoccaggio\"}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -1409,6 +1409,23 @@
     }
   },
   {
+    "model": "caluma_form.option",
+    "pk": "beschreibung-der-nutzung-v4-tankstelle",
+    "fields": {
+      "created_at": "2025-10-22T08:39:04.495Z",
+      "modified_at": "2025-10-22T09:09:26.169Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Tankstelle\", \"fr\": null, \"it\": \"Stazione di servizio\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
     "model": "caluma_form.question",
     "pk": "abfallanlage-v4",
     "fields": {
@@ -1475,7 +1492,7 @@
     "pk": "beschreibung-der-nutzung-v4",
     "fields": {
       "created_at": "2025-10-01T08:50:39.321Z",
-      "modified_at": "2025-10-01T08:54:22.605Z",
+      "modified_at": "2025-10-22T08:45:56.458Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -1568,7 +1585,7 @@
     "pk": "lageranlagen-mit-wassergefaehrdenden-fluessigkeiten-v4",
     "fields": {
       "created_at": "2023-04-19T10:30:25.810Z",
-      "modified_at": "2025-07-17T14:23:26.481Z",
+      "modified_at": "2025-10-22T08:47:26.781Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -1576,7 +1593,7 @@
       "label": "{\"de\": \"Wassergefährdende Flüssigkeiten\", \"fr\": null, \"it\": \"Liquidi che costituiscono un pericolo per le acque\"}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "!(\"beschreibung-der-nutzung-lageranlage-v4\" in \"beschreibung-der-nutzung-v4\"|answer || \"beschreibung-der-anlagen-lageranlage-v4\" in \"beschreibung-der-anlagen-v4\"|answer)",
+      "is_hidden": "!(\"beschreibung-der-anlagen-lageranlage-v4\" in \"beschreibung-der-anlagen-v4\"|answer([]) || \"beschreibung-der-nutzung-v4-tankstelle\" in \"beschreibung-der-nutzung-v4\"|answer([]))",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -1889,8 +1906,8 @@
     "model": "caluma_form.questionoption",
     "pk": "beschreibung-der-nutzung-v4.beschreibung-der-nutzung-abfallanlage-v4",
     "fields": {
-      "created_at": "2025-10-01T08:54:22.614Z",
-      "modified_at": "2025-10-01T08:54:22.614Z",
+      "created_at": "2025-10-22T09:09:26.228Z",
+      "modified_at": "2025-10-22T09:09:26.228Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -1904,8 +1921,8 @@
     "model": "caluma_form.questionoption",
     "pk": "beschreibung-der-nutzung-v4.beschreibung-der-nutzung-arbeitsplaetze-v4",
     "fields": {
-      "created_at": "2025-10-01T08:54:22.615Z",
-      "modified_at": "2025-10-01T08:54:22.615Z",
+      "created_at": "2025-10-22T09:09:26.229Z",
+      "modified_at": "2025-10-22T09:09:26.229Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -1919,8 +1936,8 @@
     "model": "caluma_form.questionoption",
     "pk": "beschreibung-der-nutzung-v4.beschreibung-der-nutzung-industrie-und-gewerbeabwasser-v4",
     "fields": {
-      "created_at": "2025-10-01T08:54:22.612Z",
-      "modified_at": "2025-10-01T08:54:22.612Z",
+      "created_at": "2025-10-22T09:09:26.227Z",
+      "modified_at": "2025-10-22T09:09:26.227Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -1934,14 +1951,29 @@
     "model": "caluma_form.questionoption",
     "pk": "beschreibung-der-nutzung-v4.beschreibung-der-nutzung-materialgewinnung-v4",
     "fields": {
-      "created_at": "2025-10-01T08:54:22.609Z",
-      "modified_at": "2025-10-01T08:54:22.609Z",
+      "created_at": "2025-10-22T09:09:26.226Z",
+      "modified_at": "2025-10-22T09:09:26.226Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "beschreibung-der-nutzung-v4",
       "option": "beschreibung-der-nutzung-materialgewinnung-v4",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "beschreibung-der-nutzung-v4.beschreibung-der-nutzung-v4-tankstelle",
+    "fields": {
+      "created_at": "2025-10-22T09:09:26.225Z",
+      "modified_at": "2025-10-22T09:09:26.225Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "beschreibung-der-nutzung-v4",
+      "option": "beschreibung-der-nutzung-v4-tankstelle",
       "sort": 1
     }
   }
