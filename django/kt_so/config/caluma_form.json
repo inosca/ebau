@@ -49631,7 +49631,7 @@
     "pk": "gis-daten-uebernommen",
     "fields": {
       "created_at": "2025-07-09T13:43:45.167Z",
-      "modified_at": "2025-07-14T14:09:55.228Z",
+      "modified_at": "2025-10-07T10:56:47.001Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -49648,8 +49648,7 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "hiddenAnswers": ["gis-daten-uebernommen-ja"],
-        "widgetOverride": "cf-radio-hide-answers"
+        "widgetOverride": "cf-field/input/hidden"
       },
       "data_source": null,
       "row_form": null,
@@ -73639,8 +73638,8 @@
     "model": "caluma_form.questionoption",
     "pk": "gis-daten-uebernommen.gis-daten-uebernommen-ja",
     "fields": {
-      "created_at": "2025-07-14T14:09:55.236Z",
-      "modified_at": "2025-07-14T14:09:55.236Z",
+      "created_at": "2025-10-07T10:56:47.004Z",
+      "modified_at": "2025-10-07T10:56:47.004Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",

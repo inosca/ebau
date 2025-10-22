@@ -1,6 +1,7 @@
 from datetime import date, timedelta
 
 import pytest
+from caluma.caluma_form.models import Form
 from caluma.caluma_workflow.api import (
     complete_work_item,
 )
@@ -159,6 +160,7 @@ def test_post_create_check_additional_demand(
     db,
     set_application_gr,
     caluma_work_item_factory,
+    caluma_document_factory,
     caluma_admin_user,
     gr_additional_demand_settings,
     gr_ech0211_settings,
@@ -192,7 +194,7 @@ def test_post_create_check_additional_demand(
     )
 
     work_item_init = caluma_work_item_factory(
-        case=gr_instance.case,
+        case=gr_instance.case.family,
         task_id=gr_additional_demand_settings["CREATE_TASK"],
     )
 
@@ -208,7 +210,10 @@ def test_post_create_check_additional_demand(
 
     # prepare the check task work item
     work_item_check = caluma_work_item_factory(
-        case=gr_instance.case,
+        case=gr_instance.case.family,
+        document=caluma_document_factory(
+            form=Form.objects.get(slug="check-additional-demand")
+        ),
         task_id=gr_additional_demand_settings["CHECK_TASK"],
         child_case=None,
         meta=meta,
@@ -223,18 +228,16 @@ def test_post_create_check_additional_demand(
             )
         return
 
-    # prepare the fill task work item and add required answers
+    # prepare the fill task work item and add only the required answers
     work_item_fill = caluma_work_item_factory(
-        case=gr_instance.case,
+        case=gr_instance.case.family,
+        document=caluma_document_factory(
+            form=Form.objects.get(slug="fill-additional-demand")
+        ),
         task_id=gr_additional_demand_settings["FILL_TASK"],
         status=WorkItem.STATUS_READY,
         meta=meta,
         child_case=None,
-    )
-    utils.add_answer(
-        work_item_fill.document,
-        gr_additional_demand_settings["QUESTIONS"]["COMMENT"],
-        "test comment",
     )
     utils.add_answer(
         work_item_fill.document,
@@ -253,9 +256,21 @@ def test_post_create_check_additional_demand(
         sender=None, work_item=work_item_check, user=caluma_admin_user
     )
 
+    ech_answer = work_item_check.document.answers.filter(
+        question_id="additional-demand-ech0211"
+    ).first()
+
     # only when all conditions have been fulfilled, work item should be
     # immediately completed
     if test_case == "ok":
         assert work_item_check.status == WorkItem.STATUS_COMPLETED
+        assert ech_answer and ech_answer.value == "true", (
+            "additional demand work item ech answer should be created"
+        )
+    elif test_case == "no_ech_meta":
+        assert work_item_check.status == WorkItem.STATUS_READY
+        assert ech_answer is None, (
+            "additional demand work item ech answer should not be created"
+        )
     else:
         assert work_item_check.status == WorkItem.STATUS_READY

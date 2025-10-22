@@ -2,7 +2,6 @@ import Route from "@ember/routing/route";
 import { service } from "@ember/service";
 import CamacAdditionalDemandFilesComponent from "ember-ebau-core/components/camac-additional-demand-files";
 import CamacSchnurgeruestabnahmeFilesComponent from "ember-ebau-core/components/camac-schnurgeruestabnahme-files";
-import CfRadioHiddenAnswers from "ember-ebau-core/components/cf-radio-hide-answers";
 import DecisionAppealButtonComponent from "ember-ebau-core/components/decision/appeal-button";
 import DecisionInfoAppealComponent from "ember-ebau-core/components/decision/info-appeal";
 import DecisionInfoGeometerComponent from "ember-ebau-core/components/decision/info-geometer";
@@ -191,12 +190,6 @@ export default class ApplicationRoute extends Route {
       label: "Dateien für Schnurgerüstabnahme Camac (Kt. UR)",
       component: "camac-schnurgeruestabnahme-files",
       componentClass: CamacSchnurgeruestabnahmeFilesComponent,
-    });
-
-    this.calumaOptions.registerComponentOverride({
-      label: "Radio with hidden answers",
-      component: "cf-radio-hide-answers",
-      componentClass: CfRadioHiddenAnswers,
     });
   }
 }
