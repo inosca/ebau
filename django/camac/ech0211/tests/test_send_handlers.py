@@ -888,6 +888,19 @@ def test_task_send_claim_handler(
         # no eCH message yet, only after filling by applicant
         assert Message.objects.count() == 0
 
+        # created workitem contains the ech meta data
+        fill_work_item = WorkItem.objects.get(
+            meta__has_key="ech-init-workitem",
+            case__family=ech_instance_gr.case,
+            task_id=gr_additional_demand_settings["FILL_TASK"],
+        )
+        ech_answer = fill_work_item.document.answers.filter(
+            question_id="additional-demand-ech0211"
+        ).first()
+        assert ech_answer and ech_answer.value == "true", (
+            "additional demand work item ech answer should be created"
+        )
+
 
 @pytest.mark.freeze_time("2022-06-03")
 @pytest.mark.parametrize(

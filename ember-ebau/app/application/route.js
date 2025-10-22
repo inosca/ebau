@@ -4,7 +4,6 @@ import AgGisComponent from "ember-ebau-core/components/ag-gis";
 import AGInquiryServiceGroupWarningComponent from "ember-ebau-core/components/ag-inquiry-service-group-warning";
 import AlexandriaDocumentsFormComponent from "ember-ebau-core/components/alexandria-documents-form";
 import CalculatedPublicationDateComponent from "ember-ebau-core/components/calculated-publication-date";
-import CfRadioHiddenAnswers from "ember-ebau-core/components/cf-radio-hide-answers";
 import CoordinatesPlaceholderComponent from "ember-ebau-core/components/coordinates-placeholder";
 import DecisionAppealButtonComponent from "ember-ebau-core/components/decision/appeal-button";
 import DecisionInfoAppealComponent from "ember-ebau-core/components/decision/info-appeal";
@@ -163,11 +162,6 @@ export default class ApplicationRoute extends Route {
       component: "qr-code",
       componentClass: QrCodeComponent,
       type: "StaticQuestion",
-    });
-    this.calumaOptions.registerComponentOverride({
-      label: "Radio with hidden answers",
-      component: "cf-radio-hide-answers",
-      componentClass: CfRadioHiddenAnswers,
     });
   }
 }

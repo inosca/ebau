@@ -1,5 +1,22 @@
 [
   {
+    "model": "caluma_form.answer",
+    "pk": "068c011a-f2e8-795b-8000-cc2d99c313b7",
+    "fields": {
+      "created_at": "2025-09-09T11:38:23.181Z",
+      "modified_at": "2025-09-09T11:38:23.181Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "additional-demand-ech0211",
+      "value": "false",
+      "meta": {},
+      "document": null,
+      "date": null
+    }
+  },
+  {
     "model": "caluma_form.form",
     "pk": "check-additional-demand",
     "fields": {
@@ -65,7 +82,7 @@
       "modified_by_group": null,
       "form": "check-additional-demand",
       "question": "additional-demand-comment",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -95,7 +112,7 @@
       "modified_by_group": null,
       "form": "check-additional-demand",
       "question": "additional-demand-deadline",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -110,7 +127,37 @@
       "modified_by_group": null,
       "form": "check-additional-demand",
       "question": "additional-demand-decision",
-      "sort": 5
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "check-additional-demand.additional-demand-ech0211",
+    "fields": {
+      "created_at": "2025-06-18T11:17:56.781Z",
+      "modified_at": "2025-06-18T11:17:56.781Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "check-additional-demand",
+      "question": "additional-demand-ech0211",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "check-additional-demand.additional-demand-ech0211-completed",
+    "fields": {
+      "created_at": "2025-06-18T11:21:40.164Z",
+      "modified_at": "2025-06-18T11:21:40.164Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "check-additional-demand",
+      "question": "additional-demand-ech0211-completed",
+      "sort": 2
     }
   },
   {
@@ -125,7 +172,7 @@
       "modified_by_group": null,
       "form": "check-additional-demand",
       "question": "additional-demand-files-service",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -156,6 +203,21 @@
       "form": "fill-additional-demand",
       "question": "additional-demand-complete",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "fill-additional-demand.additional-demand-ech0211",
+    "fields": {
+      "created_at": "2025-06-18T09:17:37.842Z",
+      "modified_at": "2025-06-18T09:17:37.842Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "fill-additional-demand",
+      "question": "additional-demand-ech0211",
+      "sort": 4
     }
   },
   {
@@ -272,13 +334,13 @@
     "pk": "additional-demand-decision-unknown",
     "fields": {
       "created_at": "2025-05-13T13:52:24.384Z",
-      "modified_at": "2025-05-13T13:52:52.908Z",
+      "modified_at": "2025-06-19T06:27:32.008Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Unbekannt\", \"fr\": null, \"it\": \"Sconosciuto\"}",
-      "is_hidden": "false",
+      "is_hidden": "\"additional-demand-ech0211\"|answer(null) != \"true\"",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -289,7 +351,7 @@
     "pk": "additional-demand-comment",
     "fields": {
       "created_at": "2023-08-24T15:45:39.196Z",
-      "modified_at": "2024-08-28T12:24:45.147Z",
+      "modified_at": "2025-06-18T11:19:32.871Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -297,7 +359,7 @@
       "label": "{\"de\": \"Bemerkung\", \"fr\": null, \"it\": \"Osservazione\"}",
       "type": "textarea",
       "is_required": "true",
-      "is_hidden": "(\n\tinfo.form == \"check-additional-demand\"\n\t&&\n\t\"additional-demand-decision\"|answer(null) != \"additional-demand-decision-reject\"\n)",
+      "is_hidden": "\"additional-demand-ech0211\"|answer(null) == \"true\" || (\n\tinfo.form == \"check-additional-demand\"\n\t&&\n\t\"additional-demand-decision\"|answer(null) != \"additional-demand-decision-reject\"\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -325,19 +387,19 @@
     "pk": "additional-demand-comment-fill",
     "fields": {
       "created_at": "2023-08-24T15:55:23.095Z",
-      "modified_at": "2024-08-28T12:24:45.154Z",
+      "modified_at": "2025-06-18T11:22:41.061Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Bemerkung\", \"fr\": null, \"it\": \"Osservazione\"}",
       "type": "textarea",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "\"additional-demand-ech0211\"|answer(null) == \"true\"",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -431,7 +493,7 @@
     "pk": "additional-demand-deadline",
     "fields": {
       "created_at": "2023-08-24T15:45:13.017Z",
-      "modified_at": "2024-08-28T12:24:45.164Z",
+      "modified_at": "2025-06-18T13:29:31.059Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -462,7 +524,7 @@
     "pk": "additional-demand-decision",
     "fields": {
       "created_at": "2023-08-24T15:48:03.148Z",
-      "modified_at": "2025-05-20T15:12:30.642Z",
+      "modified_at": "2025-06-19T06:27:32.078Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -470,20 +532,82 @@
       "label": "{\"de\": \"Prüfergebnis\", \"fr\": null, \"it\": \"Esito dell'esame\"}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "false",
+      "is_hidden": "\"additional-demand-ech0211\"|answer(null) == \"true\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"Sofern die Nachforderung vollständig beantwortet wurde, wird die aktuelle Nachforderungs-Anfrage abgeschlossen. Wenn noch zusätzliche oder weitere Unterlagen notwendig sind, kann die Nachforderung als unvollständig beantwortet und eine weitere Nachforderung an den Gesuchsteller formuliert werden.\", \"fr\": null, \"it\": \"Se sono state fornite integralmente le precisazioni richieste, l'attuale richiesta di precisazioni è conclusa. Se sono necessari documenti supplementari o ulteriore documentazione, la richiesta di precisazioni è considerata incompleta ed è possibile inviare una nuova richiesta di precisazioni alla persona richiedente.\"}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {
-        "hiddenAnswers": ["additional-demand-decision-unknown"],
-        "widgetOverride": "cf-radio-hide-answers",
-        "alternativeText": {
-          "additional-demand-decision-unknown": "decision.additional-demand.unknown"
-        }
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "additional-demand-ech0211",
+    "fields": {
+      "created_at": "2025-06-18T09:17:37.752Z",
+      "modified_at": "2025-09-09T11:38:23.184Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"additional-demand-ech0211\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
       },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": "cf-field/input/hidden"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": "068c011a-f2e8-795b-8000-cc2d99c313b7",
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "additional-demand-ech0211-completed",
+    "fields": {
+      "created_at": "2025-06-18T11:21:40.118Z",
+      "modified_at": "2025-06-18T11:22:21.145Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"additional-demand-ech0211-completed\", \"fr\": null, \"it\": \"additional-demand-ech0211-completed\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "\"additional-demand-ech0211\"|answer(null) != \"true\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Die Nachforderung ist erfolgreich gespeichert.\", \"fr\": \"\", \"it\": \"La richiesta aggiuntiva è stata salvata con successo.\"}",
+      "configuration": {},
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -568,8 +692,8 @@
     "model": "caluma_form.questionoption",
     "pk": "additional-demand-decision.additional-demand-decision-accept",
     "fields": {
-      "created_at": "2025-05-13T13:52:53.005Z",
-      "modified_at": "2025-05-13T13:52:53.005Z",
+      "created_at": "2025-06-19T06:27:32.087Z",
+      "modified_at": "2025-06-19T06:27:32.087Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -583,8 +707,8 @@
     "model": "caluma_form.questionoption",
     "pk": "additional-demand-decision.additional-demand-decision-reject",
     "fields": {
-      "created_at": "2025-05-13T13:52:53.002Z",
-      "modified_at": "2025-05-13T13:52:53.002Z",
+      "created_at": "2025-06-19T06:27:32.085Z",
+      "modified_at": "2025-06-19T06:27:32.085Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -598,8 +722,8 @@
     "model": "caluma_form.questionoption",
     "pk": "additional-demand-decision.additional-demand-decision-unknown",
     "fields": {
-      "created_at": "2025-05-13T13:52:53Z",
-      "modified_at": "2025-05-13T13:52:53Z",
+      "created_at": "2025-06-19T06:27:32.082Z",
+      "modified_at": "2025-06-19T06:27:32.082Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",

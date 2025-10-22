@@ -1,5 +1,6 @@
 from caluma.caluma_core.events import on
 from caluma.caluma_form import api as form_api
+from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.models import Question
 from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.api import complete_work_item, start_case
@@ -232,6 +233,15 @@ def post_create_check_additional_demand(
     )
 
     if fill_additional_demand.meta.get("ech-init-workitem"):
+        # save the check task `additional-demand-ech0211` answer as "true".
+        # this will be used in JEXL evaluation to show/hide fields.
+        save_answer(
+            document=work_item.document,
+            question=Question.objects.get(slug="additional-demand-ech0211"),
+            value="true",
+        )
+
+        # automatically set the decision to "unknown" and complete the work item
         form_api.save_answer(
             document=work_item.document,
             question=Question.objects.get(

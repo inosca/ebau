@@ -698,6 +698,15 @@ class TaskSendHandler(AlexandriaDocumentMixin, BaseSendHandler):
             work_item.meta["ech-init-workitem"] = str(additional_demand_init.pk)
             work_item.save(update_fields=["meta"])
 
+            # mark the fill task `additional-demand-ech0211` answer as "true".
+            # this will be used in JEXL evaluation to show/hide fields.
+            if work_item.task.slug == settings.ADDITIONAL_DEMAND["FILL_TASK"]:
+                save_answer(
+                    document=work_item.document,
+                    question=Question.objects.get(slug="additional-demand-ech0211"),
+                    value="true",
+                )
+
         return self.instance
 
     def _apply_task(self):
