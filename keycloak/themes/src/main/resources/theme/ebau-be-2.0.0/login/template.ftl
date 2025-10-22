@@ -57,6 +57,14 @@
                 </div>
             </main>
             <main class="content js-main-content">
+                    <#if msg("feedbackbox-message") != "feedbackbox-message" && msg("feedbackbox-message")?has_content>
+                        <div class="feedback feedback-${msg("feedbackbox-type")}">
+                            <span class="feedback-icon"></span>
+                            <span class="feedback-text">
+                                ${kcSanitize(msg("feedbackbox-message"))?no_esc}
+                            </span>
+                        </div>
+                    </#if>
                 <div class="title">
                     <h1><#nested "header"></h1>
                 </div>
@@ -66,14 +74,6 @@
                             <span class="feedback-icon"></span>
                             <span class="feedback-text">
                                 ${kcSanitize(message.summary)?no_esc}
-                            </span>
-                        </div>
-                    </#if>
-                    <#if msg("feedbackbox-message") != "feedbackbox-message" && msg("feedbackbox-message")?has_content>
-                        <div class="feedback feedback-${msg("feedbackbox-type")}">
-                            <span class="feedback-icon"></span>
-                            <span class="feedback-text">
-                                ${kcSanitize(msg("feedbackbox-message"))?no_esc}
                             </span>
                         </div>
                     </#if>

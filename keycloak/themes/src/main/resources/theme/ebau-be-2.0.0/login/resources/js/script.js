@@ -4,7 +4,6 @@
   function init() {
     setupContactPageToggle();
     setupMobileMenuToggle();
-    setupPasswordInputs();
   }
 })(window);
 
