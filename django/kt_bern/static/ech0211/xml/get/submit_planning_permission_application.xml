@@ -3,7 +3,7 @@
 	<ns1:deliveryHeader>
 		<ns2:senderId>https://ebau.apps.be.ch</ns2:senderId>
 		<ns2:messageId>2e2a771e-db7c-4f37-9b5f-00c90212b5f7</ns2:messageId>
-		<ns2:messageType>5200001</ns2:messageType>
+		<ns2:messageType>5100000</ns2:messageType>
 		<ns2:sendingApplication>
 			<ns2:manufacturer>Adfinis AG</ns2:manufacturer>
 			<ns2:product>camac</ns2:product>
