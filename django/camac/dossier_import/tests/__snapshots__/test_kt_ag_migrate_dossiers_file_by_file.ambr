@@ -690,25 +690,25 @@
               "date": null,
               "document__form_id": "personalien-tabelle",
               "question_id": "telefon-oder-mobile-gesuchstellerin",
-              "value": ""
+              "value": "0628350000"
           },
           {
               "date": null,
               "document__form_id": "personalien-tabelle",
               "question_id": "telefon-oder-mobile-gesuchstellerin",
-              "value": ""
+              "value": "0628350000"
           },
           {
               "date": null,
               "document__form_id": "personalien-tabelle",
               "question_id": "telefon-oder-mobile-gesuchstellerin",
-              "value": ""
+              "value": "0628350000"
           },
           {
               "date": null,
               "document__form_id": "personalien-tabelle",
               "question_id": "telefon-oder-mobile-gesuchstellerin",
-              "value": ""
+              "value": "0628350000"
           },
           {
               "date": null,
@@ -767,7 +767,7 @@
               "creation_date": "2022-10-13T07:51:22Z",
               "modification_date": "2022-10-13T07:51:22Z",
               "service_id": 56,
-              "text": "VERFAHRENSSTAND\nAktion: 'Gesuch an Kanton senden'\nSchritt: 'Gesuch an Kanton gesendet'\nWer: 'Testautomatisierung EBP'\nKommentar: 'Gesuch EBPA-0219-7779 wurde an den Kanton gesendet.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Gesuch an Kanton senden\nSchritt: Gesuch an Kanton gesendet\nWer: Testautomatisierung EBP\nKommentar: Gesuch EBPA-0219-7779 wurde an den Kanton gesendet.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -783,7 +783,7 @@
               "creation_date": "2022-10-20T12:29:00Z",
               "modification_date": "2022-10-20T12:29:00Z",
               "service_id": 56,
-              "text": "VERFAHRENSSTAND\nAktion: 'Dokumente an Kanton senden'\nSchritt: 'Dokumente an Kanton gesendet'\nWer: 'EB2_AFB_02'\nKommentar: 'Dokumente vom Gesuch EBPA-0219-7779 wurden an den Kanton gesendet.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Dokumente an Kanton senden\nSchritt: Dokumente an Kanton gesendet\nWer: EB2_AFB_02\nKommentar: Dokumente vom Gesuch EBPA-0219-7779 wurden an den Kanton gesendet.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -831,7 +831,7 @@
               "creation_date": "2022-10-20T14:31:37Z",
               "modification_date": "2022-10-20T14:31:37Z",
               "service_id": 1,
-              "text": "KOMMENTAR\nEB2_AFB_02: \n",
+              "text": "KOMMENTAR\nEB2_AFB_02: -\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -847,7 +847,7 @@
               "creation_date": "2023-03-15T09:09:32Z",
               "modification_date": "2023-03-15T09:09:32Z",
               "service_id": 56,
-              "text": "VERFAHRENSSTAND\nAktion: 'Dokumente an Kanton senden'\nSchritt: 'Dokumente an Kanton gesendet'\nWer: 'Kantons Admin eBau extended'\nKommentar: 'Dokumente vom Gesuch EBPA-0219-7779 wurden an den Kanton gesendet.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Dokumente an Kanton senden\nSchritt: Dokumente an Kanton gesendet\nWer: Kantons Admin eBau extended\nKommentar: Dokumente vom Gesuch EBPA-0219-7779 wurden an den Kanton gesendet.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -1798,7 +1798,7 @@
               "creation_date": "2024-02-14T08:02:49Z",
               "modification_date": "2024-02-14T08:02:49Z",
               "service_id": 55,
-              "text": "VERFAHRENSSTAND\nAktion: 'Gesuch an Kanton senden'\nSchritt: 'Gesuch an Kanton gesendet'\nWer: 'EBP EBP_TEST3'\nKommentar: 'Gesuch EBPA-1720-6526 wurde an den Kanton gesendet.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Gesuch an Kanton senden\nSchritt: Gesuch an Kanton gesendet\nWer: EBP EBP_TEST3\nKommentar: Gesuch EBPA-1720-6526 wurde an den Kanton gesendet.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -1846,7 +1846,7 @@
               "creation_date": "2024-04-09T12:07:25Z",
               "modification_date": "2024-04-09T12:07:25Z",
               "service_id": 1,
-              "text": "STELLUNGNAHME FACHSTELLE ERSTELLT (FS) BZW. STELLUNGNAHME ZUR KENNTNIS GENOMMEN (AFB)\nSchritt: \nWer: Aufgaben-Bearbeiter Kanton 1 eBau extended\nKommentar: Stellungnahme Fachstelle erstellt (FS)\n",
+              "text": "STELLUNGNAHME FACHSTELLE ERSTELLT (FS) BZW. STELLUNGNAHME ZUR KENNTNIS GENOMMEN (AFB)\nSchritt: -\nWer: Aufgaben-Bearbeiter Kanton 1 eBau extended\nKommentar: Stellungnahme Fachstelle erstellt (FS)\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -1902,7 +1902,7 @@
               "creation_date": "2024-04-22T04:04:17Z",
               "modification_date": "2024-04-22T04:04:17Z",
               "service_id": 55,
-              "text": "VERFAHRENSSTAND\nAktion: 'Verfahrenstyp Wechsel'\nSchritt: 'Verfahrenstyp Wechsel'\nWer: 'EBP EBP_TEST3'\nKommentar: 'Aktuelles Verfahren mit Typ Ordentlich wurde abgebrochen'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Verfahrenstyp Wechsel\nSchritt: Verfahrenstyp Wechsel\nWer: EBP EBP_TEST3\nKommentar: Aktuelles Verfahren mit Typ Ordentlich wurde abgebrochen\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -1926,7 +1926,7 @@
               "creation_date": "2024-04-22T04:05:06Z",
               "modification_date": "2024-04-22T04:05:06Z",
               "service_id": 55,
-              "text": "VERFAHRENSSTAND\nAktion: 'Vorprüfung abgeschlossen (ohne Unterlagenergänzung)'\nSchritt: 'Vorprüfung durchführen'\nWer: 'EBP EBP_TEST3'\nKommentar: ''\n",
+              "text": "VERFAHRENSSTAND\nAktion: Vorprüfung abgeschlossen (ohne Unterlagenergänzung)\nSchritt: Vorprüfung durchführen\nWer: EBP EBP_TEST3\nKommentar: -\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -1934,7 +1934,7 @@
               "creation_date": "2024-04-22T04:05:24Z",
               "modification_date": "2024-04-22T04:05:24Z",
               "service_id": 55,
-              "text": "VERFAHRENSSTAND\nAktion: 'Materielle Prüfung abgeschlossen'\nSchritt: 'Materielle Prüfung durchführen'\nWer: 'EBP EBP_TEST3'\nKommentar: ''\n",
+              "text": "VERFAHRENSSTAND\nAktion: Materielle Prüfung abgeschlossen\nSchritt: Materielle Prüfung durchführen\nWer: EBP EBP_TEST3\nKommentar: -\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -1950,7 +1950,7 @@
               "creation_date": "2024-06-04T22:00:00Z",
               "modification_date": "2024-06-04T22:00:00Z",
               "service_id": 55,
-              "text": "EINSICHT                      \nStatus:                       Zugriff: aktiv                \nDokumente:                    \n• ID: 0000000000000010001925809 (Version: 00, Typ: Rückbau akzeptieren, Date: 05.06.2024 10:37)\n   Bemerkung:                 \n• ID: 0000000000000010001925809 (Version: 01, Typ: Rückbau akzeptieren, Date: 05.06.2024 10:37)\n   Bemerkung:                 \n• ID: 0000000000000010001925810 (Version: 00, Typ: Rückbau akzeptieren, Date: 05.06.2024 10:37)\n   Bemerkung:                 \n• ID: 0000000000000010001925811 (Version: 00, Typ: Rückbau akzeptieren, Date: 05.06.2024 10:37)\n   Bemerkung:                 \n• ID: 0000000000000010001925814 (Version: 00, Typ: Rückbau akzeptieren, Date: 05.06.2024 10:37)\n   Bemerkung:                 \n• ID: 0000000000000010001925808 (Version: 00, Typ: Rückbau akzeptieren, Date: 05.06.2024 10:37)\n   Bemerkung:                 \n• ID: 0000000000000010001922835 (Version: 00, Typ: Rückbau akzeptieren, Date: 05.06.2024 10:37)\n   Bemerkung:                 \n• ID: 0000000000000010001922836 (Version: 00, Typ: Rückbau akzeptieren, Date: 05.06.2024 10:37)\n   Bemerkung:                 \n\nEmpfänger:                    \n• eBau Training FS ( ebau.training+fs@gmail.com)\n   Status:                    Aktiv: ✓                      Manuell hinzugefügt: -        Datum: 05.06.2024 10:37       \n",
+              "text": "EINSICHT                      \nStatus: -                     Zugriff: aktiv                \nDokumente:                    \n• ID: 0000000000000010001925809 (Version: 00, Typ: Rückbau akzeptieren, Date: 05.06.2024 10:37)\n   Bemerkung: -               \n• ID: 0000000000000010001925809 (Version: 01, Typ: Rückbau akzeptieren, Date: 05.06.2024 10:37)\n   Bemerkung: -               \n• ID: 0000000000000010001925810 (Version: 00, Typ: Rückbau akzeptieren, Date: 05.06.2024 10:37)\n   Bemerkung: -               \n• ID: 0000000000000010001925811 (Version: 00, Typ: Rückbau akzeptieren, Date: 05.06.2024 10:37)\n   Bemerkung: -               \n• ID: 0000000000000010001925814 (Version: 00, Typ: Rückbau akzeptieren, Date: 05.06.2024 10:37)\n   Bemerkung: -               \n• ID: 0000000000000010001925808 (Version: 00, Typ: Rückbau akzeptieren, Date: 05.06.2024 10:37)\n   Bemerkung: -               \n• ID: 0000000000000010001922835 (Version: 00, Typ: Rückbau akzeptieren, Date: 05.06.2024 10:37)\n   Bemerkung: -               \n• ID: 0000000000000010001922836 (Version: 00, Typ: Rückbau akzeptieren, Date: 05.06.2024 10:37)\n   Bemerkung: -               \n\nEmpfänger:                    \n• eBau Training FS ( ebau.training+fs@gmail.com)\n   Status:                    Aktiv: ✓                      Manuell hinzugefügt: -        Datum: 05.06.2024 10:37       \n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -1958,7 +1958,7 @@
               "creation_date": "2024-06-04T22:00:00Z",
               "modification_date": "2024-06-04T22:00:00Z",
               "service_id": 55,
-              "text": "STELLUNGNAHME GESUCH          \nStatus: offen                 Zugriff: aktiv                \nDokumente:                    \n• ID: 0000000000000010001925809 (Version: 01, Typ: Stellungnahme einfordern, Date: 05.06.2024 10:36)\n   Bemerkung:                 \n• ID: 0000000000000010001922835 (Version: 00, Typ: Stellungnahme einfordern, Date: 05.06.2024 10:36)\n   Bemerkung:                 \n\nEmpfänger:                    \n• eBau Training FS (N433697952 ebau.training+fs@gmail.com)\n   Status: Offen              Aktiv: -                      Manuell hinzugefügt: -        Datum: 05.06.2024 00:00       \n• eBau extFachstelle Viktor Sch. (N858614511 ebau.extended+extFS@gmail.com)\n   Status: Offen              Aktiv: -                      Manuell hinzugefügt: -        Datum: 24.06.2024 00:00       \n",
+              "text": "STELLUNGNAHME GESUCH          \nStatus: offen                 Zugriff: aktiv                \nDokumente:                    \n• ID: 0000000000000010001925809 (Version: 01, Typ: Stellungnahme einfordern, Date: 05.06.2024 10:36)\n   Bemerkung: -               \n• ID: 0000000000000010001922835 (Version: 00, Typ: Stellungnahme einfordern, Date: 05.06.2024 10:36)\n   Bemerkung: -               \n\nEmpfänger:                    \n• eBau Training FS (N433697952 ebau.training+fs@gmail.com)\n   Status: Offen              Aktiv: -                      Manuell hinzugefügt: -        Datum: 05.06.2024 00:00       \n• eBau extFachstelle Viktor Sch. (N858614511 ebau.extended+extFS@gmail.com)\n   Status: Offen              Aktiv: -                      Manuell hinzugefügt: -        Datum: 24.06.2024 00:00       \n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -1982,7 +1982,7 @@
               "creation_date": "2024-06-05T06:36:36Z",
               "modification_date": "2024-06-05T06:36:36Z",
               "service_id": 55,
-              "text": "VERFAHRENSSTAND\nAktion: 'Stellungnahmen eingefordert'\nSchritt: 'Stellungnahmen einfordern'\nWer: 'Bettina Dober'\nKommentar: 'Stellungnahme eBau Training FS ebau.training+fs@gmail.com'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Stellungnahmen eingefordert\nSchritt: Stellungnahmen einfordern\nWer: Bettina Dober\nKommentar: Stellungnahme eBau Training FS ebau.training+fs@gmail.com\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -1990,7 +1990,7 @@
               "creation_date": "2024-06-05T06:37:27Z",
               "modification_date": "2024-06-05T06:37:27Z",
               "service_id": 55,
-              "text": "VERFAHRENSSTAND\nAktion: 'Dokumente zur Einsicht freigegeben'\nSchritt: 'Dokumente zur Einsicht freigeben'\nWer: 'Bettina Dober'\nKommentar: 'Siehe Dokumente'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Dokumente zur Einsicht freigegeben\nSchritt: Dokumente zur Einsicht freigeben\nWer: Bettina Dober\nKommentar: Siehe Dokumente\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -2006,7 +2006,7 @@
               "creation_date": "2024-06-23T22:00:00Z",
               "modification_date": "2024-06-23T22:00:00Z",
               "service_id": 55,
-              "text": "STELLUNGNAHME GESUCH          \nStatus: offen                 Zugriff: aktiv                \nDokumente:                    \n• ID: 0000000000000010001925809 (Version: 01, Typ: Stellungnahme einfordern, Date: 24.06.2024 14:29)\n   Bemerkung:                 \n• ID: 0000000000000010001925811 (Version: 00, Typ: Stellungnahme einfordern, Date: 24.06.2024 14:29)\n   Bemerkung:                 \n\nEmpfänger:                    \n• eBau extFachstelle Viktor Sch. (N858614511 ebau.extended+extFS@gmail.com)\n   Status: Offen              Aktiv: ✓                      Manuell hinzugefügt: -        Datum: 24.06.2024 14:29       \n",
+              "text": "STELLUNGNAHME GESUCH          \nStatus: offen                 Zugriff: aktiv                \nDokumente:                    \n• ID: 0000000000000010001925809 (Version: 01, Typ: Stellungnahme einfordern, Date: 24.06.2024 14:29)\n   Bemerkung: -               \n• ID: 0000000000000010001925811 (Version: 00, Typ: Stellungnahme einfordern, Date: 24.06.2024 14:29)\n   Bemerkung: -               \n\nEmpfänger:                    \n• eBau extFachstelle Viktor Sch. (N858614511 ebau.extended+extFS@gmail.com)\n   Status: Offen              Aktiv: ✓                      Manuell hinzugefügt: -        Datum: 24.06.2024 14:29       \n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -2022,7 +2022,7 @@
               "creation_date": "2024-06-24T10:30:02Z",
               "modification_date": "2024-06-24T10:30:02Z",
               "service_id": 55,
-              "text": "VERFAHRENSSTAND\nAktion: 'Stellungnahmen eingefordert'\nSchritt: 'Stellungnahmen einfordern'\nWer: 'EBP EBP_TEST1'\nKommentar: 'Stellungnahme eBau extFachstelle Viktor Sch. ebau.extended+extFS@gmail.com'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Stellungnahmen eingefordert\nSchritt: Stellungnahmen einfordern\nWer: EBP EBP_TEST1\nKommentar: Stellungnahme eBau extFachstelle Viktor Sch. ebau.extended+extFS@gmail.com\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -2038,7 +2038,7 @@
               "creation_date": "2024-11-11T23:00:00Z",
               "modification_date": "2024-11-11T23:00:00Z",
               "service_id": 55,
-              "text": "ENTSCHEID\nEntscheidung: Bewilligung\nVerfügungsdatum: 12.11.2024\nRechtskraftdatum: 28.11.2024\nBemerkung: \n",
+              "text": "ENTSCHEID\nEntscheidung: Bewilligung\nVerfügungsdatum: 12.11.2024\nRechtskraftdatum: 28.11.2024\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -2046,7 +2046,7 @@
               "creation_date": "2024-11-12T06:59:10Z",
               "modification_date": "2024-11-12T06:59:10Z",
               "service_id": 55,
-              "text": "VERFAHRENSSTAND\nAktion: 'Verfügung erstellt'\nSchritt: 'Entscheid erfassen'\nWer: 'EBP EBP_TEST3'\nKommentar: 'Bewilligung'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Verfügung erstellt\nSchritt: Entscheid erfassen\nWer: EBP EBP_TEST3\nKommentar: Bewilligung\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -2070,7 +2070,7 @@
               "creation_date": "2024-11-12T07:00:17Z",
               "modification_date": "2024-11-12T07:00:17Z",
               "service_id": 55,
-              "text": "VERFAHRENSSTAND\nAktion: 'Schreibrechte geändert'\nSchritt: 'Gesuchsübertragung'\nWer: 'EBP EBP_TEST3'\nKommentar: 'Das Gesuch wurde von \"Kein Gesuchsinhaber\" auf ZZ9999 Training GS5 eBau übertragen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Schreibrechte geändert\nSchritt: Gesuchsübertragung\nWer: EBP EBP_TEST3\nKommentar: Das Gesuch wurde von \"Kein Gesuchsinhaber\" auf ZZ9999 Training GS5 eBau übertragen.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -2078,7 +2078,7 @@
               "creation_date": "2025-01-15T11:46:09Z",
               "modification_date": "2025-01-15T11:46:09Z",
               "service_id": 55,
-              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Markus Test Krause Test\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -2110,7 +2110,7 @@
               "creation_date": "2025-07-22T09:02:26Z",
               "modification_date": "2025-07-22T09:02:26Z",
               "service_id": 55,
-              "text": "VERFAHRENSSTAND\nAktion: 'Verfügung erstellt'\nSchritt: 'Entscheid erfassen'\nWer: 'Markus Test Krause Test'\nKommentar: 'Bewilligung'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Verfügung erstellt\nSchritt: Entscheid erfassen\nWer: Markus Test Krause Test\nKommentar: Bewilligung\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -2126,7 +2126,7 @@
               "creation_date": "2025-07-28T12:00:00Z",
               "modification_date": "2025-07-28T12:00:00Z",
               "service_id": 1,
-              "text": "GEBÜHREN\n\nPreiskondition: ZAFU\nBeschreibung: Umweltschutzrechtiche Beurteilung AFU\nSchema: AFU AAUO\nSchemastelle: 0010\nAufgaben-ID: 000000057758\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n",
+              "text": "GEBÜHREN\n\nPreiskondition: ZAFU\nBeschreibung: Umweltschutzrechtiche Beurteilung AFU\nSchema: AFU AAUO\nSchemastelle: 0010\nAufgaben-ID: 000000057758\nStückpreis: -\nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: -\nBemerkung AfB: -\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -2902,30 +2902,6 @@
           {
               "date": null,
               "document__form_id": "personalien-tabelle",
-              "question_id": "name-juristische-person-gesuchstellerin",
-              "value": ""
-          },
-          {
-              "date": null,
-              "document__form_id": "personalien-tabelle",
-              "question_id": "name-juristische-person-gesuchstellerin",
-              "value": ""
-          },
-          {
-              "date": null,
-              "document__form_id": "personalien-tabelle",
-              "question_id": "name-juristische-person-gesuchstellerin",
-              "value": ""
-          },
-          {
-              "date": null,
-              "document__form_id": "personalien-tabelle",
-              "question_id": "name-juristische-person-gesuchstellerin",
-              "value": ""
-          },
-          {
-              "date": null,
-              "document__form_id": "personalien-tabelle",
               "question_id": "nummer-gesuchstellerin",
               "value": "58"
           },
@@ -3118,7 +3094,7 @@
               "creation_date": "2025-06-12T12:32:22Z",
               "modification_date": "2025-06-12T12:32:22Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\nAktion: 'Gesuch an Kanton senden'\nSchritt: 'Gesuch an Kanton gesendet'\nWer: 'Markus Test Krause Test'\nKommentar: 'Gesuch EBPA-4406-5058 wurde an den Kanton gesendet.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Gesuch an Kanton senden\nSchritt: Gesuch an Kanton gesendet\nWer: Markus Test Krause Test\nKommentar: Gesuch EBPA-4406-5058 wurde an den Kanton gesendet.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3150,7 +3126,7 @@
               "creation_date": "2025-06-17T12:20:37Z",
               "modification_date": "2025-06-17T12:20:37Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Markus Test Krause Test\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3158,7 +3134,7 @@
               "creation_date": "2025-06-17T12:21:44Z",
               "modification_date": "2025-06-17T12:21:44Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Markus Test Krause Test\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3182,7 +3158,7 @@
               "creation_date": "2025-06-17T12:33:23Z",
               "modification_date": "2025-06-17T12:33:23Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Markus Test Krause Test\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3198,7 +3174,7 @@
               "creation_date": "2025-06-17T12:46:02Z",
               "modification_date": "2025-06-17T12:46:02Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Markus Test Krause Test\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3230,7 +3206,7 @@
               "creation_date": "2025-06-17T13:06:13Z",
               "modification_date": "2025-06-17T13:06:13Z",
               "service_id": 81,
-              "text": "KOMMENTAR\nSachbearbeiter: 'Markus Test Krause Test (EB2_AFB_01)'\nKommentar: 'Kommentar aus eBau AG'\n",
+              "text": "KOMMENTAR\nSachbearbeiter: Markus Test Krause Test (EB2_AFB_01)\nKommentar: Kommentar aus eBau AG\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3286,7 +3262,7 @@
               "creation_date": "2025-06-17T13:27:15Z",
               "modification_date": "2025-06-17T13:27:15Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Markus Test Krause Test\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3294,7 +3270,7 @@
               "creation_date": "2025-07-26T06:20:24Z",
               "modification_date": "2025-07-26T06:20:24Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Markus Test Krause Test\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3318,7 +3294,7 @@
               "creation_date": "2025-07-26T06:34:33Z",
               "modification_date": "2025-07-26T06:34:33Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Markus Test Krause Test\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3326,7 +3302,7 @@
               "creation_date": "2025-07-26T06:35:58Z",
               "modification_date": "2025-07-26T06:35:58Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Markus Test Krause Test\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3350,7 +3326,7 @@
               "creation_date": "2025-07-26T06:36:17Z",
               "modification_date": "2025-07-26T06:36:17Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Markus Test Krause Test\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3358,7 +3334,7 @@
               "creation_date": "2025-07-26T06:36:24Z",
               "modification_date": "2025-07-26T06:36:24Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Markus Test Krause Test\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3374,7 +3350,7 @@
               "creation_date": "2025-07-26T06:36:41Z",
               "modification_date": "2025-07-26T06:36:41Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Markus Test Krause Test\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3398,7 +3374,7 @@
               "creation_date": "2025-07-26T06:37:06Z",
               "modification_date": "2025-07-26T06:37:06Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Markus Test Krause Test\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3406,7 +3382,7 @@
               "creation_date": "2025-07-26T06:37:27Z",
               "modification_date": "2025-07-26T06:37:27Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Markus Test Krause Test\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3430,7 +3406,7 @@
               "creation_date": "2025-07-26T06:37:49Z",
               "modification_date": "2025-07-26T06:37:49Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Markus Test Krause Test\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3438,7 +3414,7 @@
               "creation_date": "2025-07-26T06:37:50Z",
               "modification_date": "2025-07-26T06:37:50Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Markus Test Krause Test\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3454,7 +3430,7 @@
               "creation_date": "2025-07-26T06:38:27Z",
               "modification_date": "2025-07-26T06:38:27Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Markus Test Krause Test\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3478,7 +3454,7 @@
               "creation_date": "2025-07-26T06:38:29Z",
               "modification_date": "2025-07-26T06:38:29Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Markus Test Krause Test\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3486,7 +3462,7 @@
               "creation_date": "2025-07-26T06:39:33Z",
               "modification_date": "2025-07-26T06:39:33Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Markus Test Krause Test\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3502,7 +3478,7 @@
               "creation_date": "2025-07-26T06:39:47Z",
               "modification_date": "2025-07-26T06:39:47Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Markus Test Krause Test\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3526,7 +3502,7 @@
               "creation_date": "2025-07-26T06:41:42Z",
               "modification_date": "2025-07-26T06:41:42Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Markus Test Krause Test\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3534,7 +3510,7 @@
               "creation_date": "2025-07-26T06:41:44Z",
               "modification_date": "2025-07-26T06:41:44Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Markus Test Krause Test\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3558,7 +3534,7 @@
               "creation_date": "2025-07-26T06:42:25Z",
               "modification_date": "2025-07-26T06:42:25Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Markus Test Krause Test\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3574,7 +3550,7 @@
               "creation_date": "2025-07-26T06:43:09Z",
               "modification_date": "2025-07-26T06:43:09Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Markus Test Krause Test\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3582,7 +3558,7 @@
               "creation_date": "2025-07-26T06:43:40Z",
               "modification_date": "2025-07-26T06:43:40Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Markus Test Krause Test\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3606,7 +3582,7 @@
               "creation_date": "2025-07-26T07:23:40Z",
               "modification_date": "2025-07-26T07:23:40Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Markus Test Krause Test\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3622,7 +3598,7 @@
               "creation_date": "2025-07-26T07:42:57Z",
               "modification_date": "2025-07-26T07:42:57Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Markus Test Krause Test\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3646,7 +3622,7 @@
               "creation_date": "2025-07-28T12:00:00Z",
               "modification_date": "2025-07-28T12:00:00Z",
               "service_id": 1,
-              "text": "GEBÜHREN\n\nPreiskondition: ZROD\nBeschreibung: Rodungsbewilligung AW\nSchema: AW KFA 1\nSchemastelle: 0010\nAufgaben-ID: 000000028332\nStückpreis: 400.0\nMenge: 1\nMesseinheit: LE\nGesamtpreis: 400.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n\nPreiskondition: ZATB\nBeschreibung: Behandlungsgebühr ATB\nSchema: ATB\nSchemastelle: 0010\nAufgaben-ID: 000000028333\nStückpreis: 250\nMenge: 1\nMesseinheit: LE\nGesamtpreis: 250.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n\nPreiskondition: ZIAK\nBeschreibung: Aufbruchbewilligung ATB\nSchema: ATB\nSchemastelle: 0020\nAufgaben-ID: 000000028333\nStückpreis: 1.75\nMenge: 1\nMesseinheit: LE\nGesamtpreis: 1.75\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n",
+              "text": "GEBÜHREN\n\nPreiskondition: ZROD\nBeschreibung: Rodungsbewilligung AW\nSchema: AW KFA 1\nSchemastelle: 0010\nAufgaben-ID: 000000028332\nStückpreis: 400.0\nMenge: 1\nMesseinheit: LE\nGesamtpreis: 400.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: -\nBemerkung AfB: -\n\nPreiskondition: ZATB\nBeschreibung: Behandlungsgebühr ATB\nSchema: ATB\nSchemastelle: 0010\nAufgaben-ID: 000000028333\nStückpreis: 250\nMenge: 1\nMesseinheit: LE\nGesamtpreis: 250.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: -\nBemerkung AfB: -\n\nPreiskondition: ZIAK\nBeschreibung: Aufbruchbewilligung ATB\nSchema: ATB\nSchemastelle: 0020\nAufgaben-ID: 000000028333\nStückpreis: 1.75\nMenge: 1\nMesseinheit: LE\nGesamtpreis: 1.75\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: -\nBemerkung AfB: -\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3678,7 +3654,7 @@
               "creation_date": "2025-09-16T12:03:27Z",
               "modification_date": "2025-09-16T12:03:27Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Markus Test Krause Test\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3734,7 +3710,7 @@
               "creation_date": "2025-09-30T08:32:01Z",
               "modification_date": "2025-09-30T08:32:01Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Markus Test Krause Test\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3766,7 +3742,7 @@
               "creation_date": "2025-09-30T08:39:03Z",
               "modification_date": "2025-09-30T08:39:03Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Markus Test Krause Test\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3774,7 +3750,7 @@
               "creation_date": "2025-09-30T08:45:27Z",
               "modification_date": "2025-09-30T08:45:27Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Markus Test Krause Test\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3798,7 +3774,7 @@
               "creation_date": "2025-09-30T08:46:35Z",
               "modification_date": "2025-09-30T08:46:35Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Markus Test Krause Test\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3814,7 +3790,7 @@
               "creation_date": "2025-09-30T08:57:46Z",
               "modification_date": "2025-09-30T08:57:46Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Markus Test Krause Test\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3830,7 +3806,7 @@
               "creation_date": "2025-09-30T09:55:19Z",
               "modification_date": "2025-09-30T09:55:19Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Markus Test Krause Test\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3846,7 +3822,7 @@
               "creation_date": "2025-09-30T09:55:36Z",
               "modification_date": "2025-09-30T09:55:36Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Markus Test Krause Test\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3854,7 +3830,7 @@
               "creation_date": "2025-09-30T10:37:16Z",
               "modification_date": "2025-09-30T10:37:16Z",
               "service_id": 81,
-              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Markus Test Krause Test'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Markus Test Krause Test\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -4311,6 +4287,12 @@
           {
               "date": null,
               "document__form_id": "baugesuch-migration",
+              "question_id": "profilierung-nein-begruendung",
+              "value": "Keine Änderung an Gebäuden"
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
               "question_id": "projektaenderung",
               "value": "projektaenderung-nein"
           },
@@ -4521,30 +4503,6 @@
           {
               "date": null,
               "document__form_id": "personalien-tabelle",
-              "question_id": "name-juristische-person-gesuchstellerin",
-              "value": ""
-          },
-          {
-              "date": null,
-              "document__form_id": "personalien-tabelle",
-              "question_id": "name-juristische-person-gesuchstellerin",
-              "value": ""
-          },
-          {
-              "date": null,
-              "document__form_id": "personalien-tabelle",
-              "question_id": "name-juristische-person-gesuchstellerin",
-              "value": ""
-          },
-          {
-              "date": null,
-              "document__form_id": "personalien-tabelle",
-              "question_id": "name-juristische-person-gesuchstellerin",
-              "value": ""
-          },
-          {
-              "date": null,
-              "document__form_id": "personalien-tabelle",
               "question_id": "nummer-gesuchstellerin",
               "value": "2"
           },
@@ -4727,7 +4685,7 @@
               "creation_date": "2024-11-15T09:28:28Z",
               "modification_date": "2024-11-15T09:28:28Z",
               "service_id": 55,
-              "text": "VERFAHRENSSTAND\nAktion: 'Vorprüfung abgeschlossen (ohne Unterlagenergänzung)'\nSchritt: 'Vorprüfung durchführen'\nWer: 'EBP EBP_TEST4'\nKommentar: ''\n",
+              "text": "VERFAHRENSSTAND\nAktion: Vorprüfung abgeschlossen (ohne Unterlagenergänzung)\nSchritt: Vorprüfung durchführen\nWer: EBP EBP_TEST4\nKommentar: -\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -4735,7 +4693,7 @@
               "creation_date": "2024-11-15T09:28:48Z",
               "modification_date": "2024-11-15T09:28:48Z",
               "service_id": 55,
-              "text": "VERFAHRENSSTAND\nAktion: 'Profilkontrolle'\nSchritt: 'Profilierung kontrollieren'\nWer: 'EBP EBP_TEST4'\nKommentar: 'Profilkontrolle nicht erforderlich'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Profilkontrolle\nSchritt: Profilierung kontrollieren\nWer: EBP EBP_TEST4\nKommentar: Profilkontrolle nicht erforderlich\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -4743,7 +4701,7 @@
               "creation_date": "2024-11-15T09:29:18Z",
               "modification_date": "2024-11-15T09:29:18Z",
               "service_id": 55,
-              "text": "VERFAHRENSSTAND\nAktion: 'Publikationstext verschickt'\nSchritt: 'Publikationstext verfassen'\nWer: 'EBP EBP_TEST4'\nKommentar: 'test@testag.ch'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Publikationstext verschickt\nSchritt: Publikationstext verfassen\nWer: EBP EBP_TEST4\nKommentar: test@testag.ch\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -4751,7 +4709,7 @@
               "creation_date": "2025-07-22T22:00:00Z",
               "modification_date": "2025-07-22T22:00:00Z",
               "service_id": 55,
-              "text": "AUFLAGEN                      \nStatus:                       Zugriff: aktiv                \nDokumente:                    \n• ID: 0000000000000010001927782 (Version: 00, Typ: Dokumente zur Begutachtung, Date: 23.07.2025 17:56)\n   Bemerkung:                 \n• ID: 0000000000000010001927783 (Version: 00, Typ: Dokumente zur Begutachtung, Date: 23.07.2025 17:56)\n   Bemerkung:                 \n\nEmpfänger:                    \n• Krause Test, Markus Test ( markus.krause@ag.ch)\n   Status:                    Aktiv: ✓                      Manuell hinzugefügt: -        Datum: 23.07.2025 17:56       \n",
+              "text": "AUFLAGEN                      \nStatus: -                     Zugriff: aktiv                \nDokumente:                    \n• ID: 0000000000000010001927782 (Version: 00, Typ: Dokumente zur Begutachtung, Date: 23.07.2025 17:56)\n   Bemerkung: -               \n• ID: 0000000000000010001927783 (Version: 00, Typ: Dokumente zur Begutachtung, Date: 23.07.2025 17:56)\n   Bemerkung: -               \n\nEmpfänger:                    \n• Krause Test, Markus Test ( markus.krause@ag.ch)\n   Status:                    Aktiv: ✓                      Manuell hinzugefügt: -        Datum: 23.07.2025 17:56       \n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -4759,7 +4717,7 @@
               "creation_date": "2025-07-22T22:00:00Z",
               "modification_date": "2025-07-22T22:00:00Z",
               "service_id": 55,
-              "text": "AUFLAGEN                      \nStatus:                       Zugriff: aktiv                \nDokumente:                    \n• ID: 0000000000000010001927783 (Version: 00, Typ: Dokumente zur Begutachtung, Date: 23.07.2025 17:23)\n   Bemerkung:                 \n• ID: 0000000000000010001927782 (Version: 00, Typ: Dokumente zur Begutachtung, Date: 23.07.2025 17:23)\n   Bemerkung:                 \n\nEmpfänger:                    \n• Krause Test, Markus Test ( markus.krause@ag.ch)\n   Status:                    Aktiv: ✓                      Manuell hinzugefügt: -        Datum: 23.07.2025 17:23       \n",
+              "text": "AUFLAGEN                      \nStatus: -                     Zugriff: aktiv                \nDokumente:                    \n• ID: 0000000000000010001927783 (Version: 00, Typ: Dokumente zur Begutachtung, Date: 23.07.2025 17:23)\n   Bemerkung: -               \n• ID: 0000000000000010001927782 (Version: 00, Typ: Dokumente zur Begutachtung, Date: 23.07.2025 17:23)\n   Bemerkung: -               \n\nEmpfänger:                    \n• Krause Test, Markus Test ( markus.krause@ag.ch)\n   Status:                    Aktiv: ✓                      Manuell hinzugefügt: -        Datum: 23.07.2025 17:23       \n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -4767,7 +4725,7 @@
               "creation_date": "2025-07-23T13:23:43Z",
               "modification_date": "2025-07-23T13:23:43Z",
               "service_id": 55,
-              "text": "VERFAHRENSSTAND\nAktion: 'Dokumente auflegen'\nSchritt: 'Dokumente auflegen'\nWer: 'Markus Test Krause Test'\nKommentar: 'Siehe Dokumente'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Dokumente auflegen\nSchritt: Dokumente auflegen\nWer: Markus Test Krause Test\nKommentar: Siehe Dokumente\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -4775,7 +4733,7 @@
               "creation_date": "2025-07-23T13:56:32Z",
               "modification_date": "2025-07-23T13:56:32Z",
               "service_id": 55,
-              "text": "VERFAHRENSSTAND\nAktion: 'Dokumente auflegen'\nSchritt: 'Dokumente auflegen'\nWer: 'Markus Test Krause Test'\nKommentar: 'Siehe Dokumente'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Dokumente auflegen\nSchritt: Dokumente auflegen\nWer: Markus Test Krause Test\nKommentar: Siehe Dokumente\n",
               "user_id": 2,
               "visibility": "own_organization"
           }
@@ -5716,7 +5674,7 @@
               "creation_date": "2021-02-01T11:58:37Z",
               "modification_date": "2021-02-01T11:58:37Z",
               "service_id": 68,
-              "text": "VERFAHRENSSTAND\nAktion: 'Profilkontrolle'\nSchritt: 'Profilierung kontrollieren'\nWer: 'EBP Monitoring WFAS'\nKommentar: 'Kontrolldatum: 02.02.2021'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Profilkontrolle\nSchritt: Profilierung kontrollieren\nWer: EBP Monitoring WFAS\nKommentar: Kontrolldatum: 02.02.2021\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -5724,7 +5682,7 @@
               "creation_date": "2021-02-01T11:59:23Z",
               "modification_date": "2021-02-01T11:59:23Z",
               "service_id": 68,
-              "text": "VERFAHRENSSTAND\nAktion: 'Verfügung erstellt'\nSchritt: 'Entscheid erfassen'\nWer: 'EBP Monitoring WFAS'\nKommentar: 'Bewilligung'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Verfügung erstellt\nSchritt: Entscheid erfassen\nWer: EBP Monitoring WFAS\nKommentar: Bewilligung\n",
               "user_id": 2,
               "visibility": "own_organization"
           }
@@ -6480,7 +6438,7 @@
               "creation_date": "2023-05-24T07:50:48Z",
               "modification_date": "2023-05-24T07:50:48Z",
               "service_id": 1,
-              "text": "VERFAHRENSSTAND\nAktion: 'Gesuch an Kanton senden'\nSchritt: 'Gesuch an Kanton gesendet'\nWer: 'Kantons Admin eBau extended'\nKommentar: 'Gesuch EBPA-8161-2380 wurde an den Kanton gesendet.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Gesuch an Kanton senden\nSchritt: Gesuch an Kanton gesendet\nWer: Kantons Admin eBau extended\nKommentar: Gesuch EBPA-8161-2380 wurde an den Kanton gesendet.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -6504,7 +6462,7 @@
               "creation_date": "2023-05-24T07:55:33Z",
               "modification_date": "2023-05-24T07:55:33Z",
               "service_id": 1,
-              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Kantons Admin eBau extended'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Kantons Admin eBau extended\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -6552,7 +6510,7 @@
               "creation_date": "2025-07-28T12:00:00Z",
               "modification_date": "2025-07-28T12:00:00Z",
               "service_id": 1,
-              "text": "GEBÜHREN\n\nPreiskondition: ZROD\nBeschreibung: Rodungsbewilligung AW\nSchema: AW KFA 1\nSchemastelle: 0010\nAufgaben-ID: 000000028332\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n\nPreiskondition: ZATB\nBeschreibung: Behandlungsgebühr ATB\nSchema: ATB\nSchemastelle: 0010\nAufgaben-ID: 000000028333\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n\nPreiskondition: ZIAK\nBeschreibung: Aufbruchbewilligung ATB\nSchema: ATB\nSchemastelle: 0020\nAufgaben-ID: 000000028333\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n",
+              "text": "GEBÜHREN\n\nPreiskondition: ZROD\nBeschreibung: Rodungsbewilligung AW\nSchema: AW KFA 1\nSchemastelle: 0010\nAufgaben-ID: 000000028332\nStückpreis: -\nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: -\nBemerkung AfB: -\n\nPreiskondition: ZATB\nBeschreibung: Behandlungsgebühr ATB\nSchema: ATB\nSchemastelle: 0010\nAufgaben-ID: 000000028333\nStückpreis: -\nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: -\nBemerkung AfB: -\n\nPreiskondition: ZIAK\nBeschreibung: Aufbruchbewilligung ATB\nSchema: ATB\nSchemastelle: 0020\nAufgaben-ID: 000000028333\nStückpreis: -\nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: -\nBemerkung AfB: -\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -6910,6 +6868,12 @@
           {
               "date": null,
               "document__form_id": "baugesuch-migration",
+              "question_id": "profilierung-nein-begruendung",
+              "value": "Keine Profilierung nötig"
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
               "question_id": "projektaenderung",
               "value": "projektaenderung-nein"
           },
@@ -7128,30 +7092,6 @@
               "document__form_id": "personalien-tabelle",
               "question_id": "name-gesuchstellerin",
               "value": "Manfred"
-          },
-          {
-              "date": null,
-              "document__form_id": "personalien-tabelle",
-              "question_id": "name-juristische-person-gesuchstellerin",
-              "value": ""
-          },
-          {
-              "date": null,
-              "document__form_id": "personalien-tabelle",
-              "question_id": "name-juristische-person-gesuchstellerin",
-              "value": ""
-          },
-          {
-              "date": null,
-              "document__form_id": "personalien-tabelle",
-              "question_id": "name-juristische-person-gesuchstellerin",
-              "value": ""
-          },
-          {
-              "date": null,
-              "document__form_id": "personalien-tabelle",
-              "question_id": "name-juristische-person-gesuchstellerin",
-              "value": ""
           },
           {
               "date": null,
@@ -8161,30 +8101,6 @@
           {
               "date": null,
               "document__form_id": "personalien-tabelle",
-              "question_id": "name-juristische-person-gesuchstellerin",
-              "value": ""
-          },
-          {
-              "date": null,
-              "document__form_id": "personalien-tabelle",
-              "question_id": "name-juristische-person-gesuchstellerin",
-              "value": ""
-          },
-          {
-              "date": null,
-              "document__form_id": "personalien-tabelle",
-              "question_id": "name-juristische-person-gesuchstellerin",
-              "value": ""
-          },
-          {
-              "date": null,
-              "document__form_id": "personalien-tabelle",
-              "question_id": "name-juristische-person-gesuchstellerin",
-              "value": ""
-          },
-          {
-              "date": null,
-              "document__form_id": "personalien-tabelle",
               "question_id": "nummer-gesuchstellerin",
               "value": "4"
           },
@@ -8395,7 +8311,7 @@
               "creation_date": "2025-04-01T22:00:00Z",
               "modification_date": "2025-04-01T22:00:00Z",
               "service_id": 55,
-              "text": "STELLUNGNAHME GESUCH          \nStatus:                       Zugriff: aktiv                \n\nEmpfänger:                    \n• EB2_AFB_01 ( )              \n   Status: Akzeptiert         Aktiv: -                      Manuell hinzugefügt: ✓        Datum: 02.04.2025 00:00       \n   Anfrage: Zustimmung        \n   Grund: Zustimmung          \n",
+              "text": "STELLUNGNAHME GESUCH          \nStatus: -                     Zugriff: aktiv                \n\nEmpfänger:                    \n• EB2_AFB_01 ( )              \n   Status: Akzeptiert         Aktiv: -                      Manuell hinzugefügt: ✓        Datum: 02.04.2025 00:00       \n   Anfrage: Zustimmung        \n   Grund: Zustimmung          \n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -8403,7 +8319,7 @@
               "creation_date": "2025-04-02T22:00:00Z",
               "modification_date": "2025-04-02T22:00:00Z",
               "service_id": 55,
-              "text": "STELLUNGNAHME INTERN          \nStatus:                       Zugriff: aktiv                \n\nEmpfänger:                    \n• EB2_AFB_01 ( )              \n   Status: Akzeptiert         Aktiv: -                      Manuell hinzugefügt: ✓        Datum: 02.04.2025 00:00       \n   Anfrage: Zustimmung        \n   Grund: Zustimmung          \n   Bemerkung: Einwendung      \n",
+              "text": "STELLUNGNAHME INTERN          \nStatus: -                     Zugriff: aktiv                \n\nEmpfänger:                    \n• EB2_AFB_01 ( )              \n   Status: Akzeptiert         Aktiv: -                      Manuell hinzugefügt: ✓        Datum: 02.04.2025 00:00       \n   Anfrage: Zustimmung        \n   Grund: Zustimmung          \n   Bemerkung: Einwendung      \n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -8411,7 +8327,7 @@
               "creation_date": "2025-07-18T22:00:00Z",
               "modification_date": "2025-07-18T22:00:00Z",
               "service_id": 55,
-              "text": "STELLUNGNAHME GESUCH          \nStatus:                       Zugriff: aktiv                \n\nEmpfänger:                    \n• eBau Training FS (N433697952 ebau.training+fs@gmail.com)\n   Status: Offen              Aktiv: -                      Manuell hinzugefügt: -        Datum: 19.07.2025 00:00       \n• Martin Huber ( martin.huber@karakun.com)\n   Status: Offen              Aktiv: -                      Manuell hinzugefügt: -        Datum: 19.07.2025 00:00       \n",
+              "text": "STELLUNGNAHME GESUCH          \nStatus: -                     Zugriff: aktiv                \n\nEmpfänger:                    \n• eBau Training FS (N433697952 ebau.training+fs@gmail.com)\n   Status: Offen              Aktiv: -                      Manuell hinzugefügt: -        Datum: 19.07.2025 00:00       \n• Martin Huber ( martin.huber@karakun.com)\n   Status: Offen              Aktiv: -                      Manuell hinzugefügt: -        Datum: 19.07.2025 00:00       \n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -8419,7 +8335,7 @@
               "creation_date": "2025-07-19T06:31:48Z",
               "modification_date": "2025-07-19T06:31:48Z",
               "service_id": 55,
-              "text": "VERFAHRENSSTAND\nAktion: 'Stellungnahmen eingefordert'\nSchritt: 'Stellungnahmen einfordern'\nWer: 'Markus Test Krause Test'\nKommentar: 'Stellungnahme eBau Training FS ebau.training+fs@gmail.com, Martin Huber martin.huber@karakun.com'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Stellungnahmen eingefordert\nSchritt: Stellungnahmen einfordern\nWer: Markus Test Krause Test\nKommentar: Stellungnahme eBau Training FS ebau.training+fs@gmail.com, Martin Huber martin.huber@karakun.com\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -8427,7 +8343,7 @@
               "creation_date": "2025-07-20T22:00:00Z",
               "modification_date": "2025-07-20T22:00:00Z",
               "service_id": 55,
-              "text": "STELLUNGNAHME GESUCH          \nStatus:                       Zugriff: aktiv                \n\nEmpfänger:                    \n• Martin Huber ( martin.huber@karakun.com)\n   Status: Offen              Aktiv: -                      Manuell hinzugefügt: -        Datum: 21.07.2025 00:00       \n",
+              "text": "STELLUNGNAHME GESUCH          \nStatus: -                     Zugriff: aktiv                \n\nEmpfänger:                    \n• Martin Huber ( martin.huber@karakun.com)\n   Status: Offen              Aktiv: -                      Manuell hinzugefügt: -        Datum: 21.07.2025 00:00       \n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -8435,7 +8351,7 @@
               "creation_date": "2025-07-21T12:39:59Z",
               "modification_date": "2025-07-21T12:39:59Z",
               "service_id": 55,
-              "text": "VERFAHRENSSTAND\nAktion: 'Stellungnahmen eingefordert'\nSchritt: 'Stellungnahmen einfordern'\nWer: 'Markus Test Krause Test'\nKommentar: 'Stellungnahme Martin Huber martin.huber@karakun.com'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Stellungnahmen eingefordert\nSchritt: Stellungnahmen einfordern\nWer: Markus Test Krause Test\nKommentar: Stellungnahme Martin Huber martin.huber@karakun.com\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -8443,7 +8359,7 @@
               "creation_date": "2025-07-22T22:00:00Z",
               "modification_date": "2025-07-22T22:00:00Z",
               "service_id": 55,
-              "text": "FRIST                         \nVon: 23.07.2025               Bis: None                     Abgeschlossen: ✓              \nBemerkung: x                  \nGrund:                        \n",
+              "text": "FRIST                         \nVon: 23.07.2025               Bis:                          Abgeschlossen: ✓              \nBemerkung: x                  \nGrund:                        \n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -8451,7 +8367,7 @@
               "creation_date": "2025-07-24T22:00:00Z",
               "modification_date": "2025-07-24T22:00:00Z",
               "service_id": 55,
-              "text": "FRIST                         \nVon: 25.07.2025               Bis: None                     Abgeschlossen: ✓              \nBemerkung: Manuelle Kontrolle Mapping\nGrund:                        \n",
+              "text": "FRIST                         \nVon: 25.07.2025               Bis:                          Abgeschlossen: ✓              \nBemerkung: Manuelle Kontrolle Mapping\nGrund:                        \n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -8459,7 +8375,7 @@
               "creation_date": "2025-07-30T22:00:00Z",
               "modification_date": "2025-07-30T22:00:00Z",
               "service_id": 55,
-              "text": "STELLUNGNAHME GESUCH          \nStatus:                       Zugriff: aktiv                \n\nEmpfänger:                    \n• Test User ( )               \n   Status: Eingegangen        Aktiv: -                      Manuell hinzugefügt: ✓        Datum: 21.07.2025 00:00       \n   Anfrage: Zustimmung mit Auflage(n)\n   Grund: Zustimmung mit Auflage(n)\n",
+              "text": "STELLUNGNAHME GESUCH          \nStatus: -                     Zugriff: aktiv                \n\nEmpfänger:                    \n• Test User ( )               \n   Status: Eingegangen        Aktiv: -                      Manuell hinzugefügt: ✓        Datum: 21.07.2025 00:00       \n   Anfrage: Zustimmung mit Auflage(n)\n   Grund: Zustimmung mit Auflage(n)\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -8467,7 +8383,7 @@
               "creation_date": "2025-07-31T22:00:00Z",
               "modification_date": "2025-07-31T22:00:00Z",
               "service_id": 55,
-              "text": "FRIST                         \nVon: 01.08.2025               Bis: None                     Abgeschlossen: ✓              \nBemerkung: Stellungnahme Martin Huber martin.huber@karakun.com\nGrund:                        \n",
+              "text": "FRIST                         \nVon: 01.08.2025               Bis:                          Abgeschlossen: ✓              \nBemerkung: Stellungnahme Martin Huber martin.huber@karakun.com\nGrund:                        \n",
               "user_id": 2,
               "visibility": "own_organization"
           }
@@ -9038,30 +8954,6 @@
           {
               "date": null,
               "document__form_id": "personalien-tabelle",
-              "question_id": "name-juristische-person-gesuchstellerin",
-              "value": ""
-          },
-          {
-              "date": null,
-              "document__form_id": "personalien-tabelle",
-              "question_id": "name-juristische-person-gesuchstellerin",
-              "value": ""
-          },
-          {
-              "date": null,
-              "document__form_id": "personalien-tabelle",
-              "question_id": "name-juristische-person-gesuchstellerin",
-              "value": ""
-          },
-          {
-              "date": null,
-              "document__form_id": "personalien-tabelle",
-              "question_id": "name-juristische-person-gesuchstellerin",
-              "value": ""
-          },
-          {
-              "date": null,
-              "document__form_id": "personalien-tabelle",
               "question_id": "nummer-gesuchstellerin",
               "value": "22"
           },
@@ -9236,7 +9128,7 @@
               "creation_date": "2022-12-16T04:55:51Z",
               "modification_date": "2022-12-16T04:55:51Z",
               "service_id": 1,
-              "text": "VERFAHRENSSTAND\nAktion: 'Gesuch an Kanton senden'\nSchritt: 'Gesuch an Kanton gesendet'\nWer: 'Kantons Admin eBau extended'\nKommentar: 'Gesuch EBPA-9856-7205 wurde an den Kanton gesendet.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Gesuch an Kanton senden\nSchritt: Gesuch an Kanton gesendet\nWer: Kantons Admin eBau extended\nKommentar: Gesuch EBPA-9856-7205 wurde an den Kanton gesendet.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -9300,7 +9192,7 @@
               "creation_date": "2022-12-16T13:43:13Z",
               "modification_date": "2022-12-16T13:43:13Z",
               "service_id": 1,
-              "text": "VERFAHRENSSTAND\nAktion: 'Datenänderung von Kanton'\nSchritt: 'Datenänderung von Kanton'\nWer: 'Michel Ott'\nKommentar: 'Der Kanton hat eine Änderung an den Daten vorgenommen.'\n",
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Michel Ott\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -9372,7 +9264,7 @@
               "creation_date": "2025-07-28T12:00:00Z",
               "modification_date": "2025-07-28T12:00:00Z",
               "service_id": 1,
-              "text": "GEBÜHREN\n\nPreiskondition: ZAFU\nBeschreibung: Umweltschutzrechtiche Beurteilung AFU\nSchema: AFU AS\nSchemastelle: 0010\nAufgaben-ID: 000000005913\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n\nPreiskondition: ZNUB\nBeschreibung: Nutzungsbewilligung ALGGN\nSchema: ALGGN\nSchemastelle: 0010\nAufgaben-ID: 000000005916\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n\nPreiskondition: ZNAU\nBeschreibung: Nautische Bewilligung ALGGN\nSchema: ALGGN\nSchemastelle: 0020\nAufgaben-ID: 000000005916\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n\nPreiskondition: ZATB\nBeschreibung: Behandlungsgebühr ATB\nSchema: ATB\nSchemastelle: 0010\nAufgaben-ID: 000000005917\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n\nPreiskondition: ZIAK\nBeschreibung: Aufbruchbewilligung ATB\nSchema: ATB\nSchemastelle: 0020\nAufgaben-ID: 000000005917\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n\nPreiskondition: ZAFU\nBeschreibung: Umweltschutzrechtiche Beurteilung AFU\nSchema: AFU AAUO\nSchemastelle: 0010\nAufgaben-ID: 000000005918\nStückpreis: \nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: \nBemerkung AfB: \n",
+              "text": "GEBÜHREN\n\nPreiskondition: ZAFU\nBeschreibung: Umweltschutzrechtiche Beurteilung AFU\nSchema: AFU AS\nSchemastelle: 0010\nAufgaben-ID: 000000005913\nStückpreis: -\nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: -\nBemerkung AfB: -\n\nPreiskondition: ZNUB\nBeschreibung: Nutzungsbewilligung ALGGN\nSchema: ALGGN\nSchemastelle: 0010\nAufgaben-ID: 000000005916\nStückpreis: -\nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: -\nBemerkung AfB: -\n\nPreiskondition: ZNAU\nBeschreibung: Nautische Bewilligung ALGGN\nSchema: ALGGN\nSchemastelle: 0020\nAufgaben-ID: 000000005916\nStückpreis: -\nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: -\nBemerkung AfB: -\n\nPreiskondition: ZATB\nBeschreibung: Behandlungsgebühr ATB\nSchema: ATB\nSchemastelle: 0010\nAufgaben-ID: 000000005917\nStückpreis: -\nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: -\nBemerkung AfB: -\n\nPreiskondition: ZIAK\nBeschreibung: Aufbruchbewilligung ATB\nSchema: ATB\nSchemastelle: 0020\nAufgaben-ID: 000000005917\nStückpreis: -\nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: -\nBemerkung AfB: -\n\nPreiskondition: ZAFU\nBeschreibung: Umweltschutzrechtiche Beurteilung AFU\nSchema: AFU AAUO\nSchemastelle: 0010\nAufgaben-ID: 000000005918\nStückpreis: -\nMenge: 1\nMesseinheit: LE\nGesamtpreis: 0.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: -\nBemerkung AfB: -\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
