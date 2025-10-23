@@ -13,6 +13,7 @@ export default class ConstructionMonitoringNavigationControlsComponent extends C
   @service notification;
   @service router;
   @service intl;
+  @service store;
 
   @service constructionMonitoring;
 
@@ -82,6 +83,8 @@ export default class ConstructionMonitoringNavigationControlsComponent extends C
       // Refetch updated stages due to side effect
       yield this.constructionMonitoring.refetchConstructionStages();
       yield this.constructionMonitoring.refetchControls();
+      // reload instance for case header updates
+      this.store.findRecord("instance", this.ebauModules.instanceId);
     } catch (e) {
       console.error(e);
       this.notification.danger(
@@ -112,6 +115,8 @@ export default class ConstructionMonitoringNavigationControlsComponent extends C
       });
 
       yield this.constructionMonitoring.refetchControls();
+      // reload instance for case header updates
+      this.store.findRecord("instance", this.ebauModules.instanceId);
     } catch (e) {
       console.error(e);
       this.notification.danger(
