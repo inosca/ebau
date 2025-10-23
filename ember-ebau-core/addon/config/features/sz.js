@@ -19,6 +19,7 @@ export default {
       ],
       allowedForServiceGroups: ["baugesuchszentrale", "fachstellen"],
       subsequentChargeAllowedForServices: [
+        "baugesuchszentrale",
         "amfz-brandschutz",
         "afg-wasserbau",
         "afg-fischerei",
