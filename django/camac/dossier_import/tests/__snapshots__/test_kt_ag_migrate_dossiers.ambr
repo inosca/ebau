@@ -5495,6 +5495,12 @@
           {
               "date": null,
               "document__form_id": "baugesuch-migration",
+              "question_id": "profilierung-nein-begruendung",
+              "value": "Keine Änderung an Gebäuden"
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
               "question_id": "projektaenderung",
               "value": "projektaenderung-nein"
           },
@@ -8066,6 +8072,12 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "personalien-rechnungsempfaenger",
               "value": null
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
+              "question_id": "profilierung-nein-begruendung",
+              "value": "Keine Profilierung nötig"
           },
           {
               "date": null,
@@ -16050,6 +16062,12 @@
           {
               "date": null,
               "document__form_id": "baugesuch-migration",
+              "question_id": "profilierung-nein-begruendung",
+              "value": "Keine Änderung an Gebäuden"
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
               "question_id": "projektaenderung",
               "value": "projektaenderung-nein"
           },
@@ -18621,6 +18639,12 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "personalien-rechnungsempfaenger",
               "value": null
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
+              "question_id": "profilierung-nein-begruendung",
+              "value": "Keine Profilierung nötig"
           },
           {
               "date": null,
@@ -23135,6 +23159,12 @@
           {
               "date": null,
               "document__form_id": "baugesuch-migration",
+              "question_id": "profilierung-nein-begruendung",
+              "value": "Keine Änderung an Gebäuden"
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
               "question_id": "projektaenderung",
               "value": "projektaenderung-nein"
           },
@@ -25706,6 +25736,12 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "personalien-rechnungsempfaenger",
               "value": null
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
+              "question_id": "profilierung-nein-begruendung",
+              "value": "Keine Profilierung nötig"
           },
           {
               "date": null,
