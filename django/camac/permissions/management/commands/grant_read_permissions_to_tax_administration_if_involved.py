@@ -1,6 +1,8 @@
+from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.core.management.base import BaseCommand
 from django.db import transaction
+from django.db.models import Exists, OuterRef
 
 from camac.instance.models import Instance
 from camac.permissions import api as permissions_api
@@ -37,11 +39,18 @@ class Command(BaseCommand):
         tid = transaction.savepoint()
 
         instances = Instance.objects.filter(
-            case__work_items__document__answers__question_id="steuerverwaltung-informieren",
-            case__work_items__document__answers__value__contains=[
-                "steuerverwaltung-informieren-steuerverwaltung-informieren"
-            ],
-            instance_state__name="instance-completed",
+            Exists(
+                WorkItem.objects.filter(
+                    case__instance=OuterRef("pk"),
+                    task_id="complete-instance",
+                    status=WorkItem.STATUS_COMPLETED,
+                    document__answers__question_id="steuerverwaltung-informieren",
+                    document__answers__value__contains=[
+                        "steuerverwaltung-informieren-steuerverwaltung-informieren"
+                    ],
+                )
+            ),
+            instance_state__name__in=["instance-completed", "arch"],
         )
         manager = permissions_api.PermissionManager.for_anonymous()
 
