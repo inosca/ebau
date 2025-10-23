@@ -1,3 +1,5 @@
+from camac.settings.env import env
+
 ADDRESS_ASSIGNMENT = {
     "default": {
         "EXAM_TASK": "formal-exam",
@@ -11,6 +13,6 @@ ADDRESS_ASSIGNMENT = {
         "ADDRESS_VALID_OPTION_SLUG": "address-assignment-valid-valid",
     },
     "kt_gr": {
-        "ENABLED": True,
+        "ENABLED": env.bool("ADDRESS_ASSIGNMENT_ENABLED", default=False),
     },
 }

@@ -18,6 +18,7 @@ def test_prefill_street_answer(
     utils,
     mocker,
 ):
+    gr_address_assignment_settings["ENABLED"] = True
     with patch(
         "camac.instance.master_data.MasterData.from_case_id",
         return_value=Mock(street="Teststreet 420"),
@@ -45,6 +46,7 @@ def test_address_assignment_write_street_to_main_form(
     gr_address_assignment_settings,
     caluma_admin_user,
 ):
+    gr_address_assignment_settings["ENABLED"] = True
     suggestion_work_item = caluma_work_item_factory(
         case=gr_instance.case, task_id=gr_address_assignment_settings["SUGGESTION_TASK"]
     )

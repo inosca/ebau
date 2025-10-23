@@ -345,7 +345,7 @@
         "is-manually-completable": true
       },
       "address_groups": "['gebaudeversicherung']|groups",
-      "control_groups": "['municpality']|groups",
+      "control_groups": "['municipality']|groups",
       "is_archived": false,
       "form": "address-assignment-confirm-suggestion",
       "lead_time": 8640000,
@@ -374,7 +374,7 @@
         "is-manually-completable": true
       },
       "address_groups": "['geometer']|groups",
-      "control_groups": "['municpality']|groups",
+      "control_groups": "['municipality']|groups",
       "is_archived": false,
       "form": "address-assignment-make-suggestion",
       "lead_time": 8640000,
