@@ -340,23 +340,6 @@ update-lockfile:
 	@yarn upgrade && rm -rf node_modules ember-*/node-modules && yarn
 
 
-link-ember-caluma:
-	@yarn link \
-	@projectcaluma/ember-core \
-	@projectcaluma/ember-form \
-	@projectcaluma/ember-form-builder \
-	@projectcaluma/ember-workflow \
-	@projectcaluma/ember-distribution
-
-unlink-ember-caluma:
-	@yarn unlink \
-	@projectcaluma/ember-core \
-	@projectcaluma/ember-form \
-	@projectcaluma/ember-form-builder \
-	@projectcaluma/ember-workflow \
-	@projectcaluma/ember-distribution
-	@yarn --force
-
 .PHONY: watch-templatefiles
 watch-templatefiles: # Upload DMS templates to minio on change
 	@if command -v inotifywait >/dev/null; then \
@@ -413,3 +396,54 @@ scan-images: ## Scan docker images with trivy
 .PHONY: generate-fixtures
 generate-fixtures: ## Generate dynamic fixtures for pytest
 	@docker compose exec django python manage.py generate_fixtures
+
+define info
+==============================================================
+Always run the following steps in the app your trying to start.
+
+Prepare extra dependencies to prevent version mismatches. Example:
+
+pnpm add @formatjs/intl@"^3.1.6";
+pnpm add ember-inflector;
+
+If you need to pin some dependencies in resolutions (always in workspace root), make sure to rerun the linking command (for example ember-resolver: 13.1.0).
+
+Modify build of app your trying to start to watch extra dependencies. Edit ember-cli-build.js
+
+Right below const app = new EmberApp(defaults, { add:
+
+    autoImport: {
+      watchDependencies: [
+        "@projectcaluma/ember-core",
+        "@projectcaluma/ember-form",
+        "@projectcaluma/ember-form-builder",
+        "@projectcaluma/ember-testing",
+        "@projectcaluma/ember-workflow",
+        "@projectcaluma/ember-distribution",
+      ],
+    },
+
+Then start dev-server
+endef
+
+export info
+.PHONY: link-ember-caluma
+link-ember-caluma:
+	@echo "Call with variable folder for which ember app you want to start. Example: make link-ember-caluma folder=ember-ebau"
+	@test $(folder)
+	@cd ember-ebau-core; pnpm link ../../ember-caluma/packages/core/;
+	@cd ember-ebau-core; pnpm link ../../ember-caluma/packages/form/;
+	@cd ember-ebau-core; pnpm link ../../ember-caluma/packages/form-builder/;
+	@cd ember-ebau-core; pnpm link ../../ember-caluma/packages/testing/;
+	@cd ember-ebau-core; pnpm link ../../ember-caluma/packages/workflow/;
+	@cd ember-ebau-core; pnpm link ../../ember-caluma/packages/distribution/;
+	@cd $(folder); pnpm i
+	@echo "$$info"
+
+.PHONY: unlink-ember-caluma
+unlink-ember-caluma:
+	@cd ember-ebau-core; pnpm unlink ;
+	@git checkout pnpm-lock.yaml
+	@find . -maxdepth 2 -name "node_modules" -exec rm -r {} \+
+	@pnpm i
+
