@@ -136,7 +136,7 @@ cases:
     withCantonalParticipation: "Mit kantonaler Beteiligung"
     suspended: "Sistierte Dossiers"
     suspended-placeholder: ""
-    bab: "BiB/BaB"
+    bab: "BIB/BAB"
     bab-placeholder: ""
 
   miscellaneous:
@@ -175,8 +175,8 @@ cases:
     none: "Keine Sistierten Dossiers"
 
   bab:
-    only_bib: "Nur BiB Dossiers"
-    only_bab: "Nur BaB Dossiers"
+    only_bib: "Nur BIB Dossiers"
+    only_bab: "Nur BAB Dossiers"
 
   modification:
     only: "Nur Projektänderungen"

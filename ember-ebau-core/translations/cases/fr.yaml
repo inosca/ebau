@@ -40,7 +40,7 @@ cases:
     street: ""
     submitDate: "Soumis"
     user: ""
-    bab: "BiB/BaB"
+    bab: "BIB/BAB"
     bab-placeholder: ""
 
   filter: "Rechercher un dossier"
