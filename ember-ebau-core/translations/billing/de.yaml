@@ -39,7 +39,7 @@ billing:
   release-for-clearing: Zur Verrechnung freigeben
   release-for-clearing-error: Die Einträge konnten nicht freigegeben werden. Ein Fehler ist aufgetretten.
   released-for-clearing: Freigegeben
-  confirm-release-for-clearing: Sobald der Eintrag zur Verrechnung freigegeben wurde wird die Rechnung automatisch generiert. Die Rechnungen werden jede Woche Montags, Mittwochs und Freitags generiert.
+  confirm-release-for-clearing: Sobald der Eintrag zur Verrechnung freigegeben wurde, wird die Rechnung automatisch generiert. Die Rechnungen werden jede Woche Montags, Mittwochs und Freitags generiert.
   product-number: Produktnummer
   remark: Bemerkung
   product-number-empty: Wählen Sie eine Produktnummer
