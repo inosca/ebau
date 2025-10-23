@@ -13,7 +13,7 @@
       "agricultural_use": true,
       "applicant": [
           {
-              "company": "",
+              "company": null,
               "email": "manfred@mapper.ch",
               "first_name": "Manfred",
               "is_juristic_person": false,
@@ -25,12 +25,12 @@
               "zip": 7777
           },
           {
-              "company": "",
+              "company": null,
               "email": "manu@mapper.ch",
               "first_name": "Manuela",
               "is_juristic_person": false,
               "last_name": "Mapper",
-              "phone": "",
+              "phone": null,
               "street": "Mappingstr.",
               "street_number": "777",
               "town": "Mappingen",
@@ -88,13 +88,13 @@
       "canton_closure_code": "teilweise Zustimmung",
       "canton_comments": [
           {
-              "text": "",
-              "timestamp": 20221020163137,
+              "text": "UE einfordern",
+              "timestamp": 20221020163153,
               "user_id": "EB2_AFB_02"
           },
           {
-              "text": "UE einfordern",
-              "timestamp": 20221020163153,
+              "text": null,
+              "timestamp": 20221020163137,
               "user_id": "EB2_AFB_02"
           }
       ],
@@ -108,8 +108,8 @@
               "amount": 1,
               "calc_scheme_position": "0010",
               "calculation_scheme": "ATB",
-              "comment_afb": "",
-              "comment_fs": "",
+              "comment_afb": null,
+              "comment_fs": null,
               "cost_type": "ZATB",
               "description": "Behandlungsgebühr ATB",
               "msehi": "LE",
@@ -122,8 +122,8 @@
               "amount": 1,
               "calc_scheme_position": "0010",
               "calculation_scheme": "AW KFA 1",
-              "comment_afb": "",
-              "comment_fs": "",
+              "comment_afb": null,
+              "comment_fs": null,
               "cost_type": "ZROD",
               "description": "Rodungsbewilligung AW",
               "msehi": "LE",
@@ -136,8 +136,8 @@
               "amount": 1,
               "calc_scheme_position": "0020",
               "calculation_scheme": "ATB",
-              "comment_afb": "",
-              "comment_fs": "",
+              "comment_afb": null,
+              "comment_fs": null,
               "cost_type": "ZIAK",
               "description": "Aufbruchbewilligung ATB",
               "msehi": "LE",
@@ -156,7 +156,7 @@
       "canton_internal_deadline": "20250811",
       "canton_justification": "Sommerferien",
       "canton_koko_date": "20250621",
-      "canton_koko_status": "",
+      "canton_koko_status": null,
       "canton_lwag_number": "1111111",
       "canton_major_accident_ordinance_affected": true,
       "canton_material_extraction": true,
@@ -196,7 +196,7 @@
               "action_text": "Dokument hinzugefügt",
               "comment": "Dokument hinzugefügt mit der ID 0000000000000010001687849",
               "document_id": null,
-              "document_version": "",
+              "document_version": null,
               "source": "S",
               "step_text": "Gesuch in Bearbeitung",
               "timestamp": 20230315101228,
@@ -206,7 +206,7 @@
               "action_text": "Status Änderung",
               "comment": "Gesuchsstatus wurde in \"Freigabeverfahren\" geändert.",
               "document_id": null,
-              "document_version": "",
+              "document_version": null,
               "source": "S",
               "step_text": "Status Änderung",
               "timestamp": 20230315102239,
@@ -267,7 +267,7 @@
               "date_from": "2024-06-13T00:00:00+02:00",
               "date_to": "2024-06-13T00:00:00+02:00",
               "notice": "Stellungnahme eBau Training FS ebau.training+fs@gmail.com",
-              "reason": "",
+              "reason": null,
               "type": "Frist"
           },
           {
@@ -275,7 +275,7 @@
               "date_from": "2024-07-12T00:00:00+02:00",
               "date_to": "2024-07-12T00:00:00+02:00",
               "notice": "Stellungnahme eBau extFachstelle Viktor Sch. ebau.extended+extFS@gmail.com",
-              "reason": "",
+              "reason": null,
               "type": "Auflagefrist"
           }
       ],
@@ -285,7 +285,7 @@
               "decision_date": "2024-11-12T00:00:00+01:00",
               "legal_binding_date": "2024-11-28T00:00:00+01:00",
               "legal_remedy_taken_date": null,
-              "remark": "",
+              "remark": null,
               "type": "Bewilligung"
           },
           {
@@ -332,12 +332,12 @@
       "instance_state": null,
       "invoice_recipient": [
           {
-              "company": "",
+              "company": null,
               "email": "invoices@mapper.ch",
               "first_name": "Invoice",
               "is_juristic_person": false,
               "last_name": "Recipient",
-              "phone": "",
+              "phone": null,
               "street": "Mappingstr.",
               "street_number": "777",
               "town": "Mappingen",
@@ -351,7 +351,7 @@
               "first_name": "Gero",
               "is_juristic_person": true,
               "last_name": "Grund",
-              "phone": "",
+              "phone": "+41 61 228 9400",
               "street": "Gundeldingerstr.",
               "street_number": "1",
               "town": "Basel",
@@ -361,12 +361,12 @@
       "leased_land_total_ha": "20000",
       "legal_representative": [
           {
-              "company": "",
+              "company": null,
               "email": "legal@repr.ch",
               "first_name": "Gesetzlicher",
               "is_juristic_person": false,
               "last_name": "Vertreter",
-              "phone": "",
+              "phone": null,
               "street": "Mappingstr.",
               "street_number": "777",
               "town": "Mappingen",
@@ -505,7 +505,7 @@
       "street_min_distance_reasoning": "Grund der Unterschreitung",
       "street_min_distance_undershot": true,
       "street_new_or_intensified_access": true,
-      "street_number": "",
+      "street_number": null,
       "submission_reason": "Nacherfassung",
       "submit_date": "20210629",
       "usage": null,
@@ -516,8 +516,8 @@
               "dms_id": "0000000000000010001922835",
               "dms_version": "00",
               "doc_type": "Stellungnahme einfordern",
-              "recipient_id": "",
-              "remark": "",
+              "recipient_id": null,
+              "remark": null,
               "workflow_id": "005056ABB4351EDF88E2D652AD0EF8B3"
           },
           {
@@ -525,8 +525,8 @@
               "dms_id": "0000000000000010001925809",
               "dms_version": "01",
               "doc_type": "Stellungnahme einfordern",
-              "recipient_id": "",
-              "remark": "",
+              "recipient_id": null,
+              "remark": null,
               "workflow_id": "005056ABB4351EDF88E2D652AD0EF8B3"
           },
           {
@@ -534,8 +534,8 @@
               "dms_id": "0000000000000010001922835",
               "dms_version": "00",
               "doc_type": "Rückbau akzeptieren",
-              "recipient_id": "",
-              "remark": "",
+              "recipient_id": null,
+              "remark": null,
               "workflow_id": "005056ABB4351EDF88E2DA476D3F18B3"
           },
           {
@@ -543,8 +543,8 @@
               "dms_id": "0000000000000010001922836",
               "dms_version": "00",
               "doc_type": "Rückbau akzeptieren",
-              "recipient_id": "",
-              "remark": "",
+              "recipient_id": null,
+              "remark": null,
               "workflow_id": "005056ABB4351EDF88E2DA476D3F18B3"
           },
           {
@@ -552,8 +552,8 @@
               "dms_id": "0000000000000010001925808",
               "dms_version": "00",
               "doc_type": "Rückbau akzeptieren",
-              "recipient_id": "",
-              "remark": "",
+              "recipient_id": null,
+              "remark": null,
               "workflow_id": "005056ABB4351EDF88E2DA476D3F18B3"
           },
           {
@@ -561,8 +561,8 @@
               "dms_id": "0000000000000010001925809",
               "dms_version": "00",
               "doc_type": "Rückbau akzeptieren",
-              "recipient_id": "",
-              "remark": "",
+              "recipient_id": null,
+              "remark": null,
               "workflow_id": "005056ABB4351EDF88E2DA476D3F18B3"
           },
           {
@@ -570,8 +570,8 @@
               "dms_id": "0000000000000010001925809",
               "dms_version": "01",
               "doc_type": "Rückbau akzeptieren",
-              "recipient_id": "",
-              "remark": "",
+              "recipient_id": null,
+              "remark": null,
               "workflow_id": "005056ABB4351EDF88E2DA476D3F18B3"
           },
           {
@@ -579,8 +579,8 @@
               "dms_id": "0000000000000010001925810",
               "dms_version": "00",
               "doc_type": "Rückbau akzeptieren",
-              "recipient_id": "",
-              "remark": "",
+              "recipient_id": null,
+              "remark": null,
               "workflow_id": "005056ABB4351EDF88E2DA476D3F18B3"
           },
           {
@@ -588,8 +588,8 @@
               "dms_id": "0000000000000010001925811",
               "dms_version": "00",
               "doc_type": "Rückbau akzeptieren",
-              "recipient_id": "",
-              "remark": "",
+              "recipient_id": null,
+              "remark": null,
               "workflow_id": "005056ABB4351EDF88E2DA476D3F18B3"
           },
           {
@@ -597,8 +597,8 @@
               "dms_id": "0000000000000010001925814",
               "dms_version": "00",
               "doc_type": "Rückbau akzeptieren",
-              "recipient_id": "",
-              "remark": "",
+              "recipient_id": null,
+              "remark": null,
               "workflow_id": "005056ABB4351EDF88E2DA476D3F18B3"
           },
           {
@@ -606,8 +606,8 @@
               "dms_id": "0000000000000010001925809",
               "dms_version": "01",
               "doc_type": "Stellungnahme einfordern",
-              "recipient_id": "",
-              "remark": "",
+              "recipient_id": null,
+              "remark": null,
               "workflow_id": "005056ABB4351EDF8CC4AEB16F86B8B4"
           },
           {
@@ -615,8 +615,8 @@
               "dms_id": "0000000000000010001925811",
               "dms_version": "00",
               "doc_type": "Stellungnahme einfordern",
-              "recipient_id": "",
-              "remark": "",
+              "recipient_id": null,
+              "remark": null,
               "workflow_id": "005056ABB4351EDF8CC4AEB16F86B8B4"
           }
       ],
@@ -627,9 +627,9 @@
               "docs": null,
               "id": "005056ABB4351EDF88E2D652AD0F18B3",
               "manually_added": false,
-              "reason": "",
-              "remark": "",
-              "request": "",
+              "reason": null,
+              "remark": null,
+              "request": null,
               "status": "Offen",
               "user_email": "ebau.training+fs@gmail.com",
               "user_id": "N433697952",
@@ -642,9 +642,9 @@
               "docs": null,
               "id": "005056ABB4351EDF8CC4AEB16F86D8B4",
               "manually_added": false,
-              "reason": "",
-              "remark": "",
-              "request": "",
+              "reason": null,
+              "remark": null,
+              "request": null,
               "status": "Offen",
               "user_email": "ebau.extended+extFS@gmail.com",
               "user_id": "N858614511",
@@ -657,12 +657,12 @@
               "docs": null,
               "id": "005056ABB4351EDF88E2DA476D3F38B3",
               "manually_added": false,
-              "reason": "",
-              "remark": "",
-              "request": "",
-              "status": "",
+              "reason": null,
+              "remark": null,
+              "request": null,
+              "status": null,
               "user_email": "ebau.training+fs@gmail.com",
-              "user_id": "",
+              "user_id": null,
               "user_name": "eBau Training FS",
               "workflow_id": "005056ABB4351EDF88E2DA476D3F18B3"
           },
@@ -672,9 +672,9 @@
               "docs": null,
               "id": "005056ABB4351EDF8CC4AEB16F86D8B4",
               "manually_added": false,
-              "reason": "",
-              "remark": "",
-              "request": "",
+              "reason": null,
+              "remark": null,
+              "request": null,
               "status": "Offen",
               "user_email": "ebau.extended+extFS@gmail.com",
               "user_id": "N858614511",
@@ -698,7 +698,7 @@
               "docs": null,
               "id": "005056ABB4351EDF88E2DA476D3F18B3",
               "recipients": null,
-              "status": "",
+              "status": null,
               "workflow_type": "Einsicht"
           },
           {
