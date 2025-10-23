@@ -46,3 +46,7 @@ class RulesetsConfig(ModuleApplicationConfig):
         DistributionDeadlineRuleConfig()
     )
     available_services_rule: AvailableServicesRuleConfig = AvailableServicesRuleConfig()
+    municipality_service_groups: list[str] = Field(
+        description="List of service group names that contain municipalities, typically just 'municipality'.",
+        default=["municipality"],
+    )
