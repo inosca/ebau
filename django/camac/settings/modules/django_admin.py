@@ -21,6 +21,7 @@ DJANGO_ADMIN = {
         "ENABLED": True,
         "ENABLED_MODELS": [
             "alexandria_core.Category",
+            "alexandria_core.Mark",
             "core.InstanceResource",
             "core.Resource",
             "core.ServiceContent",
@@ -41,6 +42,7 @@ DJANGO_ADMIN = {
         "ENABLED": True,
         "ENABLED_MODELS": [
             "alexandria_core.Category",
+            "alexandria_core.Mark",
             "core.InstanceResource",
             "core.Resource",
             "gis.GISDataSource",
@@ -78,6 +80,7 @@ DJANGO_ADMIN = {
         "ENABLED": True,
         "ENABLED_MODELS": [
             "alexandria_core.Category",
+            "alexandria_core.Mark",
             "core.InstanceResource",
             "core.Resource",
             "billing.BillingV2EntryTemplate",
