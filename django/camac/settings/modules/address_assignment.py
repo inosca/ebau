@@ -13,6 +13,6 @@ ADDRESS_ASSIGNMENT = {
         "ADDRESS_VALID_OPTION_SLUG": "address-assignment-valid-valid",
     },
     "kt_gr": {
-        "ENABLED": env.bool("ADDRESS_ASSIGNMENT_ENABLED", default=False),
+        "ENABLED": env.bool("CONSTRUCTION_MONITORING_ENABLED", default=False),
     },
 }
