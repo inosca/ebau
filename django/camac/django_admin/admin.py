@@ -1,4 +1,4 @@
-from alexandria.core.models import Category
+from alexandria.core.models import Category, Mark
 from caluma.caluma_workflow.models import Case, WorkItem
 from django.contrib.admin import ModelAdmin, display, register
 from django.db.models import JSONField
@@ -29,6 +29,23 @@ class CategoryAdmin(EbauAdminMixin, LocalizedFieldsAdminMixin, ModelAdmin):
     @display
     def parent_name(self, obj):
         return obj.parent.name if obj.parent else None
+
+    def get_readonly_fields(self, request, obj=None):
+        if obj:
+            return ["slug"]
+        return []
+
+
+@register(Mark)
+class MarkAdmin(EbauAdminMixin, LocalizedFieldsAdminMixin, ModelAdmin):
+    list_display = ["slug", "name", "description"]
+    formfield_overrides = {JSONField: {"widget": JSONEditorWidget}}
+    fields = [
+        "slug",
+        "name",
+        "description",
+        "metainfo",
+    ]
 
     def get_readonly_fields(self, request, obj=None):
         if obj:
