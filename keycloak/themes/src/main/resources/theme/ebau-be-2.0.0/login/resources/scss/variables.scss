@@ -49,18 +49,9 @@ $global-background-cappucino: #ebd3ae;
 
 $global-border-color: #dedede;
 
-// some aliases for easier reference
 :root {
-  --black: #{$global-color-black};
-  --white: #{$global-color-white};
-  --red: #{$global-color-red};
-  --dark-red: #{$global-color-dark-red};
-  --blue: #{$global-color-blue};
-  --orange: #{$global-color-orange};
-  --green: #{$global-color-green};
-  --anthrazit: #{$global-color-anthrazit};
+  // dynamically changing depending on screen size
   --global-font-size: #{$global-font-size};
-  --global-font-family: #{$global-font-family};
   --global-line-height: #{$global-line-height};
   --page-content-margin-horizontal: #{$page-content-margin-horizontal-l};
   --page-content-margin-vertical: #{$page-content-margin-vertical-l};

@@ -100,7 +100,7 @@ header {
         height: 100%;
         position: fixed;
         right: -100vw;
-        background-color: var(--white);
+        background-color: variables.$global-color-white;
         transition: all 300ms ease-in-out;
 
         &.open {
@@ -180,7 +180,7 @@ header {
       font-weight: 400;
       font-size: 14px;
       line-height: 18px;
-      color: var(--black);
+      color: variables.$global-color-black;
       margin-left: calc(0.25vw + 8px);
       padding: 0;
       display: flex;
@@ -209,7 +209,7 @@ header {
         font-weight: 400;
         font-size: 14px;
         line-height: 18px;
-        color: var(--black);
+        color: variables.$global-color-black;
         display: flex;
         height: 20px;
         line-height: 1.3;

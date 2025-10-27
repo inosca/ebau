@@ -2,7 +2,7 @@
 
 html,
 body.login {
-  font-family: var(--global-font-family);
+  font-family: variables.$global-font-family;
   font-size: var(--global-font-size);
   font-style: normal;
   line-height: var(--global-line-height);
@@ -12,7 +12,7 @@ body.login {
 *  Web-Style-Guide: https://kantonbern.snowflake.ch/styleguides/1/Kanton-Bern/#atoms
 */
 h1 {
-  color: var(--black);
+  color: variables.$global-color-black;
   font-weight: 100;
   margin: 0 0 44px -3px;
   font-size: 54px;
@@ -53,7 +53,7 @@ h2 {
   word-spacing: 0.025rem;
   margin: 0 0 12px -2px;
   max-width: 800px;
-  color: var(--black);
+  color: variables.$global-color-black;
   margin-left: -2px;
 }
 
@@ -83,7 +83,7 @@ h3 {
   font-weight: 300;
   letter-spacing: 0.01rem;
   word-spacing: 0.025rem;
-  color: var(--black);
+  color: variables.$global-color-black;
   margin-left: -1px;
 }
 
@@ -113,7 +113,7 @@ h4 {
   font-weight: 300;
   letter-spacing: 0.01rem;
   word-spacing: 0.025rem;
-  color: var(--black);
+  color: variables.$global-color-black;
   font-size: 24px;
   line-height: 28px;
   margin-left: -1px;
@@ -134,7 +134,7 @@ h4 {
 }
 
 p {
-  color: var(--black);
+  color: variables.$global-color-black;
   font-weight: 300;
   margin-bottom: 15px;
   margin-top: -2px;
@@ -144,7 +144,7 @@ p {
 button,
 .button {
   line-height: 125%;
-  background-color: var(--white);
+  background-color: variables.$global-color-white;
   color: rgba(112, 112, 112, 1);
   display: inline-block;
   height: 49px;
@@ -169,13 +169,13 @@ button:focus,
 
 button.primary,
 .button.primary {
-  background-color: var(--anthrazit);
-  color: var(--white);
+  background-color: variables.$global-color-anthrazit;
+  color: variables.$global-color-white;
 }
 
 button.secondary,
 .button.secondary {
-  background-color: var(--white);
+  background-color: variables.$global-color-white;
   color: rgba(112, 112, 112, 1);
   border: 1px solid #4e4e4e;
 }
@@ -246,7 +246,7 @@ button.secondary,
 }
 
 .form-error-text {
-  color: var(--red);
+  color: variables.$global-color-red;
 }
 
 .logo-caption {
@@ -254,7 +254,7 @@ button.secondary,
   letter-spacing: 0.01rem;
   word-spacing: 0.025rem;
   font-weight: 400;
-  color: var(--black);
+  color: variables.$global-color-black;
   margin-top: 19px;
   max-width: 335px;
 }
@@ -288,7 +288,7 @@ a.service-menue {
   line-height: 18px;
   letter-spacing: 0.01rem;
   word-spacing: 0.025rem;
-  color: var(--black);
+  color: variables.$global-color-black;
   display: inline-block;
   height: 20px;
   line-height: 1.3;
@@ -329,12 +329,12 @@ a.service-menue {
 }
 
 a {
-  color: var(--black);
+  color: variables.$global-color-black;
 }
 
 a:hover,
 a:focus {
-  color: var(--black);
+  color: variables.$global-color-black;
 }
 
 // Infobox
@@ -394,7 +394,7 @@ ul.box-beige {
       padding-right: 65px;
       max-width: 800px;
       background-color: variables.$global-background-sand;
-      color: var(--black);
+      color: variables.$global-color-black;
       font-size: 24px;
       line-height: 28px;
     }
@@ -492,17 +492,17 @@ div.arrow-link > a.text-link-2 {
 }
 
 a {
-  color: var(--black);
+  color: variables.$global-color-black;
 }
 
 a:hover,
 a:focus {
-  color: var(--black);
+  color: variables.$global-color-black;
 }
 
 a.text-link-2 {
   text-decoration: none;
-  color: var(--black);
+  color: variables.$global-color-black;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 300;
@@ -516,7 +516,7 @@ a.text-link-2 {
 
 a.text-link-2:hover,
 a.text-link-2:focus {
-  border-bottom: 1px solid var(--red);
+  border-bottom: 1px solid variables.$global-color-red;
 }
 
 // Feedback Box
@@ -531,7 +531,7 @@ a.text-link-2:focus {
     min-height: 85px;
     display: table-cell;
     vertical-align: top;
-    background-color: var(--blue);
+    background-color: variables.$global-color-blue;
     background-image: url(../img/icon-info.svg);
     background-repeat: no-repeat;
     background-attachment: scroll;
@@ -548,7 +548,7 @@ a.text-link-2:focus {
     padding-right: 75px;
     max-width: 800px;
     font-weight: 300;
-    color: var(--black);
+    color: variables.$global-color-black;
     background-color: variables.$global-color-light-blue;
   }
 
@@ -573,45 +573,45 @@ a.text-link-2:focus {
 
 .feedback-success {
   .feedback-icon {
-    background-color: var(--green);
+    background-color: variables.$global-color-green;
     background-image: url(../img/icon-success.svg);
   }
   .feedback-text {
     background-color: variables.$global-color-light-green;
-    color: var(--black);
+    color: variables.$global-color-black;
   }
 }
 
 .feedback-warning {
   .feedback-icon {
-    background-color: var(--orange);
+    background-color: variables.$global-color-orange;
     background-image: url(../img/icon-warning.svg);
   }
   .feedback-text {
     background-color: variables.$global-color-light-orange;
-    color: var(--black);
+    color: variables.$global-color-black;
   }
 }
 
 .feedback-error {
   .feedback-icon {
-    background-color: var(--dark-red);
+    background-color: variables.$global-color-dark-red;
     background-image: url(../img/icon-danger.svg);
   }
   .feedback-text {
     background-color: variables.$global-color-light-red;
-    color: var(--black);
+    color: variables.$global-color-black;
   }
 }
 
 .feedback-info {
   .feedback-icon {
-    background-color: var(--blue);
+    background-color: variables.$global-color-blue;
     background-image: url(../img/icon-info.svg);
   }
   .feedback-text {
     background-color: variables.$global-color-light-blue;
-    color: var(--black);
+    color: variables.$global-color-black;
   }
 }
 

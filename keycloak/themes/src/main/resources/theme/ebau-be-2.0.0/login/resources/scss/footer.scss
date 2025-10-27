@@ -27,7 +27,7 @@ footer.footer-container {
     font-weight: 300;
     letter-spacing: 0.02rem;
     word-spacing: 0.05rem;
-    color: var(--black);
+    color: variables.$global-color-black;
     padding-left: var(--page-content-margin-horizontal);
     padding-right: var(--page-content-margin-horizontal);
     margin-bottom: 0;
@@ -46,7 +46,7 @@ footer.footer-container {
 
   p,
   span {
-    color: var(--black);
+    color: variables.$global-color-black;
     font-weight: 300;
     margin-bottom: 15px;
     margin-top: -2px;
