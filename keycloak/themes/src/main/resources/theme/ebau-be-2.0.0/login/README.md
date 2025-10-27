@@ -18,7 +18,7 @@ the messages file and add the new language to the list of supported locales.
 Resource files are listed in here as well as class overrides which will get
 interpolated into the page templates. Keycloak delivers a lot of built-in classes
 which you have to override/disable once per theme. For custom implementations you
-will have to look into the page templates themselfs.
+will have to look into the page templates themselves.
 
 
 ### messages/messages_{LANG}.properties
