@@ -281,36 +281,6 @@ button.secondary,
 // Service-Menue
 // https://kantonbern.snowflake.ch/styleguides/1/Kanton-Bern/#Am4143
 a.service-menue {
-  font-size: 14px;
-  line-height: 16px;
-  letter-spacing: 0.01rem;
-  word-spacing: 0.025rem;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 400;
-  color: rgba(0, 0, 0, 1);
-  display: inline-block;
-  text-decoration: none !important;
-  height: 18px;
-  line-height: 1.5;
-  margin: 0 calc(0.25vw + 15px) 0 calc(0.25vw + 15px);
-}
-
-a.service-menue:after {
-  display: block;
-  content: "";
-  border-bottom: 2px solid #000;
-  transform: scaleX(0);
-  transition: transform 100ms ease-in-out;
-}
-
-a.service-menue:hover::after,
-a.service-menue:focus::after,
-a.service-menue:active::after {
-  transform: scaleX(1);
-}
-
-a.service-menue {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
@@ -327,6 +297,20 @@ a.service-menue {
   &.active {
     border-bottom: 2px solid rgba(234, 22, 31, 1);
   }
+}
+
+a.service-menue:after {
+  display: block;
+  content: "";
+  border-bottom: 2px solid #000;
+  transform: scaleX(0);
+  transition: transform 100ms ease-in-out;
+}
+
+a.service-menue:hover::after,
+a.service-menue:focus::after,
+a.service-menue:active::after {
+  transform: scaleX(1);
 }
 
 a.service-menue:after {
@@ -532,7 +516,7 @@ a.text-link-2 {
 
 a.text-link-2:hover,
 a.text-link-2:focus {
-  border-bottom: var(--bottom-line-1px-red);
+  border-bottom: 1px solid var(--red);
 }
 
 // Feedback Box

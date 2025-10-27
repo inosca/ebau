@@ -58,6 +58,7 @@ header {
     /* Mobile menu */
     .mobile-menu-nav {
       visibility: hidden;
+      display: none;
       float: right;
       width: 0;
 
@@ -152,6 +153,7 @@ header {
     @media screen and (max-width: 1119px) {
       .mobile-menu-nav {
         visibility: visible;
+        display: block;
         width: auto;
       }
     }
