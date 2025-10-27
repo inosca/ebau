@@ -1885,15 +1885,6 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         ]:
             instance.set_instance_state("init-distribution", user)
 
-    def _handle_bab(self, instance):
-        if not settings.BAB or not settings.BAB.get("ENABLED"):
-            return
-
-        md = self.get_master_data(instance.case)
-
-        if any(getattr(md, prop) for prop in settings.BAB["MASTER_DATA_PROPERTIES"]):
-            instance.case.meta["is-bab"] = True
-
     def _ag_handle_pgv(self, instance):
         if (
             settings.APPLICATION_NAME != "kt_ag"
@@ -1944,7 +1935,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             self._ur_internal_submission(instance, group)
             self._ur_prepare_cantonal_instances(instance)
             self._so_handle_special_forms(instance)
-            self._handle_bab(instance)
+            instance.update_bab_status()
             self._ag_handle_pgv(instance)
             self._ag_handle_special_forms(instance)
 
@@ -2982,6 +2973,7 @@ class CalumaInstanceCorrectionSerializer(serializers.Serializer):
             )
         elif instance.instance_state.name == settings.CORRECTION["INSTANCE_STATE"]:
             DocumentValidator().validate(instance.case.document, caluma_user)
+            instance.update_bab_status()
 
             workflow_api.resume_case(instance.case, caluma_user)
             instance.set_instance_state(
