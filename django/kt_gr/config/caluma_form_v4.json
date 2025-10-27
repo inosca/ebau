@@ -27,13 +27,13 @@
     "pk": "nutzung-bauvorhaben-v4",
     "fields": {
       "created_at": "2025-10-01T09:43:40.468Z",
-      "modified_at": "2025-10-22T09:08:59.237Z",
+      "modified_at": "2025-10-27T11:30:41.381Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "name": "{\"de\": \"Triage\", \"fr\": null, \"it\": null}",
-      "description": "{\"de\": \"v4\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Triage v4\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": false,
       "is_archived": false,
@@ -243,7 +243,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "beschreibung-der-anlagen-v4",
-      "sort": 5
+      "sort": 4
     }
   },
   {
@@ -303,7 +303,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "das-bauvorhaben-befindet-sich-in",
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -318,7 +318,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "entsorgung-triage",
-      "sort": 1
+      "sort": 6
     }
   },
   {
@@ -423,7 +423,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "hinweis-laermvorbelastetes-gebiet",
-      "sort": 2
+      "sort": 1
     }
   },
   {
@@ -453,7 +453,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "hinweis-vorpruefung-gvg",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -648,7 +648,7 @@
       "modified_by_group": null,
       "form": "nutzung-bauvorhaben-v4",
       "question": "uvp-pflicht",
-      "sort": 6
+      "sort": 5
     }
   },
   {
