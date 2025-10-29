@@ -15,7 +15,7 @@ class IntegerListFormatValidator(BaseFormatValidator):
 class EvenProjectNumberFormatValidator(BaseFormatValidator):
     slug = "even-project-number"
     name = _("EVEN project number format")
-    regex = r"^[A-Z]{2}-[A-Z0-9]{5}(,\s*[A-Z]{2}-[A-Z0-9]{5})*$"
+    regex = r"^[A-Z]{2}-[A-Za-z0-9]{5}(,\s*[A-Z]{2}-[A-Za-z0-9]{5})*$"
     error_msg = _(
         "The marking must consist of two capital letters for the canton abbreviation, a hyphen and five letters/numbers. Multiple project numbers can be separated by commas."
     )

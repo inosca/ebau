@@ -16,6 +16,8 @@ from ..extensions.format_validators import (
         (IntegerListFormatValidator, "1234, asdf", False),
         (IntegerListFormatValidator, "456456, 95174", True),
         (EvenProjectNumberFormatValidator, "AG-1234A", True),
+        (EvenProjectNumberFormatValidator, "AG-fyr5a", True),
+        (EvenProjectNumberFormatValidator, "ag-fyr5a", False),
         (EvenProjectNumberFormatValidator, "ZH-56789", True),
         (EvenProjectNumberFormatValidator, "AG1234A", False),
         (EvenProjectNumberFormatValidator, "AG-123", False),
@@ -26,6 +28,7 @@ from ..extensions.format_validators import (
         (EvenProjectNumberFormatValidator, "AG-1234A, ZH-56789, BE-ABC12", True),
         (EvenProjectNumberFormatValidator, "AG-1234A,ZH-123", False),
         (EvenProjectNumberFormatValidator, "AG-1234A,,ZH-56789", False),
+        (EvenProjectNumberFormatValidator, "AG-fyr5a, zh-12345", False),
     ],
 )
 def test_format_validators(test_class, user_input, result):
