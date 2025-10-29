@@ -36,7 +36,7 @@ def test_suspensions_reason_formatted(
     reason_text,
     expected_reason,
     expected_formatted_reason,
-    disable_deadline_progression,
+    disable_deadline_side_effects,
 ):
     """Test the formatted reason for suspensions."""
     deadline = instance_deadline_factory(instance=instance, service=service)
@@ -67,7 +67,7 @@ def test_suspensions_author_formatted(
     suspension_factory,
     author_type,
     expected_author,
-    disable_deadline_progression,
+    disable_deadline_side_effects,
 ):
     """Test the formatted author for suspensions."""
     deadline = instance_deadline_factory(instance=instance, service=service)
@@ -112,7 +112,7 @@ def test_suspension_list_default(
     role,
     gr_deadlines_settings,
     gr_permissions_settings,
-    disable_deadline_progression,
+    disable_deadline_side_effects,
     settings,
     mocker,
 ):
@@ -187,7 +187,7 @@ def test_suspension_list_gr(
     gr_permissions_settings,
     gr_deadlines_settings,
     set_application_gr,
-    disable_deadline_progression,
+    disable_deadline_side_effects,
     mocker,
 ):
     """Test the suspension list visibility for GR."""
@@ -264,7 +264,7 @@ def test_suspension_list_ag(
     ag_permissions_settings,
     ag_deadlines_settings,
     set_application_ag,
-    disable_deadline_progression,
+    disable_deadline_side_effects,
     create_for_service,
     mocker,
 ):
@@ -366,7 +366,6 @@ def test_suspension_creation_gr(
     set_application_gr,
     gr_permissions_settings,
     gr_deadlines_settings,
-    disable_deadline_progression,
     mocker,
 ):
     """Test the suspension creation for GR."""
@@ -497,7 +496,6 @@ def test_suspension_deletion_and_update_gr(
     set_application_gr,
     gr_permissions_settings,
     gr_deadlines_settings,
-    disable_deadline_progression,
     mocker,
 ):
     """Test the suspension deletion and update for GR."""
@@ -600,7 +598,6 @@ def test_suspension_save_validation_gr(
     set_application_gr,
     gr_permissions_settings,
     gr_deadlines_settings,
-    disable_deadline_progression,
     mocker,
 ):
     """Test the suspension save validation."""
@@ -678,7 +675,7 @@ def test_suspension_queryset_status(
     instance_deadline_factory,
     suspension_factory,
     instance_factory,
-    disable_deadline_progression,
+    disable_deadline_side_effects,
 ):
     instance = instance_factory()
     deadline = instance_deadline_factory(instance=instance, service=service)

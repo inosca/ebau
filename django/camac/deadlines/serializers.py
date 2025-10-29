@@ -74,21 +74,23 @@ class InstanceDeadlineSerializer(serializers.ModelSerializer):
         "deadline_type": DeadlineTypeSerializer,
     }
 
-    def validate_process_deadline_date(self, value):
-        """Validate the process deadline date field."""
-
-        if "process_deadline_date" not in self.initial_data or value is None:
-            return value
-
-        permissions_manager = PermissionManager.from_request(self.context["request"])
-        instance = self.instance.instance if self.instance else None
-
-        if instance:
-            permissions_manager.require_all(
-                instance, "deadlines-deadlines-write-custom-enddate"
+    def validate(self, attrs):
+        if attrs.get("process_deadline_date_override"):
+            permissions_manager = PermissionManager.from_request(
+                self.context["request"]
             )
+            instance = self.instance.instance if self.instance else None
+            if instance:
+                permissions_manager.require_all(
+                    instance, "deadlines-deadlines-write-custom-enddate"
+                )
 
-        return value
+            return attrs
+
+        attrs.pop("process_deadline_date", None)
+        attrs["process_deadline_date_override"] = False
+
+        return attrs
 
     class Meta:
         model = models.InstanceDeadline
@@ -98,6 +100,7 @@ class InstanceDeadlineSerializer(serializers.ModelSerializer):
             "created_at",
             "total_days_of_suspension",
             "process_deadline_days",
+            "target_deadline_date",
         )
         fields = read_only_fields + (
             "instance",

@@ -23,12 +23,13 @@ def test_deadline_types_list_gr(
     service,
     deadline_type_factory,
     service_group_factory,
-    access_level,
     service_group,
-    role,
     expected_count,
+    access_level,
+    role,
     gr_deadlines_settings,
     set_application_gr,
+    disable_deadline_side_effects,
 ):
     """Test the deadline types visibilities for GR."""
 
@@ -92,6 +93,7 @@ def test_deadline_types_filters(
     role,
     search_name,
     expected_count,
+    disable_deadline_side_effects,
 ):
     """Test the deadline types filtering by name."""
     deadline_type_factory(name="Global Type A")

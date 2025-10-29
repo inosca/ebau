@@ -12,5 +12,7 @@ export default Factory.extend({
   processDeadlineDays: () => faker.number.int({ min: 1, max: 30 }),
   processDeadlineDate: () =>
     DateTime.fromJSDate(faker.date.future()).toISODate(),
+  targetDeadlineDate: () =>
+    DateTime.fromJSDate(faker.date.future()).toISODate(),
   createdAt: () => DateTime.fromJSDate(faker.date.past()).toISODate(),
 });

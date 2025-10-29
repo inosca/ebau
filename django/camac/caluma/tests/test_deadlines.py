@@ -1,9 +1,9 @@
-from datetime import datetime
+from datetime import date, datetime
 
 import pytest
 from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_workflow.models import Task, WorkItem
-from django.utils.timezone import make_aware, now
+from django.utils.timezone import make_aware
 from django.utils.translation import gettext as _
 
 from camac.caluma.extensions.events import deadlines
@@ -72,6 +72,10 @@ def test_events_deadlines_additional_demand_suspensions_gr(
         task=Task.objects.get(slug=gr_additional_demand_settings["TASK"]),
         created_by_group=str(service.pk),
     )
+    mocker.patch(
+        "camac.deadlines.models.InstanceDeadline.trigger_side_effect",
+        return_value=False,
+    )
 
     deadlines_models.InstanceDeadline.objects.create_deadline(
         instance=gr_instance, service=service
@@ -120,8 +124,20 @@ def test_events_deadlines_additional_demand_suspensions_gr(
 @pytest.mark.parametrize(
     "service_group__name,role__name,test_case,expected_date",
     [
-        ("municipality", "municipality-lead", "responsible", "2025-02-02"),
+        # No formal exam, set to submit date
+        ("municipality", "municipality-lead", "responsible", "2025-01-01"),
+        # Simplified formal exam, set to submit date
+        ("municipality", "municipality-lead", "responsible_simplified", "2025-01-01"),
+        # Not simplified formal exam, set to publication date.
+        (
+            "municipality",
+            "municipality-lead",
+            "responsible_not_simplified",
+            "2025-02-02",
+        ),
+        # Inquiry, set to inquiry date.
         (ARE_SERVICE_GROUP, "service-lead", "invited", "2025-03-03"),
+        # Not allowed service, don't create deadline
         ("municipality", "municipality-lead", "none", None),
     ],
 )
@@ -143,21 +159,33 @@ def test_events_deadlines_publication_inquiry_gr(
 ):
     """Test deadline creation and the defined start date for the municipality/ARE.
 
-    For the municipality, the deadline should be created and the start date should equal the publication date.
-    For the ARE the deadline should be created and the start date should equal the inquiry date.
+    For the municipality, the deadline should be created and the start date
+    should equal the submit date.
+    But if a formal exam is done and it's not simplified, the start date should
+    equal the formal exam date.
+    For the ARE the deadline should be created and the start date should equal
+    the inquiry date.
     Otherwise no deadline should be created.
     """
     group = admin_user.groups.first()
     service = group.service
     case = gr_instance.case
+    gr_instance.case.meta["submit-date"] = "2025-01-01T12:00:00+0000"
+    gr_instance.case.save()
 
     mocker.patch(
         "camac.instance.models.Instance.responsible_service",
-        return_value=service if test_case == "responsible" else service_factory(),
+        return_value=service
+        if test_case.startswith("responsible")
+        else service_factory(),
     )
     mocker.patch(
         "camac.instance.models.Instance.has_inquiry",
         return_value=test_case == "invited",
+    )
+    mocker.patch(
+        "camac.deadlines.models.InstanceDeadline.trigger_side_effect",
+        return_value=False,
     )
 
     workitem_publication = caluma_work_item_factory(
@@ -178,9 +206,7 @@ def test_events_deadlines_publication_inquiry_gr(
         task=Task.objects.get(slug="inquiry"),
         addressed_groups=[str(service.pk)],
     )
-    workitem_inquiry.created_at = make_aware(
-        datetime.strptime("2025-03-03", "%Y-%m-%d")
-    )
+    workitem_inquiry.created_at = make_aware(datetime(2025, 3, 3, 12, 0))
     workitem_inquiry.save()
 
     workitem_fill_inquiry = caluma_work_item_factory(
@@ -188,17 +214,33 @@ def test_events_deadlines_publication_inquiry_gr(
         task=Task.objects.get(slug="fill-inquiry"),
         addressed_groups=[str(service.pk)],
     )
-    workitem_fill_inquiry.created_at = make_aware(
-        datetime.strptime("2025-03-03", "%Y-%m-%d")
-    )
+    workitem_fill_inquiry.created_at = make_aware(datetime(2025, 3, 3, 12, 0))
     workitem_fill_inquiry.save()
 
-    if test_case == "responsible":
+    if test_case.startswith("responsible_"):
+        workitem_formal_exam = caluma_work_item_factory(
+            case=gr_instance.case,
+            task=Task.objects.get(slug="formal-exam"),
+            created_by_group=str(service.pk),
+            status=WorkItem.STATUS_COMPLETED,
+        )
+        utils.add_answer(
+            workitem_formal_exam.document,
+            "verfahrensart",
+            "verfahrensart-ordentliches-baubewilligungsverfahren"
+            if test_case == "responsible_not_simplified"
+            else "verfahrensart-vereinfachtes-baubewilligungsverfahren",
+        )
+
+    if test_case.startswith("responsible"):
         # manually create for test, normally created by submitting dossier.
         deadlines_models.InstanceDeadline.objects.create_deadline(
             instance=gr_instance, service=service
         )
-        deadlines.post_complete_publication(
+        deadlines.post_create_publication(
+            sender=None, work_item=workitem_publication, user=None, context=None
+        )
+        deadlines.post_complete_publication_or_formal_exam(
             sender=None, work_item=workitem_publication, user=None, context=None
         )
     else:
@@ -222,12 +264,16 @@ def test_events_deadlines_publication_inquiry_gr(
     "service_group__name,role__name", [("municipality", "municipality-lead")]
 )
 @pytest.mark.parametrize(
-    "current_enddate,expected_date",
+    "current_enddate,current_enddate_override,expected_date",
     [
-        # if decision is made and deadline enddate is set, keep it
-        ("2025-03-03", "2025-03-03"),
+        # if decision is made and deadline enddate is not overridden, update it
+        ("2025-03-03", False, "2025-02-02"),
+        # if decision is made and deadline enddate is overridden, keep it
+        ("2025-03-03", True, "2025-03-03"),
         # if no enddate is set during decision, set it to the decision date
-        (None, "2025-02-02"),
+        # regardless of override
+        (None, False, "2025-02-02"),
+        (None, True, "2025-02-02"),
     ],
 )
 def test_events_deadlines_decision_gr(
@@ -236,6 +282,7 @@ def test_events_deadlines_decision_gr(
     gr_instance,
     caluma_work_item_factory,
     current_enddate,
+    current_enddate_override,
     expected_date,
     service_factory,
     instance_deadline_factory,
@@ -261,6 +308,10 @@ def test_events_deadlines_decision_gr(
         "camac.instance.models.Instance.has_inquiry",
         return_value=service.service_group.name != "municipality",
     )
+    mocker.patch(
+        "camac.deadlines.models.InstanceDeadline.trigger_side_effect",
+        return_value=False,
+    )
 
     assert deadlines_models.Suspension.objects.count() == 0
     assert deadlines_models.InstanceDeadline.objects.count() == 0
@@ -268,8 +319,9 @@ def test_events_deadlines_decision_gr(
     deadline = instance_deadline_factory(
         instance=case.family.instance,
         service=service,
-        start_date="2025-01-01",
-        process_deadline_date=make_aware(datetime.strptime(current_enddate, "%Y-%m-%d"))
+        start_date=date(2025, 1, 1),
+        process_deadline_date_override=current_enddate_override,
+        process_deadline_date=date.fromisoformat(current_enddate)
         if current_enddate
         else None,
     )
@@ -323,6 +375,10 @@ def test_post_create_inquiry_ag_creates_deadline(
     mocker.patch(
         "camac.instance.models.Instance.responsible_service",
         return_value=service,
+    )
+    mocker.patch(
+        "camac.deadlines.models.InstanceDeadline.trigger_side_effect",
+        return_value=False,
     )
 
     inquiry_fill_work_item = caluma_work_item_factory(
@@ -403,7 +459,7 @@ def test_post_create_or_redo_inquiry_ag_claim_suspensions(
     )
     mocker.patch("camac.instance.models.Instance.has_inquiry", return_value=True)
     mocker.patch(
-        "camac.deadlines.models.InstanceDeadline.recalculate_progression",
+        "camac.deadlines.models.InstanceDeadline.trigger_side_effect",
         return_value=False,
     )
 
@@ -418,7 +474,7 @@ def test_post_create_or_redo_inquiry_ag_claim_suspensions(
         ),
         addressed_groups=[str(service.pk)],
         document=caluma_document_factory(),
-        closed_at=make_aware(datetime.strptime("2025-01-02", "%Y-%m-%d")),
+        closed_at=make_aware(datetime(2025, 1, 2, 12, 0)),
     )
     inquiry_fill_work_item.case.document.answers.create(
         question=caluma_form_models.Question.objects.get(
@@ -434,9 +490,9 @@ def test_post_create_or_redo_inquiry_ag_claim_suspensions(
         task=Task.objects.get(slug=ag_distribution_settings["INQUIRY_TASK"]),
         addressed_groups=[str(service.pk)],
         document=caluma_document_factory(),
-        created_at=make_aware(datetime.strptime("2025-01-02", "%Y-%m-%d")),
+        created_at=make_aware(datetime(2025, 1, 2, 12, 0)),
         status=WorkItem.STATUS_COMPLETED,
-        closed_at=make_aware(datetime.strptime("2025-01-01", "%Y-%m-%d")),
+        closed_at=make_aware(datetime(2025, 1, 1, 12, 0)),
     )
 
     previous_inquiry_work_item = None
@@ -455,9 +511,9 @@ def test_post_create_or_redo_inquiry_ag_claim_suspensions(
             task=Task.objects.get(slug=ag_distribution_settings["INQUIRY_TASK"]),
             addressed_groups=[str(service.pk)],
             document=caluma_document_factory(),
-            created_at=make_aware(datetime.strptime("2025-01-01", "%Y-%m-%d")),
+            created_at=make_aware(datetime(2025, 1, 1, 12, 0)),
             status=WorkItem.STATUS_COMPLETED,
-            closed_at=make_aware(datetime.strptime("2025-01-01", "%Y-%m-%d")),
+            closed_at=make_aware(datetime(2025, 1, 1, 12, 0)),
         )
         previous_inquiry_fill_work_item.case.document.answers.create(
             question=caluma_form_models.Question.objects.get(
@@ -475,7 +531,7 @@ def test_post_create_or_redo_inquiry_ag_claim_suspensions(
             work_item=previous_inquiry_work_item
             if trigger_action == "create"
             else inquiry_work_item,
-            start_date=now().date(),
+            start_date=datetime.now().date(),
             reason=deadlines_models.Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_INQUIRY_CLAIM,
         )
 
@@ -484,7 +540,7 @@ def test_post_create_or_redo_inquiry_ag_claim_suspensions(
         work_item=inquiry_work_item
         if trigger_action == "create"
         else previous_inquiry_work_item,
-        start_date=now().date(),
+        start_date=datetime.now().date(),
         reason=deadlines_models.Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_INQUIRY_CLAIM,
     )
 
@@ -571,10 +627,9 @@ def test_post_complete_inquiry_fill_ag_creates_deadline(
         return_value=False,
     )
     mocker.patch(
-        "camac.deadlines.models.InstanceDeadline.recalculate_progression",
+        "camac.deadlines.models.InstanceDeadline.trigger_side_effect",
         return_value=False,
     )
-
     if action != "no_deadline":
         instance_deadline_factory(
             instance=ag_instance,
@@ -646,12 +701,13 @@ def test_post_create_withdrawal_check_closes_suspensions(
         if service.service_group.name == "municipality"
         else service_factory(),
     )
+
     mocker.patch(
-        "camac.deadlines.models.InstanceDeadline.recalculate_progression",
+        "camac.instance.models.Instance.has_inquiry",
         return_value=service.service_group.name != "municipality",
     )
     mocker.patch(
-        "camac.deadlines.models.InstanceDeadline.recalculate_progression",
+        "camac.deadlines.models.InstanceDeadline.trigger_side_effect",
         return_value=False,
     )
 
@@ -661,14 +717,14 @@ def test_post_create_withdrawal_check_closes_suspensions(
     )
     suspension_factory(
         deadline=deadline,
-        start_date=now().date(),
+        start_date=datetime.now().date(),
         end_date=None,
         reason=deadlines_models.Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_MANUAL,
     )
     suspension_factory(
         deadline=deadline,
-        start_date=now().date(),
-        end_date=now().date(),
+        start_date=datetime.now().date(),
+        end_date=datetime.now().date(),
         reason=deadlines_models.Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_MANUAL,
     )
 

@@ -56,15 +56,16 @@ export default class DeadlineDeadlineFormModalComponent extends Component {
       const startDate = changeset.pendingData.startDate;
       const data = {
         "process-deadline-days": undefined,
-        processDeadlineDate: undefined,
         "total-days-of-suspension": undefined,
         deadlineType,
         instance,
         startDate,
       };
       if (await this.abilities.can("override deadline")) {
-        data.processDeadlineDate = changeset.pendingData.processDeadlineDate;
-        data.processDeadlineDateOverride = !!data.processDeadlineDate;
+        data["process-deadline-date"] =
+          changeset.pendingData.processDeadlineDate;
+        data["process-deadline-date-override"] =
+          !!data["process-deadline-date"];
       }
 
       this.args.deadline.setProperties(data);

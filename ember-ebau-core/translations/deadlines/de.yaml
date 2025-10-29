@@ -13,6 +13,7 @@ deadlines:
     property:
       startDate: "Start Frist"
       processDeadlineDate: "Verfahrensende"
+      targetDeadlineDate: "Fristende"
       type: "Typ"
     saveSuccess: "Verfahren erfolgreich gespeichert"
     saveError: "Fehler beim Speichern des Verfahrens"
@@ -25,6 +26,7 @@ deadlines:
       endDate: "Effektive Frist"
       processDuration: "Durchlaufzeit"
       processDeadlineDate: "Verfahrensende"
+      targetDeadlineDate: "Fristende"
   suspension:
     property:
       startDate: "Sistierung von"

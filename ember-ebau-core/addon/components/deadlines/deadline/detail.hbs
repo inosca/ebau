@@ -72,11 +72,21 @@
         <strong>{{t "deadlines.deadline.detail.processDeadlineDate"}}</strong>
       </div>
       <div class="uk-width-1-2 uk-width-3-4@m">
+        {{if
+          @deadline.processDeadlineDate
+          (format-date @deadline.processDeadlineDate format="date")
+          (t "deadlines.deadline.noEndDate")
+        }}
+      </div>
+      <div class="uk-width-1-2 uk-width-1-4@m uk-first-column">
+        <strong>{{t "deadlines.deadline.detail.targetDeadlineDate"}}</strong>
+      </div>
+      <div class="uk-width-1-2 uk-width-3-4@m">
         {{#if @deadline.instance.isSuspended}}
           <s>
             {{if
-              @deadline.processDeadlineDate
-              (format-date @deadline.processDeadlineDate format="date")
+              @deadline.targetDeadlineDate
+              (format-date @deadline.targetDeadlineDate format="date")
               (t "deadlines.deadline.noEndDate")
             }}
           </s>
@@ -85,8 +95,8 @@
           </span>
         {{else}}
           {{if
-            @deadline.processDeadlineDate
-            (format-date @deadline.processDeadlineDate format="date")
+            @deadline.targetDeadlineDate
+            (format-date @deadline.targetDeadlineDate format="date")
             (t "deadlines.deadline.noEndDate")
           }}
         {{/if}}

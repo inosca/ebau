@@ -2,9 +2,9 @@ import pytest
 
 
 @pytest.fixture
-def disable_deadline_progression(mocker):
-    """Disable the InstanceDeadline.recalculate_progression method."""
+def disable_deadline_side_effects(mocker):
+    """Disable the InstanceDeadline.trigger_side_effect method."""
     mocker.patch(
-        "camac.deadlines.models.InstanceDeadline.recalculate_progression",
+        "camac.deadlines.models.InstanceDeadline.trigger_side_effect",
         return_value=False,
     )
