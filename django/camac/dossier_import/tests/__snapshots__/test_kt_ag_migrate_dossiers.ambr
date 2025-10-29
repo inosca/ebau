@@ -333,6 +333,12 @@
           {
               "date": null,
               "document__form_id": "baugesuch-migration",
+              "question_id": "in-oeffentliches-gewaesser",
+              "value": "in-oeffentliches-gewaesser-neu"
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
               "question_id": "is-paper",
               "value": "is-paper-no"
           },
@@ -1385,6 +1391,12 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "hochwassergefaehrdung-auswahl-migration",
               "value": "hochwassergefaehrdung-auswahl-migration-ja"
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
+              "question_id": "in-oeffentliches-gewaesser",
+              "value": "in-oeffentliches-gewaesser-neu"
           },
           {
               "date": null,
@@ -4040,6 +4052,12 @@
           {
               "date": null,
               "document__form_id": "pgv-migration",
+              "question_id": "kanalisation",
+              "value": "kanalisation-neu"
+          },
+          {
+              "date": null,
+              "document__form_id": "pgv-migration",
               "question_id": "kantonale-brandschutzbewilligung-fuer-eine-feuerungsanlage-migration",
               "value": "kantonale-brandschutzbewilligung-fuer-eine-feuerungsanlage-migration-ja"
           },
@@ -4216,6 +4234,12 @@
               "document__form_id": "pgv-migration",
               "question_id": "umgebungsarbeiten-in-chf-migration",
               "value": 1000000.0
+          },
+          {
+              "date": null,
+              "document__form_id": "pgv-migration",
+              "question_id": "versickerung",
+              "value": "versickerung-neu"
           },
           {
               "date": null,
@@ -8859,6 +8883,12 @@
           {
               "date": null,
               "document__form_id": "baugesuch-migration",
+              "question_id": "in-oeffentliches-gewaesser",
+              "value": "in-oeffentliches-gewaesser-bestehend"
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
               "question_id": "is-paper",
               "value": "is-paper-no"
           },
@@ -8909,6 +8939,12 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration",
               "value": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration-ja"
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
+              "question_id": "kanalisation",
+              "value": "kanalisation-bestehend"
           },
           {
               "date": null,
@@ -9119,6 +9155,12 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "umgebungsarbeiten-in-chf-migration",
               "value": 40000.0
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
+              "question_id": "versickerung",
+              "value": "versickerung-bestehend"
           },
           {
               "date": null,
@@ -10032,6 +10074,12 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "street-and-housenumber",
               "value": "Entfelderstrasse 22"
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
+              "question_id": "versickerung",
+              "value": "versickerung-bestehend"
           },
           {
               "date": null,
@@ -11952,6 +12000,12 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "hochwassergefaehrdung-auswahl-migration",
               "value": "hochwassergefaehrdung-auswahl-migration-ja"
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
+              "question_id": "in-oeffentliches-gewaesser",
+              "value": "in-oeffentliches-gewaesser-neu"
           },
           {
               "date": null,
@@ -14607,6 +14661,12 @@
           {
               "date": null,
               "document__form_id": "pgv-migration",
+              "question_id": "kanalisation",
+              "value": "kanalisation-neu"
+          },
+          {
+              "date": null,
+              "document__form_id": "pgv-migration",
               "question_id": "kantonale-brandschutzbewilligung-fuer-eine-feuerungsanlage-migration",
               "value": "kantonale-brandschutzbewilligung-fuer-eine-feuerungsanlage-migration-ja"
           },
@@ -14783,6 +14843,12 @@
               "document__form_id": "pgv-migration",
               "question_id": "umgebungsarbeiten-in-chf-migration",
               "value": 1000000.0
+          },
+          {
+              "date": null,
+              "document__form_id": "pgv-migration",
+              "question_id": "versickerung",
+              "value": "versickerung-neu"
           },
           {
               "date": null,
@@ -19426,6 +19492,12 @@
           {
               "date": null,
               "document__form_id": "baugesuch-migration",
+              "question_id": "in-oeffentliches-gewaesser",
+              "value": "in-oeffentliches-gewaesser-bestehend"
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
               "question_id": "is-paper",
               "value": "is-paper-no"
           },
@@ -19476,6 +19548,12 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration",
               "value": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration-ja"
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
+              "question_id": "kanalisation",
+              "value": "kanalisation-bestehend"
           },
           {
               "date": null,
@@ -19686,6 +19764,12 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "umgebungsarbeiten-in-chf-migration",
               "value": 40000.0
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
+              "question_id": "versickerung",
+              "value": "versickerung-bestehend"
           },
           {
               "date": null,
@@ -20599,6 +20683,12 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "street-and-housenumber",
               "value": "Entfelderstrasse 22"
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
+              "question_id": "versickerung",
+              "value": "versickerung-bestehend"
           },
           {
               "date": null,
@@ -21704,6 +21794,12 @@
           {
               "date": null,
               "document__form_id": "pgv-migration",
+              "question_id": "kanalisation",
+              "value": "kanalisation-neu"
+          },
+          {
+              "date": null,
+              "document__form_id": "pgv-migration",
               "question_id": "kantonale-brandschutzbewilligung-fuer-eine-feuerungsanlage-migration",
               "value": "kantonale-brandschutzbewilligung-fuer-eine-feuerungsanlage-migration-ja"
           },
@@ -21880,6 +21976,12 @@
               "document__form_id": "pgv-migration",
               "question_id": "umgebungsarbeiten-in-chf-migration",
               "value": 1000000.0
+          },
+          {
+              "date": null,
+              "document__form_id": "pgv-migration",
+              "question_id": "versickerung",
+              "value": "versickerung-neu"
           },
           {
               "date": null,
@@ -26523,6 +26625,12 @@
           {
               "date": null,
               "document__form_id": "baugesuch-migration",
+              "question_id": "in-oeffentliches-gewaesser",
+              "value": "in-oeffentliches-gewaesser-bestehend"
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
               "question_id": "is-paper",
               "value": "is-paper-no"
           },
@@ -26573,6 +26681,12 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration",
               "value": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration-ja"
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
+              "question_id": "kanalisation",
+              "value": "kanalisation-bestehend"
           },
           {
               "date": null,
@@ -26783,6 +26897,12 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "umgebungsarbeiten-in-chf-migration",
               "value": 40000.0
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
+              "question_id": "versickerung",
+              "value": "versickerung-bestehend"
           },
           {
               "date": null,
@@ -27696,6 +27816,12 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "street-and-housenumber",
               "value": "Entfelderstrasse 22"
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
+              "question_id": "versickerung",
+              "value": "versickerung-bestehend"
           },
           {
               "date": null,
