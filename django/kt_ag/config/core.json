@@ -1140,6 +1140,230 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 22000017,
+    "fields": {
+      "resource": 2000000,
+      "role": 7
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 22000018,
+    "fields": {
+      "resource": 2000000,
+      "role": 9
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 22000019,
+    "fields": {
+      "resource": 2000001,
+      "role": 7
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 22000020,
+    "fields": {
+      "resource": 2000001,
+      "role": 9
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 22000021,
+    "fields": {
+      "resource": 15000000,
+      "role": 7
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 22000022,
+    "fields": {
+      "resource": 15000000,
+      "role": 9
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 22000023,
+    "fields": {
+      "resource": 22000004,
+      "role": 7
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 22000024,
+    "fields": {
+      "resource": 22000004,
+      "role": 9
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 22000025,
+    "fields": {
+      "resource": 22000000,
+      "role": 9
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 22000026,
+    "fields": {
+      "resource": 22000000,
+      "role": 7
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 22000027,
+    "fields": {
+      "resource": 22000003,
+      "role": 9
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 22000028,
+    "fields": {
+      "resource": 22000003,
+      "role": 7
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 22000029,
+    "fields": {
+      "resource": 2000000,
+      "role": 13
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 22000030,
+    "fields": {
+      "resource": 2000000,
+      "role": 14
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 22000031,
+    "fields": {
+      "resource": 2000001,
+      "role": 13
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 22000032,
+    "fields": {
+      "resource": 2000001,
+      "role": 14
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 22000033,
+    "fields": {
+      "resource": 15000000,
+      "role": 13
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 22000034,
+    "fields": {
+      "resource": 15000000,
+      "role": 14
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 22000035,
+    "fields": {
+      "resource": 22000004,
+      "role": 13
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 22000036,
+    "fields": {
+      "resource": 22000004,
+      "role": 14
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 22000037,
+    "fields": {
+      "resource": 22000000,
+      "role": 13
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 22000038,
+    "fields": {
+      "resource": 22000000,
+      "role": 14
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 22000039,
+    "fields": {
+      "resource": 22000002,
+      "role": 7
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 22000040,
+    "fields": {
+      "resource": 22000002,
+      "role": 9
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 22000041,
+    "fields": {
+      "resource": 22000002,
+      "role": 13
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 22000042,
+    "fields": {
+      "resource": 22000002,
+      "role": 14
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 22000043,
+    "fields": {
+      "resource": 22000003,
+      "role": 13
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 22000044,
+    "fields": {
+      "resource": 22000003,
+      "role": 14
+    }
+  },
+  {
     "model": "core.resource",
     "pk": 2000000,
     "fields": {
