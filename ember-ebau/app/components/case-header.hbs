@@ -48,16 +48,35 @@
         /
         <LinkTo @route={{module-route "deadlines" "index"}}>
           {{#if (has-feature "deadlines.useEndDate")}}
-            {{if
-              @case.deadline.processDeadlineDate
-              (format-date @case.deadline.processDeadlineDate format="date")
-              (t "deadlines.deadline.noEndDate")
-            }}
+            {{#if @case.deadline.instance.isSuspended}}
+              <s>
+                {{if
+                  @case.deadline.processDeadlineDate
+                  (format-date @case.deadline.processDeadlineDate format="date")
+                  (t "deadlines.deadline.noEndDate")
+                }}
+              </s>
+            {{else}}
+              {{if
+                @case.deadline.processDeadlineDate
+                (format-date @case.deadline.processDeadlineDate format="date")
+                (t "deadlines.deadline.noEndDate")
+              }}
+            {{/if}}
           {{else}}
-            {{t
-              "deadlines.deadline.processDurationText"
-              count=(or @case.deadline.processDeadlineDays 0)
-            }}
+            {{#if @case.deadline.instance.isSuspended}}
+              <s>
+                {{t
+                  "deadlines.deadline.processDurationText"
+                  count=(or @case.deadline.processDeadlineDays 0)
+                }}
+              </s>
+            {{else}}
+              {{t
+                "deadlines.deadline.processDurationText"
+                count=(or @case.deadline.processDeadlineDays 0)
+              }}
+            {{/if}}
           {{/if}}
         </LinkTo>
       {{/if}}

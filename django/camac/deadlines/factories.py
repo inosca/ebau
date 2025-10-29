@@ -20,11 +20,12 @@ class InstanceDeadlineFactory(DjangoModelFactory):
     deadline_type = SubFactory(DeadlineTypeFactory)
     instance = SubFactory(InstanceFactory)
     service = SubFactory(ServiceFactory)
-    start_date = Faker("date_time", tzinfo=pytz.UTC)
+    start_date = Faker("past_date")
     total_days_of_suspension = Faker("random_int", min=1, max=30)
-    process_deadline_date = Faker("date_time", tzinfo=pytz.UTC)
+    process_deadline_date = Faker("future_date")
     process_deadline_date_override = False
     process_deadline_days = Faker("random_int", min=1, max=30)
+    target_deadline_date = Faker("future_date")
     created_at = Faker("past_datetime", tzinfo=pytz.UTC)
 
     class Meta:
@@ -35,8 +36,8 @@ class SuspensionFactory(DjangoModelFactory):
     deadline = SubFactory(InstanceDeadlineFactory)
     user = SubFactory(UserFactory)
     group = SubFactory(GroupFactory)
-    start_date = Faker("past_datetime", tzinfo=pytz.UTC)
-    end_date = Faker("past_datetime", tzinfo=pytz.UTC)
+    start_date = Faker("past_date")
+    end_date = Faker("past_date")
     reason = Faker(
         "random_element",
         elements=[

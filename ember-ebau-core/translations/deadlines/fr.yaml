@@ -13,17 +13,20 @@ deadlines:
     property:
       startDate:
       processDeadlineDate:
+      targetDeadlineDate:
       type:
     saveSuccess:
     saveError:
     processDurationText:
+    noEndDate:
     detail:
       noResult:
       startDate:
       totalDaysOfSuspension:
-      noEndDate:
       endDate:
+      processDuration:
       processDeadlineDate:
+      targetDeadlineDate:
   suspension:
     property:
       startDate:

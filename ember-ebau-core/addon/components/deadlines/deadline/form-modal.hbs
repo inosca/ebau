@@ -23,12 +23,8 @@
         @errorComponent={{component "input-error"}}
         as |fi|
       >
-        <div data-test-deadlines-deadline-end-date-input>
-          <Datepicker
-            @value={{fi.value}}
-            @maxDate={{this.today}}
-            @onChange={{fi.update}}
-          />
+        <div data-test-deadlines-deadline-start-date-input>
+          <Datepicker @value={{fi.value}} @onChange={{fi.update}} />
         </div>
       </f.input>
       <f.input

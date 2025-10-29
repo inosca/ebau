@@ -38,7 +38,7 @@ def test_instance_deadlines_list_gr(
     gr_permissions_settings,
     gr_deadlines_settings,
     set_application_gr,
-    disable_deadline_progression,
+    disable_deadline_side_effects,
     mocker,
 ):
     """Test the instance deadlines list visibility for GR."""
@@ -130,7 +130,6 @@ def test_instance_deadlines_creation_gr(
     set_application_gr,
     gr_permissions_settings,
     gr_deadlines_settings,
-    disable_deadline_progression,
     mocker,
 ):
     """Test that no role can create deadlines through the API."""
@@ -212,7 +211,6 @@ def test_instance_deadlines_deletion_and_update_gr(
     set_application_gr,
     gr_permissions_settings,
     gr_deadlines_settings,
-    disable_deadline_progression,
     mocker,
 ):
     """Test that only municipality can update instance deadlines.
@@ -298,14 +296,14 @@ def test_instance_deadlines_deletion_and_update_gr(
         ),
         (
             "distribution-service",
-            "trusted-service-read",
+            "no-permission-test",
             "service-afb",
             None,
             status.HTTP_200_OK,
         ),
         (
             "distribution-service",
-            "trusted-service-read",
+            "no-permission-test",
             "service-afb",
             "2025-12-31",
             status.HTTP_403_FORBIDDEN,
@@ -327,7 +325,6 @@ def test_validate_process_deadline_date_ag(
     set_application_ag,
     ag_permissions_settings,
     ag_deadlines_settings,
-    disable_deadline_progression,
     mocker,
 ):
     """Test validation of process_deadline_date field for different roles and values."""
@@ -357,6 +354,7 @@ def test_validate_process_deadline_date_ag(
             "id": str(instance_deadline.pk),
             "attributes": {
                 "process-deadline-date": process_deadline_date,
+                "process-deadline-date-override": process_deadline_date is not None,
             },
             "relationships": {
                 "instance": {

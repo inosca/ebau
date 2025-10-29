@@ -3,7 +3,12 @@ from camac.settings.modules.deadlines_schema import CalculationConfig, Deadlines
 
 DEADLINES = ModuleConfig[DeadlinesConfig](
     default=DeadlinesConfig(),
-    kt_gr=DeadlinesConfig(enabled=True),
+    kt_gr=DeadlinesConfig(
+        enabled=True,
+        calculation=CalculationConfig(
+            exclude_weekends=False,
+        ),
+    ),
     kt_so=DeadlinesConfig(),
     kt_uri=DeadlinesConfig(),
     kt_schwyz=DeadlinesConfig(),

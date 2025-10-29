@@ -1,8 +1,7 @@
-from datetime import datetime
+from datetime import date, datetime
 
 import pytest
 from django.core.management import call_command
-from django.utils.timezone import make_aware
 
 from camac.deadlines import models as deadlines_models
 
@@ -21,19 +20,19 @@ def test_management_command_deadline_progression(
     verbosity,
     has_stdout,
     gr_deadlines_settings,
-    disable_deadline_progression,
+    disable_deadline_side_effects,
     caplog,
 ):
     """Test the management command execution for updating deadline progression."""
     deadline = instance_deadline_factory(
         instance=gr_instance,
         service=service,
-        start_date=make_aware(datetime.strptime("2025-05-20", "%Y-%m-%d")),
-        process_deadline_date=make_aware(datetime.strptime("2025-06-28", "%Y-%m-%d")),
+        start_date=date(2025, 5, 20),
+        process_deadline_date=date(2025, 6, 28),
     )
     suspension_factory(
         deadline=deadline,
-        start_date=make_aware(datetime.strptime("2025-05-25", "%Y-%m-%d")),
+        start_date=date(2025, 5, 25),
         end_date=None,
     )
 
@@ -45,7 +44,7 @@ def test_management_command_deadline_progression(
 
     assert len(caplog.messages) == (1 if has_stdout else 0)
     deadline.refresh_from_db()
-    assert deadline.process_deadline_days == 4
+    assert deadline.process_deadline_days == 5
 
 
 @pytest.mark.freeze_time("2025-05-28")
@@ -55,37 +54,50 @@ def test_management_command_deadline_progression_query(
     suspension_factory,
     instance_deadline_factory,
     instance_factory,
-    disable_deadline_progression,
+    disable_deadline_side_effects,
     gr_deadlines_settings,
 ):
     """Test the management command query to only select deadlines with open suspensions."""
     service1 = service_factory()
     service2 = service_factory()
+    service3 = service_factory()
 
     instance1 = instance_factory()
     instance2 = instance_factory()
+    instance3 = instance_factory()
 
     deadline1 = instance_deadline_factory(
         instance=instance1,
         service=service1,
-        start_date=make_aware(datetime.strptime("2025-05-20", "%Y-%m-%d")),
-        process_deadline_date=make_aware(datetime.strptime("2025-06-28", "%Y-%m-%d")),
+        start_date=date(2025, 5, 20),
+        process_deadline_date=date(2025, 6, 28),
     )
     deadline2 = instance_deadline_factory(
         instance=instance1,
         service=service2,
-        start_date=make_aware(datetime.strptime("2025-05-20", "%Y-%m-%d")),
-        process_deadline_date=make_aware(datetime.strptime("2025-06-28", "%Y-%m-%d")),
+        start_date=date(2025, 5, 20),
+        process_deadline_date=date(2025, 6, 28),
     )
     # deadline ended already
     deadline3 = instance_deadline_factory(
         instance=instance2,
         service=service2,
-        start_date=make_aware(datetime.strptime("2025-05-20", "%Y-%m-%d")),
-        process_deadline_date=make_aware(datetime.strptime("2025-05-21", "%Y-%m-%d")),
+        start_date=date(2025, 5, 20),
+        process_deadline_date=date(2025, 5, 21),
     )
-    instance_deadline_factory(instance=instance_factory(), service=service1)
-    instance_deadline_factory(instance=instance1, service=service_factory())
+    # Will have no suspensions, but end date in the future
+    instance_deadline_factory(
+        instance=instance3,
+        service=service3,
+        start_date=datetime(2025, 4, 20),
+        process_deadline_date=date(2025, 6, 28),
+    )
+    instance_deadline_factory(
+        instance=instance1,
+        service=service_factory(),
+        start_date=date(2025, 5, 20),
+        process_deadline_date=date(2025, 5, 21),
+    )
 
     # Closed suspension for instance1 and service1
     suspension_factory(
@@ -121,10 +133,13 @@ def test_management_command_deadline_progression_query(
         )
     ]
 
-    assert [
-        (instance1.pk, service1.pk),
-        (instance1.pk, service2.pk),
-        (instance2.pk, service2.pk),
-    ] == updates, (
+    assert set(
+        [
+            (instance1.pk, service1.pk),
+            (instance1.pk, service2.pk),
+            (instance2.pk, service2.pk),
+            (instance3.pk, service3.pk),
+        ]
+    ) == set(updates), (
         "The query should only return deadlines with open suspensions or not ended."
     )

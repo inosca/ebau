@@ -43,7 +43,7 @@ def filter_by_decision_task(settings_key):
     )
 
 
-def get_inquiry_decision_answer(work_item):
+def _get_inquiry_decision_answer(work_item):
     fill_work_item = (
         work_item
         if work_item.task.slug == settings.DISTRIBUTION["INQUIRY_ANSWER_FILL_TASK"]
@@ -168,16 +168,46 @@ def post_complete_fill_additional_demand(
                 suspension.complete()
 
 
+@on(post_create_work_item, raise_exception=True)
+@filter_by_tasks(["fill-publication"])
+@filter_events(
+    lambda: settings.DEADLINES
+    and settings.DEADLINES.enabled
+    and settings.APPLICATION_NAME == "kt_gr"
+)
+@transaction.atomic
+def post_create_publication(sender, work_item, user, context=None, **kwargs):
+    """Reset the responsible service start-date when a publication workitem is created."""
+
+    instance = get_instance(work_item)
+    for deadline in deadlines_models.InstanceDeadline.objects.for_instance(instance):
+        if deadline.service == instance.responsible_service():
+            # Recalculate with a new start date
+            deadline.start_date = None
+            deadline.save(update_fields=["start_date"])
+        deadline.recalculate_progression()
+
+
 @on(post_complete_work_item, raise_exception=True)
 @filter_by_tasks(["fill-publication", "formal-exam"])
-@filter_events(lambda: settings.DEADLINES and settings.DEADLINES.enabled)
+@filter_events(
+    lambda: settings.DEADLINES
+    and settings.DEADLINES.enabled
+    and settings.APPLICATION_NAME == "kt_gr"
+)
 @transaction.atomic
-def post_complete_publication(sender, work_item, user, context=None, **kwargs):
+def post_complete_publication_or_formal_exam(
+    sender, work_item, user, context=None, **kwargs
+):
     """Update the deadlines when a publication or formal exam is completed."""
 
     instance = get_instance(work_item)
 
     for deadline in deadlines_models.InstanceDeadline.objects.for_instance(instance):
+        if deadline.service == instance.responsible_service():
+            # Recalculate with a new start date
+            deadline.start_date = None
+            deadline.save(update_fields=["start_date"])
         deadline.recalculate_progression()
 
 
@@ -205,7 +235,7 @@ def post_redo_inquiry_ag(sender, work_item, user, context=None, **kwargs):
         # existing inquiry close date, unless the decision answer
         # is "Unterlagenergänzung"
         if deadline := instance.deadlines.filter(service=service).first():
-            decision_answer = get_inquiry_decision_answer(fill_work_item)
+            decision_answer = _get_inquiry_decision_answer(fill_work_item)
             if decision_answer != settings.DISTRIBUTION["ANSWERS"]["STATUS"][
                 "CLAIM"
             ] and not (
@@ -286,7 +316,7 @@ def post_create_inquiry_ag(sender, work_item, user, context=None, **kwargs):
             )
             if (
                 previous_inquiry
-                and get_inquiry_decision_answer(previous_inquiry)
+                and _get_inquiry_decision_answer(previous_inquiry)
                 != settings.DISTRIBUTION["ANSWERS"]["STATUS"]["CLAIM"]
                 and not (
                     deadlines_models.Suspension.objects.for_deadline(deadline)
@@ -321,7 +351,7 @@ def post_create_inquiry_ag(sender, work_item, user, context=None, **kwargs):
 def post_complete_inquiry_fill_ag(sender, work_item, user, context=None, **kwargs):
     """Create a suspension for inquired service based on the decision."""
     instance = get_instance(work_item)
-    decision_answer = get_inquiry_decision_answer(work_item)
+    decision_answer = _get_inquiry_decision_answer(work_item)
 
     # If the decision is not "Unterlagenergänzung", we do not create a suspension.
     if decision_answer != settings.DISTRIBUTION["ANSWERS"]["STATUS"]["CLAIM"]:
@@ -348,9 +378,7 @@ def post_complete_inquiry_fill_ag(sender, work_item, user, context=None, **kwarg
                     reason=deadlines_models.Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_INQUIRY_CLAIM,
                 )
 
-            instance.deadlines.update_service_deadline(
-                instance=instance, service=service
-            )
+            deadline.recalculate_progression()
 
 
 @on(post_complete_work_item, raise_exception=True)
@@ -361,8 +389,8 @@ def post_complete_inquiry(sender, work_item, user, context=None, **kwargs):
     """Update the deadline when an inquiry is completed."""
 
     instance = get_instance(work_item)
-    for service in Service.objects.filter(pk__in=work_item.addressed_groups):
-        instance.deadlines.update_service_deadline(instance=instance, service=service)
+    for deadline in deadlines_models.InstanceDeadline.objects.for_instance(instance):
+        deadline.recalculate_progression()
 
 
 @on(post_complete_work_item, raise_exception=True)
@@ -370,21 +398,8 @@ def post_complete_inquiry(sender, work_item, user, context=None, **kwargs):
 @filter_events(lambda: settings.DEADLINES and settings.DEADLINES.enabled)
 @transaction.atomic
 def post_complete_decision(sender, work_item, user, context=None, **kwargs):
-    """Update the process deadline date when a decision is completed.
-
-    Only when no process deadline date is set already.
-    """
+    """Update the process deadline date when a decision is completed."""
 
     instance = get_instance(work_item)
-    service = instance.responsible_service()
-
-    deadline = instance.deadlines.filter(service=service).first()
-    if deadline and not deadline.process_deadline_date:
-        answer_deadline = work_item.document.answers.filter(
-            question__slug="decision-date"
-        ).first()
-
-        deadline.process_deadline_date = (
-            answer_deadline.date if answer_deadline else None
-        )
-        deadline.save()
+    for deadline in deadlines_models.InstanceDeadline.objects.for_instance(instance):
+        deadline.recalculate_progression()

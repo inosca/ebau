@@ -65,7 +65,7 @@ class Command(BaseCommand):
                 if not deadline:
                     continue
 
-                deadline.update_progression()
+                deadline.recalculate_progression()
                 if verbosity >= 1:
                     start_date = self._format_date(deadline.start_date)
                     end_date = self._format_date(deadline.process_deadline_date)

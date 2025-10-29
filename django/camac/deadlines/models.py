@@ -3,11 +3,10 @@ from typing import Optional, TypeVar
 
 import uuid_extensions
 from caluma.caluma_workflow.models import WorkItem
-from dateutil.parser import parse as dateutil_parse
 from django.conf import settings
 from django.db import models, transaction
 from django.db.models import Exists, OuterRef, Q
-from django.utils.timezone import is_naive, make_aware, now
+from django.utils.timezone import now
 from django.utils.translation import gettext_lazy as _
 from localized_fields.fields import LocalizedCharField
 
@@ -15,12 +14,20 @@ from camac.caluma.models import Inquiry
 from camac.core.utils import canton_aware
 from camac.deadlines.mixins import DeadlinePermissionMixin
 from camac.deadlines.utils import exclude_suspension_date
+from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
 from camac.user.models import Service
 
 TSuspension = TypeVar("TSuspension", bound="SuspensionQuerySet")
 TInstanceDeadline = TypeVar("TInstanceDeadline", bound="InstanceDeadlinesQuerySet")
 TDeadlineType = TypeVar("TDeadlineType", bound="DeadlineTypeQuerySet")
+
+
+def _fields_have_changed(old, new, fields) -> bool:
+    """Check if any of the specified fields have changed between two model instances."""
+    return not old or any(
+        getattr(old, field, None) != getattr(new, field, None) for field in fields
+    )
 
 
 class DeadlineTypeQuerySet(DeadlinePermissionMixin, models.QuerySet["DeadlineType"]):
@@ -136,27 +143,15 @@ class InstanceDeadlinesQuerySet(
         )
 
         deadline.save()
-        deadline.recalculate_progression()
 
         return deadline
-
-    def update_service_deadline(self, instance: Instance, service: Service):
-        """Update deadline for service/instance.
-
-        If no deadline exists, it will be created (when access).
-        The deadline start date will be set if it can be defined at this stage.
-        The deadline progression will be updated based on the current state.
-        The instance case meta will be updated to reflect the suspension status.
-        """
-        if deadline := instance.deadlines.filter(service=service).first():
-            deadline.recalculate_progression()
 
     def recalculate_deadlines(self, process_all=False):
         updated = []
         qs_deadlines = self.all() if process_all else self.only_running()
 
-        for deadline in qs_deadlines.iterator():
-            deadline.update_progression()
+        for deadline in qs_deadlines.iterator(chunk_size=100):
+            deadline.recalculate_progression()
             updated.append(deadline)
 
         return updated
@@ -251,11 +246,9 @@ class Suspension(models.Model):
 
         super().save(*args, **kwargs)
 
-        # only when the start date or end date has changed, update the deadline
-        if not old or (
-            old.start_date != self.start_date or old.end_date != self.end_date
-        ):
-            self.deadline.recalculate_progression()
+        # only when the related values have been changed, trigger recalculation.
+        if _fields_have_changed(old, self, ["start_date", "end_date"]):
+            self.deadline.trigger_side_effect()
 
     @property
     def reason_formatted(self) -> str:
@@ -286,7 +279,6 @@ class Suspension(models.Model):
         if not self.end_date:
             self.end_date = end_date or now().date()
             self.save(update_fields=["end_date"])
-            self.deadline.recalculate_progression()
 
     def get_suspension_dates(self) -> set[date]:
         start = datetime.combine(self.start_date, datetime.min.time())
@@ -327,6 +319,10 @@ class InstanceDeadline(models.Model):
     service = models.ForeignKey("user.Service", models.DO_NOTHING, related_name="+")
     start_date = models.DateField(blank=True, null=True)
     total_days_of_suspension = models.PositiveIntegerField(
+        blank=True,
+        null=True,
+    )
+    target_deadline_date = models.DateField(
         blank=True,
         null=True,
     )
@@ -371,11 +367,23 @@ class InstanceDeadline(models.Model):
 
         super().save(*args, **kwargs)
 
-        # only when the start date or deadline type has changed, update the deadline
-        if old and (
-            old.start_date != self.start_date or old.deadline_type != self.deadline_type
+        # only when the related values have been changed, trigger recalculation.
+        if _fields_have_changed(
+            old,
+            self,
+            [
+                "start_date",
+                "deadline_type",
+                "process_deadline_date",
+                "process_deadline_date_override",
+                "target_deadline_date",
+            ],
         ):
-            self.recalculate_progression()
+            self.trigger_side_effect()
+
+    def trigger_side_effect(self) -> None:
+        """Recalculate the deadline progression on side effects."""
+        return self.recalculate_progression()
 
     def recalculate_progression(self) -> None:
         """Recalculate the deadline progression.
@@ -383,6 +391,7 @@ class InstanceDeadline(models.Model):
         This will update the start date, progression, and instance case meta.
         """
         self.update_startdate()
+        self.update_target_end_date()
         self.update_progression()
         self.update_instance_case_meta()
 
@@ -398,6 +407,17 @@ class InstanceDeadline(models.Model):
         if old_start_date != self.start_date:
             self.save(update_fields=["start_date"])
 
+    def update_target_end_date(self) -> None:
+        """Update the target end date."""
+        old_target_end_date = self.target_deadline_date
+        self.target_deadline_date = (
+            self._get_target_enddate() if self.start_date else None
+        )
+
+        # only perform the save if any of the fields have actually changed.
+        if old_target_end_date != self.target_deadline_date:
+            self.save(update_fields=["target_deadline_date"])
+
     @transaction.atomic
     def update_progression(self):
         """Update the deadline progression based on the current state.
@@ -408,13 +428,11 @@ class InstanceDeadline(models.Model):
         suspensions for the instance and service. Closed suspensions are calculated
         by end-start date, while open suspensions are calculated by now-start date.
 
-        If no start date is set on the deadline, the end date will be set to None.
-        Otherwise, the process deadline date will be calculated based on the start date,
-        lead time of the deadline type, and total days of suspension.
+        If no start date is set on the deadline, the progress will be unset.
+        Otherwise, the progress is recalculated and saved only if changed.
         """
         instance = self.instance
 
-        old_start_date = self.start_date
         old_process_deadline_date = self.process_deadline_date
         old_process_deadline_days = self.process_deadline_days
         old_total_days_of_suspension = self.total_days_of_suspension
@@ -422,18 +440,18 @@ class InstanceDeadline(models.Model):
         self.total_days_of_suspension = len(self.get_suspension_dates())
 
         if not self.start_date:
-            # Unset the end date and total days of suspension if no start date is set
+            # Unset progress if no start date is set
             self.process_deadline_date = None
             self.process_deadline_days = None
         else:
             # Define the end date based on responsible/inquired service.
             responsible = instance.responsible_service()
 
-            # Only update the process deadline date if it is not overridden.
+            # Only update the process deadline date if it is not overridden or not set
             override = self.process_deadline_date_override
             has_date = self.process_deadline_date
 
-            if not (override and has_date):
+            if not override or not has_date:
                 self.process_deadline_date = (
                     self._get_enddate_responsible()
                     if responsible and responsible.pk == self.service.pk
@@ -443,14 +461,12 @@ class InstanceDeadline(models.Model):
 
         # only perform the save if any of the fields have actually changed.
         if (
-            old_start_date != self.start_date
-            or old_process_deadline_date != self.process_deadline_date
+            old_process_deadline_date != self.process_deadline_date
             or old_process_deadline_days != self.process_deadline_days
             or old_total_days_of_suspension != self.total_days_of_suspension
         ):
             self.save(
                 update_fields=[
-                    "start_date",
                     "total_days_of_suspension",
                     "process_deadline_date",
                     "process_deadline_days",
@@ -495,6 +511,20 @@ class InstanceDeadline(models.Model):
         for suspension in self.suspensions.all():
             suspension_dates.extend(suspension.get_suspension_dates())
 
+        today = now().date()
+        offset_date = (
+            self.process_deadline_date
+            if self.process_deadline_date and self.process_deadline_date < today
+            else today
+        )
+
+        # Ignore suspension dates that are outside the range of start date and
+        # process deadline date (or today if no process deadline date is set).
+        if self.start_date and offset_date:
+            suspension_dates = [
+                d for d in suspension_dates if self.start_date <= d < offset_date
+            ]
+
         # only return unique suspension dates, no overlapping
         return set(suspension_dates)
 
@@ -504,14 +534,19 @@ class InstanceDeadline(models.Model):
         This is the total number of days from the start date to the process deadline date,
         excluding weekends and public holidays if configured to do so.
         """
-        tmp_date = datetime.combine(self.start_date, datetime.min.time())
-        today = datetime.combine(now().date(), datetime.min.time())
-        suspension_dates = self.get_suspension_dates()
+        today = now().date()
+        tmp_date = self.start_date
+        offset_date = (
+            self.process_deadline_date
+            if self.process_deadline_date and self.process_deadline_date < today
+            else today
+        )
 
+        suspension_dates = self.get_suspension_dates()
         total_days = 0
-        while tmp_date < today:
+        while tmp_date < offset_date:
             # If the current day is in the suspension dates, skip it
-            if tmp_date.date() in suspension_dates:
+            if tmp_date in suspension_dates:
                 tmp_date += timedelta(days=1)
                 continue
 
@@ -526,6 +561,123 @@ class InstanceDeadline(models.Model):
         return total_days
 
     def _get_enddate_responsible(self) -> Optional[datetime]:
+        decision_date = MasterData(self.instance.case).decision_date
+
+        return (
+            decision_date.date()
+            if decision_date and isinstance(decision_date, datetime)
+            else decision_date
+        )
+
+    @canton_aware
+    def _get_enddate_inquired(self) -> Optional[datetime]:
+        """For inquired services, the end date is set to the inquiry answer date."""
+        work_item = (
+            Inquiry.objects.for_instance(self.instance)
+            .addressed_to(str(self.service.pk))
+            .order_by("-created_at")
+            .first()
+        )
+
+        return work_item.closed_at.date() if work_item and work_item.closed_at else None
+
+    def _get_enddate_inquired_ag(self) -> Optional[datetime]:
+        """For inquired services in AG, the end date is based on the decision.
+
+        If the decision is set to "Unterlagenergänzung", a suspension is created,
+        and no end date is set. For all other decisions, the end date is set to the
+        inquiry answer date.
+        """
+        has_open_claim_suspension = (
+            self.suspensions.only_open()
+            .filter(
+                reason=Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_INQUIRY_CLAIM
+            )
+            .exists()
+        )
+
+        if has_open_claim_suspension:
+            return None
+
+        work_item = (
+            Inquiry.objects.for_instance(self.instance)
+            .addressed_to(str(self.service.pk))
+            .order_by("-created_at")
+            .first()
+        )
+
+        return work_item.closed_at.date() if work_item and work_item.closed_at else None
+
+    @canton_aware
+    def _get_startdate_responsible(self) -> Optional[datetime]:
+        """Will set the start date for responsible services to the submit date."""
+        return self._get_submit_date()
+
+    def _get_startdate_responsible_gr(self) -> Optional[datetime]:
+        """Canton GR handles the responsible service start date differently.
+
+        If the formal exam is simplified, the start date is set to the submission date.
+        Otherwise, it is set to the publication date.
+        """
+        work_item = (
+            WorkItem.objects.filter(
+                case__family__instance=self.instance,
+                task__slug="formal-exam",
+            )
+            .order_by("-created_at")
+            .first()
+        )
+        if work_item:
+            if work_item.status != WorkItem.STATUS_COMPLETED:
+                # If the formal exam work item is not yet completed, do not set a start date
+                return None
+
+            verfahrensart_answer = (
+                work_item.document.answers.filter(question="verfahrensart").first()
+                if work_item
+                else None
+            )
+            is_simplified = (
+                verfahrensart_answer
+                and verfahrensart_answer.value
+                == "verfahrensart-vereinfachtes-baubewilligungsverfahren"
+            )
+        else:
+            # If no formal exam work item exists for the case, assume simplified,
+            # using the submit date as start date.
+            is_simplified = True
+
+        if is_simplified:
+            return self._get_submit_date()
+
+        # Use the publication date if a publication workitem exists for the given
+        # instance type, otherwise fallback to use the submit date.
+        publication_workitem = (
+            WorkItem.objects.filter(
+                case__family__instance=self.instance,
+                task__slug="fill-publication",
+            )
+            .order_by("-created_at")
+            .first()
+        )
+        return (
+            self._get_publication_end_date()
+            if publication_workitem
+            else self._get_submit_date()
+        )
+
+    def _get_startdate_inquired(self) -> Optional[datetime]:
+        """For inquired services, the start date is set to the inquiry date."""
+        inquiry = (
+            Inquiry.objects.for_instance(self.instance)
+            .addressed_to(self.service)
+            .order_by("-created_at")
+            .first()
+        )
+
+        return inquiry.created_at.date() if inquiry and inquiry.created_at else None
+
+    def _get_target_enddate(self) -> Optional[datetime]:
         suspension_dates = self.get_suspension_dates()
 
         # Start with the the base process deadline date
@@ -554,100 +706,14 @@ class InstanceDeadline(models.Model):
             total_lead_days += 1
             lead_time -= 1
 
-        # Apply the total days of suspension that are not overlapping
+        # Add the total days of suspension that are not overlapping
         # to the process deadline date
         process_deadline_date += timedelta(days=(len(suspension_dates)))
 
         return process_deadline_date
 
-    @canton_aware
-    def _get_enddate_inquired(self) -> Optional[datetime]:
-        """For inquired services, the end date is set to the inquiry answer date."""
-        work_item = (
-            Inquiry.objects.for_instance(self.instance)
-            .addressed_to(str(self.service.pk))
-            .order_by("-created_at")
-            .first()
-        )
-
-        return work_item.closed_at if work_item else None
-
-    def _get_enddate_inquired_ag(self) -> Optional[datetime]:
-        """For inquired services in AG, the end date is based on the decision.
-
-        If the decision is set to "Unterlagenergänzung", a suspension is created,
-        and no end date is set. For all other decisions, the end date is set to the
-        inquiry answer date.
-        """
-        has_open_claim_suspension = (
-            self.suspensions.only_open()
-            .filter(
-                reason=Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_INQUIRY_CLAIM
-            )
-            .exists()
-        )
-
-        if has_open_claim_suspension:
-            return None
-
-        work_item = (
-            Inquiry.objects.for_instance(self.instance)
-            .addressed_to(str(self.service.pk))
-            .order_by("-created_at")
-            .first()
-        )
-
-        return work_item.closed_at if work_item else None
-
-    @canton_aware
-    def _get_startdate_responsible(self) -> Optional[datetime]:
-        """Will set the start date for responsible services to the submit date."""
-        return self._get_submit_date()
-
-    def _get_startdate_responsible_gr(self) -> Optional[datetime]:
-        """Canton GR handles the responsible service start date differently.
-
-        If the formal exam is simplified, the start date is set to the submission date.
-        Otherwise, it is set to the publication date.
-        """
-        work_item = (
-            WorkItem.objects.filter(
-                case__family__instance=self.instance,
-                task__slug="formal-exam",
-            )
-            .order_by("-created_at")
-            .first()
-        )
-        verfahrensart_answer = (
-            work_item.document.answers.filter(question="verfahrensart").first()
-            if work_item
-            else None
-        )
-        is_simplified = (
-            verfahrensart_answer
-            and verfahrensart_answer.value
-            == "verfahrensart-vereinfachtes-baubewilligungsverfahren"
-        )
-
-        return (
-            self._get_submit_date()
-            if is_simplified
-            else self._get_publication_end_date()
-        )
-
-    def _get_startdate_inquired(self) -> Optional[datetime]:
-        """For inquired services, the start date is set to the inquiry date."""
-        inquiry = (
-            Inquiry.objects.for_instance(self.instance)
-            .addressed_to(self.service)
-            .order_by("-created_at")
-            .first()
-        )
-
-        return inquiry.created_at if inquiry else None
-
     def _get_publication_end_date(self) -> Optional[datetime]:
-        """Will return the publication date from the instance case meta."""
+        """Will return the publication date from the workitem."""
         work_item = (
             WorkItem.objects.filter(
                 case__family__instance=self.instance,
@@ -668,10 +734,10 @@ class InstanceDeadline(models.Model):
         return publication_end_date_answer.date if publication_end_date_answer else None
 
     def _get_submit_date(self) -> Optional[datetime]:
-        """Will return the submission date from the instance case meta."""
-        meta_submit_date = self.instance.case.meta.get("submit-date")
-        submit_date = dateutil_parse(meta_submit_date) if meta_submit_date else None
-        if not submit_date:
-            return None
+        submit_date = MasterData(self.instance.case).submit_date
 
-        return make_aware(submit_date) if is_naive(submit_date) else submit_date
+        return (
+            submit_date.date()
+            if submit_date and isinstance(submit_date, datetime)
+            else submit_date
+        )
