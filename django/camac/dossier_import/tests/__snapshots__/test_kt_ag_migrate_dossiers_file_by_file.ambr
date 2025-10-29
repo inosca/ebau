@@ -2556,7 +2556,7 @@
               "date": null,
               "document__form_id": "pgv-migration",
               "question_id": "aussenwaende-migration",
-              "value": "Biberschwanz"
+              "value": "Ziegelstein"
           },
           {
               "date": null,
@@ -2628,7 +2628,7 @@
               "date": null,
               "document__form_id": "pgv-migration",
               "question_id": "dachbelag-migration",
-              "value": "Ziegelstein"
+              "value": "Biberschwanz"
           },
           {
               "date": null,
@@ -7384,7 +7384,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "aussenwaende-migration",
-              "value": "Beton"
+              "value": "Schiefer"
           },
           {
               "date": null,
@@ -7480,7 +7480,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "dachbelag-migration",
-              "value": "Schiefer"
+              "value": "Beton"
           },
           {
               "date": null,
@@ -7546,13 +7546,13 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "farbe-der-aussenwaende-migration",
-              "value": "grün"
+              "value": "dunkelgrau"
           },
           {
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "farbe-des-dachbelags-migration",
-              "value": "dunkelgrau"
+              "value": "grün"
           },
           {
               "date": null,

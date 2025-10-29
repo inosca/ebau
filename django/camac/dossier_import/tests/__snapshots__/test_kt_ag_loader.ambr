@@ -50,10 +50,10 @@
               "insurance_number": "3456"
           }
       ],
-      "building_envelope_exterior_wall_color": "grün",
-      "building_envelope_exterior_wall_material": "Beton",
-      "building_envelope_roof_covering_color": "dunkelgrau",
-      "building_envelope_roof_covering_material": "Schiefer",
+      "building_envelope_exterior_wall_color": "dunkelgrau",
+      "building_envelope_exterior_wall_material": "Schiefer",
+      "building_envelope_roof_covering_color": "grün",
+      "building_envelope_roof_covering_material": "Beton",
       "building_heating_existing": true,
       "building_heating_new": true,
       "building_heating_new_kw": "2000",
