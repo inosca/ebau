@@ -6,6 +6,12 @@ import AlexandriaConfigService from "ember-alexandria/services/alexandria-config
 
 import fetchIfNotCached from "ember-ebau-core/utils/fetch-if-not-cached";
 
+const allowedWebDAVMimeTypes = (
+  getOwnConfig().allowedWebDAVMimeTypes ?? ""
+).split(",");
+const enableOriginalDocumentFilename =
+  getOwnConfig().enableAlexandriaOriginalDocumentFilename;
+
 export default class CustomAlexandriaConfigService extends AlexandriaConfigService {
   markIcons = {
     decision: "stamp",
@@ -183,7 +189,6 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
   zipDownloadNamespace = "/alexandria";
   enablePDFConversion = true;
   enableWebDAV = true;
-  allowedWebDAVMimeTypes = getOwnConfig().allowedWebDAVMimeTypes.split(",");
-  enableOriginalDocumentFilename =
-    getOwnConfig().enableAlexandriaOriginalDocumentFilename;
+  allowedWebDAVMimeTypes = allowedWebDAVMimeTypes;
+  enableOriginalDocumentFilename = enableOriginalDocumentFilename;
 }
