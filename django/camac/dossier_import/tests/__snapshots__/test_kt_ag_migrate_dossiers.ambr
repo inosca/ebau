@@ -7669,7 +7669,7 @@
           {
               "creation_date": "2023-05-24T07:50:48Z",
               "modification_date": "2023-05-24T07:50:48Z",
-              "service_id": 1,
+              "service_id": 80,
               "text": "VERFAHRENSSTAND\nAktion: Gesuch an Kanton senden\nSchritt: Gesuch an Kanton gesendet\nWer: Kantons Admin eBau extended\nKommentar: Gesuch EBPA-8161-2380 wurde an den Kanton gesendet.\n",
               "user_id": 2,
               "visibility": "own_organization"
@@ -7693,7 +7693,7 @@
           {
               "creation_date": "2023-05-24T07:55:33Z",
               "modification_date": "2023-05-24T07:55:33Z",
-              "service_id": 1,
+              "service_id": 80,
               "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Kantons Admin eBau extended\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
@@ -7758,18 +7758,18 @@
       "keywords": [
           {
               "name": "000",
-              "service_id": 1
+              "service_id": 80
           },
           {
               "name": "BVUAFB.23.10",
-              "service_id": 1
+              "service_id": 80
           },
           {
               "name": "EBPA-8161-2380",
-              "service_id": 1
+              "service_id": 80
           }
       ],
-      "service": 1,
+      "service": 80,
       "state": "circulation",
       "user": "Migration",
       "work-items": [
@@ -7782,49 +7782,49 @@
           },
           {
               "addressed_groups": [
-                  "1"
+                  "80"
               ],
               "status": "ready",
               "task_id": "complete-distribution"
           },
           {
               "addressed_groups": [
-                  "1"
+                  "80"
               ],
               "status": "ready",
               "task_id": "create-inquiry"
           },
           {
               "addressed_groups": [
-                  "1"
+                  "80"
               ],
               "status": "ready",
               "task_id": "distribution"
           },
           {
               "addressed_groups": [
-                  "1"
+                  "80"
               ],
               "status": "ready",
               "task_id": "init-additional-demand"
           },
           {
               "addressed_groups": [
-                  "1"
+                  "80"
               ],
               "status": "ready",
               "task_id": "init-distribution"
           },
           {
               "addressed_groups": [
-                  "1"
+                  "80"
               ],
               "status": "ready",
               "task_id": "objections"
           },
           {
               "addressed_groups": [
-                  "1"
+                  "80"
               ],
               "status": "skipped",
               "task_id": "formal-exam"
@@ -18278,7 +18278,7 @@
           {
               "creation_date": "2023-05-24T07:50:48Z",
               "modification_date": "2023-05-24T07:50:48Z",
-              "service_id": 1,
+              "service_id": 80,
               "text": "VERFAHRENSSTAND\nAktion: Gesuch an Kanton senden\nSchritt: Gesuch an Kanton gesendet\nWer: Kantons Admin eBau extended\nKommentar: Gesuch EBPA-8161-2380 wurde an den Kanton gesendet.\n",
               "user_id": 2,
               "visibility": "own_organization"
@@ -18302,7 +18302,7 @@
           {
               "creation_date": "2023-05-24T07:55:33Z",
               "modification_date": "2023-05-24T07:55:33Z",
-              "service_id": 1,
+              "service_id": 80,
               "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Kantons Admin eBau extended\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
@@ -18367,18 +18367,18 @@
       "keywords": [
           {
               "name": "000",
-              "service_id": 1
+              "service_id": 80
           },
           {
               "name": "BVUAFB.23.10",
-              "service_id": 1
+              "service_id": 80
           },
           {
               "name": "EBPA-8161-2380",
-              "service_id": 1
+              "service_id": 80
           }
       ],
-      "service": 1,
+      "service": 80,
       "state": "circulation",
       "user": "Migration",
       "work-items": [
@@ -18391,49 +18391,49 @@
           },
           {
               "addressed_groups": [
-                  "1"
+                  "80"
               ],
               "status": "ready",
               "task_id": "complete-distribution"
           },
           {
               "addressed_groups": [
-                  "1"
+                  "80"
               ],
               "status": "ready",
               "task_id": "create-inquiry"
           },
           {
               "addressed_groups": [
-                  "1"
+                  "80"
               ],
               "status": "ready",
               "task_id": "distribution"
           },
           {
               "addressed_groups": [
-                  "1"
+                  "80"
               ],
               "status": "ready",
               "task_id": "init-additional-demand"
           },
           {
               "addressed_groups": [
-                  "1"
+                  "80"
               ],
               "status": "ready",
               "task_id": "init-distribution"
           },
           {
               "addressed_groups": [
-                  "1"
+                  "80"
               ],
               "status": "ready",
               "task_id": "objections"
           },
           {
               "addressed_groups": [
-                  "1"
+                  "80"
               ],
               "status": "skipped",
               "task_id": "formal-exam"
@@ -25411,7 +25411,7 @@
           {
               "creation_date": "2023-05-24T07:50:48Z",
               "modification_date": "2023-05-24T07:50:48Z",
-              "service_id": 1,
+              "service_id": 80,
               "text": "VERFAHRENSSTAND\nAktion: Gesuch an Kanton senden\nSchritt: Gesuch an Kanton gesendet\nWer: Kantons Admin eBau extended\nKommentar: Gesuch EBPA-8161-2380 wurde an den Kanton gesendet.\n",
               "user_id": 2,
               "visibility": "own_organization"
@@ -25435,7 +25435,7 @@
           {
               "creation_date": "2023-05-24T07:55:33Z",
               "modification_date": "2023-05-24T07:55:33Z",
-              "service_id": 1,
+              "service_id": 80,
               "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Kantons Admin eBau extended\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
@@ -25500,18 +25500,18 @@
       "keywords": [
           {
               "name": "000",
-              "service_id": 1
+              "service_id": 80
           },
           {
               "name": "BVUAFB.23.10",
-              "service_id": 1
+              "service_id": 80
           },
           {
               "name": "EBPA-8161-2380",
-              "service_id": 1
+              "service_id": 80
           }
       ],
-      "service": 1,
+      "service": 80,
       "state": "circulation",
       "user": "Migration",
       "work-items": [
@@ -25524,49 +25524,49 @@
           },
           {
               "addressed_groups": [
-                  "1"
+                  "80"
               ],
               "status": "ready",
               "task_id": "complete-distribution"
           },
           {
               "addressed_groups": [
-                  "1"
+                  "80"
               ],
               "status": "ready",
               "task_id": "create-inquiry"
           },
           {
               "addressed_groups": [
-                  "1"
+                  "80"
               ],
               "status": "ready",
               "task_id": "distribution"
           },
           {
               "addressed_groups": [
-                  "1"
+                  "80"
               ],
               "status": "ready",
               "task_id": "init-additional-demand"
           },
           {
               "addressed_groups": [
-                  "1"
+                  "80"
               ],
               "status": "ready",
               "task_id": "init-distribution"
           },
           {
               "addressed_groups": [
-                  "1"
+                  "80"
               ],
               "status": "ready",
               "task_id": "objections"
           },
           {
               "addressed_groups": [
-                  "1"
+                  "80"
               ],
               "status": "skipped",
               "task_id": "formal-exam"
