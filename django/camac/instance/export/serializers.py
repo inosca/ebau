@@ -124,6 +124,7 @@ class InstanceExportSerializerBE(CalumaInstanceExportSerializer):
         label=_("SB2 submission date"),
     )
     tags = serializers.CharField(source="tag_names", label=_("Tags"))
+
     coordinates_east = serializers.CharField(label=_("Coordinates east"))
     coordinates_north = serializers.CharField(label=_("Coordinates north"))
 
@@ -155,9 +156,25 @@ class InstanceExportSerializerBE(CalumaInstanceExportSerializer):
             "Verwaltungsregion", ""
         )
 
+    def get_fields(self):
+        """Show the coordinates east and north in the excel export if the config is set to True."""
+
+        declared_fields = super().get_fields()
+        coordinate_fields = [
+            "coordinates_east",
+            "coordinates_north",
+        ]
+        if not settings.APPLICATION.get("SHOW_COORDINATES_IN_EXCEL_EXPORT", False):
+            return {
+                name: field
+                for name, field in declared_fields.items()
+                if name not in coordinate_fields
+            }
+        return declared_fields
+
     class Meta(InstanceExportSerializer.Meta):
         # Define order of the fields
-        fields = (
+        fields = [
             "ebau_number",
             "dossier_number",
             "form_name",
@@ -183,7 +200,7 @@ class InstanceExportSerializerBE(CalumaInstanceExportSerializer):
             "inquiry_answer",
             "involved_services",
             "tags",
-        )
+        ]
 
 
 class InstanceExportSerializerSZ(InstanceExportSerializer):
