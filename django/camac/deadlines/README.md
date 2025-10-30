@@ -54,7 +54,7 @@ Command to recalculate deadlines in case something needs to be corrected.
 
 ### Working days:
 
-In the backend settings (`django/camac/settings/modules/deadlines.py`) you can configure `exclude_weekends` and `exclude_public_holidays` (both default to `True`)
+On the deadline type you can configure `exclude_weekends` and `exclude_public_holidays` which will be used in all calculations for that deadline type. These values are set when creating a new deadline in the django admin.
 
 When set to True all calculations will not take weekends and(or) public holidays into account.
 

@@ -13,10 +13,10 @@ from localized_fields.fields import LocalizedCharField
 from camac.caluma.models import Inquiry
 from camac.core.utils import canton_aware
 from camac.deadlines.mixins import DeadlinePermissionMixin
-from camac.deadlines.utils import exclude_suspension_date
 from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
 from camac.user.models import Service
+from camac.utils import is_public_holiday, is_weekend_day
 
 TSuspension = TypeVar("TSuspension", bound="SuspensionQuerySet")
 TInstanceDeadline = TypeVar("TInstanceDeadline", bound="InstanceDeadlinesQuerySet")
@@ -176,6 +176,16 @@ class DeadlineType(models.Model):
         default=False,
         verbose_name=_("Is default"),
     )
+    exclude_weekends = models.BooleanField(
+        default=False,
+        verbose_name=_("Exclude weekends"),
+        help_text=_("If enabled, weekends are not counted towards deadlines."),
+    )
+    exclude_public_holidays = models.BooleanField(
+        default=False,
+        verbose_name=_("Exclude public holidays"),
+        help_text=_("If enabled, public holidays are not counted towards deadlines."),
+    )
 
     objects: DeadlineTypeQuerySet = DeadlineTypeQuerySet.as_manager()
 
@@ -290,7 +300,7 @@ class Suspension(models.Model):
         suspension_dates = []
         while tmp_date < end:
             # Ignore weekends and public holidays if configured to do so
-            if exclude_suspension_date(tmp_date):
+            if self.deadline.exclude_suspension_date(tmp_date):
                 tmp_date += timedelta(days=1)
                 continue
 
@@ -354,6 +364,18 @@ class InstanceDeadline(models.Model):
     def has_open_suspension(self) -> bool:
         """Query if an open suspension exists for the service/instance."""
         return self.suspensions.only_open().exists()
+
+    def exclude_suspension_date(self, date: date) -> bool:
+        deadline_type = self.deadline_type
+
+        return (
+            (
+                (deadline_type.exclude_weekends and is_weekend_day(date))
+                or (deadline_type.exclude_public_holidays and is_public_holiday(date))
+            )
+            if deadline_type
+            else False
+        )
 
     def save(self, *args, **kwargs):
         # fetch the original, to compare which fields have changed,
@@ -551,7 +573,7 @@ class InstanceDeadline(models.Model):
                 continue
 
             # Ignore weekends and public holidays if configured to do so
-            if exclude_suspension_date(tmp_date):
+            if self.exclude_suspension_date(tmp_date):
                 tmp_date += timedelta(days=1)
                 continue
 
@@ -698,7 +720,7 @@ class InstanceDeadline(models.Model):
                 continue
 
             # Ignore weekends and public holidays if configured to do so
-            if exclude_suspension_date(process_deadline_date):
+            if self.exclude_suspension_date(process_deadline_date):
                 process_deadline_date += timedelta(days=1)
                 continue
 

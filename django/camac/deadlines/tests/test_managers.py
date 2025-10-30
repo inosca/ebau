@@ -7,7 +7,6 @@ from django.utils.timezone import make_aware
 
 from camac.constants.kt_gr import ARE_SERVICE_GROUP
 from camac.deadlines import models as deadlines_models
-from camac.settings.modules.deadlines_schema import CalculationConfig
 
 
 @pytest.mark.parametrize(
@@ -500,10 +499,6 @@ def test_update_deadline_progression_responsible_gr(
     """
     application_settings["SHORT_NAME"] = "gr"  # used for public holidays
 
-    calculation_settings: CalculationConfig = gr_deadlines_settings.calculation
-    calculation_settings.exclude_weekends = workingdays
-    calculation_settings.exclude_public_holidays = workingdays
-
     # do not auto-set a start-date in this test.
     mocker.patch(
         "camac.deadlines.models.InstanceDeadline._define_startdate", return_value=None
@@ -519,6 +514,8 @@ def test_update_deadline_progression_responsible_gr(
         else None,
         deadline_type=deadline_type_factory(
             lead_time=lead_time,
+            exclude_weekends=workingdays,
+            exclude_public_holidays=workingdays,
         ),
     )
     deadline.recalculate_progression()
@@ -697,9 +694,6 @@ def test_update_deadline_progression_days_gr(
 ):
     """Test the api to update the deadline progression for a GR instance."""
     application_settings["SHORT_NAME"] = "gr"  # used for public holidays
-    calculation_settings: CalculationConfig = gr_deadlines_settings.calculation
-    calculation_settings.exclude_weekends = workdays
-    calculation_settings.exclude_public_holidays = workdays
 
     deadline = instance_deadline_factory(
         instance=gr_instance,
@@ -709,6 +703,8 @@ def test_update_deadline_progression_days_gr(
         else None,
         deadline_type=deadline_type_factory(
             lead_time=30,
+            exclude_weekends=workdays,
+            exclude_public_holidays=workdays,
         ),
     )
     for suspension_data in suspensions:

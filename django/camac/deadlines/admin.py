@@ -10,7 +10,15 @@ from camac.deadlines import models
 class DeadlineTypeForm(ModelForm):
     class Meta:
         model = models.DeadlineType
-        fields = ("name", "lead_time", "is_default", "services", "service_groups")
+        fields = (
+            "name",
+            "lead_time",
+            "is_default",
+            "exclude_weekends",
+            "exclude_public_holidays",
+            "services",
+            "service_groups",
+        )
 
 
 @register(models.DeadlineType)
@@ -21,6 +29,8 @@ class DeadlineTypeAdmin(EbauAdminMixin, LocalizedFieldsAdminMixin, ModelAdmin):
         "name",
         "lead_time",
         "is_default",
+        "exclude_weekends",
+        "exclude_public_holidays",
         "get_service_names",
         "get_service_group_names",
     ]
