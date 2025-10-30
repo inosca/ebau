@@ -132,9 +132,11 @@
           required
           {{on "change" this.update}}
         >
-          <option selected disabled value="">
-            {{t "billing.product-number-empty"}}
-          </option>
+          {{#unless this.productNumbers.value.length}}
+            <option selected disabled value="">
+              {{t "billing.product-number-empty"}}
+            </option>
+          {{/unless}}
           {{#each this.productNumbers.value as |productNumber|}}
             <option value={{productNumber.number}}>
               {{productNumber.name}}
