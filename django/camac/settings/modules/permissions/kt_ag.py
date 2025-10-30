@@ -168,6 +168,13 @@ MODULE_PORTAL_FORM_WRITE = RequireWorkItem("submit", "ready") & (
     | ((ROLES_MUNICIPALITY | ROLES_AFB) & IsPaper())
 )
 
+ACTION_INSTANCE_CREATE_MODIFICATION = (
+    RequireWorkItem("init-construction-monitoring")
+    & HasApplicantRole(["ADMIN"])
+    & IsForm(
+        ["baugesuch", "baugesuch-mit-uvp", "plangenehmigungsverfahren-gas", "reklame"]
+    )
+)
 ACTION_INSTANCE_COPY_AFTER_REJECTION = RequireInstanceState(
     ["rejected"]
 ) & HasApplicantRole(["ADMIN"])
@@ -217,6 +224,7 @@ AG_PERMISSIONS_SETTINGS = {
             ("documents-write", MODULE_PORTAL_DOCUMENTS_WRITE),
             ("form-read", MODULE_PORTAL_FORM_READ),
             ("form-write", MODULE_PORTAL_FORM_WRITE),
+            ("instance-create-modification", ACTION_INSTANCE_CREATE_MODIFICATION),
             ("instance-copy-after-rejection", ACTION_INSTANCE_COPY_AFTER_REJECTION),
             ("instance-delete", ACTION_INSTANCE_DELETE),
             ("instance-submit", ACTION_INSTANCE_SUBMIT),
