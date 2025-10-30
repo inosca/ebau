@@ -6,9 +6,10 @@ import AlexandriaConfigService from "ember-alexandria/services/alexandria-config
 
 import fetchIfNotCached from "ember-ebau-core/utils/fetch-if-not-cached";
 
-const allowedWebDAVMimeTypes = (
-  getOwnConfig().allowedWebDAVMimeTypes ?? ""
-).split(",");
+const allowedWebDAVMimeTypes = () => {
+  const conf = getOwnConfig().allowedWebDAVMimeTypes;
+  return (conf ?? "").split(",");
+};
 const enableOriginalDocumentFilename =
   getOwnConfig().enableAlexandriaOriginalDocumentFilename;
 
@@ -189,6 +190,6 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
   zipDownloadNamespace = "/alexandria";
   enablePDFConversion = true;
   enableWebDAV = true;
-  allowedWebDAVMimeTypes = allowedWebDAVMimeTypes;
+  allowedWebDAVMimeTypes = allowedWebDAVMimeTypes();
   enableOriginalDocumentFilename = enableOriginalDocumentFilename;
 }
