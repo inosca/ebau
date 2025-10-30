@@ -613,6 +613,20 @@ msgstr "Gemeindespezifischer Formularinhalt"
 msgid "Service contents"
 msgstr "Gemeindespezifische Formularinhalte"
 
+#: camac/deadlines/admin.py camac/deadlines/models.py
+msgid "Form types"
+msgstr "Formulartypen"
+
+#: camac/deadlines/admin.py
+msgid "All forms"
+msgstr "Alle Formulare"
+
+#: camac/deadlines/models.py
+msgid ""
+"List of form IDs this deadline type applies to. If empty, applies to all "
+"forms."
+msgstr "Liste der Formulartypen, auf die dieser Fristentyp angewendet wird. Wenn leer, ""gilt für alle Formulare."
+
 #: camac/deadlines/models.py camac/work_items/models.py
 msgid "Lead time in days"
 msgstr "Vorlaufzeit in Tagen"

@@ -65,6 +65,75 @@ def test_deadline_types_list_gr(
 
 @pytest.mark.parametrize(
     "access_level__slug,role__name,service_group__name",
+    [
+        ("lead-authority", "municipality-lead", "municipality"),
+    ],
+)
+@pytest.mark.parametrize(
+    "form_slug,expected_count",
+    [
+        ("baugesuch", 3),
+        ("baugesuch-v2", 3),
+        ("baugesuch-v3", 0),
+        ("bauanzeige", 0),
+        ("bauanzeige-v2", 2),
+        ("bauanzeige-v3", 0),
+        (None, 5),
+    ],
+)
+def test_deadline_types_list_instance_gr(
+    db,
+    admin_client,
+    service_factory,
+    service,
+    deadline_type_factory,
+    service_group_factory,
+    instance_factory,
+    caluma_case_factory,
+    service_group,
+    form_slug,
+    expected_count,
+    access_level,
+    role,
+    gr_deadlines_settings,
+    set_application_gr,
+    disable_deadline_side_effects,
+):
+    """Test the deadline types visibilities for GR."""
+
+    # Baugesuch deadlines
+    for _ in range(1, 4):
+        deadline_type = deadline_type_factory(form_types=["baugesuch", "baugesuch-v2"])
+        deadline_type.service_groups.set([service_group])
+
+    # bauanzeige deadlines
+    for _ in range(1, 3):
+        deadline_type = deadline_type_factory(
+            form_types=["bauanzeige-v2", "bauanzeige-v4"]
+        )
+        deadline_type.services.set([service])
+
+    # Not visible deadline types
+    other_service_deadline_type = deadline_type_factory()
+    other_service_deadline_type.services.set([service_factory()])
+    other_service_group_deadline_type = deadline_type_factory()
+    other_service_group_deadline_type.service_groups.set([service_group_factory()])
+
+    instance_case = caluma_case_factory(document__form__pk=form_slug)
+    instance = instance_factory(case=instance_case)
+
+    response = admin_client.get(
+        reverse("deadline-types-list"),
+        {"instance": str(instance.pk) if form_slug else ""},
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+    result = response.json()["data"]
+    assert len(result) == expected_count
+
+
+@pytest.mark.parametrize(
+    "access_level__slug,role__name,service_group__name",
     [("lead-authority", "municipality-lead", "municipality")],
 )
 @pytest.mark.parametrize(

@@ -44,15 +44,25 @@ class DeadlineTypeQuerySet(DeadlinePermissionMixin, models.QuerySet["DeadlineTyp
             else self.none()
         )
 
-    def get_default_for_service(
-        self: TDeadlineType, service: Service
+    def for_instance(self: TDeadlineType, instance: Instance) -> TDeadlineType:
+        return self.filter(
+            Q(form_types__isnull=True)
+            | Q(form_types__contains=[str(instance.case.family.document.form.pk)])
+        )
+
+    def get_default(
+        self: TDeadlineType, service: Service, instance: Instance
     ) -> Optional["DeadlineType"]:
         """Return the first default deadline type for the service.
 
         If no default deadline type exists, return the first deadline type
         available for the service.
         """
-        base_query = DeadlineType.objects.for_service(service).order_by("created_at")
+        base_query = (
+            DeadlineType.objects.for_service(service)
+            .for_instance(instance)
+            .order_by("lead_time")
+        )
         first_default = base_query.filter(is_default=True).first()
 
         return first_default if first_default else base_query.first()
@@ -136,8 +146,9 @@ class InstanceDeadlinesQuerySet(
             instance=instance,
             service=service,
             defaults={
-                "deadline_type": DeadlineType.objects.get_default_for_service(
-                    service=service
+                "deadline_type": DeadlineType.objects.get_default(
+                    service=service,
+                    instance=instance,
                 )
             },
         )
@@ -166,6 +177,14 @@ class DeadlineType(models.Model):
     )
     service_groups = models.ManyToManyField(
         "user.ServiceGroup", blank=True, verbose_name=_("Service groups")
+    )
+    form_types = models.JSONField(
+        blank=True,
+        null=True,
+        verbose_name=_("Form types"),
+        help_text=_(
+            "List of form IDs this deadline type applies to. If empty, applies to all forms."
+        ),
     )
     name = LocalizedCharField(verbose_name=_("Name"))
     lead_time = models.PositiveIntegerField(

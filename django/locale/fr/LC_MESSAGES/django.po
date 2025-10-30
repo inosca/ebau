@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-30 13:58+0100\n"
+"POT-Creation-Date: 2025-10-30 15:02+0100\n"
 "PO-Revision-Date: 2025-08-28 10:03+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -569,6 +569,20 @@ msgstr ""
 
 #: camac/core/models.py
 msgid "Service contents"
+msgstr ""
+
+#: camac/deadlines/admin.py camac/deadlines/models.py
+msgid "Form types"
+msgstr ""
+
+#: camac/deadlines/admin.py
+msgid "All forms"
+msgstr ""
+
+#: camac/deadlines/models.py
+msgid ""
+"List of form IDs this deadline type applies to. If empty, applies to all "
+"forms."
 msgstr ""
 
 #: camac/deadlines/models.py camac/work_items/models.py

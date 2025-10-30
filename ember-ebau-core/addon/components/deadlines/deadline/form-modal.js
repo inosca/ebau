@@ -43,7 +43,10 @@ export default class DeadlineDeadlineFormModalComponent extends Component {
       await timeout(500);
     }
 
-    return await this.store.query("deadline-type", { name: search });
+    return await this.store.query("deadline-type", {
+      name: search,
+      instance: this.args.instance.id,
+    });
   });
 
   saveDeadline = task({ drop: true }, async (changeset) => {
