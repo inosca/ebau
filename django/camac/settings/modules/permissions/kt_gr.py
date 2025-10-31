@@ -6,6 +6,7 @@ from camac.permissions.conditions import (
     IsForm,
     IsPaper,
     IsServiceGroup,
+    RequireDeadline,
     RequireInstanceState,
     RequireWorkItem,
 )
@@ -97,11 +98,13 @@ MODULE_DEADLINES_SUSPENSION = (
     STATES_ALL
     & IsServiceGroup(["municipality", ARE_SERVICE_GROUP])
     & HasRole(["municipality-lead", "service-lead"])
+    & RequireDeadline()
 )
 MODULE_DEADLINES_DEADLINE = (
     STATES_ALL
     & IsServiceGroup(["municipality", ARE_SERVICE_GROUP])
     & HasRole(["municipality-lead", "service-lead"])
+    & RequireDeadline()
 )
 
 MODULE_PORTAL_APPLICANTS = HasApplicantRole(["ADMIN"])
