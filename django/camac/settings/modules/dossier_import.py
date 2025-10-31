@@ -102,7 +102,6 @@ DOSSIER_IMPORT = {
         "GROUP": "Support",
         "WRITER_CLASS": "camac.dossier_import.config.kt_ag.dossier_import.dossier_writer.KtAargauDossierWriter",
         "LOADER_CLASS": "camac.dossier_import.config.kt_ag.dossier_import.dossier_loader.KtAargauDossierLoader",
-        "DELETE_KEYWORD": "<LÖSCHEN>",
         "CALUMA_FORM": "baugesuch-migration",
         "FORM_ID": 1,
         "MIGRATION_REPORTS_DIR": env.str(
