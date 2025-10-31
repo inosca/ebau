@@ -236,6 +236,7 @@ APPLICATIONS = {
         "ADMIN_GROUP": 1,
         "ROLE_INHERITANCE": {"trusted_service": "service"},
         "IS_MULTILINGUAL": False,
+        "SHOW_COORDINATES_IN_EXCEL_EXPORT": True,
         "NOTIFICATIONS": {"SUBMIT": None, "APPLICANT": {"NEW": None, "EXISTING": None}},
         "FORM_BACKEND": "camac-ng",
         "THUMBNAIL_SIZE": "x300",
@@ -409,6 +410,7 @@ APPLICATIONS = {
             "GEO Netz AG (Lachen, Seewen)": 313,  # GEO Netz AG (Geometer)
         },
         "TAX_ADMINISTRATION": "tax-administration",  # Liegenschaftenschätzung Steuerverwaltung
+        "SHOW_COORDINATES_IN_EXCEL_EXPORT": False,
         "NOTIFICATIONS": {
             "SUBMIT": "gesuchseingang",
             "APPLICANT": {
@@ -874,6 +876,7 @@ APPLICATIONS = {
         "COPY_RESPONSIBLE_PERSON_ON_SUBMIT": True,
         "THUMBNAIL_SIZE": "x300",
         "MANABI_VERSION_CREATION_THRESHOLD_ENABLED": True,
+        "SHOW_COORDINATES_IN_EXCEL_EXPORT": False,
         "NOTIFICATIONS": {
             "SUBMIT": [
                 {
@@ -1796,6 +1799,7 @@ APPLICATIONS = {
         "INSTANCE_PERMISSIONS": {
             "MUNICIPALITY_WRITE": ["subm", "comm", "ext_gem", "done", "old", "control"]
         },
+        "SHOW_COORDINATES_IN_EXCEL_EXPORT": False,
         "NOTIFICATIONS": {
             "SUBMIT": [
                 {
@@ -1992,6 +1996,7 @@ APPLICATIONS = {
             "document_downloaded": "camac.document.side_effects.create_workflow_entry",
         },
         "CUSTOM_NOTIFICATION_TYPES": [],
+        "SHOW_COORDINATES_IN_EXCEL_EXPORT": False,
         "NOTIFICATIONS": {
             "SUBMIT": [
                 {
@@ -2214,6 +2219,7 @@ APPLICATIONS = {
             "document_downloaded": "camac.document.side_effects.create_workflow_entry",
         },
         "CUSTOM_NOTIFICATION_TYPES": ["gvg", "aib", "are", "are_bab"],
+        "SHOW_COORDINATES_IN_EXCEL_EXPORT": False,
         "NOTIFICATIONS": {
             "SUBMIT": [
                 {
@@ -2451,6 +2457,7 @@ APPLICATIONS = {
         "INSTANCE_PERMISSIONS": {"MUNICIPALITY_WRITE": ["correction"]},
         "USE_INSTANCE_SERVICE": True,
         "CUSTOM_NOTIFICATION_TYPES": [],
+        "SHOW_COORDINATES_IN_EXCEL_EXPORT": False,
         "NOTIFICATIONS": {
             "SUBMIT": [
                 {
@@ -2879,6 +2886,7 @@ APPLICATIONS = {
             "document_downloaded": "camac.document.side_effects.create_workflow_entry",
         },
         "CUSTOM_NOTIFICATION_TYPES": [],
+        "SHOW_COORDINATES_IN_EXCEL_EXPORT": False,
         "NOTIFICATIONS": {
             "SUBMIT": [
                 {
