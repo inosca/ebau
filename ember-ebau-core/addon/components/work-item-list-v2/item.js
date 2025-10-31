@@ -34,6 +34,19 @@ export default class WorkItemListV2Item extends Component {
     return classes.join(" ");
   }
 
+  get targetDeadlineClasses() {
+    const now = DateTime.now();
+    const targetDeadline = DateTime.fromISO(this.args.row.targetDeadlineDate);
+
+    if (targetDeadline && targetDeadline <= now) {
+      return "uk-text-danger";
+    }
+
+    const diff = targetDeadline.diff(now, "days").days;
+
+    return diff <= 7 ? "uk-text-warning" : "";
+  }
+
   @action
   async toggleRead(event) {
     event.preventDefault();

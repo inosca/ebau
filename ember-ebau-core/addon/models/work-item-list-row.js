@@ -10,6 +10,7 @@ export default class WorkItemListRowModel extends Model {
   @attr applicants;
   @attr closedAt;
   @attr deadline;
+  @attr targetDeadlineDate;
   @attr description;
   @attr directLink;
   @attr editLink;

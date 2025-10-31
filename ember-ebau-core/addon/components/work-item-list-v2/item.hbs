@@ -20,6 +20,10 @@
         <span {{uk-tooltip (format-date @row.deadline format="datetime")}}>
           {{date-from-now @row.deadline}}
         </span>
+      {{else if (eq column "targetDeadlineDate")}}
+        <span class={{this.targetDeadlineClasses}}>
+          {{format-date @row.targetDeadlineDate format="date"}}
+        </span>
       {{else if (eq column "closedAt")}}
         {{format-date @row.closedAt format="datetime"}}
       {{else}}

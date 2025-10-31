@@ -30,8 +30,24 @@ def normalize_response(response):
 
 
 @pytest.fixture
+def disable_deadlines_progression(db, mocker):
+    # disable auto calculating the deadline dates, as we set them manually here for this test.
+    mocker.patch(
+        "camac.deadlines.models.InstanceDeadline.trigger_side_effect",
+        return_value=False,
+    )
+
+
+@pytest.fixture
 def work_item_list_row_factory(db, caluma_work_item_factory, service_factory, request):
-    def wrapper(canton="ag", addressed=None, controlling=None, assigned=None, **kwargs):
+    def wrapper(
+        canton="ag",
+        addressed=None,
+        controlling=None,
+        assigned=None,
+        case=None,
+        **kwargs,
+    ):
         master_data_case = request.getfixturevalue(f"{canton.lower()}_master_data_case")
 
         request.getfixturevalue(f"{canton.lower()}_distribution_settings")
@@ -47,8 +63,9 @@ def work_item_list_row_factory(db, caluma_work_item_factory, service_factory, re
 
         created_at = kwargs.pop("created_at", None)
 
+        used_case = case or master_data_case
         work_item = caluma_work_item_factory(
-            case=master_data_case,
+            case=used_case,
             pk=fake.uuid4(),
             deadline=date_to_deadline(
                 date.fromisoformat(kwargs.pop("deadline", fake.date()))
@@ -83,8 +100,14 @@ def setup_work_item_list(
     work_item_list_row_factory,
     user_factory,
     caluma_task_factory,
+    caluma_case_factory,
+    instance_factory,
     work_item_template_factory,
     work_item_list_filter_preset,
+    instance_deadline_factory,
+    request,
+    settings,
+    disable_deadlines_progression,
 ):
     task = caluma_task_factory(
         meta={
@@ -142,7 +165,7 @@ def setup_work_item_list(
             closed_at=now(),
             closed_by_user=user_factory().username,
             created_at="2025-01-02",
-            deadline="2025-01-04",
+            deadline="2025-01-07",
             status=WorkItem.STATUS_COMPLETED,
         )
         work_item_list_row_factory(
@@ -152,6 +175,37 @@ def setup_work_item_list(
             created_at="2025-01-01",
             deadline="2025-01-05",
         )
+
+        # because the target deadline date is set on the instance,
+        # we need to create a new instance for this work item.
+        target_deadline_instance = instance_factory(case=caluma_case_factory())
+        work_item_list_row_factory(
+            canton=canton,
+            name="target-deadline-date",
+            addressed=service,
+            assigned=user,
+            case=target_deadline_instance.case,
+            created_at="2025-01-02",
+            deadline="2025-01-06",
+        )
+
+        if settings.DEADLINES.enabled:
+            master_data_case = request.getfixturevalue(
+                f"{canton.lower()}_master_data_case"
+            )
+
+            instance_deadline_factory(
+                instance=master_data_case.family.instance,
+                start_date="2025-01-02",
+                target_deadline_date="2025-01-02",
+                service=service,
+            )
+            instance_deadline_factory(
+                instance=target_deadline_instance,
+                start_date="2025-01-01",
+                target_deadline_date="2025-01-01",
+                service=service,
+            )
 
         return task, template, work_item_list_filter_preset
 
@@ -188,7 +242,12 @@ def test_work_item_list_row_list(
     assert normalize_response(response.json()) == snapshot()
 
 
-def test_work_item_list_row_list_filters(admin_client, setup_work_item_list, user):
+def test_work_item_list_row_list_filters(
+    admin_client,
+    setup_work_item_list,
+    user,
+    gr_deadlines_settings,
+):
     task, template, preset = setup_work_item_list()
 
     for filters, expected_status, expected in [
@@ -196,7 +255,7 @@ def test_work_item_list_row_list_filters(admin_client, setup_work_item_list, use
         (
             {"role": "active", "unread": True},
             status.HTTP_200_OK,
-            {"assigned", "completed", "from-task"},
+            {"assigned", "completed", "from-task", "target-deadline-date"},
         ),
         (
             {"role": "active", "unread": False},
@@ -206,7 +265,13 @@ def test_work_item_list_row_list_filters(admin_client, setup_work_item_list, use
         (
             {"role": "active"},
             status.HTTP_200_OK,
-            {"assigned", "completed", "from-task", "from-template-and-read"},
+            {
+                "assigned",
+                "completed",
+                "from-task",
+                "from-template-and-read",
+                "target-deadline-date",
+            },
         ),
         (
             {"role": "control"},
@@ -221,7 +286,7 @@ def test_work_item_list_row_list_filters(admin_client, setup_work_item_list, use
         (
             {"role": "active", "responsible": "placeholder"},
             status.HTTP_200_OK,
-            {"assigned"},
+            {"assigned", "target-deadline-date"},
         ),
         (
             {"role": "active", "task": "task"},
@@ -246,12 +311,18 @@ def test_work_item_list_row_list_filters(admin_client, setup_work_item_list, use
         (
             {"role": "active", "exclude_imported": True},
             status.HTTP_200_OK,
-            {"assigned", "completed", "from-task"},
+            {"assigned", "completed", "from-task", "target-deadline-date"},
         ),
         (
             {"role": "active", "exclude_imported": False},
             status.HTTP_200_OK,
-            {"assigned", "completed", "from-task", "from-template-and-read"},
+            {
+                "assigned",
+                "completed",
+                "from-task",
+                "from-template-and-read",
+                "target-deadline-date",
+            },
         ),
     ]:
         if "responsible" in filters:
@@ -278,7 +349,10 @@ def test_work_item_list_row_list_filters(admin_client, setup_work_item_list, use
 
 
 def test_work_item_list_row_list_ordering(
-    admin_client, django_assert_num_queries, setup_work_item_list
+    admin_client,
+    django_assert_num_queries,
+    setup_work_item_list,
+    gr_deadlines_settings,
 ):
     setup_work_item_list()
 
@@ -303,12 +377,18 @@ def test_work_item_list_row_list_ordering(
             "from-template-and-read",
             'ORDER BY "caluma_workflow_workitem"."created_at" DESC LIMIT',
         ),
+        (
+            "target_deadline_date",
+            "target-deadline-date",
+            # 36 is the column index for target_deadline_date in the SELECT statement because it is a subquery result.
+            "ORDER BY 36 ASC LIMIT",
+        ),
     ]:
         params = {
             "page[number]": 1,
             "page[size]": 20,
             "role": "active",
-            "fields[work-item-list-rows]": "task",
+            "fields[work-item-list-rows]": "task,target_deadline_date",
         }
 
         if sort is not None:

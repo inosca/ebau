@@ -3,6 +3,7 @@ workItems:
   type: "Type de demande"
   task: "Tâche"
   deadline: "Délai"
+  targetDeadlineDate: "Délai de procédure"
   created: "Créé"
   responsible: "Responsable"
   service: "Service"
@@ -66,6 +67,7 @@ workItems:
     control: "Contrôler"
     urgent: "Urgent"
     new: "Nouveu"
+    targetDeadlineDate: "Délai de procédure"
 
   templates:
     info:

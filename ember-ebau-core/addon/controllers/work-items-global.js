@@ -72,6 +72,22 @@ export default class WorkItemsGlobalController extends Controller {
     return filters;
   });
 
+  get orderOptions() {
+    const options = [
+      { value: "urgent", label: this.intl.t("workItems.filters.urgent") },
+      { value: "new", label: this.intl.t("workItems.filters.new") },
+    ];
+
+    if (hasFeature("workItems.targetDeadlineDate")) {
+      options.push({
+        value: "target_deadline",
+        label: this.intl.t("workItems.filters.targetDeadlineDate"),
+      });
+    }
+
+    return options;
+  }
+
   get availableTasks() {
     return [
       { value: "all", label: this.intl.t("workItems.filters.all") },
@@ -84,6 +100,8 @@ export default class WorkItemsGlobalController extends Controller {
       return "deadline";
     } else if (this.order === "new") {
       return "-created_at";
+    } else if (this.order === "target_deadline") {
+      return "target_deadline_date";
     }
 
     return "";
@@ -138,7 +156,7 @@ export default class WorkItemsGlobalController extends Controller {
       applicants: { fields: ["applicants"] },
       closedAt: { fields: ["closed_at"] },
       closedBy: { fields: ["closed_by_user"], include: ["closed_by_user"] },
-      deadline: { fields: ["deadline"] },
+      deadline: { fields: ["deadline", "target_deadline_date"] },
       description: { fields: ["description"] },
       instance: { fields: ["instance_name", "special_id"] },
       municipality: { fields: ["municipality"] },

@@ -83,6 +83,7 @@ class WorkItemListRowSerializer(serializers.ModelSerializer):
     description = serializers.CharField(source="instance_description")
     instance_id = serializers.IntegerField()
     instance_name = serializers.CharField()
+    target_deadline_date = serializers.DateField(allow_null=True)
     is_addressed_to_current_service = serializers.SerializerMethodField()
     is_assigned_to_current_user = serializers.SerializerMethodField()
     is_controlled_by_current_service = serializers.SerializerMethodField()
@@ -147,6 +148,7 @@ class WorkItemListRowSerializer(serializers.ModelSerializer):
             "municipality",
             "special_id",
             "status",
+            "target_deadline_date",
             "task",
             "unread",
         ]

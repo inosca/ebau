@@ -28,6 +28,7 @@
           'municipality': 'Aarburg',
           'special-id': '2025-1',
           'status': 'ready',
+          'target-deadline-date': '2025-01-02',
           'task': 'from-template-and-read',
           'unread': False,
         }),
@@ -81,6 +82,7 @@
           'municipality': 'Aarburg',
           'special-id': '2025-1',
           'status': 'ready',
+          'target-deadline-date': '2025-01-02',
           'task': 'from-task',
           'unread': True,
         }),
@@ -127,6 +129,7 @@
           'municipality': 'Aarburg',
           'special-id': '2025-1',
           'status': 'ready',
+          'target-deadline-date': '2025-01-02',
           'task': 'assigned',
           'unread': True,
         }),
@@ -152,9 +155,59 @@
       }),
       dict({
         'attributes': dict({
+          'applicants': None,
+          'closed-at': None,
+          'deadline': '2025-01-06T01:00:00+01:00',
+          'description': None,
+          'direct-link': None,
+          'edit-link': dict({
+            'models': list([
+              '<INSTANCE_ID>',
+              'e435b1ab-c539-4184-bdbf-2fa67d3f48bb',
+            ]),
+            'route': 'cases.detail.work-items.edit',
+          }),
+          'instance-id': '<INSTANCE_ID>',
+          'instance-name': 'Jasmin Hein',
+          'is-addressed-to-current-service': True,
+          'is-assigned-to-current-user': False,
+          'is-controlled-by-current-service': False,
+          'is-created-by-current-service': False,
+          'is-manually-completable': False,
+          'is-ready': True,
+          'is-suspended': False,
+          'municipality': None,
+          'special-id': None,
+          'status': 'ready',
+          'target-deadline-date': '2025-01-01',
+          'task': 'target-deadline-date',
+          'unread': True,
+        }),
+        'id': 'e435b1ab-c539-4184-bdbf-2fa67d3f48bb',
+        'relationships': dict({
+          'addressed-service': dict({
+            'data': dict({
+              'id': '<SERVICE_ID>',
+              'type': 'public-services',
+            }),
+          }),
+          'assigned-user': dict({
+            'data': dict({
+              'id': '<USER_ID>',
+              'type': 'public-users',
+            }),
+          }),
+          'closed-by-user': dict({
+            'data': None,
+          }),
+        }),
+        'type': 'work-item-list-rows',
+      }),
+      dict({
+        'attributes': dict({
           'applicants': 'Tate Inc',
           'closed-at': '2025-07-17T16:33:00+02:00',
-          'deadline': '2025-01-04T01:00:00+01:00',
+          'deadline': '2025-01-07T01:00:00+01:00',
           'description': 'Überbauung "Westfeld"',
           'direct-link': None,
           'edit-link': dict({
@@ -176,6 +229,7 @@
           'municipality': 'Aarburg',
           'special-id': '2025-1',
           'status': 'completed',
+          'target-deadline-date': '2025-01-02',
           'task': 'completed',
           'unread': True,
         }),
@@ -208,7 +262,7 @@
     }),
     'meta': dict({
       'pagination': dict({
-        'count': 4,
+        'count': 5,
         'page': 1,
         'pages': 1,
       }),
@@ -244,6 +298,7 @@
           'municipality': 'Chur',
           'special-id': '2023-1',
           'status': 'ready',
+          'target-deadline-date': '2025-01-02',
           'task': 'from-template-and-read',
           'unread': False,
         }),
@@ -297,6 +352,7 @@
           'municipality': 'Chur',
           'special-id': '2023-1',
           'status': 'ready',
+          'target-deadline-date': '2025-01-02',
           'task': 'from-task',
           'unread': True,
         }),
@@ -343,6 +399,7 @@
           'municipality': 'Chur',
           'special-id': '2023-1',
           'status': 'ready',
+          'target-deadline-date': '2025-01-02',
           'task': 'assigned',
           'unread': True,
         }),
@@ -368,9 +425,59 @@
       }),
       dict({
         'attributes': dict({
+          'applicants': None,
+          'closed-at': None,
+          'deadline': '2025-01-06T01:00:00+01:00',
+          'description': None,
+          'direct-link': None,
+          'edit-link': dict({
+            'models': list([
+              '<INSTANCE_ID>',
+              'f3e7a4b4-da52-4fd6-a7ac-606543938447',
+            ]),
+            'route': 'cases.detail.work-items.edit',
+          }),
+          'instance-id': '<INSTANCE_ID>',
+          'instance-name': 'Edeltraut Hartmann MBA.',
+          'is-addressed-to-current-service': True,
+          'is-assigned-to-current-user': False,
+          'is-controlled-by-current-service': False,
+          'is-created-by-current-service': False,
+          'is-manually-completable': False,
+          'is-ready': True,
+          'is-suspended': False,
+          'municipality': None,
+          'special-id': None,
+          'status': 'ready',
+          'target-deadline-date': '2025-01-01',
+          'task': 'target-deadline-date',
+          'unread': True,
+        }),
+        'id': 'f3e7a4b4-da52-4fd6-a7ac-606543938447',
+        'relationships': dict({
+          'addressed-service': dict({
+            'data': dict({
+              'id': '<SERVICE_ID>',
+              'type': 'public-services',
+            }),
+          }),
+          'assigned-user': dict({
+            'data': dict({
+              'id': '<USER_ID>',
+              'type': 'public-users',
+            }),
+          }),
+          'closed-by-user': dict({
+            'data': None,
+          }),
+        }),
+        'type': 'work-item-list-rows',
+      }),
+      dict({
+        'attributes': dict({
           'applicants': 'Test AG',
           'closed-at': '2025-07-17T16:33:00+02:00',
-          'deadline': '2025-01-04T01:00:00+01:00',
+          'deadline': '2025-01-07T01:00:00+01:00',
           'description': 'Einfamilienhaus',
           'direct-link': None,
           'edit-link': dict({
@@ -392,6 +499,7 @@
           'municipality': 'Chur',
           'special-id': '2023-1',
           'status': 'completed',
+          'target-deadline-date': '2025-01-02',
           'task': 'completed',
           'unread': True,
         }),
@@ -424,7 +532,7 @@
     }),
     'meta': dict({
       'pagination': dict({
-        'count': 4,
+        'count': 5,
         'page': 1,
         'pages': 1,
       }),
@@ -460,6 +568,7 @@
           'municipality': 'Solothurn',
           'special-id': '2601-2024-1',
           'status': 'ready',
+          'target-deadline-date': None,
           'task': 'from-template-and-read',
           'unread': False,
         }),
@@ -513,6 +622,7 @@
           'municipality': 'Solothurn',
           'special-id': '2601-2024-1',
           'status': 'ready',
+          'target-deadline-date': None,
           'task': 'from-task',
           'unread': True,
         }),
@@ -559,6 +669,7 @@
           'municipality': 'Solothurn',
           'special-id': '2601-2024-1',
           'status': 'ready',
+          'target-deadline-date': None,
           'task': 'assigned',
           'unread': True,
         }),
@@ -585,8 +696,58 @@
       dict({
         'attributes': dict({
           'applicants': None,
+          'closed-at': None,
+          'deadline': '2025-01-06T01:00:00+01:00',
+          'description': None,
+          'direct-link': None,
+          'edit-link': dict({
+            'models': list([
+              '<INSTANCE_ID>',
+              '7f048dbe-7e96-4e6a-b1fe-73163163a369',
+            ]),
+            'route': 'cases.detail.work-items.edit',
+          }),
+          'instance-id': '<INSTANCE_ID>',
+          'instance-name': 'Mareike Flantz',
+          'is-addressed-to-current-service': True,
+          'is-assigned-to-current-user': False,
+          'is-controlled-by-current-service': False,
+          'is-created-by-current-service': False,
+          'is-manually-completable': False,
+          'is-ready': True,
+          'is-suspended': False,
+          'municipality': None,
+          'special-id': None,
+          'status': 'ready',
+          'target-deadline-date': None,
+          'task': 'target-deadline-date',
+          'unread': True,
+        }),
+        'id': '7f048dbe-7e96-4e6a-b1fe-73163163a369',
+        'relationships': dict({
+          'addressed-service': dict({
+            'data': dict({
+              'id': '<SERVICE_ID>',
+              'type': 'public-services',
+            }),
+          }),
+          'assigned-user': dict({
+            'data': dict({
+              'id': '<USER_ID>',
+              'type': 'public-users',
+            }),
+          }),
+          'closed-by-user': dict({
+            'data': None,
+          }),
+        }),
+        'type': 'work-item-list-rows',
+      }),
+      dict({
+        'attributes': dict({
+          'applicants': None,
           'closed-at': '2025-07-17T16:33:00+02:00',
-          'deadline': '2025-01-04T01:00:00+01:00',
+          'deadline': '2025-01-07T01:00:00+01:00',
           'description': 'Grosses Haus',
           'direct-link': None,
           'edit-link': dict({
@@ -608,6 +769,7 @@
           'municipality': 'Solothurn',
           'special-id': '2601-2024-1',
           'status': 'completed',
+          'target-deadline-date': None,
           'task': 'completed',
           'unread': True,
         }),
@@ -640,7 +802,7 @@
     }),
     'meta': dict({
       'pagination': dict({
-        'count': 4,
+        'count': 5,
         'page': 1,
         'pages': 1,
       }),

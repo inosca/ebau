@@ -6,6 +6,8 @@ from django.conf import settings
 from django.db import transaction
 from django.db.models import (
     Case,
+    DateField,
+    OuterRef,
     Q,
     Value,
     When,
@@ -17,6 +19,7 @@ from rest_framework.response import Response
 from rest_framework_json_api.django_filters import DjangoFilterBackend
 from rest_framework_json_api.views import ReadOnlyModelViewSet
 
+from camac.deadlines.models import InstanceDeadline
 from camac.settings.modules.work_item_list_schema import WorkItemListConfig
 from camac.user.models import Service, User
 from camac.user.permissions import permission_aware
@@ -105,9 +108,25 @@ class WorkItemListRowViewset(ReadOnlyModelViewSet):
     filterset_class = filters.WorkItemListRowFilterSet
     queryset = WorkItemListRow.objects
     filter_backends = [filters.NullsFirstOrderingFilter, DjangoFilterBackend]
-    ordering_fields = ["deadline", "created_at"]
+    ordering_fields = ["deadline", "created_at", "target_deadline_date"]
     ordering_nulls_first = ["deadline"]
     ordering = ["deadline"]
+
+    def get_queryset(self):
+        if settings.DEADLINES and settings.DEADLINES.enabled:
+            return self.queryset.annotate(
+                target_deadline_date=(
+                    InstanceDeadline.objects.filter(
+                        service=self.request.group.service_id
+                    )
+                    .filter(instance_id=OuterRef("instance_id"))
+                    .values("target_deadline_date")[:1]
+                )
+            )
+        else:
+            return self.queryset.annotate(
+                target_deadline_date=Value(None, output_field=DateField())
+            )
 
     def paginate_queryset(self, queryset):
         """Paginate the queryset.

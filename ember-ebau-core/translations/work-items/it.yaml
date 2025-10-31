@@ -3,6 +3,7 @@ workItems:
   type: "Tipo di domanda"
   task: "Compito"
   deadline: "Scadenza"
+  targetDeadlineDate: "Termine procedurale"
   created: "Creato"
   responsible: "Responsabile"
   service: "Servizio"
@@ -69,6 +70,7 @@ workItems:
     control: "Controlling"
     urgent: "Urgente"
     new: "Nuovo"
+    targetDeadlineDate: "Termine procedurale"
 
   templates:
     info:

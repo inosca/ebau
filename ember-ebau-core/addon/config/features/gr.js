@@ -61,6 +61,7 @@ export default {
   },
   workItems: {
     v2: true,
+    targetDeadlineDate: true,
   },
   changeGeometer: {
     enabled: false,

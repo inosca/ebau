@@ -47,10 +47,7 @@
         @name="order"
         @label={{t "workItems.filters.order"}}
         @selected={{this.order}}
-        @options={{array
-          (hash value="urgent" label=(t "workItems.filters.urgent"))
-          (hash value="new" label=(t "workItems.filters.new"))
-        }}
+        @options={{this.orderOptions}}
         @onChange={{this.setFilter}}
       />
       {{#if this.workItemListConfig.showTaskFilter}}
