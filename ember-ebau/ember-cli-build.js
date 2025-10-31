@@ -26,9 +26,6 @@ module.exports = function (defaults) {
     "localized-model": {
       sanitizeLocale: true,
     },
-    "ember-simple-auth": {
-      useSessionSetupMethod: true,
-    },
     "@embroider/macros": {
       setConfig: {
         "@ember-data/store": {
