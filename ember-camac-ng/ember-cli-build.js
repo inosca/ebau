@@ -51,9 +51,6 @@ module.exports = function (defaults) {
       // https://github.com/clean-css/clean-css/issues/1280
       options: { level: { 1: { all: true, tidySelectors: false } } },
     },
-    "ember-simple-auth": {
-      useSessionSetupMethod: true,
-    },
     fingerprint: {
       enabled: true,
       prepend,

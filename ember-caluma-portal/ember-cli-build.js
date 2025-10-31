@@ -45,9 +45,6 @@ module.exports = function (defaults) {
     "localized-model": {
       sanitizeLocale: true,
     },
-    "ember-simple-auth": {
-      useSessionSetupMethod: true,
-    },
     fingerprint: {
       extensions: ["js", "css", "map"],
     },

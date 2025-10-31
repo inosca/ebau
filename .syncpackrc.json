@@ -20,11 +20,6 @@
   ],
   "versionGroups": [
     {
-      "label": "Don't use broken ember-apollo-client versions",
-      "dependencies": ["ember-apollo-client"],
-      "pinVersion": "4.0.2"
-    },
-    {
       "label": "Keep @ember-data/* in sync with ember-data",
       "dependencies": ["@ember-data/*", "ember-data"],
       "policy": "sameRange"
@@ -46,6 +41,11 @@
       "packages": ["ember-ebau-core"],
       "dependencyTypes": ["!dev", "!prod", "!local", "!engines"],
       "isBanned": true
+    },
+    {
+      "label": "Remove deprecations for ember-power-select v9 in deprecationWorkflow.js first",
+      "dependencies": ["ember-power-select"],
+      "pinVersion": "8.11.0"
     }
   ]
 }
