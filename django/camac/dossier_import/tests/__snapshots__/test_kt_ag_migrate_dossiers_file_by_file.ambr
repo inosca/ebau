@@ -130,8 +130,7 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "gewaesserschutzbereich-auswahl-migration",
               "value": [
-                  "gewaesserschutzbereich-auswahl-migration-au-a",
-                  "gewaesserschutzbereich-auswahl-migration-uebrige-bereiche"
+                  "gewaesserschutzbereich-auswahl-migration-au-a"
               ]
           },
           {
@@ -169,6 +168,12 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "hochwassergefaehrdung-auswahl-migration",
               "value": "hochwassergefaehrdung-auswahl-migration-ja"
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
+              "question_id": "in-oeffentliches-gewaesser",
+              "value": "in-oeffentliches-gewaesser-neu"
           },
           {
               "date": null,
@@ -2556,7 +2561,7 @@
               "date": null,
               "document__form_id": "pgv-migration",
               "question_id": "aussenwaende-migration",
-              "value": "Biberschwanz"
+              "value": "Ziegelstein"
           },
           {
               "date": null,
@@ -2628,7 +2633,7 @@
               "date": null,
               "document__form_id": "pgv-migration",
               "question_id": "dachbelag-migration",
-              "value": "Ziegelstein"
+              "value": "Biberschwanz"
           },
           {
               "date": null,
@@ -2721,8 +2726,7 @@
               "document__form_id": "pgv-migration",
               "question_id": "gewaesserschutzbereich-auswahl-migration",
               "value": [
-                  "gewaesserschutzbereich-auswahl-migration-au-a",
-                  "gewaesserschutzbereich-auswahl-migration-uebrige-bereiche"
+                  "gewaesserschutzbereich-auswahl-migration-au-a"
               ]
           },
           {
@@ -2759,7 +2763,7 @@
               "date": null,
               "document__form_id": "pgv-migration",
               "question_id": "hochwassergefaehrdung-auswahl-migration",
-              "value": "hochwassergefaehrdung-auswahl-migration-nein"
+              "value": "hochwassergefaehrdung-auswahl-migration-ja"
           },
           {
               "date": null,
@@ -2820,6 +2824,12 @@
               "document__form_id": "pgv-migration",
               "question_id": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration",
               "value": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration-ja"
+          },
+          {
+              "date": null,
+              "document__form_id": "pgv-migration",
+              "question_id": "kanalisation",
+              "value": "kanalisation-neu"
           },
           {
               "date": null,
@@ -3000,6 +3010,12 @@
               "document__form_id": "pgv-migration",
               "question_id": "umgebungsarbeiten-in-chf-migration",
               "value": 1000000.0
+          },
+          {
+              "date": null,
+              "document__form_id": "pgv-migration",
+              "question_id": "versickerung",
+              "value": "versickerung-neu"
           },
           {
               "date": null,
@@ -6437,7 +6453,7 @@
           {
               "creation_date": "2023-05-24T07:50:48Z",
               "modification_date": "2023-05-24T07:50:48Z",
-              "service_id": 1,
+              "service_id": 80,
               "text": "VERFAHRENSSTAND\nAktion: Gesuch an Kanton senden\nSchritt: Gesuch an Kanton gesendet\nWer: Kantons Admin eBau extended\nKommentar: Gesuch EBPA-8161-2380 wurde an den Kanton gesendet.\n",
               "user_id": 2,
               "visibility": "own_organization"
@@ -6461,7 +6477,7 @@
           {
               "creation_date": "2023-05-24T07:55:33Z",
               "modification_date": "2023-05-24T07:55:33Z",
-              "service_id": 1,
+              "service_id": 80,
               "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Kantons Admin eBau extended\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
               "user_id": 2,
               "visibility": "own_organization"
@@ -6526,18 +6542,18 @@
       "keywords": [
           {
               "name": "000",
-              "service_id": 1
+              "service_id": 80
           },
           {
               "name": "BVUAFB.23.10",
-              "service_id": 1
+              "service_id": 80
           },
           {
               "name": "EBPA-8161-2380",
-              "service_id": 1
+              "service_id": 80
           }
       ],
-      "service": 1,
+      "service": 80,
       "state": "circulation",
       "user": "Migration",
       "work-items": [
@@ -6550,49 +6566,49 @@
           },
           {
               "addressed_groups": [
-                  "1"
+                  "80"
               ],
               "status": "ready",
               "task_id": "complete-distribution"
           },
           {
               "addressed_groups": [
-                  "1"
+                  "80"
               ],
               "status": "ready",
               "task_id": "create-inquiry"
           },
           {
               "addressed_groups": [
-                  "1"
+                  "80"
               ],
               "status": "ready",
               "task_id": "distribution"
           },
           {
               "addressed_groups": [
-                  "1"
+                  "80"
               ],
               "status": "ready",
               "task_id": "init-additional-demand"
           },
           {
               "addressed_groups": [
-                  "1"
+                  "80"
               ],
               "status": "ready",
               "task_id": "init-distribution"
           },
           {
               "addressed_groups": [
-                  "1"
+                  "80"
               ],
               "status": "ready",
               "task_id": "objections"
           },
           {
               "addressed_groups": [
-                  "1"
+                  "80"
               ],
               "status": "skipped",
               "task_id": "formal-exam"
@@ -7384,7 +7400,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "aussenwaende-migration",
-              "value": "Beton"
+              "value": "Schiefer"
           },
           {
               "date": null,
@@ -7480,7 +7496,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "dachbelag-migration",
-              "value": "Schiefer"
+              "value": "Beton"
           },
           {
               "date": null,
@@ -7546,13 +7562,13 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "farbe-der-aussenwaende-migration",
-              "value": "grün"
+              "value": "dunkelgrau"
           },
           {
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "farbe-des-dachbelags-migration",
-              "value": "dunkelgrau"
+              "value": "grün"
           },
           {
               "date": null,
@@ -7651,6 +7667,12 @@
           {
               "date": null,
               "document__form_id": "baugesuch-migration",
+              "question_id": "in-oeffentliches-gewaesser",
+              "value": "in-oeffentliches-gewaesser-bestehend"
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
               "question_id": "is-paper",
               "value": "is-paper-no"
           },
@@ -7701,6 +7723,12 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration",
               "value": "ist-mit-dem-vorhaben-ein-oeffentliches-gewaesser-betroffen-migration-ja"
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
+              "question_id": "kanalisation",
+              "value": "kanalisation-bestehend"
           },
           {
               "date": null,
@@ -7911,6 +7939,12 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "umgebungsarbeiten-in-chf-migration",
               "value": 40000.0
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
+              "question_id": "versickerung",
+              "value": "versickerung-bestehend"
           },
           {
               "date": null,
@@ -8824,6 +8858,12 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "street-and-housenumber",
               "value": "Entfelderstrasse 22"
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
+              "question_id": "versickerung",
+              "value": "versickerung-bestehend"
           },
           {
               "date": null,

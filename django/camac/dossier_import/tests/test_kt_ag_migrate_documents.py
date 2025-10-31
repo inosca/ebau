@@ -7,7 +7,6 @@ from django.conf import settings
 from camac.dossier_import.config.kt_ag.documents.dev_ebau_document_client import (
     DevEbauDocumentClient,
 )
-from camac.dossier_import.config.kt_ag.documents.docs_importer import DocsImporter
 from camac.dossier_import.config.kt_ag.dossier_import.dossier_classes import (
     DossierTypes,
     KtAargauDossier,
@@ -51,6 +50,9 @@ def test_import_from_s3(db, setup_dossier_import_ag):  # pragma: no cover
 
 def _import_docs(municipality, municipality_id, dossier_ids):  # pragma: no cover
     _prepare_instance(dossier_ids, municipality_id)
+
+    from camac.dossier_import.config.kt_ag.documents.docs_importer import DocsImporter
+
     DocsImporter(
         municipality, dossier_ids, "test_segment", "test_start_time"
     ).do_import()
