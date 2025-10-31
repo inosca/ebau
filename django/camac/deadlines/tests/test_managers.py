@@ -41,6 +41,60 @@ def test_update_deadline_no_access(
         (ARE_SERVICE_GROUP, "service-lead"),
     ],
 )
+@pytest.mark.parametrize(
+    "form_slug,expected_count",
+    [
+        ("baugesuch", 1),
+        ("baugesuch-v1", 1),
+        ("baugesuch-v2", 1),
+        ("bauanzeige", 1),
+        ("vorlaeufige-beurteilung", 0),
+        ("vorlaeufige-beurteilung-v1", 0),
+    ],
+)
+def test_create_deadline_form_type_gr(
+    db,
+    service,
+    gr_instance,
+    form_slug,
+    expected_count,
+    service_group,
+    service_factory,
+    gr_permissions_settings,
+    gr_deadlines_settings,
+    set_application_gr,
+    disable_deadline_side_effects,
+    mocker,
+):
+    """Test the api to create a based on the form type."""
+    gr_instance.case.family.document.form.slug = form_slug
+
+    mocker.patch(
+        "camac.instance.models.Instance.responsible_service",
+        return_value=service
+        if service_group.name == "municipality"
+        else service_factory(),
+    )
+    mocker.patch(
+        "camac.instance.models.Instance.has_inquiry",
+        return_value=service_group.name == ARE_SERVICE_GROUP,
+    )
+
+    deadlines_models.InstanceDeadline.objects.create_deadline(
+        instance=gr_instance, service=service
+    )
+    assert gr_instance.deadlines.filter(service=service).count() == expected_count, (
+        "Deadline should only be created for matching form types"
+    )
+
+
+@pytest.mark.parametrize(
+    "service_group__name,role__name",
+    [
+        ("municipality", "municipality-lead"),
+        (ARE_SERVICE_GROUP, "service-lead"),
+    ],
+)
 def test_update_deadline(
     db,
     service,

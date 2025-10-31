@@ -33,8 +33,21 @@ class DeadlinePermissionMixin:
             and service.service_group.name in self.allowed_service_groups()
         )
 
+    @canton_aware
     def has_instance_access(self, instance: Instance, service: Service) -> bool:
         """Check if a service has access to an instance."""
+        return self.has_deadline_access(service) and (
+            service.pk == instance.responsible_service().pk
+            or instance.has_inquiry(service.pk)
+        )
+
+    def has_instance_access_gr(self, instance: Instance, service: Service) -> bool:
+        """In GR, some dossier types do not allow deadlines."""
+        if str(instance.case.family.document.form.pk).startswith(
+            "vorlaeufige-beurteilung"
+        ):
+            return False
+
         return self.has_deadline_access(service) and (
             service.pk == instance.responsible_service().pk
             or instance.has_inquiry(service.pk)
