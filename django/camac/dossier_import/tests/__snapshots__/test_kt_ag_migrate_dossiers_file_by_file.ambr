@@ -130,8 +130,7 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "gewaesserschutzbereich-auswahl-migration",
               "value": [
-                  "gewaesserschutzbereich-auswahl-migration-au-a",
-                  "gewaesserschutzbereich-auswahl-migration-uebrige-bereiche"
+                  "gewaesserschutzbereich-auswahl-migration-au-a"
               ]
           },
           {
@@ -2727,8 +2726,7 @@
               "document__form_id": "pgv-migration",
               "question_id": "gewaesserschutzbereich-auswahl-migration",
               "value": [
-                  "gewaesserschutzbereich-auswahl-migration-au-a",
-                  "gewaesserschutzbereich-auswahl-migration-uebrige-bereiche"
+                  "gewaesserschutzbereich-auswahl-migration-au-a"
               ]
           },
           {
@@ -2765,7 +2763,7 @@
               "date": null,
               "document__form_id": "pgv-migration",
               "question_id": "hochwassergefaehrdung-auswahl-migration",
-              "value": "hochwassergefaehrdung-auswahl-migration-nein"
+              "value": "hochwassergefaehrdung-auswahl-migration-ja"
           },
           {
               "date": null,
