@@ -1,7 +1,6 @@
 import { getOwner } from "@ember/application";
 import { service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
-import { enqueueTask } from "ember-concurrency";
 import { handleUnauthorized } from "ember-simple-auth-oidc";
 import Session from "ember-simple-auth-oidc/services/session";
 import { getUserLocales } from "get-user-locale";
@@ -34,6 +33,36 @@ export default class CustomSession extends Session {
 
   @localCopy("data.language") _language;
   @localCopy("data.groupId") _groupId;
+
+  constructor(...args) {
+    super(...args);
+
+    // override refreshAuthentication to add a check for captcha token.
+    const parentTask = this.refreshAuthentication;
+    const parentPerform = parentTask.perform.bind(parentTask);
+
+    parentTask.perform = (...args) => {
+      // Don't use captcha auth when authenticated
+      if (this.requireCaptchaToken && !this.isAuthenticated) {
+        if (!this.validateCaptchaAuth()) {
+          // use location.replace to break execution, and perform
+          // the redirect without allowing the page to continue performing
+          // further requests.
+          return document.location.replace(
+            this.router.urlFor("captcha", {
+              queryParams: {
+                nextURL: location.href,
+              },
+            }),
+          );
+        }
+
+        return;
+      }
+
+      return parentPerform(...args);
+    };
+  }
 
   fetchUser = trackedFunction(this, async () => {
     await Promise.resolve();
@@ -198,29 +227,6 @@ export default class CustomSession extends Session {
 
   handleUnauthorized() {
     if (this.isAuthenticated) handleUnauthorized(this);
-  }
-
-  @enqueueTask
-  *refreshAuthentication() {
-    // Don't use captcha auth when authenticated
-    if (this.requireCaptchaToken && !this.isAuthenticated) {
-      if (!this.validateCaptchaAuth()) {
-        // use location.replace to break execution, and perform
-        // the redirect without allowing the page to continue performing
-        // further requests.
-        return yield document.location.replace(
-          this.router.urlFor("captcha", {
-            queryParams: {
-              nextURL: location.href,
-            },
-          }),
-        );
-      }
-
-      return;
-    }
-
-    return yield super.refreshAuthentication.perform();
   }
 
   validateCaptchaAuth() {
