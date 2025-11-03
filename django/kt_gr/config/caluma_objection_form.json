@@ -47,7 +47,7 @@
       "modified_by_group": null,
       "form": "einsprache",
       "question": "einsprache-datum",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -62,7 +62,22 @@
       "modified_by_group": null,
       "form": "einsprache",
       "question": "einsprache-einsprechende",
-      "sort": 3
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "einsprache.einsprache-files",
+    "fields": {
+      "created_at": "2025-11-03T10:02:57.159Z",
+      "modified_at": "2025-11-03T10:02:57.159Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "einsprache",
+      "question": "einsprache-files",
+      "sort": 1
     }
   },
   {
@@ -77,7 +92,7 @@
       "modified_by_group": null,
       "form": "einsprache",
       "question": "einsprache-hinweis",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -92,7 +107,7 @@
       "modified_by_group": null,
       "form": "einsprache",
       "question": "einsprache-zurueckgezogen",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -189,6 +204,41 @@
       },
       "data_source": null,
       "row_form": "personalien-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "einsprache-files",
+    "fields": {
+      "created_at": "2025-11-03T10:02:57.094Z",
+      "modified_at": "2025-11-03T10:03:30.319Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dateien\", \"fr\": null, \"it\": \"File\"}",
+      "type": "files",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"x\", \"fr\": null, \"it\": \"x\"}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "alexandria-documents-form",
+        "alexandria-categories": ["einsprachen"],
+        "alexandriaEnableDocumentFilter": true
+      },
+      "data_source": null,
+      "row_form": null,
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
