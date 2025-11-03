@@ -23253,14 +23253,14 @@
     "pk": "beschreibung-der-wohnnutzung-beherbergung-oeffentliche-bauten-v4",
     "fields": {
       "created_at": "2025-10-01T08:50:39.359Z",
-      "modified_at": "2025-10-01T08:50:39.359Z",
+      "modified_at": "2025-11-03T14:30:09.507Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Beherbergung / öffentliche Bauten\", \"fr\": null, \"it\": \"Esercizio ricettivo / edifici pubblici\"}",
       "is_hidden": "false",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -23321,14 +23321,14 @@
     "pk": "beschreibung-der-wohnnutzung-wohn-oder-ferienhaus-spital-heim-v4",
     "fields": {
       "created_at": "2025-10-01T08:50:39.365Z",
-      "modified_at": "2025-10-01T08:50:39.365Z",
+      "modified_at": "2025-11-03T14:30:09.499Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Wohn- oder Ferienhaus, Spital, Heim\", \"fr\": null, \"it\": \"Casa di abitazione o di vacanza, ospedale, casa di cura\"}",
       "is_hidden": "false",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -50843,7 +50843,7 @@
     "pk": "beschreibung-der-wohnnutzung",
     "fields": {
       "created_at": "2025-10-01T08:50:39.350Z",
-      "modified_at": "2025-10-01T08:50:39.850Z",
+      "modified_at": "2025-11-03T14:30:09.561Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -86301,26 +86301,26 @@
     "model": "caluma_form.questionoption",
     "pk": "beschreibung-der-wohnnutzung.beschreibung-der-wohnnutzung-beherbergung-oeffentliche-bauten",
     "fields": {
-      "created_at": "2023-10-25T07:05:01.966Z",
-      "modified_at": "2023-10-25T07:05:01.966Z",
+      "created_at": "2025-11-03T14:30:09.567Z",
+      "modified_at": "2025-11-03T14:30:09.567Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "beschreibung-der-wohnnutzung",
       "option": "beschreibung-der-wohnnutzung-beherbergung-oeffentliche-bauten",
-      "sort": 1
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "beschreibung-der-wohnnutzung.beschreibung-der-wohnnutzung-beherbergung-oeffentliche-bauten-v4",
     "fields": {
-      "created_at": "2025-10-01T08:50:39.361Z",
-      "modified_at": "2025-10-01T08:50:39.361Z",
-      "created_by_user": null,
+      "created_at": "2025-11-03T14:30:09.565Z",
+      "modified_at": "2025-11-03T14:30:09.565Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "beschreibung-der-wohnnutzung",
       "option": "beschreibung-der-wohnnutzung-beherbergung-oeffentliche-bauten-v4",
@@ -86331,60 +86331,60 @@
     "model": "caluma_form.questionoption",
     "pk": "beschreibung-der-wohnnutzung.beschreibung-der-wohnnutzung-mehr-als-vier-wohneinheiten",
     "fields": {
-      "created_at": "2023-10-25T07:05:01.974Z",
-      "modified_at": "2023-10-25T07:05:01.974Z",
+      "created_at": "2025-11-03T14:30:09.571Z",
+      "modified_at": "2025-11-03T14:30:09.571Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "beschreibung-der-wohnnutzung",
       "option": "beschreibung-der-wohnnutzung-mehr-als-vier-wohneinheiten",
-      "sort": 2
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "beschreibung-der-wohnnutzung.beschreibung-der-wohnnutzung-mehr-als-vier-wohneinheiten-v4",
     "fields": {
-      "created_at": "2025-10-01T08:50:39.364Z",
-      "modified_at": "2025-10-01T08:50:39.364Z",
-      "created_by_user": null,
+      "created_at": "2025-11-03T14:30:09.569Z",
+      "modified_at": "2025-11-03T14:30:09.569Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "beschreibung-der-wohnnutzung",
       "option": "beschreibung-der-wohnnutzung-mehr-als-vier-wohneinheiten-v4",
-      "sort": 2
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "beschreibung-der-wohnnutzung.beschreibung-der-wohnnutzung-wohn-oder-ferienhaus-spital-heim",
     "fields": {
-      "created_at": "2023-10-25T07:05:01.980Z",
-      "modified_at": "2023-10-25T07:05:01.980Z",
+      "created_at": "2025-11-03T14:30:09.574Z",
+      "modified_at": "2025-11-03T14:30:09.574Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "beschreibung-der-wohnnutzung",
       "option": "beschreibung-der-wohnnutzung-wohn-oder-ferienhaus-spital-heim",
-      "sort": 3
+      "sort": 6
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "beschreibung-der-wohnnutzung.beschreibung-der-wohnnutzung-wohn-oder-ferienhaus-spital-heim-v4",
     "fields": {
-      "created_at": "2025-10-01T08:50:39.367Z",
-      "modified_at": "2025-10-01T08:50:39.367Z",
-      "created_by_user": null,
+      "created_at": "2025-11-03T14:30:09.573Z",
+      "modified_at": "2025-11-03T14:30:09.573Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "beschreibung-der-wohnnutzung",
       "option": "beschreibung-der-wohnnutzung-wohn-oder-ferienhaus-spital-heim-v4",
-      "sort": 3
+      "sort": 5
     }
   },
   {
