@@ -438,15 +438,16 @@ class AccompanyingReportSendHandler(BaseSendHandler):
             ),
             (
                 # Nebenbestimmungen
-                settings.DISTRIBUTION["QUESTIONS"]["ANCILLARY_CLAUSES"],
+                settings.DISTRIBUTION["QUESTIONS"].get("ANCILLARY_CLAUSES"),
                 "; ".join(self.data.eventAccompanyingReport.ancillaryClauses),
             ),
         ]:
-            save_answer(
-                document=self.inquiry.child_case.document,
-                question=Question.objects.get(pk=question),
-                value=value,
-            )
+            if question:
+                save_answer(
+                    document=self.inquiry.child_case.document,
+                    question=Question.objects.get(pk=question),
+                    value=value,
+                )
 
         if extensions := settings.ECH0211["ACCOMPANYING_REPORT"].get(
             "EXTENSION_MAPPING"
