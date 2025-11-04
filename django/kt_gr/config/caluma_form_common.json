@@ -268,21 +268,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "allgemeine-angaben-kurz.projektaenderung",
-    "fields": {
-      "created_at": "2023-05-01T14:09:45.392Z",
-      "modified_at": "2023-05-01T14:09:45.392Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "allgemeine-angaben-kurz",
-      "question": "projektaenderung",
-      "sort": 7
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "allgemeine-angaben-kurz.sachverhalt",
     "fields": {
       "created_at": "2020-10-12T11:28:23.846Z",
@@ -703,40 +688,6 @@
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": \"No\"}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "projektaenderung-ja",
-    "fields": {
-      "created_at": "2023-05-01T14:09:45.081Z",
-      "modified_at": "2024-09-11T14:58:59.316Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": \"Sì\"}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "projektaenderung-nein",
-    "fields": {
-      "created_at": "2023-05-01T14:09:45.080Z",
-      "modified_at": "2024-09-11T14:58:59.322Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": \"No\"}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -1862,40 +1813,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "projektaenderung",
-    "fields": {
-      "created_at": "2023-05-01T14:09:45.238Z",
-      "modified_at": "2024-08-28T12:24:50.485Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Projektänderung\", \"fr\": null, \"it\": \"Modifica del progetto\"}",
-      "type": "choice",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "hideLabel": true,
-        "widgetOverride": "cf-field/input/hidden"
-      },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "sachverhalt",
     "fields": {
       "created_at": "2020-10-12T11:28:23.687Z",
@@ -2186,36 +2103,6 @@
       "modified_by_group": null,
       "question": "juristische-person-gesuchstellerin",
       "option": "juristische-person-gesuchstellerin-nein",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "projektaenderung.projektaenderung-ja",
-    "fields": {
-      "created_at": "2023-05-03T13:33:29.893Z",
-      "modified_at": "2023-05-03T13:33:29.893Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "question": "projektaenderung",
-      "option": "projektaenderung-ja",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "projektaenderung.projektaenderung-nein",
-    "fields": {
-      "created_at": "2023-05-03T13:33:29.886Z",
-      "modified_at": "2023-05-03T13:33:29.886Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "question": "projektaenderung",
-      "option": "projektaenderung-nein",
       "sort": 1
     }
   },
