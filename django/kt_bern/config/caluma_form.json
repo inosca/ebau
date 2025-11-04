@@ -130,10 +130,10 @@
     "pk": "allgemeine-angaben",
     "fields": {
       "created_at": "2019-03-28T14:14:48.332Z",
-      "modified_at": "2019-03-28T14:18:31.316Z",
+      "modified_at": "2025-10-23T11:58:48.049Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
       "name": "{\"de\": \"Allgemeine Angaben\", \"fr\": \"Indications générales\", \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -3044,7 +3044,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben",
       "question": "gemeinde",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -3094,6 +3094,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben.hinweis-gemeinde-moutier",
+    "fields": {
+      "created_at": "2025-10-23T11:57:02.425Z",
+      "modified_at": "2025-10-23T11:57:02.425Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben",
+      "question": "hinweis-gemeinde-moutier",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "allgemeine-angaben.is-paper",
     "fields": {
       "created_at": "2020-01-14T07:42:27.106Z",
@@ -3119,7 +3134,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben",
       "question": "karte",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -3134,7 +3149,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben",
       "question": "nr",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -3149,7 +3164,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben",
       "question": "ort-grundstueck",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -3209,7 +3224,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben",
       "question": "strasse-flurname",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -3479,7 +3494,7 @@
       "modified_by_group": null,
       "form": "allgemeine-informationen-geltungsdauer",
       "question": "begruendung-verlaengerung-geltungsdauer",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -3509,7 +3524,7 @@
       "modified_by_group": null,
       "form": "allgemeine-informationen-geltungsdauer",
       "question": "dossiernummer",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -3524,6 +3539,21 @@
       "modified_by_group": null,
       "form": "allgemeine-informationen-geltungsdauer",
       "question": "gemeinde",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-informationen-geltungsdauer.hinweis-gemeinde-moutier",
+    "fields": {
+      "created_at": "2025-10-23T12:08:49.293Z",
+      "modified_at": "2025-10-23T12:08:49.293Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-informationen-geltungsdauer",
+      "question": "hinweis-gemeinde-moutier",
       "sort": 4
     }
   },
@@ -3554,7 +3584,7 @@
       "modified_by_group": null,
       "form": "allgemeine-informationen-geltungsdauer",
       "question": "nr",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -3569,7 +3599,7 @@
       "modified_by_group": null,
       "form": "allgemeine-informationen-geltungsdauer",
       "question": "ort-grundstueck",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -3599,7 +3629,7 @@
       "modified_by_group": null,
       "form": "allgemeine-informationen-geltungsdauer",
       "question": "strasse-flurname",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -3809,7 +3839,7 @@
       "modified_by_group": null,
       "form": "baugesuch",
       "question": "1-allgemeine-informationen",
-      "sort": 10
+      "sort": 8
     }
   },
   {
@@ -3824,7 +3854,7 @@
       "modified_by_group": null,
       "form": "baugesuch",
       "question": "2-nutzung-bauvorhaben",
-      "sort": 9
+      "sort": 7
     }
   },
   {
@@ -3839,7 +3869,7 @@
       "modified_by_group": null,
       "form": "baugesuch",
       "question": "3-grundstueck",
-      "sort": 8
+      "sort": 6
     }
   },
   {
@@ -3854,7 +3884,7 @@
       "modified_by_group": null,
       "form": "baugesuch",
       "question": "4-bauwerk",
-      "sort": 7
+      "sort": 5
     }
   },
   {
@@ -3869,7 +3899,7 @@
       "modified_by_group": null,
       "form": "baugesuch",
       "question": "5-spezialformulare",
-      "sort": 6
+      "sort": 4
     }
   },
   {
@@ -3884,7 +3914,7 @@
       "modified_by_group": null,
       "form": "baugesuch",
       "question": "6-dokumente",
-      "sort": 5
+      "sort": 3
     }
   },
   {
@@ -3899,7 +3929,7 @@
       "modified_by_group": null,
       "form": "baugesuch",
       "question": "7-bestaetigung",
-      "sort": 4
+      "sort": 2
     }
   },
   {
@@ -3914,7 +3944,7 @@
       "modified_by_group": null,
       "form": "baugesuch",
       "question": "8-freigabequittung",
-      "sort": 3
+      "sort": 1
     }
   },
   {
@@ -3929,7 +3959,7 @@
       "modified_by_group": null,
       "form": "baugesuch-generell",
       "question": "1-allgemeine-informationen",
-      "sort": 10
+      "sort": 8
     }
   },
   {
@@ -3944,7 +3974,7 @@
       "modified_by_group": null,
       "form": "baugesuch-generell",
       "question": "2-nutzung-bauvorhaben",
-      "sort": 9
+      "sort": 7
     }
   },
   {
@@ -3959,7 +3989,7 @@
       "modified_by_group": null,
       "form": "baugesuch-generell",
       "question": "3-grundstueck",
-      "sort": 8
+      "sort": 6
     }
   },
   {
@@ -3974,7 +4004,7 @@
       "modified_by_group": null,
       "form": "baugesuch-generell",
       "question": "4-bauwerk",
-      "sort": 7
+      "sort": 5
     }
   },
   {
@@ -3989,7 +4019,7 @@
       "modified_by_group": null,
       "form": "baugesuch-generell",
       "question": "5-spezialformulare",
-      "sort": 6
+      "sort": 4
     }
   },
   {
@@ -4004,7 +4034,7 @@
       "modified_by_group": null,
       "form": "baugesuch-generell",
       "question": "6-dokumente",
-      "sort": 5
+      "sort": 3
     }
   },
   {
@@ -4019,7 +4049,7 @@
       "modified_by_group": null,
       "form": "baugesuch-generell",
       "question": "7-bestaetigung",
-      "sort": 4
+      "sort": 2
     }
   },
   {
@@ -4034,7 +4064,37 @@
       "modified_by_group": null,
       "form": "baugesuch-generell",
       "question": "8-freigabequittung",
-      "sort": 3
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-generell.hinweis-zum-vorliegenden-dossier",
+    "fields": {
+      "created_at": "2025-10-31T16:14:39.532Z",
+      "modified_at": "2025-10-31T16:14:39.532Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baugesuch-generell",
+      "question": "hinweis-zum-vorliegenden-dossier",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch.hinweis-zum-vorliegenden-dossier",
+    "fields": {
+      "created_at": "2025-10-23T11:18:53.980Z",
+      "modified_at": "2025-10-23T11:18:53.980Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baugesuch",
+      "question": "hinweis-zum-vorliegenden-dossier",
+      "sort": 9
     }
   },
   {
@@ -4049,7 +4109,7 @@
       "modified_by_group": null,
       "form": "baugesuch-mit-uvp",
       "question": "1-allgemeine-informationen",
-      "sort": 10
+      "sort": 8
     }
   },
   {
@@ -4064,7 +4124,7 @@
       "modified_by_group": null,
       "form": "baugesuch-mit-uvp",
       "question": "2-nutzung-bauvorhaben",
-      "sort": 9
+      "sort": 7
     }
   },
   {
@@ -4079,7 +4139,7 @@
       "modified_by_group": null,
       "form": "baugesuch-mit-uvp",
       "question": "3-grundstueck",
-      "sort": 8
+      "sort": 6
     }
   },
   {
@@ -4094,7 +4154,7 @@
       "modified_by_group": null,
       "form": "baugesuch-mit-uvp",
       "question": "4-bauwerk",
-      "sort": 7
+      "sort": 5
     }
   },
   {
@@ -4109,7 +4169,7 @@
       "modified_by_group": null,
       "form": "baugesuch-mit-uvp",
       "question": "5-spezialformulare",
-      "sort": 6
+      "sort": 4
     }
   },
   {
@@ -4124,7 +4184,7 @@
       "modified_by_group": null,
       "form": "baugesuch-mit-uvp",
       "question": "6-dokumente",
-      "sort": 5
+      "sort": 3
     }
   },
   {
@@ -4139,7 +4199,7 @@
       "modified_by_group": null,
       "form": "baugesuch-mit-uvp",
       "question": "7-bestaetigung",
-      "sort": 4
+      "sort": 2
     }
   },
   {
@@ -4154,7 +4214,22 @@
       "modified_by_group": null,
       "form": "baugesuch-mit-uvp",
       "question": "8-freigabequittung",
-      "sort": 3
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-mit-uvp.hinweis-zum-vorliegenden-dossier",
+    "fields": {
+      "created_at": "2025-10-23T11:17:36.366Z",
+      "modified_at": "2025-10-23T11:17:36.366Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baugesuch-mit-uvp",
+      "question": "hinweis-zum-vorliegenden-dossier",
+      "sort": 9
     }
   },
   {
@@ -10369,6 +10444,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "verlaengerung-geltungsdauer.hinweis-zum-vorliegenden-dossier",
+    "fields": {
+      "created_at": "2025-10-31T16:37:05.150Z",
+      "modified_at": "2025-10-31T16:37:05.150Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "verlaengerung-geltungsdauer",
+      "question": "hinweis-zum-vorliegenden-dossier",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "verlaengerung-geltungsdauer.personalien-kurz-formular",
     "fields": {
       "created_at": "2020-11-06T16:20:37.832Z",
@@ -10429,6 +10519,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "vorabklaerung-einfach.hinweis-zum-vorliegenden-dossier",
+    "fields": {
+      "created_at": "2025-10-23T11:19:38.418Z",
+      "modified_at": "2025-10-23T11:19:38.418Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorabklaerung-einfach",
+      "question": "hinweis-zum-vorliegenden-dossier",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "vorabklaerung-einfach.personalien-kurz-formular",
     "fields": {
       "created_at": "2021-01-27T12:54:45.552Z",
@@ -10454,7 +10559,7 @@
       "modified_by_group": null,
       "form": "vorabklaerung-vollstaendig",
       "question": "1-allgemeine-informationen",
-      "sort": 10
+      "sort": 8
     }
   },
   {
@@ -10469,7 +10574,7 @@
       "modified_by_group": null,
       "form": "vorabklaerung-vollstaendig",
       "question": "2-nutzung-bauvorhaben",
-      "sort": 9
+      "sort": 7
     }
   },
   {
@@ -10484,7 +10589,7 @@
       "modified_by_group": null,
       "form": "vorabklaerung-vollstaendig",
       "question": "3-grundstueck",
-      "sort": 8
+      "sort": 6
     }
   },
   {
@@ -10499,7 +10604,7 @@
       "modified_by_group": null,
       "form": "vorabklaerung-vollstaendig",
       "question": "4-bauwerk",
-      "sort": 7
+      "sort": 5
     }
   },
   {
@@ -10514,7 +10619,7 @@
       "modified_by_group": null,
       "form": "vorabklaerung-vollstaendig",
       "question": "5-spezialformulare",
-      "sort": 6
+      "sort": 4
     }
   },
   {
@@ -10529,7 +10634,7 @@
       "modified_by_group": null,
       "form": "vorabklaerung-vollstaendig",
       "question": "6-dokumente",
-      "sort": 5
+      "sort": 3
     }
   },
   {
@@ -10544,7 +10649,7 @@
       "modified_by_group": null,
       "form": "vorabklaerung-vollstaendig",
       "question": "7-bestaetigung",
-      "sort": 4
+      "sort": 2
     }
   },
   {
@@ -10559,7 +10664,22 @@
       "modified_by_group": null,
       "form": "vorabklaerung-vollstaendig",
       "question": "8-freigabequittung",
-      "sort": 3
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorabklaerung-vollstaendig.hinweis-zum-vorliegenden-dossier",
+    "fields": {
+      "created_at": "2025-10-23T11:21:21.901Z",
+      "modified_at": "2025-10-23T11:21:21.901Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorabklaerung-vollstaendig",
+      "question": "hinweis-zum-vorliegenden-dossier",
+      "sort": 9
     }
   },
   {

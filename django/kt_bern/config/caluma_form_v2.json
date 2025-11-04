@@ -384,7 +384,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-v2",
       "question": "gemeinde",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -434,6 +434,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-v2.hinweis-gemeinde-moutier",
+    "fields": {
+      "created_at": "2025-10-23T12:06:30.886Z",
+      "modified_at": "2025-10-23T12:06:30.886Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-v2",
+      "question": "hinweis-gemeinde-moutier",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "allgemeine-angaben-v2.is-paper",
     "fields": {
       "created_at": "2021-03-08T10:06:44.046Z",
@@ -459,7 +474,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-v2",
       "question": "karte",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -474,7 +489,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-v2",
       "question": "nr",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -489,7 +504,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-v2",
       "question": "ort-grundstueck",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -549,7 +564,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-v2",
       "question": "strasse-flurname",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -579,7 +594,7 @@
       "modified_by_group": null,
       "form": "baugesuch-generell-v2",
       "question": "1-allgemeine-informationen",
-      "sort": 9
+      "sort": 8
     }
   },
   {
@@ -669,7 +684,22 @@
       "modified_by_group": null,
       "form": "baugesuch-generell-v2",
       "question": "grundstueck-v2",
-      "sort": 7
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-generell-v2.hinweis-zum-vorliegenden-dossier",
+    "fields": {
+      "created_at": "2025-10-31T16:34:47.412Z",
+      "modified_at": "2025-10-31T16:34:47.412Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baugesuch-generell-v2",
+      "question": "hinweis-zum-vorliegenden-dossier",
+      "sort": 9
     }
   },
   {
@@ -684,7 +714,7 @@
       "modified_by_group": null,
       "form": "baugesuch-generell-v2",
       "question": "nutzung-bauvorhaben-v2",
-      "sort": 8
+      "sort": 7
     }
   },
   {
@@ -699,7 +729,7 @@
       "modified_by_group": null,
       "form": "baugesuch-mit-uvp-v2",
       "question": "1-allgemeine-informationen",
-      "sort": 9
+      "sort": 8
     }
   },
   {
@@ -789,7 +819,22 @@
       "modified_by_group": null,
       "form": "baugesuch-mit-uvp-v2",
       "question": "grundstueck-v2",
-      "sort": 7
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-mit-uvp-v2.hinweis-zum-vorliegenden-dossier",
+    "fields": {
+      "created_at": "2025-10-23T11:17:16.072Z",
+      "modified_at": "2025-10-23T11:17:16.072Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baugesuch-mit-uvp-v2",
+      "question": "hinweis-zum-vorliegenden-dossier",
+      "sort": 9
     }
   },
   {
@@ -804,7 +849,7 @@
       "modified_by_group": null,
       "form": "baugesuch-mit-uvp-v2",
       "question": "nutzung-bauvorhaben-v2",
-      "sort": 8
+      "sort": 7
     }
   },
   {
@@ -819,7 +864,7 @@
       "modified_by_group": null,
       "form": "baugesuch-v2",
       "question": "1-allgemeine-informationen",
-      "sort": 9
+      "sort": 8
     }
   },
   {
@@ -909,7 +954,22 @@
       "modified_by_group": null,
       "form": "baugesuch-v2",
       "question": "grundstueck-v2",
-      "sort": 7
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-v2.hinweis-zum-vorliegenden-dossier",
+    "fields": {
+      "created_at": "2025-10-23T11:18:37.164Z",
+      "modified_at": "2025-10-23T11:18:37.164Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baugesuch-v2",
+      "question": "hinweis-zum-vorliegenden-dossier",
+      "sort": 9
     }
   },
   {
@@ -924,7 +984,7 @@
       "modified_by_group": null,
       "form": "baugesuch-v2",
       "question": "nutzung-bauvorhaben-v2",
-      "sort": 8
+      "sort": 7
     }
   },
   {
@@ -4300,6 +4360,21 @@
       "form": "vorabklaerung-vollstaendig-v2",
       "question": "grundstueck-v2",
       "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorabklaerung-vollstaendig-v2.hinweis-zum-vorliegenden-dossier",
+    "fields": {
+      "created_at": "2025-10-23T11:21:06.337Z",
+      "modified_at": "2025-10-23T11:21:06.337Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorabklaerung-vollstaendig-v2",
+      "question": "hinweis-zum-vorliegenden-dossier",
+      "sort": 9
     }
   },
   {

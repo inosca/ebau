@@ -475,7 +475,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz-v3",
       "question": "gemeinde",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -491,6 +491,21 @@
       "form": "allgemeine-angaben-kurz-v3",
       "question": "gwr-egid",
       "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz-v3.hinweis-gemeinde-moutier",
+    "fields": {
+      "created_at": "2025-10-23T12:07:38.445Z",
+      "modified_at": "2025-10-23T12:07:38.445Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz-v3",
+      "question": "hinweis-gemeinde-moutier",
+      "sort": 8
     }
   },
   {
@@ -520,7 +535,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz-v3",
       "question": "karte",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -535,7 +550,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz-v3",
       "question": "nr",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -550,7 +565,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz-v3",
       "question": "ort-grundstueck",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -580,7 +595,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz-v3",
       "question": "plz-grundstueck-v3",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -625,7 +640,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz-v3",
       "question": "strasse-flurname",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -640,7 +655,7 @@
       "modified_by_group": null,
       "form": "baugesuch-generell-v3",
       "question": "1-allgemeine-informationen",
-      "sort": 9
+      "sort": 8
     }
   },
   {
@@ -685,7 +700,7 @@
       "modified_by_group": null,
       "form": "baugesuch-generell-v3",
       "question": "bauwerk-v3",
-      "sort": 6
+      "sort": 5
     }
   },
   {
@@ -715,7 +730,22 @@
       "modified_by_group": null,
       "form": "baugesuch-generell-v3",
       "question": "grundstueck-v2",
-      "sort": 7
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-generell-v3.hinweis-zum-vorliegenden-dossier",
+    "fields": {
+      "created_at": "2025-10-31T16:35:03.657Z",
+      "modified_at": "2025-10-31T16:35:03.657Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baugesuch-generell-v3",
+      "question": "hinweis-zum-vorliegenden-dossier",
+      "sort": 9
     }
   },
   {
@@ -730,7 +760,7 @@
       "modified_by_group": null,
       "form": "baugesuch-generell-v3",
       "question": "nutzung-bauvorhaben-v3",
-      "sort": 8
+      "sort": 7
     }
   },
   {
@@ -745,7 +775,7 @@
       "modified_by_group": null,
       "form": "baugesuch-generell-v3",
       "question": "spezialformulare-v3",
-      "sort": 5
+      "sort": 4
     }
   },
   {
@@ -760,7 +790,7 @@
       "modified_by_group": null,
       "form": "baugesuch-mit-uvp-v3",
       "question": "1-allgemeine-informationen",
-      "sort": 9
+      "sort": 8
     }
   },
   {
@@ -805,7 +835,7 @@
       "modified_by_group": null,
       "form": "baugesuch-mit-uvp-v3",
       "question": "bauwerk-v3",
-      "sort": 6
+      "sort": 5
     }
   },
   {
@@ -835,7 +865,22 @@
       "modified_by_group": null,
       "form": "baugesuch-mit-uvp-v3",
       "question": "grundstueck-v2",
-      "sort": 7
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-mit-uvp-v3.hinweis-zum-vorliegenden-dossier",
+    "fields": {
+      "created_at": "2025-10-23T11:16:42.399Z",
+      "modified_at": "2025-10-23T11:16:42.399Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baugesuch-mit-uvp-v3",
+      "question": "hinweis-zum-vorliegenden-dossier",
+      "sort": 9
     }
   },
   {
@@ -850,7 +895,7 @@
       "modified_by_group": null,
       "form": "baugesuch-mit-uvp-v3",
       "question": "nutzung-bauvorhaben-v3",
-      "sort": 8
+      "sort": 7
     }
   },
   {
@@ -865,7 +910,7 @@
       "modified_by_group": null,
       "form": "baugesuch-mit-uvp-v3",
       "question": "spezialformulare-v3",
-      "sort": 5
+      "sort": 4
     }
   },
   {
@@ -956,6 +1001,21 @@
       "form": "baugesuch-v3",
       "question": "grundstueck-v2",
       "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-v3.hinweis-zum-vorliegenden-dossier",
+    "fields": {
+      "created_at": "2025-10-23T11:18:20.877Z",
+      "modified_at": "2025-10-23T11:18:20.877Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baugesuch-v3",
+      "question": "hinweis-zum-vorliegenden-dossier",
+      "sort": 9
     }
   },
   {
@@ -4945,7 +5005,7 @@
       "modified_by_group": null,
       "form": "vorabklaerung-vollstaendig-v3",
       "question": "1-allgemeine-informationen",
-      "sort": 9
+      "sort": 8
     }
   },
   {
@@ -4990,7 +5050,7 @@
       "modified_by_group": null,
       "form": "vorabklaerung-vollstaendig-v3",
       "question": "bauwerk-v3",
-      "sort": 6
+      "sort": 5
     }
   },
   {
@@ -5020,7 +5080,22 @@
       "modified_by_group": null,
       "form": "vorabklaerung-vollstaendig-v3",
       "question": "grundstueck-v2",
-      "sort": 7
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorabklaerung-vollstaendig-v3.hinweis-zum-vorliegenden-dossier",
+    "fields": {
+      "created_at": "2025-10-23T11:20:51.310Z",
+      "modified_at": "2025-10-23T11:20:51.310Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorabklaerung-vollstaendig-v3",
+      "question": "hinweis-zum-vorliegenden-dossier",
+      "sort": 9
     }
   },
   {
@@ -5035,7 +5110,7 @@
       "modified_by_group": null,
       "form": "vorabklaerung-vollstaendig-v3",
       "question": "nutzung-bauvorhaben-v3",
-      "sort": 8
+      "sort": 7
     }
   },
   {
@@ -5050,7 +5125,7 @@
       "modified_by_group": null,
       "form": "vorabklaerung-vollstaendig-v3",
       "question": "spezialformulare-v3",
-      "sort": 5
+      "sort": 4
     }
   },
   {

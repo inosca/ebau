@@ -12,6 +12,7 @@ from camac.ech0211.signals import withdrawn
 from camac.instance.domain_logic import CreateInstanceLogic
 from camac.instance.models import Instance
 from camac.instance.utils import (
+    be_should_prevent_process_step_for_deactivated_municipality,
     copy_instance,
     fill_ebau_number,
     get_lead_authority,
@@ -28,14 +29,18 @@ class DecisionLogic:
     ):
         if cls.should_continue_after_decision(instance, work_item):
             if settings.APPLICATION_NAME == "kt_bern":
-                construction_control = set_construction_control(instance)
-                instance.set_instance_state("sb1", camac_user)
-
-                # copy municipality tags for sb1
-                cls.copy_municipality_tags(instance, construction_control)
-                cls.copy_responsible_person_lead_authority(
-                    instance, construction_control
-                )
+                if be_should_prevent_process_step_for_deactivated_municipality(
+                    instance
+                ):
+                    instance.set_instance_state("finished", camac_user)
+                else:
+                    construction_control = set_construction_control(instance)
+                    instance.set_instance_state("sb1", camac_user)
+                    # copy municipality tags for sb1
+                    cls.copy_municipality_tags(instance, construction_control)
+                    cls.copy_responsible_person_lead_authority(
+                        instance, construction_control
+                    )
             else:
                 instance.set_instance_state(
                     settings.DECISION["INSTANCE_STATE_AFTER_POSITIVE_DECISION"],

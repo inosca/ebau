@@ -91,6 +91,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "hinweis-zum-vorliegenden-dossier",
+    "fields": {
+      "created_at": "2025-10-23T10:38:34.192Z",
+      "modified_at": "2025-10-23T11:12:25.563Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Hinweis zum vorliegenden Dossier\", \"fr\": \"Remarque concernant le présent dossier\", \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "parzelle-tabelle",
     "fields": {
       "created_at": "2019-03-28T14:11:40.223Z",
@@ -191,7 +209,7 @@
       "modified_by_group": null,
       "form": "8-freigabequittung",
       "question": "ausnahmegesuche",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -206,7 +224,7 @@
       "modified_by_group": null,
       "form": "8-freigabequittung",
       "question": "einreichen-button",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -221,7 +239,7 @@
       "modified_by_group": null,
       "form": "8-freigabequittung",
       "question": "entwurf-herunterladen-pdf",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -236,7 +254,7 @@
       "modified_by_group": null,
       "form": "8-freigabequittung",
       "question": "entwurf-text",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -251,7 +269,7 @@
       "modified_by_group": null,
       "form": "8-freigabequittung",
       "question": "freigabequittung-bemerkungen",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -266,7 +284,22 @@
       "modified_by_group": null,
       "form": "8-freigabequittung",
       "question": "freigabequittung-text",
-      "sort": 5
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "8-freigabequittung.hinweis-gemeinde-moutier",
+    "fields": {
+      "created_at": "2025-10-23T12:22:21.552Z",
+      "modified_at": "2025-10-23T12:22:21.552Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "8-freigabequittung",
+      "question": "hinweis-gemeinde-moutier",
+      "sort": 1
     }
   },
   {
@@ -281,7 +314,7 @@
       "modified_by_group": null,
       "form": "8-freigabequittung",
       "question": "hinweis-klaerung-baubewilligungspflicht",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -296,7 +329,7 @@
       "modified_by_group": null,
       "form": "8-freigabequittung",
       "question": "hinweis-zutrittsermaechtigung",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -311,7 +344,7 @@
       "modified_by_group": null,
       "form": "8-freigabequittung",
       "question": "pdf-herunterladen",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -326,7 +359,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "be-gid",
-      "sort": 7
+      "sort": 6
     }
   },
   {
@@ -371,7 +404,22 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "gwr-egid",
-      "sort": 6
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-kurz.hinweis-gemeinde-moutier",
+    "fields": {
+      "created_at": "2025-10-23T12:06:51.796Z",
+      "modified_at": "2025-10-23T12:06:51.796Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-kurz",
+      "question": "hinweis-gemeinde-moutier",
+      "sort": 8
     }
   },
   {
@@ -446,7 +494,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-kurz",
       "question": "parzelle",
-      "sort": 8
+      "sort": 7
     }
   },
   {
@@ -837,6 +885,21 @@
       "form": "grundeigentumerin",
       "question": "vorname-grundeigentuemerin",
       "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "hinweis-zum-vorliegenden-dossier.hinweis-gemeinde-moutier",
+    "fields": {
+      "created_at": "2025-10-23T10:38:47.848Z",
+      "modified_at": "2025-10-23T10:38:47.848Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "hinweis-zum-vorliegenden-dossier",
+      "question": "hinweis-gemeinde-moutier",
+      "sort": 1
     }
   },
   {
@@ -2804,6 +2867,39 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "hinweis-gemeinde-moutier",
+    "fields": {
+      "created_at": "2025-10-21T13:51:49.917Z",
+      "modified_at": "2025-10-23T11:58:45.150Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Gemeinde Moutier\", \"fr\": \"Remarque concernant la commune de Moutier\", \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "\"gemeinde\"|answer(\"\") != 20756",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"*Das Einreichen von Dossiers für die **Gemeinde Moutier** ist ab dem **01. Januar 2026** nicht mehr über die eBau Applikation des Kantons Bern möglich. Neue Gesuche müssen dann direkt beim **Kanton Jura** eingereicht werden.*\", \"fr\": \"*La soumission de dossiers pour la commune de Moutier ne sera plus possible via l'application eBau du **canton de Berne** à partir du **1er janvier 2026**. Les nouvelles demandes devront alors être déposées directement auprès du **canton du Jura**.*\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "hinweis-klaerung-baubewilligungspflicht",
     "fields": {
       "created_at": "2020-12-17T13:15:29.220Z",
@@ -2857,6 +2953,37 @@
       "data_source": null,
       "row_form": null,
       "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-zum-vorliegenden-dossier",
+    "fields": {
+      "created_at": "2025-10-23T10:42:06.202Z",
+      "modified_at": "2025-10-31T16:37:08.721Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis zum vorliegenden Dossier\", \"fr\": \"Remarque concernant le présent dossier\", \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "hinweis-zum-vorliegenden-dossier",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,

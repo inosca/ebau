@@ -258,6 +258,103 @@ def test_complete_decision_be(
         assert ebau_number_work_item.status == WorkItem.STATUS_SKIPPED
 
 
+@pytest.mark.freeze_time("2026-01-01")
+@pytest.mark.parametrize(
+    "is_deactivated,workflow,decision,decision_type,expected_instance_state",
+    [
+        (
+            True,
+            "building-permit",
+            "APPROVED",
+            "BUILDING_PERMIT",
+            "finished",
+        ),
+        (
+            True,
+            "building-permit",
+            "REJECTED",
+            "BUILDING_PERMIT",
+            "finished",
+        ),
+        (
+            False,
+            "building-permit",
+            "APPROVED",
+            "BUILDING_PERMIT",
+            "sb1",
+        ),
+        (
+            False,
+            "building-permit",
+            "REJECTED",
+            "BUILDING_PERMIT",
+            "finished",
+        ),
+    ],
+)
+def test_complete_decision_for_instance_from_moutier(
+    db,
+    caluma_admin_user,
+    application_settings,
+    instance_factory,
+    instance_state_factory,
+    service_factory,
+    instance_service_factory,
+    decision_factory,
+    caluma_case_factory,
+    workflow,
+    decision,
+    decision_type,
+    expected_instance_state,
+    is_deactivated,
+    settings,
+    be_decision_settings,
+    be_ech0211_settings,
+):
+    settings.APPLICATION_NAME = "kt_bern"
+    application_settings["SHORT_NAME"] = "be"
+
+    instance = instance_factory(case=caluma_case_factory())
+    service_moutier = service_factory(
+        trans__name="Leitbehörde Moutier",
+        trans__language="de",
+        service_group__name="municipality",
+        meta={"deactivated-municipality": True if is_deactivated else False},
+    )
+
+    # Construction control is needed for  DecisionLogic:: post_complete_decision_building_permit lookup, if "deactivated-municipality" is False
+    service_factory(
+        trans__name="Baukontrolle Moutier",
+        trans__language="de",
+        service_group__name="construction-control",
+    )
+
+    instance.instance_services.add(instance_service_factory(service=service_moutier))
+
+    instance_state_factory(name=expected_instance_state)
+
+    instance.case.workflow = Workflow.objects.get(pk=workflow)
+    instance.case.save()
+
+    work_item = decision_factory(
+        instance,
+        decision=be_decision_settings["ANSWERS"]["DECISION"][decision],
+        decision_type=be_decision_settings["ANSWERS"]["APPROVAL_TYPE"][decision_type],
+    )
+
+    send_event(
+        post_complete_work_item,
+        sender="post_complete_work_item",
+        work_item=work_item,
+        user=caluma_admin_user,
+        context={},
+    )
+
+    instance.refresh_from_db()
+
+    assert instance.instance_state.name == expected_instance_state
+
+
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
     "previous_instance_state,expected_instance_state,decision,expect_copy",

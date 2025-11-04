@@ -21,6 +21,7 @@ from camac.core.utils import canton_aware, create_history_entry
 from camac.instance import domain_logic
 from camac.instance.master_data import MasterData
 from camac.instance.utils import (
+    be_should_prevent_process_step_for_deactivated_municipality,
     geometer_cadastral_survey_is_necessary,
     geometer_cadastral_survey_necessary_answer,
 )
@@ -56,6 +57,9 @@ class CustomDynamicTasks(BaseDynamicTasks):
         if not domain_logic.DecisionLogic.should_continue_after_decision(
             case.instance, prev_work_item
         ):
+            return []
+
+        if be_should_prevent_process_step_for_deactivated_municipality(case.instance):
             return []
 
         tasks = []

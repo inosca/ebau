@@ -302,5 +302,7 @@ omit = [
     "camac/gis_export/management/commands/agis_export.py",
     # Uri Sanctions migration
     "camac/sanctions/management/commands/migrate_ur_sanctions.py",
+    # BE Moutier migration
+    "camac/instance/management/commands/migrate_moutier_instances.py",
 ]
 show_missing = true

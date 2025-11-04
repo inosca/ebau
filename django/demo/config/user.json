@@ -405,6 +405,7 @@
     "fields": {
       "slug": null,
       "service_group": 2,
+      "meta": {},
       "service_parent": null,
       "name": null,
       "description": null,
@@ -430,6 +431,7 @@
       "slug": null,
       "service_group": 1,
       "service_parent": null,
+      "meta": {},
       "name": null,
       "description": null,
       "sort": 707,

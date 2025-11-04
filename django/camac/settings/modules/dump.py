@@ -81,6 +81,7 @@ COMMON_QUESTION_SLUGS_BE = [
     "8-freigabequittung",
     "dokumente-platzhalter",
     "dokumente-vorabklaerung-form",
+    "hinweis-zum-vorliegenden-dossier",
 ]
 
 COMMON_FORM_SLUGS_BE = [
@@ -94,6 +95,7 @@ COMMON_FORM_SLUGS_BE = [
     "vertreterin-mit-vollmacht",
     "8-freigabequittung",
     "dokumente-vorabklaerung",
+    "hinweis-zum-vorliegenden-dossier",
 ]
 
 DISTRIBUTION_DUMP_CONFIG = {
