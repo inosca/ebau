@@ -1340,6 +1340,11 @@ msgid "Project modification is not allowed"
 msgstr "Modification du projet non autorisée"
 
 #: camac/instance/serializers.py
+#, python-format
+msgid "No forms for minicipality '%(municipality)s' can be submitted."
+msgstr "Aucun dossier ne peut être soumis pour la commune '%(municipality)s'"
+
+#: camac/instance/serializers.py
 msgid "Dossier submitted"
 msgstr "Dossier envoyé"
 

@@ -714,6 +714,7 @@ class Service(core_models.MultilingualModel, models.Model):
         related_name="has_function_in",
         verbose_name=_("Services that perform a specific function"),
     )
+    meta = models.JSONField(default=dict)
 
     @cached_property
     def addressed_work_items(self):

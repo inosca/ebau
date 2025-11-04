@@ -183,6 +183,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "reklamegesuch.hinweis-zum-vorliegenden-dossier",
+    "fields": {
+      "created_at": "2025-10-31T16:36:31.851Z",
+      "modified_at": "2025-10-31T16:36:31.851Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "reklamegesuch",
+      "question": "hinweis-zum-vorliegenden-dossier",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "reklamegesuch.personalien-kurz-formular",
     "fields": {
       "created_at": "2024-07-18T15:56:26.129Z",
@@ -193,7 +208,7 @@
       "modified_by_group": null,
       "form": "reklamegesuch",
       "question": "personalien-kurz-formular",
-      "sort": 7
+      "sort": 6
     }
   },
   {

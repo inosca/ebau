@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-08 13:19+0200\n"
+"POT-Creation-Date: 2025-10-24 13:34+0200\n"
 "PO-Revision-Date: 2025-10-08 13:26+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1385,6 +1385,11 @@ msgstr "Das Formular '%(form)s' kann nur von internen Rollen genutzt werden"
 #: camac/instance/serializers.py
 msgid "Project modification is not allowed"
 msgstr "Projektänderung nicht erlaubt"
+
+#: camac/instance/serializers.py
+#, python-format
+msgid "No forms for minicipality '%(municipality)s' can be submitted."
+msgstr "Für die Gemeinde '%(municipality)s' können keine Dossiers mehr eingereicht werden."
 
 #: camac/instance/serializers.py
 msgid "Dossier submitted"

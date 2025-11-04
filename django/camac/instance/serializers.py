@@ -54,7 +54,12 @@ from camac.instance.domain_logic import link_instances
 from camac.instance.master_data import MasterData
 from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
 from camac.instance.models import Instance
-from camac.instance.utils import copy_instance, fill_ebau_number, get_changeable_forms
+from camac.instance.utils import (
+    be_should_prevent_process_step_for_deactivated_municipality,
+    copy_instance,
+    fill_ebau_number,
+    get_changeable_forms,
+)
 from camac.notification.utils import send_mail, send_mail_without_request
 from camac.permissions import api as permissions_api, events as permissions_events
 from camac.permissions.switcher import (
@@ -89,6 +94,7 @@ COMPLETE_PRELIMINARY_CLARIFICATION_SLUGS_BE = [
     "vorabklaerung-vollstaendig-v4",
     "vorabklaerung-vollstaendig-v5",
 ]
+PREVENT_SUBMIT_MUNICIPALITY_RESPONSE_CODE = "municipality_not_allowed"
 
 request_logger = getLogger("django.request")
 
@@ -772,7 +778,10 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         state = instance.instance_state.name
         permissions = set()
 
-        if state in ["sb1", "sb2", "conclusion"]:
+        if (
+            state in ["sb1", "sb2", "conclusion"]
+            or instance.case.work_items.filter(task_id="sb1").exists()
+        ):
             permissions.add("read")
 
         if state == "sb1":
@@ -829,7 +838,10 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         state = instance.instance_state.name
         permissions = set()
 
-        if state in ["sb2", "conclusion"]:
+        if (
+            state in ["sb2", "conclusion"]
+            or instance.case.work_items.filter(task_id="sb2").exists()
+        ):
             permissions.add("read")
 
         if state == "sb2":
@@ -1911,6 +1923,23 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 
         if instance.case.document.form_id == "internes-dossier":
             instance.set_instance_state("to-finish", self.context["request"].user)
+
+    def validate(self, data):
+        data = super().validate(data)
+
+        if settings.APPLICATION_NAME == "kt_bern":
+            if be_should_prevent_process_step_for_deactivated_municipality(
+                self.instance, self.instance.municipality
+            ):  # pragma: no cover
+                raise exceptions.ValidationError(
+                    detail=_(
+                        "No forms for minicipality '%(municipality)s' can be submitted."
+                    )
+                    % {"municipality": self.instance.municipality.get_name()},
+                    code=PREVENT_SUBMIT_MUNICIPALITY_RESPONSE_CODE,
+                )
+
+        return data
 
     def update(self, instance, validated_data):
         request_logger.info(f"Submitting instance {instance.pk}")

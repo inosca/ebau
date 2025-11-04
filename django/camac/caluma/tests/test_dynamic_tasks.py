@@ -181,6 +181,79 @@ def test_dynamic_task_after_decision(
 
 
 @pytest.mark.parametrize(
+    "is_deactivated,should_continue_after_decision,involve_geometer,expected_tasks",
+    [
+        (
+            False,
+            True,
+            True,
+            ["sb1", "create-manual-workitems", "create-publication", "geometer"],
+        ),
+        (False, False, False, []),
+        (True, True, True, []),
+        (True, False, False, []),
+    ],
+)
+def test_dynamic_task_after_decision_with_check_prevent_submit(
+    db,
+    mocker,
+    application_settings,
+    be_instance,
+    be_decision_settings,
+    decision_factory,
+    instance_state_factory,
+    instance_service_factory,
+    instance_with_case,
+    instance,
+    service_factory,
+    settings,
+    is_deactivated,
+    should_continue_after_decision,
+    involve_geometer,
+    expected_tasks,
+):
+    settings.APPLICATION_NAME = "kt_bern"
+    application_settings["SHORT_NAME"] = "be"
+    be_decision_settings["TASKS_AFTER_BUILDING_PERMIT_DECISION"] = [
+        "sb1",
+        "create-manual-workitems",
+        "create-publication",
+    ]
+
+    instance_with_case(instance=instance, workflow="building-permit")
+
+    service_municipality = service_factory(
+        service_group__name="municipality",
+        trans__language="de",
+        trans__name="Leitbehörde Burgdorf",
+        meta={"deactivated-municipality": True if is_deactivated else False},
+    )
+    instance.instance_services.add(
+        instance_service_factory(service=service_municipality)
+    )
+
+    decision = decision_factory(
+        decision_geometer=(
+            "decision-geometer-yes" if involve_geometer else "decision-geometer-no"
+        ),
+    )
+
+    mocker.patch.object(
+        domain_logic.DecisionLogic,
+        "should_continue_after_decision",
+        return_value=should_continue_after_decision,
+    )
+
+    custom_dynamic_task = CustomDynamicTasks()
+    assert (
+        custom_dynamic_task.resolve_after_decision(
+            be_instance.case, None, decision, None
+        )
+        == expected_tasks
+    )
+
+
+@pytest.mark.parametrize(
     "construction_monitoring_enabled,positive_decision,form_id,expected_tasks",
     [
         (True, True, "baugesuch-v3", ["init-construction-monitoring"]),

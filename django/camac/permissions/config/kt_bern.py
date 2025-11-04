@@ -2,6 +2,9 @@ from caluma.caluma_workflow.models import WorkItem
 
 from camac.instance import domain_logic, utils as instance_utils
 from camac.instance.models import Instance
+from camac.instance.utils import (
+    be_should_prevent_process_step_for_deactivated_municipality,
+)
 from camac.permissions import api as permissions_api
 from camac.permissions.events import EmptyEventHandler
 from camac.user.models import Service, ServiceRelation
@@ -69,6 +72,10 @@ class PermissionEventHandlerBE(
             )
 
     def _grant_geometer_if_needed(self, decision, instance):
+        # If the instance is prevented to submit don't grant acces to the geometer
+        if be_should_prevent_process_step_for_deactivated_municipality(instance):
+            return
+
         # Provide ACL on instance to geometer belonging to municipality
         # if the geometer question was answered with yes on decision
         answer = (

@@ -271,3 +271,17 @@ def get_geometer_service(instance: Instance) -> Service | None:
         return None
 
     return Service.objects.filter(pk=geometer_service_id, disabled=0).first()
+
+
+def be_should_prevent_process_step_for_deactivated_municipality(
+    instance, municipality=None
+):
+    if not municipality:
+        municipality = instance.responsible_service(filter_type="municipality")
+
+        if not municipality:  # pragma: no cover
+            return False
+
+    return municipality.meta and municipality.meta.get(
+        "deactivated-municipality", False
+    )

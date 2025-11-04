@@ -8,6 +8,8 @@ import { hasInstanceState } from "ember-ebau-core/abilities/instance";
 import featuresConfig from "ember-ebau-core/config/features";
 import mainConfig from "ember-ebau-core/config/main";
 
+const PREVENT_SUBMIT_MUNICIPALITY_RESPONSE_CODE = "municipality_not_allowed";
+
 export default class SubmitInstanceComponent extends Component {
   @service ebauModules;
   @service intl;
@@ -80,12 +82,20 @@ export default class SubmitInstanceComponent extends Component {
       // submit instance in CAMAC
       const camacResponse = yield this.fetch.fetch(
         `/api/v1/instances/${instanceId}/${action}`,
-        { method: "POST" },
+        { method: "POST", ignoreErrors: [400] },
       );
 
       if (!camacResponse.ok) {
+        let message = this.intl.t("cases.submit.failed-camac");
+        const municipality_not_allowed_error =
+          (yield camacResponse.json()).errors.find(
+            (e) => e.code === PREVENT_SUBMIT_MUNICIPALITY_RESPONSE_CODE,
+          );
+        if (municipality_not_allowed_error) {
+          message = municipality_not_allowed_error.detail;
+        }
         throw {
-          errors: [new Error(this.intl.t("cases.submit.failed-camac"))],
+          errors: [new Error(message)],
         };
       }
 
@@ -102,7 +112,10 @@ export default class SubmitInstanceComponent extends Component {
       }
     } catch (e) {
       console.error("Error during submission:", e);
-      const reasons = (e.errors || []).map((e) => e.message).join("<br>\n");
+      let reasons = (e.errors || [])
+        .map((e) => e.message || e.detail)
+        .join("<br>\n");
+      reasons = reasons ? `<br/>\n<br/>\n${reasons}` : reasons;
       this.notification.danger(
         this.intl.t("cases.submit.failed-message", { reasons }),
       );

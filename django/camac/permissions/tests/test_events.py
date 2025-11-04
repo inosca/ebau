@@ -138,15 +138,17 @@ def test_permission_event_handler_be(
 
 
 @pytest.mark.parametrize(
-    "involve_geometer,geometer_relation_exists,expected_count",
-    [(True, True, 2), (True, False, 1), (False, True, 1)],
+    "involve_geometer,geometer_relation_exists,expected_count,deactivated_municipality",
+    [
+        (True, True, 2, False),
+        (True, False, 1, False),
+        (False, True, 1, False),
+        (True, True, 1, True),
+    ],
 )
 def test_decision_event_handler_be(
     db,
     be_instance,
-    involve_geometer,
-    geometer_relation_exists,
-    expected_count,
     be_permissions_settings,
     decision_factory,
     instance_state_factory,
@@ -154,11 +156,16 @@ def test_decision_event_handler_be(
     application_settings,
     service_factory,
     instance_service_factory,
+    caluma_dynamic_option_factory,
     caluma_admin_user,
     be_decision_settings,
     use_instance_service,
     be_ech0211_settings,
     be_access_levels,
+    involve_geometer,
+    geometer_relation_exists,
+    expected_count,
+    deactivated_municipality,
 ):
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
@@ -176,6 +183,10 @@ def test_decision_event_handler_be(
         trans__name="Leitbehörde Burgdorf",
         trans__language="de",
     )
+
+    if deactivated_municipality:
+        municipality_service.meta = {"deactivated-municipality": True}
+        municipality_service.save()
 
     service_factory(
         service_group__name="construction-control",
