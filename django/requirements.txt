@@ -33,7 +33,7 @@ djangorestframework-xml==2.0.0
 docxtpl==0.20.1
 drf-extra-fields==3.7.0
 drf-yasg==1.21.10
-ebau-gwr==0.8.1
+ebau-gwr==0.8.2
 gunicorn==23.0.0
 hdbcli==2.25.31
 holidays==0.80
