@@ -2450,7 +2450,27 @@ APPLICATIONS = {
                         "condition": lambda work_item: should_notify_on_manual_workitems(
                             work_item
                         ),
-                    }
+                    },
+                    {
+                        "event": "completed",
+                        "notification": {
+                            "template_slug": "complete-manual-work-item",
+                            "recipient_types": ["work_item_controlling"],
+                        },
+                        "condition": lambda work_item: work_item.meta[
+                            "notify-completed"
+                        ],
+                    },
+                    {
+                        "event": "deadline_expired",
+                        "notification": {
+                            "template_slug": "expired-manual-work-item",
+                            "recipient_types": ["work_item_controlling"],
+                        },
+                        "condition": lambda work_item: work_item.meta[
+                            "notify-deadline"
+                        ],
+                    },
                 ],
             },
         },
