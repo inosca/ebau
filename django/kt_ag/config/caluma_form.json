@@ -4040,7 +4040,7 @@
       "modified_by_group": null,
       "form": "bestaetigung",
       "question": "bestaetigung-berechtigung",
-      "sort": 2
+      "sort": 1
     }
   },
   {
@@ -4055,7 +4055,22 @@
       "modified_by_group": null,
       "form": "bestaetigung",
       "question": "bestaetigung-rechtsgueltigkeit",
-      "sort": 4
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bestaetigung.elektronische-uebermittlung-disclaimer",
+    "fields": {
+      "created_at": "2025-11-04T08:59:12.296Z",
+      "modified_at": "2025-11-04T08:59:12.296Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bestaetigung",
+      "question": "elektronische-uebermittlung-disclaimer",
+      "sort": 3
     }
   },
   {
@@ -11509,6 +11524,23 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Neu\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "elektronische-uebermittlung-disclaimer-ja",
+    "fields": {
+      "created_at": "2025-11-04T08:59:12.080Z",
+      "modified_at": "2025-11-04T09:01:38.607Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Mit dem Auswählen dieser Checkbox reichen Sie für dieses Verfahren das Gesuch elektronisch ein und bestätigen, dass die künftige Korrespondenz (Unterlagenergänzungen, Entscheid etc.) für dieses Verfahren elektronisch über das Portal erfolgen darf. Sie bestätigen die Kenntnisnahme, dass die Verordnung über die elektronische Übermittlung in Verfahren vor Verwaltungs- und Verwaltungsjustizbehörden (ÜmV, SAR 271.215) gilt.\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -20679,6 +20711,39 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "elektronische-uebermittlung-disclaimer",
+    "fields": {
+      "created_at": "2025-11-04T08:59:12.178Z",
+      "modified_at": "2025-11-04T09:01:38.717Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Elektronische Übermittlung Disclaimer\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -30160,6 +30225,21 @@
       "modified_by_group": null,
       "question": "elektroanschluss",
       "option": "elektroanschluss-neu",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "elektronische-uebermittlung-disclaimer.elektronische-uebermittlung-disclaimer-ja",
+    "fields": {
+      "created_at": "2025-11-04T09:01:38.723Z",
+      "modified_at": "2025-11-04T09:01:38.723Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "elektronische-uebermittlung-disclaimer",
+      "option": "elektronische-uebermittlung-disclaimer-ja",
       "sort": 1
     }
   },
