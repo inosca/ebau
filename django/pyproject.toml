@@ -274,6 +274,7 @@ omit = [
     "camac/tags/management/commands/copy_keywords_for_cantonal_services.py",
     "camac/core/management/commands/fix_construction_monitoring_controlling.py",
     "camac/core/management/commands/get_inquiries_with_wrong_deadline_ag.py",
+    "camac/core/management/commands/sync_to_s3.py",
     # Audit migration"
     "camac/core/management/commands/config/",
     "camac/core/management/commands/migrate_audit.py",
