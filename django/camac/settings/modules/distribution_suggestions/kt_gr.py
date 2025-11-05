@@ -27,6 +27,18 @@ GR_DISTRIBUTION_SUGGESTIONS = {
             "beschreibung-der-nutzung-materialgewinnung",
         ): ["anu"],
         (
+            "beschreibung-der-nutzung-v4",
+            "beschreibung-der-nutzung-abfallanlage-v4",
+        ): ["anu"],
+        (
+            "beschreibung-der-nutzung-v4",
+            "beschreibung-der-nutzung-lageranlage-v4",
+        ): ["anu"],
+        (
+            "beschreibung-der-nutzung-v4",
+            "beschreibung-der-nutzung-materialgewinnung-v4",
+        ): ["anu"],
+        (
             "fallen-emissionen-an",
             "fallen-emissionen-an-ja",
         ): ["anu"],
@@ -73,6 +85,18 @@ GR_DISTRIBUTION_SUGGESTIONS = {
         (
             "beschreibung-der-anlagen",
             "beschreibung-der-anlagen-waermepumpen",
+        ): ["anu"],
+        (
+            "beschreibung-der-anlagen-v4",
+            "beschreibung-der-anlagen-solaranlagen-v4",
+        ): ["aev"],
+        (
+            "beschreibung-der-anlagen-v4",
+            "beschreibung-der-anlagen-verkehrsanlagen-v4",
+        ): ["aev"],
+        (
+            "beschreibung-der-anlagen-v4",
+            "beschreibung-der-anlagen-waermepumpen-v4",
         ): ["anu"],
         (
             "das-bauvorhaben-befindet-sich-in",
@@ -160,6 +184,10 @@ GR_DISTRIBUTION_SUGGESTIONS = {
         ): ["kiga"],
         (
             "mehr-als-50-arbeitsplaetze",
+            "mehr-als-50-arbeitsplaetze-ja",
+        ): ["pro-infirmis"],
+        (
+            "mehr-als-50-arbeitsplaetze-v4",
             "mehr-als-50-arbeitsplaetze-ja",
         ): ["pro-infirmis"],
     }
