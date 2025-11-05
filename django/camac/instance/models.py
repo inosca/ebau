@@ -464,6 +464,19 @@ class Instance(models.Model):
 
         return answer.date
 
+    def update_bab_status(self):
+        md = MasterData(self.case)
+
+        if not settings.BAB or not settings.BAB.get("ENABLED"):
+            return
+
+        if any(getattr(md, prop) for prop in settings.BAB["MASTER_DATA_PROPERTIES"]):
+            self.case.meta["is-bab"] = True
+        else:
+            self.case.meta["is-bab"] = False
+
+        self.case.save(update_fields=["meta"])
+
     class Meta:
         managed = True
         db_table = "INSTANCE"

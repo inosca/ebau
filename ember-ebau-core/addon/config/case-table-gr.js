@@ -45,7 +45,6 @@ export default {
         "keywords",
         "instanceState",
         "paper",
-        "bab",
       ],
       "authority-bab": [
         "form",
@@ -66,6 +65,7 @@ export default {
         "instanceState",
         "paper",
         "suspended",
+        "bab",
       ],
       municipality: [
         "form",
