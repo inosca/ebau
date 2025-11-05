@@ -3,7 +3,7 @@ global:
   page-title: "DIBA-AG"
 
 index:
-  welcome: "Willkommen im DIBA-Portal des Kantons Aargau"
+  welcome: "Willkommen im eBau-Portal des Kantons Aargau"
 
 instances:
   instance-id: "ID"
