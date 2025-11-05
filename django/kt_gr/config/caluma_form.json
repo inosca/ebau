@@ -3923,7 +3923,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "beschreibung-bauvorhaben",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -3938,7 +3938,22 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "beschreibung-bauvorhaben-details",
-      "sort": 14
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben.beschreibung-projektaenderung",
+    "fields": {
+      "created_at": "2025-11-05T10:05:25.244Z",
+      "modified_at": "2025-11-05T10:05:25.244Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben",
+      "question": "beschreibung-projektaenderung",
+      "sort": 13
     }
   },
   {
@@ -3968,7 +3983,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "dossiernummer-des-bewilligten-projekts",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -3998,7 +4013,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "hinweis-zustaendigkeit",
-      "sort": 18
+      "sort": 19
     }
   },
   {
@@ -4028,7 +4043,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "projektaenderung",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -4088,7 +4103,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "vorhaben",
-      "sort": 17
+      "sort": 18
     }
   },
   {
@@ -4103,7 +4118,7 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "vorhaben-titel",
-      "sort": 19
+      "sort": 20
     }
   },
   {
@@ -51607,6 +51622,40 @@
       "type": "textarea",
       "is_required": "false",
       "is_hidden": "!(\"platzierung-der-anlage-andere\" in \"platzierung-der-anlage\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beschreibung-projektaenderung",
+    "fields": {
+      "created_at": "2023-09-11T06:12:47.054Z",
+      "modified_at": "2024-08-28T12:24:50.321Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung Projektänderung\", \"fr\": null, \"it\": \"Descrizione della modifica del progetto\"}",
+      "type": "text",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_hidden": "\"projektaenderung-ja\" != \"projektaenderung\"|answer",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
