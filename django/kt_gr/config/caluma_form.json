@@ -23268,14 +23268,14 @@
     "pk": "beschreibung-der-wohnnutzung-beherbergung-oeffentliche-bauten-v4",
     "fields": {
       "created_at": "2025-10-01T08:50:39.359Z",
-      "modified_at": "2025-10-01T08:50:39.359Z",
+      "modified_at": "2025-11-03T14:30:09.507Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Beherbergung / öffentliche Bauten\", \"fr\": null, \"it\": \"Esercizio ricettivo / edifici pubblici\"}",
       "is_hidden": "false",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -23336,14 +23336,14 @@
     "pk": "beschreibung-der-wohnnutzung-wohn-oder-ferienhaus-spital-heim-v4",
     "fields": {
       "created_at": "2025-10-01T08:50:39.365Z",
-      "modified_at": "2025-10-01T08:50:39.365Z",
+      "modified_at": "2025-11-03T14:30:09.499Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Wohn- oder Ferienhaus, Spital, Heim\", \"fr\": null, \"it\": \"Casa di abitazione o di vacanza, ospedale, casa di cura\"}",
       "is_hidden": "false",
-      "is_archived": false,
+      "is_archived": true,
       "meta": {},
       "source": null
     }
@@ -45456,7 +45456,7 @@
     "pk": "anzahl-schutzplaetze-spital",
     "fields": {
       "created_at": "2023-04-19T12:16:21.128Z",
-      "modified_at": "2024-09-11T14:58:34.283Z",
+      "modified_at": "2025-11-04T12:27:27.794Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -45483,7 +45483,7 @@
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
-      "calc_expression": "\"spital-anzahl-betten\"|answer",
+      "calc_expression": "\"spital-anzahl-betten\"|answer || 0",
       "calc_dependents": "[\"ersatzbeitrag-spital\"]"
     }
   },
@@ -45519,7 +45519,7 @@
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
-      "calc_expression": "(\"wohnhaus-anzahl-zimmer\"|answer * 2 / 3)|floor",
+      "calc_expression": "((\"wohnhaus-anzahl-zimmer\"|answer || 0) * 2 / 3)|floor",
       "calc_dependents": "[\"ersatzbeitrag-wohnhaus\"]"
     }
   },
@@ -50892,7 +50892,7 @@
     "pk": "beschreibung-der-wohnnutzung",
     "fields": {
       "created_at": "2025-10-01T08:50:39.350Z",
-      "modified_at": "2025-10-01T08:50:39.850Z",
+      "modified_at": "2025-11-03T14:30:09.561Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -58171,7 +58171,7 @@
     "pk": "ersatzbeitrag-spital",
     "fields": {
       "created_at": "2024-07-10T14:44:39.994Z",
-      "modified_at": "2024-09-11T14:58:38.592Z",
+      "modified_at": "2025-11-04T12:27:47.311Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -58195,7 +58195,7 @@
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
-      "calc_expression": "\"anzahl-schutzplaetze-spital\"|answer <= 10 ?\n\t800 * \"anzahl-schutzplaetze-spital\"|answer : \n\t\t\"anzahl-schutzplaetze-spital\"|answer <= 20 ?\n\t\t\t(\"anzahl-schutzplaetze-spital\"|answer - 10) * 700 + 8000 :\n\t\t\t\t\"anzahl-schutzplaetze-spital\"|answer <= 30 ?\n\t\t\t\t\t(\"anzahl-schutzplaetze-spital\"|answer - 20) * 650 + 15000 :\n\t\t\t\t\t\t\"anzahl-schutzplaetze-spital\"|answer <= 40 ?\n\t\t\t\t\t\t\t(\"anzahl-schutzplaetze-spital\"|answer - 30) * 600 + 21500 :\n\t\t\t\t\t\t\t\t\"anzahl-schutzplaetze-spital\"|answer <= 50 ?\n\t\t\t\t\t\t\t\t\t(\"anzahl-schutzplaetze-spital\"|answer - 40) * 550 + 27500 :\n\t\t\t\t\t\t\t\t\t\t\"anzahl-schutzplaetze-spital\"|answer <= 60 ?\n\t\t\t\t\t\t\t\t\t\t\t(\"anzahl-schutzplaetze-spital\"|answer - 50) * 500 + 33000 :\n\t\t\t\t\t\t\t\t\t\t\t\t\"anzahl-schutzplaetze-spital\"|answer > 60 ?\n\t\t\t\t\t\t\t\t\t\t\t\t\t(\"anzahl-schutzplaetze-spital\"|answer - 60) * 450 + 38000 : 0",
+      "calc_expression": "(!\"anzahl-schutzplaetze-spital\"|answer) ? (0) : (\"anzahl-schutzplaetze-spital\"|answer <= 10 ? 800 * \"anzahl-schutzplaetze-spital\"|answer : \"anzahl-schutzplaetze-spital\"|answer <= 20 ? (\"anzahl-schutzplaetze-spital\"|answer - 10) * 700 + 8000 : \"anzahl-schutzplaetze-spital\"|answer <= 30 ? (\"anzahl-schutzplaetze-spital\"|answer - 20) * 650 + 15000 : \"anzahl-schutzplaetze-spital\"|answer <= 40 ? (\"anzahl-schutzplaetze-spital\"|answer - 30) * 600 + 21500 : \"anzahl-schutzplaetze-spital\"|answer <= 50 ? (\"anzahl-schutzplaetze-spital\"|answer - 40) * 550 + 27500 : \"anzahl-schutzplaetze-spital\"|answer <= 60 ? (\"anzahl-schutzplaetze-spital\"|answer - 50) * 500 + 33000 : \"anzahl-schutzplaetze-spital\"|answer > 60 ? (\"anzahl-schutzplaetze-spital\"|answer - 60) * 450 + 38000 : 0)",
       "calc_dependents": "[]"
     }
   },
@@ -58204,7 +58204,7 @@
     "pk": "ersatzbeitrag-wohnhaus",
     "fields": {
       "created_at": "2024-07-10T13:41:49.963Z",
-      "modified_at": "2024-09-11T14:58:38.608Z",
+      "modified_at": "2025-11-04T12:27:55.895Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -58228,7 +58228,7 @@
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
-      "calc_expression": "\"anzahl-schutzplaetze-wohnhaus\"|answer <= 10 ?\n\t800 * \"anzahl-schutzplaetze-wohnhaus\"|answer : \n\t\t\"anzahl-schutzplaetze-wohnhaus\"|answer <= 20 ?\n\t\t\t(\"anzahl-schutzplaetze-wohnhaus\"|answer - 10) * 700 + 8000 :\n\t\t\t\t\"anzahl-schutzplaetze-wohnhaus\"|answer <= 30 ?\n\t\t\t\t\t(\"anzahl-schutzplaetze-wohnhaus\"|answer - 20) * 650 + 15000 :\n\t\t\t\t\t\t\"anzahl-schutzplaetze-wohnhaus\"|answer <= 40 ?\n\t\t\t\t\t\t\t(\"anzahl-schutzplaetze-wohnhaus\"|answer - 30) * 600 + 21500 :\n\t\t\t\t\t\t\t\t\"anzahl-schutzplaetze-wohnhaus\"|answer <= 50 ?\n\t\t\t\t\t\t\t\t\t(\"anzahl-schutzplaetze-wohnhaus\"|answer - 40) * 550 + 27500 :\n\t\t\t\t\t\t\t\t\t\t\"anzahl-schutzplaetze-wohnhaus\"|answer <= 60 ?\n\t\t\t\t\t\t\t\t\t\t\t(\"anzahl-schutzplaetze-wohnhaus\"|answer - 50) * 500 + 33000 :\n\t\t\t\t\t\t\t\t\t\t\t\t\"anzahl-schutzplaetze-wohnhaus\"|answer > 60 ?\n\t\t\t\t\t\t\t\t\t\t\t\t\t(\"anzahl-schutzplaetze-wohnhaus\"|answer - 60) * 450 + 38000 : 0",
+      "calc_expression": "(!\"anzahl-schutzplaetze-wohnhaus\"|answer) ? (0) : (\"anzahl-schutzplaetze-wohnhaus\"|answer <= 10 ? 800 * \"anzahl-schutzplaetze-wohnhaus\"|answer : \"anzahl-schutzplaetze-wohnhaus\"|answer <= 20 ? (\"anzahl-schutzplaetze-wohnhaus\"|answer - 10) * 700 + 8000 : \"anzahl-schutzplaetze-wohnhaus\"|answer <= 30 ? (\"anzahl-schutzplaetze-wohnhaus\"|answer - 20) * 650 + 15000 : \"anzahl-schutzplaetze-wohnhaus\"|answer <= 40 ? (\"anzahl-schutzplaetze-wohnhaus\"|answer - 30) * 600 + 21500 : \"anzahl-schutzplaetze-wohnhaus\"|answer <= 50 ? (\"anzahl-schutzplaetze-wohnhaus\"|answer - 40) * 550 + 27500 : \"anzahl-schutzplaetze-wohnhaus\"|answer <= 60 ? (\"anzahl-schutzplaetze-wohnhaus\"|answer - 50) * 500 + 33000 : \"anzahl-schutzplaetze-wohnhaus\"|answer > 60 ? (\"anzahl-schutzplaetze-wohnhaus\"|answer - 60) * 450 + 38000 : 0)",
       "calc_dependents": "[]"
     }
   },
@@ -68881,7 +68881,7 @@
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
-      "calc_expression": null,
+      "calc_expression": "0",
       "calc_dependents": "[]"
     }
   },
@@ -74689,7 +74689,7 @@
     "pk": "spital-anzahl-betten",
     "fields": {
       "created_at": "2023-04-18T19:03:25.921Z",
-      "modified_at": "2024-09-11T14:58:44.795Z",
+      "modified_at": "2025-11-04T12:06:32.777Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -74717,7 +74717,7 @@
       "format_validators": "[]",
       "default_answer": null,
       "calc_expression": null,
-      "calc_dependents": "[]"
+      "calc_dependents": "[\"anzahl-schutzplaetze-spital\"]"
     }
   },
   {
@@ -81171,7 +81171,7 @@
     "pk": "wohnhaus-anzahl-zimmer",
     "fields": {
       "created_at": "2023-04-18T19:01:55.491Z",
-      "modified_at": "2024-09-11T14:58:46.869Z",
+      "modified_at": "2025-11-04T12:06:40.700Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -81199,7 +81199,7 @@
       "format_validators": "[]",
       "default_answer": null,
       "calc_expression": null,
-      "calc_dependents": "[]"
+      "calc_dependents": "[\"anzahl-schutzplaetze-wohnhaus\"]"
     }
   },
   {
@@ -86384,26 +86384,26 @@
     "model": "caluma_form.questionoption",
     "pk": "beschreibung-der-wohnnutzung.beschreibung-der-wohnnutzung-beherbergung-oeffentliche-bauten",
     "fields": {
-      "created_at": "2023-10-25T07:05:01.966Z",
-      "modified_at": "2023-10-25T07:05:01.966Z",
+      "created_at": "2025-11-03T14:30:09.567Z",
+      "modified_at": "2025-11-03T14:30:09.567Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "beschreibung-der-wohnnutzung",
       "option": "beschreibung-der-wohnnutzung-beherbergung-oeffentliche-bauten",
-      "sort": 1
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "beschreibung-der-wohnnutzung.beschreibung-der-wohnnutzung-beherbergung-oeffentliche-bauten-v4",
     "fields": {
-      "created_at": "2025-10-01T08:50:39.361Z",
-      "modified_at": "2025-10-01T08:50:39.361Z",
-      "created_by_user": null,
+      "created_at": "2025-11-03T14:30:09.565Z",
+      "modified_at": "2025-11-03T14:30:09.565Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "beschreibung-der-wohnnutzung",
       "option": "beschreibung-der-wohnnutzung-beherbergung-oeffentliche-bauten-v4",
@@ -86414,60 +86414,60 @@
     "model": "caluma_form.questionoption",
     "pk": "beschreibung-der-wohnnutzung.beschreibung-der-wohnnutzung-mehr-als-vier-wohneinheiten",
     "fields": {
-      "created_at": "2023-10-25T07:05:01.974Z",
-      "modified_at": "2023-10-25T07:05:01.974Z",
+      "created_at": "2025-11-03T14:30:09.571Z",
+      "modified_at": "2025-11-03T14:30:09.571Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "beschreibung-der-wohnnutzung",
       "option": "beschreibung-der-wohnnutzung-mehr-als-vier-wohneinheiten",
-      "sort": 2
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "beschreibung-der-wohnnutzung.beschreibung-der-wohnnutzung-mehr-als-vier-wohneinheiten-v4",
     "fields": {
-      "created_at": "2025-10-01T08:50:39.364Z",
-      "modified_at": "2025-10-01T08:50:39.364Z",
-      "created_by_user": null,
+      "created_at": "2025-11-03T14:30:09.569Z",
+      "modified_at": "2025-11-03T14:30:09.569Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "beschreibung-der-wohnnutzung",
       "option": "beschreibung-der-wohnnutzung-mehr-als-vier-wohneinheiten-v4",
-      "sort": 2
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "beschreibung-der-wohnnutzung.beschreibung-der-wohnnutzung-wohn-oder-ferienhaus-spital-heim",
     "fields": {
-      "created_at": "2023-10-25T07:05:01.980Z",
-      "modified_at": "2023-10-25T07:05:01.980Z",
+      "created_at": "2025-11-03T14:30:09.574Z",
+      "modified_at": "2025-11-03T14:30:09.574Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "beschreibung-der-wohnnutzung",
       "option": "beschreibung-der-wohnnutzung-wohn-oder-ferienhaus-spital-heim",
-      "sort": 3
+      "sort": 6
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "beschreibung-der-wohnnutzung.beschreibung-der-wohnnutzung-wohn-oder-ferienhaus-spital-heim-v4",
     "fields": {
-      "created_at": "2025-10-01T08:50:39.367Z",
-      "modified_at": "2025-10-01T08:50:39.367Z",
-      "created_by_user": null,
+      "created_at": "2025-11-03T14:30:09.573Z",
+      "modified_at": "2025-11-03T14:30:09.573Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "beschreibung-der-wohnnutzung",
       "option": "beschreibung-der-wohnnutzung-wohn-oder-ferienhaus-spital-heim-v4",
-      "sort": 3
+      "sort": 5
     }
   },
   {
