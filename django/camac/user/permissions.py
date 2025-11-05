@@ -313,6 +313,10 @@ PublicationPermission = IsPublicAccess & (
         IsView("StaticContentView") & (PublicationSO | PublicationTest)
     )
     | (
+        # Service content
+        IsView("ServiceContentViewSet") & (PublicationGR | PublicationTest)
+    )
+    | (
         # Publication access count
         IsView("PublicCalumaInstanceView")
         # Same as PublicationSZ but without `ReadOnly`
