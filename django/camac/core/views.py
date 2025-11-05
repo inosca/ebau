@@ -425,3 +425,4 @@ class ServiceContentViewSet(ReadOnlyModelViewSet):
     filterset_class = filters.ServiceContentFilterSet
     queryset = models.ServiceContent.objects.all()
     serializer_class = serializers.ServiceContentSerializer
+    permission_classes = [DefaultPermission | PublicationPermission]
