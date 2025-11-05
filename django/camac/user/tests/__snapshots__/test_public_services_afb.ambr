@@ -1,10 +1,10 @@
 # serializer version: 1
-# name: test_ag_distribution_services[municipality-False]
+# name: test_ag_distribution_services[municipality-None-False]
   set({
     'my-subservice',
   })
 # ---
-# name: test_ag_distribution_services[municipality-True]
+# name: test_ag_distribution_services[municipality-None-True]
   set({
     'aew',
     'afb',
@@ -22,42 +22,30 @@
     'some-municipality',
   })
 # ---
-# name: test_ag_distribution_services[municipality-light-False]
+# name: test_ag_distribution_services[municipality-light-None-False]
   set({
     'afb',
     'my-subservice',
   })
 # ---
-# name: test_ag_distribution_services[municipality-light-True]
+# name: test_ag_distribution_services[municipality-light-None-True]
   set({
     'afb',
     'my-subservice',
   })
 # ---
-# name: test_ag_distribution_services[service-afb-False]
+# name: test_ag_distribution_services[service-afb-None-False]
   set({
     'aew',
     'agv-bs',
     'agv-esp',
+    'alg-wb',
     'amb',
-    'axpo',
-    'bks-dp',
-    'bks-ka',
-    'dgs-avs-lmi',
-    'dgs-avs-vet',
-    'dvi-awa-iga',
-    'gvm',
-    'my-subservice',
-    'some-cantonal-service',
-    'some-municipality',
-  })
-# ---
-# name: test_ag_distribution_services[service-afb-True]
-  set({
-    'aew',
-    'agv-bs',
-    'agv-esp',
-    'amb',
+    'atb-em',
+    'atb-ivs',
+    'atb-le',
+    'atb-re',
+    'atb-vm',
     'axpo',
     'bks-dp',
     'bks-ka',
@@ -70,12 +58,88 @@
     'some-municipality',
   })
 # ---
-# name: test_ag_distribution_services[service-cantonal-False]
+# name: test_ag_distribution_services[service-afb-None-True]
+  set({
+    'aew',
+    'agv-bs',
+    'agv-esp',
+    'alg-wb',
+    'amb',
+    'atb-em',
+    'atb-ivs',
+    'atb-le',
+    'atb-re',
+    'atb-vm',
+    'axpo',
+    'bks-dp',
+    'bks-ka',
+    'dgs-avs-lmi',
+    'dgs-avs-vet',
+    'dvi-awa-iga',
+    'gvm',
+    'my-subservice',
+    'some-cantonal-service',
+    'some-municipality',
+  })
+# ---
+# name: test_ag_distribution_services[service-cantonal-None-False]
   set({
     'my-subservice',
   })
 # ---
-# name: test_ag_distribution_services[service-cantonal-True]
+# name: test_ag_distribution_services[service-cantonal-None-True]
+  set({
+    'aew',
+    'afb',
+    'agv-bs',
+    'agv-esp',
+    'amb',
+    'axpo',
+    'bks-dp',
+    'bks-ka',
+    'dgs-avs-lmi',
+    'dgs-avs-vet',
+    'dvi-awa-iga',
+    'gvm',
+    'my-subservice',
+    'some-municipality',
+  })
+# ---
+# name: test_ag_distribution_services[service-cantonal-alg-gn-False]
+  set({
+    'alg-wb',
+    'my-subservice',
+  })
+# ---
+# name: test_ag_distribution_services[service-cantonal-alg-gn-True]
+  set({
+    'aew',
+    'afb',
+    'agv-bs',
+    'agv-esp',
+    'amb',
+    'axpo',
+    'bks-dp',
+    'bks-ka',
+    'dgs-avs-lmi',
+    'dgs-avs-vet',
+    'dvi-awa-iga',
+    'gvm',
+    'my-subservice',
+    'some-municipality',
+  })
+# ---
+# name: test_ag_distribution_services[service-cantonal-atb-False]
+  set({
+    'atb-em',
+    'atb-ivs',
+    'atb-le',
+    'atb-re',
+    'atb-vm',
+    'my-subservice',
+  })
+# ---
+# name: test_ag_distribution_services[service-cantonal-atb-True]
   set({
     'aew',
     'afb',
