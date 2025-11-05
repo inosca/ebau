@@ -180,6 +180,7 @@ def test_dynamic_task_after_decision(
     )
 
 
+@pytest.mark.freeze_time("2025-11-06 15:15:15+02:00")
 @pytest.mark.parametrize(
     "is_deactivated,should_continue_after_decision,involve_geometer,expected_tasks",
     [
@@ -226,7 +227,9 @@ def test_dynamic_task_after_decision_with_check_prevent_submit(
         service_group__name="municipality",
         trans__language="de",
         trans__name="Leitbehörde Burgdorf",
-        meta={"deactivated-municipality": True if is_deactivated else False},
+        meta={"deactivated-municipality-at": "2025-11-04T15:15:15+02:00"}
+        if is_deactivated
+        else {},
     )
     instance.instance_services.add(
         instance_service_factory(service=service_municipality)

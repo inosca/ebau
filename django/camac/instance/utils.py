@@ -1,4 +1,5 @@
 from collections import namedtuple
+from datetime import datetime
 from itertools import chain
 from typing import Set, Union
 
@@ -9,6 +10,7 @@ from caluma.caluma_workflow import models as workflow_models
 from caluma.caluma_workflow.api import complete_work_item, skip_work_item
 from django.conf import settings
 from django.db.models.query import QuerySet
+from django.utils import timezone
 from django.utils.timezone import now
 from django.utils.translation import gettext as _
 
@@ -277,11 +279,39 @@ def be_should_prevent_process_step_for_deactivated_municipality(
     instance, municipality=None
 ):
     if not municipality:
-        municipality = instance.responsible_service(filter_type="municipality")
+        active_municipalities = (
+            instance.instance_services.filter(
+                active=1, service__service_group__name="municipality"
+            )
+            .values_list("service", flat=True)
+            .distinct()
+        )
 
-        if not municipality:  # pragma: no cover
+        # If there is no active lead municipality or multiple,
+        # regard as not deactivated
+        if active_municipalities.count() != 1:
             return False
 
-    return municipality.meta and municipality.meta.get(
-        "deactivated-municipality", False
-    )
+        municipality_id = active_municipalities.first()
+        municipality = Service.objects.get(pk=municipality_id)
+
+    try:
+        municipality_config = municipality.meta.get("deactivated-municipality-at")
+        if not municipality_config:
+            return False
+
+        # Make configured deactivation date timezone aware if necessary
+        deactivation_date_time = datetime.fromisoformat(municipality_config)
+        if not timezone.is_aware(deactivation_date_time):
+            deactivation_date_time = timezone.make_aware(deactivation_date_time)
+
+        current_date_time = timezone.now()
+
+        # If the current date is past the deactivation date, the current
+        # responsible municipality on this instance is regarded as deactivated
+        return deactivation_date_time <= current_date_time
+
+    except Exception:
+        # Faulty municipality or meta configuration
+        # Default to not deactivated
+        return False

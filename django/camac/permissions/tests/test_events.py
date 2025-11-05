@@ -137,6 +137,7 @@ def test_permission_event_handler_be(
     )
 
 
+@pytest.mark.freeze_time("2025-11-06 15:15:15+02:00")
 @pytest.mark.parametrize(
     "involve_geometer,geometer_relation_exists,expected_count,deactivated_municipality",
     [
@@ -185,7 +186,9 @@ def test_decision_event_handler_be(
     )
 
     if deactivated_municipality:
-        municipality_service.meta = {"deactivated-municipality": True}
+        municipality_service.meta = {
+            "deactivated-municipality-at": "2025-11-04T15:15:15+02:00"
+        }
         municipality_service.save()
 
     service_factory(

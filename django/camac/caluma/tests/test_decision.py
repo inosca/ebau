@@ -258,7 +258,7 @@ def test_complete_decision_be(
         assert ebau_number_work_item.status == WorkItem.STATUS_SKIPPED
 
 
-@pytest.mark.freeze_time("2026-01-01")
+@pytest.mark.freeze_time("2025-11-06 15:15:15+02:00")
 @pytest.mark.parametrize(
     "is_deactivated,workflow,decision,decision_type,expected_instance_state",
     [
@@ -319,10 +319,12 @@ def test_complete_decision_for_instance_from_moutier(
         trans__name="Leitbehörde Moutier",
         trans__language="de",
         service_group__name="municipality",
-        meta={"deactivated-municipality": True if is_deactivated else False},
+        meta={"deactivated-municipality-at": "2025-11-04T15:15:15+02:00"}
+        if is_deactivated
+        else {},
     )
 
-    # Construction control is needed for  DecisionLogic:: post_complete_decision_building_permit lookup, if "deactivated-municipality" is False
+    # Construction control is needed for  DecisionLogic:: post_complete_decision_building_permit lookup, if municipality is deactivated
     service_factory(
         trans__name="Baukontrolle Moutier",
         trans__language="de",

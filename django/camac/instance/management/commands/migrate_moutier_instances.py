@@ -59,6 +59,7 @@ class Command(BaseCommand):
                     active=1,
                 )
             )
+            # TODO: Check that there is only one active service
         )
 
         affected_instances = moutier_instances.filter(
