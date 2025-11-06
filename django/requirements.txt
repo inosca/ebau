@@ -10,7 +10,7 @@ dataclasses-json==0.6.7
 deepmerge==2.0
 defusedxml==0.7.1
 # check camac/admin.py MultilingualAdminMixin.get_search_result before updating
-Django==5.2.7
+Django==5.2.8
 django-admin-sortable2==2.2.8
 django-celery-beat==2.8.1
 django-clamd==1.0.0
