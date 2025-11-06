@@ -339,7 +339,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "is-paper",
-              "value": "is-paper-no"
+              "value": "is-paper-yes"
           },
           {
               "date": null,
@@ -914,6 +914,7 @@
       ],
       "applicants": [],
       "case-meta": {
+          "canton-entry-date": "2022-10-13T00:00:00+0200",
           "dossier-number": "2022-1",
           "dossier-number-sort": 2022000001,
           "submit-date": "2022-10-13T00:00:00+0200"
@@ -1400,7 +1401,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "is-paper",
-              "value": "is-paper-no"
+              "value": "is-paper-yes"
           },
           {
               "date": null,
@@ -1975,6 +1976,7 @@
       ],
       "applicants": [],
       "case-meta": {
+          "canton-entry-date": "2022-10-13T00:00:00+0200",
           "dossier-number": "2022-1",
           "dossier-number-sort": 2022000001,
           "submit-date": "2022-10-13T00:00:00+0200"
@@ -3006,6 +3008,7 @@
           }
       ],
       "case-meta": {
+          "canton-entry-date": "2024-02-14T00:00:00+0100",
           "dossier-number": "2024-1",
           "dossier-number-sort": 2024000001,
           "submit-date": "2024-02-14T00:00:00+0100"
@@ -3996,7 +3999,7 @@
               "date": null,
               "document__form_id": "pgv-migration",
               "question_id": "is-paper",
-              "value": "is-paper-no"
+              "value": "is-paper-yes"
           },
           {
               "date": null,
@@ -4313,6 +4316,7 @@
       ],
       "applicants": [],
       "case-meta": {
+          "canton-entry-date": "2025-06-12T00:00:00+0200",
           "dossier-number": "2025-3",
           "dossier-number-sort": 2025000003,
           "submit-date": "2025-01-02T00:00:00+0100"
@@ -6521,7 +6525,7 @@
               "date": null,
               "document__form_id": "uvp-migration",
               "question_id": "is-paper",
-              "value": "is-paper-no"
+              "value": "is-paper-yes"
           },
           {
               "date": null,
@@ -7013,6 +7017,12 @@
               "value": null
           },
           {
+              "date": "2025-09-26",
+              "document__form_id": "inquiry",
+              "question_id": "inquiry-deadline",
+              "value": null
+          },
+          {
               "date": null,
               "document__form_id": "kantonale-pruefung",
               "question_id": "kantonale-pruefung-gesuchscodes",
@@ -7386,7 +7396,7 @@
               "date": null,
               "document__form_id": "pgv-migration",
               "question_id": "is-paper",
-              "value": "is-paper-no"
+              "value": "is-paper-yes"
           },
           {
               "date": null,
@@ -7649,6 +7659,7 @@
       ],
       "applicants": [],
       "case-meta": {
+          "canton-entry-date": "2023-05-24T00:00:00+0200",
           "dossier-number": "2023-1",
           "dossier-number-sort": 2023000001,
           "submit-date": "2023-05-24T00:00:00+0200"
@@ -7755,11 +7766,23 @@
       "keywords": [
           {
               "name": "000",
+              "service_id": 1
+          },
+          {
+              "name": "000",
               "service_id": 80
           },
           {
               "name": "BVUAFB.23.10",
+              "service_id": 1
+          },
+          {
+              "name": "BVUAFB.23.10",
               "service_id": 80
+          },
+          {
+              "name": "EBPA-8161-2380",
+              "service_id": 1
           },
           {
               "name": "EBPA-8161-2380",
@@ -7776,6 +7799,34 @@
               ],
               "status": "ready",
               "task_id": "cantonal-exam"
+          },
+          {
+              "addressed_groups": [
+                  "1"
+              ],
+              "status": "ready",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "1"
+              ],
+              "status": "ready",
+              "task_id": "inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "80"
+              ],
+              "status": "completed",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "80"
+              ],
+              "status": "completed",
+              "task_id": "init-distribution"
           },
           {
               "addressed_groups": [
@@ -7804,13 +7855,6 @@
               ],
               "status": "ready",
               "task_id": "init-additional-demand"
-          },
-          {
-              "addressed_groups": [
-                  "80"
-              ],
-              "status": "ready",
-              "task_id": "init-distribution"
           },
           {
               "addressed_groups": [
@@ -7960,7 +8004,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "is-paper",
-              "value": "is-paper-no"
+              "value": "is-paper-yes"
           },
           {
               "date": null,
@@ -9739,6 +9783,12 @@
               "value": null
           },
           {
+              "date": "2025-09-26",
+              "document__form_id": "inquiry",
+              "question_id": "inquiry-deadline",
+              "value": null
+          },
+          {
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "art-des-gesuchs",
@@ -9860,7 +9910,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "is-paper",
-              "value": "is-paper-no"
+              "value": "is-paper-yes"
           },
           {
               "date": null,
@@ -10363,6 +10413,7 @@
       ],
       "applicants": [],
       "case-meta": {
+          "canton-entry-date": "2022-12-16T00:00:00+0100",
           "dossier-number": "2022-2",
           "dossier-number-sort": 2022000002,
           "submit-date": "2022-12-16T00:00:00+0100"
@@ -10552,6 +10603,20 @@
               "addressed_groups": [
                   "1"
               ],
+              "status": "completed",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "1"
+              ],
+              "status": "completed",
+              "task_id": "init-distribution"
+          },
+          {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "cantonal-exam"
           },
@@ -10588,7 +10653,7 @@
                   "1"
               ],
               "status": "ready",
-              "task_id": "init-distribution"
+              "task_id": "inquiry"
           },
           {
               "addressed_groups": [
@@ -11345,6 +11410,7 @@
           }
       ],
       "case-meta": {
+          "canton-entry-date": "2024-02-14T00:00:00+0100",
           "dossier-number": "2024-1",
           "dossier-number-sort": 2024000001,
           "submit-date": "2024-02-14T00:00:00+0100"
@@ -12007,7 +12073,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "is-paper",
-              "value": "is-paper-no"
+              "value": "is-paper-yes"
           },
           {
               "date": null,
@@ -12582,6 +12648,7 @@
       ],
       "applicants": [],
       "case-meta": {
+          "canton-entry-date": "2022-10-13T00:00:00+0200",
           "dossier-number": "2022-1",
           "dossier-number-sort": 2022000001,
           "submit-date": "2022-10-13T00:00:00+0200"
@@ -13613,6 +13680,7 @@
           }
       ],
       "case-meta": {
+          "canton-entry-date": "2024-02-14T00:00:00+0100",
           "dossier-number": "2024-1",
           "dossier-number-sort": 2024000001,
           "submit-date": "2024-02-14T00:00:00+0100"
@@ -14603,7 +14671,7 @@
               "date": null,
               "document__form_id": "pgv-migration",
               "question_id": "is-paper",
-              "value": "is-paper-no"
+              "value": "is-paper-yes"
           },
           {
               "date": null,
@@ -14920,6 +14988,7 @@
       ],
       "applicants": [],
       "case-meta": {
+          "canton-entry-date": "2025-06-12T00:00:00+0200",
           "dossier-number": "2025-3",
           "dossier-number-sort": 2025000003,
           "submit-date": "2025-01-02T00:00:00+0100"
@@ -17128,7 +17197,7 @@
               "date": null,
               "document__form_id": "uvp-migration",
               "question_id": "is-paper",
-              "value": "is-paper-no"
+              "value": "is-paper-yes"
           },
           {
               "date": null,
@@ -17620,6 +17689,12 @@
               "value": null
           },
           {
+              "date": "2025-09-26",
+              "document__form_id": "inquiry",
+              "question_id": "inquiry-deadline",
+              "value": null
+          },
+          {
               "date": null,
               "document__form_id": "kantonale-pruefung",
               "question_id": "kantonale-pruefung-gesuchscodes",
@@ -17993,7 +18068,7 @@
               "date": null,
               "document__form_id": "pgv-migration",
               "question_id": "is-paper",
-              "value": "is-paper-no"
+              "value": "is-paper-yes"
           },
           {
               "date": null,
@@ -18256,6 +18331,7 @@
       ],
       "applicants": [],
       "case-meta": {
+          "canton-entry-date": "2023-05-24T00:00:00+0200",
           "dossier-number": "2023-1",
           "dossier-number-sort": 2023000001,
           "submit-date": "2023-05-24T00:00:00+0200"
@@ -18362,11 +18438,23 @@
       "keywords": [
           {
               "name": "000",
+              "service_id": 1
+          },
+          {
+              "name": "000",
               "service_id": 80
           },
           {
               "name": "BVUAFB.23.10",
+              "service_id": 1
+          },
+          {
+              "name": "BVUAFB.23.10",
               "service_id": 80
+          },
+          {
+              "name": "EBPA-8161-2380",
+              "service_id": 1
           },
           {
               "name": "EBPA-8161-2380",
@@ -18383,6 +18471,34 @@
               ],
               "status": "ready",
               "task_id": "cantonal-exam"
+          },
+          {
+              "addressed_groups": [
+                  "1"
+              ],
+              "status": "ready",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "1"
+              ],
+              "status": "ready",
+              "task_id": "inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "80"
+              ],
+              "status": "completed",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "80"
+              ],
+              "status": "completed",
+              "task_id": "init-distribution"
           },
           {
               "addressed_groups": [
@@ -18411,13 +18527,6 @@
               ],
               "status": "ready",
               "task_id": "init-additional-demand"
-          },
-          {
-              "addressed_groups": [
-                  "80"
-              ],
-              "status": "ready",
-              "task_id": "init-distribution"
           },
           {
               "addressed_groups": [
@@ -18567,7 +18676,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "is-paper",
-              "value": "is-paper-no"
+              "value": "is-paper-yes"
           },
           {
               "date": null,
@@ -20346,6 +20455,12 @@
               "value": null
           },
           {
+              "date": "2025-09-26",
+              "document__form_id": "inquiry",
+              "question_id": "inquiry-deadline",
+              "value": null
+          },
+          {
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "art-des-gesuchs",
@@ -20467,7 +20582,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "is-paper",
-              "value": "is-paper-no"
+              "value": "is-paper-yes"
           },
           {
               "date": null,
@@ -20970,6 +21085,7 @@
       ],
       "applicants": [],
       "case-meta": {
+          "canton-entry-date": "2022-12-16T00:00:00+0100",
           "dossier-number": "2022-2",
           "dossier-number-sort": 2022000002,
           "submit-date": "2022-12-16T00:00:00+0100"
@@ -21159,6 +21275,20 @@
               "addressed_groups": [
                   "1"
               ],
+              "status": "completed",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "1"
+              ],
+              "status": "completed",
+              "task_id": "init-distribution"
+          },
+          {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "cantonal-exam"
           },
@@ -21195,7 +21325,7 @@
                   "1"
               ],
               "status": "ready",
-              "task_id": "init-distribution"
+              "task_id": "inquiry"
           },
           {
               "addressed_groups": [
@@ -21735,7 +21865,7 @@
               "date": null,
               "document__form_id": "pgv-migration",
               "question_id": "is-paper",
-              "value": "is-paper-no"
+              "value": "is-paper-yes"
           },
           {
               "date": null,
@@ -22052,6 +22182,7 @@
       ],
       "applicants": [],
       "case-meta": {
+          "canton-entry-date": "2025-06-12T00:00:00+0200",
           "dossier-number": "2025-3",
           "dossier-number-sort": 2025000003,
           "submit-date": "2025-01-02T00:00:00+0100"
@@ -24260,7 +24391,7 @@
               "date": null,
               "document__form_id": "uvp-migration",
               "question_id": "is-paper",
-              "value": "is-paper-no"
+              "value": "is-paper-yes"
           },
           {
               "date": null,
@@ -24752,6 +24883,12 @@
               "value": null
           },
           {
+              "date": "2025-09-26",
+              "document__form_id": "inquiry",
+              "question_id": "inquiry-deadline",
+              "value": null
+          },
+          {
               "date": null,
               "document__form_id": "kantonale-pruefung",
               "question_id": "kantonale-pruefung-gesuchscodes",
@@ -25125,7 +25262,7 @@
               "date": null,
               "document__form_id": "pgv-migration",
               "question_id": "is-paper",
-              "value": "is-paper-no"
+              "value": "is-paper-yes"
           },
           {
               "date": null,
@@ -25388,6 +25525,7 @@
       ],
       "applicants": [],
       "case-meta": {
+          "canton-entry-date": "2023-05-24T00:00:00+0200",
           "dossier-number": "2023-1",
           "dossier-number-sort": 2023000001,
           "submit-date": "2023-05-24T00:00:00+0200"
@@ -25494,11 +25632,23 @@
       "keywords": [
           {
               "name": "000",
+              "service_id": 1
+          },
+          {
+              "name": "000",
               "service_id": 80
           },
           {
               "name": "BVUAFB.23.10",
+              "service_id": 1
+          },
+          {
+              "name": "BVUAFB.23.10",
               "service_id": 80
+          },
+          {
+              "name": "EBPA-8161-2380",
+              "service_id": 1
           },
           {
               "name": "EBPA-8161-2380",
@@ -25515,6 +25665,34 @@
               ],
               "status": "ready",
               "task_id": "cantonal-exam"
+          },
+          {
+              "addressed_groups": [
+                  "1"
+              ],
+              "status": "ready",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "1"
+              ],
+              "status": "ready",
+              "task_id": "inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "80"
+              ],
+              "status": "completed",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "80"
+              ],
+              "status": "completed",
+              "task_id": "init-distribution"
           },
           {
               "addressed_groups": [
@@ -25543,13 +25721,6 @@
               ],
               "status": "ready",
               "task_id": "init-additional-demand"
-          },
-          {
-              "addressed_groups": [
-                  "80"
-              ],
-              "status": "ready",
-              "task_id": "init-distribution"
           },
           {
               "addressed_groups": [
@@ -25699,7 +25870,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "is-paper",
-              "value": "is-paper-no"
+              "value": "is-paper-yes"
           },
           {
               "date": null,
@@ -27478,6 +27649,12 @@
               "value": null
           },
           {
+              "date": "2025-09-26",
+              "document__form_id": "inquiry",
+              "question_id": "inquiry-deadline",
+              "value": null
+          },
+          {
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "art-des-gesuchs",
@@ -27599,7 +27776,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "is-paper",
-              "value": "is-paper-no"
+              "value": "is-paper-yes"
           },
           {
               "date": null,
@@ -28102,6 +28279,7 @@
       ],
       "applicants": [],
       "case-meta": {
+          "canton-entry-date": "2022-12-16T00:00:00+0100",
           "dossier-number": "2022-2",
           "dossier-number-sort": 2022000002,
           "submit-date": "2022-12-16T00:00:00+0100"
@@ -28291,6 +28469,20 @@
               "addressed_groups": [
                   "1"
               ],
+              "status": "completed",
+              "task_id": "create-inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "1"
+              ],
+              "status": "completed",
+              "task_id": "init-distribution"
+          },
+          {
+              "addressed_groups": [
+                  "1"
+              ],
               "status": "ready",
               "task_id": "cantonal-exam"
           },
@@ -28327,7 +28519,7 @@
                   "1"
               ],
               "status": "ready",
-              "task_id": "init-distribution"
+              "task_id": "inquiry"
           },
           {
               "addressed_groups": [

@@ -344,6 +344,7 @@
               "zip": 7777
           }
       ],
+      "is_paper": null,
       "landowner": [
           {
               "company": "Grundbesitzer AG",
@@ -862,6 +863,7 @@
       "id": null,
       "instance_state": null,
       "invoice_recipient": [],
+      "is_paper": null,
       "landowner": [],
       "leased_land_total_ha": null,
       "legal_representative": [],
@@ -1119,6 +1121,7 @@
       "id": null,
       "instance_state": null,
       "invoice_recipient": [],
+      "is_paper": null,
       "landowner": [],
       "leased_land_total_ha": null,
       "legal_representative": [],
@@ -1368,6 +1371,7 @@
       "id": "EBPA-0001-6924",
       "instance_state": null,
       "invoice_recipient": [],
+      "is_paper": null,
       "landowner": [],
       "leased_land_total_ha": null,
       "legal_representative": [],
