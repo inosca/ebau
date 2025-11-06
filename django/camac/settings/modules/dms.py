@@ -128,6 +128,7 @@ DMS = {
                     "spezialinstallation-calculation-v5",
                     "pdf-herunterladen",
                     "entwurf-herunterladen-pdf",
+                    "hinweis-zum-vorliegenden-dossier",
                 ],
             },
             "vorabklaerung": {
@@ -163,6 +164,7 @@ DMS = {
                     "spezialinstallation-calculation-v5",
                     "pdf-herunterladen",
                     "entwurf-herunterladen-pdf",
+                    "hinweis-zum-vorliegenden-dossier",
                 ],
             },
             "migriertes-dossier": {
@@ -187,6 +189,7 @@ DMS = {
                     "dokumente-platzhalter",
                     "pdf-herunterladen",
                     "entwurf-herunterladen-pdf",
+                    "hinweis-zum-vorliegenden-dossier",
                 ],
             },
             "regular-exams": {
