@@ -193,7 +193,8 @@ class PermissionManager:
     userinfo: ACLUserInfo
     default_event: Optional[str] = None
 
-    def __init__(self, userinfo: ACLUserInfo):
+    def __init__(self, userinfo: ACLUserInfo, permission_settings=None):
+        self.permission_settings = permission_settings or settings.PERMISSIONS
         self.userinfo = userinfo
 
     @classmethod
@@ -209,9 +210,7 @@ class PermissionManager:
         return cls(userinfo=userinfo)
 
     @classmethod
-    def from_request(cls, request) -> "PermissionManager":
-        # TODO: Token ACL is not specified yet, so
-        # this part is always unset
+    def from_request(cls, request, permission_settings=None) -> "PermissionManager":
         userinfo = ACLUserInfo.from_request(request)
         return cls(userinfo=userinfo)
 
@@ -219,7 +218,7 @@ class PermissionManager:
         # We can globally disable the cache. By default, caching is enabled,
         # but during development, it can be disabled so any stale permissions
         # won't be kept around
-        enable_cache = settings.PERMISSIONS.get("ENABLE_CACHE", True)
+        enable_cache = self.permission_settings.get("ENABLE_CACHE", True)
 
         if not isinstance(instance, Instance):  # pragma: no cover
             instance = Instance.objects.get(pk=instance)
@@ -314,7 +313,7 @@ class PermissionManager:
         documentation for details)
         """
         try:
-            return settings.PERMISSIONS["ACCESS_LEVELS"][access_level_slug]
+            return self.permission_settings["ACCESS_LEVELS"][access_level_slug]
         except KeyError:  # pragma: no cover
             raise ImproperlyConfigured(
                 f"Permissions config is missing an entry for access level {access_level_slug}"
