@@ -29,6 +29,12 @@ export default class BeDocumentsFormComponent extends Component {
     return /^heat-generator/.test(this.args.fieldset.document.rootForm.slug);
   }
 
+  get showSolareignungConfirmText() {
+    return /^meldung-solareignung/.test(
+      this.args.fieldset.document.rootForm.slug,
+    );
+  }
+
   get section() {
     return this.args.document.jexl.evalSync(
       this.args.fieldset.field.question.raw.meta["attachment-section"],

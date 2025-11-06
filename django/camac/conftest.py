@@ -219,6 +219,7 @@ CALUMA_FORM_TYPES_SLUGS = [
     "heat-generator-v3",
     "reklamegesuch",
     "benuetzung-oeffentlichem-terrain-meldung",
+    "meldung-solareignung",
 ]
 
 CALUMA_VERSIONED_FORM_TYPES_SLUGS_SO = [

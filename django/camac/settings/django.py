@@ -3568,6 +3568,7 @@ ECH_EXCLUDED_FORMS = [
     "reklamegesuch",
     "reklamegesuch-v2",
     "benuetzung-oeffentlichem-terrain-meldung",
+    "meldung-solareignung",
 ]
 ECH_THROTTLING_RATE = env.str("DJANGO_ECH_THROTTLING_RATE", default="1/min")
 

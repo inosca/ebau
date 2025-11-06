@@ -11,6 +11,8 @@
   <p class="uk-text-bold">
     {{#if this.showReducedConfirmText}}
       {{t "documents.confirm-reduced"}}
+    {{else if this.showSolareignungConfirmText}}
+      {{t "documents.confirm-solareignung"}}
     {{else}}
       {{t "documents.confirm" count=this.allRequiredTagsCount}}
     {{/if}}
