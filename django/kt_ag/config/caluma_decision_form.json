@@ -29,7 +29,7 @@
       "modified_by_group": null,
       "form": "entscheid",
       "question": "entscheid-bemerkungen",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -44,7 +44,7 @@
       "modified_by_group": null,
       "form": "entscheid",
       "question": "entscheid-datum",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -74,36 +74,36 @@
       "modified_by_group": null,
       "form": "entscheid",
       "question": "entscheid-entscheidtyp-abweisung",
-      "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "entscheid.entscheid-entscheidtyp-teilbaubewilligung",
-    "fields": {
-      "created_at": "2025-01-16T14:21:25.271Z",
-      "modified_at": "2025-01-16T14:21:25.271Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "entscheid",
-      "question": "entscheid-entscheidtyp-teilbaubewilligung",
       "sort": 5
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "entscheid.entscheid-verfuegen",
+    "pk": "entscheid.entscheid-hinweistext",
     "fields": {
-      "created_at": "2025-01-16T14:23:46.042Z",
-      "modified_at": "2025-01-16T14:23:46.042Z",
+      "created_at": "2025-11-06T09:46:06.735Z",
+      "modified_at": "2025-11-06T09:46:06.735Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "entscheid",
-      "question": "entscheid-verfuegen",
+      "question": "entscheid-hinweistext",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entscheid.entscheid-verfuegen-submit",
+    "fields": {
+      "created_at": "2025-11-06T11:04:41.579Z",
+      "modified_at": "2025-11-06T11:04:41.579Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entscheid",
+      "question": "entscheid-verfuegen-submit",
       "sort": 1
     }
   },
@@ -214,12 +214,12 @@
     "pk": "entscheid-entscheid-teilbaubewilligung",
     "fields": {
       "created_at": "2025-01-16T14:20:17.224Z",
-      "modified_at": "2025-01-16T14:20:17.224Z",
+      "modified_at": "2025-11-06T09:42:08.530Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Teilbaubewilligung\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Teilbaubewilligung mit teilweiser Abweisung mit/ohne Rückbau\", \"fr\": null, \"it\": null}",
       "is_hidden": "info.case.root.form == \"plangenehmigungsverfahren-bund\"",
       "is_archived": false,
       "meta": {},
@@ -254,57 +254,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Abweisung ohne Rückbau\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "entscheid-entscheidtyp-teilbaubewilligung-einzelne-verfahrensinhalte",
-    "fields": {
-      "created_at": "2025-01-16T14:21:25.112Z",
-      "modified_at": "2025-01-16T14:21:25.112Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Teilbaubewilligung für einzelne Verfahrensinhalte\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "entscheid-entscheidtyp-teilbaubewilligung-mit-teilweiser-abweisung-mit-ohne-rueckbau",
-    "fields": {
-      "created_at": "2025-01-16T14:21:25.117Z",
-      "modified_at": "2025-01-16T14:21:25.117Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Teilbaubewilligung mit teilweiser Abweisung mit/ohne Rückbau\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "entscheid-entscheidtyp-teilbaubewilligung-projektaenderung",
-    "fields": {
-      "created_at": "2025-01-16T14:21:25.106Z",
-      "modified_at": "2025-01-16T14:21:25.107Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Teilbaubewilligung für Projektänderung\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -381,7 +330,7 @@
     "pk": "entscheid-entscheid",
     "fields": {
       "created_at": "2025-01-16T14:20:17.336Z",
-      "modified_at": "2025-04-29T08:57:08.473Z",
+      "modified_at": "2025-11-06T09:42:08.713Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -440,23 +389,23 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "entscheid-entscheidtyp-teilbaubewilligung",
+    "pk": "entscheid-hinweistext",
     "fields": {
-      "created_at": "2025-01-16T14:21:25.191Z",
-      "modified_at": "2025-01-16T14:22:30.130Z",
+      "created_at": "2025-11-06T09:46:06.626Z",
+      "modified_at": "2025-11-06T09:48:22.486Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Entscheidtyp\", \"fr\": null, \"it\": null}",
-      "type": "multiple_choice",
-      "is_required": "true",
-      "is_hidden": "\"entscheid-entscheid\"|answer != \"entscheid-entscheid-teilbaubewilligung\"",
+      "label": "{\"de\": \"entscheid-hinweistext\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert\\\">\\n<p>\\nHaben Sie den Entscheid im Modul \\\"Dokumente\\\" in die Kategorie \\\"Alle Beteiligte\\\" verschoben und möchten Sie den Entscheid jetzt verfügen? Dieser Schritt kann nicht rückgängig gemacht werden. \\n</p>\\n<p>\\nHaben Sie einen Teilentscheid (Teilbaubewilligung) verfasst? Dann führen Sie diesen Schritt erst beim <u>letzten</u> Teilentscheid des Verfahrens aus. Vorgängige Teilentscheide sind im Modul \\\"Dokumente\\\" in die Kategorie \\\"Alle Beteiligte\\\" zu verschieben und die Bauherrschaft über das Kommunikationsmodul über den Entscheid zu informieren. \\n</p>\\n<p>\\nHinweis: Bis zum Vorliegen der nötigen technischen Voraussetzungen zur fristauslösenden digitalen Zustellung ist die Baubewilligung der Bauherrschaft zusätzlich physisch per Post zuzustellen. Sämtliche Beilagen und bewilligten Pläne werden digital über das Portal bereitgestellt.\\n</p></div>\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -471,10 +420,10 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "entscheid-verfuegen",
+    "pk": "entscheid-verfuegen-submit",
     "fields": {
-      "created_at": "2025-01-16T14:23:45.979Z",
-      "modified_at": "2025-01-16T15:06:30.584Z",
+      "created_at": "2025-11-06T11:04:41.464Z",
+      "modified_at": "2025-11-06T11:11:43.074Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -485,7 +434,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Haben Sie den Entscheid im Modul \\\"Dokumente\\\" in die Kategorie \\\"Alle Beteiligte\\\" verschoben und möchten Sie den Entscheid jetzt verfügen? Dieser Schritt kann nicht rückgängig gemacht werden. \\n<br><br>\\nHaben Sie einen Teilentscheid (Teilbaubewilligung) verfasst? Dann führen Sie diesen Schritt erst beim <u>letzten</u> Teilentscheid des Verfahrens aus. Vorgängige Teilentscheide sind im Modul \\\"Dokumente\\\" in die Kategorie \\\"Alle Beteiligte\\\" zu verschieben und die Bauherrschaft über das Kommunikationsmodul über den Entscheid zu informieren. \\n<br><br>\\nHinweis: Bis zum Vorliegen der nötigen technischen Voraussetzungen zur fristauslösenden digitalen Zustellung ist die Baubewilligung der Bauherrschaft zusätzlich physisch per Post zuzustellen. Sämtliche Beilagen und bewilligten Pläne werden digital über das Portal bereitgestellt.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
@@ -494,7 +443,9 @@
         "show_validation": false,
         "validate_on_enter": false
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "decision/submit-button"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -509,8 +460,8 @@
     "model": "caluma_form.questionoption",
     "pk": "entscheid-entscheid.entscheid-entscheid-abschreibung",
     "fields": {
-      "created_at": "2025-02-04T14:51:14.543Z",
-      "modified_at": "2025-02-04T14:51:14.543Z",
+      "created_at": "2025-11-06T09:42:08.736Z",
+      "modified_at": "2025-11-06T09:42:08.736Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -524,8 +475,8 @@
     "model": "caluma_form.questionoption",
     "pk": "entscheid-entscheid.entscheid-entscheid-abweisung",
     "fields": {
-      "created_at": "2025-02-04T14:51:14.547Z",
-      "modified_at": "2025-02-04T14:51:14.547Z",
+      "created_at": "2025-11-06T09:42:08.741Z",
+      "modified_at": "2025-11-06T09:42:08.741Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -539,8 +490,8 @@
     "model": "caluma_form.questionoption",
     "pk": "entscheid-entscheid.entscheid-entscheid-baubewilligung-erteilt",
     "fields": {
-      "created_at": "2025-02-04T14:51:14.554Z",
-      "modified_at": "2025-02-04T14:51:14.554Z",
+      "created_at": "2025-11-06T09:42:08.750Z",
+      "modified_at": "2025-11-06T09:42:08.751Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -554,8 +505,8 @@
     "model": "caluma_form.questionoption",
     "pk": "entscheid-entscheid.entscheid-entscheid-kenntnisnahme",
     "fields": {
-      "created_at": "2025-02-04T14:51:14.539Z",
-      "modified_at": "2025-02-04T14:51:14.539Z",
+      "created_at": "2025-11-06T09:42:08.731Z",
+      "modified_at": "2025-11-06T09:42:08.731Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -569,8 +520,8 @@
     "model": "caluma_form.questionoption",
     "pk": "entscheid-entscheid.entscheid-entscheid-plangenehmigung-erteilt",
     "fields": {
-      "created_at": "2025-05-02T08:50:09.944Z",
-      "modified_at": "2025-05-02T08:50:09.944Z",
+      "created_at": "2025-11-06T09:42:08.755Z",
+      "modified_at": "2025-11-06T09:42:08.755Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -584,8 +535,8 @@
     "model": "caluma_form.questionoption",
     "pk": "entscheid-entscheid.entscheid-entscheid-rueckzug",
     "fields": {
-      "created_at": "2025-02-04T14:51:14.534Z",
-      "modified_at": "2025-02-04T14:51:14.534Z",
+      "created_at": "2025-11-06T09:42:08.724Z",
+      "modified_at": "2025-11-06T09:42:08.724Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -599,8 +550,8 @@
     "model": "caluma_form.questionoption",
     "pk": "entscheid-entscheid.entscheid-entscheid-teilbaubewilligung",
     "fields": {
-      "created_at": "2025-02-04T14:51:14.551Z",
-      "modified_at": "2025-02-04T14:51:14.551Z",
+      "created_at": "2025-11-06T09:42:08.746Z",
+      "modified_at": "2025-11-06T09:42:08.746Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -638,51 +589,6 @@
       "question": "entscheid-entscheidtyp-abweisung",
       "option": "entscheid-entscheidtyp-abweisung-ohne-rueckbau",
       "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "entscheid-entscheidtyp-teilbaubewilligung.entscheid-entscheidtyp-teilbaubewilligung-einzelne-verfahrensinhalte",
-    "fields": {
-      "created_at": "2025-01-16T14:22:30.141Z",
-      "modified_at": "2025-01-16T14:22:30.141Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "entscheid-entscheidtyp-teilbaubewilligung",
-      "option": "entscheid-entscheidtyp-teilbaubewilligung-einzelne-verfahrensinhalte",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "entscheid-entscheidtyp-teilbaubewilligung.entscheid-entscheidtyp-teilbaubewilligung-mit-teilweiser-abweisung-mit-ohne-rueckbau",
-    "fields": {
-      "created_at": "2025-01-16T14:22:30.135Z",
-      "modified_at": "2025-01-16T14:22:30.135Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "entscheid-entscheidtyp-teilbaubewilligung",
-      "option": "entscheid-entscheidtyp-teilbaubewilligung-mit-teilweiser-abweisung-mit-ohne-rueckbau",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "entscheid-entscheidtyp-teilbaubewilligung.entscheid-entscheidtyp-teilbaubewilligung-projektaenderung",
-    "fields": {
-      "created_at": "2025-01-16T14:22:30.138Z",
-      "modified_at": "2025-01-16T14:22:30.138Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "entscheid-entscheidtyp-teilbaubewilligung",
-      "option": "entscheid-entscheidtyp-teilbaubewilligung-projektaenderung",
-      "sort": 2
     }
   }
 ]
