@@ -1,0 +1,55 @@
+@use "variables";
+
+footer.footer-container {
+  width: 100%;
+  margin-top: 30px;
+  background-color: variables.$global-background-light-sand;
+
+  .inner {
+    max-width: variables.$page-inner-max-width;
+    margin: 0 auto;
+    padding: variables.$page-footer-padding;
+  }
+
+  .footer-nav {
+    float: right;
+
+    a {
+      margin-right: calc(2 * var(--global-font-size));
+    }
+  }
+
+  // Copyright Atom from WebStyleGuide
+  // Source: https://kantonbern.snowflake.ch/styleguides/1/Kanton-Bern/#Am1161
+  // Distilled for usage with gloabl styles and variables.
+  .copyright {
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 0.02rem;
+    word-spacing: 0.05rem;
+    color: variables.$global-color-black;
+    padding-left: var(--page-content-margin-horizontal);
+    padding-right: var(--page-content-margin-horizontal);
+    margin-bottom: 0;
+    max-width: none;
+    margin-top: variables.$page-footer-padding-top;
+    margin-left: 0;
+  }
+
+  @media screen and (max-width: 767px) {
+    .copyright {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  p,
+  span {
+    color: variables.$global-color-black;
+    font-weight: 300;
+    margin-bottom: 15px;
+    margin-top: -2px;
+    max-width: 800px;
+  }
+}
