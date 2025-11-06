@@ -3774,6 +3774,9 @@ CELERY_TASK_ACKS_LATE = env.bool(
     "CELERY_TASK_ACKS_LATE",
     default=True,
 )
+CELERY_BROKER_TRANSPORT_OPTIONS = env.dict(
+    "CELERY_BROKER_TRANSPORT_OPTIONS", default={}
+)
 CELERY_TASK_SOFT_TIME_LIMIT = env.int("CELERY_TASK_SOFT_TIME_LIMIT", default=60)
 # if unspecified, celery starts one worker process per CPU.
 CELERY_WORKER_CONCURRENCY = env.int("CELERY_WORKER_CONCURRENCY", default=None)
