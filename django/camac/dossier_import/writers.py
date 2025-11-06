@@ -673,9 +673,14 @@ class DossierWriter:
         for field in fields(dossier):
             writer = getattr(self, field.name, None)
             if writer:
-                writer.owner = weakref.proxy(self)
-                writer.context = {"dossier": dossier, "caluma_user": self._caluma_user}
-                writer.write(instance, getattr(dossier, field.name, None))
+                self.add_context(writer, dossier).write(
+                    instance, getattr(dossier, field.name, None)
+                )
+
+    def add_context(self, writer: FieldWriter, dossier: Dossier):
+        writer.owner = weakref.proxy(self)
+        writer.context = {"dossier": dossier, "caluma_user": self._caluma_user}
+        return writer
 
     @transaction.atomic
     def import_dossier(
