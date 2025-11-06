@@ -321,7 +321,12 @@ ECH0211 = {
             "inquiry-answer-status-unknown": None,
         },
         "CLOSE_DOSSIER": {
-            "ALLOWED_STATES": ["sb1", "sb2", "conclusion", "construction-acceptance"]
+            "ALLOWED_STATES": ["sb1", "sb2", "conclusion", "construction-acceptance"],
+            "WORK_ITEM_ACTIONS": [
+                ("skip", "sb1"),
+                ("skip", "sb2"),
+                ("complete", "complete"),
+            ],
         },
         "DOCS": {
             "GET_TABLE_DATA_FULL": {
@@ -456,7 +461,10 @@ ECH0211 = {
             "ALEXANDRIA_CATEGORY": "alle-beteiligten",
             "ALEXANDRIA_MARK": "decision",
         },
-        "CLOSE_DOSSIER": {"ALLOWED_STATES": ["construction-acceptance"]},
+        "CLOSE_DOSSIER": {
+            "ALLOWED_STATES": ["construction-acceptance"],
+            "WORK_ITEM_ACTIONS": [("skip", "init-construction-monitoring")],
+        },
         "TASK_SEND": {
             "SKIP_WORK_ITEMS": ["formal-exam"],
             "COMPLETE_WORK_ITEMS": ["init-distribution"],
@@ -637,7 +645,13 @@ ECH0211 = {
             "ALEXANDRIA_CATEGORY": "beteiligte-behoerden",
             "ALEXANDRIA_MARK": "decision",
         },
-        "CLOSE_DOSSIER": {"ALLOWED_STATES": ["construction-monitoring"]},
+        "CLOSE_DOSSIER": {
+            "ALLOWED_STATES": ["construction-monitoring"],
+            "WORK_ITEM_ACTIONS": [
+                ("skip", "init-construction-monitoring"),
+                ("complete", "complete-instance"),
+            ],
+        },
         "JUDGEMENT_MAPPING": {
             "inquiry-answer-status-positive": 1,
             "inquiry-answer-status-negative": 4,
@@ -723,7 +737,13 @@ ECH0211 = {
             "ALEXANDRIA_CATEGORY": "alle-beteiligten",
             "ALEXANDRIA_MARK": "decision",
         },
-        "CLOSE_DOSSIER": {"ALLOWED_STATES": ["construction-monitoring", "to-finish"]},
+        "CLOSE_DOSSIER": {
+            "ALLOWED_STATES": ["construction-monitoring", "to-finish"],
+            "WORK_ITEM_ACTIONS": [
+                ("skip", "init-construction-monitoring"),
+                ("complete", "complete-instance"),
+            ],
+        },
         "TASK_SEND": {
             "SKIP_WORK_ITEMS": ["formal-exam"],
             "COMPLETE_WORK_ITEMS": ["init-distribution"],
