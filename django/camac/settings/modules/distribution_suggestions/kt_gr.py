@@ -188,7 +188,7 @@ GR_DISTRIBUTION_SUGGESTIONS = {
         ): ["pro-infirmis"],
         (
             "mehr-als-50-arbeitsplaetze-v4",
-            "mehr-als-50-arbeitsplaetze-ja",
+            "mehr-als-50-arbeitsplaetze-ja-v4",
         ): ["pro-infirmis"],
     }
 }
