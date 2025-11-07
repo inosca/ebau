@@ -1,5 +1,7 @@
+import operator
 from dataclasses import dataclass
 from datetime import datetime, timedelta
+from functools import reduce
 from typing import List, Optional, Union
 
 from django.conf import ImproperlyConfigured, settings
@@ -21,6 +23,85 @@ from . import exceptions
 
 # for direct access
 GRANT_CHOICES = models.GRANT_CHOICES
+
+
+class P:
+    """P classes to be used for representing complex permission requirements.
+
+    Sometimes, one action might be allowed by multiple permissions, or one
+    action might require more than one permission.
+
+    Some examples:
+
+    # Specify both "foo" and "bar" permissions are required
+    >>> permission_manager.has_permission(P('foo') & P('bar'))
+
+    # You can pass in multiple permissions directly, this is equivalent
+    # above line to the
+    >>> permission_manager.has_permission(P('foo', 'bar'))
+
+    # Specify either "foo" or "bar" permissions are required
+    >>> permission_manager.has_permission(P('foo') | P('bar'))
+
+    # Similarly, multiple permissions can be passed, with the operator
+    # explicitly set to "or", to denote "at least one is needed". The
+    # following line is equivalent to the previous one
+    >>> permission_manager.has_permission(P.any('foo', 'bar'))
+
+    The expressions can be combined as well, of course. A more realistic,
+    complex example is this: Assume you have an "action-all" permission that
+    allows all actions in a module, as well as the finer-grained "action-a" and
+    "action-b" permissions: If one operation requires both permissions, you can
+    now check it like this:
+
+    >>> permission_manager.has_permission(P("action-all") | P("action-a", "action-b"))
+    """
+
+    def __init__(self, *perm_names, op=operator.and_):
+        if not callable(op):
+            op = {"or": operator.or_, "and": operator.and_}[op]
+
+        self._perms = perm_names
+        self._op = op
+
+    @classmethod
+    def any(cls, *perms):
+        """Return a P expression from the given permissions, combines with OR.
+
+        The following two lines are equivalent:
+        >>> P("foo") | P("bar")
+        >>> P("foo", "bar", op="or")
+        >>> P.any("foo", "bar")
+        """
+        return cls(*perms, op=operator.or_)
+
+    @classmethod
+    def all(cls, *perms):
+        """Return a P expression from the given permissions, combines with OR.
+
+        The following two lines are equivalent:
+        >>> P("foo") & P("bar")
+        >>> P("foo", "bar")
+        >>> P("foo", "bar", op="and")
+        >>> P.all("foo", "bar")
+        """
+        return cls(*perms, op=operator.and_)
+
+    def apply(self, has_perms: list[str]) -> bool:
+        """Check if the permission expression is satisfied by the given permissions."""
+
+        def _check(perm, have_perms: list[str]) -> bool:
+            if isinstance(perm, str):
+                return perm in have_perms
+            return perm.apply(has_perms)
+
+        return reduce(self._op, (_check(p, has_perms) for p in self._perms))
+
+    def __and__(self, other):
+        return P(self, other, op=operator.and_)
+
+    def __or__(self, other):
+        return P(self, other, op=operator.or_)
 
 
 @dataclass
@@ -188,15 +269,17 @@ class PermissionManager:
         """Return True if user has at least one of the required permissions."""
         if isinstance(required_permissions, str):
             required_permissions = [required_permissions]
-        have = self.get_permissions(instance)
-        return any(permission in have for permission in required_permissions)
+        return self.has_permission(instance, P.any(*required_permissions))
+
+    def has_permission(self, instance, require_expr: P):
+        return require_expr.apply(self.get_permissions(instance))
 
     def has_all(self, instance, required_permissions: Union[str, List[str]]):
         """Return True if user has all required permissions."""
         if isinstance(required_permissions, str):
             required_permissions = [required_permissions]
-        have = self.get_permissions(instance)
-        return all(permission in have for permission in required_permissions)
+
+        return self.has_permission(instance, P.all(*required_permissions))
 
     def require_any(self, instance, required_permissions: Union[str, List[str]]):
         """Enforce presence of at least one of the given permissions."""

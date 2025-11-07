@@ -8,7 +8,7 @@ from pytest_lazy_fixtures import lf
 
 from camac.instance import models as instance_models
 from camac.permissions import api, conditions, exceptions, models
-from camac.permissions.conditions import Always
+from camac.permissions.conditions import Always, Never
 from camac.permissions.switcher import PERMISSION_MODE
 
 
@@ -468,3 +468,52 @@ def test_require_functions(
         )
     else:
         assert getattr(manager, method)(instance, require) == expect_result
+
+
+@pytest.mark.parametrize(
+    "method, require, expect_result",
+    [
+        # user has "foo" but not "bar"
+        ("has_any", [api.P("do-good")], True),
+        ("has_all", [api.P("do-bad")], False),
+        ("has_permission", api.P("do-ok") & (api.P("do-good") | api.P("do-bad")), True),
+        ("has_permission", api.P("do-ok") & api.P("do-good", "do-bad", op="or"), True),
+        ("has_permission", api.P("do-ok", "do-good"), True),
+        ("has_permission", api.P("do-ok", "do-bad"), False),
+        ("has_permission", api.P.any("do-ok", "do-bad"), True),
+        ("has_permission", api.P.all("do-ok", "do-bad"), False),
+        ("has_permission", api.P("do-ok", "do-bad", op="and"), False),
+        ("has_permission", api.P("do-ok", "do-bad", op="or"), True),
+    ],
+)
+def test_p_expressions(
+    # params
+    method,
+    require,
+    expect_result,
+    # fixtures
+    db,
+    instance,
+    user,
+    instance_acl_factory,
+    permissions_settings,
+    access_level,
+):
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.AUTO_ON
+    permissions_settings.setdefault("ACCESS_LEVELS", {})
+    permissions_settings["ACCESS_LEVELS"][access_level.slug] = [
+        ("do-good", Always()),
+        ("do-ok", Always()),
+        ("do-bad", Never()),
+    ]
+
+    instance_acl_factory(
+        user=user,
+        access_level=access_level,
+        start_time=timezone.now(),
+        grant_type="USER",
+        instance=instance,
+    )
+    manager = api.PermissionManager.from_params(user=user)
+
+    assert getattr(manager, method)(instance, require) == expect_result
