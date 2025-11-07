@@ -7700,7 +7700,7 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "angaben-headline-migration",
-      "sort": 49
+      "sort": 51
     }
   },
   {
@@ -7885,6 +7885,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.energienachweis-erforderlich",
+    "fields": {
+      "created_at": "2025-11-07T09:49:12.798Z",
+      "modified_at": "2025-11-07T09:49:12.798Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "energienachweis-erforderlich",
+      "sort": 46
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "weitere-angaben-migration.gewaessername-migration",
     "fields": {
       "created_at": "2025-04-22T13:57:23.144Z",
@@ -7971,21 +7986,6 @@
       "form": "weitere-angaben-migration",
       "question": "ist-eine-kantonale-brandschutzbewilligung-erforderlich-migration",
       "sort": 36
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "weitere-angaben-migration.ist-ein-energienachweis-erforderlich-migration",
-    "fields": {
-      "created_at": "2025-01-24T13:59:33.602Z",
-      "modified_at": "2025-01-24T13:59:33.602Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "weitere-angaben-migration",
-      "question": "ist-ein-energienachweis-erforderlich-migration",
-      "sort": 38
     }
   },
   {
@@ -8155,6 +8155,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "weitere-angaben-migration.projektkennzeichnung-even",
+    "fields": {
+      "created_at": "2025-11-07T09:48:00.616Z",
+      "modified_at": "2025-11-07T09:48:00.616Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "weitere-angaben-migration",
+      "question": "projektkennzeichnung-even",
+      "sort": 45
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "weitere-angaben-migration.schutzraumbaupflicht-ersatzabgabepflicht-migration",
     "fields": {
       "created_at": "2025-01-24T14:12:16.646Z",
@@ -8210,7 +8225,7 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "sind-erdsonden-geplant-migration",
-      "sort": 47
+      "sort": 49
     }
   },
   {
@@ -8255,7 +8270,7 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "sind-sondierbohrungen-oder-pumpversuche-vorgesehen-migration",
-      "sort": 46
+      "sort": 48
     }
   },
   {
@@ -8285,7 +8300,7 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "solaranlage-photovoltaikanalge-geplant",
-      "sort": 45
+      "sort": 47
     }
   },
   {
@@ -8360,7 +8375,7 @@
       "modified_by_group": null,
       "form": "weitere-angaben-migration",
       "question": "umweltrechtliche-angaben-headline-migration",
-      "sort": 48
+      "sort": 50
     }
   },
   {
@@ -25006,7 +25021,7 @@
     "pk": "projektkennzeichnung-even",
     "fields": {
       "created_at": "2025-07-18T14:33:16.526Z",
-      "modified_at": "2025-09-19T08:55:04.290Z",
+      "modified_at": "2025-11-07T09:48:13.821Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -25014,7 +25029,7 @@
       "label": "{\"de\": \"Projektkennzeichnung(en) EVEN\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "true",
-      "is_hidden": "'energienachweis-erforderlich'|answer != 'energienachweis-erforderlich-ja' && 'solaranlage-photovoltaikanalge-geplant'|answer != 'solaranlage-photovoltaikanalge-geplant-ja'",
+      "is_hidden": "form != 'baugesuch-migration' && 'energienachweis-erforderlich'|answer != 'energienachweis-erforderlich-ja' && 'solaranlage-photovoltaikanalge-geplant'|answer != 'solaranlage-photovoltaikanalge-geplant-ja'",
       "is_archived": false,
       "placeholder": "{\"de\": \"z.B. AG-1234A oder bei mehreren AG-1234A,AG-1234B\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",

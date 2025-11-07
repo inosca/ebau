@@ -104,6 +104,12 @@
           {
               "date": null,
               "document__form_id": "baugesuch-migration",
+              "question_id": "energienachweis-erforderlich",
+              "value": "energienachweis-erforderlich-nein"
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
               "question_id": "erdbebenkonformitaetserklaerung-migration",
               "value": "erdbebenkonformitaetserklaerung-migration-erforderlich-und-wird-vor-baubeginn-eingereicht"
           },
@@ -186,12 +192,6 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration",
               "value": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration-nein"
-          },
-          {
-              "date": null,
-              "document__form_id": "baugesuch-migration",
-              "question_id": "ist-ein-energienachweis-erforderlich-migration",
-              "value": "ist-ein-energienachweis-erforderlich-migration-nein"
           },
           {
               "date": null,
@@ -1160,6 +1160,12 @@
           {
               "date": null,
               "document__form_id": "baugesuch-migration",
+              "question_id": "energienachweis-erforderlich",
+              "value": "energienachweis-erforderlich-nein"
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
               "question_id": "erdbebenkonformitaetserklaerung-migration",
               "value": "erdbebenkonformitaetserklaerung-migration-erforderlich-und-wird-vor-baubeginn-eingereicht"
           },
@@ -1240,12 +1246,6 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration",
               "value": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration-nein"
-          },
-          {
-              "date": null,
-              "document__form_id": "baugesuch-migration",
-              "question_id": "ist-ein-energienachweis-erforderlich-migration",
-              "value": "ist-ein-energienachweis-erforderlich-migration-nein"
           },
           {
               "date": null,
@@ -2688,6 +2688,12 @@
           {
               "date": null,
               "document__form_id": "pgv-migration",
+              "question_id": "energienachweis-erforderlich",
+              "value": "energienachweis-erforderlich-ja"
+          },
+          {
+              "date": null,
+              "document__form_id": "pgv-migration",
               "question_id": "erdbebenkonformitaetserklaerung-migration",
               "value": "erdbebenkonformitaetserklaerung-migration-nicht-erforderlich"
           },
@@ -2784,12 +2790,6 @@
               "document__form_id": "pgv-migration",
               "question_id": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration",
               "value": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration-ja"
-          },
-          {
-              "date": null,
-              "document__form_id": "pgv-migration",
-              "question_id": "ist-ein-energienachweis-erforderlich-migration",
-              "value": "ist-ein-energienachweis-erforderlich-migration-ja"
           },
           {
               "date": null,
@@ -4106,6 +4106,12 @@
           {
               "date": null,
               "document__form_id": "baugesuch-migration",
+              "question_id": "energienachweis-erforderlich",
+              "value": "energienachweis-erforderlich-nein"
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
               "question_id": "erfassungsgrund",
               "value": "erfassungsgrund-online-erfassung"
           },
@@ -4170,12 +4176,6 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration",
               "value": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration-nein"
-          },
-          {
-              "date": null,
-              "document__form_id": "baugesuch-migration",
-              "question_id": "ist-ein-energienachweis-erforderlich-migration",
-              "value": "ist-ein-energienachweis-erforderlich-migration-nein"
           },
           {
               "date": null,
@@ -5244,6 +5244,12 @@
           {
               "date": null,
               "document__form_id": "uvp-migration",
+              "question_id": "energienachweis-erforderlich",
+              "value": "energienachweis-erforderlich-nein"
+          },
+          {
+              "date": null,
+              "document__form_id": "uvp-migration",
               "question_id": "erdbebenkonformitaetserklaerung-migration",
               "value": "erdbebenkonformitaetserklaerung-migration-erforderlich-und-liegt-bei"
           },
@@ -5318,12 +5324,6 @@
               "document__form_id": "uvp-migration",
               "question_id": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration",
               "value": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration-nein"
-          },
-          {
-              "date": null,
-              "document__form_id": "uvp-migration",
-              "question_id": "ist-ein-energienachweis-erforderlich-migration",
-              "value": "ist-ein-energienachweis-erforderlich-migration-nein"
           },
           {
               "date": null,
@@ -6127,6 +6127,12 @@
           {
               "date": null,
               "document__form_id": "pgv-migration",
+              "question_id": "energienachweis-erforderlich",
+              "value": "energienachweis-erforderlich-nein"
+          },
+          {
+              "date": null,
+              "document__form_id": "pgv-migration",
               "question_id": "erdbebenkonformitaetserklaerung-migration",
               "value": "erdbebenkonformitaetserklaerung-migration-erforderlich-und-wird-vor-baubeginn-eingereicht"
           },
@@ -6189,12 +6195,6 @@
               "document__form_id": "pgv-migration",
               "question_id": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration",
               "value": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration-ja"
-          },
-          {
-              "date": null,
-              "document__form_id": "pgv-migration",
-              "question_id": "ist-ein-energienachweis-erforderlich-migration",
-              "value": "ist-ein-energienachweis-erforderlich-migration-nein"
           },
           {
               "date": null,
@@ -6729,6 +6729,12 @@
           {
               "date": null,
               "document__form_id": "baugesuch-migration",
+              "question_id": "energienachweis-erforderlich",
+              "value": "energienachweis-erforderlich-nein"
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
               "question_id": "erdbebenkonformitaetserklaerung-migration",
               "value": "erdbebenkonformitaetserklaerung-migration-erforderlich-und-wird-vor-baubeginn-eingereicht"
           },
@@ -6797,12 +6803,6 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration",
               "value": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration-nein"
-          },
-          {
-              "date": null,
-              "document__form_id": "baugesuch-migration",
-              "question_id": "ist-ein-energienachweis-erforderlich-migration",
-              "value": "ist-ein-energienachweis-erforderlich-migration-nein"
           },
           {
               "date": null,
@@ -7592,6 +7592,12 @@
           {
               "date": null,
               "document__form_id": "baugesuch-migration",
+              "question_id": "energienachweis-erforderlich",
+              "value": "energienachweis-erforderlich-ja"
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
               "question_id": "erdbebenkonformitaetserklaerung-migration",
               "value": "erdbebenkonformitaetserklaerung-migration-erforderlich-und-wird-vor-baubeginn-eingereicht"
           },
@@ -7724,12 +7730,6 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration",
               "value": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration-ja"
-          },
-          {
-              "date": null,
-              "document__form_id": "baugesuch-migration",
-              "question_id": "ist-ein-energienachweis-erforderlich-migration",
-              "value": "ist-ein-energienachweis-erforderlich-migration-ja"
           },
           {
               "date": null,
@@ -8633,6 +8633,12 @@
           {
               "date": null,
               "document__form_id": "baugesuch-migration",
+              "question_id": "energienachweis-erforderlich",
+              "value": "energienachweis-erforderlich-nein"
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
               "question_id": "erdbebenkonformitaetserklaerung-migration",
               "value": "erdbebenkonformitaetserklaerung-migration-erforderlich-und-wird-vor-baubeginn-eingereicht"
           },
@@ -8703,12 +8709,6 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration",
               "value": "ist-betrieb-betroffen-beschaeftigt-der-betrieb-arbeitnehmende-migration-nein"
-          },
-          {
-              "date": null,
-              "document__form_id": "baugesuch-migration",
-              "question_id": "ist-ein-energienachweis-erforderlich-migration",
-              "value": "ist-ein-energienachweis-erforderlich-migration-nein"
           },
           {
               "date": null,
