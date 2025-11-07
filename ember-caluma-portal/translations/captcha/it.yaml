@@ -1,7 +1,8 @@
 captcha:
-  title: ""
-  help: ""
-  alt: ""
-  imageLabel: ""
+  title: "Conferma di essere una persona"
+  help: "Inserisci il testo visualizzato per continuare. Questo controllo di sicurezza protegge la nostra piattaforma dalle richieste automatizzate."
+  alt: "Immagine di sicurezza:"
+  imageLabel: "Immagine di sicurezza:"
   refresh: ""
-  input: ""
+  input: "Testo dell'immagine:"
+  checkCaptcha: "Conferma"

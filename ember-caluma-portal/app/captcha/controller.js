@@ -73,4 +73,11 @@ export default class PublicInstancesCaptchaController extends Controller {
 
     return await response.json();
   }
+
+  @action
+  onKeyDown({ key }) {
+    if (key === "Enter") {
+      this.submitCaptcha();
+    }
+  }
 }

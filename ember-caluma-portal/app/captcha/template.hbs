@@ -31,6 +31,7 @@
     <div class="uk-margin">
       <label class="uk-form-label" for="captcha">{{t "captcha.input"}}</label>
       <div class="uk-form-controls">
+        {{! template-lint-disable no-autofocus-attribute }}
         <Input
           @type="text"
           id="captcha"
@@ -38,6 +39,8 @@
           @value={{this.captchaChallenge}}
           class="uk-input uk-width-auto"
           required
+          autofocus
+          {{on "keydown" this.onKeyDown}}
         />
       </div>
     </div>
@@ -48,7 +51,7 @@
         @onClick={{this.submitCaptcha}}
         class="uk-width-1-2 uk-text-center"
       >
-        {{t "global.save"}}
+        {{t "captcha.checkCaptcha"}}
       </UkButton>
     </div>
   </div>
