@@ -1003,10 +1003,6 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             "meine_organisation_webseite",
             "zustaendig_email",
             "zustaendig_phone",
-            "zirkulation_angefordert",
-            "zirkulation_fachstellen",
-            "zirkulation_gemeinden",
-            "fachstellen_kantonal",
         ]
 
 
