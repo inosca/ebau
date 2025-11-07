@@ -3777,6 +3777,11 @@ CELERY_TASK_ACKS_LATE = env.bool(
 CELERY_BROKER_TRANSPORT_OPTIONS = env.dict(
     "CELERY_BROKER_TRANSPORT_OPTIONS", default={}
 )
+if timeout := CELERY_BROKER_TRANSPORT_OPTIONS.get(
+    "visibility_timeout"
+):  # pragma: no cover
+    CELERY_BROKER_TRANSPORT_OPTIONS["visibility_timeout"] = float(timeout)
+
 CELERY_TASK_SOFT_TIME_LIMIT = env.int("CELERY_TASK_SOFT_TIME_LIMIT", default=60)
 # if unspecified, celery starts one worker process per CPU.
 CELERY_WORKER_CONCURRENCY = env.int("CELERY_WORKER_CONCURRENCY", default=None)
