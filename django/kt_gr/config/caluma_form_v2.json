@@ -4472,7 +4472,7 @@
       "label": "{\"de\": \"Dachneigung (%)\", \"fr\": null, \"it\": \"Pendenza del tetto (%)\"}",
       "type": "integer",
       "is_required": "false",
-      "is_hidden": "!(\"dachtyp-v2-schraegdach\" in \"dachtyp-v2\"|answer)",
+      "is_hidden": "!(\"dachtyp-schraegdach-v2\" in \"dachtyp-v2\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
