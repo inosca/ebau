@@ -1,7 +1,8 @@
 captcha:
-  title: "Kontrollieren Sie bitte, dass Sie kein Roboter sind"
-  help: "Bitte geben Sie den Text im Bild ein, um fortzufahren. Dies dient der Sicherheit und verhindert automatisierte Anfragen."
-  alt: "Captcha-Bild"
-  imageLabel: "Captcha-Bild"
+  title: "Bitte bestätigen Sie, dass Sie eine Person sind"
+  help: "Geben Sie den angezeigten Text ein, um fortzufahren. Diese Sicherheitsprüfung schützt unsere Plattform vor automatisierten Anfragen."
+  alt: "Sicherheitsbild:"
+  imageLabel: "Sicherheitsbild:"
   refresh: "Captcha-Bild aktualisieren"
-  input: "Captcha-Eingabe"
+  input: "Text aus dem Bild:"
+  checkCaptcha: "Bestätigen"
