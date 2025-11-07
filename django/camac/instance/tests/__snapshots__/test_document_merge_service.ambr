@@ -178,13 +178,6 @@
   list([
     dict({
       'children': list([
-      ]),
-      'label': 'Hinweis zum vorliegenden Dossier',
-      'slug': 'hinweis-zum-vorliegenden-dossier',
-      'type': 'FormQuestion',
-    }),
-    dict({
-      'children': list([
         dict({
           'children': list([
             dict({
