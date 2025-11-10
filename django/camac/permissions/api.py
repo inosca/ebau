@@ -103,6 +103,12 @@ class P:
     def __or__(self, other):
         return P(self, other, op=operator.or_)
 
+    def __repr__(self):
+        op_symbols = {operator.and_: " & ", operator.or_: " | "}
+        op_symbol = op_symbols[self._op]
+
+        return f"P({op_symbol.join([str(p) for p in self._perms])})"
+
 
 @dataclass
 class ACLUserInfo:

@@ -517,3 +517,15 @@ def test_p_expressions(
     manager = api.PermissionManager.from_params(user=user)
 
     assert getattr(manager, method)(instance, require) == expect_result
+
+
+@pytest.mark.parametrize(
+    ("expr", "expected"),
+    [
+        (api.P(), "P()"),
+        (api.P("foo") & api.P.any("bar", "baz"), "P(P(foo) & P(bar | baz))"),
+        (api.P("foo", "bar", op="and"), "P(foo & bar)"),
+    ],
+)
+def test_p_expression_repr(expr, expected):
+    assert repr(expr) == expected
