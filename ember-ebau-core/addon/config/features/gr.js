@@ -29,7 +29,7 @@ export default {
     enabled: true,
   },
   deadlines: {
-    enabled: true,
+    enabled: false,
     useEndDate: true,
   },
   additionalDemands: true,

@@ -67,7 +67,10 @@ from camac.responsible import factories as responsible_factories
 from camac.rulesets import factories as rulesets_factories
 from camac.sanctions import factories as sanction_factories
 from camac.settings.modules.construction_monitoring import CONSTRUCTION_MONITORING
-from camac.settings.utils import get_enabled_modules_for_canton
+from camac.settings.utils import (
+    generate_module_settings,
+    get_enabled_modules_for_canton,
+)
 from camac.tags import factories as tags_factories
 from camac.tests.data import (
     ag_personal_row_factory,
@@ -3395,3 +3398,19 @@ def fake_request(rf, admin_user, group):
     request.group = group
 
     return request
+
+
+# todo: remove when deadlines are enabled in GR and regenerate fixtures.
+@pytest.fixture
+def gr_deadlines_settings(settings, request):
+    """Module-specific settings for deadlines (canton GR)."""
+    settings = generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="deadlines",
+        canton="kt_gr",
+        disable=False,
+    )
+
+    settings.enabled = True
+    return settings
