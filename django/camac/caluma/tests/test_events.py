@@ -13,7 +13,6 @@ from caluma.caluma_workflow.events import (
 from caluma.caluma_workflow.models import Task, WorkItem
 from django.conf import settings
 from django.utils import timezone
-from django_celery_beat.models import PeriodicTask
 from pytest_lazy_fixtures import lf
 
 from camac.caluma.extensions.events import bab
@@ -29,7 +28,6 @@ from camac.caluma.extensions.events.complete_check import (
     send_notification_after_complete_check,
 )
 from camac.caluma.extensions.events.general import post_decision_ur
-from camac.caluma.tasks import celery_handle_manual_work_item_notification
 from camac.instance.models import HistoryEntryT
 
 
@@ -492,7 +490,6 @@ def test_notify_manual_work_item(
 ):
     notification_template_created = notification_template_factory()
     notification_template_completed = notification_template_factory()
-    notification_template_expired = notification_template_factory()
     application_settings["CALUMA"]["CALUMA_WORKFLOW_NOTIFICATIONS"][
         "create-manual-workitems"
     ] = [
@@ -510,14 +507,6 @@ def test_notify_manual_work_item(
                 "recipient_types": ["work_item_controlling"],
             },
             "condition": lambda work_item: work_item.meta["notify-completed"],
-        },
-        {
-            "event": "deadline_expired",
-            "notification": {
-                "template_slug": notification_template_expired.slug,
-                "recipient_types": ["work_item_controlling"],
-            },
-            "condition": lambda work_item: work_item.meta["notify-deadline"],
         },
     ]
 
@@ -553,21 +542,8 @@ def test_notify_manual_work_item(
         context={},
     )
 
-    assert PeriodicTask.objects.count() == 1
-
     assert len(mailoutbox) == 1
     assert mailoutbox[0].recipients()[0] == addressed_service.email
-
-    celery_handle_manual_work_item_notification(
-        "deadline_expired",
-        None,
-        caluma_admin_user.username,
-        caluma_admin_user.camac_group,
-        work_item.pk,
-    )
-
-    assert len(mailoutbox) == 2
-    assert mailoutbox[1].recipients()[0] == controlling_service.email
 
     send_event(
         post_complete_work_item,
@@ -577,11 +553,10 @@ def test_notify_manual_work_item(
         context={},
     )
 
-    assert len(mailoutbox) == 3
-    assert mailoutbox[2].recipients()[0] == controlling_service.email
+    assert len(mailoutbox) == 2
+    assert mailoutbox[1].recipients()[0] == controlling_service.email
 
     # Test workitem with no deadline and complete notification
-    PeriodicTask.objects.all().delete()
     mailoutbox.clear()
     work_item_only_create = caluma_work_item_factory(
         task=task,
@@ -608,19 +583,8 @@ def test_notify_manual_work_item(
         context={},
     )
 
-    assert PeriodicTask.objects.count() == 1
     assert len(mailoutbox) == 1
     assert mailoutbox[0].recipients()[0] == addressed_service.email
-
-    celery_handle_manual_work_item_notification(
-        "deadline_expired",
-        None,
-        caluma_admin_user.username,
-        caluma_admin_user.camac_group,
-        work_item_only_create.pk,
-    )
-
-    assert len(mailoutbox) == 1
 
     send_event(
         post_complete_work_item,

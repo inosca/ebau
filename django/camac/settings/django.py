@@ -2461,16 +2461,6 @@ APPLICATIONS = {
                             "notify-completed"
                         ],
                     },
-                    {
-                        "event": "deadline_expired",
-                        "notification": {
-                            "template_slug": "expired-manual-work-item",
-                            "recipient_types": ["work_item_controlling"],
-                        },
-                        "condition": lambda work_item: work_item.meta[
-                            "notify-deadline"
-                        ],
-                    },
                 ],
             },
         },
@@ -2479,6 +2469,12 @@ APPLICATIONS = {
         "CUSTOM_NOTIFICATION_TYPES": [],
         "SHOW_COORDINATES_IN_EXCEL_EXPORT": False,
         "NOTIFICATIONS": {
+            "WORKITEM_DEADLINE_OVERDUE": {
+                "create-manual-workitems": {
+                    "template_slug": "expired-manual-work-item",
+                    "recipient_types": ["work_item_controlling"],
+                }
+            },
             "SUBMIT": [
                 {
                     "template_slug": "empfang-baugesuch-bauherrschaft",
