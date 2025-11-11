@@ -414,9 +414,8 @@ DISTRIBUTION = {
         "INSTANCE_STATE_DISTRIBUTION": "circulation",
         "NOTIFY_ON_CANCELLATION": True,
         "QUESTIONS": {
-            "STATEMENT": "inquiry-answer-assessment",
+            "STATEMENT": "inquiry-answer-remarks",
             "STATUS": "inquiry-answer-status",
-            "REMARKS": "inquiry-answer-remarks",
         },
         "ANSWERS": {
             "STATUS": {
