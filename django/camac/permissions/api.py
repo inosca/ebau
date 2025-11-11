@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import operator
 from dataclasses import dataclass
 from datetime import datetime, timedelta
@@ -14,7 +16,7 @@ from rest_framework.exceptions import PermissionDenied
 
 from camac.instance.models import Instance
 from camac.permissions import models
-from camac.permissions.conditions import Check
+from camac.permissions.conditions import Check, PermissionContext
 from camac.permissions.models import AccessLevel, InstanceACL
 from camac.user import models as user_models
 from camac.user.models import Role, Service, User
@@ -174,19 +176,25 @@ class ACLUserInfo:
             "role": self.role,
         }
 
-    def to_cache_key(self, instance: Union[Instance, str, int]):
+    def to_cache_key(self, context: PermissionContext) -> str:
+        instance_id = context.instance.pk
+        context_key = context.as_cache_key() or "-"
+        role = self.role.pk if self.role else "-"
         user = self.user.pk if self.user else "-"
         service = self.service.pk if self.service else "-"
         token = self.token.pk if self.token else "-"
-        role = self.role.pk if self.role else "-"
 
-        # instance may be passed in as ID or model object
-        instance_id = (
-            str(instance.pk) if isinstance(instance, Instance) else str(instance)
-        )
+        parts = [
+            f"i={instance_id}",
+            f"c={context_key}",
+            f"r={role}",
+            f"u={user}",
+            f"s={service}",
+            f"t={token}",
+        ]
 
         # The instance is first, so we can match better when revoking permissions
-        return f"permissions:i={instance_id},r={role},u={user},s={service},t={token}"
+        return f"permissions:{','.join(parts)}"
 
 
 class PermissionManager:
@@ -212,17 +220,26 @@ class PermissionManager:
     @classmethod
     def from_request(cls, request, permission_settings=None) -> "PermissionManager":
         userinfo = ACLUserInfo.from_request(request)
-        return cls(userinfo=userinfo)
+        return cls(userinfo=userinfo, permission_settings=permission_settings)
 
-    def get_permissions(self, instance: Union[Instance, str, int]) -> List[str]:
+    def context_from(self, instance, **kwargs):
+        if isinstance(instance, PermissionContext):  # pragma: no cover
+            # already is a context
+            return instance
+        if not isinstance(instance, Instance):
+            # assume it's a PK
+            instance = Instance.objects.get(pk=instance)
+        return PermissionContext(instance)
+
+    def get_permissions(self, context: PermissionContext | Instance) -> List[str]:
         # We can globally disable the cache. By default, caching is enabled,
         # but during development, it can be disabled so any stale permissions
         # won't be kept around
         enable_cache = self.permission_settings.get("ENABLE_CACHE", True)
 
-        if not isinstance(instance, Instance):  # pragma: no cover
-            instance = Instance.objects.get(pk=instance)
-        cache_key = self.userinfo.to_cache_key(instance)
+        context = self.context_from(context)
+
+        cache_key = self.userinfo.to_cache_key(context)
 
         cached_result = cache.get(cache_key)
         if enable_cache and cached_result:
@@ -232,7 +249,7 @@ class PermissionManager:
             models.InstanceACL.for_current_user(**self.userinfo.to_kwargs())
             # this filter should work regardless of whether `instance`
             # is a model or just an FK reference
-            .filter(instance=instance)
+            .filter(instance=context.instance)
             .select_related("access_level")
         )
 
@@ -255,7 +272,7 @@ class PermissionManager:
 
                 if isinstance(condition, Check):
                     try:
-                        if condition.apply(userinfo=self.userinfo, instance=instance):
+                        if condition.apply(userinfo=self.userinfo, context=context):
                             granted_permissions.add(perm)
                     except Exception as e:  # pragma: no cover
                         raise ImproperlyConfigured(
@@ -277,31 +294,51 @@ class PermissionManager:
             cache.set(cache_key, permissions_sorted, cache_duration.total_seconds())
         return permissions_sorted
 
-    def has_any(self, instance, required_permissions: Union[str, List[str]]):
+    def has_any(
+        self,
+        context: Instance | PermissionContext,
+        required_permissions: Union[str, List[str]],
+    ):
         """Return True if user has at least one of the required permissions."""
         if isinstance(required_permissions, str):
             required_permissions = [required_permissions]
-        return self.has_permission(instance, P.any(*required_permissions))
+        return self.has_permission(context, P.any(*required_permissions))
 
-    def has_permission(self, instance, require_expr: P):
-        return require_expr.apply(self.get_permissions(instance))
+    def has_permission(
+        self, context: Instance | PermissionContext, require_expr: str | P
+    ):
+        if isinstance(require_expr, str):
+            require_expr = P(require_expr)
+        return require_expr.apply(self.get_permissions(context))
 
-    def has_all(self, instance, required_permissions: Union[str, List[str]]):
+    def has_all(
+        self,
+        context: Instance | PermissionContext,
+        required_permissions: Union[str, List[str]],
+    ):
         """Return True if user has all required permissions."""
         if isinstance(required_permissions, str):
             required_permissions = [required_permissions]
 
-        return self.has_permission(instance, P.all(*required_permissions))
+        return self.has_permission(context, P.all(*required_permissions))
 
-    def require_any(self, instance, required_permissions: Union[str, List[str]]):
+    def require_any(
+        self,
+        context: Instance | PermissionContext,
+        required_permissions: Union[str, List[str]],
+    ):
         """Enforce presence of at least one of the given permissions."""
-        if self.has_any(instance, required_permissions):
+        if self.has_any(context, required_permissions):
             return
         raise PermissionDenied(_("You do not have the required permission to do this"))
 
-    def require_all(self, instance, required_permissions: Union[str, List[str]]):
+    def require_all(
+        self,
+        context: Instance | PermissionContext,
+        required_permissions: Union[str, List[str]],
+    ):
         """Enforce presence of all of the given the given permissions."""
-        if self.has_all(instance, required_permissions):
+        if self.has_all(context, required_permissions):
             return
         raise PermissionDenied(_("You do not have the required permission to do this"))
 

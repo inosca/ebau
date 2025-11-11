@@ -1,9 +1,14 @@
+from __future__ import annotations
+
 import operator
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
-from typing import Callable, List, Optional
+from typing import TYPE_CHECKING, Callable, List, Optional
 
 from camac.utils import call_with_accepted_kwargs, get_unversioned_slug
+
+if TYPE_CHECKING:  # pragma: no cover
+    from camac.instance.models import Instance
 
 """
 Provide some useful conditionals to build complex permissions checks.
@@ -21,9 +26,17 @@ active via the X-CAMAC-GROUP HTTP header)
 # Therefore they're not explicitly covered
 
 
+@dataclass()
+class PermissionContext:
+    instance: Instance
+
+    def as_cache_key(self) -> str | None:
+        return None
+
+
 class Check(ABC):
     @abstractmethod
-    def apply(self, userinfo, instance):  # pragma: no cover
+    def apply(self, userinfo, context: PermissionContext):  # pragma: no cover
         ...
 
     def __and__(self, other):
@@ -46,10 +59,10 @@ class BinaryCheck(Check):
         self._right = right
         self._op = op
 
-    def apply(self, userinfo, instance):
+    def apply(self, userinfo, context: PermissionContext):
         return self._op(
-            self._left.apply(userinfo=userinfo, instance=instance),
-            self._right.apply(userinfo=userinfo, instance=instance),
+            self._left.apply(userinfo=userinfo, context=context),
+            self._right.apply(userinfo=userinfo, context=context),
         )
 
     def __repr__(self):
@@ -74,8 +87,8 @@ class UnaryCheck(Check):
         self._inner = inner
         self._op = op
 
-    def apply(self, userinfo, instance):
-        return self._op(self._inner.apply(userinfo=userinfo, instance=instance))
+    def apply(self, userinfo, context: PermissionContext):
+        return self._op(self._inner.apply(userinfo=userinfo, context=context))
 
     def __repr__(self):
         opname = self._op.__name__.strip("_")
@@ -99,7 +112,7 @@ class HasRole(Check):
 
     required_roles: List[str]
 
-    def apply(self, userinfo, instance):
+    def apply(self, userinfo, context: PermissionContext):
         return userinfo.role.name in self.required_roles
 
     @property
@@ -121,9 +134,9 @@ class Callback(Check):
     allow_caching: bool = field(default=False)
     name: str = ""  # only used for logging
 
-    def apply(self, userinfo, instance):
+    def apply(self, userinfo, context: PermissionContext):
         return call_with_accepted_kwargs(
-            self.check_function, userinfo=userinfo, instance=instance
+            self.check_function, userinfo=userinfo, instance=context.instance
         )
 
     def __eq__(self, other):  # pragma: no cover
@@ -141,8 +154,8 @@ class RequireInstanceState(Check):
 
     require_states: List[str]
 
-    def apply(self, userinfo, instance):
-        return instance.instance_state.name in self.require_states
+    def apply(self, userinfo, context: PermissionContext):
+        return context.instance.instance_state.name in self.require_states
 
     @property
     def allow_caching(self):  # pragma: no cover
@@ -162,8 +175,8 @@ class RequireInstanceState(Check):
 class HasInquiry(Check):
     """Permission check: User is involved in an inquiry."""
 
-    def apply(self, userinfo, instance):
-        return instance.has_inquiry(userinfo.service.pk)
+    def apply(self, userinfo, context: PermissionContext):
+        return context.instance.has_inquiry(userinfo.service.pk)
 
     @property
     def allow_caching(self):  # pragma: no cover
@@ -179,8 +192,8 @@ class HasInquiry(Check):
 class IsAppeal(Check):
     """Permission check: Instance (case) has an appeal."""
 
-    def apply(self, userinfo, instance):
-        return bool(instance.case.meta.get("is-appeal"))
+    def apply(self, userinfo, context: PermissionContext):
+        return bool(context.instance.case.meta.get("is-appeal"))
 
     @property
     def allow_caching(self):  # pragma: no cover
@@ -196,7 +209,7 @@ class IsAppeal(Check):
 class Always(Check):
     """Always grant the permission."""
 
-    def apply(self, userinfo, instance):
+    def apply(self, userinfo, context: PermissionContext):
         return True
 
     @property
@@ -213,7 +226,7 @@ class Always(Check):
 class Never(Check):
     """Never grant the permission."""
 
-    def apply(self, userinfo, instance):
+    def apply(self, userinfo, context: PermissionContext):
         return False
 
     @property
@@ -233,8 +246,8 @@ class IsForm(Check):
 
     forms: List[str]
 
-    def apply(self, userinfo, instance):
-        return instance.case.document.form_id in self.forms
+    def apply(self, userinfo, context: PermissionContext):
+        return context.instance.case.document.form_id in self.forms
 
     @property
     def allow_caching(self):  # pragma: no cover
@@ -251,8 +264,10 @@ class IsForm(Check):
 class IsUnversionedForm(IsForm):
     """Permission check for requiring any form of a given list ignoring versioned slugs."""
 
-    def apply(self, userinfo, instance):
-        return get_unversioned_slug(instance.case.document.form_id) in self.forms
+    def apply(self, userinfo, context: PermissionContext):
+        return (
+            get_unversioned_slug(context.instance.case.document.form_id) in self.forms
+        )
 
 
 @dataclass
@@ -261,8 +276,10 @@ class HasApplicantRole(Check):
 
     roles: List[str]
 
-    def apply(self, userinfo, instance):
-        applicant = instance.involved_applicants.filter(invitee=userinfo.user).first()
+    def apply(self, userinfo, context: PermissionContext):
+        applicant = context.instance.involved_applicants.filter(
+            invitee=userinfo.user
+        ).first()
 
         if not applicant:
             return False
@@ -285,10 +302,10 @@ class HasApplicantRole(Check):
 class IsPaper(Check):
     """Permission check: Instance (case) is a paper instance."""
 
-    def apply(self, userinfo, instance):
+    def apply(self, userinfo, context: PermissionContext):
         from camac.caluma.api import CalumaApi
 
-        return CalumaApi().is_paper(instance)
+        return CalumaApi().is_paper(context.instance)
 
     @property
     def allow_caching(self):  # pragma: no cover
@@ -309,11 +326,11 @@ class RequireWorkItem(Check):
     status: Optional[str] = None
     addressed_to_current_service: Optional[bool] = False
 
-    def apply(self, userinfo, instance):
+    def apply(self, userinfo, context: PermissionContext):
         from caluma.caluma_workflow.models import WorkItem
 
         work_items = WorkItem.objects.filter(
-            case__family=instance.case, task_id=self.task_id
+            case__family=context.instance.case, task_id=self.task_id
         )
 
         if self.status:
@@ -344,7 +361,7 @@ class IsServiceGroup(Check):
     required_service_groups: List[str]
     allow_caching: bool = True
 
-    def apply(self, userinfo, instance):
+    def apply(self, userinfo, context: PermissionContext):
         if not userinfo.service:
             return False
 

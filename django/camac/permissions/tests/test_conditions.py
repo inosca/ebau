@@ -7,6 +7,7 @@ from camac.permissions.conditions import (
     HasApplicantRole,
     IsPaper,
     IsServiceGroup,
+    PermissionContext,
     RequireWorkItem,
 )
 
@@ -21,7 +22,7 @@ def test_condition_is_paper(db, is_paper, so_instance, userinfo, utils):
     if is_paper:
         utils.add_answer(so_instance.case.document, "is-paper", "is-paper-yes")
 
-    assert IsPaper().apply(userinfo, so_instance) == is_paper
+    assert IsPaper().apply(userinfo, PermissionContext(so_instance)) == is_paper
 
 
 @pytest.mark.parametrize(
@@ -50,7 +51,8 @@ def test_condition_require_work_item(
         )
 
     assert (
-        RequireWorkItem(task_id, status).apply(userinfo, so_instance) == expected_result
+        RequireWorkItem(task_id, status).apply(userinfo, PermissionContext(so_instance))
+        == expected_result
     )
 
 
@@ -73,19 +75,27 @@ def test_condition_require_work_item_addressed_to_current_service(
 
     assert (
         RequireWorkItem("addressed-work-item", addressed_to_current_service=True).apply(
-            userinfo, so_instance
+            userinfo, PermissionContext(so_instance)
         )
         is True
     )
-    assert RequireWorkItem("addressed-work-item").apply(userinfo, so_instance) is True
+    assert (
+        RequireWorkItem("addressed-work-item").apply(
+            userinfo, PermissionContext(so_instance)
+        )
+        is True
+    )
     assert (
         RequireWorkItem(
             "not-addressed-work-item", addressed_to_current_service=True
-        ).apply(userinfo, so_instance)
+        ).apply(userinfo, PermissionContext(so_instance))
         is False
     )
     assert (
-        RequireWorkItem("not-addressed-work-item").apply(userinfo, so_instance) is True
+        RequireWorkItem("not-addressed-work-item").apply(
+            userinfo, PermissionContext(so_instance)
+        )
+        is True
     )
 
 
@@ -118,7 +128,10 @@ def test_has_applicant_role(
 
     applicant_factory(instance=so_instance, invitee=user, role=applicant_role)
 
-    assert HasApplicantRole(roles).apply(userinfo, so_instance) == expected_result
+    assert (
+        HasApplicantRole(roles).apply(userinfo, PermissionContext(so_instance))
+        == expected_result
+    )
 
 
 @pytest.mark.parametrize(
