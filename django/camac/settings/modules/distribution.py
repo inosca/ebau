@@ -488,6 +488,34 @@ DISTRIBUTION = {
                     ]
                 }
             ],
+            "alg-gn": [
+                {
+                    "include": [
+                        (
+                            "services",
+                            [
+                                "alg-wb",
+                            ],
+                        ),
+                    ]
+                }
+            ],
+            "atb": [
+                {
+                    "include": [
+                        (
+                            "services",
+                            [
+                                "atb-em",
+                                "atb-ivs",
+                                "atb-le",
+                                "atb-re",
+                                "atb-vm",
+                            ],
+                        ),
+                    ]
+                }
+            ],
             "municipality-light": [
                 {
                     "include": [

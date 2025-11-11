@@ -26,6 +26,12 @@ def ag_services(service_factory, service):
         ("service-cantonal", "gvm"),
         ("service-cantonal", "dgs-avs-vet"),
         ("service-cantonal", "dgs-avs-lmi"),
+        ("service-cantonal", "alg-wb"),
+        ("service-cantonal", "atb-em"),
+        ("service-cantonal", "atb-ivs"),
+        ("service-cantonal", "atb-le"),
+        ("service-cantonal", "atb-re"),
+        ("service-cantonal", "atb-vm"),
         # Unrestricted services
         ("municipality", "some-municipality"),
         ("service-cantonal", "some-cantonal-service"),
@@ -46,8 +52,15 @@ def ag_services(service_factory, service):
 
 @pytest.mark.parametrize("is_authority", [True, False])
 @pytest.mark.parametrize(
-    "service_group__name",
-    ["municipality", "municipality-light", "service-afb", "service-cantonal"],
+    "service_group__name,service_slug",
+    [
+        ("municipality", None),
+        ("municipality-light", None),
+        ("service-afb", None),
+        ("service-cantonal", None),
+        ("service-cantonal", "atb"),
+        ("service-cantonal", "alg-gn"),
+    ],
 )
 def test_ag_distribution_services(
     db,
@@ -58,6 +71,7 @@ def test_ag_distribution_services(
     service_factory,
     snapshot,
     service,
+    service_slug,
     ag_distribution_settings,
     ag_services,
     ag_instance,
@@ -66,6 +80,10 @@ def test_ag_distribution_services(
         "camac.instance.models.Instance.responsible_service",
         return_value=service if is_authority else service_factory(),
     )
+
+    if service_slug:
+        service.slug = service_slug
+        service.save()
 
     response = admin_client.get(
         reverse("publicservice-list"),

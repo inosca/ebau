@@ -204,6 +204,10 @@ class PublicServiceFilterSet(FilterSet):
             and service_group != "municipality-light"
         ):
             return "authority"
+        elif service.slug == "atb":
+            return "atb"
+        elif service.slug == "alg-gn":
+            return "alg-gn"
 
         return service_group
 
