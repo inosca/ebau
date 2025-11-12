@@ -392,7 +392,6 @@ class Command(BaseCommand):
             & Q(instance__isnull=False)
             & Q(instance__location__isnull=False)
             & Q(work_items__task_id="bab")
-            & Q(work_items__status="completed")
         )
 
         data = []
