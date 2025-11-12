@@ -13,6 +13,9 @@ from camac.user.models import User
 class AddressAssignmentLogic:
     @classmethod
     def requires_address_assignment(cls, case: Case):
+        if not settings.ADDRESS_ASSIGNMENT.get("ENABLED"):  # pragma: no cover
+            return False
+
         exam_document = case.family.work_items.get(
             task_id=settings.ADDRESS_ASSIGNMENT["EXAM_TASK"]
         ).document
