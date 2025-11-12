@@ -3676,9 +3676,11 @@ STATICFILES_DIRS += APPLICATIONS[APPLICATION_NAME].get("INCLUDE_STATIC_FILES", [
 
 
 def load_module_settings(module_name, application_name=APPLICATION_NAME):
+    settings_name = module_name.upper().replace(".", "_")
+
     module: ModuleConfig | dict = getattr(
         import_module(f"camac.settings.modules.{module_name.lower()}"),
-        module_name.upper(),
+        settings_name,
     )
     is_pydantic = isinstance(module, ModuleConfig)
     if is_pydantic:
