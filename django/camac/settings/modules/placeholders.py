@@ -127,7 +127,7 @@ PLACEHOLDERS = {
             ("remarks", "BEMERKUNGEN"),
         ],
         "INQUIRY_FIELD_MAPPINGS": {
-            "remarks": ("inquiry-answer", "REMARKS"),
+            "remarks": ("inquiry-answer", "STATEMENT"),
         },
         "BILLING_ENTRY_FIELDS": [
             "POSITION",
