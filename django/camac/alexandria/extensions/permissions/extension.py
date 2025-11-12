@@ -167,12 +167,14 @@ class CustomPermission:
 
     @permission_for(BaseModel)
     @object_permission_for(BaseModel)
-    def has_permission_default(self, request, document=None):  # pragma: no cover
+    def has_permission_default(
+        self, request, document=None, *args, **kwargs
+    ):  # pragma: no cover
         return get_role(request.group) == "support"
 
     @permission_for(Document)
     @object_permission_for(Document)
-    def has_permission_for_document(self, request, document=None):
+    def has_permission_for_document(self, request, document=None, *args, **kwargs):
         if document is not None:
             # On update and delete we can get the needed data from the database
             instance = document.instance_document.instance
@@ -254,7 +256,7 @@ class CustomPermission:
         return needed_permissions.issubset(available_permissions)
 
     @permission_for(File)
-    def has_permission_for_file(self, request):
+    def has_permission_for_file(self, request, *args, **kwargs):
         document = Document.objects.get(pk=request.data["document"])
 
         available_permissions = self.get_available_permissions(
@@ -274,13 +276,15 @@ class CustomPermission:
         return needed_permissions.issubset(available_permissions)
 
     @object_permission_for(File)
-    def has_object_permission_for_file(self, request, file):  # pragma: no cover
+    def has_object_permission_for_file(
+        self, request, file, *args, **kwargs
+    ):  # pragma: no cover
         # patch or delete not allowed
         return False
 
     @permission_for(Tag)
     @object_permission_for(Tag)
-    def has_permission_for_tag(self, request, tag=None):
+    def has_permission_for_tag(self, request, tag=None, *args, **kwargs):
         role = get_role(request.group)
 
         if role == "support":

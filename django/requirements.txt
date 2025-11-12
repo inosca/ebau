@@ -2,7 +2,7 @@ Babel==2.17.0
 backoff==2.2.1
 boto3==1.40.26
 caluma==12.2.2
-caluma-alexandria==8.0.1
+caluma-alexandria==8.2.0
 celery==5.5.3
 codetiming==1.4.0
 cryptography==44.0.2
@@ -17,7 +17,7 @@ django-clamd==1.0.0
 django-environ==0.12.0
 django-excel==0.0.10
 django-filter==25.1
-django-generic-api-permissions==2.0.0
+django-generic-api-permissions==3.0.0
 django-ipware==7.0.1
 django-json-widget==2.0.3
 django-presigned-url==0.1.1
@@ -33,7 +33,7 @@ djangorestframework-xml==2.0.0
 docxtpl==0.20.1
 drf-extra-fields==3.7.0
 drf-yasg==1.21.10
-ebau-gwr==0.8.2
+ebau-gwr==0.8.3
 gunicorn==23.0.0
 hdbcli==2.25.31
 holidays==0.80
