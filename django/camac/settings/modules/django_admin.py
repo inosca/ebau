@@ -57,6 +57,8 @@ DJANGO_ADMIN = {
     "kt_bern": {
         "ENABLED": True,
         "ENABLED_MODELS": [
+            "alexandria_core.Category",
+            "alexandria_core.Mark",
             "gis.GISDataSource",
             "django_q.Success",
             "django_q.Failure",

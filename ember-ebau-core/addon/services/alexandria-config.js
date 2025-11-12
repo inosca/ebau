@@ -20,6 +20,7 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
     void: "ban",
     objection: "hand-point-up",
     sensitive: "triangle-exclamation",
+    geometer: "compass-drafting",
   };
 
   @service store;
@@ -176,14 +177,31 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
       document.metainfo["camac-instance-id"],
     );
 
-    return {
-      url: this.router.urlFor("cases.detail.alexandria", instance, {
+    let url;
+    let label = instance.dossierNumber;
+    let isExternal = false;
+
+    if (this.ebauModules.isLegacyApp) {
+      const baseUrl = `/index/redirect-to-instance-resource/instance-id/${instance.id}`;
+      const emberUrl = this.router.urlFor("alexandria", {
+        queryParams: { document: document.id },
+      });
+
+      url = `${baseUrl}?instance-resource-name=alexandria&ember-hash=${emberUrl}`;
+      isExternal = true;
+    } else {
+      url = this.router.urlFor("cases.detail.alexandria", instance, {
         queryParams: {
           document: document.id,
         },
-      }),
-      label: instance.dossierNumber,
-    };
+      });
+    }
+
+    if (macroCondition(getOwnConfig().application === "be")) {
+      label = instance.ebauNumber;
+    }
+
+    return { url, label, isExternal };
   }
 
   namespace = "/alexandria/api/v1";

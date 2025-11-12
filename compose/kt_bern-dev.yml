@@ -63,7 +63,7 @@ services:
       - djangomedia:/var/lib/camac/media
       - djangotmpmedia:/tmp/camac/tmpfiles
       - /app/staticfiles # prevent staticfiles from leaking to the host system
-    environment:
+    environment: &django-environment
       APPLICATION_ENV: development
       APPLICATION: ${APPLICATION}
       DATABASE_HOST: db
@@ -102,6 +102,16 @@ services:
       GEVER_CLIENT_SECRET: ${GEVER_CLIENT_SECRET}
       GEVER_TOKEN_URL: ${GEVER_TOKEN_URL}
       GEVER_API_BASE_URL: ${GEVER_API_BASE_URL}
+      # Alexandria
+      ALEXANDRIA_USE_MANABI: true
+      ALEXANDRIA_MANABI_DAV_URL_PATH: /webdav
+      ALEXANDRIA_ENABLE_PDF_CONVERSION: true
+      ALEXANDRIA_DMS_URL: http://document-merge-service:8000/document-merge-service/api/v1
+      ALEXANDRIA_ENABLE_CONTENT_SEARCH: true
+      TIKA_CLIENT_ONLY: true
+      TIKA_SERVER_ENDPOINT: "http://tika:9998"
+      CELERY_RDB_HOST: redis
+      CELERY_WORKER_CONCURRENCY: 1
 
     networks:
       - ebau.localhost
@@ -120,6 +130,22 @@ services:
     command: webdav
     ports: []
 
+  django-webdav-alexandria:
+    <<: *django
+    build:
+      context: ../django
+      cache_from:
+        - acr.run/camac-ng/camac-ng/django:master
+      args:
+        REQUIREMENTS: requirements-dev.txt
+    environment:
+      <<: *django-environment
+      DJANGO_DOCUMENT_BACKEND: alexandria
+    profiles:
+      - alexandria
+    command: webdav
+    ports: []
+
   django-q:
     <<: *django
     build:
@@ -129,6 +155,21 @@ services:
       args:
         REQUIREMENTS: requirements-dev.txt
     command: qclusterdev
+    ports: []
+
+  celery:
+    <<: *django
+    build:
+      context: ../django
+      cache_from:
+        - acr.run/camac-ng/camac-ng/django:master
+      args:
+        REQUIREMENTS: requirements-dev.txt
+    profiles:
+      - alexandria
+    depends_on:
+      - redis
+    command: celerydev
     ports: []
 
   ember-camac-ng:
@@ -238,6 +279,53 @@ services:
       - ../document-merge-service/${APPLICATION}/dump.json:/tmp/document-merge-service/dump.json
     command: devserver
 
+  minio:
+    image: minio/minio:RELEASE.2025-07-23T15-54-02Z
+    volumes:
+      - minio_data:/data
+    environment:
+      MINIO_ROOT_USER: minio
+      MINIO_ROOT_PASSWORD: minio123
+    profiles:
+      - alexandria
+    networks:
+      - ebau.localhost
+    command: server data --console-address ":9090"
+
+  mc:
+    image: minio/mc:RELEASE.2025-07-21T05-28-08Z
+    depends_on:
+      - minio
+    restart: on-failure:5
+    environment:
+      MINIO_ROOT_USER: minio
+      MINIO_ROOT_PASSWORD: minio123
+    volumes:
+      - ../mc/entrypoint.sh:/entrypoint.sh
+    entrypoint: /entrypoint.sh
+    profiles:
+      - alexandria
+    networks:
+      - ebau.localhost
+
+  tika:
+    image: apache/tika:2.9.2.1-full
+    profiles:
+      - alexandria
+    networks:
+      - ebau.localhost
+
+  redis:
+    image: redis:7.4
+    volumes:
+      - redis_data:/redis/data
+    profiles:
+      - alexandria
+    networks:
+      - ebau.localhost
+    environment:
+      - REDIS_PASSWORD=redis
+
 networks:
   ebau.localhost:
 
@@ -247,3 +335,6 @@ volumes:
   djangotmpmedia:
   phpsessions:
   templatefiles:
+  redis_data:
+  minio_data:
+    driver: local

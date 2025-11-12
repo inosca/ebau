@@ -6,6 +6,7 @@ module.exports = function () {
       "ban",
       "hand-point-up",
       "triangle-exclamation",
+      "compass-drafting",
     ],
   };
 };

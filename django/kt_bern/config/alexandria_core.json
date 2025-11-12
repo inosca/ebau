@@ -1,1 +1,366 @@
-[]
+[
+  {
+    "model": "alexandria_core.category",
+    "pk": "alle-beteiligten",
+    "fields": {
+      "created_at": "2025-10-22T08:54:30.392Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-10-22T08:54:30.392Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "municipality-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Alle Beteiligten\", \"fr\": \"Toutes les parties\", \"it\": \"\"}",
+      "description": "{\"de\": \"Hier werden von der Leitbehörde Dokumente hochgeladen, welche für alle am Verfahren beteiligten Rollen einsehbar sein sollen (z.B. Verfahrensprogramm, Bauentscheid). Gesuchstellenden werden diese Dokumente im eBau-Portal unter \\\"Rückmeldungen\\\" angezeigt.\", \"fr\": \"C'est là que les documents visibles par toutes les parties impliquées dans la procédure sont téléchargés par l'autorité directrice (par exemple, programme de procédure, permis de construire). Les personnes requérantes peuvent consulter ces documents sur le portail eBau, sous la rubrique \\\"Remarques\\\".\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "#009688",
+      "parent": null,
+      "sort": 3
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beilagen-sb1",
+    "fields": {
+      "created_at": "2025-10-22T08:54:30.403Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-10-22T08:54:30.403Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "municipality-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Beilagen SB1\", \"fr\": \"Suppléments DC1\", \"it\": \"\"}",
+      "description": "{\"de\": \"Diese Dokumente wurden vom Gesuchstellenden im Rahmen der Selbstdeklaration (SB1) hochgeladen.\", \"fr\": \"Ces documents ont été téléchargés par la personne requérante dans le cadre de déclaration spontanée en matière de contrôle des constructions 1 (DC1).\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "#388e3c",
+      "parent": null,
+      "sort": 6
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beilagen-sb2",
+    "fields": {
+      "created_at": "2025-10-22T08:54:30.407Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-10-22T08:54:30.407Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "municipality-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Beilagen SB2\", \"fr\": \"Suppléments DC2\", \"it\": \"\"}",
+      "description": "{\"de\": \"Diese Dokumente wurden vom Gesuchstellenden im Rahmen der Selbstdeklaration (SB2) hochgeladen.\", \"fr\": \"Ces documents ont été téléchargés par la personne requérante dans le cadre de la déclaration spontanée en matière de contrôle des constructions 2 (DC2).\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "#c2185b",
+      "parent": null,
+      "sort": 7
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beilagen-zum-gesuch",
+    "fields": {
+      "created_at": "2025-10-22T08:54:30.379Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-10-22T08:54:30.379Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "municipality-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Beilagen zum Gesuch\", \"fr\": \"Pièces jointes à la demande\", \"it\": \"\"}",
+      "description": "{\"de\": \"Diese Dokumente wurden vom Gesuchstellenden hochgeladen und sind für alle am Verfahren beteiligten Behörden einsehbar.\", \"fr\": \"Ces documents ont été téléchargés par la personne requérante et peuvent être consultés par toutes les autorités impliquées dans la procédure.\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "#ea161f",
+      "parent": null,
+      "sort": 0
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beteiligte-behorden",
+    "fields": {
+      "created_at": "2025-10-22T08:54:30.388Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-10-22T08:54:30.388Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "municipality-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Beteiligte Behörden\", \"fr\": \"Autorités participantes\", \"it\": \"\"}",
+      "description": "{\"de\": \"Hier werden die von den beteiligten Behörden erfassten Dokumente (z.B. Verfügungen, Amts- und Fachberichte, Stellungnahmen) hochgeladen. Diese Dokumente sind nur für die am Verfahren beteiligten Behörden sichtbar, nicht aber für die Gesuchstellenden.\", \"fr\": \"C'est là que les documents enregistrés par les autorités participantes sont téléchargés (par exemple, les décisions, les rapports officiels et techniques, prises de position). Ces documents ne sont visibles que par les autorités impliquées dans la procédure, mais pas par les personnes requérantes.\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "#f1a208",
+      "parent": null,
+      "sort": 2
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "intern",
+    "fields": {
+      "created_at": "2025-10-22T08:54:30.400Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-10-22T08:54:30.400Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "municipality-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Intern\", \"fr\": \"Interne\", \"it\": \"\"}",
+      "description": "{\"de\": \"Hier werden Dokumente hochgeladen, welche nur innerhalb der eigenen Organisation sichtbar sein sollen. In diesem Ordner bestehen keine Einschränkungen hinsichtlich der erlaubten Dateiformate.\", \"fr\": \"Ici sont téléchargés des documents qui ne doivent être visibles qu'au sein de la propre organisation. Dans ce dossier, il n'y a aucune restriction concernant les formats de fichiers autorisés.\", \"it\": \"\"}",
+      "allowed_mime_types": null,
+      "color": "#7b1fa2",
+      "parent": null,
+      "sort": 5
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "nachforderungen",
+    "fields": {
+      "created_at": "2025-10-22T08:54:30.384Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-10-22T08:54:30.384Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "municipality-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Nachforderungen\", \"fr\": \"Demandes de complément d’information\", \"it\": \"\"}",
+      "description": "{\"de\": \"Diese Dokumente wurden im Rahmen einer Nachforderung vom Gesuchstellenden hochgeladen und sind für alle beteiligten Behörden einsehbar.\", \"fr\": \"Ces documents ont été téléchargés par la personne requérante dans le cadre d'une demande de complément d’information et peuvent être consultés par toutes les autorités concernées.\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "#f35b21",
+      "parent": null,
+      "sort": 1
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "rechtsbegehren",
+    "fields": {
+      "created_at": "2025-10-22T08:54:30.396Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-10-22T08:54:30.396Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "municipality-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Rechtsbegehren\", \"fr\": \"Conclusions\", \"it\": \"\"}",
+      "description": "{\"de\": \"Hier werden von der Leitbehörde Dokumente hochgeladen, welche für alle am Verfahren beteiligten Rollen einsehbar sein sollen (z.B. Einsprachen, Rechtsverwahrung, Lastenausgleichsbegehren). Gesuchstellenden werden diese Dokumente im eBau-Portal unter \\\"Rückmeldungen\\\" angezeigt.\", \"fr\": \"C'est là que les documents visibles par toutes les parties impliquées dans la procédure sont téléchargés par l'autorité directrice (par exemple, oppositions, réserves de droit, demandes en compensation des charges). Les personnes requérantes peuvent consulter ces documents sur le portail eBau, sous la rubrique \\\"Remarques\\\".\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "#1565c0",
+      "parent": null,
+      "sort": 4
+    }
+  },
+  {
+    "model": "alexandria_core.mark",
+    "pk": "decision",
+    "fields": {
+      "created_at": "2025-10-23T09:25:59.489Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-10-23T09:25:59.489Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Entscheiddokument\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}"
+    }
+  },
+  {
+    "model": "alexandria_core.mark",
+    "pk": "geometer",
+    "fields": {
+      "created_at": "2025-10-23T09:27:04.093Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-10-23T09:27:04.093Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Nachführungsgeometer\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}"
+    }
+  },
+  {
+    "model": "alexandria_core.mark",
+    "pk": "publication",
+    "fields": {
+      "created_at": "2025-10-23T09:26:11.377Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-10-23T09:27:12.562Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Auflagedokument\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}"
+    }
+  },
+  {
+    "model": "alexandria_core.mark",
+    "pk": "void",
+    "fields": {
+      "created_at": "2025-10-23T09:26:23.096Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-10-23T09:26:23.096Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Ersetzt\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}"
+    }
+  }
+]

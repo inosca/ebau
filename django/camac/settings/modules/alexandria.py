@@ -55,6 +55,7 @@ ALEXANDRIA = {
         },
         "APPEND_ROLE_TO_CUSTOM_ROLE_MAPPING": True,
     },
+    "kt_bern": {"ENABLED": True},
     "test": {
         "ENABLED": True,
     },

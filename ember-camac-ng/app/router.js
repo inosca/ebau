@@ -86,6 +86,16 @@ Router.map(function () {
     as: "distribution",
     path: "/distribution/:case",
   });
+  this.mount("ember-alexandria", {
+    as: "alexandria",
+    path: "/alexandria",
+  });
+  this.route("alexandria-search", function () {
+    this.mount("ember-alexandria", {
+      as: "alexandria-search",
+      path: "/",
+    });
+  });
 
   this.route("dms-generate", { path: "instances/:instance_id/dms-generate" });
 

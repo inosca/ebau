@@ -1,4 +1,6 @@
 documents:
+  search: La ricerca nei documenti permette di cercare parole chiave nel nome dei file o nel contenuto dei documenti e copre tutti i dossier edilizi.
+
   buckets:
     descriptions:
       dokument-grundstucksangaben: Con *Indicazioni relative al fondo e descrizione del progetto* si intende la documentazione di domanda come ad es. il piano catastale (ad es. Catasto RDPP), l'estratto del registro fondiario, servitù, la descrizione del progetto.

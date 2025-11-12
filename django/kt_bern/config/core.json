@@ -45718,7 +45718,7 @@
       "template": "/ember-camac-ng/publication.phtml",
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 10,
+      "sort": 11,
       "form_group": 40000,
       "require_permission": "publication-read"
     }
@@ -45734,7 +45734,7 @@
       "template": "/ember-camac-ng/responsible.phtml",
       "class_field": "menu-category-primary",
       "hidden": 0,
-      "sort": 5,
+      "sort": 6,
       "form_group": 40000,
       "require_permission": "responsible-read"
     }
@@ -45862,7 +45862,7 @@
       "template": "/ember-camac-ng/dms-generate.phtml",
       "class_field": "menu-category-primary",
       "hidden": 0,
-      "sort": 4,
+      "sort": 5,
       "form_group": 40000,
       "require_permission": "dms-generate-read"
     }
@@ -45974,7 +45974,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 24,
+      "sort": 25,
       "form_group": 40000,
       "require_permission": "history-read"
     }
@@ -45990,7 +45990,7 @@
       "template": "/ember-camac-ng/journal.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 22,
+      "sort": 23,
       "form_group": 40000,
       "require_permission": "journal-read"
     }
@@ -46070,7 +46070,7 @@
       "template": null,
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
-      "sort": 16,
+      "sort": 17,
       "form_group": 40000,
       "require_permission": "additional-demands-read"
     }
@@ -46134,7 +46134,7 @@
       "template": null,
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 23,
+      "sort": 24,
       "form_group": 40000,
       "require_permission": "revisionhistory-read"
     }
@@ -46198,7 +46198,7 @@
       "template": "/ember-camac-ng/audit.phtml",
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 7,
+      "sort": 8,
       "form_group": 40000,
       "require_permission": "audit-read"
     }
@@ -46246,7 +46246,7 @@
       "template": "/ember-camac-ng/corrections.phtml",
       "class_field": "menu-category-primary active_leitung_leitbehoerde_only",
       "hidden": 0,
-      "sort": 25,
+      "sort": 26,
       "form_group": 40000,
       "require_permission": "corrections-read"
     }
@@ -46262,7 +46262,7 @@
       "template": null,
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 6,
+      "sort": 7,
       "form_group": 40000,
       "require_permission": "assign-ebau-number-read"
     }
@@ -46278,7 +46278,7 @@
       "template": "/ember-camac-ng/legal-submission.phtml",
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 14,
+      "sort": 15,
       "form_group": 40000,
       "require_permission": "legal-submissions-read"
     }
@@ -46310,7 +46310,7 @@
       "template": "/ember-camac-ng/change-lead-authority.phtml",
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
-      "sort": 19,
+      "sort": 20,
       "form_group": 40000,
       "require_permission": "lead-authority-read"
     }
@@ -46342,7 +46342,7 @@
       "template": "/ember-camac-ng/change-construction-control.phtml",
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
-      "sort": 20,
+      "sort": 21,
       "form_group": 40000,
       "require_permission": null
     }
@@ -46406,7 +46406,7 @@
       "template": "/ember-camac-ng/gwr.phtml",
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 13,
+      "sort": 14,
       "form_group": 40000,
       "require_permission": "related-gwr-projects-read"
     }
@@ -46422,7 +46422,7 @@
       "template": "/ember-camac-ng/information-of-neighbors.phtml",
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 11,
+      "sort": 12,
       "form_group": 40000,
       "require_permission": "information-of-neighbors-read"
     }
@@ -46438,7 +46438,7 @@
       "template": null,
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 9,
+      "sort": 10,
       "form_group": 40000,
       "require_permission": "decision-read"
     }
@@ -46470,7 +46470,7 @@
       "template": "/ember-camac-ng/distribution.phtml",
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 8,
+      "sort": 9,
       "form_group": 40000,
       "require_permission": "distribution-read"
     }
@@ -46534,7 +46534,7 @@
       "template": null,
       "class_field": "menu-category-process appeal",
       "hidden": 0,
-      "sort": 15,
+      "sort": 16,
       "form_group": 40000,
       "require_permission": "appeal-read"
     }
@@ -46550,7 +46550,7 @@
       "template": "/ember-camac-ng/billing.phtml",
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 12,
+      "sort": 13,
       "form_group": 40000,
       "require_permission": "billing-read"
     }
@@ -46582,9 +46582,25 @@
       "template": "/ember-camac-ng/rejection.phtml",
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
-      "sort": 18,
+      "sort": 19,
       "form_group": 40000,
       "require_permission": "rejection-read"
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 15000012,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 20006,
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/alexandria.phtml",
+      "class_field": "menu-category-primary",
+      "hidden": 1,
+      "sort": 4,
+      "form_group": 40000,
+      "require_permission": null
     }
   },
   {
@@ -46646,7 +46662,7 @@
       "template": "/ember-camac-ng/permissions.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 26,
+      "sort": 27,
       "form_group": 40000,
       "require_permission": "permissions-read"
     }
@@ -46662,7 +46678,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 21,
+      "sort": 22,
       "form_group": 40000,
       "require_permission": "geometer-read"
     }
@@ -46694,7 +46710,7 @@
       "template": "/ember-camac-ng/additional-demand.phtml",
       "class_field": null,
       "hidden": 1,
-      "sort": 17,
+      "sort": 18,
       "form_group": 40000,
       "require_permission": null
     }
@@ -48167,6 +48183,16 @@
   },
   {
     "model": "core.instanceresourcet",
+    "pk": 15000030,
+    "fields": {
+      "instance_resource": 15000012,
+      "language": "de",
+      "name": "Alexandria",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
     "pk": 18000000,
     "fields": {
       "instance_resource": 18000000,
@@ -48492,6 +48518,13 @@
   {
     "model": "core.irpage",
     "pk": 15000011,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.irpage",
+    "pk": 15000012,
     "fields": {
       "pdf_class": null
     }
@@ -57916,6 +57949,150 @@
       "instance_resource": 15000011,
       "role": 3,
       "instance_state": 10000
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000493,
+    "fields": {
+      "instance_resource": 15000012,
+      "role": 3,
+      "instance_state": 20000
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000494,
+    "fields": {
+      "instance_resource": 15000012,
+      "role": 3,
+      "instance_state": 20003
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000495,
+    "fields": {
+      "instance_resource": 15000012,
+      "role": 3,
+      "instance_state": 20004
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000496,
+    "fields": {
+      "instance_resource": 15000012,
+      "role": 3,
+      "instance_state": 20005
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000497,
+    "fields": {
+      "instance_resource": 15000012,
+      "role": 3,
+      "instance_state": 20010
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000498,
+    "fields": {
+      "instance_resource": 15000012,
+      "role": 3,
+      "instance_state": 20011
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000499,
+    "fields": {
+      "instance_resource": 15000012,
+      "role": 3,
+      "instance_state": 20013
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000500,
+    "fields": {
+      "instance_resource": 15000012,
+      "role": 3,
+      "instance_state": 20014
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000501,
+    "fields": {
+      "instance_resource": 15000012,
+      "role": 3,
+      "instance_state": 10000
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000502,
+    "fields": {
+      "instance_resource": 15000012,
+      "role": 3,
+      "instance_state": 20007
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000503,
+    "fields": {
+      "instance_resource": 15000012,
+      "role": 3,
+      "instance_state": 20008
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000504,
+    "fields": {
+      "instance_resource": 15000012,
+      "role": 3,
+      "instance_state": 20009
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000505,
+    "fields": {
+      "instance_resource": 15000012,
+      "role": 3,
+      "instance_state": 120000
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000506,
+    "fields": {
+      "instance_resource": 15000012,
+      "role": 3,
+      "instance_state": 120001
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000507,
+    "fields": {
+      "instance_resource": 15000012,
+      "role": 3,
+      "instance_state": 120002
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 15000508,
+    "fields": {
+      "instance_resource": 15000012,
+      "role": 3,
+      "instance_state": 120003
     }
   },
   {
@@ -109769,6 +109946,13 @@
   },
   {
     "model": "core.rpage",
+    "pk": 15000004,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.rpage",
     "pk": 18000000,
     "fields": {
       "pdf_class": null
@@ -110431,6 +110615,14 @@
   },
   {
     "model": "core.rroleacl",
+    "pk": 15000023,
+    "fields": {
+      "resource": 15000004,
+      "role": 3
+    }
+  },
+  {
+    "model": "core.rroleacl",
     "pk": 18000000,
     "fields": {
       "resource": 18000000,
@@ -110842,6 +111034,19 @@
   },
   {
     "model": "core.resource",
+    "pk": 15000004,
+    "fields": {
+      "available_resource": "page",
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/alexandria-search.phtml",
+      "class_field": null,
+      "hidden": 1,
+      "sort": 17
+    }
+  },
+  {
+    "model": "core.resource",
     "pk": 18000000,
     "fields": {
       "available_resource": "page",
@@ -111173,6 +111378,16 @@
       "resource": 18000000,
       "language": "fr",
       "name": "Communication",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 15000009,
+    "fields": {
+      "resource": 15000004,
+      "language": "de",
+      "name": "Dokumentensuche",
       "description": null
     }
   },

@@ -22,7 +22,6 @@ $master-data-heigth: calc($main-nav-height + $master-data-divider-height + $mast
 
 @import "a11y";
 @import "power-select";
-@import "modules/alexandria";
 @import "modules/work-items";
 @import "components/main-navigation";
 @import "components/sub-navigation";

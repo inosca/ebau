@@ -5,8 +5,11 @@ export default class ApplicationAdapter extends JSONAPIAdapter {
   @service session;
   @service shoebox;
 
-  namespace = "api/v1";
   useFetch = true;
+
+  get namespace() {
+    return "api/v1";
+  }
 
   async _fetchRequest(options) {
     options.headers = {
