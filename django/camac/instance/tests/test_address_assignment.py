@@ -12,7 +12,9 @@ def test_requires_address_assignment(
     caluma_answer_factory,
     gr_address_assignment_settings,
     caluma_document_factory,
+    set_application_gr,
 ):
+    gr_address_assignment_settings["ENABLED"] = True
     exam_work_item = caluma_work_item_factory(
         case=gr_instance.case,
         task_id=gr_address_assignment_settings["EXAM_TASK"],
