@@ -1,4 +1,4 @@
-from camac.constants.kt_gr import BAUGESUCH_FORMS, SOLARANLAGE_FORMS
+from camac.constants.kt_gr import ARE_SERVICE_GROUP, BAUGESUCH_FORMS, SOLARANLAGE_FORMS
 from camac.permissions.conditions import (
     Always,
     HasApplicantRole,
@@ -6,7 +6,6 @@ from camac.permissions.conditions import (
     IsForm,
     IsPaper,
     IsServiceGroup,
-    Never,
     RequireInstanceState,
     RequireWorkItem,
 )
@@ -94,21 +93,16 @@ MODULE_ADDRESS_ASSIGNMENT = STATES_ALL & (
     RequireWorkItem("address-assignment-make-suggestion")
     | RequireWorkItem("address-assignment-confirm-suggestion")
 )
-
-MODULE_DEADLINES_SUSPENSION = Never()
-# Disabled for prod release
-# MODULE_DEADLINES_SUSPENSION = (
-#     STATES_ALL
-#     & IsServiceGroup(["municipality", ARE_SERVICE_GROUP])
-#     & HasRole(["municipality-lead", "service-lead"])
-# )
-MODULE_DEADLINES_DEADLINE = Never()
-# Disabled for prod release
-# MODULE_DEADLINES_DEADLINE = (
-#     STATES_ALL
-#     & IsServiceGroup(["municipality", ARE_SERVICE_GROUP])
-#     & HasRole(["municipality-lead", "service-lead"])
-# )
+MODULE_DEADLINES_SUSPENSION = (
+    STATES_ALL
+    & IsServiceGroup(["municipality", ARE_SERVICE_GROUP])
+    & HasRole(["municipality-lead", "service-lead"])
+)
+MODULE_DEADLINES_DEADLINE = (
+    STATES_ALL
+    & IsServiceGroup(["municipality", ARE_SERVICE_GROUP])
+    & HasRole(["municipality-lead", "service-lead"])
+)
 
 MODULE_PORTAL_APPLICANTS = HasApplicantRole(["ADMIN"])
 MODULE_PORTAL_COMMUNICATIONS_READ = ~RequireInstanceState(["new"])
