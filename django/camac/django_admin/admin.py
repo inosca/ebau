@@ -1,7 +1,9 @@
+from adminsortable2.admin import SortableAdminMixin
 from alexandria.core.models import Category, Mark
 from caluma.caluma_workflow.models import Case, WorkItem
 from django.contrib.admin import ModelAdmin, display, register
 from django.db.models import JSONField
+from django.utils.html import format_html
 from django_celery_beat import admin as dcb_admin, models as dcb_models
 from django_json_widget.widgets import JSONEditorWidget
 from django_q import admin as q_admin, models as q_models
@@ -12,9 +14,13 @@ from camac.user.models import Service
 
 
 @register(Category)
-class CategoryAdmin(EbauAdminMixin, LocalizedFieldsAdminMixin, ModelAdmin):
-    list_display = ["sort", "name", "parent_name"]
+class CategoryAdmin(
+    EbauAdminMixin, SortableAdminMixin, LocalizedFieldsAdminMixin, ModelAdmin
+):
+    list_display = ["sort", "color_box", "full_name"]
+    list_display_links = ["full_name"]
     formfield_overrides = {JSONField: {"widget": JSONEditorWidget}}
+    ordering = ["sort"]
     fields = [
         "slug",
         "parent",
@@ -26,9 +32,18 @@ class CategoryAdmin(EbauAdminMixin, LocalizedFieldsAdminMixin, ModelAdmin):
         "sort",
     ]
 
-    @display
-    def parent_name(self, obj):
-        return obj.parent.name if obj.parent else None
+    @display(description="Name")
+    def full_name(self, obj):
+        if obj.parent:
+            return format_html(
+                f"<span style='color: #a0a0a0'>{obj.parent.name} /</span> {obj.name}"
+            )
+
+        return obj.name
+
+    @display(description="Color")
+    def color_box(self, obj):
+        return format_html(f"<span style='color: {obj.color}'>⯀</span>")
 
     def get_readonly_fields(self, request, obj=None):
         if obj:

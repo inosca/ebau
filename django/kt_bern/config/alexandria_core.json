@@ -6,26 +6,13 @@
       "created_at": "2025-10-22T08:54:30.392Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2025-10-22T08:54:30.392Z",
+      "modified_at": "2025-11-13T14:51:13.526Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
         "access": {
           "municipality-lead": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "permission": "create"
-              },
-              {
-                "scope": "All",
-                "permission": "update"
-              },
-              {
-                "scope": "All",
-                "permission": "delete"
-              }
-            ]
+            "visibility": "all"
           }
         }
       },
@@ -34,7 +21,197 @@
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "color": "#009688",
       "parent": null,
-      "sort": 3
+      "sort": 13
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "alle-beteiligten-amts-und-fachstellenberichte",
+    "fields": {
+      "created_at": "2025-11-13T14:51:13.505Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-11-13T14:51:13.533Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Amts- und Fachstellenberichte\", \"fr\": \"Documents des offices et services spécialisés\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "#009688",
+      "parent": "alle-beteiligten",
+      "sort": 18
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "alle-beteiligten-dokumente-der-leitbehoerde",
+    "fields": {
+      "created_at": "2025-11-13T14:51:13.506Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-11-13T14:51:13.537Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Dokumente der Leitbehörde\", \"fr\": \"Documents de l'autorité directrice\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "#009688",
+      "parent": "alle-beteiligten",
+      "sort": 22
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "alle-beteiligten-entscheid",
+    "fields": {
+      "created_at": "2025-11-13T14:51:13.507Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-11-13T14:51:13.538Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Entscheid\", \"fr\": \"Décision\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "#009688",
+      "parent": "alle-beteiligten",
+      "sort": 23
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "alle-beteiligten-grundstuecksangaben-projektbeschrieb",
+    "fields": {
+      "created_at": "2025-11-13T14:51:13.503Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-11-13T14:51:13.529Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Grundstücksangaben und Projektbeschrieb\", \"fr\": \"Indications relatives à l'immeuble et description du projet\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "#009688",
+      "parent": "alle-beteiligten",
+      "sort": 14
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "alle-beteiligten-gutachten-nachweise-begruendungen-ausnahmebegehren",
+    "fields": {
+      "created_at": "2025-11-13T14:51:13.503Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-11-13T14:51:13.530Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Gutachten, Nachweise, Begründungen, Ausnahmebegehren\", \"fr\": \"Expertises, preuves, justifications, demande de dérogation\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "#009688",
+      "parent": "alle-beteiligten",
+      "sort": 15
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "alle-beteiligten-merkblaetter",
+    "fields": {
+      "created_at": "2025-11-13T14:51:13.505Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-11-13T14:51:13.534Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Merkblätter\", \"fr\": \"Mémentos\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "#009688",
+      "parent": "alle-beteiligten",
+      "sort": 19
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "alle-beteiligten-projektplaene",
+    "fields": {
+      "created_at": "2025-11-13T14:51:13.504Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-11-13T14:51:13.531Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Projektpläne\", \"fr\": \"Plans du projet\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "#009688",
+      "parent": "alle-beteiligten",
+      "sort": 16
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "alle-beteiligten-rechtsbegehren",
+    "fields": {
+      "created_at": "2025-11-13T14:51:13.506Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-11-13T14:51:13.535Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Rechtsbegehren (Einsprache, Rechtsverwahrung, Lastenausgleich, usw.)\", \"fr\": \"Conclusions (oppositions, réserve de droit, compensation des charges, etc.)\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "#009688",
+      "parent": "alle-beteiligten",
+      "sort": 20
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "alle-beteiligten-stellungnahmen-verfahrensbeteiligte",
+    "fields": {
+      "created_at": "2025-11-13T14:51:13.506Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-11-13T14:51:13.536Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Stellungnahmen Verfahrensbeteiligte\", \"fr\": \"Prises de position parties à la procédure\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "#009688",
+      "parent": "alle-beteiligten",
+      "sort": 21
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "alle-beteiligten-weitere-gesuchsunterlagen",
+    "fields": {
+      "created_at": "2025-11-13T14:51:13.504Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-11-13T14:51:13.532Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Weitere Gesuchsunterlagen\", \"fr\": \"Autres documents de la demande\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "#009688",
+      "parent": "alle-beteiligten",
+      "sort": 17
     }
   },
   {
@@ -44,26 +221,13 @@
       "created_at": "2025-10-22T08:54:30.403Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2025-10-22T08:54:30.403Z",
+      "modified_at": "2025-11-13T14:51:13.545Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
         "access": {
           "municipality-lead": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "permission": "create"
-              },
-              {
-                "scope": "All",
-                "permission": "update"
-              },
-              {
-                "scope": "All",
-                "permission": "delete"
-              }
-            ]
+            "visibility": "all"
           }
         }
       },
@@ -72,7 +236,83 @@
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "color": "#388e3c",
       "parent": null,
-      "sort": 6
+      "sort": 28
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beilagen-sb1-grundstuecksangaben-projektbeschrieb",
+    "fields": {
+      "created_at": "2025-11-13T14:51:13.510Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-11-13T14:51:13.548Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Grundstücksangaben und Projektbeschrieb\", \"fr\": \"Indications relatives à l'immeuble et description du projet\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "#388e3c",
+      "parent": "beilagen-sb1",
+      "sort": 29
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beilagen-sb1-gutachten-nachweise-begruendungen-ausnahmebegehren",
+    "fields": {
+      "created_at": "2025-11-13T14:51:13.510Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-11-13T14:51:13.549Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Gutachten, Nachweise, Begründungen, Ausnahmebegehren\", \"fr\": \"Expertises, preuves, justifications, demande de dérogation\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "#388e3c",
+      "parent": "beilagen-sb1",
+      "sort": 30
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beilagen-sb1-projektplaene",
+    "fields": {
+      "created_at": "2025-11-13T14:51:13.510Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-11-13T14:51:13.550Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Projektpläne\", \"fr\": \"Plans du projet\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "#388e3c",
+      "parent": "beilagen-sb1",
+      "sort": 31
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beilagen-sb1-weitere-gesuchsunterlagen",
+    "fields": {
+      "created_at": "2025-11-13T14:51:13.511Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-11-13T14:51:13.551Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Weitere Gesuchsunterlagen\", \"fr\": \"Autres documents de la demande\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "#388e3c",
+      "parent": "beilagen-sb1",
+      "sort": 32
     }
   },
   {
@@ -82,26 +322,13 @@
       "created_at": "2025-10-22T08:54:30.407Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2025-10-22T08:54:30.407Z",
+      "modified_at": "2025-11-13T14:51:13.552Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
         "access": {
           "municipality-lead": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "permission": "create"
-              },
-              {
-                "scope": "All",
-                "permission": "update"
-              },
-              {
-                "scope": "All",
-                "permission": "delete"
-              }
-            ]
+            "visibility": "all"
           }
         }
       },
@@ -110,7 +337,83 @@
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "color": "#c2185b",
       "parent": null,
-      "sort": 7
+      "sort": 33
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beilagen-sb2-grundstuecksangaben-projektbeschrieb",
+    "fields": {
+      "created_at": "2025-11-13T14:51:13.512Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-11-13T14:51:13.554Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Grundstücksangaben und Projektbeschrieb\", \"fr\": \"Indications relatives à l'immeuble et description du projet\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "#c2185b",
+      "parent": "beilagen-sb2",
+      "sort": 34
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beilagen-sb2-gutachten-nachweise-begruendungen-ausnahmebegehren",
+    "fields": {
+      "created_at": "2025-11-13T14:51:13.512Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-11-13T14:51:13.555Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Gutachten, Nachweise, Begründungen, Ausnahmebegehren\", \"fr\": \"Expertises, preuves, justifications, demande de dérogation\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "#c2185b",
+      "parent": "beilagen-sb2",
+      "sort": 35
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beilagen-sb2-projektplaene",
+    "fields": {
+      "created_at": "2025-11-13T14:51:13.513Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-11-13T14:51:13.556Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Projektpläne\", \"fr\": \"Plans du projet\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "#c2185b",
+      "parent": "beilagen-sb2",
+      "sort": 36
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beilagen-sb2-weitere-gesuchsunterlagen",
+    "fields": {
+      "created_at": "2025-11-13T14:51:13.513Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-11-13T14:51:13.557Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Weitere Gesuchsunterlagen\", \"fr\": \"Autres documents de la demande\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "#c2185b",
+      "parent": "beilagen-sb2",
+      "sort": 37
     }
   },
   {
@@ -120,26 +423,13 @@
       "created_at": "2025-10-22T08:54:30.379Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2025-10-22T08:54:30.379Z",
+      "modified_at": "2025-11-13T14:51:13.515Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
         "access": {
           "municipality-lead": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "permission": "create"
-              },
-              {
-                "scope": "All",
-                "permission": "update"
-              },
-              {
-                "scope": "All",
-                "permission": "delete"
-              }
-            ]
+            "visibility": "all"
           }
         }
       },
@@ -153,31 +443,94 @@
   },
   {
     "model": "alexandria_core.category",
-    "pk": "beteiligte-behorden",
+    "pk": "beilagen-zum-gesuch-grundstuecksangaben-projektbeschrieb",
+    "fields": {
+      "created_at": "2025-11-13T14:51:13.492Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-11-13T14:51:13.516Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Grundstücksangaben und Projektbeschrieb\", \"fr\": \"Indications relatives à l'immeuble et description du projet\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "#ea161f",
+      "parent": "beilagen-zum-gesuch",
+      "sort": 1
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beilagen-zum-gesuch-gutachten-nachweise-begruendungen-ausnahmebegehren",
+    "fields": {
+      "created_at": "2025-11-13T14:51:13.495Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-11-13T14:51:13.517Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Gutachten, Nachweise, Begründungen, Ausnahmebegehren\", \"fr\": \"Expertises, preuves, justifications, demande de dérogation\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "#ea161f",
+      "parent": "beilagen-zum-gesuch",
+      "sort": 2
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beilagen-zum-gesuch-projektplaene",
+    "fields": {
+      "created_at": "2025-11-13T14:51:13.497Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-11-13T14:51:13.518Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Projektpläne\", \"fr\": \"Plans du projet\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "#ea161f",
+      "parent": "beilagen-zum-gesuch",
+      "sort": 3
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
+    "fields": {
+      "created_at": "2025-11-13T14:51:13.497Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-11-13T14:51:13.519Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Weitere Gesuchsunterlagen\", \"fr\": \"Autres documents de la demande\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "#ea161f",
+      "parent": "beilagen-zum-gesuch",
+      "sort": 4
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beteiligte-behoerden",
     "fields": {
       "created_at": "2025-10-22T08:54:30.388Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2025-10-22T08:54:30.388Z",
+      "modified_at": "2025-11-13T14:51:13.523Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
         "access": {
           "municipality-lead": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "permission": "create"
-              },
-              {
-                "scope": "All",
-                "permission": "update"
-              },
-              {
-                "scope": "All",
-                "permission": "delete"
-              }
-            ]
+            "visibility": "all"
           }
         }
       },
@@ -186,7 +539,45 @@
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "color": "#f1a208",
       "parent": null,
-      "sort": 2
+      "sort": 10
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beteiligte-behoerden-amts-und-fachstellenberichte",
+    "fields": {
+      "created_at": "2025-11-13T14:51:13.501Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-11-13T14:51:13.524Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Amts- und Fachstellenberichte\", \"fr\": \"Documents des offices et services spécialisés\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "#f1a208",
+      "parent": "beteiligte-behoerden",
+      "sort": 11
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beteiligte-behoerden-merkblaetter",
+    "fields": {
+      "created_at": "2025-11-13T14:51:13.502Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-11-13T14:51:13.525Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Merkblätter\", \"fr\": \"Mémentos\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "#f1a208",
+      "parent": "beteiligte-behoerden",
+      "sort": 12
     }
   },
   {
@@ -196,26 +587,13 @@
       "created_at": "2025-10-22T08:54:30.400Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2025-10-22T08:54:30.400Z",
+      "modified_at": "2025-11-13T14:51:13.543Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
         "access": {
           "municipality-lead": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "permission": "create"
-              },
-              {
-                "scope": "All",
-                "permission": "update"
-              },
-              {
-                "scope": "All",
-                "permission": "delete"
-              }
-            ]
+            "visibility": "all"
           }
         }
       },
@@ -224,7 +602,7 @@
       "allowed_mime_types": null,
       "color": "#7b1fa2",
       "parent": null,
-      "sort": 5
+      "sort": 27
     }
   },
   {
@@ -234,26 +612,13 @@
       "created_at": "2025-10-22T08:54:30.384Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2025-10-22T08:54:30.384Z",
+      "modified_at": "2025-11-13T14:51:13.519Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
         "access": {
           "municipality-lead": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "permission": "create"
-              },
-              {
-                "scope": "All",
-                "permission": "update"
-              },
-              {
-                "scope": "All",
-                "permission": "delete"
-              }
-            ]
+            "visibility": "all"
           }
         }
       },
@@ -262,7 +627,83 @@
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "color": "#f35b21",
       "parent": null,
-      "sort": 1
+      "sort": 5
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "nachforderungen-grundstuecksangaben-projektbeschrieb",
+    "fields": {
+      "created_at": "2025-11-13T14:51:13.499Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-11-13T14:51:13.521Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Grundstücksangaben und Projektbeschrieb\", \"fr\": \"Indications relatives à l'immeuble et description du projet\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "#f35b21",
+      "parent": "nachforderungen",
+      "sort": 6
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "nachforderungen-gutachten-nachweise-begruendungen-ausnahmebegehren",
+    "fields": {
+      "created_at": "2025-11-13T14:51:13.499Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-11-13T14:51:13.521Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Gutachten, Nachweise, Begründungen, Ausnahmebegehren\", \"fr\": \"Expertises, preuves, justifications, demande de dérogation\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "#f35b21",
+      "parent": "nachforderungen",
+      "sort": 7
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "nachforderungen-projektplaene",
+    "fields": {
+      "created_at": "2025-11-13T14:51:13.500Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-11-13T14:51:13.522Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Projektpläne\", \"fr\": \"Plans du projet\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "#f35b21",
+      "parent": "nachforderungen",
+      "sort": 8
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "nachforderungen-weitere-gesuchsunterlagen",
+    "fields": {
+      "created_at": "2025-11-13T14:51:13.500Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-11-13T14:51:13.523Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Weitere Gesuchsunterlagen\", \"fr\": \"Autres documents de la demande\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "#f35b21",
+      "parent": "nachforderungen",
+      "sort": 9
     }
   },
   {
@@ -272,26 +713,13 @@
       "created_at": "2025-10-22T08:54:30.396Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2025-10-22T08:54:30.396Z",
+      "modified_at": "2025-11-13T14:51:13.539Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
         "access": {
           "municipality-lead": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "permission": "create"
-              },
-              {
-                "scope": "All",
-                "permission": "update"
-              },
-              {
-                "scope": "All",
-                "permission": "delete"
-              }
-            ]
+            "visibility": "all"
           }
         }
       },
@@ -300,7 +728,45 @@
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
       "color": "#1565c0",
       "parent": null,
-      "sort": 4
+      "sort": 24
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "rechtsbegehren-rechtsbegehren",
+    "fields": {
+      "created_at": "2025-11-13T14:51:13.508Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-11-13T14:51:13.541Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Rechtsbegehren (Einsprache, Rechtsverwahrung, Lastenausgleich, usw.)\", \"fr\": \"Conclusions (oppositions, réserve de droit, compensation des charges, etc.)\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "#1565c0",
+      "parent": "rechtsbegehren",
+      "sort": 25
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "rechtsbegehren-stellungnahmen-verfahrensbeteiligte",
+    "fields": {
+      "created_at": "2025-11-13T14:51:13.509Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-11-13T14:51:13.542Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Stellungnahmen Verfahrensbeteiligte\", \"fr\": \"Prises de position parties à la procédure\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "#1565c0",
+      "parent": "rechtsbegehren",
+      "sort": 26
     }
   },
   {
