@@ -1600,11 +1600,17 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         return []  # pragma: no cover
 
     def _get_recipients_are_bab(self, instance):
-        return (
-            self._get_recipients_are(instance)
-            if instance.case.meta.get("is-bab")
-            else []
-        )
+        if instance.case.meta.get("is-bab"):
+            are_service = Service.objects.filter(slug="are").first()
+
+            if (
+                Inquiry.objects.for_instance(instance)
+                .addressed_to(are_service)
+                .exists()
+            ):
+                return self._get_recipients_are(instance)
+
+        return []
 
     def _get_recipients_abwasser_uri(self, instance):
         service = Service.objects.filter(slug="awu").first()
