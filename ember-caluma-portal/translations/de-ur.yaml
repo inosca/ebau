@@ -20,6 +20,7 @@ instances:
   decision-documents-notice: "<strong>Wichtiger Hinweis:</strong> Beim erstmaligen Download eines der Entscheiddokumente wird das aktuelle Datum im URec gespeichert. Dieses Datum gilt als Eröffnungsdatum und ist massgebend für die Berechnung der Beschwerdefrist. Die Originaldokumente sind bei der zuständigen Behörde hinterlegt und können bei Bedarf angefordert werden."
 
   new:
+    title-paper: "Neues Dossier"
     building-permit:
       title: "Baubewilligungsverfahren"
       info: "**Baugesuch-Vorabklärung:** Eine Baugesuch Vorabklärung ist dann sinnvoll,
