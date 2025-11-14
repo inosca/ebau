@@ -103,6 +103,13 @@ class P:
     def __or__(self, other):
         return P(self, other, op=operator.or_)
 
+    def __eq__(self, other):
+        return (
+            isinstance(other, P)
+            and self._perms == other._perms
+            and self._op == other._op
+        )
+
     def __repr__(self):
         op_symbols = {operator.and_: " & ", operator.or_: " | "}
         op_symbol = op_symbols[self._op]
