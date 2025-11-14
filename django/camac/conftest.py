@@ -3324,7 +3324,8 @@ def mock_celery(mocker):
     )
     mocker.patch(
         "alexandria.core.tasks.set_content_vector.delay",
-        side_effect=lambda id: alexandria_tasks.set_content_vector(id),
+        side_effect=lambda id,
+        document_update=False: alexandria_tasks.set_content_vector(id, document_update),
     )
     mocker.patch(
         "alexandria.core.tasks.create_thumbnail.delay",

@@ -3676,9 +3676,11 @@ STATICFILES_DIRS += APPLICATIONS[APPLICATION_NAME].get("INCLUDE_STATIC_FILES", [
 
 
 def load_module_settings(module_name, application_name=APPLICATION_NAME):
+    settings_name = module_name.upper().replace(".", "_")
+
     module: ModuleConfig | dict = getattr(
         import_module(f"camac.settings.modules.{module_name.lower()}"),
-        module_name.upper(),
+        settings_name,
     )
     is_pydantic = isinstance(module, ModuleConfig)
     if is_pydantic:
@@ -3718,7 +3720,6 @@ CORRECTION = load_module_settings("correction")
 DMS = load_module_settings("dms")
 REJECTION = load_module_settings("rejection")
 WITHDRAWAL = load_module_settings("withdrawal")
-PERMISSIONS = load_module_settings("permissions")
 COMMUNICATIONS = load_module_settings("communications")
 PLACEHOLDERS = load_module_settings("placeholders")
 MASTER_DATA = load_module_settings("master_data")
@@ -3740,6 +3741,10 @@ WORK_ITEM_LIST = load_module_settings("work_item_list")
 LINKED_INSTANCES = load_module_settings("linked_instances")
 SANCTIONS = load_module_settings("sanctions")
 
+# Permissions incl. module specific integrations
+PERMISSIONS = load_module_settings("permissions")
+PERMISSIONS_ALEXANDRIA = load_module_settings("permissions.alexandria")
+
 # Alexandria
 ALEXANDRIA = load_module_settings("alexandria")
 ALEXANDRIA_GET_USER_AND_GROUP_FUNCTION = (
@@ -3749,9 +3754,11 @@ GENERIC_PERMISSIONS_VISIBILITY_CLASSES = [
     "camac.alexandria.extensions.visibilities.CustomVisibility",
     "camac.tags.visibilities.TagsVisibility",
 ]
-GENERIC_PERMISSIONS_PERMISSION_CLASSES = [
-    "camac.alexandria.extensions.permissions.CustomPermission"
-]
+GENERIC_PERMISSIONS_PERMISSION_CLASSES = (
+    ["camac.alexandria.extensions.permissions_v2.AlexandriaPermissions"]
+    if APPLICATION_NAME == "kt_bern"
+    else ["camac.alexandria.extensions.permissions.CustomPermission"]
+)
 GENERIC_PERMISSIONS_VALIDATION_CLASSES = [
     "camac.alexandria.extensions.validations.CustomValidation"
 ]
