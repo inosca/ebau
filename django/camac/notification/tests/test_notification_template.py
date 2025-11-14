@@ -497,9 +497,12 @@ def test_notification_template_are(
     recipient_types,
     is_bab,
     expected_recipients,
+    active_inquiry_factory,
 ):
-    service_factory(name="are", slug="are", email="are@test.gr.ch")
+    are_service = service_factory(name="are", slug="are", email="are@test.gr.ch")
     url = reverse("notificationtemplate-sendmail")
+
+    active_inquiry_factory(gr_instance, are_service, are_service)
 
     gr_instance.case.document.save()
     gr_instance.case.meta["is-bab"] = is_bab
