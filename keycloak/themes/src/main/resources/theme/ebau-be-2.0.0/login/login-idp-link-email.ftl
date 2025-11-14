@@ -7,7 +7,7 @@
     <#elseif section = "form">
         <#-- Change: use custom texts & buttons -->
         <p id="instruction1" class="instruction">
-            ${msg("emailLinkIdpHint1", brokerContext.email)}
+            ${kcSanitize(msg("emailLinkIdpHint1", brokerContext.email))?no_esc}
         </p>
         <p id="instruction2" class="instruction">
             ${msg("emailLinkIdpHint2")}
