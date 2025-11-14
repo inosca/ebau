@@ -8,6 +8,9 @@
             <#-- Change: removed page expiered hint & restart link -->
 
             <button type="submit" class="${properties.kcButtonClass!} ${properties.kcButtonDefaultClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" name="submitAction" id="confirmOverride" value="confirmOverride">${msg("confirmOverrideIdpContinue", idpDisplayName)}</button>
+
+            <#-- Change: move restart restart link and styled as button -->
+            <a id="loginRestartLink" class="${properties.kcButtonClass!} ${properties.kcButtonDefaultClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" href="${url.loginRestartFlowUrl}">${msg("doCancel")}</a>
         </form>
     <#-- Change: add context column -->
     <#elseif section = "context">
