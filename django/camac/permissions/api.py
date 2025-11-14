@@ -197,6 +197,21 @@ class ACLUserInfo:
         return f"permissions:{','.join(parts)}"
 
 
+@dataclass
+class PermissionScope:
+    _manager: PermissionManager
+    _context: PermissionContext
+
+    def has(self, permission: P | str) -> bool:
+        return self._manager.has_permission(self._context, permission)
+
+    def require(self, permission: P | str) -> None:
+        return self._manager.require_all(self._context, permission)
+
+    def get_permissions(self) -> list[str]:
+        return self._manager.get_permissions(self._context)
+
+
 class PermissionManager:
     userinfo: ACLUserInfo
     default_event: Optional[str] = None
@@ -204,6 +219,11 @@ class PermissionManager:
     def __init__(self, userinfo: ACLUserInfo, permission_settings=None):
         self.permission_settings = permission_settings or settings.PERMISSIONS
         self.userinfo = userinfo
+
+    def scoped_for(self, context: PermissionContext) -> PermissionScope:
+        """Scope manager to an given context."""
+
+        return PermissionScope(self, context)
 
     @classmethod
     def for_anonymous(cls) -> "PermissionManager":
@@ -237,7 +257,8 @@ class PermissionManager:
         # won't be kept around
         enable_cache = self.permission_settings.get("ENABLE_CACHE", True)
 
-        context = self.context_from(context)
+        if not isinstance(context, PermissionContext):
+            context = self.context_from(context)
 
         cache_key = self.userinfo.to_cache_key(context)
 
