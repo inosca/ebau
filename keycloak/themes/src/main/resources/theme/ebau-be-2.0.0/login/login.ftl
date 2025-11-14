@@ -1,3 +1,4 @@
+<#-- Copied from: https://github.com/keycloak/keycloak/blob/release/26.2/themes/src/main/resources/theme/base/login/login.ftl -->
 <#import "template.ftl" as layout>
     <@layout.registrationLayout pageId="login" displayMessage=!messagesPerField.existsError('username') displayInfo=(realm.password &&
         realm.registrationAllowed && !registrationDisabled??); section>
@@ -16,7 +17,7 @@
                             <div id="kc-social-providers-buttons">
                                 <#list social.providers as p>
                                     <button type="button" class="secondary"
-                                        onclick="window.location='${p.loginUrl}'; return false;" id="zocial-${p.alias}">
+                                        onclick="window.location='${p.loginUrl}'; return false;" id="social-${p.alias}">
                                         <span>
                                             <#if msg(p.alias)=p.alias>
                                                 ${msg(p.displayName)}

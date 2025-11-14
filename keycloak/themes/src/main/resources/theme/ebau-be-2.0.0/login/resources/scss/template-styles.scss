@@ -158,6 +158,14 @@ button,
   border-width: 1px;
 }
 
+/* Custom button-like link */
+a.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
 button:hover,
 button:focus,
 .button:hover,
@@ -165,6 +173,7 @@ button:focus,
   -webkit-transform: scale(1.07);
   -ms-transform: scale(1.07);
   transform: scale(1.07);
+  text-decoration: none;
 }
 
 button.primary,

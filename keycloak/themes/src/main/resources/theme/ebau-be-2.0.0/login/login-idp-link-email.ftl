@@ -12,11 +12,11 @@
         <p id="instruction2" class="instruction">
             ${msg("emailLinkIdpHint2")}
         </p>
-        <a href="${url.loginAction}" class="button">${msg("emailLinkIdpHint2Button")}</a>
+        <a href="${url.loginAction}" class="button secondary">${msg("emailLinkIdpHint2Button")}</a>
         <p id="instruction3" class="instruction">
             ${msg("emailLinkIdpHint3")}
         </p>
-        <a href="${url.loginAction}" class="button">${msg("emailLinkIdpHint3Button")}</a>
+        <a href="${url.loginAction}" class="button secondary">${msg("emailLinkIdpHint3Button")}</a>
     <#-- Change: add context column -->
     <#elseif section = "context">
         <ul class='box-beige open' data-accordion data-allow-all-closed='true' data-multi-expand='false'>
