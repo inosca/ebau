@@ -758,3 +758,19 @@ class ServiceT(models.Model):
     class Meta:
         managed = True
         db_table = "SERVICE_T"
+
+
+class GeometerChangeTask(models.Model):
+    municipality = models.ForeignKey(Service, models.CASCADE, related_name="+")
+    geometer = models.ForeignKey(Service, models.CASCADE, related_name="+")
+    created_at = models.DateTimeField(auto_now_add=True)
+    completed_at = models.DateTimeField(default=None, null=True)
+    errors = models.TextField(blank=True, null=True)
+    status = models.CharField(
+        choices=[
+            ("running", "running"),
+            ("completed", "completed"),
+            ("scheduled", "scheduled"),
+            ("failed", "failed"),
+        ]
+    )

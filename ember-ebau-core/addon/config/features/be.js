@@ -59,4 +59,7 @@ export default {
     correctForm: true,
     withdrawInstance: false,
   },
+  changeGeometer: {
+    enabled: true,
+  },
 };

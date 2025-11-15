@@ -1,0 +1,75 @@
+{{#if
+  (and
+    (has-feature "changeGeometer.enabled")
+    (can "change geometer of instance" @instance)
+  )
+}}
+  <p class="uk-text-large">{{t "change-geometer.title"}}</p>
+  <div>
+    <label class="uk-form-label uk-text-bolder">
+      {{t "change-geometer.municipality"}}
+    </label>
+    <PowerSelect
+      @searchEnabled={{true}}
+      @allowClear={{true}}
+      @searchField="name"
+      @renderInPlace={{true}}
+      @options={{this.municipalities.records}}
+      @selected={{this.selectedService}}
+      @onChange={{this.selectService}}
+      @disabled={{this.runningTasks}}
+      class="uk-select"
+      as |option|
+    >
+      {{option.name}}
+    </PowerSelect>
+  </div>
+  <div class="uk-margin-top">
+    <label class="uk-form-label uk-text-bolder">
+      {{t "change-geometer.existingGeometer"}}
+    </label>
+    <br />
+    <div class="uk-margin-small-top">{{if
+        this.geometerName
+        this.geometerName
+        "-"
+      }}</div>
+  </div>
+  <div class="uk-margin-top">
+    <label class="uk-form-label uk-text-bolder">
+      {{t "change-geometer.newGeometer"}}
+    </label>
+    <PowerSelect
+      @searchEnabled={{true}}
+      @allowClear={{true}}
+      @searchField="name"
+      @renderInPlace={{true}}
+      @options={{this.geometers.records}}
+      @selected={{this.selectedGeometer}}
+      @onChange={{fn (mut this.selectedGeometer)}}
+      @disabled={{this.runningTasks}}
+      class="uk-select"
+      as |option|
+    >
+      {{option.name}}
+    </PowerSelect>
+  </div>
+  <div class="uk-alert" uk-alert>
+    <p>{{t "change-geometer.info"}}</p>
+  </div>
+  {{#if this.message}}
+    <div class="uk-alert {{this.alertClass}}" uk-alert>
+      <p>{{this.message}}</p>
+    </div>
+  {{/if}}
+  <UkButton
+    @color="primary"
+    @label={{t "change-geometer.apply-change"}}
+    @onClick={{this.changeGeometer.perform}}
+    @disabled={{or
+      this.runningTasks
+      (not this.selectedGeometer)
+      (not this.selectedService)
+    }}
+  />
+{{/if}}

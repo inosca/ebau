@@ -60,4 +60,7 @@ export default {
   workItems: {
     v2: true,
   },
+  changeGeometer: {
+    enabled: false,
+  },
 };

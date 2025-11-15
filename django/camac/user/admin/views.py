@@ -22,6 +22,7 @@ from camac.user.admin.inlines import (
     UserGroupInline,
 )
 from camac.user.models import (
+    GeometerChangeTask,
     Group,
     GroupT,
     Role,
@@ -287,3 +288,24 @@ class ServiceGroupAdmin(EbauAdminMixin, MultilingualAdminMixin, ModelAdmin):
     @display(description=_("Name"))
     def get_name(self, obj):
         return obj.get_name()
+
+
+@register(GeometerChangeTask)
+class GeometerChangeTaskAdmin(EbauAdminMixin, MultilingualAdminMixin, ModelAdmin):
+    list_display = (
+        "id",
+        "municipality",
+        "geometer",
+        "created_at",
+        "completed_at",
+        "status",
+    )
+    readonly_fields = (
+        "id",
+        "municipality",
+        "geometer",
+        "created_at",
+        "completed_at",
+        "status",
+        "errors",
+    )

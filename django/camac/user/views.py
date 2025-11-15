@@ -1,3 +1,4 @@
+import logging
 from datetime import timedelta
 
 from caluma.caluma_form.models import Document
@@ -7,10 +8,11 @@ from django.db import transaction
 from django.db.models import Q
 from django.db.models.functions import Collate
 from django.utils import timezone
+from django_q.tasks import async_task
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework import response, status
 from rest_framework.decorators import action
-from rest_framework.exceptions import PermissionDenied
+from rest_framework.exceptions import PermissionDenied, ValidationError
 from rest_framework.generics import CreateAPIView
 from rest_framework.mixins import RetrieveModelMixin, UpdateModelMixin
 from rest_framework.parsers import JSONParser
@@ -24,14 +26,20 @@ from rest_framework_json_api.views import (
     ReadOnlyModelViewSet,
 )
 
+from camac.caluma.api import CalumaApi
 from camac.caluma.extensions.permissions import CustomPermission
 from camac.core.utils import canton_aware
 from camac.core.views import MultilangMixin
 from camac.swagger.utils import get_operation_description, group_param
 from camac.token_exchange.permissions import RequireLoT
+from camac.user.models import GeometerChangeTask
 from camac.user.permissions import IsAllowedClientToken, permission_aware
+from camac.user.tasks import change_geometer_task
 
 from . import filters, models, serializers
+
+caluma_api = CalumaApi()
+logger = logging.getLogger(__name__)
 
 
 class LocationView(MultilangMixin, ReadOnlyModelViewSet):
@@ -137,6 +145,59 @@ class ServiceView(MultilangMixin, ModelViewSet):
 
     def get_queryset_for_building_commission(self):
         return super().get_queryset()
+
+    def _task_to_response(self, task, status_code=status.HTTP_200_OK):
+        data = {
+            "id": task.id,
+            "municipality": str(task.municipality),
+            "geometer": str(task.geometer),
+            "created_at": task.created_at,
+            "completed_at": task.completed_at,
+            "status": task.status,
+        }
+        if task.status == "failed":
+            data["errors"] = task.errors
+
+        return response.Response(data=data, status=status_code)
+
+    @permission_aware
+    @action(methods=["POST"], detail=True, url_path="change-geometer")
+    @transaction.atomic
+    def change_geometer(self, request, pk):
+        raise ValidationError("You don't have permission to change the geometer")
+
+    def change_geometer_for_support(self, request, pk):
+        tasks = GeometerChangeTask.objects.filter(
+            municipality_id=pk, status__in=["scheduled", "running"]
+        )
+
+        if tasks.exists():
+            return response.Response(status=status.HTTP_400_BAD_REQUEST, data=[])
+
+        geometer_change_task = GeometerChangeTask.objects.create(
+            municipality_id=pk,
+            geometer_id=request.data["selected_geometer_service_id"],
+            status="scheduled",
+        )
+        async_task(change_geometer_task, geometer_change_task)
+        return self._task_to_response(geometer_change_task)
+
+    @permission_aware
+    @action(methods=["GET"], detail=False, url_path="check-change-geometer-status")
+    @transaction.atomic
+    def check_change_geometer_status(self, request):
+        raise ValidationError("You don't have permission to check the geometer status")
+
+    def check_change_geometer_status_for_support(self, request):
+        task = GeometerChangeTask.objects.order_by("-created_at").first()
+
+        if not task:
+            return response.Response(status=status.HTTP_200_OK)
+
+        if task.status not in ["completed", "failed"]:
+            return self._task_to_response(task, status_code=status.HTTP_202_ACCEPTED)
+
+        return self._task_to_response(task, status_code=status.HTTP_200_OK)
 
 
 class PublicServiceView(MultilangMixin, ReadOnlyModelViewSet):

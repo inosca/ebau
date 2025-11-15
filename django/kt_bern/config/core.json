@@ -109918,6 +109918,13 @@
   },
   {
     "model": "core.rpage",
+    "pk": 12000000,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
+    "model": "core.rpage",
     "pk": 15000000,
     "fields": {
       "pdf_class": null
@@ -110463,6 +110470,14 @@
   },
   {
     "model": "core.rroleacl",
+    "pk": 12000018,
+    "fields": {
+      "resource": 12000000,
+      "role": 10000
+    }
+  },
+  {
+    "model": "core.rroleacl",
     "pk": 15000000,
     "fields": {
       "resource": 15000000,
@@ -110964,7 +110979,7 @@
       "template": "/ember-camac-ng/snippets-admin.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -110977,6 +110992,19 @@
       "template": "/ember-camac-ng/dossierimport.phtml",
       "class_field": null,
       "hidden": 1,
+      "sort": 16
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 12000000,
+    "fields": {
+      "available_resource": "page",
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/change-geometer.phtml",
+      "class_field": null,
+      "hidden": 0,
       "sort": 15
     }
   },
@@ -111288,6 +111316,26 @@
       "resource": 2000000,
       "language": "fr",
       "name": "Importation de dossiers",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 12000000,
+    "fields": {
+      "resource": 12000000,
+      "language": "de",
+      "name": "Korrekturhilfe",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 12000001,
+    "fields": {
+      "resource": 12000000,
+      "language": "fr",
+      "name": "Aides de correction",
       "description": null
     }
   },

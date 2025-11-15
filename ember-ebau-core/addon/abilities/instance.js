@@ -149,6 +149,10 @@ export default class InstanceAbility extends Ability {
     );
   }
 
+  get canChangeGeometer() {
+    return this.ebauModules.isSupportRole;
+  }
+
   // instance acls
   // TODO: if complexity increases or more use cases arise, please move to instance-acl ability.
   get canEditAcl() {

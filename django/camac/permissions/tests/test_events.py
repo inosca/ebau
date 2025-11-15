@@ -75,6 +75,7 @@ class SubmitCreatePermissions(events.EmptyEventHandler):
 
 class CustomTrigger(events.Trigger):
     instance_post_state_transition = events.EventTrigger()
+    geometer_changed = events.EventTrigger()
 
 
 @pytest.mark.parametrize("instance_state__name", ["subm"])
@@ -768,3 +769,37 @@ def test_copy_be(
             token=old_acl.token,
             grant_type=old_acl.grant_type,
         ).exists(), f"Missing expected copy of {old_acl}"
+
+
+def test_geometer_changed_event(
+    db,
+    be_instance,
+    service_factory,
+    instance_acl_factory,
+    be_permissions_settings,
+):
+    be_permissions_settings["EVENT_HANDLER"] = (
+        "camac.permissions.config.kt_bern.GeneralPermissionEventHandlerBE"
+    )
+    selected_municipality = service_factory()
+    selected_geometer = service_factory()
+    old_instance_acl = instance_acl_factory(
+        instance=be_instance, access_level__slug="geometer"
+    )
+
+    be_instance.services.add(selected_municipality)
+
+    CustomTrigger.geometer_changed(
+        None,
+        instance=be_instance,
+        selected_geometer=selected_geometer,
+    )
+
+    old_instance_acl.refresh_from_db()
+
+    assert not old_instance_acl.is_active()
+    assert (
+        InstanceACL.currently_active()
+        .filter(service=selected_geometer, access_level="geometer")
+        .exists()
+    )

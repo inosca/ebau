@@ -7,6 +7,7 @@ from camac.instance.utils import (
 )
 from camac.permissions import api as permissions_api
 from camac.permissions.events import EmptyEventHandler
+from camac.permissions.models import InstanceACL
 from camac.user.models import Service, ServiceRelation
 
 from .common import (
@@ -110,6 +111,21 @@ class PermissionEventHandlerBE(
             grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
             access_level="construction-control",
             service=construction_control,
+        )
+
+    def geometer_changed(self, instance, selected_geometer):
+        """Revoke all active Geometer ACLs and add new ones for the new geometer."""
+        for instance_acl in InstanceACL.currently_active().filter(
+            access_level_id="geometer",
+            instance=instance,
+        ):
+            self.manager.revoke(instance_acl)
+
+        self.manager.grant(
+            instance,
+            grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+            access_level="geometer",
+            service=selected_geometer,
         )
 
 

@@ -1,0 +1,11 @@
+change-geometer:
+  title: "Wechsel Nachführungsgeometer"
+  municipality: "Gemeinde"
+  existingGeometer: "Bestehender Nachführungsgeometer"
+  newGeometer: "Neuer Nachführungsgeometer"
+  info: "Ab dem Wechsel werden neu entschiedene Dossiers, wie auch bestehende Dossiers, dem neuen Nachführungsgeometer übergeben."
+  apply-change: "Wechsel vornehmen"
+  confirm: "Wollen Sie den Nachführungsgeometer wirklich wechseln?"
+  taskFailed: "<b>Letzte Ausführung:</b> Beim Geometerwechsel der Gemeinde {municipality} auf den Nachführungsgeometer {geometer} am {completedAtDate}, um {completedAtTime} Uhr trat ein Fehler auf: {errors}."
+  taskSuccessful: "<b>Letzte Ausführung:</b> Der Geometerwechsel der Gemeinde {municipality} auf den Nachführungsgeometer {geometer} wurde am {completedAtDate}, um {completedAtTime} Uhr erfolgreich abgeschlossen."
+  taskRunning: "<b>Aktuelle Ausführung:</b> Der Geometerwechsel der Gemeinde {municipality} auf den Nachführungsgeometer {geometer} ist zurzeit im Gange."

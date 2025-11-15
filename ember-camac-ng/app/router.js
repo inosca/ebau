@@ -3,6 +3,7 @@ import { service } from "@ember/service";
 import registerAdditionalDemand from "ember-ebau-core/modules/additional-demand";
 import registerBilling from "ember-ebau-core/modules/billing";
 import registerBillingGlobal from "ember-ebau-core/modules/billing-global";
+import registerChangeGeometer from "ember-ebau-core/modules/change-geometer";
 import registerChangeResponsibleService from "ember-ebau-core/modules/change-responsible-service";
 import registerCommunications from "ember-ebau-core/modules/communications";
 import registerCommunicationsGlobal from "ember-ebau-core/modules/communications-global";
@@ -123,4 +124,5 @@ Router.map(function () {
   registerStaticContent(this);
   registerCorrections(this);
   registerChangeResponsibleService(this);
+  registerChangeGeometer(this);
 });
