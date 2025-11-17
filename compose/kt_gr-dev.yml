@@ -76,8 +76,6 @@ services:
       - CONSTRUCTION_MONITORING_ENABLED=true
       - ADDRESS_ASSIGNMENT_ENABLED=true
       # Alexandria
-      - ALEXANDRIA_DMS_URL=http://document-merge-service:8000/document-merge-service/api/v1
-      - ALEXANDRIA_ENABLE_CONTENT_SEARCH=true
       - TIKA_CLIENT_ONLY=true
       - TIKA_SERVER_ENDPOINT=http://tika:9998
       # GWR

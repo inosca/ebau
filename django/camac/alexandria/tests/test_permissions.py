@@ -2051,13 +2051,11 @@ def test_document_convert(
     applicant_factory,
     admin_client,
     caluma_admin_user,
-    settings,
     instance,
     mocker,
     status_code,
     access,
 ):
-    settings.ALEXANDRIA_ENABLE_PDF_CONVERSION = True
     applicant_factory(invitee=admin_client.user, instance=instance)
     alexandria_category = CategoryFactory(metainfo={"access": access})
 
@@ -2118,12 +2116,10 @@ def test_document_webdav_url(
     applicant_factory,
     admin_client,
     caluma_admin_user,
-    settings,
     instance,
     status_code,
     access,
 ):
-    settings.ALEXANDRIA_USE_MANABI = True
     applicant_factory(invitee=admin_client.user, instance=instance)
     alexandria_category = CategoryFactory(metainfo={"access": access})
 

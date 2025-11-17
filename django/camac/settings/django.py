@@ -3789,6 +3789,14 @@ GENERIC_PERMISSIONS_BYPASS_VISIBILITIES = {
     "alexandria_core.Document": ["marks", "files", "category"],
     "alexandria_core.File": ["original", "renderings", "document"],
 }
+ALEXANDRIA_USE_MANABI = True
+ALEXANDRIA_ENABLE_PDF_CONVERSION = True
+ALEXANDRIA_ENABLE_CONTENT_SEARCH = True
+ALEXANDRIA_DMS_URL = env.str(
+    "ALEXANDRIA_DMS_URL",
+    default="http://document-merge-service:8000/document-merge-service/api/v1",
+)
+
 
 # Celery
 REDIS_HOST = env.str("REDIS_HOST", default="redis")

@@ -301,8 +301,6 @@ def test_alexandria_permissions_convert_document(
     requests_mock,
     settings,
 ):
-    settings.ALEXANDRIA_ENABLE_PDF_CONVERSION = True
-
     _, document = alexandria_data
 
     requests_mock.post(

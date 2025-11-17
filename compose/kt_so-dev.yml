@@ -104,10 +104,6 @@ services:
       DYNAMIC_GROUPS_CLASSES: camac.caluma.extensions.dynamic_groups.CustomDynamicGroups
       DYNAMIC_TASKS_CLASSES: camac.caluma.extensions.dynamic_tasks.CustomDynamicTasks
       # Alexandria
-      ALEXANDRIA_ENABLE_PDF_CONVERSION: true
-      ALEXANDRIA_USE_MANABI: true
-      ALEXANDRIA_DMS_URL: http://document-merge-service:8000/document-merge-service/api/v1
-      ALEXANDRIA_ENABLE_CONTENT_SEARCH: true
       TIKA_CLIENT_ONLY: true
       TIKA_SERVER_ENDPOINT: "http://tika:9998"
       # celery
