@@ -12,6 +12,7 @@ from camac.alexandria.permissions import (
 )
 from camac.permissions.api import P
 from camac.permissions.conditions import Always
+from camac.permissions.switcher import PERMISSION_MODE
 from camac.settings.modules.permissions.alexandria import OwnDocument
 
 # TODO Implement
@@ -82,7 +83,10 @@ def test_permission_manager_context(
     own_document,
     other_document,
     instance,
+    be_permissions_settings,
 ):
+    be_permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.FULL
+
     request = rf.get("/foo/bar")  # doesn't have to be real
     request.user = admin_client.user
     request.group = admin_client.user.get_default_group()

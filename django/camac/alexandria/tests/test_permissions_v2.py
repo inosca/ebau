@@ -10,10 +10,13 @@ from rest_framework import status
 from camac.alexandria.permissions import AlexandriaPermissionContext
 from camac.document.tests.data import django_file
 from camac.permissions.api import P
+from camac.permissions.switcher import PERMISSION_MODE
 
 
 @pytest.fixture
-def permission_mock(settings, mocker):
+def permission_mock(settings, mocker, permissions_settings):
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.FULL
+
     _original_visibility = settings.GENERIC_PERMISSIONS_VISIBILITY_CLASSES
     _original_permissions = settings.GENERIC_PERMISSIONS_PERMISSION_CLASSES
 
@@ -378,3 +381,26 @@ def test_alexandria_base_permissions(
         assert response.status_code == status.HTTP_403_FORBIDDEN
 
     assert permission_mock.call_count == 0
+
+
+def test_alexandria_permissions_rbac(
+    db,
+    admin_client,
+    alexandria_data,
+    caplog,
+    instance,
+    permission_mock,
+    permissions_settings,
+):
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.OFF
+
+    _, document = alexandria_data
+
+    response = admin_client.delete(reverse("document-detail", args=[document.pk]))
+
+    assert response.status_code == status.HTTP_204_NO_CONTENT
+    assert permission_mock.call_count == 0
+
+    assert f"Instance ID: {instance.pk}" in caplog.messages[0]
+    assert f"Document UUID: {document.pk}" in caplog.messages[0]
+    assert "Expression: P(test:all | test:delete)" in caplog.messages[0]
