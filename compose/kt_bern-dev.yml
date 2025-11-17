@@ -103,11 +103,7 @@ services:
       GEVER_TOKEN_URL: ${GEVER_TOKEN_URL}
       GEVER_API_BASE_URL: ${GEVER_API_BASE_URL}
       # Alexandria
-      ALEXANDRIA_USE_MANABI: true
       ALEXANDRIA_MANABI_DAV_URL_PATH: /webdav
-      ALEXANDRIA_ENABLE_PDF_CONVERSION: true
-      ALEXANDRIA_DMS_URL: http://document-merge-service:8000/document-merge-service/api/v1
-      ALEXANDRIA_ENABLE_CONTENT_SEARCH: true
       TIKA_CLIENT_ONLY: true
       TIKA_SERVER_ENDPOINT: "http://tika:9998"
       CELERY_RDB_HOST: redis
