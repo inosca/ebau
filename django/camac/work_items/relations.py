@@ -21,11 +21,15 @@ class CalumaUserRelatedField(ResourceRelatedField):
         """Get related user by username from the prefetched users on the view."""
 
         username = getattr(instance, self.source)
+        prefetched_users = getattr(self.context["view"], "_prefetched_users", None)
 
-        if users := getattr(self.context["view"], "_prefetched_users", None):
-            return users.get(username, None)
+        # if the view has the attr _prefetched_users, use it to get the user
+        # instead of querying the database each time, even if the list is empty.
+        if prefetched_users is not None:
+            return prefetched_users.get(username, None)
 
-        return User.objects.filter(username=username).first()
+        # fallback to querying the database if the username is set.
+        return User.objects.filter(username=username).first() if username else None
 
 
 class CalumaServiceRelatedField(ResourceRelatedField):
@@ -45,8 +49,14 @@ class CalumaServiceRelatedField(ResourceRelatedField):
         """Get related service from the prefetched services on the view."""
 
         pk = getattr(instance, self.source)
+        prefetched_services = getattr(
+            self.context["view"], "_prefetched_services", None
+        )
 
-        if services := getattr(self.context["view"], "_prefetched_services", None):
-            return services.get(pk, None)
+        # if the view has the attr _prefetched_services, use it to get the service
+        # instead of querying the database each time, even if the list is empty.
+        if prefetched_services is not None:
+            return prefetched_services.get(pk, None)
 
-        return Service.objects.filter(pk=pk).first()
+        # fallback to querying the database if the pk is set.
+        return Service.objects.filter(pk=pk).first() if pk else None
