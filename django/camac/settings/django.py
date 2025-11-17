@@ -1349,6 +1349,7 @@ APPLICATIONS = {
         "USE_CAMAC_ADMIN": True,
         "ENABLE_PUBLIC_CALUMA": True,
         "ENABLE_PUBLIC_CALUMA_CAPTCHA": False,
+        "SYSTEM_USER": "service-account-camac-admin",
         "LOG_NOTIFICATIONS": True,
         "LOG_NOTIFICATIONS_WITH_NO_RECEIVERS": True,
         "FORM_BACKEND": "caluma",
@@ -1857,6 +1858,12 @@ APPLICATIONS = {
                 "template_slug": "3-dossier-eingereicht-gemeinde",
                 "recipient_types": ["koor_afj_users"],
             },
+            "PERMISSION_ACL_GRANTED": [
+                {
+                    "template_slug": "1-2-berechtigung-erteilt",
+                    "recipient_types": ["acl_authorized"],
+                }
+            ],
         },
         "HAS_EBAU_NUMBER": False,
         "HAS_GESUCHSNUMMER": False,
