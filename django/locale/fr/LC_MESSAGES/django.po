@@ -1679,11 +1679,11 @@ msgstr ""
 
 #: camac/settings/django.py
 msgid "Additional demand sent"
-msgstr ""
+msgstr "Demande de complément lancée"
 
 #: camac/settings/django.py
 msgid "Additional demand was answered"
-msgstr ""
+msgstr "Demande de complément répondue"
 
 #: camac/settings/django.py
 #, fuzzy
@@ -1713,11 +1713,11 @@ msgstr "L'italien"
 
 #: camac/settings/modules/additional_demand.py
 msgid "Additional demand accepted"
-msgstr ""
+msgstr "Demande de complément terminée"
 
 #: camac/settings/modules/additional_demand.py
 msgid "Additional demand rejected"
-msgstr ""
+msgstr "Demande de complément incomplète"
 
 #: camac/settings/modules/correction.py
 msgid "Dossier corrected"

@@ -573,9 +573,11 @@ def caluma_workflow_config_be(
         settings.ROOT_DIR("kt_bern/config/caluma_legal_submission_form.json"),
         settings.ROOT_DIR("kt_bern/config/caluma_appeal_form.json"),
         settings.ROOT_DIR("kt_bern/config/caluma_workflow.json"),
+        settings.ROOT_DIR("kt_bern/config/caluma_additional_demand.json"),
     )
 
     workflows = caluma_workflow_models.Workflow.objects.all()
+
     main_form = caluma_form_models.Form.objects.get(pk="main-form")
 
     workflows.update(allow_all_forms=True)
@@ -587,8 +589,12 @@ def caluma_workflow_config_be(
         workflow.allow_forms.add(main_form)
         workflow.save()
 
-    caluma_form_models.Form.objects.filter(pk__in=CALUMA_FORM_TYPES_SLUGS).delete()
+    additional_demand_workflow = workflows.get(pk="additional-demand")
+    additional_demand_workflow.allow_forms.clear()
+    additional_demand_workflow.allow_all_forms = False
+    additional_demand_workflow.save()
 
+    caluma_form_models.Form.objects.filter(pk__in=CALUMA_FORM_TYPES_SLUGS).delete()
     yield workflows
 
     caluma_workflow_models.Case.objects.all().delete()
@@ -863,6 +869,7 @@ def caluma_forms_be(settings):
     caluma_form_models.Form.objects.create(slug="sb1-v2")
     caluma_form_models.Form.objects.create(slug="sb2")
     caluma_form_models.Form.objects.create(slug="nfd")
+    caluma_form_models.Form.objects.create(slug="additional-demand")
     caluma_form_models.Form.objects.create(slug="migriertes-dossier")
     caluma_form_models.Form.objects.create(slug="personalien")
     caluma_form_models.Form.objects.create(slug="dossierpruefung")

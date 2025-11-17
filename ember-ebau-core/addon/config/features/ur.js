@@ -11,7 +11,9 @@ export default {
     revert: true,
   },
   constructionMonitoring: true,
-  additionalDemands: true,
+  additionalDemands: {
+    enabled: true,
+  },
   workItems: {
     showDocument: true,
   },

@@ -2,27 +2,15 @@ import { service } from "@ember/service";
 import Component from "@glimmer/component";
 import { decodeId } from "@projectcaluma/ember-core/helpers/decode-id";
 
-const STATUS_ICON_MAP = {
-  internal: {
-    draft: "commenting",
-    sent: "file-edit",
-    "needs-interaction": "file-text",
-    completed: "check",
-    canceled: "close",
-  },
-  portal: {
-    sent: "comment",
-    "needs-interaction": "file-text",
-    completed: "check",
-    canceled: "close",
-  },
-};
+import additionalDemandsConfig from "ember-ebau-core/config/additional-demands";
 
 export default class AdditionalDemandItemComponent extends Component {
   @service router;
   @service ebauModules;
   @service intl;
   @service session;
+
+  config = additionalDemandsConfig;
 
   get status() {
     const latestWorkItem = this.args.demand.childCase.workItems.at(-1);
@@ -54,7 +42,8 @@ export default class AdditionalDemandItemComponent extends Component {
               : null;
 
     return {
-      icon: STATUS_ICON_MAP[isInternal][status],
+      icon: this.config.STATUS_ICON_MAP[isInternal][status],
+      color: this.config.STATUS_COLOR_MAP[isInternal][status],
       title: this.intl.t(`additional-demand.status.${isInternal}.${status}`),
     };
   }

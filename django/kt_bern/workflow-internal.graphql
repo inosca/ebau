@@ -22,7 +22,7 @@ mutation CreateFlow {
     input: {
       workflow: "internal"
       tasks: ["submit"]
-      next: "['ebau-number', 'audit', 'nfd', 'decision', 'create-manual-workitems']|tasks"
+      next: "['ebau-number', 'audit', 'init-additional-demand', 'decision', 'create-manual-workitems']|tasks"
     }
   ) {
     clientMutationId

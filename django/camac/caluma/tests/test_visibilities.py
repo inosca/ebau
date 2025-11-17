@@ -306,6 +306,7 @@ def test_work_item_visibility_sz(
     )
 
 
+# TODO: Update test after removing nfd work items
 @pytest.mark.parametrize("role__name", ["Municipality"])
 def test_work_item_visibility(
     db,
@@ -360,14 +361,14 @@ def test_work_item_visibility(
         ]
     )
     assert (
-        len(visible_workitems) == 6
-    )  # submit, nfd, create-manual-workitem, ebau-number, inquiry (incl. distribution)
+        len(visible_workitems) == 7
+    )  # submit, nfd, init-additional-demand, create-manual-workitem, ebau-number, inquiry (incl. distribution)
 
     # should be same as from graphql query
     visible = caluma_workflow_models.WorkItem.objects.filter(
         case__family__instance=visible_instance
     )
-    assert visible.count() == 6
+    assert visible.count() == 7
     assert (
         set([str(_id) for _id in visible.values_list("id", flat=True)])
         == visible_workitems
@@ -377,7 +378,9 @@ def test_work_item_visibility(
     not_visible = caluma_workflow_models.WorkItem.objects.filter(
         case__instance__pk=not_visible_instance.pk
     )
-    assert not_visible.count() == 4  # submit, nfd, create-manual-workitem, ebau-number
+    assert (
+        not_visible.count() == 5
+    )  # submit, nfd, init-additional-demand, create-manual-workitem, ebau-number
     assert (
         set(
             [str(_id) for _id in not_visible.values_list("id", flat=True)]
@@ -1031,6 +1034,7 @@ def test_publication_visibility_form_not_enabled(
     assert answers_ids == []
 
 
+# TODO: Update test after removing nfd work items
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize(
     "filter, variable, param",
@@ -1112,8 +1116,8 @@ def test_visibility_performance_heuristic_workitems(
         ]
     )
     assert (
-        len(visible_workitems) == 6
-    )  # submit, nfd, create-manual-workitem, ebau-number, inquiry (incl. distribution)
+        len(visible_workitems) == 7
+    )  # submit, nfd, init-additional-demand, create-manual-workitem, ebau-number, inquiry (incl. distribution)
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])

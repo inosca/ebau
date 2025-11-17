@@ -1,6 +1,45 @@
 [
   {
     "model": "caluma_workflow.flow",
+    "pk": "0686bb6c-5817-70a3-8000-59a393c4d0fe",
+    "fields": {
+      "created_at": "2025-07-07T12:00:05.505Z",
+      "modified_at": "2025-07-07T12:00:05.505Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "[\"init-additional-demand\", \"additional-demand\"]|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "068a710c-2538-7188-8000-47ddc43fca55",
+    "fields": {
+      "created_at": "2025-08-21T12:27:46.326Z",
+      "modified_at": "2025-08-21T12:27:46.326Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "[\"init-additional-demand\", \"additional-demand\"]|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "068a710e-81f4-7c0d-8000-b574864d8405",
+    "fields": {
+      "created_at": "2025-08-21T12:28:24.122Z",
+      "modified_at": "2025-08-21T12:28:24.123Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "[\"init-additional-demand\", \"additional-demand\"]|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
     "pk": "240e43d1-3969-41e6-8f25-f27fa1751592",
     "fields": {
       "created_at": "2020-08-10T14:30:14.806Z",
@@ -113,7 +152,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['ebau-number', 'nfd', 'create-manual-workitems']|tasks"
+      "next": "['ebau-number', 'nfd', 'init-additional-demand', 'create-manual-workitems']|tasks"
     }
   },
   {
@@ -230,7 +269,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['ebau-number', 'nfd', 'create-manual-workitems']|tasks"
+      "next": "['ebau-number', 'nfd', 'init-additional-demand', 'create-manual-workitems']|tasks"
     }
   },
   {
@@ -282,7 +321,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['ebau-number', 'audit', 'nfd', 'decision', 'create-manual-workitems']|tasks"
+      "next": "['ebau-number', 'audit', 'nfd', 'init-additional-demand', 'decision', 'create-manual-workitems']|tasks"
     }
   },
   {
@@ -796,6 +835,54 @@
       "lead_time": null,
       "is_multiple_instance": false,
       "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "0686bb6c-5820-7e56-8000-8bb030ba9397",
+    "fields": {
+      "created_at": "2025-07-07T12:00:05.508Z",
+      "modified_at": "2025-07-07T12:00:05.508Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "building-permit",
+      "task": "init-additional-demand",
+      "flow": "0686bb6c-5817-70a3-8000-59a393c4d0fe",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "068a710c-254f-7bd5-8000-bec5701d6140",
+    "fields": {
+      "created_at": "2025-08-21T12:27:46.332Z",
+      "modified_at": "2025-08-21T12:27:46.332Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "preliminary-clarification",
+      "task": "init-additional-demand",
+      "flow": "068a710c-2538-7188-8000-47ddc43fca55",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "068a710e-8224-70bb-8000-c91891750cd2",
+    "fields": {
+      "created_at": "2025-08-21T12:28:24.134Z",
+      "modified_at": "2025-08-21T12:28:24.134Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "internal",
+      "task": "init-additional-demand",
+      "flow": "068a710e-81f4-7c0d-8000-b574864d8405",
+      "redoable": null
     }
   },
   {

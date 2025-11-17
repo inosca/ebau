@@ -62,4 +62,9 @@ export default {
   changeGeometer: {
     enabled: true,
   },
+  additionalDemands: {
+    enabled: true,
+    showAuthor: true,
+    showMigrated: true,
+  },
 };

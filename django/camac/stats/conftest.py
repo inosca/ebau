@@ -2,94 +2,36 @@ import datetime
 from typing import Callable, List, Union
 
 import pytest
-from caluma.caluma_form import (
-    factories as caluma_form_factories,
-    models as caluma_form_models,
-)
-from caluma.caluma_form.factories import (
-    DocumentFactory,
-    FormQuestionFactory,
-    QuestionFactory,
-)
-from caluma.caluma_form.models import Form, Question
+from caluma.caluma_workflow.models import WorkItem
 
 from camac.instance.models import Instance, InstanceState
 from camac.instance.serializers import SUBMIT_DATE_FORMAT
 
 
 @pytest.fixture
-def nfd_tabelle_document_row(nfd_tabelle_form) -> Callable:
-    def wrapper(service_id, status, date_request=None, date_response=None, family=None):
-        defaults = {}
-        if family:
-            defaults.update({"family": family})
-        document = caluma_form_factories.DocumentFactory(
-            form=nfd_tabelle_form, **defaults
-        )
-        caluma_form_factories.AnswerFactory(
-            document=document, question_id="nfd-tabelle-behoerde", value=service_id
-        )
-        caluma_form_factories.AnswerFactory(
-            document=document, question_id="nfd-tabelle-status", value=status
+def additional_demand_work_item(caluma_case_factory) -> Callable:
+    def wrapper(
+        instance,
+        status,
+        task_id=None,
+        service_id=None,
+        date_request=None,
+        date_response=None,
+    ):
+        caluma_case = caluma_case_factory(family=instance.case)
+        work_item = WorkItem.objects.create(
+            task_id=task_id or "fill-additional-demand",
+            case=caluma_case,
+            created_by_group=service_id,
+            closed_at=date_response,
+            status=status,
         )
         if date_request:
-            caluma_form_factories.AnswerFactory(
-                document=document,
-                question_id="nfd-tabelle-datum-anfrage",
-                date=date_request,
-            )
-        if date_response:
-            caluma_form_factories.AnswerFactory(
-                document=document,
-                question_id="nfd-tabelle-datum-antwort",
-                date=date_response,
-            )
-        return document
+            work_item.created_at = date_request
+            work_item.save()
+            work_item.refresh_from_db()
 
-    return wrapper
-
-
-@pytest.fixture
-def nfd_tabelle_form():
-    form = caluma_form_factories.FormFactory(slug="nfd-tabelle")
-    question_behoerde = caluma_form_factories.QuestionFactory(
-        slug="nfd-tabelle-behoerde", type=caluma_form_models.Question.TYPE_INTEGER
-    )
-    question_status = caluma_form_factories.QuestionFactory(
-        slug="nfd-tabelle-status", type=caluma_form_models.Question.TYPE_TEXT
-    )
-    question_date_request = caluma_form_factories.QuestionFactory(
-        slug="nfd-tabelle-datum-anfrage", type=caluma_form_models.Question.TYPE_DATE
-    )
-    question_date_response = caluma_form_factories.QuestionFactory(
-        slug="nfd-tabelle-datum-antwort", type=caluma_form_models.Question.TYPE_DATE
-    )
-    caluma_form_factories.FormQuestionFactory(form=form, question=question_behoerde)
-    caluma_form_factories.FormQuestionFactory(form=form, question=question_status)
-    caluma_form_factories.FormQuestionFactory(form=form, question=question_date_request)
-    caluma_form_factories.FormQuestionFactory(
-        form=form, question=question_date_response
-    )
-    return form
-
-
-@pytest.fixture
-def nfd_tabelle_table_answer(caluma_work_item_factory):
-    def wrapper(be_instance):
-        nfd_form = Form.objects.get(slug="nfd")
-        nfd_document = DocumentFactory(form=nfd_form)
-        question_table = QuestionFactory(
-            slug="nfd-tabelle-table", type=Question.TYPE_TABLE
-        )
-        FormQuestionFactory(form=nfd_form, question=question_table)
-
-        caluma_work_item_factory(
-            case=be_instance.case,
-            task_id="nfd",
-            document=nfd_document,
-        )
-        table_answer = nfd_document.answers.create(question_id="nfd-tabelle-table")
-        return table_answer
+        return work_item
 
     return wrapper
 

@@ -1,6 +1,6 @@
 import pytest
 from caluma.caluma_workflow.api import suspend_case
-from caluma.caluma_workflow.models import Case, WorkItem
+from caluma.caluma_workflow.models import Case, Task, WorkItem
 from django.urls import reverse
 from pytest_lazy_fixtures import lf
 from rest_framework import status
@@ -34,6 +34,7 @@ def test_has_permission(
     assert RejectionLogic.has_permission(be_instance, group) == has_permission
 
 
+# TODO:  Update test after removing nfd work items
 @pytest.mark.parametrize(
     "reason,module_settings,message",
     [
@@ -68,12 +69,18 @@ def test_validate(
 ):
     if reason == "inquiry":
         active_inquiry_factory(be_instance)
+
     elif reason == "claim":
+        task_obj, created = Task.objects.get_or_create(
+            slug=module_settings["TASK"],
+            defaults={"name": "Nachforderung", "type": Task.TYPE_SIMPLE},
+        )
         caluma_work_item_factory(
             case=be_instance.case,
-            task__slug=module_settings["TASK"],
+            task=task_obj,
             status=WorkItem.STATUS_READY,
         )
+
     elif reason == "claim_legacy":
         settings.APPLICATION_NAME = "kt_bern"
         document = caluma_document_factory(form_id="nfd")

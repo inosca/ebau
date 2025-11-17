@@ -3,6 +3,8 @@ import datetime
 import pytest
 from caluma.caluma_core.events import send_event
 from caluma.caluma_workflow.events import post_complete_work_item
+from caluma.caluma_workflow.models import WorkItem
+from django.utils.timezone import make_aware
 
 from camac.instance.serializers import SUBMIT_DATE_FORMAT
 from camac.stats.cycle_time import _compute_total_idle_days, compute_cycle_time
@@ -10,35 +12,31 @@ from camac.stats.cycle_time import _compute_total_idle_days, compute_cycle_time
 
 @pytest.mark.parametrize("case_cycle_time", [45])
 @pytest.mark.parametrize(
-    # The parameter nfds expects List[Tuple[nfd_duration, offset_decision_date]]
-    # such that nfd durations can be created and positioned relatively to each other.
-    "nfds,expected_net_cycle_time",
+    # The parameter additional_demands expects List[Tuple[additional_demand_duration, offset_decision_date]]
+    # such that additional_demand durations can be created and positioned relatively to each other.
+    "additional_demands,expected_net_cycle_time",
     [
-        ([(None, 5)], 45),  # incomplete nfd answer: discarded
-        ([(5, 5)], 40),  # simple nfd
+        ([(None, 5)], 45),  # no duration: discarded
+        ([(5, 5)], 40),  # simple additional_demand
         ([(5, 9), (4, 6)], 38),  # 2 days overlap
         (
             [(4, 6), (5, 10), (9, 13)],
             34,
-        ),  # first and last verlap 2 encompassing the second nfd netting 11
+        ),  # first and last overlap 2 encompassing the second additional_demand netting 11
     ],
 )
-def test_overlapping_nfd_durations(
+def test_overlapping_additional_demand_durations(
     db,
     be_instance,
-    group,
-    nfd_tabelle_table_answer,
-    nfd_tabelle_document_row,
+    additional_demand_work_item,
     case_cycle_time,
-    nfds,
+    additional_demands,
     expected_net_cycle_time,
     freezer,
     decision_factory,
     be_decision_settings,
 ):
-    decision_date = be_instance.creation_date.date() + datetime.timedelta(
-        days=case_cycle_time
-    )
+    decision_date = be_instance.creation_date + datetime.timedelta(days=case_cycle_time)
     freezer.move_to(decision_date)
 
     decision_factory(
@@ -48,25 +46,19 @@ def test_overlapping_nfd_durations(
         ],
         decision_date=decision_date,
     )
-    table_answer = nfd_tabelle_table_answer(be_instance)
 
-    for nfd_duration, offset in nfds:
+    for additional_demand_duration, offset in additional_demands:
         request_date = decision_date - datetime.timedelta(days=offset)
-        doc_no_response_date = nfd_tabelle_document_row(
-            group.service_id,
-            "nfd-tabelle-status-beantwortet",
+        work_item_no_response_date = additional_demand_work_item(
+            instance=be_instance,
             date_request=request_date,
-            date_response=decision_date,
-            family=table_answer.document,
+            status=WorkItem.STATUS_COMPLETED,
         )
-        date_response_answer = doc_no_response_date.answers.get(
-            question_id="nfd-tabelle-datum-antwort"
+        work_item_no_response_date.closed_at = (
+            additional_demand_duration
+            and request_date + datetime.timedelta(days=additional_demand_duration)
         )
-        date_response_answer.date = nfd_duration and request_date + datetime.timedelta(
-            days=nfd_duration
-        )
-        date_response_answer.save()
-        table_answer.documents.add(doc_no_response_date)
+        work_item_no_response_date.save()
     assert compute_cycle_time(be_instance)["net-cycle-time"] == expected_net_cycle_time
 
 
@@ -199,7 +191,7 @@ def test_handles_incomplete_case(db, be_instance):
 
 
 @pytest.mark.parametrize(
-    "submit_date,decision_date,nfd_start,nfd_end,exp_total,exp_net",
+    "submit_date,decision_date,additional_demand_start,additional_demand_end,exp_total,exp_net",
     [
         (  # standard case
             datetime.date(2000, 1, 1),
@@ -217,7 +209,7 @@ def test_handles_incomplete_case(db, be_instance):
             None,
             None,
         ),
-        (  # nfd after decision
+        (  # additional-demand after decision
             datetime.date(2000, 1, 1),
             datetime.date(2000, 1, 31),
             datetime.date(2000, 3, 1),
@@ -230,12 +222,11 @@ def test_handles_incomplete_case(db, be_instance):
 def test_exclude_nonstandard_cases(
     db,
     be_instance,
-    nfd_tabelle_document_row,
-    nfd_tabelle_table_answer,
+    additional_demand_work_item,
     submit_date,
     decision_date,
-    nfd_start,
-    nfd_end,
+    additional_demand_start,
+    additional_demand_end,
     exp_net,
     exp_total,
     decision_factory,
@@ -244,7 +235,7 @@ def test_exclude_nonstandard_cases(
     # as non standard cases we've had so far cases that result in negative
     # net or total cycle times because
     # - decision date is set before submit date
-    # - responses to nfds are accepted after decision
+    # - responses to additional_demands are accepted after decision
     be_instance.case.meta.update(
         {"paper-submit-date": submit_date.strftime(SUBMIT_DATE_FORMAT)}
     )
@@ -258,16 +249,17 @@ def test_exclude_nonstandard_cases(
         decision_date=decision_date,
     )
 
-    if nfd_end and nfd_start:
-        table_answer = nfd_tabelle_table_answer(be_instance)
-        document = nfd_tabelle_document_row(
-            None,
-            "nfd-tabelle-status-beantwortet",
-            date_request=nfd_start,
-            date_response=nfd_end,
-            family=table_answer.document,
+    if additional_demand_start and additional_demand_end:
+        additional_demand_work_item(
+            instance=be_instance,
+            date_request=make_aware(
+                datetime.datetime.combine(additional_demand_start, datetime.time.min)
+            ),
+            date_response=make_aware(
+                datetime.datetime.combine(additional_demand_end, datetime.time.min)
+            ),
+            status=WorkItem.STATUS_COMPLETED,
         )
-        table_answer.documents.add(document)
     cycle_times = compute_cycle_time(be_instance)
     assert cycle_times.get("total-cycle-time") == exp_total
     assert cycle_times.get("net-cycle-time") == exp_net

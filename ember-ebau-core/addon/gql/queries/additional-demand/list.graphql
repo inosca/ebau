@@ -23,6 +23,8 @@ query GetAdditionalDemands($instanceId: GenericScalar!, $group: String!) {
                 status
                 name
                 addressedGroups
+                closedByUser
+                closedByGroup
                 closedAt
                 task {
                   slug

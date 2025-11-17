@@ -64,7 +64,13 @@ def is_created_by_service(work_item: WorkItem, service_id: int) -> bool:
 
 
 def is_addressed_to_applicant(work_item: WorkItem) -> bool:  # pragma: todo cover
-    if settings.APPLICATION_NAME in ["kt_schwyz", "kt_uri", "kt_so", "kt_ag", "kt_gr"]:
+    if settings.APPLICATION_NAME in [
+        "kt_schwyz",
+        "kt_uri",
+        "kt_so",
+        "kt_ag",
+        "kt_gr",
+    ]:
         return "applicant" in work_item.addressed_groups
     return len(work_item.addressed_groups) == 0
 

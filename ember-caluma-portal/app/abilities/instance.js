@@ -259,7 +259,7 @@ export default class InstanceAbility extends Ability {
     }
 
     return (
-      hasFeature("additionalDemands") &&
+      hasFeature("additionalDemands.enabled") &&
       !this.model?.isPaper &&
       this.additionalDemandsCount?.any > 0
     );
