@@ -651,7 +651,7 @@ def test_message_invalid_last(admin_client, set_application_be, reload_ech0211_u
 
 
 @pytest.mark.parametrize("role__name", ["municipality-lead"])
-def test_send_submit(
+def test_send_submit_gr(
     admin_client,
     admin_user,
     set_application_gr,
@@ -727,6 +727,108 @@ def test_send_submit(
     )
     group = admin_user.groups.first()
     group.service = ech_instance_gr.services.first()
+    group.save()
+
+    response = admin_client.post(
+        reverse("send"),
+        data=xml_data("submit_planning_permission_application"),
+        content_type="application/xml",
+    )
+
+    assert response.status_code == 201
+    assert response.content != b""
+
+
+@pytest.mark.parametrize("role__name", ["municipality-lead"])
+def test_send_submit_ag(
+    admin_client,
+    admin_user,
+    set_application_ag,
+    ag_dms_settings,
+    ag_ech0211_settings,
+    form,
+    instance_state_factory,
+    notification_template_factory,
+    caluma_question_factory,
+    mocker,
+    ech_instance_ag,
+    caluma_workflow_config_ag,
+    caluma_admin_user,
+    reload_ech0211_urls,
+):
+    call_command(
+        "loaddata",
+        settings.ROOT_DIR("kt_ag/config/caluma_form.json"),
+        settings.ROOT_DIR("kt_ag/config/caluma_form_common.json"),
+    )
+    notification_template_factory(slug="empfang-anfragebaugesuch-gesuchsteller")
+    notification_template_factory(slug="empfang-anfragebaugesuch-behorden")
+    CategoryFactory(
+        slug="beilagen-zum-gesuch",
+        metainfo={
+            "access": {
+                "municipality-lead": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "create",
+                        },
+                    ],
+                },
+            }
+        },
+    )
+    CategoryFactory(
+        slug="beilagen-zum-gesuch-weitere-gesuchsunterlagen",
+        metainfo={
+            "access": {
+                "municipality-lead": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "permission": "create",
+                        },
+                    ],
+                },
+            }
+        },
+    )
+    ag_ech0211_settings["SUBMIT_PLANNING_PERMISSION_APPLICATION"]["FORM_ID"] = form.pk
+
+    # not needed in mocked AG submit test
+    for question_slug in [
+        "projektkennzeichnung-even",
+        "unterschriebene-eingabequittung",
+        "vertretung-juristische-person-gesuchstellerin",
+        "vertretung-ort-gesuchstellerin",
+        "vertretung-plz-gesuchstellerin",
+        "vertretung-strasse-gesuchstellerin",
+        "zustaendige-behoerde",
+    ]:
+        question = caluma_form_models.Question.objects.filter(
+            slug=question_slug
+        ).first()
+        if question:
+            question.is_required = "false"
+            question.save()
+
+    instance_state_factory(name="new")
+    instance_state_factory(name="subm")
+    response = Mock(spec=requests.models.Response)
+    response.status_code = 200
+    response.content = (
+        b"%PDF-1.\ntrailer<</Root<</Pages<</Kids[<</MediaBox[0 0 3 3]>>]>>>>>>"
+    )
+    mocker.patch.object(requests, "get", return_value=response)
+    file = django_file("multiple-pages.pdf")
+    file.content_type = "application/pdf"
+    mocker.patch.object(
+        DMSHandler,
+        "generate_pdf",
+        return_value=file,
+    )
+    group = admin_user.groups.first()
+    group.service = ech_instance_ag.services.first()
     group.save()
 
     response = admin_client.post(
