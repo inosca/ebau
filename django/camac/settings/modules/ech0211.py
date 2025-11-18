@@ -677,6 +677,7 @@ ECH0211 = {
     },
     "kt_ag": {
         "ENABLED": True,
+        "ALLOW_SUBMIT_BY_MUNICIPALITY": True,
         "STATUS_NOTIFICATION_TYPES": [
             {
                 "new_state": "init-distribution",
@@ -736,6 +737,86 @@ ECH0211 = {
             "ONLY_DECLINE": ["distribution-init"],
             "ALEXANDRIA_CATEGORY": "alle-beteiligten",
             "ALEXANDRIA_MARK": "decision",
+        },
+        "SUBMIT_PLANNING_PERMISSION_APPLICATION": {
+            "ENABLED": True,
+            "ALLOWED_ROLES": ["municipality-lead"],
+            "FORM_ID": 1,
+            "WORKFLOW": "building-permit",
+            "ALEXANDRIA_CATEGORY": "beilagen-zum-gesuch",
+            "QUESTION_MAPPING": {
+                "SIMPLE": {
+                    # xpath: {question_slug, default}
+                    "use-default": {
+                        "question_slug": "vorhaben",
+                        "default": ["vorhaben-andere"],
+                    },
+                    "ech0211:planningPermissionApplication/ech0211:description": {
+                        "question_slug": "beschreibung-bauvorhaben",
+                    },
+                    "ech0211:planningPermissionApplication/ech0211:locationAddress/ech0010:town": {
+                        "question_slug": "ort-grundstueck",
+                    },
+                },
+                "TABLE": {
+                    # xpath
+                    "ech0211:planningPermissionApplication/ech0211:realestateInformation": (
+                        # row_form
+                        "parzelle-tabelle",
+                        # xpath: question_slug
+                        {
+                            "ech0211:realestate/ech0129:realestateIdentification/ech0129:number": {
+                                "question_slug": "parzellennummer"
+                            }
+                        },
+                        # table_question
+                        "parzelle",
+                    ),
+                    "ech0211:relationshipToPerson[ech0211:role='applicant']": (
+                        "personalien-tabelle",
+                        {
+                            "ech0211:person/ech0129:identification/ech0129:personIdentification": {
+                                "question_slug": "juristische-person-gesuchstellerin",
+                                "static_value": "juristische-person-gesuchstellerin-nein",
+                            },
+                            "ech0211:person/ech0129:identification/ech0129:organisationIdentification": {
+                                "question_slug": "juristische-person-gesuchstellerin",
+                                "static_value": "juristische-person-gesuchstellerin-ja",
+                            },
+                            "ech0211:person/ech0129:identification/ech0129:personIdentification/ech0044:officialName": {
+                                "question_slug": "name-gesuchstellerin",
+                            },
+                            "ech0211:person/ech0129:identification/ech0129:personIdentification/ech0044:firstName": {
+                                "question_slug": "vorname-gesuchstellerin",
+                            },
+                            "ech0211:person/ech0129:identification/ech0129:organisationIdentification/ech0097:organisationName": {
+                                "question_slug": "name-juristische-person-gesuchstellerin",
+                            },
+                            "ech0211:person/ech0129:address/ech0010:town": {
+                                "question_slug": "ort-gesuchstellerin",
+                                "default": "-",
+                            },
+                            "ech0211:person/ech0129:address/ech0010:swissZipCode": {
+                                "question_slug": "plz-gesuchstellerin",
+                                "default": 0000,
+                            },
+                            "ech0211:person/ech0129:address/ech0010:street": {
+                                "question_slug": "strasse-gesuchstellerin",
+                                "default": "-",
+                            },
+                            "ech0211:person/ech0129:phone/ech0129:phoneNumber": {
+                                "question_slug": "telefon-oder-mobile-gesuchstellerin",
+                                "default": "0000000000",
+                            },
+                            "ech0211:person/ech0129:email/ech0129:emailAddress": {
+                                "question_slug": "e-mail-gesuchstellerin",
+                                "default": "-@-.-",
+                            },
+                        },
+                        "personalien-gesuchstellerin",
+                    ),
+                },
+            },
         },
         "CLOSE_DOSSIER": {
             "ALLOWED_STATES": ["construction-monitoring", "to-finish"],

@@ -770,6 +770,7 @@ def caluma_workflow_config_ag(
 
     workflow = caluma_workflow_models.Workflow.objects.get(pk="building-permit")
     main_form = caluma_form_models.Form.objects.get(pk="main-form")
+    bg_form = caluma_form_models.Form.objects.get(pk="baugesuch")
     migration_bg_form = caluma_form_models.Form.objects.get(pk="baugesuch-migration")
     migration_uvp_form = caluma_form_models.Form.objects.get(pk="uvp-migration")
     migration_pgv_form = caluma_form_models.Form.objects.get(pk="pgv-migration")
@@ -785,6 +786,7 @@ def caluma_workflow_config_ag(
     workflow.allow_forms.set(
         [
             main_form,
+            bg_form,
             migration_bg_form,
             migration_pgv_form,
             migration_uvp_form,

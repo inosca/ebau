@@ -44,13 +44,8 @@ class ComplexSubmitMappings:
         return value[0].text if value else default
 
     @classmethod
-    @canton_aware
-    def execute(cls, tree, document, user):  # pragma: no cover
-        pass
-
-    @classmethod
-    def execute_gr(cls, tree, document, user):
-        # combine street and housenumber
+    def _combine_street_and_housenumber(cls, tree, document, user):
+        """Combine street and housenumber from XML into a single Caluma answer."""
         street = cls._xml_value_or_default(
             tree,
             "ech0211:planningPermissionApplication/ech0211:locationAddress/ech0010:street",
@@ -67,3 +62,33 @@ class ComplexSubmitMappings:
             " ".join([street, number]),
             user,
         )
+
+    @classmethod
+    @canton_aware
+    def execute(cls, tree, document, user):  # pragma: no cover
+        pass
+
+    @classmethod
+    def execute_gr(cls, tree, document, user):
+        # combine street and housenumber
+        cls._combine_street_and_housenumber(tree, document, user)
+
+    @classmethod
+    def execute_ag(cls, tree, document, user):
+        # combine street and housenumber
+        cls._combine_street_and_housenumber(tree, document, user)
+
+        # set municipality for parcel table rows
+        municipality = CalumaApi().get_answer_value(
+            "gemeinde",
+            document.case.instance,
+        )
+
+        plots = CalumaApi().get_table_answer(
+            "parzelle",
+            document.case.instance,
+        )
+
+        if plots:
+            for row in plots:
+                CalumaApi().update_or_create_answer(row, "gemeinde", municipality, user)
