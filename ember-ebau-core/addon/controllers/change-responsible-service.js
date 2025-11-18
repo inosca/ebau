@@ -106,6 +106,9 @@ export default class ChangeResponsibleServiceController extends Controller {
             data: {
               type: "instance-unsubscribe-responsible-services",
               id: this.instance.record.id,
+              attributes: {
+                "service-type": underscore(this.model),
+              },
             },
           }),
         },
