@@ -7,8 +7,10 @@ from django.apps import apps
 from django.urls import reverse
 from rest_framework import status
 
+from camac.alexandria.extensions.permissions_v2 import BASE_PERMISSION
 from camac.alexandria.permissions import AlexandriaPermissionContext
 from camac.document.tests.data import django_file
+from camac.instance.models import Instance
 from camac.permissions.api import P
 from camac.permissions.switcher import PERMISSION_MODE
 
@@ -63,6 +65,29 @@ def alexandria_data(
     return wrapper
 
 
+def assert_permissions(mock, expected_instance, expected_permissions):
+    """Ensure permissions were called as expected.
+
+    In multiple tests, we expect the core permissions to be checked as well as
+    the alexandria module-specific permissions.
+    """
+
+    assert mock.call_count == 2
+
+    base_call, module_specific_call = mock.call_args_list
+
+    base_context, base_permissions = base_call[0]
+    module_specific_context, module_specific_permissions = module_specific_call[0]
+
+    assert isinstance(base_context, Instance)
+    assert isinstance(module_specific_context, AlexandriaPermissionContext)
+
+    assert base_context == module_specific_context.instance == expected_instance
+
+    assert base_permissions == BASE_PERMISSION
+    assert module_specific_permissions == expected_permissions
+
+
 @pytest.mark.parametrize("in_child_category", [False, True])
 def test_alexandria_permissions_create_document(
     db, admin_client, alexandria_data, in_child_category, instance, permission_mock
@@ -88,12 +113,11 @@ def test_alexandria_permissions_create_document(
 
     assert response.status_code == status.HTTP_201_CREATED
 
-    context, permissions = permission_mock.call_args[0]
-
-    assert permission_mock.call_count == 1
-    assert isinstance(context, AlexandriaPermissionContext)
-    assert context.instance == instance
-    assert permissions == P.any("test:all", "test:create")
+    assert_permissions(
+        permission_mock,
+        instance,
+        P.any("test:all", "test:create"),
+    )
 
 
 @pytest.mark.parametrize("in_child_category", [False, True])
@@ -106,12 +130,11 @@ def test_alexandria_permissions_delete_document(
 
     assert response.status_code == status.HTTP_204_NO_CONTENT
 
-    context, permissions = permission_mock.call_args[0]
-
-    assert permission_mock.call_count == 1
-    assert isinstance(context, AlexandriaPermissionContext)
-    assert context.instance == instance
-    assert permissions == P.any("test:all", "test:delete")
+    assert_permissions(
+        permission_mock,
+        instance,
+        P.any("test:all", "test:delete"),
+    )
 
 
 @pytest.mark.parametrize("in_child_category", [False, True])
@@ -219,14 +242,14 @@ def test_alexandria_permissions_update_document(
     assert response.status_code == status.HTTP_200_OK
 
     if expected_permissions is None:
-        assert permission_mock.call_count == 0
-    else:
-        context, permissions = permission_mock.call_args[0]
-
         assert permission_mock.call_count == 1
-        assert isinstance(context, AlexandriaPermissionContext)
-        assert context.instance == instance
-        assert permissions == expected_permissions
+        context, permissions = permission_mock.call_args_list[0][0]
+
+        assert isinstance(context, Instance)
+        assert permissions == BASE_PERMISSION
+
+    else:
+        assert_permissions(permission_mock, instance, expected_permissions)
 
 
 @pytest.mark.parametrize("in_child_category", [False, True])
@@ -248,12 +271,11 @@ def test_alexandria_permissions_replace_document(
 
     assert response.status_code == status.HTTP_201_CREATED
 
-    context, permissions = permission_mock.call_args[0]
-
-    assert permission_mock.call_count == 1
-    assert isinstance(context, AlexandriaPermissionContext)
-    assert context.instance == instance
-    assert permissions == P.any("test:all", "test:replace")
+    assert_permissions(
+        permission_mock,
+        instance,
+        P.any("test:all", "test:replace"),
+    )
 
 
 @pytest.mark.parametrize("in_child_category", [False, True])
@@ -304,12 +326,7 @@ def test_alexandria_permissions_copy_document(
 
     assert response.status_code == status.HTTP_201_CREATED
 
-    context, permissions = permission_mock.call_args[0]
-
-    assert permission_mock.call_count == 1
-    assert isinstance(context, AlexandriaPermissionContext)
-    assert context.instance == instance
-    assert permissions == expected_permissions
+    assert_permissions(permission_mock, instance, expected_permissions)
 
 
 @pytest.mark.parametrize("in_child_category", [False, True])
@@ -334,12 +351,11 @@ def test_alexandria_permissions_convert_document(
 
     assert response.status_code == status.HTTP_201_CREATED
 
-    context, permissions = permission_mock.call_args[0]
-
-    assert permission_mock.call_count == 1
-    assert isinstance(context, AlexandriaPermissionContext)
-    assert context.instance == instance
-    assert permissions == P.any("test:all", "test:create")
+    assert_permissions(
+        permission_mock,
+        instance,
+        P.any("test:all", "test:create"),
+    )
 
 
 @pytest.mark.parametrize(
@@ -400,6 +416,63 @@ def test_alexandria_base_permissions(
     assert permission_mock.call_count == 0
 
 
+def test_alexandria_base_permission(
+    db, admin_client, alexandria_data, instance, permission_mock
+):
+    permission_mock.return_value = False
+    category, document = alexandria_data()
+
+    # Trigger early return in `has_permission_for_document` when trying to
+    # create a new document without the base alexandria permission.
+    create_response = admin_client.post(
+        reverse("document-list"),
+        data={
+            "content": django_file("multiple-pages.pdf"),
+            "data": io.BytesIO(
+                json.dumps(
+                    {
+                        "title": "Test.pdf",
+                        "category": category.pk,
+                        "metainfo": {"camac-instance-id": str(instance.pk)},
+                    }
+                ).encode("utf-8")
+            ),
+        },
+        format="multipart",
+    )
+    assert create_response.status_code == status.HTTP_403_FORBIDDEN
+    assert permission_mock.call_count == 1
+
+    # Reset permission manager mock call count
+    permission_mock.reset_mock()
+
+    # Trigger early return in `has_object_permission_for_document` when trying
+    # to delete a document without the base alexandria permission.
+    delete_response = admin_client.delete(
+        reverse("document-detail", args=[document.pk])
+    )
+    assert delete_response.status_code == status.HTTP_403_FORBIDDEN
+    assert permission_mock.call_count == 1
+
+    # Reset permission manager mock call count
+    permission_mock.reset_mock()
+
+    # Trigger early return in `has_permission_for_file` when trying to upload a
+    # new document version (replace) without the base alexandria permission.
+    replace_response = admin_client.post(
+        reverse("file-list"),
+        data={
+            "content": django_file("multiple-pages.pdf"),
+            "name": "multiple-pages.pdf",
+            "variant": File.Variant.ORIGINAL,
+            "document": document.pk,
+        },
+        format="multipart",
+    )
+    assert replace_response.status_code == status.HTTP_403_FORBIDDEN
+    assert permission_mock.call_count == 1
+
+
 def test_alexandria_permissions_rbac(
     db,
     admin_client,
@@ -411,13 +484,28 @@ def test_alexandria_permissions_rbac(
 ):
     permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.OFF
 
-    _, document = alexandria_data
+    _, document = alexandria_data()
 
     response = admin_client.delete(reverse("document-detail", args=[document.pk]))
 
     assert response.status_code == status.HTTP_204_NO_CONTENT
     assert permission_mock.call_count == 0
 
-    assert f"Instance ID: {instance.pk}" in caplog.messages[0]
-    assert f"Document UUID: {document.pk}" in caplog.messages[0]
-    assert "Expression: P(test:all | test:delete)" in caplog.messages[0]
+    base_message = (
+        f"Requesting base alexandria permission:\n"
+        f"\tExpression: {BASE_PERMISSION}\n"
+        f"\tInstance ID: {instance.pk}\n"
+        f"\tDocument UUID: {document.pk}\n"
+        f"=> Returning `True` as permission module is not fully enabled"
+    )
+
+    specific_message = (
+        f"Requesting alexandria permissions:\n"
+        f"\tExpression: P(test:all | test:delete)\n"
+        f"\tInstance ID: {instance.pk}\n"
+        f"\tDocument UUID: {document.pk}\n"
+        f"=> Returning `True` as permission module is not fully enabled"
+    )
+
+    assert base_message in caplog.messages
+    assert specific_message in caplog.messages

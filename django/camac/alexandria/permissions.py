@@ -88,7 +88,8 @@ class AlexandriaPermissionManager(PermissionManager):
             f"Requesting alexandria permissions:\n"
             f"\tExpression: {require_expr}\n"
             f"\tInstance ID: {instance_id}\n"
-            f"\tDocument UUID: {document_uuid}"
+            f"\tDocument UUID: {document_uuid}\n"
+            f"=> Returning `True` as permission module is not fully enabled"
         )
 
         return True
