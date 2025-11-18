@@ -1,5 +1,9 @@
 .alexandria-container {
   height: 700px;
+
+  > nav {
+    overflow-y: auto;
+  }
 }
 
 .alexandria-search > .alexandria-container {
