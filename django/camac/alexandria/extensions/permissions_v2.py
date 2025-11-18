@@ -2,7 +2,7 @@ import datetime
 import json
 from typing import Literal
 
-from alexandria.core.models import BaseModel, Document, File, Tag
+from alexandria.core.models import BaseModel, Category, Document, File, Tag
 from django.conf import settings
 from django.db.models.fields.related_descriptors import (
     ForwardManyToOneDescriptor,
@@ -60,6 +60,27 @@ class AlexandriaPermissions:
 
         return AlexandriaPermissionManager.from_request(request).scoped_for(obj)
 
+    def prefix(self, obj: str | Document) -> str:
+        """Get category prefix for requested permissions.
+
+        This must always return a category slug. As child categories cannot have
+        their own permissions they need to use the permissions of the parent
+        category.
+        """
+
+        match obj:
+            case str():
+                category = Category.objects.get(pk=obj)
+            case Document():
+                category = obj.category
+            case _:  # pragma: no cover
+                raise RuntimeError()
+
+        if category.parent_id is not None:
+            return category.parent_id
+
+        return category.pk
+
     @permission_for(BaseModel)
     def has_permission_default(self, *args, **kwargs) -> Literal[False]:
         """Fallback permission for unhandled models - don't allow anything."""
@@ -88,13 +109,13 @@ class AlexandriaPermissions:
 
         data = get_data_from_multipart_request(request)
 
-        category = data["category"]
+        prefix = self.prefix(data["category"])
         instance = Instance.objects.get(pk=data["metainfo"]["camac-instance-id"])
 
         return self.scope(request, instance).has(
             P.any(
-                f"{category}:all",
-                f"{category}:create",
+                f"{prefix}:all",
+                f"{prefix}:create",
             )
         )
 
@@ -128,7 +149,7 @@ class AlexandriaPermissions:
                 f"{self.__class__.__name__}: missing function to get required permissions for action {action}"
             )
 
-        required_permissions = permissions_fn(document, request)
+        required_permissions = permissions_fn(document, request, self.prefix(document))
 
         if required_permissions is None:
             return True
@@ -139,15 +160,20 @@ class AlexandriaPermissions:
         self,
         document: Document,
         request: Request,
+        prefix: str,
     ) -> P:
         """Get required permissions for the destroy action."""
 
-        return P.any(f"{document.category_id}:all", f"{document.category_id}:delete")
+        return P.any(
+            f"{prefix}:all",
+            f"{prefix}:delete",
+        )
 
     def get_required_permissions_for_document_convert(
         self,
         document: Document,
         request: Request,
+        prefix: str,
     ) -> P:
         """Get required permissions for the convert action.
 
@@ -156,12 +182,15 @@ class AlexandriaPermissions:
         """
 
         return P.any(
-            f"{document.category_id}:all",
-            f"{document.category_id}:create",
+            f"{prefix}:all",
+            f"{prefix}:create",
         )
 
     def get_required_permissions_for_document_copy(
-        self, document: Document, request: Request
+        self,
+        document: Document,
+        request: Request,
+        prefix: str,
     ) -> P:
         """Get required permissions for the copy action.
 
@@ -172,18 +201,23 @@ class AlexandriaPermissions:
         """
 
         changed_fields = get_changed_fields(request, document)
-        category = document.category_id
 
         if "category" in changed_fields:
-            _, category = changed_fields["category"]
+            # If the document is copied into another category, we need to check
+            # permissions for the target category instead of the current
+            # category.
+            prefix = self.prefix(changed_fields["category"][1])
 
         return P.any(
-            f"{category}:all",
-            f"{category}:create",
+            f"{prefix}:all",
+            f"{prefix}:create",
         )
 
     def get_required_permissions_for_document_update(
-        self, document: Document, request: Request
+        self,
+        document: Document,
+        request: Request,
+        prefix: str,
     ) -> P | None:
         """Get required permissions for the update action.
 
@@ -204,21 +238,23 @@ class AlexandriaPermissions:
         action_permissions = []
         extra_permission = None
 
-        category = document.category_id
         changed_fields = get_changed_fields(request, document)
 
         if {"title", "description", "date", "metainfo"}.intersection(
             set(changed_fields.keys())
         ):
-            action_permissions.append(P(f"{category}:update"))
+            action_permissions.append(P(f"{prefix}:update"))
 
         if "tags" in changed_fields:
-            action_permissions.append(P(f"{category}:tag"))
+            action_permissions.append(P(f"{prefix}:tag"))
 
         if "category" in changed_fields:
-            action_permissions.append(P(f"{category}:move"))
+            action_permissions.append(P(f"{prefix}:move"))
 
-            _, new_category = changed_fields["category"]
+            # If we move a document to another category we need to check that we
+            # have creation permission in the target category as well as move
+            # permissions in the current category.
+            new_category = self.prefix(changed_fields["category"][1])
             extra_permission = P.any(f"{new_category}:all", f"{new_category}:create")
 
         if "marks" in changed_fields:
@@ -227,10 +263,13 @@ class AlexandriaPermissions:
             removed = old - new
             changed = added.union(removed)
 
+            # Each mark may have different permissions (e.g. a service is
+            # allowed to mark as void but not any other mark) so we need to
+            # check permission for every mark that was either added or removed.
             action_permissions.append(
                 P.any(
-                    f"{category}:mark:all",
-                    P.all(*[f"{category}:mark:{slug}" for slug in changed]),
+                    f"{prefix}:mark:all",
+                    P.all(*[f"{prefix}:mark:{slug}" for slug in changed]),
                 )
             )
 
@@ -238,7 +277,7 @@ class AlexandriaPermissions:
             # If nothing changed we allow it
             return None
 
-        permissions = P(f"{category}:all") | P.all(*action_permissions)
+        permissions = P(f"{prefix}:all") | P.all(*action_permissions)
 
         if extra_permission:
             permissions &= extra_permission
@@ -261,14 +300,16 @@ class AlexandriaPermissions:
         """
 
         if action != "create":
+            # No other action allowed via API
             return False
 
         document = Document.objects.get(pk=request.data["document"])
+        prefix = self.prefix(document)
 
         return self.scope(request, document).has(
             P.any(
-                f"{document.category_id}:all",
-                f"{document.category_id}:replace",
+                f"{prefix}:all",
+                f"{prefix}:replace",
             )
         )
 
@@ -291,6 +332,7 @@ class AlexandriaPermissions:
         """
 
         if action != "create":
+            # No other action allowed via API
             return False
 
         # As tags are not related to an instance in any way, we can't use the

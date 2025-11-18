@@ -42,20 +42,29 @@ def alexandria_data(
     alexandria_file_factory,
     instance,
 ):
-    category = alexandria_category_factory(slug="test")
-    document = alexandria_document_factory(
-        category=category, metainfo={"camac-instance-id": str(instance.pk)}
-    )
+    def wrapper(in_child_category=False):
+        parent_category = alexandria_category_factory(slug="test")
+        child_category = alexandria_category_factory(
+            slug="test-child", parent=parent_category
+        )
 
-    alexandria_file_factory(document=document)
+        category = child_category if in_child_category else parent_category
 
-    return category, document
+        document = alexandria_document_factory(
+            category=category, metainfo={"camac-instance-id": str(instance.pk)}
+        )
+        alexandria_file_factory(document=document)
+
+        return category, document
+
+    return wrapper
 
 
+@pytest.mark.parametrize("in_child_category", [False, True])
 def test_alexandria_permissions_create_document(
-    db, admin_client, alexandria_data, instance, permission_mock
+    db, admin_client, alexandria_data, in_child_category, instance, permission_mock
 ):
-    category, _ = alexandria_data
+    category, _ = alexandria_data(in_child_category)
 
     response = admin_client.post(
         reverse("document-list"),
@@ -84,10 +93,11 @@ def test_alexandria_permissions_create_document(
     assert permissions == P.any("test:all", "test:create")
 
 
+@pytest.mark.parametrize("in_child_category", [False, True])
 def test_alexandria_permissions_delete_document(
-    db, admin_client, alexandria_data, instance, permission_mock
+    db, admin_client, alexandria_data, in_child_category, instance, permission_mock
 ):
-    _, document = alexandria_data
+    _, document = alexandria_data(in_child_category)
 
     response = admin_client.delete(reverse("document-detail", args=[document.pk]))
 
@@ -101,6 +111,7 @@ def test_alexandria_permissions_delete_document(
     assert permissions == P.any("test:all", "test:delete")
 
 
+@pytest.mark.parametrize("in_child_category", [False, True])
 @pytest.mark.parametrize(
     ("data", "expected_permissions"),
     [
@@ -181,10 +192,11 @@ def test_alexandria_permissions_update_document(
     alexandria_tag_factory,
     data,
     expected_permissions,
+    in_child_category,
     instance,
     permission_mock,
 ):
-    _, document = alexandria_data
+    _, document = alexandria_data(in_child_category)
 
     alexandria_tag_factory(pk="aacb9ffe-acb5-4ebc-8262-9beaedad0cb6")
     alexandria_mark_factory(pk="some-mark")
@@ -214,10 +226,11 @@ def test_alexandria_permissions_update_document(
         assert permissions == expected_permissions
 
 
+@pytest.mark.parametrize("in_child_category", [False, True])
 def test_alexandria_permissions_replace_document(
-    db, admin_client, alexandria_data, instance, permission_mock
+    db, admin_client, alexandria_data, in_child_category, instance, permission_mock
 ):
-    _, document = alexandria_data
+    _, document = alexandria_data(in_child_category)
 
     response = admin_client.post(
         reverse("file-list"),
@@ -240,11 +253,13 @@ def test_alexandria_permissions_replace_document(
     assert permissions == P.any("test:all", "test:replace")
 
 
+@pytest.mark.parametrize("in_child_category", [False, True])
 @pytest.mark.parametrize(
     ("target_category", "expected_permissions"),
     [
         (None, P.any("test:all", "test:create")),
         ("other-category", P.any("other-category:all", "other-category:create")),
+        ("other-category-child", P.any("other-category:all", "other-category:create")),
     ],
 )
 def test_alexandria_permissions_copy_document(
@@ -253,13 +268,15 @@ def test_alexandria_permissions_copy_document(
     alexandria_category_factory,
     alexandria_data,
     expected_permissions,
+    in_child_category,
     instance,
     permission_mock,
     target_category,
 ):
     alexandria_category_factory(pk="other-category")
+    alexandria_category_factory(pk="other-category-child", parent_id="other-category")
 
-    _, document = alexandria_data
+    _, document = alexandria_data(in_child_category)
 
     data = {
         "data": {
@@ -292,16 +309,18 @@ def test_alexandria_permissions_copy_document(
     assert permissions == expected_permissions
 
 
+@pytest.mark.parametrize("in_child_category", [False, True])
 def test_alexandria_permissions_convert_document(
     db,
     admin_client,
     alexandria_data,
+    in_child_category,
     instance,
     permission_mock,
     requests_mock,
     settings,
 ):
-    _, document = alexandria_data
+    _, document = alexandria_data(in_child_category)
 
     requests_mock.post(
         f"{settings.ALEXANDRIA_DMS_URL}/convert",
