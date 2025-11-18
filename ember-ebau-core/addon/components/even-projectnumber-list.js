@@ -1,6 +1,7 @@
+import { getOwnConfig } from "@embroider/macros";
 import Component from "@glimmer/component";
 
-import mainConfig from "ember-ebau-core/config/main";
+const evenUrl = getOwnConfig().evenUrl;
 
 export default class EvenProjectnumberListComponent extends Component {
   get list() {
@@ -8,7 +9,7 @@ export default class EvenProjectnumberListComponent extends Component {
       const evenNumbers = this.args.value.split(",");
       return evenNumbers.map((item, i) => ({
         label: item.trim() + (i < evenNumbers.length - 1 ? "," : ""),
-        url: `${mainConfig.even.projectUrl}${item.trim()}`,
+        url: `${evenUrl}${item.trim()}`,
       }));
     }
     return [];

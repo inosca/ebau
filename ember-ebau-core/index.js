@@ -57,6 +57,8 @@ module.exports = {
           process.env.EGOV_PUBLIC_PRESTATION_PATH ?? "/prestation/5",
         eebaBaseUrl:
           process.env.EEBA_BASE_URL || "http://dummy-eeba:9000/dummy-eeba",
+        evenUrl:
+          process.env.EVEN_URL || "https://www.energievollzug.ch/project-id/",
       },
     },
     babel: {
