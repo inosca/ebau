@@ -493,6 +493,7 @@ PERMISSIONS_BY_ACCESSLEVEL = {
                     12000002,
                     12000003,
                     12000004,
+                    12000005,
                 ],
             ),
         }
@@ -544,6 +545,11 @@ LOOSEN_FILTERS = {
 def special_permissions_uri(group):
     if group.group_id == uri_constants.LISAG_GROUP_ID:
         return {uri_constants.LISAG_ATTACHMENT_SECTION_ID: AdminServicePermission}
+    elif (
+        group.service.slug == "rechtsvertretung-altdorf"
+        or group.name == "Baukommission Altdorf"
+    ):
+        return {uri_constants.APPEAL_DOCUMENTS_SECTION_ID: ReadPermission}
     elif group.group_id == uri_constants.KOOR_AFJ_GROUP_ID:
         return {
             uri_constants.KOOR_AFJ_ATTACHMENT_SECTION_ID: AdminServicePermission,

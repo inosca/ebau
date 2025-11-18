@@ -159,6 +159,22 @@ def test_attachment_section_detail(admin_client, attachment_section, role, mocke
                 12000011: permissions.AdminServicePermission,
             },
         ),
+        (
+            "service",
+            "RECHTSVERTRETUNG_ALTDORF",
+            12000005,
+            {
+                12000005: permissions.ReadPermission,
+            },
+        ),
+        (
+            "service",
+            "BAUKOMMISSION_ALTDORF",
+            12000005,
+            {
+                12000005: permissions.ReadPermission,
+            },
+        ),
     ],
 )
 def test_attachment_section_special_permissions_ur(
@@ -177,21 +193,38 @@ def test_attachment_section_special_permissions_ur(
     # configured IDs
     group = group_factory(pk=99999, role=role)
 
-    if group_key:
-        mocker.patch(f"camac.constants.kt_uri.{group_key}_GROUP_ID", group.pk)
-        if group_key == "ARE":
-            mocker.patch("camac.constants.kt_uri.DOCUMENTS_ARE_GROUPS", [group.pk])
-        if group_key == "AFU":
-            mocker.patch("camac.constants.kt_uri.DOCUMENTS_AFU_GROUPS", [group.pk])
+    if group_key == "RECHTSVERTRETUNG_ALTDORF":
+        group.service.slug = "rechtsvertretung-altdorf"
+        group.service.save()
 
-    mocker.patch(
-        "camac.document.permissions.PERMISSIONS",
-        {
-            "kt_uri": {
-                role.name.lower(): {permissions.AdminServicePermission: [section_id]}
-            }
-        },
-    )
+    if group_key == "BAUKOMMISSION_ALTDORF":
+        group.name = "Baukommission Altdorf"
+        group.save()
+
+    if group_key:
+        if group_key not in ["RECHTSVERTRETUNG_ALTDORF", "BAUKOMMISSION_ALTDORF"]:
+            mocker.patch(f"camac.constants.kt_uri.{group_key}_GROUP_ID", group.pk)
+            if group_key == "ARE":
+                mocker.patch("camac.constants.kt_uri.DOCUMENTS_ARE_GROUPS", [group.pk])
+            if group_key == "AFU":
+                mocker.patch("camac.constants.kt_uri.DOCUMENTS_AFU_GROUPS", [group.pk])
+
+    if group_key not in ["RECHTSVERTRETUNG_ALTDORF", "BAUKOMMISSION_ALTDORF"]:
+        mocker.patch(
+            "camac.document.permissions.PERMISSIONS",
+            {
+                "kt_uri": {
+                    role.name.lower(): {
+                        permissions.AdminServicePermission: [section_id]
+                    }
+                }
+            },
+        )
+    else:
+        mocker.patch(
+            "camac.document.permissions.PERMISSIONS",
+            {"kt_uri": {role.name.lower(): {permissions.ReadPermission: [section_id]}}},
+        )
 
     assert permissions.section_permissions(group) == expected
 
