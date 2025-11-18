@@ -1,13 +1,18 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from logging import getLogger
+from typing import Literal
 
 from alexandria.core.models import Document
 from django.conf import settings
 
 from camac.instance.models import Instance
-from camac.permissions.api import PermissionManager, PermissionScope
+from camac.permissions.api import P, PermissionManager, PermissionScope
 from camac.permissions.conditions import PermissionContext
+from camac.permissions.switcher import permission_switching_method
+
+log = getLogger(__name__)
 
 
 @dataclass
@@ -59,3 +64,31 @@ class AlexandriaPermissionManager(PermissionManager):
                 )
             case _:  # pragma: no cover
                 raise NotImplementedError(f"not implemented for {obj!r}")
+
+    @permission_switching_method
+    def has_permission(self, *args) -> bool:
+        return super().has_permission(*args)
+
+    @has_permission.register_old
+    def _has_permission_rbac(
+        self,
+        context: AlexandriaPermissionContext,
+        require_expr: P,
+    ) -> Literal[True]:
+        """Temporary overwrite of `has_permission` to allow all alexandria actions.
+
+        TODO: Remove this as soon as the permission module is fully integrated
+        and the permissions for alexandria are configured.
+        """
+
+        instance_id = context.instance.pk
+        document_uuid = context.document.pk if context.document else None
+
+        log.info(
+            f"Requesting alexandria permissions:\n"
+            f"\tExpression: {require_expr}\n"
+            f"\tInstance ID: {instance_id}\n"
+            f"\tDocument UUID: {document_uuid}"
+        )
+
+        return True
