@@ -23,9 +23,6 @@ export default {
     importModels: ["project", "building", "dwelling"],
     modalContainer: "body",
   },
-  even: {
-    projectUrl: "https://qa.energievollzug.ch/projects/",
-  },
   submittedStates: [
     120004, // subm
     120005, // circulation
