@@ -1,5 +1,6 @@
 import datetime
 import json
+from logging import getLogger
 from typing import Literal
 
 from alexandria.core.models import BaseModel, Category, Document, File, Tag
@@ -13,9 +14,18 @@ from rest_framework.request import Request
 
 from camac.alexandria.permissions import AlexandriaPermissionManager
 from camac.instance.models import Instance
-from camac.permissions.api import P, PermissionScope
+from camac.permissions.api import P, PermissionManager, PermissionScope
+from camac.permissions.switcher import permission_switching_method
 from camac.request_cache import cache_on_request
 from camac.user.permissions import get_role_name
+
+log = getLogger(__name__)
+
+# This base permission from the top-level permission module is required in order
+# to do any write actions in alexandria. We explicitly don't use
+# "documents-write" that already exists in order to avoid collisions with the v1
+# permission class.
+BASE_PERMISSION = P("alexandria-write")
 
 
 def get_data_from_multipart_request(request: Request) -> dict:
@@ -81,6 +91,53 @@ class AlexandriaPermissions:
 
         return category.pk
 
+    @permission_switching_method
+    def has_base_permission_for(
+        self,
+        request: Request,
+        obj: Instance | Document,
+    ) -> bool:
+        """Check base permission for an instance or document.
+
+        In order to perform any write actions in alexandria, the permission
+        "alexandria-write" is required.
+        """
+
+        if isinstance(obj, Document):
+            instance = obj.instance_document.instance
+        else:
+            instance = obj
+
+        return PermissionManager.from_request(request).has_permission(
+            instance, BASE_PERMISSION
+        )
+
+    @has_base_permission_for.register_old
+    def has_base_permission_for_rbac(
+        self,
+        request: Request,
+        obj: Instance | Document,
+    ) -> Literal[True]:
+        """Temporary overwrite of `has_base_permission_for` to allow all alexandria actions.
+
+        TODO: Remove this as soon as the permission module is fully integrated
+        and the permissions for alexandria are configured.
+        """
+        document_uuid = obj.pk if isinstance(obj, Document) else None
+        instance_id = (
+            obj.instance_document.instance_id if isinstance(obj, Document) else obj.pk
+        )
+
+        log.info(
+            f"Requesting base alexandria permission:\n"
+            f"\tExpression: {BASE_PERMISSION}\n"
+            f"\tInstance ID: {instance_id}\n"
+            f"\tDocument UUID: {document_uuid}\n"
+            f"=> Returning `True` as permission module is not fully enabled"
+        )
+
+        return True
+
     @permission_for(BaseModel)
     def has_permission_default(self, *args, **kwargs) -> Literal[False]:
         """Fallback permission for unhandled models - don't allow anything."""
@@ -112,6 +169,10 @@ class AlexandriaPermissions:
         prefix = self.prefix(data["category"])
         instance = Instance.objects.get(pk=data["metainfo"]["camac-instance-id"])
 
+        if not self.has_base_permission_for(request, instance):
+            # Don't allow anything without base permission
+            return False
+
         return self.scope(request, instance).has(
             P.any(
                 f"{prefix}:all",
@@ -134,6 +195,10 @@ class AlexandriaPermissions:
         The required permissions depend on the DRF action being called (HTTP
         method & URL).
         """
+
+        if not self.has_base_permission_for(request, document):
+            # Don't allow anything without base permission
+            return False
 
         permissions_fn_map = {
             "destroy": self.get_required_permissions_for_document_delete,
@@ -305,6 +370,10 @@ class AlexandriaPermissions:
 
         document = Document.objects.get(pk=request.data["document"])
         prefix = self.prefix(document)
+
+        if not self.has_base_permission_for(request, document):
+            # Don't allow anything without base permission
+            return False
 
         return self.scope(request, document).has(
             P.any(
