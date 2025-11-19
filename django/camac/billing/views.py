@@ -27,7 +27,7 @@ from camac.billing.utils import (
 from camac.billing.wilken.domain_logic import generate_invoices
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.permissions.api import PermissionManager
-from camac.permissions.switcher import is_permission_mode_fully_enabled
+from camac.permissions.switcher import is_permission_module_fully_enabled
 from camac.user.models import Group
 from camac.user.permissions import (
     IsAllowedClientToken,
@@ -110,7 +110,7 @@ class BillingV2EntryViewset(InstanceQuerysetMixin, ModelViewSet):
         # all entries belong to the same instance
         instance = entries.first().instance
 
-        if is_permission_mode_fully_enabled():
+        if is_permission_module_fully_enabled(group=self.request.group):
             has_permission = PermissionManager.from_request(self.request).has_all(
                 instance, "billing-charge"
             )

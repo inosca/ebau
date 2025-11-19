@@ -17,7 +17,7 @@ from camac.core.admin.inlines import (
     RRoleAclInline,
 )
 from camac.core.models import InstanceResource, Resource, ServiceContent
-from camac.permissions.switcher import is_permission_mode_fully_enabled
+from camac.permissions.switcher import is_permission_module_fully_enabled
 
 
 @register(Resource)
@@ -80,7 +80,7 @@ class InstanceResourceAdmin(
 
     @property
     def inlines(self):
-        if is_permission_mode_fully_enabled():
+        if is_permission_module_fully_enabled(group=None):
             return [InstanceResourceTInline]
 
         return [InstanceResourceTInline, IrRoleAclInline]
