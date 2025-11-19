@@ -11,7 +11,7 @@
       "phone": "",
       "disabled": 0,
       "language": "de",
-      "last_login": "2025-04-28T11:59:46.032Z",
+      "last_login": "2025-11-19T10:23:26.553Z",
       "address": "",
       "city": "",
       "zip": "",
@@ -3360,6 +3360,38 @@
     }
   },
   {
+    "model": "user.group",
+    "pk": 1073,
+    "fields": {
+      "role": 1104,
+      "service": 637,
+      "disabled": 0,
+      "name": "Rechtsvertretung Gemeinde Altdorf",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 1074,
+    "fields": {
+      "role": 4,
+      "service": 638,
+      "disabled": 0,
+      "name": "Energiefachstelle EVEN",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
     "model": "user.grouplocation",
     "pk": 1,
     "fields": {
@@ -4880,6 +4912,22 @@
     }
   },
   {
+    "model": "user.grouplocation",
+    "pk": 215,
+    "fields": {
+      "group": 1073,
+      "location": 1
+    }
+  },
+  {
+    "model": "user.grouplocation",
+    "pk": 216,
+    "fields": {
+      "group": 1074,
+      "location": 22
+    }
+  },
+  {
     "model": "user.usergroup",
     "pk": 1,
     "fields": {
@@ -5034,13 +5082,45 @@
     }
   },
   {
+    "model": "user.usergroup",
+    "pk": 16,
+    "fields": {
+      "user": 1,
+      "group": 1073,
+      "default_group": 0,
+      "created_at": "2025-11-18T16:12:28.363Z",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 17,
+    "fields": {
+      "user": 1,
+      "group": 62,
+      "default_group": 0,
+      "created_at": "2025-11-18T17:06:05.560Z",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 18,
+    "fields": {
+      "user": 1,
+      "group": 1074,
+      "default_group": 0,
+      "created_at": "2025-11-19T10:26:46.309Z",
+      "created_by": 1
+    }
+  },
+  {
     "model": "user.service",
     "pk": 1,
     "fields": {
       "slug": null,
       "service_group": 1,
       "service_parent": null,
-      "meta": {},
       "name": "ARE KOOR BG",
       "description": "Kantonale Koordinationsstelle für Baueingaben",
       "sort": 124,
@@ -5055,7 +5135,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -5065,7 +5146,6 @@
       "slug": null,
       "service_group": 63,
       "service_parent": null,
-      "meta": {},
       "name": "AFJ",
       "description": "Amt für Forst und Jagd und Abteilung Naturgefahren",
       "sort": 50,
@@ -5080,7 +5160,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -5090,7 +5171,6 @@
       "slug": null,
       "service_group": 64,
       "service_parent": null,
-      "meta": {},
       "name": "AfAM",
       "description": "Amt für Arbeit und Migration",
       "sort": 126,
@@ -5105,7 +5185,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -5115,7 +5196,6 @@
       "slug": null,
       "service_group": 62,
       "service_parent": null,
-      "meta": {},
       "name": "AfU",
       "description": "Gewässerschutz und Immissionsschutz",
       "sort": 128,
@@ -5130,7 +5210,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -5140,7 +5221,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": "BD DS",
       "description": "Baudirektion Uri Direktionssekretariat",
       "sort": 48,
@@ -5155,7 +5235,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -5165,7 +5246,6 @@
       "slug": null,
       "service_group": 63,
       "service_parent": null,
-      "meta": {},
       "name": "ABM ZS",
       "description": "Amt für Bevölkerungsschutz und Militär Abteilung Zivilschutz",
       "sort": 88,
@@ -5180,7 +5260,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -5190,7 +5271,6 @@
       "slug": null,
       "service_group": 63,
       "service_parent": null,
-      "meta": {},
       "name": "ABM BS",
       "description": "Amt für Bevölkerungsschutz und Militär Fachstelle Brandschutz",
       "sort": 87,
@@ -5205,7 +5285,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -5215,7 +5296,6 @@
       "slug": null,
       "service_group": 21,
       "service_parent": null,
-      "meta": {},
       "name": "Procap",
       "description": "Procap Behindertengerechtes Bauen",
       "sort": 21,
@@ -5230,7 +5310,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -5240,7 +5321,6 @@
       "slug": null,
       "service_group": 21,
       "service_parent": null,
-      "meta": {},
       "name": "AWU",
       "description": "Abwasser Uri",
       "sort": 26,
@@ -5255,7 +5335,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -5265,7 +5346,6 @@
       "slug": null,
       "service_group": 21,
       "service_parent": null,
-      "meta": {},
       "name": "LABT (Trinkwasserinspektorat, ausser Betrieb Umstrukturierung LAB)",
       "description": "Laboratorium der Urkantone Trinkwasserinspektorat",
       "sort": 29,
@@ -5280,7 +5360,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -5290,7 +5371,6 @@
       "slug": null,
       "service_group": 21,
       "service_parent": null,
-      "meta": {},
       "name": "LABL (Lebensmittelinspektorat)",
       "description": "Laboratorium der Urkantone Lebensmittelinspektorat",
       "sort": 30,
@@ -5305,7 +5385,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -5315,7 +5396,6 @@
       "slug": null,
       "service_group": 21,
       "service_parent": null,
-      "meta": {},
       "name": "LABV (Veterinärdienst der Urkantone)",
       "description": "Laboratorium der Urkantone Veterinäramt",
       "sort": 35,
@@ -5330,7 +5410,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -5340,7 +5421,6 @@
       "slug": null,
       "service_group": 1,
       "service_parent": null,
-      "meta": {},
       "name": "ARE KOOR NP",
       "description": "Koordinationsstelle Nutzungplanung",
       "sort": 173,
@@ -5355,7 +5435,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -5365,7 +5446,6 @@
       "slug": "bab-kreis-1",
       "service_group": 61,
       "service_parent": null,
-      "meta": {},
       "name": "ARE BaB Kreis 1",
       "description": "Amt für Raumentwicklung Fachstelle Bauten und Anlagen ausserhalb der Bauzone Kreis 1",
       "sort": 65,
@@ -5380,7 +5460,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -5390,7 +5471,6 @@
       "slug": null,
       "service_group": 61,
       "service_parent": null,
-      "meta": {},
       "name": "TRA",
       "description": "Fachstelle Tourismusressort Andermatt",
       "sort": 75,
@@ -5405,7 +5485,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -5415,7 +5496,6 @@
       "slug": null,
       "service_group": 61,
       "service_parent": null,
-      "meta": {},
       "name": "ARE NP",
       "description": "Amt für Raumentwicklung Abteilung Nutzungsplanung",
       "sort": 69,
@@ -5430,7 +5510,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -5440,7 +5521,6 @@
       "slug": null,
       "service_group": 61,
       "service_parent": null,
-      "meta": {},
       "name": "ARE ARCH",
       "description": "ARE - Abteilung Denkmalpflege und Archäologie - Fachstelle Archäologie",
       "sort": 76,
@@ -5455,7 +5535,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -5465,7 +5546,6 @@
       "slug": null,
       "service_group": 66,
       "service_parent": null,
-      "meta": {},
       "name": "Amt für Steuern",
       "description": "Amt für Steuern",
       "sort": 61,
@@ -5480,7 +5560,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -5490,7 +5571,6 @@
       "slug": null,
       "service_group": 63,
       "service_parent": null,
-      "meta": {},
       "name": "AfKP",
       "description": "Amt für Kantonspolizei",
       "sort": 93,
@@ -5505,7 +5585,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -5515,7 +5596,6 @@
       "slug": null,
       "service_group": 65,
       "service_parent": null,
-      "meta": {},
       "name": "AfKS",
       "description": "Amt für Kultur und Sport",
       "sort": 58,
@@ -5530,7 +5610,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -5540,7 +5621,6 @@
       "slug": null,
       "service_group": 64,
       "service_parent": null,
-      "meta": {},
       "name": "AfWoeV",
       "description": "Amt für Wirtschaft und öffentlichen Verkehr",
       "sort": 172,
@@ -5555,7 +5635,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -5565,7 +5646,6 @@
       "slug": null,
       "service_group": 64,
       "service_parent": null,
-      "meta": {},
       "name": "ALA",
       "description": "Amt für Landwirtschaft",
       "sort": 174,
@@ -5580,7 +5660,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -5590,7 +5671,6 @@
       "slug": null,
       "service_group": 21,
       "service_parent": null,
-      "meta": {},
       "name": "Alpiq",
       "description": "Alpiq Hochspannungsleitung",
       "sort": 40,
@@ -5605,7 +5685,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -5615,7 +5696,6 @@
       "slug": null,
       "service_group": 61,
       "service_parent": null,
-      "meta": {},
       "name": "ARE NL",
       "description": "ARE - Abteilung Natur und Landschaft",
       "sort": 78,
@@ -5630,7 +5710,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -5640,7 +5721,6 @@
       "slug": null,
       "service_group": 61,
       "service_parent": null,
-      "meta": {},
       "name": "ARE SU",
       "description": "Amt für Raumentwicklung Fachbereich Seeufer innerhalb Bauzone",
       "sort": 70,
@@ -5655,7 +5735,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -5665,7 +5746,6 @@
       "slug": null,
       "service_group": 61,
       "service_parent": null,
-      "meta": {},
       "name": "ARE WBF",
       "description": "Amt für Raumentwicklung Wanderweg- und Bikefachstelle",
       "sort": 74,
@@ -5680,7 +5760,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -5690,7 +5771,6 @@
       "slug": null,
       "service_group": 63,
       "service_parent": null,
-      "meta": {},
       "name": "ASSV",
       "description": "Amt für Strassen- und Schiffsverkehr",
       "sort": 92,
@@ -5705,7 +5785,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -5715,7 +5796,6 @@
       "slug": null,
       "service_group": 1,
       "service_parent": null,
-      "meta": {},
       "name": "Test",
       "description": "Test",
       "sort": 183,
@@ -5730,7 +5810,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -5740,7 +5821,6 @@
       "slug": null,
       "service_group": 71,
       "service_parent": null,
-      "meta": {},
       "name": "SBB AG (Pendenz von Koordinationstelle)",
       "description": "SBB AG (Koordinationstelle)",
       "sort": 17,
@@ -5755,7 +5835,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -5765,7 +5846,6 @@
       "slug": null,
       "service_group": 61,
       "service_parent": null,
-      "meta": {},
       "name": "BeDi",
       "description": "Justizdirektion Beschwerdedienst",
       "sort": 84,
@@ -5780,7 +5860,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -5790,7 +5871,6 @@
       "slug": null,
       "service_group": 61,
       "service_parent": null,
-      "meta": {},
       "name": "ReDi",
       "description": "Justizdirektion Rechtsdienst",
       "sort": 83,
@@ -5805,7 +5885,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -5815,7 +5896,6 @@
       "slug": null,
       "service_group": 61,
       "service_parent": null,
-      "meta": {},
       "name": "JD DS",
       "description": "Justizdirektion Direktionssekretariat",
       "sort": 52,
@@ -5830,7 +5910,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -5840,7 +5921,6 @@
       "slug": null,
       "service_group": 61,
       "service_parent": null,
-      "meta": {},
       "name": "ARE BG",
       "description": "Mitbericht Fachstelle Koordination (proforma Zirkulation)",
       "sort": 82,
@@ -5855,7 +5935,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -5865,7 +5946,6 @@
       "slug": null,
       "service_group": 74,
       "service_parent": null,
-      "meta": {},
       "name": "LSSV (Landschaftsschutzverband Vierwaldstättersee)",
       "description": "Landschaftsschutzverband Vierwaldstättersee",
       "sort": 3,
@@ -5880,7 +5960,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -5890,7 +5971,6 @@
       "slug": null,
       "service_group": 1,
       "service_parent": null,
-      "meta": {},
       "name": "TEST KOORNP",
       "description": "Mitbericht Fachstelle Nutzungsplanung (proforma Zirkulation)",
       "sort": 182,
@@ -5905,7 +5985,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -5915,7 +5996,6 @@
       "slug": null,
       "service_group": 70,
       "service_parent": null,
-      "meta": {},
       "name": "BAV",
       "description": "Bundesamt für Verkehr",
       "sort": 18,
@@ -5930,7 +6010,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -5940,7 +6021,6 @@
       "slug": null,
       "service_group": 21,
       "service_parent": null,
-      "meta": {},
       "name": "ZAKU",
       "description": "Zentralverband Abfallbewirtschaftung Kanton Uri",
       "sort": 16,
@@ -5955,7 +6035,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -5965,7 +6046,6 @@
       "slug": null,
       "service_group": 21,
       "service_parent": null,
-      "meta": {},
       "name": "AGO (Geometer)",
       "description": "Geometer Vermessung",
       "sort": 19,
@@ -5980,7 +6060,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -5990,7 +6071,6 @@
       "slug": null,
       "service_group": 21,
       "service_parent": null,
-      "meta": {},
       "name": "Lisag",
       "description": "LIS Uri Geoinformation",
       "sort": 13,
@@ -5998,14 +6078,15 @@
       "zip": null,
       "city": null,
       "address": null,
-      "email": "email@example.com",
+      "email": "lisag@example.com",
       "website": null,
       "logo": "",
       "disabled": 0,
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6015,7 +6096,6 @@
       "slug": null,
       "service_group": 21,
       "service_parent": null,
-      "meta": {},
       "name": "ZUBI",
       "description": "Zentralschweizer Umweltbauinspektorat",
       "sort": 15,
@@ -6030,7 +6110,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6040,7 +6121,6 @@
       "slug": null,
       "service_group": 61,
       "service_parent": null,
-      "meta": {},
       "name": "ARE DMP",
       "description": "ARE - Abteilung Denkmalpflege und Archäologie - Fachstelle Denkmalpflege",
       "sort": 81,
@@ -6055,7 +6135,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6065,7 +6146,6 @@
       "slug": "bab-kreis-2",
       "service_group": 61,
       "service_parent": null,
-      "meta": {},
       "name": "ARE BaB Kreis 2",
       "description": "Amt für Raumentwicklung Fachstelle Bauten ausserhalb der Bauzone Kreis 2",
       "sort": 67,
@@ -6080,7 +6160,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6090,7 +6171,6 @@
       "slug": "bab-kreis-3",
       "service_group": 61,
       "service_parent": null,
-      "meta": {},
       "name": "ARE BaB Kreis 3",
       "description": "Amt für Raumentwicklung Fachstelle Bauten und Anlagen ausserhalb der Bauzone Kreis 3",
       "sort": 68,
@@ -6105,7 +6185,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6115,7 +6196,6 @@
       "slug": null,
       "service_group": 41,
       "service_parent": null,
-      "meta": {},
       "name": "Gemeinderat Andermatt Pendenzen",
       "description": "Gemeinderat Andermatt Pendenzen",
       "sort": 134,
@@ -6130,7 +6210,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6140,7 +6221,6 @@
       "slug": null,
       "service_group": 41,
       "service_parent": null,
-      "meta": {},
       "name": "Gemeinderat Altdorf Pendenzen",
       "description": "Gemeinderat Altdorf Pendenzen",
       "sort": 122,
@@ -6155,7 +6235,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6165,7 +6246,6 @@
       "slug": null,
       "service_group": 1,
       "service_parent": null,
-      "meta": {},
       "name": "KOOR BD",
       "description": "Koordinationsstelle für Bewilligungsverfahren der Baudirektion",
       "sort": 176,
@@ -6180,7 +6260,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6190,7 +6271,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": "AfT Abteilung Infrastruktur",
       "description": "Baudirektion Amt für Tiefbau Abteilung Infrastruktur",
       "sort": 51,
@@ -6205,7 +6285,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6215,7 +6296,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": "AfT Abteilung Projekte",
       "description": "Baudirektion Amt für Tiefbau Abteilung Projekte",
       "sort": 54,
@@ -6230,7 +6310,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6240,7 +6321,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": "BK",
       "description": "Baudirektion Betrieb Kantonsstrassen",
       "sort": 55,
@@ -6255,7 +6335,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6265,7 +6346,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": "AfE",
       "description": "Baudirektion Amt für Energie",
       "sort": 57,
@@ -6280,7 +6360,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6290,7 +6371,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": "AfBN",
       "description": "Baudirektion Amt für Betrieb Nationalstrassen",
       "sort": 59,
@@ -6305,7 +6385,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6315,7 +6396,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": "AfH",
       "description": "Baudirektion Amt für Hochbau",
       "sort": 63,
@@ -6330,7 +6410,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6340,7 +6421,6 @@
       "slug": null,
       "service_group": 70,
       "service_parent": null,
-      "meta": {},
       "name": "ASTRA",
       "description": "Bundesamt für Strassen",
       "sort": 1,
@@ -6355,7 +6435,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6365,7 +6446,6 @@
       "slug": null,
       "service_group": 63,
       "service_parent": null,
-      "meta": {},
       "name": "BVP",
       "description": "Bereitschafts- und Verkehrspolizei",
       "sort": 73,
@@ -6380,7 +6460,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6390,7 +6471,6 @@
       "slug": null,
       "service_group": 64,
       "service_parent": null,
-      "meta": {},
       "name": "BGBB",
       "description": "Bundesgesetz über das bäuerliche Bodenrecht",
       "sort": 175,
@@ -6405,7 +6485,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6415,7 +6496,6 @@
       "slug": null,
       "service_group": 41,
       "service_parent": null,
-      "meta": {},
       "name": "Gemeinderat Attinghausen Pendenzen",
       "description": "Gemeinderat Attinghausen Pendenzen",
       "sort": 136,
@@ -6430,7 +6510,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6440,7 +6521,6 @@
       "slug": null,
       "service_group": 41,
       "service_parent": null,
-      "meta": {},
       "name": "Gemeinderat Seedorf (Ortsteil Bauen) Pendenzen",
       "description": "Gemeinderat Seedorf (Ortsteil Bauen) Pendenzen",
       "sort": 139,
@@ -6455,7 +6535,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6465,7 +6546,6 @@
       "slug": null,
       "service_group": 41,
       "service_parent": null,
-      "meta": {},
       "name": "Gemeinderat Bürglen Pendenzen",
       "description": "Gemeinderat Bürglen Pendenzen",
       "sort": 140,
@@ -6480,7 +6560,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6490,7 +6571,6 @@
       "slug": null,
       "service_group": 41,
       "service_parent": null,
-      "meta": {},
       "name": "Gemeinderat Erstfeld Pendenzen",
       "description": "Gemeinderat Erstfeld Pendenzen",
       "sort": 143,
@@ -6505,7 +6585,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6515,7 +6596,6 @@
       "slug": null,
       "service_group": 41,
       "service_parent": null,
-      "meta": {},
       "name": "Gemeinderat Flüelen Pendenzen",
       "description": "Gemeinderat Flüelen Pendenzen",
       "sort": 145,
@@ -6530,7 +6610,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6540,7 +6621,6 @@
       "slug": null,
       "service_group": 41,
       "service_parent": null,
-      "meta": {},
       "name": "Gemeinderat Göschenen Pendenzen",
       "description": "Gemeinderat Göschenen Pendenzen",
       "sort": 146,
@@ -6555,7 +6635,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6565,7 +6646,6 @@
       "slug": null,
       "service_group": 41,
       "service_parent": null,
-      "meta": {},
       "name": "Gemeinderat Gurtnellen Pendenzen",
       "description": "Gemeinderat Gurtnellen Pendenzen",
       "sort": 148,
@@ -6580,7 +6660,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6590,7 +6671,6 @@
       "slug": null,
       "service_group": 41,
       "service_parent": null,
-      "meta": {},
       "name": "Gemeinderat Hospental Pendenzen",
       "description": "Gemeinderat Hospental Pendenzen",
       "sort": 151,
@@ -6605,7 +6685,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6615,7 +6696,6 @@
       "slug": null,
       "service_group": 41,
       "service_parent": null,
-      "meta": {},
       "name": "Gemeinderat Isenthal Pendenzen",
       "description": "Gemeinderat Isenthal Pendenzen",
       "sort": 152,
@@ -6630,7 +6710,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6640,7 +6721,6 @@
       "slug": null,
       "service_group": 41,
       "service_parent": null,
-      "meta": {},
       "name": "Gemeinderat Realp Pendenzen",
       "description": "Gemeinderat Realp Pendenzen",
       "sort": 154,
@@ -6655,7 +6735,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6665,7 +6746,6 @@
       "slug": null,
       "service_group": 41,
       "service_parent": null,
-      "meta": {},
       "name": "Gemeinderat Schattdorf Pendenzen",
       "description": "Gemeinderat Schattdorf Pendenzen",
       "sort": 157,
@@ -6680,7 +6760,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6690,7 +6771,6 @@
       "slug": null,
       "service_group": 41,
       "service_parent": null,
-      "meta": {},
       "name": "Gemeinderat Seedorf Pendenzen",
       "description": "Gemeinderat Seedorf Pendenzen",
       "sort": 158,
@@ -6705,7 +6785,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6715,7 +6796,6 @@
       "slug": null,
       "service_group": 41,
       "service_parent": null,
-      "meta": {},
       "name": "Gemeinderat Seelisberg Pendenzen",
       "description": "Gemeinderat Seelisberg Pendenzen",
       "sort": 161,
@@ -6730,7 +6810,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6740,7 +6821,6 @@
       "slug": null,
       "service_group": 41,
       "service_parent": null,
-      "meta": {},
       "name": "Gemeinderat Silenen Pendenzen",
       "description": "Gemeinderat Silenen Pendenzen",
       "sort": 163,
@@ -6755,7 +6835,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6765,7 +6846,6 @@
       "slug": null,
       "service_group": 41,
       "service_parent": null,
-      "meta": {},
       "name": "Gemeinderat Sisikon Pendenzen",
       "description": "Gemeinderat Sisikon Pendenzen",
       "sort": 165,
@@ -6780,7 +6860,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6790,7 +6871,6 @@
       "slug": null,
       "service_group": 41,
       "service_parent": null,
-      "meta": {},
       "name": "Gemeinderat Spiringen Pendenzen",
       "description": "Gemeinderat Spiringen Pendenzen",
       "sort": 166,
@@ -6805,7 +6885,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6815,7 +6896,6 @@
       "slug": null,
       "service_group": 41,
       "service_parent": null,
-      "meta": {},
       "name": "Gemeinderat Unterschächen Pendenzen",
       "description": "Gemeinderat Unterschächen Pendenzen",
       "sort": 169,
@@ -6830,7 +6910,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6840,7 +6921,6 @@
       "slug": null,
       "service_group": 41,
       "service_parent": null,
-      "meta": {},
       "name": "Gemeinderat Wassen Pendenzen",
       "description": "Gemeinderat Wassen Pendenzen",
       "sort": 170,
@@ -6855,7 +6935,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6865,7 +6946,6 @@
       "slug": null,
       "service_group": 21,
       "service_parent": null,
-      "meta": {},
       "name": "ENHK (bitte keine direkte Zirkulation starten Dossierzuweisung nur via Fachstelle)",
       "description": "Eidgenössische Natur und Heimatschutzkommission",
       "sort": 7,
@@ -6880,7 +6960,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6890,7 +6971,6 @@
       "slug": null,
       "service_group": 21,
       "service_parent": null,
-      "meta": {},
       "name": "NHSK (bitte keine direkte Zirkulation starten Dossierzuweisung nur via Fachstelle)",
       "description": "Kantonale Natur und Heimatschutzkommission",
       "sort": 5,
@@ -6905,7 +6985,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6915,7 +6996,6 @@
       "slug": null,
       "service_group": 67,
       "service_parent": null,
-      "meta": {},
       "name": "Mitglieder BK Altdorf",
       "description": "Mitglieder BK Altdorf",
       "sort": 66,
@@ -6930,7 +7010,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6940,7 +7021,6 @@
       "slug": null,
       "service_group": 67,
       "service_parent": null,
-      "meta": {},
       "name": "Mitglieder BK Urner Oberland",
       "description": "Mitglieder BK Urner Oberland",
       "sort": 96,
@@ -6955,7 +7035,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6965,7 +7046,6 @@
       "slug": null,
       "service_group": 67,
       "service_parent": null,
-      "meta": {},
       "name": "Mitglieder BK Andermatt",
       "description": "Mitglieder BK Andermatt",
       "sort": 72,
@@ -6980,7 +7060,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -6990,7 +7071,6 @@
       "slug": null,
       "service_group": 67,
       "service_parent": null,
-      "meta": {},
       "name": "Miktglieder BK Attinghausen",
       "description": "Mitglieder BK Attinghausen",
       "sort": 80,
@@ -7005,7 +7085,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7015,7 +7096,6 @@
       "slug": null,
       "service_group": 68,
       "service_parent": null,
-      "meta": {},
       "name": "GBB Altdorf",
       "description": "GBB Altdorf",
       "sort": 79,
@@ -7030,7 +7110,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7040,7 +7121,6 @@
       "slug": null,
       "service_group": 68,
       "service_parent": null,
-      "meta": {},
       "name": "GBB Andermatt",
       "description": "GBB Andermatt",
       "sort": 89,
@@ -7055,7 +7135,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7065,7 +7146,6 @@
       "slug": null,
       "service_group": 68,
       "service_parent": null,
-      "meta": {},
       "name": "GBB Attinghausen",
       "description": "GBB Attinghausen",
       "sort": 95,
@@ -7080,7 +7160,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7090,7 +7171,6 @@
       "slug": null,
       "service_group": 68,
       "service_parent": null,
-      "meta": {},
       "name": "GBB Bauen",
       "description": "GBB Bauen",
       "sort": 98,
@@ -7105,7 +7185,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7115,7 +7196,6 @@
       "slug": null,
       "service_group": 68,
       "service_parent": null,
-      "meta": {},
       "name": "GBB Bürglen",
       "description": "GBB Bürglen",
       "sort": 106,
@@ -7130,7 +7210,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7140,7 +7221,6 @@
       "slug": null,
       "service_group": 68,
       "service_parent": null,
-      "meta": {},
       "name": "GBB Erstfeld",
       "description": "GBB Erstfeld",
       "sort": 107,
@@ -7155,7 +7235,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7165,7 +7246,6 @@
       "slug": null,
       "service_group": 68,
       "service_parent": null,
-      "meta": {},
       "name": "GBB Flüelen",
       "description": "GBB Flüelen",
       "sort": 110,
@@ -7180,7 +7260,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7190,7 +7271,6 @@
       "slug": null,
       "service_group": 68,
       "service_parent": null,
-      "meta": {},
       "name": "GBB Urner Oberland",
       "description": "GBB Urner Oberland",
       "sort": 111,
@@ -7205,7 +7285,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7215,7 +7296,6 @@
       "slug": null,
       "service_group": 68,
       "service_parent": null,
-      "meta": {},
       "name": "GBB Hospental",
       "description": "GBB Hospental",
       "sort": 112,
@@ -7230,7 +7310,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7240,7 +7321,6 @@
       "slug": null,
       "service_group": 68,
       "service_parent": null,
-      "meta": {},
       "name": "GBB Isenthal",
       "description": "GBB Isenthal",
       "sort": 113,
@@ -7255,7 +7335,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7265,7 +7346,6 @@
       "slug": null,
       "service_group": 68,
       "service_parent": null,
-      "meta": {},
       "name": "GBB Realp",
       "description": "GBB Realp",
       "sort": 114,
@@ -7280,7 +7360,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7290,7 +7371,6 @@
       "slug": null,
       "service_group": 68,
       "service_parent": null,
-      "meta": {},
       "name": "GBB Schattdorf",
       "description": "GBB Schattdorf",
       "sort": 115,
@@ -7305,7 +7385,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7315,7 +7396,6 @@
       "slug": null,
       "service_group": 68,
       "service_parent": null,
-      "meta": {},
       "name": "GBB Seedorf",
       "description": "GBB Seedorf",
       "sort": 116,
@@ -7330,7 +7410,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7340,7 +7421,6 @@
       "slug": null,
       "service_group": 68,
       "service_parent": null,
-      "meta": {},
       "name": "GBB Seelisberg",
       "description": "GBB Seelisberg",
       "sort": 117,
@@ -7355,7 +7435,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7365,7 +7446,6 @@
       "slug": null,
       "service_group": 68,
       "service_parent": null,
-      "meta": {},
       "name": "GBB Silenen",
       "description": "GBB Silenen",
       "sort": 118,
@@ -7380,7 +7460,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7390,7 +7471,6 @@
       "slug": null,
       "service_group": 68,
       "service_parent": null,
-      "meta": {},
       "name": "GBB Sisikon",
       "description": "GBB Sisikon",
       "sort": 119,
@@ -7405,7 +7485,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7415,7 +7496,6 @@
       "slug": null,
       "service_group": 68,
       "service_parent": null,
-      "meta": {},
       "name": "GBB Spiringen",
       "description": "GBB Spiringen",
       "sort": 120,
@@ -7430,7 +7510,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7440,7 +7521,6 @@
       "slug": null,
       "service_group": 68,
       "service_parent": null,
-      "meta": {},
       "name": "GBB Unterschächen",
       "description": "GBB Unterschächen",
       "sort": 121,
@@ -7455,7 +7535,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7465,7 +7546,6 @@
       "slug": null,
       "service_group": 67,
       "service_parent": null,
-      "meta": {},
       "name": "Mitglieder BK Erstfeld",
       "description": "Mitglieder BK Erstfeld",
       "sort": 91,
@@ -7480,7 +7560,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7490,7 +7571,6 @@
       "slug": null,
       "service_group": 67,
       "service_parent": null,
-      "meta": {},
       "name": "Mitglieder BK Schattdorf",
       "description": "Mitglieder BK Schattdorf",
       "sort": 101,
@@ -7505,7 +7585,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7515,7 +7596,6 @@
       "slug": null,
       "service_group": 21,
       "service_parent": null,
-      "meta": {},
       "name": "Aniterra",
       "description": "Aniterra (vormals Qualinova)",
       "sort": 2,
@@ -7530,7 +7610,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7540,7 +7621,6 @@
       "slug": null,
       "service_group": 67,
       "service_parent": null,
-      "meta": {},
       "name": "Mitglieder BK Bauen",
       "description": "Mitglieder BK Bauen",
       "sort": 85,
@@ -7555,7 +7635,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7565,7 +7646,6 @@
       "slug": null,
       "service_group": 67,
       "service_parent": null,
-      "meta": {},
       "name": "Mitglieder BK Bürglen",
       "description": "Mitglieder BK Bürglen",
       "sort": 90,
@@ -7580,7 +7660,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7590,7 +7671,6 @@
       "slug": null,
       "service_group": 67,
       "service_parent": null,
-      "meta": {},
       "name": "Mitglieder BK Flüelen",
       "description": "Mitglieder BK Flüelen",
       "sort": 94,
@@ -7605,7 +7685,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7615,7 +7696,6 @@
       "slug": null,
       "service_group": 67,
       "service_parent": null,
-      "meta": {},
       "name": "Mitglieder BK Seedorf",
       "description": "Mitglieder BK Seedorf",
       "sort": 102,
@@ -7630,7 +7710,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7640,7 +7721,6 @@
       "slug": null,
       "service_group": 67,
       "service_parent": null,
-      "meta": {},
       "name": "Mitglieder BK Seelisberg",
       "description": "Mitglieder BK Seelisberg",
       "sort": 103,
@@ -7655,7 +7735,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7665,7 +7746,6 @@
       "slug": null,
       "service_group": 67,
       "service_parent": null,
-      "meta": {},
       "name": "Mitglieder BK Silenen",
       "description": "Mitglieder BK Silenen",
       "sort": 104,
@@ -7680,7 +7760,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7690,7 +7771,6 @@
       "slug": null,
       "service_group": 67,
       "service_parent": null,
-      "meta": {},
       "name": "Mitglieder BK Sisikon",
       "description": "Mitglieder BK Sisikon",
       "sort": 105,
@@ -7705,7 +7785,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7715,7 +7796,6 @@
       "slug": null,
       "service_group": 67,
       "service_parent": null,
-      "meta": {},
       "name": "Mitglieder BK Realp",
       "description": "Mitglieder BK Realp",
       "sort": 100,
@@ -7730,7 +7810,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7740,7 +7821,6 @@
       "slug": null,
       "service_group": 67,
       "service_parent": null,
-      "meta": {},
       "name": "Mitglieder BK Hospental",
       "description": "Mitglieder BK Hospental",
       "sort": 97,
@@ -7755,7 +7835,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7765,7 +7846,6 @@
       "slug": null,
       "service_group": 67,
       "service_parent": null,
-      "meta": {},
       "name": "Mitglieder BK Isenthal",
       "description": "Mitglieder BK Isenthal",
       "sort": 99,
@@ -7780,7 +7860,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7790,7 +7871,6 @@
       "slug": null,
       "service_group": 67,
       "service_parent": null,
-      "meta": {},
       "name": "Mitglieder BK Spiringen",
       "description": "Mitglieder BK Spiringen",
       "sort": 108,
@@ -7805,7 +7885,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7815,7 +7896,6 @@
       "slug": null,
       "service_group": 67,
       "service_parent": null,
-      "meta": {},
       "name": "Mitglieder BK Unterschächen",
       "description": "Mitglieder BK Unterschächen",
       "sort": 109,
@@ -7830,7 +7910,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7840,7 +7921,6 @@
       "slug": null,
       "service_group": 21,
       "service_parent": null,
-      "meta": {},
       "name": "FGS",
       "description": "Fachstelle für Gebäudeschätzung",
       "sort": 0,
@@ -7855,7 +7935,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7865,7 +7946,6 @@
       "slug": null,
       "service_group": 61,
       "service_parent": null,
-      "meta": {},
       "name": "AfdG",
       "description": "Amt für das Grundbuch",
       "sort": 86,
@@ -7880,7 +7960,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7890,7 +7971,6 @@
       "slug": null,
       "service_group": 63,
       "service_parent": null,
-      "meta": {},
       "name": "ABM",
       "description": "Amt für Bevölkerungsschutz und Militär",
       "sort": 77,
@@ -7905,7 +7985,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7915,7 +7996,6 @@
       "slug": null,
       "service_group": 61,
       "service_parent": null,
-      "meta": {},
       "name": "ARE",
       "description": "Amt für Raumentwicklung",
       "sort": 62,
@@ -7930,7 +8010,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7940,7 +8021,6 @@
       "slug": null,
       "service_group": 70,
       "service_parent": null,
-      "meta": {},
       "name": "BAFU (Service noch nicht in Betrieb)",
       "description": "Bundesamt für Umweltschutz",
       "sort": 41,
@@ -7955,7 +8035,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7965,7 +8046,6 @@
       "slug": null,
       "service_group": 70,
       "service_parent": null,
-      "meta": {},
       "name": "ARE Bern (Service noch nicht in Betrieb)",
       "description": "Bundesamt für Raumentwicklung",
       "sort": 45,
@@ -7980,7 +8060,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -7990,7 +8071,6 @@
       "slug": null,
       "service_group": 21,
       "service_parent": null,
-      "meta": {},
       "name": "Brandschutz TRA Andermatt",
       "description": "Brandschutzprüfung zugewiesener Projekte",
       "sort": 10,
@@ -8005,7 +8085,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8015,7 +8096,6 @@
       "slug": null,
       "service_group": 65,
       "service_parent": null,
-      "meta": {},
       "name": "BKD DS",
       "description": "Bildungs- und Kulturdirektion Direktionssekretariat",
       "sort": 53,
@@ -8030,7 +8110,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8040,7 +8121,6 @@
       "slug": null,
       "service_group": 66,
       "service_parent": null,
-      "meta": {},
       "name": "Fachstelle Statistik",
       "description": "Fachstelle Statistik",
       "sort": 64,
@@ -8055,7 +8135,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8065,7 +8146,6 @@
       "slug": null,
       "service_group": 66,
       "service_parent": null,
-      "meta": {},
       "name": "FD DS",
       "description": "Finanzdirektion Direktionssekretariat",
       "sort": 56,
@@ -8080,7 +8160,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8090,7 +8171,6 @@
       "slug": null,
       "service_group": 62,
       "service_parent": null,
-      "meta": {},
       "name": "Amt für Soziales",
       "description": "Amt für Soziales",
       "sort": 132,
@@ -8105,7 +8185,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8115,7 +8196,6 @@
       "slug": null,
       "service_group": 62,
       "service_parent": null,
-      "meta": {},
       "name": "GSUD DS",
       "description": "Gesundheits- Sozial- und Umweltdirektion Direktionssekretariat",
       "sort": 127,
@@ -8130,7 +8210,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8140,7 +8221,6 @@
       "slug": null,
       "service_group": 63,
       "service_parent": null,
-      "meta": {},
       "name": "SID DS",
       "description": "Sicherheitsdirektion Direktionssekretariat",
       "sort": 33,
@@ -8155,7 +8235,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8165,7 +8246,6 @@
       "slug": null,
       "service_group": 64,
       "service_parent": null,
-      "meta": {},
       "name": "VD DS",
       "description": "Volkswirtschaftsdirektion Direktionssekretariat",
       "sort": 125,
@@ -8180,7 +8260,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8190,7 +8271,6 @@
       "slug": null,
       "service_group": 1,
       "service_parent": null,
-      "meta": {},
       "name": "KOOR AfU",
       "description": "Kantonale Koordinationsstelle Amt für Umwelt",
       "sort": 177,
@@ -8205,7 +8285,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8215,7 +8296,6 @@
       "slug": null,
       "service_group": 1,
       "service_parent": null,
-      "meta": {},
       "name": "KOOR ALA",
       "description": "Kantonale Koordinationsstelle für Landwirtschaft",
       "sort": 178,
@@ -8230,7 +8310,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8240,7 +8321,6 @@
       "slug": null,
       "service_group": 1,
       "service_parent": null,
-      "meta": {},
       "name": "KOOR AfE",
       "description": "Kantonale Koordinationsstelle für Energie",
       "sort": 179,
@@ -8255,7 +8335,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8265,7 +8346,6 @@
       "slug": null,
       "service_group": 1,
       "service_parent": null,
-      "meta": {},
       "name": "KOOR AFJ",
       "description": "Kantonale Koordinationsstelle für Forst und Jagd",
       "sort": 180,
@@ -8280,7 +8360,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8290,7 +8371,6 @@
       "slug": null,
       "service_group": 21,
       "service_parent": null,
-      "meta": {},
       "name": "LABB (Badewasserinspektorat)",
       "description": "Badewasserinspektor",
       "sort": 32,
@@ -8305,7 +8385,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8315,7 +8396,6 @@
       "slug": null,
       "service_group": 21,
       "service_parent": null,
-      "meta": {},
       "name": "Korporation Uri (Service noch nicht in Betrieb)",
       "description": "Korporation Uri Kanzlei",
       "sort": 23,
@@ -8330,7 +8410,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8340,7 +8421,6 @@
       "slug": null,
       "service_group": 21,
       "service_parent": null,
-      "meta": {},
       "name": "Korporation Ursern (Service noch nicht in Betrieb)",
       "description": "Korporation Ursern Kanzlei",
       "sort": 25,
@@ -8355,7 +8435,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8365,7 +8446,6 @@
       "slug": null,
       "service_group": 62,
       "service_parent": null,
-      "meta": {},
       "name": "AfU GS",
       "description": "Amt für Umwelt Abteilung Gewässerschutz",
       "sort": 129,
@@ -8380,7 +8460,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8390,7 +8471,6 @@
       "slug": null,
       "service_group": 62,
       "service_parent": null,
-      "meta": {},
       "name": "AfU IS",
       "description": "Amt für Umwelt Abteilung Immissionsschutz",
       "sort": 131,
@@ -8405,7 +8485,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8415,7 +8496,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": "AfBN Baupolizei",
       "description": "Amt für Betrieb Nationalstrassen Bereich Baupolizei",
       "sort": 60,
@@ -8430,7 +8510,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8440,7 +8521,6 @@
       "slug": null,
       "service_group": 62,
       "service_parent": null,
-      "meta": {},
       "name": "AfU GS Wärmenutzung",
       "description": "Amt für Umwelt Dossier im Zusammenhang mit Wärmenutzung",
       "sort": 130,
@@ -8455,7 +8535,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8465,7 +8546,6 @@
       "slug": null,
       "service_group": 21,
       "service_parent": null,
-      "meta": {},
       "name": "Monitron (Dossierzuweisung nur via Fachstelle, Rubrik Dossier freischalten)",
       "description": "Monitron (prüft Dossiers im Zusammenhang mit Wärmenutzung)",
       "sort": 36,
@@ -8480,7 +8560,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8490,7 +8571,6 @@
       "slug": null,
       "service_group": 1,
       "service_parent": null,
-      "meta": {},
       "name": "KOOR SD",
       "description": "KOOR SD",
       "sort": 181,
@@ -8505,7 +8585,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8515,7 +8596,6 @@
       "slug": null,
       "service_group": 70,
       "service_parent": null,
-      "meta": {},
       "name": "VBS Schiesswesen",
       "description": "VBS Schiesswesen (Schiessoffizier)",
       "sort": 42,
@@ -8530,7 +8610,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8540,7 +8621,6 @@
       "slug": null,
       "service_group": 71,
       "service_parent": null,
-      "meta": {},
       "name": "Swissgrid (Pendenz von Koordinationstelle)",
       "description": "Swissgrid (Koordinationstellen)",
       "sort": 46,
@@ -8555,7 +8635,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8565,7 +8646,6 @@
       "slug": null,
       "service_group": 69,
       "service_parent": null,
-      "meta": {},
       "name": "Gemeindewerke Erstfeld",
       "description": "Gemeindewerke Erstfeld",
       "sort": 34,
@@ -8580,7 +8660,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8590,7 +8671,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": "AfT",
       "description": "Baudirektion Amt für Tiefbau",
       "sort": 49,
@@ -8605,7 +8685,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8615,7 +8696,6 @@
       "slug": null,
       "service_group": 69,
       "service_parent": null,
-      "meta": {},
       "name": "Wasserkommission Altdorf",
       "description": "Wasserversorgung Altdorf",
       "sort": 22,
@@ -8630,7 +8710,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8640,7 +8721,6 @@
       "slug": null,
       "service_group": 71,
       "service_parent": null,
-      "meta": {},
       "name": "MGB (Pendenz von Koordinationstelle)",
       "description": "MGB (Koordinationstellen)",
       "sort": 20,
@@ -8655,7 +8735,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8665,7 +8746,6 @@
       "slug": null,
       "service_group": 69,
       "service_parent": null,
-      "meta": {},
       "name": "Bauabteilung Altdorf Ortsplanung",
       "description": "Bauabteilung",
       "sort": 24,
@@ -8680,7 +8760,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8690,7 +8771,6 @@
       "slug": null,
       "service_group": 69,
       "service_parent": null,
-      "meta": {},
       "name": "Bauabteilung Altdorf Tiefbau",
       "description": "Bauabteilung Altdorf",
       "sort": 27,
@@ -8705,7 +8785,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8715,7 +8796,6 @@
       "slug": null,
       "service_group": 69,
       "service_parent": null,
-      "meta": {},
       "name": "Feuerwehr Altdorf",
       "description": "Feuerwehr Altdorf",
       "sort": 28,
@@ -8730,7 +8810,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8740,7 +8821,6 @@
       "slug": null,
       "service_group": 69,
       "service_parent": null,
-      "meta": {},
       "name": "Bauabteilung Altdorf Liegenschaften",
       "description": "Bauabteilung Liegenschaften",
       "sort": 31,
@@ -8755,7 +8835,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8765,7 +8846,6 @@
       "slug": null,
       "service_group": 70,
       "service_parent": null,
-      "meta": {},
       "name": "Armasuisse Immobilien",
       "description": "Immobilienbewirtschaftung Armasuisse",
       "sort": 43,
@@ -8780,7 +8860,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8790,7 +8871,6 @@
       "slug": null,
       "service_group": 70,
       "service_parent": null,
-      "meta": {},
       "name": "BAZL",
       "description": "Bundesamt für Zivilluftfahrt",
       "sort": 47,
@@ -8805,7 +8885,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8815,7 +8896,6 @@
       "slug": null,
       "service_group": 74,
       "service_parent": null,
-      "meta": {},
       "name": "VCS Uri",
       "description": "VCS Sektion Uri (bitte keine direkte Zirkulation starten Dossierzuweisung nur via Fachstellen)",
       "sort": 4,
@@ -8830,7 +8910,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8840,7 +8921,6 @@
       "slug": null,
       "service_group": 72,
       "service_parent": null,
-      "meta": {},
       "name": "Swissgrid (Pendenz von Gemeinde)",
       "description": "Swissgrid (Gemeinde)",
       "sort": 12,
@@ -8855,7 +8935,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8865,7 +8946,6 @@
       "slug": null,
       "service_group": 72,
       "service_parent": null,
-      "meta": {},
       "name": "MGB (Pendenz von Gemeinde)",
       "description": "MGB (Gemeinde)",
       "sort": 14,
@@ -8880,7 +8960,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8890,7 +8971,6 @@
       "slug": null,
       "service_group": 72,
       "service_parent": null,
-      "meta": {},
       "name": "SBB AG (Pendenz von Gemeinde)",
       "description": "SBB AG (Gemeinde)",
       "sort": 11,
@@ -8905,7 +8985,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8915,7 +8996,6 @@
       "slug": null,
       "service_group": 74,
       "service_parent": null,
-      "meta": {},
       "name": "WWF Uri",
       "description": "WWF",
       "sort": 6,
@@ -8930,7 +9010,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8940,7 +9021,6 @@
       "slug": null,
       "service_group": 74,
       "service_parent": null,
-      "meta": {},
       "name": "Pro Natura Uri",
       "description": "Pro Natura Uri",
       "sort": 9,
@@ -8955,7 +9035,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8965,7 +9046,6 @@
       "slug": null,
       "service_group": 69,
       "service_parent": null,
-      "meta": {},
       "name": "Wasserversorgungskommission Spiringen",
       "description": "Wasserversorgungskommission Spiringen",
       "sort": 38,
@@ -8980,7 +9060,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -8990,7 +9071,6 @@
       "slug": null,
       "service_group": 62,
       "service_parent": null,
-      "meta": {},
       "name": "Amt für Gesundheit",
       "description": "GSUD",
       "sort": 133,
@@ -9005,7 +9085,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -9015,7 +9096,6 @@
       "slug": null,
       "service_group": 69,
       "service_parent": null,
-      "meta": {},
       "name": "Wasserversorgungskommission Urnerboden",
       "description": "Wasserversorgungskommission Urnerboden",
       "sort": 39,
@@ -9030,7 +9110,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -9040,7 +9121,6 @@
       "slug": null,
       "service_group": 21,
       "service_parent": null,
-      "meta": {},
       "name": "Inventar Historische Verkehrswege IVS (Dossierzuweisung via Fachstelle)",
       "description": "IVS",
       "sort": 8,
@@ -9055,7 +9135,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -9065,7 +9146,6 @@
       "slug": null,
       "service_group": 70,
       "service_parent": null,
-      "meta": {},
       "name": "Armasuisse Wissenschaft und Technologie",
       "description": "Armasuisse Wissenschaft und Technologie",
       "sort": 44,
@@ -9080,7 +9160,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -9090,7 +9171,6 @@
       "slug": null,
       "service_group": 61,
       "service_parent": null,
-      "meta": {},
       "name": "ARE Fachstelle Agglomerationsprogramm",
       "description": "ARE Abteilung Raumplanung - Fachstelle Agglomerationsprogramm",
       "sort": 71,
@@ -9105,7 +9185,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -9115,7 +9196,6 @@
       "slug": null,
       "service_group": 21,
       "service_parent": null,
-      "meta": {},
       "name": "Fachstelle IKSS (Dossierzuweisung nur via Fachstelle, Rubrik Dossier freischalten)",
       "description": "Fachstelle IKSS (Überprüfung von Dossiers bei Seilbahnen und Skiliften)",
       "sort": 37,
@@ -9130,7 +9210,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -9140,7 +9221,6 @@
       "slug": null,
       "service_group": 1,
       "service_parent": null,
-      "meta": {},
       "name": "KOOR AfG",
       "description": "Koordinationsstelle Amt für das Grundbuch",
       "sort": 184,
@@ -9155,7 +9235,58 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 637,
+    "fields": {
+      "slug": "rechtsvertretung-altdorf",
+      "service_group": 69,
+      "service_parent": 346,
+      "name": "Rechtsvertretung Gemeinde Altdorf",
+      "description": "Rechtsvertretung Gemeinde Altdorf",
+      "sort": 185,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 0,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 638,
+    "fields": {
+      "slug": "even",
+      "service_group": 72,
+      "service_parent": null,
+      "name": "Energiefachstelle EVEN",
+      "description": null,
+      "sort": 186,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "even@example.com",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 0,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {}
     }
   }
 ]
