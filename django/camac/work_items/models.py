@@ -8,11 +8,12 @@ from django.apps import apps
 from django.conf import settings
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
-from django.db.models import Case, Exists, F, OuterRef, Q, Value, When
+from django.db.models import Case, DateField, Exists, F, OuterRef, Q, Value, When
 from django.db.models.functions import Cast, Concat, JSONObject, Trim
 from django.utils.translation import get_language, gettext_lazy as _
 from localized_fields.fields import LocalizedCharField
 
+from camac.deadlines.models import InstanceDeadline
 from camac.instance.export.filters import StringAggSubquery, caluma_answer
 from camac.models import dynamic_default_value
 from camac.settings.modules.work_item_list_schema import (
@@ -253,6 +254,22 @@ class WorkItemListRowManager(models.Manager["WorkItemListRow"]):
         )
 
         return queryset
+
+    def annotate_with_service_id(self, service_id: int):
+        """Add annotated fields with current service id context."""
+        return self.get_queryset().annotate(
+            target_deadline_date=self._annotate_target_deadline_date(service_id)
+        )
+
+    def _annotate_target_deadline_date(self, service_id: int):
+        if not settings.DEADLINES.enabled:
+            return Value(None, output_field=DateField())
+
+        return (
+            InstanceDeadline.objects.filter(service=service_id)
+            .filter(instance_id=OuterRef("instance_id"))
+            .values("target_deadline_date")[:1]
+        )
 
     def _annotate_suspended_services(self) -> F | Value:
         """Annotate for which services the work item is suspended.
