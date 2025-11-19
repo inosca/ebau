@@ -2180,7 +2180,7 @@
         }),
       ]),
       'description': dict({
-        'de': 'Total of all not charged billing entries of the instance',
+        'de': 'Totalbetrag aller nicht verrechneten Gebühren des Dossiers',
       }),
       'nested_aliases': dict({
       }),
@@ -3968,8 +3968,8 @@
         }),
       ]),
       'description': dict({
-        'de': 'Total of all not charged billing entries of the instance',
-        'fr': 'Total of all not charged billing entries of the instance',
+        'de': 'Totalbetrag aller nicht verrechneten Gebühren des Dossiers',
+        'fr': 'Montant total de tous les frais non facturés du dossier',
       }),
       'nested_aliases': dict({
       }),
@@ -9002,7 +9002,7 @@
         }),
       ]),
       'description': dict({
-        'de': 'Total of all not charged billing entries of the instance',
+        'de': 'Totalbetrag aller nicht verrechneten Gebühren des Dossiers',
       }),
       'nested_aliases': dict({
       }),

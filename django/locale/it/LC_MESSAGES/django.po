@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-30 15:02+0100\n"
+"POT-Creation-Date: 2025-11-19 13:14+0100\n"
 "PO-Revision-Date: 2024-09-12 16:24+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -25,6 +25,42 @@ msgstr "eBau"
 #: camac/admin.py
 msgid "Administration"
 msgstr "Amministrazione"
+
+#: camac/alert_message/admin.py
+msgid "Title / Message Preview"
+msgstr ""
+
+#: camac/alert_message/models.py
+msgid "Created at"
+msgstr ""
+
+#: camac/alert_message/models.py
+msgid "Updated at"
+msgstr ""
+
+#: camac/alert_message/models.py
+msgid "Active"
+msgstr ""
+
+#: camac/alert_message/models.py camac/user/models.py
+msgid "Title"
+msgstr ""
+
+#: camac/alert_message/models.py
+msgid "Start Date"
+msgstr ""
+
+#: camac/alert_message/models.py
+msgid "End Date"
+msgstr ""
+
+#: camac/alert_message/models.py
+msgid "Alert Message"
+msgstr ""
+
+#: camac/alert_message/models.py
+msgid "Alert Messages"
+msgstr ""
 
 #: camac/alexandria/extensions/validations.py
 #, python-format
@@ -1306,6 +1342,14 @@ msgid "Tags"
 msgstr "Parole chiave"
 
 #: camac/instance/export/serializers.py
+msgid "Coordinates east"
+msgstr ""
+
+#: camac/instance/export/serializers.py
+msgid "Coordinates north"
+msgstr ""
+
+#: camac/instance/export/serializers.py
 msgid "Building permit type"
 msgstr "Procedura"
 
@@ -1719,20 +1763,20 @@ msgid "Circulation started"
 msgstr "Circolazione avviata"
 
 #: camac/settings/django.py
-msgid "Procedure completed"
-msgstr "Procedura relativa alla domanda di costruzione conclusa"
-
-#: camac/settings/django.py
-msgid "Preliminary exam performed"
-msgstr "Esame preliminare concluso"
-
-#: camac/settings/django.py
 msgid "Additional demand sent"
 msgstr "Richiesta di precisazioni avviata"
 
 #: camac/settings/django.py
 msgid "Additional demand was answered"
 msgstr "Risposta alla richiesta di precisazioni pervenuta"
+
+#: camac/settings/django.py
+msgid "Procedure completed"
+msgstr "Procedura relativa alla domanda di costruzione conclusa"
+
+#: camac/settings/django.py
+msgid "Preliminary exam performed"
+msgstr "Esame preliminare concluso"
 
 #: camac/settings/django.py
 msgid "Construction monitoring performed"
@@ -1992,10 +2036,6 @@ msgstr "Località"
 #: camac/user/models.py
 msgid "Zip"
 msgstr "NPA"
-
-#: camac/user/models.py
-msgid "Title"
-msgstr ""
 
 #: camac/user/models.py
 msgid "Mobile"
