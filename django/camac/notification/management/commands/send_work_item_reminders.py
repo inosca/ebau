@@ -105,6 +105,10 @@ Ce message a été généré automatiquement, veuillez ne pas y répondre.
     return text
 
 
+# NOTICE: There is a celery task defined in camac/notificaionts/tasks.py which sends
+# mail notifications for overdue work items (not for unread!) which is smaller and can
+# be configured. Use the celery task instead if it covers your use case. See task definition
+# for configuration options.
 class Command(BaseCommand):
     help = "Send reminders for unread or overdue work items."
 

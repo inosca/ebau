@@ -2474,7 +2474,17 @@ APPLICATIONS = {
                         "condition": lambda work_item: should_notify_on_manual_workitems(
                             work_item
                         ),
-                    }
+                    },
+                    {
+                        "event": "completed",
+                        "notification": {
+                            "template_slug": "complete-manual-work-item",
+                            "recipient_types": ["work_item_controlling"],
+                        },
+                        "condition": lambda work_item: work_item.meta[
+                            "notify-completed"
+                        ],
+                    },
                 ],
             },
         },
@@ -2482,6 +2492,12 @@ APPLICATIONS = {
         "USE_INSTANCE_SERVICE": True,
         "CUSTOM_NOTIFICATION_TYPES": [],
         "NOTIFICATIONS": {
+            "WORKITEM_DEADLINE_OVERDUE": {
+                "create-manual-workitems": {
+                    "template_slug": "expired-manual-work-item",
+                    "recipient_types": ["work_item_controlling"],
+                }
+            },
             "SUBMIT": [
                 {
                     "template_slug": "empfang-baugesuch-bauherrschaft",

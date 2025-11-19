@@ -477,7 +477,7 @@ def test_notify_completed_work_item(
         assert len(mailoutbox) == 1
 
 
-def test_notify_created_work_item(
+def test_notify_manual_work_item(
     db,
     caluma_admin_user,
     service_factory,
@@ -485,32 +485,50 @@ def test_notify_created_work_item(
     caluma_work_item_factory,
     mailoutbox,
     application_settings,
-    notification_template,
+    notification_template_factory,
     caluma_task_factory,
 ):
+    notification_template_created = notification_template_factory()
+    notification_template_completed = notification_template_factory()
     application_settings["CALUMA"]["CALUMA_WORKFLOW_NOTIFICATIONS"][
         "create-manual-workitems"
     ] = [
         {
             "event": "created",
             "notification": {
-                "template_slug": notification_template.slug,
+                "template_slug": notification_template_created.slug,
                 "recipient_types": ["work_item_addressed"],
             },
-        }
+        },
+        {
+            "event": "completed",
+            "notification": {
+                "template_slug": notification_template_completed.slug,
+                "recipient_types": ["work_item_controlling"],
+            },
+            "condition": lambda work_item: work_item.meta["notify-completed"],
+        },
     ]
 
-    service = service_factory()
+    controlling_service = service_factory()
+    addressed_service = service_factory()
 
+    deadline = timezone.now()
+    task = caluma_task_factory(
+        slug=application_settings["CALUMA"]["MANUAL_WORK_ITEM_TASK"],
+    )
     work_item = caluma_work_item_factory(
-        task=caluma_task_factory(
-            slug=application_settings["CALUMA"]["MANUAL_WORK_ITEM_TASK"],
-        ),
+        task=task,
         status="ready",
-        addressed_groups=[str(service.pk)],
+        addressed_groups=[str(addressed_service.pk)],
+        controlling_groups=[str(controlling_service.pk)],
         child_case=None,
-        deadline=timezone.now(),
-        meta={"ebau-number": "2020-01"},
+        deadline=deadline,
+        meta={
+            "ebau-number": "2020-01",
+            "notify-completed": True,
+            "notify-deadline": True,
+        },
     )
 
     instance.case = work_item.case
@@ -525,7 +543,57 @@ def test_notify_created_work_item(
     )
 
     assert len(mailoutbox) == 1
-    assert mailoutbox[0].recipients()[0] == service.email
+    assert mailoutbox[0].recipients()[0] == addressed_service.email
+
+    send_event(
+        post_complete_work_item,
+        sender="test_notify_created_work_item",
+        work_item=work_item,
+        user=caluma_admin_user,
+        context={},
+    )
+
+    assert len(mailoutbox) == 2
+    assert mailoutbox[1].recipients()[0] == controlling_service.email
+
+    # Test workitem with no deadline and complete notification
+    mailoutbox.clear()
+    work_item_only_create = caluma_work_item_factory(
+        task=task,
+        status="ready",
+        addressed_groups=[str(addressed_service.pk)],
+        controlling_groups=[str(controlling_service.pk)],
+        child_case=None,
+        deadline=deadline,
+        meta={
+            "ebau-number": "2020-01",
+            "notify-completed": False,
+            "notify-deadline": False,
+        },
+    )
+
+    work_item_only_create.case = work_item.case
+    work_item_only_create.save()
+
+    send_event(
+        post_create_work_item,
+        sender="test_notify_created_work_item",
+        work_item=work_item_only_create,
+        user=caluma_admin_user,
+        context={},
+    )
+
+    assert len(mailoutbox) == 1
+    assert mailoutbox[0].recipients()[0] == addressed_service.email
+
+    send_event(
+        post_complete_work_item,
+        sender="test_notify_created_work_item",
+        work_item=work_item_only_create,
+        user=caluma_admin_user,
+        context={},
+    )
+    assert len(mailoutbox) == 1
 
 
 def test_set_is_published(

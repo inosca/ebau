@@ -51,6 +51,8 @@ DJANGO_ADMIN = {
             "django_q.Failure",
             "django_q.OrmQ",
             "ech0211.Message",
+            "django_celery_beat.PeriodicTask",
+            "django_celery_beat.CrontabSchedule",
         ],
         "CUSTOMER_MANAGED_MODELS": ["gis.GISDataSource"],
     },
