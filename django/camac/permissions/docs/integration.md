@@ -141,12 +141,25 @@ MODULE_CONSTRUCTION_MONITORING = (
 
 ### Module-specific permission rules
 
-There are some modules where we decided that the rules are too complex and
-no further work is done to map these existing rules to the new permissions system.
-One of those examples is the (old) *documents module*. Here, the permissions
-module stops at the instance-resource visiblity, and any further access rules
-regarding upload, read, move permissions depending on category is delegated
-to those module-specific rules.
+There are some modules where the rules are too complex to map them all in the
+global permission module. One reason is that some permissions are dependent on
+more fine-grained context that isn't always available.
+
+For such cases, the module can be used to build a module-specific permission 
+system.
+
+Building a module-specific permissions system involves creating two subclasses:
+
+* A **permission context** that contains the required information
+* A custom permission manager to define the API
+
+Additionally, a custom settings module should be setup to contain these
+module-specific permissions. They could also, of course, contain new, custom
+permission conditions.
+
+Read about [module-specific permissions](module_specific_permissions.py)
+for more details about implementing this
+
 
 ### Mapping InstanceResource permissions with tool assistance
 
