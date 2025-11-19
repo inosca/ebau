@@ -594,6 +594,9 @@ DUMP = {
                 "caluma_construction_control_form": generate_form_dump_config(
                     regex=r"^construction-control"
                 ),
+                "caluma_einfache_anfrage_form": generate_form_dump_config(
+                    regex=r"^einfache-anfrage"
+                ),
                 **DISTRIBUTION_DUMP_CONFIG,
                 **ADDITIONAL_DEMAND_DUMP_CONFIG,
                 **CONSTRUCTION_MONITORING_DUMP_CONFIG,
