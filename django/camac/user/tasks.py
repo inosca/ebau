@@ -7,6 +7,7 @@ from django.db.models import Exists, OuterRef
 from django.utils import timezone
 
 from camac.caluma.api import CalumaApi
+from camac.constants import kt_bern as be_constants
 from camac.instance import models as instance_models
 from camac.permissions import events as permissions_events
 from camac.permissions.models import InstanceACL
@@ -62,46 +63,73 @@ def change_geometer_task(task):
 
             instance_count = instances.count()
             for n, instance in enumerate(instances.iterator(), start=1):
-                log.info("Geometer reassignement of instance %s started", instance.pk)
+                log.info(
+                    "Geometer reassignement of instance %s started (%s/%s)",
+                    instance.pk,
+                    n,
+                    instance_count,
+                )
+
+                attachments = instance.attachments.filter(
+                    attachment_sections=be_constants.ATTACHMENT_SECTION_BEILAGEN_SB1_PAPIER
+                )
 
                 work_items = instance.case.work_items.filter(
                     status=WorkItem.STATUS_READY,
                     task_id__in=["geometer", "cadastral-survey"],
                 )
 
-                if work_items:
-                    log.info(
-                        "Updating %s work-items for instance %s (%s/%s)",
-                        work_items.count(),
-                        instance.pk,
-                        n,
-                        instance_count,
-                    )
-
+                if work_items or attachments:
                     geometer_acls = InstanceACL.currently_active().filter(
                         access_level_id="geometer",
                         instance=instance,
                     )
+                    attachment_count = 0
                     for instance_acl in geometer_acls:
                         # Reassign all geometer and cadastral-survey workitems from the old geometer to the new one.
 
-                        caluma_api.reassign_work_items(
-                            instance,
-                            from_group_id=instance_acl.service.pk,
-                            to_group_id=selected_geometer.pk,
-                            user=AnonymousUser(),
-                            work_items=work_items,
+                        if work_items:
+                            caluma_api.reassign_work_items(
+                                instance,
+                                from_group_id=instance_acl.service.pk,
+                                to_group_id=selected_geometer.pk,
+                                user=AnonymousUser(),
+                                work_items=work_items,
+                            )
+
+                        geometer_attachments = attachments.filter(
+                            service=instance_acl.service
                         )
-                    log.info("Reassigned work-items for instance %s", instance.pk)
+
+                        if geometer_attachments:
+                            attachment_count = (
+                                attachment_count + geometer_attachments.count()
+                            )
+                            for attachment in geometer_attachments:
+                                attachment.context["for_geometer"] = True
+                                attachment.save()
+
+                    if work_items or attachment_count:
+                        log.info(
+                            "Reassigned %s work-items and %s attachments for instance %s",
+                            work_items.count(),
+                            attachment_count,
+                            instance.pk,
+                        )
 
                 # Revoke active geometer ACLs and add new ACLs for the new geometer
-                permissions_events.Trigger.geometer_changed(
+                instance_acl_count = permissions_events.Trigger.geometer_changed(
                     None,
                     instance,
                     selected_geometer,
                 )
-                log.info("Reassigned geometer for instance %s", instance.pk)
+                log.info(
+                    "Revoked %s instance acls for instance %s",
+                    instance_acl_count,
+                    instance.pk,
+                )
 
+            log.info(f"{instance_count} instances reassigned")
             task.status = "completed"
             task.completed_at = timezone.now()
             task.save()

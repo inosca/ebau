@@ -365,9 +365,12 @@ def test_change_geometer_task(
     admin_client,
     be_instance,
     geometer_exists,
+    mocker,
     service_factory,
     instance_acl_factory,
     caluma_work_item_factory,
+    attachment_factory,
+    attachment_section_factory,
     access_level_factory,
 ):
     selected_geometer = service_factory()
@@ -376,6 +379,15 @@ def test_change_geometer_task(
 
     if geometer_exists:
         existing_geometer = service_factory()
+
+        attachment_section = attachment_section_factory()
+        mocker.patch(
+            "camac.constants.kt_bern.ATTACHMENT_SECTION_BEILAGEN_SB1_PAPIER",
+            attachment_section.pk,
+        )
+        attachment = attachment_factory(instance=be_instance, service=existing_geometer)
+        attachment.attachment_sections.add(attachment_section)
+
         ServiceRelation.objects.create(
             provider=existing_geometer,
             receiver=selected_municipality,
@@ -406,6 +418,7 @@ def test_change_geometer_task(
             str(selected_geometer.pk)
             in WorkItem.objects.filter(task_id="geometer").first().addressed_groups
         )
+        assert be_instance.attachments.first().context["for_geometer"]
 
     assert ServiceRelation.objects.first().provider == selected_geometer
 
