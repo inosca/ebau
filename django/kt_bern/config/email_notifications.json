@@ -649,18 +649,6 @@
   },
   {
     "model": "notification.notificationtemplate",
-    "pk": 69,
-    "fields": {
-      "slug": "additional-demand-decision-accept",
-      "purpose": null,
-      "subject": null,
-      "body": null,
-      "service": null,
-      "type": "email"
-    }
-  },
-  {
-    "model": "notification.notificationtemplate",
     "pk": 70,
     "fields": {
       "slug": "additional-demand-decision-reject",
@@ -1345,26 +1333,14 @@
   },
   {
     "model": "notification.notificationtemplatet",
-    "pk": 101,
-    "fields": {
-      "template": 69,
-      "template_slug": "additional-demand-decision-accept",
-      "language": "de",
-      "purpose": "Nachforderung geprüft positiv",
-      "subject": "Nachforderung akzeptiert (Dossier-Nr. {{DOSSIER_NR}}) / *** version française ***",
-      "body": "Guten Tag\r\n\r\nIm eBau wurde die Nachforderung angeschlossen im Dossier-Nr.  {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau\r\n\r\n*** version française ***"
-    }
-  },
-  {
-    "model": "notification.notificationtemplatet",
     "pk": 102,
     "fields": {
       "template": 70,
       "template_slug": "additional-demand-decision-reject",
       "language": "de",
       "purpose": "Nachforderung geprüft negativ",
-      "subject": "Nachforderung abgelehnt (Dossier-Nr. {{DOSSIER_NR}}) / *** version française ***",
-      "body": "Guten Tag\r\n\r\nIhre Antwort auf die Nachforderung im Dossier mit der Dossier-Nr. {{INSTANCE_ID}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde nicht akzeptiert.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau\r\n\r\n*** version française ***"
+      "subject": "Nachforderung abgelehnt (Dossier-Nr. {{DOSSIER_NR}}) / Demande de complément refusée (dossier n° {{DOSSIER_NR}})",
+      "body": "Guten Tag\r\n\r\nIhre Antwort auf die Nachforderung im Dossier mit der Dossier-Nr. {{INSTANCE_ID}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde nicht akzeptiert.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau\r\n\r\n*** version française ***\r\n\r\n\"Bonjour  \r\n\r\nVotre demande de complément a été refusée dans le dossier n° {{INSTANCE_ID}} ({{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}). \r\n\r\n{{PUBLIC_DOSSIER_LINK}}/additional-demand \r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nMeilleures salutations \r\neBau"
     }
   },
   {
