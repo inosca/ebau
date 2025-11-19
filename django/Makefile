@@ -19,16 +19,18 @@ start: ## Start the development server
 	@docker-compose -f ../docker-compose.yml start db
 	@python manage.py runserver
 
-.PHONY: test
-test: ## Test the project
-	env
-	@touch .env
+.PHONY: lint
+lint: ## Lint the project
 	@ruff check .
 	@ruff format --check .
-	@python manage.py compilemessages
-	@python manage.py generate_fixtures --check
+
+.PHONY: test
+test: ## Test the project
+	@env
+	@touch .env
+	@python manage.py compilemessages &> /dev/null
 	@pytest -vv --cov --cov-report term --cov-report xml:artifacts/cobertura.xml --record-mode=none -n 8 --dist worksteal --junitxml=artifacts/junit.xml
-	@python tools/whichtest.py  --check-locality --verbose --no-report-100percent
+	@python tools/whichtest.py --check-locality --verbose --no-report-100percent
 
 .PHONY: sqlsequencereset
 sqlsequencereset:

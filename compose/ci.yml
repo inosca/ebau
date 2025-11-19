@@ -75,6 +75,7 @@ services:
     volumes:
       - djangomedia:/var/lib/camac/media
       - djangotmpmedia:/tmp/camac/tmpfiles
+      - ../django:/app
     networks:
       - ebau.localhost
 
