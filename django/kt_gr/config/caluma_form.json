@@ -26306,6 +26306,23 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "energie-waermequelle-heizung-7543",
+    "fields": {
+      "created_at": "2025-11-15T07:16:43.462Z",
+      "modified_at": "2025-11-15T07:19:02.288Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Holz (Schnitzel)\", \"fr\": null, \"it\": \"Legna (cippato, trucioli)\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "energie-waermequelle-heizung-7550",
     "fields": {
       "created_at": "2023-11-02T11:30:46.465Z",
@@ -26961,6 +26978,23 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Holz (Pellets)\", \"fr\": null, \"it\": \"Legna (granulati pellet)\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "energie-waermequelle-warmwasser-7543",
+    "fields": {
+      "created_at": "2025-11-15T07:17:48.712Z",
+      "modified_at": "2025-11-15T07:18:51.427Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Holz (Schnitzel)\", \"fr\": null, \"it\": \"Legna (cippato, trucioli)\"}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -57015,7 +57049,7 @@
     "pk": "energie-waermequelle-heizung",
     "fields": {
       "created_at": "2023-05-19T11:00:40.873Z",
-      "modified_at": "2024-09-11T14:58:38.190Z",
+      "modified_at": "2025-11-15T07:19:02.386Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -57027,7 +57061,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"Mit «Energie-/Wärmequelle Heizung» ist die vom Wärmeerzeuger genutzte Hauptenergiequelle gemeint. Die Hilfsenergie, die für das Funktionieren der Installation genutzt wird (z.B. Elektrizität für Wärmepumpen), ist nicht zu nennen.\", \"fr\": null, \"it\": \"«Fonte di energia/calore riscaldamento» indica la fonte di energia principale utilizzata dal generatore di calore. L'energia ausiliaria utilizzata per il funzionamento dell'impianto (ad es. l'elettricità per le pompe di calore) non va menzionata.\"}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
@@ -57048,7 +57082,7 @@
     "pk": "energie-waermequelle-warmwasser",
     "fields": {
       "created_at": "2023-05-19T11:12:25.778Z",
-      "modified_at": "2024-09-11T14:58:38.212Z",
+      "modified_at": "2025-11-15T07:18:51.522Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -57060,7 +57094,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"Mit «Energie-/Wärmequelle Warmwasser» ist die vom Wärmeerzeuger genutzte Hauptenergiequelle gemeint. Die Hilfsenergie, die für das Funktionieren der Installation genutzt wird (z.B. Elektrizität für Wärmepumpen), ist nicht zu nennen.\", \"fr\": null, \"it\": \"«Fonte di energia/calore acqua calda» indica la fonte di energia principale utilizzata dal generatore di calore. L'energia ausiliaria utilizzata per il funzionamento dell'impianto (ad es. l'elettricità per le pompe di calore) non va menzionata.\"}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
@@ -70471,7 +70505,7 @@
     "pk": "neue-adresse-notwendig",
     "fields": {
       "created_at": "2025-01-07T12:10:27.336Z",
-      "modified_at": "2025-06-02T14:31:51.763Z",
+      "modified_at": "2025-11-11T13:49:31.363Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -70479,7 +70513,7 @@
       "label": "{\"de\": \"Ist eine neue Adresse notwendig?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "true",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -88953,164 +88987,179 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-7500",
     "fields": {
-      "created_at": "2023-11-02T11:41:00.308Z",
-      "modified_at": "2023-11-02T11:41:00.308Z",
+      "created_at": "2025-11-15T07:19:02.431Z",
+      "modified_at": "2025-11-15T07:19:02.431Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "energie-waermequelle-heizung",
       "option": "energie-waermequelle-heizung-7500",
-      "sort": 20
+      "sort": 21
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-7501",
     "fields": {
-      "created_at": "2023-11-02T11:41:00.307Z",
-      "modified_at": "2023-11-02T11:41:00.307Z",
+      "created_at": "2025-11-15T07:19:02.429Z",
+      "modified_at": "2025-11-15T07:19:02.429Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "energie-waermequelle-heizung",
       "option": "energie-waermequelle-heizung-7501",
-      "sort": 19
+      "sort": 20
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-7510",
     "fields": {
-      "created_at": "2023-11-02T11:41:00.306Z",
-      "modified_at": "2023-11-02T11:41:00.306Z",
+      "created_at": "2025-11-15T07:19:02.427Z",
+      "modified_at": "2025-11-15T07:19:02.427Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "energie-waermequelle-heizung",
       "option": "energie-waermequelle-heizung-7510",
-      "sort": 18
+      "sort": 19
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-7511",
     "fields": {
-      "created_at": "2023-11-02T11:41:00.306Z",
-      "modified_at": "2023-11-02T11:41:00.306Z",
+      "created_at": "2025-11-15T07:19:02.424Z",
+      "modified_at": "2025-11-15T07:19:02.424Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "energie-waermequelle-heizung",
       "option": "energie-waermequelle-heizung-7511",
-      "sort": 17
+      "sort": 18
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-7512",
     "fields": {
-      "created_at": "2023-11-02T11:41:00.305Z",
-      "modified_at": "2023-11-02T11:41:00.305Z",
+      "created_at": "2025-11-15T07:19:02.422Z",
+      "modified_at": "2025-11-15T07:19:02.422Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "energie-waermequelle-heizung",
       "option": "energie-waermequelle-heizung-7512",
-      "sort": 16
+      "sort": 17
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-7513",
     "fields": {
-      "created_at": "2023-11-02T11:41:00.304Z",
-      "modified_at": "2023-11-02T11:41:00.304Z",
+      "created_at": "2025-11-15T07:19:02.420Z",
+      "modified_at": "2025-11-15T07:19:02.420Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "energie-waermequelle-heizung",
       "option": "energie-waermequelle-heizung-7513",
-      "sort": 15
+      "sort": 16
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-7520",
     "fields": {
-      "created_at": "2023-11-02T11:41:00.303Z",
-      "modified_at": "2023-11-02T11:41:00.303Z",
+      "created_at": "2025-11-15T07:19:02.419Z",
+      "modified_at": "2025-11-15T07:19:02.419Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "energie-waermequelle-heizung",
       "option": "energie-waermequelle-heizung-7520",
-      "sort": 14
+      "sort": 15
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-7530",
     "fields": {
-      "created_at": "2023-11-02T11:41:00.302Z",
-      "modified_at": "2023-11-02T11:41:00.302Z",
+      "created_at": "2025-11-15T07:19:02.418Z",
+      "modified_at": "2025-11-15T07:19:02.418Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "energie-waermequelle-heizung",
       "option": "energie-waermequelle-heizung-7530",
-      "sort": 13
+      "sort": 14
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-7540",
     "fields": {
-      "created_at": "2023-11-02T11:41:00.302Z",
-      "modified_at": "2023-11-02T11:41:00.302Z",
+      "created_at": "2025-11-15T07:19:02.416Z",
+      "modified_at": "2025-11-15T07:19:02.416Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "energie-waermequelle-heizung",
       "option": "energie-waermequelle-heizung-7540",
-      "sort": 12
+      "sort": 13
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-7541",
     "fields": {
-      "created_at": "2023-11-02T11:41:00.301Z",
-      "modified_at": "2023-11-02T11:41:00.301Z",
+      "created_at": "2025-11-15T07:19:02.414Z",
+      "modified_at": "2025-11-15T07:19:02.414Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "energie-waermequelle-heizung",
       "option": "energie-waermequelle-heizung-7541",
-      "sort": 11
+      "sort": 12
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-7542",
     "fields": {
-      "created_at": "2023-11-02T11:41:00.300Z",
-      "modified_at": "2023-11-02T11:41:00.300Z",
+      "created_at": "2025-11-15T07:19:02.412Z",
+      "modified_at": "2025-11-15T07:19:02.412Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "energie-waermequelle-heizung",
       "option": "energie-waermequelle-heizung-7542",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-7543",
+    "fields": {
+      "created_at": "2025-11-15T07:19:02.410Z",
+      "modified_at": "2025-11-15T07:19:02.410Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "energie-waermequelle-heizung",
+      "option": "energie-waermequelle-heizung-7543",
       "sort": 10
     }
   },
@@ -89118,8 +89167,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-7550",
     "fields": {
-      "created_at": "2023-11-02T11:41:00.299Z",
-      "modified_at": "2023-11-02T11:41:00.299Z",
+      "created_at": "2025-11-15T07:19:02.408Z",
+      "modified_at": "2025-11-15T07:19:02.408Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -89133,8 +89182,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-7560",
     "fields": {
-      "created_at": "2023-11-02T11:41:00.298Z",
-      "modified_at": "2023-11-02T11:41:00.299Z",
+      "created_at": "2025-11-15T07:19:02.406Z",
+      "modified_at": "2025-11-15T07:19:02.406Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -89148,8 +89197,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-7570",
     "fields": {
-      "created_at": "2023-11-02T11:41:00.298Z",
-      "modified_at": "2023-11-02T11:41:00.298Z",
+      "created_at": "2025-11-15T07:19:02.404Z",
+      "modified_at": "2025-11-15T07:19:02.404Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -89163,8 +89212,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-7580",
     "fields": {
-      "created_at": "2023-11-02T11:41:00.297Z",
-      "modified_at": "2023-11-02T11:41:00.297Z",
+      "created_at": "2025-11-15T07:19:02.402Z",
+      "modified_at": "2025-11-15T07:19:02.402Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -89178,8 +89227,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-7581",
     "fields": {
-      "created_at": "2023-11-02T11:41:00.296Z",
-      "modified_at": "2023-11-02T11:41:00.296Z",
+      "created_at": "2025-11-15T07:19:02.400Z",
+      "modified_at": "2025-11-15T07:19:02.400Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -89193,8 +89242,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-7582",
     "fields": {
-      "created_at": "2023-11-02T11:41:00.295Z",
-      "modified_at": "2023-11-02T11:41:00.295Z",
+      "created_at": "2025-11-15T07:19:02.398Z",
+      "modified_at": "2025-11-15T07:19:02.398Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -89208,8 +89257,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-7598",
     "fields": {
-      "created_at": "2023-11-02T11:41:00.295Z",
-      "modified_at": "2023-11-02T11:41:00.295Z",
+      "created_at": "2025-11-15T07:19:02.396Z",
+      "modified_at": "2025-11-15T07:19:02.396Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -89223,8 +89272,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-7599",
     "fields": {
-      "created_at": "2023-11-02T11:41:00.294Z",
-      "modified_at": "2023-11-02T11:41:00.294Z",
+      "created_at": "2025-11-15T07:19:02.394Z",
+      "modified_at": "2025-11-15T07:19:02.394Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -89238,8 +89287,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-heizung.energie-waermequelle-heizung-noch-nicht-festgelegt",
     "fields": {
-      "created_at": "2023-11-02T11:41:00.293Z",
-      "modified_at": "2023-11-02T11:41:00.293Z",
+      "created_at": "2025-11-15T07:19:02.391Z",
+      "modified_at": "2025-11-15T07:19:02.391Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -89253,164 +89302,179 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-7500",
     "fields": {
-      "created_at": "2023-11-02T11:40:23.924Z",
-      "modified_at": "2023-11-02T11:40:23.924Z",
+      "created_at": "2025-11-15T07:18:51.574Z",
+      "modified_at": "2025-11-15T07:18:51.574Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "energie-waermequelle-warmwasser",
       "option": "energie-waermequelle-warmwasser-7500",
-      "sort": 20
+      "sort": 21
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-7501",
     "fields": {
-      "created_at": "2023-11-02T11:40:23.923Z",
-      "modified_at": "2023-11-02T11:40:23.923Z",
+      "created_at": "2025-11-15T07:18:51.572Z",
+      "modified_at": "2025-11-15T07:18:51.572Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "energie-waermequelle-warmwasser",
       "option": "energie-waermequelle-warmwasser-7501",
-      "sort": 19
+      "sort": 20
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-7510",
     "fields": {
-      "created_at": "2023-11-02T11:40:23.921Z",
-      "modified_at": "2023-11-02T11:40:23.921Z",
+      "created_at": "2025-11-15T07:18:51.570Z",
+      "modified_at": "2025-11-15T07:18:51.570Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "energie-waermequelle-warmwasser",
       "option": "energie-waermequelle-warmwasser-7510",
-      "sort": 18
+      "sort": 19
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-7511",
     "fields": {
-      "created_at": "2023-11-02T11:40:23.919Z",
-      "modified_at": "2023-11-02T11:40:23.919Z",
+      "created_at": "2025-11-15T07:18:51.568Z",
+      "modified_at": "2025-11-15T07:18:51.568Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "energie-waermequelle-warmwasser",
       "option": "energie-waermequelle-warmwasser-7511",
-      "sort": 17
+      "sort": 18
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-7512",
     "fields": {
-      "created_at": "2023-11-02T11:40:23.917Z",
-      "modified_at": "2023-11-02T11:40:23.917Z",
+      "created_at": "2025-11-15T07:18:51.566Z",
+      "modified_at": "2025-11-15T07:18:51.566Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "energie-waermequelle-warmwasser",
       "option": "energie-waermequelle-warmwasser-7512",
-      "sort": 16
+      "sort": 17
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-7513",
     "fields": {
-      "created_at": "2023-11-02T11:40:23.915Z",
-      "modified_at": "2023-11-02T11:40:23.915Z",
+      "created_at": "2025-11-15T07:18:51.563Z",
+      "modified_at": "2025-11-15T07:18:51.563Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "energie-waermequelle-warmwasser",
       "option": "energie-waermequelle-warmwasser-7513",
-      "sort": 15
+      "sort": 16
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-7520",
     "fields": {
-      "created_at": "2023-11-02T11:40:23.913Z",
-      "modified_at": "2023-11-02T11:40:23.913Z",
+      "created_at": "2025-11-15T07:18:51.561Z",
+      "modified_at": "2025-11-15T07:18:51.561Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "energie-waermequelle-warmwasser",
       "option": "energie-waermequelle-warmwasser-7520",
-      "sort": 14
+      "sort": 15
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-7530",
     "fields": {
-      "created_at": "2023-11-02T11:40:23.911Z",
-      "modified_at": "2023-11-02T11:40:23.911Z",
+      "created_at": "2025-11-15T07:18:51.559Z",
+      "modified_at": "2025-11-15T07:18:51.559Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "energie-waermequelle-warmwasser",
       "option": "energie-waermequelle-warmwasser-7530",
-      "sort": 13
+      "sort": 14
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-7540",
     "fields": {
-      "created_at": "2023-11-02T11:40:23.909Z",
-      "modified_at": "2023-11-02T11:40:23.909Z",
+      "created_at": "2025-11-15T07:18:51.557Z",
+      "modified_at": "2025-11-15T07:18:51.557Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "energie-waermequelle-warmwasser",
       "option": "energie-waermequelle-warmwasser-7540",
-      "sort": 12
+      "sort": 13
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-7541",
     "fields": {
-      "created_at": "2023-11-02T11:40:23.908Z",
-      "modified_at": "2023-11-02T11:40:23.908Z",
+      "created_at": "2025-11-15T07:18:51.552Z",
+      "modified_at": "2025-11-15T07:18:51.552Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "energie-waermequelle-warmwasser",
       "option": "energie-waermequelle-warmwasser-7541",
-      "sort": 11
+      "sort": 12
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-7542",
     "fields": {
-      "created_at": "2023-11-02T11:40:23.905Z",
-      "modified_at": "2023-11-02T11:40:23.905Z",
+      "created_at": "2025-11-15T07:18:51.549Z",
+      "modified_at": "2025-11-15T07:18:51.549Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "energie-waermequelle-warmwasser",
       "option": "energie-waermequelle-warmwasser-7542",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-7543",
+    "fields": {
+      "created_at": "2025-11-15T07:18:51.546Z",
+      "modified_at": "2025-11-15T07:18:51.546Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "energie-waermequelle-warmwasser",
+      "option": "energie-waermequelle-warmwasser-7543",
       "sort": 10
     }
   },
@@ -89418,8 +89482,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-7550",
     "fields": {
-      "created_at": "2023-11-02T11:40:23.904Z",
-      "modified_at": "2023-11-02T11:40:23.904Z",
+      "created_at": "2025-11-15T07:18:51.544Z",
+      "modified_at": "2025-11-15T07:18:51.544Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -89433,8 +89497,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-7560",
     "fields": {
-      "created_at": "2023-11-02T11:40:23.903Z",
-      "modified_at": "2023-11-02T11:40:23.903Z",
+      "created_at": "2025-11-15T07:18:51.542Z",
+      "modified_at": "2025-11-15T07:18:51.542Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -89448,8 +89512,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-7570",
     "fields": {
-      "created_at": "2023-11-02T11:40:23.901Z",
-      "modified_at": "2023-11-02T11:40:23.901Z",
+      "created_at": "2025-11-15T07:18:51.540Z",
+      "modified_at": "2025-11-15T07:18:51.540Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -89463,8 +89527,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-7580",
     "fields": {
-      "created_at": "2023-11-02T11:40:23.899Z",
-      "modified_at": "2023-11-02T11:40:23.899Z",
+      "created_at": "2025-11-15T07:18:51.538Z",
+      "modified_at": "2025-11-15T07:18:51.538Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -89478,8 +89542,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-7581",
     "fields": {
-      "created_at": "2023-11-02T11:40:23.897Z",
-      "modified_at": "2023-11-02T11:40:23.897Z",
+      "created_at": "2025-11-15T07:18:51.536Z",
+      "modified_at": "2025-11-15T07:18:51.536Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -89493,8 +89557,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-7582",
     "fields": {
-      "created_at": "2023-11-02T11:40:23.895Z",
-      "modified_at": "2023-11-02T11:40:23.895Z",
+      "created_at": "2025-11-15T07:18:51.534Z",
+      "modified_at": "2025-11-15T07:18:51.534Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -89508,8 +89572,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-7598",
     "fields": {
-      "created_at": "2023-11-02T11:40:23.893Z",
-      "modified_at": "2023-11-02T11:40:23.893Z",
+      "created_at": "2025-11-15T07:18:51.532Z",
+      "modified_at": "2025-11-15T07:18:51.532Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -89523,8 +89587,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-7599",
     "fields": {
-      "created_at": "2023-11-02T11:40:23.890Z",
-      "modified_at": "2023-11-02T11:40:23.890Z",
+      "created_at": "2025-11-15T07:18:51.529Z",
+      "modified_at": "2025-11-15T07:18:51.529Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -89538,8 +89602,8 @@
     "model": "caluma_form.questionoption",
     "pk": "energie-waermequelle-warmwasser.energie-waermequelle-warmwasser-noch-nicht-festgelegt",
     "fields": {
-      "created_at": "2023-11-02T11:40:23.888Z",
-      "modified_at": "2023-11-02T11:40:23.888Z",
+      "created_at": "2025-11-15T07:18:51.527Z",
+      "modified_at": "2025-11-15T07:18:51.527Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -93723,8 +93787,8 @@
     "model": "caluma_form.questionoption",
     "pk": "neue-adresse-notwendig.neue-adresse-notwendig-ja",
     "fields": {
-      "created_at": "2025-06-02T14:31:51.769Z",
-      "modified_at": "2025-06-02T14:31:51.769Z",
+      "created_at": "2025-11-11T13:49:31.385Z",
+      "modified_at": "2025-11-11T13:49:31.385Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -93738,8 +93802,8 @@
     "model": "caluma_form.questionoption",
     "pk": "neue-adresse-notwendig.neue-adresse-notwendig-nein",
     "fields": {
-      "created_at": "2025-06-02T14:31:51.767Z",
-      "modified_at": "2025-06-02T14:31:51.767Z",
+      "created_at": "2025-11-11T13:49:31.372Z",
+      "modified_at": "2025-11-11T13:49:31.372Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
