@@ -550,5 +550,17 @@
       "service": null,
       "type": "email"
     }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 1504,
+    "fields": {
+      "slug": "1-2-berechtigung-erteilt",
+      "purpose": "1.2 Gesuchsbearbeitungs Einladung aus dem Berechtigungsmodul",
+      "subject": "URec Dossier ID {{INSTANCE_ID}} - Sie haben Zugriff auf ein Dossier erhalten",
+      "body": "URec System Info 1.2 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nZUGRIFFSBERECHTIGUNG WURDE ERTEILT\r\n\r\nSie haben Zugriff auf das Dossier {{ INTERNAL_DOSSIER_LINK }} erhalten.\r\n\r\nFreundliche Grüsse",
+      "service": null,
+      "type": "email"
+    }
   }
 ]
