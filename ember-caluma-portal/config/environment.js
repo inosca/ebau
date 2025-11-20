@@ -366,6 +366,7 @@ module.exports = function (environment) {
             "archivdossier",
             "pgv-gemeindestrasse",
             "oereb-verfahren-gemeinde",
+            "einfache-anfrage",
           ],
         },
         {

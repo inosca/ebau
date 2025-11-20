@@ -690,6 +690,16 @@
     }
   },
   {
+    "model": "instance.form",
+    "pk": 307,
+    "fields": {
+      "form_state": 1,
+      "name": "Einfache Anfrage",
+      "description": "Einfache Anfrage",
+      "family": null
+    }
+  },
+  {
     "model": "instance.formstate",
     "pk": 1,
     "fields": {

@@ -424,12 +424,11 @@ def test_construction_monitoring_work_item_visibility_coordination(mocker):
 
 
 @pytest.mark.parametrize(
-    "allow_forms_setting,allow_caluma_forms_setting,should_be_allowed",
+    "allow_forms_setting,should_be_allowed",
     [
-        (None, ["building-permit-caluma"], True),
-        (["building-permit-camac"], None, True),
-        (["no-building-permits-allowed-camac"], None, False),
-        (None, ["no-building-permits-allowed-caluma"], False),
+        (None, True),
+        (["building-permit-camac"], True),
+        (["no-building-permits-allowed-camac"], False),
     ],
 )
 def test_can_perform_construction_monitoring_allow_forms(
@@ -441,7 +440,6 @@ def test_can_perform_construction_monitoring_allow_forms(
     form_factory,
     # parametrize fixtures
     allow_forms_setting,
-    allow_caluma_forms_setting,
     should_be_allowed,
 ):
     instance.form.family = form_factory(name="building-permit-camac")
@@ -453,7 +451,6 @@ def test_can_perform_construction_monitoring_allow_forms(
     instance.save()
 
     construction_monitoring_settings["ALLOW_FORMS"] = allow_forms_setting
-    construction_monitoring_settings["ALLOW_CALUMA_FORMS"] = allow_caluma_forms_setting
 
     assert can_perform_construction_monitoring(instance) == should_be_allowed
 

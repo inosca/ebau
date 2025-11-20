@@ -418,6 +418,7 @@ DMS = {
                     "bohrbewilligung-waermeentnahme",
                     "pgv-gemeindestrasse",
                     "oereb-verfahren-gemeinde",
+                    "einfache-anfrage",
                 ],
                 "people_sources": [
                     "applicant",
