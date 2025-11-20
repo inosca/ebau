@@ -2204,8 +2204,10 @@ class CalumaInstanceSetEbauNumberSerializer(serializers.Serializer):
 
 
 class CalumaInstanceUnsubscribeResponsibleServiceSerializer(serializers.Serializer):
+    service_type = serializers.CharField()
+
     @transaction.atomic
-    @canton_aware
+    @permission_aware
     def update(self, instance, validated_data):
         service = self.context["request"].group.service
 
@@ -2221,9 +2223,15 @@ class CalumaInstanceUnsubscribeResponsibleServiceSerializer(serializers.Serializ
         return instance
 
     @transaction.atomic
-    def update_be(self, instance, validated_data):
+    def update_for_support(self, instance, validated_data):
         # The support role can remove all involved services
-        instance_services = instance.instance_services.filter(active=0)
+        filter_type = validated_data["service_type"]
+        instance_services = instance.instance_services.filter(
+            **settings.APPLICATION["ACTIVE_SERVICES"][
+                filter_type.upper().replace("-", "_")
+            ]["FILTERS"],
+            active=0,
+        )
 
         for instance_service in instance_services:
             permissions_events.Trigger.unsubscribed_responsible_service(

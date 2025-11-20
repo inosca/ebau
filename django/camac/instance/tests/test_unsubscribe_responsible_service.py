@@ -2,6 +2,7 @@ import pytest
 from django.urls import reverse
 from rest_framework import status
 
+from camac.core.models import InstanceService
 from camac.permissions import api as permissions_api
 from camac.permissions.switcher import PERMISSION_MODE
 
@@ -55,11 +56,72 @@ def test_unsubscribe_responsible_service(
         {
             "data": {
                 "type": "instance-unsubscribe-responsible-services",
+                "attributes": {"service-type": "municipality"},
             }
         },
     )
 
     assert response.status_code == expected_result
+
+
+@pytest.mark.parametrize(
+    "role__name,service_type,instance_services_count_after",
+    [
+        ("Municipality", "municipality", 4),
+        ("Municipality", "construction-control", 4),
+        ("Support", "municipality", 2),
+        ("Support", "construction-control", 2),
+    ],
+)
+def test_unsubscribe_responsible_service_removes_correct_services(
+    db,
+    admin_client,
+    be_instance,
+    application_settings,
+    service_type,
+    instance_services_count_after,
+    instance_service_factory,
+    service_factory,
+):
+    application_settings["ACTIVE_SERVICES"][service_type.upper().replace("-", "_")][
+        "FILTERS"
+    ] = {"service__service_group__name__in": [service_type]}
+    group = admin_client.user.groups.first()
+    group.service.instance_services.all().delete()
+
+    group.service.service_group.name = service_type
+    group.service.service_group.save()
+
+    instance_service_factory(
+        instance=be_instance,
+        service=group.service,
+        active=0,
+    )
+
+    for i in range(0, 2):
+        instance_service_factory(
+            instance=be_instance,
+            service=service_factory(service_group__name="municipality"),
+            active=0,
+        )
+        instance_service_factory(
+            instance=be_instance,
+            service=service_factory(service_group__name="construction-control"),
+            active=0,
+        )
+    assert InstanceService.objects.all().count() == 5
+
+    admin_client.post(
+        reverse("instance-unsubscribe-responsible-service", args=[be_instance.pk]),
+        {
+            "data": {
+                "type": "instance-unsubscribe-responsible-services",
+                "attributes": {"service-type": service_type},
+            }
+        },
+    )
+
+    assert InstanceService.objects.all().count() == instance_services_count_after
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
