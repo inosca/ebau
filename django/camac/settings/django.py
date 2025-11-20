@@ -3120,6 +3120,8 @@ if (
         }
 
     STORAGES["default"]["OPTIONS"] = storage_options
+    AWS_S3_ADDRESSING_STYLE = env.str("AWS_S3_ADDRESSING_STYLE", default=None)
+
 
 FILE_UPLOAD_PERMISSIONS = env.int("FILE_UPLOAD_PERMISSIONS", default=0o644)
 
