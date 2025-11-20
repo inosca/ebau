@@ -38419,6 +38419,74 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "anzahl-gebaeude-die-einer-bauzone-zugewiesen-wurden",
+    "fields": {
+      "created_at": "2025-11-14T07:17:37.813Z",
+      "modified_at": "2025-11-14T07:25:15.015Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl Gebäude die einer Bauzone zugewiesen wurden\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"**Definition Gebäude gemäss VGWR**\\n\\nAls Gebäude gelten Bauten und Anlagen die: auf Dauer angelegt, mit einem Dach versehen, mit dem Boden fest verbunden sind und Personen aufnehmen kann und Wohnzwecken oder Zwecken der Arbeit, der Ausbildung, der Kultur, des Sports oder jeglicher anderer menschlicher Tätigkeit dient; ein Doppel-, Gruppen- und Reihenhaus zählt ebenfalls als ein Gebäude,, wenn es einen eigenen Zugang von aussen hat und wenn zwischen den Gebäuden eine senkrechte vom Erdgeschoss bis zum Dach reichende tragende Trennmauer besteht.\\n\\nFür die Berechnung des Stabilisierungsziels nicht relevant sind Bauten und Anlagen mit einer Grundfläche von weniger als 6 m2.\\n\\nFür die Berechnung des Stabilisierungsziels relevant sind auch alle Gebäude die infolge einer Änderung der Nutzungplanung neu ausserhalb der Bauzone liegen oder eingezont werden.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Dieses Feld bezieht sich auf Nutzungsplanungsdossiers. Allfällige Daten werden durch die Fachstelle Nutzungsplanung erfasst.\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "anzahl-gebaeude-die-infolge-aenderung-der-nutzungsplanung-neu-ausserhalb-der-bauzone-liegen",
+    "fields": {
+      "created_at": "2025-11-14T07:15:31.172Z",
+      "modified_at": "2025-11-14T07:24:22.636Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl Gebäude die infolge Änderung der Nutzungsplanung neu ausserhalb der Bauzone liegen\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"**Definition Gebäude gemäss VGWR**\\n\\nAls Gebäude gelten Bauten und Anlagen die: auf Dauer angelegt, mit einem Dach versehen, mit dem Boden fest verbunden sind und Personen aufnehmen kann und Wohnzwecken oder Zwecken der Arbeit, der Ausbildung, der Kultur, des Sports oder jeglicher anderer menschlicher Tätigkeit dient; ein Doppel-, Gruppen- und Reihenhaus zählt ebenfalls als ein Gebäude,, wenn es einen eigenen Zugang von aussen hat und wenn zwischen den Gebäuden eine senkrechte vom Erdgeschoss bis zum Dach reichende tragende Trennmauer besteht.\\n\\nFür die Berechnung des Stabilisierungsziels nicht relevant sind Bauten und Anlagen mit einer Grundfläche von weniger als 6 m2.\\n\\nFür die Berechnung des Stabilisierungsziels relevant sind auch alle Gebäude die infolge einer Änderung der Nutzungplanung neu ausserhalb der Bauzone liegen.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Dieses Feld bezieht sich auf Nutzungsplanungsdossiers. Allfällige Daten werden durch die Fachstelle Nutzungsplanung erfasst.\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "anzahl-identischer-reklamen",
     "fields": {
       "created_at": "2020-10-21T12:36:18.510Z",
@@ -65321,6 +65389,44 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "versiegelte-entsiegelte-flaechen",
+    "fields": {
+      "created_at": "2024-06-26T08:20:04.019Z",
+      "modified_at": "2025-11-14T13:50:12.066Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Versiegelte / entsiegelte Flächen\", \"fr\": null, \"it\": null}",
+      "type": "table",
+      "is_required": "true",
+      "is_hidden": "'versiegelt-oder-entsiegelt-ja' != 'versiegelt-oder-entsiegelt'|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"**Definition versiegelte / entsiegelte Flächen**\\n\\nAls versiegelte Flächen gelten alle Flächen die mit einem Gebäude belegt sind sowie Oberflächen die mittels eines Belages z.B. Asphalt, Schottertränkung, Beton oder andere, wasserundurchlässige Materialien befestigt sind.\\n\\nAls entsiegelte Flächen gelten:\\n- alle Flächen, die durch den Abbruch eines Gebäudes frei werden, wenn die frei gewordene Fläche vollständig rekultiviert wird\\n\\n- Oberflächen deren wasserundurchlässiger Belag entfernt und mit einem anderen Material, z.B. sickerfähige Verbundsteine oder Gartenplatten, Rasenraster oder ähnliches, ersetzt wird oder wenn die Flächen vollständig renaturiert werden.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "columnsToDisplay": [
+          "bab-art-versiegelung",
+          "bab-versiegelung-flaeche",
+          "bab-nutzung-versiegelte-flaeche",
+          "bab-beschreibung-nutzung-versiegelte-flaeche-andere"
+        ]
+      },
+      "data_source": null,
+      "row_form": "bab-versiegelte-entsiegelte-flaechen-form",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "versiegelt-oder-renaturiert",
     "fields": {
       "created_at": "2025-11-14T08:16:22.907Z",
@@ -65337,6 +65443,37 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"**Definition versiegelte / entsiegelte Flächen**\\n\\nAls versiegelte Flächen gelten alle Flächen die mit einem Gebäude belegt sind sowie Oberflächen die mittels eines Belages z.B. Asphalt, Schottertränkung, Beton oder andere, wasserundurchlässige Materialien befestigt sind oder werden.\\n\\nAls entsiegelte Flächen gelten: \\n\\n- alle Flächen, die durch den Abbruch eines Gebäudes frei werden, wenn die frei gewordene Fläche vollständig rekultiviert wird\\n\\n- Oberflächen deren wasserundurchlässiger Belag entfernt und mit einem anderen Material, z.B. sickerfähige Verbundsteine oder Gartenplatten, Rasenraster oder ähnliches, ersetzt wird oder wenn die Flächen vollständig renaturiert werden.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"Gestützt auf die neuen Bestimmungen der Bundesgesetzgebung müssen alle Flächen die neu versiegelt oder entsiegelt werden, erfasst werden. Bitte laden Sie bei den Dokumenten einen Situationsplan / Umgebungsplan hoch in welchem die angegeben Flächen ersichtlich sind.\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "versiegelung",
+    "fields": {
+      "created_at": "2025-11-14T08:04:06.074Z",
+      "modified_at": "2025-11-14T08:08:23.954Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Werden Flächen neu versiegelt oder renaturiert?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"**Definition versiegelte / entsiegelte Flächen**\\n\\nAls versiegelte Flächen gelten alle Flächen die mit einem Gebäude belegt sind sowie Oberflächen die mittels eines Belages z.B. Asphalt, Schottertränkung, Beton oder andere, wasserundurchlässige Materialien befestigt sind.\\n\\nAls entsiegelte Flächen gelten:\\n\\n- alle Flächen, die durch den Abbruch eines Gebäudes frei werden, wenn die frei gewordene Fläche vollständig rekultiviert wird \\n\\n-Oberflächen deren wasserundurchlässiger Belag entfernt und mit einem anderen Material, z.B. sickerfähige Verbundsteine oder Gartenplatten mit Sickerrändern, Rasenraster oder ähnliches, ersetzt wird oder wenn die Flächen vollständig renaturiert werden.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Gestützt auf die neuen Bundesvorschriften müssen Flächen, die neu versiegelt werden (Asphalt, Beton), erfasst werden. Gleichzeitig sind bestehende, versiegelte Flächen, die renaturiert werden, zu erfassen.\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
