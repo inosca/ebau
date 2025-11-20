@@ -115,10 +115,11 @@ class PermissionEventHandlerBE(
 
     def geometer_changed(self, instance, selected_geometer):
         """Revoke all active Geometer ACLs and add new ones for the new geometer."""
-        for instance_acl in InstanceACL.currently_active().filter(
-            access_level_id="geometer",
-            instance=instance,
-        ):
+        instance_acls = InstanceACL.currently_active().filter(
+            access_level_id="geometer", instance=instance
+        )
+
+        for instance_acl in instance_acls:
             self.manager.revoke(instance_acl)
 
         self.manager.grant(
@@ -127,6 +128,7 @@ class PermissionEventHandlerBE(
             access_level="geometer",
             service=selected_geometer,
         )
+        return instance_acls.count()
 
 
 class GeneralPermissionEventHandlerBE(
