@@ -1449,10 +1449,10 @@
     "pk": "projektdaten",
     "fields": {
       "created_at": "2020-09-18T14:34:50.261Z",
-      "modified_at": "2020-11-08T11:26:24.609Z",
+      "modified_at": "2025-11-14T13:56:22.263Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "name": "{\"de\": \"Bauprojekt\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -12103,7 +12103,7 @@
       "modified_by_group": null,
       "form": "projektdaten",
       "question": "allgemeine-angaben-titel",
-      "sort": 12
+      "sort": 16
     }
   },
   {
@@ -12148,7 +12148,7 @@
       "modified_by_group": null,
       "form": "projektdaten",
       "question": "bauprojekt-titel",
-      "sort": 24
+      "sort": 28
     }
   },
   {
@@ -12178,7 +12178,7 @@
       "modified_by_group": null,
       "form": "projektdaten",
       "question": "behig",
-      "sort": 15
+      "sort": 19
     }
   },
   {
@@ -12193,7 +12193,7 @@
       "modified_by_group": null,
       "form": "projektdaten",
       "question": "category",
-      "sort": 20
+      "sort": 24
     }
   },
   {
@@ -12238,7 +12238,7 @@
       "modified_by_group": null,
       "form": "projektdaten",
       "question": "hinweis-art-der-arbeiten",
-      "sort": 19
+      "sort": 23
     }
   },
   {
@@ -12253,7 +12253,7 @@
       "modified_by_group": null,
       "form": "projektdaten",
       "question": "hochbau",
-      "sort": 14
+      "sort": 18
     }
   },
   {
@@ -12268,7 +12268,7 @@
       "modified_by_group": null,
       "form": "projektdaten",
       "question": "kind-of-work-underground",
-      "sort": 18
+      "sort": 22
     }
   },
   {
@@ -12298,7 +12298,7 @@
       "modified_by_group": null,
       "form": "projektdaten",
       "question": "proposal-description",
-      "sort": 21
+      "sort": 25
     }
   },
   {
@@ -12313,7 +12313,7 @@
       "modified_by_group": null,
       "form": "projektdaten",
       "question": "purpose",
-      "sort": 17
+      "sort": 21
     }
   },
   {
@@ -12328,7 +12328,7 @@
       "modified_by_group": null,
       "form": "projektdaten",
       "question": "purpose-description",
-      "sort": 16
+      "sort": 20
     }
   },
   {
@@ -12373,7 +12373,7 @@
       "modified_by_group": null,
       "form": "projektdaten",
       "question": "stand-der-realisierung",
-      "sort": 22
+      "sort": 26
     }
   },
   {
@@ -12388,7 +12388,7 @@
       "modified_by_group": null,
       "form": "projektdaten",
       "question": "status-bauprojekt",
-      "sort": 23
+      "sort": 27
     }
   },
   {
@@ -12403,7 +12403,7 @@
       "modified_by_group": null,
       "form": "projektdaten",
       "question": "tiefbau",
-      "sort": 13
+      "sort": 17
     }
   },
   {
@@ -12419,6 +12419,36 @@
       "form": "projektdaten",
       "question": "umbauter-raum",
       "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "projektdaten.versiegelte-entsiegelte-flaechen",
+    "fields": {
+      "created_at": "2025-11-14T08:26:03.900Z",
+      "modified_at": "2025-11-14T08:26:03.900Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "projektdaten",
+      "question": "versiegelte-entsiegelte-flaechen",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "projektdaten.versiegelt-oder-entsiegelt",
+    "fields": {
+      "created_at": "2025-11-14T13:55:51.392Z",
+      "modified_at": "2025-11-14T13:55:51.392Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "projektdaten",
+      "question": "versiegelt-oder-entsiegelt",
+      "sort": 14
     }
   },
   {
@@ -19301,6 +19331,108 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Projekt nicht AV - relevant\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-stabilisierungsziel-altrechtlich-bestehend",
+    "fields": {
+      "created_at": "2024-09-17T10:56:02.545Z",
+      "modified_at": "2025-11-04T07:56:50.162Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht relevant (Ersatz von Bauten / Flächen altrechtlich bestehend)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-stabilisierungsziel-keine-neuen-ver-oder-entsiegelten-flaechen",
+    "fields": {
+      "created_at": "2025-08-20T06:31:09.335Z",
+      "modified_at": "2025-08-20T06:31:09.335Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht relevant (keine neuen ver- oder entsiegelten Flächen)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-stabilisierungsziel-nicht-relevant",
+    "fields": {
+      "created_at": "2024-06-21T07:36:44.057Z",
+      "modified_at": "2025-11-04T10:36:52.186Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht relevant (Landwirtschaft)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-stabilisierungsziel-nicht-relevant-forstwirtschaft-wald",
+    "fields": {
+      "created_at": "2025-11-04T07:47:49.934Z",
+      "modified_at": "2025-11-04T07:47:49.934Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht relevant (Forstwirtschaft Wald)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-stabilisierungsziel-nicht-relevant-landwirtschaft",
+    "fields": {
+      "created_at": "2025-11-04T07:47:49.892Z",
+      "modified_at": "2025-11-04T10:36:52.183Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht relevant (Tourismus)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bab-stabilisierungsziel-relevant",
+    "fields": {
+      "created_at": "2024-06-21T07:36:44.090Z",
+      "modified_at": "2024-06-21T07:36:44.090Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Relevant\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -33895,6 +34027,40 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "versiegelt-oder-renaturiert-ja",
+    "fields": {
+      "created_at": "2025-11-14T08:16:22.771Z",
+      "modified_at": "2025-11-14T08:16:22.771Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "versiegelt-oder-renaturiert-nein",
+    "fields": {
+      "created_at": "2025-11-14T08:16:22.808Z",
+      "modified_at": "2025-11-14T08:16:22.808Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "verwendete-gasart-argon",
     "fields": {
       "created_at": "2021-11-25T11:49:51.787Z",
@@ -40010,6 +40176,37 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bab-stabilisierungsziel",
+    "fields": {
+      "created_at": "2024-06-21T07:36:44.300Z",
+      "modified_at": "2025-11-14T08:46:28.347Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Stabilisierungsziel Relevanz\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -51993,10 +52190,10 @@
     "pk": "hinweis-art-der-arbeiten",
     "fields": {
       "created_at": "2021-10-05T12:41:48.769Z",
-      "modified_at": "2021-10-05T12:42:42.321Z",
+      "modified_at": "2025-11-05T14:14:54.566Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Hinweis Art der Arbeiten\", \"fr\": null, \"it\": null}",
       "type": "static",
@@ -52006,7 +52203,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"Die Art der Hochbauarbeiten ist im Abschnitt \\\"Hochbau\\\" in der Tabelle \\\"Gebäude und Anlagen\\\" anzugeben.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"Die Art der Hochbauarbeiten ist im Abschnitt \\\"Hochbau\\\" in der Tabelle \\\"Gebäude und Anlagen\\\" anzugeben. Im Abschnitt Hochbau können zudem mit der Tabelle \\\"Wohnungen\\\" und mit der Tabelle \\\"Gebäudetechnik\\\" detaillierte Angaben zum Vorhaben erfasst werden. Gleiches gilt für den Abschnitt \\\"Tiefbau\\\". Hierzu stehen die Tabellen \\\"Tiefbauten-Siedlung\\\" und \\\"Tiefbauten-Landschaft\\\" zur Verfügung.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -52711,10 +52908,10 @@
     "pk": "hinweis-pdf-und-einreichen",
     "fields": {
       "created_at": "2020-11-24T15:04:30.890Z",
-      "modified_at": "2025-10-22T07:50:02.010Z",
+      "modified_at": "2025-11-11T14:34:16.288Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Hinweis pdf und Einreichen\", \"fr\": null, \"it\": null}",
       "type": "static",
@@ -52724,7 +52921,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"---\\n\\n####**Unterzeichnung / Einreichung**\\n\\n#####Physische Unterzeichnung des PDF Formulars\\n\\nBitte erstellen Sie das PDF Formular des Dossiers (Formulardownload siehe unten), drucken Sie es aus und schicken Sie es handschriftlich unterzeichnet im Doppel an die verfahrensleitende Behörde. \\n\\nVerfahrensleitende Behörden:\\n- Bei Baugesuchen, Baugesuch - Vorabklärungen, Meldungen gringfügiger Vorhaben, Reklamegesuchen, Meldungen von Solaranlagen und Meldungen von Gebäudetechnik,  ist die jeweils zuständige Gemeindebaubehörde zuständig.\\n- Verfahren zur Benützung von Kantonsgebiet leitet die Baudirektion Uri, Klausenstrasse 2, 6460 Altdorf.\\n- Verfahren für Bohrbewilligungen und Konzessionen zur Wasser- und Wärmeentnahme leitet Die Baudirektion Uri, Amt für Energie, Klausenstrasse 2, 6460 Altdorf\\n\\n\\n#####Elektronische Unterzeichnung des PDF Formulars\\n\\nAlternativ können Sie das PDF Formular downloaden, qualifiziert elektronisch unterzeichnen und bei den Dokumenten hochladen. Qualifiziert elektronisch unterzeichnete PDF Formulare müssen, unter dem Vorbehalt der Einreichung allfälliger physischer Gesamtdossiers (siehe unten) nicht schriftlich eingereicht werden. \\n\\n#####Unterzeichnung von Plänen und weiteren Gesuchsunterlagen\\n\\nDie digitale Unterschrift ist nicht zwingend auf allen Dokumenten erforderlich. Massgebend sind jene Dokumente, welche Sie via diese Plattform einreichen und von der Leitbehörde im Rahmen des Bewilligungsprozesses als Entscheiddokumente markiert werden. Diese Dokumente (Pläne, Fachstellenberichte, Verfügungen, usw.) bleiben im URec rechtsverbindlich und unveränderlich gespeichert. Sie können über einen Link, den die Leitbehörde im Rahmen des Bewilligungsprozesses per E-Mail verschickt, geöffnet werden.  \\n\\n#####Einreichung vollständiger physischer Dossiers (**Betrifft nur die Baubewilligungsverfahren**)\\n\\nDie Gemeinden haben teilweise unterschiedliche gesetzliche Bestimmungen und eine unterschiedliche Arbeitspraxis. Es ist unser Ziel, mittel bis langfristig auf physische Unterlagen gänzlich zu verzichten. Die Vorgaben der jeweiligen Baureglemente der Gemeinden sind jedoch einzuhalten. Je nach Umfang und Art des Dossiers kann die Gemeinde das Einreichen zusätzlicher physischer Dossiers bei der Bauherrschaft anfordern. Bitte klären Sie unaufgefordert und **raschmöglichst nach dem elektronischen Einreichen des Dossiers** bei der zuständigen Gemeinde ab, ob und in welchem Umfang, nebst dem unterzeichneten **PDF Formular**, zusätzliche physische Dossiers eingereicht werden müssen. **Diese Regelung betrifft nur all jene Verfahren, bei denen die Gemeindebaubehörde als verfahrensleitende Behörde zuständig ist (siehe oben)**.\\n\\nMit Klick auf die Schaltfläche \\\"Einreichen\\\"...\\n\\n...bestätigen Sie, dass das Formular vollständig und wahrheitsgetreu ausgefüllt wurde,\\n...wird Ihr Gesuch bei der zuständigen Behörde zur Prüfung eingereicht,\\n...können Sie an den Formulareinträgen keine Veränderungen mehr vornehmen.\\n\\n#####Eröffnung der Entscheiddokumente (**Betrifft nur die Baubewilligungsverfahren**)\\n\\nDie Eröffnung der Entscheiddokumente (z.B. die Baubewilligung, Verfügungen kantonaler Fachstellen oder die genehmigten Pläne usw.) an die Bauherrschaft erfolgt in der Regel vollständig digital via URec Portal. Sie und alle Personen, die Sie im Menu „Berechtigungen“ für den Zugriff auf das Dossier berechtigt haben, erhalten eine Mitteilung, wenn die Leitbehörde den Entscheid im URec hochgeladen hat. Sämtliche Entscheiddokumente werden im Portal angezeigt. Wahlweise kann die Baubehörde die Entscheiddokumente zusätzlich zur digitalen Eröffnung auch noch physisch per Post zustellen.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"---\\n\\n####**Unterzeichnung / Einreichung**\\n\\n#####Physische Unterzeichnung des PDF Formulars\\n\\nBitte erstellen Sie das PDF Formular des Dossiers (Formulardownload siehe unten), drucken Sie es aus und schicken Sie es handschriftlich unterzeichnet im Doppel an die verfahrensleitende Behörde. \\n\\nVerfahrensleitende Behörden:\\n- Bei Baugesuchen, Baugesuch - Vorabklärungen, Meldungen geringfügiger Vorhaben, Reklamegesuchen, Meldungen von Solaranlagen und Meldungen von Gebäudetechnik,  ist die jeweils zuständige Gemeindebaubehörde zuständig.\\n- Verfahren zur Benützung von Kantonsgebiet leitet die Baudirektion Uri, Klausenstrasse 2, 6460 Altdorf.\\n- Verfahren für Bohrbewilligungen und Konzessionen zur Wasser- und Wärmeentnahme leitet Die Baudirektion Uri, Amt für Energie, Klausenstrasse 2, 6460 Altdorf\\n\\n\\n#####Elektronische Unterzeichnung des PDF Formulars\\n\\nAlternativ können Sie das PDF Formular downloaden, qualifiziert elektronisch unterzeichnen und bei den Dokumenten hochladen. Qualifiziert elektronisch unterzeichnete PDF Formulare müssen, unter dem Vorbehalt der Einreichung allfälliger physischer Gesamtdossiers (siehe unten) nicht schriftlich eingereicht werden. \\n\\n#####Unterzeichnung von Plänen und weiteren Gesuchsunterlagen\\n\\nDie digitale Unterschrift ist nicht zwingend auf allen Dokumenten erforderlich. Massgebend sind jene Dokumente, welche Sie via diese Plattform einreichen und von der Leitbehörde im Rahmen des Bewilligungsprozesses als Entscheiddokumente markiert werden. Diese Dokumente (Pläne, Fachstellenberichte, Verfügungen, usw.) bleiben im URec rechtsverbindlich und unveränderlich gespeichert. Sie können über einen Link, den die Leitbehörde im Rahmen des Bewilligungsprozesses per E-Mail verschickt, geöffnet werden.  \\n\\n#####Einreichung vollständiger physischer Dossiers (**Betrifft nur die Baubewilligungsverfahren**)\\n\\nDie Gemeinden haben teilweise unterschiedliche gesetzliche Bestimmungen und eine unterschiedliche Arbeitspraxis. Es ist unser Ziel, mittel bis langfristig auf physische Unterlagen gänzlich zu verzichten. Die Vorgaben der jeweiligen Baureglemente der Gemeinden sind jedoch einzuhalten. Je nach Umfang und Art des Dossiers kann die Gemeinde das Einreichen zusätzlicher physischer Dossiers bei der Bauherrschaft anfordern. Bitte klären Sie unaufgefordert und **raschmöglichst nach dem elektronischen Einreichen des Dossiers** bei der zuständigen Gemeinde ab, ob und in welchem Umfang, nebst dem unterzeichneten **PDF Formular**, zusätzliche physische Dossiers eingereicht werden müssen. **Diese Regelung betrifft nur all jene Verfahren, bei denen die Gemeindebaubehörde als verfahrensleitende Behörde zuständig ist (siehe oben)**.\\n\\nMit Klick auf die Schaltfläche \\\"Einreichen\\\"...\\n\\n...bestätigen Sie, dass das Formular vollständig und wahrheitsgetreu ausgefüllt wurde,\\n...wird Ihr Gesuch bei der zuständigen Behörde zur Prüfung eingereicht,\\n...können Sie an den Formulareinträgen keine Veränderungen mehr vornehmen.\\n\\n#####Eröffnung der Entscheiddokumente (**Betrifft nur die Baubewilligungsverfahren**)\\n\\nDie Eröffnung der Entscheiddokumente (z.B. die Baubewilligung, Verfügungen kantonaler Fachstellen oder die genehmigten Pläne usw.) an die Bauherrschaft erfolgt in der Regel vollständig digital via URec Portal. Sie und alle Personen, die Sie im Menu „Berechtigungen“ für den Zugriff auf das Dossier berechtigt haben, erhalten eine Mitteilung, wenn die Leitbehörde den Entscheid im URec hochgeladen hat. Sämtliche Entscheiddokumente werden im Portal angezeigt. Wahlweise kann die Baubehörde die Entscheiddokumente zusätzlich zur digitalen Eröffnung auch noch physisch per Post zustellen.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -54374,6 +54571,37 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"######**Aufgrund Ihrer aktuellen Auswahl ist ein Energienachweis erforderlich**.\\n\\nBitte erstellen Sie den Energienachweis und laden Sie diesen anschliessend bei den Dokumenten hoch. Hier geht's zu den Formularen: <a href=\\\"https://www.energie-zentralschweiz.ch/vollzug/energienachweise-muken-2008.html\\\" target=\\\"_blank\\\" style=\\\"color: blue;\\\">Energie Zentralschweiz</a>.\\n\\n(Ausnahmen sind im Energiereglement (EnR 40.7215) definiert. Im Zweifelsfall kontaktieren Sie bitte zur Klärung der Notwendigkeit eines Energienachweises direkt das <a href=\\\"https://www.ur.ch/aemter/828\\\" target=\\\"_blank\\\" style=\\\"color: blue;\\\">Amt für Energie</a>.)\\n\\nHinweis: per 1. Januar 2026 kann der Energienachweis auf der Plattform EVEN direkt online erstellt werden. Ein entsprechender Link zu dieser Plattform wird rechtzeitig aufgeschaltet.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "kein-en-notwendig",
+    "fields": {
+      "created_at": "2025-10-13T06:29:52.244Z",
+      "modified_at": "2025-10-13T06:30:50.219Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"kein EN notwendig\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"####Ein Energienachweis ist nicht erforderlich\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -57911,6 +58139,68 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "oereb-thema-gemeinde",
+    "fields": {
+      "created_at": "2023-02-03T13:46:33.812Z",
+      "modified_at": "2025-05-23T13:47:51.026Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "pirmin.scheuber@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"ÖREB-Verfahren\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "true",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"##ÖREB-Themen\\n\\nDie ÖREB-Themen sind die auf Grundlage von Art. 16 Abs. 2 und 3 GeoIG vom Bundesrat beziehungsweise vom Regierungsrat bezeichneten grundeigentümerverbindlichen Geobasisdaten. Es sind die in den Geobasisdatenkatalogen des Bundesrechts (= GeoIV Anhang und kGeoIR Anhang 1) und des Kantonsrechts (= kGeoIR Anhang 2) aufgeführten Geobasisdaten, bei denen die Attributspalte «ÖREB-Kataster» markiert wurde.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "oereb-themen-gemeindliche-nutzungsplanung",
+    "fields": {
+      "created_at": "2023-07-28T14:16:25.161Z",
+      "modified_at": "2023-07-28T14:25:15.755Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "pirmin.scheuber@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Betroffene ÖREB-Themen (Geobasisdaten)\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "!(\"oereb-thema-gemeinde-gnp\" == \"oereb-thema-gemeinde\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"#ÖREB-Themen\\n\\nDie ÖREB-Themen sind die auf Grundlage von Art. 16 Abs. 2 und 3 GeoIG vom Bundesrat beziehungsweise vom Regierungsrat bezeichneten grundeigentümerverbindlichen Geobasisdaten. Es sind die in den Geobasisdatenkatalogen des Bundesrechts (= GeoIV Anhang und kGeoIR Anhang 1) und des Kantonsrechts (= kGeoIR Anhang 2) aufgeführten Geobasisdaten, bei denen die Attributspalte «ÖREB-Kataster» markiert wurde.\\n\\n Die ÖREB-Themen sind jeweils einem ÖREB-Verfahren zugeordnet.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -65041,6 +65331,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "versiegelt-oder-renaturiert",
+    "fields": {
+      "created_at": "2025-11-14T08:16:22.907Z",
+      "modified_at": "2025-11-14T11:13:21.199Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Werden Flächen neu versiegelt oder bestehende, bereits versiegelte Flächen mit einem wasserdurchlässigen Belag versehen oder renaturiert?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"**Definition versiegelte / entsiegelte Flächen**\\n\\nAls versiegelte Flächen gelten alle Flächen die mit einem Gebäude belegt sind sowie Oberflächen die mittels eines Belages z.B. Asphalt, Schottertränkung, Beton oder andere, wasserundurchlässige Materialien befestigt sind oder werden.\\n\\nAls entsiegelte Flächen gelten: \\n\\n- alle Flächen, die durch den Abbruch eines Gebäudes frei werden, wenn die frei gewordene Fläche vollständig rekultiviert wird\\n\\n- Oberflächen deren wasserundurchlässiger Belag entfernt und mit einem anderen Material, z.B. sickerfähige Verbundsteine oder Gartenplatten, Rasenraster oder ähnliches, ersetzt wird oder wenn die Flächen vollständig renaturiert werden.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Gestützt auf die neuen Bestimmungen der Bundesgesetzgebung müssen alle Flächen die neu versiegelt oder entsiegelt werden, erfasst werden. Bitte laden Sie bei den Dokumenten einen Situationsplan / Umgebungsplan hoch in welchem die angegeben Flächen ersichtlich sind.\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "verwendete-gasart",
     "fields": {
       "created_at": "2021-11-25T11:49:51.878Z",
@@ -70234,6 +70555,96 @@
       "question": "av-relevants",
       "option": "av-relevants-projekt-nicht-av-relevant",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-stabilisierungsziel.bab-stabilisierungsziel-altrechtlich-bestehend",
+    "fields": {
+      "created_at": "2025-11-14T08:46:28.366Z",
+      "modified_at": "2025-11-14T08:46:28.366Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "bab-stabilisierungsziel",
+      "option": "bab-stabilisierungsziel-altrechtlich-bestehend",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-stabilisierungsziel.bab-stabilisierungsziel-keine-neuen-ver-oder-entsiegelten-flaechen",
+    "fields": {
+      "created_at": "2025-11-14T08:46:28.363Z",
+      "modified_at": "2025-11-14T08:46:28.363Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "bab-stabilisierungsziel",
+      "option": "bab-stabilisierungsziel-keine-neuen-ver-oder-entsiegelten-flaechen",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-stabilisierungsziel.bab-stabilisierungsziel-nicht-relevant",
+    "fields": {
+      "created_at": "2025-11-14T08:46:28.373Z",
+      "modified_at": "2025-11-14T08:46:28.373Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "bab-stabilisierungsziel",
+      "option": "bab-stabilisierungsziel-nicht-relevant",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-stabilisierungsziel.bab-stabilisierungsziel-nicht-relevant-forstwirtschaft-wald",
+    "fields": {
+      "created_at": "2025-11-14T08:46:28.354Z",
+      "modified_at": "2025-11-14T08:46:28.354Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "bab-stabilisierungsziel",
+      "option": "bab-stabilisierungsziel-nicht-relevant-forstwirtschaft-wald",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-stabilisierungsziel.bab-stabilisierungsziel-nicht-relevant-landwirtschaft",
+    "fields": {
+      "created_at": "2025-11-14T08:46:28.359Z",
+      "modified_at": "2025-11-14T08:46:28.359Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "bab-stabilisierungsziel",
+      "option": "bab-stabilisierungsziel-nicht-relevant-landwirtschaft",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bab-stabilisierungsziel.bab-stabilisierungsziel-relevant",
+    "fields": {
+      "created_at": "2025-11-14T08:46:28.370Z",
+      "modified_at": "2025-11-14T08:46:28.370Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "bab-stabilisierungsziel",
+      "option": "bab-stabilisierungsziel-relevant",
+      "sort": 5
     }
   },
   {
@@ -82744,6 +83155,36 @@
       "question": "verfahrensinhalt",
       "option": "verfahrensinhalt-neuerlass",
       "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "versiegelt-oder-renaturiert.versiegelt-oder-renaturiert-ja",
+    "fields": {
+      "created_at": "2025-11-14T11:13:21.209Z",
+      "modified_at": "2025-11-14T11:13:21.209Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "versiegelt-oder-renaturiert",
+      "option": "versiegelt-oder-renaturiert-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "versiegelt-oder-renaturiert.versiegelt-oder-renaturiert-nein",
+    "fields": {
+      "created_at": "2025-11-14T11:13:21.205Z",
+      "modified_at": "2025-11-14T11:13:21.205Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "versiegelt-oder-renaturiert",
+      "option": "versiegelt-oder-renaturiert-nein",
+      "sort": 1
     }
   },
   {
