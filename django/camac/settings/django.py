@@ -2209,7 +2209,7 @@ APPLICATIONS = {
                         "notification": {
                             "template_slug": "send-additional-demand-internal",
                             "recipient_types": [
-                                "municipality",
+                                "leitbehoerde",
                                 "additional_demand_inviter",
                                 "are_bab",
                             ],
