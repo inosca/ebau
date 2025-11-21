@@ -28,6 +28,7 @@ documents:
   date: Hochgeladen am {date} um {time}
   deleteError: Beim Löschen der Datei ist etwas schief gelaufen
   deleteInfo: Wollen Sie die Datei "{filename}" wirklich löschen?
+  voidInfo: Möchten Sie das Dokument "{filename}" als ungültig markieren?
   duplicateFileUpload: "<p>{count, plural, =1 {Die folgende Datei wurde bereits hochgeladen} other {Die folgenden Dateien wurden bereits hochgeladen}}:</p><ul>{filenames}</ul>"
   duplicateFileUploadGuide: ""
   deleteSuccess: Die Datei wurde erfolgreich gelöscht

@@ -1,9 +1,11 @@
 import pytest
 from caluma.caluma_workflow.models import WorkItem
+from django.utils import timezone
 
 from camac.applicants.models import ROLE_CHOICES
 from camac.permissions.api import ACLUserInfo
 from camac.permissions.conditions import (
+    HasAdditionalDemandWithFormEdit,
     HasApplicantRole,
     IsPaper,
     IsServiceGroup,
@@ -11,6 +13,7 @@ from camac.permissions.conditions import (
     RequireWorkItem,
 )
 from camac.tests.form_utils import FormUtils
+from camac.timelines.models import FormTimeline
 
 
 @pytest.fixture
@@ -149,3 +152,47 @@ def test_is_service_group(db, expected_result, has_service, userinfo):
         userinfo.service = None
 
     assert IsServiceGroup(["foo", "bar"]).apply(userinfo, None) == expected_result
+
+
+@pytest.mark.parametrize(
+    ("timeline_open", "timeline_type", "expected_result"),
+    [
+        (False, FormTimeline.Type.CORRECTION, False),
+        (True, FormTimeline.Type.CORRECTION, False),
+        (False, FormTimeline.Type.ADDITIONAL_DEMAND, False),
+        # open timeline of type additional demand should evaluate to True
+        (True, FormTimeline.Type.ADDITIONAL_DEMAND, True),
+    ],
+)
+def test_has_additional_demand_with_form_edit(
+    db,
+    form_timeline_factory,
+    instance_factory,
+    instance,
+    timeline_open,
+    timeline_type,
+    expected_result,
+    userinfo,
+):
+    # timeline for other instance should be irrelevant
+    form_timeline_factory(
+        instance=instance_factory(),
+        start_date=timezone.now(),
+        end_date=None,
+        timeline_type=FormTimeline.Type.ADDITIONAL_DEMAND,
+    )
+
+    end_date = (
+        timezone.now() + timezone.timedelta(days=1) if not timeline_open else None
+    )
+    form_timeline_factory(
+        instance=instance,
+        start_date=timezone.now(),
+        end_date=end_date,
+        timeline_type=timeline_type,
+    )
+
+    assert (
+        HasAdditionalDemandWithFormEdit().apply(userinfo, PermissionContext(instance))
+        == expected_result
+    )

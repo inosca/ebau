@@ -26,6 +26,7 @@ ADDITIONAL_DEMAND = {
         },
         "HISTORY_ENTRIES": {},
         "NOTIFICATIONS": {"ACCEPTED": [], "REJECTED": []},
+        "APPLICANT_CORRECTION_FORMEXPORT": False,
     },
     "kt_gr": {
         "ENABLED": True,
@@ -47,6 +48,7 @@ ADDITIONAL_DEMAND = {
                 }
             ],
         },
+        "APPLICANT_CORRECTION_FORMEXPORT": True,
     },
     "kt_so": {
         "ENABLED": True,

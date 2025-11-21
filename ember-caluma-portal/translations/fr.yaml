@@ -47,6 +47,9 @@ feedback:
 documents:
   deleteSuccess: "Le fichier a été supprimé avec succès"
   deleteError: "Quelque chose a mal tourné lors de la suppression du fichier"
+  voidSuccess: "Le document a été rendu invalide avec succès"
+  voidError: "Une erreur s'est produite lors de la mise hors service du document"
+  void: "Document marquer comme invalide"
 
   tags:
     beilagen-vorabklaerung: "Annexes à la demande préalable"

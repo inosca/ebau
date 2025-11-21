@@ -19,6 +19,8 @@ corrections:
   document:
     title: "Correggi dossier"
     description: "Questa funzione permette di apportare piccole correzioni al modulo di domanda (ad es. precisazione della descrizione dell'opera)."
+    description-applicant-correction: "Le correzioni da parte dei richiedenti devono essere richieste tramite richieste supplementari."
+    link-applicant-correction: "Richiesta di precisazioni"
     button: "Correggi dossier"
     description-finish-start: "Per correggere il dossier cliccare sul menu"
     description-finish-link: "Modulo."

@@ -42,7 +42,7 @@ from camac.core.utils import (
     generate_sort_key,
 )
 from camac.deadlines import models as deadlines_models
-from camac.document.models import AttachmentSection
+from camac.document.models import Attachment, AttachmentSection
 from camac.ech0211.signals import (
     change_responsibility,
     instance_submitted,
@@ -1356,7 +1356,9 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         if settings.TIMELINES.enabled:
             FormTimeline.objects.close_open_timelines(instance=instance)
 
-    def _generate_and_store_pdf(self, instance, form_slug=None):
+    def _generate_and_store_pdf(
+        self, instance, form_slug=None
+    ) -> alexandria_models.Document | Attachment | None:
         if not settings.APPLICATION.get("STORE_PDF", False):  # pragma: no cover
             return
 
@@ -1386,9 +1388,11 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             )
             for mark in settings.ALEXANDRIA["MARK_VISIBILITY"].get("SENSITIVE", []):
                 document.marks.add(mark)
+
+            return document
         else:
             attachment_section = AttachmentSection.objects.get(pk=target_lookup)
-            attachment_section.attachments.create(
+            return attachment_section.attachments.create(
                 instance=instance,
                 path=pdf,
                 name=pdf.name,
@@ -3084,7 +3088,7 @@ class CalumaInstanceCorrectionSerializer(serializers.Serializer):
         resource_name = "instance-corrections"
 
 
-class CalumaInstanceAdditionalDemandChangesSerializer(serializers.Serializer):
+class CalumaInstanceAdditionalDemandChangesSerializer(CalumaInstanceSubmitSerializer):
     def validate(self, data):
         if (
             not settings.TIMELINES.enabled
@@ -3099,12 +3103,30 @@ class CalumaInstanceAdditionalDemandChangesSerializer(serializers.Serializer):
 
     @transaction.atomic
     def update(self, instance, validated_data):
-        # TODO: in this version nothing happens on submit. In the follow-up changes,
-        # depending on the configuration we will re-generate some dossier documents.
-        return instance
+        if settings.ADDITIONAL_DEMAND.get("APPLICANT_CORRECTION_FORMEXPORT", False):
+            # store a new form export
+            created = self._generate_and_store_pdf(instance, None)
 
-    class Meta:
-        resource_name = "instance-additional-demand-changes"
+            # mark previous form exports as void.
+            if isinstance(created, alexandria_models.Document):
+                previous = (
+                    instance.alexandria_instance_documents.filter(
+                        **{
+                            "document__metainfo__system-generated": True,
+                            "document__title": created.title,
+                        }
+                    )
+                    .exclude(document__pk=created.pk)  # exclude newly created document
+                    .exclude(
+                        document__marks__pk="void"
+                    )  # exclude already void documents
+                )
+
+                for instance_doc in previous:
+                    instance_doc.document.marks.add("void")
+                    instance_doc.document.save()
+
+        return instance
 
 
 class CalumaInstanceRejectionSerializer(serializers.Serializer):

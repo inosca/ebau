@@ -593,12 +593,40 @@ def test_additional_demand_changes(
     admin_client,
     gr_instance,
     caluma_case_factory,
+    alexandria_document_factory,
+    alexandria_mark_factory,
     allows_changes,
+    set_application_gr,
+    gr_alexandria_settings,
     gr_additional_demand_settings,
+    mocker,
     timelines_settings,
 ):
     timelines_settings.enabled = True
+    alexandria_mark_factory(pk="void")
+    created_document = alexandria_document_factory(
+        metainfo={
+            "camac-instance-id": str(gr_instance.pk),
+            "system-generated": True,
+        }
+    )
+    old_documents = alexandria_document_factory.create_batch(
+        2,
+        title=created_document.title,
+        metainfo=created_document.metainfo,
+    )
+
+    # no marks should exist yet.
+    assert created_document.marks.count() == 0
+    assert all(
+        not old_doc.marks.filter(pk="void").exists() for old_doc in old_documents
+    )
+
     if allows_changes:
+        mocker.patch(
+            "camac.instance.serializers.CalumaInstanceSubmitSerializer._generate_and_store_pdf",
+            return_value=created_document,
+        )
         gr_instance.case.meta["additional-demand-changes"] = [
             str(caluma_case_factory().pk)
         ]
@@ -610,6 +638,12 @@ def test_additional_demand_changes(
 
     if allows_changes:
         assert response.status_code == status.HTTP_204_NO_CONTENT
+        # old documents should be marked as void
+        assert all(
+            old_doc.marks.filter(pk="void").exists() for old_doc in old_documents
+        )
+        # created document should not be marked as void
+        assert created_document.marks.count() == 0
     else:
         assert response.status_code == status.HTTP_400_BAD_REQUEST
 

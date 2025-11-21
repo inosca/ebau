@@ -717,6 +717,23 @@
                 "permission": "create"
               },
               {
+                "fields": ["metainfo", "title", "category", "files"],
+                "condition": {
+                  "AdditionalDemandChanges": true
+                },
+                "permission": "create",
+                "scope": "All"
+              },
+              {
+                "marks": ["void"],
+                "fields": ["marks"],
+                "condition": {
+                  "AdditionalDemandChanges": true
+                },
+                "permission": "update",
+                "scope": "All"
+              },
+              {
                 "scope": "All",
                 "condition": {
                   "InstanceState": "new"

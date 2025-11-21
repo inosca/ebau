@@ -19,6 +19,7 @@ export default class AlexandriaDocumentsFormComponent extends Component {
   @service store;
   @service alexandriaConfig;
   @service alexandriaDocuments;
+  @service permissions;
 
   @tracked uploadedAttachmentIds = [];
   @tracked duplicateFileNames = [];
@@ -34,8 +35,49 @@ export default class AlexandriaDocumentsFormComponent extends Component {
     );
   }
 
+  #disabled = trackedFunction(this, async () => {
+    if (this.args.disabled) {
+      return true;
+    }
+
+    // only apply additional permission check if it's not additional demand changes.
+    if (!this.isAdditionalDemandChanges) {
+      return false;
+    }
+
+    // for addtional demand changes, use permission module to verify
+    // upload permissions.
+    return (
+      !this.permissions.fullyEnabled ||
+      !(await this.permissions.hasAll(
+        this.ebauModules.instanceId,
+        "additional-demands-correction-document-upload",
+      ))
+    );
+  });
+
   get disabled() {
-    return this.args.disabled || this.isAdditionalDemandChanges;
+    return this.#disabled.value;
+  }
+
+  #voidable = trackedFunction(this, async () => {
+    if (this.args.disabled) {
+      return false;
+    }
+
+    // use permission module to verify void permissions.
+    return (
+      this.isAdditionalDemandChanges &&
+      this.permissions.fullyEnabled &&
+      (await this.permissions.hasAll(
+        this.ebauModules.instanceId,
+        "additional-demands-correction-document-void",
+      ))
+    );
+  });
+
+  get voidable() {
+    return this.#voidable.value;
   }
 
   get labelVisible() {
@@ -75,7 +117,11 @@ export default class AlexandriaDocumentsFormComponent extends Component {
     );
     const state = parseInt(instance?.belongsTo("instanceState").id());
 
-    return !this.disabled && state !== mainConfig.instanceStates.correction;
+    return (
+      !this.args.disabled &&
+      state !== mainConfig.instanceStates.correction &&
+      !this.isAdditionalDemandChanges
+    );
   }
 
   get allRequiredTags() {
@@ -233,4 +279,15 @@ export default class AlexandriaDocumentsFormComponent extends Component {
       this.notification.danger(this.intl.t("documents.deleteError"));
     }
   }
+
+  void = task({ drop: true }, async ({ attachment }) => {
+    try {
+      await attachment.void();
+      this.notification.success(this.intl.t("documents.voidSuccess"));
+    } catch (_error) {
+      console.error("failed to void document", _error);
+      this.notification.danger(this.intl.t("documents.voidError"));
+      return false;
+    }
+  });
 }

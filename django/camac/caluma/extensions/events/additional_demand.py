@@ -110,6 +110,7 @@ def post_complete_check_additional_demand(
         ),
         None,
     )
+
     decision_is_positive = (
         decision == settings.ADDITIONAL_DEMAND["ANSWERS"]["DECISION"]["ACCEPTED"]
     )

@@ -28,6 +28,7 @@ documents:
   date: Caricato in data {date} alle {time}
   deleteError: Durante l'eliminazione del file qualcosa è andato storto.
   deleteInfo: Cancella davvero il file "{filename}"?
+  voidInfo: Vuoi marcare il documento "{filename}" come invalido?
   duplicateFileUpload: "<p>{count, plural, =1 {Il seguente file è già stato caricato} other {I seguenti file sono già stati caricati}}:</p><ul>{filenames}</ul>"
   duplicateFileUploadGuide: ""
   deleteSuccess: Il file è stato eliminato con successo.

@@ -19,6 +19,8 @@
             @loading={{@loading}}
             @attachments={{@attachments}}
             @deletable={{false}}
+            @voidable={{@voidable}}
+            @onVoid={{perform this.void}}
           />
         </div>
       {{/if}}
@@ -61,6 +63,8 @@
               @attachments={{@attachments}}
               @deletable={{@deletable}}
               @onDelete={{perform this.delete}}
+              @voidable={{@voidable}}
+              @onVoid={{perform this.void}}
               @useConfidential={{this.useConfidential}}
               @onConfidential={{this.toggleConfidential}}
               @attachmentLoading={{this.attachmentLoading}}
