@@ -20,7 +20,7 @@ from camac.instance.domain_logic.create import CreateInstanceLogic
         ("bern", False, True, 2),
         ("bern", True, True, 2),
         # GR with alexandria and no copy for modifications
-        ("gr", False, False, 3),
+        ("gr", False, False, 2),
         ("gr", True, False, 0),
         ("gr", False, True, 2),
         ("gr", True, True, 0),
