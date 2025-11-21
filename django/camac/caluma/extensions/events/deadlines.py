@@ -261,31 +261,12 @@ def post_redo_inquiry_ag(sender, work_item, user, context=None, **kwargs):
 
 @on(post_create_work_item, raise_exception=True)
 @filter_by_distribution_task("INQUIRY_ANSWER_FILL_TASK")
-@filter_events(
-    lambda: settings.DEADLINES
-    and settings.DEADLINES.enabled
-    and settings.APPLICATION_NAME != "kt_ag"
-)
+@filter_events(lambda: settings.DEADLINES and settings.DEADLINES.enabled)
 @transaction.atomic
 def post_create_inquiry(sender, work_item, user, context=None, **kwargs):
-    """Create a deadline when an inquiry is sent."""
-    instance = get_instance(work_item)
-    for service in Service.objects.filter(pk__in=work_item.addressed_groups):
-        instance.deadlines.create_deadline(instance=instance, service=service)
-
-
-@on(post_create_work_item, raise_exception=True)
-@filter_by_distribution_task("INQUIRY_ANSWER_FILL_TASK")
-@filter_events(
-    lambda: settings.DEADLINES
-    and settings.DEADLINES.enabled
-    and settings.APPLICATION_NAME == "kt_ag"
-)
-@transaction.atomic
-def post_create_inquiry_ag(sender, work_item, user, context=None, **kwargs):
     """Create a deadline when an inquiry is sent.
 
-    In AG, if the deadline already exists, close any existing open inquiry
+    If the deadline already exists, close any existing open inquiry
     claim suspensions.
 
     If a previous inquiry exists, create a new suspension for the time between
@@ -297,7 +278,7 @@ def post_create_inquiry_ag(sender, work_item, user, context=None, **kwargs):
 
         # If the service is re-invited (previous inquiry exists), we create a
         # new suspension starting at the previous inquiry close date, unless
-        # the decision answer is "Unterlagenergänzung"
+        # the decision answer is "Unterlagenergänzung" (only exists in AG).
         if deadline := instance.deadlines.filter(service=service).first():
             workitem_inquiry = (
                 Inquiry.objects.addressed_to(service.pk)

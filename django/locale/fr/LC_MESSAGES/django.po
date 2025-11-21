@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-02 14:45+0200\n"
+"POT-Creation-Date: 2025-10-30 15:02+0100\n"
 "PO-Revision-Date: 2025-08-28 10:03+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -571,12 +571,42 @@ msgstr ""
 msgid "Service contents"
 msgstr ""
 
+#: camac/deadlines/admin.py camac/deadlines/models.py
+msgid "Form types"
+msgstr ""
+
+#: camac/deadlines/admin.py
+msgid "All forms"
+msgstr ""
+
+#: camac/deadlines/models.py
+msgid ""
+"List of form IDs this deadline type applies to. If empty, applies to all "
+"forms."
+msgstr ""
+
 #: camac/deadlines/models.py camac/work_items/models.py
 msgid "Lead time in days"
 msgstr ""
 
 #: camac/deadlines/models.py
 msgid "Is default"
+msgstr ""
+
+#: camac/deadlines/models.py
+msgid "Exclude weekends"
+msgstr ""
+
+#: camac/deadlines/models.py
+msgid "If enabled, weekends are not counted towards deadlines."
+msgstr ""
+
+#: camac/deadlines/models.py
+msgid "Exclude public holidays"
+msgstr ""
+
+#: camac/deadlines/models.py
+msgid "If enabled, public holidays are not counted towards deadlines."
 msgstr ""
 
 #: camac/deadlines/models.py

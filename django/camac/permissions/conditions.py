@@ -374,3 +374,21 @@ class IsServiceGroup(Check):
 
     def __repr__(self):
         return f"IsServiceGroup({', '.join(sorted(self.required_service_groups))})"
+
+
+@dataclass
+class RequireDeadline(Check):
+    """Permission check for requiring a instance deadline for the service."""
+
+    def apply(self, userinfo, context: PermissionContext):
+        return context.instance.deadlines.for_service(userinfo.service).exists()
+
+    @property
+    def allow_caching(self):  # pragma: no cover
+        return True
+
+    def __eq__(self, other):  # pragma: no cover
+        return isinstance(other, RequireDeadline)
+
+    def __repr__(self):
+        return "RequireDeadline()"

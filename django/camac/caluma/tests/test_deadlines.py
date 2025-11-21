@@ -9,7 +9,7 @@ from django.utils.translation import gettext as _
 from camac.caluma.extensions.events import deadlines
 from camac.caluma.extensions.events.deadlines import (
     post_complete_inquiry_fill_ag,
-    post_create_inquiry_ag,
+    post_create_inquiry,
     post_create_withdrawal_check_closes_suspensions,
     post_redo_inquiry_ag,
 )
@@ -201,14 +201,6 @@ def test_events_deadlines_publication_inquiry_gr(
         question_type=caluma_form_models.Question.TYPE_DATE,
     )
 
-    workitem_inquiry = caluma_work_item_factory(
-        case=gr_instance.case,
-        task=Task.objects.get(slug="inquiry"),
-        addressed_groups=[str(service.pk)],
-    )
-    workitem_inquiry.created_at = make_aware(datetime(2025, 3, 3, 12, 0))
-    workitem_inquiry.save()
-
     workitem_fill_inquiry = caluma_work_item_factory(
         case=caluma_case_factory(family=gr_instance.case.family),
         task=Task.objects.get(slug="fill-inquiry"),
@@ -216,6 +208,15 @@ def test_events_deadlines_publication_inquiry_gr(
     )
     workitem_fill_inquiry.created_at = make_aware(datetime(2025, 3, 3, 12, 0))
     workitem_fill_inquiry.save()
+
+    workitem_inquiry = caluma_work_item_factory(
+        child_case=workitem_fill_inquiry.case,
+        case=gr_instance.case,
+        task=Task.objects.get(slug=gr_distribution_settings["INQUIRY_TASK"]),
+        addressed_groups=[str(service.pk)],
+    )
+    workitem_inquiry.created_at = make_aware(datetime(2025, 3, 3, 12, 0))
+    workitem_inquiry.save()
 
     if test_case.startswith("responsible_"):
         workitem_formal_exam = caluma_work_item_factory(
@@ -399,7 +400,7 @@ def test_post_create_inquiry_ag_creates_deadline(
 
     assert ag_instance.deadlines.count() == 0
 
-    post_create_inquiry_ag(
+    post_create_inquiry(
         sender=None,
         work_item=inquiry_fill_work_item,
         user=caluma_admin_user,
@@ -548,7 +549,7 @@ def test_post_create_or_redo_inquiry_ag_claim_suspensions(
     assert deadline.suspensions.count() == (2 if previous_suspension else 1)
 
     if trigger_action == "create":
-        post_create_inquiry_ag(
+        post_create_inquiry(
             sender=None,
             work_item=inquiry_fill_work_item,
             user=caluma_admin_user,

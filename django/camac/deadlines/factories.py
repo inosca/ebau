@@ -10,6 +10,9 @@ from camac.user.factories import GroupFactory, ServiceFactory, UserFactory
 class DeadlineTypeFactory(DjangoModelFactory):
     name = Faker("word")
     lead_time = Faker("random_int", min=1, max=30)
+    is_default = Faker("boolean")
+    exclude_weekends = False
+    exclude_public_holidays = True
     created_at = Faker("past_datetime", tzinfo=pytz.UTC)
 
     class Meta:

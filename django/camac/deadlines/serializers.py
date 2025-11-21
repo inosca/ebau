@@ -17,7 +17,14 @@ from camac.user.serializers import (
 class DeadlineTypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.DeadlineType
-        fields = ("id", "name", "lead_time", "is_default")
+        fields = (
+            "id",
+            "name",
+            "lead_time",
+            "is_default",
+            "exclude_weekends",
+            "exclude_public_holidays",
+        )
         read_only_fields = fields
 
 

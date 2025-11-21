@@ -11,7 +11,9 @@ export default class DeadlinesDeadlineDetailComponent extends Component {
   @tracked showModal = false;
 
   deadlineTypesQuery = query(this, "deadline-type", () => ({
-    filter: {},
+    filter: {
+      instance: this.ebauModules.instanceId,
+    },
   }));
 
   get isLoading() {

@@ -13,10 +13,10 @@ from localized_fields.fields import LocalizedCharField
 from camac.caluma.models import Inquiry
 from camac.core.utils import canton_aware
 from camac.deadlines.mixins import DeadlinePermissionMixin
-from camac.deadlines.utils import exclude_suspension_date
 from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
 from camac.user.models import Service
+from camac.utils import is_public_holiday, is_weekend_day
 
 TSuspension = TypeVar("TSuspension", bound="SuspensionQuerySet")
 TInstanceDeadline = TypeVar("TInstanceDeadline", bound="InstanceDeadlinesQuerySet")
@@ -44,15 +44,25 @@ class DeadlineTypeQuerySet(DeadlinePermissionMixin, models.QuerySet["DeadlineTyp
             else self.none()
         )
 
-    def get_default_for_service(
-        self: TDeadlineType, service: Service
+    def for_instance(self: TDeadlineType, instance: Instance) -> TDeadlineType:
+        return self.filter(
+            Q(form_types__isnull=True)
+            | Q(form_types__contains=[str(instance.case.family.document.form.pk)])
+        )
+
+    def get_default(
+        self: TDeadlineType, service: Service, instance: Instance
     ) -> Optional["DeadlineType"]:
         """Return the first default deadline type for the service.
 
         If no default deadline type exists, return the first deadline type
         available for the service.
         """
-        base_query = DeadlineType.objects.for_service(service).order_by("created_at")
+        base_query = (
+            DeadlineType.objects.for_service(service)
+            .for_instance(instance)
+            .order_by("lead_time")
+        )
         first_default = base_query.filter(is_default=True).first()
 
         return first_default if first_default else base_query.first()
@@ -136,8 +146,9 @@ class InstanceDeadlinesQuerySet(
             instance=instance,
             service=service,
             defaults={
-                "deadline_type": DeadlineType.objects.get_default_for_service(
-                    service=service
+                "deadline_type": DeadlineType.objects.get_default(
+                    service=service,
+                    instance=instance,
                 )
             },
         )
@@ -167,6 +178,14 @@ class DeadlineType(models.Model):
     service_groups = models.ManyToManyField(
         "user.ServiceGroup", blank=True, verbose_name=_("Service groups")
     )
+    form_types = models.JSONField(
+        blank=True,
+        null=True,
+        verbose_name=_("Form types"),
+        help_text=_(
+            "List of form IDs this deadline type applies to. If empty, applies to all forms."
+        ),
+    )
     name = LocalizedCharField(verbose_name=_("Name"))
     lead_time = models.PositiveIntegerField(
         verbose_name=_("Lead time in days"),
@@ -175,6 +194,16 @@ class DeadlineType(models.Model):
     is_default = models.BooleanField(
         default=False,
         verbose_name=_("Is default"),
+    )
+    exclude_weekends = models.BooleanField(
+        default=False,
+        verbose_name=_("Exclude weekends"),
+        help_text=_("If enabled, weekends are not counted towards deadlines."),
+    )
+    exclude_public_holidays = models.BooleanField(
+        default=False,
+        verbose_name=_("Exclude public holidays"),
+        help_text=_("If enabled, public holidays are not counted towards deadlines."),
     )
 
     objects: DeadlineTypeQuerySet = DeadlineTypeQuerySet.as_manager()
@@ -290,7 +319,7 @@ class Suspension(models.Model):
         suspension_dates = []
         while tmp_date < end:
             # Ignore weekends and public holidays if configured to do so
-            if exclude_suspension_date(tmp_date):
+            if self.deadline.exclude_suspension_date(tmp_date):
                 tmp_date += timedelta(days=1)
                 continue
 
@@ -354,6 +383,18 @@ class InstanceDeadline(models.Model):
     def has_open_suspension(self) -> bool:
         """Query if an open suspension exists for the service/instance."""
         return self.suspensions.only_open().exists()
+
+    def exclude_suspension_date(self, date: date) -> bool:
+        deadline_type = self.deadline_type
+
+        return (
+            (
+                (deadline_type.exclude_weekends and is_weekend_day(date))
+                or (deadline_type.exclude_public_holidays and is_public_holiday(date))
+            )
+            if deadline_type
+            else False
+        )
 
     def save(self, *args, **kwargs):
         # fetch the original, to compare which fields have changed,
@@ -551,7 +592,7 @@ class InstanceDeadline(models.Model):
                 continue
 
             # Ignore weekends and public holidays if configured to do so
-            if exclude_suspension_date(tmp_date):
+            if self.exclude_suspension_date(tmp_date):
                 tmp_date += timedelta(days=1)
                 continue
 
@@ -698,7 +739,7 @@ class InstanceDeadline(models.Model):
                 continue
 
             # Ignore weekends and public holidays if configured to do so
-            if exclude_suspension_date(process_deadline_date):
+            if self.exclude_suspension_date(process_deadline_date):
                 process_deadline_date += timedelta(days=1)
                 continue
 
