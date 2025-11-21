@@ -13,7 +13,7 @@ from camac.alexandria.permissions import (
 from camac.permissions.api import P
 from camac.permissions.conditions import Always
 from camac.permissions.switcher import PERMISSION_MODE
-from camac.settings.modules.permissions.alexandria import OwnDocument
+from camac.settings.modules.permissions.alexandria.conditions import OwnDocument
 
 # TODO Implement
 #
