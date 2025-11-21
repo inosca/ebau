@@ -89,26 +89,26 @@ module("Integration | Component | communication/topic-list", function (hooks) {
     assert.deepEqual(requests[requests.length - 1].queryParams, {
       has_unread: "true",
       instance: instance.id,
-      order: "-created_at",
       "page[number]": "1",
       "page[size]": "20",
+      sort: "-last_message_date",
     });
 
     await click("button[data-test-type=read]");
     assert.deepEqual(requests[requests.length - 1].queryParams, {
       has_unread: "false",
       instance: instance.id,
-      order: "-created_at",
       "page[number]": "1",
       "page[size]": "20",
+      sort: "-last_message_date",
     });
 
     await click("button[data-test-type=all]");
     assert.deepEqual(requests[requests.length - 1].queryParams, {
       instance: instance.id,
-      order: "-created_at",
       "page[number]": "1",
       "page[size]": "20",
+      sort: "-last_message_date",
     });
   });
 
@@ -156,9 +156,9 @@ module("Integration | Component | communication/topic-list", function (hooks) {
     let requests = this.server.pretender.handledRequests;
     assert.deepEqual(requests[requests.length - 1].queryParams, {
       instance: "1",
-      order: "-created_at",
       "page[number]": "2",
       "page[size]": "20",
+      sort: "-last_message_date",
     });
 
     await click("button[data-test-type=unread]");
@@ -168,9 +168,9 @@ module("Integration | Component | communication/topic-list", function (hooks) {
     assert.deepEqual(requests[requests.length - 1].queryParams, {
       has_unread: "true",
       instance: "1",
-      order: "-created_at",
       "page[number]": "1",
       "page[size]": "20",
+      sort: "-last_message_date",
     });
   });
 });
