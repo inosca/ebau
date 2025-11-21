@@ -123,6 +123,8 @@ DECISION = {
                 "REJECTED": "entscheid-entscheid-abweisung",
                 "PARTIALLY_APPROVED": "entscheid-entscheid-teilbaubewilligung",
                 "WITHDRAWAL": "entscheid-entscheid-rueckzug",
+                "WRITTEN_OFF": "entscheid-entscheid-abschreibung",
+                "NOTICED": "entscheid-entscheid-kenntnisnahme",
             },
             "DEMOLITION": {
                 "WITH": "entscheid-entscheidtyp-abweisung-mit-rueckbau",
@@ -165,10 +167,10 @@ DECISION["kt_bern"]["ECH_JUDGEMENT_MAP"] = {
 DECISION["kt_gr"]["ECH_JUDGEMENT_MAP"] = {
     "building-permit": {
         DECISION["kt_gr"]["ANSWERS"]["DECISION"]["APPROVED"]: ECH_JUDGEMENT_APPROVED,
+        DECISION["kt_gr"]["ANSWERS"]["DECISION"]["OTHER"]: ECH_JUDGEMENT_WRITTEN_OFF,
         DECISION["kt_gr"]["ANSWERS"]["DECISION"][
             "WRITTEN_OFF"
         ]: ECH_JUDGEMENT_WRITTEN_OFF,
-        DECISION["kt_gr"]["ANSWERS"]["DECISION"]["OTHER"]: ECH_JUDGEMENT_WRITTEN_OFF,
         DECISION["kt_gr"]["ANSWERS"]["DECISION"]["REJECTED"]: ECH_JUDGEMENT_DECLINED,
     },
     "preliminary-clarification": {
@@ -176,10 +178,10 @@ DECISION["kt_gr"]["ECH_JUDGEMENT_MAP"] = {
         DECISION["kt_gr"]["ANSWERS"]["DECISION"][
             "POSITIVE_WITH_RESERVATION"
         ]: ECH_JUDGEMENT_APPROVED_WITH_RESERVATION,
+        DECISION["kt_gr"]["ANSWERS"]["DECISION"]["OTHER"]: ECH_JUDGEMENT_WRITTEN_OFF,
         DECISION["kt_gr"]["ANSWERS"]["DECISION"][
             "WITHDRAWAL"
         ]: ECH_JUDGEMENT_WRITTEN_OFF,
-        DECISION["kt_gr"]["ANSWERS"]["DECISION"]["OTHER"]: ECH_JUDGEMENT_WRITTEN_OFF,
         DECISION["kt_gr"]["ANSWERS"]["DECISION"]["NEGATIVE"]: ECH_JUDGEMENT_DECLINED,
     },
 }
@@ -208,6 +210,10 @@ DECISION["kt_ag"]["ECH_JUDGEMENT_MAP"] = {
         ]: ECH_JUDGEMENT_APPROVED_WITH_RESERVATION,
         DECISION["kt_ag"]["ANSWERS"]["DECISION"][
             "WITHDRAWAL"
+        ]: ECH_JUDGEMENT_WRITTEN_OFF,
+        DECISION["kt_ag"]["ANSWERS"]["DECISION"]["NOTICED"]: ECH_JUDGEMENT_WRITTEN_OFF,
+        DECISION["kt_ag"]["ANSWERS"]["DECISION"][
+            "WRITTEN_OFF"
         ]: ECH_JUDGEMENT_WRITTEN_OFF,
     },
     "preliminary-clarification": {
