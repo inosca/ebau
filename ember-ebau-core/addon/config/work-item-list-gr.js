@@ -10,7 +10,7 @@ export default {
       "description",
       ...(status === "COMPLETED"
         ? ["closedAt", "closedBy"]
-        : ["deadline", "responsible"]),
+        : ["deadline", "targetDeadlineDate", "responsible"]),
     ].filter((value) => value !== null);
   },
 };

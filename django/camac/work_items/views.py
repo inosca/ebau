@@ -105,9 +105,12 @@ class WorkItemListRowViewset(ReadOnlyModelViewSet):
     filterset_class = filters.WorkItemListRowFilterSet
     queryset = WorkItemListRow.objects
     filter_backends = [filters.NullsFirstOrderingFilter, DjangoFilterBackend]
-    ordering_fields = ["deadline", "created_at"]
+    ordering_fields = ["deadline", "created_at", "target_deadline_date"]
     ordering_nulls_first = ["deadline"]
     ordering = ["deadline"]
+
+    def get_queryset(self):
+        return self.queryset.annotate_with_service_id(self.request.group.service_id)
 
     def paginate_queryset(self, queryset):
         """Paginate the queryset.

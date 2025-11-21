@@ -3,6 +3,7 @@ workItems:
   type: "Gesuchstyp"
   task: "Aufgabe"
   deadline: "Frist"
+  targetDeadlineDate: "Verfahrensfrist"
   created: "Erstellt"
   responsible: "Verantwortlich"
   service: "Service"
@@ -70,6 +71,7 @@ workItems:
     control: "Controlling"
     urgent: "Dringend"
     new: "Neu"
+    targetDeadlineDate: "Verfahrensfrist"
 
   templates:
     info: "Eine Vorlage anwenden"
