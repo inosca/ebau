@@ -3,6 +3,7 @@ from django.conf.urls import include
 from django.contrib import admin
 from django.urls import re_path
 
+from camac.alexandria.views import AlexandriaPermissionsDebuggerView
 from camac.caluma.views import CamacAuthenticatedGraphQLView
 from camac.swagger.views import get_swagger_view
 
@@ -82,4 +83,13 @@ if settings.ENABLE_TOKEN_EXCHANGE:
 if settings.GEVER.get("ENABLED"):  # pragma: no cover
     urlpatterns.append(
         re_path(r"^api/v1/", include("camac.gever.urls")),
+    )
+
+if settings.DEBUG:
+    urlpatterns.append(
+        re_path(
+            r"^django/alexandria-permissions-debugger",
+            AlexandriaPermissionsDebuggerView.as_view(),
+            name="alexandria-permissions-debugger",
+        ),
     )

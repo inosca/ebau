@@ -1,11 +1,15 @@
 from alexandria.core import views
+from alexandria.core.models import Category, Mark
+from django.conf import settings
 from django.core.cache import cache
 from rest_framework import status
 from rest_framework.decorators import action
-from rest_framework.exceptions import ValidationError
+from rest_framework.exceptions import NotFound, ValidationError
 from rest_framework.filters import OrderingFilter
 from rest_framework.permissions import BasePermission
+from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework.response import Response
+from rest_framework.views import APIView
 from rest_framework_json_api.django_filters import DjangoFilterBackend
 
 from camac.alexandria.extensions.permissions.extension import (
@@ -16,6 +20,8 @@ from camac.constants.kt_gr import ARE_SERVICE_GROUP
 from camac.core.utils import canton_aware
 from camac.filters import MultilingualSearchFilter
 from camac.instance.models import Instance
+from camac.permissions.conditions import Check
+from camac.permissions.models import AccessLevel
 from camac.user.models import Service
 from camac.user.permissions import DefaultPermission, PublicationPermission
 
@@ -152,3 +158,114 @@ class PatchedCategoryViewSet(views.CategoryViewSet):
 
 class PatchedMarkViewSet(views.MarkViewSet):
     permission_classes = [DefaultPermission | PublicationPermission]
+
+
+class AlexandriaPermissionsDebuggerView(APIView):
+    authentication_classes = []
+    permission_classes = []
+    renderer_classes = [TemplateHTMLRenderer]
+    template_name = "permissions.html"
+
+    def get_actions(self) -> list[str]:
+        return [
+            "create",
+            "update",
+            "tag",
+            "move",
+            "replace",
+            "delete",
+            *[f"mark:{mark}" for mark in Mark.objects.values_list("pk", flat="True")],
+        ]
+
+    def get_permission_for(self, action: str, permissions: dict[str, Check]) -> dict:
+        text = permissions.get(action)
+
+        if not text and "mark" in action:
+            text = permissions.get("mark:all")
+
+        if not text:
+            text = permissions.get("all", "Never")
+
+        text = str(text)
+
+        if text == "Never":
+            color = "red"
+        elif text == "Always":
+            color = "green"
+        else:
+            color = "amber"
+
+        return {"text": text, "color": color}
+
+    def get_matrix_for(self, category: Category, access_level: AccessLevel) -> dict:
+        all_permissions = settings.PERMISSIONS_ALEXANDRIA.get("ACCESS_LEVELS", {}).get(
+            access_level.pk, []
+        )
+
+        relevant_permissions = {
+            permission.replace(f"{category.pk}:", ""): condition
+            for permission, condition in all_permissions
+            if permission.startswith(f"{category.pk}:")
+        }
+
+        return {
+            action: self.get_permission_for(action, relevant_permissions)
+            for action in self.get_actions()
+        }
+
+    def get(self, request, **kwargs) -> Response:
+        if not settings.DEBUG:  # pragma: no cover
+            # Make sure to never return anything if we're not in debug mode even
+            # if the url should not be registered anyways.
+            raise NotFound()
+
+        categories = Category.objects.filter(parent__isnull=True).order_by("sort")
+        access_levels = AccessLevel.objects.all()
+
+        matrix = {
+            (category.pk, access_level.pk): self.get_matrix_for(category, access_level)
+            for category in categories
+            for access_level in access_levels
+        }
+
+        by = request.query_params.get("by")
+
+        if by == "access_level":
+            data = [
+                {
+                    "name": access_level.name,
+                    "slug": access_level.pk,
+                    "children": [
+                        {
+                            "name": category.name,
+                            **matrix.get((category.pk, access_level.pk)),
+                        }
+                        for category in categories
+                    ],
+                }
+                for access_level in access_levels
+            ]
+        else:
+            data = [
+                {
+                    "name": category.name,
+                    "slug": category.pk,
+                    "children": [
+                        {
+                            "name": access_level.name,
+                            **matrix.get((category.pk, access_level.pk)),
+                        }
+                        for access_level in access_levels
+                    ],
+                }
+                for category in categories
+            ]
+
+        return Response(
+            {
+                "data": data,
+                "actions": self.get_actions(),
+                "by": by,
+                "switch_to": "access_level" if by is None else None,
+            }
+        )
