@@ -1,0 +1,503 @@
+# serializer version: 1
+# name: test_alexandria_permissions_debugger_view[access_level]
+  '''
+  <!doctype html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="color-scheme" content="light dark" />
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+      />
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css"
+      />
+      <style>
+        :root {
+          --pico-font-size: 14px;
+        }
+  
+        table {
+          margin: 0;
+        }
+  
+        thead {
+          position: sticky;
+          top: 0;
+        }
+  
+        a {
+          color: inherit;
+          text-decoration-color: inherit;
+          scroll-margin-top: 45px;
+        }
+      </style>
+      <title>Alexandria Permissions</title>
+    </head>
+    <body>
+      <table>
+        <thead>
+          <tr>
+            <th class="pico-background-sand-500" colspan="2">
+              <a href="/django/alexandria-permissions-debugger?">Switch view</a>
+            </th>
+            
+              <th class="pico-background-sand-500">create</th>
+            
+              <th class="pico-background-sand-500">update</th>
+            
+              <th class="pico-background-sand-500">tag</th>
+            
+              <th class="pico-background-sand-500">move</th>
+            
+              <th class="pico-background-sand-500">replace</th>
+            
+              <th class="pico-background-sand-500">delete</th>
+            
+              <th class="pico-background-sand-500">mark:mark-1</th>
+            
+              <th class="pico-background-sand-500">mark:mark-2</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td class="pico-background-sand-50" colspan="10">
+                <a href="#level-1" id="level-1"><strong>Level 1</strong></a>
+              </td>
+            </tr>
+            
+              <tr>
+                <td></td>
+                
+                  
+                    <td>Category 1</td>
+                  
+                
+                  
+                    <td class="pico-background-green">Always</td>
+                  
+                
+                  
+                    <td class="pico-background-amber">IsPaper</td>
+                  
+                
+                  
+                    <td class="pico-background-red">Never</td>
+                  
+                
+                  
+                    <td class="pico-background-red">Never</td>
+                  
+                
+                  
+                    <td class="pico-background-red">Never</td>
+                  
+                
+                  
+                    <td class="pico-background-red">Never</td>
+                  
+                
+                  
+                    <td class="pico-background-green">Always</td>
+                  
+                
+                  
+                    <td class="pico-background-red">Never</td>
+                  
+                
+              </tr>
+            
+              <tr>
+                <td></td>
+                
+                  
+                    <td>Category 2</td>
+                  
+                
+                  
+                    <td class="pico-background-red">Never</td>
+                  
+                
+                  
+                    <td class="pico-background-red">Never</td>
+                  
+                
+                  
+                    <td class="pico-background-red">Never</td>
+                  
+                
+                  
+                    <td class="pico-background-red">Never</td>
+                  
+                
+                  
+                    <td class="pico-background-red">Never</td>
+                  
+                
+                  
+                    <td class="pico-background-red">Never</td>
+                  
+                
+                  
+                    <td class="pico-background-red">Never</td>
+                  
+                
+                  
+                    <td class="pico-background-red">Never</td>
+                  
+                
+              </tr>
+            
+          
+            <tr>
+              <td class="pico-background-sand-50" colspan="10">
+                <a href="#level-2" id="level-2"><strong>Level 2</strong></a>
+              </td>
+            </tr>
+            
+              <tr>
+                <td></td>
+                
+                  
+                    <td>Category 1</td>
+                  
+                
+                  
+                    <td class="pico-background-red">Never</td>
+                  
+                
+                  
+                    <td class="pico-background-red">Never</td>
+                  
+                
+                  
+                    <td class="pico-background-red">Never</td>
+                  
+                
+                  
+                    <td class="pico-background-red">Never</td>
+                  
+                
+                  
+                    <td class="pico-background-red">Never</td>
+                  
+                
+                  
+                    <td class="pico-background-red">Never</td>
+                  
+                
+                  
+                    <td class="pico-background-green">Always</td>
+                  
+                
+                  
+                    <td class="pico-background-green">Always</td>
+                  
+                
+              </tr>
+            
+              <tr>
+                <td></td>
+                
+                  
+                    <td>Category 2</td>
+                  
+                
+                  
+                    <td class="pico-background-green">Always</td>
+                  
+                
+                  
+                    <td class="pico-background-green">Always</td>
+                  
+                
+                  
+                    <td class="pico-background-green">Always</td>
+                  
+                
+                  
+                    <td class="pico-background-green">Always</td>
+                  
+                
+                  
+                    <td class="pico-background-green">Always</td>
+                  
+                
+                  
+                    <td class="pico-background-green">Always</td>
+                  
+                
+                  
+                    <td class="pico-background-green">Always</td>
+                  
+                
+                  
+                    <td class="pico-background-green">Always</td>
+                  
+                
+              </tr>
+            
+          
+        </tbody>
+      </table>
+    </body>
+  </html>
+  
+  '''
+# ---
+# name: test_alexandria_permissions_debugger_view[category]
+  '''
+  <!doctype html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="color-scheme" content="light dark" />
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+      />
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css"
+      />
+      <style>
+        :root {
+          --pico-font-size: 14px;
+        }
+  
+        table {
+          margin: 0;
+        }
+  
+        thead {
+          position: sticky;
+          top: 0;
+        }
+  
+        a {
+          color: inherit;
+          text-decoration-color: inherit;
+          scroll-margin-top: 45px;
+        }
+      </style>
+      <title>Alexandria Permissions</title>
+    </head>
+    <body>
+      <table>
+        <thead>
+          <tr>
+            <th class="pico-background-sand-500" colspan="2">
+              <a href="/django/alexandria-permissions-debugger?">Switch view</a>
+            </th>
+            
+              <th class="pico-background-sand-500">create</th>
+            
+              <th class="pico-background-sand-500">update</th>
+            
+              <th class="pico-background-sand-500">tag</th>
+            
+              <th class="pico-background-sand-500">move</th>
+            
+              <th class="pico-background-sand-500">replace</th>
+            
+              <th class="pico-background-sand-500">delete</th>
+            
+              <th class="pico-background-sand-500">mark:mark-1</th>
+            
+              <th class="pico-background-sand-500">mark:mark-2</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td class="pico-background-sand-50" colspan="10">
+                <a href="#category-1" id="category-1"><strong>Category 1</strong></a>
+              </td>
+            </tr>
+            
+              <tr>
+                <td></td>
+                
+                  
+                    <td>Level 1</td>
+                  
+                
+                  
+                    <td class="pico-background-green">Always</td>
+                  
+                
+                  
+                    <td class="pico-background-amber">IsPaper</td>
+                  
+                
+                  
+                    <td class="pico-background-red">Never</td>
+                  
+                
+                  
+                    <td class="pico-background-red">Never</td>
+                  
+                
+                  
+                    <td class="pico-background-red">Never</td>
+                  
+                
+                  
+                    <td class="pico-background-red">Never</td>
+                  
+                
+                  
+                    <td class="pico-background-green">Always</td>
+                  
+                
+                  
+                    <td class="pico-background-red">Never</td>
+                  
+                
+              </tr>
+            
+              <tr>
+                <td></td>
+                
+                  
+                    <td>Level 2</td>
+                  
+                
+                  
+                    <td class="pico-background-red">Never</td>
+                  
+                
+                  
+                    <td class="pico-background-red">Never</td>
+                  
+                
+                  
+                    <td class="pico-background-red">Never</td>
+                  
+                
+                  
+                    <td class="pico-background-red">Never</td>
+                  
+                
+                  
+                    <td class="pico-background-red">Never</td>
+                  
+                
+                  
+                    <td class="pico-background-red">Never</td>
+                  
+                
+                  
+                    <td class="pico-background-green">Always</td>
+                  
+                
+                  
+                    <td class="pico-background-green">Always</td>
+                  
+                
+              </tr>
+            
+          
+            <tr>
+              <td class="pico-background-sand-50" colspan="10">
+                <a href="#category-2" id="category-2"><strong>Category 2</strong></a>
+              </td>
+            </tr>
+            
+              <tr>
+                <td></td>
+                
+                  
+                    <td>Level 1</td>
+                  
+                
+                  
+                    <td class="pico-background-red">Never</td>
+                  
+                
+                  
+                    <td class="pico-background-red">Never</td>
+                  
+                
+                  
+                    <td class="pico-background-red">Never</td>
+                  
+                
+                  
+                    <td class="pico-background-red">Never</td>
+                  
+                
+                  
+                    <td class="pico-background-red">Never</td>
+                  
+                
+                  
+                    <td class="pico-background-red">Never</td>
+                  
+                
+                  
+                    <td class="pico-background-red">Never</td>
+                  
+                
+                  
+                    <td class="pico-background-red">Never</td>
+                  
+                
+              </tr>
+            
+              <tr>
+                <td></td>
+                
+                  
+                    <td>Level 2</td>
+                  
+                
+                  
+                    <td class="pico-background-green">Always</td>
+                  
+                
+                  
+                    <td class="pico-background-green">Always</td>
+                  
+                
+                  
+                    <td class="pico-background-green">Always</td>
+                  
+                
+                  
+                    <td class="pico-background-green">Always</td>
+                  
+                
+                  
+                    <td class="pico-background-green">Always</td>
+                  
+                
+                  
+                    <td class="pico-background-green">Always</td>
+                  
+                
+                  
+                    <td class="pico-background-green">Always</td>
+                  
+                
+                  
+                    <td class="pico-background-green">Always</td>
+                  
+                
+              </tr>
+            
+          
+        </tbody>
+      </table>
+    </body>
+  </html>
+  
+  '''
+# ---

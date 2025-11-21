@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css"
+    />
+    <style>
+      :root {
+        --pico-font-size: 14px;
+      }
+
+      table {
+        margin: 0;
+      }
+
+      thead {
+        position: sticky;
+        top: 0;
+      }
+
+      a {
+        color: inherit;
+        text-decoration-color: inherit;
+        scroll-margin-top: 45px;
+      }
+    </style>
+    <title>Alexandria Permissions</title>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th class="pico-background-sand-500" colspan="2">
+            <a href="{% url 'alexandria-permissions-debugger' %}{% querystring by=switch_to %}">Switch view</a>
+          </th>
+          {% for action in actions %}
+            <th class="pico-background-sand-500">{{ action }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for parent in data %}
+          <tr>
+            <td class="pico-background-sand-50" colspan="{{ actions|length|add:2 }}">
+              <a href="#{{ parent.slug }}" id="{{ parent.slug }}"><strong>{{ parent.name }}</strong></a>
+            </td>
+          </tr>
+          {% for child in parent.children %}
+            <tr>
+              <td></td>
+              {% for k, v in child.items %}
+                {% if k == "name" %}
+                  <td>{{ v }}</td>
+                {% else %}
+                  <td class="pico-background-{{ v.color }}">{{ v.text }}</td>
+                {% endif %}
+              {% endfor %}
+            </tr>
+          {% endfor %}
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

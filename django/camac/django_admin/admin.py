@@ -32,6 +32,8 @@ class CategoryAdmin(
         "sort",
     ]
 
+    change_list_template = "admin/alexandria_category_change_list.html"
+
     @display(description="Name")
     def full_name(self, obj):
         if obj.parent:

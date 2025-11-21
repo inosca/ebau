@@ -25,6 +25,12 @@ active via the X-CAMAC-GROUP HTTP header)
 # debugging and in a test that's currently marked `xfail`.
 # Therefore they're not explicitly covered
 
+OP_SYMBOLS = {
+    operator.and_: "&",
+    operator.or_: "|",
+    operator.not_: "~",
+}
+
 
 @dataclass()
 class PermissionContext:
@@ -52,6 +58,9 @@ class Check(ABC):
     def allow_caching(self):  # pragma: no cover
         return False
 
+    def __repr__(self):  # pragma: no cover
+        return self.__class__.__name__
+
 
 class BinaryCheck(Check):
     def __init__(self, left, right, op):
@@ -66,8 +75,7 @@ class BinaryCheck(Check):
         )
 
     def __repr__(self):
-        opname = self._op.__name__.strip("_")
-        return f"BinaryCheck({opname}, {self._left!r}, {self._right!r})"
+        return f"{self._left!r} {OP_SYMBOLS[self._op]} {self._right!r}"
 
     @property
     def allow_caching(self):  # pragma: no cover
@@ -91,8 +99,7 @@ class UnaryCheck(Check):
         return self._op(self._inner.apply(userinfo=userinfo, context=context))
 
     def __repr__(self):
-        opname = self._op.__name__.strip("_")
-        return f"UnaryCheck({opname}, {self._inner!r})"
+        return f"{OP_SYMBOLS[self._op]}{self._inner!r}"
 
     @property
     def allow_caching(self):  # pragma: no cover
@@ -153,6 +160,7 @@ class RequireInstanceState(Check):
     """Permission check: Require instance is in one of the configured states."""
 
     require_states: List[str]
+    condition_name: str | None = None
 
     def apply(self, userinfo, context: PermissionContext):
         return context.instance.instance_state.name in self.require_states
@@ -169,6 +177,9 @@ class RequireInstanceState(Check):
         ) == set(self.require_states)
 
     def __repr__(self):  # pragma: no cover
+        if self.condition_name:
+            return self.condition_name
+
         return f"RequireInstanceState({', '.join(sorted(self.require_states))})"
 
 
@@ -185,9 +196,6 @@ class HasInquiry(Check):
     def __eq__(self, other):  # pragma: no cover
         return isinstance(other, HasInquiry)
 
-    def __repr__(self):  # pragma: no cover
-        return "HasInquiry()"
-
 
 class IsAppeal(Check):
     """Permission check: Instance (case) has an appeal."""
@@ -201,9 +209,6 @@ class IsAppeal(Check):
 
     def __eq__(self, other):  # pragma: no cover
         return isinstance(other, IsAppeal)
-
-    def __repr__(self):  # pragma: no cover
-        return "IsAppeal()"
 
 
 class Always(Check):
@@ -219,9 +224,6 @@ class Always(Check):
     def __eq__(self, other):  # pragma: no cover
         return isinstance(other, Always)
 
-    def __repr__(self):  # pragma: no cover
-        return "Always()"
-
 
 class Never(Check):
     """Never grant the permission."""
@@ -235,9 +237,6 @@ class Never(Check):
 
     def __eq__(self, other):  # pragma: no cover
         return isinstance(other, Never)
-
-    def __repr__(self):  # pragma: no cover
-        return "Never()"
 
 
 @dataclass
@@ -313,9 +312,6 @@ class IsPaper(Check):
 
     def __eq__(self, other):  # pragma: no cover
         return isinstance(other, IsPaper)
-
-    def __repr__(self):  # pragma: no cover
-        return "IsPaper()"
 
 
 @dataclass
