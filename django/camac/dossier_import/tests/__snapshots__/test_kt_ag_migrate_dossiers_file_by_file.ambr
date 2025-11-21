@@ -925,7 +925,7 @@
               "creation_date": "2025-07-28T12:00:00Z",
               "modification_date": "2025-07-28T12:00:00Z",
               "service_id": 1,
-              "text": "STATUS\nLetzter Kantonsstatus: 'Neues Gesuch'\n",
+              "text": "STATUS\nLetzter Kantonsstatus: 'Weiterbearbeitung AfB'\n",
               "user_id": 2,
               "visibility": "own_organization"
           }
@@ -957,13 +957,6 @@
                   "1"
               ],
               "status": "ready",
-              "task_id": "cantonal-exam"
-          },
-          {
-              "addressed_groups": [
-                  "1"
-              ],
-              "status": "ready",
               "task_id": "create-inquiry"
           },
           {
@@ -972,6 +965,13 @@
               ],
               "status": "ready",
               "task_id": "inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "1"
+              ],
+              "status": "skipped",
+              "task_id": "cantonal-exam"
           },
           {
               "addressed_groups": [
@@ -1113,7 +1113,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "bauobjekt-kanalisation-migration",
-              "value": "bauobjekt-kanalisation-migration-nicht-benoetigt"
+              "value": "bauobjekt-kanalisation-migration-bestehend"
           },
           {
               "date": null,
@@ -1160,6 +1160,12 @@
           {
               "date": null,
               "document__form_id": "baugesuch-migration",
+              "question_id": "empfindlichkeits-stufe-gemaess-bau-und-nutzungsordnung-migration",
+              "value": "empfindlichkeits-stufe-gemaess-bau-und-nutzungsordnung-migration-ii"
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
               "question_id": "energienachweis-erforderlich",
               "value": "energienachweis-erforderlich-nein"
           },
@@ -1167,7 +1173,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "erdbebenkonformitaetserklaerung-migration",
-              "value": "erdbebenkonformitaetserklaerung-migration-erforderlich-und-wird-vor-baubeginn-eingereicht"
+              "value": "erdbebenkonformitaetserklaerung-migration-nicht-erforderlich"
           },
           {
               "date": null,
@@ -1233,7 +1239,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "in-oeffentliches-gewaesser",
-              "value": "in-oeffentliches-gewaesser-nicht-betroffen"
+              "value": "in-oeffentliches-gewaesser-neu"
           },
           {
               "date": null,
@@ -1287,7 +1293,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "kanalisation",
-              "value": "kanalisation-nicht-betroffen"
+              "value": "kanalisation-neu"
           },
           {
               "date": null,
@@ -1311,7 +1317,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "liegenschaft-migration",
-              "value": "liegenschaft-migration-nicht-benoetigt"
+              "value": "liegenschaft-migration-bestehend"
           },
           {
               "date": null,
@@ -1449,7 +1455,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "versickerung",
-              "value": "versickerung-nicht-betroffen"
+              "value": "versickerung-neu"
           },
           {
               "date": null,
@@ -2144,6 +2150,134 @@
               "text": "STATUS\nLetzter Kantonsstatus: 'Neues Gesuch'\n",
               "user_id": 2,
               "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-10-29T14:38:29Z",
+              "modification_date": "2025-10-29T14:38:29Z",
+              "service_id": 1,
+              "text": "GEMEINDE DATENÄNDERUNG\nSchritt: Die Gemeinde hat Daten geändert\nWer: Markus Test Krause Test\nKommentar: Die Gemeinde hat Daten geändert.\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-10-29T14:42:02Z",
+              "modification_date": "2025-10-29T14:42:02Z",
+              "service_id": 1,
+              "text": "GEMEINDE DATENÄNDERUNG\nSchritt: Die Gemeinde hat Daten geändert\nWer: Markus Test Krause Test\nKommentar: Die Gemeinde hat Daten geändert.\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-10-29T14:42:59Z",
+              "modification_date": "2025-10-29T14:42:59Z",
+              "service_id": 1,
+              "text": "GEMEINDE DATENÄNDERUNG\nSchritt: Die Gemeinde hat Daten geändert\nWer: Markus Test Krause Test\nKommentar: Die Gemeinde hat Daten geändert.\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-10-29T14:43:11Z",
+              "modification_date": "2025-10-29T14:43:11Z",
+              "service_id": 1,
+              "text": "GEMEINDE DATENÄNDERUNG\nSchritt: Die Gemeinde hat Daten geändert\nWer: Markus Test Krause Test\nKommentar: Die Gemeinde hat Daten geändert.\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-11-06T13:38:52Z",
+              "modification_date": "2025-11-06T13:38:52Z",
+              "service_id": 1,
+              "text": "GEMEINDE DATENÄNDERUNG\nSchritt: Die Gemeinde hat Daten geändert\nWer: Markus Test Krause Test\nKommentar: Die Gemeinde hat Daten geändert.\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-11-06T13:39:01Z",
+              "modification_date": "2025-11-06T13:39:01Z",
+              "service_id": 1,
+              "text": "GEMEINDE DATENÄNDERUNG\nSchritt: Die Gemeinde hat Daten geändert\nWer: Markus Test Krause Test\nKommentar: Die Gemeinde hat Daten geändert.\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-11-06T13:39:10Z",
+              "modification_date": "2025-11-06T13:39:10Z",
+              "service_id": 1,
+              "text": "GEMEINDE DATENÄNDERUNG\nSchritt: Die Gemeinde hat Daten geändert\nWer: Markus Test Krause Test\nKommentar: Die Gemeinde hat Daten geändert.\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-11-06T13:39:12Z",
+              "modification_date": "2025-11-06T13:39:12Z",
+              "service_id": 1,
+              "text": "GEMEINDE DATENÄNDERUNG\nSchritt: Die Gemeinde hat Daten geändert\nWer: Markus Test Krause Test\nKommentar: Die Gemeinde hat Daten geändert.\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-11-06T15:25:25Z",
+              "modification_date": "2025-11-06T15:25:25Z",
+              "service_id": 1,
+              "text": "GEMEINDE DATENÄNDERUNG\nSchritt: Die Gemeinde hat Daten geändert\nWer: Markus Test Krause Test\nKommentar: Die Gemeinde hat Daten geändert.\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-11-06T15:27:06Z",
+              "modification_date": "2025-11-06T15:27:06Z",
+              "service_id": 55,
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Markus Test Krause Test\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-11-06T15:27:07Z",
+              "modification_date": "2025-11-06T15:27:07Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab Gesuch\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-11-06T15:40:28Z",
+              "modification_date": "2025-11-06T15:40:28Z",
+              "service_id": 1,
+              "text": "GEMEINDE DATENÄNDERUNG\nSchritt: Die Gemeinde hat Daten geändert\nWer: Markus Test Krause Test\nKommentar: Die Gemeinde hat Daten geändert.\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-11-06T15:41:32Z",
+              "modification_date": "2025-11-06T15:41:32Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab Gesuch\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-11-06T15:41:32Z",
+              "modification_date": "2025-11-06T15:41:32Z",
+              "service_id": 55,
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Markus Test Krause Test\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-11-06T15:41:40Z",
+              "modification_date": "2025-11-06T15:41:40Z",
+              "service_id": 1,
+              "text": "MANUELLE AKTION\nSchritt: Anderer Schritt\nWer: Markus Test Krause Test\nKommentar: Feldänderung im Tab Gesuch\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-11-06T15:41:40Z",
+              "modification_date": "2025-11-06T15:41:40Z",
+              "service_id": 55,
+              "text": "VERFAHRENSSTAND\nAktion: Datenänderung von Kanton\nSchritt: Datenänderung von Kanton\nWer: Markus Test Krause Test\nKommentar: Der Kanton hat eine Änderung an den Daten vorgenommen.\n",
+              "user_id": 2,
+              "visibility": "own_organization"
           }
       ],
       "keywords": [
@@ -2274,12 +2408,6 @@
   {
       "answers": [
           {
-              "date": "2025-08-11",
-              "document__form_id": "kantonale-pruefung",
-              "question_id": "kantonale-pruefung-frist",
-              "value": null
-          },
-          {
               "date": "2025-09-26",
               "document__form_id": "inquiry",
               "question_id": "inquiry-deadline",
@@ -2309,7 +2437,7 @@
               "date": null,
               "document__form_id": "kantonale-pruefung",
               "question_id": "kantonale-pruefung-migriert-von-ebau-extended",
-              "value": "Eingang AfB: 12.06.2025\nBearbeitungsfrist AfB: 11.08.2025\nGruppe: DIBA Test Team\nGruppenbezeichnung: DIBA Test Team\nSachbearbeiter: EMARHUB001\nVorläufiges Abschlussdatum: 30.09.2025\nAbschlusscode: teilweise Zustimmung\nBearbeitungsdauer: 108\n"
+              "value": "Eingang AfB: 12.06.2025\nBearbeitungsfrist AfB: -\nGruppe: DIBA Test Team\nGruppenbezeichnung: DIBA Test Team\nSachbearbeiter: EMARHUB001\nVorläufiges Abschlussdatum: 30.09.2025\nAbschlusscode: teilweise Zustimmung\nBearbeitungsdauer: 108\n"
           },
           {
               "date": null,
@@ -3641,15 +3769,7 @@
               "creation_date": "2025-07-28T12:00:00Z",
               "modification_date": "2025-07-28T12:00:00Z",
               "service_id": 1,
-              "text": "GEBÜHREN\n\nPreiskondition: ZROD\nBeschreibung: Rodungsbewilligung AW\nSchema: AW KFA 1\nSchemastelle: 0010\nAufgaben-ID: 000000028332\nStückpreis: 400.0\nMenge: 1\nMesseinheit: LE\nGesamtpreis: 400.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: -\nBemerkung AfB: -\n\nPreiskondition: ZATB\nBeschreibung: Behandlungsgebühr ATB\nSchema: ATB\nSchemastelle: 0010\nAufgaben-ID: 000000028333\nStückpreis: 250\nMenge: 1\nMesseinheit: LE\nGesamtpreis: 250.00\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: -\nBemerkung AfB: -\n\nPreiskondition: ZIAK\nBeschreibung: Aufbruchbewilligung ATB\nSchema: ATB\nSchemastelle: 0020\nAufgaben-ID: 000000028333\nStückpreis: 1.75\nMenge: 1\nMesseinheit: LE\nGesamtpreis: 1.75\nVerwenden: -\nAnzeigen in GV: -\nBemerkung FS: -\nBemerkung AfB: -\n",
-              "user_id": 2,
-              "visibility": "own_organization"
-          },
-          {
-              "creation_date": "2025-07-28T12:00:00Z",
-              "modification_date": "2025-07-28T12:00:00Z",
-              "service_id": 1,
-              "text": "STATUS\nLetzter Kantonsstatus: 'Neues Gesuch'\n",
+              "text": "STATUS\nLetzter Kantonsstatus: 'Weiterbearbeitung AfB'\n",
               "user_id": 2,
               "visibility": "own_organization"
           },
@@ -3900,6 +4020,30 @@
               "text": "DOKUMENT HINZUGEFÜGT\nSchritt: Gebührenverfügung erstellt.\nWer: Markus Test Krause Test\nKommentar: Gebührenverfügung erstellt mit der ID 0000000000000010000831829\n",
               "user_id": 2,
               "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-11-14T14:12:02Z",
+              "modification_date": "2025-11-14T14:12:02Z",
+              "service_id": 1,
+              "text": "STATUS ÄNDERUNG\nSchritt: Vorläufiger Abschluss zurückgenommen\nWer: Markus Test Krause Test\nKommentar: Vorläufiger Abschluss zurückgenommen\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-11-14T14:12:23Z",
+              "modification_date": "2025-11-14T14:12:23Z",
+              "service_id": 1,
+              "text": "STATUS ÄNDERUNG\nSchritt: Status Änderung\nWer: Markus Test Krause Test\nKommentar: Gesuchsstatus wurde in \"Sistiert\" geändert.\n",
+              "user_id": 2,
+              "visibility": "own_organization"
+          },
+          {
+              "creation_date": "2025-11-14T14:12:45Z",
+              "modification_date": "2025-11-14T14:12:45Z",
+              "service_id": 1,
+              "text": "STATUS ÄNDERUNG\nSchritt: Status Änderung\nWer: Markus Test Krause Test\nKommentar: Gesuchsstatus wurde in \"Weiterbearbeitung AfB\" geändert.\n",
+              "user_id": 2,
+              "visibility": "own_organization"
           }
       ],
       "keywords": [
@@ -3937,13 +4081,6 @@
                   "1"
               ],
               "status": "ready",
-              "task_id": "cantonal-exam"
-          },
-          {
-              "addressed_groups": [
-                  "1"
-              ],
-              "status": "ready",
               "task_id": "create-inquiry"
           },
           {
@@ -3952,6 +4089,13 @@
               ],
               "status": "ready",
               "task_id": "inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "1"
+              ],
+              "status": "skipped",
+              "task_id": "cantonal-exam"
           },
           {
               "addressed_groups": [
@@ -6544,7 +6688,7 @@
               "creation_date": "2025-07-28T12:00:00Z",
               "modification_date": "2025-07-28T12:00:00Z",
               "service_id": 1,
-              "text": "STATUS\nLetzter Kantonsstatus: 'Neues Gesuch'\n",
+              "text": "STATUS\nLetzter Kantonsstatus: 'Weiterbearbeitung AfB'\n",
               "user_id": 2,
               "visibility": "own_organization"
           }
@@ -6584,13 +6728,6 @@
                   "1"
               ],
               "status": "ready",
-              "task_id": "cantonal-exam"
-          },
-          {
-              "addressed_groups": [
-                  "1"
-              ],
-              "status": "ready",
               "task_id": "create-inquiry"
           },
           {
@@ -6599,6 +6736,13 @@
               ],
               "status": "ready",
               "task_id": "inquiry"
+          },
+          {
+              "addressed_groups": [
+                  "1"
+              ],
+              "status": "skipped",
+              "task_id": "cantonal-exam"
           },
           {
               "addressed_groups": [
@@ -7599,7 +7743,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "erdbebenkonformitaetserklaerung-migration",
-              "value": "erdbebenkonformitaetserklaerung-migration-erforderlich-und-wird-vor-baubeginn-eingereicht"
+              "value": "erdbebenkonformitaetserklaerung-migration-nicht-erforderlich"
           },
           {
               "date": null,
@@ -9362,7 +9506,7 @@
               "creation_date": "2025-07-28T12:00:00Z",
               "modification_date": "2025-07-28T12:00:00Z",
               "service_id": 1,
-              "text": "STATUS\nLetzter Kantonsstatus: 'Neues Gesuch'\n",
+              "text": "STATUS\nLetzter Kantonsstatus: 'Freigabeverfahren'\n",
               "user_id": 2,
               "visibility": "own_organization"
           }
@@ -9398,13 +9542,6 @@
               ],
               "status": "completed",
               "task_id": "init-distribution"
-          },
-          {
-              "addressed_groups": [
-                  "1"
-              ],
-              "status": "ready",
-              "task_id": "cantonal-exam"
           },
           {
               "addressed_groups": [
@@ -9447,6 +9584,13 @@
               ],
               "status": "ready",
               "task_id": "objections"
+          },
+          {
+              "addressed_groups": [
+                  "1"
+              ],
+              "status": "skipped",
+              "task_id": "cantonal-exam"
           },
           {
               "addressed_groups": [
