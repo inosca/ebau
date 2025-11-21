@@ -240,7 +240,7 @@ class FakeRequest:
 
 
 @pytest.fixture
-def request_mock(mocker, admin_user, group):
+def request_mock(mocker, admin_user, group, settings):
     auth = {
         "sub": admin_user.username,
         settings.OIDC_USERNAME_CLAIM: admin_user.username,
@@ -284,7 +284,7 @@ def token(admin_user, settings):
 
 
 @pytest.fixture
-def caluma_admin_user(admin_user, group, token):
+def caluma_admin_user(admin_user, settings, group, token):
     user = OIDCUser(
         token=token,
         claims={
@@ -491,7 +491,7 @@ def unoconv_pdf_mock(requests_mock):
 
 
 @pytest.fixture
-def unoconv_invalid_mock(requests_mock):
+def unoconv_invalid_mock(requests_mock, settings):
     requests_mock.register_uri(
         "POST",
         build_url(settings.UNOCONV_URL, "/unoconv/invalid"),
@@ -1733,6 +1733,22 @@ def sz_master_data_case(db, sz_instance, form_field_factory, location_factory):
                 "number": 1234,
                 "egrid": "CH1234567890",
             }
+        ],
+    )
+
+    # List of paths consisting of coordinate tuples
+    form_field_factory(
+        instance=sz_instance,
+        name="punkte",
+        value=[
+            [
+                {
+                    "lat": 47.175669937318816,
+                    "lng": 8.8984885140077,
+                },
+                {"lat": 47.03185841071765, "lng": 8.622585392467867},
+            ],
+            [{"lat": 47.03185841071765, "lng": 8.622585392467867}],
         ],
     )
 

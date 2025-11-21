@@ -986,6 +986,22 @@
     'construction_duration': None,
     'construction_start_date': None,
     'coordinates': list([
+      list([
+        dict({
+          'lat': 47.175669937318816,
+          'lng': 8.8984885140077,
+        }),
+        dict({
+          'lat': 47.03185841071765,
+          'lng': 8.622585392467867,
+        }),
+      ]),
+      list([
+        dict({
+          'lat': 47.03185841071765,
+          'lng': 8.622585392467867,
+        }),
+      ]),
     ]),
     'decision_date': None,
     'dossier_number': None,
@@ -1092,6 +1108,22 @@
     'construction_duration': None,
     'construction_start_date': None,
     'coordinates': list([
+      list([
+        dict({
+          'lat': 47.175669937318816,
+          'lng': 8.8984885140077,
+        }),
+        dict({
+          'lat': 47.03185841071765,
+          'lng': 8.622585392467867,
+        }),
+      ]),
+      list([
+        dict({
+          'lat': 47.03185841071765,
+          'lng': 8.622585392467867,
+        }),
+      ]),
     ]),
     'decision_date': None,
     'dossier_number': None,

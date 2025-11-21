@@ -182,11 +182,15 @@ def test_perform_reimport(  # noqa: C901
         ("coordinates", "coordinates"),
     ]:
         imported = dataclasses.asdict(getattr(dossier, prop)[0])
-        if config == "kt_schwyz" and imported.get("street"):
-            imported["street"] = " ".join(
-                [imported["street"], imported["street_number"]]
-            )
-            del imported["street_number"]
+        if config == "kt_schwyz":
+            if imported.get("street"):
+                imported["street"] = " ".join(
+                    [imported["street"], imported["street_number"]]
+                )
+                del imported["street_number"]
+            # coordinates for kt_schwyz are handled separately
+            if key == "coordinates":
+                continue
         diff = [
             (data, imported[k])
             for k in imported.keys()
@@ -194,6 +198,14 @@ def test_perform_reimport(  # noqa: C901
         ]
         for d, u in diff:
             assert str(d) == str(u)
+
+    # kt_schwyz: verify coordinates
+    if config == "kt_schwyz":
+        assert (
+            imported_dossier.fields.get(name="punkte").value
+            == updated_values["coordinates"]
+        )
+
     # verify that the original attachment file has been replaced
     if config in ["kt_bern", "kt_schwyz"]:
         the_attachment = imported_dossier.attachments.filter(
