@@ -400,6 +400,8 @@ paper:
     eingereicht wurde (Papierdossier). Falls Sie ein normales Dossier als
     Gesuchsteller erstellen wollen, wählen Sie "Gesuchsteller/in" im
     Gruppenmenu am rechten oberen Rand der Seite.'
+  warningTitle: "ACHTUNG:"
+  warningBody: "Bei Papierdossiers können keine Berechtigungen erteilt werden. Gesuchstellende haben auf diese Dossiers keinen Zugriff."
 
 modification:
   type: "Projektänderung"
