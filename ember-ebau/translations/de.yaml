@@ -49,6 +49,7 @@ case:
     sections:
       paper-instances: "Papierdossiers"
       internal-dossiers: "Interne Dossiers"
+      special-procedure: "Weitere Verfahren"
     categories:
       building-permit:
         title: "Baubewilligungsverfahren"

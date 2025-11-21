@@ -177,26 +177,31 @@ export default {
         {
           slug: "baugesuch",
           roles: ["municipality-lead", "municipality-clerk"],
+          serviceGroups: ["municipality"],
           category: "building-permit",
         },
         {
           slug: "baugesuch-mit-uvp",
           roles: ["municipality-lead", "municipality-clerk"],
+          serviceGroups: ["municipality"],
           category: "building-permit",
         },
         {
           slug: "vorentscheid",
           roles: ["municipality-lead", "municipality-clerk"],
+          serviceGroups: ["municipality"],
           category: "building-permit",
         },
         {
           slug: "anfrage",
           roles: ["municipality-lead", "municipality-clerk"],
+          serviceGroups: ["municipality"],
           category: "special-procedure",
         },
         {
           slug: "reklame",
           roles: ["municipality-lead", "municipality-clerk"],
+          serviceGroups: ["municipality"],
           category: "special-procedure",
         },
       ],
@@ -216,18 +221,6 @@ export default {
           category: "special-procedure",
         },
         {
-          slug: "plangenehmigungsverfahren-bund",
-          roles: ["municipality-lead", "municipality-clerk"],
-          serviceGroups: ["authority-pgv"],
-          category: "special-procedure",
-        },
-        {
-          slug: "plangenehmigungsverfahren-gas",
-          roles: ["municipality-lead", "municipality-clerk"],
-          serviceGroups: ["authority-pgv"],
-          category: "special-procedure",
-        },
-        {
           slug: "internes-dossier",
           roles: [
             "municipality-lead",
@@ -237,6 +230,21 @@ export default {
           ],
           serviceGroups: ["municipality", "service-afb"],
           category: "special-procedure",
+        },
+      ],
+    },
+    {
+      section: "special-procedure",
+      forms: [
+        {
+          slug: "plangenehmigungsverfahren-bund",
+          roles: ["municipality-lead", "municipality-clerk"],
+          serviceGroups: ["authority-pgv"],
+        },
+        {
+          slug: "plangenehmigungsverfahren-gas",
+          roles: ["municipality-lead", "municipality-clerk"],
+          serviceGroups: ["authority-pgv"],
         },
       ],
     },
