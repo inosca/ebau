@@ -214,6 +214,32 @@
           }
       ],
       "canton_subsequent_application": true,
+      "canton_suspensions": [
+          {
+              "creation_date": "20250908",
+              "note": null,
+              "prev_status": "Freigabeverfahren",
+              "reason": "Unterlagenergänzung",
+              "resume_date": "20250929",
+              "start_date": "20250904"
+          },
+          {
+              "creation_date": "20251030",
+              "note": null,
+              "prev_status": "Freigabeverfahren",
+              "reason": "Unterlagenergänzung",
+              "resume_date": "20251030",
+              "start_date": "20251030"
+          },
+          {
+              "creation_date": "20251113",
+              "note": null,
+              "prev_status": "Freigabeverfahren",
+              "reason": "Unterlagenergänzung",
+              "resume_date": null,
+              "start_date": "20251113"
+          }
+      ],
       "canton_townscape_protection": true,
       "canton_traffic": true,
       "canton_usage_zones": [
@@ -804,6 +830,7 @@
       "canton_special_case_dev": false,
       "canton_status_history": [],
       "canton_subsequent_application": false,
+      "canton_suspensions": [],
       "canton_townscape_protection": false,
       "canton_traffic": false,
       "canton_usage_zones": [],
@@ -1053,6 +1080,7 @@
       "canton_special_case_dev": false,
       "canton_status_history": [],
       "canton_subsequent_application": false,
+      "canton_suspensions": [],
       "canton_townscape_protection": false,
       "canton_traffic": false,
       "canton_usage_zones": [],
@@ -1307,6 +1335,7 @@
       "canton_special_case_dev": false,
       "canton_status_history": [],
       "canton_subsequent_application": false,
+      "canton_suspensions": [],
       "canton_townscape_protection": false,
       "canton_traffic": false,
       "canton_usage_zones": [],

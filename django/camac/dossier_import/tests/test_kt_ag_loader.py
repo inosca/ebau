@@ -918,6 +918,41 @@ def test_all_mappings(snapshot):
                     "COMMENT_AFB": "",
                 },
             ],
+            "KANTON_SISTIERUNGEN": [
+                {
+                    "DATVON": "20250904",
+                    "DATBIS": "00000000",
+                    "NOTE": "",
+                    "REASON": "Unterlagenerg\u00e4nzung",
+                    "PREV_STATUS": "Freigabeverfahren",
+                    "CREATED_ON": "20250908",
+                    "CREATED_BY": "FAMT",
+                    "RESUME_DATE": "20250929",
+                    "RESUME_BY": "MMOA",
+                },
+                {
+                    "DATVON": "20251113",
+                    "DATBIS": "00000000",
+                    "NOTE": "",
+                    "REASON": "Unterlagenerg\u00e4nzung",
+                    "PREV_STATUS": "Freigabeverfahren",
+                    "CREATED_ON": "20251113",
+                    "CREATED_BY": "MMOA",
+                    "RESUME_DATE": "00000000",
+                    "RESUME_BY": "",
+                },
+                {
+                    "DATVON": "20251030",
+                    "DATBIS": "00000000",
+                    "NOTE": "",
+                    "REASON": "Unterlagenerg\u00e4nzung",
+                    "PREV_STATUS": "Freigabeverfahren",
+                    "CREATED_ON": "20251030",
+                    "CREATED_BY": "MMOA",
+                    "RESUME_DATE": "20251030",
+                    "RESUME_BY": "MMOA",
+                },
+            ],
         }
     )
 
