@@ -464,7 +464,7 @@ class CreateInstanceLogic:
             return
 
         CreateInstanceLogic.copy_alexandria_attachments(
-            source, target, skip_exported_form_attachment=skip_exported_form_attachment
+            source, target, skip_exported_form_attachment=True
         )
 
     @staticmethod
