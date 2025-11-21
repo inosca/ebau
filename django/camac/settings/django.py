@@ -3939,3 +3939,7 @@ KEYCLOAK_ALLOWED_CLIENTS = [
 DISABLE_MAGIC_BYTE_CHECK_FOR_MIME_TYPES = env.list(
     "DISABLE_MAGIC_BYTE_CHECK_FOR_MIME_TYPES", default=[]
 )
+
+SQL_VIEW_MIGRATIONS = [
+    # Tuples of (module, migration name)
+]
