@@ -123,6 +123,8 @@ DECISION = {
                 "REJECTED": "entscheid-entscheid-abweisung",
                 "PARTIALLY_APPROVED": "entscheid-entscheid-teilbaubewilligung",
                 "WITHDRAWAL": "entscheid-entscheid-rueckzug",
+                "WRITTEN_OFF": "entscheid-entscheid-abschreibung",
+                "NOTICED": "entscheid-entscheid-kenntnisnahme",
             },
             "DEMOLITION": {
                 "WITH": "entscheid-entscheidtyp-abweisung-mit-rueckbau",
@@ -208,6 +210,10 @@ DECISION["kt_ag"]["ECH_JUDGEMENT_MAP"] = {
         ]: ECH_JUDGEMENT_APPROVED_WITH_RESERVATION,
         DECISION["kt_ag"]["ANSWERS"]["DECISION"][
             "WITHDRAWAL"
+        ]: ECH_JUDGEMENT_WRITTEN_OFF,
+        DECISION["kt_ag"]["ANSWERS"]["DECISION"]["NOTICED"]: ECH_JUDGEMENT_WRITTEN_OFF,
+        DECISION["kt_ag"]["ANSWERS"]["DECISION"][
+            "WRITTEN_OFF"
         ]: ECH_JUDGEMENT_WRITTEN_OFF,
     },
     "preliminary-clarification": {
