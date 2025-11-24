@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-17 13:58+0100\n"
+"POT-Creation-Date: 2025-11-19 13:14+0100\n"
 "PO-Revision-Date: 2025-10-08 13:26+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -27,6 +27,42 @@ msgstr "eBau"
 #: camac/admin.py
 msgid "Administration"
 msgstr "Administration"
+
+#: camac/alert_message/admin.py
+msgid "Title / Message Preview"
+msgstr "Titel / Nachrichtenvorschau"
+
+#: camac/alert_message/models.py
+msgid "Created at"
+msgstr "Erstellt am"
+
+#: camac/alert_message/models.py
+msgid "Updated at"
+msgstr "Aktualisiert am"
+
+#: camac/alert_message/models.py
+msgid "Active"
+msgstr "Aktiv"
+
+#: camac/alert_message/models.py camac/user/models.py
+msgid "Title"
+msgstr "Titel"
+
+#: camac/alert_message/models.py
+msgid "Start Date"
+msgstr "Startdatum"
+
+#: camac/alert_message/models.py
+msgid "End Date"
+msgstr "Enddatum"
+
+#: camac/alert_message/models.py
+msgid "Alert Message"
+msgstr "Warnmeldung"
+
+#: camac/alert_message/models.py
+msgid "Alert Messages"
+msgstr "Warnmeldungen"
 
 #: camac/alexandria/extensions/validations.py
 #, python-format
@@ -185,38 +221,6 @@ msgstr "Gebührenvorlage"
 #: camac/billing/models.py
 msgid "Billing entry templates"
 msgstr "Gebührenvorlagen"
-
-#: camac/alert_message/models.py
-msgid "Alert Message"
-msgstr "Warnmeldung"
-
-#: camac/alert_message/models.py
-msgid "Alert Messages"
-msgstr "Warnmeldungen"
-
-#: camac/alert_message/models.py
-msgid "Created at"
-msgstr "Erstellt am"
-
-#: camac/alert_message/models.py
-msgid "Updated at"
-msgstr "Aktualisiert am"
-
-#: camac/alert_message/models.py
-msgid "Title / Message Preview"
-msgstr "Titel / Nachrichtenvorschau"
-
-#: camac/alert_message/models.py
-msgid "Active"
-msgstr "Aktiv"
-
-#: camac/alert_message/models.py
-msgid "Start Date"
-msgstr "Startdatum"
-
-#: camac/alert_message/models.py
-msgid "End Date"
-msgstr "Enddatum"
 
 #: camac/billing/serializers.py
 msgid "Date added"
@@ -625,7 +629,9 @@ msgstr "Alle Formulare"
 msgid ""
 "List of form IDs this deadline type applies to. If empty, applies to all "
 "forms."
-msgstr "Liste der Formulartypen, auf die dieser Fristentyp angewendet wird. Wenn leer, ""gilt für alle Formulare."
+msgstr ""
+"Liste der Formulartypen, auf die dieser Fristentyp angewendet wird. Wenn "
+"leer, gilt für alle Formulare."
 
 #: camac/deadlines/models.py camac/work_items/models.py
 msgid "Lead time in days"
@@ -1322,16 +1328,16 @@ msgid "Tags"
 msgstr "Schlagworte"
 
 #: camac/instance/export/serializers.py
-msgid "Building permit type"
-msgstr "Verfahren"
-
-#: camac/instance/export/serializers.py
 msgid "Coordinates east"
 msgstr "Koordinaten Ost"
 
 #: camac/instance/export/serializers.py
 msgid "Coordinates north"
 msgstr "Koordinaten Nord"
+
+#: camac/instance/export/serializers.py
+msgid "Building permit type"
+msgstr "Verfahren"
 
 #: camac/instance/export/serializers.py
 msgid "Builder"
@@ -1419,7 +1425,9 @@ msgstr "Projektänderung nicht erlaubt"
 #: camac/instance/serializers.py
 #, python-format
 msgid "No forms for minicipality '%(municipality)s' can be submitted."
-msgstr "Für die Gemeinde '%(municipality)s' können keine Dossiers mehr eingereicht werden."
+msgstr ""
+"Für die Gemeinde '%(municipality)s' können keine Dossiers mehr eingereicht "
+"werden."
 
 #: camac/instance/serializers.py
 msgid "Dossier submitted"
@@ -1732,20 +1740,20 @@ msgid "Circulation started"
 msgstr "Zirkulation gestartet"
 
 #: camac/settings/django.py
-msgid "Procedure completed"
-msgstr "Baugesuchsverfahren abgeschlossen"
-
-#: camac/settings/django.py
-msgid "Preliminary exam performed"
-msgstr "Vorläufige Prüfung durchgeführt"
-
-#: camac/settings/django.py
 msgid "Additional demand sent"
 msgstr "Nachforderung begonnen"
 
 #: camac/settings/django.py
 msgid "Additional demand was answered"
 msgstr "Nachforderung wurde beantwortet"
+
+#: camac/settings/django.py
+msgid "Procedure completed"
+msgstr "Baugesuchsverfahren abgeschlossen"
+
+#: camac/settings/django.py
+msgid "Preliminary exam performed"
+msgstr "Vorläufige Prüfung durchgeführt"
 
 #: camac/settings/django.py
 msgid "Construction monitoring performed"
@@ -2004,10 +2012,6 @@ msgstr "Ort"
 #: camac/user/models.py
 msgid "Zip"
 msgstr "PLZ"
-
-#: camac/user/models.py
-msgid "Title"
-msgstr "Titel"
 
 #: camac/user/models.py
 msgid "Mobile"

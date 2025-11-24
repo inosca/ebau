@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-06 11:29+0200\n"
+"POT-Creation-Date: 2025-11-19 13:14+0100\n"
 "PO-Revision-Date: 2025-05-09 15:48+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1017,12 +1017,16 @@ msgid "BILLING_ENTRIES_TOTAL"
 msgstr "GEBUEHREN_TOTAL"
 
 #: camac/instance/placeholders/serializers.py
+msgid "Total of all billing entries of the instance"
+msgstr "Totalbetrag aller Gebühren des Dossiers"
+
+#: camac/instance/placeholders/serializers.py
 msgid "BILLING_ENTRIES_TOTAL_NOT_CHARGED"
 msgstr "GEBUEHREN_TOTAL_NICHT_VERRECHNET"
 
 #: camac/instance/placeholders/serializers.py
-msgid "Total of all billing entries of the instance"
-msgstr "Totalbetrag aller Gebühren des Dossiers"
+msgid "Total of all not charged billing entries of the instance"
+msgstr "Totalbetrag aller nicht verrechneten Gebühren des Dossiers"
 
 #: camac/instance/placeholders/serializers.py
 msgid "BILLING_ENTRIES"
@@ -2061,10 +2065,6 @@ msgstr "BAFU_BUNDESINVENTARE"
 #: camac/instance/placeholders/serializers.py
 msgid "National invetory"
 msgstr "Bundesinventare"
-
-#: camac/instance/placeholders/serializers.py
-msgid "All inquiries"
-msgstr ""
 
 #: camac/instance/placeholders/serializers.py
 msgid "PUBLICATION_DATE_GAZETTE"
