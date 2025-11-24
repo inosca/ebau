@@ -68,6 +68,7 @@ def test_get_authority(
         ("bohrbewilligung-waermeentnahme", "KOOR_AFE_SERVICE_ID", None),
         ("pgv-gemeindestrasse", "KOOR_BD_SERVICE_ID", None),
         ("bgbb", "KOOR_AFG_SERVICE_ID", None),
+        ("einfache-anfrage", "KOOR_NP_SERVICE_ID", None),
     ],
 )
 def test_ur_get_responsible_service(

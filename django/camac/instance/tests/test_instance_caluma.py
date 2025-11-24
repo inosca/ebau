@@ -25,7 +25,6 @@ from camac.caluma.api import CalumaApi
 from camac.conftest import CALUMA_FORM_TYPES_SLUGS
 from camac.constants import (
     kt_bern as be_constants,
-    kt_uri as ur_constants,
     kt_uri as uri_constants,
 )
 from camac.core.models import Chapter, Question, QuestionType
@@ -295,13 +294,13 @@ def test_create_instance_caluma_ur(  # noqa: C901
 
     authority_factory(name="Foo")
 
-    workflow_item_factory(workflow_item_id=ur_constants.WORKFLOW_ITEM_DOSSIER_ERFASST)
+    workflow_item_factory(workflow_item_id=uri_constants.WORKFLOW_ITEM_DOSSIER_ERFASST)
 
     if archive:
         application_settings["ARCHIVE_FORMS"] = [form.pk]
 
     location = Location.objects.first()
-    mocker.patch.dict(ur_constants.CALUMA_FORM_MAPPING, {form.pk: "camac-form"})
+    mocker.patch.dict(uri_constants.CALUMA_FORM_MAPPING, {form.pk: "camac-form"})
     body = {
         "attributes": {"caluma-form": "main-form", "location": location.pk, "lead": 1},
         "relationships": {
@@ -617,9 +616,8 @@ def test_instance_submit_ur(
     mock_generate_and_store_pdf,
     caluma_workflow_config_ur,
     caluma_admin_user,
-    location_factory,
-    workflow_item_factory,
     authority_location_factory,
+    caluma_dynamic_option_factory,
     authority,
     form_slug,
     special_case,
@@ -659,22 +657,29 @@ def test_instance_submit_ur(
         active=1, instance=ur_instance, service=ur_instance.group.service
     )
 
-    location = location_factory(
-        communal_federal_number=(
-            "1222" if special_case.get("special_location") else "1224"
-        )
+    ur_instance.group.service.service_group.name = "Sekretariate Gemeindebaubehörden"
+    ur_instance.group.service.service_group.save()
+
+    ur_instance.location.communal_federal_number = (
+        "1222" if special_case.get("special_location") else "1224"
     )
+    ur_instance.location.save()
 
     ur_instance.case.document.answers.update_or_create(
         question_id="municipality",
-        defaults=dict(value=str(location.communal_federal_number)),
+        defaults=dict(value=str(ur_instance.location.communal_federal_number)),
+    )
+    caluma_dynamic_option_factory(
+        slug=str(ur_instance.location.communal_federal_number),
+        question_id="municipality",
+        document=ur_instance.case.document,
     )
     if special_case.get("special_location"):
         authority_location = authority_location_factory(
             location=admin_user.groups.first().locations.first()
         )
     else:
-        authority_location = authority_location_factory(location=location)
+        authority_location = authority_location_factory(location=ur_instance.location)
 
     if special_case.get("custom_leitbehoerde"):
         dynamic_option = caluma_form_models.DynamicOption.objects.create(
@@ -720,7 +725,7 @@ def test_instance_submit_ur(
         # this is a special "diverse gemeinden" or "alle gemeinden" dossier
         # this is therefore an ÖREB dossier and in this case the leitbehörde
         # is the KOOR NP
-        assert int(found_authority) == int(ur_constants.KOOR_NP_AUTHORITY_ID)
+        assert int(found_authority) == int(uri_constants.KOOR_NP_AUTHORITY_ID)
     else:
         assert int(found_authority) == int(authority_location.authority.pk)
 
@@ -982,7 +987,7 @@ def test_instance_submit_heat_extraction_ur(
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = True
     application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
 
-    workflow_item_factory(workflow_item_id=ur_constants.WORKFLOW_ITEM_DOSSIER_ERFASST)
+    workflow_item_factory(workflow_item_id=uri_constants.WORKFLOW_ITEM_DOSSIER_ERFASST)
 
     location = location_factory()
 
@@ -1071,7 +1076,82 @@ def test_instance_submit_pgv_gemeindestrasse_ur(
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = True
     application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
 
-    workflow_item_factory(workflow_item_id=ur_constants.WORKFLOW_ITEM_DOSSIER_ERFASST)
+    workflow_item_factory(workflow_item_id=uri_constants.WORKFLOW_ITEM_DOSSIER_ERFASST)
+
+    location = location_factory()
+
+    ur_instance.case.document.answers.create(
+        value=str(location.communal_federal_number), question_id="municipality"
+    )
+    mocker.patch(
+        "camac.constants.kt_uri.BAUDIREKTION_AUTHORITY_ID",
+        location.communal_federal_number,
+    )
+
+    instance_state_factory(name="ext")
+    instance_state_factory(name="subm")
+
+    response = admin_client.post(reverse("instance-submit", args=[ur_instance.pk]))
+
+    ur_instance.refresh_from_db()
+
+    assert response.status_code == status.HTTP_200_OK
+
+    assert len(mail.outbox) == 1
+    assert koor_email in mail.outbox[0].recipients()
+
+    assert ur_instance.instance_state.name == "ext"
+    assert ur_instance.location_id == location.pk
+    assert ur_instance.group == koor_group
+
+
+@pytest.mark.parametrize("service_group__name", ["applicant"])
+@pytest.mark.parametrize("instance_state__name", ["new"])
+@pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
+def test_instance_submit_einfache_anfrage_ur(
+    mocker,
+    admin_client,
+    settings,
+    caluma_workflow_config_ur,
+    ur_instance,
+    notification_template,
+    application_settings,
+    mock_generate_and_store_pdf,
+    workflow_item_factory,
+    location_factory,
+    group_factory,
+    instance_state_factory,
+    service_factory,
+    authority_location_factory,
+    ur_master_data_settings,
+    disable_ech0211_settings,
+):
+    settings.APPLICATION_NAME = "kt_uri"
+
+    ur_instance.case.document.form_id = "einfache-anfrage"
+    ur_instance.case.document.save()
+
+    service_factory(pk=uri_constants.KOOR_NP_SERVICE_ID)
+
+    koor_service = service_factory(email="KOOR_NP@example.com")
+    mocker.patch("camac.constants.kt_uri.KOOR_BD_SERVICE_ID", koor_service.pk)
+    koor_group = group_factory(service=koor_service)
+    mocker.patch("camac.constants.kt_uri.KOOR_NP_GROUP_ID", koor_group.pk)
+    mocker.patch("camac.constants.kt_uri.KOOR_GROUP_IDS", [koor_group.pk])
+    koor_email = koor_group.service.email
+
+    application_settings["NOTIFICATIONS"] = {
+        "SUBMIT_KOOR": [
+            {
+                "template_slug": notification_template.slug,
+                "recipient_types": ["municipality"],
+            },
+        ],
+    }
+    application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = True
+    application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
+
+    workflow_item_factory(workflow_item_id=uri_constants.WORKFLOW_ITEM_DOSSIER_ERFASST)
 
     location = location_factory()
 
@@ -1425,7 +1505,7 @@ def test_instance_submit_message_building_services_ur(
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = True
     application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
 
-    workflow_item_factory(workflow_item_id=ur_constants.WORKFLOW_ITEM_DOSSIER_ERFASST)
+    workflow_item_factory(workflow_item_id=uri_constants.WORKFLOW_ITEM_DOSSIER_ERFASST)
 
     ur_instance.case.document.answers.create(
         value=str(authority_location.location.communal_federal_number),
