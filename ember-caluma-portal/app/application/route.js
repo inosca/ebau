@@ -37,7 +37,6 @@ import SubmitInstanceComponent from "ember-ebau-core/components/submit-instance"
 import UrGisComponent from "ember-ebau-core/components/ur-gis";
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 
-import BeClaimsFormComponent from "caluma-portal/components/be-claims-form";
 import BeDisabledInputComponent from "caluma-portal/components/be-disabled-input";
 import BeDocumentsFormComponent from "caluma-portal/components/be-documents-form";
 import BeDownloadPdfComponent from "caluma-portal/components/be-download-pdf";
@@ -153,12 +152,6 @@ export default class ApplicationRoute extends Route {
       component: "be-download-pdf",
       componentClass: BeDownloadPdfComponent,
       type: "StaticQuestion",
-    });
-    this.calumaOptions.registerComponentOverride({
-      label: "Nachforderungen Formular",
-      component: "be-claims-form",
-      componentClass: BeClaimsFormComponent,
-      type: "Form",
     });
     this.calumaOptions.registerComponentOverride({
       label: "Deaktiviert",
