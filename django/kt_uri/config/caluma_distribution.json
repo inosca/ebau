@@ -205,6 +205,23 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "inquiry-answer-fees-nicht-via-urec",
+    "fields": {
+      "created_at": "2025-11-24T14:37:03.617Z",
+      "modified_at": "2025-11-24T14:37:03.617Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gebühren werden nicht via URec verrechnet\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "inquiry-answer-fees-no",
     "fields": {
       "created_at": "2024-09-25T11:04:38.119Z",
@@ -837,10 +854,10 @@
     "pk": "inquiry-answer-fees",
     "fields": {
       "created_at": "2024-09-25T11:04:38.328Z",
-      "modified_at": "2024-09-25T11:04:38.328Z",
+      "modified_at": "2025-11-24T14:37:03.752Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Sind alle relevanten Gebühren erfasst?\", \"fr\": null, \"it\": null}",
       "type": "choice",
@@ -848,8 +865,8 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -1093,47 +1110,62 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "inquiry-answer-fees.inquiry-answer-fees-nicht-via-urec",
+    "fields": {
+      "created_at": "2025-11-24T14:37:03.775Z",
+      "modified_at": "2025-11-24T14:37:03.775Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "inquiry-answer-fees",
+      "option": "inquiry-answer-fees-nicht-via-urec",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "inquiry-answer-fees.inquiry-answer-fees-no",
     "fields": {
-      "created_at": "2024-09-25T11:04:38.374Z",
-      "modified_at": "2024-09-25T11:04:38.374Z",
+      "created_at": "2025-11-24T14:37:03.782Z",
+      "modified_at": "2025-11-24T14:37:03.782Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "inquiry-answer-fees",
       "option": "inquiry-answer-fees-no",
-      "sort": 2
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "inquiry-answer-fees.inquiry-answer-fees-no-fees",
     "fields": {
-      "created_at": "2024-09-25T11:04:38.348Z",
-      "modified_at": "2024-09-25T11:04:38.348Z",
+      "created_at": "2025-11-24T14:37:03.779Z",
+      "modified_at": "2025-11-24T14:37:03.779Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "inquiry-answer-fees",
       "option": "inquiry-answer-fees-no-fees",
-      "sort": 1
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "inquiry-answer-fees.inquiry-answer-fees-yes",
     "fields": {
-      "created_at": "2024-09-25T11:04:38.378Z",
-      "modified_at": "2024-09-25T11:04:38.378Z",
+      "created_at": "2025-11-24T14:37:03.785Z",
+      "modified_at": "2025-11-24T14:37:03.785Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "inquiry-answer-fees",
       "option": "inquiry-answer-fees-yes",
-      "sort": 3
+      "sort": 4
     }
   },
   {
