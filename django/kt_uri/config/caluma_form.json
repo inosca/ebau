@@ -65389,44 +65389,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "versiegelte-entsiegelte-flaechen",
-    "fields": {
-      "created_at": "2024-06-26T08:20:04.019Z",
-      "modified_at": "2025-11-14T13:50:12.066Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Versiegelte / entsiegelte Flächen\", \"fr\": null, \"it\": null}",
-      "type": "table",
-      "is_required": "true",
-      "is_hidden": "'versiegelt-oder-entsiegelt-ja' != 'versiegelt-oder-entsiegelt'|answer",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"**Definition versiegelte / entsiegelte Flächen**\\n\\nAls versiegelte Flächen gelten alle Flächen die mit einem Gebäude belegt sind sowie Oberflächen die mittels eines Belages z.B. Asphalt, Schottertränkung, Beton oder andere, wasserundurchlässige Materialien befestigt sind.\\n\\nAls entsiegelte Flächen gelten:\\n- alle Flächen, die durch den Abbruch eines Gebäudes frei werden, wenn die frei gewordene Fläche vollständig rekultiviert wird\\n\\n- Oberflächen deren wasserundurchlässiger Belag entfernt und mit einem anderen Material, z.B. sickerfähige Verbundsteine oder Gartenplatten, Rasenraster oder ähnliches, ersetzt wird oder wenn die Flächen vollständig renaturiert werden.\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "columnsToDisplay": [
-          "bab-art-versiegelung",
-          "bab-versiegelung-flaeche",
-          "bab-nutzung-versiegelte-flaeche",
-          "bab-beschreibung-nutzung-versiegelte-flaeche-andere"
-        ]
-      },
-      "data_source": null,
-      "row_form": "bab-versiegelte-entsiegelte-flaechen-form",
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "versiegelt-oder-renaturiert",
     "fields": {
       "created_at": "2025-11-14T08:16:22.907Z",
