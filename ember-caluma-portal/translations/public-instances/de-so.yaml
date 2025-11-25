@@ -3,18 +3,36 @@ publicInstances:
       <strong>
         Bitte beachten Sie, dass die digitale öffentliche Planauflage zunächst nur für die folgenden Gemeinden möglich ist:
       </strong>
-      <ul>
-        <li>Breitenbach</li>
-        <li>Derendingen</li>
-        <li>Laupersdorf</li>
-        <li>Lostorf</li>
-        <li>Messen</li>
-        <li>Mümliswil-Ramiswil</li>
-        <li>Niederbuchsiten</li>
-        <li>Olten</li>
-        <li>Selzach</li>
-        <li>Solothurn</li>
-      </ul>
+      <div style="display: flex">
+        <span>
+          <ul style="min-width: 200px">
+            <li>Balsthal</li>
+            <li>Biberist</li>
+            <li>Breitenbach</li>
+            <li>Derendingen</li>
+            <li>Erschwil</li>
+            <li>Gerlafingen</li>
+            <li>Gunzgen</li>
+            <li>Günsberg</li>
+            <li>Laupersdorf</li>
+            <li>Lostorf</li>
+          </ul>
+        </span>
+        <span>
+          <ul>
+            <li>Messen</li>
+            <li>Metzerlen-Mariastein</li>
+            <li>Mümliswil-Ramiswil</li>
+            <li>Niederbuchsiten</li>
+            <li>Olten</li>
+            <li>Selzach</li>
+            <li>Solothurn</li>
+            <li>Stüsslingen</li>
+            <li>Walterswil</li>
+            <li>Winznau</li>
+          </ul>
+        </span>
+      </div>
 
 publicInstancesDetail:
   copyrightText: "Die hier aufgelegten Dokumente können urheberrechtlich
