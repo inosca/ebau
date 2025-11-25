@@ -33,6 +33,7 @@ from camac.communications.models import CommunicationsAttachment
 from camac.constants.kt_bern import ECH_BASE_DELIVERY
 from camac.ech0211.models import Message
 from camac.ech0211.throttling import ECHMessageThrottle
+from camac.ech0211.utils import clean_text_for_xml
 from camac.instance.models import Instance
 from camac.swagger.utils import (
     conditional_factory,
@@ -113,7 +114,8 @@ class MessageView(RetrieveModelMixin, GenericViewSet):
         message = self.get_object(request.query_params.get("last"))
         if not message:
             return HttpResponse(status=status.HTTP_204_NO_CONTENT)
-        response = HttpResponse(message.body)
+        xml = clean_text_for_xml(message.body)
+        response = HttpResponse(xml)
         response["Content-Type"] = "application/xml"
         return response
 
@@ -165,7 +167,7 @@ class ApplicationView(ECHInstanceQuerysetMixin, RetrieveModelMixin, GenericViewS
         ) as e:  # pragma: no cover
             logger.error(e.details())
             raise
-        response = HttpResponse(xml_data)
+        response = HttpResponse(clean_text_for_xml(xml_data))
         response["Content-Type"] = "application/xml"
 
         return response
