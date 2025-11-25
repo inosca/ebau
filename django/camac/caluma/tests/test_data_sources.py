@@ -56,10 +56,15 @@ def test_mitberichtsverfahren(db, role, location_factory, expected_count):
 
 
 @pytest.mark.parametrize(
-    "test_class,expected,is_rsta",
+    "test_class,expected,is_rsta,camac_role",
     [
-        (Authorities, [[1, "Baukommission Altdorf"]], False),
-        (Municipalities, [[1, {"de": "Bern", "fr": "Berne", "it": "Bern"}]], False),
+        (Authorities, [[1, "Baukommission Altdorf"]], False, "applicant"),
+        (
+            Municipalities,
+            [[1, {"de": "Bern", "fr": "Berne", "it": "Bern"}]],
+            False,
+            "applicant",
+        ),
         (
             Municipalities,
             [
@@ -73,6 +78,22 @@ def test_mitberichtsverfahren(db, role, location_factory, expected_count):
                 ]
             ],
             True,
+            "applicant",
+        ),
+        (
+            Municipalities,
+            [
+                [
+                    2,
+                    {
+                        "de": "Biel (nicht aktiviert)",
+                        "fr": "Bienne (non activé)",
+                        "it": "Biel (nicht aktiviert)",
+                    },
+                ]
+            ],
+            True,
+            "support",
         ),
         (
             Services,
@@ -90,11 +111,13 @@ def test_mitberichtsverfahren(db, role, location_factory, expected_count):
                 ["4", {"de": "service4", "fr": "service4", "it": "service4"}],
             ],
             False,
+            "applicant",
         ),
         (
             Countries,
             list(COUNTRIES.keys()),
             False,
+            "applicant",
         ),
     ],
 )
@@ -108,6 +131,7 @@ def test_data_sources(
     expected,
     is_rsta,
     authority_factory,
+    camac_role,
 ):
     if is_rsta:
         service1 = service_factory(
@@ -157,8 +181,8 @@ def test_data_sources(
         service_group__name="service",
     )
 
-    User = namedtuple("OIDCUser", "group")
-    user = User(group=service1.pk)
+    User = namedtuple("OIDCUser", ["group", "camac_role"])
+    user = User(group=service1.pk, camac_role=camac_role)
 
     data = test_class().get_data(user, None, None)
 

@@ -93,20 +93,28 @@ class Municipalities(BaseDataSource):
             or (hasattr(user, "camac_role") and user.camac_role == "support")
         )
 
+        filters = {}
+        group_names = ["municipality"]
+        if not user or getattr(user, "camac_role", None) != "applicant":
+            group_names.append("municipality-light")
+            cache_key += "_non_applicant"
+        else:
+            cache_key += "_applicant"
+
         if include_disabled:
             cache_key += "_with_disabled"
-            filters = {}
         else:
             filters = {"disabled": False}
 
-        return cache.get_or_set(cache_key, lambda: self._get_data(filters), 3600)
+        filters["service_group__name__in"] = group_names
+
+        return cache.get_or_set(cache_key, lambda: self._get_data(filters), 300)
 
     def _get_data(self, filters):
         services = (
             Service.objects.select_related("service_group")
             .filter(
                 service_parent__isnull=True,
-                service_group__name__in=["municipality", "municipality-light"],
                 **filters,
             )
             .prefetch_related("trans")
