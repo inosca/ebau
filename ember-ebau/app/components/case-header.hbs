@@ -51,15 +51,15 @@
             {{#if @case.deadline.instance.isSuspended}}
               <s>
                 {{if
-                  @case.deadline.processDeadlineDate
-                  (format-date @case.deadline.processDeadlineDate format="date")
+                  @case.deadline.targetDeadlineDate
+                  (format-date @case.deadline.targetDeadlineDate format="date")
                   (t "deadlines.deadline.noEndDate")
                 }}
               </s>
             {{else}}
               {{if
-                @case.deadline.processDeadlineDate
-                (format-date @case.deadline.processDeadlineDate format="date")
+                @case.deadline.targetDeadlineDate
+                (format-date @case.deadline.targetDeadlineDate format="date")
                 (t "deadlines.deadline.noEndDate")
               }}
             {{/if}}
