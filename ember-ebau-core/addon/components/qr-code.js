@@ -23,6 +23,13 @@ export default class QrCodeComponent extends Component {
     this.data = await QRCode.toDataURL(this.url, { quality: 1 });
   }
 
+  get preview() {
+    return (
+      this.args.context.workItemStatus !== "COMPLETED" &&
+      !this.args.context.workItemIsPublished
+    );
+  }
+
   get hidden() {
     return (
       this.args.context.workItemStatus === "COMPLETED" &&
