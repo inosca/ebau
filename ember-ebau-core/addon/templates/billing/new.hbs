@@ -116,9 +116,7 @@
     </div>
   {{/if}}
 
-  {{#if
-    (and (has-feature "billing.productNumber") this.productNumbers.value.length)
-  }}
+  {{#if (and (has-feature "billing.productNumber") this.productNumbers.length)}}
     <div class="uk-margin">
       <label class="uk-form-label uk-text-bold" for="product-number">
         {{t "billing.product-number"}}
@@ -132,7 +130,7 @@
           required
           {{on "change" this.update}}
         >
-          {{#each this.productNumbers.value as |productNumber|}}
+          {{#each this.productNumbers as |productNumber|}}
             <option value={{productNumber.number}}>
               {{productNumber.name}}
             </option>
