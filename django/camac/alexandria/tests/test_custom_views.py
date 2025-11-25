@@ -67,8 +67,8 @@ def test_alexandria_permissions_debugger_view(
 
     access_level_factory(pk="level-1", name="Level 1")
     access_level_factory(pk="level-2", name="Level 2")
-    alexandria_category_factory(pk="category-1", name="Category 1")
-    alexandria_category_factory(pk="category-2", name="Category 2")
+    alexandria_category_factory(pk="category-1", name="Category 1", sort=1)
+    alexandria_category_factory(pk="category-2", name="Category 2", sort=2)
     alexandria_mark_factory(pk="mark-1")
     alexandria_mark_factory(pk="mark-2")
 

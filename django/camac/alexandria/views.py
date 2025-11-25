@@ -220,7 +220,7 @@ class AlexandriaPermissionsDebuggerView(APIView):
             raise NotFound()
 
         categories = Category.objects.filter(parent__isnull=True).order_by("sort")
-        access_levels = AccessLevel.objects.all()
+        access_levels = AccessLevel.objects.all().order_by("name")
 
         matrix = {
             (category.pk, access_level.pk): self.get_matrix_for(category, access_level)
