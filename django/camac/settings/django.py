@@ -2603,14 +2603,14 @@ APPLICATIONS = {
         "LOG_NOTIFICATIONS": True,
         "LOG_NOTIFICATIONS_WITH_NO_RECEIVERS": True,
         "LINK_INSTANCES_ON_COPY": True,
-        # "STORE_PDF": {
-        #     "SECTION": {
-        #         "MAIN": {
-        #             "DEFAULT": "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
-        #             "PAPER": "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
-        #         }
-        #     },
-        # },
+        "STORE_PDF": {
+            "SECTION": {
+                "MAIN": {
+                    "DEFAULT": "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
+                    "PAPER": "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
+                }
+            },
+        },
         # Mapping between camac role and instance permission.
         "ROLE_PERMISSIONS": {
             "applicant": "applicant",
