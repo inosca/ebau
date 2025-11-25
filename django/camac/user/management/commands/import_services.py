@@ -204,17 +204,18 @@ class Command(BaseCommand):
                 service_parent=None,
                 service_group=service_group,
                 name=None,
+                slug=row[2] or None,
                 description=None,
-                email=scrub(row[2], "email@example.ch"),
-                zip=scrub(str(row[3])),
+                email=scrub(row[3], "email@example.ch"),
+                zip=scrub(str(row[4])),
                 city=None,
-                address=scrub(row[5]),
-                phone=scrub(row[6]),
-                website=scrub(row[7]),
+                address=scrub(row[6]),
+                phone=scrub(row[7]),
+                website=scrub(row[8]),
                 notification=1,
                 responsibility_construction_control=0,
-                disabled=int(row[8] or 0),
-                external_identifier=row[9] or None,
+                disabled=int(row[9] or 0),
+                external_identifier=row[10] or None,
             )
 
             existing = Service.objects.filter(trans__name=name).first()
@@ -237,7 +238,7 @@ class Command(BaseCommand):
                 service=service,
                 name=name,
                 description=name,
-                city=scrub(row[4]),
+                city=scrub(row[5]),
             )
 
             if existing and update:
@@ -261,7 +262,7 @@ class Command(BaseCommand):
                     address=None,
                     phone=None,
                     website=None,
-                    disabled=int(row[8] or 0),
+                    disabled=int(row[9] or 0),
                 )
 
                 existing = Group.objects.filter(trans__name=group_name).first()
@@ -277,7 +278,7 @@ class Command(BaseCommand):
                     language="de",
                     group=group,
                     name=group_name,
-                    city=scrub(row[4]),
+                    city=scrub(row[5]),
                 )
 
                 if existing and update:
