@@ -15594,12 +15594,12 @@
     "pk": "vorhaben-umbau-erweiterung-zweckaenderung",
     "fields": {
       "created_at": "2023-04-05T10:41:47.666Z",
-      "modified_at": "2024-09-11T14:58:57.303Z",
+      "modified_at": "2025-11-25T10:48:13.580Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Umbau\", \"fr\": null, \"it\": \"Trasformazione\"}",
+      "label": "{\"de\": \"Umbau/Anbau\", \"fr\": null, \"it\": \"Trasformazione\"}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -15838,6 +15838,23 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kälteanlage\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "welche-infrastrukturen-sind-betroffen-keine",
+    "fields": {
+      "created_at": "2025-11-25T13:26:54.240Z",
+      "modified_at": "2025-11-25T13:26:54.240Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Keine\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -17729,12 +17746,12 @@
     "pk": "ausnuetzungsziffer-projekt",
     "fields": {
       "created_at": "2024-11-06T18:11:55.927Z",
-      "modified_at": "2024-11-25T12:40:22.788Z",
+      "modified_at": "2025-11-25T12:37:55.373Z",
       "created_by_user": "jana.lux@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "tilo.stoppe@adfinis.com",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Ausnützungsziffer Projekt\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Geschossflächenziffer / Ausnützungsziffer Projekt\", \"fr\": null, \"it\": null}",
       "type": "calculated_float",
       "is_required": "false",
       "is_hidden": "!(\"ausserhalb-bauzone\"|answer == \"ausserhalb-bauzone-nein\")",
@@ -17949,14 +17966,14 @@
     "pk": "baugespann-erstellt-am",
     "fields": {
       "created_at": "2023-04-12T07:53:46.553Z",
-      "modified_at": "2024-12-06T08:59:18.487Z",
+      "modified_at": "2025-11-25T10:49:25.951Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Profilierungsdatum\", \"fr\": null, \"it\": \"Data di creazione\"}",
       "type": "date",
-      "is_required": "!(\"vorlaeufige-beurteilung\" in form || \"is-paper-yes\" in \"is-paper\"|answer)",
+      "is_required": "false",
       "is_hidden": "!( \"baugespann-ja\" ==\"baugespann\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -18340,7 +18357,7 @@
     "pk": "bauwerksklasse-bwk",
     "fields": {
       "created_at": "2024-11-20T16:05:11.976Z",
-      "modified_at": "2025-05-14T13:38:44.483Z",
+      "modified_at": "2025-11-25T12:32:19.455Z",
       "created_by_user": "jana.lux@adfinis.com",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -18351,7 +18368,7 @@
       "is_hidden": "!(\"erdbebenkonformitaetserklaerung-erforderlich\"|answer == \"erdbebenkonformitaetserklaerung-erforderlich-ja\")",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Bauwerksklasse: Klassierung des Bauwerks in eine von 3 definierten Bauwerksklassen, je nach Bedeutung und Schadenspotential:\\n\\n**BWK I:** Gewöhnliche Gebäude\\n\\n**BWK II:** Grosse Menschenansammlungen, besonders wertvolle Güter und Einrichtungen, bedeutende Infrastrukturfunktion, beschränkte Gefährdung der Umwelt\\n\\n**BWK III:** Lebenswichtige Infrastrukturfunktion, erhebliche Gefährdung der Umwelt\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -21625,10 +21642,10 @@
     "pk": "fluchtweg-brandschutz-und-layoutplan",
     "fields": {
       "created_at": "2024-11-27T14:55:51.105Z",
-      "modified_at": "2025-01-14T09:43:40.523Z",
+      "modified_at": "2025-11-25T12:09:15.824Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "jasmin.leuthard@ag.ch",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Fluchtweg-, Brandschutz- und Layoutplan\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
@@ -21636,7 +21653,7 @@
       "is_hidden": "!(\"sind-arbeitnehmende-betroffen\"|answer == \"sind-arbeitnehmende-betroffen-ja\")",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Mehr Informationen zur Arbeitssicherheit bzw. zu Plangenehmigungen und Planbegutachtungen des Amts für Wirtschaft und Arbeit (AWA) finden Sie [hier] (https://www.ag.ch/de/verwaltung/dvi/wirtschaft-arbeit/unternehmen/arbeitnehmerschutz-beim-bauen).\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Mehr Informationen zur Arbeitssicherheit bzw. zu Plangenehmigungen und Planbegutachtungen des Amts für Wirtschaft und Arbeit (AWA) finden Sie [hier] (https://www.ag.ch/de/themen/wirtschaft-arbeit/arbeitsbedingungen/arbeitssicherheit).\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -22013,12 +22030,12 @@
     "pk": "geschossflaeche",
     "fields": {
       "created_at": "2024-11-06T14:56:58.656Z",
-      "modified_at": "2025-05-14T13:31:02.173Z",
+      "modified_at": "2025-11-25T12:35:49.461Z",
       "created_by_user": "jana.lux@adfinis.com",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Anrechenbare Geschossfläche (m²)\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Summe aller Geschossflächen / anrechenbare Geschossflächen (gesamtes Gebäude, inkl. Projekt) (m²)\", \"fr\": null, \"it\": null}",
       "type": "float",
       "is_required": "form in [\"baugesuch\", \"baugesuch-mit-uvp\"] && 'is-paper'|answer != 'is-paper-yes'",
       "is_hidden": "!(\"ausserhalb-bauzone\"|answer == \"ausserhalb-bauzone-nein\")",
@@ -22833,10 +22850,10 @@
     "pk": "hinweistext-dokumente",
     "fields": {
       "created_at": "2023-05-17T08:14:51.899Z",
-      "modified_at": "2025-01-09T08:50:51.179Z",
+      "modified_at": "2025-11-25T13:22:03.236Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "jasmin.leuthard@ag.ch",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Hinweistext Dokumente\", \"fr\": null, \"it\": \"Nota documenti\"}",
       "type": "static",
@@ -22846,7 +22863,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"Die Dokumente sind wenn möglich in PDF-Format hochzuladen. Zusammengehörige Dokumente (wie z.B. Fotodokumentation, Grundrisspläne) sind nach Möglichkeit in einem Dokument zusammenzufassen.\\n\\nDie Dokumente sind klar und eindeutig zu benennen z.B. Situationsplan.pdf, Projektbeschrieb.pdf, Grundrisse.pdf, Parkplatzberechnung.pdf, Technischer Bericht Entwässerung.pdf). \\nAuf Plannummern, Revisionsdaten und Ähnliches ist in den Dokumentnamen zu verzichten. \\n\\nHinweise für eine gute Plandarstellung finden Sie zudem in der [Zeichenhilfe für Baugesuche des Kantons Graubünden](https://www.gr.ch/DE/institutionen/verwaltung/dvs/are/BAB/Zeichenhilfe%20Baugesuche_web.pdf).\", \"fr\": \"\", \"it\": \"Indicazioni per una buona rappresentazione dei piani sono disponibili nella [Guida per disegnare i piani da allegare alle domande di costruzione](https://www.gr.ch/DE/institutionen/verwaltung/dvs/are/BAB/Wegleitung%20Zeichenhilfe%20It%20web.pdf).\"}",
+      "static_content": "{\"de\": \"Die Dokumente sind wenn möglich in PDF-Format hochzuladen. Zusammengehörige Dokumente (wie z.B. Fotodokumentation, Grundrisspläne) sind nach Möglichkeit in einem Dokument zusammenzufassen.\\n\\nDie Dokumente sind klar und eindeutig zu benennen z.B. Situationsplan.pdf, Projektbeschrieb.pdf, Grundrisse.pdf, Parkplatzberechnung.pdf, Technischer Bericht Entwässerung.pdf). \\nAuf Plannummern, Revisionsdaten und Ähnliches ist in den Dokumentnamen zu verzichten.\", \"fr\": \"\", \"it\": \"Indicazioni per una buona rappresentazione dei piani sono disponibili nella [Guida per disegnare i piani da allegare alle domande di costruzione](https://www.gr.ch/DE/institutionen/verwaltung/dvs/are/BAB/Wegleitung%20Zeichenhilfe%20It%20web.pdf).\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -22864,10 +22881,10 @@
     "pk": "hinweistext-stoerfallvorsorge",
     "fields": {
       "created_at": "2024-11-11T17:21:03.802Z",
-      "modified_at": "2024-11-11T17:21:03.802Z",
+      "modified_at": "2025-11-25T10:56:32.284Z",
       "created_by_user": "jana.lux@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Hinweistext mit Link auf https://www.ag.ch/de/verwaltung/dgs/verbraucherschutz/chemie-biosicherheit/stoerfallvorsorge\", \"fr\": null, \"it\": null}",
       "type": "static",
@@ -22875,9 +22892,9 @@
       "is_hidden": "!(\"bauvorhaben-stoerfallrelevant\"|answer == \"bauvorhaben-stoerfallrelevant-ja\")",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"[Hinweis zur Störfallvorsorge](https://www.ag.ch/de/verwaltung/dgs/verbraucherschutz/chemie-biosicherheit/stoerfallvorsorge)\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"[Hinweis zur Störfallvorsorge](https://www.ag.ch/de/themen/gesundheit/lebensmittel-und-umweltsicherheit/chemiesicherheit/stoerfallvorsorge)\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -23085,10 +23102,10 @@
     "pk": "informationen-arbeitssicherheit",
     "fields": {
       "created_at": "2024-11-19T09:55:39.656Z",
-      "modified_at": "2024-11-19T09:55:39.656Z",
+      "modified_at": "2025-11-25T10:59:40.512Z",
       "created_by_user": "jana.lux@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Weitere Informationen zum Thema finden Sie hier https://www.ag.ch/de/verwaltung/dvi/wirtschaft-arbeit/unternehmen/arbeitnehmerschutz-beim-bauen\", \"fr\": null, \"it\": null}",
       "type": "static",
@@ -23096,9 +23113,9 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"Weitere Informationen zum Thema finden Sie [hier] (https://www.ag.ch/de/verwaltung/dvi/wirtschaft-arbeit/unternehmen/arbeitnehmerschutz-beim-bauen)\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"Weitere Informationen zum Thema finden Sie [hier] (https://www.ag.ch/de/themen/wirtschaft-arbeit/arbeitsbedingungen/arbeitssicherheit)\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -23587,7 +23604,7 @@
     "pk": "kantonale-brandschutzbewilligung-erforderlich",
     "fields": {
       "created_at": "2024-11-19T13:38:16.333Z",
-      "modified_at": "2024-12-06T08:33:35.474Z",
+      "modified_at": "2025-11-25T12:30:47.239Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -23598,7 +23615,7 @@
       "is_hidden": "form in [\"plangenehmigungsverfahren-bund\", \"plangenehmigungsverfahren-gas\", \"anfrage-intern\", \"internes-dossier\", \"vorabklaerung\"]",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Weitere Informationen finden Sie in folgendem [Merkblatt](https://www.agv-ag.ch/media/filer/brandschutzbewilligung__wann_gilt_die_kantonale_zustandigkeit_sept2024.pdf).\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Weitere Informationen finden Sie in folgendem [Merkblatt](https://die-agv.ch/media/filer_public/f1/ba/f1bad50e-6de9-4845-9e4e-0b80ec798320/brandschutzbewilligung.pdf).\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -25332,10 +25349,10 @@
     "pk": "rodung-angefuegte-beilagen",
     "fields": {
       "created_at": "2024-11-27T14:18:16.315Z",
-      "modified_at": "2025-01-14T09:17:23.639Z",
+      "modified_at": "2025-11-25T12:10:52.382Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "jasmin.leuthard@ag.ch",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Rodungsgesuch inkl. den darin aufgeführten Beilagen\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
@@ -25343,7 +25360,7 @@
       "is_hidden": "!(\"rodung\"|answer == \"rodung-ja\")",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Weitere Informationen zum Rodungsgesuch finden Sie [hier](https://www.bafu.admin.ch/bafu/de/home/themen/wald/fachinformationen/vollzug-massnahmen/rodungen-und-rodungsgesuch.html).\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Weitere Informationen zum Rodungsgesuch finden Sie [hier](https://www.bafu.admin.ch/bafu/de/home/themen/wald/wald-und-holzpolitik/rodungen-und-rodungsgesuch.html).\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -26742,7 +26759,7 @@
     "pk": "vorhaben",
     "fields": {
       "created_at": "2023-04-05T10:41:47.866Z",
-      "modified_at": "2025-05-14T13:19:54.888Z",
+      "modified_at": "2025-11-25T10:48:13.760Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -26753,7 +26770,7 @@
       "is_hidden": "\"reklame\" in form",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Der **Neubau** ist bei neuen Bauten und Anlagen zu wählen.\\n\\nDer **Umbau** ist zu wählen, sofern es sich um bauliche Massnahmen an einer bestehenden Baute oder Anlage handelt.\\n\\nDie **Nutzungsänderung** ist zu wählen, um Gebäude in ihrer Nutzung zu ändern (z.B. Gewerbe- zu Wohnnutzung).\\n\\nDer **Abbruch/Teilabbruch** ist zu wählen, wenn eine komplette Baute bzw. Anlage oder Teile davon rückgebaut werden soll.\", \"fr\": null, \"it\": \"La voce **Nuova costruzione** deve essere selezionata in caso di nuove realizzazioni di edifici e impianti.\\n\\nLa voce **Ampliamento** deve essere selezionata in caso di ingrandimento della superficie edificata o del volume dell'edificio (ad es. aggiunta o ampliamento).\\n\\nLa voce **Trasformazione** deve essere selezionata in caso di misure edilizie all'interno dell'edificio (senza ingrandimento della superficie edificata o del volume dell'edificio).\\n\\nLa voce **Rinnovo** comprende misure edilizie che superano la mera manutenzione e possono aumentare il valore. L'opera viene adeguata alle esigenze del tempo (modernizzazione).\\n\\nLa voce **Destinazione ad altro scopo** deve essere selezionata nel caso in cui cambia l'utilizzo dell'edificio (ad es. da scopo commerciale a scopo abitativo).\\n\\nLa voce **Demolizione / demolizione parziale** deve essere selezionata nel caso in cui venga smantellata un'opera completa o parti di essa. \\n\\nSe la domanda di costruzione è già stata approvata e sono previste ulteriori modifiche occorre selezionare **Modifica del progetto di un edificio/impianto autorizzato**.\\n\\nSe non è possibile assegnare il progetto a una delle categorie indicate, selezionare **Altre misure edilizie**. Il progetto deve essere descritto in modo dettagliato.\"}",
+      "info_text": "{\"de\": \"Der **Neubau** ist bei neuen Bauten und Anlagen zu wählen.\\n\\nDer **Umbau/Anbau** ist zu wählen, sofern es sich um bauliche Massnahmen oder einen Anbau an einer bestehenden Baute oder Anlage handelt.\\n\\nDie **Nutzungsänderung** ist zu wählen, um Gebäude in ihrer Nutzung zu ändern (z.B. Gewerbe- zu Wohnnutzung).\\n\\nDer **Abbruch/Teilabbruch** ist zu wählen, wenn eine komplette Baute bzw. Anlage oder Teile davon rückgebaut werden soll.\", \"fr\": null, \"it\": \"La voce **Nuova costruzione** deve essere selezionata in caso di nuove realizzazioni di edifici e impianti.\\n\\nLa voce **Ampliamento** deve essere selezionata in caso di ingrandimento della superficie edificata o del volume dell'edificio (ad es. aggiunta o ampliamento).\\n\\nLa voce **Trasformazione** deve essere selezionata in caso di misure edilizie all'interno dell'edificio (senza ingrandimento della superficie edificata o del volume dell'edificio).\\n\\nLa voce **Rinnovo** comprende misure edilizie che superano la mera manutenzione e possono aumentare il valore. L'opera viene adeguata alle esigenze del tempo (modernizzazione).\\n\\nLa voce **Destinazione ad altro scopo** deve essere selezionata nel caso in cui cambia l'utilizzo dell'edificio (ad es. da scopo commerciale a scopo abitativo).\\n\\nLa voce **Demolizione / demolizione parziale** deve essere selezionata nel caso in cui venga smantellata un'opera completa o parti di essa. \\n\\nSe la domanda di costruzione è già stata approvata e sono previste ulteriori modifiche occorre selezionare **Modifica del progetto di un edificio/impianto autorizzato**.\\n\\nSe non è possibile assegnare il progetto a una delle categorie indicate, selezionare **Altre misure edilizie**. Il progetto deve essere descritto in modo dettagliato.\"}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -27243,7 +27260,7 @@
     "pk": "welche-infrastrukturen-sind-betroffen",
     "fields": {
       "created_at": "2024-11-19T10:07:06.295Z",
-      "modified_at": "2025-05-14T13:36:04.602Z",
+      "modified_at": "2025-11-25T13:26:54.482Z",
       "created_by_user": "jana.lux@adfinis.com",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -28974,8 +28991,8 @@
     "model": "caluma_form.questionoption",
     "pk": "bauwerksklasse-bwk.bauwerksklasse-bwk-bwk-i",
     "fields": {
-      "created_at": "2025-05-14T13:38:44.512Z",
-      "modified_at": "2025-05-14T13:38:44.513Z",
+      "created_at": "2025-11-25T12:32:19.468Z",
+      "modified_at": "2025-11-25T12:32:19.468Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -28989,8 +29006,8 @@
     "model": "caluma_form.questionoption",
     "pk": "bauwerksklasse-bwk.bauwerksklasse-bwk-bwk-ii",
     "fields": {
-      "created_at": "2025-05-14T13:38:44.505Z",
-      "modified_at": "2025-05-14T13:38:44.505Z",
+      "created_at": "2025-11-25T12:32:19.465Z",
+      "modified_at": "2025-11-25T12:32:19.465Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -29004,8 +29021,8 @@
     "model": "caluma_form.questionoption",
     "pk": "bauwerksklasse-bwk.bauwerksklasse-bwk-bwk-iii",
     "fields": {
-      "created_at": "2025-05-14T13:38:44.497Z",
-      "modified_at": "2025-05-14T13:38:44.497Z",
+      "created_at": "2025-11-25T12:32:19.462Z",
+      "modified_at": "2025-11-25T12:32:19.462Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -30819,11 +30836,11 @@
     "model": "caluma_form.questionoption",
     "pk": "fluchtweg-brandschutz-und-layoutplan.fluchtweg-brandschutz-und-layoutplan-ja",
     "fields": {
-      "created_at": "2025-01-14T09:43:40.528Z",
-      "modified_at": "2025-01-14T09:43:40.528Z",
-      "created_by_user": "jasmin.leuthard@ag.ch",
+      "created_at": "2025-11-25T12:09:15.835Z",
+      "modified_at": "2025-11-25T12:09:15.835Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "jasmin.leuthard@ag.ch",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "fluchtweg-brandschutz-und-layoutplan",
       "option": "fluchtweg-brandschutz-und-layoutplan-ja",
@@ -31614,8 +31631,8 @@
     "model": "caluma_form.questionoption",
     "pk": "kantonale-brandschutzbewilligung-erforderlich.kantonale-brandschutzbewilligung-erforderlich-ja",
     "fields": {
-      "created_at": "2024-12-06T08:33:35.483Z",
-      "modified_at": "2024-12-06T08:33:35.483Z",
+      "created_at": "2025-11-25T12:30:47.258Z",
+      "modified_at": "2025-11-25T12:30:47.258Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -31629,8 +31646,8 @@
     "model": "caluma_form.questionoption",
     "pk": "kantonale-brandschutzbewilligung-erforderlich.kantonale-brandschutzbewilligung-erforderlich-nein",
     "fields": {
-      "created_at": "2024-12-06T08:33:35.479Z",
-      "modified_at": "2024-12-06T08:33:35.479Z",
+      "created_at": "2025-11-25T12:30:47.254Z",
+      "modified_at": "2025-11-25T12:30:47.254Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -31644,8 +31661,8 @@
     "model": "caluma_form.questionoption",
     "pk": "kantonale-brandschutzbewilligung-erforderlich.kantonale-brandschutzbewilligung-erforderlich-nicht-bekannt",
     "fields": {
-      "created_at": "2024-12-06T08:33:35.478Z",
-      "modified_at": "2024-12-06T08:33:35.478Z",
+      "created_at": "2025-11-25T12:30:47.249Z",
+      "modified_at": "2025-11-25T12:30:47.249Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -32814,11 +32831,11 @@
     "model": "caluma_form.questionoption",
     "pk": "rodung-angefuegte-beilagen.rodung-angefuegte-beilagen-ja",
     "fields": {
-      "created_at": "2025-01-14T09:17:23.643Z",
-      "modified_at": "2025-01-14T09:17:23.643Z",
-      "created_by_user": "jasmin.leuthard@ag.ch",
+      "created_at": "2025-11-25T12:10:52.389Z",
+      "modified_at": "2025-11-25T12:10:52.389Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "jasmin.leuthard@ag.ch",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "rodung-angefuegte-beilagen",
       "option": "rodung-angefuegte-beilagen-ja",
@@ -33894,8 +33911,8 @@
     "model": "caluma_form.questionoption",
     "pk": "vorhaben.vorhaben-abbruch-teilabbruch",
     "fields": {
-      "created_at": "2025-05-14T13:19:54.917Z",
-      "modified_at": "2025-05-14T13:19:54.917Z",
+      "created_at": "2025-11-25T10:48:13.780Z",
+      "modified_at": "2025-11-25T10:48:13.780Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -33909,8 +33926,8 @@
     "model": "caluma_form.questionoption",
     "pk": "vorhaben.vorhaben-andere",
     "fields": {
-      "created_at": "2025-05-14T13:19:54.902Z",
-      "modified_at": "2025-05-14T13:19:54.902Z",
+      "created_at": "2025-11-25T10:48:13.772Z",
+      "modified_at": "2025-11-25T10:48:13.772Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -33924,8 +33941,8 @@
     "model": "caluma_form.questionoption",
     "pk": "vorhaben.vorhaben-erneuerung",
     "fields": {
-      "created_at": "2025-05-14T13:19:54.930Z",
-      "modified_at": "2025-05-14T13:19:54.930Z",
+      "created_at": "2025-11-25T10:48:13.788Z",
+      "modified_at": "2025-11-25T10:48:13.788Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -33939,8 +33956,8 @@
     "model": "caluma_form.questionoption",
     "pk": "vorhaben.vorhaben-erweiterung-anbau",
     "fields": {
-      "created_at": "2025-05-14T13:19:54.943Z",
-      "modified_at": "2025-05-14T13:19:54.943Z",
+      "created_at": "2025-11-25T10:48:13.796Z",
+      "modified_at": "2025-11-25T10:48:13.796Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -33954,8 +33971,8 @@
     "model": "caluma_form.questionoption",
     "pk": "vorhaben.vorhaben-neubau",
     "fields": {
-      "created_at": "2025-05-14T13:19:54.952Z",
-      "modified_at": "2025-05-14T13:19:54.952Z",
+      "created_at": "2025-11-25T10:48:13.800Z",
+      "modified_at": "2025-11-25T10:48:13.800Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -33969,8 +33986,8 @@
     "model": "caluma_form.questionoption",
     "pk": "vorhaben.vorhaben-projektaenderung-einer-bewilligten-baute-anlage",
     "fields": {
-      "created_at": "2025-05-14T13:19:54.909Z",
-      "modified_at": "2025-05-14T13:19:54.909Z",
+      "created_at": "2025-11-25T10:48:13.776Z",
+      "modified_at": "2025-11-25T10:48:13.776Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -33984,8 +34001,8 @@
     "model": "caluma_form.questionoption",
     "pk": "vorhaben.vorhaben-umbau-erweiterung-zweckaenderung",
     "fields": {
-      "created_at": "2025-05-14T13:19:54.936Z",
-      "modified_at": "2025-05-14T13:19:54.936Z",
+      "created_at": "2025-11-25T10:48:13.792Z",
+      "modified_at": "2025-11-25T10:48:13.792Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -33999,8 +34016,8 @@
     "model": "caluma_form.questionoption",
     "pk": "vorhaben.vorhaben-zweckaenderung",
     "fields": {
-      "created_at": "2025-05-14T13:19:54.923Z",
-      "modified_at": "2025-05-14T13:19:54.923Z",
+      "created_at": "2025-11-25T10:48:13.784Z",
+      "modified_at": "2025-11-25T10:48:13.784Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -34104,104 +34121,119 @@
     "model": "caluma_form.questionoption",
     "pk": "welche-infrastrukturen-sind-betroffen.welche-infrastrukturen-sind-betroffen-autom-foerdereinrichtung",
     "fields": {
-      "created_at": "2025-05-14T13:36:04.625Z",
-      "modified_at": "2025-05-14T13:36:04.625Z",
+      "created_at": "2025-11-25T13:26:54.502Z",
+      "modified_at": "2025-11-25T13:26:54.502Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "welche-infrastrukturen-sind-betroffen",
       "option": "welche-infrastrukturen-sind-betroffen-autom-foerdereinrichtung",
-      "sort": 2
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "welche-infrastrukturen-sind-betroffen.welche-infrastrukturen-sind-betroffen-batterien",
     "fields": {
-      "created_at": "2025-05-14T13:36:04.719Z",
-      "modified_at": "2025-05-14T13:36:04.720Z",
+      "created_at": "2025-11-25T13:26:54.534Z",
+      "modified_at": "2025-11-25T13:26:54.534Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "welche-infrastrukturen-sind-betroffen",
       "option": "welche-infrastrukturen-sind-betroffen-batterien",
-      "sort": 10
+      "sort": 11
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "welche-infrastrukturen-sind-betroffen.welche-infrastrukturen-sind-betroffen-fluessiggastank",
     "fields": {
-      "created_at": "2025-05-14T13:36:04.754Z",
-      "modified_at": "2025-05-14T13:36:04.755Z",
+      "created_at": "2025-11-25T13:26:54.546Z",
+      "modified_at": "2025-11-25T13:26:54.546Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "welche-infrastrukturen-sind-betroffen",
       "option": "welche-infrastrukturen-sind-betroffen-fluessiggastank",
-      "sort": 13
+      "sort": 14
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "welche-infrastrukturen-sind-betroffen.welche-infrastrukturen-sind-betroffen-gasflaschen",
     "fields": {
-      "created_at": "2025-05-14T13:36:04.743Z",
-      "modified_at": "2025-05-14T13:36:04.743Z",
+      "created_at": "2025-11-25T13:26:54.541Z",
+      "modified_at": "2025-11-25T13:26:54.541Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "welche-infrastrukturen-sind-betroffen",
       "option": "welche-infrastrukturen-sind-betroffen-gasflaschen",
-      "sort": 12
+      "sort": 13
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "welche-infrastrukturen-sind-betroffen.welche-infrastrukturen-sind-betroffen-gastrokueche",
     "fields": {
-      "created_at": "2025-05-14T13:36:04.637Z",
-      "modified_at": "2025-05-14T13:36:04.638Z",
+      "created_at": "2025-11-25T13:26:54.506Z",
+      "modified_at": "2025-11-25T13:26:54.506Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "welche-infrastrukturen-sind-betroffen",
       "option": "welche-infrastrukturen-sind-betroffen-gastrokueche",
-      "sort": 3
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "welche-infrastrukturen-sind-betroffen.welche-infrastrukturen-sind-betroffen-gefahrenstofflager",
     "fields": {
-      "created_at": "2025-05-14T13:36:04.777Z",
-      "modified_at": "2025-05-14T13:36:04.777Z",
+      "created_at": "2025-11-25T13:26:54.556Z",
+      "modified_at": "2025-11-25T13:26:54.556Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "welche-infrastrukturen-sind-betroffen",
       "option": "welche-infrastrukturen-sind-betroffen-gefahrenstofflager",
-      "sort": 15
+      "sort": 16
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "welche-infrastrukturen-sind-betroffen.welche-infrastrukturen-sind-betroffen-kaelteanlage",
     "fields": {
-      "created_at": "2025-05-14T13:36:04.617Z",
-      "modified_at": "2025-05-14T13:36:04.617Z",
+      "created_at": "2025-11-25T13:26:54.498Z",
+      "modified_at": "2025-11-25T13:26:54.498Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "welche-infrastrukturen-sind-betroffen",
       "option": "welche-infrastrukturen-sind-betroffen-kaelteanlage",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "welche-infrastrukturen-sind-betroffen.welche-infrastrukturen-sind-betroffen-keine",
+    "fields": {
+      "created_at": "2025-11-25T13:26:54.493Z",
+      "modified_at": "2025-11-25T13:26:54.493Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "welche-infrastrukturen-sind-betroffen",
+      "option": "welche-infrastrukturen-sind-betroffen-keine",
       "sort": 1
     }
   },
@@ -34209,210 +34241,210 @@
     "model": "caluma_form.questionoption",
     "pk": "welche-infrastrukturen-sind-betroffen.welche-infrastrukturen-sind-betroffen-klimaanlage",
     "fields": {
-      "created_at": "2025-05-14T13:36:04.707Z",
-      "modified_at": "2025-05-14T13:36:04.708Z",
+      "created_at": "2025-11-25T13:26:54.529Z",
+      "modified_at": "2025-11-25T13:26:54.530Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "welche-infrastrukturen-sind-betroffen",
       "option": "welche-infrastrukturen-sind-betroffen-klimaanlage",
-      "sort": 9
+      "sort": 10
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "welche-infrastrukturen-sind-betroffen.welche-infrastrukturen-sind-betroffen-kran",
     "fields": {
-      "created_at": "2025-05-14T13:36:04.854Z",
-      "modified_at": "2025-05-14T13:36:04.854Z",
+      "created_at": "2025-11-25T13:26:54.586Z",
+      "modified_at": "2025-11-25T13:26:54.586Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "welche-infrastrukturen-sind-betroffen",
       "option": "welche-infrastrukturen-sind-betroffen-kran",
-      "sort": 21
+      "sort": 22
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "welche-infrastrukturen-sind-betroffen.welche-infrastrukturen-sind-betroffen-kuehllager",
     "fields": {
-      "created_at": "2025-05-14T13:36:04.814Z",
-      "modified_at": "2025-05-14T13:36:04.814Z",
+      "created_at": "2025-11-25T13:26:54.570Z",
+      "modified_at": "2025-11-25T13:26:54.570Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "welche-infrastrukturen-sind-betroffen",
       "option": "welche-infrastrukturen-sind-betroffen-kuehllager",
-      "sort": 18
+      "sort": 19
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "welche-infrastrukturen-sind-betroffen.welche-infrastrukturen-sind-betroffen-lackieranlage",
     "fields": {
-      "created_at": "2025-05-14T13:36:04.672Z",
-      "modified_at": "2025-05-14T13:36:04.672Z",
+      "created_at": "2025-11-25T13:26:54.518Z",
+      "modified_at": "2025-11-25T13:26:54.518Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "welche-infrastrukturen-sind-betroffen",
       "option": "welche-infrastrukturen-sind-betroffen-lackieranlage",
-      "sort": 6
+      "sort": 7
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "welche-infrastrukturen-sind-betroffen.welche-infrastrukturen-sind-betroffen-lager-o-less-18prozent",
     "fields": {
-      "created_at": "2025-05-14T13:36:04.802Z",
-      "modified_at": "2025-05-14T13:36:04.802Z",
+      "created_at": "2025-11-25T13:26:54.565Z",
+      "modified_at": "2025-11-25T13:26:54.565Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "welche-infrastrukturen-sind-betroffen",
       "option": "welche-infrastrukturen-sind-betroffen-lager-o-less-18prozent",
-      "sort": 17
+      "sort": 18
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "welche-infrastrukturen-sind-betroffen.welche-infrastrukturen-sind-betroffen-lift",
     "fields": {
-      "created_at": "2025-05-14T13:36:04.841Z",
-      "modified_at": "2025-05-14T13:36:04.841Z",
+      "created_at": "2025-11-25T13:26:54.580Z",
+      "modified_at": "2025-11-25T13:26:54.580Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "welche-infrastrukturen-sind-betroffen",
       "option": "welche-infrastrukturen-sind-betroffen-lift",
-      "sort": 20
+      "sort": 21
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "welche-infrastrukturen-sind-betroffen.welche-infrastrukturen-sind-betroffen-photovoltaik",
     "fields": {
-      "created_at": "2025-05-14T13:36:04.789Z",
-      "modified_at": "2025-05-14T13:36:04.789Z",
+      "created_at": "2025-11-25T13:26:54.561Z",
+      "modified_at": "2025-11-25T13:26:54.561Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "welche-infrastrukturen-sind-betroffen",
       "option": "welche-infrastrukturen-sind-betroffen-photovoltaik",
-      "sort": 16
+      "sort": 17
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "welche-infrastrukturen-sind-betroffen.welche-infrastrukturen-sind-betroffen-regale",
     "fields": {
-      "created_at": "2025-05-14T13:36:04.828Z",
-      "modified_at": "2025-05-14T13:36:04.828Z",
+      "created_at": "2025-11-25T13:26:54.575Z",
+      "modified_at": "2025-11-25T13:26:54.575Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "welche-infrastrukturen-sind-betroffen",
       "option": "welche-infrastrukturen-sind-betroffen-regale",
-      "sort": 19
+      "sort": 20
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "welche-infrastrukturen-sind-betroffen.welche-infrastrukturen-sind-betroffen-roboter",
     "fields": {
-      "created_at": "2025-05-14T13:36:04.650Z",
-      "modified_at": "2025-05-14T13:36:04.650Z",
+      "created_at": "2025-11-25T13:26:54.510Z",
+      "modified_at": "2025-11-25T13:26:54.511Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "welche-infrastrukturen-sind-betroffen",
       "option": "welche-infrastrukturen-sind-betroffen-roboter",
-      "sort": 4
+      "sort": 5
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "welche-infrastrukturen-sind-betroffen.welche-infrastrukturen-sind-betroffen-schweissanlagen",
     "fields": {
-      "created_at": "2025-05-14T13:36:04.661Z",
-      "modified_at": "2025-05-14T13:36:04.661Z",
+      "created_at": "2025-11-25T13:26:54.514Z",
+      "modified_at": "2025-11-25T13:26:54.514Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "welche-infrastrukturen-sind-betroffen",
       "option": "welche-infrastrukturen-sind-betroffen-schweissanlagen",
-      "sort": 5
+      "sort": 6
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "welche-infrastrukturen-sind-betroffen.welche-infrastrukturen-sind-betroffen-silo",
     "fields": {
-      "created_at": "2025-05-14T13:36:04.695Z",
-      "modified_at": "2025-05-14T13:36:04.695Z",
+      "created_at": "2025-11-25T13:26:54.525Z",
+      "modified_at": "2025-11-25T13:26:54.525Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "welche-infrastrukturen-sind-betroffen",
       "option": "welche-infrastrukturen-sind-betroffen-silo",
-      "sort": 8
+      "sort": 9
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "welche-infrastrukturen-sind-betroffen.welche-infrastrukturen-sind-betroffen-stapler",
     "fields": {
-      "created_at": "2025-05-14T13:36:04.731Z",
-      "modified_at": "2025-05-14T13:36:04.731Z",
+      "created_at": "2025-11-25T13:26:54.537Z",
+      "modified_at": "2025-11-25T13:26:54.537Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "welche-infrastrukturen-sind-betroffen",
       "option": "welche-infrastrukturen-sind-betroffen-stapler",
-      "sort": 11
+      "sort": 12
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "welche-infrastrukturen-sind-betroffen.welche-infrastrukturen-sind-betroffen-tankanlagen",
     "fields": {
-      "created_at": "2025-05-14T13:36:04.766Z",
-      "modified_at": "2025-05-14T13:36:04.766Z",
+      "created_at": "2025-11-25T13:26:54.551Z",
+      "modified_at": "2025-11-25T13:26:54.551Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "welche-infrastrukturen-sind-betroffen",
       "option": "welche-infrastrukturen-sind-betroffen-tankanlagen",
-      "sort": 14
+      "sort": 15
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "welche-infrastrukturen-sind-betroffen.welche-infrastrukturen-sind-betroffen-videokameras",
     "fields": {
-      "created_at": "2025-05-14T13:36:04.683Z",
-      "modified_at": "2025-05-14T13:36:04.683Z",
+      "created_at": "2025-11-25T13:26:54.522Z",
+      "modified_at": "2025-11-25T13:26:54.522Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "welche-infrastrukturen-sind-betroffen",
       "option": "welche-infrastrukturen-sind-betroffen-videokameras",
-      "sort": 7
+      "sort": 8
     }
   },
   {
