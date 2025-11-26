@@ -79,7 +79,7 @@
                             ${msg("loginLoginHelpText")?no_esc}
                         </form>
                     </#if>
-                    <#if client.clientId == "portal" && social.providers??>
+                    <#if social.providers??>
                         <#list social.providers as p>
                             <li class="${properties.kcFormSocialAccountListLinkClass!} uk-margin-small-left">
                                 <a href="${p.loginUrl}" id="zocial-${p.alias}" class="${p.providerId}">
