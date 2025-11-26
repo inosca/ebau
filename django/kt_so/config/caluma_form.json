@@ -683,7 +683,7 @@
         "is-creatable": false,
         "is-main-form": true
       },
-      "is_published": false,
+      "is_published": true,
       "is_archived": false,
       "source": null
     }

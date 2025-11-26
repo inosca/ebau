@@ -276,6 +276,7 @@ omit = [
     "camac/core/management/commands/toggle_xss_protection_on_static_page.py",
     "camac/core/management/commands/kt_uri_statistics_bab.py",
     "camac/core/management/commands/fix_oereb_forms_ur.py",
+    "camac/core/management/commands/so_fix_migrated_form.py",
     # Audit migration"
     "camac/core/management/commands/config/",
     "camac/core/management/commands/migrate_audit.py",

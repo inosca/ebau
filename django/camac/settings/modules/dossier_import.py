@@ -84,7 +84,7 @@ DOSSIER_IMPORT = {
             "WRITTEN OFF": "withdrawn",
             "DONE": "finished",
         },
-        "CALUMA_FORM": "migriertes-dossier-v2",
+        "CALUMA_FORM": "migriertes-dossier",
         "FORM_ID": 1,
         "ALEXANDRIA_CATEGORY": "migrierte-dokumente",
         "PROD_URL": env.str(

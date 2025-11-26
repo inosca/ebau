@@ -13,7 +13,7 @@
       "id": "e38ad8ef-10d0-431f-9628-1bc4204bf8e9",
       "meta": {},
       "family": "e38ad8ef-10d0-431f-9628-1bc4204bf8e9",
-      "form": "parzelle-tabelle-v2",
+      "form": "parzelle-tabelle",
       "source": null,
       "history_date": "2025-09-09T07:26:51.314Z",
       "history_change_reason": null,
@@ -485,7 +485,7 @@
       "id": "068bfdc9-d1c1-737c-8000-6a10d110f621",
       "meta": {},
       "family": "068bfdc9-d03a-731f-8000-75d4744c3db7",
-      "form": "parzelle-tabelle-v2",
+      "form": "parzelle-tabelle",
       "source": "06889dde-144b-701c-8000-6ce786b4525e",
       "history_date": "2025-09-09T07:51:57.139Z",
       "history_change_reason": null,
@@ -720,7 +720,7 @@
       "id": "504b4147-3372-406d-b283-0e7476c7092d",
       "meta": {},
       "family": "504b4147-3372-406d-b283-0e7476c7092d",
-      "form": "parzelle-tabelle-v2",
+      "form": "parzelle-tabelle",
       "source": null,
       "history_date": "2025-07-30T09:16:50.965Z",
       "history_change_reason": null,
@@ -997,7 +997,7 @@
         "_defer_calculation": true
       },
       "family": "068bfdc9-d03a-731f-8000-75d4744c3db7",
-      "form": "parzelle-tabelle-v2",
+      "form": "parzelle-tabelle",
       "source": "06889dde-144b-701c-8000-6ce786b4525e",
       "history_date": "2025-09-09T07:51:57.110Z",
       "history_change_reason": null,
@@ -2287,7 +2287,7 @@
       "id": "785a7812-1f6f-4740-bbf7-01c0e1f4f814",
       "meta": {},
       "family": "785a7812-1f6f-4740-bbf7-01c0e1f4f814",
-      "form": "parzelle-tabelle-v2",
+      "form": "parzelle-tabelle",
       "source": null,
       "history_date": "2025-07-30T09:21:48.543Z",
       "history_change_reason": null,
@@ -2371,7 +2371,7 @@
       "id": "d2c95ead-027f-47be-92c2-d2c48ce40109",
       "meta": {},
       "family": "d2c95ead-027f-47be-92c2-d2c48ce40109",
-      "form": "parzelle-tabelle-v2",
+      "form": "parzelle-tabelle",
       "source": null,
       "history_date": "2025-07-30T09:22:04.738Z",
       "history_change_reason": null,
@@ -2505,7 +2505,7 @@
       "id": "06889dde-144b-701c-8000-6ce786b4525e",
       "meta": {},
       "family": "06889dde-144b-701c-8000-6ce786b4525e",
-      "form": "parzelle-tabelle-v2",
+      "form": "parzelle-tabelle",
       "source": null,
       "history_date": "2025-07-30T08:54:57.269Z",
       "history_change_reason": null,
@@ -3023,7 +3023,7 @@
       "id": "7e77ad81-8f7c-47ce-9332-cb4ec7e76c0e",
       "meta": {},
       "family": "7e77ad81-8f7c-47ce-9332-cb4ec7e76c0e",
-      "form": "parzelle-tabelle-v2",
+      "form": "parzelle-tabelle",
       "source": null,
       "history_date": "2025-09-09T07:19:05.371Z",
       "history_change_reason": null,
@@ -3895,7 +3895,7 @@
       "id": "06889dde-144b-701c-8000-6ce786b4525e",
       "meta": {},
       "family": "06889dd7-ef7c-767f-8000-481e1a4d06df",
-      "form": "parzelle-tabelle-v2",
+      "form": "parzelle-tabelle",
       "source": null,
       "history_date": "2025-07-30T08:54:57.409Z",
       "history_change_reason": null,
@@ -4075,7 +4075,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "family": "06889dd7-ef7c-767f-8000-481e1a4d06df",
-      "form": "parzelle-tabelle-v2",
+      "form": "parzelle-tabelle",
       "source": null,
       "meta": {}
     }
@@ -4395,7 +4395,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "family": "068bfdc9-d03a-731f-8000-75d4744c3db7",
-      "form": "parzelle-tabelle-v2",
+      "form": "parzelle-tabelle",
       "source": "06889dde-144b-701c-8000-6ce786b4525e",
       "meta": {}
     }
@@ -5067,7 +5067,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "family": "1e7a177a-77b3-45b6-9693-e4c35fdd27e7",
-      "form": "parzelle-tabelle-v2",
+      "form": "parzelle-tabelle",
       "source": null,
       "meta": {}
     }
@@ -5195,7 +5195,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "family": "504b4147-3372-406d-b283-0e7476c7092d",
-      "form": "parzelle-tabelle-v2",
+      "form": "parzelle-tabelle",
       "source": null,
       "meta": {}
     }
@@ -5355,7 +5355,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "family": "785a7812-1f6f-4740-bbf7-01c0e1f4f814",
-      "form": "parzelle-tabelle-v2",
+      "form": "parzelle-tabelle",
       "source": null,
       "meta": {}
     }
@@ -5371,7 +5371,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "family": "5e7dcb8b-b7ef-434e-8e87-d7fb9be53c31",
-      "form": "parzelle-tabelle-v2",
+      "form": "parzelle-tabelle",
       "source": null,
       "meta": {}
     }
@@ -5387,7 +5387,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "family": "7e77ad81-8f7c-47ce-9332-cb4ec7e76c0e",
-      "form": "parzelle-tabelle-v2",
+      "form": "parzelle-tabelle",
       "source": null,
       "meta": {}
     }
@@ -5563,7 +5563,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "family": "cb984b37-46e4-4c3b-986e-b34a875d0e11",
-      "form": "parzelle-tabelle-v2",
+      "form": "parzelle-tabelle",
       "source": null,
       "meta": {}
     }
@@ -5595,7 +5595,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "family": "d2c95ead-027f-47be-92c2-d2c48ce40109",
-      "form": "parzelle-tabelle-v2",
+      "form": "parzelle-tabelle",
       "source": null,
       "meta": {}
     }
@@ -5643,7 +5643,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "family": "e38ad8ef-10d0-431f-9628-1bc4204bf8e9",
-      "form": "parzelle-tabelle-v2",
+      "form": "parzelle-tabelle",
       "source": null,
       "meta": {}
     }
