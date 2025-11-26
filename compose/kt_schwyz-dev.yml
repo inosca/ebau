@@ -30,10 +30,7 @@ services:
       - db
       - mailpit
     environment:
-      - ENV=development
       - APPLICATION_ENV=development
-      - KEYCLOAK_URL=http://ebau-keycloak.localhost/auth/
-      - ECH0211_API_ACTIVE=True
       - DATABASE_HOST=db
       - DATABASE_NAME=${APPLICATION}
       - DATABASE_PASSWORD=camac
@@ -41,11 +38,14 @@ services:
       - DJANGO_EMAIL_HOST=mailpit
       - DJANGO_EMAIL_PORT=1025
       - DJANGO_Q_ENABLE_SYNC=${DJANGO_Q_ENABLE_SYNC:-false}
-      - OAUTHLIB_INSECURE_TRANSPORT=1
-      - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.localhost/auth/realms/ebau/protocol/openid-connect/userinfo
+      - ECH0211_API_ACTIVE=True
+      - ENV=development
       - GWR_FERNET_KEY=GUdwT6yKxqfszrnHC7wyKDmtVZdhjSVQEPnpeJYNLf8=
       - GWR_HOUSING_STAT_BASE_URI=https://www-r.housing-stat.ch/regbl/api/ech0216/2
+      - KEYCLOAK_URL=http://ebau-keycloak.localhost/auth/
       - MANABI_ENABLE=False
+      - OAUTHLIB_INSECURE_TRANSPORT=1
+      - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.localhost/auth/realms/ebau/protocol/openid-connect/userinfo
     networks:
       - ebau.localhost
     command: devserver
