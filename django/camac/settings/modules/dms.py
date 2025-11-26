@@ -363,7 +363,6 @@ DMS = {
                     "erdwaermesonden",
                     "erdwaermesonden-v2",
                     "migriertes-dossier",
-                    "migriertes-dossier-v2",
                     "voranfrage",
                     "voranfrage-v2",
                     "meldung",

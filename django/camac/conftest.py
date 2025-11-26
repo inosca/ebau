@@ -1185,7 +1185,6 @@ def caluma_forms_so(settings):
     caluma_form_models.Form.objects.create(slug="personalien-tabelle")
     caluma_form_models.Form.objects.create(slug="beschwerdeverfahren")
     caluma_form_models.Form.objects.create(slug="migriertes-dossier")
-    caluma_form_models.Form.objects.create(slug="migriertes-dossier-v2")
     caluma_form_models.Form.objects.create(slug="voranfrage")
     caluma_form_models.Form.objects.create(slug="meldung")
     caluma_form_models.Form.objects.create(slug="meldung-pv")

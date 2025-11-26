@@ -3537,7 +3537,6 @@ ECH_EXCLUDED_WORKFLOWS = ["internal"]
 ECH_EXCLUDED_FORMS = [
     "verlaengerung-geltungsdauer",
     "migriertes-dossier",
-    "migriertes-dossier-v2",
     "baupolizeiliches-verfahren",
     "baupolizeiliches-verfahren-v2",
     "hecken-feldgehoelze-baeume",

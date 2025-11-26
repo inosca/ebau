@@ -134,7 +134,7 @@ def load_fixtures_so(
         settings.ROOT_DIR("kt_so/config/caluma_construction_monitoring_workflow.json"),
     ]
 
-    caluma_workflow_config_so.allow_forms.add("migriertes-dossier-v2")
+    caluma_workflow_config_so.allow_forms.add("migriertes-dossier")
     service = service_factory(service_group__name="municipality")
     caluma_dynamic_option_factory(
         slug=str(service.pk), question_id="gemeinde", document=caluma_document_factory()
