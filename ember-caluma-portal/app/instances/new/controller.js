@@ -37,6 +37,23 @@ export default class InstancesNewController extends Controller {
     );
   }
 
+  get roleKey() {
+    if (
+      config.APPLICATION.coordinationRoleIds?.includes(
+        parseInt(this.session.group?.role.get("id")),
+      )
+    ) {
+      return "coordination";
+    } else if (
+      config.APPLICATION.municipalityRoleId?.includes(
+        parseInt(this.session.group?.role.get("id")),
+      )
+    ) {
+      return "municipality";
+    }
+    return "";
+  }
+
   ebauNumber = apolloQuery(
     this,
     () => ({
