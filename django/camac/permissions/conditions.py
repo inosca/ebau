@@ -5,6 +5,8 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from typing import TYPE_CHECKING, Callable, List, Optional
 
+from django.conf import ImproperlyConfigured
+
 from camac.utils import call_with_accepted_kwargs, get_unversioned_slug
 
 if TYPE_CHECKING:  # pragma: no cover
@@ -41,6 +43,10 @@ class PermissionContext:
 
 
 class Check(ABC):
+    @classmethod
+    def composable(cls):
+        return True
+
     @abstractmethod
     def apply(self, userinfo, context: PermissionContext):  # pragma: no cover
         ...
@@ -58,6 +64,12 @@ class Check(ABC):
     def allow_caching(self):  # pragma: no cover
         return False
 
+    def enforce_composable(self, operand, label):
+        if not operand.composable():
+            raise ImproperlyConfigured(
+                f"In {self!r}: {label} operand is not composable"
+            )
+
     def __repr__(self):  # pragma: no cover
         return self.__class__.__name__
 
@@ -67,6 +79,8 @@ class BinaryCheck(Check):
         self._left = left
         self._right = right
         self._op = op
+        self.enforce_composable(left, "left")
+        self.enforce_composable(right, "right")
 
     def apply(self, userinfo, context: PermissionContext):
         return self._op(
@@ -94,6 +108,7 @@ class UnaryCheck(Check):
     def __init__(self, inner, op):
         self._inner = inner
         self._op = op
+        self.enforce_composable(inner, "inner")
 
     def apply(self, userinfo, context: PermissionContext):
         return self._op(self._inner.apply(userinfo=userinfo, context=context))
@@ -223,6 +238,24 @@ class Always(Check):
 
     def __eq__(self, other):  # pragma: no cover
         return isinstance(other, Always)
+
+
+class Static(Always):
+    """
+    Static permission is always granted, even globally.
+
+    This should not be used in combination with other permissions, it needs
+    to be granted top-level. This is used to define global permissions (on all
+    instances where a corresponding ACL exists, of course) and therefore can
+    be used in visibility rules.
+    """
+
+    @classmethod
+    def composable(cls):
+        return False
+
+    def __eq__(self, other):  # pragma: no cover
+        return isinstance(other, Static)
 
 
 class Never(Check):

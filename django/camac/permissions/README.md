@@ -101,6 +101,29 @@ on DB data instead of code to decide what permissions to apply.
 
 See [Data model](./docs/data_model.md) for further discussion of the data model
 
+
+### Static permissions
+
+Static permissions are like regular permissions. However, they can be checked
+in a global scope, not just within a single instance. This allows us to define
+permissions in contexts that span multiple instances.
+
+Note: This does not grant "global" permissions! It just allows us to *check*
+those permissions in a non-instance-specific context.
+
+This is useful for the documents module, or the communications module, where
+we have a instance-spanning list of things. Previously, we would have needed
+to check for a specific access level, but this is problematic, as differing
+access levels might have the same static permissions, thus forcing the checking
+code to test for multiple access levels.
+
+Static permissions otherwise behave like normal permissions that have an
+`Always()` condition.
+
+In the module settings, it's important to note that static permission conditions
+cannot be composed: They *must* be on their own.
+
+
 ### API
 
 There is the REST API, as well as an internal Python API. Both can be
