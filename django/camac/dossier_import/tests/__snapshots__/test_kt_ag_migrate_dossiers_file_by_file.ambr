@@ -769,6 +769,7 @@
               "total_days_of_suspension": 0
           }
       ],
+      "doc_status": [],
       "group": "support",
       "journal": [
           {
@@ -1063,6 +1064,7 @@
       "applicants": null,
       "case-meta": null,
       "deadlines": null,
+      "doc_status": null,
       "group": null,
       "journal": null,
       "keywords": null,
@@ -1818,6 +1820,33 @@
               "start_date": "2024-02-14",
               "target_deadline_date": "2024-02-14",
               "total_days_of_suspension": 0
+          }
+      ],
+      "doc_status": [
+          {
+              "dms_id": "0000000000000010001922835",
+              "dms_version": "00",
+              "status": "bewilligt"
+          },
+          {
+              "dms_id": "0000000000000010001922836",
+              "dms_version": "00",
+              "status": "bewilligt"
+          },
+          {
+              "dms_id": "0000000000000010001925808",
+              "dms_version": "00",
+              "status": "ungültig"
+          },
+          {
+              "dms_id": "0000000000000010001925809",
+              "dms_version": "01",
+              "status": "bewilligt"
+          },
+          {
+              "dms_id": "0000000000000010001927659",
+              "dms_version": "00",
+              "status": "bewilligt"
           }
       ],
       "group": "support",
@@ -3261,6 +3290,7 @@
               "total_days_of_suspension": 0
           }
       ],
+      "doc_status": [],
       "group": "support",
       "journal": [
           {
@@ -4878,6 +4908,7 @@
           "submit-date": "2024-11-15T00:00:00+0100"
       },
       "deadlines": [],
+      "doc_status": [],
       "group": "support",
       "journal": [
           {
@@ -5869,6 +5900,7 @@
           "submit-date": "2018-10-22T00:00:00+0200"
       },
       "deadlines": [],
+      "doc_status": [],
       "group": "support",
       "journal": [
           {
@@ -6651,6 +6683,7 @@
               "total_days_of_suspension": 0
           }
       ],
+      "doc_status": [],
       "group": "support",
       "journal": [
           {
@@ -7518,6 +7551,7 @@
           "submit-date": "2025-01-31T00:00:00+0100"
       },
       "deadlines": [],
+      "doc_status": [],
       "group": "support",
       "journal": [],
       "keywords": [
@@ -8587,6 +8621,13 @@
           "submit-date": "2025-04-02T00:00:00+0200"
       },
       "deadlines": [],
+      "doc_status": [
+          {
+              "dms_id": "0000000000000010000831883",
+              "dms_version": "00",
+              "status": "ungültig"
+          }
+      ],
       "group": "support",
       "journal": [
           {
@@ -9420,6 +9461,7 @@
               "total_days_of_suspension": 0
           }
       ],
+      "doc_status": [],
       "group": "support",
       "journal": [
           {

@@ -953,6 +953,32 @@ def test_all_mappings(snapshot):
                     "RESUME_BY": "MMOA",
                 },
             ],
+            "DOK_STATUS": [
+                {
+                    "MANDT": "600",
+                    "EXTERN_ID": "EBPA-1720-6526",
+                    "DMS_ID": "0000000000000010001922835",
+                    "STATUS_ID": "B",
+                    "STATUS_TEXT": "bewilligt",
+                    "DMS_VERS": "00",
+                },
+                {
+                    "MANDT": "600",
+                    "EXTERN_ID": "EBPA-1720-6526",
+                    "DMS_ID": "0000000000000010001922836",
+                    "STATUS_ID": "B",
+                    "STATUS_TEXT": "bewilligt",
+                    "DMS_VERS": "00",
+                },
+                {
+                    "MANDT": "600",
+                    "EXTERN_ID": "EBPA-1720-6526",
+                    "DMS_ID": "0000000000000010001925808",
+                    "STATUS_ID": "U",
+                    "STATUS_TEXT": "ung\u00fcltig",
+                    "DMS_VERS": "00",
+                },
+            ],
         }
     )
 

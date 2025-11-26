@@ -142,6 +142,7 @@ DOSSIER_IMPORT = {
             "source_bucket": env.str(
                 "EBAU_S3_MIGRATION_BUCKET_NAME", "migration-media"
             ),
+            "addressing_style": env.str("EBAU_S3_ADDRESSING_STYLE", "virtual"),
         },
     },
     "kt_gr": {

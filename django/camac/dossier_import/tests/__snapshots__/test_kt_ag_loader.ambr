@@ -323,6 +323,23 @@
           }
       ],
       "description": "Dies ist eine detaillierte Beschreibung",
+      "document_statuses": [
+          {
+              "dms_id": "0000000000000010001922835",
+              "dms_version": "00",
+              "status": "bewilligt"
+          },
+          {
+              "dms_id": "0000000000000010001922836",
+              "dms_version": "00",
+              "status": "bewilligt"
+          },
+          {
+              "dms_id": "0000000000000010001925808",
+              "dms_version": "00",
+              "status": "ungültig"
+          }
+      ],
       "dossier_file_path": null,
       "dossier_number": null,
       "dossier_types": {
@@ -858,6 +875,7 @@
       "decision_date": null,
       "decisions": [],
       "description": null,
+      "document_statuses": [],
       "dossier_file_path": null,
       "dossier_number": null,
       "dossier_types": {
@@ -1119,6 +1137,7 @@
       "decision_date": null,
       "decisions": [],
       "description": null,
+      "document_statuses": [],
       "dossier_file_path": null,
       "dossier_number": null,
       "dossier_types": {
@@ -1372,6 +1391,7 @@
       "decision_date": null,
       "decisions": [],
       "description": null,
+      "document_statuses": [],
       "dossier_file_path": null,
       "dossier_number": null,
       "dossier_types": {

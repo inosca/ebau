@@ -11,6 +11,7 @@ from django.db.models.query_utils import Q
 from camac.applicants.models import Applicant
 from camac.deadlines.models import InstanceDeadline, Suspension
 from camac.dossier_import.conftest import JSON_INPUT_DIR, TEST_IMPORT_FILE_PATH
+from camac.dossier_import.models import MigrationDocumentStatus
 from camac.dossier_import.tests.test_utils import to_sorted_json
 from camac.instance.models import Instance, JournalEntry
 from camac.tags.models import Keyword
@@ -181,9 +182,8 @@ def _assert_migration_result_from_expected_file(input_file, snapshot, out, err):
 
     id_keyword = dossier_id_keyword.first()
     user_name = group_name = instance_state = instance_service = keywords = None
-    case_meta = work_items = answers = journal = applicants = deadlines = (
-        suspensions
-    ) = None
+    case_meta = work_items = answers = journal = applicants = deadlines = None
+    suspensions = doc_status = None
 
     if id_keyword is not None:
         instance: Instance = id_keyword.instances.first()
@@ -258,6 +258,12 @@ def _assert_migration_result_from_expected_file(input_file, snapshot, out, err):
             )
         )
 
+        doc_status = list(
+            MigrationDocumentStatus.objects.filter(instance=instance).values(
+                "dms_id", "dms_version", "status"
+            )
+        )
+
     result = to_sorted_json(
         {
             "user": user_name,
@@ -272,6 +278,7 @@ def _assert_migration_result_from_expected_file(input_file, snapshot, out, err):
             "applicants": applicants,
             "deadlines": deadlines,
             "suspensions": suspensions,
+            "doc_status": doc_status,
         }
     )
 
