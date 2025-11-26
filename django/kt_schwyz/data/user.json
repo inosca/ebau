@@ -814,7 +814,7 @@
       "role": 5,
       "service": 16,
       "disabled": 0,
-      "name": "Amt für Gewässer",
+      "name": "AfG (Wasserbau)",
       "phone": null,
       "zip": null,
       "city": null,
@@ -2030,7 +2030,7 @@
       "role": 7,
       "service": 16,
       "disabled": 0,
-      "name": "Amt für Gewässer Sachbearbeiter",
+      "name": "AfG (Wasserbau) Sachbearbeiter",
       "phone": null,
       "zip": null,
       "city": null,
@@ -3214,7 +3214,7 @@
       "role": 5,
       "service": 99,
       "disabled": 0,
-      "name": "ANJF (Fischerei)",
+      "name": "AfG (Fischerei)",
       "phone": null,
       "zip": null,
       "city": null,
@@ -3854,7 +3854,7 @@
       "role": 5,
       "service": 119,
       "disabled": 0,
-      "name": "AfU (Neobiota)",
+      "name": "AfG (Neobiota)",
       "phone": null,
       "zip": null,
       "city": null,
@@ -3870,7 +3870,7 @@
       "role": 7,
       "service": 119,
       "disabled": 0,
-      "name": "AfU (Neobiota) Sachbearbeiter",
+      "name": "AfG (Neobiota) Sachbearbeiter",
       "phone": null,
       "zip": null,
       "city": null,
@@ -3886,7 +3886,7 @@
       "role": 5,
       "service": 120,
       "disabled": 0,
-      "name": "AfU (Industrie- und Gewerbeabwasser)",
+      "name": "AfG (Industrie- und Gewerbeabwasser)",
       "phone": null,
       "zip": null,
       "city": null,
@@ -3902,7 +3902,7 @@
       "role": 7,
       "service": 120,
       "disabled": 0,
-      "name": "AfU (Industrie- und Gewerbeabwasser) Sachbearbeiter",
+      "name": "AfG (Industrie- und Gewerbeabwasser) Sachbearbeiter",
       "phone": null,
       "zip": null,
       "city": null,
@@ -3918,7 +3918,7 @@
       "role": 5,
       "service": 121,
       "disabled": 0,
-      "name": "AfU (Kläranlagen)",
+      "name": "AfG (Kläranlagen)",
       "phone": null,
       "zip": null,
       "city": null,
@@ -3934,7 +3934,7 @@
       "role": 7,
       "service": 121,
       "disabled": 0,
-      "name": "AfU (Kläranlagen) Sachbearbeiter",
+      "name": "AfG (Kläranlagen) Sachbearbeiter",
       "phone": null,
       "zip": null,
       "city": null,
@@ -3950,7 +3950,7 @@
       "role": 5,
       "service": 122,
       "disabled": 0,
-      "name": "AfU (Bauten in und an stehenden Gewässern)",
+      "name": "AfG (Bauten in und an stehenden Gewässern)",
       "phone": null,
       "zip": null,
       "city": null,
@@ -3966,7 +3966,7 @@
       "role": 7,
       "service": 122,
       "disabled": 0,
-      "name": "AfU (Bauten in und an stehenden Gewässern) Sachbearbeiter",
+      "name": "AfG (Bauten in und an stehenden Gewässern) Sachbearbeiter",
       "phone": null,
       "zip": null,
       "city": null,
@@ -3982,7 +3982,7 @@
       "role": 5,
       "service": 123,
       "disabled": 0,
-      "name": "AfU (Entwässerung)",
+      "name": "AfG (Entwässerung)",
       "phone": null,
       "zip": null,
       "city": null,
@@ -3998,7 +3998,7 @@
       "role": 7,
       "service": 123,
       "disabled": 0,
-      "name": "AfU (Entwässerung) Sachbearbeiter",
+      "name": "AfG (Entwässerung) Sachbearbeiter",
       "phone": null,
       "zip": null,
       "city": null,
@@ -6847,6 +6847,38 @@
       "service": 20,
       "disabled": 0,
       "name": "Projektgenehmigung nach StraG",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 459,
+    "fields": {
+      "role": 5,
+      "service": 267,
+      "disabled": 0,
+      "name": "Amt für Gewässer",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 460,
+    "fields": {
+      "role": 5,
+      "service": 267,
+      "disabled": 0,
+      "name": "Amt für Gewässer Sachbearbeiter",
       "phone": null,
       "zip": null,
       "city": null,
@@ -10020,246 +10052,6 @@
     "pk": 420,
     "fields": {
       "group": 46,
-      "location": 4
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 421,
-    "fields": {
-      "group": 47,
-      "location": 15
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 422,
-    "fields": {
-      "group": 47,
-      "location": 6
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 423,
-    "fields": {
-      "group": 47,
-      "location": 16
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 424,
-    "fields": {
-      "group": 47,
-      "location": 30
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 425,
-    "fields": {
-      "group": 47,
-      "location": 2
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 426,
-    "fields": {
-      "group": 47,
-      "location": 3
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 427,
-    "fields": {
-      "group": 47,
-      "location": 7
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 428,
-    "fields": {
-      "group": 47,
-      "location": 1
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 429,
-    "fields": {
-      "group": 47,
-      "location": 17
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 430,
-    "fields": {
-      "group": 47,
-      "location": 18
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 431,
-    "fields": {
-      "group": 47,
-      "location": 8
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 432,
-    "fields": {
-      "group": 47,
-      "location": 5
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 433,
-    "fields": {
-      "group": 47,
-      "location": 9
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 434,
-    "fields": {
-      "group": 47,
-      "location": 19
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 435,
-    "fields": {
-      "group": 47,
-      "location": 20
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 436,
-    "fields": {
-      "group": 47,
-      "location": 21
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 437,
-    "fields": {
-      "group": 47,
-      "location": 22
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 438,
-    "fields": {
-      "group": 47,
-      "location": 10
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 439,
-    "fields": {
-      "group": 47,
-      "location": 23
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 440,
-    "fields": {
-      "group": 47,
-      "location": 24
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 441,
-    "fields": {
-      "group": 47,
-      "location": 25
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 442,
-    "fields": {
-      "group": 47,
-      "location": 26
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 443,
-    "fields": {
-      "group": 47,
-      "location": 11
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 444,
-    "fields": {
-      "group": 47,
-      "location": 27
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 445,
-    "fields": {
-      "group": 47,
-      "location": 28
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 446,
-    "fields": {
-      "group": 47,
-      "location": 12
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 447,
-    "fields": {
-      "group": 47,
-      "location": 29
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 448,
-    "fields": {
-      "group": 47,
-      "location": 13
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 449,
-    "fields": {
-      "group": 47,
-      "location": 14
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 450,
-    "fields": {
-      "group": 47,
       "location": 4
     }
   },
@@ -20820,246 +20612,6 @@
     "pk": 1772,
     "fields": {
       "group": 123,
-      "location": 15
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 1773,
-    "fields": {
-      "group": 124,
-      "location": 4
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 1774,
-    "fields": {
-      "group": 124,
-      "location": 14
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 1775,
-    "fields": {
-      "group": 124,
-      "location": 13
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 1776,
-    "fields": {
-      "group": 124,
-      "location": 29
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 1777,
-    "fields": {
-      "group": 124,
-      "location": 12
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 1778,
-    "fields": {
-      "group": 124,
-      "location": 28
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 1779,
-    "fields": {
-      "group": 124,
-      "location": 27
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 1780,
-    "fields": {
-      "group": 124,
-      "location": 11
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 1781,
-    "fields": {
-      "group": 124,
-      "location": 26
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 1782,
-    "fields": {
-      "group": 124,
-      "location": 25
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 1783,
-    "fields": {
-      "group": 124,
-      "location": 24
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 1784,
-    "fields": {
-      "group": 124,
-      "location": 23
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 1785,
-    "fields": {
-      "group": 124,
-      "location": 10
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 1786,
-    "fields": {
-      "group": 124,
-      "location": 22
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 1787,
-    "fields": {
-      "group": 124,
-      "location": 21
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 1788,
-    "fields": {
-      "group": 124,
-      "location": 20
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 1789,
-    "fields": {
-      "group": 124,
-      "location": 19
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 1790,
-    "fields": {
-      "group": 124,
-      "location": 9
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 1791,
-    "fields": {
-      "group": 124,
-      "location": 5
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 1792,
-    "fields": {
-      "group": 124,
-      "location": 8
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 1793,
-    "fields": {
-      "group": 124,
-      "location": 18
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 1794,
-    "fields": {
-      "group": 124,
-      "location": 17
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 1795,
-    "fields": {
-      "group": 124,
-      "location": 1
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 1796,
-    "fields": {
-      "group": 124,
-      "location": 7
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 1797,
-    "fields": {
-      "group": 124,
-      "location": 3
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 1798,
-    "fields": {
-      "group": 124,
-      "location": 2
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 1799,
-    "fields": {
-      "group": 124,
-      "location": 30
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 1800,
-    "fields": {
-      "group": 124,
-      "location": 16
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 1801,
-    "fields": {
-      "group": 124,
-      "location": 6
-    }
-  },
-  {
-    "model": "user.grouplocation",
-    "pk": 1802,
-    "fields": {
-      "group": 124,
       "location": 15
     }
   },
@@ -33427,22 +32979,22 @@
     "model": "user.service",
     "pk": 16,
     "fields": {
-      "slug": null,
+      "slug": "afg-wasserbau",
       "service_group": 2,
-      "service_parent": null,
+      "service_parent": 267,
       "meta": {},
-      "name": "Amt für Gewässer",
-      "description": "AWB",
+      "name": "AfG (Wasserbau)",
+      "description": "AfG (Wasserbau)",
       "sort": 152,
       "phone": null,
       "zip": null,
       "city": null,
       "address": null,
-      "email": "email@example.com",
+      "email": "afg-wasserbau@example.com",
       "website": null,
       "logo": "",
       "disabled": 0,
-      "notification": 1,
+      "notification": 0,
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": null
@@ -35502,18 +35054,18 @@
     "model": "user.service",
     "pk": 99,
     "fields": {
-      "slug": null,
+      "slug": "afg-fischerei",
       "service_group": 2,
-      "service_parent": 11,
+      "service_parent": 267,
       "meta": {},
-      "name": "ANJF (Fischerei)",
-      "description": "ANJF (Fischerei)",
+      "name": "AfG (Fischerei)",
+      "description": "AfG (Fischerei)",
       "sort": 3,
       "phone": null,
       "zip": null,
       "city": null,
       "address": null,
-      "email": "email@example.com",
+      "email": "afg-fischerei@example.com",
       "website": null,
       "logo": "",
       "disabled": 0,
@@ -36004,10 +35556,10 @@
     "fields": {
       "slug": null,
       "service_group": 2,
-      "service_parent": 13,
+      "service_parent": 267,
       "meta": {},
-      "name": "AfU (Neobiota)",
-      "description": "AfU (Neobiota)",
+      "name": "AfG (Neobiota)",
+      "description": "AfG (Neobiota)",
       "sort": 20,
       "phone": null,
       "zip": null,
@@ -36027,22 +35579,22 @@
     "model": "user.service",
     "pk": 120,
     "fields": {
-      "slug": null,
+      "slug": "afg-industrie-gewerbeabwasser",
       "service_group": 2,
-      "service_parent": 13,
+      "service_parent": 267,
       "meta": {},
-      "name": "AfU (Industrie- und Gewerbeabwasser)",
-      "description": "AfU (Industrie- und Gewerbeabwasser)",
+      "name": "AfG (Industrie- und Gewerbeabwasser)",
+      "description": "AfG (Industrie- und Gewerbeabwasser)",
       "sort": 21,
       "phone": null,
       "zip": null,
       "city": null,
       "address": null,
-      "email": "email@example.com",
+      "email": "afg-industrie-gewerbeabwasser@example.com",
       "website": null,
       "logo": "",
       "disabled": 0,
-      "notification": 1,
+      "notification": 0,
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": null
@@ -36054,10 +35606,10 @@
     "fields": {
       "slug": null,
       "service_group": 2,
-      "service_parent": 13,
+      "service_parent": 267,
       "meta": {},
-      "name": "AfU (Kläranlagen)",
-      "description": "AfU (Kläranlagen)",
+      "name": "AfG (Kläranlagen)",
+      "description": "AfG (Kläranlagen)",
       "sort": 22,
       "phone": null,
       "zip": null,
@@ -36079,10 +35631,10 @@
     "fields": {
       "slug": null,
       "service_group": 2,
-      "service_parent": 13,
+      "service_parent": 267,
       "meta": {},
-      "name": "AfU (Bauten in und an stehenden Gewässern)",
-      "description": "AfU (Bauten in und an stehenden Gewässern)",
+      "name": "AfG (Bauten in und an stehenden Gewässern)",
+      "description": "AfG (Bauten in und an stehenden Gewässern)",
       "sort": 23,
       "phone": null,
       "zip": null,
@@ -36102,22 +35654,22 @@
     "model": "user.service",
     "pk": 123,
     "fields": {
-      "slug": null,
+      "slug": "afg-entwaesserung",
       "service_group": 2,
-      "service_parent": 13,
+      "service_parent": 267,
       "meta": {},
-      "name": "AfU (Entwässerung)",
-      "description": "AfU (Entwässerung)",
+      "name": "AfG (Entwässerung)",
+      "description": "AfG (Entwässerung)",
       "sort": 24,
       "phone": null,
       "zip": null,
       "city": null,
       "address": null,
-      "email": "email@example.com",
+      "email": "afg-entwaesserung@example.com",
       "website": null,
       "logo": "",
       "disabled": 0,
-      "notification": 1,
+      "notification": 0,
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": null
@@ -39664,6 +39216,31 @@
       "city": null,
       "address": null,
       "email": "email@example.com",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 267,
+    "fields": {
+      "slug": null,
+      "service_group": 2,
+      "service_parent": null,
+      "meta": {},
+      "name": "Amt für Gewässer",
+      "description": "AfG",
+      "sort": 224,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "afg@example.com",
       "website": null,
       "logo": "",
       "disabled": 0,
