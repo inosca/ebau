@@ -215,7 +215,7 @@ class _SENTINEL:
     pass
 
 
-def get_dict_item(obj, item, sep=".", default=_SENTINEL):
+def get_dict_item(obj, item, sep=".", default=_SENTINEL, list_lookups=False):
     """Return an item from a nested dict structure.
 
     Example:
@@ -227,6 +227,10 @@ def get_dict_item(obj, item, sep=".", default=_SENTINEL):
     >>> get_dict_item(some_dict, 'foo.bar.baz')
     3
 
+    If you pass `list_lookups=True`, then any numeric key in the given
+    path will be turned into an integer first, therefore allowing to
+    look into nested lists as well.
+
     >>> # If your keys contain dots, you can use another separator:
     >>> get_dict_item(some_dict, 'foo!bar!baz', sep="!")
     3
@@ -235,6 +239,8 @@ def get_dict_item(obj, item, sep=".", default=_SENTINEL):
     you pass a default value, it is returned instead
     """
     path = item.split(sep)
+    if list_lookups:
+        path = [(int(p) if p.isnumeric() else p) for p in path]
     prefix = []
     for key in path:
         prefix.append(key)
