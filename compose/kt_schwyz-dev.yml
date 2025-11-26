@@ -77,12 +77,7 @@ services:
       OIDC_USERINFO_ENDPOINT: http://ebau-keycloak.localhost/auth/realms/ebau/protocol/openid-connect/userinfo
     networks:
       - ebau.localhost
-    command:
-      [
-        "/bin/sh",
-        "-c",
-        "wait-for-it db:5432 -- poetry run python manage.py migrate && poetry run python manage.py runserver 0.0.0.0:8000",
-      ]
+    command: devserver
 
   ember:
     environment:
