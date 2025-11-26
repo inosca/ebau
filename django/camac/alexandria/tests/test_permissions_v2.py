@@ -358,6 +358,33 @@ def test_alexandria_permissions_convert_document(
     )
 
 
+@pytest.mark.parametrize("in_child_category", [False, True])
+def test_alexandria_permissions_webdav_document(
+    db,
+    admin_client,
+    alexandria_data,
+    in_child_category,
+    instance,
+    permission_mock,
+    settings,
+):
+    _, document = alexandria_data(in_child_category)
+
+    file = document.get_latest_original()
+    file.mime_type = settings.ALEXANDRIA_MANABI_ALLOWED_MIMETYPES[0]
+    file.save()
+
+    response = admin_client.get(reverse("alexandria-webdav-detail", args=[document.pk]))
+
+    assert response.status_code == status.HTTP_200_OK
+
+    assert_permissions(
+        permission_mock,
+        instance,
+        P.any("test:all", "test:replace"),
+    )
+
+
 @pytest.mark.parametrize(
     ("role__name", "headers", "expected_status"),
     [
