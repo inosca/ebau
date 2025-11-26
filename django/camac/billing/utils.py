@@ -259,7 +259,7 @@ def validate_product_number_conditions(
             case _:
                 return True
 
-    return all([test_condition(key, value) for key, value in config.items()])
+    return all(test_condition(key, value) for key, value in config.items())
 
 
 def validate_product_number(group: Group, instance: str) -> list[ProductNumberConfig]:
