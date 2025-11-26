@@ -205,6 +205,7 @@ class AlexandriaPermissions:
             "convert": self.get_required_permissions_for_document_convert,
             "copy": self.get_required_permissions_for_document_copy,
             "partial_update": self.get_required_permissions_for_document_update,
+            "retrieve": self.get_required_permissions_for_document_webdav,
         }
 
         permissions_fn = permissions_fn_map.get(action)
@@ -348,6 +349,25 @@ class AlexandriaPermissions:
             permissions &= extra_permission
 
         return permissions
+
+    def get_required_permissions_for_document_webdav(
+        self,
+        document: Document,
+        request: Request,
+        prefix: str,
+    ) -> P:
+        """Get required permissions for the WebDAV action.
+
+        This is a get request that will return the URL needed to edit the
+        document via WebDAV. Editing via WebDAV is considered a replace action
+        as it may generate new file versions or alter the current last file
+        version.
+        """
+
+        return P.any(
+            f"{prefix}:all",
+            f"{prefix}:replace",
+        )
 
     @permission_for(File)
     def has_permission_for_file(
