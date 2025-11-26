@@ -4790,6 +4790,22 @@
     }
   },
   {
+    "model": "user.group",
+    "pk": 10299,
+    "fields": {
+      "role": 3,
+      "service": 81,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
     "model": "user.groupt",
     "pk": 26535,
     "fields": {
@@ -7767,6 +7783,16 @@
       "language": "de",
       "name": "Einsichtsberechtigte Leitbehörde PGV",
       "city": "Einsichtsberechtigte Leitbehörde PGV"
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 26833,
+    "fields": {
+      "group": 10295,
+      "language": "de",
+      "name": "Leitung Gemeinde Bottenwil",
+      "city": "Leitung Gemeinde Bottenwil"
     }
   },
   {

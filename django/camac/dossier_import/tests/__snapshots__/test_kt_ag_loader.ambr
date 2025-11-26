@@ -370,6 +370,7 @@
               "zip": 7777
           }
       ],
+      "is_municipality_light": false,
       "is_paper": null,
       "landowner": [
           {
@@ -891,6 +892,7 @@
       "id": null,
       "instance_state": null,
       "invoice_recipient": [],
+      "is_municipality_light": false,
       "is_paper": null,
       "landowner": [],
       "leased_land_total_ha": null,
@@ -1151,6 +1153,7 @@
       "id": null,
       "instance_state": null,
       "invoice_recipient": [],
+      "is_municipality_light": false,
       "is_paper": null,
       "landowner": [],
       "leased_land_total_ha": null,
@@ -1403,6 +1406,7 @@
       "id": "EBPA-0001-6924",
       "instance_state": null,
       "invoice_recipient": [],
+      "is_municipality_light": false,
       "is_paper": null,
       "landowner": [],
       "leased_land_total_ha": null,

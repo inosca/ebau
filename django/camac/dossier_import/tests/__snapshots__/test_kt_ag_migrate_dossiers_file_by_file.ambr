@@ -1,5 +1,5 @@
 # serializer version: 1
-# name: test_migrate_from_zip
+# name: test_migrate_single_json_file[EBPA-0219-7779.json]
   '''
   {
       "answers": [
@@ -1056,7 +1056,7 @@
   }
   '''
 # ---
-# name: test_migrate_from_zip.1
+# name: test_migrate_single_json_file[EBPA-1010-5310.json]
   '''
   {
       "answers": null,
@@ -1074,7 +1074,7 @@
   }
   '''
 # ---
-# name: test_migrate_from_zip.2
+# name: test_migrate_single_json_file[EBPA-1720-6526.json]
   '''
   {
       "answers": [
@@ -2427,7 +2427,7 @@
   }
   '''
 # ---
-# name: test_migrate_from_zip.3
+# name: test_migrate_single_json_file[EBPA-4406-5058.json]
   '''
   {
       "answers": [
@@ -3247,8 +3247,8 @@
       "applicants": [],
       "case-meta": {
           "canton-entry-date": "2025-06-12T00:00:00+0200",
-          "dossier-number": "2025-3",
-          "dossier-number-sort": 2025000003,
+          "dossier-number": "2025-1",
+          "dossier-number-sort": 2025000001,
           "submit-date": "2025-01-02T00:00:00+0100"
       },
       "deadlines": [
@@ -4212,7 +4212,7 @@
   }
   '''
 # ---
-# name: test_migrate_from_zip.4
+# name: test_migrate_single_json_file[EBPA-5494-8955.json]
   '''
   {
       "answers": [
@@ -4873,8 +4873,8 @@
           }
       ],
       "case-meta": {
-          "dossier-number": "2024-2",
-          "dossier-number-sort": 2024000002,
+          "dossier-number": "2024-1",
+          "dossier-number-sort": 2024000001,
           "submit-date": "2024-11-15T00:00:00+0100"
       },
       "deadlines": [],
@@ -5039,7 +5039,7 @@
   }
   '''
 # ---
-# name: test_migrate_from_zip.5
+# name: test_migrate_single_json_file[EBPA-6929-6843.json]
   '''
   {
       "answers": [
@@ -5983,7 +5983,7 @@
   }
   '''
 # ---
-# name: test_migrate_from_zip.6
+# name: test_migrate_single_json_file[EBPA-8161-2380.json]
   '''
   {
       "answers": [
@@ -6874,7 +6874,7 @@
   }
   '''
 # ---
-# name: test_migrate_from_zip.7
+# name: test_migrate_single_json_file[EBPA-8318-3681.json]
   '''
   {
       "answers": [
@@ -7607,7 +7607,7 @@
   }
   '''
 # ---
-# name: test_migrate_from_zip.8
+# name: test_migrate_single_json_file[EBPA-9651-5967.json]
   '''
   {
       "answers": [
@@ -8582,8 +8582,8 @@
           }
       ],
       "case-meta": {
-          "dossier-number": "2025-2",
-          "dossier-number-sort": 2025000002,
+          "dossier-number": "2025-1",
+          "dossier-number-sort": 2025000001,
           "submit-date": "2025-04-02T00:00:00+0200"
       },
       "deadlines": [],
@@ -8764,7 +8764,7 @@
   }
   '''
 # ---
-# name: test_migrate_from_zip.9
+# name: test_migrate_single_json_file[EBPA-9856-7205.json]
   '''
   {
       "answers": [
@@ -9406,8 +9406,8 @@
       "applicants": [],
       "case-meta": {
           "canton-entry-date": "2022-12-16T00:00:00+0100",
-          "dossier-number": "2022-2",
-          "dossier-number-sort": 2022000002,
+          "dossier-number": "2022-1",
+          "dossier-number-sort": 2022000001,
           "submit-date": "2022-12-16T00:00:00+0100"
       },
       "deadlines": [
