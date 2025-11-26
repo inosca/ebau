@@ -29,6 +29,7 @@ services:
     depends_on:
       - db
       - mailpit
+      - document-merge-service
     environment:
       - APPLICATION_ENV=development
       - DATABASE_HOST=db
@@ -55,6 +56,33 @@ services:
     <<: *django
     command: qclusterdev
     ports: []
+
+  document-merge-service:
+    tty: true
+    stdin_open: true
+    security_opt:
+      - apparmor:unconfined
+    depends_on:
+      - db
+    environment:
+      DATABASE_HOST: db
+      DATABASE_PASSWORD: camac
+      DATABASE_USER: camac
+      DMS_S3_ACCESS_KEY_ID: minio
+      DMS_S3_ENDPOINT_URL: http://minio:9000
+      DMS_S3_SECRET_ACCESS_KEY: minio123
+      DOCXTEMPLATE_JINJA_EXTENSIONS: ""
+      ENV: dev
+      EXTENSIONS_ARGUMENTS: DJANGO_API=http://django
+      OIDC_USERINFO_ENDPOINT: http://ebau-keycloak.localhost/auth/realms/ebau/protocol/openid-connect/userinfo
+    networks:
+      - ebau.localhost
+    command:
+      [
+        "/bin/sh",
+        "-c",
+        "wait-for-it db:5432 -- poetry run python manage.py migrate && poetry run python manage.py runserver 0.0.0.0:8000",
+      ]
 
   ember:
     environment:
@@ -142,6 +170,21 @@ services:
       - MB_DB_USER=camac
       - MB_DB_PASS=camac
       - MB_DB_HOST=db
+    networks:
+      - ebau.localhost
+
+  minio:
+    environment:
+      MINIO_ROOT_USER: minio
+      MINIO_ROOT_PASSWORD: minio123
+      MINIO_BROWSER_REDIRECT_URL: http://ebau.localhost/minio/ui
+    networks:
+      - ebau.localhost
+
+  mc:
+    environment:
+      MINIO_ROOT_USER: minio
+      MINIO_ROOT_PASSWORD: minio123
     networks:
       - ebau.localhost
 
