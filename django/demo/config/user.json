@@ -211,7 +211,8 @@
     "fields": {
       "role_parent": null,
       "name": "Admin",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": null
     }
   },
   {
@@ -220,7 +221,8 @@
     "fields": {
       "role_parent": null,
       "name": "Guest",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": null
     }
   },
   {
@@ -229,7 +231,8 @@
     "fields": {
       "role_parent": null,
       "name": "municipality",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "municipality"
     }
   },
   {
@@ -238,7 +241,8 @@
     "fields": {
       "role_parent": null,
       "name": "service",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "service"
     }
   },
   {
@@ -247,7 +251,8 @@
     "fields": {
       "role_parent": null,
       "name": "support",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "support"
     }
   },
   {
@@ -256,7 +261,8 @@
     "fields": {
       "role_parent": null,
       "name": "applicant",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "applicant"
     }
   },
   {

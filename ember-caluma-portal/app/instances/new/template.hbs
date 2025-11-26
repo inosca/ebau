@@ -46,16 +46,14 @@
             <div class="uk-text-center">
               <p class="uk-flex-inline uk-text-large uk-flex-middle">
                 {{t (concat "instances.new." category ".title")}}
-                {{#if (not-eq this.roleKey "coordination")}}
+                {{#if
+                  (maybe-translate
+                    (this.translationKey this.session.group category)
+                  )
+                }}
                   <CfField::info
-                    @text={{t
-                      (if
-                        (eq this.roleKey "municipality")
-                        (concat
-                          "instances.new." category "." this.roleKey ".info"
-                        )
-                        (concat "instances.new." category ".info")
-                      )
+                    @text={{maybe-translate
+                      (this.translationKey this.session.group category)
                     }}
                   />
                 {{/if}}

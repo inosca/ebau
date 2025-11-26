@@ -154,14 +154,10 @@ class PublicUserSerializer(serializers.ModelSerializer):
 
 class RoleSerializer(MultilingualSerializer, serializers.ModelSerializer):
     permission = serializers.SerializerMethodField()
-    slug = serializers.SerializerMethodField()
 
     def get_permission(self, role):
         perms = settings.APPLICATION.get("ROLE_PERMISSIONS", {})
         return perms.get(role.name)
-
-    def get_slug(self, role):
-        return role.name
 
     class Meta:
         model = models.Role
@@ -452,7 +448,7 @@ class GroupSerializer(MultilingualSerializer, serializers.ModelSerializer):
 class PublicRoleSerializer(MultilingualSerializer, serializers.ModelSerializer):
     class Meta:
         model = models.Role
-        fields = ("name",)
+        fields = ("name", "slug")
         resource_name = "public-role"
 
 

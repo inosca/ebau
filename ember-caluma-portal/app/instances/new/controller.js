@@ -1,5 +1,7 @@
 import Controller from "@ember/controller";
+import { action } from "@ember/object";
 import { service } from "@ember/service";
+import { macroCondition, getOwnConfig } from "@embroider/macros";
 import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
@@ -37,21 +39,16 @@ export default class InstancesNewController extends Controller {
     );
   }
 
-  get roleKey() {
-    if (
-      config.APPLICATION.coordinationRoleIds?.includes(
-        parseInt(this.session.group?.role.get("id")),
-      )
-    ) {
-      return "coordination";
-    } else if (
-      config.APPLICATION.municipalityRoleId?.includes(
-        parseInt(this.session.group?.role.get("id")),
-      )
-    ) {
-      return "municipality";
+  @action
+  translationKey(group, category) {
+    if (macroCondition(getOwnConfig().application !== "ur")) {
+      return `instances.new.${category}.info`;
     }
-    return "";
+
+    if (group?.role) {
+      return `instances.new.${category}.${group?.role.get("slug")}.info`;
+    }
+    return `instances.new.${category}.info`;
   }
 
   ebauNumber = apolloQuery(

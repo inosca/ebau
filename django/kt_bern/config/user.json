@@ -5,7 +5,8 @@
     "fields": {
       "role_parent": null,
       "name": "admin",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": null
     }
   },
   {
@@ -14,7 +15,8 @@
     "fields": {
       "role_parent": null,
       "name": "guest",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": null
     }
   },
   {
@@ -23,7 +25,8 @@
     "fields": {
       "role_parent": null,
       "name": "municipality-lead",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "municipality-lead"
     }
   },
   {
@@ -32,7 +35,8 @@
     "fields": {
       "role_parent": null,
       "name": "service-lead",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "service-lead"
     }
   },
   {
@@ -41,7 +45,8 @@
     "fields": {
       "role_parent": null,
       "name": "construction-control-lead",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "construction-control-lead"
     }
   },
   {
@@ -50,7 +55,8 @@
     "fields": {
       "role_parent": null,
       "name": "applicant",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "applicant"
     }
   },
   {
@@ -59,7 +65,8 @@
     "fields": {
       "role_parent": null,
       "name": "support",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "support"
     }
   },
   {
@@ -68,7 +75,8 @@
     "fields": {
       "role_parent": null,
       "name": "subservice",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "subservice"
     }
   },
   {
@@ -77,7 +85,8 @@
     "fields": {
       "role_parent": 4,
       "name": "service-clerk",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "service-clerk"
     }
   },
   {
@@ -86,7 +95,8 @@
     "fields": {
       "role_parent": null,
       "name": "service-readonly",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "service-readonly"
     }
   },
   {
@@ -95,7 +105,8 @@
     "fields": {
       "role_parent": null,
       "name": "municipality-readonly",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "municipality-readonly"
     }
   },
   {
@@ -104,7 +115,8 @@
     "fields": {
       "role_parent": 3,
       "name": "municipality-clerk",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "municipality-clerk"
     }
   },
   {
@@ -113,7 +125,8 @@
     "fields": {
       "role_parent": 5,
       "name": "construction-control-clerk",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "construction-control-clerk"
     }
   },
   {
@@ -122,7 +135,8 @@
     "fields": {
       "role_parent": null,
       "name": "construction-control-readonly",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "construction-control-readonly"
     }
   },
   {
@@ -131,7 +145,8 @@
     "fields": {
       "role_parent": null,
       "name": "municipality-admin",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "municipality-admin"
     }
   },
   {
@@ -140,7 +155,8 @@
     "fields": {
       "role_parent": null,
       "name": "service-admin",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "service-admin"
     }
   },
   {
@@ -149,7 +165,8 @@
     "fields": {
       "role_parent": null,
       "name": "construction-control-admin",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "construction-control-admin"
     }
   },
   {
@@ -158,7 +175,8 @@
     "fields": {
       "role_parent": null,
       "name": "geometer-lead",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "geometer-lead"
     }
   },
   {
@@ -167,7 +185,8 @@
     "fields": {
       "role_parent": null,
       "name": "geometer-readonly",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "geometer-readonly"
     }
   },
   {
@@ -176,7 +195,8 @@
     "fields": {
       "role_parent": null,
       "name": "geometer-admin",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "geometer-admin"
     }
   },
   {
@@ -185,7 +205,8 @@
     "fields": {
       "role_parent": 20010,
       "name": "geometer-clerk",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "geometer-clerk"
     }
   },
   {
@@ -194,7 +215,8 @@
     "fields": {
       "role_parent": null,
       "name": "legal-authority-lead",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "legal-authority-lead"
     }
   },
   {
@@ -203,7 +225,8 @@
     "fields": {
       "role_parent": null,
       "name": "legal-authority-readonly",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "legal-authority-readonly"
     }
   },
   {
@@ -212,7 +235,8 @@
     "fields": {
       "role_parent": null,
       "name": "legal-authority-admin",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "legal-authority-admin"
     }
   },
   {
@@ -221,7 +245,8 @@
     "fields": {
       "role_parent": 20014,
       "name": "legal-authority-clerk",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "legal-authority-clerk"
     }
   },
   {

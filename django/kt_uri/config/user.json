@@ -335,7 +335,8 @@
     "fields": {
       "role_parent": null,
       "name": "Admin",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": null
     }
   },
   {
@@ -344,7 +345,8 @@
     "fields": {
       "role_parent": null,
       "name": "Guest",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": null
     }
   },
   {
@@ -353,7 +355,8 @@
     "fields": {
       "role_parent": null,
       "name": "Koordinationsstelle Baugesuche BG",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "koordinationsstelle-baugesuche-bg"
     }
   },
   {
@@ -362,7 +365,8 @@
     "fields": {
       "role_parent": null,
       "name": "Vernehmlassungsstelle mit Koordinationsaufgaben",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "vernehmlassungsstelle-mit-koordinationsaufgaben"
     }
   },
   {
@@ -371,7 +375,8 @@
     "fields": {
       "role_parent": null,
       "name": "Architect",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "architect"
     }
   },
   {
@@ -380,7 +385,8 @@
     "fields": {
       "role_parent": null,
       "name": "Sekretariat der Gemeindebaubehörde",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "sekretariat-der-gemeindebaubehorde"
     }
   },
   {
@@ -389,7 +395,8 @@
     "fields": {
       "role_parent": null,
       "name": "Mitglied der Gemeindebaubehörde",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "mitglied-der-gemeindebaubehorde"
     }
   },
   {
@@ -398,7 +405,8 @@
     "fields": {
       "role_parent": null,
       "name": "Vernehmlassungsstelle ohne Koordinationsaufgaben",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "vernehmlassungsstelle-ohne-koordinationsaufgaben"
     }
   },
   {
@@ -407,7 +415,8 @@
     "fields": {
       "role_parent": null,
       "name": "Koordinationsstelle Nutzungsplanung NP",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "koordinationsstelle-nutzungsplanung-np"
     }
   },
   {
@@ -416,7 +425,8 @@
     "fields": {
       "role_parent": null,
       "name": "Mitglied einer Kommission oder Fachgruppe",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "mitglied-einer-kommission-oder-fachgruppe"
     }
   },
   {
@@ -425,7 +435,8 @@
     "fields": {
       "role_parent": null,
       "name": "Koordinationsstelle Baudirektion BD",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "koordinationsstelle-baudirektion-bd"
     }
   },
   {
@@ -434,7 +445,8 @@
     "fields": {
       "role_parent": null,
       "name": "Gemeinde als Vernehmlassungsstelle",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "gemeinde-als-vernehmlassungsstelle"
     }
   },
   {
@@ -443,7 +455,8 @@
     "fields": {
       "role_parent": null,
       "name": "Portal User",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "portal-user"
     }
   },
   {
@@ -452,7 +465,8 @@
     "fields": {
       "role_parent": null,
       "name": "Vernehmlassungsstelle Gemeindezirkulation",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "vernehmlassungsstelle-gemeindezirkulation"
     }
   },
   {
@@ -461,7 +475,8 @@
     "fields": {
       "role_parent": null,
       "name": "Organisation mit Leseberechtigung",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "organisation-mit-leseberechtigung"
     }
   },
   {
@@ -470,7 +485,8 @@
     "fields": {
       "role_parent": null,
       "name": "Koordinationsstelle Umwelt AfU",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "koordinationsstelle-umwelt-afu"
     }
   },
   {
@@ -479,7 +495,8 @@
     "fields": {
       "role_parent": null,
       "name": "Koordinationsstelle Landwirtschaft ALA",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "koordinationsstelle-landwirtschaft-ala"
     }
   },
   {
@@ -488,7 +505,8 @@
     "fields": {
       "role_parent": null,
       "name": "Koordinationsstelle Energie AfE",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "koordinationsstelle-energie-afe"
     }
   },
   {
@@ -497,7 +515,8 @@
     "fields": {
       "role_parent": null,
       "name": "Koordinationsstelle Forst und Jagd AFJ",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "koordinationsstelle-forst-und-jagd-afj"
     }
   },
   {
@@ -506,7 +525,8 @@
     "fields": {
       "role_parent": null,
       "name": "Koordinationsstelle Sicherheitsdirektion SD",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "koordinationsstelle-sicherheitsdirektion-sd"
     }
   },
   {
@@ -515,7 +535,8 @@
     "fields": {
       "role_parent": null,
       "name": "Bundesstelle",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "bundesstelle"
     }
   },
   {
@@ -524,7 +545,8 @@
     "fields": {
       "role_parent": null,
       "name": "System-Betrieb",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "system-betrieb"
     }
   },
   {
@@ -533,7 +555,8 @@
     "fields": {
       "role_parent": null,
       "name": "Oereb Api",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "oereb-api"
     }
   },
   {
@@ -542,7 +565,8 @@
     "fields": {
       "role_parent": null,
       "name": "Koordinationsstelle Amt für das Grundbuch AfG",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "koordinationsstelle-amt-fur-das-grundbuch-afg"
     }
   },
   {

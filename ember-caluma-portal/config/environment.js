@@ -314,18 +314,6 @@ module.exports = function (environment) {
           1131, // Support
         ],
       },
-      municipalityRoleId: [6],
-      coordinationRoleIds: [
-        3, // KOOR BG
-        1061, // KOOR NP
-        1101, // KOOR BD
-        1106, // KOOR AfU
-        1107, // KOOR ALA
-        1127, // KOOR AfE
-        1128, // KOOR AFJ
-        1129, // KOOR SD
-        1133, // KOOR AfG
-      ],
       documents: {
         backend: "camac",
         excludeFromDocuments: [],
