@@ -12,9 +12,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_json_api.django_filters import DjangoFilterBackend
 
-from camac.alexandria.extensions.permissions.extension import (
-    CustomPermission as CustomAlexandriaPermission,
-)
+from camac.alexandria.extensions.common import has_alexandria_create_permission
 from camac.caluma.models import Inquiry
 from camac.constants.kt_gr import ARE_SERVICE_GROUP
 from camac.core.utils import canton_aware
@@ -149,11 +147,13 @@ class PatchedCategoryViewSet(views.CategoryViewSet):
         return Response(permissions, status=status.HTTP_200_OK)
 
     def _get_permissions_for_category_on_instance(self, category, instance_id, request):
-        return CustomAlexandriaPermission().get_available_permissions(
-            request,
-            Instance.objects.get(pk=instance_id),
-            category,
-        )
+        instance = Instance.objects.get(pk=instance_id)
+        permissions = set()
+
+        if has_alexandria_create_permission(request, instance, category):
+            permissions.add("create")
+
+        return permissions
 
 
 class PatchedMarkViewSet(views.MarkViewSet):

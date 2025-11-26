@@ -16,7 +16,8 @@ from camac.permissions.switcher import PERMISSION_MODE
 
 
 @pytest.fixture
-def permission_mock(settings, mocker, permissions_settings):
+def permission_mock(settings, mocker, permissions_settings, alexandria_settings):
+    alexandria_settings["USE_V2_PERMISSIONS"] = True
     permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.FULL
 
     _original_visibility = settings.GENERIC_PERMISSIONS_VISIBILITY_CLASSES

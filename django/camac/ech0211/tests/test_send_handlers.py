@@ -9,10 +9,6 @@ from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.models import WorkItem
 from django.core.management import call_command
 
-from camac.alexandria.extensions.permissions.extension import (
-    MODE_CREATE,
-    CustomPermission as CustomAlexandriaPermission,
-)
 from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_ALLE_BETEILIGTEN,
     ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
@@ -235,10 +231,9 @@ def test_notice_ruling_send_handler(
     mark = MarkFactory()
     be_ech0211_settings["NOTICE_RULING"]["ALEXANDRIA_CATEGORY"] = category.pk
     be_ech0211_settings["NOTICE_RULING"]["ALEXANDRIA_MARK"] = mark.pk
-    mocker.patch.object(
-        CustomAlexandriaPermission,
-        "get_available_permissions",
-        return_value={MODE_CREATE},
+    mocker.patch(
+        "camac.ech0211.send_handlers.has_alexandria_create_permission",
+        return_value=True,
     )
 
     attachment_section_beteiligte_behoerden = attachment_section_factory(
@@ -793,10 +788,9 @@ def test_task_send_claim_handler(
     success,
     access_level,
 ):
-    mocker.patch.object(
-        CustomAlexandriaPermission,
-        "get_available_permissions",
-        return_value={MODE_CREATE},
+    mocker.patch(
+        "camac.ech0211.send_handlers.has_alexandria_create_permission",
+        return_value=True,
     )
 
     # workflow notification templates
@@ -943,10 +937,9 @@ def test_kind_of_proceedings_send_handler(
     set_application_be["DOCUMENT_BACKEND"] = document_backend
     category = CategoryFactory()
     be_ech0211_settings["KIND_OF_PROCEEDINGS"] = {"ALEXANDRIA_CATEGORY": category.pk}
-    mocker.patch.object(
-        CustomAlexandriaPermission,
-        "get_available_permissions",
-        return_value={MODE_CREATE},
+    mocker.patch(
+        "camac.ech0211.send_handlers.has_alexandria_create_permission",
+        return_value=True,
     )
 
     attachment_section_beteiligte_behoerden = attachment_section_factory(
@@ -1220,12 +1213,12 @@ def test_get_instance_id_error(admin_user, group, caluma_admin_user):
 
 @pytest.mark.freeze_time("2024-04-24")
 @pytest.mark.parametrize(
-    "role__name,category_permission,pass_permission,test_case,success",
+    "role__name,has_create_permission,pass_permission,test_case,success",
     [
-        ("municipality-lead", MODE_CREATE, True, "submit", True),
-        ("municipality-lead", MODE_CREATE, True, "file subsequently", False),
-        ("municipality-lead", None, True, "submit", False),
-        ("service-lead", None, False, "submit", False),
+        ("municipality-lead", True, True, "submit", True),
+        ("municipality-lead", True, True, "file subsequently", False),
+        ("municipality-lead", False, True, "submit", False),
+        ("service-lead", False, False, "submit", False),
     ],
 )
 def test_submit_send_handler(
@@ -1247,7 +1240,7 @@ def test_submit_send_handler(
     notification_template_factory,
     mocker,
     form,
-    category_permission,
+    has_create_permission,
     pass_permission,
     test_case,
     success,
@@ -1275,10 +1268,9 @@ def test_submit_send_handler(
         b"%PDF-1.\ntrailer<</Root<</Pages<</Kids[<</MediaBox[0 0 3 3]>>]>>>>>>"
     )
     mocker.patch.object(requests, "get", return_value=response)
-    mocker.patch.object(
-        CustomAlexandriaPermission,
-        "get_available_permissions",
-        return_value={category_permission},
+    mocker.patch(
+        "camac.ech0211.send_handlers.has_alexandria_create_permission",
+        return_value=has_create_permission,
     )
     file = django_file("multiple-pages.pdf")
     file.content_type = "application/pdf"

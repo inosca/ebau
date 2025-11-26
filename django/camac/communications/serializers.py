@@ -16,10 +16,7 @@ from django_clamd.validators import validate_file_infection
 from rest_framework.exceptions import PermissionDenied, ValidationError
 from rest_framework_json_api import relations, serializers
 
-from camac.alexandria.extensions.permissions.extension import (
-    MODE_CREATE,
-    CustomPermission as CustomAlexandriaPermission,
-)
+from camac.alexandria.extensions.common import has_alexandria_create_permission
 from camac.document import models as document_models
 from camac.instance.models import Instance
 from camac.instance.views import InstanceView
@@ -578,15 +575,11 @@ class ConvertToDocumentSerializer(CommunicationsAttachmentSerializer):
             doc_attachment.attachment_sections.add(section)
             instance.document_attachment = doc_attachment
         else:
-            available_permissions = (
-                CustomAlexandriaPermission().get_available_permissions(
-                    self.context["request"],
-                    instance.message.topic.instance,
-                    validated_data["category"],
-                )
-            )
-
-            if MODE_CREATE not in available_permissions:
+            if not has_alexandria_create_permission(
+                self.context["request"],
+                instance.message.topic.instance,
+                validated_data["category"],
+            ):
                 raise PermissionDenied()
 
             document, file = create_alexandria_document_file(
