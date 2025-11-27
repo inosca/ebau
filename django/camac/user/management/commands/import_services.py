@@ -163,7 +163,9 @@ def scrub(value, default=None):
     if settings.ENV == "development":
         return default
 
-    return value.strip()
+    if isinstance(value, str):
+        return value.strip()
+    return value
 
 
 class Command(BaseCommand):
