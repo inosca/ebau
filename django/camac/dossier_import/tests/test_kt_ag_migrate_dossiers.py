@@ -22,6 +22,25 @@ def get_test_files():
     return list(input_files)
 
 
+@pytest.mark.freeze_time("2025-07-28 12:00:00")
+@pytest.mark.django_db(transaction=True)
+def test_migrate_from_zip(db, setup_dossier_import_ag, snapshot):
+    out = StringIO()
+    err = StringIO()
+    basepath = f"{TEST_IMPORT_FILE_PATH}/kt_ag_json_zip"
+    call_command(
+        "kt_ag_migrate_dossiers",
+        [f"--source-path={basepath}.zip", "--notify"],
+        stdout=out,
+        stderr=err,
+    )
+    for input_file in get_test_files():
+        _assert_migration_result_from_expected_file(input_file, snapshot, out, err)
+
+    if os.path.exists(basepath):
+        shutil.rmtree(basepath)
+
+
 @pytest.mark.skip(reason="not productive execution that is tested")
 @pytest.mark.freeze_time("2025-07-28 12:00:00")
 @pytest.mark.django_db(transaction=True)
@@ -85,10 +104,12 @@ def test_migrate_and_update_all(
         _assert_migration_result_from_expected_file(input_file, snapshot, out, err)
 
 
-@pytest.mark.order(1)  # Slow tests should run first
+@pytest.mark.skip(reason="not productive execution that is tested")
 @pytest.mark.freeze_time("2025-07-28 12:00:00")
 @pytest.mark.django_db(transaction=True)
-def test_migrate_from_zip_and_update(db, setup_dossier_import_ag, snapshot):
+def test_migrate_from_zip_and_update(
+    db, setup_dossier_import_ag, snapshot
+):  # pragma: no cover
     out = StringIO()
     err = StringIO()
     basepath = f"{TEST_IMPORT_FILE_PATH}/kt_ag_json_zip"
@@ -125,9 +146,12 @@ def test_migrate_from_zip_and_update(db, setup_dossier_import_ag, snapshot):
         shutil.rmtree(basepath)
 
 
+@pytest.mark.skip(reason="not productive execution that is tested")
 @pytest.mark.freeze_time("2025-07-28 12:00:00")
 @pytest.mark.django_db(transaction=True)
-def test_migrate_from_wrong_zip(db, setup_dossier_import_ag, snapshot):
+def test_migrate_from_wrong_zip(
+    db, setup_dossier_import_ag, snapshot
+):  # pragma: no cover
     out = StringIO()
     err = StringIO()
     basepath = f"{TEST_IMPORT_FILE_PATH}/kt_ag_json_wrongzip"

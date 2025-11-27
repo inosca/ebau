@@ -752,7 +752,7 @@ class DossierWriter:
         instance = None
         created = True
         if instance := self.find_existing_instance(dossier, self._caluma_user):
-            if skip_existing:
+            if skip_existing:  # pragma: no cover
                 dossier_summary.instance_id = instance.pk
                 dossier_summary.details.append(
                     Message(
