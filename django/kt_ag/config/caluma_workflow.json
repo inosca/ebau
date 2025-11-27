@@ -183,6 +183,29 @@
   },
   {
     "model": "caluma_workflow.task",
+    "pk": "archive-instance",
+    "fields": {
+      "created_at": "2025-11-27T09:40:18.860Z",
+      "modified_at": "2025-11-27T09:40:18.860Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Dossier archivieren\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "simple",
+      "meta": {},
+      "address_groups": "[\"municipality\"]|groups",
+      "control_groups": "[\"municipality\"]|groups",
+      "is_archived": false,
+      "form": null,
+      "lead_time": null,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
     "pk": "cantonal-exam",
     "fields": {
       "created_at": "2025-01-16T11:54:54.366Z",

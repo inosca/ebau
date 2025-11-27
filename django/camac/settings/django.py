@@ -2704,7 +2704,7 @@ APPLICATIONS = {
                 },
                 # Cancel manual work items after complete instance and skip AfB
                 # specific work items
-                "complete-instance": {
+                "archive-instance": {
                     "cancel": ["create-manual-workitems"],
                     "skip": ["check-pa", "cantonal-exam"],
                 },
