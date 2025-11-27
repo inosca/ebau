@@ -76,6 +76,7 @@ services:
       - djangomedia:/var/lib/camac/media
       - djangotmpmedia:/tmp/camac/tmpfiles
       - ../django:/app
+      - ../artifacts:/app/artifacts
     networks:
       - ebau.localhost
 
