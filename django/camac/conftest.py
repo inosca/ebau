@@ -657,6 +657,7 @@ def caluma_workflow_config_ur(
         "mitbericht-kanton",
         "mitbericht-bund",
         "cantonal-territory-usage",
+        "einfache-anfrage",
     ]:
         form = caluma_form_factories.FormFactory(slug=form_slug)
         question, _ = caluma_form_models.Question.objects.get_or_create(

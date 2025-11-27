@@ -1555,6 +1555,8 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             instance.group = Group.objects.get(pk=uri_constants.KOOR_AFE_GROUP_ID)
         elif instance.case.document.form.slug == "pgv-gemeindestrasse":
             instance.group = Group.objects.get(pk=uri_constants.KOOR_BD_GROUP_ID)
+        elif instance.case.document.form.slug == "einfache-anfrage":
+            instance.group = Group.objects.get(pk=uri_constants.KOOR_NP_GROUP_ID)
         else:
             return
 
@@ -1726,6 +1728,8 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             return Service.objects.get(pk=uri_constants.KOOR_AFG_SERVICE_ID)
         elif form_slug == "mitbericht-bund":
             return Service.objects.get(pk=instance.group.service.pk)
+        elif form_slug == "einfache-anfrage":
+            return Service.objects.get(pk=uri_constants.KOOR_NP_SERVICE_ID)
 
         # fallback default case
         return Service.objects.filter(
@@ -1739,15 +1743,16 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         ).first()
 
     def _set_instance_service(self, case, instance):
-        if settings.APPLICATION.get(
-            "USE_INSTANCE_SERVICE"
-        ) and not instance.responsible_service(filter_type="municipality"):
-            if settings.APPLICATION_NAME == "kt_uri":
-                service = self._ur_get_responsible_service(instance)
+        if not settings.APPLICATION.get("USE_INSTANCE_SERVICE"):
+            return
 
-                create_instance_service(instance, service.pk)
-                return
+        if settings.APPLICATION_NAME == "kt_uri":
+            service = self._ur_get_responsible_service(instance)
 
+            create_instance_service(instance, service.pk)
+            return
+
+        if not instance.responsible_service(filter_type="municipality"):
             municipality = self.get_master_data(case).municipality_slug
 
             if custom_instance_service := self._get_custom_instance_service(case):
@@ -1842,6 +1847,8 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
     def _get_authority_pk(self, instance):
         if instance.case.document.form.slug == "pgv-gemeindestrasse":
             return str(uri_constants.BAUDIREKTION_AUTHORITY_ID)
+        if instance.case.document.form.slug == "einfache-anfrage":
+            return str(uri_constants.KOOR_NP_AUTHORITY_ID)
         if instance.case.document.form.slug in [
             "konzession-waermeentnahme",
             "bohrbewilligung-waermeentnahme",
