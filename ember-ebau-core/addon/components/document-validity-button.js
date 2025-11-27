@@ -19,8 +19,8 @@ export default class DocumentValidityButtonComponent extends Component {
 
   @dropTask
   *validate(validateFn) {
-    yield validateFn();
-    if (this.args?.afterValidate) {
+    const isValid = yield validateFn();
+    if (isValid !== false && this.args?.afterValidate) {
       yield this.args?.afterValidate?.perform();
     }
   }
