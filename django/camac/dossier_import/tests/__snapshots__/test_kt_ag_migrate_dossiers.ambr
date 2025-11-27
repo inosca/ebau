@@ -1,4 +1,5 @@
 # serializer version: 1
+<<<<<<< HEAD
 # name: test_migrate_from_wrong_zip
   '''
   {
@@ -9940,6 +9941,9 @@
   '''
 # ---
 # name: test_migrate_from_zip_and_update
+=======
+# name: test_migrate_from_zip
+>>>>>>> 0c38fddd29 (fix(ag): migrate document status - avoid key constraint violation and not null vialoation)
   '''
   {
       "answers": [
@@ -10997,6 +11001,7 @@
   }
   '''
 # ---
+<<<<<<< HEAD
 # name: test_migrate_from_zip_and_update.10
   '''
   {
@@ -12056,6 +12061,9 @@
   '''
 # ---
 # name: test_migrate_from_zip_and_update.11
+=======
+# name: test_migrate_from_zip.1
+>>>>>>> 0c38fddd29 (fix(ag): migrate document status - avoid key constraint violation and not null vialoation)
   '''
   {
       "answers": null,
@@ -12074,7 +12082,11 @@
   }
   '''
 # ---
+<<<<<<< HEAD
 # name: test_migrate_from_zip_and_update.12
+=======
+# name: test_migrate_from_zip.2
+>>>>>>> 0c38fddd29 (fix(ag): migrate document status - avoid key constraint violation and not null vialoation)
   '''
   {
       "answers": [
@@ -13454,6 +13466,7 @@
   }
   '''
 # ---
+<<<<<<< HEAD
 # name: test_migrate_from_zip_and_update.19
   '''
   {
@@ -18236,6 +18249,9 @@
   '''
 # ---
 # name: test_migrate_from_zip_and_update.23
+=======
+# name: test_migrate_from_zip.3
+>>>>>>> 0c38fddd29 (fix(ag): migrate document status - avoid key constraint violation and not null vialoation)
   '''
   {
       "answers": [
@@ -20021,7 +20037,11 @@
   }
   '''
 # ---
+<<<<<<< HEAD
 # name: test_migrate_from_zip_and_update.24
+=======
+# name: test_migrate_from_zip.4
+>>>>>>> 0c38fddd29 (fix(ag): migrate document status - avoid key constraint violation and not null vialoation)
   '''
   {
       "answers": [
@@ -20849,7 +20869,11 @@
   }
   '''
 # ---
+<<<<<<< HEAD
 # name: test_migrate_from_zip_and_update.25
+=======
+# name: test_migrate_from_zip.5
+>>>>>>> 0c38fddd29 (fix(ag): migrate document status - avoid key constraint violation and not null vialoation)
   '''
   {
       "answers": [
@@ -21794,7 +21818,11 @@
   }
   '''
 # ---
+<<<<<<< HEAD
 # name: test_migrate_from_zip_and_update.26
+=======
+# name: test_migrate_from_zip.6
+>>>>>>> 0c38fddd29 (fix(ag): migrate document status - avoid key constraint violation and not null vialoation)
   '''
   {
       "answers": [
@@ -22686,7 +22714,11 @@
   }
   '''
 # ---
+<<<<<<< HEAD
 # name: test_migrate_from_zip_and_update.27
+=======
+# name: test_migrate_from_zip.7
+>>>>>>> 0c38fddd29 (fix(ag): migrate document status - avoid key constraint violation and not null vialoation)
   '''
   {
       "answers": [
@@ -23420,7 +23452,11 @@
   }
   '''
 # ---
+<<<<<<< HEAD
 # name: test_migrate_from_zip_and_update.28
+=======
+# name: test_migrate_from_zip.8
+>>>>>>> 0c38fddd29 (fix(ag): migrate document status - avoid key constraint violation and not null vialoation)
   '''
   {
       "answers": [
@@ -24584,6 +24620,7 @@
   }
   '''
 # ---
+<<<<<<< HEAD
 # name: test_migrate_from_zip_and_update.29
   '''
   {
@@ -31878,6 +31915,9 @@
   '''
 # ---
 # name: test_migrate_from_zip_and_update.9
+=======
+# name: test_migrate_from_zip.9
+>>>>>>> 0c38fddd29 (fix(ag): migrate document status - avoid key constraint violation and not null vialoation)
   '''
   {
       "answers": [
