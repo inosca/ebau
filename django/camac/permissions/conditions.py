@@ -354,6 +354,7 @@ class RequireWorkItem(Check):
     task_id: str
     status: Optional[str] = None
     addressed_to_current_service: Optional[bool] = False
+    condition_name: str | None = None
 
     def apply(self, userinfo, context: PermissionContext):
         from caluma.caluma_workflow.models import WorkItem
@@ -380,6 +381,9 @@ class RequireWorkItem(Check):
         return isinstance(other, RequireInstanceState) and other.task_id == self.task_id
 
     def __repr__(self):  # pragma: no cover
+        if self.condition_name:
+            return self.condition_name
+
         return f"RequireWorkItem({self.task_id})"
 
 

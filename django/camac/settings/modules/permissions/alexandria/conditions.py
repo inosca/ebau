@@ -2,10 +2,7 @@ from __future__ import annotations
 
 import typing
 
-from camac.permissions.conditions import (
-    Always,
-    Check,
-)
+from camac.permissions.conditions import Check
 
 if typing.TYPE_CHECKING:  # pragma: no cover
     from camac.alexandria.permissions import AlexandriaPermissionContext
@@ -24,20 +21,3 @@ class OwnDocument(Check):
             return False
 
         return userinfo.service.pk == context.document.created_by_group
-
-
-PERMISSIONS_ALEXANDRIA = {
-    "default": {},
-    "kt_bern": {
-        "ENABLED": True,
-        "ACCESS_LEVELS": {
-            "geometer": [
-                # TODO: configure meaningfull settings
-                ("category-3:read", Always()),
-                ("category-3:write", OwnDocument()),
-                ("category-3:update", OwnDocument()),
-                ("category-3:delete", OwnDocument()),
-            ]
-        },
-    },
-}
