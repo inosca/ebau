@@ -6,10 +6,7 @@ from rest_framework.exceptions import PermissionDenied
 from rest_framework.serializers import Serializer
 from rest_framework_json_api import serializers
 
-from camac.alexandria.extensions.permissions.extension import (
-    MODE_CREATE,
-    CustomPermission as CustomAlexandriaPermission,
-)
+from camac.alexandria.extensions.common import has_alexandria_create_permission
 from camac.instance.models import Instance
 
 
@@ -41,13 +38,11 @@ class ECHFileSerializer(Serializer):
         # passed category and also whether the user has permission to see the
         # passed instance so we don't have to check the instance visibility
         # seperately.
-        available_permissions = CustomAlexandriaPermission().get_available_permissions(
+        if not has_alexandria_create_permission(
             self.context["request"],
             validated_data["instance"],
             validated_data["category"],
-        )
-
-        if MODE_CREATE not in available_permissions:
+        ):
             raise PermissionDenied()
 
         return validated_data

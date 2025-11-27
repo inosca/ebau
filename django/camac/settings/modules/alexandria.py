@@ -22,6 +22,7 @@ ALEXANDRIA = {
         "TAG_VISIBILITY": "all",
         "INSTANCE_COPY_CATEGORIES": ["beilagen-zum-gesuch", "nachforderung"],
         "PERMISSIONS_CONFIG": {},
+        "USE_V2_PERMISSIONS": False,
     },
     "kt_ag": {
         "ENABLED": True,
@@ -55,7 +56,10 @@ ALEXANDRIA = {
         },
         "APPEND_ROLE_TO_CUSTOM_ROLE_MAPPING": True,
     },
-    "kt_bern": {"ENABLED": True},
+    "kt_bern": {
+        "ENABLED": True,
+        "USE_V2_PERMISSIONS": True,
+    },
     "test": {
         "ENABLED": True,
     },

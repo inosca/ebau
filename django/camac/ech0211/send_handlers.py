@@ -16,10 +16,7 @@ from django.core.files.base import ContentFile
 from django.utils.translation import gettext as _
 from lxml import etree
 
-from camac.alexandria.extensions.permissions.extension import (
-    MODE_CREATE,
-    CustomPermission as CustomAlexandriaPermission,
-)
+from camac.alexandria.extensions.common import has_alexandria_create_permission
 from camac.caluma.api import CalumaApi
 from camac.caluma.models import Inquiry
 from camac.constants.kt_bern import ATTACHMENT_SECTION_ALLE_BETEILIGTEN
@@ -134,12 +131,7 @@ class AlexandriaDocumentMixin:
     def check_alexandria_category_permission(
         self, category: alexandria_models.Category
     ):
-        available_permissions = CustomAlexandriaPermission().get_available_permissions(
-            self.request,
-            self.instance,
-            category,
-        )
-        if MODE_CREATE not in available_permissions:
+        if not has_alexandria_create_permission(self.request, self.instance, category):
             raise SendHandlerException(
                 "Document category permission denied.",
                 status=400,

@@ -3802,7 +3802,7 @@ GENERIC_PERMISSIONS_VISIBILITY_CLASSES = [
 ]
 GENERIC_PERMISSIONS_PERMISSION_CLASSES = (
     ["camac.alexandria.extensions.permissions_v2.AlexandriaPermissions"]
-    if APPLICATION_NAME == "kt_bern"
+    if ALEXANDRIA and ALEXANDRIA["USE_V2_PERMISSIONS"]
     else ["camac.alexandria.extensions.permissions.CustomPermission"]
 )
 GENERIC_PERMISSIONS_VALIDATION_CLASSES = [
