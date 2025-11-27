@@ -32754,7 +32754,7 @@
     "model": "user.service",
     "pk": 7,
     "fields": {
-      "slug": null,
+      "slug": "baugesuchszentrale",
       "service_group": 4,
       "service_parent": null,
       "name": "Baugesuchszentrale",
