@@ -757,6 +757,10 @@ ECH0211 = {
                     "ech0211:planningPermissionApplication/ech0211:locationAddress/ech0010:town": {
                         "question_slug": "ort-grundstueck",
                     },
+                    "ech0211:planningPermissionApplication/ech0211:locationAddress/ech0010:swissZipCode": {
+                        "question_slug": "plz",
+                        "default": 0000,
+                    },
                 },
                 "TABLE": {
                     # xpath

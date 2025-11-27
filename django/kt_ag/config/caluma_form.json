@@ -1400,7 +1400,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-migration",
       "question": "art-des-gesuchs",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -1415,7 +1415,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-migration",
       "question": "baugespann",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -1430,7 +1430,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-migration",
       "question": "baugespann-erstellt-am",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -1445,7 +1445,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-migration",
       "question": "bauvorhaben-migration",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -1460,7 +1460,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-migration",
       "question": "beschreibung-bauvorhaben",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -1475,7 +1475,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-migration",
       "question": "beschreibung-bauvorhaben-details",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -1505,7 +1505,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-migration",
       "question": "erfassungsgrund",
-      "sort": 19
+      "sort": 20
     }
   },
   {
@@ -1535,7 +1535,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-migration",
       "question": "gemeinde",
-      "sort": 18
+      "sort": 19
     }
   },
   {
@@ -1600,6 +1600,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "allgemeine-angaben-migration.plz",
+    "fields": {
+      "created_at": "2025-11-27T13:30:19.299Z",
+      "modified_at": "2025-11-27T13:30:19.299Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-angaben-migration",
+      "question": "plz",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "allgemeine-angaben-migration.profilierung-nein-begruendung",
     "fields": {
       "created_at": "2025-01-23T13:10:02.120Z",
@@ -1610,7 +1625,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-migration",
       "question": "profilierung-nein-begruendung",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -1640,7 +1655,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-migration",
       "question": "standord-migration",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -1655,7 +1670,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-migration",
       "question": "street-and-housenumber",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -1670,7 +1685,7 @@
       "modified_by_group": null,
       "form": "allgemeine-angaben-migration",
       "question": "weitere-gemeinden",
-      "sort": 17
+      "sort": 18
     }
   },
   {

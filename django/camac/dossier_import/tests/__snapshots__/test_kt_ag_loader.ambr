@@ -758,6 +758,7 @@
               "workflow_type": "Stellungnahme Gesuch"
           }
       ],
+      "zip": "5004",
       "zone_flood_hazard": true,
       "zone_seismic_compliance": "nicht erforderlich",
       "zone_sensitivity_level": "4",
@@ -998,6 +999,7 @@
       "workflow_docs": [],
       "workflow_recipients": [],
       "workflows": [],
+      "zip": null,
       "zone_flood_hazard": false,
       "zone_seismic_compliance": null,
       "zone_sensitivity_level": null,
@@ -1264,6 +1266,7 @@
       "workflow_docs": [],
       "workflow_recipients": [],
       "workflows": [],
+      "zip": null,
       "zone_flood_hazard": false,
       "zone_seismic_compliance": null,
       "zone_sensitivity_level": null,
@@ -1514,6 +1517,7 @@
       "workflow_docs": [],
       "workflow_recipients": [],
       "workflows": [],
+      "zip": "4663",
       "zone_flood_hazard": false,
       "zone_seismic_compliance": null,
       "zone_sensitivity_level": null,

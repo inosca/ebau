@@ -513,6 +513,12 @@
           {
               "date": null,
               "document__form_id": "baugesuch-migration",
+              "question_id": "plz",
+              "value": 5646
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
               "question_id": "projektaenderung",
               "value": "projektaenderung-nein"
           },
@@ -4491,7 +4497,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "bezeichnung-andere-bauten-migration",
-              "value": "Freizeit"
+              "value": "Garten"
           },
           {
               "date": null,
@@ -4661,7 +4667,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "nutzungsart-andere-bauten-migration",
-              "value": "Garten"
+              "value": "Freizeit"
           },
           {
               "date": null,
@@ -4710,6 +4716,12 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "personalien-rechnungsempfaenger",
               "value": null
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
+              "question_id": "plz",
+              "value": 4001
           },
           {
               "date": null,
@@ -5602,7 +5614,7 @@
               "date": null,
               "document__form_id": "uvp-migration",
               "question_id": "bezeichnung-andere-bauten-migration",
-              "value": "andere Bauten Nutzungsart"
+              "value": "andere Bauten Bezechnung"
           },
           {
               "date": null,
@@ -5824,7 +5836,7 @@
               "date": null,
               "document__form_id": "uvp-migration",
               "question_id": "nutzungsart-andere-bauten-migration",
-              "value": "andere Bauten Bezechnung"
+              "value": "andere Bauten Nutzungsart"
           },
           {
               "date": null,
@@ -6729,6 +6741,12 @@
               "document__form_id": "pgv-migration",
               "question_id": "personalien-rechnungsempfaenger",
               "value": null
+          },
+          {
+              "date": null,
+              "document__form_id": "pgv-migration",
+              "question_id": "plz",
+              "value": 5001
           },
           {
               "date": null,
@@ -7962,7 +7980,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "bezeichnung-andere-bauten-migration",
-              "value": "Fanclub"
+              "value": "Fussballstadion"
           },
           {
               "date": null,
@@ -8248,7 +8266,7 @@
               "date": null,
               "document__form_id": "baugesuch-migration",
               "question_id": "nutzungsart-andere-bauten-migration",
-              "value": "Fussballstadion"
+              "value": "Fanclub"
           },
           {
               "date": null,
@@ -8297,6 +8315,12 @@
               "document__form_id": "baugesuch-migration",
               "question_id": "personalien-rechnungsempfaenger",
               "value": null
+          },
+          {
+              "date": null,
+              "document__form_id": "baugesuch-migration",
+              "question_id": "plz",
+              "value": 4663
           },
           {
               "date": null,

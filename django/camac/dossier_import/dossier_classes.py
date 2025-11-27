@@ -65,6 +65,7 @@ class Dossier:
     coordinates: Optional[Union[List[Coordinates], str]] = None
     street: Optional[str] = None
     street_number: Optional[str] = None
+    zip: Optional[str] = None
     city: Optional[str] = None
     usage: Optional[str] = None
     application_type: Optional[str] = None
