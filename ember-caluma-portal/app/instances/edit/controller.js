@@ -80,7 +80,7 @@ export default class InstancesEditController extends Controller {
         }))
       : query(this, "document", () => ({
           filter: {
-            categories: config.APPLICATION.documents.feedbackSections.join(","),
+            categories: mainConfig.alexandria.feedbackCategories.join(","),
             metainfo: JSON.stringify([
               { key: "camac-instance-id", value: String(this.model) },
             ]),
@@ -122,7 +122,10 @@ export default class InstancesEditController extends Controller {
   }));
 
   get hasFeedbackSection() {
-    return Boolean(config.APPLICATION.documents.feedbackSections);
+    return Boolean(
+      config.APPLICATION.documents.feedbackSections ||
+        mainConfig.alexandria?.feedbackCategories,
+    );
   }
 
   get case() {

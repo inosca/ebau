@@ -465,7 +465,6 @@ module.exports = function (environment) {
       },
       documents: {
         excludeFromDocuments: [],
-        feedbackSections: ["alle-beteiligten", "bauabnahme"],
       },
       instanceStates: instanceStatesGr,
       // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
@@ -526,7 +525,6 @@ module.exports = function (environment) {
       },
       documents: {
         excludeFromDocuments: [],
-        feedbackSections: ["alle-beteiligten"],
       },
       instanceStates: instanceStatesSo,
       // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
@@ -584,7 +582,6 @@ module.exports = function (environment) {
       },
       documents: {
         excludeFromDocuments: [],
-        feedbackSections: ["alle-beteiligten", "bauabnahme"],
       },
       instanceStates: instanceStatesAg,
       // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")

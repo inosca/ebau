@@ -240,6 +240,7 @@ export default {
     },
   },
   alexandria: {
+    feedbackCategories: ["alle-beteiligten", "rechtsbegehren"],
     marks: {
       decision: "decision",
       void: "void",
