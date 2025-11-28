@@ -5,7 +5,8 @@
     "fields": {
       "role_parent": null,
       "name": "admin",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": null
     }
   },
   {
@@ -14,7 +15,8 @@
     "fields": {
       "role_parent": null,
       "name": "applicant",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "applicant"
     }
   },
   {
@@ -23,7 +25,8 @@
     "fields": {
       "role_parent": null,
       "name": "support",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "support"
     }
   },
   {
@@ -32,7 +35,8 @@
     "fields": {
       "role_parent": null,
       "name": "municipality-admin",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "municipality-admin"
     }
   },
   {
@@ -41,7 +45,8 @@
     "fields": {
       "role_parent": null,
       "name": "municipality-lead",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "municipality-lead"
     }
   },
   {
@@ -50,7 +55,8 @@
     "fields": {
       "role_parent": null,
       "name": "municipality-read",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "municipality-read"
     }
   },
   {
@@ -59,7 +65,8 @@
     "fields": {
       "role_parent": null,
       "name": "service-admin",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "service-admin"
     }
   },
   {
@@ -68,7 +75,8 @@
     "fields": {
       "role_parent": null,
       "name": "service-lead",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "service-lead"
     }
   },
   {
@@ -77,7 +85,8 @@
     "fields": {
       "role_parent": null,
       "name": "subservice",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "subservice"
     }
   },
   {

@@ -480,6 +480,7 @@ class Role(core_models.MultilingualModel, models.Model):
         null=True,
         verbose_name=_("Group prefix"),
     )
+    slug = models.SlugField(unique=True, null=True, blank=True, default=None)
 
     class Meta:
         managed = True

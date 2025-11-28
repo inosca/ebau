@@ -64,6 +64,38 @@ instances:
 
     special-procedure:
       title: "Weitere Verfahren"
+      sekretariat-der-gemeindebaubehorde:
+        info: "**Allgemeiner Hinweis:** Dossiers die von einer Behörde (Gemeinde oder kantonale
+        Verwaltung) im URec erfasst werden, erhalten den Zusatzvermerk (intern erfasst). Auch diese
+        Dossiers werden auf dem URec Portal erfasst und mit Klick auf «EINREICHEN» in den internen
+        Bereich geschickt.\n\n
+        **Archivdossier (intern erfasst):**
+        Dieses Formular soll ausschliesslich für die manuelle Erfassung von einzelnen Dossiers
+        verwendet werden, die physisch oder allenfalls per E-Mail (im aktuellen Jahr) eingereicht
+        wurden, bereits abgeschlossen sind oder am Protokoll abgeschrieben werden und ohne
+        eigentliches Verfahren direkt archiviert werden sollen. Neue Archivdossier erhalten eine
+        fortlaufende URec Nummer vom aktuellen Jahr (z.B. 1202-25-089).\n\n
+        Für die Archivierung alter Dossiers aus dem Papierarchiv ist dieses Formular deshalb nicht
+        geeignet. Falls Sie grössere Mengen alter Dossiers im URec mit einer «alten» URec Nummer
+        ablegen möchten (z.B. ein Baugesuch aus dem Jahre 2010 digitalisieren, URec Nr. 1201-10
+        000) wenden Sie sich bitte an das Amt für Raumentwicklung.\n\n
+        **Einfache Anfrage (intern erfasst):**
+        Wenn Sie eine Anfrage zu einem Öreb-Thema (z.B. Siedlungsleitbild) erfassen möchten oder
+        wenn Sie Fragen zu einem Verfahren haben oder eine rechtliche Abklärung wünschen,
+        können Sie das Formular «Einfache Anfrage» verwenden. Einfache Anfragen werden direkt
+        an die Koordinationsstelle Nutzungsplanung weitergeleitet.\n\n
+        **PGV Gemeindestrasse (intern erfasst):**
+        Dieses Formular dient ausschliesslich zur Erfassung von Plangenehmigungsverfahren (PGV)
+        für Gemeindestrassen Bauprojekte. PGV Dossiers Gemeindestrassen werden beim
+        Einreichen direkt an die Baudirektion Uri übermittelt.\n\n
+        **Öreb-Verfahren Gemeinde (intern erfasst):**
+        Mit dem Formular «Öreb-Verfahren Gemeinde» können Dossiers für Gemeindliche
+        Planungszonen, Gemeindliche Nutzungsplanungen, Sondernutzungsplanungen (QGP / QP),
+        Gemeindliche Baulinien und Dossier für Bausperren erfasst werden. Dossiers die auf dem
+        Portal erfasst und «eingereicht» werden, werden Ihnen im internen Bereich im Menu «NEUES
+        DOSSIER PRÜFEN» angezeigt.\n\n
+        Hinweis: Bei Öreb Verfahren wird in der Regel für jeden Rechtsstatus ein separates Dossier
+        erfasst (bitte verwenden Sie dazu die Kopierfunktion im internen Bereich)."
       info: "**Benützung Kantonsgebiet:** Dieses Formular wählen Sie, wenn Sie eine Veranstaltung
       planen, zum Beispiel einen Sportanlass oder einen Umzug, oder wenn Sie eine Einrichtung
       (z.B. Baustellengerüst, temporärer Verkaufs- oder Informationsstand, temporäre

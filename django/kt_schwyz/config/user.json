@@ -665,7 +665,8 @@
     "fields": {
       "role_parent": null,
       "name": "Admin",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": null
     }
   },
   {
@@ -674,7 +675,8 @@
     "fields": {
       "role_parent": null,
       "name": "Guest",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": null
     }
   },
   {
@@ -683,7 +685,8 @@
     "fields": {
       "role_parent": null,
       "name": "Gemeinde",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "gemeinde"
     }
   },
   {
@@ -692,7 +695,8 @@
     "fields": {
       "role_parent": null,
       "name": "Portal",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "portal"
     }
   },
   {
@@ -701,7 +705,8 @@
     "fields": {
       "role_parent": null,
       "name": "Fachstelle",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "fachstelle"
     }
   },
   {
@@ -710,7 +715,8 @@
     "fields": {
       "role_parent": null,
       "name": "Kanton",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "kanton"
     }
   },
   {
@@ -719,7 +725,8 @@
     "fields": {
       "role_parent": null,
       "name": "Fachstelle Sachbearbeiter",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "fachstelle-sachbearbeiter"
     }
   },
   {
@@ -728,7 +735,8 @@
     "fields": {
       "role_parent": null,
       "name": "Gemeinde Sachbearbeiter",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "gemeinde-sachbearbeiter"
     }
   },
   {
@@ -737,7 +745,8 @@
     "fields": {
       "role_parent": null,
       "name": "Publikation",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "publikation"
     }
   },
   {
@@ -746,7 +755,8 @@
     "fields": {
       "role_parent": null,
       "name": "Lesezugriff",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "lesezugriff"
     }
   },
   {
@@ -755,7 +765,8 @@
     "fields": {
       "role_parent": null,
       "name": "Fachstelle Leitbehörde",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "fachstelle-leitbehörde"
     }
   },
   {
@@ -764,7 +775,8 @@
     "fields": {
       "role_parent": null,
       "name": "Support",
-      "group_prefix": null
+      "group_prefix": null,
+      "slug": "support"
     }
   },
   {

@@ -1,5 +1,7 @@
 import Controller from "@ember/controller";
+import { action } from "@ember/object";
 import { service } from "@ember/service";
+import { macroCondition, getOwnConfig } from "@embroider/macros";
 import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
@@ -35,6 +37,18 @@ export default class InstancesNewController extends Controller {
     return Object.keys(this.forms.value ?? {}).sort(
       (a, b) => COLUMN_ORDER.indexOf(a) - COLUMN_ORDER.indexOf(b),
     );
+  }
+
+  @action
+  translationKey(group, category) {
+    if (macroCondition(getOwnConfig().application !== "ur")) {
+      return `instances.new.${category}.info`;
+    }
+
+    if (group?.role) {
+      return `instances.new.${category}.${group?.role.get("slug")}.info`;
+    }
+    return `instances.new.${category}.info`;
   }
 
   ebauNumber = apolloQuery(
