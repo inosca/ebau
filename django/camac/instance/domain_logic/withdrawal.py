@@ -73,6 +73,14 @@ class WithdrawalLogic:
             settings.WITHDRAWAL["HISTORY_ENTRIES"]["REQUESTED"],
         )
 
+        # trigger ech0211 event
+        withdrawn.send(
+            sender="withdraw_instance",
+            instance=instance,
+            user_pk=camac_user.pk,
+            group_pk=camac_group.pk,
+        )
+
         # send notifications
         for notification in settings.WITHDRAWAL["NOTIFICATIONS"]:
             send_mail_without_request(
@@ -146,13 +154,5 @@ class WithdrawalLogic:
 
         # set instance state
         instance.set_instance_state(settings.WITHDRAWAL["INSTANCE_STATE"], camac_user)
-
-        # trigger ech0211 event
-        withdrawn.send(
-            sender="withdraw_instance",
-            instance=instance,
-            user_pk=camac_user.pk,
-            group_pk=camac_group.pk,
-        )
 
         return instance
