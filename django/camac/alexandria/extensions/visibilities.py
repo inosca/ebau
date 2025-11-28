@@ -100,6 +100,15 @@ class CustomVisibility(InstanceQuerysetMixin):
                 }
             )
 
+        if role == "geometer":
+            aggregated_filter |= Q(
+                **{
+                    f"{prefix}marks__pk__in": settings.ALEXANDRIA[
+                        "MARK_VISIBILITY"
+                    ].get("GEOMETER", [])
+                }
+            )
+
         return visible_instances_filter & aggregated_filter
 
     @filter_queryset_for(Document)

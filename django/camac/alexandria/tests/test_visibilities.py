@@ -128,6 +128,14 @@ def alexandria_setup(
     )
     public.marks.add(MarkFactory(slug="publication"))
 
+    # geometer document
+    document = DocumentFactory(
+        category=municipality_category,
+        metainfo={"camac-instance-id": so_instance.pk},
+        title="geometer",
+    )
+    document.marks.add(MarkFactory(slug="geometer"))
+
     for document in Document.objects.all():
         FileFactory(document=document, modified_by_group=document.modified_by_group)
 
@@ -137,7 +145,7 @@ def alexandria_setup(
     "role__name,expected",
     [
         ("applicant", ["applicant", "applicant nested", "decision"]),
-        ("municipality", ["decision"]),
+        ("municipality", ["decision", "geometer"]),
         (
             "service",
             [
@@ -152,17 +160,21 @@ def alexandria_setup(
             ["subservice shared 1", "subservice shared 2", "subservice shared 3"],
         ),
         ("public", ["publication"]),
+        ("geometer", ["geometer"]),
     ],
 )
 def test_document_and_file_visibility(
     db,
     admin_client,
     alexandria_setup,
+    alexandria_settings,
     expected,
     role,
     type,
 ):
     url = reverse(f"{type}-list")
+
+    alexandria_settings["MARK_VISIBILITY"]["GEOMETER"] = ["geometer"]
 
     if type == "file":
         data = {"include": "document"}
