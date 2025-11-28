@@ -13,7 +13,7 @@
 
     &__overlay {
       &--selected {
-        background-color: rgba($global-primary-background, 0.8);
+        background-color: rgba($global-primary-background, 0.8) !important;
       }
     }
   }

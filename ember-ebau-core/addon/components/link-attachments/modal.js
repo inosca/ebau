@@ -1,5 +1,5 @@
 import { action } from "@ember/object";
-import { scheduleOnce } from "@ember/runloop";
+import { later, scheduleOnce } from "@ember/runloop";
 import { service } from "@ember/service";
 import Component from "@glimmer/component";
 import { queryManager } from "ember-apollo-client";
@@ -14,6 +14,7 @@ export default class LinkAttachmentsModalComponent extends Component {
   @service fetch;
   @service intl;
   @service notification;
+  @service alexandriaDocuments;
 
   @queryManager apollo;
 
@@ -97,30 +98,50 @@ export default class LinkAttachmentsModalComponent extends Component {
     this.attachments.retry();
   }
 
-  @task
-  *upload({ file }) {
+  upload = task(async ({ file }) => {
     try {
-      const formData = new FormData();
+      const id =
+        mainConfig.documentBackend === "camac"
+          ? await this.uploadCamac(file)
+          : await this.uploadAlexandria(file);
 
-      formData.append("instance", this.instanceId);
-      formData.append("attachment_sections", this.attachmentSectionId);
-      formData.append("path", file, file.name);
-
-      const response = yield this.fetch.fetch("/api/v1/attachments", {
-        method: "POST",
-        body: formData,
-        headers: { "content-type": undefined },
-      });
-
-      if (!response.ok) throw new Error();
-
-      const { data } = yield response.json();
-
-      this.toggleAttachment(data.id);
+      this.toggleAttachment(id);
 
       scheduleOnce("afterRender", this, "reload");
     } catch {
       this.notification.danger(this.intl.t("link-attachments.upload-error"));
     }
+  });
+
+  async uploadCamac(file) {
+    const formData = new FormData();
+
+    formData.append("instance", this.instanceId);
+    formData.append("attachment_sections", this.attachmentSectionId);
+    formData.append("path", file, file.name);
+
+    const response = await this.fetch.fetch("/api/v1/attachments", {
+      method: "POST",
+      body: formData,
+      headers: { "content-type": undefined },
+    });
+
+    if (!response.ok) throw new Error();
+
+    const { data } = await response.json();
+
+    return data.id;
+  }
+
+  async uploadAlexandria(file) {
+    const [document] = await this.alexandriaDocuments.upload(
+      this.attachmentSectionId,
+      [file],
+    );
+
+    // Reload document after thumbnail was generated
+    later(() => document.reload(), 1000);
+
+    return document.id;
   }
 }

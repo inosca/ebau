@@ -5,6 +5,8 @@ import { tracked } from "@glimmer/tracking";
 import { findRecord } from "ember-data-resources";
 import { trackedFunction } from "reactiveweb/function";
 
+import mainConfig from "ember-ebau-core/config/main";
+
 /**
  * `@projectcaluma/ember-form` custom widget component to link attachments from
  * the central documents module of eBau to a caluma form.
@@ -20,9 +22,14 @@ export default class LinkAttachmentsComponent extends Component {
 
   instance = findRecord(this, "instance", () => [this.instanceId]);
 
-  attachmentSection = findRecord(this, "attachment-section", () => [
-    this.args.field.question.raw.meta.attachmentSection,
-  ]);
+  attachmentSection =
+    mainConfig.documentBackend === "camac"
+      ? findRecord(this, "attachment-section", () => [
+          this.args.field.question.raw.meta.attachmentSection,
+        ])
+      : findRecord(this, "category", () => [
+          this.args.field.question.raw.meta.alexandriaCategory,
+        ]);
 
   get instanceId() {
     return this.args.context.instanceId;
