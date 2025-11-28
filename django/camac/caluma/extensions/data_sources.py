@@ -1,6 +1,7 @@
 import uuid
 from typing import Tuple
 
+from alexandria.core.models import Document as AlexandriaDocument
 from caluma.caluma_data_source.data_sources import BaseDataSource
 from caluma.caluma_data_source.utils import data_source_cache
 from caluma.caluma_form.models import Answer, Document
@@ -295,15 +296,27 @@ class Attachments(BaseDataSource):
         if not context:  # pragma: no cover
             return []
 
-        attachment_section_id = question.meta.get("attachmentSection")
         instance_id = context.get("instanceId")
 
-        if not attachment_section_id or not instance_id:
+        if settings.APPLICATION["DOCUMENT_BACKEND"] == "camac":
+            attachment_section_id = question.meta.get("attachmentSection")
+
+            if not attachment_section_id or not instance_id:
+                return []
+
+            return Attachment.objects.filter(
+                attachment_sections__pk=attachment_section_id,
+                instance_id=instance_id,
+            ).values_list("pk", flat=True)
+
+        category = question.meta.get("alexandriaCategory")
+
+        if not category or not instance_id:
             return []
 
-        return Attachment.objects.filter(
-            attachment_sections__pk=attachment_section_id,
-            instance_id=instance_id,
+        return AlexandriaDocument.objects.filter(
+            category=category,
+            instance_document__instance_id=instance_id,
         ).values_list("pk", flat=True)
 
 
