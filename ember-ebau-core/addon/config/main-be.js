@@ -239,4 +239,10 @@ export default {
       "construction-control": [],
     },
   },
+  alexandria: {
+    marks: {
+      decision: "decision",
+      void: "void",
+    },
+  },
 };
