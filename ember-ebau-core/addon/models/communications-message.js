@@ -44,7 +44,9 @@ export default class CommunicationMessageModel extends Model {
             .peekAll("document")
             .find((d) => d.id === attachment);
 
-          return (await document.latestFile.value).id;
+          await document.latestFile.retry();
+
+          return document.latestFile.value.id;
         }),
       );
     }
