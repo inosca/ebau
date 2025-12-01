@@ -2,7 +2,7 @@
   @searchEnabled={{true}}
   @searchField="name"
   @searchMessage={{t "cases.header.searchKeyword"}}
-  @options={{this.available}}
+  @search={{perform this.search}}
   @selected={{this.selected}}
   @onCreate={{perform this.create}}
   @buildSuggestion={{this.customSuggestion}}
