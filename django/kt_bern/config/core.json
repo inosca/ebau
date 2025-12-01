@@ -46069,7 +46069,7 @@
       "description": null,
       "template": null,
       "class_field": "menu-category-extraordinary",
-      "hidden": 0,
+      "hidden": 1,
       "sort": 17,
       "form_group": 40000,
       "require_permission": "additional-demands-read"
