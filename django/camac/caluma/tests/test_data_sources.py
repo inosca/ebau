@@ -165,7 +165,7 @@ def test_data_sources(
     assert data == expected
 
 
-@pytest.mark.parametrize("document_backend", ["camac", "alexandria"])
+@pytest.mark.parametrize("document_backend", ["camac-ng", "alexandria"])
 @pytest.mark.parametrize(
     "has_instance,has_attachment_section,expected_count",
     [(False, False, 0), (True, False, 0), (False, True, 0), (True, True, 3)],
@@ -188,7 +188,7 @@ def test_attachments(
 
     question = QuestionFactory()
 
-    if document_backend == "camac":
+    if document_backend == "camac-ng":
         section1 = attachment_section_factory()
         section2 = attachment_section_factory()
     else:
@@ -198,7 +198,7 @@ def test_attachments(
     instance1 = instance_factory()
     instance2 = instance_factory()
 
-    if document_backend == "camac":
+    if document_backend == "camac-ng":
         # attachments in section 1
         attachment_attachment_section_factory.create_batch(
             3, attachmentsection=section1, attachment__instance=instance1
@@ -232,7 +232,7 @@ def test_attachments(
         )
 
     if has_attachment_section:
-        if document_backend == "camac":
+        if document_backend == "camac-ng":
             question.meta["attachmentSection"] = section1.pk
         else:
             question.meta["alexandriaCategory"] = section1.pk

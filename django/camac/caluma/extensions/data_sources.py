@@ -298,7 +298,7 @@ class Attachments(BaseDataSource):
 
         instance_id = context.get("instanceId")
 
-        if settings.APPLICATION["DOCUMENT_BACKEND"] == "camac":
+        if settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng":
             attachment_section_id = question.meta.get("attachmentSection")
 
             if not attachment_section_id or not instance_id:
