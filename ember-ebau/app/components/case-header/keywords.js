@@ -31,7 +31,7 @@ export default class CaseHeaderKeywordsComponent extends Component {
       search: term,
       exclude_instance: this.args.instance.id,
       page: {
-        limit: 10,
+        size: 10,
       },
     });
   });
