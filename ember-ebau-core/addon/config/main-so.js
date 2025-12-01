@@ -136,6 +136,7 @@ const config = {
     ],
   },
   alexandria: {
+    feedbackCategories: ["alle-beteiligten"],
     marks: {
       decision: "decision",
       objection: "objection",

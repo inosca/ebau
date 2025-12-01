@@ -102,7 +102,6 @@ module.exports = function (environment) {
         ],
       },
       documents: {
-        backend: "alexandria",
         excludeFromDocuments: [],
       },
       instanceStates: instanceStatesDemo,
@@ -175,7 +174,6 @@ module.exports = function (environment) {
         ],
       },
       documents: {
-        backend: "camac",
         feedbackSections: [3, 14], // Alle Beteiligten, Rechtsbegehren
         excludeFromDocuments: [
           "dokumente-platzhalter",
@@ -315,7 +313,6 @@ module.exports = function (environment) {
         ],
       },
       documents: {
-        backend: "camac",
         excludeFromDocuments: [],
       },
       instanceStates: instanceStatesUr,
@@ -467,9 +464,7 @@ module.exports = function (environment) {
         ],
       },
       documents: {
-        backend: "alexandria",
         excludeFromDocuments: [],
-        feedbackSections: ["alle-beteiligten", "bauabnahme"],
       },
       instanceStates: instanceStatesGr,
       // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
@@ -529,9 +524,7 @@ module.exports = function (environment) {
         ],
       },
       documents: {
-        backend: "alexandria",
         excludeFromDocuments: [],
-        feedbackSections: ["alle-beteiligten"],
       },
       instanceStates: instanceStatesSo,
       // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
@@ -588,9 +581,7 @@ module.exports = function (environment) {
         ],
       },
       documents: {
-        backend: "alexandria",
         excludeFromDocuments: [],
-        feedbackSections: ["alle-beteiligten", "bauabnahme"],
       },
       instanceStates: instanceStatesAg,
       // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")

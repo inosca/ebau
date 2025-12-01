@@ -131,6 +131,7 @@ export default {
     ],
   },
   alexandria: {
+    feedbackCategories: ["alle-beteiligten", "bauabnahme"],
     marks: {
       decision: "decision",
       void: "void",

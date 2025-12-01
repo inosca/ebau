@@ -239,4 +239,11 @@ export default {
       "construction-control": [],
     },
   },
+  alexandria: {
+    feedbackCategories: ["alle-beteiligten", "rechtsbegehren"],
+    marks: {
+      decision: "decision",
+      void: "void",
+    },
+  },
 };
