@@ -2062,11 +2062,8 @@ APPLICATIONS = {
         "LOG_NOTIFICATIONS_WITH_NO_RECEIVERS": True,
         "LINK_INSTANCES_ON_COPY": True,
         "STORE_PDF": {
-            "SECTION": {
-                "MAIN": {
-                    "DEFAULT": "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
-                    "PAPER": "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
-                }
+            "CATEGORY": {
+                "MAIN": "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
             },
         },
         # Mapping between camac role and instance permission.
@@ -2571,11 +2568,8 @@ APPLICATIONS = {
         },
         "DOCUMENT_BACKEND": "alexandria",
         "STORE_PDF": {
-            "SECTION": {
-                "MAIN": {
-                    "DEFAULT": "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
-                    "PAPER": "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
-                }
+            "CATEGORY": {
+                "MAIN": "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
             },
         },
     },

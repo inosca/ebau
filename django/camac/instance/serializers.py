@@ -1349,8 +1349,12 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 
     def _get_pdf_section(self, instance, form_slug):
         form_name = form_slug.upper() if form_slug else "MAIN"
-        section_type = "PAPER" if CalumaApi().is_paper(instance) else "DEFAULT"
-        return settings.APPLICATION["STORE_PDF"]["SECTION"][form_name][section_type]
+
+        if settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng":
+            section_type = "PAPER" if CalumaApi().is_paper(instance) else "DEFAULT"
+            return settings.APPLICATION["STORE_PDF"]["SECTION"][form_name][section_type]
+
+        return settings.APPLICATION["STORE_PDF"]["CATEGORY"][form_name]
 
     def _init_deadline(self, instance):
         deadlines_settings: DeadlinesConfig | None = settings.DEADLINES
