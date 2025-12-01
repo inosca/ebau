@@ -21,9 +21,7 @@ class NewWorkItem {
   @tracked deadline = DateTime.now().plus({ days: 10 }).toJSDate();
   @tracked notificationCompleted = true;
   @tracked notificationDeadline = true;
-  @tracked meta = {
-    "template-id": "NONE",
-  };
+  @tracked meta = {};
 }
 
 export default class WorkItemDetailNewComponent extends Component {
