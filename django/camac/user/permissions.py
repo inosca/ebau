@@ -301,7 +301,13 @@ PublicationPermission = IsPublicAccess & (
             "PatchedMarkViewSet",
             "PatchedCategoryViewSet",
         )
-        & (PublicationGR | PublicationSO | PublicationAG | PublicationTest)
+        & (
+            PublicationBE
+            | PublicationGR
+            | PublicationSO
+            | PublicationAG
+            | PublicationTest
+        )
     )
     | (
         # Form fields
