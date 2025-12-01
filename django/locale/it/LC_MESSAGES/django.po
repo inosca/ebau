@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-19 13:14+0100\n"
+"POT-Creation-Date: 2025-12-04 10:33+0100\n"
 "PO-Revision-Date: 2024-09-12 16:24+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -768,6 +768,10 @@ msgid ""
 msgstr ""
 "Questo tipo di file non può essere caricato. Nella cartella %(section_name)s "
 "è possibile caricare i seguenti tipi di file: %(allowed_mime_types)s"
+
+#: camac/document/serializers.py
+msgid "Adding geometer flag is not allowed in internal section."
+msgstr ""
 
 #: camac/document/serializers.py
 msgid "The entered name is not a valid file name"

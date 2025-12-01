@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-19 13:14+0100\n"
+"POT-Creation-Date: 2025-12-04 10:33+0100\n"
 "PO-Revision-Date: 2025-10-08 13:26+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -771,6 +771,12 @@ msgid ""
 msgstr ""
 "Der aktuelle Dateityp kann nicht als Dokument hochgeladen werden. Erlaubte "
 "Dateitypen für Abschnitt %(section_name)s sind: %(allowed_mime_types)s"
+
+#: camac/document/serializers.py
+msgid "Adding geometer flag is not allowed in internal section."
+msgstr ""
+"Das Freigeben von Dokumenten für den Nachführungsgeometer ist im internen "
+"Dokumentenordner nicht erlaubt."
 
 #: camac/document/serializers.py
 msgid "The entered name is not a valid file name"

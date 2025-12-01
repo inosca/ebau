@@ -4,6 +4,9 @@ import pytest
 from django.urls import reverse
 from rest_framework import status
 
+from camac.constants import (
+    kt_bern as be_constants,
+)
 from camac.document import permissions
 
 
@@ -17,14 +20,20 @@ def document_permissions():
 
 @pytest.mark.parametrize("role__name", ["municipality-lead"])
 @pytest.mark.parametrize(
-    "is_active, is_involved, expect_success",
+    "is_active, is_involved, expect_success, only_in_internal_attachment_section",
     # Not all of the combinations make sense, but we
     # wanna test exhaustively nonetheless
     [
-        (False, False, False),
-        (False, True, True),
-        (True, False, False),  # makes no sense, just for completeness
-        (True, True, True),
+        (False, False, False, True),
+        (True, False, False, True),  # makes no sense, just for completeness
+        # Succeeds / fails depending on lead authority involvement
+        (False, False, False, False),
+        (False, True, True, False),
+        (True, False, False, False),  # makes no sense, just for completeness
+        (True, True, True, False),
+        # Succeeds / fails depending on attachment section
+        (True, True, False, True),
+        (True, True, True, False),
     ],
 )
 def test_set_geometer_flag(
@@ -43,6 +52,8 @@ def test_set_geometer_flag(
     is_active,
     is_involved,
     expect_success,
+    only_in_internal_attachment_section,
+    service,
 ):
     # Parametrisation
     if is_involved:
@@ -60,8 +71,12 @@ def test_set_geometer_flag(
         be_instance.instance_services.all().update(service=service_factory())
 
     # Data setup
-    section = attachment_section_factory()
-    attachment = attachment_factory(instance=be_instance)
+    if only_in_internal_attachment_section:
+        section = attachment_section_factory(pk=be_constants.ATTACHMENT_SECTION_INTERN)
+    else:
+        section = attachment_section_factory()
+
+    attachment = attachment_factory(instance=be_instance, service=service)
     attachment.attachment_sections.set([section])
 
     # Patching Env to make settings work
@@ -86,5 +101,10 @@ def test_set_geometer_flag(
         assert resp.json()["data"]["attributes"]["context"]["for_geometer"]
     else:
         # response must be in HTTP/40x range
+        if only_in_internal_attachment_section:
+            assert (
+                resp.json()["errors"][0]["detail"]
+                == "Das Freigeben von Dokumenten für den Nachführungsgeometer ist im internen Dokumentenordner nicht erlaubt."
+            )
         assert resp.status_code >= status.HTTP_400_BAD_REQUEST
         assert resp.status_code < status.HTTP_500_INTERNAL_SERVER_ERROR

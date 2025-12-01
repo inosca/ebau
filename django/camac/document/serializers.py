@@ -14,6 +14,9 @@ from rest_framework import exceptions
 from rest_framework_json_api import serializers
 
 from camac.communications.serializers import validate_mime_type
+from camac.constants import (
+    kt_bern as be_constants,
+)
 from camac.core import serializers as core_serializers
 from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import Instance
@@ -256,6 +259,18 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
                 is_allowed_service |= attachment.instance.services.filter(
                     pk=service.pk
                 ).exists()
+
+                only_in_intern_section = list(
+                    attachment.attachment_sections.all().values_list(
+                        "attachment_section_id", flat=True
+                    )
+                ) == [be_constants.ATTACHMENT_SECTION_INTERN]
+
+                if only_in_intern_section:
+                    raise exceptions.ValidationError(
+                        _("Adding geometer flag is not allowed in internal section.")
+                    )
+
             elif changed_props == ["displayName"] and context.get("displayName"):
                 # Validate if the display name is a valid filename
                 try:
