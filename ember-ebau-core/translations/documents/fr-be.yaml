@@ -1,3 +1,4 @@
 documents:
+  confirm-solareignung: "Je confirme par la présente avoir téléversé les contenus suivants obligatoires. La liste des docu-ments obligatoires est exhaustive."
   confirm-reduced: "Je confirme que j'ai téléchargé au moins un des contenus obligatoires requis:"
   confirm: "Je confirme par la présente que j'ai téléchargé {count, plural, =1 {le contenu obligatoire} other {les # contenus obligatoires}} suivants. Veuillez noter que la liste des documents requis n'est pas exhaustive."
