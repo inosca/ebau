@@ -285,13 +285,7 @@ PublicationPermission = IsPublicAccess & (
     | (
         # Documents
         IsView("AttachmentView", "AttachmentDownloadView")
-        & (
-            PublicationBE
-            | PublicationSZ
-            | PublicationGR
-            | PublicationUR
-            | PublicationTest
-        )
+        & (PublicationBE | PublicationSZ | PublicationUR | PublicationTest)
     )
     | (
         # Alexandria
