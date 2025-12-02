@@ -1716,6 +1716,14 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
 
         for recipient_type in sorted(validated_data["recipient_types"]):
             recipients = getattr(self, "_get_recipients_%s" % recipient_type)(instance)
+
+            if (
+                settings.APPLICATION_NAME == "kt_gr" and len(recipients) == 0
+            ):  # pragma: no cover
+                # GR doesn't want to have events in their logs with
+                # "Notification sent to no receivers"
+                return 0
+
             subject = subj_prefix + validated_data["subject"]
 
             if (
