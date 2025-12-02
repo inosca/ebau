@@ -12,24 +12,46 @@ from camac.alexandria.permissions import AlexandriaPermissionManager
 from camac.instance.models import Instance
 from camac.permissions.api import P
 from camac.user.models import Group, Service
+from camac.user.permissions import get_role_name
 
 
-def get_role(group: Union[Group, SimpleLazyObject]) -> str:
+def get_permission_key(group: Union[Group, SimpleLazyObject]) -> str:
+    """Get the key used in alexandria permissions and visibilities.
+
+    This can consist of various components depending on the current role and
+    service group.
+    """
+
     # The `hasattr` check is needed as `group` may be a `SimpleLazyObject` that
     # would evaluate to `None`. However, without explicitly checking a property
     # on it, it won't evaluate and would therefore pass this check.
     if group is None or not hasattr(group, "role"):
         return "public"
 
-    service_group = group.service.service_group.name if group.service else None
-    role = group.role.name
-    override = settings.ALEXANDRIA.get("CUSTOM_ROLE_MAPPINGS", {}).get(service_group)
-    permission_key = role
+    permission_key_settings = settings.ALEXANDRIA["PERMISSION_KEY"]
 
-    if override and settings.ALEXANDRIA.get("APPEND_ROLE_TO_CUSTOM_ROLE_MAPPING"):
-        permission_key = f"{override}-{role}"
-    elif override:
-        permission_key = override
+    if permission_key_settings["USE_ROLE_PERMISSIONS_MAPPING"]:
+        # Use the role name mapped in `settings.APPLICATION["ROLE_PERMISSIONS"]`
+        # as permission key (e.g. instead of "municipality-lead" it's
+        # "muncipality"). This is the role name that is broadly used in
+        # `@permission_aware` decorated methods.
+        permission_key = get_role_name(group)
+    else:
+        # Otherwise we use the plain role name (e.g. "municipality-lead")
+        permission_key = group.role.name
+
+    if (mapping := permission_key_settings["SERVICE_GROUP_MAPPING"]) and group.service:
+        # If there are custom keys for certain service groups, we check for a
+        # custom key for the current service group
+        custom_key = mapping.get(group.service.service_group.name)
+
+        if custom_key and permission_key_settings["SERVICE_GROUP_APPEND_ROLE"]:
+            # Append the role name to the custom key triggered by the current
+            # service group if SERVICE_GROUP_APPEND_ROLE is enabled.
+            permission_key = f"{custom_key}-{permission_key}"
+        elif custom_key:
+            # Otherwise only use the custom key
+            permission_key = custom_key
 
     return permission_key
 

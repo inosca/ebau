@@ -9,7 +9,7 @@ from camac.instance.mixins import InstanceQuerysetMixin
 from camac.user.models import Service
 from camac.utils import filters
 
-from .common import get_role, get_service_parent_and_children
+from .common import get_permission_key, get_service_parent_and_children
 
 
 def get_category_access_rule(prefix, value, role=None):
@@ -44,13 +44,13 @@ class CustomVisibility(InstanceQuerysetMixin):
 
     @filter_queryset_for(BaseModel)
     def filter_queryset_for_all(self, queryset, request):  # pragma: no cover
-        if get_role(request.group) != "public":
+        if get_permission_key(request.group) != "public":
             return queryset
 
         return queryset.none()
 
     def document_and_file_filter(self, request, prefix=""):
-        role = get_role(request.group)
+        role = get_permission_key(request.group)
 
         visible_instances_filter = Q(
             **{
@@ -118,7 +118,7 @@ class CustomVisibility(InstanceQuerysetMixin):
         if "swagger" in request.path:  # pragma: no cover
             return queryset.none()
 
-        role = get_role(request.group)
+        role = get_permission_key(request.group)
         # TODO: need to evaluate some permissions to avoid displaying categories at useless times
         return queryset.filter(
             Q(metainfo__access__has_key=role)
@@ -127,10 +127,10 @@ class CustomVisibility(InstanceQuerysetMixin):
 
     @filter_queryset_for(Tag)
     def filter_queryset_for_tag(self, queryset, request):
-        if get_role(request.group) == "support":
+        if get_permission_key(request.group) == "support":
             return queryset
 
-        if get_role(request.group) in ["public", "applicant"]:
+        if get_permission_key(request.group) in ["public", "applicant"]:
             return queryset.none()
 
         if settings.ALEXANDRIA["TAG_VISIBILITY"] == "all":
@@ -155,7 +155,7 @@ class CustomVisibility(InstanceQuerysetMixin):
 
     @filter_queryset_for(Mark)
     def filter_queryset_for_mark(self, queryset, request):
-        if get_role(request.group) == "public":
+        if get_permission_key(request.group) == "public":
             return queryset.filter(pk__in=settings.ALEXANDRIA["PUBLIC_MARKS"])
 
         return queryset.order_by("metainfo__sort")

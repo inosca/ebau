@@ -23,15 +23,26 @@ ALEXANDRIA = {
         "INSTANCE_COPY_CATEGORIES": ["beilagen-zum-gesuch", "nachforderung"],
         "PERMISSIONS_CONFIG": {},
         "USE_V2_PERMISSIONS": False,
+        "PERMISSION_KEY": {
+            # Optional mapping between service group slug and custom key
+            "SERVICE_GROUP_MAPPING": {},
+            # Whether to append the role name to custom keys configured above
+            "SERVICE_GROUP_APPEND_ROLE": False,
+            # Whether to use mapped role names as configured in
+            # `settings.APPLICATION["ROLE_PERMISSIONS"]`
+            "USE_ROLE_PERMISSIONS_MAPPING": False,
+        },
     },
     "kt_ag": {
         "ENABLED": True,
-        "CUSTOM_ROLE_MAPPINGS": {
-            "service-afb": "afb",
-            "service-cantonal": "cantonal",
-            "service-external": "external",
+        "PERMISSION_KEY": {
+            "SERVICE_GROUP_MAPPING": {
+                "service-afb": "afb",
+                "service-cantonal": "cantonal",
+                "service-external": "external",
+            },
+            "SERVICE_GROUP_APPEND_ROLE": True,
         },
-        "APPEND_ROLE_TO_CUSTOM_ROLE_MAPPING": True,
         "PERMISSIONS_CONFIG": AG_CONFIG,
     },
     "kt_gr": {
@@ -39,7 +50,9 @@ ALEXANDRIA = {
         "MARK_VISIBILITY": {
             "SENSITIVE": ["sensitive"],
         },
-        "CUSTOM_ROLE_MAPPINGS": {"authority-bab": "are"},
+        "PERMISSION_KEY": {
+            "SERVICE_GROUP_MAPPING": {"authority-bab": "are"},
+        },
         "INSTANCE_COPY_CATEGORIES": ["beilagen-zum-gesuch", "nachforderung", "system"],
     },
     "kt_so": {
@@ -49,16 +62,21 @@ ALEXANDRIA = {
             "APPLICANT": ["objection"],
             "SENSITIVE": ["sensitive"],
         },
-        "CUSTOM_ROLE_MAPPINGS": {
-            "service-bab": "cantonal",
-            "service-cantonal": "cantonal",
-            "service-extra-cantonal": "extra-cantonal",
+        "PERMISSION_KEY": {
+            "SERVICE_GROUP_MAPPING": {
+                "service-bab": "cantonal",
+                "service-cantonal": "cantonal",
+                "service-extra-cantonal": "extra-cantonal",
+            },
+            "SERVICE_GROUP_APPEND_ROLE": True,
         },
-        "APPEND_ROLE_TO_CUSTOM_ROLE_MAPPING": True,
     },
     "kt_bern": {
         "ENABLED": True,
         "USE_V2_PERMISSIONS": True,
+        "PERMISSION_KEY": {
+            "USE_ROLE_PERMISSIONS_MAPPING": True,
+        },
     },
     "test": {
         "ENABLED": True,
