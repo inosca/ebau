@@ -2,8 +2,8 @@ import { service } from "@ember/service";
 import CaseModel from "@projectcaluma/ember-core/caluma-query/models/case";
 import mainConfig from "ember-ebau-core/config/main";
 import {
-  getAnswerDisplayValue,
   getAnswer,
+  getAnswerDisplayValue,
 } from "ember-ebau-core/utils/get-answer";
 
 import getFormTitle from "caluma-portal/utils/form-title";
@@ -64,6 +64,10 @@ export default class CustomCaseModel extends CaseModel {
 
   get description() {
     return this._getAnswerDisplayValue(answerSlugs.description);
+  }
+
+  get intent() {
+    return this._getAnswerDisplayValue(mainConfig.intentSlugs);
   }
 
   get modificationDescription() {

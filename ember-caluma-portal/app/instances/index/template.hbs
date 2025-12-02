@@ -271,10 +271,15 @@
                 (format-date case.submitDate format="date")
               }}</td>
             <td>{{case.status}}</td>
-            <td
-              class="uk-text-break"
-              title={{case.description}}
-            >{{case.description}}</td>
+            {{#let
+              (or case.modificationDescription case.intent)
+              as |caseDescription|
+            }}
+              <td
+                class="uk-text-break"
+                title={{caseDescription}}
+              >{{caseDescription}}</td>
+            {{/let}}
           </tr>
         {{/each}}
         {{#if this.cases.hasNextPage}}
