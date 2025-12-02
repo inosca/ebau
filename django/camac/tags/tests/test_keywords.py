@@ -17,6 +17,37 @@ def test_keyword_list(admin_client, keyword_factory, service, expected_count):
     assert len(response.json()["data"]) == expected_count
 
 
+@pytest.mark.parametrize("role__name", ["Support"])
+@pytest.mark.parametrize(
+    "exclude_instance,expected_count",
+    [(False, 3), (True, 2)],
+)
+def test_keyword_list_exclude_instance(
+    admin_client,
+    instance_factory,
+    keyword_factory,
+    exclude_instance,
+    expected_count,
+):
+    i1 = instance_factory()
+    i2 = instance_factory()
+    k1 = keyword_factory()
+    k2 = keyword_factory()
+    k3 = keyword_factory()
+
+    k1.instances.set([i1])
+    k2.instances.set([i2])
+    k3.instances.set([i2])
+
+    filters = {}
+    if exclude_instance:
+        filters = {"exclude_instance": str(i1.pk)}
+    response = admin_client.get(reverse("keyword-list"), filters)
+
+    assert response.status_code == status.HTTP_200_OK
+    assert len(response.json()["data"]) == expected_count
+
+
 @pytest.mark.parametrize(
     "role__name,expected_count",
     [("Municipality", 1), ("Service", 1)],
