@@ -41,7 +41,14 @@
       </button>
     {{/each-in}}
 
-    {{#if
+    {{#if (macroCondition (macroGetOwnConfig "isBE"))}}
+      <a
+        href="{{macroGetOwnConfig 'portalUrl'}}/instances"
+        class="uk-button uk-button-default uk-float-right"
+      >
+        {{t "cases.miscellaneous.linkToPortal"}}
+      </a>
+    {{else if
       (and (has-feature "cases.createPaper") (can "create paper of instance"))
     }}
       <a

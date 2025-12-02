@@ -154,6 +154,7 @@ cases:
     linkedInstancesText: "{count} {count, plural, one {verknüpftes Dossier} other {verknüpfte Dossiers}}"
     instancesOnSamePlotText: "{count} {count, plural, one {Dossier auf der gleichen Parzelle} other {Dossiers auf der gleichen Parzelle}}"
     fetchAmountOfInstancesOnSamePlotError: "Bei der Abfrage der Dossiers auf der gleichen Parzelle ist etwas schief gelaufen"
+    linkToPortal: "Portal Gesuchstellende"
 
   new:
     title: "Neues Gesuch erstellen"

@@ -138,6 +138,7 @@ cases:
     enterDossierNumber: ""
     showAll: ""
     modalTitle: ""
+    linkToPortal: "Portail requérants"
 
   new:
     title: ""
