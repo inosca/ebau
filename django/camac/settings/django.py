@@ -2742,7 +2742,6 @@ APPLICATIONS = {
                         "template_slug": "fill-additional-demand",
                         "recipient_types": ["work_item_controlling"],
                     },
-                    "ech_event": "camac.ech0211.signals.file_subsequently",
                 },
                 "complete-construction-monitoring": {
                     "next_instance_state": "to-finish",
