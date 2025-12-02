@@ -43,6 +43,7 @@ import BeDocumentsFormComponent from "caluma-portal/components/be-documents-form
 import BeDownloadPdfComponent from "caluma-portal/components/be-download-pdf";
 import BeGisComponent from "caluma-portal/components/be-gis";
 import InfoBelastungswerteComponent from "caluma-portal/components/be-info-belastungswerte";
+import BeInfoTableErrorsComponent from "caluma-portal/components/be-info-table-errors";
 import { isEmbedded } from "caluma-portal/helpers/is-embedded";
 
 export default class ApplicationRoute extends Route {
@@ -290,6 +291,11 @@ export default class ApplicationRoute extends Route {
       label: "Infotext Belastungswerte",
       component: "info-belastungswerte",
       componentClass: InfoBelastungswerteComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Infotext Table Errors",
+      component: "be-info-table-errors",
+      componentClass: BeInfoTableErrorsComponent,
     });
     this.calumaOptions.registerComponentOverride({
       label: "AG: Zirkulation Warnung Organisationstyp",

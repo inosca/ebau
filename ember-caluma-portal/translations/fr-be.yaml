@@ -1,5 +1,8 @@
 info-belastungswerte:
   title: "Pour toute question, veuillez prendre contact avec l'autorité suivante :"
+info-table-errors:
+  instructionStart: "Veuillez effacer les entrées erronées afin que le dossier puisse être soumis ultérieurement. Les entrées erronées sont indiquées par une"
+  instructionEnd: ""
 instances:
   downloadFormAsPdf: "Télécharger le formulaire de demande"
   downloadFormAsPdfText: "Vous pouvez télécharger à nouveau le formulaire de demande ici."
