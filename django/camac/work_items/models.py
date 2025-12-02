@@ -9,12 +9,17 @@ from django.conf import settings
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
 from django.db.models import Case, DateField, Exists, F, OuterRef, Q, Value, When
-from django.db.models.functions import Cast, Concat, JSONObject, Trim
+from django.db.models.functions import Cast, Coalesce, Concat, JSONObject, Trim
 from django.utils.translation import get_language, gettext_lazy as _
 from localized_fields.fields import LocalizedCharField
 
+from camac.core.utils import canton_aware
 from camac.deadlines.models import InstanceDeadline
-from camac.instance.export.filters import StringAggSubquery, caluma_answer
+from camac.instance.export.filters import (
+    StringAggSubquery,
+    caluma_answer,
+    camac_ng_answer,
+)
 from camac.models import dynamic_default_value
 from camac.settings.modules.work_item_list_schema import (
     AnnotationsConfig,
@@ -231,9 +236,7 @@ class WorkItemListRowManager(models.Manager["WorkItemListRow"]):
             .filter(deadline__isnull=False)
             .annotate(
                 instance_id=F("case__family__instance__pk"),
-                instance_name=F(
-                    f"case__family__document__form__name__{get_language()}"
-                ),
+                instance_name=self._annotate_instance_name(),
                 special_id=annotations.special_id,
                 assigned_user=F("assigned_users__0"),
                 addressed_service=Cast(
@@ -243,9 +246,7 @@ class WorkItemListRowManager(models.Manager["WorkItemListRow"]):
                     F("controlling_groups__0"), output_field=models.IntegerField()
                 ),
                 suspended_services=self._annotate_suspended_services(),
-                instance_description=caluma_answer(
-                    annotations.description, "case__family__document_id"
-                ),
+                instance_description=self._annotate_instance_description(),
                 municipality=self._annotate_municipality(),
                 applicants=self._annotate_applicants(),
                 direct_link_config=F("task__meta__directLink"),
@@ -254,6 +255,57 @@ class WorkItemListRowManager(models.Manager["WorkItemListRow"]):
         )
 
         return queryset
+
+    @canton_aware
+    def _annotate_instance_name(self) -> F:
+        """Annotate the main form name as instance name."""
+
+        return F(f"case__family__document__form__name__{get_language()}")
+
+    def _annotate_instance_name_sz(self) -> Case:
+        """Annotate the instance name for Kt. SZ.
+
+        In SZ, most cases don't use the caluma form yet. For those, the camac
+        form description is annotated as instance name. For the caluma cases
+        (marked with form backend "caluma" in the case meta) we annotate the
+        caluma form name as we do in the other cantons.
+        """
+
+        return Case(
+            When(
+                **{"case__family__meta__form-backend": "caluma"},
+                then=F(f"case__family__document__form__name__{get_language()}"),
+            ),
+            default=F("case__family__instance__form__description"),
+            output_field=models.CharField(),
+        )
+
+    @canton_aware
+    def _annotate_instance_description(self) -> models.QuerySet:
+        """Annotate instance description.
+
+        The description of an instance is stored in a caluma answer. The
+        question slug may vary per canton.
+        """
+
+        annotations: AnnotationsConfig = settings.WORK_ITEM_LIST.annotations
+
+        return caluma_answer(annotations.description, "case__family__document_id")
+
+    def _annotate_instance_description_sz(self) -> Coalesce:
+        """Annotate instance description for Kt. SZ.
+
+        In SZ, the instance description can either be in caluma answers or
+        camac-ng form fields. For simplicity, we annotate all of them and choose
+        the first one with a value.
+        """
+
+        return Coalesce(
+            camac_ng_answer("bezeichnung-override", "case__family__instance"),
+            camac_ng_answer("bezeichnung", "case__family__instance"),
+            caluma_answer("voranfrage-vorhaben", "case__family__document_id"),
+            caluma_answer("are-geschaeft-vorhaben", "case__family__document_id"),
+        )
 
     def annotate_with_service_id(self, service_id: int):
         """Add annotated fields with current service id context."""
@@ -290,6 +342,9 @@ class WorkItemListRowManager(models.Manager["WorkItemListRow"]):
         """
 
         annotations: AnnotationsConfig = settings.WORK_ITEM_LIST.annotations
+
+        if annotations.municipality is None:
+            return Value(None, output_field=models.CharField())
 
         return (
             DynamicOption.objects.filter(
@@ -413,10 +468,13 @@ class WorkItemListRow(WorkItem):
 
     @property
     def edit_link(self) -> dict[str, str | list[int | str]]:
-        return {
-            "route": "cases.detail.work-items.edit",
-            "models": [self.instance_id, str(self.pk)],
-        }
+        route = "cases.detail.work-items.edit"
+        models = {"INSTANCE_ID": self.instance_id, "WORK_ITEM_UUID": self.pk}
+
+        if settings.APPLICATION["INTERNAL_FRONTEND"] == "camac":
+            route = "instance-resource-name=work-items&ember-hash=/work-items/instances/{{INSTANCE_ID}}/work-items/{{WORK_ITEM_UUID}}"
+
+        return self._compose_link({"route": route, "models": models})
 
     @property
     def direct_link(self) -> dict[str, str | list[Any]] | None:
@@ -432,12 +490,30 @@ class WorkItemListRow(WorkItem):
         if self.status != WorkItem.STATUS_READY or not config:
             return None
 
+        return self._compose_link(
+            {
+                "route": config["route"],
+                "models": {
+                    placeholder: self.direct_link_models.get(
+                        placeholder.lower(), placeholder
+                    )
+                    for placeholder in config["models"]
+                },
+            }
+        )
+
+    def _compose_link(self, config):
+        if settings.APPLICATION["INTERNAL_FRONTEND"] == "camac":
+            url = f"/index/redirect-to-instance-resource/instance-id/{self.instance_id}?{config['route']}"
+
+            for k, v in config["models"].items():
+                url = url.replace(f"{{{{{k}}}}}", str(v))
+
+            return url
+
         return {
             "route": config["route"],
-            "models": [
-                self.direct_link_models.get(placeholder.lower(), placeholder)
-                for placeholder in config["models"]
-            ],
+            "models": config["models"].values(),
         }
 
     def assign_to_user(self, user: User):

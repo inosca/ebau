@@ -1,3 +1,4 @@
+import re
 from datetime import date, datetime
 
 import pytest
@@ -13,14 +14,29 @@ from camac.gis.utils import to_query
 fake = Faker()
 
 
+def replace_instance_id(link):
+    if isinstance(link, str):
+        link = re.sub(
+            r"((?:instance-id|instances)/)(\d+)(?=[/?&])", r"\1<INSTANCE_ID>", link
+        )
+    elif isinstance(link, dict):
+        link["models"][0] = "<INSTANCE_ID>"
+
+    return link
+
+
 def normalize_response(response):
     for row in response["data"]:
         row["attributes"]["instance-id"] = "<INSTANCE_ID>"
-        row["attributes"]["edit-link"]["models"][0] = "<INSTANCE_ID>"
         row["relationships"]["addressed-service"]["data"]["id"] = "<SERVICE_ID>"
 
-        if row["attributes"]["direct-link"] is not None:
-            row["attributes"]["direct-link"]["models"][0] = "<INSTANCE_ID>"
+        row["attributes"]["edit-link"] = replace_instance_id(
+            row["attributes"]["edit-link"]
+        )
+        row["attributes"]["direct-link"] = replace_instance_id(
+            row["attributes"]["direct-link"]
+        )
+
         if row["relationships"]["assigned-user"]["data"] is not None:
             row["relationships"]["assigned-user"]["data"]["id"] = "<USER_ID>"
         if row["relationships"]["closed-by-user"]["data"] is not None:
@@ -109,23 +125,32 @@ def setup_work_item_list(
     settings,
     disable_deadlines_progression,
 ):
-    task = caluma_task_factory(
-        meta={
-            "directLink": {
-                "route": "foo.bar.baz",
-                "models": ["INSTANCE_ID", "TASK_SLUG", "no-placeholder"],
-            }
-        }
-    )
-    template = work_item_template_factory()
-
-    work_item_list_filter_preset.prefilter_tasks = True
-    work_item_list_filter_preset.prefilter_work_item_templates = True
-    work_item_list_filter_preset.tasks.add(task)
-    work_item_list_filter_preset.work_item_templates.add(template)
-    work_item_list_filter_preset.save()
-
     def wrapper(canton="ag"):
+        request.getfixturevalue(f"set_application_{canton.lower()}")
+
+        application_settings = request.getfixturevalue("application_settings")
+
+        task = caluma_task_factory(
+            meta={
+                "directLink": {
+                    "route": "instance-resource-name=foobar&ember-hash=/foobar/{{TASK_SLUG}}",
+                    "models": ["TASK_SLUG"],
+                }
+                if application_settings["INTERNAL_FRONTEND"] == "camac"
+                else {
+                    "route": "foo.bar.baz",
+                    "models": ["INSTANCE_ID", "TASK_SLUG", "no-placeholder"],
+                }
+            }
+        )
+        template = work_item_template_factory()
+
+        work_item_list_filter_preset.prefilter_tasks = True
+        work_item_list_filter_preset.prefilter_work_item_templates = True
+        work_item_list_filter_preset.tasks.add(task)
+        work_item_list_filter_preset.work_item_templates.add(template)
+        work_item_list_filter_preset.save()
+
         work_item_list_row_factory(
             canton=canton,
             name="not-visible",
@@ -222,7 +247,7 @@ def test_work_item_list_row_list_no_pagination(
 
 
 @pytest.mark.freeze_time("2025-07-17 14:33")
-@pytest.mark.parametrize("canton", ["ag", "so", "gr"])
+@pytest.mark.parametrize("canton", ["ag", "so", "gr", "sz"])
 def test_work_item_list_row_list(
     admin_client,
     canton,

@@ -2503,6 +2503,18 @@ def disable_work_item_list_settings(settings, request):
 
 
 @pytest.fixture
+def sz_work_item_list_settings(settings, request):
+    """Module-specific settings for work item list (canton SZ)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="work_item_list",
+        canton="kt_schwyz",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def so_work_item_list_settings(settings, request):
     """Module-specific settings for work item list (canton SO)."""
     return generate_module_settings(

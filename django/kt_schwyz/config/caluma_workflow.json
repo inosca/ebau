@@ -198,7 +198,12 @@
       "name": "{\"de\": \"Vollständigkeitsprüfung durchführen\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "simple",
-      "meta": {},
+      "meta": {
+        "directLink": {
+          "route": "instance-resource-name=decision",
+          "models": []
+        }
+      },
       "address_groups": "['municipality']|groups",
       "control_groups": "['municipality']|groups",
       "is_archived": false,
@@ -315,7 +320,12 @@
       "name": "{\"de\": \"Entscheid verfügen\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "simple",
-      "meta": {},
+      "meta": {
+        "directLink": {
+          "route": "instance-resource-name=decision",
+          "models": []
+        }
+      },
       "address_groups": "['municipality']|groups",
       "control_groups": "['municipality']|groups",
       "is_archived": false,
@@ -338,7 +348,12 @@
       "name": "{\"de\": \"Gesuch publizieren\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "simple",
-      "meta": {},
+      "meta": {
+        "directLink": {
+          "route": "instance-resource-name=publication",
+          "models": []
+        }
+      },
       "address_groups": "['municipality']|groups",
       "control_groups": "['municipality']|groups",
       "is_archived": false,

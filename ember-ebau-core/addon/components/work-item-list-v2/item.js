@@ -1,8 +1,18 @@
 import { action } from "@ember/object";
+import { service } from "@ember/service";
 import Component from "@glimmer/component";
 import { DateTime } from "luxon";
 
 export default class WorkItemListV2Item extends Component {
+  @service abilities;
+  @service intl;
+
+  get editLinkText() {
+    return this.abilities.can("edit work-item-list-row", this.args.row)
+      ? this.intl.t("workItems.actions.edit")
+      : this.intl.t("workItems.actions.read");
+  }
+
   get rowClasses() {
     const classes = [];
 

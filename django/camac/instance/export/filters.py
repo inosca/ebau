@@ -54,13 +54,13 @@ def caluma_answer(slug: str, ref: str = "case__document_id") -> QuerySet:
     )
 
 
-def camac_ng_answer(name: str) -> QuerySet:
+def camac_ng_answer(name: str, ref: str = "pk") -> QuerySet:
     """Annotate the answer to a camac-ng form field on an instance as a string.
 
     This only works for form fields that save a string into the JSONB field.
     """
     return (
-        FormField.objects.filter(instance_id=OuterRef("pk"), name=name)
+        FormField.objects.filter(instance_id=OuterRef(ref), name=name)
         .annotate(string_value=NullIf(Trim(JsonbText(F("value"))), Value("")))
         .values("string_value")[:1]
     )

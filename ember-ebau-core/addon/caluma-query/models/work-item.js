@@ -283,7 +283,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
     if (this.ebauModules.isLegacyApp) {
       const url = this._getDirectLinkFor("edit");
       const hash = this.router.urlFor(
-        "work-items.instance.edit",
+        "work-items-instance.edit",
         this.instanceId,
         this.id,
       );
