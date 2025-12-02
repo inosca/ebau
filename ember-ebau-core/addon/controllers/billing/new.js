@@ -6,7 +6,6 @@ import { getOwnConfig } from "@embroider/macros";
 import { tracked } from "@glimmer/tracking";
 import { dropTask } from "ember-concurrency";
 import { findAll } from "ember-data-resources";
-import { trackedFunction } from "reactiveweb/function";
 
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 
@@ -29,6 +28,7 @@ export default class BillingNewController extends Controller {
 
   @tracked newEntry = null;
   @tracked entryTemplates = findAll(this, "billing-v2-entry-template");
+  @tracked productNumbers;
   @tracked selectedTemplate = null;
 
   taxRates = hasFeature("billing.reducedTaxRate") ? [8.1, 2.6] : [8.1];
@@ -85,23 +85,34 @@ export default class BillingNewController extends Controller {
     return options.sort(orderByMode);
   }
 
-  productNumbers = trackedFunction(this, async () => {
+  async #fetchProductNumbers() {
     if (!hasFeature("billing.productNumber")) {
-      return null;
+      return [];
     }
 
     const response = await this.fetch.fetch(
       `/api/v1/product-numbers?for_instance=${this.ebauModules.instanceId}`,
     );
     const { data } = await response.json();
-    return data;
-  });
 
-  #createNewRecord() {
+    return data;
+  }
+
+  async #createNewRecord() {
     this.newEntry = this.store.createRecord("billing-v2-entry", {
       calculation: this.calculations[0],
       billingType: hasFeature("billing.billingType") ? "by_authority" : null,
     });
+
+    this.productNumbers = await this.#fetchProductNumbers();
+    if (this.productNumbers.length) {
+      this.update({
+        target: {
+          name: "product-number",
+          value: this.productNumbers[0].number,
+        },
+      });
+    }
 
     this.update({
       target: { name: "tax-mode", value: this.taxModeOptions[0].value },
