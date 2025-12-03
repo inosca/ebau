@@ -52,6 +52,7 @@ export default class ResponsibleController extends Controller {
 
       await responsibility.save();
       await this.responsibilities.retry();
+      await this.store.findRecord("instance", this.model);
 
       this.notification.success(this.intl.t("responsible.saveSuccess"));
     } catch {
