@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.db import transaction
-from django.db.models import Exists, OuterRef, Value
+from django.db.models import Exists, Max, OuterRef, Value
 from django.http import FileResponse
 from django.urls import reverse
 from django.utils.translation import gettext
@@ -55,6 +55,7 @@ class TopicView(InvolvedInTopicQuerysetMixin, InstanceQuerysetMixin, ModelViewSe
     filterset_class = filters.TopicFilterSet
     instance_field = "instance"
     search_fields = ["subject"]
+    ordering_fields = ["created", "last_message_date"]
     ordering = "-created"
     queryset = models.CommunicationsTopic.objects
 
@@ -83,10 +84,14 @@ class TopicView(InvolvedInTopicQuerysetMixin, InstanceQuerysetMixin, ModelViewSe
             dossier_number=settings.COMMUNICATIONS["DOSSIER_NUMBER_ANNOTATION"]
         )
 
+    def _annotate_last_message_date(self, qs):
+        return qs.annotate(last_message_date=Max("messages__created_at"))
+
     def get_queryset(self, *args, **kwargs):
         qs = super().get_queryset(*args, **kwargs)
         qs = self._annotate_has_unread(qs)
         qs = self._annotate_dossier_number(qs)
+        qs = self._annotate_last_message_date(qs)
         return qs
 
     @permission_aware
