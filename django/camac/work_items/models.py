@@ -8,7 +8,16 @@ from django.apps import apps
 from django.conf import settings
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
-from django.db.models import Case, DateField, Exists, F, OuterRef, Q, Value, When
+from django.db.models import (
+    Case,
+    DateField,
+    Exists,
+    F,
+    OuterRef,
+    Q,
+    Value,
+    When,
+)
 from django.db.models.functions import Cast, Coalesce, Concat, JSONObject, Trim
 from django.utils.translation import get_language, gettext_lazy as _
 from localized_fields.fields import LocalizedCharField
@@ -307,10 +316,25 @@ class WorkItemListRowManager(models.Manager["WorkItemListRow"]):
             caluma_answer("are-geschaeft-vorhaben", "case__family__document_id"),
         )
 
-    def annotate_with_service_id(self, service_id: int):
+    def annotate_with_request_context(self, service_id: int, username: str):
         """Add annotated fields with current service id context."""
         return self.get_queryset().annotate(
-            target_deadline_date=self._annotate_target_deadline_date(service_id)
+            target_deadline_date=self._annotate_target_deadline_date(service_id),
+            is_suspended=Coalesce(
+                Q(suspended_services__contains=[service_id]), Value(False)
+            ),
+            is_addressed_to_current_service=Coalesce(
+                Q(addressed_service=service_id), Value(False)
+            ),
+            is_controlled_by_current_service=Coalesce(
+                Q(controlling_service=service_id), Value(False)
+            ),
+            is_created_by_current_service=Coalesce(
+                Q(created_by_group=service_id), Value(False)
+            ),
+            is_assigned_to_current_user=Coalesce(
+                Q(assigned_user=username), Value(False)
+            ),
         )
 
     def _annotate_target_deadline_date(self, service_id: int):

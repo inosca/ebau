@@ -84,13 +84,13 @@ class WorkItemListRowSerializer(serializers.ModelSerializer):
     instance_id = serializers.IntegerField()
     instance_name = serializers.CharField()
     target_deadline_date = serializers.DateField(allow_null=True)
-    is_addressed_to_current_service = serializers.SerializerMethodField()
-    is_assigned_to_current_user = serializers.SerializerMethodField()
-    is_controlled_by_current_service = serializers.SerializerMethodField()
-    is_created_by_current_service = serializers.SerializerMethodField()
+    is_addressed_to_current_service = serializers.BooleanField()
+    is_assigned_to_current_user = serializers.BooleanField()
+    is_controlled_by_current_service = serializers.BooleanField()
+    is_created_by_current_service = serializers.BooleanField()
     is_manually_completable = serializers.BooleanField()
     is_ready = serializers.BooleanField()
-    is_suspended = serializers.SerializerMethodField()
+    is_suspended = serializers.BooleanField()
     municipality = serializers.CharField()
     special_id = serializers.CharField()
     task = serializers.CharField(source="name")
@@ -99,24 +99,6 @@ class WorkItemListRowSerializer(serializers.ModelSerializer):
     addressed_service = CalumaServiceRelatedField()
     assigned_user = CalumaUserRelatedField()
     closed_by_user = CalumaUserRelatedField()
-
-    def get_is_addressed_to_current_service(self, obj):
-        return obj.addressed_service == self.context["request"].group.service_id
-
-    def get_is_assigned_to_current_user(self, obj):
-        return obj.assigned_user == self.context["request"].user.username
-
-    def get_is_controlled_by_current_service(self, obj):
-        return obj.controlling_service == self.context["request"].group.service_id
-
-    def get_is_created_by_current_service(self, obj):
-        return obj.created_by_group == self.context["request"].group.service_id
-
-    def get_is_suspended(self, obj):
-        return bool(
-            obj.suspended_services
-            and str(self.context["request"].group.service_id) in obj.suspended_services
-        )
 
     included_serializers = {
         "addressed_service": "camac.user.serializers.PublicServiceSerializer",

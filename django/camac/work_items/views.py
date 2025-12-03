@@ -110,7 +110,10 @@ class WorkItemListRowViewset(ReadOnlyModelViewSet):
     ordering = ["deadline"]
 
     def get_queryset(self):
-        return self.queryset.annotate_with_service_id(self.request.group.service_id)
+        return self.queryset.annotate_with_request_context(
+            self.request.group.service_id,
+            self.request.user.username,
+        )
 
     def paginate_queryset(self, queryset):
         """Paginate the queryset.
