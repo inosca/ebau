@@ -41,13 +41,14 @@ from .utils import (
     row_to_person,
 )
 
+
+class AliasedMixin:
     """
     DRF serializer field mixin for handling aliased placeholders.
 
     Aliases are generally translated and can be used to access the same field
     under different names in the respective language.
 
-class AliasedMixin(object):
     Nested aliases are used to access fields of nested objects.
     """
 
