@@ -1,6 +1,7 @@
 import base64
 from abc import ABC, abstractmethod
 from io import BytesIO
+from typing import Literal
 
 import qrcode
 from alexandria.core import models as alexandria_models
@@ -40,15 +41,51 @@ from .utils import (
     row_to_person,
 )
 
+    """
+    DRF serializer field mixin for handling aliased placeholders.
+
+    Aliases are generally translated and can be used to access the same field
+    under different names in the respective language.
 
 class AliasedMixin(object):
-    def __init__(
-        self, aliases=[], nested_aliases={}, description=None, *args, **kwargs
-    ):
-        super().__init__(*args, **kwargs)
+    Nested aliases are used to access fields of nested objects.
+    """
 
-        self.aliases = aliases
-        self._nested_aliases = nested_aliases
+    def __init__(
+        self,
+        aliases: list[str] | None = None,
+        nested_aliases: dict[str, list[str]] | None = None,
+        description: str=None,
+        *args,
+        **kwargs,
+    ):
+        """Initialize DRF field for aliased placeholder fields.
+
+        Parameters:
+        aliases (list | None): A list of aliases for the field.
+        nested_aliases (dict[str, list[str]] | None): A dictionary of
+            aliases for the fields objects' attribute names. Double nesting is supported
+            by dot path notation.
+
+            Example:
+            {
+                # single nesting
+                'attr1': ['attr1_alias1', 'attr1_alias2'],
+                # double nesting
+                'attr2.attr1': ['attr1_alias1', 'attr1_alias2'],
+                'attr2.attr2': ['attr2_alias1']
+                }
+            }
+
+        description (str | None): Description displayed in user facing docs.
+        is_collection (bool): Whether the field is a collection of values. Collections
+            should be iterated over when used in templates and the docs should indicate
+            this by suffixing the placeholder with `[]`. E. g. `some_list_of_values[]`.
+            `is_collection` is set to True if at least one nested alias is provided.
+        """
+        super().__init__(*args, **kwargs)
+        self.aliases = aliases or []
+        self._nested_aliases = nested_aliases or {}
         self.description = description
 
     @property
