@@ -145,6 +145,7 @@ INSTALLED_APPS = [
     "camac.deadlines.apps.DeadlinesConfig",
     "camac.gis_export.apps.GISExportConfig",
     "camac.captcha.apps.DefaultConfig",
+    "camac.alexandria_migration.apps.AlexandriaMigrationConfig",
 ]
 
 if DEBUG:  # pragma: no cover
@@ -3795,6 +3796,7 @@ PERMISSIONS_ALEXANDRIA = load_module_settings("permissions.alexandria")
 
 # Alexandria
 ALEXANDRIA = load_module_settings("alexandria")
+ALEXANDRIA_MIGRATION = load_module_settings("alexandria_migration")
 ALEXANDRIA_GET_USER_AND_GROUP_FUNCTION = (
     "camac.alexandria.extensions.common.get_user_and_group"
 )
