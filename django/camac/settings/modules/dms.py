@@ -527,6 +527,7 @@ DMS = {
         ],
         "FILENAME_ADDITION_MAPPING": {
             "eingabequittung-de": _("Receipt"),
+            "form": _("Form"),
         },
     },
 }

@@ -1813,6 +1813,10 @@ msgstr "Zirkulation wiedereröffnet"
 msgid "Receipt"
 msgstr "Quittung"
 
+#: camac/settings/modules/dms.py
+msgid "Form"
+msgstr "formular"
+
 #: camac/settings/modules/ech0211.py
 msgid "Inquiry sent"
 msgstr "Anforderung einer Stellungnahme"
