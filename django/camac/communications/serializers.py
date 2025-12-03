@@ -169,6 +169,7 @@ class TopicSerializer(serializers.ModelSerializer):
     has_unread = serializers.SerializerMethodField()
     involved_entities = EntityListField()
     dossier_number = serializers.CharField(read_only=True)
+    last_message_date = serializers.DateTimeField(read_only=True)
     initiated_by_entity = EntityField(required=False)
 
     responsible_service_users = relations.SerializerMethodResourceRelatedField(
@@ -344,8 +345,14 @@ class TopicSerializer(serializers.ModelSerializer):
             "dossier_number",
             "initiated_by_entity",
             "responsible_service_users",
+            "last_message_date",
         ]
-        read_only_fields = ["has_unread", "dossier_number", "responsible_service_users"]
+        read_only_fields = [
+            "has_unread",
+            "dossier_number",
+            "responsible_service_users",
+            "last_message_date",
+        ]
 
 
 class MessageSerializer(serializers.ModelSerializer):
