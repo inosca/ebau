@@ -17,6 +17,35 @@ caluma_api = CalumaApi()
 log = getLogger(__name__)
 
 
+def _should_perform_geometer_change_for_instance(instance, selected_municipality):
+    active_service = instance.responsible_service(filter_type="municipality")
+    if not active_service:  # pragma: no cover
+        return False
+
+    perform_change = False
+    # The selected municipality is the lead authority.
+    if active_service.service_group.name == "municipality":
+        if active_service == selected_municipality:
+            perform_change = True
+    else:
+        # Lead authority is not a municipality. The selected municipality is the only involved municipality.
+        involved_municipalities = instance.instance_services.filter(
+            active=0, service__service_group__name="municipality"
+        )
+        count_involved_municipalities = involved_municipalities.count()
+        if count_involved_municipalities == 1:
+            if involved_municipalities.first().service == selected_municipality:
+                perform_change = True
+
+        # Lead authority is not a municipality. The selected municipality is one of multiple involved
+        # municipalities and the municipality answer corresponds to the selected municipality.
+        elif count_involved_municipalities > 1:
+            if instance.municipality == selected_municipality:
+                perform_change = True
+
+    return perform_change
+
+
 def change_geometer_task(task):
     """
     Task to change the geometer.
@@ -53,16 +82,22 @@ def change_geometer_task(task):
                         access_level_id="geometer",
                     )
                 ),
-                # TODO: what happens for multiple involved municipalities? (not active municipality or active RSTA)
                 services=selected_municipality,
             )
+
             if not instances:  # pragma: no cover
                 log.info(
                     "There are no instances in which the geometer needs to be reassigned"
                 )
 
             instance_count = instances.count()
+            reassigned_instance_count = 0
             for n, instance in enumerate(instances.iterator(), start=1):
+                if not _should_perform_geometer_change_for_instance(
+                    instance, selected_municipality
+                ):
+                    continue
+
                 log.info(
                     "Geometer reassignement of instance %s started (%s/%s)",
                     instance.pk,
@@ -128,8 +163,9 @@ def change_geometer_task(task):
                     instance_acl_count,
                     instance.pk,
                 )
+                reassigned_instance_count += 1
 
-            log.info(f"{instance_count} instances reassigned")
+            log.info(f"{reassigned_instance_count} instances reassigned")
             task.status = "completed"
             task.completed_at = timezone.now()
             task.save()
