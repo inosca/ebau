@@ -210,7 +210,7 @@ def setup_work_item_list(
             addressed=service,
             assigned=user,
             case=target_deadline_instance.case,
-            created_at="2025-01-02",
+            created_at="2025-01-04",
             deadline="2025-01-06",
         )
 
@@ -267,12 +267,7 @@ def test_work_item_list_row_list(
     assert normalize_response(response.json()) == snapshot()
 
 
-def test_work_item_list_row_list_filters(
-    admin_client,
-    setup_work_item_list,
-    user,
-    gr_deadlines_settings,
-):
+def test_work_item_list_row_list_filters(admin_client, setup_work_item_list, user):
     task, template, preset = setup_work_item_list()
 
     for filters, expected_status, expected in [
@@ -374,10 +369,7 @@ def test_work_item_list_row_list_filters(
 
 
 def test_work_item_list_row_list_ordering(
-    admin_client,
-    django_assert_num_queries,
-    setup_work_item_list,
-    gr_deadlines_settings,
+    admin_client, django_assert_num_queries, setup_work_item_list
 ):
     setup_work_item_list()
 
