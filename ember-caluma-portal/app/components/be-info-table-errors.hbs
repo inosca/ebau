@@ -1,0 +1,9 @@
+{{#if this.hasRowErrors}}
+  <div class="uk-alert-danger" uk-alert>
+    <p>
+      {{t "info-table-errors.instructionStart"}}
+      <UkIcon @icon="warning" class="uk-animation-fade uk-text-danger" />
+      {{t "info-table-errors.instructionEnd"}}
+    </p>
+  </div>
+{{/if}}

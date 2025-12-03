@@ -1,5 +1,8 @@
 info-belastungswerte:
   title: "Bei Fragen nehmen Sie mit folgender Behörde Kontakt auf:"
+info-table-errors:
+  instructionStart: "Bitte löschen Sie die fehlerhaften Einträge, damit das Dossier später eingereicht werden kann. Die fehlerhaften Einträge sind mit einem "
+  instructionEnd: " gekennzeichnet."
 instances:
   downloadFormAsPdf: "Gesuchsformular herunterladen"
   downloadFormAsPdfText: "Hier können Sie das Gesuchsformular erneut herunterladen."
