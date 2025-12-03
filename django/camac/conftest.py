@@ -321,10 +321,17 @@ def admin_client(db, admin_user, request_mock, settings):
 
 @pytest.fixture
 def set_application_be(settings):
-    application_dict = copy.deepcopy(settings.APPLICATIONS["kt_bern"])
+    config_name = "kt_bern"
+    application_dict = copy.deepcopy(settings.APPLICATIONS[config_name])
     settings.APPLICATION = application_dict
-    settings.APPLICATION_NAME = "kt_bern"
+    settings.APPLICATION_NAME = config_name
     settings.INTERNAL_BASE_URL = "http://ebau.localhost"
+
+    # use correct path to data_sheet in tests
+    application_dict["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
+        config_name,
+        Path(settings.APPLICATIONS[config_name]["MUNICIPALITY_DATA_SHEET"]).name,
+    )
 
     return application_dict
 
