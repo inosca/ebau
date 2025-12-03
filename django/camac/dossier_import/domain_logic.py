@@ -131,6 +131,7 @@ def get_token():
             "grant_type": "client_credentials",
             "client_id": settings.DOSSIER_IMPORT_CLIENT_ID,
             "client_secret": settings.DOSSIER_IMPORT_CLIENT_SECRET,
+            "scope": "openid",
         },
     )
     r.raise_for_status()
