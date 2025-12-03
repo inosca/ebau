@@ -3,10 +3,11 @@
     <div class="inner">
       <div class="mobile-menu-nav">
         <button id="mobile-menu-toggle" alt="toggle menu">
-          <i class="icon open-icon fa fa-bars"></i>
-          <i class="icon close-icon fa fa-times"></i>
+          <i class="icon open-icon"></i>
+          <i class="icon close-icon"></i>
         </button>
         <div id="mobile-menu">
+          <hr>
           <div class="mobile-menu-container sand">
             <ul class="mobile-menu-list">
               <li><a role='listitem' href="${url.loginUrl}" class="js-login-link item service-menue

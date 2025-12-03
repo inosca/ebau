@@ -65,18 +65,31 @@ header {
       #mobile-menu-toggle {
         margin: 40px 30px 50% -1px;
         position: relative;
+        border-width: 0px;
 
         .icon {
+          display: inline-block;
+          background-repeat: no-repeat;
+          background-attachment: scroll;
+          background-position: center center;
+          background-size: auto;
+          width: 30px;
+          height: 30px;
           position: absolute;
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%) rotate(0deg);
           transition:
-            opacity 0.3s,
+            opacity 0.1s,
             transform 0.3s;
         }
 
+        .open-icon {
+          background-image: url(../img/hamburger-icon.svg);
+        }
+
         .close-icon {
+          background-image: url(../img/close.svg);
           opacity: 0;
         }
 
@@ -108,10 +121,16 @@ header {
           right: 0;
         }
 
+        hr {
+          width: initial;
+          margin-left: var(--page-content-margin-horizontal);
+          margin-right: var(--page-content-margin-horizontal);
+        }
+
         .mobile-menu-container {
           width: calc(100% - 2 * var(--page-content-margin-horizontal));
           margin: 0 var(--page-content-margin-horizontal);
-          padding: 40px 25px 25px;
+          padding: 0 25px 25px;
 
           .mobile-menu-list {
             display: flex;
