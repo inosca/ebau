@@ -1,4 +1,5 @@
 from caluma.caluma_workflow.models import Case
+from celery import chain
 from django.conf import settings
 from django.core.mail import mail_admins, send_mail
 from django.http import FileResponse
@@ -13,9 +14,13 @@ from rest_framework_json_api.views import ModelViewSet
 from camac.dossier_import.domain_logic import (
     clean_import,
     perform_import,
+    perform_import_celery,
     set_status_callback,
+    set_status_callback_celery,
     transmit_import,
+    transmit_import_celery,
     undo_import,
+    undo_import_celery,
 )
 from camac.dossier_import.models import DossierImport
 from camac.dossier_import.serializers import DossierImportSerializer
@@ -93,12 +98,21 @@ class DossierImportView(ModelViewSet):
             raise ValidationError(
                 "Make sure the uploaded archive validates successfully.",
             )
+
         dossier_import.status = DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS
-        task_id = async_task(
-            perform_import,
-            dossier_import,
-            hook=set_status_callback,
-        )
+        if settings.DOSSIER_IMPORT.get("QUEUE") == "celery":  # pragma: no cover
+            chained_tasks = chain(
+                perform_import_celery.s(dossier_import_id=str(dossier_import.pk)),
+                set_status_callback_celery.s(dossier_import_id=str(dossier_import.pk)),
+            )
+            async_result = chained_tasks.apply_async()
+            task_id = async_result.id
+        else:
+            task_id = async_task(
+                perform_import,
+                dossier_import,
+                hook=set_status_callback,
+            )
 
         dossier_import.task_id = task_id
         dossier_import.save()
@@ -155,10 +169,14 @@ class DossierImportView(ModelViewSet):
                 "Transmitting an import is only possible after it has been confirmed.",
             )
         dossier_import.status = DossierImport.IMPORT_STATUS_TRANSMITTING
-        task_id = async_task(
-            transmit_import,
-            dossier_import,
-        )
+        if settings.DOSSIER_IMPORT.get("QUEUE") == "celery":  # pragma: no cover
+            async_result = transmit_import_celery.apply_async((str(dossier_import.pk),))
+            task_id = async_result.id
+        else:
+            task_id = async_task(
+                transmit_import,
+                dossier_import,
+            )
         dossier_import.task_id = task_id
         dossier_import.save()
 
@@ -200,7 +218,16 @@ class DossierImportView(ModelViewSet):
         # - removes the dossier-import instance on success
         instance = self.get_object()
         instance.status = DossierImport.IMPORT_STATUS_UNDO_IN_PROGRESS
-        task_id = async_task(undo_import, instance, hook=set_status_callback)
+        if settings.DOSSIER_IMPORT.get("QUEUE") == "celery":  # pragma: no cover
+            chained_tasks = chain(
+                undo_import_celery.s(dossier_import_id=str(instance.pk)),
+                set_status_callback_celery.s(dossier_import_id=str(instance.pk)),
+            )
+            async_result = chained_tasks.apply_async()
+            task_id = async_result.id
+        else:
+            task_id = async_task(undo_import, instance, hook=set_status_callback)
+
         instance.task_id = task_id
         instance.save()
         return Response({"task_id": task_id})

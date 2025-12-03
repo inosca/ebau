@@ -2142,6 +2142,8 @@ APPLICATIONS = {
                     "skip": [
                         "publication",
                         "fill-publication",
+                        "objections",
+                        "appeals",
                     ],
                     "cancel": [
                         "create-publication",
@@ -3832,6 +3834,10 @@ REDIS_PASSWORD = env.str("REDIS_PASSWORD", default="redis")
 CELERY_BROKER_URL = env.str(
     "CELERY_BROKER_URL",
     default=f"redis://{REDIS_USER}:{REDIS_PASSWORD}@{REDIS_HOST}:{REDIS_PORT}/0",  # gitleaks:allow
+)
+CELERY_RESULT_BACKEND = env.str(
+    "CELERY_RESULT_BACKEND",
+    default=f"redis://{REDIS_USER}:{REDIS_PASSWORD}@{REDIS_HOST}:{REDIS_PORT}/1",  # gitleaks:allow
 )
 CELERY_TASK_ACKS_LATE = env.bool(
     "CELERY_TASK_ACKS_LATE",
