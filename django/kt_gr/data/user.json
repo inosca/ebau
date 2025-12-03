@@ -88,6 +88,28 @@
     }
   },
   {
+    "model": "user.user",
+    "pk": 5,
+    "fields": {
+      "username": "service-account-camac-admin",
+      "password": null,
+      "name": "service-account-camac-admin",
+      "surname": "service-account-camac-admin",
+      "email": "service-account-camac-admin@placeholder.org",
+      "phone": null,
+      "disabled": 0,
+      "language": "de",
+      "last_login": "2023-11-28T08:56:15.064Z",
+      "address": null,
+      "city": null,
+      "zip": null,
+      "title": null,
+      "position": null,
+      "mobile": null,
+      "division": null
+    }
+  },
+  {
     "model": "user.group",
     "pk": 10000,
     "fields": {
@@ -9222,6 +9244,17 @@
       "group": 10037,
       "default_group": 0,
       "created_at": "2025-05-22T07:47:35.712Z",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 13,
+    "fields": {
+      "user": 5,
+      "group": 10000,
+      "default_group": 0,
+      "created_at": "2024-03-28T11:32:23.996Z",
       "created_by": 1
     }
   },

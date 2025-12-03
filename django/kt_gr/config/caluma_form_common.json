@@ -308,7 +308,7 @@
       "modified_by_group": null,
       "form": "parzelle-tabelle",
       "question": "baurecht-nummer",
-      "sort": 8
+      "sort": 4
     }
   },
   {
@@ -323,7 +323,37 @@
       "modified_by_group": null,
       "form": "parzelle-tabelle",
       "question": "e-grid-nr",
-      "sort": 7
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "parzelle-tabelle.lagekoordinaten-nord",
+    "fields": {
+      "created_at": "2025-11-28T09:01:44.992Z",
+      "modified_at": "2025-11-28T09:01:44.992Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "parzelle-tabelle",
+      "question": "lagekoordinaten-nord",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "parzelle-tabelle.lagekoordinaten-ost",
+    "fields": {
+      "created_at": "2025-11-28T09:01:25.424Z",
+      "modified_at": "2025-11-28T09:01:25.424Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "parzelle-tabelle",
+      "question": "lagekoordinaten-ost",
+      "sort": 2
     }
   },
   {
@@ -338,7 +368,7 @@
       "modified_by_group": null,
       "form": "parzelle-tabelle",
       "question": "parzellennummer",
-      "sort": 10
+      "sort": 5
     }
   },
   {
@@ -1229,6 +1259,80 @@
       "static_content": "{\"de\": \"### Lage des Vorhabens\", \"fr\": \"\", \"it\": \"### Ubicazione del progetto\"}",
       "configuration": {},
       "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "lagekoordinaten-nord",
+    "fields": {
+      "created_at": "2019-03-28T14:14:29.069Z",
+      "modified_at": "2024-09-11T14:58:42.161Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Lagekoordinaten - Nord\", \"fr\": \"Coordonnées planimétriques - nord\", \"it\": \"Coordinate planimetriche nord\"}",
+      "type": "float",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": 1300000.999,
+        "min_value": 1070000.0
+      },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": "cf-field/input/hidden"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "lagekoordinaten-ost",
+    "fields": {
+      "created_at": "2019-03-28T14:14:04.276Z",
+      "modified_at": "2024-09-11T14:58:42.175Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Lagekoordinaten - Ost\", \"fr\": \"Coordonnées planimétriques - Est\", \"it\": \"Coordinate planimetriche est\"}",
+      "type": "float",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": 2840000.999,
+        "min_value": 2480000.0
+      },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": "cf-field/input/hidden"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,

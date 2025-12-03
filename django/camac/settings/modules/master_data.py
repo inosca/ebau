@@ -2395,6 +2395,17 @@ MASTER_DATA = {
                 },
             ),
             "gis_coordinates": ("answer", "gis-map"),
+            # Migrated dossiers
+            "final_approval_date": (
+                "answer",
+                "datum-schlussabnahme",
+                {"value_key": "date"},
+            ),
+            "publication_date": (
+                "answer",
+                "datum-publikation",
+                {"value_key": "date"},
+            ),
             # BaB
             "is_bab": ("case_meta", "is-bab"),
             "is_bab_location": (

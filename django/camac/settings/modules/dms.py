@@ -243,7 +243,10 @@ DMS = {
                 },
             },
             "baugesuch": {
-                "forms": gr_constants.BAUGESUCH_FORMS,
+                "forms": [
+                    *gr_constants.BAUGESUCH_FORMS,
+                    "migriertes-dossier",
+                ],
                 "template": "form",
                 "personalien": "personalien",
                 "exclude_slugs": [

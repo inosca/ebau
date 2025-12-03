@@ -148,6 +148,46 @@ def load_fixtures_so(
 
 
 @pytest.fixture
+def load_fixtures_gr(
+    db,
+    settings,
+    caluma_workflow_config_gr,
+    gr_dossier_import_settings,
+    caluma_document_factory,
+    caluma_dynamic_option_factory,
+    service_factory,
+    gr_decision_settings,
+    gr_construction_monitoring_settings,
+    gr_permissions_settings,
+    gr_distribution_settings,
+):
+    extra_fixtures = [
+        settings.ROOT_DIR("kt_gr/config/permissions.json"),
+        settings.ROOT_DIR("kt_gr/config/caluma_form.json"),
+        settings.ROOT_DIR("kt_gr/config/caluma_form_v2.json"),
+        settings.ROOT_DIR("kt_gr/config/caluma_form_v3.json"),
+        settings.ROOT_DIR("kt_gr/config/caluma_form_v4.json"),
+        settings.ROOT_DIR("kt_gr/config/caluma_form_common.json"),
+        settings.ROOT_DIR("kt_gr/config/caluma_decision_form.json"),
+        settings.ROOT_DIR("kt_gr/config/caluma_construction_monitoring_form.json"),
+        settings.ROOT_DIR("kt_gr/config/caluma_material_exam_form.json"),
+        settings.ROOT_DIR("kt_gr/config/caluma_construction_monitoring_workflow.json"),
+    ]
+
+    caluma_workflow_config_gr.allow_forms.add("migriertes-dossier")
+    service = service_factory(service_group__name="municipality")
+    caluma_dynamic_option_factory(
+        slug=str(service.pk), question_id="gemeinde", document=caluma_document_factory()
+    )
+
+    gr_dossier_import_settings["ALEXANDRIA_CATEGORY"] = CategoryFactory(
+        allowed_mime_types=["application/pdf", "text/plain"]
+    ).pk
+
+    yield service, extra_fixtures
+
+
+@pytest.fixture
 def load_fixtures_ag(
     db,
     settings,
@@ -279,14 +319,14 @@ def setup_dossier_writer(
             location_id=location.pk,
         )
 
-        if config in ["kt_bern", "kt_so"]:
+        if config in ["kt_bern", "kt_so", "kt_gr"]:
             this_group.service = service
             this_group.save()
             dossier_writer._group.refresh_from_db()
         elif config == "kt_schwyz":
             application_settings["SHORT_DOSSIER_NUMBER"] = True
 
-        if config == "kt_so":
+        if config in ["kt_so", "kt_gr"]:
             application_settings["DOCUMENT_BACKEND"] = "alexandria"
         else:
             application_settings["DOCUMENT_BACKEND"] = "camac-ng"

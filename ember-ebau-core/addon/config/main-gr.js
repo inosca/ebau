@@ -167,6 +167,10 @@ export default {
   communication: {
     rolesWithApplicantContact: ["activeOrInolvedLeadAuthority", "service"],
   },
+  dossierImport: {
+    municipalityAdminRole: 5, // Administration Gemeinde
+    municipalityServiceGroup: 2, // Gemeinde
+  },
   modification: {
     allowForms: ["baugesuch", "baugesuch-v2", "baugesuch-v3", "baugesuch-v4"],
     disallowStates: ["new"],

@@ -10,6 +10,7 @@ from typing import Callable
 
 import requests
 from caluma.caluma_workflow.models import Case
+from celery import shared_task
 from django.conf import settings
 from django.utils import timezone
 from django.utils.module_loading import import_string
@@ -53,6 +54,24 @@ def delay_and_refresh(func):
 
 @delay_and_refresh
 def perform_import(
+    dossier_import: DossierImport,
+    skip_existing=False,
+    notify_dossier_imported: Callable[[Dossier, DossierSummary], None] = lambda d,
+    m: None,
+):
+    return _do_perform_import(dossier_import, skip_existing, notify_dossier_imported)
+
+
+@shared_task()
+def perform_import_celery(
+    dossier_import_id: str, skip_existing=False
+):  # pragma: no cover
+    return _do_perform_import(
+        DossierImport.objects.get(pk=dossier_import_id), skip_existing
+    )
+
+
+def _do_perform_import(
     dossier_import: DossierImport,
     skip_existing=False,
     notify_dossier_imported: Callable[[Dossier, DossierSummary], None] = lambda d,
@@ -139,6 +158,15 @@ def get_token():
 
 @delay_and_refresh
 def transmit_import(dossier_import):
+    return _do_transmit_import(dossier_import)
+
+
+@shared_task()
+def transmit_import_celery(dossier_import_id: str):  # pragma: no cover
+    return _do_transmit_import(DossierImport.objects.get(pk=dossier_import_id))
+
+
+def _do_transmit_import(dossier_import):
     try:
         token = f"Bearer {get_token()}"
 
@@ -180,6 +208,15 @@ def transmit_import(dossier_import):
 
 @delay_and_refresh
 def undo_import(dossier_import):
+    return _do_undo_import(dossier_import)
+
+
+@shared_task()
+def undo_import_celery(dossier_import_id: str):  # pragma: no cover
+    return _do_undo_import(DossierImport.objects.get(pk=dossier_import_id))
+
+
+def _do_undo_import(dossier_import):
     try:
         # wait shortly to avoid race condition when "in progress" status is saved for
         # very quick "undo" operations
@@ -228,21 +265,37 @@ def get_or_create_ebau_nr(ebau_number, service, submit_date=None):
 
 def set_status_callback(task):
     dossier_import = task.args[0]
-
     try:
         dossier_import.refresh_from_db()
     except DossierImport.DoesNotExist:
         # the undo task deletes the instance on success
         return
 
-    if task.result == dossier_import.IMPORT_STATUS_UNDONE:
+    return _do_set_status_callback(dossier_import=dossier_import, result=task.result)
+
+
+@shared_task()
+def set_status_callback_celery(result, **kwargs):  # pragma: no cover
+    try:
+        dossier_import = DossierImport.objects.get(pk=kwargs.get("dossier_import_id"))
+    except DossierImport.DoesNotExist:
+        # the undo task deletes the instance on success
+        return
+
+    return _do_set_status_callback(dossier_import, result)
+
+
+def _do_set_status_callback(dossier_import, result):
+    if result == dossier_import.IMPORT_STATUS_UNDONE:
         # fallback to cover race condition when deleting the import on undo
         return
 
-    if task.result in [status[0] for status in DossierImport.IMPORT_STATUS_CHOICES]:
-        status = task.result
+    if result in [status[0] for status in DossierImport.IMPORT_STATUS_CHOICES]:
+        status = result
     else:
         status = dossier_import.set_progressing_to_failed()
 
     dossier_import.status = status
     dossier_import.save()
+
+    return dossier_import.status

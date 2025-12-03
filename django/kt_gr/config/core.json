@@ -6750,6 +6750,14 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 23000000,
+    "fields": {
+      "resource": 23000000,
+      "role": 10000
+    }
+  },
+  {
     "model": "core.resource",
     "pk": 20006,
     "fields": {
@@ -6877,6 +6885,19 @@
       "class_field": null,
       "hidden": 0,
       "sort": 3
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 23000000,
+    "fields": {
+      "available_resource": "page",
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/dossierimport.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 10
     }
   },
   {
@@ -7096,6 +7117,26 @@
       "resource": 14000008,
       "language": "de",
       "name": "Dokumente",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 23000000,
+    "fields": {
+      "resource": 23000000,
+      "language": "de",
+      "name": "Dossier import",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 23000001,
+    "fields": {
+      "resource": 23000000,
+      "language": "it",
+      "name": "Importazione dossier",
       "description": null
     }
   }

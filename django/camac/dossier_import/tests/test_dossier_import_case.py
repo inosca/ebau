@@ -70,6 +70,7 @@ def test_bad_file_format_dossier_xlsx(
         ("kt_bern", lf("be_instance"), lf("be_permissions_settings"), 1),
         # expected_warnings: SO doesn't accept plain text files.
         ("kt_so", lf("so_instance"), None, 1),
+        ("kt_gr", lf("gr_instance"), None, 0),
     ],
 )
 def test_create_instance_dossier_import_case(
@@ -133,6 +134,14 @@ def test_create_instance_dossier_import_case(
             "submit-date": "2017-04-12T00:00:00",
             "dossier-number": "4022-2017-1",
             "dossier-number-sort": 40222017000001,
+        }
+    elif config == "kt_gr":
+        assert first_instance.case.meta == {
+            "import-id": str(dossier_import.pk),
+            "camac-instance-id": first_instance.pk,
+            "submit-date": "2017-04-12T00:00:00",
+            "dossier-number": "2017-1",
+            "dossier-number-sort": 2017000001,
         }
 
     # Check lead authority permission
@@ -527,6 +536,69 @@ def test_record_loading_so(
     )
 
 
+IMPORT_ROWS_GR = [
+    (
+        {
+            "COORDINATE-E": 2710662.123,
+            "COORDINATE-N": 1225997.123,
+            "PARCEL": "1",
+            "EGRID": "CH123456789123",
+        },
+        "plot_data",
+    ),
+    ({"TYPE": "baubewilligung"}, "application_type"),
+] + COMMON_IMPORT_ROWS
+
+
+@pytest.mark.parametrize("is_empty", [True, False])
+def test_record_loading_gr(
+    caluma_work_item_factory,
+    dossier,
+    setup_dossier_writer,
+    master_data_is_visible_mock,
+    dossier_row_sparse,
+    dossier_loader,
+    mocker,
+    instance_service_factory,
+    gr_instance,
+    is_empty,
+    snapshot,
+    settings,
+):
+    writer = setup_dossier_writer("kt_gr")
+
+    gr_instance.case.document.form_id = settings.DOSSIER_IMPORT["CALUMA_FORM"]
+    gr_instance.case.document.save()
+
+    # Setup needed work items
+    caluma_work_item_factory(
+        task_id="decision",
+        case=gr_instance.case,
+        document__form_id="decision",
+    )
+
+    # Test overwriting values
+    if not is_empty:
+        writer.write_fields(gr_instance, dossier)
+        mocker.patch.object(writer, "find_existing_instance", gr_instance)
+        instance_service_factory(instance=gr_instance, service=writer._group.service)
+
+    data = OrderedDict()
+    for dossier_row_patch, expected_target in IMPORT_ROWS_GR:
+        dossier = dossier_loader._load_dossier(dossier_row_sparse | dossier_row_patch)
+        writer.write_fields(gr_instance, dossier)
+        md = MasterData(gr_instance.case)
+        data[expected_target] = getattr(md, expected_target)
+
+    assert data == snapshot(
+        exclude=paths(
+            "applicants.0.row_id",
+            "project_authors.0.row_id",
+            "landowners.0.row_id",
+        )
+    )
+
+
 IMPORT_ROWS_SZ = [
     (
         {
@@ -660,6 +732,7 @@ def test_record_loading_all_empty(
         ("kt_schwyz", lf("sz_instance"), IMPORT_ROWS_SZ),
         ("kt_bern", lf("be_instance"), IMPORT_ROWS_BE),
         ("kt_so", lf("so_instance"), IMPORT_ROWS_SO),
+        ("kt_gr", lf("gr_instance"), IMPORT_ROWS_GR),
     ],
 )
 def test_reimport_delete_values(
@@ -776,7 +849,13 @@ def test_reimport_ignores_empty(
     caluma_work_item_factory(task_id="building-authority", case=camac_instance.case)
     md = MasterData(camac_instance.case)
     targets = set(
-        [target for _, target in IMPORT_ROWS_BE + IMPORT_ROWS_SZ + IMPORT_ROWS_SO]
+        [
+            target
+            for _, target in IMPORT_ROWS_BE
+            + IMPORT_ROWS_SZ
+            + IMPORT_ROWS_SO
+            + IMPORT_ROWS_GR
+        ]
     )
     orig_values = {}
     for target in targets:
@@ -1191,11 +1270,114 @@ def test_set_workflow_state_so(
 
 
 @pytest.mark.parametrize(
+    "target_state,expected_work_items_states,expected_case_status",
+    [
+        (
+            "SUBMITTED",
+            [
+                ("submit", "skipped"),
+                ("create-manual-workitems", "ready"),
+                ("formal-exam", "ready"),
+                ("init-additional-demand", "ready"),
+            ],
+            "running",
+        ),
+        (
+            "APPROVED",
+            [
+                ("submit", "skipped"),
+                ("create-manual-workitems", "ready"),
+                ("formal-exam", "skipped"),
+                ("init-additional-demand", "canceled"),
+                ("distribution", "skipped"),
+                ("decision", "skipped"),
+            ],
+            "running",
+        ),
+        (
+            "DONE",
+            [
+                ("submit", "skipped"),
+                ("formal-exam", "skipped"),
+                ("init-additional-demand", "canceled"),
+                ("distribution", "skipped"),
+                ("decision", "skipped"),
+            ],
+            "completed",
+        ),
+        (
+            "REJECTED",
+            [
+                ("submit", "skipped"),
+                ("create-manual-workitems", "skipped"),
+                ("formal-exam", "skipped"),
+                ("init-additional-demand", "canceled"),
+                ("distribution", "skipped"),
+                ("decision", "skipped"),
+                ("init-construction-monitoring", False),
+                ("complete-construction-monitoring", False),
+            ],
+            "completed",
+        ),
+        (
+            "WRITTEN OFF",
+            [
+                ("submit", "skipped"),
+                ("create-manual-workitems", "canceled"),
+                ("formal-exam", "skipped"),
+                ("init-additional-demand", "canceled"),
+                ("distribution", "skipped"),
+                ("decision", "skipped"),
+                ("init-construction-monitoring", False),
+                ("complete-construction-monitoring", False),
+            ],
+            "completed",
+        ),
+    ],
+)
+def test_set_workflow_state_gr(
+    db,
+    gr_instance,
+    setup_dossier_writer,
+    dossier,
+    target_state,
+    expected_work_items_states,
+    expected_case_status,
+):
+    writer = setup_dossier_writer("kt_gr")
+    dossier._meta.target_state = target_state
+    writer._set_workflow_state(gr_instance, dossier)
+
+    for task_id, expected_status in expected_work_items_states:
+        work_item = gr_instance.case.work_items.filter(task_id=task_id).first()
+        if expected_status is False:
+            assert work_item is None, (
+                f"Work item {task_id} should not exist for target state {target_state}"
+            )
+            continue
+
+        assert work_item is not None, (
+            f"Work item {task_id} does not exist for target state {target_state}"
+        )
+        assert work_item.status == expected_status, (
+            f"Expected status {expected_status} for work item {task_id} but got {work_item.status} in target state {target_state}"
+        )
+
+        current_workitems = [
+            (wi.task_id, wi.status) for wi in gr_instance.case.work_items.all()
+        ]
+        assert gr_instance.case.status == expected_case_status, (
+            f"Expected case status {expected_case_status} but got {gr_instance.case.status}. Current work items: {current_workitems}"
+        )
+
+
+@pytest.mark.parametrize(
     "config,camac_instance",
     [
         ("kt_bern", lf("be_instance")),
         ("kt_schwyz", lf("sz_instance")),
         ("kt_so", lf("so_instance")),
+        ("kt_gr", lf("gr_instance")),
     ],
 )
 def test_import_documents(dossier, setup_dossier_writer, camac_instance, config):
@@ -1230,6 +1412,19 @@ def test_import_documents(dossier, setup_dossier_writer, camac_instance, config)
                     attachment.file_accessor.read()
                     == alexandria_doc.document.get_latest_original().content.file.file.read()
                 )
+    elif config == "kt_gr":
+        camac_instance.alexandria_instance_documents.count() == len(dossier.attachments)
+        for attachment in dossier.attachments:
+            alexandria_doc = camac_instance.alexandria_instance_documents.filter(
+                document__title=attachment.name
+            ).first()
+
+            assert alexandria_doc
+            attachment.file_accessor.seek(0)
+            assert (
+                attachment.file_accessor.read()
+                == alexandria_doc.document.get_latest_original().content.file.file.read()
+            )
     else:
         assert camac_instance.attachments.count() == len(dossier.attachments)
         for attachment in dossier.attachments:

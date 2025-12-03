@@ -143,27 +143,46 @@ class DossierImport(UUIDModel):
             self.status = self.set_progressing_to_failed()
             self.save()
             return self.status
-        broker = get_broker()
-        the_queue = broker.get_connection()
-        # if the task can be found among the queued or running tasks:
-        if any(list(filter(lambda x: x.task_id() == self.task_id, the_queue))):
-            return "in-progress"
-        the_task = fetch(self.task_id)
-        # if a task id exists and the task is neither queued nor finished by the broker
-        # it has probably timed out.
-        if not the_task:
-            try:
-                self.status = self.set_progressing_to_failed()
-                self.messages["import"]["summary"]["error"].append(
-                    _(
-                        "The import took more than %(timeout)i seconds to complete and timed out."
-                        % dict(timeout=settings.Q_CLUSTER["timeout"])
+
+        if settings.DOSSIER_IMPORT.get("QUEUE") == "celery":  # pragma: no cover
+            from celery.result import AsyncResult
+
+            result = AsyncResult(self.task_id)
+            if result.state == "PENDING":
+                return "in-progress"
+            elif result.state == "FAILURE":
+                try:
+                    self.status = self.set_progressing_to_failed()
+                    self.messages["import"]["summary"]["error"].append(
+                        str(result.result)
                     )
-                )
-            finally:
-                self.save()
-            return "timed-out"
-        return self.status
+                finally:
+                    self.save()
+                return "failed"
+            else:
+                return self.status
+        else:
+            broker = get_broker()
+            the_queue = broker.get_connection()
+            # if the task can be found among the queued or running tasks:
+            if any(list(filter(lambda x: x.task_id() == self.task_id, the_queue))):
+                return "in-progress"
+            the_task = fetch(self.task_id)
+            # if a task id exists and the task is neither queued nor finished by the broker
+            # it has probably timed out.
+            if not the_task:
+                try:
+                    self.status = self.set_progressing_to_failed()
+                    self.messages["import"]["summary"]["error"].append(
+                        _(
+                            "The import took more than %(timeout)i seconds to complete and timed out."
+                            % dict(timeout=settings.Q_CLUSTER["timeout"])
+                        )
+                    )
+                finally:
+                    self.save()
+                return "timed-out"
+            return self.status
 
     def set_progressing_to_failed(self):
         # the import has a failed status for every async progressing status

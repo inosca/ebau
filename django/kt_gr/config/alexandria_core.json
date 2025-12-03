@@ -1945,6 +1945,80 @@
   },
   {
     "model": "alexandria_core.category",
+    "pk": "migrierte-dokumente",
+    "fields": {
+      "created_at": "2025-11-26T08:04:23.522Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-11-26T08:05:12.048Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "municipality-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "condition": {
+                  "MigratedInstance": true
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "condition": {
+                  "MigratedInstance": true
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "condition": {
+                  "MigratedInstance": true
+                },
+                "permission": "delete"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Migrierte Dokumente\", \"fr\": \"\", \"it\": \"Documenti migrati\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\", \"text/plain\"]",
+      "color": "#000000",
+      "parent": null,
+      "sort": 12
+    }
+  },
+  {
+    "model": "alexandria_core.category",
     "pk": "nachforderung",
     "fields": {
       "created_at": "2020-08-04T13:24:00.690Z",
@@ -2590,7 +2664,7 @@
       "allowed_mime_types": "[\"image/png\"]",
       "color": "#CCCCCC",
       "parent": null,
-      "sort": null
+      "sort": 11
     }
   },
   {

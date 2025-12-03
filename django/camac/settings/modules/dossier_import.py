@@ -12,6 +12,7 @@ DOSSIER_IMPORT = {
         "USER": "service-account-camac-admin",
         "RESOURCE_ID_PATH": "/dossier-import",
         "DELETE_KEYWORD": "<LÖSCHEN>",
+        "QUEUE": "django-q",
     },
     "kt_schwyz": {
         "ENABLED": True,
@@ -141,5 +142,29 @@ DOSSIER_IMPORT = {
                 "EBAU_S3_MIGRATION_BUCKET_NAME", "migration-media"
             ),
         },
+    },
+    "kt_gr": {
+        "ENABLED": True,
+        "WRITER_CLASS": "camac.dossier_import.config.kt_gr.KtGraubundenDossierWriter",
+        "INSTANCE_STATE_MAPPING": {
+            "SUBMITTED": "subm",
+            "APPROVED": "construction-acceptance",
+            "REJECTED": "rejected",
+            "WRITTEN OFF": "withdrawn",
+            "DONE": "finished",
+        },
+        "CALUMA_FORM": "migriertes-dossier",
+        "FORM_ID": 1,
+        "ALEXANDRIA_CATEGORY": "migrierte-dokumente",
+        # todo: enable for GR production
+        # "PROD_URL": env.str(
+        #     "DJANGO_DOSSIER_IMPORT_PROD_URL",
+        #     "https://ebau.gr.ch/",
+        # ),
+        # "PROD_AUTH_URL": env.str(
+        #     "DJANGO_DOSSIER_IMPORT_PROD_AUTH_URL",
+        #     "https://ebau.gr.ch/auth/realms/ebau/protocol/openid-connect/token",
+        # ),
+        "QUEUE": "celery",
     },
 }

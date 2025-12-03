@@ -1207,6 +1207,18 @@ def ag_dossier_import_settings(settings, request):
 
 
 @pytest.fixture
+def gr_dossier_import_settings(settings, request):
+    """Module-specific settings for dossier import (canton GR)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="dossier_import",
+        canton="kt_gr",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def dump_settings(settings, request):
     """Module-specific settings for dump (default)."""
     return generate_module_settings(
