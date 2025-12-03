@@ -79,7 +79,6 @@ module("Integration | Component | communication/new-topic", function (hooks) {
               name: this.instance.activeService.name,
             },
           ],
-          "last-message-date": null,
           subject,
         },
         relationships: {
@@ -157,7 +156,6 @@ module("Integration | Component | communication/new-topic", function (hooks) {
               name: involvedServices[0].name,
             },
           ],
-          "last-message-date": null,
           subject,
         },
         relationships: {
@@ -234,7 +232,6 @@ module("Integration | Component | communication/new-topic", function (hooks) {
               name: applicant,
             },
           ],
-          "last-message-date": null,
           subject,
         },
         relationships: {

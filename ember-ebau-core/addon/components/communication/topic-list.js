@@ -72,7 +72,7 @@ export default class CommunicationTopicListComponent extends Component {
       number: this.page,
       size: 20,
     },
-    sort: "-last_message_date",
+    order: "-created_at",
   }));
 
   @action

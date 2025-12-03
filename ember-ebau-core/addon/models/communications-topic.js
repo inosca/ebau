@@ -7,7 +7,6 @@ export default class CommunicationTopicModel extends Model {
   @attr hasUnread;
   @attr dossierNumber;
   @attr("date") created;
-  @attr("date") lastMessageDate;
   @attr({ defaultValue: true }) allowReplies;
   @attr initiatedByEntity;
   @attr involvedEntities;
