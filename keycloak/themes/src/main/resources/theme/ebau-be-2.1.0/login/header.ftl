@@ -10,7 +10,7 @@
           <hr>
           <div class="mobile-menu-container sand">
             <ul class="mobile-menu-list">
-              <li><a role='listitem' href="${url.loginUrl}" class="js-login-link item service-menue
+              <li><a role='listitem' href="#" class="js-login-link item service-menue
               <#if pageId == 'login'>
                 active
               </#if>">${msg("navLogin")}</a></li>
