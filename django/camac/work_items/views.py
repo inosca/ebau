@@ -11,12 +11,12 @@ from django.db.models import (
     When,
 )
 from rest_framework.decorators import action
-from rest_framework.exceptions import ValidationError
 from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
 from rest_framework_json_api.django_filters import DjangoFilterBackend
 from rest_framework_json_api.views import ReadOnlyModelViewSet
 
+from camac.core.views import EnforcePaginationMixin
 from camac.settings.modules.work_item_list_schema import WorkItemListConfig
 from camac.user.models import Service, User
 from camac.user.permissions import permission_aware
@@ -100,7 +100,7 @@ class WorkItemListFilterPresetViewset(ReadOnlyModelViewSet):
         return self.queryset.none()
 
 
-class WorkItemListRowViewset(ReadOnlyModelViewSet):
+class WorkItemListRowViewset(EnforcePaginationMixin, ReadOnlyModelViewSet):
     serializer_class = WorkItemListRowSerializer
     filterset_class = filters.WorkItemListRowFilterSet
     queryset = WorkItemListRow.objects
@@ -116,18 +116,12 @@ class WorkItemListRowViewset(ReadOnlyModelViewSet):
         )
 
     def paginate_queryset(self, queryset):
-        """Paginate the queryset.
+        """Paginate the queryset."""
 
-        Since this endpoint could be quite a bottleneck for the DB, we enforce
-        pagination and make sure to only prefetch the users and services for the
-        current page instead of all work items.
-        """
-
-        if "page[size]" not in self.request.query_params:
-            # Since this endpoint can trigger very expensive queries, we
-            # specifically enforce the pagination
-            raise ValidationError("Pagination is required")
-
+        # Since this endpoint could be quite a bottleneck for the DB, we enforce
+        # pagination and make sure to only prefetch the users and services for the
+        # current page instead of all work items.
+        # This is done via the EnforcePaginationMixin.
         page = super().paginate_queryset(queryset)
 
         if page is None:  # pragma: no cover
