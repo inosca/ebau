@@ -4,6 +4,10 @@ from camac.settings.ebau_schema import ModuleApplicationConfig, ModuleConfig
 
 
 class AlexandriaMigrationConfig(ModuleApplicationConfig):
+    fallback_category: str = Field(
+        description="Alexandria category to migrate to if attachment is in no sections",
+        default="intern",
+    )
     category_mapping: dict[int, str] = Field(
         description="Mapping between legacy attachment section and alexandria categories",
         default_factory=dict,
@@ -13,6 +17,14 @@ class AlexandriaMigrationConfig(ModuleApplicationConfig):
             "Mapping between legacy bucket name and suffix for alexandria"
             "subcategories. This mapping assumes that the slug of an alexandria"
             "categories starts with the slug of the parent category."
+        ),
+        default_factory=dict,
+    )
+    context_mark_mapping: dict[str, str] = Field(
+        description=(
+            "Mapping between legacy context property flags and alexandria"
+            "marks. If the property is true in the context property, the"
+            "document will be marked with the corresponding mark."
         ),
         default_factory=dict,
     )
@@ -30,8 +42,9 @@ ALEXANDRIA_MIGRATION = ModuleConfig[AlexandriaMigrationConfig](
             5: "beilagen-sb2",
             6: "beilagen-sb1",
             7: "nachforderungen",
-            # TODO: "Entscheiddokumente" (ID 8): do we really have attachments
-            # in this section?
+            # "Entscheiddokumente" (ID 8): There are 352 documents that are
+            # still in this invisible attachment section. They will be migrated
+            # into the internal category.
             8: "intern",
             10: "beilagen-sb1",
             11: "beilagen-sb2",
@@ -50,6 +63,12 @@ ALEXANDRIA_MIGRATION = ModuleConfig[AlexandriaMigrationConfig](
             "dokument-stellungnahmen-verfahrensbeteiligte": "-stellungnahmen-verfahrensbeteiligte",
             "dokument-leitbehoerde": "-dokumente-der-leitbehoerde",
             "dokument-entscheid": "-entscheid",
+        },
+        context_mark_mapping={
+            "isDecision": "decision",
+            "isPublished": "publication",
+            "isReplaced": "void",
+            "for_geometer": "geometer",
         },
     ),
 )
