@@ -52,6 +52,16 @@ class CategoryAdmin(
             return ["slug"]
         return []
 
+    def save_model(self, request, obj, form, change):
+        super().save_model(request, obj, form, change)
+
+        if not obj.allowed_mime_types:
+            # The frontend handles an empty list as "no mime types allowed"
+            # whilst treating a null value as "all mime types allowed" which is
+            # what we normally want
+            obj.allowed_mime_types = None
+            obj.save()
+
 
 @register(Mark)
 class MarkAdmin(EbauAdminMixin, LocalizedFieldsAdminMixin, ModelAdmin):
