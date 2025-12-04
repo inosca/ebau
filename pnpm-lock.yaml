@@ -436,8 +436,8 @@ importers:
         specifier: 9.1.0
         version: 9.1.0
       ember-alexandria:
-        specifier: 10.8.2
-        version: 10.8.2(wmwnizuzerssrc7n34y2xgqrta)
+        specifier: 10.9.0
+        version: 10.9.0(wmwnizuzerssrc7n34y2xgqrta)
       ember-apollo-client:
         specifier: 5.0.0
         version: 5.0.0(@glint/template@1.5.0)(graphql@15.10.1)(webpack@5.97.1)
@@ -775,8 +775,8 @@ importers:
         specifier: 9.1.0
         version: 9.1.0
       ember-alexandria:
-        specifier: 10.8.2
-        version: 10.8.2(wmwnizuzerssrc7n34y2xgqrta)
+        specifier: 10.9.0
+        version: 10.9.0(wmwnizuzerssrc7n34y2xgqrta)
       ember-apollo-client:
         specifier: 5.0.0
         version: 5.0.0(@glint/template@1.5.0)(graphql@15.10.1)(webpack@5.97.1)
@@ -1084,8 +1084,8 @@ importers:
         specifier: 9.1.0
         version: 9.1.0
       ember-alexandria:
-        specifier: 10.8.2
-        version: 10.8.2(wmwnizuzerssrc7n34y2xgqrta)
+        specifier: 10.9.0
+        version: 10.9.0(wmwnizuzerssrc7n34y2xgqrta)
       ember-apollo-client:
         specifier: 5.0.0
         version: 5.0.0(@glint/template@1.5.0)(graphql@15.10.1)(webpack@5.97.1)
@@ -1336,8 +1336,8 @@ importers:
         specifier: 3.2.6
         version: 3.2.6
       ember-alexandria:
-        specifier: 10.8.2
-        version: 10.8.2(wmwnizuzerssrc7n34y2xgqrta)
+        specifier: 10.9.0
+        version: 10.9.0(wmwnizuzerssrc7n34y2xgqrta)
       ember-apollo-client:
         specifier: 5.0.0
         version: 5.0.0(@glint/template@1.5.0)(graphql@15.10.1)(webpack@5.97.1)
@@ -4670,8 +4670,8 @@ packages:
   electron-to-chromium@1.5.71:
     resolution: {integrity: sha512-dB68l59BI75W1BUGVTAEJy45CEVuEGy9qPVVQ8pnHyHMn36PLPPoE1mjLH+lo9rKulO3HC2OhbACI/8tCqJBcA==}
 
-  ember-alexandria@10.8.2:
-    resolution: {integrity: sha512-WYY0sekEcixkuqDKxkGmRqJcxpzz4yGR1GQtRX3lFccdVPF7LfZ8K+v3NDFhVov7RWVKLjKtmUXbtN+iQG7ebg==}
+  ember-alexandria@10.9.0:
+    resolution: {integrity: sha512-nlphM4nepYeNuLwa/DgHQHRTkAqdfgUD0ls9rrCOm0CyoPoPlhkIZCwchMT00c0ICjOXR5X/oox6WZHs2B84mw==}
     engines: {node: '>= 20.11'}
     peerDependencies:
       '@ember-data/model': ~4.12.8 || >= 5.0.0
@@ -13290,7 +13290,7 @@ snapshots:
 
   electron-to-chromium@1.5.71: {}
 
-  ember-alexandria@10.8.2(wmwnizuzerssrc7n34y2xgqrta):
+  ember-alexandria@10.9.0(wmwnizuzerssrc7n34y2xgqrta):
     dependencies:
       '@babel/core': 7.26.10
       '@ember-data/model': 4.12.8(@babel/core@7.26.10)(@ember-data/debug@4.12.8)(@ember-data/graph@4.12.8)(@ember-data/json-api@4.12.8)(@ember-data/legacy-compat@4.12.8)(@ember-data/store@4.12.8)(@ember-data/tracking@4.12.8(@glint/template@1.5.0))(@ember/string@4.0.0)(@glint/template@1.5.0)(ember-inflector@4.0.3(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))
