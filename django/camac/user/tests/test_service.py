@@ -1,9 +1,12 @@
 import pytest
+from caluma.caluma_form.models import DynamicOption
 from caluma.caluma_workflow.models import WorkItem
 from django.urls import reverse
 from rest_framework import status
 
+from camac.core.models import InstanceService
 from camac.permissions import api as permissions_api
+from camac.permissions.models import InstanceACL
 from camac.user.models import GeometerChangeTask, Service, ServiceRelation
 from camac.user.tasks import change_geometer_task
 
@@ -359,52 +362,54 @@ def test_change_geometer_permission(
     assert response.status_code == expected_status
 
 
-@pytest.mark.parametrize("geometer_exists", [True, False])
 def test_change_geometer_task(
     db,
     admin_client,
     be_instance,
-    geometer_exists,
     mocker,
     service_factory,
     instance_acl_factory,
     caluma_work_item_factory,
     attachment_factory,
     attachment_section_factory,
+    instance_service_factory,
     access_level_factory,
 ):
     selected_geometer = service_factory()
-    selected_municipality = service_factory()
-    be_instance.services.add(selected_municipality)
+    selected_municipality = service_factory(
+        service_group__name="municipality",
+    )
+    instance_service_factory(
+        instance=be_instance, service=selected_municipality, active=1
+    )
 
-    if geometer_exists:
-        existing_geometer = service_factory()
+    existing_geometer = service_factory()
 
-        attachment_section = attachment_section_factory()
-        mocker.patch(
-            "camac.constants.kt_bern.ATTACHMENT_SECTION_BEILAGEN_SB1_PAPIER",
-            attachment_section.pk,
-        )
-        attachment = attachment_factory(instance=be_instance, service=existing_geometer)
-        attachment.attachment_sections.add(attachment_section)
+    attachment_section = attachment_section_factory()
+    mocker.patch(
+        "camac.constants.kt_bern.ATTACHMENT_SECTION_BEILAGEN_SB1_PAPIER",
+        attachment_section.pk,
+    )
+    attachment = attachment_factory(instance=be_instance, service=existing_geometer)
+    attachment.attachment_sections.add(attachment_section)
 
-        ServiceRelation.objects.create(
-            provider=existing_geometer,
-            receiver=selected_municipality,
-            function=ServiceRelation.FUNCTION_GEOMETER,
-        )
-        instance_acl_factory(
-            service=existing_geometer,
-            grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
-            access_level=access_level_factory(slug="geometer"),
-            instance=be_instance,
-        )
-        caluma_work_item_factory(
-            task_id="geometer",
-            case=be_instance.case,
-            status=WorkItem.STATUS_READY,
-            addressed_groups=[existing_geometer.pk],
-        )
+    ServiceRelation.objects.create(
+        provider=existing_geometer,
+        receiver=selected_municipality,
+        function=ServiceRelation.FUNCTION_GEOMETER,
+    )
+    instance_acl_factory(
+        service=existing_geometer,
+        grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+        access_level=access_level_factory(slug="geometer"),
+        instance=be_instance,
+    )
+    caluma_work_item_factory(
+        task_id="geometer",
+        case=be_instance.case,
+        status=WorkItem.STATUS_READY,
+        addressed_groups=[existing_geometer.pk],
+    )
     geometer_change_task = GeometerChangeTask.objects.create(
         municipality_id=selected_municipality.pk,
         geometer_id=selected_geometer.pk,
@@ -413,12 +418,11 @@ def test_change_geometer_task(
 
     change_geometer_task(task=geometer_change_task)
 
-    if geometer_exists:
-        assert (
-            str(selected_geometer.pk)
-            in WorkItem.objects.filter(task_id="geometer").first().addressed_groups
-        )
-        assert be_instance.attachments.first().context["for_geometer"]
+    assert (
+        str(selected_geometer.pk)
+        in WorkItem.objects.filter(task_id="geometer").first().addressed_groups
+    )
+    assert be_instance.attachments.first().context["for_geometer"]
 
     assert ServiceRelation.objects.first().provider == selected_geometer
 
@@ -428,6 +432,154 @@ def test_change_geometer_task(
     fake_task = FakeTask()
     change_geometer_task(task=fake_task)
     assert fake_task.status == "failed"
+
+
+@pytest.mark.parametrize(
+    "lead_authority_situation,geometer_has_changed",
+    [
+        ("only_active_municipality", [True, False]),
+        ("only_involved_municipality", [True, False]),
+        ("active_and_involved_municipalities", [True, False]),
+        ("multiple_only_involved_municipalities", [False, True]),
+    ],
+)
+def test_instance_selection_for_geometer_change(
+    db,
+    admin_client,
+    lead_authority_situation,
+    geometer_has_changed,
+    be_instance,
+    be_permissions_settings,
+    instance_service_factory,
+    instance_acl_factory,
+    service_factory,
+    utils,
+):
+    InstanceService.objects.all().delete()
+    selected_geometer = service_factory()
+    selected_municipality = service_factory(
+        name="Selected Municipality",
+        service_group__name="municipality",
+    )
+    selected_rsta = service_factory(
+        service_group__name="district",
+    )
+    other_municipality_1 = service_factory(
+        service_group__name="municipality",
+    )
+    other_municipality_2 = service_factory(
+        service_group__name="municipality",
+    )
+    utils.add_answer(
+        be_instance.case.document, "gemeinde", str(other_municipality_1.pk)
+    )
+    DynamicOption.objects.create(
+        document=be_instance.case.document,
+        question_id="gemeinde",
+        slug=str(other_municipality_1.pk),
+        label="Selected Municipality",
+    )
+
+    # Example: active lead authority: Gemeinde Thun, involved lead authority: -
+    if lead_authority_situation == "only_active_municipality":
+        instance_service_factory(
+            instance=be_instance, service=selected_municipality, active=1
+        )
+    # Example: active lead authority: RSTA Thun, involved lead authority: Gemeinde Thun
+    elif lead_authority_situation == "only_involved_municipality":
+        instance_service_factory(
+            instance=be_instance, service=selected_municipality, active=0
+        )
+        instance_service_factory(instance=be_instance, service=selected_rsta, active=1)
+    # Example: active lead authority: Gemeinde Thun, involved lead authorities: Gemeinde Köniz, Gemeinde Bern
+    elif lead_authority_situation == "active_and_involved_municipalities":
+        instance_service_factory(
+            instance=be_instance, service=selected_municipality, active=1
+        )
+        instance_service_factory(
+            instance=be_instance, service=other_municipality_1, active=0
+        )
+        instance_service_factory(
+            instance=be_instance, service=other_municipality_2, active=0
+        )
+    # Example: active lead authority: RSTA Thun, involved lead authorities: Gemeinde Köniz, Gemeinde Bern
+    elif lead_authority_situation == "multiple_only_involved_municipalities":
+        instance_service_factory(instance=be_instance, service=selected_rsta, active=1)
+        instance_service_factory(
+            instance=be_instance, service=other_municipality_1, active=0
+        )
+        instance_service_factory(
+            instance=be_instance, service=other_municipality_2, active=0
+        )
+
+    existing_geometer = service_factory()
+
+    instance_acl_factory(
+        service=existing_geometer,
+        grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+        access_level__slug="geometer",
+        instance=be_instance,
+    )
+
+    # Test geometer change with selected municipality
+    geometer_change_task = GeometerChangeTask.objects.create(
+        municipality_id=selected_municipality.pk,
+        geometer_id=selected_geometer.pk,
+        status="scheduled",
+    )
+
+    change_geometer_task(task=geometer_change_task)
+
+    assert (
+        InstanceACL.currently_active()
+        .filter(
+            instance=be_instance, service=selected_geometer, access_level="geometer"
+        )
+        .exists()
+        == geometer_has_changed[0]
+    )
+    assert (
+        not InstanceACL.currently_active()
+        .filter(
+            instance=be_instance, service=existing_geometer, access_level="geometer"
+        )
+        .exists()
+        == geometer_has_changed[0]
+    )
+
+    InstanceACL.objects.all().delete()
+    instance_acl_factory(
+        service=existing_geometer,
+        grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+        access_level_id="geometer",
+        instance=be_instance,
+    )
+
+    # Test geometer change with other municipality
+    geometer_change_task = GeometerChangeTask.objects.create(
+        municipality_id=other_municipality_1.pk,
+        geometer_id=selected_geometer.pk,
+        status="scheduled",
+    )
+
+    change_geometer_task(task=geometer_change_task)
+
+    assert (
+        InstanceACL.currently_active()
+        .filter(
+            instance=be_instance, service=selected_geometer, access_level="geometer"
+        )
+        .exists()
+        == geometer_has_changed[1]
+    )
+    assert (
+        not InstanceACL.currently_active()
+        .filter(
+            instance=be_instance, service=existing_geometer, access_level="geometer"
+        )
+        .exists()
+        == geometer_has_changed[1]
+    )
 
 
 @pytest.mark.parametrize(
