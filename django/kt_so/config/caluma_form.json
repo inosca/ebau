@@ -50615,7 +50615,7 @@
       "label": "{\"de\": \"Werden gebäudetechnische Anlagen erstellt oder verändert?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "false",
+      "is_hidden": "\"gebaeude\"|answer(null) == null || \"gebaeude\"|answer(null)|stringify == \"[]\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"Werden gebäudetechnische Anlagen wie die Heizung usw. erst im Laufe des Baufortschritts bestimmt, sind diese der zuständigen kommunalen Brandschutzbehörde zu melden.\", \"fr\": null, \"it\": null}",
