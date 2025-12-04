@@ -167,6 +167,7 @@ def load_fixtures_gr(
         settings.ROOT_DIR("kt_gr/config/caluma_form_v2.json"),
         settings.ROOT_DIR("kt_gr/config/caluma_form_v3.json"),
         settings.ROOT_DIR("kt_gr/config/caluma_form_v4.json"),
+        settings.ROOT_DIR("kt_gr/config/caluma_form_v5.json"),
         settings.ROOT_DIR("kt_gr/config/caluma_form_common.json"),
         settings.ROOT_DIR("kt_gr/config/caluma_decision_form.json"),
         settings.ROOT_DIR("kt_gr/config/caluma_construction_monitoring_form.json"),
