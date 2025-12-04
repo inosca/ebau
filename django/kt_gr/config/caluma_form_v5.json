@@ -4,7 +4,7 @@
     "pk": "baugesuch-v5",
     "fields": {
       "created_at": "2025-12-04T08:30:44.878Z",
-      "modified_at": "2025-12-04T08:33:00.606Z",
+      "modified_at": "2025-12-04T10:18:14.126Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -17,7 +17,7 @@
         "is-creatable": true,
         "is-main-form": true
       },
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": "baugesuch-v2"
     }
