@@ -11,6 +11,7 @@ from caluma.caluma_workflow import api as workflow_api, models as caluma_workflo
 from django.core.management import call_command
 from lxml import etree
 
+from camac.document.tests.data import django_file
 from camac.instance.domain_logic import CreateInstanceLogic
 from camac.instance.serializers import SUBMIT_DATE_FORMAT
 from camac.tests.data import so_personal_row_factory
@@ -478,3 +479,11 @@ def ech_instance_so(
 @pytest.fixture
 def ech_instance_ag(ag_master_data_case, ag_alexandria_settings):
     return ag_master_data_case.instance
+
+
+@pytest.fixture
+def mock_remote_file(requests_mock):
+    return requests_mock.get(
+        "https://dev.ebpzh.ch/this/is/a/temporary/download/link/myFile.pdf",
+        content=django_file("multiple-pages.pdf").file.read(),
+    )

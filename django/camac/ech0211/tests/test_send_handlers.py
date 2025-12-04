@@ -1,3 +1,5 @@
+import re
+from datetime import datetime
 from unittest.mock import Mock
 
 import pytest
@@ -8,6 +10,7 @@ from caluma.caluma_form.models import Question
 from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.models import WorkItem
 from django.core.management import call_command
+from django.utils.timezone import make_aware
 
 from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_ALLE_BETEILIGTEN,
@@ -787,6 +790,7 @@ def test_task_send_claim_handler(
     test_case,
     success,
     access_level,
+    mock_remote_file,
 ):
     mocker.patch(
         "camac.ech0211.send_handlers.has_alexandria_create_permission",
@@ -1055,6 +1059,8 @@ def test_accompanying_report_send_handler(
     has_inquiry,
     document_backend,
     documents_available,
+    mocker,
+    mock_remote_file,
 ):
     notification_template_factory(slug="05-bericht-erstellt")
     settings.APPLICATION["DOCUMENT_BACKEND"] = document_backend
@@ -1067,6 +1073,17 @@ def test_accompanying_report_send_handler(
             "true_value": "inquiry-checked",
         },
     }
+    CategoryFactory(slug="beteiligte-behoerden")
+    be_ech0211_settings["ACCOMPANYING_REPORT"]["ALEXANDRIA_CATEGORY"] = (
+        "beteiligte-behoerden"
+    )
+    mocker.patch(
+        "camac.ech0211.send_handlers.AlexandriaDocumentMixin.check_alexandria_category_permission"
+    )
+    mocker.patch(
+        "camac.alexandria.extensions.visibilities.CustomVisibility.filter_queryset_for_document",
+        side_effect=lambda queryset, request: queryset,
+    )
     caluma_form_question_factory(
         form=ech_instance_be.case.document.form,
         question__slug="inquiry-text-answer",
@@ -1114,19 +1131,21 @@ def test_accompanying_report_send_handler(
                     id="e39500fd-3eb1-48a5-afe4-0e3b03c4f13a",
                     metainfo={"camac-instance-id": ech_instance_be.pk},
                     category__metainfo={},
+                    title="hidden.pdf",
                 ),
-                name="MyHiddenFile.pdf",
+                name="hidden.pdf",
             )
-            alexandria_factories.FileFactory(
-                document=alexandria_factories.DocumentFactory(
-                    id="00000000-0000-0000-0000-000000000000",
-                    metainfo={"camac-instance-id": ech_instance_be.pk},
-                    category__metainfo={
-                        "access": {support_group.role.name: {"visibility": "all"}}
-                    },
-                ),
-                name="MyFile.pdf",
+            existing_doc = alexandria_factories.DocumentFactory(
+                id="12345678-1234-1234-1234-000000000000",
+                metainfo={"camac-instance-id": ech_instance_be.pk},
+                category__metainfo={
+                    "access": {support_group.role.name: {"visibility": "all"}}
+                },
+                title="existing.pdf",
             )
+            existing_doc.created_at = make_aware(datetime(2022, 5, 2, 12, 0))
+            existing_doc.save()
+            alexandria_factories.FileFactory(document=existing_doc, name="existing.pdf")
 
     xml = xml_data("accompanying_report")
     if not documents_available:
@@ -1158,7 +1177,13 @@ def test_accompanying_report_send_handler(
         assert Message.objects.count() == 1
         message = Message.objects.first()
         assert message.receiver == support_group.service
-        ech_snapshot(message.body)
+
+        xml = message.body
+        if document_backend == "alexandria":
+            # replace UUIDs because some of them are generated on upload
+            # and can't be snapshotted deterministically
+            xml = re.sub(r"(<ns\d+:uuid>).+?(</ns\d+:uuid>)", r"\1<!-- UUID -->\2", xml)
+        ech_snapshot(xml)
 
         inquiries = WorkItem.objects.filter(
             task_id=be_distribution_settings["INQUIRY_TASK"],

@@ -315,7 +315,9 @@ class AccompanyingReportEventHandler(BaseEventHandler):
             else:
                 documents = Document.objects.filter(
                     instance_document__instance=self.instance,
-                    category=settings.ECH0211["ACCOMPANYING_REPORT"]["category"],
+                    category=settings.ECH0211["ACCOMPANYING_REPORT"][
+                        "ALEXANDRIA_CATEGORY"
+                    ],
                     created_by_group__in=services.values_list("id_string", flat=True),
                 )
 

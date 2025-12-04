@@ -133,8 +133,10 @@ def get_documents(documents, request):
         if not request:  # pragma: no cover
             documents = documents.none()
         else:
-            documents = CustomAlexandriaVisibility().filter_queryset_for_document(
-                documents, request
+            documents = (
+                CustomAlexandriaVisibility()
+                .filter_queryset_for_document(documents, request)
+                .order_by("-created_at")
             )
 
     if not documents:

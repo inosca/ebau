@@ -1,5 +1,6 @@
 from typing import List, Tuple
 from urllib.parse import urlparse
+from uuid import UUID
 
 import requests
 from alexandria.core import models as alexandria_models
@@ -17,6 +18,9 @@ from django.utils.translation import gettext as _
 from lxml import etree
 
 from camac.alexandria.extensions.common import has_alexandria_create_permission
+from camac.alexandria.extensions.visibilities import (
+    CustomVisibility as CustomAlexandriaVisibility,
+)
 from camac.caluma.api import CalumaApi
 from camac.caluma.models import Inquiry
 from camac.constants.kt_bern import ATTACHMENT_SECTION_ALLE_BETEILIGTEN
@@ -80,53 +84,25 @@ class AlexandriaDocumentMixin:
         caluma_document_id=None,
     ) -> List[alexandria_models.Document]:
         created_documents = []
+        all_documents = []
         for doc in xmlDocuments:
-            document = None
-            # use first title as document title
-            title = doc.titles.title[0].value()
-            description = doc.comments.comment[0].value() if doc.comments else None
-            for file in doc.files.file:
-                file_response = requests.get(file.pathFileName)
-                file_name = urlparse(file.pathFileName).path.split("/")[-1]
-                file_obj = ContentFile(file_response.content, name=file_name)
-                if not document:
-                    document, __ = create_alexandria_document_file(
-                        user=str(self.user.pk),
-                        group=str(self.group.service.pk),
-                        category=category,
-                        document_title=title,
-                        file_name=file_name,
-                        file_content=file_obj,
-                        mime_type=file.mimeType,
-                        file_size=len(file_response.content),
-                        additional_document_attributes={
-                            "description": description,
-                            "metainfo": {
-                                "ech-uuid": doc.uuid,
-                            },
-                        },
-                    )
-                else:
-                    create_alexandria_file(
-                        user=str(self.user.pk),
-                        group=str(self.group.service.pk),
-                        document=document,
-                        name=file_name,
-                        content=file_obj,
-                        mime_type=file.mimeType,
-                        size=len(file_response.content),
-                    )
+            # The uuid 00000000-0000-0000-0000-000000000000 (which UUID(int=0) returns)
+            # means that the file has a download link and does not exist yet. If the
+            # uuid is anything else, we expect that the document has already been created.
+            if UUID(doc.uuid) == UUID(int=0):
+                document = self.create_document_and_files(
+                    doc, category, caluma_document_id
+                )
+                created_documents.append(document)
+            else:
+                document = self.get_existing_document(doc.uuid)
 
-            if caluma_document_id:
-                document.metainfo["caluma-document-id"] = caluma_document_id
-                document.save()
-
-            created_documents.append(document)
+            all_documents.append(document)
 
         if not skip_linking:
             self.link_alexandria_documents(created_documents)
 
-        return created_documents
+        return all_documents
 
     def check_alexandria_category_permission(
         self, category: alexandria_models.Category
@@ -153,6 +129,62 @@ class AlexandriaDocumentMixin:
         return self.create_alexandria_documents(
             xmlDocuments, category, caluma_document_id=caluma_document_id
         )
+
+    def get_existing_document(self, document_uuid):
+        document = (
+            CustomAlexandriaVisibility()
+            .filter_queryset_for_document(
+                alexandria_models.Document.objects.filter(pk=document_uuid),
+                self.request,
+            )
+            .first()
+        )
+        # Validate that Document with specified uuid exists
+        if not document:  # pragma: no cover
+            raise SendHandlerException(
+                f'Document "{document_uuid}" does not exist. Make sure to upload the document beforehand.'
+            )
+        return document
+
+    def create_document_and_files(self, doc, category, caluma_document_id):
+        document = None
+        # use first title as document title
+        title = doc.titles.title[0].value()
+        description = doc.comments.comment[0].value() if doc.comments else None
+        for file in doc.files.file:
+            file_response = requests.get(file.pathFileName)
+            file_response.raise_for_status()
+            file_name = urlparse(file.pathFileName).path.split("/")[-1]
+            file_obj = ContentFile(file_response.content, name=file_name)
+            if not document:
+                document, __ = create_alexandria_document_file(
+                    user=str(self.user.pk),
+                    group=str(self.group.service.pk),
+                    category=category,
+                    document_title=title,
+                    file_name=file_name,
+                    file_content=file_obj,
+                    mime_type=file.mimeType,
+                    file_size=len(file_response.content),
+                    additional_document_attributes={
+                        "description": description,
+                    },
+                )
+            else:
+                create_alexandria_file(
+                    user=str(self.user.pk),
+                    group=str(self.group.service.pk),
+                    document=document,
+                    name=file_name,
+                    content=file_obj,
+                    mime_type=file.mimeType,
+                    size=len(file_response.content),
+                )
+
+        if caluma_document_id:
+            document.metainfo["caluma-document-id"] = caluma_document_id
+            document.save()
+        return document
 
 
 class BaseSendHandler:
@@ -390,7 +422,7 @@ class ChangeResponsibilitySendHandler(BaseSendHandler):
         serializer.save()
 
 
-class AccompanyingReportSendHandler(BaseSendHandler):
+class AccompanyingReportSendHandler(AlexandriaDocumentMixin, BaseSendHandler):
     def __init__(self, data, queryset, user, group, auth_header, caluma_user, request):
         super().__init__(data, queryset, user, group, auth_header, caluma_user, request)
         self.inquiry = self._get_inquiry()
@@ -470,16 +502,20 @@ class AccompanyingReportSendHandler(BaseSendHandler):
                 )
 
         if settings.APPLICATION["DOCUMENT_BACKEND"] == "alexandria":
+            documents = self.convert_xml_to_alexandria_documents(
+                self.data.eventAccompanyingReport.document,
+                settings.ECH0211["ACCOMPANYING_REPORT"]["ALEXANDRIA_CATEGORY"],
+            )
+            # turn list into queryset, expected by subsequent event handlers
             documents = alexandria_models.Document.objects.filter(
-                id__in=[d.uuid for d in self.data.eventAccompanyingReport.document]
+                id__in=[d.id for d in documents]
             )
         else:
             documents = Attachment.objects.filter(
                 uuid__in=[d.uuid for d in self.data.eventAccompanyingReport.document]
             )
-
-        if not documents.exists():
-            raise SendHandlerException("Unknown document!")
+            if not documents.exists():
+                raise SendHandlerException("Unknown document!")
 
         workflow_api.complete_work_item(
             work_item=self.inquiry.child_case.work_items.filter(

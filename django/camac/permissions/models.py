@@ -160,7 +160,7 @@ class InstanceACL(models.Model):
         Note that the user at this level is represented by the relevant
         attributes, not a request object.
         """
-        # The prefix for our callers should not need ot end with '__':
+        # The prefix for our callers should not need to end with '__':
         # If we're actually filtering ACLs, it's empty, but if it's set,
         # we'll need to separate it, so it becomes foo__acls__the_actual_field
         prefix = f"{acl_prefix}__" if acl_prefix else ""

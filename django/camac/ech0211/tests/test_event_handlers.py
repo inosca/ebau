@@ -356,7 +356,7 @@ def test_accompanying_report_event_handler_alexandria(
     category = CategoryFactory(metainfo=visibility)
     other_category = CategoryFactory(metainfo=visibility)
 
-    so_ech0211_settings["ACCOMPANYING_REPORT"] = {"category": category.pk}
+    so_ech0211_settings["ACCOMPANYING_REPORT"] = {"ALEXANDRIA_CATEGORY": category.pk}
 
     subservice = service_factory(service_parent=service)
     other_service = service_factory()

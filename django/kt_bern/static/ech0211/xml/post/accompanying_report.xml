@@ -35,10 +35,33 @@
       <ns2:dossierIdentification>2323</ns2:dossierIdentification>
     </ns2:planningPermissionApplicationIdentification>
     <ns2:document>
-      <!-- muss auf dem Dossier existieren -->
+      <!-- Option A: Bereits hochgeladenes Dokument. UUID muss auf dem Dossier existieren -->
+      <ns11:uuid>12345678-1234-1234-1234-000000000000</ns11:uuid>
+      <ns11:titles>
+        <ns10:title ns10:lang="de">existing.pdf</ns10:title>
+      </ns11:titles>
+      <ns11:status>created</ns11:status>
+      <ns11:files> <!-- wird ignoriert, da Dokument bereits hochgeladen wurde-->
+        <ns11:file>
+          <ns11:pathFileName>https://example.com/myFile.pdf</ns11:pathFileName>
+          <ns11:mimeType>application/pdf</ns11:mimeType>
+          <ns11:version>1.0.0</ns11:version>
+        </ns11:file>
+      </ns11:files>
+      <ns11:comments>
+        <ns10:comment ns10:lang="DE">Dokumentkommentar</ns10:comment>
+      </ns11:comments>
+      <ns11:keywords>
+        <ns10:keyword ns10:lang="DE">Gesuchsunterlagen vom: dd.mm.yyyy</ns10:keyword>
+      </ns11:keywords>
+      <ns11:documentKind>Weitere Dokumente</ns11:documentKind>
+    </ns2:document>
+    <ns2:document>
+      <!-- Option B: falls die UUID nur aus Nullen besteht, werden die Files versucht herunterzuladen -->
+      <!-- Achtung: Wird aktuell noch nicht im Kt. BE unterstützt. -->
       <ns11:uuid>00000000-0000-0000-0000-000000000000</ns11:uuid>
       <ns11:titles>
-        <ns10:title ns10:lang="de">myFile.pdf</ns10:title>
+        <ns10:title ns10:lang="de">new.pdf</ns10:title>
       </ns11:titles>
       <ns11:status>created</ns11:status>
       <ns11:files>
