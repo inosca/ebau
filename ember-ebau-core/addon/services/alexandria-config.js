@@ -92,22 +92,27 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
         date: {
           label: "date",
           sort: true,
+          sortKey: "created_at",
         },
         modifiedAt: {
           label: "modified-at",
           sort: true,
+          sortKey: "modified_at",
         },
         createdByUser: {
           label: "created-by-user",
           sort: true,
+          sortKey: "created_by_username",
         },
         createdByGroup: {
           label: "created-by-group",
           sort: true,
+          sortKey: "group_name",
         },
         category: {
           label: "category",
           sort: true,
+          sortKey: "category__name",
         },
       };
     }

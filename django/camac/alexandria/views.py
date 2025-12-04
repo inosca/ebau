@@ -2,6 +2,9 @@ from alexandria.core import views
 from alexandria.core.models import Category, Mark
 from django.conf import settings
 from django.core.cache import cache
+from django.db.models import CharField, OuterRef, Subquery
+from django.db.models.functions import Cast
+from django.utils.translation import get_language
 from rest_framework import status
 from rest_framework.decorators import action
 from rest_framework.exceptions import NotFound, ValidationError
@@ -20,7 +23,7 @@ from camac.filters import MultilingualSearchFilter
 from camac.instance.models import Instance
 from camac.permissions.conditions import Check
 from camac.permissions.models import AccessLevel
-from camac.user.models import Service
+from camac.user.models import Service, ServiceT, User
 from camac.user.permissions import DefaultPermission, PublicationPermission
 
 
@@ -55,6 +58,46 @@ class PatchedDocumentViewSet(views.DocumentViewSet):
         OrderingFilter,
         PatchedDjangoFilterBackend,
     ]
+    ordering_fields = [
+        "title",
+        "modified_at",
+        "created_at",
+        "created_by_username",
+        "group_name",
+        "category__name",
+    ]
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+
+        # annotate the username/service name because we don't want to sort by a PK
+        #
+        # The created_by_* fields are string FK's (which we fill with numeric ID's)
+        # But theoretically they can also have a string value (e.g. in the test fixtures
+        # they are filled as "admin"). That leads to a casting error to an integer field
+        # (CAST 'admin' as integer). Therefore we annotate a separate field with the
+        # string representation of the FK target and match by that string FK instead.
+        queryset = queryset.annotate(
+            created_by_username=Subquery(
+                User.objects.annotate(pk_str=Cast("pk", output_field=CharField()))
+                .filter(pk_str=OuterRef("created_by_user"))
+                .values("name")[:1]
+            )
+        )
+        queryset = queryset.annotate(
+            group_name=Subquery(
+                ServiceT.objects.annotate(
+                    service_id_str=Cast("service_id", output_field=CharField())
+                )
+                .filter(
+                    service_id_str=OuterRef("created_by_group"),
+                    language=get_language(),
+                )
+                .values("name")[:1]
+            )
+        )
+
+        return queryset
 
 
 class PatchedFileViewSet(views.FileViewSet):
