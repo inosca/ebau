@@ -312,6 +312,7 @@ ECH0211 = {
         "NOTICE_RULING": {
             "ALLOWED_STATES": ["coordination", "circulation"],
             "ONLY_DECLINE": ["circulation_init"],
+            "SKIP_TASKS_ON_APPROVAL": ["distribution"],
         },
         "JUDGEMENT_MAPPING": {
             "inquiry-answer-status-positive": 1,
@@ -458,6 +459,7 @@ ECH0211 = {
         "NOTICE_RULING": {
             "ALLOWED_STATES": ["decision", "circulation"],
             "ONLY_DECLINE": ["distribution-init"],
+            "SKIP_TASKS_ON_APPROVAL": ["distribution"],
             "ALEXANDRIA_CATEGORY": "alle-beteiligten",
             "ALEXANDRIA_MARK": "decision",
         },
@@ -642,6 +644,7 @@ ECH0211 = {
         "NOTICE_RULING": {
             "ALLOWED_STATES": ["decision", "distribution"],
             "ONLY_DECLINE": ["distribution-init"],
+            "SKIP_TASKS_ON_APPROVAL": ["distribution"],
             "ALEXANDRIA_CATEGORY": "beteiligte-behoerden",
             "ALEXANDRIA_MARK": "decision",
         },
@@ -733,8 +736,9 @@ ECH0211 = {
             "alle-beteiligten",
         ],
         "NOTICE_RULING": {
-            "ALLOWED_STATES": ["decision", "circulation"],
-            "ONLY_DECLINE": ["distribution-init"],
+            "ALLOWED_STATES": ["subm", "distribution-init", "circulation", "decision"],
+            "ONLY_DECLINE": [],
+            "SKIP_TASKS_ON_APPROVAL": ["formal-exam", "distribution"],
             "ALEXANDRIA_CATEGORY": "alle-beteiligten",
             "ALEXANDRIA_MARK": "decision",
         },

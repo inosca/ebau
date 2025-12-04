@@ -341,7 +341,10 @@ class NoticeRulingSendHandler(
             # suspend case
             workflow_api.suspend_case(case=case, user=self.caluma_user)
         else:
-            self.skip_work_item(settings.DISTRIBUTION["DISTRIBUTION_TASK"])
+            for slug in settings.ECH0211["NOTICE_RULING"].get(
+                "SKIP_TASKS_ON_APPROVAL", []
+            ):
+                self.skip_work_item(slug)
 
             # write the decision document
             decision_document = self._get_decision_document(case)
