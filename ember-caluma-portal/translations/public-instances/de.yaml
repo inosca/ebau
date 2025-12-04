@@ -1,5 +1,6 @@
 publicInstances:
   title: "Öffentlich aufgelegte Baugesuche"
+  intro: ""
   applicant: "Gesuchsteller/in"
   load-error: "Fehler beim Laden der öffentlich aufgelegten Baugesuche"
   empty-title: "Es gibt keine öffentlich aufgelegten Baugesuche!"
@@ -11,6 +12,7 @@ publicInstances:
 publicInstancesDetail:
   documents: "Dokumente"
   form: "Formular"
+  form-intro: ""
   fileName: "Dateiname"
   size: "Grösse"
   date: "Datum"

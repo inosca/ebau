@@ -2,6 +2,11 @@
   <h1>{{t "publicInstancesDetail.documents"}}</h1>
 {{/if}}
 
+<div class="uk-margin-medium-bottom">
+  <p>{{t "publicInstancesDetail.copyrightText"}}</p>
+  <p>{{t "publicInstancesDetail.privacyText"}}</p>
+</div>
+
 {{#if (eq (get-main-config "documentBackend") "camac")}}
   <table class="uk-table uk-table-striped uk-table-hover uk-table-responsive">
     <thead>
@@ -65,6 +70,3 @@
     @attachments={{this.attachments.value}}
   />
 {{/if}}
-
-<p>{{t "publicInstancesDetail.copyrightText"}}</p>
-<p>{{t "publicInstancesDetail.privacyText"}}</p>
