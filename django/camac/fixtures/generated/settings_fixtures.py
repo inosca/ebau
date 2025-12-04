@@ -211,6 +211,42 @@ def test_alexandria_settings(settings, request):
 
 
 @pytest.fixture
+def alexandria_migration_settings(settings, request):
+    """Module-specific settings for alexandria migration (default)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="alexandria_migration",
+        canton=None,
+        disable=False,
+    )
+
+
+@pytest.fixture
+def disable_alexandria_migration_settings(settings, request):
+    """Disable the alexandria migration module completely."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="alexandria_migration",
+        canton=None,
+        disable=True,
+    )
+
+
+@pytest.fixture
+def be_alexandria_migration_settings(settings, request):
+    """Module-specific settings for alexandria migration (canton BE)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="alexandria_migration",
+        canton="kt_bern",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def appeal_settings(settings, request):
     """Module-specific settings for appeal (default)."""
     return generate_module_settings(
