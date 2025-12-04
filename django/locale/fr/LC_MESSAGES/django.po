@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-19 13:14+0100\n"
+"POT-Creation-Date: 2025-12-04 10:33+0100\n"
 "PO-Revision-Date: 2025-08-28 10:03+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -758,6 +758,12 @@ msgid ""
 msgstr ""
 "Type de mime non valable pour la pièce jointe. Les types autorisés pour la "
 "section %(section_name)s sont : %(allowed_mime_types)s"
+
+#: camac/document/serializers.py
+msgid "Adding geometer flag is not allowed in internal section."
+msgstr ""
+"Le partage de documents avec le géomètre chargé de la mise à jour n'est pas "
+"autorisé dans le dossier interne."
 
 #: camac/document/serializers.py
 msgid "The entered name is not a valid file name"
