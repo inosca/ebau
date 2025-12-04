@@ -1307,12 +1307,18 @@ APPLICATIONS = {
             },
         },
         "STORE_PDF": {
+            "CATEGORY": {
+                "MAIN": "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
+                "SB1": "beilagen-sb1-weitere-gesuchsunterlagen",
+                "SB1-V2": "beilagen-sb1-weitere-gesuchsunterlagen",
+                "SB2": "beilagen-sb2-weitere-gesuchsunterlagen",
+            },
             "SECTION": {
                 "MAIN": {"DEFAULT": 1, "PAPER": 13},
                 "SB1": {"DEFAULT": 6, "PAPER": 10},
                 "SB1-V2": {"DEFAULT": 6, "PAPER": 10},
                 "SB2": {"DEFAULT": 5, "PAPER": 11},
-            }
+            },
         },
         "PAPER": {
             "ALLOWED_ROLES": {
@@ -2062,11 +2068,8 @@ APPLICATIONS = {
         "LOG_NOTIFICATIONS_WITH_NO_RECEIVERS": True,
         "LINK_INSTANCES_ON_COPY": True,
         "STORE_PDF": {
-            "SECTION": {
-                "MAIN": {
-                    "DEFAULT": "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
-                    "PAPER": "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
-                }
+            "CATEGORY": {
+                "MAIN": "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
             },
         },
         # Mapping between camac role and instance permission.
@@ -2573,11 +2576,8 @@ APPLICATIONS = {
         },
         "DOCUMENT_BACKEND": "alexandria",
         "STORE_PDF": {
-            "SECTION": {
-                "MAIN": {
-                    "DEFAULT": "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
-                    "PAPER": "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
-                }
+            "CATEGORY": {
+                "MAIN": "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
             },
         },
     },

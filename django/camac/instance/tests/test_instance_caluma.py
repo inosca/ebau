@@ -2031,8 +2031,8 @@ def test_generate_and_store_pdf_in_alexandria(
     sensitive_mark = MarkFactory()
     alexandria_category = CategoryFactory()
     application_settings["STORE_PDF"] = {
-        "SECTION": {
-            "MAIN": {"DEFAULT": alexandria_category.pk, "PAPER": alexandria_category.pk}
+        "CATEGORY": {
+            "MAIN": alexandria_category.pk,
         },
     }
     alexandria_settings["MARK_VISIBILITY"]["SENSITIVE"] = [sensitive_mark.pk]
