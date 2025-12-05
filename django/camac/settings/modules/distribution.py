@@ -476,6 +476,8 @@ DISTRIBUTION = {
                                 "axpo",
                                 "dgs-avs-vet",
                                 "dgs-avs-lmi",
+                                "sbb",
+                                "procap",
                             ],
                         ),
                     ]
