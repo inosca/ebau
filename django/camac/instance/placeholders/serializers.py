@@ -8,11 +8,16 @@ from typing import Literal
 from caluma.caluma_form.models import Answer
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
+from django.db.models import (
+    Exists,
+    OuterRef,
+)
 from django.utils.timezone import now
 from django.utils.translation import get_language, gettext_noop as _
 from rest_framework import serializers
 
 from camac.caluma.api import CalumaApi
+from camac.constants import kt_gr as gr_constants
 from camac.core.translations import get_translations_canton_aware
 from camac.instance.models import Instance
 from camac.instance.placeholders.utils import format_gis_center_coordinates
@@ -804,6 +809,14 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("END_PUBLICATION_CANTON")],
         description=_("End date of the publication in the cantonal Gazette"),
     )
+    publikation_link_de = fields.AliasedMethodField(
+        aliases=[_("PUBLICATION_LINK_DE")],
+        description=_("Link to publication DE"),
+    )
+    publikation_link_it = fields.AliasedMethodField(
+        aliases=[_("PUBLICATION_LINK_IT")],
+        description=_("Link to publication IT"),
+    )
     entscheiddokumente = fields.AlexandriaSimpleDocumentField(
         mark="decision",
         aliases=[_("DECISION_DOCUMENTS")],
@@ -989,6 +1002,41 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             document_id=instance.case.document.pk,
         ).first()
         return answer.value if answer else ""
+
+    def get_publikation_link(self, instance):
+        return self.get_publikation_link_de(instance)
+
+    def get_publikation_link_de(self, instance):
+        return self._get_publication_link(instance, "de")
+
+    def get_publikation_link_it(self, instance):
+        return self._get_publication_link(instance, "it")
+
+    def _get_publication_link(self, instance, language):
+        """Check if the instance has been published, and format the link.
+
+        If not published, return an empty string.
+        """
+        published = (
+            instance.case.family.work_items.filter(task_id="fill-publication")
+            .annotate(
+                has_condition_answer=Exists(
+                    Answer.objects.filter(
+                        document_id=OuterRef("document_id"),
+                        question=settings.PUBLICATION["PUBLISH_QUESTION"],
+                        value=settings.PUBLICATION["PUBLISH_ANSWER"],
+                    )
+                )
+            )
+            .filter(has_condition_answer=True)
+        ).exists()
+
+        prefix = gr_constants.PUBLIC_INSTANCES_URL_PREFIXES.get(language)
+        return (
+            build_url(settings.PUBLIC_BASE_URL, f"{prefix}/{instance.pk}")
+            if published
+            else ""
+        )
 
     class Meta:
         exclude = [
