@@ -288,6 +288,10 @@ PublicationPermission = IsPublicAccess & (
         & (PublicationBE | PublicationSZ | PublicationUR | PublicationTest)
     )
     | (
+        # Locations
+        IsView("LocationView") & PublicationSZ
+    )
+    | (
         # Alexandria
         IsView(
             "PatchedDocumentViewSet",

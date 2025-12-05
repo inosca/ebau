@@ -1,4 +1,4 @@
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta, timezone as time_zone
 
 import pytest
 from caluma.caluma_form.factories import (
@@ -533,6 +533,55 @@ def test_public_caluma_instance_municipality_filter(
 
     assert response.status_code == status.HTTP_200_OK
     assert len(response.json()["data"]) == 3
+
+
+def test_public_caluma_instance_municipality_filter_sz(
+    db,
+    admin_client,
+    instance_factory,
+    location_factory,
+    instance_with_case,
+    publication_entry_factory,
+    caluma_workflow_config_sz,
+    publication_settings,
+    settings,
+):
+    settings.APPLICATION["SHORT_NAME"] = "sz"
+    publication_settings["BACKEND"] = "camac-ng"
+
+    instance_location = location_factory()
+    instance_location_2 = location_factory()
+
+    instances = [
+        instance_with_case(instance)
+        for instance in instance_factory.create_batch(3, location=instance_location)
+    ] + [
+        instance_with_case(instance)
+        for instance in instance_factory.create_batch(2, location=instance_location_2)
+    ]
+
+    publication_date = timezone.now() - timedelta(days=1)
+
+    for instance in instances:
+        publication_entry_factory(
+            publication_date=publication_date,
+            publication_end_date=timezone.now() + timedelta(days=30),
+            instance=instance,
+            is_published=True,
+        )
+
+    url = reverse("public-caluma-instance-list")
+
+    response = admin_client.get(
+        url,
+        {"municipality": instance_location.pk},
+        HTTP_X_CAMAC_PUBLIC_ACCESS=True,
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+    assert len(response.json()["data"]) == 3
+    date = response.json()["data"][0]["attributes"]["publication-date"]
+    assert datetime.fromisoformat(date).astimezone(time_zone.utc) == publication_date
 
 
 def test_public_caluma_instance_form_type_filter(

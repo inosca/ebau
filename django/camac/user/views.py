@@ -33,7 +33,12 @@ from camac.core.views import MultilangMixin
 from camac.swagger.utils import get_operation_description, group_param
 from camac.token_exchange.permissions import RequireLoT
 from camac.user.models import GeometerChangeTask
-from camac.user.permissions import IsAllowedClientToken, permission_aware
+from camac.user.permissions import (
+    DefaultPermission,
+    IsAllowedClientToken,
+    PublicationPermission,
+    permission_aware,
+)
 from camac.user.tasks import change_geometer_task
 
 from . import filters, models, serializers
@@ -47,6 +52,7 @@ class LocationView(MultilangMixin, ReadOnlyModelViewSet):
     serializer_class = serializers.LocationSerializer
     queryset = models.Location.objects.all()
     ordering = "name"
+    permission_classes = [DefaultPermission | PublicationPermission]
 
 
 class UserView(ReadOnlyModelViewSet):
