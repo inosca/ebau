@@ -910,7 +910,7 @@ def test_after_complete_construction_monitoring_ur(
 
 
 @pytest.mark.parametrize(
-    "main_form_slug,complete_check_answer,should_generate_additional_demand_task,should_generate_reject_task,should_generate_bk_task",
+    "main_form_slug,complete_check_answer,should_generate_additional_demand_task,should_generate_reject_task,should_generate_bk_task, should_generate_rpg_task",
     [
         (
             "building-permit",
@@ -918,6 +918,7 @@ def test_after_complete_construction_monitoring_ur(
             True,
             False,
             True,
+            False,
         ),
         (
             "building-permit",
@@ -925,6 +926,7 @@ def test_after_complete_construction_monitoring_ur(
             False,
             False,
             True,
+            False,
         ),
         (
             "building-permit",
@@ -932,13 +934,23 @@ def test_after_complete_construction_monitoring_ur(
             False,
             True,
             False,
+            False,
         ),
         (
-            "cantona-territory-usage",
+            "cantonal-territory-usage",
             "complete-check-vollstaendigkeitspruefung-complete",
             False,
             False,
             False,
+            False,
+        ),
+        (
+            "oereb-verfahren-gemeinde",
+            "complete-check-vollstaendigkeitspruefung-complete",
+            False,
+            False,
+            False,
+            True,
         ),
     ],
 )
@@ -955,6 +967,7 @@ def test_dynamic_task_after_complete_check_ur(
     caluma_case_factory,
     should_generate_bk_task,
     should_generate_reject_task,
+    should_generate_rpg_task,
 ):
     caluma_case = caluma_case_factory(document__form__slug=main_form_slug)
     work_item = caluma_work_item_factory(
@@ -969,6 +982,12 @@ def test_dynamic_task_after_complete_check_ur(
             slug="complete-check-vollstaendigkeitspruefung"
         ),
         value=complete_check_answer,
+    )
+
+    caluma_answer_factory(
+        document=caluma_case.document,
+        question=caluma_question_factory(slug="oereb-thema"),
+        value="oereb-thema-gnp" if should_generate_rpg_task else "oereb-thema-kpz",
     )
 
     result = CustomDynamicTasks().resolve_after_complete_check_ur(
@@ -989,6 +1008,11 @@ def test_dynamic_task_after_complete_check_ur(
         assert "reject" in result
     else:
         assert "reject" not in result
+
+    if should_generate_rpg_task:
+        assert "rpg" in result
+    else:
+        assert "rpg" not in result
 
 
 @pytest.mark.parametrize(

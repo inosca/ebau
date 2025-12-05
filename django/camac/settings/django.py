@@ -1725,6 +1725,17 @@ APPLICATIONS = {
                         },
                     },
                 ],
+                "rpg": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "8-1-neue-aufgabe-rpg",
+                            "recipient_types": [
+                                "koor_np_users",
+                            ],
+                        },
+                    },
+                ],
             },
             "SIMPLE_WORKFLOW": {
                 "complete-check": {

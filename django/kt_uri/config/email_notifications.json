@@ -562,5 +562,17 @@
       "service": null,
       "type": "email"
     }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 1505,
+    "fields": {
+      "slug": "8-1-neue-aufgabe-rpg",
+      "purpose": "8.1 Neue Aufgabe für KOOR NP (RPG)",
+      "subject": "URec Dossier ID {{INSTANCE_ID}} - Sie haben eine neue Aufgabe erhalten",
+      "body": " URec System Info 8.1 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nNACHFÜHRUNG STABILISIERUNGSZIEL RPG\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nIm URec wurde Ihnen eine neue Aufgabe zugewiesen. Bitte prüfen Sie das Dossier mit Blick auf eine allenfalls notwendige Datenerfassung betreffend Stabilisierungsziel RPG.\r\n\r\nFreundliche Grüsse",
+      "service": null,
+      "type": "email"
+    }
   }
 ]

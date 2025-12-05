@@ -248,3 +248,7 @@ class CustomDynamicGroups(BaseDynamicGroups):
         self, task, case, user, prev_work_item, context, **kwargs
     ):  # pragma: no cover
         return [str(Service.objects.get(slug="agr-bauen").pk)]
+
+    @register_dynamic_group("koor-np")
+    def resolve_koor_np(self, task, case, user, prev_work_item, context, **kwargs):
+        return [str(Service.objects.get(slug="koor-np").pk)]

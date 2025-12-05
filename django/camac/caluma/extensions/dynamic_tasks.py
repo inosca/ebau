@@ -198,6 +198,14 @@ class CustomDynamicTasks(BaseDynamicTasks):
     def resolve_after_complete_check_ur(self, case, user, prev_work_item, context):
         tasks = []
 
+        # Stabilisierungsziel RPG
+        oereb_gnp_answer = case.document.answers.filter(
+            question_id="oereb-thema"
+        ).first()
+
+        if oereb_gnp_answer and oereb_gnp_answer.value == "oereb-thema-gnp":
+            tasks.append("rpg")
+
         # Additional demand
         complete_check_document = case.work_items.get(task="complete-check").document
         completeness_answer = complete_check_document.answers.get(
