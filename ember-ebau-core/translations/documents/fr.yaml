@@ -29,6 +29,7 @@ documents:
   duplicateFileUploadGuide: ""
   deleteSuccess:
   download: Télécharger le fichier
+  originalFilename: sous {filename}
   downloadError: Quelque chose a mal tourné lors du téléchargement du fichier
   downloadSuccess: Le fichier a été téléchargé avec succès
   setConfidential:

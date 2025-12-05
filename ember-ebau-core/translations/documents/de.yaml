@@ -31,6 +31,7 @@ documents:
   duplicateFileUploadGuide: ""
   deleteSuccess: Die Datei wurde erfolgreich gelöscht
   download: Datei herunterladen
+  originalFilename: als {filename}
   downloadError: Beim Herunterladen der Datei ist etwas schief gelaufen
   downloadSuccess: Die Datei wurde erfolgreich heruntergeladen
   no-special-forms: ""

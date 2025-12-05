@@ -31,6 +31,7 @@ documents:
   duplicateFileUploadGuide: ""
   deleteSuccess: Il file è stato eliminato con successo.
   download: Scarica file
+  originalFilename: come {filename}
   downloadError: Durante il download del file qualcosa è andato storto.
   downloadSuccess: Il file è stato scaricato con successo.
   no-special-forms: "Non è più necessario compilare i moduli dei servizi cantonali e caricarli qui in formato PDF.  Le domande sono già state risposte nell'ambito della procedura di triage. Le eccezioni vengono elencate qui o richieste successivamente dal Comune."
