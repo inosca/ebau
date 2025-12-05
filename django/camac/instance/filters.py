@@ -1092,6 +1092,7 @@ class PublicCalumaInstanceFilterSet(FilterSet):
     dossier_nr = CharFilter()
     exclude_instance = NumberFilter(field_name="instance__pk", exclude=True)
 
+    @canton_aware
     def filter_municipality(self, queryset, name, value):
         municipality_question = MasterData.get_question_slug("municipality_slug")
 
@@ -1099,6 +1100,9 @@ class PublicCalumaInstanceFilterSet(FilterSet):
             document__answers__question_id=municipality_question,
             document__answers__value=str(value),
         ).distinct()
+
+    def filter_municipality_sz(self, queryset, name, value):
+        return queryset.filter(instance__location=value)
 
     def filter_form_type(self, queryset, name, value):
         """Filter the form type. UR specific."""

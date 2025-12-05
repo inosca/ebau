@@ -1599,6 +1599,11 @@ class PublicCalumaInstanceView(
                         instance_id=OuterRef("instance_id")
                     ).values("publication_end_date")[:1]
                 ),
+                publication_date=Subquery(
+                    PublicationEntry.objects.filter(
+                        instance_id=OuterRef("instance_id")
+                    ).values("publication_date")[:1]
+                ),
             ).order_by("instance__location__name", "publication_end_date", "dossier_nr")
         elif settings.PUBLICATION.get("BACKEND") == "caluma":
             if settings.APPLICATION_NAME in ["kt_gr", "kt_so"]:
