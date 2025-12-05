@@ -45,7 +45,7 @@ class AnnotationsConfig(EBauConfig):
     municipality: str | None = Field(
         description="Question slug for the municipality", default="gemeinde"
     )
-    description: str = Field(
+    description: str | list[str] = Field(
         description="Question slug for the description",
         default="beschreibung-bauvorhaben",
     )

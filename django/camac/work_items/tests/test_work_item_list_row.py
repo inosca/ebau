@@ -10,6 +10,9 @@ from rest_framework import status
 
 from camac.caluma.utils import date_to_deadline
 from camac.gis.utils import to_query
+from camac.settings.modules.work_item_list_schema import (
+    WorkItemListConfig,
+)
 
 fake = Faker()
 
@@ -540,3 +543,91 @@ def test_work_item_list_row_quick_complete(
     if expected_status == status.HTTP_200_OK:
         assert response.json()["data"]["attributes"]["is-ready"] is False
         assert response.json()["data"]["attributes"]["status"] == "completed"
+
+
+@pytest.mark.parametrize(
+    "annotation,expected_description",
+    [
+        ("beschreibung-bauvorhaben", "bauvorhaben"),
+        ("beschreibung-projektaenderung", "projektaenderung"),
+        ("nonexisting", None),
+        (
+            [
+                "beschreibung-projektaenderung",
+                "beschreibung-bauvorhaben",
+                "nonexisting",
+            ],
+            "projektaenderung",
+        ),
+        (
+            [
+                "beschreibung-bauvorhaben",
+                "beschreibung-projektaenderung",
+                "nonexisting",
+            ],
+            "bauvorhaben",
+        ),
+        (
+            [
+                "nonexisting",
+                "beschreibung-projektaenderung",
+                "beschreibung-bauvorhaben",
+            ],
+            "projektaenderung",
+        ),
+        (
+            [
+                "nonexisting",
+                "beschreibung-bauvorhaben",
+                "beschreibung-projektaenderung",
+            ],
+            "bauvorhaben",
+        ),
+    ],
+)
+def test_work_item_list_row_description_coalesce(
+    db,
+    admin_client,
+    service,
+    annotation,
+    expected_description,
+    work_item_list_row_factory,
+    gr_work_item_list_settings: WorkItemListConfig,
+    utils,
+    set_application_gr,
+):
+    """Test that the description annotation can be a list of slugs.
+
+    If it is a string, just return that answer.
+    If it is a list, return the first non-empty answer.
+    """
+    gr_work_item_list_settings.annotations.description = annotation
+    work_item = work_item_list_row_factory(
+        canton="gr",
+        addressed=service,
+        controlling=service,
+        status=WorkItem.STATUS_READY,
+        task__type=Task.TYPE_SIMPLE,
+    )
+
+    bauvorhaben_answer = work_item.case.document.answers.get(
+        question__slug="beschreibung-bauvorhaben"
+    )
+    bauvorhaben_answer.value = "bauvorhaben"
+    bauvorhaben_answer.save()
+    utils.add_answer(
+        work_item.case.document,
+        "beschreibung-projektaenderung",
+        "projektaenderung",
+    )
+
+    response = admin_client.get(
+        reverse("work-item-list-row-list"),
+        {"page[number]": 1, "page[size]": 20, "role": "active"},
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+
+    assert (
+        response.json()["data"][0]["attributes"]["description"] == expected_description
+    )

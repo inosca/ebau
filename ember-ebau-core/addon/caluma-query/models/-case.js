@@ -79,6 +79,10 @@ export default class CustomCaseBaseModel extends CaseModel {
     return null;
   }
 
+  get description() {
+    return this.getAnswerDisplayValue(answerSlugs.description);
+  }
+
   get intent() {
     return this.getAnswerDisplayValue(mainConfig.intentSlugs);
   }

@@ -58,6 +58,9 @@ WORK_ITEM_LIST = ModuleConfig[WorkItemListConfig](
             "subservice": ["inquiry"],
             "uso": ["inquiry"],
         },
+        annotations=AnnotationsConfig(
+            description=["beschreibung-projektaenderung", "beschreibung-bauvorhaben"],
+        ),
     ),
     kt_schwyz=WorkItemListConfig(
         enabled=True,

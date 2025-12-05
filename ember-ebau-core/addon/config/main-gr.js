@@ -76,7 +76,7 @@ export default {
       ],
     },
   },
-  intentSlugs: ["beschreibung-bauvorhaben"],
+  intentSlugs: ["beschreibung-projektaenderung", "beschreibung-bauvorhaben"],
   correction: {
     instanceState: "correction",
     allowedInstanceStates: ["subm", "init-distribution", "circulation"],

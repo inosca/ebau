@@ -298,6 +298,13 @@ class WorkItemListRowManager(models.Manager["WorkItemListRow"]):
         """
 
         annotations: AnnotationsConfig = settings.WORK_ITEM_LIST.annotations
+        if type(annotations.description) is list:
+            return Coalesce(
+                *[
+                    caluma_answer(desc_slug, "case__family__document_id")
+                    for desc_slug in annotations.description
+                ]
+            )
 
         return caluma_answer(annotations.description, "case__family__document_id")
 
