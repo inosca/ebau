@@ -605,7 +605,7 @@
               },
               {
                 "scope": "ServiceAndSubservice",
-                "fields": ["files"],
+                "fields": ["files", "category"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -759,7 +759,7 @@
               {
                 "marks": ["void"],
                 "scope": "Service",
-                "fields": ["title", "description", "date", "marks"],
+                "fields": ["title", "description", "date", "marks", "category"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
@@ -841,7 +841,7 @@
               },
               {
                 "scope": "ServiceAndSubservice",
-                "fields": ["files"],
+                "fields": ["files", "category"],
                 "condition": {
                   "~InstanceState": [
                     "rejected",
