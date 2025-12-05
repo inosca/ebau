@@ -22,6 +22,10 @@ $global-font-size: 16px;
 $global-font-size-s: 15px;
 $global-line-height: 26px;
 $global-line-height-s: 24px;
+$global-header-font-size: 16px;
+$global-header-font-size-s: 12px;
+$global-header-line-height: 17px;
+$global-header-line-height-s: 13px;
 
 // Colors
 $global-color-red: #ea161f;
@@ -53,12 +57,16 @@ $global-border-color: #dedede;
   // dynamically changing depending on screen size
   --global-font-size: #{$global-font-size};
   --global-line-height: #{$global-line-height};
+  --global-header-font-size: #{$global-header-font-size};
+  --global-header-line-height: #{$global-header-line-height};
   --page-content-margin-horizontal: #{$page-content-margin-horizontal-l};
   --page-content-margin-vertical: #{$page-content-margin-vertical-l};
 }
 
 @media screen and (max-width: 1119px) {
   :root {
+    --global-header-font-size: #{$global-header-font-size-s};
+    --global-header-line-height: #{$global-header-line-height-s};
     --page-content-margin-horizontal: #{$page-content-margin-horizontal-m};
     --page-content-margin-vertical: #{$page-content-margin-vertical-m};
   }

@@ -196,7 +196,6 @@ button.secondary,
 
 /* form related */
 .form-group {
-  position: relative;
 
   &:last-child {
     margin-bottom: 0;
@@ -263,8 +262,27 @@ button.secondary,
   color: variables.$global-color-red;
 }
 
+
+.logo {
+  background-image: url(../img/kanton-bern-logo.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  height: 68.5px;
+  width: 150px;
+}
+
+@media screen and (max-width: 1119px) {
+  .logo {
+    margin-top: 0px;
+    width: 110px;
+  }
+}
+
+
 .logo-caption {
-  line-height: 17px;
+  font-size: var(--global-header-line-height);
+  line-height: var(--global-header-line-height);
   letter-spacing: 0.01rem;
   word-spacing: 0.025rem;
   font-weight: 400;
@@ -274,13 +292,9 @@ button.secondary,
 }
 
 @media screen and (max-width: 1119px) {
-  div.logo-caption {
+  .logo-caption {
     margin-top: 12px;
     max-width: 210px;
-    font-size: 12px;
-    line-height: 13px;
-    letter-spacing: 0.01rem;
-    word-spacing: 0.025rem;
   }
 }
 
@@ -396,7 +410,6 @@ ul.box-beige {
 
     /* Infobox Title */
     .infobox-title {
-      position: relative;
       display: block;
       text-decoration: none;
       border: none;
@@ -663,7 +676,6 @@ body.login {
       }
 
       div.main-column {
-        position: relative;
         max-width: 800px;
         width: 58%;
         float: left;
@@ -679,7 +691,6 @@ body.login {
 
       div.context-column {
         width: 30%;
-        position: relative;
         top: -100px;
         transition: top 0.3s ease-in-out;
         float: right;
@@ -692,7 +703,6 @@ body.login {
       @media screen and (max-width: 1119px) {
         div.context-column {
           max-width: none;
-          position: relative;
           margin-left: 30px;
           margin-right: 30px;
           width: calc(100% - 60px);
@@ -710,6 +720,12 @@ body.login {
           width: calc(100% - 40px);
           min-height: auto;
         }
+      }
+    }
+
+    @media screen and (max-width: 767px) {
+      main.content {
+        margin-top: var(--page-content-margin-vertical);
       }
     }
 

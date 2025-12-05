@@ -5,54 +5,20 @@ header {
 
   .inner {
     max-width: variables.$page-inner-max-width;
-    padding: 0 var(--page-content-margin-horizontal);
+    margin: 0 var(--page-content-margin-horizontal);
     padding-top: variables.$page-header-padding-top;
+    border-bottom: 1px solid variables.$global-border-color;
+    position: relavite;
+    display: flex;
+    justify-content: space-between;
 
     hr {
       width: 100%;
       border-top: 1px solid variables.$global-border-color;
     }
 
-    p {
-      line-height: 17px;
-      letter-spacing: 0.01rem;
-      word-spacing: 0.025rem;
-      color: #000;
-      font-style: normal;
-      font-weight: 300;
-      margin-top: 19px;
-      margin-bottom: 24px;
-    }
-
-    .header-logo {
-      background-image: url(../img/kanton-bern-logo.svg);
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: contain;
-      height: 68.5px;
-      width: 150px;
-    }
-
-    .title {
-      font-size: 0.9rem;
-      margin-bottom: 20px;
-      margin-top: 45px;
-      padding-bottom: 10px;
-      position: relative;
-      width: 100%;
-
-      h1 {
-        font-family: "Roboto", sans-serif;
-        font-size: 48px;
-        line-height: 56px;
-        margin: -9px 0 28px -2px;
-        color: #000;
-        font-family: "Roboto";
-        font-style: normal;
-        font-weight: 100;
-        letter-spacing: 0.01rem;
-        word-spacing: 0.025rem;
-      }
+    .nav-left {
+      max-width: 66%;
     }
 
     /* Mobile menu */
@@ -63,7 +29,8 @@ header {
       width: 0;
 
       #mobile-menu-toggle {
-        margin: 40px 30px 50% -1px;
+        margin: 0;
+        padding-right: 0;
         position: relative;
         border-width: 0px;
 
@@ -112,7 +79,9 @@ header {
         width: 100vw;
         height: 100%;
         position: fixed;
+        top: 150px;
         right: -100vw;
+        padding: 40px 25px 20px;
         background-color: variables.$global-color-white;
         transition: all 300ms ease-in-out;
 
@@ -142,8 +111,8 @@ header {
               padding: 21px 30% 21px 0;
               margin: 21px auto;
               line-height: 1em;
-              font-size: 21px;
-              font-weight: 300;
+              font-size: 14px;
+              font-weight: 400;
 
               &.active {
                 padding: 21px 0;
