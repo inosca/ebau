@@ -2177,6 +2177,19 @@ class UrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("REVIEW_BUILDING_COMMISSION")],
         description=_("Review building commission"),
     )
+    zirkulation_rueckmeldungen = fields.InquiriesField(
+        status=WorkItem.STATUS_COMPLETED,
+        props=[
+            ("opinion", "STELLUNGNAHME"),
+            ("ancillary_clauses", "NEBENBESTIMMUNGEN"),
+            ("answer", "ANTWORT"),
+            ("service", "VON"),
+            ("service_description", "BESCHREIBUNG"),
+            ("clerk_decision", "SACHBEARBEITUNG_ENTSCHEID"),
+        ],
+        aliases=[_("CIRCULATION_FEEDBACK")],
+        description=_("Opinions and ancillary clauses of the invited services"),
+    )
 
     def get_publication_date(self, instance):
         return human_readable_date(instance.publication_date())

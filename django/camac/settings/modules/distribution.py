@@ -389,6 +389,7 @@ DISTRIBUTION = {
         "QUESTIONS": {
             "STATEMENT": "inquiry-answer-statement",
             "ANCILLARY_CLAUSES": "inquiry-answer-ancillary-clauses",
+            "CLERK_DECISION": "inquiry-answer-works-decision",
         },
         "NOTIFY_ON_CANCELLATION": True,
         "NOTIFICATIONS": {

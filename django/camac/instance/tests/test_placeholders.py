@@ -975,6 +975,7 @@ def test_dms_placeholders_ur(
     caluma_document_factory,
     publication_entry_factory,
     caluma_work_item_factory,
+    active_inquiry_factory,
 ):
     # Municipality
     municipality = service_factory(
@@ -1018,6 +1019,13 @@ def test_dms_placeholders_ur(
         document=work_item.document,
         question__slug="pruefung-durch-gemeinde",
         date=timezone.make_aware(datetime(2023, 1, 1, 20, 0, 0)),
+    )
+
+    # Inquiriy
+    active_inquiry_factory(
+        ur_instance,
+        status=WorkItem.STATUS_COMPLETED,
+        closed_at=make_aware(faker.Faker().date_time()),
     )
 
     url = reverse("instance-dms-placeholders", args=[ur_instance.pk])
