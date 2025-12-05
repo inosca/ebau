@@ -426,7 +426,7 @@ ECH0211 = {
             },
         },
         "ACCOMPANYING_REPORT": {
-            "category": "beteiligte-behörden",
+            "ALEXANDRIA_CATEGORY": "beteiligte-behörden",
             "EXTENSION_MAPPING": {
                 "inquiry-answer-situation": {
                     "tag": "situation",
@@ -628,7 +628,7 @@ ECH0211 = {
                 "category": "beilagen-zum-gesuch",
             },
         },
-        "ACCOMPANYING_REPORT": {"category": "beteiligte-behoerden"},
+        "ACCOMPANYING_REPORT": {"ALEXANDRIA_CATEGORY": "beteiligte-behoerden"},
         "REDIRECTS": {
             r"instance/<int:instance_id>/": "/cases/%(instance_id)i",
             r"claim/<int:instance_id>/": "/cases/%(instance_id)i/additional-demand",
@@ -720,7 +720,7 @@ ECH0211 = {
                 "category": "beilagen-zum-gesuch",
             },
         },
-        "ACCOMPANYING_REPORT": {"category": "beteiligte-behörden"},
+        "ACCOMPANYING_REPORT": {"ALEXANDRIA_CATEGORY": "beteiligte-behörden"},
         "REDIRECTS": {
             r"instance/<int:instance_id>/": "/cases/%(instance_id)i",
             r"claim/<int:instance_id>/": "/cases/%(instance_id)i/additional-demand",
