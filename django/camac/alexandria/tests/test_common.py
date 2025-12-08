@@ -1,7 +1,7 @@
 import pytest
 
 from camac.alexandria.extensions.common import (
-    get_role,
+    get_permission_key,
     has_alexandria_create_permission,
 )
 from camac.permissions.api import GRANT_CHOICES, grant
@@ -10,23 +10,54 @@ from camac.permissions.switcher import PERMISSION_MODE
 
 
 @pytest.mark.parametrize(
-    "append_role,service_group__name,role__name,expected_permission_key",
+    (
+        "use_role_permission_mapping",
+        "append_role",
+        "service_group__name",
+        "role__name",
+        "expected_permission_key",
+    ),
     [
-        (False, "service-cantonal", "service-lead", "cantonal"),
-        (False, "service-cantonal", "subservice", "cantonal"),
-        (False, "municipality", "municipality-lead", "municipality-lead"),
-        (False, "municipality", "subservice", "subservice"),
-        (True, "service-cantonal", "service-lead", "cantonal-service-lead"),
-        (True, "service-cantonal", "subservice", "cantonal-subservice"),
-        (True, "municipality", "municipality-lead", "municipality-lead"),
-        (True, "municipality", "subservice", "subservice"),
+        (False, False, "service-cantonal", "service-lead", "cantonal"),
+        (False, False, "service-cantonal", "subservice", "cantonal"),
+        (False, False, "municipality", "municipality-lead", "municipality-lead"),
+        (False, False, "municipality", "subservice", "subservice"),
+        (False, True, "service-cantonal", "service-lead", "cantonal-service-lead"),
+        (False, True, "service-cantonal", "subservice", "cantonal-subservice"),
+        (False, True, "municipality", "municipality-lead", "municipality-lead"),
+        (False, True, "municipality", "subservice", "subservice"),
+        (True, False, "service-cantonal", "service-lead", "cantonal"),
+        (True, False, "service-cantonal", "subservice", "cantonal"),
+        (True, False, "municipality", "municipality-lead", "municipality"),
+        (True, False, "municipality", "subservice", "service"),
+        (True, True, "service-cantonal", "service-lead", "cantonal-service"),
+        (True, True, "service-cantonal", "subservice", "cantonal-service"),
+        (True, True, "municipality", "municipality-lead", "municipality"),
+        (True, True, "municipality", "subservice", "service"),
     ],
 )
-def test_get_role(db, group, append_role, expected_permission_key, alexandria_settings):
-    alexandria_settings["CUSTOM_ROLE_MAPPINGS"] = {"service-cantonal": "cantonal"}
-    alexandria_settings["APPEND_ROLE_TO_CUSTOM_ROLE_MAPPING"] = append_role
+def test_get_permission_key(
+    db,
+    alexandria_settings,
+    append_role,
+    application_settings,
+    expected_permission_key,
+    group,
+    use_role_permission_mapping,
+):
+    application_settings["ROLE_PERMISSIONS"] = {
+        "service-lead": "service",
+        "subservice": "service",
+        "municipality-lead": "municipality",
+    }
 
-    assert get_role(group) == expected_permission_key
+    alexandria_settings["PERMISSION_KEY"] = {
+        "SERVICE_GROUP_MAPPING": {"service-cantonal": "cantonal"},
+        "SERVICE_GROUP_APPEND_ROLE": append_role,
+        "USE_ROLE_PERMISSIONS_MAPPING": use_role_permission_mapping,
+    }
+
+    assert get_permission_key(group) == expected_permission_key
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])

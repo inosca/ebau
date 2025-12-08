@@ -7,7 +7,7 @@ from django.conf import settings
 from django.core.validators import EMPTY_VALUES
 from generic_permissions.permissions import object_permission_for, permission_for
 
-from camac.alexandria.extensions.common import get_role
+from camac.alexandria.extensions.common import get_permission_key
 from camac.alexandria.extensions.permissions import conditions, scopes
 from camac.instance.models import Instance
 from camac.permissions.api import PermissionManager
@@ -19,7 +19,9 @@ def resolve_permissions(category, group):
     if category.parent:
         return resolve_permissions(category.parent, group)
 
-    return get_dict_item(category.metainfo, f"access.{get_role(group)}", default=None)
+    return get_dict_item(
+        category.metainfo, f"access.{get_permission_key(group)}", default=None
+    )
 
 
 MODE_CREATE = "create"
@@ -170,7 +172,7 @@ class CustomPermission:
     def has_permission_default(
         self, request, document=None, *args, **kwargs
     ):  # pragma: no cover
-        return get_role(request.group) == "support"
+        return get_permission_key(request.group) == "support"
 
     @permission_for(Document)
     @object_permission_for(Document)
@@ -285,7 +287,7 @@ class CustomPermission:
     @permission_for(Tag)
     @object_permission_for(Tag)
     def has_permission_for_tag(self, request, tag=None, *args, **kwargs):
-        role = get_role(request.group)
+        role = get_permission_key(request.group)
 
         if role == "support":
             # Support can create, edit and delete tags

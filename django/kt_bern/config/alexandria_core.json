@@ -11,43 +11,20 @@
       "modified_by_group": null,
       "metainfo": {
         "access": {
+          "service": {
+            "visibility": "all"
+          },
           "support": {
             "visibility": "all"
           },
+          "geometer": {},
           "applicant": {
             "visibility": "all"
           },
-          "subservice": {
+          "municipality": {
             "visibility": "all"
           },
-          "service-lead": {
-            "visibility": "all"
-          },
-          "geometer-lead": {},
-          "service-clerk": {
-            "visibility": "all"
-          },
-          "geometer-clerk": {},
-          "service-readonly": {
-            "visibility": "all"
-          },
-          "geometer-readonly": {},
-          "municipality-lead": {
-            "visibility": "all"
-          },
-          "municipality-clerk": {
-            "visibility": "all"
-          },
-          "municipality-readonly": {
-            "visibility": "all"
-          },
-          "construction-control-lead": {
-            "visibility": "all"
-          },
-          "construction-control-clerk": {
-            "visibility": "all"
-          },
-          "construction-control-readonly": {
+          "legal_authority": {
             "visibility": "all"
           }
         }
@@ -262,49 +239,22 @@
       "modified_by_group": null,
       "metainfo": {
         "access": {
+          "service": {
+            "visibility": "all"
+          },
           "support": {
             "visibility": "all"
+          },
+          "geometer": {
+            "visibility": "service"
           },
           "applicant": {
             "visibility": "all"
           },
-          "subservice": {
+          "municipality": {
             "visibility": "all"
           },
-          "service-lead": {
-            "visibility": "all"
-          },
-          "geometer-lead": {
-            "visibility": "service"
-          },
-          "service-clerk": {
-            "visibility": "all"
-          },
-          "geometer-clerk": {
-            "visibility": "service"
-          },
-          "service-readonly": {
-            "visibility": "all"
-          },
-          "geometer-readonly": {
-            "visibility": "service"
-          },
-          "municipality-lead": {
-            "visibility": "all"
-          },
-          "municipality-clerk": {
-            "visibility": "all"
-          },
-          "municipality-readonly": {
-            "visibility": "all"
-          },
-          "construction-control-lead": {
-            "visibility": "all"
-          },
-          "construction-control-clerk": {
-            "visibility": "all"
-          },
-          "construction-control-readonly": {
+          "legal_authority": {
             "visibility": "all"
           }
         }
@@ -405,43 +355,20 @@
       "modified_by_group": null,
       "metainfo": {
         "access": {
+          "service": {
+            "visibility": "all"
+          },
           "support": {
             "visibility": "all"
           },
+          "geometer": {},
           "applicant": {
             "visibility": "all"
           },
-          "subservice": {
+          "municipality": {
             "visibility": "all"
           },
-          "service-lead": {
-            "visibility": "all"
-          },
-          "geometer-lead": {},
-          "service-clerk": {
-            "visibility": "all"
-          },
-          "geometer-clerk": {},
-          "service-readonly": {
-            "visibility": "all"
-          },
-          "geometer-readonly": {},
-          "municipality-lead": {
-            "visibility": "all"
-          },
-          "municipality-clerk": {
-            "visibility": "all"
-          },
-          "municipality-readonly": {
-            "visibility": "all"
-          },
-          "construction-control-lead": {
-            "visibility": "all"
-          },
-          "construction-control-clerk": {
-            "visibility": "all"
-          },
-          "construction-control-readonly": {
+          "legal_authority": {
             "visibility": "all"
           }
         }
@@ -542,43 +469,20 @@
       "modified_by_group": null,
       "metainfo": {
         "access": {
+          "service": {
+            "visibility": "all"
+          },
           "support": {
             "visibility": "all"
           },
+          "geometer": {},
           "applicant": {
             "visibility": "all"
           },
-          "subservice": {
+          "municipality": {
             "visibility": "all"
           },
-          "service-lead": {
-            "visibility": "all"
-          },
-          "geometer-lead": {},
-          "service-clerk": {
-            "visibility": "all"
-          },
-          "geometer-clerk": {},
-          "service-readonly": {
-            "visibility": "all"
-          },
-          "geometer-readonly": {},
-          "municipality-lead": {
-            "visibility": "all"
-          },
-          "municipality-clerk": {
-            "visibility": "all"
-          },
-          "municipality-readonly": {
-            "visibility": "all"
-          },
-          "construction-control-lead": {
-            "visibility": "all"
-          },
-          "construction-control-clerk": {
-            "visibility": "all"
-          },
-          "construction-control-readonly": {
+          "legal_authority": {
             "visibility": "all"
           }
         }
@@ -679,40 +583,17 @@
       "modified_by_group": null,
       "metainfo": {
         "access": {
+          "service": {
+            "visibility": "all"
+          },
           "support": {
             "visibility": "all"
           },
-          "subservice": {
+          "geometer": {},
+          "municipality": {
             "visibility": "all"
           },
-          "service-lead": {
-            "visibility": "all"
-          },
-          "geometer-lead": {},
-          "service-clerk": {
-            "visibility": "all"
-          },
-          "geometer-clerk": {},
-          "service-readonly": {
-            "visibility": "all"
-          },
-          "geometer-readonly": {},
-          "municipality-lead": {
-            "visibility": "all"
-          },
-          "municipality-clerk": {
-            "visibility": "all"
-          },
-          "municipality-readonly": {
-            "visibility": "all"
-          },
-          "construction-control-lead": {
-            "visibility": "all"
-          },
-          "construction-control-clerk": {
-            "visibility": "all"
-          },
-          "construction-control-readonly": {
+          "legal_authority": {
             "visibility": "all"
           }
         }
@@ -775,46 +656,19 @@
       "modified_by_group": null,
       "metainfo": {
         "access": {
+          "service": {
+            "visibility": "service"
+          },
           "support": {
             "visibility": "all"
           },
-          "subservice": {
+          "geometer": {
             "visibility": "service"
           },
-          "service-lead": {
+          "municipality": {
             "visibility": "service"
           },
-          "geometer-lead": {
-            "visibility": "service"
-          },
-          "service-clerk": {
-            "visibility": "service"
-          },
-          "geometer-clerk": {
-            "visibility": "service"
-          },
-          "service-readonly": {
-            "visibility": "service"
-          },
-          "geometer-readonly": {
-            "visibility": "service"
-          },
-          "municipality-lead": {
-            "visibility": "service"
-          },
-          "municipality-clerk": {
-            "visibility": "service"
-          },
-          "municipality-readonly": {
-            "visibility": "service"
-          },
-          "construction-control-lead": {
-            "visibility": "service"
-          },
-          "construction-control-clerk": {
-            "visibility": "service"
-          },
-          "construction-control-readonly": {
+          "legal_authority": {
             "visibility": "service"
           }
         }
@@ -839,43 +693,20 @@
       "modified_by_group": null,
       "metainfo": {
         "access": {
+          "service": {
+            "visibility": "all"
+          },
           "support": {
             "visibility": "all"
           },
+          "geometer": {},
           "applicant": {
             "visibility": "all"
           },
-          "subservice": {
+          "municipality": {
             "visibility": "all"
           },
-          "service-lead": {
-            "visibility": "all"
-          },
-          "geometer-lead": {},
-          "service-clerk": {
-            "visibility": "all"
-          },
-          "geometer-clerk": {},
-          "service-readonly": {
-            "visibility": "all"
-          },
-          "geometer-readonly": {},
-          "municipality-lead": {
-            "visibility": "all"
-          },
-          "municipality-clerk": {
-            "visibility": "all"
-          },
-          "municipality-readonly": {
-            "visibility": "all"
-          },
-          "construction-control-lead": {
-            "visibility": "all"
-          },
-          "construction-control-clerk": {
-            "visibility": "all"
-          },
-          "construction-control-readonly": {
+          "legal_authority": {
             "visibility": "all"
           }
         }
@@ -976,40 +807,17 @@
       "modified_by_group": null,
       "metainfo": {
         "access": {
+          "service": {
+            "visibility": "all"
+          },
           "support": {
             "visibility": "all"
           },
-          "subservice": {
+          "geometer": {},
+          "municipality": {
             "visibility": "all"
           },
-          "service-lead": {
-            "visibility": "all"
-          },
-          "geometer-lead": {},
-          "service-clerk": {
-            "visibility": "all"
-          },
-          "geometer-clerk": {},
-          "service-readonly": {
-            "visibility": "all"
-          },
-          "geometer-readonly": {},
-          "municipality-lead": {
-            "visibility": "all"
-          },
-          "municipality-clerk": {
-            "visibility": "all"
-          },
-          "municipality-readonly": {
-            "visibility": "all"
-          },
-          "construction-control-lead": {
-            "visibility": "all"
-          },
-          "construction-control-clerk": {
-            "visibility": "all"
-          },
-          "construction-control-readonly": {
+          "legal_authority": {
             "visibility": "all"
           }
         }
