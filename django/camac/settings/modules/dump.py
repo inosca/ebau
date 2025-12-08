@@ -431,6 +431,10 @@ DUMP = {
                     regex=r"^heat-generator",
                     version=3,
                 ),
+                "caluma_solar_plants_form_v3": generate_form_dump_config(
+                    regex=r"^(?!solaranlagen-tabelle-v3$)solaranlagen(-)?",
+                    version=3,
+                ),
                 "caluma_heat_generator_form_v2": generate_form_dump_config(
                     regex=r"^heat-generator",
                     version=2,

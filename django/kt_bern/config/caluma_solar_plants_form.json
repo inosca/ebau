@@ -263,15 +263,15 @@
     "model": "caluma_form.formquestion",
     "pk": "solaranlagen.solaranlagen-information",
     "fields": {
-      "created_at": "2022-02-21T11:59:10.751Z",
-      "modified_at": "2022-02-21T11:59:10.752Z",
+      "created_at": "2025-11-03T13:41:12.570Z",
+      "modified_at": "2025-11-03T13:41:12.570Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "solaranlagen",
       "question": "solaranlagen-information",
-      "sort": 2
+      "sort": 6
     }
   },
   {
@@ -446,12 +446,12 @@
     "pk": "solaranlagen-bestaetigung-richtigkeit-der-angaben-ja",
     "fields": {
       "created_at": "2022-02-21T13:55:02.776Z",
-      "modified_at": "2022-02-21T13:57:16.804Z",
+      "modified_at": "2025-11-14T08:55:34.841Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Die Richtigkeit der Angaben bestätigt die Liegenschaftseigentümerschaft oder deren Vertretung\", \"fr\": \"Le ou la propriétaire du bien-fonds ou son représentant/sa représentante confirme l’exactitude des indications fournies\", \"it\": null}",
+      "label": "{\"de\": \"Die Richtigkeit der Angaben bestätigt die Liegenschaftseigentümerschaft oder deren Vertretung.\", \"fr\": \"Le ou la propriétaire du bien-fonds ou son représentant/sa représentante confirme l’exactitude des indications fournies.\", \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -681,7 +681,7 @@
     "pk": "solaranlagen-bestaetigung",
     "fields": {
       "created_at": "2022-02-21T13:54:07.337Z",
-      "modified_at": "2022-02-21T13:57:55.339Z",
+      "modified_at": "2025-11-03T14:36:57.464Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -692,7 +692,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -745,7 +745,7 @@
     "pk": "solaranlagen-bestaetigung-richtigkeit-der-angaben",
     "fields": {
       "created_at": "2022-02-21T13:55:02.917Z",
-      "modified_at": "2022-02-21T13:57:17.094Z",
+      "modified_at": "2025-11-14T08:55:35.067Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -756,8 +756,8 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
@@ -812,7 +812,7 @@
     "pk": "solaranlagen-information",
     "fields": {
       "created_at": "2022-02-21T11:59:10.605Z",
-      "modified_at": "2022-02-21T12:15:04.154Z",
+      "modified_at": "2025-11-27T10:12:08.200Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -825,7 +825,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"Gemäss Art.18a des Raumplanungsgesetzes (RPG; SR 700) müssen Solaranlagen, die nicht der Bewilligungspflicht unterstehen, vor der Realisierung der zuständigen Behörde gemeldet werden.\\n\\nFür nicht genügend angepasste Anlagen¹ ist immer <u>eine Baubewilligung nötig</u>. Dies gilt auch für Solaranlagen auf Kultur- und Naturdenkmälern. Mit dem Einreichen eines Baugesuchs ist aber auch die Meldepflicht erfüllt.\\n\\nFür Anlagen, bei denen keine Baubewilligung notwendig ist, <u>besteht eine Meldepflicht</u>. Zuständige Behörde für die Meldung der Solaranlage ist die Standortgemeinde.\\n\\n<p class=\\\"uk-text-meta\\\">¹ vgl. auch Art. 32a und b Raumplanungsverordnung (RPV; SR 700.1) sowie <a href=\\\"https://www.weu.be.ch/content/dam/weu/dokumente/aue/de/energievorschriften-bauen/aue-en-richtlinien-erneuerbare-energien-de.pdf\\\">Richtlinien «Bewilligungsfreie Anlagen zur Gewinnung von erneuerbarer Energie»</a></p>\\n\\n<hr class=\\\"uk-margin-remove-bottom\\\">\", \"fr\": \"L’article 18a de la loi sur l’aménagement du territoire (LAT; RS 700) prévoit que les installations solaires qui ne nécessitent pas d’autorisation doivent être annoncées à l’autorité compétente avant le début des travaux.\\n\\nDans le cas des installations considérées comme non suffisamment adaptées aux toits¹, <u>un permis de construire est</u> toujours <u>nécessaire</u>. Cette règle s’applique également aux installations solaires prévues sur des biens culturels ou dans des sites naturels. La remise d’une demande de permis de construire répond également à l’obligation d’annoncer.\\n\\nLes installations solaires qui n’exigent pas de permis de construire <u>doivent</u> obligatoirement <u>être annoncées</u>. L’autorité à laquelle il convient de faire cette annonce est la commune concernée par l’installation.\\n\\n<p class=\\\"uk-text-meta\\\">¹ Voir également les articles 32a et 32b de l’ordonnance sur l’aménagement du territoire (OAT; RS 700.1) ainsi que les <a href=\\\"http://www.weu.be.ch/content/dam/weu/dokumente/aue/fr/energievorschriften-bauen/aue-en-richtlinien-erneuerbare-energien-fr.pdf\\\">directives «Installations de production d’énergies renouvelables non soumises au régime du permis de construire»</a></p>\\n\\n<hr class=\\\"uk-margin-remove-bottom\\\">\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"Gemäss Art.18a des Raumplanungsgesetzes (RPG; SR 700) müssen Solaranlagen, die nicht der Bewilligungspflicht unterstehen, vor der Realisierung der zuständigen Behörde gemeldet werden.\\n\\nFür nicht genügend angepasste Anlagen¹ ist immer <u>eine Baubewilligung nötig</u>. Dies gilt auch für Solaranlagen auf Kultur- und Naturdenkmälern. Mit dem Einreichen eines Baugesuchs ist aber auch die Meldepflicht erfüllt.\\n\\nFür Anlagen, bei denen keine Baubewilligung notwendig ist, <u>besteht eine Meldepflicht</u>. Zuständige Behörde für die Meldung der Solaranlage ist die Standortgemeinde.\\n\\n<p class=\\\"uk-text-meta\\\">¹ vgl. auch Art. 32a und b und Art. 32a ᵇⁱˢ Raumplanungsverordnung (RPV; SR 700.1), <a target=\\\"_blank\\\" href=\\\"https://www.weu.be.ch/de/start/themen/energie/energievorschriften-bauen.html\\\">die Richtlinien Baubewilligungsfreie Anlagen zur Gewinnung erneuerbarer Energien», die Merkblätter «Baubewilligungsfreie Solaranlagen auf Dächern im Meldeverfahren» und «Baubewilligungsfreie Solaranlagen an Fassaden im Meldeverfahren»</a>.</p>\\n\\n<hr class=\\\"uk-margin-remove-bottom\\\">\", \"fr\": \"L’article 18a de la loi sur l’aménagement du territoire (LAT; RS 700) prévoit que les installations solaires qui ne nécessitent pas d’autorisation doivent être annoncées à l’autorité compétente avant le début des travaux.\\n\\nDans le cas des installations considérées comme non suffisamment adaptées aux toits¹, <u>un permis de construire est</u> toujours <u>nécessaire</u>. Cette règle s’applique également aux installations solaires prévues sur des biens culturels ou dans des sites naturels. La remise d’une demande de permis de construire répond également à l’obligation d’annoncer.\\n\\nLes installations solaires qui n’exigent pas de permis de construire <u>doivent</u> obligatoirement <u>être annoncées</u>. L’autorité à laquelle il convient de faire cette annonce est la commune concernée par l’installation.\\n\\n<p class=\\\"uk-text-meta\\\">¹cf. aussi les articles 32a, 32b et 32abis de l’ordonnance sur l’aménagement du territoire (OAT, RS 700.1), les directives « Installations de production d’énergies renouvelables non soumises au régime du permis de construire » <a target=\\\"_blank\\\" href=\\\"https://www.weu.be.ch/fr/start/themen/energie/energievorschriften-bauen.html\\\">ainsi que les fiches d'information se rapportant aux installations solaires sur les toits ou en façade dispensées de permis de construire dans le cadre de la procédure d’annonce</a>.</p>\\n\\n<hr class=\\\"uk-margin-remove-bottom\\\">\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -843,7 +843,7 @@
     "pk": "solaranlagen-tabelle",
     "fields": {
       "created_at": "2022-02-21T09:47:37.202Z",
-      "modified_at": "2022-02-21T16:19:55.080Z",
+      "modified_at": "2025-11-03T14:32:44.117Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -855,7 +855,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
@@ -1222,8 +1222,8 @@
     "model": "caluma_form.questionoption",
     "pk": "solaranlagen-bestaetigung-richtigkeit-der-angaben.solaranlagen-bestaetigung-richtigkeit-der-angaben-ja",
     "fields": {
-      "created_at": "2022-02-21T13:57:17.124Z",
-      "modified_at": "2022-02-21T13:57:17.124Z",
+      "created_at": "2025-11-14T08:55:35.088Z",
+      "modified_at": "2025-11-14T08:55:35.088Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",

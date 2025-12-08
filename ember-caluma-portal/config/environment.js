@@ -254,6 +254,7 @@ module.exports = function (environment) {
           "situationsplan-ersatzpflanzung-und-rodung-dokument-begruendung-v2",
           "entfernen-von-hecken-und-feldgehoelzen-dokument-begruendung-v2",
           "solaranlagen-tabelle-grundriss-ansichtsplan-dokument-begruendung-v2",
+          "solaranlagen-tabelle-situationsplan-mit-eingezeichneter-solaranlage-dokument-begruendung-v3",
         ],
       },
       instanceStates: instanceStatesBe,
