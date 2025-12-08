@@ -120,13 +120,17 @@ class PermissionEventHandlerBE(
         )
 
         for instance_acl in instance_acls:
-            self.manager.revoke(instance_acl)
+            self.manager.revoke(
+                instance_acl,
+                event_name="geometer-changed",
+            )
 
         self.manager.grant(
             instance,
             grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
             access_level="geometer",
             service=selected_geometer,
+            event_name="geometer-changed",
         )
         return instance_acls.count()
 
