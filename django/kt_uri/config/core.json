@@ -12784,6 +12784,22 @@
   },
   {
     "model": "core.instanceresource",
+    "pk": 12000015,
+    "fields": {
+      "available_instance_resource": "taskform",
+      "resource": 12000003,
+      "name": "Stabilisierungsziel RPG",
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 36,
+      "form_group": 161,
+      "require_permission": null
+    }
+  },
+  {
+    "model": "core.instanceresource",
     "pk": 14000009,
     "fields": {
       "available_instance_resource": "dashboard",
@@ -36624,6 +36640,114 @@
     }
   },
   {
+    "model": "core.irroleacl",
+    "pk": 12002837,
+    "fields": {
+      "instance_resource": 12000015,
+      "role": 1061,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002838,
+    "fields": {
+      "instance_resource": 12000015,
+      "role": 1061,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002839,
+    "fields": {
+      "instance_resource": 12000015,
+      "role": 1061,
+      "instance_state": 32
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002840,
+    "fields": {
+      "instance_resource": 12000015,
+      "role": 1061,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002841,
+    "fields": {
+      "instance_resource": 12000015,
+      "role": 1061,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002842,
+    "fields": {
+      "instance_resource": 12000015,
+      "role": 1061,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002843,
+    "fields": {
+      "instance_resource": 12000015,
+      "role": 1061,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002844,
+    "fields": {
+      "instance_resource": 12000015,
+      "role": 1061,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002845,
+    "fields": {
+      "instance_resource": 12000015,
+      "role": 1061,
+      "instance_state": 28
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002846,
+    "fields": {
+      "instance_resource": 12000015,
+      "role": 1061,
+      "instance_state": 29
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002847,
+    "fields": {
+      "instance_resource": 12000015,
+      "role": 1061,
+      "instance_state": 31
+    }
+  },
+  {
+    "model": "core.irroleacl",
+    "pk": 12002848,
+    "fields": {
+      "instance_resource": 12000015,
+      "role": 1061,
+      "instance_state": 33
+    }
+  },
+  {
     "model": "core.irtaskform",
     "pk": 12000001,
     "fields": {
@@ -36656,6 +36780,13 @@
     "pk": 12000013,
     "fields": {
       "task": "construction-step-av-state-project"
+    }
+  },
+  {
+    "model": "core.irtaskform",
+    "pk": 12000015,
+    "fields": {
+      "task": "rpg"
     }
   },
   {

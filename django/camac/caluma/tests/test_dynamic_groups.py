@@ -457,3 +457,11 @@ def test_dynamic_group_gebaudeversicherung(db, service_factory):
     assert CustomDynamicGroups().resolve("gebaudeversicherung")(
         None, None, None, None, None
     ) == [str(service.pk)]
+
+
+def test_dynamic_group_koor_np_ur(db, service_factory, instance):
+    service = service_factory(slug="koor-np")
+
+    assert CustomDynamicGroups().resolve("koor-np")(
+        None, instance.case, None, None, None
+    ) == [str(service.pk)]

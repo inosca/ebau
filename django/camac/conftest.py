@@ -1030,6 +1030,7 @@ def caluma_forms_ur(settings):
         "open-gwr-construction-project",
         "update-gwr-status",
         "update-gwr-status-refused",
+        "stabilisierungsziel-rpg",
     ]:
         caluma_form_models.Form.objects.create(slug=form, name=form)
 

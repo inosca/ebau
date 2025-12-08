@@ -1726,6 +1726,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "stabilisierungsziel-rpg",
+    "fields": {
+      "created_at": "2025-12-05T09:50:32.686Z",
+      "modified_at": "2025-12-05T09:50:32.686Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Stabilisierungsziel RPG\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "tabelle-realsierung",
     "fields": {
       "created_at": "2021-11-29T07:25:40.201Z",
@@ -13937,6 +13955,81 @@
       "form": "spezielle-bauten",
       "question": "typ-der-speziellen-bauten",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stabilisierungsziel-rpg.anzahl-gebaeude-die-einer-bauzone-zugewiesen-wurden",
+    "fields": {
+      "created_at": "2025-12-05T09:51:32.400Z",
+      "modified_at": "2025-12-05T09:51:32.400Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stabilisierungsziel-rpg",
+      "question": "anzahl-gebaeude-die-einer-bauzone-zugewiesen-wurden",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stabilisierungsziel-rpg.anzahl-gebaeude-die-infolge-aenderung-der-nutzungsplanung-neu-ausserhalb-der-bauzone-liegen",
+    "fields": {
+      "created_at": "2025-12-05T09:52:16.752Z",
+      "modified_at": "2025-12-05T09:52:16.752Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stabilisierungsziel-rpg",
+      "question": "anzahl-gebaeude-die-infolge-aenderung-der-nutzungsplanung-neu-ausserhalb-der-bauzone-liegen",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stabilisierungsziel-rpg.rpg-abschliessen",
+    "fields": {
+      "created_at": "2025-12-05T12:19:47.488Z",
+      "modified_at": "2025-12-05T12:19:47.488Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stabilisierungsziel-rpg",
+      "question": "rpg-abschliessen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stabilisierungsziel-rpg.versiegelte-entsiegelte-flaechen",
+    "fields": {
+      "created_at": "2025-12-05T09:53:11.923Z",
+      "modified_at": "2025-12-05T09:53:11.923Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stabilisierungsziel-rpg",
+      "question": "versiegelte-entsiegelte-flaechen",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "stabilisierungsziel-rpg.versiegelt-oder-entsiegelt",
+    "fields": {
+      "created_at": "2025-12-05T12:18:31.630Z",
+      "modified_at": "2025-12-05T12:18:31.630Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stabilisierungsziel-rpg",
+      "question": "versiegelt-oder-entsiegelt",
+      "sort": 3
     }
   },
   {
@@ -61672,6 +61765,42 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"####**Rodungsgesuch**\\nFür alle Bauten und Anlagen im Wald die weder als zonenkonform noch als standortgebundene nichtforstliche Kleinbauten bewillligt werden können, muss ein Rodungsgesuch eingereicht werden. Bitte beachten Sie, dass das Rodungsgesuch gleichzeitig mit der Bauplanauflage im Amtsblatt publiziert werden muss und deshalb nicht nachträglich eingereicht werden kann.\\n\\nWeitere Angaben zu den Bewilligungsvoraussetzungen für Bauten und Anlagen im Wald finden Sie im [BaB Merkblatt A2](https://www.ur.ch/_docn/212918/Merkblatt_Bauten_ausserhalb_Bauzonen__Reduziert.pdf).\\n\\nLink zum [Rodungsgesuch](https://www.bafu.admin.ch/dam/bafu/de/dokumente/wald-holz/fachinfo-daten/rodungsgesuch.docx.download.docx/rodungsgesuch.docx) (Tabelle mit Formeln).\\n\\nLink zum [Rodungsgesuch](https://www.bafu.admin.ch/dam/bafu/de/dokumente/wald-holz/fachinfo-daten/rodungsgesuch-ohne-formeln.docx.download.docx/2020.06.01_Rodungsgesuch_ohne%20Formel.docx) (Tabelle ohne Formeln).\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "rpg-abschliessen",
+    "fields": {
+      "created_at": "2025-12-05T12:19:47.350Z",
+      "modified_at": "2025-12-05T12:19:47.350Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abschliessen\", \"fr\": null, \"it\": null}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "color": "primary",
+        "action": "complete",
+        "show_validation": false,
+        "validate_on_enter": false
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
