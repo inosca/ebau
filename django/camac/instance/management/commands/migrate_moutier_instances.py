@@ -28,7 +28,11 @@ class Command(BaseCommand):
     help = "Close all existing instances which are related to the specific service."
 
     def _get_service(self, service_id):
-        return Service.objects.get(pk=service_id)
+        return Service.objects.filter(
+            pk=service_id,
+            meta__has_key="deactivated-municipality-at",
+            service_group__name="municipality",
+        ).first()
 
     def add_arguments(self, parser):
         # positional argument, default to current Moutier Service ID
@@ -50,6 +54,14 @@ class Command(BaseCommand):
         sid = transaction.savepoint()
 
         self._moutier_service = self._get_service(service_id=options["service_id"])
+        if not self._moutier_service:
+            self.stdout.write(
+                self.style.WARNING(
+                    "No deactivated municipality with that service id found."
+                )
+            )
+            return
+
         moutier_instances = Instance.objects.filter(
             # Moutier is the active service
             Exists(
