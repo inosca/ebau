@@ -1670,10 +1670,10 @@
     "pk": "solaranlagen-tabelle",
     "fields": {
       "created_at": "2020-10-21T12:20:38.477Z",
-      "modified_at": "2022-02-24T15:22:41.776Z",
+      "modified_at": "2025-11-11T08:02:49.296Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "name": "{\"de\": \"Solaranlagen Tabelle\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -13351,7 +13351,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "24d-rpg",
-      "sort": 10
+      "sort": 16
     }
   },
   {
@@ -13366,7 +13366,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "abstand-oberkante-anlage-dachrand",
-      "sort": 4
+      "sort": 10
     }
   },
   {
@@ -13381,7 +13381,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "anlagedaten",
-      "sort": 24
+      "sort": 30
     }
   },
   {
@@ -13396,7 +13396,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "anlage-ragt-nicht-ueber-dachflaeche-hinaus",
-      "sort": 6
+      "sort": 12
     }
   },
   {
@@ -13411,7 +13411,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "art-der-kollektoren",
-      "sort": 22
+      "sort": 28
     }
   },
   {
@@ -13426,7 +13426,22 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "beschreibung-der-warmenutzung",
-      "sort": 20
+      "sort": 26
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-tabelle.bestaetigung-kenntnis",
+    "fields": {
+      "created_at": "2025-11-06T13:31:53.651Z",
+      "modified_at": "2025-11-06T13:31:53.651Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-tabelle",
+      "question": "bestaetigung-kenntnis",
+      "sort": 1
     }
   },
   {
@@ -13441,7 +13456,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "erwartete-stromproduktion",
-      "sort": 17
+      "sort": 23
     }
   },
   {
@@ -13456,7 +13471,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "gesamtkosten",
-      "sort": 16
+      "sort": 22
     }
   },
   {
@@ -13471,7 +13486,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "gesetzliche-vorgaben",
-      "sort": 9
+      "sort": 15
     }
   },
   {
@@ -13486,22 +13501,22 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "hinweis-baugesuch-noetig",
-      "sort": 1
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "solaranlagen-tabelle.installation-flachdach",
+    "pk": "solaranlagen-tabelle.hinweis-baugesuch-noetig-fuer-parkplatzueberdachung-und-freistehende-anlagen",
     "fields": {
-      "created_at": "2022-09-15T07:03:18.862Z",
-      "modified_at": "2022-09-15T07:03:18.862Z",
+      "created_at": "2025-11-05T09:19:54.185Z",
+      "modified_at": "2025-11-05T09:19:54.185Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
-      "question": "installation-flachdach",
-      "sort": 8
+      "question": "hinweis-baugesuch-noetig-fuer-parkplatzueberdachung-und-freistehende-anlagen",
+      "sort": 3
     }
   },
   {
@@ -13516,7 +13531,22 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "isos",
-      "sort": 12
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-tabelle.ist-die-solaranlage-mit-einem-abstand-von-mamimal-20-cm-und-parallel-zur-fassade-angeordnet",
+    "fields": {
+      "created_at": "2025-11-05T10:19:18.361Z",
+      "modified_at": "2025-11-05T10:19:18.361Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-tabelle",
+      "question": "ist-die-solaranlage-mit-einem-abstand-von-mamimal-20-cm-und-parallel-zur-fassade-angeordnet",
+      "sort": 4
     }
   },
   {
@@ -13531,7 +13561,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "kompakte-flaeche",
-      "sort": 5
+      "sort": 11
     }
   },
   {
@@ -13546,7 +13576,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "kulturobjekt",
-      "sort": 14
+      "sort": 20
     }
   },
   {
@@ -13561,7 +13591,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "neben-kulturobjekt",
-      "sort": 13
+      "sort": 19
     }
   },
   {
@@ -13576,7 +13606,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "nutzung",
-      "sort": 21
+      "sort": 27
     }
   },
   {
@@ -13591,7 +13621,22 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "reflexionsarm",
-      "sort": 2
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-tabelle.solaranlagen-an-fassaden-ohne-baubewilligung",
+    "fields": {
+      "created_at": "2025-11-05T10:39:01.153Z",
+      "modified_at": "2025-11-05T10:39:01.153Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-tabelle",
+      "question": "solaranlagen-an-fassaden-ohne-baubewilligung",
+      "sort": 8
     }
   },
   {
@@ -13606,7 +13651,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "solaranlagen-auf-kulturobjekten",
-      "sort": 15
+      "sort": 21
     }
   },
   {
@@ -13621,7 +13666,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "solar-gesamtflaeche-m2",
-      "sort": 19
+      "sort": 25
     }
   },
   {
@@ -13636,7 +13681,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "solar-gesamtleistung-kw",
-      "sort": 18
+      "sort": 24
     }
   },
   {
@@ -13651,7 +13696,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "standort-kernzone",
-      "sort": 11
+      "sort": 17
     }
   },
   {
@@ -13666,7 +13711,37 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "typ-der-solaranlage",
-      "sort": 23
+      "sort": 29
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-tabelle.ueberdeckt-die-solaranlage-vorhandene-gliederungs-und-schmuckelemente-der-fassade",
+    "fields": {
+      "created_at": "2025-11-05T10:12:30.148Z",
+      "modified_at": "2025-11-05T10:12:30.148Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-tabelle",
+      "question": "ueberdeckt-die-solaranlage-vorhandene-gliederungs-und-schmuckelemente-der-fassade",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-tabelle.ueber-die-fassadenkanten",
+    "fields": {
+      "created_at": "2025-11-05T10:16:17.925Z",
+      "modified_at": "2025-11-05T10:16:17.925Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-tabelle",
+      "question": "ueber-die-fassadenkanten",
+      "sort": 5
     }
   },
   {
@@ -13681,7 +13756,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "ueberragt-dachflaeche",
-      "sort": 7
+      "sort": 13
     }
   },
   {
@@ -13696,7 +13771,22 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle",
       "question": "winkel-45-grad",
-      "sort": 3
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-tabelle.wo-wird-die-anlage-installiert",
+    "fields": {
+      "created_at": "2025-11-05T09:05:49.498Z",
+      "modified_at": "2025-11-05T09:05:49.498Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-tabelle",
+      "question": "wo-wird-die-anlage-installiert",
+      "sort": 14
     }
   },
   {
@@ -19993,6 +20083,74 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Dieses Dossier wird vom Gesuchsteller eingereicht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bestaetigung-kenntnis-ja",
+    "fields": {
+      "created_at": "2025-11-06T13:31:53.408Z",
+      "modified_at": "2025-11-07T07:17:01.315Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Einverstanden\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bestaetigung-kenntnisnahme-ja",
+    "fields": {
+      "created_at": "2025-11-06T13:06:57.835Z",
+      "modified_at": "2025-11-06T13:06:57.835Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zur Kenntnis genommen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bestaetigung-kenntnisnahme-nein",
+    "fields": {
+      "created_at": "2025-11-06T13:26:49.212Z",
+      "modified_at": "2025-11-06T13:26:49.212Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht einverstanden\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bestaetigung-kenntnis-nein",
+    "fields": {
+      "created_at": "2025-11-06T13:31:53.379Z",
+      "modified_at": "2025-11-07T07:17:55.706Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht einverstanden\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -26342,6 +26500,40 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "ist-die-solaranlage-mit-einem-abstand-von-mamimal-20-cm-und-parallel-zur-fassade-angeordnet-ja",
+    "fields": {
+      "created_at": "2025-11-05T10:19:18.104Z",
+      "modified_at": "2025-11-05T10:19:18.104Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "ist-die-solaranlage-mit-einem-abstand-von-mamimal-20-cm-und-parallel-zur-fassade-angeordnet-nein",
+    "fields": {
+      "created_at": "2025-11-05T10:19:18.124Z",
+      "modified_at": "2025-11-06T13:33:14.391Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "ist-eine-anlage-des-langsamverkehrs-betroffen-ja",
     "fields": {
       "created_at": "2020-11-03T16:11:42.338Z",
@@ -30422,6 +30614,125 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "solaranlagen-an-fassaden-ohne-baubewilligung-ersetzt-bauteile",
+    "fields": {
+      "created_at": "2025-11-05T10:44:41.578Z",
+      "modified_at": "2025-11-05T10:44:41.578Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Mit der Solaranlage werden bisher einheitlich gestaltete Fassadenelemente oder Bauteile einheitlich ersetzt.\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "solaranlagen-an-fassaden-ohne-baubewilligung-farbgebung-wie-fassadenflaechen",
+    "fields": {
+      "created_at": "2025-11-05T10:50:11.506Z",
+      "modified_at": "2025-11-05T10:53:33.887Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die Solarmodule weisen eine ähnliche Farbgebung auf wie die anschliessenden Fassadenflächen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "solaranlagen-an-fassaden-ohne-baubewilligung-giebelflaechen-werden-abgedeckt",
+    "fields": {
+      "created_at": "2025-11-05T10:48:54.280Z",
+      "modified_at": "2025-11-05T10:53:33.749Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die Giebelflächen von Schrägdächern werden vollständig abgedeckt\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "solaranlagen-an-fassaden-ohne-baubewilligung-keine-erfuellt",
+    "fields": {
+      "created_at": "2025-11-05T12:44:39.281Z",
+      "modified_at": "2025-11-05T12:45:12.189Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Keine der obgenannten Voraussetzungen ist erfüllt\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "solaranlagen-an-fassaden-ohne-baubewilligung-kompakte-anordnung",
+    "fields": {
+      "created_at": "2025-11-05T10:39:00.971Z",
+      "modified_at": "2025-11-05T10:39:00.971Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die Solaranlage wird als kompakte, rechteckige Fläche bzw. in mehreren, gleichmässig unterteilten, rechteckigen Flächen angeordnet\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "solaranlagen-an-fassaden-ohne-baubewilligung-sondernutzungsplan",
+    "fields": {
+      "created_at": "2025-11-05T10:53:34.107Z",
+      "modified_at": "2025-11-05T10:53:34.107Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die Anlage entspricht den Vorschriften eines genehmigten Sondernutzungsplanes\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "solaranlagen-an-fassaden-ohne-baubewilligung-standort-arbeitszone",
+    "fields": {
+      "created_at": "2025-11-05T10:51:00.712Z",
+      "modified_at": "2025-11-05T10:53:34.031Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die Anlage liegt in einer Arbeitszone (z.B. Gewerbezone)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "solarpflicht-ja",
     "fields": {
       "created_at": "2022-12-20T12:03:03.231Z",
@@ -32972,6 +33283,74 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "ueberdeckt-die-solaranlage-vorhandene-gliederungs-und-schmuckelemente-der-fassade-ja",
+    "fields": {
+      "created_at": "2025-11-05T10:12:29.719Z",
+      "modified_at": "2025-11-05T10:12:29.719Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "ueberdeckt-die-solaranlage-vorhandene-gliederungs-und-schmuckelemente-der-fassade-nein",
+    "fields": {
+      "created_at": "2025-11-05T10:12:29.719Z",
+      "modified_at": "2025-11-06T13:33:22.852Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "ueber-die-fassadenkanten-ja",
+    "fields": {
+      "created_at": "2025-11-05T10:16:17.528Z",
+      "modified_at": "2025-11-05T10:16:17.528Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "ueber-die-fassadenkanten-nein",
+    "fields": {
+      "created_at": "2025-11-05T10:16:17.738Z",
+      "modified_at": "2025-11-05T10:16:17.738Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "ueberragt-dachflaeche-ja",
     "fields": {
       "created_at": "2020-10-21T12:23:12.475Z",
@@ -35250,6 +35629,91 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "wo-wird-die-anlage-installiert-fassade",
+    "fields": {
+      "created_at": "2025-11-05T09:05:48.275Z",
+      "modified_at": "2025-11-05T09:05:48.275Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fassade\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wo-wird-die-anlage-installiert-flachdach",
+    "fields": {
+      "created_at": "2025-11-05T09:05:48.050Z",
+      "modified_at": "2025-11-05T09:05:48.050Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Flachdach\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wo-wird-die-anlage-installiert-freistehende-anlage",
+    "fields": {
+      "created_at": "2025-11-05T09:05:49.254Z",
+      "modified_at": "2025-11-05T09:05:49.254Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Freistehende Anlage\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wo-wird-die-anlage-installiert-satteldach",
+    "fields": {
+      "created_at": "2025-11-05T09:05:47.473Z",
+      "modified_at": "2025-11-05T10:08:55.614Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schrägdach (z.B. Satteldach)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wo-wird-die-anlage-installiert-ueberdachung-parkplaetze",
+    "fields": {
+      "created_at": "2025-11-05T09:05:48.920Z",
+      "modified_at": "2025-11-05T09:05:48.920Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Überdachung Parkplätze\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "wuenschen-sie-zum-thema-artenschutz-bei-neubauten-eine-beratung-ja",
     "fields": {
       "created_at": "2020-11-24T11:15:17.128Z",
@@ -36114,19 +36578,19 @@
     "pk": "abstand-oberkante-anlage-dachrand",
     "fields": {
       "created_at": "2022-09-15T07:11:33.203Z",
-      "modified_at": "2022-09-15T09:36:15.537Z",
+      "modified_at": "2025-11-05T10:17:17.280Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Beträgt der Abstand vom Dachrand bis zur Oberkante der Anlage höchstens 1 Meter?\", \"fr\": null, \"it\": null}",
       "type": "choice",
-      "is_required": "false",
-      "is_hidden": "!(\"installation-flachdach-ja\" == \"installation-flachdach\"|answer)",
+      "is_required": "true",
+      "is_hidden": "!( [ \"wo-wird-die-anlage-installiert-flachdach\" ] intersects (\"wo-wird-die-anlage-installiert\"|answer || []) )",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Voraussetzung muss erfüllt sein bei Montage auf Flachdach\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -37179,7 +37643,7 @@
     "pk": "allgemeine-informationen-solaranlage",
     "fields": {
       "created_at": "2020-12-15T08:39:42.950Z",
-      "modified_at": "2025-05-21T12:11:14.114Z",
+      "modified_at": "2025-11-14T09:41:07.839Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -37192,7 +37656,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"##Willkommen bei URec.\\n\\nWir danken Ihnen, dass Sie diese Dienstleistung nutzen.\\n\\n**Wichtiger Hinweis zur Baubewilligungspflicht von Solaranlagen**\\n\\nMit der Revision des Raumplanungsgesetzes (RPG) und der Raumplanungsverordnung (RPV) können Solaranlagen heute unter Anwendung eines vereinfachten Melde- statt eines Baubewilligungsverfahrens errichtet werden. Die Baubewilligungsfreiheit bezieht sich auf Solaranlagen auf Dächern, wenn sie genügend angepasst sind. Unter bestimmten Voraussetzungen muss jedoch auch für Solaranlagen ein Baubewilligungsverfahren durchgeführt werden.\\n\\nBitte erfassen Sie die geplante/n Anlage/n mit der nachfolgenden Tabelle. Je nach Beantwortung der Fragen werden Sie auf eine allfällige Baubewilligungspflicht hingewiesen.\\n\\nWeitere Informationen (zum Beispiel betreffend Förderbeiträgen, Planungshilfen usw.) gibt es bei **<a href=\\\"https://www.swissolar.ch\\\" style=\\\"color: blue;\\\"> SWISSOLAR</a>**.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"##Willkommen bei URec.\\n\\nWir danken Ihnen, dass Sie diese Dienstleistung nutzen.\\n\\n**Wichtiger Hinweis zur Baubewilligungspflicht von Solaranlagen**\\n\\nMit der Revision des Raumplanungsgesetzes (RPG) und der Raumplanungsverordnung (RPV) können Solaranlagen heute unter Anwendung eines vereinfachten Melde- statt eines Baubewilligungsverfahrens errichtet werden. Die Baubewilligungsfreiheit bezieht sich auf Solaranlagen auf Dächern, wenn sie genügend angepasst sind. Unter bestimmten Voraussetzungen muss jedoch auch für Solaranlagen ein Baubewilligungsverfahren durchgeführt werden.\\n\\nBitte erfassen Sie die geplante/n Anlage/n mit der nachfolgenden Tabelle. Je nach Beantwortung der Fragen werden Sie auf eine allfällige Baubewilligungspflicht hingewiesen.\\n\\nWeitere Informationen (zum Beispiel betreffend Förderbeiträgen, Planungshilfen usw.) gibt es bei <a href=\\\"https://www.swissolar.ch\\\" target=\\\"_blank\\\" style=\\\"color: blue;\\\"> SWISSOLAR</a>.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -37883,19 +38347,19 @@
     "pk": "anlage-ragt-nicht-ueber-dachflaeche-hinaus",
     "fields": {
       "created_at": "2020-10-21T12:23:55.587Z",
-      "modified_at": "2022-09-19T10:20:38.429Z",
+      "modified_at": "2025-11-05T10:00:40.880Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Liegt die Anlage von oben gesehen vollständig innerhalb der Dachfläche?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "!(\"installation-flachdach-nein\" == \"installation-flachdach\"|answer)",
+      "is_hidden": "!( [ \"wo-wird-die-anlage-installiert-satteldach\" ] intersects (\"wo-wird-die-anlage-installiert\"|answer || []) )",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Voraussetzung muss erfüllt sein bei Montage auf Schrägdächern (z.B. Satteldach)\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -44009,6 +44473,102 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bestaetigung-kenntnis",
+    "fields": {
+      "created_at": "2025-11-06T13:31:53.521Z",
+      "modified_at": "2025-11-07T07:17:55.801Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bestätigung - Kenntnisnahme betreffend Baubewilligungspflicht und Publikation\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "!( \"kulturobjekt-ja\" == \"kulturobjekt\"|answer || \"neben-kulturobjekt-ja\" == \"neben-kulturobjekt\"|answer || \"isos-ja\" == \"isos\"|answer || \"standort-kernzone-ja\" == \"standort-kernzone\"|answer || \"24d-rpg-ja\" == \"24d-rpg\"|answer || \"ueberragt-dachflaeche-nein\" == \"ueberragt-dachflaeche\"|answer || \"anlage-ragt-nicht-ueber-dachflaeche-hinaus-nein\" == \"anlage-ragt-nicht-ueber-dachflaeche-hinaus\"|answer || \"abstand-oberkante-anlage-dachrand-nein\" == \"abstand-oberkante-anlage-dachrand\"|answer || \"winkel-45-grad-ja\" == \"winkel-45-grad\"|answer || \"kompakte-flaeche-nein\" == \"kompakte-flaeche\"|answer || \"ist-die-solaranlage-mit-einem-abstand-von-mamimal-20-cm-und-parallel-zur-fassade-angeordnet-nein\" == \"ist-die-solaranlage-mit-einem-abstand-von-mamimal-20-cm-und-parallel-zur-fassade-angeordnet\"|answer || \"ueber-die-fassadenkanten-ja\" == \"ueber-die-fassadenkanten\"|answer || \"ueberdeckt-die-solaranlage-vorhandene-gliederungs-und-schmuckelemente-der-fassade-ja\" == \"ueberdeckt-die-solaranlage-vorhandene-gliederungs-und-schmuckelemente-der-fassade\"|answer ||\"reflexionsarm-nein\" == \"reflexionsarm\"|answer || \"solaranlagen-an-fassaden-ohne-baubewilligung-keine-erfuellt\" in \"solaranlagen-an-fassaden-ohne-baubewilligung\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Bitte bestätigen Sie, dass Sie einverstanden sind, dass die zuständige Gemeindebaubehörde das vorliegende Dossier \\\"Meldung Solaranlage\\\" in ein Dossier \\\"Solaranlage baubewilligungspflichtig\\\" umwandeln kann, falls das Vorhaben als baubewilligungspflichtig eingestuft wird. Baubewilligungspflichtige Solaranlagen müssen im Amtsblatt publiziert werden.\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bestaetigung-kenntnisnahme",
+    "fields": {
+      "created_at": "2025-11-06T13:06:57.991Z",
+      "modified_at": "2025-11-06T13:26:49.350Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bestätigung - Kenntnisnahme Baubewilligungspflicht\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "!( \"kulturobjekt-ja\" == \"kulturobjekt\"|answer || \"neben-kulturobjekt-ja\" == \"neben-kulturobjekt\"|answer || \"isos-ja\" == \"isos\"|answer || \"standort-kernzone-ja\" == \"standort-kernzone\"|answer || \"24d-rpg-ja\" == \"24d-rpg\"|answer || \"ueberragt-dachflaeche-nein\" == \"ueberragt-dachflaeche\"|answer || \"anlage-ragt-nicht-ueber-dachflaeche-hinaus-nein\" == \"anlage-ragt-nicht-ueber-dachflaeche-hinaus\"|answer || \"abstand-oberkante-anlage-dachrand-nein\" == \"abstand-oberkante-anlage-dachrand\"|answer || \"winkel-45-grad-ja\" == \"winkel-45-grad\"|answer || \"kompakte-flaeche-nein\" == \"kompakte-flaeche\"|answer || \"ist-die-solaranlage-mit-einem-abstand-von-mamimal-20-cm-und-parallel-zur-fassade-angeordnet-nein\" == \"ist-die-solaranlage-mit-einem-abstand-von-mamimal-20-cm-und-parallel-zur-fassade-angeordnet\"|answer || \"ueber-die-fassadenkanten-ja\" == \"ueber-die-fassadenkanten\"|answer || \"ueberdeckt-die-solaranlage-vorhandene-gliederungs-und-schmuckelemente-der-fassade-ja\" == \"ueberdeckt-die-solaranlage-vorhandene-gliederungs-und-schmuckelemente-der-fassade\"|answer ||\"reflexionsarm-nein\" == \"reflexionsarm\"|answer || \"solaranlagen-an-fassaden-ohne-baubewilligung-keine-erfuellt\" in \"solaranlagen-an-fassaden-ohne-baubewilligung\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Hiermit nehme ich zur Kenntnis, dass die zuständige Gemeindebaubehörde das vorliegende Dossier \\\"Meldung Solaranlage\\\" in ein Dossier \\\"Solaranlage baubewilligungspflichtig\\\" umwandeln kann und das Vorhaben im Amtsblatt publiziert wird.\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bestaetigung-kenntnisnahme-baubewilligungspflicht",
+    "fields": {
+      "created_at": "2025-11-05T13:28:37.964Z",
+      "modified_at": "2025-11-05T13:31:04.085Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bestätigung - Kenntnisnahme Baubewilligungspflicht\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"Zur Kenntnis genommen\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Hiermit nehme ich zur Kenntnis, dass die zuständige Gemeindebaubehörde das vorliegende Dossier \\\"Meldung Solaranlage\\\" in ein Dossier \\\"Solaranlage baubewilligungspflichtig\\\" umwandeln kann und das Vorhaben im Amtsblatt publiziert wird.\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -50983,7 +51543,7 @@
     "pk": "gesetzliche-vorgaben",
     "fields": {
       "created_at": "2022-02-24T15:15:42.451Z",
-      "modified_at": "2022-09-15T07:06:45.181Z",
+      "modified_at": "2025-11-05T11:55:19.160Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -50996,7 +51556,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"Raumplanungsverordnung\\nArt. 32a Bewilligungsfreie Solaranlagen\\n\\n1 Solaranlagen gelten als auf einem Dach genügend angepasst (Art. 18a Abs. 1 RPG), wenn sie:\\n\\na. die Dachfläche im rechten Winkel um höchstens 20 cm überragen;\\nb. von oben gesehen nicht über die Dachfläche hinausragen;\\nc. nach dem Stand der Technik reflexionsarm ausgeführt werden; und\\nd. kompakt angeordnet sind; technisch bedingte Auslassungen oder eine versetzte Anordnung aufgrund der verfügbaren Fläche sind zulässig.\\n\\n1bis Solaranlagen auf einem Flachdach gelten auch dann als genügend angepasst, wenn sie anstelle der Voraussetzungen nach Absatz 1:\\n\\na. die Oberkante des Dachrandes um höchstens einen Meter überragen\\nb. von der Dachkante so weit zurückversetzt sind, dass sie, von unten in einem Winkel von 45 Grad betrachtet, nicht sichtbar sind; und\\nc. nach dem Stand der Technik reflexionsarm ausgeführt werden.\\n\\n2 Konkrete Gestaltungsvorschriften des kantonalen Rechts sind anwendbar, wenn sie zur Wahrung berechtigter Schutzanliegen verhältnismässig sind und die Nutzung der Sonnenenergie nicht stärker einschränken als Absatz 1.\\n\\n3 Bewilligungsfreie Vorhaben sind vor Baubeginn der Baubewilligungsbehörde oder einer anderen vom kantonalen Recht für zuständig erklärten Behörde zu melden. Das kantonale Recht legt die Frist sowie die Pläne und Unterlagen, die der Meldung beizulegen sind, fest.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"####Bundesrecht - Gesetzliche Vorgaben für baubewilligungsbefreite Solaranlagen\\n(Artikel 32a Raumplanungsverordnung RPV)\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"####Bundesrecht - Gesetzliche Vorgaben für voraussichtlich baubewilligungsbefreite Solaranlagen\\n(Art. 18a RPG, Art. 32bis RPV)\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -52437,7 +52997,7 @@
     "pk": "hinweis-baubewilligungspflicht",
     "fields": {
       "created_at": "2020-11-13T06:55:15.160Z",
-      "modified_at": "2025-05-21T12:12:29.921Z",
+      "modified_at": "2025-11-14T09:18:48.275Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -52450,7 +53010,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"Bitte erfassen Sie die geplante/n Solar- und/oder Photovoltaikanlage/n mit der Tabelle unten (es können mehrere Datensätze erfasst werden). \\n\\nWeitere Informationen zur Baubewilligungspflicht von Solaranlagen können Sie dem **<a href=\\\"https://www.ur.ch/_docn/187159/Merkblatt_Baugesuche_einreichen_Version_1.2.pdf\\\" style=\\\"color: blue;\\\"> Baugesuche einreichen</a>** entnehmen.\\n\\n---\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"Bitte erfassen Sie die geplante/n Solar- und/oder Photovoltaikanlage/n mit der Tabelle unten (es können mehrere Datensätze erfasst werden).\\n\\nBitte beachten Sie, dass es allenfalls zweckmässig ist, für Solaranlagen mit unterschiedlichen Montagearten, **je ein separates Dossier einzureichen**. Wenn Sie vom URec bei der Beantwortung der Fragen in der Tabelle Solaranlagen darauf hingewiesen werden, dass die Voraussetzungen für die Befreiung von der Baubewilligungspflicht voraussichtlich nicht erfüllt sind, würde das für das gesamte Dossier bedeuten, dass ein Baubewilligungsverfahren durchgeführt werden muss was entsprechend Zeit benötigt. In solchen Fällen ist es vorteilhaft, um Verzögerungen wegen einer allfälligen Publikation und der Durchführung eines Baubewiligungsverfahrens zu vermeiden, für die Anlagen mit verschiedenen Montagearten (z.B. eine Solaranlage auf einem Schrägdach welche bewilligungsfrei erstellt werden könnte und eine Anlage an einer Fassade welche unter Umständen eine Baubewilligung benötigt) ein separates Dossier einzureichen.\\n\\nWeitere Informationen zur Baubewilligungspflicht von Solaranlagen können Sie dem <a href=\\\"https://www.ur.ch/_docn/187159/Merkblatt_Baugesuche_einreichen_Version_1.2.pdf\\\" target=\\\"_blank\\\" style=\\\"color: blue;\\\"> Baugesuche einreichen</a> entnehmen.\\n\\n\\n\\n---\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -52468,20 +53028,51 @@
     "pk": "hinweis-baugesuch-noetig",
     "fields": {
       "created_at": "2020-10-27T11:39:16.070Z",
-      "modified_at": "2023-05-12T13:17:49.142Z",
+      "modified_at": "2025-11-06T13:21:22.079Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "jonas.lehmann@adfinis.com",
       "modified_by_group": null,
       "label": "{\"de\": \"Hinweis Baugesuch nötig\", \"fr\": null, \"it\": null}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "!(\n  \"kulturobjekt-ja\" == \"kulturobjekt\"|answer ||\n  \"neben-kulturobjekt-ja\" == \"neben-kulturobjekt\"|answer ||\n  \"isos-ja\" == \"isos\"|answer ||\n  \"standort-kernzone-ja\" == \"standort-kernzone\"|answer ||\n  \"24d-rpg-ja\" == \"24d-rpg\"|answer ||\n  \"ueberragt-dachflaeche-nein\" == \"ueberragt-dachflaeche\"|answer ||\n  \"anlage-ragt-nicht-ueber-dachflaeche-hinaus-nein\" == \"anlage-ragt-nicht-ueber-dachflaeche-hinaus\"|answer || \n  \"abstand-oberkante-anlage-dachrand-nein\" == \"abstand-oberkante-anlage-dachrand\"|answer || \n  \"winkel-45-grad-ja\" == \"winkel-45-grad\"|answer ||\n  \"kompakte-flaeche-nein\" == \"kompakte-flaeche\"|answer ||\n  \"reflexionsarm-nein\" == \"reflexionsarm\"|answer )",
+      "is_hidden": "!(\n  \"kulturobjekt-ja\" == \"kulturobjekt\"|answer ||\n  \"neben-kulturobjekt-ja\" == \"neben-kulturobjekt\"|answer ||\n  \"isos-ja\" == \"isos\"|answer ||\n  \"standort-kernzone-ja\" == \"standort-kernzone\"|answer ||\n  \"24d-rpg-ja\" == \"24d-rpg\"|answer ||\n  \"ueberragt-dachflaeche-nein\" == \"ueberragt-dachflaeche\"|answer ||\n  \"anlage-ragt-nicht-ueber-dachflaeche-hinaus-nein\" == \"anlage-ragt-nicht-ueber-dachflaeche-hinaus\"|answer || \n  \"abstand-oberkante-anlage-dachrand-nein\" == \"abstand-oberkante-anlage-dachrand\"|answer || \n  \"winkel-45-grad-ja\" == \"winkel-45-grad\"|answer ||\n  \"kompakte-flaeche-nein\" == \"kompakte-flaeche\"|answer ||\n  \"ist-die-solaranlage-mit-einem-abstand-von-mamimal-20-cm-und-parallel-zur-fassade-angeordnet-nein\" == \"ist-die-solaranlage-mit-einem-abstand-von-mamimal-20-cm-und-parallel-zur-fassade-angeordnet\"|answer || \"ueber-die-fassadenkanten-ja\" == \"ueber-die-fassadenkanten\"|answer || \"ueberdeckt-die-solaranlage-vorhandene-gliederungs-und-schmuckelemente-der-fassade-ja\" == \"ueberdeckt-die-solaranlage-vorhandene-gliederungs-und-schmuckelemente-der-fassade\"|answer ||\"reflexionsarm-nein\" == \"reflexionsarm\"|answer || \"solaranlagen-an-fassaden-ohne-baubewilligung-keine-erfuellt\" in \"solaranlagen-an-fassaden-ohne-baubewilligung\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"**BITTE BEACHTEN** Die Voraussetzungen für die Befreiung von der Baubewilligungspflicht sind voraussichtlich nicht erfüllt. \\n\\nDie zuständige Gemeindebaubehörde prüft das Dossier in erster Instanz und teilt Ihnen gegebenenfalls mit, wenn für das Vorhaben eine Baubewilligung erforderlich ist. Damit das Bewilligungsverfahren nicht verzögert wird, ändert die Gemeinde das Dossier bei Bedarf auf der URec Plattform direkt in ein Dossier \\\"Solaranlage baubewilligungspflichtig\\\". Baubewilligungspflichtige Solaranlagen müssen im Amtsblatt publiziert werden.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-baugesuch-noetig-fuer-parkplatzueberdachung-und-freistehende-anlagen",
+    "fields": {
+      "created_at": "2025-11-05T09:19:54.093Z",
+      "modified_at": "2025-11-05T10:07:01.417Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"hinweis baugesuch nötig für parkplatzüberdachung und freistehende anlagen\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!( [ \"wo-wird-die-anlage-installiert-ueberdachung-parkplaetze\", \"wo-wird-die-anlage-installiert-freistehende-anlage\" ] intersects (\"wo-wird-die-anlage-installiert\"|answer || []) )",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"**BITTE BEACHTEN**\\n\\nDas Vorhaben ist baubewilligungspflichtig. Damit das Bewilligungsverfahren nicht verzögert wird, kann die Gemeinde das Dossier direkt in ein Dossier \\\"Solaranlage baubewilligungspflichtig\\\" ändern. Baubewilligungspflichtige Solaranlagen müssen im Amtsblatt publiziert werden.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -54035,10 +54626,10 @@
     "pk": "installation-flachdach",
     "fields": {
       "created_at": "2022-09-15T07:03:18.765Z",
-      "modified_at": "2022-09-15T07:24:37.113Z",
+      "modified_at": "2025-11-05T09:40:16.960Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "christian.zosel@adfinis.com",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Wird die Anlage auf einem Flachdach installiert?\", \"fr\": null, \"it\": null}",
       "type": "choice",
@@ -54050,7 +54641,9 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "hideLabel": false
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -54369,6 +54962,37 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "ist-die-solaranlage-mit-einem-abstand-von-mamimal-20-cm-und-parallel-zur-fassade-angeordnet",
+    "fields": {
+      "created_at": "2025-11-05T10:19:18.219Z",
+      "modified_at": "2025-11-06T13:33:14.552Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist die Solaranlage mit einem Abstand von maximal 20 cm und parallel zur Fassade angeordnet?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "!( [ \"wo-wird-die-anlage-installiert-fassade\" ] intersects (\"wo-wird-die-anlage-installiert\"|answer || []) )",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Voraussetzung muss erfüllt sein bei Montage an die Fassade\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -54897,19 +55521,19 @@
     "pk": "kompakte-flaeche",
     "fields": {
       "created_at": "2020-10-21T12:24:24.072Z",
-      "modified_at": "2022-09-15T07:23:47.126Z",
+      "modified_at": "2025-11-05T10:00:14.519Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "christian.zosel@adfinis.com",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Wird die Anlage kompakt angeordnet? (die Unterteilung der Anlage in mehrere Flächen aufgrund von technischen Hindernissen wie Abluftrohre, Dachfenster und dgl. sind zulässig)\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "!(\"installation-flachdach-nein\" == \"installation-flachdach\"|answer)",
+      "is_hidden": "!( [ \"wo-wird-die-anlage-installiert-satteldach\" ] intersects (\"wo-wird-die-anlage-installiert\"|answer || []) )",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Voraussetzung muss erfüllt sein bei Montage auf Schrägdächern (z.B. Satteldach)\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -60161,19 +60785,19 @@
     "pk": "reflexionsarm",
     "fields": {
       "created_at": "2020-10-27T11:47:06.163Z",
-      "modified_at": "2022-09-19T10:20:54.639Z",
+      "modified_at": "2025-11-11T08:50:31.928Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Wird die Anlage nach dem Stand der Technik reflexionsarm ausgeführt?\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Wird die Anlage in einheitlicher Farbgebung und Materialisierung sowie nach dem Stand der Technik reflexionsarm ausgeführt?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "false",
+      "is_hidden": "!( [ \"wo-wird-die-anlage-installiert-satteldach\", \"wo-wird-die-anlage-installiert-flachdach\", \"wo-wird-die-anlage-installiert-fassade\" ] intersects (\"wo-wird-die-anlage-installiert\"|answer || []) )",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Diese Voraussetzung muss für eine Befreiung von der Baubewilligungspflicht in jedem Fall erfüllt sein\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -61804,10 +62428,10 @@
     "pk": "solaranlagen",
     "fields": {
       "created_at": "2020-10-21T12:26:44.313Z",
-      "modified_at": "2021-03-11T12:52:17.152Z",
+      "modified_at": "2025-11-05T13:03:31.587Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Anlagen\", \"fr\": null, \"it\": null}",
       "type": "table",
@@ -61816,7 +62440,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"#### INFO\\nAuf Dächern in Bau-und Landwirtschaftszonen bedürfen genügend angepasste Solaranlagen keiner Baubewilligung. Solche Vorhaben sind lediglich der zuständigen Gemeindebaubaubehörde  zu melden (Art. 22 RPG). Solaranlagen die die technischen Voraussetzungen gemäss Artikel 32a RPV nicht erfüllen sind jedoch baubewilligungspflichtig. Ebenfalls baubewilligungspflichtig sind Solaranlagen die an Fassaden oder Balkonbrüstungen montiert werden oder freistehende, im Gelände installierte Anlagen. Bei solchen Anlagen bitten wir Sie, das Formular \\\"Baugesuche\\\" zu verwenden.\\n\\nBitte beachten Sie auch die rechtlichen und nutzungsplanerischen Voraussetzungen, die ebenfalls je nach Situation zur Baubewilligungspflicht führen.\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
@@ -61830,6 +62454,37 @@
       },
       "data_source": null,
       "row_form": "solaranlagen-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "solaranlagen-an-fassaden-ohne-baubewilligung",
+    "fields": {
+      "created_at": "2025-11-05T10:39:01.057Z",
+      "modified_at": "2025-11-05T12:54:58.934Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Solaranlagen an Fassaden können ohne Baubewilligung installiert werden, wenn mindestens eine der folgenden Voraussetzungen zutrifft (bitte zutreffende ankreuzen):\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "!( [ \"wo-wird-die-anlage-installiert-fassade\" ] intersects (\"wo-wird-die-anlage-installiert\"|answer || []) )",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Bitte beachten Sie, dass die Bestimmungen betreffend die Befreiung von der Baubewilligungspflicht an Fassaden nur dann gesondert betrachtet werden können, wenn keine anderen Installationsarten (z.B. Schrägdach kombiniert mit Fassade) betroffen sind. Falls eine kombinierte Montageart vorgesehen ist, müssen die Voraussetzungen aller betroffenen Montagearten erfüllt sein.\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
@@ -64497,6 +65152,68 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "ueberdeckt-die-solaranlage-vorhandene-gliederungs-und-schmuckelemente-der-fassade",
+    "fields": {
+      "created_at": "2025-11-05T10:12:29.801Z",
+      "modified_at": "2025-11-06T13:33:22.958Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Überdeckt die Solaranlage vorhandene Gliederungs- und Schmuckelemente der Fassade?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "!( [ \"wo-wird-die-anlage-installiert-fassade\" ] intersects (\"wo-wird-die-anlage-installiert\"|answer || []) )",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Voraussetzung muss erfüllt sein bei Montage an die Fassade\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "ueber-die-fassadenkanten",
+    "fields": {
+      "created_at": "2025-11-05T10:16:17.817Z",
+      "modified_at": "2025-11-05T10:20:38.327Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ragt die Solaranlage von vorne betrachtet über die Fassadenkanten hinaus?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "!( [ \"wo-wird-die-anlage-installiert-fassade\" ] intersects (\"wo-wird-die-anlage-installiert\"|answer || []) )",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Voraussetzung muss erfüllt sein bei Montage an die Fassade\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "ueberlagerte-nutzungen",
     "fields": {
       "created_at": "2020-09-04T08:44:37.230Z",
@@ -64534,19 +65251,19 @@
     "pk": "ueberragt-dachflaeche",
     "fields": {
       "created_at": "2020-10-21T12:23:12.593Z",
-      "modified_at": "2022-09-15T07:23:05.974Z",
+      "modified_at": "2025-11-05T09:59:59.078Z",
       "created_by_user": "christian.zosel@adfinis.com",
       "created_by_group": null,
-      "modified_by_user": "christian.zosel@adfinis.com",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Überragt die Anlage die Dachfläche im rechten Winkel um höchstens 20 cm?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "!(\"installation-flachdach-nein\" == \"installation-flachdach\"|answer)",
+      "is_hidden": "!( [ \"wo-wird-die-anlage-installiert-satteldach\" ] intersects (\"wo-wird-die-anlage-installiert\"|answer || []) )",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Voraussetzung muss erfüllt sein bei Montage auf Schrägdächern (z.B. Satteldach)\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -66760,19 +67477,19 @@
     "pk": "winkel-45-grad",
     "fields": {
       "created_at": "2022-09-15T07:13:45.638Z",
-      "modified_at": "2022-09-15T07:22:15.997Z",
+      "modified_at": "2025-11-05T10:17:12.135Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "christian.zosel@adfinis.com",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Ist die Anlage von unten in einem Winkel von 45 Grad betrachtet sichtbar?\", \"fr\": null, \"it\": null}",
       "type": "choice",
-      "is_required": "false",
-      "is_hidden": "!(\"installation-flachdach-ja\" == \"installation-flachdach\"|answer)",
+      "is_required": "true",
+      "is_hidden": "!( [ \"wo-wird-die-anlage-installiert-flachdach\" ] intersects (\"wo-wird-die-anlage-installiert\"|answer || []) )",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Voraussetzung muss erfüllt sein bei Montage auf Flachdach\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -66912,6 +67629,37 @@
         "max_value": null,
         "min_value": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "wo-wird-die-anlage-installiert",
+    "fields": {
+      "created_at": "2025-11-05T09:05:49.350Z",
+      "modified_at": "2025-11-05T13:20:40.092Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wo wird die Anlage installiert?\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Bitte kreuzen Sie alle Optionen an die betroffen sind (z.B. Schrägdach und Fassade) damit die korrekten Folgefragen angezeigt werden. Aufgrund der gestiegenen Komplexität betreffend die Vielzahl an möglichen Voraussetzungen, prüft die zuständige Gemeindebaubehörde in jedem Fall, ob die Voraussetzungen für eine Befreiung von der Baubewilligungspflicht gegeben sind oder ob ein ordentliches Baubewilligungsverfahren durchgeführt werden muss. Je nach Beantwortung der Fragen werden Sie auf eine allfällige Baubewilligungspflicht hingewiesen.\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -67639,11 +68387,11 @@
     "model": "caluma_form.questionoption",
     "pk": "abstand-oberkante-anlage-dachrand.abstand-oberkante-anlage-dachrand-ja",
     "fields": {
-      "created_at": "2022-09-15T09:36:15.564Z",
-      "modified_at": "2022-09-15T09:36:15.564Z",
-      "created_by_user": "admin",
+      "created_at": "2025-11-05T10:17:17.291Z",
+      "modified_at": "2025-11-05T10:17:17.291Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "abstand-oberkante-anlage-dachrand",
       "option": "abstand-oberkante-anlage-dachrand-ja",
@@ -67654,11 +68402,11 @@
     "model": "caluma_form.questionoption",
     "pk": "abstand-oberkante-anlage-dachrand.abstand-oberkante-anlage-dachrand-nein",
     "fields": {
-      "created_at": "2022-09-15T09:36:15.558Z",
-      "modified_at": "2022-09-15T09:36:15.558Z",
-      "created_by_user": "admin",
+      "created_at": "2025-11-05T10:17:17.286Z",
+      "modified_at": "2025-11-05T10:17:17.286Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "abstand-oberkante-anlage-dachrand",
       "option": "abstand-oberkante-anlage-dachrand-nein",
@@ -67984,8 +68732,8 @@
     "model": "caluma_form.questionoption",
     "pk": "anlage-ragt-nicht-ueber-dachflaeche-hinaus.anlage-ragt-nicht-ueber-dachflaeche-hinaus-ja",
     "fields": {
-      "created_at": "2022-09-16T08:44:11.429Z",
-      "modified_at": "2022-09-16T08:44:11.429Z",
+      "created_at": "2025-11-05T10:00:40.890Z",
+      "modified_at": "2025-11-05T10:00:40.890Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -67999,8 +68747,8 @@
     "model": "caluma_form.questionoption",
     "pk": "anlage-ragt-nicht-ueber-dachflaeche-hinaus.anlage-ragt-nicht-ueber-dachflaeche-hinaus-nein",
     "fields": {
-      "created_at": "2022-09-16T08:44:11.427Z",
-      "modified_at": "2022-09-16T08:44:11.427Z",
+      "created_at": "2025-11-05T10:00:40.886Z",
+      "modified_at": "2025-11-05T10:00:40.886Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -71233,6 +71981,66 @@
       "question": "berechtigung-gesuchsteller",
       "option": "berechtigung-gesuchsteller-vom-gesuchsteller-eingereicht",
       "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bestaetigung-kenntnis.bestaetigung-kenntnis-ja",
+    "fields": {
+      "created_at": "2025-11-07T07:17:55.812Z",
+      "modified_at": "2025-11-07T07:17:55.812Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "bestaetigung-kenntnis",
+      "option": "bestaetigung-kenntnis-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bestaetigung-kenntnis.bestaetigung-kenntnis-nein",
+    "fields": {
+      "created_at": "2025-11-07T07:17:55.809Z",
+      "modified_at": "2025-11-07T07:17:55.809Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "bestaetigung-kenntnis",
+      "option": "bestaetigung-kenntnis-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bestaetigung-kenntnisnahme.bestaetigung-kenntnisnahme-ja",
+    "fields": {
+      "created_at": "2025-11-06T13:26:49.360Z",
+      "modified_at": "2025-11-06T13:26:49.360Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_group": null,
+      "question": "bestaetigung-kenntnisnahme",
+      "option": "bestaetigung-kenntnisnahme-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bestaetigung-kenntnisnahme.bestaetigung-kenntnisnahme-nein",
+    "fields": {
+      "created_at": "2025-11-06T13:26:49.356Z",
+      "modified_at": "2025-11-06T13:26:49.356Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_group": null,
+      "question": "bestaetigung-kenntnisnahme",
+      "option": "bestaetigung-kenntnisnahme-nein",
+      "sort": 1
     }
   },
   {
@@ -76369,11 +77177,11 @@
     "model": "caluma_form.questionoption",
     "pk": "installation-flachdach.installation-flachdach-ja",
     "fields": {
-      "created_at": "2022-09-15T07:24:37.119Z",
-      "modified_at": "2022-09-15T07:24:37.119Z",
-      "created_by_user": "christian.zosel@adfinis.com",
+      "created_at": "2025-11-05T09:40:16.969Z",
+      "modified_at": "2025-11-05T09:40:16.969Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "christian.zosel@adfinis.com",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "installation-flachdach",
       "option": "installation-flachdach-ja",
@@ -76384,11 +77192,11 @@
     "model": "caluma_form.questionoption",
     "pk": "installation-flachdach.installation-flachdach-nein",
     "fields": {
-      "created_at": "2022-09-15T07:24:37.117Z",
-      "modified_at": "2022-09-15T07:24:37.117Z",
-      "created_by_user": "christian.zosel@adfinis.com",
+      "created_at": "2025-11-05T09:40:16.965Z",
+      "modified_at": "2025-11-05T09:40:16.965Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "christian.zosel@adfinis.com",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "installation-flachdach",
       "option": "installation-flachdach-nein",
@@ -76603,6 +77411,36 @@
       "question": "is-paper",
       "option": "is-paper-yes",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "ist-die-solaranlage-mit-einem-abstand-von-mamimal-20-cm-und-parallel-zur-fassade-angeordnet.ist-die-solaranlage-mit-einem-abstand-von-mamimal-20-cm-und-parallel-zur-fassade-angeordnet-ja",
+    "fields": {
+      "created_at": "2025-11-06T13:33:14.564Z",
+      "modified_at": "2025-11-06T13:33:14.564Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_group": null,
+      "question": "ist-die-solaranlage-mit-einem-abstand-von-mamimal-20-cm-und-parallel-zur-fassade-angeordnet",
+      "option": "ist-die-solaranlage-mit-einem-abstand-von-mamimal-20-cm-und-parallel-zur-fassade-angeordnet-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "ist-die-solaranlage-mit-einem-abstand-von-mamimal-20-cm-und-parallel-zur-fassade-angeordnet.ist-die-solaranlage-mit-einem-abstand-von-mamimal-20-cm-und-parallel-zur-fassade-angeordnet-nein",
+    "fields": {
+      "created_at": "2025-11-06T13:33:14.560Z",
+      "modified_at": "2025-11-06T13:33:14.560Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_group": null,
+      "question": "ist-die-solaranlage-mit-einem-abstand-von-mamimal-20-cm-und-parallel-zur-fassade-angeordnet",
+      "option": "ist-die-solaranlage-mit-einem-abstand-von-mamimal-20-cm-und-parallel-zur-fassade-angeordnet-nein",
+      "sort": 1
     }
   },
   {
@@ -77359,11 +78197,11 @@
     "model": "caluma_form.questionoption",
     "pk": "kompakte-flaeche.kompakte-flaeche-ja",
     "fields": {
-      "created_at": "2022-09-15T07:23:47.134Z",
-      "modified_at": "2022-09-15T07:23:47.134Z",
-      "created_by_user": "christian.zosel@adfinis.com",
+      "created_at": "2025-11-05T10:00:14.529Z",
+      "modified_at": "2025-11-05T10:00:14.529Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "christian.zosel@adfinis.com",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "kompakte-flaeche",
       "option": "kompakte-flaeche-ja",
@@ -77374,11 +78212,11 @@
     "model": "caluma_form.questionoption",
     "pk": "kompakte-flaeche.kompakte-flaeche-nein",
     "fields": {
-      "created_at": "2022-09-15T07:23:47.131Z",
-      "modified_at": "2022-09-15T07:23:47.131Z",
-      "created_by_user": "christian.zosel@adfinis.com",
+      "created_at": "2025-11-05T10:00:14.525Z",
+      "modified_at": "2025-11-05T10:00:14.525Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "christian.zosel@adfinis.com",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "kompakte-flaeche",
       "option": "kompakte-flaeche-nein",
@@ -79444,11 +80282,11 @@
     "model": "caluma_form.questionoption",
     "pk": "reflexionsarm.reflexionsarm-ja",
     "fields": {
-      "created_at": "2021-03-11T12:54:54.628Z",
-      "modified_at": "2021-03-11T12:54:54.628Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2025-11-11T08:50:31.938Z",
+      "modified_at": "2025-11-11T08:50:31.938Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "question": "reflexionsarm",
       "option": "reflexionsarm-ja",
@@ -79459,11 +80297,11 @@
     "model": "caluma_form.questionoption",
     "pk": "reflexionsarm.reflexionsarm-nein",
     "fields": {
-      "created_at": "2021-03-11T12:54:54.583Z",
-      "modified_at": "2021-03-11T12:54:54.583Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2025-11-11T08:50:31.935Z",
+      "modified_at": "2025-11-11T08:50:31.935Z",
+      "created_by_user": "pirmin.scheuber@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "pirmin.scheuber@ur.ch",
       "modified_by_group": null,
       "question": "reflexionsarm",
       "option": "reflexionsarm-nein",
@@ -80068,6 +80906,111 @@
       "question": "solaranlage-art-des-gesuchs",
       "option": "solaranlage-art-des-gesuchs-solaranlage-baubewilligungspflichtig",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "solaranlagen-an-fassaden-ohne-baubewilligung.solaranlagen-an-fassaden-ohne-baubewilligung-ersetzt-bauteile",
+    "fields": {
+      "created_at": "2025-11-05T12:54:58.962Z",
+      "modified_at": "2025-11-05T12:54:58.962Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "solaranlagen-an-fassaden-ohne-baubewilligung",
+      "option": "solaranlagen-an-fassaden-ohne-baubewilligung-ersetzt-bauteile",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "solaranlagen-an-fassaden-ohne-baubewilligung.solaranlagen-an-fassaden-ohne-baubewilligung-farbgebung-wie-fassadenflaechen",
+    "fields": {
+      "created_at": "2025-11-05T12:54:58.955Z",
+      "modified_at": "2025-11-05T12:54:58.955Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "solaranlagen-an-fassaden-ohne-baubewilligung",
+      "option": "solaranlagen-an-fassaden-ohne-baubewilligung-farbgebung-wie-fassadenflaechen",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "solaranlagen-an-fassaden-ohne-baubewilligung.solaranlagen-an-fassaden-ohne-baubewilligung-giebelflaechen-werden-abgedeckt",
+    "fields": {
+      "created_at": "2025-11-05T12:54:58.958Z",
+      "modified_at": "2025-11-05T12:54:58.958Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "solaranlagen-an-fassaden-ohne-baubewilligung",
+      "option": "solaranlagen-an-fassaden-ohne-baubewilligung-giebelflaechen-werden-abgedeckt",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "solaranlagen-an-fassaden-ohne-baubewilligung.solaranlagen-an-fassaden-ohne-baubewilligung-keine-erfuellt",
+    "fields": {
+      "created_at": "2025-11-05T12:54:58.943Z",
+      "modified_at": "2025-11-05T12:54:58.943Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "solaranlagen-an-fassaden-ohne-baubewilligung",
+      "option": "solaranlagen-an-fassaden-ohne-baubewilligung-keine-erfuellt",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "solaranlagen-an-fassaden-ohne-baubewilligung.solaranlagen-an-fassaden-ohne-baubewilligung-kompakte-anordnung",
+    "fields": {
+      "created_at": "2025-11-05T12:54:58.966Z",
+      "modified_at": "2025-11-05T12:54:58.966Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "solaranlagen-an-fassaden-ohne-baubewilligung",
+      "option": "solaranlagen-an-fassaden-ohne-baubewilligung-kompakte-anordnung",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "solaranlagen-an-fassaden-ohne-baubewilligung.solaranlagen-an-fassaden-ohne-baubewilligung-sondernutzungsplan",
+    "fields": {
+      "created_at": "2025-11-05T12:54:58.947Z",
+      "modified_at": "2025-11-05T12:54:58.947Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "solaranlagen-an-fassaden-ohne-baubewilligung",
+      "option": "solaranlagen-an-fassaden-ohne-baubewilligung-sondernutzungsplan",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "solaranlagen-an-fassaden-ohne-baubewilligung.solaranlagen-an-fassaden-ohne-baubewilligung-standort-arbeitszone",
+    "fields": {
+      "created_at": "2025-11-05T12:54:58.951Z",
+      "modified_at": "2025-11-05T12:54:58.951Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "solaranlagen-an-fassaden-ohne-baubewilligung",
+      "option": "solaranlagen-an-fassaden-ohne-baubewilligung-standort-arbeitszone",
+      "sort": 3
     }
   },
   {
@@ -82352,13 +83295,73 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "ueberdeckt-die-solaranlage-vorhandene-gliederungs-und-schmuckelemente-der-fassade.ueberdeckt-die-solaranlage-vorhandene-gliederungs-und-schmuckelemente-der-fassade-ja",
+    "fields": {
+      "created_at": "2025-11-06T13:33:22.969Z",
+      "modified_at": "2025-11-06T13:33:22.969Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_group": null,
+      "question": "ueberdeckt-die-solaranlage-vorhandene-gliederungs-und-schmuckelemente-der-fassade",
+      "option": "ueberdeckt-die-solaranlage-vorhandene-gliederungs-und-schmuckelemente-der-fassade-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "ueberdeckt-die-solaranlage-vorhandene-gliederungs-und-schmuckelemente-der-fassade.ueberdeckt-die-solaranlage-vorhandene-gliederungs-und-schmuckelemente-der-fassade-nein",
+    "fields": {
+      "created_at": "2025-11-06T13:33:22.964Z",
+      "modified_at": "2025-11-06T13:33:22.964Z",
+      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_by_group": null,
+      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_group": null,
+      "question": "ueberdeckt-die-solaranlage-vorhandene-gliederungs-und-schmuckelemente-der-fassade",
+      "option": "ueberdeckt-die-solaranlage-vorhandene-gliederungs-und-schmuckelemente-der-fassade-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "ueber-die-fassadenkanten.ueber-die-fassadenkanten-ja",
+    "fields": {
+      "created_at": "2025-11-05T10:20:38.337Z",
+      "modified_at": "2025-11-05T10:20:38.337Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "ueber-die-fassadenkanten",
+      "option": "ueber-die-fassadenkanten-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "ueber-die-fassadenkanten.ueber-die-fassadenkanten-nein",
+    "fields": {
+      "created_at": "2025-11-05T10:20:38.333Z",
+      "modified_at": "2025-11-05T10:20:38.333Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "ueber-die-fassadenkanten",
+      "option": "ueber-die-fassadenkanten-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "ueberragt-dachflaeche.ueberragt-dachflaeche-ja",
     "fields": {
-      "created_at": "2022-09-15T07:23:05.981Z",
-      "modified_at": "2022-09-15T07:23:05.981Z",
-      "created_by_user": "christian.zosel@adfinis.com",
+      "created_at": "2025-11-05T09:59:59.088Z",
+      "modified_at": "2025-11-05T09:59:59.088Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "christian.zosel@adfinis.com",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "ueberragt-dachflaeche",
       "option": "ueberragt-dachflaeche-ja",
@@ -82369,11 +83372,11 @@
     "model": "caluma_form.questionoption",
     "pk": "ueberragt-dachflaeche.ueberragt-dachflaeche-nein",
     "fields": {
-      "created_at": "2022-09-15T07:23:05.978Z",
-      "modified_at": "2022-09-15T07:23:05.978Z",
-      "created_by_user": "christian.zosel@adfinis.com",
+      "created_at": "2025-11-05T09:59:59.084Z",
+      "modified_at": "2025-11-05T09:59:59.084Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "christian.zosel@adfinis.com",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "ueberragt-dachflaeche",
       "option": "ueberragt-dachflaeche-nein",
@@ -84229,11 +85232,11 @@
     "model": "caluma_form.questionoption",
     "pk": "winkel-45-grad.winkel-45-grad-ja",
     "fields": {
-      "created_at": "2022-09-15T07:22:16.003Z",
-      "modified_at": "2022-09-15T07:22:16.003Z",
-      "created_by_user": "christian.zosel@adfinis.com",
+      "created_at": "2025-11-05T10:17:12.145Z",
+      "modified_at": "2025-11-05T10:17:12.145Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "christian.zosel@adfinis.com",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "winkel-45-grad",
       "option": "winkel-45-grad-ja",
@@ -84244,11 +85247,11 @@
     "model": "caluma_form.questionoption",
     "pk": "winkel-45-grad.winkel-45-grad-nein",
     "fields": {
-      "created_at": "2022-09-15T07:22:16.001Z",
-      "modified_at": "2022-09-15T07:22:16.001Z",
-      "created_by_user": "christian.zosel@adfinis.com",
+      "created_at": "2025-11-05T10:17:12.141Z",
+      "modified_at": "2025-11-05T10:17:12.141Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "christian.zosel@adfinis.com",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "winkel-45-grad",
       "option": "winkel-45-grad-nein",
@@ -84328,6 +85331,81 @@
       "question": "wird-eine-ausnahme-geltend-gemacht",
       "option": "wird-eine-ausnahme-geltend-gemacht-nein",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wo-wird-die-anlage-installiert.wo-wird-die-anlage-installiert-fassade",
+    "fields": {
+      "created_at": "2025-11-05T13:20:40.106Z",
+      "modified_at": "2025-11-05T13:20:40.106Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "wo-wird-die-anlage-installiert",
+      "option": "wo-wird-die-anlage-installiert-fassade",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wo-wird-die-anlage-installiert.wo-wird-die-anlage-installiert-flachdach",
+    "fields": {
+      "created_at": "2025-11-05T13:20:40.109Z",
+      "modified_at": "2025-11-05T13:20:40.109Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "wo-wird-die-anlage-installiert",
+      "option": "wo-wird-die-anlage-installiert-flachdach",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wo-wird-die-anlage-installiert.wo-wird-die-anlage-installiert-freistehende-anlage",
+    "fields": {
+      "created_at": "2025-11-05T13:20:40.098Z",
+      "modified_at": "2025-11-05T13:20:40.099Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "wo-wird-die-anlage-installiert",
+      "option": "wo-wird-die-anlage-installiert-freistehende-anlage",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wo-wird-die-anlage-installiert.wo-wird-die-anlage-installiert-satteldach",
+    "fields": {
+      "created_at": "2025-11-05T13:20:40.113Z",
+      "modified_at": "2025-11-05T13:20:40.113Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "wo-wird-die-anlage-installiert",
+      "option": "wo-wird-die-anlage-installiert-satteldach",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wo-wird-die-anlage-installiert.wo-wird-die-anlage-installiert-ueberdachung-parkplaetze",
+    "fields": {
+      "created_at": "2025-11-05T13:20:40.102Z",
+      "modified_at": "2025-11-05T13:20:40.102Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "wo-wird-die-anlage-installiert",
+      "option": "wo-wird-die-anlage-installiert-ueberdachung-parkplaetze",
+      "sort": 2
     }
   },
   {
