@@ -12,6 +12,7 @@ BAUGESUCH_FORMS = [
     "baugesuch-v2",
     "baugesuch-v3",
     "baugesuch-v4",
+    "baugesuch-v5",
 ]
 BAUANZEIGE_FORMS = [
     "bauanzeige",

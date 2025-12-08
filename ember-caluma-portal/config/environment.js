@@ -476,6 +476,7 @@ module.exports = function (environment) {
             "baugesuch-v2",
             "baugesuch-v3",
             "baugesuch-v4",
+            "baugesuch-v5",
             "vorlaeufige-beurteilung",
             "vorlaeufige-beurteilung-v3",
             "vorlaeufige-beurteilung-v4",

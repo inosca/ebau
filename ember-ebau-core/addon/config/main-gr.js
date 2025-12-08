@@ -172,7 +172,13 @@ export default {
     municipalityServiceGroup: 2, // Gemeinde
   },
   modification: {
-    allowForms: ["baugesuch", "baugesuch-v2", "baugesuch-v3", "baugesuch-v4"],
+    allowForms: [
+      "baugesuch",
+      "baugesuch-v2",
+      "baugesuch-v3",
+      "baugesuch-v4",
+      "baugesuch-v5",
+    ],
     disallowStates: ["new"],
   },
 };

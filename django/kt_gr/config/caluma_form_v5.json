@@ -1,0 +1,1723 @@
+[
+  {
+    "model": "caluma_form.form",
+    "pk": "baugesuch-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:44.878Z",
+      "modified_at": "2025-12-04T10:18:14.126Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Baugesuch\", \"fr\": \"Demande de permis de construire\", \"it\": \"Domanda di costruzione\"}",
+      "description": "{\"de\": \"Baugesuch v5\", \"fr\": \"Demande de permis de construire\", \"it\": \"Domanda di costruzione\"}",
+      "meta": {
+        "order": 1,
+        "category": "building-permit",
+        "is-creatable": true,
+        "is-main-form": true
+      },
+      "is_published": false,
+      "is_archived": false,
+      "source": "baugesuch-v2"
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "schutzplaetze-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.069Z",
+      "modified_at": "2025-12-04T08:30:29.069Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Schutzplätze\", \"fr\": null, \"it\": \"Posti protetti\"}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "spezialformulare-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:38.750Z",
+      "modified_at": "2025-12-04T08:30:38.750Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Spezialformulare\", \"fr\": null, \"it\": \"Moduli speciali\"}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-v5.allgemeine-informationen",
+    "fields": {
+      "created_at": "2025-12-04T08:30:44.886Z",
+      "modified_at": "2025-12-04T08:30:44.886Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baugesuch-v5",
+      "question": "allgemeine-informationen",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-v5.bestaetigung",
+    "fields": {
+      "created_at": "2025-12-04T08:30:44.888Z",
+      "modified_at": "2025-12-04T08:30:44.888Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baugesuch-v5",
+      "question": "bestaetigung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-v5.dokumente-v2",
+    "fields": {
+      "created_at": "2025-12-04T08:30:44.890Z",
+      "modified_at": "2025-12-04T08:30:44.890Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baugesuch-v5",
+      "question": "dokumente-v2",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-v5.einreichen",
+    "fields": {
+      "created_at": "2025-12-04T08:30:44.892Z",
+      "modified_at": "2025-12-04T08:30:44.892Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baugesuch-v5",
+      "question": "einreichen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-v5.nutzung-bauvorhaben-v4",
+    "fields": {
+      "created_at": "2025-12-04T08:30:44.894Z",
+      "modified_at": "2025-12-04T08:30:44.894Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baugesuch-v5",
+      "question": "nutzung-bauvorhaben-v4",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-v5.spezialformulare-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:44.896Z",
+      "modified_at": "2025-12-04T08:30:44.896Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baugesuch-v5",
+      "question": "spezialformulare-v5",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze-v5.anzahl-schutzplaetze-spital-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.092Z",
+      "modified_at": "2025-12-04T08:30:29.092Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze-v5",
+      "question": "anzahl-schutzplaetze-spital-v5",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze-v5.anzahl-schutzplaetze-wohnhaus-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.111Z",
+      "modified_at": "2025-12-04T08:30:29.111Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze-v5",
+      "question": "anzahl-schutzplaetze-wohnhaus-v5",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze-v5.bemerkungen-schutzplaetze-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.116Z",
+      "modified_at": "2025-12-04T08:30:29.116Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze-v5",
+      "question": "bemerkungen-schutzplaetze-v5",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze-v5.beschreibung-andere-gebaeudeart-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.119Z",
+      "modified_at": "2025-12-04T08:30:29.119Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze-v5",
+      "question": "beschreibung-andere-gebaeudeart-v5",
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze-v5.ersatzbeitrag-spital-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.137Z",
+      "modified_at": "2025-12-04T08:30:29.137Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze-v5",
+      "question": "ersatzbeitrag-spital-v5",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze-v5.ersatzbeitrag-wohnhaus-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.155Z",
+      "modified_at": "2025-12-04T08:30:29.155Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze-v5",
+      "question": "ersatzbeitrag-wohnhaus-v5",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze-v5.flaeche-projektierte-schutzraeume-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.160Z",
+      "modified_at": "2025-12-04T08:30:29.160Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze-v5",
+      "question": "flaeche-projektierte-schutzraeume-v5",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze-v5.gebaeudeart-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.164Z",
+      "modified_at": "2025-12-04T08:30:29.164Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze-v5",
+      "question": "gebaeudeart-v5",
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze-v5.hinweis-ausfuehrungsplaene-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.180Z",
+      "modified_at": "2025-12-04T08:30:29.180Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze-v5",
+      "question": "hinweis-ausfuehrungsplaene-v5",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze-v5.hinweis-gebuehrenpflicht-ersatzbeitrag-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.187Z",
+      "modified_at": "2025-12-04T08:30:29.187Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze-v5",
+      "question": "hinweis-gebuehrenpflicht-ersatzbeitrag-v5",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze-v5.hinweis-gebuehrenpflicht-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.183Z",
+      "modified_at": "2025-12-04T08:30:29.183Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze-v5",
+      "question": "hinweis-gebuehrenpflicht-v5",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze-v5.hinweis-zustaendigkeit-amz-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.191Z",
+      "modified_at": "2025-12-04T08:30:29.191Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze-v5",
+      "question": "hinweis-zustaendigkeit-amz-v5",
+      "sort": 21
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze-v5.projektierte-schutzraeume-infotext-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.195Z",
+      "modified_at": "2025-12-04T08:30:29.195Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze-v5",
+      "question": "projektierte-schutzraeume-infotext-v5",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze-v5.projektierte-schutzraeume-titel-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.199Z",
+      "modified_at": "2025-12-04T08:30:29.199Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze-v5",
+      "question": "projektierte-schutzraeume-titel-v5",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze-v5.schutzplaetze-titel-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.203Z",
+      "modified_at": "2025-12-04T08:30:29.203Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze-v5",
+      "question": "schutzplaetze-titel-v5",
+      "sort": 22
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze-v5.spital-anzahl-betten-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.208Z",
+      "modified_at": "2025-12-04T08:30:29.208Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze-v5",
+      "question": "spital-anzahl-betten-v5",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze-v5.spital-oder-heim-titel-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.212Z",
+      "modified_at": "2025-12-04T08:30:29.212Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze-v5",
+      "question": "spital-oder-heim-titel-v5",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze-v5.trennlinie-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.216Z",
+      "modified_at": "2025-12-04T08:30:29.216Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze-v5",
+      "question": "trennlinie-v5",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze-v5.volumen-projektierte-schutzraeume-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.220Z",
+      "modified_at": "2025-12-04T08:30:29.220Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze-v5",
+      "question": "volumen-projektierte-schutzraeume-v5",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze-v5.werden-schutzplaetze-erstellt",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.225Z",
+      "modified_at": "2025-12-04T08:30:29.225Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze-v5",
+      "question": "werden-schutzplaetze-erstellt",
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze-v5.wohnhaus-anzahl-zimmer-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.236Z",
+      "modified_at": "2025-12-04T08:30:29.236Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze-v5",
+      "question": "wohnhaus-anzahl-zimmer-v5",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "schutzplaetze-v5.wohn-oder-ferienhaus-titel-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.240Z",
+      "modified_at": "2025-12-04T08:30:29.240Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "schutzplaetze-v5",
+      "question": "wohn-oder-ferienhaus-titel-v5",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v5.abfallanlage-v4",
+    "fields": {
+      "created_at": "2025-12-04T08:30:38.761Z",
+      "modified_at": "2025-12-04T08:30:38.761Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v5",
+      "question": "abfallanlage-v4",
+      "sort": 21
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v5.ableitung-von-industrie-und-gewerbeabwasser",
+    "fields": {
+      "created_at": "2025-12-04T08:30:38.764Z",
+      "modified_at": "2025-12-04T08:30:38.764Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v5",
+      "question": "ableitung-von-industrie-und-gewerbeabwasser",
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v5.anlagedatenblatt",
+    "fields": {
+      "created_at": "2025-12-04T08:30:38.766Z",
+      "modified_at": "2025-12-04T08:30:38.766Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v5",
+      "question": "anlagedatenblatt",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v5.bauliche-angaben-v3",
+    "fields": {
+      "created_at": "2025-12-04T08:30:38.767Z",
+      "modified_at": "2025-12-04T08:30:38.767Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v5",
+      "question": "bauliche-angaben-v3",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v5.bauten-ausserhalb-bauzone",
+    "fields": {
+      "created_at": "2025-12-04T08:30:38.769Z",
+      "modified_at": "2025-12-04T08:30:38.769Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v5",
+      "question": "bauten-ausserhalb-bauzone",
+      "sort": 25
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v5.betriebsleiterwohnhaus",
+    "fields": {
+      "created_at": "2025-12-04T08:30:38.770Z",
+      "modified_at": "2025-12-04T08:30:38.770Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v5",
+      "question": "betriebsleiterwohnhaus",
+      "sort": 24
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v5.brandschutz-haustechnik",
+    "fields": {
+      "created_at": "2025-12-04T08:30:38.771Z",
+      "modified_at": "2025-12-04T08:30:38.771Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v5",
+      "question": "brandschutz-haustechnik",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v5.eingriffe-in-gewaesserschutzbereichen",
+    "fields": {
+      "created_at": "2025-12-04T08:30:38.773Z",
+      "modified_at": "2025-12-04T08:30:38.773Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v5",
+      "question": "eingriffe-in-gewaesserschutzbereichen",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v5.emissionserklaerung-form",
+    "fields": {
+      "created_at": "2025-12-04T08:30:38.774Z",
+      "modified_at": "2025-12-04T08:30:38.774Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v5",
+      "question": "emissionserklaerung-form",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v5.entsorgung",
+    "fields": {
+      "created_at": "2025-12-04T08:30:38.776Z",
+      "modified_at": "2025-12-04T08:30:38.776Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v5",
+      "question": "entsorgung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v5.feuerungsanlagen",
+    "fields": {
+      "created_at": "2025-12-04T08:30:38.777Z",
+      "modified_at": "2025-12-04T08:30:38.777Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v5",
+      "question": "feuerungsanlagen",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v5.gewinnung-von-kies-v4",
+    "fields": {
+      "created_at": "2025-12-04T08:30:38.778Z",
+      "modified_at": "2025-12-04T08:30:38.779Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v5",
+      "question": "gewinnung-von-kies-v4",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v5.grundwasserentnahme-brauchwasser-v4",
+    "fields": {
+      "created_at": "2025-12-04T08:30:38.780Z",
+      "modified_at": "2025-12-04T08:30:38.780Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v5",
+      "question": "grundwasserentnahme-brauchwasser-v4",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v5.gwr",
+    "fields": {
+      "created_at": "2025-12-04T08:30:38.783Z",
+      "modified_at": "2025-12-04T08:30:38.783Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v5",
+      "question": "gwr",
+      "sort": 26
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v5.hecken-feldgehoelze-und-ufervegetation",
+    "fields": {
+      "created_at": "2025-12-04T08:30:38.786Z",
+      "modified_at": "2025-12-04T08:30:38.786Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v5",
+      "question": "hecken-feldgehoelze-und-ufervegetation",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v5.komplexe-erdwaermesonden-v2",
+    "fields": {
+      "created_at": "2025-12-04T08:30:38.788Z",
+      "modified_at": "2025-12-04T08:30:38.788Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v5",
+      "question": "komplexe-erdwaermesonden-v2",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v5.lageranlagen-mit-wassergefaehrdenden-fluessigkeiten-v4",
+    "fields": {
+      "created_at": "2025-12-04T08:30:38.790Z",
+      "modified_at": "2025-12-04T08:30:38.790Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v5",
+      "question": "lageranlagen-mit-wassergefaehrdenden-fluessigkeiten-v4",
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v5.mineralische-bauabfaelle",
+    "fields": {
+      "created_at": "2025-12-04T08:30:38.792Z",
+      "modified_at": "2025-12-04T08:30:38.792Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v5",
+      "question": "mineralische-bauabfaelle",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v5.schutzplaetze-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:38.794Z",
+      "modified_at": "2025-12-04T08:30:38.794Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v5",
+      "question": "schutzplaetze-v5",
+      "sort": 22
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v5.solaranlage-baugesuch-v4",
+    "fields": {
+      "created_at": "2025-12-04T08:30:38.796Z",
+      "modified_at": "2025-12-04T08:30:38.796Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v5",
+      "question": "solaranlage-baugesuch-v4",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v5.solaranlage-baugesuch-v4-andere-v4",
+    "fields": {
+      "created_at": "2025-12-04T08:30:38.799Z",
+      "modified_at": "2025-12-04T08:30:38.799Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v5",
+      "question": "solaranlage-baugesuch-v4-andere-v4",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v5.stallbau-und-hofduengerlager",
+    "fields": {
+      "created_at": "2025-12-04T08:30:38.801Z",
+      "modified_at": "2025-12-04T08:30:38.801Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v5",
+      "question": "stallbau-und-hofduengerlager",
+      "sort": 23
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v5.stationaere-verbrennungsmotoren",
+    "fields": {
+      "created_at": "2025-12-04T08:30:38.803Z",
+      "modified_at": "2025-12-04T08:30:38.803Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v5",
+      "question": "stationaere-verbrennungsmotoren",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v5.terrainveraenderungen",
+    "fields": {
+      "created_at": "2025-12-04T08:30:38.806Z",
+      "modified_at": "2025-12-04T08:30:38.806Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v5",
+      "question": "terrainveraenderungen",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v5.waermepumpenanlage-v4",
+    "fields": {
+      "created_at": "2025-12-04T08:30:38.807Z",
+      "modified_at": "2025-12-04T08:30:38.807Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v5",
+      "question": "waermepumpenanlage-v4",
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare-v5.wasserentnahme-aus-oberflaechengewaessern",
+    "fields": {
+      "created_at": "2025-12-04T08:30:38.809Z",
+      "modified_at": "2025-12-04T08:30:38.809Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare-v5",
+      "question": "wasserentnahme-aus-oberflaechengewaessern",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gebaeudeart-andere-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.168Z",
+      "modified_at": "2025-12-04T08:30:29.168Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": \"Altro\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gebaeudeart-spital-oder-heim-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.173Z",
+      "modified_at": "2025-12-04T08:30:29.173Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Spital oder Heim\", \"fr\": null, \"it\": \"Ospedale o casa di cura\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gebaeudeart-wohn-oder-ferienhaus-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.175Z",
+      "modified_at": "2025-12-04T08:30:29.175Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wohn- oder Ferienhaus\", \"fr\": null, \"it\": \"Casa di abitazione o di vacanza\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "anzahl-schutzplaetze-spital-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.088Z",
+      "modified_at": "2025-12-04T09:29:19.003Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl Schutzplätze\", \"fr\": null, \"it\": \"Numero di posti protetti\"}",
+      "type": "calculated_float",
+      "is_required": "false",
+      "is_hidden": "!(\"gebaeudeart-spital-oder-heim-v5\" in \"gebaeudeart-v5\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"1 Schutzplatz pro Patientenbett\", \"fr\": null, \"it\": \"1 posto protetto per ogni letto per pazienti\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": "\"spital-anzahl-betten-v5\"|answer || 0",
+      "calc_dependents": "[\"ersatzbeitrag-spital-v5\"]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "anzahl-schutzplaetze-wohnhaus-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.107Z",
+      "modified_at": "2025-12-04T09:29:08.792Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl Schutzplätze\", \"fr\": null, \"it\": \"Numero di posti protetti\"}",
+      "type": "calculated_float",
+      "is_required": "false",
+      "is_hidden": "!(\n\t[\n\t\t\"gebaeudeart-wohn-oder-ferienhaus-v5\",\n\t\t\"gebaeudeart-andere-v5\"\n\t] intersects \"gebaeudeart-v5\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"2 Schutzplätze pro 3 Zimmer\", \"fr\": null, \"it\": \"2 posti protetti ogni 3 locali\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": "((\"wohnhaus-anzahl-zimmer-v5\"|answer || 0) * 2 / 3)|floor",
+      "calc_dependents": "[\"ersatzbeitrag-wohnhaus-v5\"]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bemerkungen-schutzplaetze-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.114Z",
+      "modified_at": "2025-12-04T08:30:29.114Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": \"Osservazioni\"}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beschreibung-andere-gebaeudeart-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.118Z",
+      "modified_at": "2025-12-04T08:30:29.269Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": \"Descrizione\"}",
+      "type": "text",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_hidden": "!(\n\t\"gebaeudeart-andere-v5\" in \"gebaeudeart-v5\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "ersatzbeitrag-spital-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.134Z",
+      "modified_at": "2025-12-04T10:27:10.304Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ersatzbeitrag (CHF)\", \"fr\": null, \"it\": \"Contributo sostitutivo (CHF)\"}",
+      "type": "calculated_float",
+      "is_required": "false",
+      "is_hidden": "!(\n\t\"gebaeudeart-spital-oder-heim-v5\" in \"gebaeudeart-v5\"|answer &&\n\t\"werden-schutzplaetze-erstellt-nein\" == \"werden-schutzplaetze-erstellt\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": "(!\"anzahl-schutzplaetze-spital-v5\"|answer) ? (0) : (\"anzahl-schutzplaetze-spital-v5\"|answer <= 10 ? 800 * \"anzahl-schutzplaetze-spital-v5\"|answer : \"anzahl-schutzplaetze-spital-v5\"|answer <= 20 ? (\"anzahl-schutzplaetze-spital-v5\"|answer - 10) * 700 + 8000 : \"anzahl-schutzplaetze-spital-v5\"|answer <= 30 ? (\"anzahl-schutzplaetze-spital-v5\"|answer - 20) * 650 + 15000 : \"anzahl-schutzplaetze-spital-v5\"|answer <= 40 ? (\"anzahl-schutzplaetze-spital-v5\"|answer - 30) * 600 + 21500 : \"anzahl-schutzplaetze-spital-v5\"|answer <= 50 ? (\"anzahl-schutzplaetze-spital-v5\"|answer - 40) * 550 + 27500 : \"anzahl-schutzplaetze-spital-v5\"|answer <= 60 ? (\"anzahl-schutzplaetze-spital-v5\"|answer - 50) * 500 + 33000 : \"anzahl-schutzplaetze-spital-v5\"|answer > 60 ? (\"anzahl-schutzplaetze-spital-v5\"|answer - 60) * 450 + 38000 : 0)",
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "ersatzbeitrag-wohnhaus-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.152Z",
+      "modified_at": "2025-12-04T10:27:15.787Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ersatzbeitrag (CHF)\", \"fr\": null, \"it\": \"Contributo sostitutivo (CHF)\"}",
+      "type": "calculated_float",
+      "is_required": "false",
+      "is_hidden": "!(\n\t[\n\t\t\"gebaeudeart-wohn-oder-ferienhaus-v5\",\n\t\t\"gebaeudeart-andere-v5\"\n\t] intersects \"gebaeudeart-v5\"|answer &&\n\t\"werden-schutzplaetze-erstellt-nein\" == \"werden-schutzplaetze-erstellt\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": "1400 * \"anzahl-schutzplaetze-wohnhaus-v5\"|answer",
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "flaeche-projektierte-schutzraeume-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.158Z",
+      "modified_at": "2025-12-04T08:30:29.387Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fläche (m²)\", \"fr\": null, \"it\": \"Superficie (m²)\"}",
+      "type": "integer",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_hidden": "\"werden-schutzplaetze-erstellt-ja\" != \"werden-schutzplaetze-erstellt\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gebaeudeart-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.162Z",
+      "modified_at": "2025-12-04T08:30:29.162Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gebäudeart\", \"fr\": null, \"it\": \"Tipo di edificio\"}",
+      "type": "multiple_choice",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-ausfuehrungsplaene-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.178Z",
+      "modified_at": "2025-12-04T08:30:29.390Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Ausführungspläne\", \"fr\": null, \"it\": \"Nota piani d'esecuzione\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "\"werden-schutzplaetze-erstellt-ja\" != \"werden-schutzplaetze-erstellt\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Die Ausführungspläne und die Schutzraumstatik können nach der Projektgenehmigung direkt, spätestens vier Wochen vor Baubeginn, dem Amt für Militär und Zivilschutz eingereicht werden.\", \"fr\": \"\", \"it\": \"I piani d'esecuzione e la statica dei rifugi possono essere inoltrati direttamente all'Ufficio del militare e della protezione civile dopo l'approvazione del progetto, al più tardi quattro settimane prima dell'inizio dei lavori di costruzione.\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": false
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-gebuehrenpflicht-ersatzbeitrag-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.185Z",
+      "modified_at": "2025-12-04T08:30:29.401Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Gebührenpflicht Ersatzbeitrag\", \"fr\": null, \"it\": \"Nota obbligo di pagare una tassa contributo sostitutivo\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\"werden-schutzplaetze-erstellt-nein\" == \"werden-schutzplaetze-erstellt\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Die Bauherrschaft wird gemäss Art. 15, Anhang 2 zur Verordnung zum Zivilschutzgesetz (BR 640.110-A2) für die Prüfung des Ersatzbeitragsgesuches gebührenpflichtig.\", \"fr\": \"\", \"it\": \"La committenza è tenuta a versare una tassa per l'esame della domanda di contributo sostitutivo conformemente all'art. 15, allegato 2 dell'ordinanza relativa alla legge sulla protezione civile (CSC 640.110-A2).\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-gebuehrenpflicht-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.181Z",
+      "modified_at": "2025-12-04T08:30:29.393Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Gebührenpflicht\", \"fr\": null, \"it\": \"Nota obbligo di pagare una tassa\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "\"werden-schutzplaetze-erstellt-ja\" != \"werden-schutzplaetze-erstellt\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Die Bauherrschaft wird gemäss Art. 15, Anhang 2 zur Verordnung zum Zivilschutzgesetz (BR 640.110-A2) für die Prüfung des Schutzraumbauprojektes gebührenpflichtig.\", \"fr\": \"\", \"it\": \"La committenza è tenuta a versare una tassa per l'esame di progetti di costruzione di rifugi conformemente all'art. 15, allegato 2 dell'ordinanza relativa alla legge sulla protezione civile (CSC 640.110-A2).\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-zustaendigkeit-amz-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.189Z",
+      "modified_at": "2025-12-04T08:30:29.189Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Zuständigkeit AMZ\", \"fr\": null, \"it\": \"Nota competenza UMPC\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Für dieses Fachthema ist das Amt für Militär und Zivilschutz (AMZ) zuständig.<br>\\nEmail: bauten@amz.gr.ch Telefon: 081 257 35 35\", \"fr\": \"\", \"it\": \"Per questo tema specifico è competente l'Ufficio del militare e della protezione civile (UMPC).<br>\\nE-mail: bauten@amz.gr.ch Telefono: 081 257 35 35\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "projektierte-schutzraeume-infotext-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.193Z",
+      "modified_at": "2025-12-04T08:30:29.403Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Projektierte Schutzräume Infotext\", \"fr\": null, \"it\": \"Rifugi progettati testo informativo\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "\"werden-schutzplaetze-erstellt-ja\" != \"werden-schutzplaetze-erstellt\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Das Bundesamt für Bevölkerungsschutz regelt die Rahmenbedingungen für den Schutzraumbau. Die technischen Weisungen sind auf [babs.admin.ch](https://www.babs.admin.ch/de/unterlagen-schutzbauten) einsehbar.\", \"fr\": \"\", \"it\": \"L'Ufficio federale della protezione della popolazione disciplina le condizioni quadro per la costruzione dei rifugi. Le istruzioni tecniche si possono consultare sul sito [babs.admin.ch](https://www.babs.admin.ch/it/documenti-sulle-costruzioni-di-protezione).\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "projektierte-schutzraeume-titel-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.197Z",
+      "modified_at": "2025-12-04T08:30:29.406Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fläche und Volumen der projektierten Schutzräume Titel\", \"fr\": null, \"it\": \"Superficie e volume dei rifugi progettati titolo\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "\"werden-schutzplaetze-erstellt-ja\" != \"werden-schutzplaetze-erstellt\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"---\\n#### Fläche und Volumen der projektierten Schutzräume\", \"fr\": \"\", \"it\": \"---\\n#### Superficie e volume dei rifugi progettati\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "schutzplaetze-titel-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.202Z",
+      "modified_at": "2025-12-04T08:30:29.202Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schutzplätze Titel\", \"fr\": null, \"it\": \"Posti protetti titolo\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"### Schutzplätze\", \"fr\": \"\", \"it\": \"### Posti protetti\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "schutzplaetze-v5",
+    "fields": {
+      "created_at": "2023-04-18T18:56:50.952Z",
+      "modified_at": "2025-12-04T09:47:12.797Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schutzplätze\", \"fr\": null, \"it\": \"Posti protetti\"}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!(\"wohnnutzung-ja\" == \"wohnnutzung\"|answer && [\"vorhaben-neubau\", \"vorhaben-umbau-erweiterung-zweckaenderung\", \"vorhaben-zweckaenderung\"] intersects \"vorhaben\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "schutzplaetze-v5",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "spezialformulare-v5",
+    "fields": {
+      "created_at": "2023-04-12T08:23:22.640Z",
+      "modified_at": "2024-09-11T14:58:44.762Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zusatzformulare\", \"fr\": null, \"it\": \"Moduli supplementari\"}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "spezialformulare-v5",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "spital-anzahl-betten-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.206Z",
+      "modified_at": "2025-12-04T08:30:29.408Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl Patientenbetten\", \"fr\": null, \"it\": \"numero di letti per pazienti\"}",
+      "type": "integer",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_hidden": "!(\"gebaeudeart-spital-oder-heim-v5\" in \"gebaeudeart-v5\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[\"anzahl-schutzplaetze-spital-v5\"]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "spital-oder-heim-titel-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.210Z",
+      "modified_at": "2025-12-04T08:30:29.411Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Spital oder Heim Titel\", \"fr\": null, \"it\": \"Ospedale o casa di cura titolo\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\"gebaeudeart-spital-oder-heim-v5\" in \"gebaeudeart-v5\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"---\\n#### Spital oder Heim\", \"fr\": \"\", \"it\": \"---\\n#### Ospedale o casa di cura\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "trennlinie-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.214Z",
+      "modified_at": "2025-12-04T08:30:29.214Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Trennlinie\", \"fr\": null, \"it\": \"Linea di separazione\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"---\", \"fr\": \"\", \"it\": \"---\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "volumen-projektierte-schutzraeume-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.218Z",
+      "modified_at": "2025-12-04T08:30:29.413Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Volumen (m³)\", \"fr\": null, \"it\": \"Volume (m³)\"}",
+      "type": "integer",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_hidden": "\"werden-schutzplaetze-erstellt-ja\" != \"werden-schutzplaetze-erstellt\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "wohnhaus-anzahl-zimmer-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.234Z",
+      "modified_at": "2025-12-04T09:59:29.273Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl Zimmer\", \"fr\": null, \"it\": \"Numero di locali\"}",
+      "type": "float",
+      "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_hidden": "!(\n\t[\n\t\t\"gebaeudeart-wohn-oder-ferienhaus-v5\",\n\t\t\"gebaeudeart-andere-v5\"\n\t] intersects \"gebaeudeart-v5\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "info_text": "{\"de\": \"Bei der Berechnung werden halbe Zimmer nicht mitgezählt. Küche und Wohnzimmer zählen zusammen als 1 Zimmer. Bei An-, Auf- und Umbauten sowie Nutzungsänderungen zählen nur die neu geschaffenen Zimmer.\", \"fr\": null, \"it\": \"Ai fini del calcolo i mezzi locali non vengono presi in considerazione. Cucina e soggiorno contano insieme come 1 locale. In caso di ampliamenti, sopraelevazioni, ristrutturazioni nonché cambiamenti di destinazione vengono considerate solo i locali nuovi.\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "step": null,
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[\"anzahl-schutzplaetze-wohnhaus-v5\"]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "wohn-oder-ferienhaus-titel-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.238Z",
+      "modified_at": "2025-12-04T08:30:29.417Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wohn- oder Ferienhaus Titel\", \"fr\": null, \"it\": \"Casa di abitazione o di vacanza titolo\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\n\t[\n\t\t\"gebaeudeart-wohn-oder-ferienhaus-v5\",\n\t\t\"gebaeudeart-andere-v5\"\n\t] intersects \"gebaeudeart-v5\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"---\\n#### Wohnhaus, Ferienhaus oder anderes Gebäude\", \"fr\": \"\", \"it\": \"---\\n#### Casa d'abitazione, casa di vacanza o altro edificio\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gebaeudeart-v5.gebaeudeart-andere-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.170Z",
+      "modified_at": "2025-12-04T08:30:29.170Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "gebaeudeart-v5",
+      "option": "gebaeudeart-andere-v5",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gebaeudeart-v5.gebaeudeart-spital-oder-heim-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.174Z",
+      "modified_at": "2025-12-04T08:30:29.174Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "gebaeudeart-v5",
+      "option": "gebaeudeart-spital-oder-heim-v5",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gebaeudeart-v5.gebaeudeart-wohn-oder-ferienhaus-v5",
+    "fields": {
+      "created_at": "2025-12-04T08:30:29.176Z",
+      "modified_at": "2025-12-04T08:30:29.176Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "gebaeudeart-v5",
+      "option": "gebaeudeart-wohn-oder-ferienhaus-v5",
+      "sort": 3
+    }
+  }
+]
