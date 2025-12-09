@@ -136,6 +136,8 @@ services:
   metabase:
     depends_on:
       - db
+    ports:
+      - "3001:3000"
     environment:
       - MB_DB_USER=camac
       - MB_DB_PASS=camac
