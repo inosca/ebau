@@ -250,7 +250,7 @@ CONFIG = {
             "permissions": [
                 CREATE_UNTIL_DECISION,
                 MOVE_OWN_UNTIL_DECISION,
-                MOVE_ALL_PAPER_UNTIL_DECISION,
+                MOVE_ALL_AFTER_MIGRATION,
                 UPDATE_ALL_TAGS,
                 UPDATE_ALL_MARKS_UNTIL_DECISION,
                 UPDATE_ALL_METADATA_UNTIL_DECISION,

@@ -1152,16 +1152,6 @@
               {
                 "scope": "All",
                 "fields": ["category"],
-                "condition": {
-                  "PaperInstance": true,
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "to-finish",
-                    "construction-monitoring",
-                    "decided"
-                  ]
-                },
                 "permission": "update"
               },
               {
