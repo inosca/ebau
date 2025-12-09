@@ -1311,17 +1311,8 @@
                 "permission": "update"
               },
               {
-                "scope": "Service",
+                "scope": "All",
                 "fields": ["category"],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "to-finish",
-                    "construction-monitoring",
-                    "decided"
-                  ]
-                },
                 "permission": "update"
               },
               {
