@@ -7,7 +7,6 @@ from rest_framework.generics import RetrieveAPIView
 from rest_framework.renderers import JSONRenderer
 from rest_framework.response import Response
 
-from camac.core.translations import get_translations_canton_aware
 from camac.instance.placeholders.serializers import (
     AgDMSPlaceholdersSerializer,
     BeDMSPlaceholdersSerializer,
@@ -39,63 +38,44 @@ class DMSPlaceholdersDocsView(RetrieveAPIView):
 
         return DMSPlaceholdersSerializer  # pragma: no cover
 
-    def get_field_docs(self, field):
-        return {
-            "aliases": [
-                {
-                    lang: to_configured_case(t_alias)
-                    for lang, t_alias in get_translations_canton_aware(alias).items()
-                }
-                for alias in field.aliases
-            ],
-            "nested_aliases": {
-                nested_name: [
-                    {
-                        lang: to_configured_case(t_alias)
-                        for lang, t_alias in get_translations_canton_aware(
-                            nested_alias
-                        ).items()
-                    }
-                    for nested_alias in nested_aliases
-                ]
-                for nested_name, nested_aliases in field.nested_aliases.items()
-            },
-            "description": (
-                get_translations_canton_aware(field.description)
-                if field.description
-                else None
-            ),
-        }
-
-    def get_docs(self, available_placeholders):
+    def get_field_docs(self):
         serializer = self.get_serializer_class()
 
         docs = {
-            to_configured_case(field_name): self.get_field_docs(field)
+            to_configured_case(field_name): field.get_docs()
             for field_name, field in serializer._declared_fields.items()
             if field_name not in serializer.Meta.exclude
         }
 
-        if available_placeholders:
-            return self.get_available_placeholders(docs)
-
         return OrderedDict(sorted(docs.items(), key=lambda i: i[0]))
 
-    def get_available_placeholders(self, docs):
+    def get_available_placeholders(self):
+        """Create a flat list of every aliased placeholder of all fields."""
         available_placeholders = set()
+        field_docs = self.get_field_docs()
 
-        for name, docs in docs.items():
+        serializer_cls = self.get_serializer_class()
+
+        for name, docs in field_docs.items():
+            # get field for attribute access to avoid extending docs payload
+            # with unneded info.
+            field = serializer_cls._declared_fields[name.lower()]
             names = set()
+            nested_aliases = docs["nested_aliases"]
 
             for alias in docs["aliases"]:
-                names.update(alias.values())
-
-            nested_aliases = docs["nested_aliases"]
+                names.update(
+                    [
+                        f"{alias_t}[]"
+                        if (field.is_collection or nested_aliases)
+                        else alias_t
+                        for alias_t in alias.values()
+                    ]
+                )
             if nested_aliases:
                 nested_names = set()
                 for alias in names:
-                    nested_base = f"{alias}[]"
-                    nested_names.add(nested_base)
+                    nested_base = alias
 
                     for nested_name, nested_aliases_list in nested_aliases.items():
                         base_prefix = nested_base
@@ -121,8 +101,13 @@ class DMSPlaceholdersDocsView(RetrieveAPIView):
 
         return sorted(available_placeholders)
 
-    def get(self, request):
-        return Response(
-            self.get_docs(bool(request.query_params.get("available_placeholders"))),
-            status.HTTP_200_OK,
-        )
+    def get(self, request) -> Response:
+        """Get translated field docs or all available placeholders."""
+
+        if request.query_params.get("available_placeholders"):
+            return Response(
+                self.get_available_placeholders(),
+                status.HTTP_200_OK,
+            )
+
+        return Response(self.get_field_docs(), status.HTTP_200_OK)

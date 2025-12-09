@@ -1,4 +1,520 @@
 # serializer version: 1
+# name: test_aliased_placeholder_field[Instance form backend: caluma-Add []]
+  dict({
+    'aliases': list([
+      dict({
+        'de': 'BAT_DE',
+        'fr': 'BATEAU',
+        'it': 'BAT_DE',
+      }),
+      dict({
+        'de': 'CAT_DE',
+        'fr': 'CHAT',
+        'it': 'CAT_DE',
+      }),
+    ]),
+    'description': None,
+    'nested_aliases': dict({
+    }),
+  })
+# ---
+# name: test_aliased_placeholder_field[Instance form backend: caluma-Add []].1
+  list([
+    'BATEAU',
+    'BAT_DE',
+    'CAT_DE',
+    'CHAT',
+  ])
+# ---
+# name: test_aliased_placeholder_field[Instance form backend: caluma-Add []].2
+  dict({
+    'aliases': list([
+      dict({
+        'de': 'BATZENLISTE',
+        'fr': 'BATEAUX',
+        'it': 'BATZENLISTE',
+      }),
+      dict({
+        'de': 'KATZENLISTE',
+        'fr': 'CHATEAUX',
+        'it': 'KATZENLISTE',
+      }),
+    ]),
+    'description': None,
+    'nested_aliases': dict({
+    }),
+  })
+# ---
+# name: test_aliased_placeholder_field[Instance form backend: caluma-Add []].3
+  list([
+    'BATEAUX',
+    'BATEAUX[]',
+    'BATZENLISTE',
+    'BATZENLISTE[]',
+    'CHATEAUX',
+    'CHATEAUX[]',
+    'KATZENLISTE',
+    'KATZENLISTE[]',
+  ])
+# ---
+# name: test_aliased_placeholder_field[Instance form backend: caluma-Add []].4
+  dict({
+    'aliases': list([
+      dict({
+        'de': 'BOBJEKTE',
+        'fr': '🦇',
+        'it': 'BOBJEKTE',
+      }),
+      dict({
+        'de': 'KOBJEKTE',
+        'fr': '🐈',
+        'it': 'KOBJEKTE',
+      }),
+    ]),
+    'description': None,
+    'nested_aliases': dict({
+      'NAME': list([
+        dict({
+          'de': 'CAT_DE',
+          'fr': 'CHAT',
+          'it': 'CAT_DE',
+        }),
+      ]),
+      'NESTED.NAME': list([
+        dict({
+          'de': 'BAT_DE',
+          'fr': 'BATEAU',
+          'it': 'BAT_DE',
+        }),
+      ]),
+    }),
+  })
+# ---
+# name: test_aliased_placeholder_field[Instance form backend: caluma-Add []].5
+  list([
+    'BOBJEKTE',
+    'BOBJEKTE.CAT_DE',
+    'BOBJEKTE.CHAT',
+    'BOBJEKTE[]',
+    'BOBJEKTE[].CAT_DE',
+    'BOBJEKTE[].CHAT',
+    'BOBJEKTE[].NESTED[]',
+    'BOBJEKTE[].NESTED[].BATEAU',
+    'BOBJEKTE[].NESTED[].BAT_DE',
+    'KOBJEKTE',
+    'KOBJEKTE.CAT_DE',
+    'KOBJEKTE.CHAT',
+    'KOBJEKTE[]',
+    'KOBJEKTE[].CAT_DE',
+    'KOBJEKTE[].CHAT',
+    'KOBJEKTE[].NESTED[]',
+    'KOBJEKTE[].NESTED[].BATEAU',
+    'KOBJEKTE[].NESTED[].BAT_DE',
+    '🐈',
+    '🐈.CAT_DE',
+    '🐈.CHAT',
+    '🐈[]',
+    '🐈[].CAT_DE',
+    '🐈[].CHAT',
+    '🐈[].NESTED[]',
+    '🐈[].NESTED[].BATEAU',
+    '🐈[].NESTED[].BAT_DE',
+    '🦇',
+    '🦇.CAT_DE',
+    '🦇.CHAT',
+    '🦇[]',
+    '🦇[].CAT_DE',
+    '🦇[].CHAT',
+    '🦇[].NESTED[]',
+    '🦇[].NESTED[].BATEAU',
+    '🦇[].NESTED[].BAT_DE',
+  ])
+# ---
+# name: test_aliased_placeholder_field[Instance form backend: caluma-No [] unless nested]
+  dict({
+    'aliases': list([
+      dict({
+        'de': 'BAT_DE',
+        'fr': 'BATEAU',
+        'it': 'BAT_DE',
+      }),
+      dict({
+        'de': 'CAT_DE',
+        'fr': 'CHAT',
+        'it': 'CAT_DE',
+      }),
+    ]),
+    'description': None,
+    'nested_aliases': dict({
+    }),
+  })
+# ---
+# name: test_aliased_placeholder_field[Instance form backend: caluma-No [] unless nested].1
+  list([
+    'BATEAU',
+    'BAT_DE',
+    'CAT_DE',
+    'CHAT',
+  ])
+# ---
+# name: test_aliased_placeholder_field[Instance form backend: caluma-No [] unless nested].2
+  dict({
+    'aliases': list([
+      dict({
+        'de': 'BATZENLISTE',
+        'fr': 'BATEAUX',
+        'it': 'BATZENLISTE',
+      }),
+      dict({
+        'de': 'KATZENLISTE',
+        'fr': 'CHATEAUX',
+        'it': 'KATZENLISTE',
+      }),
+    ]),
+    'description': None,
+    'nested_aliases': dict({
+    }),
+  })
+# ---
+# name: test_aliased_placeholder_field[Instance form backend: caluma-No [] unless nested].3
+  list([
+    'BATEAUX',
+    'BATZENLISTE',
+    'CHATEAUX',
+    'KATZENLISTE',
+  ])
+# ---
+# name: test_aliased_placeholder_field[Instance form backend: caluma-No [] unless nested].4
+  dict({
+    'aliases': list([
+      dict({
+        'de': 'BOBJEKTE',
+        'fr': '🦇',
+        'it': 'BOBJEKTE',
+      }),
+      dict({
+        'de': 'KOBJEKTE',
+        'fr': '🐈',
+        'it': 'KOBJEKTE',
+      }),
+    ]),
+    'description': None,
+    'nested_aliases': dict({
+      'NAME': list([
+        dict({
+          'de': 'CAT_DE',
+          'fr': 'CHAT',
+          'it': 'CAT_DE',
+        }),
+      ]),
+      'NESTED.NAME': list([
+        dict({
+          'de': 'BAT_DE',
+          'fr': 'BATEAU',
+          'it': 'BAT_DE',
+        }),
+      ]),
+    }),
+  })
+# ---
+# name: test_aliased_placeholder_field[Instance form backend: caluma-No [] unless nested].5
+  list([
+    'BOBJEKTE',
+    'BOBJEKTE.CAT_DE',
+    'BOBJEKTE.CHAT',
+    'BOBJEKTE[]',
+    'BOBJEKTE[].CAT_DE',
+    'BOBJEKTE[].CHAT',
+    'BOBJEKTE[].NESTED[]',
+    'BOBJEKTE[].NESTED[].BATEAU',
+    'BOBJEKTE[].NESTED[].BAT_DE',
+    'KOBJEKTE',
+    'KOBJEKTE.CAT_DE',
+    'KOBJEKTE.CHAT',
+    'KOBJEKTE[]',
+    'KOBJEKTE[].CAT_DE',
+    'KOBJEKTE[].CHAT',
+    'KOBJEKTE[].NESTED[]',
+    'KOBJEKTE[].NESTED[].BATEAU',
+    'KOBJEKTE[].NESTED[].BAT_DE',
+    '🐈',
+    '🐈.CAT_DE',
+    '🐈.CHAT',
+    '🐈[]',
+    '🐈[].CAT_DE',
+    '🐈[].CHAT',
+    '🐈[].NESTED[]',
+    '🐈[].NESTED[].BATEAU',
+    '🐈[].NESTED[].BAT_DE',
+    '🦇',
+    '🦇.CAT_DE',
+    '🦇.CHAT',
+    '🦇[]',
+    '🦇[].CAT_DE',
+    '🦇[].CHAT',
+    '🦇[].NESTED[]',
+    '🦇[].NESTED[].BATEAU',
+    '🦇[].NESTED[].BAT_DE',
+  ])
+# ---
+# name: test_aliased_placeholder_field[Instance form backend: camac-ng-Add []]
+  dict({
+    'aliases': list([
+      dict({
+        'de': 'BAT_DE',
+        'fr': 'BATEAU',
+        'it': 'BAT_DE',
+      }),
+      dict({
+        'de': 'CAT_DE',
+        'fr': 'CHAT',
+        'it': 'CAT_DE',
+      }),
+    ]),
+    'description': None,
+    'nested_aliases': dict({
+    }),
+  })
+# ---
+# name: test_aliased_placeholder_field[Instance form backend: camac-ng-Add []].1
+  list([
+    'BATEAU',
+    'BAT_DE',
+    'CAT_DE',
+    'CHAT',
+  ])
+# ---
+# name: test_aliased_placeholder_field[Instance form backend: camac-ng-Add []].2
+  dict({
+    'aliases': list([
+      dict({
+        'de': 'BATZENLISTE',
+        'fr': 'BATEAUX',
+        'it': 'BATZENLISTE',
+      }),
+      dict({
+        'de': 'KATZENLISTE',
+        'fr': 'CHATEAUX',
+        'it': 'KATZENLISTE',
+      }),
+    ]),
+    'description': None,
+    'nested_aliases': dict({
+    }),
+  })
+# ---
+# name: test_aliased_placeholder_field[Instance form backend: camac-ng-Add []].3
+  list([
+    'BATEAUX',
+    'BATEAUX[]',
+    'BATZENLISTE',
+    'BATZENLISTE[]',
+    'CHATEAUX',
+    'CHATEAUX[]',
+    'KATZENLISTE',
+    'KATZENLISTE[]',
+  ])
+# ---
+# name: test_aliased_placeholder_field[Instance form backend: camac-ng-Add []].4
+  dict({
+    'aliases': list([
+      dict({
+        'de': 'BOBJEKTE',
+        'fr': '🦇',
+        'it': 'BOBJEKTE',
+      }),
+      dict({
+        'de': 'KOBJEKTE',
+        'fr': '🐈',
+        'it': 'KOBJEKTE',
+      }),
+    ]),
+    'description': None,
+    'nested_aliases': dict({
+      'NAME': list([
+        dict({
+          'de': 'CAT_DE',
+          'fr': 'CHAT',
+          'it': 'CAT_DE',
+        }),
+      ]),
+      'NESTED.NAME': list([
+        dict({
+          'de': 'BAT_DE',
+          'fr': 'BATEAU',
+          'it': 'BAT_DE',
+        }),
+      ]),
+    }),
+  })
+# ---
+# name: test_aliased_placeholder_field[Instance form backend: camac-ng-Add []].5
+  list([
+    'BOBJEKTE',
+    'BOBJEKTE.CAT_DE',
+    'BOBJEKTE.CHAT',
+    'BOBJEKTE[]',
+    'BOBJEKTE[].CAT_DE',
+    'BOBJEKTE[].CHAT',
+    'BOBJEKTE[].NESTED[]',
+    'BOBJEKTE[].NESTED[].BATEAU',
+    'BOBJEKTE[].NESTED[].BAT_DE',
+    'KOBJEKTE',
+    'KOBJEKTE.CAT_DE',
+    'KOBJEKTE.CHAT',
+    'KOBJEKTE[]',
+    'KOBJEKTE[].CAT_DE',
+    'KOBJEKTE[].CHAT',
+    'KOBJEKTE[].NESTED[]',
+    'KOBJEKTE[].NESTED[].BATEAU',
+    'KOBJEKTE[].NESTED[].BAT_DE',
+    '🐈',
+    '🐈.CAT_DE',
+    '🐈.CHAT',
+    '🐈[]',
+    '🐈[].CAT_DE',
+    '🐈[].CHAT',
+    '🐈[].NESTED[]',
+    '🐈[].NESTED[].BATEAU',
+    '🐈[].NESTED[].BAT_DE',
+    '🦇',
+    '🦇.CAT_DE',
+    '🦇.CHAT',
+    '🦇[]',
+    '🦇[].CAT_DE',
+    '🦇[].CHAT',
+    '🦇[].NESTED[]',
+    '🦇[].NESTED[].BATEAU',
+    '🦇[].NESTED[].BAT_DE',
+  ])
+# ---
+# name: test_aliased_placeholder_field[Instance form backend: camac-ng-No [] unless nested]
+  dict({
+    'aliases': list([
+      dict({
+        'de': 'BAT_DE',
+        'fr': 'BATEAU',
+        'it': 'BAT_DE',
+      }),
+      dict({
+        'de': 'CAT_DE',
+        'fr': 'CHAT',
+        'it': 'CAT_DE',
+      }),
+    ]),
+    'description': None,
+    'nested_aliases': dict({
+    }),
+  })
+# ---
+# name: test_aliased_placeholder_field[Instance form backend: camac-ng-No [] unless nested].1
+  list([
+    'BATEAU',
+    'BAT_DE',
+    'CAT_DE',
+    'CHAT',
+  ])
+# ---
+# name: test_aliased_placeholder_field[Instance form backend: camac-ng-No [] unless nested].2
+  dict({
+    'aliases': list([
+      dict({
+        'de': 'BATZENLISTE',
+        'fr': 'BATEAUX',
+        'it': 'BATZENLISTE',
+      }),
+      dict({
+        'de': 'KATZENLISTE',
+        'fr': 'CHATEAUX',
+        'it': 'KATZENLISTE',
+      }),
+    ]),
+    'description': None,
+    'nested_aliases': dict({
+    }),
+  })
+# ---
+# name: test_aliased_placeholder_field[Instance form backend: camac-ng-No [] unless nested].3
+  list([
+    'BATEAUX',
+    'BATZENLISTE',
+    'CHATEAUX',
+    'KATZENLISTE',
+  ])
+# ---
+# name: test_aliased_placeholder_field[Instance form backend: camac-ng-No [] unless nested].4
+  dict({
+    'aliases': list([
+      dict({
+        'de': 'BOBJEKTE',
+        'fr': '🦇',
+        'it': 'BOBJEKTE',
+      }),
+      dict({
+        'de': 'KOBJEKTE',
+        'fr': '🐈',
+        'it': 'KOBJEKTE',
+      }),
+    ]),
+    'description': None,
+    'nested_aliases': dict({
+      'NAME': list([
+        dict({
+          'de': 'CAT_DE',
+          'fr': 'CHAT',
+          'it': 'CAT_DE',
+        }),
+      ]),
+      'NESTED.NAME': list([
+        dict({
+          'de': 'BAT_DE',
+          'fr': 'BATEAU',
+          'it': 'BAT_DE',
+        }),
+      ]),
+    }),
+  })
+# ---
+# name: test_aliased_placeholder_field[Instance form backend: camac-ng-No [] unless nested].5
+  list([
+    'BOBJEKTE',
+    'BOBJEKTE.CAT_DE',
+    'BOBJEKTE.CHAT',
+    'BOBJEKTE[]',
+    'BOBJEKTE[].CAT_DE',
+    'BOBJEKTE[].CHAT',
+    'BOBJEKTE[].NESTED[]',
+    'BOBJEKTE[].NESTED[].BATEAU',
+    'BOBJEKTE[].NESTED[].BAT_DE',
+    'KOBJEKTE',
+    'KOBJEKTE.CAT_DE',
+    'KOBJEKTE.CHAT',
+    'KOBJEKTE[]',
+    'KOBJEKTE[].CAT_DE',
+    'KOBJEKTE[].CHAT',
+    'KOBJEKTE[].NESTED[]',
+    'KOBJEKTE[].NESTED[].BATEAU',
+    'KOBJEKTE[].NESTED[].BAT_DE',
+    '🐈',
+    '🐈.CAT_DE',
+    '🐈.CHAT',
+    '🐈[]',
+    '🐈[].CAT_DE',
+    '🐈[].CHAT',
+    '🐈[].NESTED[]',
+    '🐈[].NESTED[].BATEAU',
+    '🐈[].NESTED[].BAT_DE',
+    '🦇',
+    '🦇.CAT_DE',
+    '🦇.CHAT',
+    '🦇[]',
+    '🦇[].CAT_DE',
+    '🦇[].CHAT',
+    '🦇[].NESTED[]',
+    '🦇[].NESTED[].BATEAU',
+    '🦇[].NESTED[].BAT_DE',
+  ])
+# ---
 # name: test_dms_placeholders[Municipality]
   dict({
     'ACE': 'Ja',
@@ -4957,12 +5473,12 @@
     'NEBENBESTIMMUNGEN': dict({
       'aliases': list([
         dict({
-          'de': 'EIGENE_NEBENBESTIMMUNGEN',
-          'fr': 'DISPOSITIONS_ANNEXES',
-        }),
-        dict({
           'de': 'NEBENBESTIMMUNGEN',
           'fr': 'DISPOSITIONS_ACCESSOIRES',
+        }),
+        dict({
+          'de': 'EIGENE_NEBENBESTIMMUNGEN',
+          'fr': 'DISPOSITIONS_ANNEXES',
         }),
       ]),
       'description': dict({
@@ -5604,12 +6120,12 @@
     'STELLUNGNAHME': dict({
       'aliases': list([
         dict({
-          'de': 'EIGENE_STELLUNGNAHMEN',
-          'fr': 'PRISE_DE_POSITION',
-        }),
-        dict({
           'de': 'STELLUNGNAHME',
           'fr': 'POINT_DE_VUE',
+        }),
+        dict({
+          'de': 'EIGENE_STELLUNGNAHMEN',
+          'fr': 'PRISE_DE_POSITION',
         }),
       ]),
       'description': dict({
@@ -7342,12 +7858,12 @@
     'NEBENBESTIMMUNGEN': dict({
       'aliases': list([
         dict({
-          'de': 'EIGENE_NEBENBESTIMMUNGEN',
-          'it': 'PROPRIE_DISPOSIZIONI_ACCESSORIE',
-        }),
-        dict({
           'de': 'NEBENBESTIMMUNGEN',
           'it': 'DISPOSIZIONI_ACCESSORIE',
+        }),
+        dict({
+          'de': 'EIGENE_NEBENBESTIMMUNGEN',
+          'it': 'PROPRIE_DISPOSIZIONI_ACCESSORIE',
         }),
       ]),
       'description': dict({
@@ -7565,12 +8081,12 @@
     'STELLUNGNAHME': dict({
       'aliases': list([
         dict({
-          'de': 'EIGENE_STELLUNGNAHMEN',
-          'it': 'PROPRIE_PRESE_DI_POSIZIONE',
-        }),
-        dict({
           'de': 'STELLUNGNAHME',
           'it': 'PRESE_DI_POSIZIONE',
+        }),
+        dict({
+          'de': 'EIGENE_STELLUNGNAHMEN',
+          'it': 'PROPRIE_PRESE_DI_POSIZIONE',
         }),
       ]),
       'description': dict({
@@ -10733,7 +11249,6 @@
     'ANGEMELDET_POSITION',
     'ANGEMELDET_TELEFON',
     'ANGEMELDET_TITEL',
-    'AUSWAERTIGE_ANSTOESSER',
     'AUSWAERTIGE_ANSTOESSER[]',
     'AUSWAERTIGE_ANSTOESSER[].ADRESSE_1',
     'AUSWAERTIGE_ANSTOESSER[].ADRESSE_2',
@@ -10758,7 +11273,6 @@
     'DOSSIER_NUMMER',
     'DOSSIER_TYP',
     'EBAU_URL',
-    'EIGENE_GEBUEHREN',
     'EIGENE_GEBUEHREN[]',
     'EIGENE_GEBUEHREN[].BEMERKUNG',
     'EIGENE_GEBUEHREN[].BETRAG',
@@ -10772,7 +11286,6 @@
     'FACHSTELLEN_KANTONAL[].ERSTELLT',
     'FACHSTELLEN_KANTONAL[].FRIST',
     'FACHSTELLEN_KANTONAL[].NAME',
-    'GEBUEHREN',
     'GEBUEHREN[]',
     'GEBUEHREN[].BEMERKUNG',
     'GEBUEHREN[].BETRAG',
@@ -10838,31 +11351,26 @@
     'STATUS',
     'STRASSE',
     'WEITERE_BETROFFENE_GEMEINDEN',
-    'ZIRKULATION_ALLE',
     'ZIRKULATION_ALLE[]',
     'ZIRKULATION_ALLE[].BEANTWORTET',
     'ZIRKULATION_ALLE[].ERSTELLT',
     'ZIRKULATION_ALLE[].FRIST',
     'ZIRKULATION_ALLE[].NAME',
-    'ZIRKULATION_ANGEFORDERT',
     'ZIRKULATION_ANGEFORDERT[]',
     'ZIRKULATION_ANGEFORDERT[].BEANTWORTET',
     'ZIRKULATION_ANGEFORDERT[].ERSTELLT',
     'ZIRKULATION_ANGEFORDERT[].FRIST',
     'ZIRKULATION_ANGEFORDERT[].NAME',
-    'ZIRKULATION_FACHSTELLEN',
     'ZIRKULATION_FACHSTELLEN[]',
     'ZIRKULATION_FACHSTELLEN[].BEANTWORTET',
     'ZIRKULATION_FACHSTELLEN[].ERSTELLT',
     'ZIRKULATION_FACHSTELLEN[].FRIST',
     'ZIRKULATION_FACHSTELLEN[].NAME',
-    'ZIRKULATION_GEMEINDEN',
     'ZIRKULATION_GEMEINDEN[]',
     'ZIRKULATION_GEMEINDEN[].BEANTWORTET',
     'ZIRKULATION_GEMEINDEN[].ERSTELLT',
     'ZIRKULATION_GEMEINDEN[].FRIST',
     'ZIRKULATION_GEMEINDEN[].NAME',
-    'ZIRKULATION_RUECKMELDUNGEN',
     'ZIRKULATION_RUECKMELDUNGEN[]',
     'ZIRKULATION_RUECKMELDUNGEN[].ANTWORT',
     'ZIRKULATION_RUECKMELDUNGEN[].BEMERKUNGEN',
@@ -10888,7 +11396,6 @@
     'ALLE_GESUCHSTELLER_NAME_ADRESSE',
     'ALLE_GRUNDEIGENTUEMER',
     'ALLE_GRUNDEIGENTUEMER_NAME_ADRESSE',
-    'ALLE_NACHBARN',
     'ALLE_NACHBARN[]',
     'ALLE_NACHBARN[].ADRESSE_1',
     'ALLE_NACHBARN[].ADRESSE_2',
@@ -10900,13 +11407,11 @@
     'ALLE_VERTRETER_NAME_ADRESSE',
     'ANZAHL_BEHERBERGTE_PERSONEN',
     'ARRONDISSEMENT_ADMINISTRATIF',
-    'ASCENSEURS',
     'ASCENSEURS[]',
     'ASCENSEURS[].ANLAGENTYP',
     'ASCENSEURS[].NEU_BESTEHEND',
     'ASCENSEURS[].NOUVEAU_OU_EXISTANT',
     'ASCENSEURS[].TYPE_INSTALLATION',
-    'AUFZUGSANLAGEN',
     'AUFZUGSANLAGEN[]',
     'AUFZUGSANLAGEN[].ANLAGENTYP',
     'AUFZUGSANLAGEN[].NEU_BESTEHEND',
@@ -10951,13 +11456,11 @@
     'BESCHREIBUNG_BAUVORHABEN',
     'BESCHREIBUNG_PROJEKTAENDERUNG',
     'BOISSONS_ALCOOLIQUES',
-    'CHAMBRES_AVEC_PLUS_DE_50_PERSONNES',
     'CHAMBRES_AVEC_PLUS_DE_50_PERSONNES[]',
     'CHAMBRES_AVEC_PLUS_DE_50_PERSONNES[].ANZAHL_BEHERBERGTE_PERSONEN',
     'CHAMBRES_AVEC_PLUS_DE_50_PERSONNES[].CHAMBRE',
     'CHAMBRES_AVEC_PLUS_DE_50_PERSONNES[].NOMBRE_DE_PERSONNES',
     'CHAMBRES_AVEC_PLUS_DE_50_PERSONNES[].RAUM',
-    'CIRCULATION_COMMUNES',
     'CIRCULATION_COMMUNES[]',
     'CIRCULATION_COMMUNES[].BEANTWORTET',
     'CIRCULATION_COMMUNES[].CREE',
@@ -10967,7 +11470,6 @@
     'CIRCULATION_COMMUNES[].NAME',
     'CIRCULATION_COMMUNES[].NOM',
     'CIRCULATION_COMMUNES[].REPONDU',
-    'CIRCULATION_DEMANDEE',
     'CIRCULATION_DEMANDEE[]',
     'CIRCULATION_DEMANDEE[].BEANTWORTET',
     'CIRCULATION_DEMANDEE[].CREE',
@@ -10977,7 +11479,6 @@
     'CIRCULATION_DEMANDEE[].NAME',
     'CIRCULATION_DEMANDEE[].NOM',
     'CIRCULATION_DEMANDEE[].REPONDU',
-    'CIRCULATION_PREAVIS',
     'CIRCULATION_PREAVIS[]',
     'CIRCULATION_PREAVIS[].ANTWORT',
     'CIRCULATION_PREAVIS[].BEANTWORTET',
@@ -10989,7 +11490,6 @@
     'CIRCULATION_PREAVIS[].REPONSE',
     'CIRCULATION_PREAVIS[].STELLUNGNAHME',
     'CIRCULATION_PREAVIS[].VON',
-    'CIRCULATION_PREF',
     'CIRCULATION_PREF[]',
     'CIRCULATION_PREF[].BEANTWORTET',
     'CIRCULATION_PREF[].CREE',
@@ -10999,7 +11499,6 @@
     'CIRCULATION_PREF[].NAME',
     'CIRCULATION_PREF[].NOM',
     'CIRCULATION_PREF[].REPONDU',
-    'CIRCULATION_SERVICES',
     'CIRCULATION_SERVICES[]',
     'CIRCULATION_SERVICES[].BEANTWORTET',
     'CIRCULATION_SERVICES[].CREE',
@@ -11039,7 +11538,6 @@
     'DECISION_REFUS',
     'DECISION_REFUS_AVEC_RET',
     'DECISION_REFUS_SANS_RET',
-    'DEMANDES_EN_COMPENSATION_DES_CHARGES',
     'DEMANDES_EN_COMPENSATION_DES_CHARGES[]',
     'DEMANDES_EN_COMPENSATION_DES_CHARGES[].ANLIEGEN',
     'DEMANDES_EN_COMPENSATION_DES_CHARGES[].DATE_DOCUMENT',
@@ -11058,7 +11556,6 @@
     'DIMENSION_HAUTEUR',
     'DISPOSITIONS_ACCESSOIRES',
     'DISPOSITIONS_ANNEXES',
-    'DISTANCES_ENTRE_LES_BATIMENTS',
     'DISTANCES_ENTRE_LES_BATIMENTS[]',
     'DISTANCES_ENTRE_LES_BATIMENTS[].ABSTAND_M',
     'DISTANCES_ENTRE_LES_BATIMENTS[].COTE',
@@ -11071,14 +11568,12 @@
     'EBAU_NR',
     'EBAU_NUMERO',
     'EBAU_URL',
-    'EIGENE_GEBUEHREN',
     'EIGENE_GEBUEHREN[]',
     'EIGENE_GEBUEHREN[].BETRAG',
     'EIGENE_GEBUEHREN[].POSITION',
     'EIGENE_GEBUEHREN_TOTAL',
     'EIGENE_NEBENBESTIMMUNGEN',
     'EIGENE_STELLUNGNAHMEN',
-    'EINSPRACHEN',
     'EINSPRACHEN[]',
     'EINSPRACHEN[].DATE_DOCUMENT',
     'EINSPRACHEN[].DATE_RECEPTION',
@@ -11090,12 +11585,10 @@
     'EINSPRACHEN[].RUEGEPUNKTE',
     'EINSPRACHEN[].TITEL',
     'EINSPRACHEN[].TITRE',
-    'EINSPRECHENDE',
     'EINSPRECHENDE[]',
     'EINSPRECHENDE[].ADRESSE',
     'EINSPRECHENDE[].NAME',
     'EINSPRECHENDE[].NOM',
-    'EMOLUMENTS',
     'EMOLUMENTS[]',
     'EMOLUMENTS[].BETRAG',
     'EMOLUMENTS[].POSITION',
@@ -11104,7 +11597,6 @@
     'ENSEMBLE_BÂTI_DÉNOMINATION',
     'ERHALTENSWERT',
     'ETAT',
-    'FACHSTELLEN_KANTONAL',
     'FACHSTELLEN_KANTONAL[]',
     'FACHSTELLEN_KANTONAL[].BEANTWORTET',
     'FACHSTELLEN_KANTONAL[].CREE',
@@ -11115,7 +11607,6 @@
     'FACHSTELLEN_KANTONAL[].NOM',
     'FACHSTELLEN_KANTONAL[].REPONDU',
     'FACHSTELLEN_KANTONAL_LISTE',
-    'GEBAEUDEABSTAENDE',
     'GEBAEUDEABSTAENDE[]',
     'GEBAEUDEABSTAENDE[].ABSTAND_M',
     'GEBAEUDEABSTAENDE[].COTE',
@@ -11127,13 +11618,11 @@
     'GEBAEUDEEIGENTUEMER_NACHNAME',
     'GEBAEUDEEIGENTUEMER_NAME_ADRESSE',
     'GEBAEUDEEIGENTUEMER_VORNAME',
-    'GEBUEHREN',
     'GEBUEHREN[]',
     'GEBUEHREN[].BETRAG',
     'GEBUEHREN[].POSITION',
     'GEBUEHREN_TOTAL',
     'GEBUEHREN_TOTAL_NICHT_VERRECHNET',
-    'GEFAEHRLICHE_STOFFE',
     'GEFAEHRLICHE_STOFFE[]',
     'GEFAEHRLICHE_STOFFE[].BETRAG',
     'GEFAEHRLICHE_STOFFE[].FORFAIT',
@@ -11165,7 +11654,6 @@
     'GRUNDEIGENTUEMER_NAME_ADRESSE',
     'GRUNDEIGENTUEMER_VORNAME',
     'HEUTE',
-    'INSTALLATIONS_AERAULIQUES',
     'INSTALLATIONS_AERAULIQUES[]',
     'INSTALLATIONS_AERAULIQUES[].BRENNSTOFFLAGERUNG',
     'INSTALLATIONS_AERAULIQUES[].LAGERMENGE',
@@ -11177,7 +11665,6 @@
     'INSTALLATIONS_AERAULIQUES[].STOCKAGE_COMBUSTIBLE',
     'INSTALLATIONS_AERAULIQUES[].TYP',
     'INSTALLATIONS_AERAULIQUES[].TYPE',
-    'INSTALLATIONS_TECH_LINCENDIE',
     'INSTALLATIONS_TECH_LINCENDIE[]',
     'INSTALLATIONS_TECH_LINCENDIE[].NEU_BESTEHEND',
     'INSTALLATIONS_TECH_LINCENDIE[].NOUVEAU_OU_EXISTANT',
@@ -11188,8 +11675,6 @@
     'KOORDINATEN',
     'K_OBJEKT',
     'LANGUE',
-    'LASTENAUSGLEICHSBEGEHREN',
-    'LASTENAUSGLEICHSBEGEHRENDE',
     'LASTENAUSGLEICHSBEGEHRENDE[]',
     'LASTENAUSGLEICHSBEGEHRENDE[].ADRESSE',
     'LASTENAUSGLEICHSBEGEHRENDE[].NAME',
@@ -11215,7 +11700,6 @@
     'LEITBEHOERDE_TELEFON',
     'LEITPERSON',
     'LIEN_PUBLICATION',
-    'LUEFTUNGSANLAGEN',
     'LUEFTUNGSANLAGEN[]',
     'LUEFTUNGSANLAGEN[].NEU_BESTEHEND',
     'LUEFTUNGSANLAGEN[].NOUVEAU_OU_EXISTANT',
@@ -11223,7 +11707,6 @@
     'LUEFTUNGSANLAGEN[].TYPE',
     'LUEFTUNGSANLAGEN[].VOLUMENSTROM',
     'LUEFTUNGSANLAGEN[].VOLUME_D_AIR',
-    'MATIERES_DANGEREUSES',
     'MATIERES_DANGEREUSES[]',
     'MATIERES_DANGEREUSES[].BETRAG',
     'MATIERES_DANGEREUSES[].FORFAIT',
@@ -11239,7 +11722,6 @@
     'MEINE_ORGANISATION_NAME_KURZ',
     'MEINE_ORGANISATION_ORT',
     'MEINE_ORGANISATION_TELEFON',
-    'MES_EMOLUMENTS',
     'MES_EMOLUMENTS[]',
     'MES_EMOLUMENTS[].BETRAG',
     'MES_EMOLUMENTS[].POSITION',
@@ -11256,7 +11738,6 @@
     'NACHBARSCHAFTSORIENTIERUNG_LINK',
     'NACHBARSCHAFTSORIENTIERUNG_QR_CODE',
     'NEBENBESTIMMUNGEN',
-    'NEBENBESTIMMUNGEN_MAPPED',
     'NEBENBESTIMMUNGEN_MAPPED[]',
     'NEBENBESTIMMUNGEN_MAPPED[].FACHSTELLE',
     'NEBENBESTIMMUNGEN_MAPPED[].SERVICE',
@@ -11269,7 +11750,6 @@
     'OBJECT_C',
     'OCCUPATION_CHAMBRES_PLUS_50_PERSONNES',
     'OEFFENTLICHKEIT',
-    'OFFICES_CANTONAUX',
     'OFFICES_CANTONAUX[]',
     'OFFICES_CANTONAUX[].BEANTWORTET',
     'OFFICES_CANTONAUX[].CREE',
@@ -11285,12 +11765,10 @@
     'OPAM_GENETIQUEMENT_ART_1_ABS_2',
     'OPAM_QUATITAT_SUBSTAN_PREPAR_DECHETS_DEPASS',
     'OPAM_RAPPORT_SUCCINCT',
-    'OPPOSANTS',
     'OPPOSANTS[]',
     'OPPOSANTS[].ADRESSE',
     'OPPOSANTS[].NAME',
     'OPPOSANTS[].NOM',
-    'OPPOSITIONS',
     'OPPOSITIONS[]',
     'OPPOSITIONS[].DATE_DOCUMENT',
     'OPPOSITIONS[].DATE_RECEPTION',
@@ -11303,7 +11781,6 @@
     'OPPOSITIONS[].TITEL',
     'OPPOSITIONS[].TITRE',
     'OUVERTURE_PUBLIC',
-    'PANNEAUX_SOLAIRES',
     'PANNEAUX_SOLAIRES[]',
     'PANNEAUX_SOLAIRES[].CAPACITE_DE_STOCKAGE_D_ENERGIE',
     'PANNEAUX_SOLAIRES[].ENERGIE_SPEICHER',
@@ -11362,7 +11839,6 @@
     'PUBLIKATION_TEXT',
     'QS_RESPONSIBLE',
     'QS_VERANTWORTLICHER',
-    'RAEUME_MEHR_50_PERSONEN',
     'RAEUME_MEHR_50_PERSONEN[]',
     'RAEUME_MEHR_50_PERSONEN[].ANZAHL_BEHERBERGTE_PERSONEN',
     'RAEUME_MEHR_50_PERSONEN[].CHAMBRE',
@@ -11370,17 +11846,14 @@
     'RAEUME_MEHR_50_PERSONEN[].RAUM',
     'RAUM_BELEGUNG_MEHR_50_PERSONEN',
     'RECENSEMENT',
-    'RECHTSBEGEHRENDE',
     'RECHTSBEGEHRENDE[]',
     'RECHTSBEGEHRENDE[].ADRESSE',
     'RECHTSBEGEHRENDE[].NAME',
     'RECHTSBEGEHRENDE[].NOM',
-    'RECHTSVERWAHRENDE',
     'RECHTSVERWAHRENDE[]',
     'RECHTSVERWAHRENDE[].ADRESSE',
     'RECHTSVERWAHRENDE[].NAME',
     'RECHTSVERWAHRENDE[].NOM',
-    'RECHTSVERWAHRUNGEN',
     'RECHTSVERWAHRUNGEN[]',
     'RECHTSVERWAHRUNGEN[].ANLIEGEN',
     'RECHTSVERWAHRUNGEN[].DATE_DOCUMENT',
@@ -11402,17 +11875,14 @@
     'REPRESENTANT_TOUS',
     'REPRESENTANT_TOUS_NOM_ADRESSE',
     'REQUERANT',
-    'REQUERANTS_COMPENSATION_DES_CHARGES',
     'REQUERANTS_COMPENSATION_DES_CHARGES[]',
     'REQUERANTS_COMPENSATION_DES_CHARGES[].ADRESSE',
     'REQUERANTS_COMPENSATION_DES_CHARGES[].NAME',
     'REQUERANTS_COMPENSATION_DES_CHARGES[].NOM',
-    'REQUERANTS_CONCLUSIONS',
     'REQUERANTS_CONCLUSIONS[]',
     'REQUERANTS_CONCLUSIONS[].ADRESSE',
     'REQUERANTS_CONCLUSIONS[].NAME',
     'REQUERANTS_CONCLUSIONS[].NOM',
-    'REQUERANTS_RESERVE_DE_DROIT',
     'REQUERANTS_RESERVE_DE_DROIT[]',
     'REQUERANTS_RESERVE_DE_DROIT[].ADRESSE',
     'REQUERANTS_RESERVE_DE_DROIT[].NAME',
@@ -11424,7 +11894,6 @@
     'REQUERANT_PRÉNOM',
     'REQUERANT_TOUS',
     'REQUERANT_TOUS_NOM_ADRESSE',
-    'RESERVES_DE_DROIT',
     'RESERVES_DE_DROIT[]',
     'RESERVES_DE_DROIT[].ANLIEGEN',
     'RESERVES_DE_DROIT[].DATE_DOCUMENT',
@@ -11451,7 +11920,6 @@
     'SITUATION_DE_FAIT',
     'SITZPLAETZE_AUSSEN',
     'SITZPLAETZE_INNEN',
-    'SOLARANLAGEN',
     'SOLARANLAGEN[]',
     'SOLARANLAGEN[].CAPACITE_DE_STOCKAGE_D_ENERGIE',
     'SOLARANLAGEN[].ENERGIE_SPEICHER',
@@ -11471,7 +11939,6 @@
     'STFV_VERORDNUNG_ART_1_ABS_3_STFV_UNTERSTELLT',
     'STICHWORTE',
     'SURFACE_DE_PLANCHER',
-    'SYSTEMES_DE_VENTILATION',
     'SYSTEMES_DE_VENTILATION[]',
     'SYSTEMES_DE_VENTILATION[].NEU_BESTEHEND',
     'SYSTEMES_DE_VENTILATION[].NOUVEAU_OU_EXISTANT',
@@ -11479,7 +11946,6 @@
     'SYSTEMES_DE_VENTILATION[].TYPE',
     'SYSTEMES_DE_VENTILATION[].VOLUMENSTROM',
     'SYSTEMES_DE_VENTILATION[].VOLUME_D_AIR',
-    'TECHNISCHE_BRANDSCHUTZANLAGEN',
     'TECHNISCHE_BRANDSCHUTZANLAGEN[]',
     'TECHNISCHE_BRANDSCHUTZANLAGEN[].NEU_BESTEHEND',
     'TECHNISCHE_BRANDSCHUTZANLAGEN[].NOUVEAU_OU_EXISTANT',
@@ -11495,13 +11961,11 @@
     'VERTRETER_NAME_ADRESSE',
     'VERTRETER_VORNAME',
     'VERWALTUNGSKREIS',
-    'VOISINS_TOUS',
     'VOISINS_TOUS[]',
     'VOISINS_TOUS[].ADRESSE_1',
     'VOISINS_TOUS[].ADRESSE_2',
     'VOISINS_TOUS[].NAME',
     'VOISINS_TOUS[].NOM',
-    'WAERMETECHNISCHE_ANLAGEN',
     'WAERMETECHNISCHE_ANLAGEN[]',
     'WAERMETECHNISCHE_ANLAGEN[].BRENNSTOFFLAGERUNG',
     'WAERMETECHNISCHE_ANLAGEN[].LAGERMENGE',
@@ -11513,7 +11977,6 @@
     'WAERMETECHNISCHE_ANLAGEN[].STOCKAGE_COMBUSTIBLE',
     'WAERMETECHNISCHE_ANLAGEN[].TYP',
     'WAERMETECHNISCHE_ANLAGEN[].TYPE',
-    'ZIRKULATION_ALLE',
     'ZIRKULATION_ALLE[]',
     'ZIRKULATION_ALLE[].BEANTWORTET',
     'ZIRKULATION_ALLE[].CREE',
@@ -11523,7 +11986,6 @@
     'ZIRKULATION_ALLE[].NAME',
     'ZIRKULATION_ALLE[].NOM',
     'ZIRKULATION_ALLE[].REPONDU',
-    'ZIRKULATION_ANGEFORDERT',
     'ZIRKULATION_ANGEFORDERT[]',
     'ZIRKULATION_ANGEFORDERT[].BEANTWORTET',
     'ZIRKULATION_ANGEFORDERT[].CREE',
@@ -11533,7 +11995,6 @@
     'ZIRKULATION_ANGEFORDERT[].NAME',
     'ZIRKULATION_ANGEFORDERT[].NOM',
     'ZIRKULATION_ANGEFORDERT[].REPONDU',
-    'ZIRKULATION_FACHSTELLEN',
     'ZIRKULATION_FACHSTELLEN[]',
     'ZIRKULATION_FACHSTELLEN[].BEANTWORTET',
     'ZIRKULATION_FACHSTELLEN[].CREE',
@@ -11543,7 +12004,6 @@
     'ZIRKULATION_FACHSTELLEN[].NAME',
     'ZIRKULATION_FACHSTELLEN[].NOM',
     'ZIRKULATION_FACHSTELLEN[].REPONDU',
-    'ZIRKULATION_GEMEINDEN',
     'ZIRKULATION_GEMEINDEN[]',
     'ZIRKULATION_GEMEINDEN[].BEANTWORTET',
     'ZIRKULATION_GEMEINDEN[].CREE',
@@ -11553,7 +12013,6 @@
     'ZIRKULATION_GEMEINDEN[].NAME',
     'ZIRKULATION_GEMEINDEN[].NOM',
     'ZIRKULATION_GEMEINDEN[].REPONDU',
-    'ZIRKULATION_RSTA',
     'ZIRKULATION_RSTA[]',
     'ZIRKULATION_RSTA[].BEANTWORTET',
     'ZIRKULATION_RSTA[].CREE',
@@ -11563,7 +12022,6 @@
     'ZIRKULATION_RSTA[].NAME',
     'ZIRKULATION_RSTA[].NOM',
     'ZIRKULATION_RSTA[].REPONDU',
-    'ZIRKULATION_RUECKMELDUNGEN',
     'ZIRKULATION_RUECKMELDUNGEN[]',
     'ZIRKULATION_RUECKMELDUNGEN[].ANTWORT',
     'ZIRKULATION_RUECKMELDUNGEN[].BEANTWORTET',
@@ -11619,7 +12077,6 @@
     'BAUENTSCHEID_DATUM',
     'BESCHREIBUNG_BAUVORHABEN',
     'BESCHREIBUNG_PROJEKTAENDERUNG',
-    'CIRCOLAZIONE_COMUNI',
     'CIRCOLAZIONE_COMUNI[]',
     'CIRCOLAZIONE_COMUNI[].BEANTWORTET',
     'CIRCOLAZIONE_COMUNI[].CREATO',
@@ -11629,7 +12086,6 @@
     'CIRCOLAZIONE_COMUNI[].NOME',
     'CIRCOLAZIONE_COMUNI[].RISPOSTO',
     'CIRCOLAZIONE_COMUNI[].SCADENZA',
-    'CIRCOLAZIONE_RICHIESTA',
     'CIRCOLAZIONE_RICHIESTA[]',
     'CIRCOLAZIONE_RICHIESTA[].BEANTWORTET',
     'CIRCOLAZIONE_RICHIESTA[].CREATO',
@@ -11639,7 +12095,6 @@
     'CIRCOLAZIONE_RICHIESTA[].NOME',
     'CIRCOLAZIONE_RICHIESTA[].RISPOSTO',
     'CIRCOLAZIONE_RICHIESTA[].SCADENZA',
-    'CIRCOLAZIONE_RISCONTRI',
     'CIRCOLAZIONE_RISCONTRI[]',
     'CIRCOLAZIONE_RISCONTRI[].ANTWORT',
     'CIRCOLAZIONE_RISCONTRI[].BEMERKUNGEN',
@@ -11657,7 +12112,6 @@
     'CIRCOLAZIONE_RISCONTRI[].STELLUNGNAHME',
     'CIRCOLAZIONE_RISCONTRI[].VALUTAZIONE',
     'CIRCOLAZIONE_RISCONTRI[].VON',
-    'CIRCOLAZIONE_SERVIZI',
     'CIRCOLAZIONE_SERVIZI[]',
     'CIRCOLAZIONE_SERVIZI[].BEANTWORTET',
     'CIRCOLAZIONE_SERVIZI[].CREATO',
@@ -11667,7 +12121,6 @@
     'CIRCOLAZIONE_SERVIZI[].NOME',
     'CIRCOLAZIONE_SERVIZI[].RISPOSTO',
     'CIRCOLAZIONE_SERVIZI[].SCADENZA',
-    'CIRCOLAZIONE_TUTTI',
     'CIRCOLAZIONE_TUTTI[]',
     'CIRCOLAZIONE_TUTTI[].BEANTWORTET',
     'CIRCOLAZIONE_TUTTI[].CREATO',
@@ -11691,13 +12144,11 @@
     'DESCRIZIONE_MODIFICA',
     'DESCRIZIONE_PROGETTO',
     'DISPOSIZIONI_ACCESSORIE',
-    'DISPOSIZIONI_ACCESSORIE_MAPPED',
     'DISPOSIZIONI_ACCESSORIE_MAPPED[]',
     'DISPOSIZIONI_ACCESSORIE_MAPPED[].FACHSTELLE',
     'DISPOSIZIONI_ACCESSORIE_MAPPED[].SERVIZIO',
     'DISPOSIZIONI_ACCESSORIE_MAPPED[].TESTO',
     'DISPOSIZIONI_ACCESSORIE_MAPPED[].TEXT',
-    'DOCUMENTI',
     'DOCUMENTI[]',
     'DOCUMENTI[].BESCHREIBUNG',
     'DOCUMENTI[].CATEGORIA',
@@ -11720,7 +12171,6 @@
     'DOCUMENTI[].PAROLE_CHIAVE',
     'DOCUMENTI[].STICHWORTE',
     'DOCUMENTI_DECISIONE',
-    'DOKUMENTE',
     'DOKUMENTE[]',
     'DOKUMENTE[].BESCHREIBUNG',
     'DOKUMENTE[].CATEGORIA',
@@ -11754,7 +12204,6 @@
     'ENDE_PUBLIKATION_GEMEINDE',
     'ENDE_PUBLIKATION_KANTON',
     'ENTSCHEIDDOKUMENTE',
-    'FACHSTELLEN_KANTONAL',
     'FACHSTELLEN_KANTONAL[]',
     'FACHSTELLEN_KANTONAL[].BEANTWORTET',
     'FACHSTELLEN_KANTONAL[].CREATO',
@@ -11821,7 +12270,6 @@
     'MIA_ORGANIZZAZIONE_NOME_INDIRIZZO',
     'MIA_ORGANIZZAZIONE_TELEFONO',
     'NEBENBESTIMMUNGEN',
-    'NEBENBESTIMMUNGEN_MAPPED',
     'NEBENBESTIMMUNGEN_MAPPED[]',
     'NEBENBESTIMMUNGEN_MAPPED[].FACHSTELLE',
     'NEBENBESTIMMUNGEN_MAPPED[].SERVIZIO',
@@ -11927,7 +12375,6 @@
     'ZIRKULATION_ALLE[].NOME',
     'ZIRKULATION_ALLE[].RISPOSTO',
     'ZIRKULATION_ALLE[].SCADENZA',
-    'ZIRKULATION_ANGEFORDERT',
     'ZIRKULATION_ANGEFORDERT[]',
     'ZIRKULATION_ANGEFORDERT[].BEANTWORTET',
     'ZIRKULATION_ANGEFORDERT[].CREATO',
@@ -11937,7 +12384,6 @@
     'ZIRKULATION_ANGEFORDERT[].NOME',
     'ZIRKULATION_ANGEFORDERT[].RISPOSTO',
     'ZIRKULATION_ANGEFORDERT[].SCADENZA',
-    'ZIRKULATION_FACHSTELLEN',
     'ZIRKULATION_FACHSTELLEN[]',
     'ZIRKULATION_FACHSTELLEN[].BEANTWORTET',
     'ZIRKULATION_FACHSTELLEN[].CREATO',
@@ -11947,7 +12393,6 @@
     'ZIRKULATION_FACHSTELLEN[].NOME',
     'ZIRKULATION_FACHSTELLEN[].RISPOSTO',
     'ZIRKULATION_FACHSTELLEN[].SCADENZA',
-    'ZIRKULATION_GEMEINDEN',
     'ZIRKULATION_GEMEINDEN[]',
     'ZIRKULATION_GEMEINDEN[].BEANTWORTET',
     'ZIRKULATION_GEMEINDEN[].CREATO',
@@ -11957,7 +12402,6 @@
     'ZIRKULATION_GEMEINDEN[].NOME',
     'ZIRKULATION_GEMEINDEN[].RISPOSTO',
     'ZIRKULATION_GEMEINDEN[].SCADENZA',
-    'ZIRKULATION_RUECKMELDUNGEN',
     'ZIRKULATION_RUECKMELDUNGEN[]',
     'ZIRKULATION_RUECKMELDUNGEN[].ANTWORT',
     'ZIRKULATION_RUECKMELDUNGEN[].BEMERKUNGEN',
@@ -11983,7 +12427,6 @@
   list([
     'ADRESSE',
     'ALLE_GESUCHSTELLER',
-    'ALLE_GESUCHSTELLER_LISTE',
     'ALLE_GESUCHSTELLER_LISTE[]',
     'ALLE_GESUCHSTELLER_LISTE[].ADRESSE',
     'ALLE_GESUCHSTELLER_LISTE[].ANREDE',
@@ -12017,7 +12460,6 @@
     'ALLE_GESUCHSTELLER_VERTRETER',
     'ALLE_GESUCHSTELLER_VERTRETER_NAME_ADRESSE',
     'ALLE_GRUNDEIGENTUEMER',
-    'ALLE_GRUNDEIGENTUEMER_LISTE',
     'ALLE_GRUNDEIGENTUEMER_LISTE[]',
     'ALLE_GRUNDEIGENTUEMER_LISTE[].ADRESSE',
     'ALLE_GRUNDEIGENTUEMER_LISTE[].ANREDE',
@@ -12049,7 +12491,6 @@
     'ALLE_GRUNDEIGENTUEMER_LISTE[].VORNAME',
     'ALLE_GRUNDEIGENTUEMER_NAME_ADRESSE',
     'ALLE_PROJEKTVERFASSER',
-    'ALLE_PROJEKTVERFASSER_LISTE',
     'ALLE_PROJEKTVERFASSER_LISTE[]',
     'ALLE_PROJEKTVERFASSER_LISTE[].ADRESSE',
     'ALLE_PROJEKTVERFASSER_LISTE[].ANREDE',
@@ -12081,7 +12522,6 @@
     'ALLE_PROJEKTVERFASSER_LISTE[].VORNAME',
     'ALLE_PROJEKTVERFASSER_NAME_ADRESSE',
     'ALLE_RECHNUNGSEMPFAENGER',
-    'ALLE_RECHNUNGSEMPFAENGER_LISTE',
     'ALLE_RECHNUNGSEMPFAENGER_LISTE[]',
     'ALLE_RECHNUNGSEMPFAENGER_LISTE[].ADRESSE',
     'ALLE_RECHNUNGSEMPFAENGER_LISTE[].ANREDE',
@@ -12127,7 +12567,6 @@
     'DOSSIER_NUMMER',
     'DOSSIER_TYP',
     'EBAU_URL',
-    'EIGENE_GEBUEHREN',
     'EIGENE_GEBUEHREN[]',
     'EIGENE_GEBUEHREN[].ANTEIL_PROZENT',
     'EIGENE_GEBUEHREN[].ART',
@@ -12143,7 +12582,6 @@
     'EIGENE_GEBUEHREN[].STUNDENSATZ',
     'EIGENE_GEBUEHREN[].VERRECHNUNG',
     'EIGENE_GEBUEHREN_TOTAL',
-    'EINGEREICHTE_PLAENE',
     'EINGEREICHTE_PLAENE[]',
     'EINGEREICHTE_PLAENE[].BESCHREIBUNG',
     'EINGEREICHTE_PLAENE[].ERSTELLT_AM',
@@ -12155,7 +12593,6 @@
     'EINGEREICHTE_PLAENE[].NAME',
     'EINGEREICHTE_PLAENE[].ORIGINAL_NAME',
     'EINGEREICHTE_PLAENE[].STICHWORTE',
-    'EINGEREICHTE_UNTERLAGEN',
     'EINGEREICHTE_UNTERLAGEN[]',
     'EINGEREICHTE_UNTERLAGEN[].BESCHREIBUNG',
     'EINGEREICHTE_UNTERLAGEN[].ERSTELLT_AM',
@@ -12167,7 +12604,6 @@
     'EINGEREICHTE_UNTERLAGEN[].NAME',
     'EINGEREICHTE_UNTERLAGEN[].ORIGINAL_NAME',
     'EINGEREICHTE_UNTERLAGEN[].STICHWORTE',
-    'EINSPRACHEN',
     'EINSPRACHEN[]',
     'EINSPRACHEN[].ALLE_EINSPRECHENDEN',
     'EINSPRACHEN[].ALLE_EINSPRECHENDEN[]',
@@ -12203,7 +12639,6 @@
     'EINSPRACHEN[].EINSPRECHER_ADRESSE',
     'EINSPRACHEN[].EINSPRECHER_ANREDE',
     'EINSPRACHEN[].EINSPRECHER_NAME',
-    'ENTSCHEIDDOKUMENTE',
     'ENTSCHEIDDOKUMENTE[]',
     'ENTSCHEIDDOKUMENTE[].BESCHREIBUNG',
     'ENTSCHEIDDOKUMENTE[].ERSTELLT_AM',
@@ -12215,13 +12650,11 @@
     'ENTSCHEIDDOKUMENTE[].NAME',
     'ENTSCHEIDDOKUMENTE[].ORIGINAL_NAME',
     'ENTSCHEIDDOKUMENTE[].STICHWORTE',
-    'FACHSTELLEN_KANTONAL',
     'FACHSTELLEN_KANTONAL[]',
     'FACHSTELLEN_KANTONAL[].BEANTWORTET',
     'FACHSTELLEN_KANTONAL[].ERSTELLT',
     'FACHSTELLEN_KANTONAL[].FRIST',
     'FACHSTELLEN_KANTONAL[].NAME',
-    'GEBUEHREN',
     'GEBUEHREN[]',
     'GEBUEHREN[].ANTEIL_PROZENT',
     'GEBUEHREN[].ART',
@@ -12274,7 +12707,6 @@
     'KANTONALE_PRUEFUNG_ENTSCHEID_KANTON',
     'KANTONALE_PRUEFUNG_GEMEINDENUMMER_KANTONAL_ARP',
     'KANTONALE_PRUEFUNG_INTERESSE_AM_VORHABEN',
-    'KANTONALE_PRUEFUNG_JOURNAL',
     'KANTONALE_PRUEFUNG_JOURNAL[]',
     'KANTONALE_PRUEFUNG_JOURNAL[].ART_DES_EINTRAGES',
     'KANTONALE_PRUEFUNG_JOURNAL[].BETEILIGTE_ANWESENDE',
@@ -12283,14 +12715,12 @@
     'KANTONALE_PRUEFUNG_JOURNAL[].SACHVERHALT',
     'KANTONALE_PRUEFUNG_MASSGEBLICHE_TERMINVORGABE',
     'KANTONALE_PRUEFUNG_OBJEKTSCHUTZ',
-    'KANTONALE_PRUEFUNG_SCHUTZOBJEKTE',
     'KANTONALE_PRUEFUNG_SCHUTZOBJEKTE[]',
     'KANTONALE_PRUEFUNG_SCHUTZOBJEKTE[].BESCHLUSSNUMMER',
     'KANTONALE_PRUEFUNG_SCHUTZOBJEKTE[].BEZEICHNUNG',
     'KANTONALE_PRUEFUNG_SCHUTZOBJEKTE[].DATUM_BESCHLUSS',
     'KANTONALE_PRUEFUNG_SCHUTZOBJEKTE[].DATUM_VERFUEGUNG',
     'KANTONALE_PRUEFUNG_SCHUTZOBJEKTE[].VERFUEGENDE_BEHOERDE',
-    'KANTONALE_PRUEFUNG_SISTIERUNGEN',
     'KANTONALE_PRUEFUNG_SISTIERUNGEN[]',
     'KANTONALE_PRUEFUNG_SISTIERUNGEN[].SISTIERT_BIS',
     'KANTONALE_PRUEFUNG_SISTIERUNGEN[].SISTIERT_BIS_TIMESTAMP',
@@ -12319,7 +12749,6 @@
     'MEINE_ORGANISATION_ORT',
     'MEINE_ORGANISATION_TELEFON',
     'MEINE_ORGANISATION_WEBSEITE',
-    'NEBENBESTIMMUNGEN_MAPPED',
     'NEBENBESTIMMUNGEN_MAPPED[]',
     'NEBENBESTIMMUNGEN_MAPPED[].FACHSTELLE',
     'NEBENBESTIMMUNGEN_MAPPED[].TEXT',
@@ -12331,7 +12760,6 @@
     'PROJEKTVERFASSER_ADRESSE_1',
     'PROJEKTVERFASSER_ADRESSE_2',
     'PROJEKTVERFASSER_NAME_ADRESSE',
-    'PUBLIKATION',
     'PUBLIKATION[]',
     'PUBLIKATION[].EMAIL',
     'PUBLIKATION[].NAME',
@@ -12347,7 +12775,6 @@
     'PUBLIKATION_ANZEIGER',
     'PUBLIKATION_ENDE',
     'PUBLIKATION_LINK',
-    'PUBLIKATION_ORGAN',
     'PUBLIKATION_ORGAN[]',
     'PUBLIKATION_ORGAN[].EMAIL',
     'PUBLIKATION_ORGAN[].NAME',
@@ -12357,25 +12784,21 @@
     'RECHNUNGSEMPFAENGER_ADRESSE_2',
     'RECHNUNGSEMPFAENGER_NAME_ADRESSE',
     'STATUS',
-    'ZIRKULATION_ALLE',
     'ZIRKULATION_ALLE[]',
     'ZIRKULATION_ALLE[].BEANTWORTET',
     'ZIRKULATION_ALLE[].ERSTELLT',
     'ZIRKULATION_ALLE[].FRIST',
     'ZIRKULATION_ALLE[].NAME',
-    'ZIRKULATION_ANGEFORDERT',
     'ZIRKULATION_ANGEFORDERT[]',
     'ZIRKULATION_ANGEFORDERT[].BEANTWORTET',
     'ZIRKULATION_ANGEFORDERT[].ERSTELLT',
     'ZIRKULATION_ANGEFORDERT[].FRIST',
     'ZIRKULATION_ANGEFORDERT[].NAME',
-    'ZIRKULATION_FACHSTELLEN',
     'ZIRKULATION_FACHSTELLEN[]',
     'ZIRKULATION_FACHSTELLEN[].BEANTWORTET',
     'ZIRKULATION_FACHSTELLEN[].ERSTELLT',
     'ZIRKULATION_FACHSTELLEN[].FRIST',
     'ZIRKULATION_FACHSTELLEN[].NAME',
-    'ZIRKULATION_GEMEINDEN',
     'ZIRKULATION_GEMEINDEN[]',
     'ZIRKULATION_GEMEINDEN[].BEANTWORTET',
     'ZIRKULATION_GEMEINDEN[].ERSTELLT',

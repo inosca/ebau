@@ -19,10 +19,11 @@ from caluma.caluma_workflow.models import WorkItem
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.timezone import make_aware
-from django.utils.translation import override
+from django.utils.translation import gettext_noop as _, override
 from pytest_lazy_fixtures import lf
 from rest_framework import status
 
+from camac.instance.placeholders.fields import MasterDataField
 from camac.instance.placeholders.serializers import DMSPlaceholdersSerializer
 from camac.instance.placeholders.utils import (
     format_gis_center_coordinates,
@@ -1257,3 +1258,57 @@ def test_get_koordinaten(coord_east, coord_north, expected, mocker):
         DMSPlaceholdersSerializer(instance_mock).get_koordinaten(instance_mock)
         == expected
     )
+
+
+@pytest.mark.parametrize(
+    "is_collection",
+    [
+        pytest.param(True, id="Add []"),
+        pytest.param(
+            False,
+            id="No [] unless nested",
+        ),
+    ],
+)
+@pytest.mark.parametrize(
+    "master_data_case",
+    [
+        pytest.param(lf("sz_master_data_case"), id="Instance form backend: camac-ng"),
+        pytest.param(lf("be_master_data_case"), id="Instance form backend: caluma"),
+    ],
+)
+def test_aliased_placeholder_field(
+    db,
+    fake_request,
+    service_group,
+    request_mock,
+    master_data_case,
+    is_collection,
+    snapshot,
+):
+    testfields = ["test_literal_field", "test_list_field", "test_nested_field"]
+
+    class PlaceholderTestSerializer(DMSPlaceholdersSerializer):
+        test_literal_field = MasterDataField(aliases=[_("TEST_CAT"), _("TEST_BAT")])
+        test_list_field = MasterDataField(
+            aliases=[_("TEST_LIST_CATS"), _("TEST_LIST_BATS")],
+            is_collection=is_collection,
+        )
+        test_nested_field = MasterDataField(
+            aliases=[_("TEST_CAT_OBJECTS"), _("TEST_BAT_OBJECTS")],
+            is_collection=is_collection,
+            nested_aliases={"NAME": [_("TEST_CAT")], "NESTED.NAME": [_("TEST_BAT")]},
+        )
+
+        class Meta:
+            # ignore BaseClass' declared fields
+            exclude = list(DMSPlaceholdersSerializer._declared_fields.keys())
+
+    serializer = PlaceholderTestSerializer(
+        instance=master_data_case.instance, context={"request": fake_request}
+    )
+
+    for field_name in testfields:
+        field = serializer.fields[field_name]
+        assert field.get_docs() == snapshot
+        assert field.make_placeholders() == snapshot

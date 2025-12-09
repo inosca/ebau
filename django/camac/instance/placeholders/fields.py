@@ -1,6 +1,8 @@
 import base64
+import copy
 from abc import ABC, abstractmethod
 from io import BytesIO
+from itertools import chain
 from typing import Literal
 
 import qrcode
@@ -25,6 +27,7 @@ from camac.caluma.utils import (
     find_answer,
     work_item_by_addressed_service_condition,
 )
+from camac.core.translations import get_translations_canton_aware
 from camac.tags.models import Keyword
 from camac.user.models import Service, User
 from camac.utils import build_url, clean_join, get_dict_item
@@ -39,6 +42,7 @@ from .utils import (
     human_readable_date,
     parse_person_row,
     row_to_person,
+    to_configured_case,
 )
 
 
@@ -56,7 +60,8 @@ class AliasedMixin:
         self,
         aliases: list[str] | None = None,
         nested_aliases: dict[str, list[str]] | None = None,
-        description: str=None,
+        description: str = None,
+        is_collection: bool = False,
         *args,
         **kwargs,
     ):
@@ -85,13 +90,162 @@ class AliasedMixin:
             `is_collection` is set to True if at least one nested alias is provided.
         """
         super().__init__(*args, **kwargs)
-        self.aliases = aliases or []
+        self._aliases = aliases or []
         self._nested_aliases = nested_aliases or {}
         self.description = description
+        self.is_collection = is_collection or len(self._nested_aliases) > 0
+
+    @property
+    def aliases(self):
+        return sorted(self._aliases)
 
     @property
     def nested_aliases(self):
         return self._nested_aliases
+
+    @staticmethod
+    def _get_alias_translations(
+        alias: str | dict[Literal["default", *settings.APPLICATIONS.keys()], str],
+        flat: bool = False,
+    ) -> dict[Literal[*dict(settings.LANGUAGES).keys()], str] | list[str]:
+        """Return alias' translations for available languages.
+
+        Parameters:
+            alias (str | dict): A simple str argument is translated for each language.
+                If a dict is provided the "default" value of the dict is returned
+                unless an override is configured in the current APPLICATION setting.
+            flat (bool): return all aliases and translations in one list.
+
+        Example:
+        {
+          "de": "EIN_PLATZHALER",
+          "fr": "NIMPORTE_JOKER"
+        }
+
+        Nested example:
+        [
+            "de": "EIN_NEST.NAME"
+            "fr": "UN_NIDS.NOM"
+        ]
+
+
+        """
+        if flat:
+            return set(
+                [
+                    to_configured_case(alias_t)
+                    for alias_t in get_translations_canton_aware(alias).values()
+                ]
+            )
+
+        return {
+            lang: to_configured_case(alias_t)
+            for lang, alias_t in get_translations_canton_aware(alias).items()
+        }
+
+    def get_docs(
+        self,
+    ) -> dict[Literal["aliases", "nested_aliases", "description"], list | dict]:
+        """Create a dictionary of field docs for every available language."""
+        return {
+            "aliases": [self._get_alias_translations(alias) for alias in self.aliases],
+            "nested_aliases": {
+                nested_name: [
+                    self._get_alias_translations(nested_alias)
+                    for nested_alias in nested_aliases
+                ]
+                for nested_name, nested_aliases in self.nested_aliases.items()
+            },
+            "description": (
+                get_translations_canton_aware(self.description)
+                if self.description
+                else None
+            ),
+        }
+
+    def make_placeholders(self):
+        """
+        Create a flat list of every aliased placeholder available.
+
+        Every placeholder is present as the literal name. Additionally
+        for collections of literals or objects the trailing [] is
+        added.
+
+        | type               | description     | example name    |
+        |--------------------|-----------------|-----------------|
+        | Literal (default)  | int, float, str | SOME_NAME       |
+        | Collection         | list, tuple     | SOME_COLL[]     |
+        | Object collection  | list of dicts   | OBJECTS[].ATTR1 |
+
+        The placeholder aliases are translated to every available language.
+
+        Aliasing of nested object attribute names is supported (1 level deep)
+
+        """
+
+        # first make sure all placeholders are present
+        available_placeholders = set(
+            [
+                translated_alias
+                for translated_alias in chain(
+                    *[
+                        self._get_alias_translations(alias, flat=True)
+                        for alias in self.aliases
+                    ]
+                )
+            ]
+        )
+
+        # add collections with a trailing []
+        if self.is_collection or len(self.nested_aliases):
+            available_placeholders.update(
+                [
+                    f"{translated_alias}[]"
+                    for translated_alias in chain(
+                        *[
+                            self._get_alias_translations(alias, flat=True)
+                            for alias in self.aliases
+                        ]
+                    )
+                ]
+            )
+
+        if not self.nested_aliases:
+            return sorted(available_placeholders)
+
+        names = copy.copy(available_placeholders)
+        nested_names = set()
+        for alias in names:
+            nested_base = alias
+            nested_names.add(nested_base)
+            for nested_name, nested_aliases_list in self.nested_aliases.items():
+                nested_aliases_t = chain(
+                    *[
+                        self._get_alias_translations(alias).values()
+                        for alias in nested_aliases_list
+                    ]
+                )
+                base_prefix = nested_base
+
+                if "." in nested_name:
+                    # NOTE: Double nested paths similar to `nested.prefix.alias`
+                    # are not added in addition to `nested[].prefix[].alias`
+                    if not alias.endswith("]"):
+                        continue
+
+                    # NOTE: The middle part of the nested placeholder is not translated
+                    prefix, nested_name = nested_name.split(".")
+                    base_prefix = f"{nested_base}.{prefix}[]"
+
+                    nested_names.add(base_prefix)
+
+                nested_names.update(
+                    [f"{base_prefix}.{alias}" for alias in nested_aliases_t]
+                )
+
+                available_placeholders.update(nested_names)
+
+        return sorted(available_placeholders)
 
 
 class AliasedIntegerField(AliasedMixin, serializers.IntegerField):

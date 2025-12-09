@@ -1513,6 +1513,30 @@ msgstr "Esportazione di moduli"
 msgid "Signature page"
 msgstr ""
 
+#: camac/instance/tests/test_placeholders.py
+msgid "TEST_CAT"
+msgstr ""
+
+#: camac/instance/tests/test_placeholders.py
+msgid "TEST_BAT"
+msgstr ""
+
+#: camac/instance/tests/test_placeholders.py
+msgid "TEST_LIST_CATS"
+msgstr ""
+
+#: camac/instance/tests/test_placeholders.py
+msgid "TEST_LIST_BATS"
+msgstr ""
+
+#: camac/instance/tests/test_placeholders.py
+msgid "TEST_CAT_OBJECTS"
+msgstr ""
+
+#: camac/instance/tests/test_placeholders.py
+msgid "TEST_BAT_OBJECTS"
+msgstr ""
+
 #: camac/instance/utils.py camac/user/serializers.py
 #, python-format
 msgid "Could not find lead authority for construction control %(id)d"
