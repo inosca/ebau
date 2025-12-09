@@ -67,6 +67,8 @@ Router.map(function () {
     });
     registerStaticContent(this, {}, "public-static-content");
   });
+  this.route("oeffentliche-auflage");
+  this.route("esposizione-pubblica");
 
   registerStaticContent(this, { resetNamespace });
 });
