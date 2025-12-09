@@ -8,6 +8,7 @@ export default class PublicInstancesDetailController extends Controller {
   @service store;
   @service notification;
   @service intl;
+  @service fetch;
 
   queryParams = ["key"];
 
@@ -17,6 +18,12 @@ export default class PublicInstancesDetailController extends Controller {
     this.model,
     this.key,
   ]);
+
+  publicInstanceDateRange = trackedTask(
+    this,
+    this.fetchPublicInstanceDateRange,
+    () => [this.publicInstance.value],
+  );
 
   @dropTask
   *fetchPublicInstance() {
@@ -31,5 +38,28 @@ export default class PublicInstancesDetailController extends Controller {
     } catch {
       this.notification.danger(this.intl.t("publicInstancesDetail.loadError"));
     }
+  }
+
+  @dropTask
+  *fetchPublicInstanceDateRange() {
+    if (!this.publicInstance.value) {
+      return null;
+    }
+
+    const response = yield this.fetch.fetch(
+      `/api/v1/public-caluma-instances/${this.publicInstance.value.id}/date-range`,
+    );
+
+    const result = yield response.json();
+
+    return result.data;
+  }
+
+  get startDate() {
+    return this.publicInstanceDateRange.value?.start_date;
+  }
+
+  get endDate() {
+    return this.publicInstanceDateRange.value?.end_date;
   }
 }

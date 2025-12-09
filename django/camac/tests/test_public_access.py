@@ -89,6 +89,7 @@ def test_public_urls(
         # Public caluma instances
         "/api/v1/public-caluma-instances",
         "/api/v1/public-caluma-instances/%(pk)s/viewed",
+        "/api/v1/public-caluma-instances/%(pk)s/date-range",
         # Attachments
         "/api/v1/attachments",
         "/api/v1/attachments/%(pk)s",

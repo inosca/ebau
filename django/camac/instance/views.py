@@ -10,7 +10,17 @@ from django.core.exceptions import ValidationError as DjangoValidationError
 from django.core.files import File
 from django.core.validators import EmailValidator as DjangoEmailValidator
 from django.db import transaction
-from django.db.models import CharField, F, OuterRef, Q, QuerySet, Subquery, Value
+from django.db.models import (
+    CharField,
+    F,
+    Max,
+    Min,
+    OuterRef,
+    Q,
+    QuerySet,
+    Subquery,
+    Value,
+)
 from django.db.models.expressions import Func
 from django.db.models.fields import IntegerField
 from django.db.models.fields.json import KeyTextTransform
@@ -1674,3 +1684,49 @@ class PublicCalumaInstanceView(
         ).update(publication_views=F("publication_views") + 1)
 
         return response.Response([], 204)
+
+    @swagger_auto_schema(auto_schema=None)
+    @action(
+        methods=["get"],
+        detail=True,
+        url_path="date-range",
+        permission_classes=[PublicationPermission],
+    )
+    def date_range(self, request, pk=None):
+        """Return the date range for active publications of the instance."""
+        public_instance_case = self.get_object()
+
+        if settings.PUBLICATION.get("BACKEND") == "camac-ng":
+            min_date = public_instance_case.publication_date
+            max_date = public_instance_case.publication_end_date
+        else:
+            range_questions = settings.PUBLICATION["RANGE_QUESTIONS"]["PUBLIC"]
+            caluma_publications = self._get_caluma_publications().filter(
+                case__family_id=public_instance_case.family_id
+            )
+
+            publication_documents = caluma_publications.values_list(
+                "document_id", flat=True
+            )
+
+            start_questions = [start for start, _ in range_questions]
+            end_questions = [end for _, end in range_questions]
+
+            agg = form_models.Answer.objects.filter(
+                document_id__in=publication_documents,
+                question_id__in=start_questions + end_questions,
+            ).aggregate(
+                min_date=Min("date", filter=Q(question_id__in=start_questions)),
+                max_date=Max("date", filter=Q(question_id__in=end_questions)),
+            )
+
+            min_date = agg["min_date"]
+            max_date = agg["max_date"]
+
+        return response.Response(
+            {
+                "start_date": min_date,
+                "end_date": max_date,
+            },
+            status=status.HTTP_200_OK,
+        )
