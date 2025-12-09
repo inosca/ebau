@@ -1,5 +1,4 @@
 from collections import OrderedDict
-from itertools import chain
 
 from django.conf import settings
 from rest_framework import status
@@ -51,55 +50,16 @@ class DMSPlaceholdersDocsView(RetrieveAPIView):
 
     def get_available_placeholders(self):
         """Create a flat list of every aliased placeholder of all fields."""
-        available_placeholders = set()
-        field_docs = self.get_field_docs()
+        available_placeholders = []
 
-        serializer_cls = self.get_serializer_class()
+        serializer_class = self.get_serializer_class()
+        for field_name, field in serializer_class._declared_fields.items():
+            if field_name in serializer_class.Meta.exclude:
+                continue
 
-        for name, docs in field_docs.items():
-            # get field for attribute access to avoid extending docs payload
-            # with unneded info.
-            field = serializer_cls._declared_fields[name.lower()]
-            names = set()
-            nested_aliases = docs["nested_aliases"]
+            available_placeholders.extend(field.make_placeholders())
 
-            for alias in docs["aliases"]:
-                names.update(
-                    [
-                        f"{alias_t}[]"
-                        if (field.is_collection or nested_aliases)
-                        else alias_t
-                        for alias_t in alias.values()
-                    ]
-                )
-            if nested_aliases:
-                nested_names = set()
-                for alias in names:
-                    nested_base = alias
-
-                    for nested_name, nested_aliases_list in nested_aliases.items():
-                        base_prefix = nested_base
-
-                        if "." in nested_name:
-                            prefix, nested_name = nested_name.split(".")
-                            base_prefix = f"{nested_base}.{prefix}[]"
-
-                            nested_names.add(base_prefix)
-
-                        nested_names.update(
-                            [
-                                f"{base_prefix}.{alias}"
-                                for alias in [
-                                    *chain(*[x.values() for x in nested_aliases_list]),
-                                ]
-                            ]
-                        )
-
-                available_placeholders.update(nested_names)
-
-            available_placeholders.update(names)
-
-        return sorted(available_placeholders)
+        return sorted(set(available_placeholders))
 
     def get(self, request) -> Response:
         """Get translated field docs or all available placeholders."""
