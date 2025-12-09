@@ -24,9 +24,10 @@ export default class extends Ability {
       );
     }
 
+    const readOnlyCanSend = macroCondition(getOwnConfig().isSZ) ? true : false;
     if (
       !this.topic ||
-      this.ebauModules.isReadOnlyRole ||
+      (this.ebauModules.isReadOnlyRole && !readOnlyCanSend) ||
       this.ebauModules.isSupportRole
     ) {
       return false;
