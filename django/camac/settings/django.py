@@ -344,7 +344,7 @@ APPLICATIONS = {
         "INSTANCE_HIDDEN_STATES": {
             "municipality": ["new"],
             "service": ["new"],
-            "reader": ["subm"],
+            "reader": ["new", "subm"],
         },
         "PORTAL_GROUP": 4,
         "ADMIN_GROUP": 1,
