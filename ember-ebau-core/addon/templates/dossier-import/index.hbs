@@ -65,7 +65,8 @@
               {{#if this.isProd}}
                 {{import.group.name}}
               {{else}}
-                {{import.user.fullName}}
+                {{import.user.fullName}}<br />
+                ({{import.group.name}})
               {{/if}}
             </LinkTo>
           </td>
