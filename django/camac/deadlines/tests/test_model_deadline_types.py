@@ -72,13 +72,13 @@ def test_deadline_types_list_gr(
 @pytest.mark.parametrize(
     "form_slug,expected_count",
     [
-        ("baugesuch", 3),
-        ("baugesuch-v2", 3),
-        ("baugesuch-v3", 0),
-        ("bauanzeige", 0),
-        ("bauanzeige-v2", 2),
-        ("bauanzeige-v3", 0),
-        (None, 5),
+        ("baugesuch", 5),
+        ("baugesuch-v2", 5),
+        ("baugesuch-v3", 2),
+        ("bauanzeige", 2),
+        ("bauanzeige-v2", 4),
+        ("bauanzeige-v3", 2),
+        (None, 7),
     ],
 )
 def test_deadline_types_list_instance_gr(
@@ -112,6 +112,10 @@ def test_deadline_types_list_instance_gr(
             form_types=["bauanzeige-v2", "bauanzeige-v4"]
         )
         deadline_type.services.set([service])
+
+    # show for all deadline types
+    deadline_type_factory(form_types=None)
+    deadline_type_factory(form_types=[])
 
     # Not visible deadline types
     other_service_deadline_type = deadline_type_factory()

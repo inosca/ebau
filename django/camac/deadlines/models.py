@@ -47,6 +47,7 @@ class DeadlineTypeQuerySet(DeadlinePermissionMixin, models.QuerySet["DeadlineTyp
     def for_instance(self: TDeadlineType, instance: Instance) -> TDeadlineType:
         return self.filter(
             Q(form_types__isnull=True)
+            | Q(form_types=[])
             | Q(form_types__contains=[str(instance.case.family.document.form.pk)])
         )
 
