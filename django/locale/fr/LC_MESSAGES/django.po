@@ -762,8 +762,8 @@ msgstr ""
 #: camac/document/serializers.py
 msgid "Adding geometer flag is not allowed in internal section."
 msgstr ""
-"Le partage de documents avec le géomètre chargé de la mise à jour n'est pas "
-"autorisé dans le dossier interne."
+"Le partage de documents avec le géomètre conservateur n'est pas autorisé "
+"dans le dossier interne de documents."
 
 #: camac/document/serializers.py
 msgid "The entered name is not a valid file name"
