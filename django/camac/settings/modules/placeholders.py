@@ -120,6 +120,9 @@ PLACEHOLDERS = {
     },
     "kt_uri": {
         "ENABLED": True,
+        "INQUIRY_FIELD_MAPPINGS": {
+            "clerk_decision": ("inquiry-answer", "CLERK_DECISION"),
+        },
     },
     "kt_ag": {
         "ENABLED": True,

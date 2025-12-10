@@ -17,6 +17,9 @@ class MultilingualModel:
     def get_name(self, lang=None, fallback=True):
         return self.get_trans_attr("name", lang, fallback)
 
+    def get_description(self, lang=None, fallback=True):
+        return self.get_trans_attr("description", lang, fallback)
+
     def get_trans_attr(self, name, lang=None, fallback=True):
         if not settings.APPLICATION.get("IS_MULTILINGUAL", False):
             return getattr(self, name)

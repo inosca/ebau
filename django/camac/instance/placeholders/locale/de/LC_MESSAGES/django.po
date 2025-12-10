@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-19 13:14+0100\n"
+"POT-Creation-Date: 2025-12-05 15:44+0100\n"
 "PO-Revision-Date: 2025-05-09 15:48+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -112,6 +112,10 @@ msgid "ANSWER"
 msgstr "ANTWORT"
 
 #: camac/instance/placeholders/fields.py
+msgid "CLERK_DECISION"
+msgstr "SACHBEARBEITUNG_ENTSCHEID"
+
+#: camac/instance/placeholders/fields.py
 msgid "ANSWERED"
 msgstr "BEANTWORTET"
 
@@ -139,6 +143,10 @@ msgstr "FRIST"
 #: camac/instance/placeholders/serializers.py
 msgid "NAME"
 msgstr "NAME"
+
+#: camac/instance/placeholders/fields.py
+msgid "DESCRIPTION"
+msgstr "BESCHREIBUNG"
 
 #: camac/instance/placeholders/fields.py
 #: camac/instance/placeholders/serializers.py
@@ -388,10 +396,6 @@ msgstr "ADRESSE_2"
 #: camac/instance/placeholders/fields.py
 msgid "ORIGINAL_NAME"
 msgstr "ORIGINAL_NAME"
-
-#: camac/instance/placeholders/fields.py
-msgid "DESCRIPTION"
-msgstr "BESCHREIBUNG"
 
 #: camac/instance/placeholders/fields.py
 msgid "CREATED_AT"

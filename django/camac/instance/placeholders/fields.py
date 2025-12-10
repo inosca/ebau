@@ -480,6 +480,7 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
 
         all_nested_aliases = {
             "ANTWORT": [_("ANSWER")],
+            "SACHBEARBEITUNG_ENTSCHEID": [_("CLERK_DECISION")],
             "BEANTWORTET": [_("ANSWERED")],
             "BEANTWORTET_TIMESTAMP": [_("ANSWERED_TIMESTAMP")],
             "ERSTELLT": [_("CREATED")],
@@ -487,6 +488,7 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
             "FACHSTELLE": [_("SERVICE")],
             "FRIST": [_("DEADLINE")],
             "NAME": [_("NAME")],
+            "BESCHREIBUNG": [_("DESCRIPTION")],
             "NEBENBESTIMMUNGEN": [_("ANCILLARY_CLAUSES")],
             "STELLUNGNAHME": [_("OPINION")],
             "TEXT": [_("TEXT")],
@@ -528,12 +530,18 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
     def get_service(self, inquiry, type):
         return Service.objects.get(pk=int(getattr(inquiry, type)[0])).get_name()
 
+    def get_service_description(self, inquiry, type):
+        return Service.objects.get(pk=int(getattr(inquiry, type)[0])).get_description()
+
     def get_prop_key(self, prop):
         return prop[1] if isinstance(prop, tuple) else prop
 
     def get_prop_value(self, inquiry, prop):
         prop_mapping = {
             "service": lambda i: self.get_service(i, "addressed_groups"),
+            "service_description": lambda i: self.get_service_description(
+                i, "addressed_groups"
+            ),
             "service_with_prefix": lambda i: f"- {self.get_service(i, 'addressed_groups')}",
             "deadline": lambda i: i.deadline.strftime("%d.%m.%Y"),
             "creation_date": lambda i: i.created_at.strftime("%d.%m.%Y"),
