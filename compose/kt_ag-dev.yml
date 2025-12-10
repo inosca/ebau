@@ -73,7 +73,8 @@ services:
       DATABASE_PASSWORD: camac
       DATABASE_USER: camac
       DJANGO_CACHE_LOCATION: cache:11211
-      DJANGO_CLAMD_ENABLED: false
+      DJANGO_CLAMD_ENABLED: true
+      DJANGO_CLAMD_TCP_ADDR: clamav
       DJANGO_DEFAULT_FILE_STORAGE: storages.backends.s3.S3Storage
       DJANGO_EMAIL_HOST: mailpit
       DJANGO_EMAIL_PORT: 1025
@@ -276,6 +277,16 @@ services:
       - djangotmpmedia:/data/djangotmpmedia
       - minio_data:/data/minio_data
     command: /bin/sh -c "chown ${UID} -R /data;"
+    networks:
+      - ebau.localhost
+
+  clamav:
+    profiles:
+      - full
+    ports:
+      - "3310:3310"
+    environment:
+      - ENABLE_DEFINITIONS_UPDATE=false
     networks:
       - ebau.localhost
 
