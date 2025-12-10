@@ -3728,3 +3728,95 @@ def test_validate_instance_for_trusted_service(db, instance, mocker):
     InstanceEditableMixin()._validate_instance_editablity.assert_called_once_with(
         instance
     )
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+def test_instance_keywords_visibility_aware(
+    db,
+    admin_client,
+    admin_user,
+    instance,
+    keyword_factory,
+    service_factory,
+):
+    url = reverse("instance-detail", args=[instance.pk])
+
+    kw_current1 = keyword_factory(service=admin_user.groups.first().service)
+    kw_current2 = keyword_factory(service=admin_user.groups.first().service)
+    kw_other1 = keyword_factory(service=service_factory())
+
+    # initially only assign kw_current1 and kw_other1 to the instance
+    instance.keywords.set([kw_current1, kw_other1])
+    instance.save()
+
+    # only kw_current1 should be visible to this user.
+    response = admin_client.get(url)
+    assert response.json()["data"]["relationships"]["keywords"]["data"] == [
+        {"type": "keywords", "id": str(kw_current1.pk)}
+    ]
+
+    # send a patch request to remove all keywords (for the current user)
+    response = admin_client.patch(
+        url,
+        {
+            "data": {
+                "id": str(instance.pk),
+                "type": "instances",
+                "relationships": {"keywords": {"data": []}},
+            }
+        },
+    )
+    assert response.status_code == status.HTTP_200_OK
+
+    # no more keywords should be visible via the API
+    assert response.json()["data"]["relationships"]["keywords"]["data"] == []
+    response = admin_client.get(url)
+    assert response.json()["data"]["relationships"]["keywords"]["data"] == []
+
+    # but on the instance, the keywords for other services should still exist.
+    instance.refresh_from_db()
+    instance_keywords = list(instance.keywords.all())
+    assert len(instance_keywords) == 1
+    assert instance_keywords[0].pk == kw_other1.pk
+
+    # send a patch request to add kw_current2
+    response = admin_client.patch(
+        url,
+        {
+            "data": {
+                "id": str(instance.pk),
+                "type": "instances",
+                "relationships": {
+                    "keywords": {
+                        "data": [
+                            {"type": "keywords", "id": str(kw_current1.pk)},
+                            {"type": "keywords", "id": str(kw_current2.pk)},
+                        ]
+                    }
+                },
+            }
+        },
+    )
+    assert response.status_code == status.HTTP_200_OK
+
+    # now both current keywords should be visible via the API
+    assert set(
+        d["id"] for d in response.json()["data"]["relationships"]["keywords"]["data"]
+    ) == {
+        str(kw_current1.pk),
+        str(kw_current2.pk),
+    }
+    response = admin_client.get(url)
+    assert set(
+        d["id"] for d in response.json()["data"]["relationships"]["keywords"]["data"]
+    ) == {str(kw_current1.pk), str(kw_current2.pk)}
+
+    # but on the instance, the keywords for other services should still exist.
+    instance.refresh_from_db()
+    instance_keywords = list(instance.keywords.all())
+    assert len(instance_keywords) == 3
+    assert set(kw.pk for kw in instance_keywords) == {
+        kw_current1.pk,
+        kw_current2.pk,
+        kw_other1.pk,
+    }

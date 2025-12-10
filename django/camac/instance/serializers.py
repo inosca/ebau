@@ -317,12 +317,37 @@ class InstanceSerializer(
     def update(self, instance, validated_data):
         validated_data["modification_date"] = timezone.now()
         old_location_id = instance.location_id
+
+        # preserve keywords that are not visible to the current user.
+        submitted_keywords = validated_data.get("keywords", None)
+        if submitted_keywords is not None:
+            validated_data["keywords"] = set(
+                submitted_keywords + self._get_not_visible_keywords(instance)
+            )
+
         instance = super().update(instance, validated_data)
 
         if instance.location_id != old_location_id:
             self._update_instance_location(instance)
 
         return instance
+
+    def _get_not_visible_keywords(self, instance):
+        """
+        Get a list of keywords that are not visible for the given instance.
+
+        Uses the keywords field to determine which keywords are currently visible,
+        and returns all other keywords assigned to the instance.
+
+        This is used to preserve keywords that are not visible to the current user.
+        """
+        # use the keywords field to get the current visible keywords.
+        field = self.fields["keywords"]
+        relation_value = field.get_attribute(instance)
+        representation = field.to_representation(relation_value) or []
+        visible_ids = {int(item["id"]) for item in representation}
+
+        return [k for k in instance.keywords.exclude(id__in=visible_ids)]
 
     def _update_instance_location(self, instance):
         """
