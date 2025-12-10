@@ -8,8 +8,8 @@
   },
   "author": "Christian Zosel <christian@zosel.ch>",
   "scripts": {
-    "build-be": "sass --load-path=./node_modules/ src/main/resources/theme/ebau-be-2.1.0/login/resources/scss/:src/main/resources/theme/ebau-be-2.1.0/login/resources/css/",
-    "watch-be": "sass --load-path=node_modules/ -w src/main/resources/theme/ebau-be-2.1.0/login/resources/scss/:src/main/resources/theme/ebau-be-2.1.0/login/resources/css/",
+    "build-be": "sass --load-path=./node_modules/ src/main/resources/theme/ebau-be-2.1.1/login/resources/scss/:src/main/resources/theme/ebau-be-2.1.1/login/resources/css/",
+    "watch-be": "sass --load-path=node_modules/ -w src/main/resources/theme/ebau-be-2.1.1/login/resources/scss/:src/main/resources/theme/ebau-be-2.1.1/login/resources/css/",
     "build-ur": "sass --load-path=node_modules/ src/main/resources/theme/kanton-uri/login/resources/scss/:src/main/resources/theme/kanton-uri/login/resources/css/",
     "watch-ur": "sass --load-path=node_modules/ -w src/main/resources/theme/kanton-uri/login/resources/scss/:src/main/resources/theme/kanton-uri/login/resources/css/",
     "build-sz": "sass --load-path=node_modules/ src/main/resources/theme/kanton-schwyz/login/resources/scss/:src/main/resources/theme/kanton-schwyz/login/resources/css/",
