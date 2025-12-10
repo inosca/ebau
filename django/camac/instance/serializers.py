@@ -1708,17 +1708,19 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             existing_instance = models.Instance.objects.get(pk=existing_instance_id)
             link_instances(instance, existing_instance)
 
+    def _handle_cantonal_territory_usage(self, instance):
+        event_type_answer = self.get_master_data(instance.case).veranstaltung_art
+
+        if event_type_answer in settings.APPLICATION["CALUMA"].get("KOOR_SD_SLUGS"):
+            return Service.objects.get(pk=uri_constants.KOOR_SD_SERVICE_ID)
+        else:
+            return Service.objects.get(pk=uri_constants.KOOR_BD_SERVICE_ID)
+
     def _ur_get_responsible_service(self, instance):
         form_slug = instance.case.document.form.slug
 
         if form_slug == "cantonal-territory-usage":
-            event_type_answer = self.get_master_data(instance.case).veranstaltung_art
-
-            if event_type_answer in settings.APPLICATION["CALUMA"].get("KOOR_SD_SLUGS"):
-                return Service.objects.get(pk=uri_constants.KOOR_SD_SERVICE_ID)
-            else:
-                return Service.objects.get(pk=uri_constants.KOOR_BD_SERVICE_ID)
-
+            return self._handle_cantonal_territory_usage(instance)
         elif form_slug in [
             "konzession-waermeentnahme",
             "bohrbewilligung-waermeentnahme",
@@ -1726,14 +1728,18 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             return Service.objects.get(pk=uri_constants.KOOR_AFE_SERVICE_ID)
         elif form_slug == "pgv-gemeindestrasse":
             return Service.objects.get(pk=uri_constants.KOOR_BD_SERVICE_ID)
-        elif (
-            form_slug == "bgbb" and instance.group_id == uri_constants.KOOR_AFG_GROUP_ID
-        ):
-            return Service.objects.get(pk=uri_constants.KOOR_AFG_SERVICE_ID)
-        elif form_slug == "mitbericht-bund":
-            return Service.objects.get(pk=instance.group.service.pk)
         elif form_slug == "einfache-anfrage":
             return Service.objects.get(pk=uri_constants.KOOR_NP_SERVICE_ID)
+        elif form_slug in [
+            "mitbericht-bund",
+            "mitbericht-kanton",
+            "bgbb",
+            "oereb",
+            "bauverwaltung",
+            "archivdossier",
+            "commercial-permit",
+        ]:
+            return instance.group.service
 
         # fallback default case
         return Service.objects.filter(

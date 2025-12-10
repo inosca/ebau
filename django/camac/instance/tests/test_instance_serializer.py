@@ -91,7 +91,6 @@ def test_ur_get_responsible_service(
     ur_instance.case.document.save()
 
     mocker.patch.object(uri_constants, service_name, mock_service.pk)
-    mocker.patch.object(uri_constants, "KOOR_AFG_GROUP_ID", ur_instance.group.pk)
 
     if veranstaltungs_art:
         caluma_form_question_factory(
@@ -104,7 +103,13 @@ def test_ur_get_responsible_service(
             "veranstaltung-art-sportanlass",
         )
 
-    assert serializer._ur_get_responsible_service(ur_instance) == mock_service
+    if service_name == "KOOR_AFG_SERVICE_ID":
+        assert (
+            serializer._ur_get_responsible_service(ur_instance)
+            == ur_instance.group.service
+        )
+    else:
+        assert serializer._ur_get_responsible_service(ur_instance) == mock_service
 
 
 @pytest.mark.parametrize(
