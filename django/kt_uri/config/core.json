@@ -40,6 +40,14 @@
     }
   },
   {
+    "model": "core.aformtransition",
+    "pk": 12000066,
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 26
+    }
+  },
+  {
     "model": "core.alocation",
     "pk": 1009,
     "fields": {}
@@ -336,6 +344,20 @@
       "button": 12000019,
       "name": "Status zu DONE",
       "description": "Status zu DONE",
+      "success_message": "Statusänderung erfolgreich ausgeführt",
+      "error_message": "Statusänderung konnte nicht ausgeführt werden",
+      "execute_always": 0,
+      "sort": 0
+    }
+  },
+  {
+    "model": "core.action",
+    "pk": 12000066,
+    "fields": {
+      "available_action": "formtransition",
+      "button": 12000020,
+      "name": "Status zu ARCH",
+      "description": "Status zu ARCH",
       "success_message": "Statusänderung erfolgreich ausgeführt",
       "error_message": "Statusänderung konnte nicht ausgeführt werden",
       "execute_always": 0,
@@ -7770,6 +7792,141 @@
     }
   },
   {
+    "model": "core.broleacl",
+    "pk": 12000243,
+    "fields": {
+      "button": 12000020,
+      "role": 1131,
+      "instance_state": 1
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000244,
+    "fields": {
+      "button": 12000020,
+      "role": 1131,
+      "instance_state": 21
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000245,
+    "fields": {
+      "button": 12000020,
+      "role": 1131,
+      "instance_state": 22
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000246,
+    "fields": {
+      "button": 12000020,
+      "role": 1131,
+      "instance_state": 32
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000247,
+    "fields": {
+      "button": 12000020,
+      "role": 1131,
+      "instance_state": 23
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000248,
+    "fields": {
+      "button": 12000020,
+      "role": 1131,
+      "instance_state": 24
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000249,
+    "fields": {
+      "button": 12000020,
+      "role": 1131,
+      "instance_state": 25
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000250,
+    "fields": {
+      "button": 12000020,
+      "role": 1131,
+      "instance_state": 34
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000251,
+    "fields": {
+      "button": 12000020,
+      "role": 1131,
+      "instance_state": 26
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000252,
+    "fields": {
+      "button": 12000020,
+      "role": 1131,
+      "instance_state": 27
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000253,
+    "fields": {
+      "button": 12000020,
+      "role": 1131,
+      "instance_state": 28
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000254,
+    "fields": {
+      "button": 12000020,
+      "role": 1131,
+      "instance_state": 29
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000255,
+    "fields": {
+      "button": 12000020,
+      "role": 1131,
+      "instance_state": 30
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000256,
+    "fields": {
+      "button": 12000020,
+      "role": 1131,
+      "instance_state": 31
+    }
+  },
+  {
+    "model": "core.broleacl",
+    "pk": 12000257,
+    "fields": {
+      "button": 12000020,
+      "role": 1131,
+      "instance_state": 33
+    }
+  },
+  {
     "model": "core.billingconfig",
     "pk": 1,
     "fields": {
@@ -8318,6 +8475,18 @@
       "class_field": null,
       "hidden": 0,
       "sort": 4
+    }
+  },
+  {
+    "model": "core.button",
+    "pk": 12000020,
+    "fields": {
+      "instance_resource": 2000003,
+      "name": "Status zu ARCH",
+      "description": "Ändert den Status des Dossiers",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 5
     }
   },
   {
