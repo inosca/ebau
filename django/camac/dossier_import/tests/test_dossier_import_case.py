@@ -1270,19 +1270,38 @@ def test_set_workflow_state_so(
 
 
 @pytest.mark.parametrize(
-    "target_state,expected_work_items_states,expected_case_status",
+    "construction_monitoring_enabled,target_state,expected_work_items_states,expected_case_status",
     [
         (
+            False,
             "SUBMITTED",
             [
                 ("submit", "skipped"),
                 ("create-manual-workitems", "ready"),
                 ("formal-exam", "ready"),
                 ("init-additional-demand", "ready"),
+                ("construction-acceptance", False),
+                ("init-construction-monitoring", False),
+                ("complete-construction-monitoring", False),
             ],
             "running",
         ),
         (
+            True,
+            "SUBMITTED",
+            [
+                ("submit", "skipped"),
+                ("create-manual-workitems", "ready"),
+                ("formal-exam", "ready"),
+                ("init-additional-demand", "ready"),
+                ("construction-acceptance", False),
+                ("init-construction-monitoring", False),
+                ("complete-construction-monitoring", False),
+            ],
+            "running",
+        ),
+        (
+            False,
             "APPROVED",
             [
                 ("submit", "skipped"),
@@ -1291,10 +1310,30 @@ def test_set_workflow_state_so(
                 ("init-additional-demand", "canceled"),
                 ("distribution", "skipped"),
                 ("decision", "skipped"),
+                ("construction-acceptance", "ready"),
+                ("init-construction-monitoring", False),
+                ("complete-construction-monitoring", False),
             ],
             "running",
         ),
         (
+            True,
+            "APPROVED",
+            [
+                ("submit", "skipped"),
+                ("create-manual-workitems", "ready"),
+                ("formal-exam", "skipped"),
+                ("init-additional-demand", "canceled"),
+                ("distribution", "skipped"),
+                ("decision", "skipped"),
+                ("construction-acceptance", False),
+                ("init-construction-monitoring", "ready"),
+                ("complete-construction-monitoring", False),
+            ],
+            "running",
+        ),
+        (
+            False,
             "DONE",
             [
                 ("submit", "skipped"),
@@ -1302,10 +1341,29 @@ def test_set_workflow_state_so(
                 ("init-additional-demand", "canceled"),
                 ("distribution", "skipped"),
                 ("decision", "skipped"),
+                ("construction-acceptance", "skipped"),
+                ("init-construction-monitoring", False),
+                ("complete-construction-monitoring", False),
             ],
             "completed",
         ),
         (
+            True,
+            "DONE",
+            [
+                ("submit", "skipped"),
+                ("formal-exam", "skipped"),
+                ("init-additional-demand", "canceled"),
+                ("distribution", "skipped"),
+                ("decision", "skipped"),
+                ("construction-acceptance", False),
+                ("init-construction-monitoring", "skipped"),
+                ("complete-construction-monitoring", False),
+            ],
+            "completed",
+        ),
+        (
+            False,
             "REJECTED",
             [
                 ("submit", "skipped"),
@@ -1314,20 +1372,23 @@ def test_set_workflow_state_so(
                 ("init-additional-demand", "canceled"),
                 ("distribution", "skipped"),
                 ("decision", "skipped"),
+                ("construction-acceptance", False),
                 ("init-construction-monitoring", False),
                 ("complete-construction-monitoring", False),
             ],
             "completed",
         ),
         (
-            "WRITTEN OFF",
+            True,
+            "REJECTED",
             [
                 ("submit", "skipped"),
-                ("create-manual-workitems", "canceled"),
+                ("create-manual-workitems", "skipped"),
                 ("formal-exam", "skipped"),
                 ("init-additional-demand", "canceled"),
                 ("distribution", "skipped"),
                 ("decision", "skipped"),
+                ("construction-acceptance", False),
                 ("init-construction-monitoring", False),
                 ("complete-construction-monitoring", False),
             ],
@@ -1343,10 +1404,19 @@ def test_set_workflow_state_gr(
     target_state,
     expected_work_items_states,
     expected_case_status,
+    gr_construction_monitoring_settings,
+    gr_address_assignment_settings,
+    construction_monitoring_enabled,
 ):
+    gr_construction_monitoring_settings["ENABLED"] = construction_monitoring_enabled
+    gr_address_assignment_settings["ENABLED"] = construction_monitoring_enabled
+
     writer = setup_dossier_writer("kt_gr")
     dossier._meta.target_state = target_state
-    writer._set_workflow_state(gr_instance, dossier)
+    messages = writer._set_workflow_state(gr_instance, dossier)
+    assert any(msg.level == Severity.ERROR.value for msg in messages) is False, (
+        f"Errors occurred while setting workflow state to {target_state}: {messages}"
+    )
 
     for task_id, expected_status in expected_work_items_states:
         work_item = gr_instance.case.work_items.filter(task_id=task_id).first()

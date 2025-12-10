@@ -29,7 +29,6 @@ from camac.dossier_import.writers import (
     DossierWriter,
 )
 from camac.instance.domain_logic import CreateInstanceLogic
-from camac.instance.domain_logic.decision import DecisionLogic
 from camac.instance.models import Form, Instance, InstanceState
 from camac.permissions import events as permissions_events
 from camac.tags.models import Keyword
@@ -277,24 +276,21 @@ class KtGraubundenDossierWriter(DossierWriter):
             "distribution",
             "decision",
         ]
-        REJECTED = DECIDED + [
-            "init-construction-monitoring",
-            "construction-acceptance",
-            "complete-construction-monitoring",
-            "create-manual-workitems",
-        ]
-        DONE = DECIDED + [
-            "init-construction-monitoring",
-            "construction-acceptance",
-            "complete-construction-monitoring",
-            "create-manual-workitems",
-        ]
+        REJECTED = DECIDED + ["create-manual-workitems"]
+        DONE = (
+            DECIDED
+            + ["create-manual-workitems"]
+            + (
+                ["init-construction-monitoring"]
+                if settings.CONSTRUCTION_MONITORING["ENABLED"]
+                else ["construction-acceptance"]
+            )
+        )
 
         path_to_state = {
             TargetStatus.SUBMITTED.value: SUBMITTED,
             TargetStatus.APPROVED.value: DECIDED,
             TargetStatus.REJECTED.value: REJECTED,
-            TargetStatus.WRITTEN_OFF.value: DECIDED,
             TargetStatus.DONE.value: DONE,
         }
 
@@ -320,19 +316,6 @@ class KtGraubundenDossierWriter(DossierWriter):
 
             if task_id == "decision":
                 self.write_decision_form(work_item, dossier)
-
-                if target_state == TargetStatus.WRITTEN_OFF.value:
-                    # Set instance state to withdrawal so that the workflow
-                    # creates the correct work items. This will be resetted
-                    # afterwards in the post_complete_decision_building_permit
-                    # method
-                    instance.set_instance_state(
-                        settings.WITHDRAWAL["INSTANCE_STATE"], self._user
-                    )
-                    DecisionLogic.post_complete_decision_building_permit(
-                        instance, work_item, self._caluma_user, self._user
-                    )
-
                 permissions_events.Trigger.decision_decreed(None, instance)
 
             if config := get_caluma_setting("PRE_COMPLETE") and get_caluma_setting(
@@ -368,9 +351,6 @@ class KtGraubundenDossierWriter(DossierWriter):
             ],
             TargetStatus.REJECTED.value: settings.DECISION["ANSWERS"]["DECISION"][
                 "REJECTED"
-            ],
-            TargetStatus.WRITTEN_OFF.value: settings.DECISION["ANSWERS"]["DECISION"][
-                "WITHDRAWAL"
             ],
             TargetStatus.DONE.value: settings.DECISION["ANSWERS"]["DECISION"][
                 "APPROVED"
