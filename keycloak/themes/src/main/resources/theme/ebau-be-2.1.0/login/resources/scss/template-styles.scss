@@ -610,6 +610,7 @@ body.login {
       /* Aligns child divs including feedback-box */
       & > div {
         margin-left: var(--page-content-margin-horizontal);
+        margin-right: var(--page-content-margin-horizontal);
       }
 
       div.main-column {
