@@ -196,75 +196,9 @@ button.secondary,
   margin-top: 0;
 }
 
-/* form related */
-.form-group {
-  position: relative;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-
-  .label-wrapper {
-    position: absolute;
-    top: -5px;
-    left: 23px;
-    -webkit-transform: translateY(8px);
-    -ms-transform: translateY(8px);
-    transform: translateY(8px);
-    -webkit-transition: all 250ms ease-out;
-    transition: all 250ms ease-out;
-    background-color: #fff;
-    padding: 2px 5px;
-    opacity: 1;
-
-    label.floating-label {
-      font-size: 13px;
-      line-height: 17px;
-      font-weight: 400;
-    }
-  }
-
-  .input-wrapper {
-    .floating-input {
-      height: 59px;
-      width: 100%;
-      max-width: 800px;
-      padding: 3px 10px;
-      padding-left: 28px;
-      margin-bottom: 20px;
-      margin-top: 20px;
-      background-color: #fefefe;
-      border: 1px solid #707070;
-      border-radius: 3px;
-      box-sizing: border-box;
-      font-family: "Roboto";
-      font-style: normal;
-      font-weight: 400;
-      font-size: 16px;
-      color: #000 !important;
-
-      &:focus {
-        border: 1px solid #000;
-        border-left: 6px solid #000;
-      }
-
-      &:focus-visible {
-        outline: none;
-      }
-    }
-  }
-
-  #kc-form-buttons {
-    .button {
-      margin-top: 0;
-    }
-  }
-}
-
 .form-error-text {
   color: variables.$global-color-red;
 }
-
 
 .logo {
   background-image: url(../img/kanton-bern-logo.svg);
@@ -281,7 +215,6 @@ button.secondary,
     width: 110px;
   }
 }
-
 
 .logo-caption {
   font-size: var(--global-header-line-height);
@@ -738,6 +671,83 @@ body.login {
 
     .js-contact-box {
       display: none;
+    }
+  }
+}
+
+/* form related */
+.form-group {
+  position: relative;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .label-wrapper {
+    position: absolute;
+    top: -5px;
+    left: 23px;
+    -webkit-transform: translateY(8px);
+    -ms-transform: translateY(8px);
+    transform: translateY(8px);
+    -webkit-transition: all 250ms ease-out;
+    transition: all 250ms ease-out;
+    background-color: #fff;
+    padding: 2px 5px;
+    opacity: 1;
+
+    label.floating-label {
+      font-size: 13px;
+      line-height: 17px;
+      font-weight: 400;
+    }
+  }
+
+  .input-wrapper {
+    .floating-input {
+      height: 59px;
+      width: 100%;
+      max-width: 800px;
+      padding: 3px 10px;
+      padding-left: 28px;
+      margin-bottom: 20px;
+      margin-top: 20px;
+      background-color: #fefefe;
+      border: 1px solid #707070;
+      border-radius: 3px;
+      box-sizing: border-box;
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      color: #000 !important;
+
+      &:focus {
+        border: 1px solid #000;
+        border-left: 6px solid #000;
+      }
+
+      &:focus-visible {
+        outline: none;
+      }
+    }
+  }
+
+  button,
+  .button {
+    width: 60%;
+  }
+
+  @media screen and (max-width: 1119px) {
+    button,
+    .button {
+      width: 100%;
+    }
+  }
+
+  #kc-form-buttons {
+    .button {
+      margin-top: 0;
     }
   }
 }
