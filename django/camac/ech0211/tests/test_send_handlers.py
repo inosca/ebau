@@ -790,7 +790,6 @@ def test_task_send_claim_handler(
     test_case,
     success,
     access_level,
-    mock_remote_file,
 ):
     mocker.patch(
         "camac.ech0211.send_handlers.has_alexandria_create_permission",
