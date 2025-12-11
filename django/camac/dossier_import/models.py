@@ -4,7 +4,7 @@ import zipfile
 from pathlib import Path
 from tempfile import NamedTemporaryFile
 
-from caluma.caluma_core.models import UUIDModel
+import uuid_extensions
 from django.conf import settings
 from django.db import models
 from django.utils.translation import gettext as _
@@ -18,7 +18,7 @@ def source_file_directory_path(dossier_import, filename):
     return "dossier_imports/files/{0}/{1}".format(str(dossier_import.id), filename)
 
 
-class DossierImport(UUIDModel):
+class DossierImport(models.Model):
     """An import case for identification and recording results and meta info.
 
     We need to be able to identify import procedures including status,
@@ -68,6 +68,12 @@ class DossierImport(UUIDModel):
     DOSSIER_LOADER_CHOICES = (
         (DOSSIER_LOADER_ZIP_ARCHIVE_XLSX, "XlsxFileDossierLoader"),
     )
+
+    id = models.UUIDField(
+        primary_key=True, default=uuid_extensions.uuid7, editable=False
+    )
+    created_at = models.DateTimeField(auto_now_add=True, db_index=True)
+    modified_at = models.DateTimeField(auto_now=True, db_index=True)
 
     dossier_loader_type = models.CharField(
         max_length=255,
