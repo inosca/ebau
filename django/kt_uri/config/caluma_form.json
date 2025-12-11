@@ -5764,7 +5764,7 @@
       "modified_by_group": null,
       "form": "energetische-massnahmen",
       "question": "das-vorhaben-betrifft",
-      "sort": 25
+      "sort": 3
     }
   },
   {
@@ -5784,6 +5784,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "energetische-massnahmen.projektkennzeichnung-even",
+    "fields": {
+      "created_at": "2025-12-11T12:24:14.618Z",
+      "modified_at": "2025-12-11T12:24:14.618Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "energetische-massnahmen",
+      "question": "projektkennzeichnung-even",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "energetische-massnahmen.raumdetails-titel",
     "fields": {
       "created_at": "2020-10-29T14:02:45.590Z",
@@ -5794,7 +5809,7 @@
       "modified_by_group": null,
       "form": "energetische-massnahmen",
       "question": "raumdetails-titel",
-      "sort": 26
+      "sort": 4
     }
   },
   {
@@ -46757,10 +46772,10 @@
     "pk": "das-vorhaben-betrifft",
     "fields": {
       "created_at": "2021-05-18T11:20:03.215Z",
-      "modified_at": "2021-11-23T16:06:32.724Z",
+      "modified_at": "2025-12-11T12:23:24.219Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Das Vorhaben betrifft\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
@@ -46769,7 +46784,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -55394,10 +55409,10 @@
     "pk": "kein-energienachweis",
     "fields": {
       "created_at": "2020-11-02T10:50:51.543Z",
-      "modified_at": "2025-10-22T06:35:40.940Z",
+      "modified_at": "2025-12-11T12:32:28.163Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Kein Energienachweis erforderlich\", \"fr\": null, \"it\": null}",
       "type": "static",
@@ -55405,9 +55420,9 @@
       "is_hidden": "!( [ \"das-vorhaben-betrifft-beheizte-oder-gekuehlte-neu-und-umbauten\", \"das-vorhaben-betrifft-aenderung-beheizter-oder-gekuehlter-bauten\", \"das-vorhaben-betrifft-installation-technischer-anlagen\" ] intersects (\"das-vorhaben-betrifft\"|answer || []) )",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Genereller Support für EVEN\\nE-Mail support-even@web-solutions.io\\n\\nHINWEIS: Bitte kontaktieren Sie primär Ihren Kanton, da wir als Entwicklungsfirma bei fachlichen Fragen nicht weiterhelfen können. Vielen Dank. IWF Web Solutions Hardstrasse 1 4133 Pratteln\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"######**Aufgrund Ihrer aktuellen Auswahl ist ein Energienachweis erforderlich**.\\n\\nBitte erstellen Sie den Energienachweis und laden Sie diesen anschliessend bei den Dokumenten hoch. Hier geht's zu den Formularen: <a href=\\\"https://www.energie-zentralschweiz.ch/vollzug/energienachweise-muken-2008.html\\\" target=\\\"_blank\\\" style=\\\"color: blue;\\\">Energie Zentralschweiz</a>.\\n\\n(Ausnahmen sind im Energiereglement (EnR 40.7215) definiert. Im Zweifelsfall kontaktieren Sie bitte zur Klärung der Notwendigkeit eines Energienachweises direkt das <a href=\\\"https://www.ur.ch/aemter/828\\\" target=\\\"_blank\\\" style=\\\"color: blue;\\\">Amt für Energie</a>.)\\n\\nHinweis: per 1. Januar 2026 kann der Energienachweis auf der Plattform EVEN direkt online erstellt werden. Ein entsprechender Link zu dieser Plattform wird rechtzeitig aufgeschaltet.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"######**Aufgrund Ihrer aktuellen Auswahl ist ein Energienachweis erforderlich**.\\n\\nBitte erstellen Sie den Energienachweis auf EVEN und laden Sie diesen anschliessend bei den Dokumenten hoch.\\n\\n<a href=\\\"https://energievollzug.ch/UR/login\\\" target=\\\"_blank\\\" style=\\\"color: blue;\\\">Zur Projektübersicht EVEN wechseln</a>\\n\\nWenn Sie noch kein EVEN Login haben, bitten wir Sie, sich auf EVEN zu registrieren.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -60202,6 +60217,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "projektkennzeichnung-even",
+    "fields": {
+      "created_at": "2025-12-11T12:24:14.520Z",
+      "modified_at": "2025-12-11T12:24:14.520Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Projektkennzeichnung EVEN\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!( [ \"das-vorhaben-betrifft-beheizte-oder-gekuehlte-neu-und-umbauten\", \"das-vorhaben-betrifft-aenderung-beheizter-oder-gekuehlter-bauten\", \"das-vorhaben-betrifft-installation-technischer-anlagen\" ] intersects (\"das-vorhaben-betrifft\"|answer || []) )",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "proposal",
     "fields": {
       "created_at": "2020-08-28T15:33:19.588Z",
@@ -60591,7 +60640,7 @@
     "pk": "raumdetails-titel",
     "fields": {
       "created_at": "2020-09-19T10:24:26.447Z",
-      "modified_at": "2025-10-13T11:46:00.749Z",
+      "modified_at": "2025-12-11T12:22:46.040Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -73151,11 +73200,11 @@
     "model": "caluma_form.questionoption",
     "pk": "das-vorhaben-betrifft.das-vorhaben-betrifft-aenderung-beheizter-oder-gekuehlter-bauten",
     "fields": {
-      "created_at": "2021-11-23T16:06:32.734Z",
-      "modified_at": "2021-11-23T16:06:32.734Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2025-12-11T12:23:24.229Z",
+      "modified_at": "2025-12-11T12:23:24.229Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "das-vorhaben-betrifft",
       "option": "das-vorhaben-betrifft-aenderung-beheizter-oder-gekuehlter-bauten",
@@ -73166,11 +73215,11 @@
     "model": "caluma_form.questionoption",
     "pk": "das-vorhaben-betrifft.das-vorhaben-betrifft-beheizte-oder-gekuehlte-neu-und-umbauten",
     "fields": {
-      "created_at": "2021-11-23T16:06:32.736Z",
-      "modified_at": "2021-11-23T16:06:32.736Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2025-12-11T12:23:24.231Z",
+      "modified_at": "2025-12-11T12:23:24.231Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "das-vorhaben-betrifft",
       "option": "das-vorhaben-betrifft-beheizte-oder-gekuehlte-neu-und-umbauten",
@@ -73181,11 +73230,11 @@
     "model": "caluma_form.questionoption",
     "pk": "das-vorhaben-betrifft.das-vorhaben-betrifft-installation-technischer-anlagen",
     "fields": {
-      "created_at": "2021-11-23T16:06:32.731Z",
-      "modified_at": "2021-11-23T16:06:32.731Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2025-12-11T12:23:24.227Z",
+      "modified_at": "2025-12-11T12:23:24.227Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "das-vorhaben-betrifft",
       "option": "das-vorhaben-betrifft-installation-technischer-anlagen",
@@ -73196,11 +73245,11 @@
     "model": "caluma_form.questionoption",
     "pk": "das-vorhaben-betrifft.das-vorhaben-betrifft-keine-energetisch-relevanten-bauten",
     "fields": {
-      "created_at": "2021-11-23T16:06:32.728Z",
-      "modified_at": "2021-11-23T16:06:32.728Z",
-      "created_by_user": "paul.walker@ur.ch",
+      "created_at": "2025-12-11T12:23:24.225Z",
+      "modified_at": "2025-12-11T12:23:24.225Z",
+      "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "das-vorhaben-betrifft",
       "option": "das-vorhaben-betrifft-keine-energetisch-relevanten-bauten",
