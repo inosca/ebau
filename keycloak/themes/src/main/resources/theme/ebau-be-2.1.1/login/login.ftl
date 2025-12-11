@@ -34,15 +34,15 @@
             </form>
         </#if>
         <#if section="context">
-            <ul class='box-beige open' data-accordion data-allow-all-closed='true' data-multi-expand='false'>
+            <ul class="box-beige open" data-accordion data-allow-all-closed="true" data-multi-expand="false">
                 <li class="default infobox-wrapper is-active" data-accordion-item>
                     <h4 class="infobox-title">${msg("loginFaqHeading")}</h4>
                     <div class="accordion-content" data-tab-content>
                         <hr class="accordion">
                         ${kcSanitize(msg("loginFaqContent"))?no_esc}
-                        <div class='arrow-link'>
-                            <span class='link-arrow'></span>
-                            <a class='text-link-2' href="${msg('loginFaqLinkTarget')}">${msg("loginFaqLinkText")}</a>
+                        <div class="arrow-link">
+                            <span class="link-arrow"></span>
+                            <a class="text-link-2 ${(msg('loginFaqLinkTarget') == '#')?then('js-contact-toggle', '')}" href="${msg('loginFaqLinkTarget')}">${msg("loginFaqLinkText")}</a>
                         </div>
                     </div>
                 </li>
