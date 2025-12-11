@@ -6,17 +6,19 @@
         ${msg("emailLinkIdpTitle")}
     <#elseif section = "form">
         <#-- Change: use custom texts & buttons -->
-        <p id="instruction1" class="instruction">
-            ${kcSanitize(msg("emailLinkIdpHint1", brokerContext.email))?no_esc}
-        </p>
-        <p id="instruction2" class="instruction">
-            ${msg("emailLinkIdpHint2")}
-        </p>
-        <a href="${url.loginAction}" class="button secondary">${msg("emailLinkIdpHint2Button")}</a>
-        <p id="instruction3" class="instruction">
-            ${msg("emailLinkIdpHint3")}
-        </p>
-        <a href="${url.loginAction}" class="button secondary">${msg("emailLinkIdpHint3Button")}</a>
+        <div class="${properties.kcFormGroupClass!}">
+            <p id="instruction1" class="instruction">
+                ${kcSanitize(msg("emailLinkIdpHint1", brokerContext.email))?no_esc}
+            </p>
+            <p id="instruction2" class="instruction">
+                ${msg("emailLinkIdpHint2")}
+            </p>
+            <a href="${url.loginAction}" class="button secondary">${msg("emailLinkIdpHint2Button")}</a>
+            <p id="instruction3" class="instruction">
+                ${msg("emailLinkIdpHint3")}
+            </p>
+            <a href="${url.loginAction}" class="button secondary">${msg("emailLinkIdpHint3Button")}</a>
+        </div>
     <#-- Change: add context column -->
     <#elseif section = "context">
         <ul class='box-beige open' data-accordion data-allow-all-closed='true' data-multi-expand='false'>
