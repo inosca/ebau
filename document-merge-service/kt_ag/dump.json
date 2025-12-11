@@ -18,5 +18,55 @@
       "engine": "docx-template",
       "meta": {}
     }
+  },
+  {
+    "model": "api.template",
+    "pk": "gemeinde-baubewilligung",
+    "fields": {
+      "description": "Gemeinde Baubewilligung",
+      "template": "Gemeinde_Baubewilligung.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "gemeinde-nachbarschaftsorientierung",
+    "fields": {
+      "description": "Gemeinde Nachbarschaftsorientierung",
+      "template": "Gemeinde_Nachbarschaftsorientierung.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "gemeinde-standard-brief",
+    "fields": {
+      "description": "Gemeinde Standard Brief",
+      "template": "Gemeinde_Standard_Brief.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "gemeinde-unterlagenergaenzung",
+    "fields": {
+      "description": "Gemeinde Unterlagenergänzung",
+      "template": "Gemeinde_Unterlagenergaenzung.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "stellungnahme-fs-an-afb",
+    "fields": {
+      "description": "Kantonale Fachstelle Stellungnahme an AFB",
+      "template": "Kantonale_Fachstelle_Stellungnahme_an_AFB.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
   }
 ]
