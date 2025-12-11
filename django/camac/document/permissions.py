@@ -545,7 +545,7 @@ LOOSEN_FILTERS = {
 def special_permissions_uri(group):
     if group.group_id == uri_constants.LISAG_GROUP_ID:
         return {uri_constants.LISAG_ATTACHMENT_SECTION_ID: AdminServicePermission}
-    elif (
+    elif group.service and (
         group.service.slug == "rechtsvertretung-altdorf"
         or group.name == "Baukommission Altdorf"
     ):
