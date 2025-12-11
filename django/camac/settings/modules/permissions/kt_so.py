@@ -236,6 +236,7 @@ SO_PERMISSIONS_SETTINGS = {
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
             ("material-exam-bab-read", MODULE_MATERIAL_EXAM_BAB),
             ("responsible-read", MODULE_RESPONSIBLE),
+            ("responsible-write", MODULE_RESPONSIBLE),
             ("work-items-read", MODULE_WORK_ITEMS),
         ],
         "lead-authority": [
@@ -281,6 +282,7 @@ SO_PERMISSIONS_SETTINGS = {
             ("rejection-read", MODULE_REJECTION),
             ("related-gwr-projects-read", MODULE_RELATED_GWR_PROJECTS),
             ("responsible-read", MODULE_RESPONSIBLE),
+            ("responsible-write", MODULE_RESPONSIBLE),
             ("work-items-read", MODULE_WORK_ITEMS),
         ],
         "municipality-before-submission": [

@@ -14,26 +14,33 @@ from camac.user.models import Group, User
 Request = namedtuple("Request", ["user", "group", "query_params"])
 
 
-def send_mail_without_request(slug, username=None, group_id=None, **kwargs):
+def get_context(user_or_username: User | str, group: Group | int):
+    if not user_or_username or not group:
+        return {}
+
+    if isinstance(user_or_username, User):
+        user = user_or_username
+    else:
+        user = User.objects.get(username=user_or_username)
+
+    if not isinstance(group, Group):
+        group = Group.objects.get(pk=group)
+
+    return {"request": Request(user=user, group=group, query_params=[])}
+
+
+def send_mail_without_request(
+    slug, user_or_username: User | str = None, group: Group | int = None, **kwargs
+):
     """Send notification email if you don't have a HTTP request.
 
     Note: You can leave out username and group_id. In that case, the emails
     will be sent from the system / support account.
     """
-    if not username or not group_id:
-        context = {}
-    else:
-        context = {
-            "request": Request(
-                user=User.objects.get(username=username),
-                group=Group.objects.get(pk=group_id),
-                query_params=[],
-            )
-        }
 
     return send_mail(
         slug,
-        context,
+        get_context(user_or_username, group),
         serializer=PermissionlessNotificationTemplateSendmailSerializer,
         **kwargs,
     )
@@ -45,7 +52,12 @@ def send_mail(
     serializer=NotificationTemplateSendmailSerializer,
     **kwargs,
 ):
-    """Call a SendmailSerializer based on a NotificationTemplate Slug."""
+    """Call a SendmailSerializer based on a NotificationTemplate Slug.
+
+    Only use this when there is no previous business logic that already validated
+    instance access. For most cases where you want to send notifications from
+    python code, call `send_mail_without_request`.
+    """
     notification_template = NotificationTemplate.objects.get(slug=slug)
 
     data = {
