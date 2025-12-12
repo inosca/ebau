@@ -39,7 +39,13 @@ export default class extends Ability {
       );
     }
 
-    return !this.ebauModules.isReadOnlyRole && !this.ebauModules.isSupportRole;
+    const readOnlyCanCreate = macroCondition(getOwnConfig().isSZ)
+      ? true
+      : false;
+    return (
+      (!this.ebauModules.isReadOnlyRole || readOnlyCanCreate) &&
+      !this.ebauModules.isSupportRole
+    );
   }
 
   get canInvolveEntities() {
