@@ -6476,7 +6476,7 @@
       "hint": "Dieser Hinweis soll Sie darauf aufmerksam machen, dass die Auswirkungen Ihres Vorhabens auf Wanderwege zu prüfen sind. Bei Fragen können Sie sich an die zuständige Bauverwaltung oder ans Amt für Wald und Naturgefahren (Fachbereich Langsamverkehr) wenden.",
       "type": "checkbox",
       "required": false,
-      "active-expression": "'ms:ch.sz.a078.wanderwege' in 'layer'|value|mapby('name')",
+      "active-expression": "'ms:ch.sz.a078.wanderwege' in 'layer'|value|mapby('name') || 'ms:ch.sz.a078a.wanderwege' in 'layer'|value|mapby('name')",
       "config": {
         "options": ["Erledigt"]
       }
