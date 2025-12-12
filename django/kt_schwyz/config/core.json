@@ -2344,7 +2344,7 @@
     "fields": {
       "available_instance_resource": "templatecenter",
       "resource": 28,
-      "name": "Dokumente generieren",
+      "name": "Dokumente generieren (legacy)",
       "description": null,
       "template": null,
       "class_field": null,
@@ -2360,7 +2360,7 @@
     "fields": {
       "available_instance_resource": "templatecenter",
       "resource": 28,
-      "name": "Dokumente generieren",
+      "name": "Dokumente generieren (legacy)",
       "description": null,
       "template": null,
       "class_field": null,
@@ -3180,7 +3180,7 @@
       "description": null,
       "template": "/ember-camac-ng/dms-generate.phtml",
       "class_field": null,
-      "hidden": 1,
+      "hidden": 0,
       "sort": 15,
       "form_group": 1,
       "require_permission": null
@@ -3196,7 +3196,7 @@
       "description": null,
       "template": "/ember-camac-ng/dms-generate.phtml",
       "class_field": null,
-      "hidden": 1,
+      "hidden": 0,
       "sort": 26,
       "form_group": 1,
       "require_permission": null
@@ -23453,7 +23453,7 @@
     "pk": 9,
     "fields": {
       "available_resource": "templatemanager",
-      "name": "Vorlagenverwaltung",
+      "name": "Vorlagenverwaltung (legacy)",
       "description": "Das Vorlagenmodul ist veraltet und wird demnächst entfernt.",
       "template": null,
       "class_field": null,
@@ -23678,7 +23678,7 @@
       "description": null,
       "template": "/ember-camac-ng/dms-admin.phtml",
       "class_field": null,
-      "hidden": 1,
+      "hidden": 0,
       "sort": 7
     }
   },
