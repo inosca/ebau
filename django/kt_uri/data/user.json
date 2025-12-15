@@ -5418,7 +5418,7 @@
     "model": "user.service",
     "pk": 87,
     "fields": {
-      "slug": null,
+      "slug": "koor-np",
       "service_group": 1,
       "service_parent": null,
       "name": "ARE KOOR NP",

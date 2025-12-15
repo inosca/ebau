@@ -1470,3 +1470,63 @@ def test_create_bab_work_item_ur(
 
     bab_work_item.refresh_from_db()
     assert bab_work_item.deadline
+
+
+def test_suspend_rpg_work_item_ur(
+    db,
+    set_application_ur,
+    caluma_admin_user,
+    ur_instance,
+    caluma_work_item_factory,
+    service,
+):
+    rpg_work_item = caluma_work_item_factory(
+        case=ur_instance.case,
+        task_id="rpg",
+        addressed_groups=[str(service.pk)],
+        controlling_groups=[str(service.pk)],
+        status=WorkItem.STATUS_READY,
+    )
+    assert rpg_work_item.status == "ready"
+
+    bab.suspend_rpg_work_item(
+        sender=None, work_item=rpg_work_item, user=caluma_admin_user
+    )
+
+    rpg_work_item.refresh_from_db()
+    assert rpg_work_item.status == "suspended"
+
+
+def test_resume_rpg_work_item_ur(
+    db,
+    set_application_ur,
+    ur_distribution_settings,
+    caluma_admin_user,
+    ur_instance,
+    caluma_document_factory,
+    caluma_work_item_factory,
+    service,
+):
+    inquiry_work_item = caluma_work_item_factory(
+        case=ur_instance.case,
+        task_id=ur_distribution_settings["INQUIRY_TASK"],
+        document=caluma_document_factory(form_id="inquiry"),
+        addressed_groups=[str(service.pk)],
+        controlling_groups=[str(service.pk)],
+    )
+    rpg_work_item = caluma_work_item_factory(
+        case=ur_instance.case,
+        task_id="rpg",
+        addressed_groups=[str(service.pk)],
+        controlling_groups=[str(service.pk)],
+        status=WorkItem.STATUS_SUSPENDED,
+    )
+
+    assert rpg_work_item.status == "suspended"
+
+    bab.resume_rpg_work_item(
+        sender=None, work_item=inquiry_work_item, user=caluma_admin_user
+    )
+
+    rpg_work_item.refresh_from_db()
+    assert rpg_work_item.status == "ready"
