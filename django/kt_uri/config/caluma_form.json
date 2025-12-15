@@ -14004,6 +14004,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "stabilisierungsziel-rpg.datenerfassung-stabilisierungsziel-rpg",
+    "fields": {
+      "created_at": "2025-12-15T12:14:38.164Z",
+      "modified_at": "2025-12-15T12:14:38.164Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "stabilisierungsziel-rpg",
+      "question": "datenerfassung-stabilisierungsziel-rpg",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "stabilisierungsziel-rpg.rpg-abschliessen",
     "fields": {
       "created_at": "2025-12-05T12:19:47.488Z",
@@ -46854,6 +46869,37 @@
       "meta": {
         "hideLabel": true
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "datenerfassung-stabilisierungsziel-rpg",
+    "fields": {
+      "created_at": "2025-12-15T12:14:38.055Z",
+      "modified_at": "2025-12-15T12:14:38.055Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Datenerfassung Stabilisierungsziel RPG\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"###Datenerfassung Stabilisierungsziel RPG\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
