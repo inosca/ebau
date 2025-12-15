@@ -177,6 +177,7 @@ omit = [
     # Utility for code inspection
     "camac/tools/whichtest.py",
     # One off commands
+    "camac/billing/management/commands/fix_uri_billing_entries.py",
     "camac/core/management/commands/fix_incorrectly_created_geometer_workitems.py",
     "camac/dossier_import/config/kt_ag/sap/sap_run_sql.py",
     "camac/dossier_import/config/kt_ag/kt_ag_alexandria_report_generator.py",
