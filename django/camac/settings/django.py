@@ -2214,6 +2214,18 @@ APPLICATIONS = {
                 },
             },
             "CALUMA_WORKFLOW_NOTIFICATIONS": {
+                "create-manual-workitems": [
+                    {
+                        "event": "completed",
+                        "notification": {
+                            "template_slug": "complete-manual-work-item",
+                            "recipient_types": ["work_item_controlling"],
+                        },
+                        "condition": lambda work_item: work_item.meta[
+                            "notify-completed"
+                        ],
+                    },
+                ],
                 "send-additional-demand": [
                     {
                         "event": "completed",
@@ -2270,6 +2282,12 @@ APPLICATIONS = {
         },
         "CUSTOM_NOTIFICATION_TYPES": ["gvg", "aib", "are", "are_bab"],
         "NOTIFICATIONS": {
+            "WORKITEM_DEADLINE_OVERDUE": {
+                "create-manual-workitems": {
+                    "template_slug": "expired-manual-work-item",
+                    "recipient_types": ["work_item_controlling"],
+                }
+            },
             "SUBMIT": [
                 {
                     "template_slug": "empfang-anfragebaugesuch-gesuchsteller",
