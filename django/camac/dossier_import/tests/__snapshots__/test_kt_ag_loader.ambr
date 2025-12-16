@@ -469,6 +469,7 @@
               "zip": 1234
           }
       ],
+      "project_cost": null,
       "proposal": "EFH Muster",
       "publication_date": null,
       "ratio_coverage_building_project": "1.9",
@@ -920,6 +921,7 @@
       "profiling_date": null,
       "profiling_reasoning": null,
       "project_author": [],
+      "project_cost": null,
       "proposal": null,
       "publication_date": null,
       "ratio_coverage_building_project": null,
@@ -1183,6 +1185,7 @@
       "profiling_date": null,
       "profiling_reasoning": null,
       "project_author": [],
+      "project_cost": null,
       "proposal": null,
       "publication_date": null,
       "ratio_coverage_building_project": null,
@@ -1430,6 +1433,7 @@
       "profiling_date": null,
       "profiling_reasoning": null,
       "project_author": [],
+      "project_cost": null,
       "proposal": "EFH Muster",
       "publication_date": null,
       "ratio_coverage_building_project": null,

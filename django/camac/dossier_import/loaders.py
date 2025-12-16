@@ -92,6 +92,7 @@ class XlsxFileDossierLoader(DossierLoader):
         "application_type",
         "custom_1",
         "custom_2",
+        "project_cost",
         "link",
         "responsible",
     ]
@@ -134,6 +135,7 @@ class XlsxFileDossierLoader(DossierLoader):
         completion_date = "COMPLETION-DATE"
         custom_1 = "CUSTOM-1"
         custom_2 = "CUSTOM-2"
+        project_cost = "PROJECT-COST"
         link = "LINK"
         applicant_first_name = "APPLICANT-FIRST-NAME"
         applicant_last_name = "APPLICANT-LAST-NAME"

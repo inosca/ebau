@@ -74,7 +74,6 @@ services:
       - DJANGO_INTERNAL_BASE_URL=http://ember-ebau.localhost
       - DOCUMENT_MERGE_SERVICE_URL=http://document-merge-service:8000/document-merge-service/api/v1/
       - CONSTRUCTION_MONITORING_ENABLED=true
-      - ADDRESS_ASSIGNMENT_ENABLED=true
       # Alexandria
       - TIKA_CLIENT_ONLY=true
       - TIKA_SERVER_ENDPOINT=http://tika:9998
