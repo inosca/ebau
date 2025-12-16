@@ -156,6 +156,7 @@ omit = [
     "camac/core/management/commands/importrsta.py",
     "camac/core/management/commands/importservices.py",
     "camac/core/management/commands/sequencenamespace.py",
+    "camac/core/management/commands/ag_reset_instance_to_before_decision.py",
     "camac/instance/management/commands/duplicate_instance.py",
     "camac/instance/management/commands/create_rsta_migrated_instance.py",
     "camac/instance/management/commands/fix_broken_be_instances.py",
