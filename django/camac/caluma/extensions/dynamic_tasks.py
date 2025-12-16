@@ -179,7 +179,7 @@ class CustomDynamicTasks(BaseDynamicTasks):
         if (
             Inquiry.objects.for_root_case(case)
             .addressed_to(Service.objects.get(slug="afb"))
-            .only_answered()
+            .exists()
         ):
             tasks.append("check-pa")
 
