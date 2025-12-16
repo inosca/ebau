@@ -572,7 +572,7 @@
       "language": "de",
       "purpose": "Zirkulation abgebrochen",
       "subject": "Information über vorzeitiger Abbruch der Stellungnahme (Dossier-Nr. {{DOSSIER_NR}})",
-      "body": "Guten Tag\n\nDie Gemeinde {{MUNICIPALITY_DE}} hat Ihre offene Aufforderung zur Stellungnahme zum Dossier Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) vorzeitig beendet. Weitere Informationen finden Sie unter folgendem Link:\n\n{{DISTRIBUTION_LINK}}\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nGemeinde {{MUNICIPALITY_DE}}"
+      "body": "Guten Tag\n\nDie {{MUNICIPALITY_DE}} hat Ihre offene Aufforderung zur Stellungnahme zum Dossier Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) vorzeitig beendet. Weitere Informationen finden Sie unter folgendem Link:\n\n{{DISTRIBUTION_LINK}}\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\n{{MUNICIPALITY_DE}}"
     }
   },
   {
