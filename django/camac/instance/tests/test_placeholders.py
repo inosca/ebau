@@ -115,6 +115,7 @@ def test_dms_placeholders_gr(
     caluma_form_question_factory,
     active_inquiry_factory,
     gr_dms_config,
+    gr_publication_settings,
     group,
     user_factory,
     responsible_service_factory,
@@ -168,6 +169,8 @@ def test_dms_placeholders_gr(
     utils.add_answer(document, "ende-publikationsorgan-gemeinde", date(2021, 8, 21))
     utils.add_answer(document, "beginn-publikation-kantonsamtsblatt", date(2021, 8, 22))
     utils.add_answer(document, "ende-publikation-kantonsamtsblatt", date(2021, 8, 23))
+
+    utils.add_answer(document, "oeffentliche-auflage", ["oeffentliche-auflage-ja"])
 
     WorkItemFactory(
         case=gr_instance.case,

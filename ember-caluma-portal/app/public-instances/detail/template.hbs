@@ -1,3 +1,17 @@
+{{#let
+  (maybe-translate
+    "publicInstancesDetail.form-intro"
+    date=(format-date this.endDate format="date")
+  )
+  as |intro|
+}}
+  {{#if (and this.endDate intro)}}
+    <p class="uk-margin-bottom">
+      {{intro}}
+    </p>
+  {{/if}}
+{{/let}}
+
 <LoadingOrNotfound
   @loading={{this.publicInstance.isRunning}}
   @hasPermission={{this.publicInstance.value}}

@@ -1123,6 +1123,22 @@ msgid "End date of the publication in the cantonal Gazette"
 msgstr "Enddatum der Publikation im Kantonsamtsblatt"
 
 #: camac/instance/placeholders/serializers.py
+msgid "PUBLICATION_LINK_DE"
+msgstr "PUBLIKATION_LINK_DE"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Link to publication DE"
+msgstr "Link zur öffentlichen Auflage (DE)"
+
+#: camac/instance/placeholders/serializers.py
+msgid "PUBLICATION_LINK_IT"
+msgstr "PUBLIKATION_LINK_IT"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Link to publication IT"
+msgstr "Link zur öffentlichen Auflage (IT)"
+
+#: camac/instance/placeholders/serializers.py
 msgid "DECISION_DOCUMENTS"
 msgstr "ENTSCHEIDDOKUMENTE"
 

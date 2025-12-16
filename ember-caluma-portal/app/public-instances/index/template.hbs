@@ -2,6 +2,14 @@
 
 {{t "publicInstances.info" htmlSafe=true}}
 
+{{#let (maybe-translate "publicInstances.intro") as |introText|}}
+  {{#if introText}}
+    <p class="uk-margin-bottom">
+      {{introText}}
+    </p>
+  {{/if}}
+{{/let}}
+
 <div class="uk-width-1-4">
   <MunicipalityFilter
     @onChange={{this.updateMunicipality}}
@@ -51,21 +59,37 @@
       {{else}}
         <tr class="border-bottom-remove">
           <td colspan="6" class="uk-background-default">
-            <UkFlex @horizontal="center" @vertical="middle" @direction="column">
-              <div class="uk-text-center uk-width-large">
-                <object
-                  data="/assets/images/stamp-document.svg"
-                  class="uk-width-medium"
-                  aria-label={{t "global.stampIcon"}}
-                >
-                  {{t "publicInstances.empty-title"}}
-                </object>
-                <p class="uk-margin-remove-top uk-text-large">
-                  {{t "publicInstances.empty-title"}}
-                </p>
-                <p>{{t "publicInstances.emptyText"}}</p>
-              </div>
-            </UkFlex>
+            {{#let
+              (maybe-translate "publicInstances.empty-title")
+              as |emptyTitle|
+            }}
+              <UkFlex
+                @horizontal="center"
+                @vertical="middle"
+                @direction="column"
+              >
+                <div class="uk-text-center uk-width-large">
+                  <object
+                    data="/assets/images/stamp-document.svg"
+                    class="uk-width-medium"
+                    aria-label={{t "global.stampIcon"}}
+                  >
+                    {{emptyTitle}}
+                  </object>
+                  <div class="uk-margin-remove-top">
+                    {{#if emptyTitle}}
+                      <p class="uk-text-large">{{emptyTitle}}</p>
+                    {{/if}}
+                    {{#let
+                      (maybe-translate "publicInstances.emptyText")
+                      as |emptyText|
+                    }}
+                      <p>{{emptyText}}</p>
+                    {{/let}}
+                  </div>
+                </div>
+              </UkFlex>
+            {{/let}}
           </td>
         </tr>
       {{/each}}

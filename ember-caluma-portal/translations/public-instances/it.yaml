@@ -1,5 +1,6 @@
 publicInstances:
   title: "Domande di costruzione esposte pubblicamente"
+  intro: ""
   applicant: "Richiedente"
   load-error: "Errore nel tentativo di caricare le domande di costruzione esposte pubblicamente"
   empty-title: "Non sono state trovate domande di costruzione esposte pubblicamente!"
@@ -11,6 +12,7 @@ publicInstances:
 publicInstancesDetail:
   documents: "Documenti"
   form: "Modulo"
+  form-intro: ""
   fileName: "Nome file"
   size: "Dimensione"
   date: "Data"

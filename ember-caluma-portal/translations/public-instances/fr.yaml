@@ -1,5 +1,6 @@
 publicInstances:
   title: "Aperçu des dossiers de demande de permis de construire en cours"
+  intro: ""
   applicant: "Requérant/e"
   load-error: "Erreur lors du téléchargement du dossier de demande de permis de construire"
   empty-title: "Il n'y a pas de dossiers de demande de permis de construire en cours !"
@@ -11,6 +12,7 @@ publicInstances:
 publicInstancesDetail:
   documents: "Documents"
   form: "Formulaire"
+  form-intro: ""
   fileName: "Nom du fichier"
   size: "Taille"
   date: "Date"

@@ -1231,6 +1231,22 @@ msgid "End date of the publication in the cantonal Gazette"
 msgstr "Date de la publication dans la feuille offcielle"
 
 #: camac/instance/placeholders/serializers.py
+msgid "PUBLICATION_LINK_DE"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Link to publication DE"
+msgstr "Lien pour la mise à l'enquête publique (DE)"
+
+#: camac/instance/placeholders/serializers.py
+msgid "PUBLICATION_LINK_IT"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Link to publication IT"
+msgstr "Lien pour la mise à l'enquête publique (IT)"
+
+#: camac/instance/placeholders/serializers.py
 #, fuzzy
 #| msgid "DECISION_DATE"
 msgid "DECISION_DOCUMENTS"

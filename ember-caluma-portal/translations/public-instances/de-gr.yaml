@@ -1,10 +1,16 @@
+publicInstances:
+  intro: "Die Gemeinde bestimmt die Form der öffentlichen Auflage (z. B. via eBau oder vor Ort). Ist ein Baugesuch nicht in der Liste aufgeführt, wenden Sie sich bitte an das Bauamt der zuständigen Gemeinde."
+  empty-title: ""
+  emptyText: "Aktuell ist in dieser Gemeinde kein Baugesuch über eBau öffentlich einsehbar. Informationen zu einem bestimmten Baugesuch erhalten Sie vom Bauamt der zuständigen Gemeinde."
+
 publicInstancesDetail:
-  copyrightText: "Die hier angezeigten Dokumente entsprechen den Unterlagen der
-  öffentlichen Auflage auf der Gemeinde. Wir machen Sie darauf
-  aufmerksam, dass alle hier hinterlegten Dokumente urheberrechtlich geschützt
-  sein können. Das Weiterverwenden der Dokumente ist nur mit ausdrücklicher
-  Zustimmung des Planerstellers bzw. des geistigen Eigentümers gestattet."
-  privacyText: "Aus Gründen des Datenschutzes werden hier nur die für das
-  Baubewilligungsverfahren relevanten Dokumente publiziert, die von der
-  Gemeinde nicht explizit als vertraulich und nicht öffentlich zugänglich
-  eingestuft wurden."
+  form-intro: "Das Baugesuch liegt gemäss Ausschreibung im Publikationsorgan der Gemeinde und/oder im Kantonsamtsblatt bis {date} öffentlich auf."
+  copyrightText: |
+    Wir machen Sie darauf aufmerksam, dass alle hier hinterlegten Dokumente urheberrechtlich geschützt
+    sein können. Das Weiterverwenden der Dokumente ist nur mit ausdrücklicher
+    Zustimmung des Planerstellers bzw. des geistigen Eigentümers gestattet.
+  privacyText: |
+    Aus Gründen des Datenschutzes werden hier nur die für das
+    Baubewilligungsverfahren relevanten Dokumente publiziert, die von der
+    Gemeinde nicht explizit als vertraulich und nicht öffentlich zugänglich
+    eingestuft wurden.

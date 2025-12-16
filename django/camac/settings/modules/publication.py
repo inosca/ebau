@@ -12,6 +12,7 @@ PUBLICATION = {
         "SHOW_MAIN_FORM": False,
         "NEIGHBORS_TABLE_QUESTION": None,
         "QUESTIONS": {"MUNICIPALITY_END_DATE": "ende-publikationsorgan-gemeinde"},
+        "NOTIFICATIONS": {"PUBLICATION_START": False},
     },
     "test": {
         "ENABLED": True,
@@ -94,6 +95,19 @@ PUBLICATION = {
             "publication",
         ],
         "SHOW_MAIN_FORM": True,
+        "NOTIFICATIONS": {
+            "PUBLICATION_START": {
+                "condition": {
+                    "question": "oeffentliche-auflage-informieren",
+                    "answer": ["oeffentliche-auflage-informieren-ja"],
+                },
+                "date_question": "beginn-publikationsorgan-gemeinde",
+                "notification": {
+                    "template_slug": "publication-start",
+                    "recipient_types": ["applicant"],
+                },
+            }
+        },
     },
     "kt_so": {
         "ENABLED": True,

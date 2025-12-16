@@ -1896,6 +1896,52 @@ def test_get_schlussabnahme_datum(
     assert serializer.get_schlussabnahme_datum(instance) == "01.01.2024"
 
 
+@pytest.mark.parametrize("is_published", [True, False])
+@pytest.mark.parametrize("has_publish_question", [True, False])
+def test_gr_public_instance_url_placeholder(
+    db,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_answer_factory,
+    gr_instance,
+    is_published,
+    has_publish_question,
+    gr_publication_settings,
+    set_application_gr,
+):
+    expected_links = [
+        f"http://ebau-portal.localhost/oeffentliche-auflage/{gr_instance.pk}",
+        f"http://ebau-portal.localhost/oeffentliche-auflage/{gr_instance.pk}",
+        f"http://ebau-portal.localhost/esposizione-pubblica/{gr_instance.pk}",
+    ]
+    if not has_publish_question:
+        gr_publication_settings["PUBLISH_QUESTION"] = None
+    elif has_publish_question and not is_published:
+        expected_links = ["", "", ""]
+
+    work_item = caluma_work_item_factory(
+        task_id="fill-publication",
+        case=gr_instance.case,
+        document=caluma_document_factory(),
+    )
+    if has_publish_question and is_published:
+        caluma_answer_factory(
+            document=work_item.document,
+            question__slug=gr_publication_settings["PUBLISH_QUESTION"],
+            value=gr_publication_settings["PUBLISH_ANSWER"],
+        )
+
+    serializer = serializers.InstanceMergeSerializer(
+        instance=gr_instance, work_item=work_item
+    )
+
+    assert expected_links == [
+        serializer.get_public_instance_link(gr_instance),
+        serializer.get_public_instance_link_de(gr_instance),
+        serializer.get_public_instance_link_it(gr_instance),
+    ]
+
+
 def test_get_recipients_invited_to_schlussabnahme_projekt(
     db,
     notification_template,

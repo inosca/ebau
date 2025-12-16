@@ -35,14 +35,14 @@ from camac.caluma.api import CalumaApi
 from camac.caluma.models import Inquiry
 from camac.caluma.utils import find_answer, get_answer_display_value
 from camac.communications.models import CommunicationsMessage
-from camac.constants import kt_uri as uri_constants
+from camac.constants import kt_gr as gr_constants, kt_uri as uri_constants
 from camac.core.models import (
     Activation,
     Circulation,
     HistoryActionConfig,
     WorkflowEntry,
 )
-from camac.core.utils import create_history_entry
+from camac.core.utils import canton_aware, create_history_entry
 from camac.instance.master_data import MasterData
 from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import Instance
@@ -272,6 +272,10 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     current_user_name = serializers.SerializerMethodField()
     work_item_name_de = serializers.SerializerMethodField()
     work_item_name_fr = serializers.SerializerMethodField()
+
+    public_instance_link = serializers.SerializerMethodField()
+    public_instance_link_de = serializers.SerializerMethodField()
+    public_instance_link_it = serializers.SerializerMethodField()
 
     def __init__(
         self,
@@ -579,6 +583,47 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
     def get_public_dossier_link(self, instance):
         return settings.PUBLIC_INSTANCE_URL_TEMPLATE.format(instance_id=instance.pk)
+
+    def get_public_instance_link(self, instance):
+        return self.get_public_instance_link_de(instance)
+
+    def get_public_instance_link_de(self, instance):
+        return self._get_public_instance_link(instance, "de")
+
+    def get_public_instance_link_it(self, instance):
+        return self._get_public_instance_link(instance, "it")
+
+    @canton_aware
+    def _get_public_instance_link(self, instance, language):
+        return build_url(settings.PUBLIC_BASE_URL, f"public-instances/{instance.pk}")
+
+    def _get_public_instance_link_gr(self, instance, language):
+        """Check if the instance has been published, and format the link.
+
+        If not published, return an empty string.
+        """
+        published = True
+        if settings.PUBLICATION.get("PUBLISH_QUESTION"):
+            published = (
+                instance.case.family.work_items.filter(task_id="fill-publication")
+                .annotate(
+                    has_condition_answer=Exists(
+                        caluma_form_models.Answer.objects.filter(
+                            document_id=OuterRef("document_id"),
+                            question=settings.PUBLICATION["PUBLISH_QUESTION"],
+                            value=settings.PUBLICATION["PUBLISH_ANSWER"],
+                        )
+                    )
+                )
+                .filter(has_condition_answer=True)
+            ).exists()
+
+        prefix = gr_constants.PUBLIC_INSTANCES_URL_PREFIXES.get(language)
+        return (
+            build_url(settings.PUBLIC_BASE_URL, f"{prefix}/{instance.pk}")
+            if published
+            else ""
+        )
 
     def get_registration_link(self, instance):
         return settings.REGISTRATION_URL

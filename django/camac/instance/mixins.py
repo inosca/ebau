@@ -280,63 +280,10 @@ class InstanceQuerysetMixin(object):
         queryset = self.get_base_queryset()
 
         if settings.PUBLICATION.get("BACKEND") == "caluma":
-            public_access_key = self._get_request().META.get(
-                "HTTP_X_CAMAC_PUBLIC_ACCESS_KEY"
+            caluma_publications = self._get_caluma_publications()
+            public_cases = list(
+                caluma_publications.values_list("case__family", flat=True)
             )
-
-            filters = {
-                "task_id": settings.PUBLICATION["FILL_TASKS"]["PUBLIC"],
-                "meta__is-published": True,
-                "status": WorkItem.STATUS_COMPLETED,
-            }
-            ranges = settings.PUBLICATION["RANGE_QUESTIONS"]["PUBLIC"]
-            published_filters = Q()
-
-            if publish_question := settings.PUBLICATION.get("PUBLISH_QUESTION"):
-                published_filters = Exists(
-                    Answer.objects.filter(
-                        document_id=OuterRef("document_id"),
-                        question_id=publish_question,
-                        value=settings.PUBLICATION["PUBLISH_ANSWER"],
-                    )
-                )
-
-            if public_access_key:
-                filters.update(
-                    {
-                        "task_id": settings.PUBLICATION["FILL_TASKS"]["NEIGHBORS"],
-                        "document__pk__startswith": public_access_key,
-                    }
-                )
-                ranges = settings.PUBLICATION["RANGE_QUESTIONS"]["NEIGHBORS"]
-                published_filters = Q()
-
-            range_filters = Q()
-            for start_question, end_question in ranges:
-                range_filters |= Q(
-                    Exists(
-                        Answer.objects.filter(
-                            document_id=OuterRef("document_id"),
-                            question_id=start_question,
-                            date__lte=timezone.now(),
-                        )
-                    )
-                    & Exists(
-                        Answer.objects.filter(
-                            document_id=OuterRef("document_id"),
-                            question_id=end_question,
-                            date__gte=timezone.now(),
-                        )
-                    )
-                )
-
-            public_cases = (
-                WorkItem.objects.filter(**filters)
-                .filter(range_filters)
-                .filter(published_filters)
-            )
-
-            public_cases = list(public_cases.values_list("case__family", flat=True))
             return queryset.filter(
                 **{self._get_instance_filter_expr("case__pk__in"): public_cases}
             )
@@ -401,6 +348,69 @@ class InstanceQuerysetMixin(object):
             return models.Instance.objects.none()
 
         return models.Instance.objects.filter(group__service=group.service)
+
+    def _get_caluma_publications(self):
+        """Query the caluma publication work items.
+
+        Filter only published and completed workitems matching the current date.
+        Optionally filter by publish question/answer if configured.
+        If a public access key is provided in the request headers, also include
+        the neighbors configuration filters.
+        """
+        public_access_key = self._get_request().META.get(
+            "HTTP_X_CAMAC_PUBLIC_ACCESS_KEY"
+        )
+        filters = {
+            "task_id": settings.PUBLICATION["FILL_TASKS"]["PUBLIC"],
+            "meta__is-published": True,
+            "status": WorkItem.STATUS_COMPLETED,
+        }
+        ranges = settings.PUBLICATION["RANGE_QUESTIONS"]["PUBLIC"]
+        published_filters = Q()
+
+        if publish_question := settings.PUBLICATION.get("PUBLISH_QUESTION"):
+            published_filters = Exists(
+                Answer.objects.filter(
+                    document_id=OuterRef("document_id"),
+                    question_id=publish_question,
+                    value=settings.PUBLICATION["PUBLISH_ANSWER"],
+                )
+            )
+
+        if public_access_key:
+            filters.update(
+                {
+                    "task_id": settings.PUBLICATION["FILL_TASKS"]["NEIGHBORS"],
+                    "document__pk__startswith": public_access_key,
+                }
+            )
+            ranges = settings.PUBLICATION["RANGE_QUESTIONS"]["NEIGHBORS"]
+            published_filters = Q()
+
+        range_filters = Q()
+        for start_question, end_question in ranges:
+            range_filters |= Q(
+                Exists(
+                    Answer.objects.filter(
+                        document_id=OuterRef("document_id"),
+                        question_id=start_question,
+                        date__lte=timezone.now(),
+                    )
+                )
+                & Exists(
+                    Answer.objects.filter(
+                        document_id=OuterRef("document_id"),
+                        question_id=end_question,
+                        date__gte=timezone.now(),
+                    )
+                )
+            )
+
+        return (
+            WorkItem.objects.filter(**filters)
+            .filter(range_filters)
+            .filter(published_filters)
+        )
 
 
 class InstanceEditableMixin(AttributeMixin):

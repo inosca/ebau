@@ -24,12 +24,24 @@ export default class CustomDocumentModel extends DocumentModel {
     return this.title;
   });
 
+  #originalDisplayName = trackedFunction(this, async () => {
+    const files = (await this.files)
+      .filter((file) => file.variant === "original")
+      .sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+
+    return files?.[0]?.name;
+  });
+
   get displayName() {
     return this.#displayName.value;
   }
 
   get displayNameOrReplaced() {
     return this.#displayName.value;
+  }
+
+  get originalFilename() {
+    return this.#originalDisplayName.value;
   }
 
   @dropTask

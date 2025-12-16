@@ -904,3 +904,97 @@ def test_increment_publication_views(
 
     assert new_number_of_publication_views == current_number_of_publication_views + 1
     assert response.status_code == 204
+
+
+@pytest.mark.freeze_time("2024-06-15")
+@pytest.mark.parametrize(
+    "publication_backend,expected_start,expected_end",
+    [
+        # camac-ng uses the first active publication entry start- and end-date in the
+        # current date range.
+        ("camac-ng", "2024-06-10T00:00:00Z", "2024-07-01T00:00:00Z"),
+        # caluma uses the min/max date range of active publications in the current
+        # date range.
+        ("caluma", "2024-06-11", "2024-07-18"),
+    ],
+)
+def test_publication_date_range(
+    db,
+    admin_client,
+    gr_instance,
+    publication_entry_factory,
+    caluma_work_item_factory,
+    gr_publication_settings,
+    publication_backend,
+    expected_start,
+    expected_end,
+    utils,
+):
+    gr_publication_settings["BACKEND"] = publication_backend
+
+    # camac-ng publication entries:
+    # - 2024-06-10 to 2024-07-01
+    # - 2024-06-09 to 2024-07-02
+    # - 2024-06-08 to 2024-07-03 but not published
+    # - 2024-01-01 to 2024-02-01 but before of current date range
+    # - 2024-12-31 to 2025-01-31 but after of current date range
+    for options in [
+        ("2024-06-10T00:00:00Z", "2024-07-01T00:00:00Z", True),
+        ("2024-06-09T00:00:00Z", "2024-07-02T00:00:00Z", True),
+        ("2024-06-08T00:00:00Z", "2024-07-03T00:00:00Z", False),
+        ("2024-01-01T00:00:00Z", "2024-02-01T00:00:00Z", True),
+        ("2024-12-31T00:00:00Z", "2025-01-31T00:00:00Z", True),
+    ]:
+        publication_date, publication_end_date, is_published = options
+        publication_entry_factory(
+            publication_date=publication_date,
+            publication_end_date=publication_end_date,
+            instance=gr_instance,
+            is_published=is_published,
+        )
+
+    # caluma workitem entries:
+    # - 2024-06-12 to 2024-07-18
+    # - 2024-06-11 to 2024-07-17
+    # - 2024-06-10 to 2024-07-16 but not published
+    # - 2024-01-01 to 2024-02-01 but before of current date range
+    # - 2024-12-31 to 2025-01-31 but after of current date range
+    for options in [
+        ("2024-06-12", "2024-07-18", True),
+        ("2024-06-11", "2024-07-17", True),
+        ("2024-06-10", "2024-07-16", False),
+        ("2024-01-01", "2024-02-01", True),
+        ("2024-12-31", "2025-01-31", True),
+    ]:
+        start_date, end_date, is_published = options
+        publication_workitem = caluma_work_item_factory(
+            task_id="fill-publication",
+            status="completed",
+            case=gr_instance.case,
+            meta={"is-published": True},
+        )
+        utils.add_answer(
+            publication_workitem.document,
+            "beginn-publikationsorgan-gemeinde",
+            date.fromisoformat(start_date),
+        )
+        utils.add_answer(
+            publication_workitem.document,
+            "ende-publikationsorgan-gemeinde",
+            date.fromisoformat(end_date),
+        )
+        if is_published:
+            utils.add_answer(
+                publication_workitem.document,
+                gr_publication_settings["PUBLISH_QUESTION"],
+                gr_publication_settings["PUBLISH_ANSWER"],
+            )
+
+    url = reverse("public-caluma-instance-date-range", args=[gr_instance.case.id])
+    response = admin_client.get(url, HTTP_X_CAMAC_PUBLIC_ACCESS=True)
+
+    assert response.status_code == 200
+    data = response.json()["data"]
+
+    assert data["start_date"] == expected_start
+    assert data["end_date"] == expected_end

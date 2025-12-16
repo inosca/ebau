@@ -7203,6 +7203,34 @@
       'nested_aliases': dict({
       }),
     }),
+    'PUBLIKATION_LINK_DE': dict({
+      'aliases': list([
+        dict({
+          'de': 'PUBLIKATION_LINK_DE',
+          'it': 'PUBBLICAZIONE_LINK_DE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Link zur öffentlichen Auflage (DE)',
+        'it': "Link dell'esposizione pubblica (DE)",
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'PUBLIKATION_LINK_IT': dict({
+      'aliases': list([
+        dict({
+          'de': 'PUBLIKATION_LINK_IT',
+          'it': 'PUBBLICAZIONE_LINK_IT',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Link zur öffentlichen Auflage (IT)',
+        'it': "Link dell'esposizione pubblica (IT)",
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'PUBLIKATION_TEXT': dict({
       'aliases': list([
         dict({
@@ -11454,8 +11482,12 @@
     'PROPRIE_DISPOSIZIONI_ACCESSORIE',
     'PROPRIE_PRESE_DI_POSIZIONE',
     'PUBBLICAZIONE_LINK',
+    'PUBBLICAZIONE_LINK_DE',
+    'PUBBLICAZIONE_LINK_IT',
     'PUBBLICAZIONE_TESTO',
     'PUBLIKATION_LINK',
+    'PUBLIKATION_LINK_DE',
+    'PUBLIKATION_LINK_IT',
     'PUBLIKATION_TEXT',
     'RESPONSABILE_NOME',
     'RICHIEDENTE_INDIRIZZO_1',
@@ -13049,9 +13081,13 @@
     'PROPRIETARIO_FONDIARIO_NOME_INDIRIZZO': 'Sandra Beispiel, Beispielstrasse 16, 2222 Beispieldorf',
     'PROPRIE_DISPOSIZIONI_ACCESSORIE': '',
     'PROPRIE_PRESE_DI_POSIZIONE': '',
-    'PUBBLICAZIONE_LINK': 'http://ebau-portal.localhost/public-instances/1',
+    'PUBBLICAZIONE_LINK': 'http://ebau-portal.localhost/oeffentliche-auflage/1',
+    'PUBBLICAZIONE_LINK_DE': 'http://ebau-portal.localhost/oeffentliche-auflage/1',
+    'PUBBLICAZIONE_LINK_IT': 'http://ebau-portal.localhost/esposizione-pubblica/1',
     'PUBBLICAZIONE_TESTO': 'Text',
-    'PUBLIKATION_LINK': 'http://ebau-portal.localhost/public-instances/1',
+    'PUBLIKATION_LINK': 'http://ebau-portal.localhost/oeffentliche-auflage/1',
+    'PUBLIKATION_LINK_DE': 'http://ebau-portal.localhost/oeffentliche-auflage/1',
+    'PUBLIKATION_LINK_IT': 'http://ebau-portal.localhost/esposizione-pubblica/1',
     'PUBLIKATION_TEXT': 'Text',
     'RESPONSABILE_NOME': 'Heather Murphy',
     'RICHIEDENTE_INDIRIZZO_1': 'Testweg 321',

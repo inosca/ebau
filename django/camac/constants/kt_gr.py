@@ -28,3 +28,8 @@ SOLARANLAGE_FORMS = [
     "solaranlage-v2",
     "solaranlage-andere",
 ]
+
+PUBLIC_INSTANCES_URL_PREFIXES = {
+    "de": "/oeffentliche-auflage",
+    "it": "/esposizione-pubblica",
+}
