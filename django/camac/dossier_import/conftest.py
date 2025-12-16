@@ -71,6 +71,7 @@ def dossier_row_full(dossier_row_sparse):
         ("COMPLETION-DATE", datetime.datetime(2017, 4, 23)),
         ("CUSTOM-1", "custom-value-1"),
         ("CUSTOM-2", "custom-value-2"),
+        ("PROJECT-COST", "Projektkosten CHF 250.000"),
         ("LINK", "https://example.com"),
         ("APPLICANT-FIRST-NAME", "Ulrich"),
         ("APPLICANT-LAST-NAME", "Kissling"),

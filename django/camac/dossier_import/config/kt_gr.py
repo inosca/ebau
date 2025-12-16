@@ -115,6 +115,7 @@ class KtGraubundenDossierWriter(DossierWriter):
     link = CalumaAnswerWriter(target="link")
     custom_1 = CalumaAnswerWriter(target="freies-textfeld-1")
     custom_2 = CalumaAnswerWriter(target="freies-textfeld-2")
+    project_cost = CalumaAnswerWriter(target="projektkosten")
     street = CalumaCombinedStreetAndNumberWriter(
         target="street-and-housenumber",
         fields=["street", "street_number"],

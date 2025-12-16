@@ -11870,7 +11870,7 @@
       "modified_by_group": null,
       "form": "migriertes-dossier",
       "question": "beschreibung-bauvorhaben",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -11960,7 +11960,7 @@
       "modified_by_group": null,
       "form": "migriertes-dossier",
       "question": "freies-textfeld-1",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -11975,7 +11975,7 @@
       "modified_by_group": null,
       "form": "migriertes-dossier",
       "question": "freies-textfeld-2",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -11990,7 +11990,7 @@
       "modified_by_group": null,
       "form": "migriertes-dossier",
       "question": "geschaeftstyp",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -12005,7 +12005,7 @@
       "modified_by_group": null,
       "form": "migriertes-dossier",
       "question": "is-paper",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -12020,7 +12020,7 @@
       "modified_by_group": null,
       "form": "migriertes-dossier",
       "question": "kantonale-gesuchsnummer",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -12035,7 +12035,7 @@
       "modified_by_group": null,
       "form": "migriertes-dossier",
       "question": "kommunale-gesuchsnummer",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -12201,6 +12201,21 @@
       "form": "migriertes-dossier",
       "question": "migriertes-dossier-personalien",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "migriertes-dossier.projektkosten",
+    "fields": {
+      "created_at": "2025-12-16T08:18:12.297Z",
+      "modified_at": "2025-12-16T08:18:12.297Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "migriertes-dossier",
+      "question": "projektkosten",
+      "sort": 5
     }
   },
   {
@@ -72900,6 +72915,40 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"---\\n#### Fläche und Volumen der projektierten Schutzräume\", \"fr\": \"\", \"it\": \"---\\n#### Superficie e volume dei rifugi progettati\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "projektkosten",
+    "fields": {
+      "created_at": "2025-12-16T08:18:12.235Z",
+      "modified_at": "2025-12-16T08:27:07.090Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Projektkosten\", \"fr\": null, \"it\": \"Costi del progetto\"}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": \"\"}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,

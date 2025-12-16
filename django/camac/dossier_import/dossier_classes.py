@@ -78,6 +78,7 @@ class Dossier:
     link: Optional[str] = None
     custom_1: Optional[str] = None
     custom_2: Optional[str] = None
+    project_cost: Optional[str] = None
     applicant: Optional[Union[List[Person], str]] = None
     landowner: Optional[Union[List[Person], str]] = None
     project_author: Optional[Union[List[Person], str]] = None
