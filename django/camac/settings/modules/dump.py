@@ -484,7 +484,7 @@ DUMP = {
                     regex=r"^baupolizeiliches-verfahren(-)?"
                 ),
                 "caluma_meldung_solareignung_form": generate_form_dump_config(
-                    regex=r"^meldung-solareignung(-)?"
+                    regex=r"^solareignung-meldung(-)?"
                 ),
                 "caluma_zutrittsermaechtigung_form": generate_form_dump_config(
                     regex=r"^zutrittsermaechtigung(-)?"

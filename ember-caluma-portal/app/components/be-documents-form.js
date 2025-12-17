@@ -25,14 +25,17 @@ export default class BeDocumentsFormComponent extends Component {
     );
   }
 
-  get showReducedConfirmText() {
-    return /^heat-generator/.test(this.args.fieldset.document.rootForm.slug);
-  }
-
-  get showSolareignungConfirmText() {
-    return /^meldung-solareignung/.test(
-      this.args.fieldset.document.rootForm.slug,
-    );
+  get documentConfirmText() {
+    if (/^heat-generator/.test(this.args.fieldset.document.rootForm.slug)) {
+      return this.intl.t("documents.confirm-reduced");
+    } else if (
+      /^solareignung-meldung/.test(this.args.fieldset.document.rootForm.slug)
+    ) {
+      return this.intl.t("documents.confirm-solareignung");
+    }
+    return this.intl.t("documents.confirm", {
+      count: this.allRequiredTagsCount,
+    });
   }
 
   get section() {

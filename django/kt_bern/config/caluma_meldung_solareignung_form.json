@@ -1,7 +1,7 @@
 [
   {
     "model": "caluma_form.form",
-    "pk": "meldung-solareignung",
+    "pk": "solareignung-meldung",
     "fields": {
       "created_at": "2025-11-06T08:51:40.188Z",
       "modified_at": "2025-11-06T08:53:16.390Z",
@@ -24,7 +24,7 @@
   },
   {
     "model": "caluma_form.form",
-    "pk": "meldung-solareignung-bei-umfassender-dachsanierung",
+    "pk": "solareignung-meldung-bei-umfassender-dachsanierung",
     "fields": {
       "created_at": "2025-11-28T09:44:40.358Z",
       "modified_at": "2025-11-28T09:44:40.358Z",
@@ -42,7 +42,7 @@
   },
   {
     "model": "caluma_form.form",
-    "pk": "meldung-solareignung-bestaetigung",
+    "pk": "solareignung-meldung-bestaetigung",
     "fields": {
       "created_at": "2025-11-28T10:12:20.309Z",
       "modified_at": "2025-11-28T10:12:20.309Z",
@@ -60,7 +60,7 @@
   },
   {
     "model": "caluma_form.form",
-    "pk": "meldung-solareignung-dokumente",
+    "pk": "solareignung-meldung-dokumente",
     "fields": {
       "created_at": "2025-11-28T11:56:35.877Z",
       "modified_at": "2025-11-28T11:56:35.877Z",
@@ -78,7 +78,7 @@
   },
   {
     "model": "caluma_form.form",
-    "pk": "meldung-solareignung-solareignung",
+    "pk": "solareignung-meldung-solareignung",
     "fields": {
       "created_at": "2025-11-28T13:07:22.648Z",
       "modified_at": "2025-11-28T13:07:22.648Z",
@@ -96,7 +96,7 @@
   },
   {
     "model": "caluma_form.form",
-    "pk": "meldung-solareignung-tabelle",
+    "pk": "solareignung-meldung-tabelle",
     "fields": {
       "created_at": "2025-11-28T13:09:36.316Z",
       "modified_at": "2025-11-28T13:09:36.316Z",
@@ -114,7 +114,7 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "meldung-solareignung.8-freigabequittung",
+    "pk": "solareignung-meldung.8-freigabequittung",
     "fields": {
       "created_at": "2025-11-28T10:10:40.876Z",
       "modified_at": "2025-11-28T10:10:40.876Z",
@@ -122,14 +122,14 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "form": "meldung-solareignung",
+      "form": "solareignung-meldung",
       "question": "8-freigabequittung",
       "sort": 1
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "meldung-solareignung.allgemeine-angaben-kurz-formular-v5",
+    "pk": "solareignung-meldung.allgemeine-angaben-kurz-formular-v5",
     "fields": {
       "created_at": "2025-11-28T10:02:55.736Z",
       "modified_at": "2025-11-28T10:02:55.736Z",
@@ -137,14 +137,14 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "form": "meldung-solareignung",
+      "form": "solareignung-meldung",
       "question": "allgemeine-angaben-kurz-formular-v5",
       "sort": 5
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "meldung-solareignung-bei-umfassender-dachsanierung.hinweis-meldung-solareignung",
+    "pk": "solareignung-meldung-bei-umfassender-dachsanierung.hinweis-solareignung-meldung",
     "fields": {
       "created_at": "2025-11-28T09:47:10.115Z",
       "modified_at": "2025-11-28T09:47:10.115Z",
@@ -152,14 +152,14 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "form": "meldung-solareignung-bei-umfassender-dachsanierung",
-      "question": "hinweis-meldung-solareignung",
+      "form": "solareignung-meldung-bei-umfassender-dachsanierung",
+      "question": "hinweis-solareignung-meldung",
       "sort": 1
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "meldung-solareignung-bestaetigung.meldung-solareignung-bestaetigung-richtigkeit-der-angaben",
+    "pk": "solareignung-meldung-bestaetigung.solareignung-meldung-bestaetigung-richtigkeit-der-angaben",
     "fields": {
       "created_at": "2025-11-28T10:15:27.112Z",
       "modified_at": "2025-11-28T10:15:27.112Z",
@@ -167,14 +167,14 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "form": "meldung-solareignung-bestaetigung",
-      "question": "meldung-solareignung-bestaetigung-richtigkeit-der-angaben",
+      "form": "solareignung-meldung-bestaetigung",
+      "question": "solareignung-meldung-bestaetigung-richtigkeit-der-angaben",
       "sort": 1
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "meldung-solareignung-dokumente.dokumente-platzhalter",
+    "pk": "solareignung-meldung-dokumente.dokumente-platzhalter",
     "fields": {
       "created_at": "2025-11-28T11:57:38.839Z",
       "modified_at": "2025-11-28T11:57:38.839Z",
@@ -182,14 +182,14 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "form": "meldung-solareignung-dokumente",
+      "form": "solareignung-meldung-dokumente",
       "question": "dokumente-platzhalter",
       "sort": 4
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "meldung-solareignung-dokumente.eignung-der-dachflaechen-zur-solarenergienutzung",
+    "pk": "solareignung-meldung-dokumente.eignung-der-dachflaechen-zur-solarenergienutzung-dokument",
     "fields": {
       "created_at": "2025-11-28T12:07:47.501Z",
       "modified_at": "2025-11-28T12:07:47.501Z",
@@ -197,14 +197,14 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "form": "meldung-solareignung-dokumente",
-      "question": "eignung-der-dachflaechen-zur-solarenergienutzung",
+      "form": "solareignung-meldung-dokumente",
+      "question": "eignung-der-dachflaechen-zur-solarenergienutzung-dokument",
       "sort": 3
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "meldung-solareignung-dokumente.eignung-der-dachflaechen-zur-solarenergienutzung-begruendung",
+    "pk": "solareignung-meldung-dokumente.eignung-der-dachflaechen-zur-solarenergienutzung-dokument-begruendung",
     "fields": {
       "created_at": "2025-11-28T12:34:00.272Z",
       "modified_at": "2025-11-28T12:34:00.272Z",
@@ -212,14 +212,14 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "form": "meldung-solareignung-dokumente",
-      "question": "eignung-der-dachflaechen-zur-solarenergienutzung-begruendung",
+      "form": "solareignung-meldung-dokumente",
+      "question": "eignung-der-dachflaechen-zur-solarenergienutzung-dokument-begruendung",
       "sort": 2
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "meldung-solareignung-dokumente.infotext-pflichtdokumente-v5",
+    "pk": "solareignung-meldung-dokumente.infotext-pflichtdokumente-v5",
     "fields": {
       "created_at": "2025-11-28T12:29:45.734Z",
       "modified_at": "2025-11-28T12:29:45.734Z",
@@ -227,74 +227,14 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "form": "meldung-solareignung-dokumente",
+      "form": "solareignung-meldung-dokumente",
       "question": "infotext-pflichtdokumente-v5",
       "sort": 1
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "meldung-solareignung.meldung-solareignung-bei-umfassender-dachsanierung",
-    "fields": {
-      "created_at": "2025-11-28T09:48:07.180Z",
-      "modified_at": "2025-11-28T09:48:07.180Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "meldung-solareignung",
-      "question": "meldung-solareignung-bei-umfassender-dachsanierung",
-      "sort": 7
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "meldung-solareignung.meldung-solareignung-bestaetigung",
-    "fields": {
-      "created_at": "2025-11-28T10:17:52.087Z",
-      "modified_at": "2025-11-28T10:17:52.087Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "meldung-solareignung",
-      "question": "meldung-solareignung-bestaetigung",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "meldung-solareignung.meldung-solareignung-dokumente",
-    "fields": {
-      "created_at": "2025-11-28T11:58:46.197Z",
-      "modified_at": "2025-11-28T11:58:46.197Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "meldung-solareignung",
-      "question": "meldung-solareignung-dokumente",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "meldung-solareignung.meldung-solareignung-solareignung",
-    "fields": {
-      "created_at": "2025-11-28T13:15:25.905Z",
-      "modified_at": "2025-11-28T13:15:25.905Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "meldung-solareignung",
-      "question": "meldung-solareignung-solareignung",
-      "sort": 4
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "meldung-solareignung.personalien-kurz-formular",
+    "pk": "solareignung-meldung.personalien-kurz-formular",
     "fields": {
       "created_at": "2025-11-06T11:14:24.960Z",
       "modified_at": "2025-11-06T11:14:24.960Z",
@@ -302,14 +242,74 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "form": "meldung-solareignung",
+      "form": "solareignung-meldung",
       "question": "personalien-kurz-formular",
       "sort": 6
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "meldung-solareignung-solareignung.meldung-solareignung-tabelle",
+    "pk": "solareignung-meldung.solareignung-meldung-bei-umfassender-dachsanierung",
+    "fields": {
+      "created_at": "2025-11-28T09:48:07.180Z",
+      "modified_at": "2025-11-28T09:48:07.180Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solareignung-meldung",
+      "question": "solareignung-meldung-bei-umfassender-dachsanierung",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solareignung-meldung.solareignung-meldung-bestaetigung",
+    "fields": {
+      "created_at": "2025-11-28T10:17:52.087Z",
+      "modified_at": "2025-11-28T10:17:52.087Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solareignung-meldung",
+      "question": "solareignung-meldung-bestaetigung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solareignung-meldung.solareignung-meldung-dokumente",
+    "fields": {
+      "created_at": "2025-11-28T11:58:46.197Z",
+      "modified_at": "2025-11-28T11:58:46.197Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solareignung-meldung",
+      "question": "solareignung-meldung-dokumente",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solareignung-meldung.solareignung-meldung-solareignung",
+    "fields": {
+      "created_at": "2025-11-28T13:15:25.905Z",
+      "modified_at": "2025-11-28T13:15:25.905Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solareignung-meldung",
+      "question": "solareignung-meldung-solareignung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solareignung-meldung-solareignung.solareignung-meldung-tabelle",
     "fields": {
       "created_at": "2025-11-28T13:14:24.682Z",
       "modified_at": "2025-11-28T13:14:24.682Z",
@@ -317,14 +317,14 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "form": "meldung-solareignung-solareignung",
-      "question": "meldung-solareignung-tabelle",
+      "form": "solareignung-meldung-solareignung",
+      "question": "solareignung-meldung-tabelle",
       "sort": 1
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "meldung-solareignung-tabelle.meldung-solareignung-dachflaeche",
+    "pk": "solareignung-meldung-tabelle.solareignung-meldung-dachflaeche",
     "fields": {
       "created_at": "2025-11-28T13:11:32.891Z",
       "modified_at": "2025-11-28T13:11:32.891Z",
@@ -332,14 +332,14 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "form": "meldung-solareignung-tabelle",
-      "question": "meldung-solareignung-dachflaeche",
+      "form": "solareignung-meldung-tabelle",
+      "question": "solareignung-meldung-dachflaeche",
       "sort": 2
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "meldung-solareignung-tabelle.meldung-solareignung-eignung",
+    "pk": "solareignung-meldung-tabelle.solareignung-meldung-eignung",
     "fields": {
       "created_at": "2025-11-28T13:12:47.229Z",
       "modified_at": "2025-11-28T13:12:47.229Z",
@@ -347,14 +347,14 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "form": "meldung-solareignung-tabelle",
-      "question": "meldung-solareignung-eignung",
+      "form": "solareignung-meldung-tabelle",
+      "question": "solareignung-meldung-eignung",
       "sort": 1
     }
   },
   {
     "model": "caluma_form.option",
-    "pk": "eignung-der-dachflaechen-zur-solarenergienutzung-ja",
+    "pk": "eignung-der-dachflaechen-zur-solarenergienutzung-dokument-ja",
     "fields": {
       "created_at": "2025-11-28T12:07:47.287Z",
       "modified_at": "2025-12-01T15:10:33.747Z",
@@ -371,7 +371,7 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "eignung-der-dachflaechen-zur-solarenergienutzung-nein",
+    "pk": "eignung-der-dachflaechen-zur-solarenergienutzung-dokument-nein",
     "fields": {
       "created_at": "2025-11-28T12:07:47.276Z",
       "modified_at": "2025-12-01T15:10:33.758Z",
@@ -388,7 +388,7 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "meldung-solareignung-bestaetigung-richtigkeit-der-angaben-ja",
+    "pk": "solareignung-meldung-bestaetigung-richtigkeit-der-angaben-ja",
     "fields": {
       "created_at": "2025-11-28T10:15:26.719Z",
       "modified_at": "2025-11-28T10:15:26.719Z",
@@ -405,7 +405,7 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "meldung-solareignung-dachflaeche-flachdach",
+    "pk": "solareignung-meldung-dachflaeche-flachdach",
     "fields": {
       "created_at": "2025-11-28T13:11:32.491Z",
       "modified_at": "2025-12-01T15:01:57.246Z",
@@ -422,7 +422,7 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "meldung-solareignung-dachflaeche-nord",
+    "pk": "solareignung-meldung-dachflaeche-nord",
     "fields": {
       "created_at": "2025-11-28T13:11:32.496Z",
       "modified_at": "2025-11-28T13:11:32.496Z",
@@ -439,7 +439,7 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "meldung-solareignung-dachflaeche-ost",
+    "pk": "solareignung-meldung-dachflaeche-ost",
     "fields": {
       "created_at": "2025-11-28T13:11:32.523Z",
       "modified_at": "2025-12-01T15:01:57.192Z",
@@ -456,7 +456,7 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "meldung-solareignung-dachflaeche-sued",
+    "pk": "solareignung-meldung-dachflaeche-sued",
     "fields": {
       "created_at": "2025-11-28T13:11:32.498Z",
       "modified_at": "2025-12-01T15:01:57.249Z",
@@ -473,7 +473,7 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "meldung-solareignung-dachflaeche-west",
+    "pk": "solareignung-meldung-dachflaeche-west",
     "fields": {
       "created_at": "2025-11-28T13:11:32.497Z",
       "modified_at": "2025-12-01T15:01:57.241Z",
@@ -490,7 +490,7 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "meldung-solareignung-eignung-gering",
+    "pk": "solareignung-meldung-eignung-gering",
     "fields": {
       "created_at": "2025-11-28T13:12:46.967Z",
       "modified_at": "2025-12-01T15:02:44.574Z",
@@ -507,7 +507,7 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "meldung-solareignung-eignung-gut",
+    "pk": "solareignung-meldung-eignung-gut",
     "fields": {
       "created_at": "2025-11-28T13:12:46.985Z",
       "modified_at": "2025-12-01T15:02:44.639Z",
@@ -524,7 +524,7 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "meldung-solareignung-eignung-hervorragend",
+    "pk": "solareignung-meldung-eignung-hervorragend",
     "fields": {
       "created_at": "2025-11-28T13:12:46.977Z",
       "modified_at": "2025-12-01T15:02:44.649Z",
@@ -541,7 +541,7 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "meldung-solareignung-eignung-mittel",
+    "pk": "solareignung-meldung-eignung-mittel",
     "fields": {
       "created_at": "2025-11-28T13:12:46.959Z",
       "modified_at": "2025-12-17T09:13:42.912Z",
@@ -558,7 +558,7 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "meldung-solareignung-eignung-sehr-gut",
+    "pk": "solareignung-meldung-eignung-sehr-gut",
     "fields": {
       "created_at": "2025-11-28T13:12:46.985Z",
       "modified_at": "2025-12-01T15:02:44.621Z",
@@ -575,7 +575,7 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "eignung-der-dachflaechen-zur-solarenergienutzung",
+    "pk": "eignung-der-dachflaechen-zur-solarenergienutzung-dokument",
     "fields": {
       "created_at": "2025-11-28T12:07:47.409Z",
       "modified_at": "2025-12-01T15:10:33.953Z",
@@ -595,7 +595,7 @@
       "configuration": {},
       "meta": {
         "vertical": true,
-        "documentCategory": "eignung-der-dachflaechen-solareignung"
+        "documentCategory": "solareignung-dachflaechen"
       },
       "data_source": null,
       "row_form": null,
@@ -609,7 +609,7 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "eignung-der-dachflaechen-zur-solarenergienutzung-begruendung",
+    "pk": "eignung-der-dachflaechen-zur-solarenergienutzung-dokument-begruendung",
     "fields": {
       "created_at": "2025-11-28T12:34:00.171Z",
       "modified_at": "2025-12-01T15:11:26.819Z",
@@ -620,7 +620,7 @@
       "label": "{\"de\": \"Begründung\", \"fr\": \"Justification\", \"it\": null}",
       "type": "textarea",
       "is_required": "true",
-      "is_hidden": "!(\"eignung-der-dachflaechen-zur-solarenergienutzung-nein\" in \"eignung-der-dachflaechen-zur-solarenergienutzung\"|answer)",
+      "is_hidden": "!(\"eignung-der-dachflaechen-zur-solarenergienutzung-dokument-nein\" in \"eignung-der-dachflaechen-zur-solarenergienutzung-dokument\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
@@ -632,7 +632,7 @@
       },
       "meta": {
         "vertical": true,
-        "documentCategory": "eignung-der-dachflaechen-solareignung"
+        "documentCategory": "solareignung-dachflaechen"
       },
       "data_source": null,
       "row_form": null,
@@ -646,7 +646,7 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "hinweis-meldung-solareignung",
+    "pk": "hinweis-solareignung-meldung",
     "fields": {
       "created_at": "2025-11-28T09:47:10.031Z",
       "modified_at": "2025-12-01T14:49:27.348Z",
@@ -677,28 +677,28 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "meldung-solareignung-bei-umfassender-dachsanierung",
+    "pk": "solareignung-meldung-bei-umfassender-dachsanierung",
     "fields": {
       "created_at": "2025-11-28T09:48:07.094Z",
-      "modified_at": "2025-12-01T14:53:09.693Z",
+      "modified_at": "2025-12-22T10:33:38.322Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "label": "{\"de\": \"Meldung Solareignung bei umfassender Dachsanierung\", \"fr\": \"Annonce sur le niveau d'adéquation de la toiture pour l'utilisation de l’énergie solaire en cas de rénovation intégrale du toit\", \"it\": null}",
+      "label": "{\"de\": \"Meldung Solareignung bei umfassender Dachsanierung\", \"fr\": \"Annonce concernant le potentiel solaire d’une toiture\", \"it\": null}",
       "type": "form",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
-      "sub_form": "meldung-solareignung-bei-umfassender-dachsanierung",
+      "sub_form": "solareignung-meldung-bei-umfassender-dachsanierung",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -708,7 +708,7 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "meldung-solareignung-bestaetigung",
+    "pk": "solareignung-meldung-bestaetigung",
     "fields": {
       "created_at": "2025-11-28T10:17:51.888Z",
       "modified_at": "2025-11-28T10:17:51.888Z",
@@ -729,7 +729,7 @@
       "meta": {},
       "data_source": null,
       "row_form": null,
-      "sub_form": "meldung-solareignung-bestaetigung",
+      "sub_form": "solareignung-meldung-bestaetigung",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -739,7 +739,7 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "meldung-solareignung-bestaetigung-richtigkeit-der-angaben",
+    "pk": "solareignung-meldung-bestaetigung-richtigkeit-der-angaben",
     "fields": {
       "created_at": "2025-11-28T10:15:26.922Z",
       "modified_at": "2025-11-28T10:15:26.922Z",
@@ -747,7 +747,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Die Richtigkeit der Angaben bestätigt die Liegenschaftseigentümerschaft oder deren Vertretung\", \"fr\": \"Je confirme par la présente avoir téléversé les contenus suivants obligatoires. La liste des docu-ments obligatoires est exhaustive.\", \"it\": null}",
+      "label": "{\"de\": \"Die Richtigkeit der Angaben bestätigt die Liegenschaftseigentümerschaft oder deren Vertretung\", \"fr\": \"Je confirme par la présente avoir téléversé les contenus suivants obligatoires. La liste des documents obligatoires est exhaustive.\", \"it\": null}",
       "type": "multiple_choice",
       "is_required": "true",
       "is_hidden": "false",
@@ -772,7 +772,7 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "meldung-solareignung-dachflaeche",
+    "pk": "solareignung-meldung-dachflaeche",
     "fields": {
       "created_at": "2025-11-28T13:11:32.637Z",
       "modified_at": "2025-12-01T15:01:57.421Z",
@@ -803,7 +803,7 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "meldung-solareignung-dokumente",
+    "pk": "solareignung-meldung-dokumente",
     "fields": {
       "created_at": "2025-11-28T11:58:46.107Z",
       "modified_at": "2025-11-28T12:31:51.585Z",
@@ -826,7 +826,7 @@
       },
       "data_source": null,
       "row_form": null,
-      "sub_form": "meldung-solareignung-dokumente",
+      "sub_form": "solareignung-meldung-dokumente",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -836,7 +836,7 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "meldung-solareignung-eignung",
+    "pk": "solareignung-meldung-eignung",
     "fields": {
       "created_at": "2025-11-28T13:12:47.107Z",
       "modified_at": "2025-12-17T09:13:43.278Z",
@@ -867,7 +867,7 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "meldung-solareignung-solareignung",
+    "pk": "solareignung-meldung-solareignung",
     "fields": {
       "created_at": "2025-11-28T13:15:25.815Z",
       "modified_at": "2025-12-01T14:52:29.104Z",
@@ -888,7 +888,7 @@
       "meta": {},
       "data_source": null,
       "row_form": null,
-      "sub_form": "meldung-solareignung-solareignung",
+      "sub_form": "solareignung-meldung-solareignung",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -898,7 +898,7 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "meldung-solareignung-tabelle",
+    "pk": "solareignung-meldung-tabelle",
     "fields": {
       "created_at": "2025-11-28T13:14:24.585Z",
       "modified_at": "2025-12-01T15:01:04.861Z",
@@ -918,12 +918,12 @@
       "configuration": {},
       "meta": {
         "columnsToDisplay": [
-          "meldung-solareignung-dachflaeche",
-          "meldung-solareignung-eignung"
+          "solareignung-meldung-dachflaeche",
+          "solareignung-meldung-eignung"
         ]
       },
       "data_source": null,
-      "row_form": "meldung-solareignung-tabelle",
+      "row_form": "solareignung-meldung-tabelle",
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
@@ -934,7 +934,7 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "eignung-der-dachflaechen-zur-solarenergienutzung.eignung-der-dachflaechen-zur-solarenergienutzung-ja",
+    "pk": "eignung-der-dachflaechen-zur-solarenergienutzung-dokument.eignung-der-dachflaechen-zur-solarenergienutzung-dokument-ja",
     "fields": {
       "created_at": "2025-12-01T15:10:33.969Z",
       "modified_at": "2025-12-01T15:10:33.969Z",
@@ -942,14 +942,14 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "question": "eignung-der-dachflaechen-zur-solarenergienutzung",
-      "option": "eignung-der-dachflaechen-zur-solarenergienutzung-ja",
+      "question": "eignung-der-dachflaechen-zur-solarenergienutzung-dokument",
+      "option": "eignung-der-dachflaechen-zur-solarenergienutzung-dokument-ja",
       "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "eignung-der-dachflaechen-zur-solarenergienutzung.eignung-der-dachflaechen-zur-solarenergienutzung-nein",
+    "pk": "eignung-der-dachflaechen-zur-solarenergienutzung-dokument.eignung-der-dachflaechen-zur-solarenergienutzung-dokument-nein",
     "fields": {
       "created_at": "2025-12-01T15:10:33.964Z",
       "modified_at": "2025-12-01T15:10:33.964Z",
@@ -957,14 +957,14 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "question": "eignung-der-dachflaechen-zur-solarenergienutzung",
-      "option": "eignung-der-dachflaechen-zur-solarenergienutzung-nein",
+      "question": "eignung-der-dachflaechen-zur-solarenergienutzung-dokument",
+      "option": "eignung-der-dachflaechen-zur-solarenergienutzung-dokument-nein",
       "sort": 1
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "meldung-solareignung-bestaetigung-richtigkeit-der-angaben.meldung-solareignung-bestaetigung-richtigkeit-der-angaben-ja",
+    "pk": "solareignung-meldung-bestaetigung-richtigkeit-der-angaben.solareignung-meldung-bestaetigung-richtigkeit-der-angaben-ja",
     "fields": {
       "created_at": "2025-11-28T10:15:26.935Z",
       "modified_at": "2025-11-28T10:15:26.935Z",
@@ -972,14 +972,14 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "question": "meldung-solareignung-bestaetigung-richtigkeit-der-angaben",
-      "option": "meldung-solareignung-bestaetigung-richtigkeit-der-angaben-ja",
+      "question": "solareignung-meldung-bestaetigung-richtigkeit-der-angaben",
+      "option": "solareignung-meldung-bestaetigung-richtigkeit-der-angaben-ja",
       "sort": 1
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "meldung-solareignung-dachflaeche.meldung-solareignung-dachflaeche-flachdach",
+    "pk": "solareignung-meldung-dachflaeche.solareignung-meldung-dachflaeche-flachdach",
     "fields": {
       "created_at": "2025-12-01T15:01:57.433Z",
       "modified_at": "2025-12-01T15:01:57.433Z",
@@ -987,14 +987,14 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "question": "meldung-solareignung-dachflaeche",
-      "option": "meldung-solareignung-dachflaeche-flachdach",
+      "question": "solareignung-meldung-dachflaeche",
+      "option": "solareignung-meldung-dachflaeche-flachdach",
       "sort": 1
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "meldung-solareignung-dachflaeche.meldung-solareignung-dachflaeche-nord",
+    "pk": "solareignung-meldung-dachflaeche.solareignung-meldung-dachflaeche-nord",
     "fields": {
       "created_at": "2025-12-01T15:01:57.451Z",
       "modified_at": "2025-12-01T15:01:57.451Z",
@@ -1002,14 +1002,14 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "question": "meldung-solareignung-dachflaeche",
-      "option": "meldung-solareignung-dachflaeche-nord",
+      "question": "solareignung-meldung-dachflaeche",
+      "option": "solareignung-meldung-dachflaeche-nord",
       "sort": 5
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "meldung-solareignung-dachflaeche.meldung-solareignung-dachflaeche-ost",
+    "pk": "solareignung-meldung-dachflaeche.solareignung-meldung-dachflaeche-ost",
     "fields": {
       "created_at": "2025-12-01T15:01:57.447Z",
       "modified_at": "2025-12-01T15:01:57.447Z",
@@ -1017,14 +1017,14 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "question": "meldung-solareignung-dachflaeche",
-      "option": "meldung-solareignung-dachflaeche-ost",
+      "question": "solareignung-meldung-dachflaeche",
+      "option": "solareignung-meldung-dachflaeche-ost",
       "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "meldung-solareignung-dachflaeche.meldung-solareignung-dachflaeche-sued",
+    "pk": "solareignung-meldung-dachflaeche.solareignung-meldung-dachflaeche-sued",
     "fields": {
       "created_at": "2025-12-01T15:01:57.441Z",
       "modified_at": "2025-12-01T15:01:57.441Z",
@@ -1032,14 +1032,14 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "question": "meldung-solareignung-dachflaeche",
-      "option": "meldung-solareignung-dachflaeche-sued",
+      "question": "solareignung-meldung-dachflaeche",
+      "option": "solareignung-meldung-dachflaeche-sued",
       "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "meldung-solareignung-dachflaeche.meldung-solareignung-dachflaeche-west",
+    "pk": "solareignung-meldung-dachflaeche.solareignung-meldung-dachflaeche-west",
     "fields": {
       "created_at": "2025-12-01T15:01:57.438Z",
       "modified_at": "2025-12-01T15:01:57.438Z",
@@ -1047,14 +1047,14 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "question": "meldung-solareignung-dachflaeche",
-      "option": "meldung-solareignung-dachflaeche-west",
+      "question": "solareignung-meldung-dachflaeche",
+      "option": "solareignung-meldung-dachflaeche-west",
       "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "meldung-solareignung-eignung.meldung-solareignung-eignung-gering",
+    "pk": "solareignung-meldung-eignung.solareignung-meldung-eignung-gering",
     "fields": {
       "created_at": "2025-12-17T09:13:43.340Z",
       "modified_at": "2025-12-17T09:13:43.340Z",
@@ -1062,14 +1062,14 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "question": "meldung-solareignung-eignung",
-      "option": "meldung-solareignung-eignung-gering",
+      "question": "solareignung-meldung-eignung",
+      "option": "solareignung-meldung-eignung-gering",
       "sort": 5
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "meldung-solareignung-eignung.meldung-solareignung-eignung-gut",
+    "pk": "solareignung-meldung-eignung.solareignung-meldung-eignung-gut",
     "fields": {
       "created_at": "2025-12-17T09:13:43.323Z",
       "modified_at": "2025-12-17T09:13:43.323Z",
@@ -1077,14 +1077,14 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "question": "meldung-solareignung-eignung",
-      "option": "meldung-solareignung-eignung-gut",
+      "question": "solareignung-meldung-eignung",
+      "option": "solareignung-meldung-eignung-gut",
       "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "meldung-solareignung-eignung.meldung-solareignung-eignung-hervorragend",
+    "pk": "solareignung-meldung-eignung.solareignung-meldung-eignung-hervorragend",
     "fields": {
       "created_at": "2025-12-17T09:13:43.304Z",
       "modified_at": "2025-12-17T09:13:43.304Z",
@@ -1092,14 +1092,14 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "question": "meldung-solareignung-eignung",
-      "option": "meldung-solareignung-eignung-hervorragend",
+      "question": "solareignung-meldung-eignung",
+      "option": "solareignung-meldung-eignung-hervorragend",
       "sort": 1
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "meldung-solareignung-eignung.meldung-solareignung-eignung-mittel",
+    "pk": "solareignung-meldung-eignung.solareignung-meldung-eignung-mittel",
     "fields": {
       "created_at": "2025-12-17T09:13:43.328Z",
       "modified_at": "2025-12-17T09:13:43.328Z",
@@ -1107,14 +1107,14 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "question": "meldung-solareignung-eignung",
-      "option": "meldung-solareignung-eignung-mittel",
+      "question": "solareignung-meldung-eignung",
+      "option": "solareignung-meldung-eignung-mittel",
       "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "meldung-solareignung-eignung.meldung-solareignung-eignung-sehr-gut",
+    "pk": "solareignung-meldung-eignung.solareignung-meldung-eignung-sehr-gut",
     "fields": {
       "created_at": "2025-12-17T09:13:43.308Z",
       "modified_at": "2025-12-17T09:13:43.308Z",
@@ -1122,8 +1122,8 @@
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "modified_by_group": null,
-      "question": "meldung-solareignung-eignung",
-      "option": "meldung-solareignung-eignung-sehr-gut",
+      "question": "solareignung-meldung-eignung",
+      "option": "solareignung-meldung-eignung-sehr-gut",
       "sort": 2
     }
   }

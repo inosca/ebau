@@ -9,13 +9,7 @@
 
 {{#if this.allRequiredTags.length}}
   <p class="uk-text-bold">
-    {{#if this.showReducedConfirmText}}
-      {{t "documents.confirm-reduced"}}
-    {{else if this.showSolareignungConfirmText}}
-      {{t "documents.confirm-solareignung"}}
-    {{else}}
-      {{t "documents.confirm" count=this.allRequiredTagsCount}}
-    {{/if}}
+    {{this.documentConfirmText}}
   </p>
 
   {{#each-in this.requiredTags key="pk" as |title fields|}}
