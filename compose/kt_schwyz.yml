@@ -58,6 +58,9 @@ services:
   keycloak:
     image: acr.run/camac-ng/camac-ng/keycloak:${CI_COMMIT_TAG:-master}
     build:
+      args:
+        VERSION: 26.5.2
+      target: keycloak-v26
       context: ../keycloak
       cache_from:
         - acr.run/camac-ng/camac-ng/keycloak:${CI_COMMIT_TAG:-master}
