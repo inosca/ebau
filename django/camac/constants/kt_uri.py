@@ -186,18 +186,6 @@ INTENT_SLUGS = [
     "beschrieb-verfahren",
 ]
 
-# Question identifiers (Chapter/Question/Item) for various information that we need
-# Format: List of 3-tuples to implement fallback
-CQI_FOR_PROPOSAL = [(21, 97, 1)]
-CQI_FOR_PROPOSAL_DESCRIPTION = [(21, 98, 1)]
-CQI_FOR_PARZELLE = [(21, 91, 1), (101, 91, 1), (102, 91, 1)]
-CQI_FOR_STREET = [(21, 93, 1), (101, 93, 1), (102, 93, 1)]
-CQI_FOR_APPLICANT_NAME = [(1, 23, 1)]
-CQI_FOR_APPLICANT_ORGANISATION = [(1, 221, 1)]
-CQI_FOR_APPLICANT_STREET = [(1, 61, 1)]
-CQI_FOR_APPLICANT_ZIP_CITY = [(1, 62, 1)]
-CQI_FOR_GESUCHSTELLER = [(1, 23, 1)]
-
 FORM_BGBB = 41
 FORM_BAUGESUCH = 298
 FORM_VORABKLAERUNG = 299
