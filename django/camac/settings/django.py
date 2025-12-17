@@ -312,6 +312,7 @@ APPLICATIONS = {
     },
     "kt_schwyz": {
         "SHORT_NAME": "sz",
+        "AVAILABLE_LANGUAGES": ["de"],
         "INTERNAL_FRONTEND": "camac",
         "TAGGED_RELEASES": True,
         "SHORT_DATE_FORMAT": "%-d. %B %Y",

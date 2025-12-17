@@ -2319,7 +2319,92 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
 
 
 class SzDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
-    pass
+    field_bauherrschaft = fields.MasterDataPersonObjectField(
+        source="applicants",
+        aliases=[_("FIELD_BAUHERRSCHAFT")],
+        description=_("Name and address of all applicants"),
+    )
+    field_betroffene_nutzungszonen = fields.MasterDataField(
+        source="usage_zone",
+        aliases=[_("FIELD_BETROFFENE_NUTZUNGSZONEN")],
+        description=_("Usage zones affected by the project"),
+    )
+    field_bezeichnung = fields.MasterDataField(
+        source="proposal",
+        aliases=[_("FIELD_BEZEICHNUNG"), _("FIELD_BEZEICHNUNG_OVERRIDE")],
+        description=_("Project name and description"),
+    )
+    field_grundeigentumerschaft = fields.MasterDataPersonObjectField(
+        source="landowners",
+        aliases=[_("FIELD_GRUNDEIGENTUMERSCHAFT")],
+        description=_("Name and address of all land owners"),
+    )
+    field_kategorie_des_vorhabens = fields.MasterDataField(
+        source="building_category",
+        aliases=[_("FIELD_KATEGORIE_DES_VORHABENS")],
+        description=_("Usage type"),
+        is_collection=True,
+    )
+    field_ortsbezeichnung_des_vorhabens = fields.MasterDataField(
+        # settings.LOCATION_NAME_QUESTION (set to `ortsbezeichnung-des-vorhabens`)
+        # is aliased with `standort-adresse`. No fields by that name found on prod,
+        #  so assuming backwards compatibility with legacy template placeholders.
+        source="street",
+        aliases=[_("FIELD_ORTSBEZEICHNUNG_DES_VORHABENS"), _("FIELD_STANDORT_ADRESSE")],
+        description=_("Project address (street and building number)"),
+    )
+
+    field_energie_photovoltaik_gesamtleistung = fields.MasterDataField(
+        source="energy_pv_total_power",
+        aliases=[_("FIELD_ENERGIE_PHOTOVOLTAIK_GESAMTLEISTUNG")],
+        description=_("Total PV power"),
+    )
+    field_punkte = fields.MasterDataField(
+        source="coordinates",
+        aliases=[_("FIELD_PUNKTE")],
+        description=_(
+            "List of geolocated geometries (paths) outlining the project's affected area"
+        ),
+    )
+    field_standort_koordinaten = fields.MasterDataField(
+        source="location_coordinates",
+        aliases=[_("FIELD_STANDORT_KOORDINATEN")],
+        description=_("List of geolocated points referencing the project location"),
+    )
+    field_parzellen = fields.MasterDataField(
+        source="plot_data",
+        aliases=[_("FIELD_PARZELLEN")],
+        description=_("Project plot data (egrid ID/plot nr)"),
+        nested_aliases={"plot_number": [_("NUMBER")], "egrid_number": [_("EGRID")]},
+    )
+    field_projektverfasser_planer = fields.MasterDataPersonObjectField(
+        source="project_authors",
+        aliases=[_("FIELD_PROJEKTVERFASSER_PLANER")],
+        description=_("Name and address of project authors"),
+    )
+    field_publikation_bemerkung = fields.MasterDataField(
+        source="publication_addon",
+        aliases=[_("FIELD_PUBLIKATION_BEMERKUNG")],
+        description=_("Publication remark"),
+    )
+    field_standort_ort = fields.MasterDataField(
+        source="city",
+        aliases=[_("FIELD_STANDORT_ORT")],
+        description=_("Town name of project location"),
+    )
+    field_standort_spezialbezeichnung = fields.MasterDataField(
+        source="street_addition",
+        aliases=[_("FIELD_STANDORT_SPEZIALBEZEICHNUNG")],
+        description=_("Addions to project location address"),
+    )
+    field_vertreter_mit_vollmacht = fields.MasterDataPersonObjectField(
+        source="legal_representatives",
+        aliases=[_("FIELD_VERTRETER_MIT_VOLLMACHT")],
+        description=_("Name and address of legal representatives."),
+    )
+
+    class Meta:
+        exclude = list(DMSPlaceholdersSerializer._declared_fields.keys())
 
 
 class UrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):

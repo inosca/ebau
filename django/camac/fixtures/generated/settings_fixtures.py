@@ -1987,6 +1987,18 @@ def ag_placeholders_settings(settings, request):
 
 
 @pytest.fixture
+def sz_placeholders_settings(settings, request):
+    """Module-specific settings for placeholders (canton SZ)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="placeholders",
+        canton="kt_schwyz",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def test_placeholders_settings(settings, request):
     """Module-specific settings for placeholders (canton TEST)."""
     return generate_module_settings(

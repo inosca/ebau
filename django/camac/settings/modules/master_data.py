@@ -365,6 +365,7 @@ MASTER_DATA = {
                 "ng_answer",
                 "betroffene-nutzungszonen",
             ),  # eCH0211: 3.8.1.3 TODO: verify!
+            "building_category": ("ng_answer", "kategorie-des-vorhabens"),
             "usage_type": ("ng_answer", "art-der-nutzung"),  # TODO: verify!
             "application_type": (
                 "instance_property",
@@ -380,6 +381,7 @@ MASTER_DATA = {
             ),  # this is called "Verfahrensart" in context of eCH
             # `coordinates` is a list of lists of { 'lat': <coord>, 'lng': <coord> } objects of arbitrary length.
             "coordinates": (("ng_answer", "punkte")),
+            "location_coordinates": (("ng_answer", "standort-koordinaten")),
             "plot_data": (
                 "ng_table",
                 "parzellen",
@@ -389,6 +391,10 @@ MASTER_DATA = {
                         "egrid_number": "egrid",
                     }
                 },
+            ),
+            "energy_pv_total_power": (
+                "ng_answer",
+                "energie-photovoltaik-gesamtleistung",
             ),
             "buildings": (
                 "ng_table",

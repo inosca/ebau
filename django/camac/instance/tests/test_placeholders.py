@@ -63,6 +63,14 @@ def so_dms_config(settings, application_settings, so_placeholders_settings):
 
 
 @pytest.fixture
+def sz_dms_config(settings, application_settings, so_placeholders_settings):
+    settings.APPLICATION_NAME = "kt_schwyz"
+    settings.INTERNAL_BASE_URL = "http://ebau.localhost"
+    application_settings["SHORT_NAME"] = "sz"
+    application_settings["AVAILABLE_LANGUAGES"] = ["de"]
+
+
+@pytest.fixture
 def ur_dms_config(settings, application_settings, ur_placeholders_settings):
     settings.APPLICATION_NAME = "kt_uri"
     settings.INTERNAL_BASE_URL = "http://ebau.localhost"
@@ -893,31 +901,44 @@ def test_dms_placeholders(
 
 
 @pytest.mark.freeze_time("2021-08-30")
-@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize(
+    "role__name,app_instance,any_application",
+    [
+        pytest.param(
+            "municipality-admin",
+            lf("be_instance"),
+            "kt_bern",
+            id="Placeholders empty. App config kt_bern: upper case placeholder variables.",
+        ),
+        pytest.param(
+            "Gemeinde",
+            lf("sz_instance"),
+            "kt_schwyz",
+            id="Placholders empty. App config kt_schwyz: lower case placeholder variables.",
+        ),
+    ],
+    indirect=["any_application"],
+)
 @pytest.mark.django_db(
     transaction=True, reset_sequences=True
 )  # always reset instance id
 def test_dms_placeholders_empty(
     db,
     admin_client,
+    any_application,
     application_settings,
     settings,
-    be_instance,
+    app_instance,
     snapshot,
-    be_dms_config,
-    be_master_data_settings,
 ):
-    application_settings["INTERNAL_FRONTEND"] = "camac"
-    application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
-        "kt_bern",
-        pathlib.Path(settings.APPLICATIONS["kt_bern"]["MUNICIPALITY_DATA_SHEET"]).name,
-    )
-
     response = admin_client.get(
-        reverse("instance-dms-placeholders", args=[be_instance.pk])
+        reverse("instance-dms-placeholders", args=[app_instance.pk])
     )
     assert response.status_code == status.HTTP_200_OK
+    resp_data = response.json()
     snapshot.assert_match(response.json())
+    for key in resp_data.keys():
+        assert key == getattr(str, settings.PLACEHOLDERS["PLACEHOLDER_CASE"])(key)
 
 
 @pytest.mark.freeze_time("2023-01-24")
@@ -931,15 +952,17 @@ def test_human_readable_date(language, expected):
 
 
 @pytest.mark.parametrize(
-    "dms_config",
+    "any_application",
     [
-        lf("be_dms_config"),
-        lf("gr_dms_config"),
-        lf("so_dms_config"),
-        lf("ag_dms_config"),
+        pytest.param("kt_ag", id="ag_dms_config"),
+        pytest.param("kt_bern", id="be_dms_config"),
+        pytest.param("kt_gr", id="gr_dms_config"),
+        pytest.param("kt_so", id="so_dms_config"),
+        pytest.param("kt_schwyz", id="sz_dms_config"),
     ],
+    indirect=["any_application"],
 )
-def test_dms_placeholders_docs(admin_client, snapshot, dms_config):
+def test_dms_placeholders_docs(admin_client, snapshot, any_application):
     response = admin_client.get(reverse("dms-placeholders-docs"))
     assert response.status_code == status.HTTP_200_OK
     snapshot.assert_match(response.json())
@@ -948,10 +971,11 @@ def test_dms_placeholders_docs(admin_client, snapshot, dms_config):
 @pytest.mark.parametrize(
     "dms_config",
     [
+        lf("ag_dms_config"),
         lf("be_dms_config"),
         lf("gr_dms_config"),
         lf("so_dms_config"),
-        lf("ag_dms_config"),
+        lf("sz_dms_config"),
     ],
 )
 def test_dms_placeholders_docs_available_placeholders(
@@ -1182,6 +1206,29 @@ def test_dms_placeholders_ag(
         assert result[ir_prop] != result[a_prop]
         # Make sure fallback is used if invoice recipient is not available
         assert fallback_result[ir_prop] == fallback_result[a_prop]
+
+
+@pytest.mark.parametrize(
+    "role__name,app_instance,master_data_case,any_application",
+    [
+        pytest.param(
+            "Gemeinde",
+            lf("sz_instance"),
+            lf("sz_master_data_case"),
+            "kt_schwyz",
+            id="Placholders response for kt_schwyz",
+        ),
+    ],
+    indirect=["any_application"],
+)
+def test_dms_placeholders_sz(
+    db, admin_client, master_data_case, app_instance, any_application, snapshot
+):
+    response = admin_client.get(
+        reverse("instance-dms-placeholders", args=[app_instance.pk])
+    )
+    assert response.status_code == status.HTTP_200_OK
+    assert response.json() == snapshot
 
 
 @pytest.mark.parametrize(

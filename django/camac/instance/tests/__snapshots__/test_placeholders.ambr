@@ -11231,6 +11231,766 @@
     }),
   })
 # ---
+# name: test_dms_placeholders_docs[sz_dms_config]
+  dict({
+    'field_bauherrschaft': dict({
+      'aliases': list([
+        dict({
+          'de': 'field_bauherrschaft',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Name und Adresse aller Gesuchsteller/innen',
+      }),
+      'nested_aliases': dict({
+        'ADDRESS': list([
+          dict({
+            'de': 'adresse',
+          }),
+        ]),
+        'EMAIL': list([
+          dict({
+            'de': 'email',
+          }),
+        ]),
+        'FIRST_NAME': list([
+          dict({
+            'de': 'vorname',
+          }),
+        ]),
+        'JURISTIC_NAME': list([
+          dict({
+            'de': 'firma',
+          }),
+        ]),
+        'LAST_NAME': list([
+          dict({
+            'de': 'nachname',
+          }),
+        ]),
+        'NAME': list([
+          dict({
+            'de': 'name',
+          }),
+        ]),
+        'PO_BOX': list([
+          dict({
+            'de': 'postfach',
+          }),
+        ]),
+        'REPRESENTATIVE_ADDRESS': list([
+          dict({
+            'de': 'vertreter_adresse',
+          }),
+        ]),
+        'REPRESENTATIVE_EMAIL': list([
+          dict({
+            'de': 'vertreter_email',
+          }),
+        ]),
+        'REPRESENTATIVE_FIRST_NAME': list([
+          dict({
+            'de': 'vertreter_vorname',
+          }),
+        ]),
+        'REPRESENTATIVE_JURISTIC_NAME': list([
+          dict({
+            'de': 'vertreter_name_juristische_person',
+          }),
+        ]),
+        'REPRESENTATIVE_LAST_NAME': list([
+          dict({
+            'de': 'vertreter_nachname',
+          }),
+        ]),
+        'REPRESENTATIVE_NAME': list([
+          dict({
+            'de': 'vertreter_name',
+          }),
+        ]),
+        'REPRESENTATIVE_PO_BOX': list([
+          dict({
+            'de': 'vertreter_postfach',
+          }),
+        ]),
+        'REPRESENTATIVE_SALUTATION': list([
+          dict({
+            'de': 'vertreter_anrede',
+          }),
+        ]),
+        'REPRESENTATIVE_STREET': list([
+          dict({
+            'de': 'vertreter_strasse',
+          }),
+        ]),
+        'REPRESENTATIVE_STREET_NUMBER': list([
+          dict({
+            'de': 'vertreter_hausnummer',
+          }),
+        ]),
+        'REPRESENTATIVE_TEL': list([
+          dict({
+            'de': 'vertreter_telefon',
+          }),
+        ]),
+        'REPRESENTATIVE_TITLE': list([
+          dict({
+            'de': 'vertreter_titel',
+          }),
+        ]),
+        'REPRESENTATIVE_TOWN': list([
+          dict({
+            'de': 'vertreter_ortschaft',
+          }),
+        ]),
+        'REPRESENTATIVE_ZIP': list([
+          dict({
+            'de': 'vertreter_plz',
+          }),
+        ]),
+        'SALUTATION': list([
+          dict({
+            'de': 'anrede',
+          }),
+        ]),
+        'STREET': list([
+          dict({
+            'de': 'strasse',
+          }),
+        ]),
+        'STREET_NUMBER': list([
+          dict({
+            'de': 'hausnummer',
+          }),
+        ]),
+        'TEL': list([
+          dict({
+            'de': 'tel',
+          }),
+        ]),
+        'TITLE': list([
+          dict({
+            'de': 'titel',
+          }),
+        ]),
+        'TOWN': list([
+          dict({
+            'de': 'ort',
+          }),
+        ]),
+        'ZIP': list([
+          dict({
+            'de': 'plz',
+          }),
+        ]),
+      }),
+    }),
+    'field_betroffene_nutzungszonen': dict({
+      'aliases': list([
+        dict({
+          'de': 'field_betroffene_nutzungszonen',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Usage zones affected by the project',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'field_bezeichnung': dict({
+      'aliases': list([
+        dict({
+          'de': 'field_bezeichnung',
+        }),
+        dict({
+          'de': 'field_bezeichnung_override',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Beschreibung',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'field_energie_photovoltaik_gesamtleistung': dict({
+      'aliases': list([
+        dict({
+          'de': 'field_energie_photovoltaik_gesamtleistung',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Energie Photovoltaik Gesamtleistung',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'field_grundeigentumerschaft': dict({
+      'aliases': list([
+        dict({
+          'de': 'field_grundeigentumerschaft',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Name und Adresse aller Grundstückbesitzer/innen',
+      }),
+      'nested_aliases': dict({
+        'ADDRESS': list([
+          dict({
+            'de': 'adresse',
+          }),
+        ]),
+        'EMAIL': list([
+          dict({
+            'de': 'email',
+          }),
+        ]),
+        'FIRST_NAME': list([
+          dict({
+            'de': 'vorname',
+          }),
+        ]),
+        'JURISTIC_NAME': list([
+          dict({
+            'de': 'firma',
+          }),
+        ]),
+        'LAST_NAME': list([
+          dict({
+            'de': 'nachname',
+          }),
+        ]),
+        'NAME': list([
+          dict({
+            'de': 'name',
+          }),
+        ]),
+        'PO_BOX': list([
+          dict({
+            'de': 'postfach',
+          }),
+        ]),
+        'REPRESENTATIVE_ADDRESS': list([
+          dict({
+            'de': 'vertreter_adresse',
+          }),
+        ]),
+        'REPRESENTATIVE_EMAIL': list([
+          dict({
+            'de': 'vertreter_email',
+          }),
+        ]),
+        'REPRESENTATIVE_FIRST_NAME': list([
+          dict({
+            'de': 'vertreter_vorname',
+          }),
+        ]),
+        'REPRESENTATIVE_JURISTIC_NAME': list([
+          dict({
+            'de': 'vertreter_name_juristische_person',
+          }),
+        ]),
+        'REPRESENTATIVE_LAST_NAME': list([
+          dict({
+            'de': 'vertreter_nachname',
+          }),
+        ]),
+        'REPRESENTATIVE_NAME': list([
+          dict({
+            'de': 'vertreter_name',
+          }),
+        ]),
+        'REPRESENTATIVE_PO_BOX': list([
+          dict({
+            'de': 'vertreter_postfach',
+          }),
+        ]),
+        'REPRESENTATIVE_SALUTATION': list([
+          dict({
+            'de': 'vertreter_anrede',
+          }),
+        ]),
+        'REPRESENTATIVE_STREET': list([
+          dict({
+            'de': 'vertreter_strasse',
+          }),
+        ]),
+        'REPRESENTATIVE_STREET_NUMBER': list([
+          dict({
+            'de': 'vertreter_hausnummer',
+          }),
+        ]),
+        'REPRESENTATIVE_TEL': list([
+          dict({
+            'de': 'vertreter_telefon',
+          }),
+        ]),
+        'REPRESENTATIVE_TITLE': list([
+          dict({
+            'de': 'vertreter_titel',
+          }),
+        ]),
+        'REPRESENTATIVE_TOWN': list([
+          dict({
+            'de': 'vertreter_ortschaft',
+          }),
+        ]),
+        'REPRESENTATIVE_ZIP': list([
+          dict({
+            'de': 'vertreter_plz',
+          }),
+        ]),
+        'SALUTATION': list([
+          dict({
+            'de': 'anrede',
+          }),
+        ]),
+        'STREET': list([
+          dict({
+            'de': 'strasse',
+          }),
+        ]),
+        'STREET_NUMBER': list([
+          dict({
+            'de': 'hausnummer',
+          }),
+        ]),
+        'TEL': list([
+          dict({
+            'de': 'tel',
+          }),
+        ]),
+        'TITLE': list([
+          dict({
+            'de': 'titel',
+          }),
+        ]),
+        'TOWN': list([
+          dict({
+            'de': 'ort',
+          }),
+        ]),
+        'ZIP': list([
+          dict({
+            'de': 'plz',
+          }),
+        ]),
+      }),
+    }),
+    'field_kategorie_des_vorhabens': dict({
+      'aliases': list([
+        dict({
+          'de': 'field_kategorie_des_vorhabens',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Art der geplanten Nutzung des Grundstückes',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'field_ortsbezeichnung_des_vorhabens': dict({
+      'aliases': list([
+        dict({
+          'de': 'field_ortsbezeichnung_des_vorhabens',
+        }),
+        dict({
+          'de': 'field_standort_adresse',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Projektstandort',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'field_parzellen': dict({
+      'aliases': list([
+        dict({
+          'de': 'field_parzellen',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Parzellennummern und EGRID IDs',
+      }),
+      'nested_aliases': dict({
+        'egrid_number': list([
+          dict({
+            'de': 'egrid',
+          }),
+        ]),
+        'plot_number': list([
+          dict({
+            'de': 'number',
+          }),
+        ]),
+      }),
+    }),
+    'field_projektverfasser_planer': dict({
+      'aliases': list([
+        dict({
+          'de': 'field_projektverfasser_planer',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Name und Adresse der Projektautor:innen',
+      }),
+      'nested_aliases': dict({
+        'ADDRESS': list([
+          dict({
+            'de': 'adresse',
+          }),
+        ]),
+        'EMAIL': list([
+          dict({
+            'de': 'email',
+          }),
+        ]),
+        'FIRST_NAME': list([
+          dict({
+            'de': 'vorname',
+          }),
+        ]),
+        'JURISTIC_NAME': list([
+          dict({
+            'de': 'firma',
+          }),
+        ]),
+        'LAST_NAME': list([
+          dict({
+            'de': 'nachname',
+          }),
+        ]),
+        'NAME': list([
+          dict({
+            'de': 'name',
+          }),
+        ]),
+        'PO_BOX': list([
+          dict({
+            'de': 'postfach',
+          }),
+        ]),
+        'REPRESENTATIVE_ADDRESS': list([
+          dict({
+            'de': 'vertreter_adresse',
+          }),
+        ]),
+        'REPRESENTATIVE_EMAIL': list([
+          dict({
+            'de': 'vertreter_email',
+          }),
+        ]),
+        'REPRESENTATIVE_FIRST_NAME': list([
+          dict({
+            'de': 'vertreter_vorname',
+          }),
+        ]),
+        'REPRESENTATIVE_JURISTIC_NAME': list([
+          dict({
+            'de': 'vertreter_name_juristische_person',
+          }),
+        ]),
+        'REPRESENTATIVE_LAST_NAME': list([
+          dict({
+            'de': 'vertreter_nachname',
+          }),
+        ]),
+        'REPRESENTATIVE_NAME': list([
+          dict({
+            'de': 'vertreter_name',
+          }),
+        ]),
+        'REPRESENTATIVE_PO_BOX': list([
+          dict({
+            'de': 'vertreter_postfach',
+          }),
+        ]),
+        'REPRESENTATIVE_SALUTATION': list([
+          dict({
+            'de': 'vertreter_anrede',
+          }),
+        ]),
+        'REPRESENTATIVE_STREET': list([
+          dict({
+            'de': 'vertreter_strasse',
+          }),
+        ]),
+        'REPRESENTATIVE_STREET_NUMBER': list([
+          dict({
+            'de': 'vertreter_hausnummer',
+          }),
+        ]),
+        'REPRESENTATIVE_TEL': list([
+          dict({
+            'de': 'vertreter_telefon',
+          }),
+        ]),
+        'REPRESENTATIVE_TITLE': list([
+          dict({
+            'de': 'vertreter_titel',
+          }),
+        ]),
+        'REPRESENTATIVE_TOWN': list([
+          dict({
+            'de': 'vertreter_ortschaft',
+          }),
+        ]),
+        'REPRESENTATIVE_ZIP': list([
+          dict({
+            'de': 'vertreter_plz',
+          }),
+        ]),
+        'SALUTATION': list([
+          dict({
+            'de': 'anrede',
+          }),
+        ]),
+        'STREET': list([
+          dict({
+            'de': 'strasse',
+          }),
+        ]),
+        'STREET_NUMBER': list([
+          dict({
+            'de': 'hausnummer',
+          }),
+        ]),
+        'TEL': list([
+          dict({
+            'de': 'tel',
+          }),
+        ]),
+        'TITLE': list([
+          dict({
+            'de': 'titel',
+          }),
+        ]),
+        'TOWN': list([
+          dict({
+            'de': 'ort',
+          }),
+        ]),
+        'ZIP': list([
+          dict({
+            'de': 'plz',
+          }),
+        ]),
+      }),
+    }),
+    'field_publikation_bemerkung': dict({
+      'aliases': list([
+        dict({
+          'de': 'field_publikation_bemerkung',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Bemerkung zur Ausschreibung',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'field_punkte': dict({
+      'aliases': list([
+        dict({
+          'de': 'field_punkte',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Liste vom Projekt betroffenen Geländegeometrien (Pfade)',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'field_standort_koordinaten': dict({
+      'aliases': list([
+        dict({
+          'de': 'field_standort_koordinaten',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Liste der Projektkoordinaten',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'field_standort_ort': dict({
+      'aliases': list([
+        dict({
+          'de': 'field_standort_ort',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Ortsname des Projektstandorts',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'field_standort_spezialbezeichnung': dict({
+      'aliases': list([
+        dict({
+          'de': 'field_standort_spezialbezeichnung',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Adresszusätze des Projektstandorts',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'field_vertreter_mit_vollmacht': dict({
+      'aliases': list([
+        dict({
+          'de': 'field_vertreter_mit_vollmacht',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Name und Adresse der Vertreter/innen mit Vollmacht',
+      }),
+      'nested_aliases': dict({
+        'ADDRESS': list([
+          dict({
+            'de': 'adresse',
+          }),
+        ]),
+        'EMAIL': list([
+          dict({
+            'de': 'email',
+          }),
+        ]),
+        'FIRST_NAME': list([
+          dict({
+            'de': 'vorname',
+          }),
+        ]),
+        'JURISTIC_NAME': list([
+          dict({
+            'de': 'firma',
+          }),
+        ]),
+        'LAST_NAME': list([
+          dict({
+            'de': 'nachname',
+          }),
+        ]),
+        'NAME': list([
+          dict({
+            'de': 'name',
+          }),
+        ]),
+        'PO_BOX': list([
+          dict({
+            'de': 'postfach',
+          }),
+        ]),
+        'REPRESENTATIVE_ADDRESS': list([
+          dict({
+            'de': 'vertreter_adresse',
+          }),
+        ]),
+        'REPRESENTATIVE_EMAIL': list([
+          dict({
+            'de': 'vertreter_email',
+          }),
+        ]),
+        'REPRESENTATIVE_FIRST_NAME': list([
+          dict({
+            'de': 'vertreter_vorname',
+          }),
+        ]),
+        'REPRESENTATIVE_JURISTIC_NAME': list([
+          dict({
+            'de': 'vertreter_name_juristische_person',
+          }),
+        ]),
+        'REPRESENTATIVE_LAST_NAME': list([
+          dict({
+            'de': 'vertreter_nachname',
+          }),
+        ]),
+        'REPRESENTATIVE_NAME': list([
+          dict({
+            'de': 'vertreter_name',
+          }),
+        ]),
+        'REPRESENTATIVE_PO_BOX': list([
+          dict({
+            'de': 'vertreter_postfach',
+          }),
+        ]),
+        'REPRESENTATIVE_SALUTATION': list([
+          dict({
+            'de': 'vertreter_anrede',
+          }),
+        ]),
+        'REPRESENTATIVE_STREET': list([
+          dict({
+            'de': 'vertreter_strasse',
+          }),
+        ]),
+        'REPRESENTATIVE_STREET_NUMBER': list([
+          dict({
+            'de': 'vertreter_hausnummer',
+          }),
+        ]),
+        'REPRESENTATIVE_TEL': list([
+          dict({
+            'de': 'vertreter_telefon',
+          }),
+        ]),
+        'REPRESENTATIVE_TITLE': list([
+          dict({
+            'de': 'vertreter_titel',
+          }),
+        ]),
+        'REPRESENTATIVE_TOWN': list([
+          dict({
+            'de': 'vertreter_ortschaft',
+          }),
+        ]),
+        'REPRESENTATIVE_ZIP': list([
+          dict({
+            'de': 'vertreter_plz',
+          }),
+        ]),
+        'SALUTATION': list([
+          dict({
+            'de': 'anrede',
+          }),
+        ]),
+        'STREET': list([
+          dict({
+            'de': 'strasse',
+          }),
+        ]),
+        'STREET_NUMBER': list([
+          dict({
+            'de': 'hausnummer',
+          }),
+        ]),
+        'TEL': list([
+          dict({
+            'de': 'tel',
+          }),
+        ]),
+        'TITLE': list([
+          dict({
+            'de': 'titel',
+          }),
+        ]),
+        'TOWN': list([
+          dict({
+            'de': 'ort',
+          }),
+        ]),
+        'ZIP': list([
+          dict({
+            'de': 'plz',
+          }),
+        ]),
+      }),
+    }),
+  })
+# ---
 # name: test_dms_placeholders_docs_available_placeholders[ag_dms_config]
   list([
     'ADRESSE',
@@ -13626,7 +14386,262 @@
     'ZUSTAENDIG_TITEL',
   ])
 # ---
-# name: test_dms_placeholders_empty[Municipality]
+# name: test_dms_placeholders_docs_available_placeholders[sz_dms_config]
+  list([
+    'FIELD_BAUHERRSCHAFT',
+    'FIELD_BAUHERRSCHAFT.ADRESSE',
+    'FIELD_BAUHERRSCHAFT.ANREDE',
+    'FIELD_BAUHERRSCHAFT.EMAIL',
+    'FIELD_BAUHERRSCHAFT.FIRMA',
+    'FIELD_BAUHERRSCHAFT.HAUSNUMMER',
+    'FIELD_BAUHERRSCHAFT.NACHNAME',
+    'FIELD_BAUHERRSCHAFT.NAME',
+    'FIELD_BAUHERRSCHAFT.ORT',
+    'FIELD_BAUHERRSCHAFT.PLZ',
+    'FIELD_BAUHERRSCHAFT.POSTFACH',
+    'FIELD_BAUHERRSCHAFT.STRASSE',
+    'FIELD_BAUHERRSCHAFT.TEL',
+    'FIELD_BAUHERRSCHAFT.TITEL',
+    'FIELD_BAUHERRSCHAFT.VERTRETER_ADRESSE',
+    'FIELD_BAUHERRSCHAFT.VERTRETER_ANREDE',
+    'FIELD_BAUHERRSCHAFT.VERTRETER_EMAIL',
+    'FIELD_BAUHERRSCHAFT.VERTRETER_HAUSNUMMER',
+    'FIELD_BAUHERRSCHAFT.VERTRETER_NACHNAME',
+    'FIELD_BAUHERRSCHAFT.VERTRETER_NAME',
+    'FIELD_BAUHERRSCHAFT.VERTRETER_NAME_JURISTISCHE_PERSON',
+    'FIELD_BAUHERRSCHAFT.VERTRETER_ORTSCHAFT',
+    'FIELD_BAUHERRSCHAFT.VERTRETER_PLZ',
+    'FIELD_BAUHERRSCHAFT.VERTRETER_POSTFACH',
+    'FIELD_BAUHERRSCHAFT.VERTRETER_STRASSE',
+    'FIELD_BAUHERRSCHAFT.VERTRETER_TELEFON',
+    'FIELD_BAUHERRSCHAFT.VERTRETER_TITEL',
+    'FIELD_BAUHERRSCHAFT.VERTRETER_VORNAME',
+    'FIELD_BAUHERRSCHAFT.VORNAME',
+    'FIELD_BAUHERRSCHAFT[]',
+    'FIELD_BAUHERRSCHAFT[].ADRESSE',
+    'FIELD_BAUHERRSCHAFT[].ANREDE',
+    'FIELD_BAUHERRSCHAFT[].EMAIL',
+    'FIELD_BAUHERRSCHAFT[].FIRMA',
+    'FIELD_BAUHERRSCHAFT[].HAUSNUMMER',
+    'FIELD_BAUHERRSCHAFT[].NACHNAME',
+    'FIELD_BAUHERRSCHAFT[].NAME',
+    'FIELD_BAUHERRSCHAFT[].ORT',
+    'FIELD_BAUHERRSCHAFT[].PLZ',
+    'FIELD_BAUHERRSCHAFT[].POSTFACH',
+    'FIELD_BAUHERRSCHAFT[].STRASSE',
+    'FIELD_BAUHERRSCHAFT[].TEL',
+    'FIELD_BAUHERRSCHAFT[].TITEL',
+    'FIELD_BAUHERRSCHAFT[].VERTRETER_ADRESSE',
+    'FIELD_BAUHERRSCHAFT[].VERTRETER_ANREDE',
+    'FIELD_BAUHERRSCHAFT[].VERTRETER_EMAIL',
+    'FIELD_BAUHERRSCHAFT[].VERTRETER_HAUSNUMMER',
+    'FIELD_BAUHERRSCHAFT[].VERTRETER_NACHNAME',
+    'FIELD_BAUHERRSCHAFT[].VERTRETER_NAME',
+    'FIELD_BAUHERRSCHAFT[].VERTRETER_NAME_JURISTISCHE_PERSON',
+    'FIELD_BAUHERRSCHAFT[].VERTRETER_ORTSCHAFT',
+    'FIELD_BAUHERRSCHAFT[].VERTRETER_PLZ',
+    'FIELD_BAUHERRSCHAFT[].VERTRETER_POSTFACH',
+    'FIELD_BAUHERRSCHAFT[].VERTRETER_STRASSE',
+    'FIELD_BAUHERRSCHAFT[].VERTRETER_TELEFON',
+    'FIELD_BAUHERRSCHAFT[].VERTRETER_TITEL',
+    'FIELD_BAUHERRSCHAFT[].VERTRETER_VORNAME',
+    'FIELD_BAUHERRSCHAFT[].VORNAME',
+    'FIELD_BETROFFENE_NUTZUNGSZONEN',
+    'FIELD_BEZEICHNUNG',
+    'FIELD_BEZEICHNUNG_OVERRIDE',
+    'FIELD_ENERGIE_PHOTOVOLTAIK_GESAMTLEISTUNG',
+    'FIELD_GRUNDEIGENTUMERSCHAFT',
+    'FIELD_GRUNDEIGENTUMERSCHAFT.ADRESSE',
+    'FIELD_GRUNDEIGENTUMERSCHAFT.ANREDE',
+    'FIELD_GRUNDEIGENTUMERSCHAFT.EMAIL',
+    'FIELD_GRUNDEIGENTUMERSCHAFT.FIRMA',
+    'FIELD_GRUNDEIGENTUMERSCHAFT.HAUSNUMMER',
+    'FIELD_GRUNDEIGENTUMERSCHAFT.NACHNAME',
+    'FIELD_GRUNDEIGENTUMERSCHAFT.NAME',
+    'FIELD_GRUNDEIGENTUMERSCHAFT.ORT',
+    'FIELD_GRUNDEIGENTUMERSCHAFT.PLZ',
+    'FIELD_GRUNDEIGENTUMERSCHAFT.POSTFACH',
+    'FIELD_GRUNDEIGENTUMERSCHAFT.STRASSE',
+    'FIELD_GRUNDEIGENTUMERSCHAFT.TEL',
+    'FIELD_GRUNDEIGENTUMERSCHAFT.TITEL',
+    'FIELD_GRUNDEIGENTUMERSCHAFT.VERTRETER_ADRESSE',
+    'FIELD_GRUNDEIGENTUMERSCHAFT.VERTRETER_ANREDE',
+    'FIELD_GRUNDEIGENTUMERSCHAFT.VERTRETER_EMAIL',
+    'FIELD_GRUNDEIGENTUMERSCHAFT.VERTRETER_HAUSNUMMER',
+    'FIELD_GRUNDEIGENTUMERSCHAFT.VERTRETER_NACHNAME',
+    'FIELD_GRUNDEIGENTUMERSCHAFT.VERTRETER_NAME',
+    'FIELD_GRUNDEIGENTUMERSCHAFT.VERTRETER_NAME_JURISTISCHE_PERSON',
+    'FIELD_GRUNDEIGENTUMERSCHAFT.VERTRETER_ORTSCHAFT',
+    'FIELD_GRUNDEIGENTUMERSCHAFT.VERTRETER_PLZ',
+    'FIELD_GRUNDEIGENTUMERSCHAFT.VERTRETER_POSTFACH',
+    'FIELD_GRUNDEIGENTUMERSCHAFT.VERTRETER_STRASSE',
+    'FIELD_GRUNDEIGENTUMERSCHAFT.VERTRETER_TELEFON',
+    'FIELD_GRUNDEIGENTUMERSCHAFT.VERTRETER_TITEL',
+    'FIELD_GRUNDEIGENTUMERSCHAFT.VERTRETER_VORNAME',
+    'FIELD_GRUNDEIGENTUMERSCHAFT.VORNAME',
+    'FIELD_GRUNDEIGENTUMERSCHAFT[]',
+    'FIELD_GRUNDEIGENTUMERSCHAFT[].ADRESSE',
+    'FIELD_GRUNDEIGENTUMERSCHAFT[].ANREDE',
+    'FIELD_GRUNDEIGENTUMERSCHAFT[].EMAIL',
+    'FIELD_GRUNDEIGENTUMERSCHAFT[].FIRMA',
+    'FIELD_GRUNDEIGENTUMERSCHAFT[].HAUSNUMMER',
+    'FIELD_GRUNDEIGENTUMERSCHAFT[].NACHNAME',
+    'FIELD_GRUNDEIGENTUMERSCHAFT[].NAME',
+    'FIELD_GRUNDEIGENTUMERSCHAFT[].ORT',
+    'FIELD_GRUNDEIGENTUMERSCHAFT[].PLZ',
+    'FIELD_GRUNDEIGENTUMERSCHAFT[].POSTFACH',
+    'FIELD_GRUNDEIGENTUMERSCHAFT[].STRASSE',
+    'FIELD_GRUNDEIGENTUMERSCHAFT[].TEL',
+    'FIELD_GRUNDEIGENTUMERSCHAFT[].TITEL',
+    'FIELD_GRUNDEIGENTUMERSCHAFT[].VERTRETER_ADRESSE',
+    'FIELD_GRUNDEIGENTUMERSCHAFT[].VERTRETER_ANREDE',
+    'FIELD_GRUNDEIGENTUMERSCHAFT[].VERTRETER_EMAIL',
+    'FIELD_GRUNDEIGENTUMERSCHAFT[].VERTRETER_HAUSNUMMER',
+    'FIELD_GRUNDEIGENTUMERSCHAFT[].VERTRETER_NACHNAME',
+    'FIELD_GRUNDEIGENTUMERSCHAFT[].VERTRETER_NAME',
+    'FIELD_GRUNDEIGENTUMERSCHAFT[].VERTRETER_NAME_JURISTISCHE_PERSON',
+    'FIELD_GRUNDEIGENTUMERSCHAFT[].VERTRETER_ORTSCHAFT',
+    'FIELD_GRUNDEIGENTUMERSCHAFT[].VERTRETER_PLZ',
+    'FIELD_GRUNDEIGENTUMERSCHAFT[].VERTRETER_POSTFACH',
+    'FIELD_GRUNDEIGENTUMERSCHAFT[].VERTRETER_STRASSE',
+    'FIELD_GRUNDEIGENTUMERSCHAFT[].VERTRETER_TELEFON',
+    'FIELD_GRUNDEIGENTUMERSCHAFT[].VERTRETER_TITEL',
+    'FIELD_GRUNDEIGENTUMERSCHAFT[].VERTRETER_VORNAME',
+    'FIELD_GRUNDEIGENTUMERSCHAFT[].VORNAME',
+    'FIELD_KATEGORIE_DES_VORHABENS',
+    'FIELD_KATEGORIE_DES_VORHABENS[]',
+    'FIELD_ORTSBEZEICHNUNG_DES_VORHABENS',
+    'FIELD_PARZELLEN',
+    'FIELD_PARZELLEN.EGRID',
+    'FIELD_PARZELLEN.NUMBER',
+    'FIELD_PARZELLEN[]',
+    'FIELD_PARZELLEN[].EGRID',
+    'FIELD_PARZELLEN[].NUMBER',
+    'FIELD_PROJEKTVERFASSER_PLANER',
+    'FIELD_PROJEKTVERFASSER_PLANER.ADRESSE',
+    'FIELD_PROJEKTVERFASSER_PLANER.ANREDE',
+    'FIELD_PROJEKTVERFASSER_PLANER.EMAIL',
+    'FIELD_PROJEKTVERFASSER_PLANER.FIRMA',
+    'FIELD_PROJEKTVERFASSER_PLANER.HAUSNUMMER',
+    'FIELD_PROJEKTVERFASSER_PLANER.NACHNAME',
+    'FIELD_PROJEKTVERFASSER_PLANER.NAME',
+    'FIELD_PROJEKTVERFASSER_PLANER.ORT',
+    'FIELD_PROJEKTVERFASSER_PLANER.PLZ',
+    'FIELD_PROJEKTVERFASSER_PLANER.POSTFACH',
+    'FIELD_PROJEKTVERFASSER_PLANER.STRASSE',
+    'FIELD_PROJEKTVERFASSER_PLANER.TEL',
+    'FIELD_PROJEKTVERFASSER_PLANER.TITEL',
+    'FIELD_PROJEKTVERFASSER_PLANER.VERTRETER_ADRESSE',
+    'FIELD_PROJEKTVERFASSER_PLANER.VERTRETER_ANREDE',
+    'FIELD_PROJEKTVERFASSER_PLANER.VERTRETER_EMAIL',
+    'FIELD_PROJEKTVERFASSER_PLANER.VERTRETER_HAUSNUMMER',
+    'FIELD_PROJEKTVERFASSER_PLANER.VERTRETER_NACHNAME',
+    'FIELD_PROJEKTVERFASSER_PLANER.VERTRETER_NAME',
+    'FIELD_PROJEKTVERFASSER_PLANER.VERTRETER_NAME_JURISTISCHE_PERSON',
+    'FIELD_PROJEKTVERFASSER_PLANER.VERTRETER_ORTSCHAFT',
+    'FIELD_PROJEKTVERFASSER_PLANER.VERTRETER_PLZ',
+    'FIELD_PROJEKTVERFASSER_PLANER.VERTRETER_POSTFACH',
+    'FIELD_PROJEKTVERFASSER_PLANER.VERTRETER_STRASSE',
+    'FIELD_PROJEKTVERFASSER_PLANER.VERTRETER_TELEFON',
+    'FIELD_PROJEKTVERFASSER_PLANER.VERTRETER_TITEL',
+    'FIELD_PROJEKTVERFASSER_PLANER.VERTRETER_VORNAME',
+    'FIELD_PROJEKTVERFASSER_PLANER.VORNAME',
+    'FIELD_PROJEKTVERFASSER_PLANER[]',
+    'FIELD_PROJEKTVERFASSER_PLANER[].ADRESSE',
+    'FIELD_PROJEKTVERFASSER_PLANER[].ANREDE',
+    'FIELD_PROJEKTVERFASSER_PLANER[].EMAIL',
+    'FIELD_PROJEKTVERFASSER_PLANER[].FIRMA',
+    'FIELD_PROJEKTVERFASSER_PLANER[].HAUSNUMMER',
+    'FIELD_PROJEKTVERFASSER_PLANER[].NACHNAME',
+    'FIELD_PROJEKTVERFASSER_PLANER[].NAME',
+    'FIELD_PROJEKTVERFASSER_PLANER[].ORT',
+    'FIELD_PROJEKTVERFASSER_PLANER[].PLZ',
+    'FIELD_PROJEKTVERFASSER_PLANER[].POSTFACH',
+    'FIELD_PROJEKTVERFASSER_PLANER[].STRASSE',
+    'FIELD_PROJEKTVERFASSER_PLANER[].TEL',
+    'FIELD_PROJEKTVERFASSER_PLANER[].TITEL',
+    'FIELD_PROJEKTVERFASSER_PLANER[].VERTRETER_ADRESSE',
+    'FIELD_PROJEKTVERFASSER_PLANER[].VERTRETER_ANREDE',
+    'FIELD_PROJEKTVERFASSER_PLANER[].VERTRETER_EMAIL',
+    'FIELD_PROJEKTVERFASSER_PLANER[].VERTRETER_HAUSNUMMER',
+    'FIELD_PROJEKTVERFASSER_PLANER[].VERTRETER_NACHNAME',
+    'FIELD_PROJEKTVERFASSER_PLANER[].VERTRETER_NAME',
+    'FIELD_PROJEKTVERFASSER_PLANER[].VERTRETER_NAME_JURISTISCHE_PERSON',
+    'FIELD_PROJEKTVERFASSER_PLANER[].VERTRETER_ORTSCHAFT',
+    'FIELD_PROJEKTVERFASSER_PLANER[].VERTRETER_PLZ',
+    'FIELD_PROJEKTVERFASSER_PLANER[].VERTRETER_POSTFACH',
+    'FIELD_PROJEKTVERFASSER_PLANER[].VERTRETER_STRASSE',
+    'FIELD_PROJEKTVERFASSER_PLANER[].VERTRETER_TELEFON',
+    'FIELD_PROJEKTVERFASSER_PLANER[].VERTRETER_TITEL',
+    'FIELD_PROJEKTVERFASSER_PLANER[].VERTRETER_VORNAME',
+    'FIELD_PROJEKTVERFASSER_PLANER[].VORNAME',
+    'FIELD_PUBLIKATION_BEMERKUNG',
+    'FIELD_PUNKTE',
+    'FIELD_STANDORT_ADRESSE',
+    'FIELD_STANDORT_KOORDINATEN',
+    'FIELD_STANDORT_ORT',
+    'FIELD_STANDORT_SPEZIALBEZEICHNUNG',
+    'FIELD_VERTRETER_MIT_VOLLMACHT',
+    'FIELD_VERTRETER_MIT_VOLLMACHT.ADRESSE',
+    'FIELD_VERTRETER_MIT_VOLLMACHT.ANREDE',
+    'FIELD_VERTRETER_MIT_VOLLMACHT.EMAIL',
+    'FIELD_VERTRETER_MIT_VOLLMACHT.FIRMA',
+    'FIELD_VERTRETER_MIT_VOLLMACHT.HAUSNUMMER',
+    'FIELD_VERTRETER_MIT_VOLLMACHT.NACHNAME',
+    'FIELD_VERTRETER_MIT_VOLLMACHT.NAME',
+    'FIELD_VERTRETER_MIT_VOLLMACHT.ORT',
+    'FIELD_VERTRETER_MIT_VOLLMACHT.PLZ',
+    'FIELD_VERTRETER_MIT_VOLLMACHT.POSTFACH',
+    'FIELD_VERTRETER_MIT_VOLLMACHT.STRASSE',
+    'FIELD_VERTRETER_MIT_VOLLMACHT.TEL',
+    'FIELD_VERTRETER_MIT_VOLLMACHT.TITEL',
+    'FIELD_VERTRETER_MIT_VOLLMACHT.VERTRETER_ADRESSE',
+    'FIELD_VERTRETER_MIT_VOLLMACHT.VERTRETER_ANREDE',
+    'FIELD_VERTRETER_MIT_VOLLMACHT.VERTRETER_EMAIL',
+    'FIELD_VERTRETER_MIT_VOLLMACHT.VERTRETER_HAUSNUMMER',
+    'FIELD_VERTRETER_MIT_VOLLMACHT.VERTRETER_NACHNAME',
+    'FIELD_VERTRETER_MIT_VOLLMACHT.VERTRETER_NAME',
+    'FIELD_VERTRETER_MIT_VOLLMACHT.VERTRETER_NAME_JURISTISCHE_PERSON',
+    'FIELD_VERTRETER_MIT_VOLLMACHT.VERTRETER_ORTSCHAFT',
+    'FIELD_VERTRETER_MIT_VOLLMACHT.VERTRETER_PLZ',
+    'FIELD_VERTRETER_MIT_VOLLMACHT.VERTRETER_POSTFACH',
+    'FIELD_VERTRETER_MIT_VOLLMACHT.VERTRETER_STRASSE',
+    'FIELD_VERTRETER_MIT_VOLLMACHT.VERTRETER_TELEFON',
+    'FIELD_VERTRETER_MIT_VOLLMACHT.VERTRETER_TITEL',
+    'FIELD_VERTRETER_MIT_VOLLMACHT.VERTRETER_VORNAME',
+    'FIELD_VERTRETER_MIT_VOLLMACHT.VORNAME',
+    'FIELD_VERTRETER_MIT_VOLLMACHT[]',
+    'FIELD_VERTRETER_MIT_VOLLMACHT[].ADRESSE',
+    'FIELD_VERTRETER_MIT_VOLLMACHT[].ANREDE',
+    'FIELD_VERTRETER_MIT_VOLLMACHT[].EMAIL',
+    'FIELD_VERTRETER_MIT_VOLLMACHT[].FIRMA',
+    'FIELD_VERTRETER_MIT_VOLLMACHT[].HAUSNUMMER',
+    'FIELD_VERTRETER_MIT_VOLLMACHT[].NACHNAME',
+    'FIELD_VERTRETER_MIT_VOLLMACHT[].NAME',
+    'FIELD_VERTRETER_MIT_VOLLMACHT[].ORT',
+    'FIELD_VERTRETER_MIT_VOLLMACHT[].PLZ',
+    'FIELD_VERTRETER_MIT_VOLLMACHT[].POSTFACH',
+    'FIELD_VERTRETER_MIT_VOLLMACHT[].STRASSE',
+    'FIELD_VERTRETER_MIT_VOLLMACHT[].TEL',
+    'FIELD_VERTRETER_MIT_VOLLMACHT[].TITEL',
+    'FIELD_VERTRETER_MIT_VOLLMACHT[].VERTRETER_ADRESSE',
+    'FIELD_VERTRETER_MIT_VOLLMACHT[].VERTRETER_ANREDE',
+    'FIELD_VERTRETER_MIT_VOLLMACHT[].VERTRETER_EMAIL',
+    'FIELD_VERTRETER_MIT_VOLLMACHT[].VERTRETER_HAUSNUMMER',
+    'FIELD_VERTRETER_MIT_VOLLMACHT[].VERTRETER_NACHNAME',
+    'FIELD_VERTRETER_MIT_VOLLMACHT[].VERTRETER_NAME',
+    'FIELD_VERTRETER_MIT_VOLLMACHT[].VERTRETER_NAME_JURISTISCHE_PERSON',
+    'FIELD_VERTRETER_MIT_VOLLMACHT[].VERTRETER_ORTSCHAFT',
+    'FIELD_VERTRETER_MIT_VOLLMACHT[].VERTRETER_PLZ',
+    'FIELD_VERTRETER_MIT_VOLLMACHT[].VERTRETER_POSTFACH',
+    'FIELD_VERTRETER_MIT_VOLLMACHT[].VERTRETER_STRASSE',
+    'FIELD_VERTRETER_MIT_VOLLMACHT[].VERTRETER_TELEFON',
+    'FIELD_VERTRETER_MIT_VOLLMACHT[].VERTRETER_TITEL',
+    'FIELD_VERTRETER_MIT_VOLLMACHT[].VERTRETER_VORNAME',
+    'FIELD_VERTRETER_MIT_VOLLMACHT[].VORNAME',
+  ])
+# ---
+# name: test_dms_placeholders_empty[Placeholders empty. App config kt_bern: upper case placeholder variables.]
   dict({
     'ACE': '',
     'ADDRESS': '',
@@ -13669,11 +14684,11 @@
     'AUTEUR_PROJET_TOUS': '',
     'AUTEUR_PROJET_TOUS_NOM_ADRESSE': '',
     'AUTORITE_DIRECTRICE_ADRESSE_1': '',
-    'AUTORITE_DIRECTRICE_ADRESSE_2': '',
+    'AUTORITE_DIRECTRICE_ADRESSE_2': 'Johnsburgh',
     'AUTORITE_DIRECTRICE_EMAIL': 'michelleboone@example.org',
-    'AUTORITE_DIRECTRICE_LIEU': '',
-    'AUTORITE_DIRECTRICE_NOM': 'Alex Smith',
-    'AUTORITE_DIRECTRICE_NOM_ABR': 'Alex Smith',
+    'AUTORITE_DIRECTRICE_LIEU': 'Johnsburgh',
+    'AUTORITE_DIRECTRICE_NOM': 'John Thomas',
+    'AUTORITE_DIRECTRICE_NOM_ABR': 'John Thomas',
     'AUTORITE_DIRECTRICE_TELEPHONE': '',
     'BASE_URL': 'http://ebau.localhost',
     'BAUEINGABE_DATUM': '30. August 2021',
@@ -13878,15 +14893,15 @@
     'LEGAL_CUSTODIANS': list([
     ]),
     'LEITBEHOERDE_ADDRESS_1': '',
-    'LEITBEHOERDE_ADDRESS_2': '',
+    'LEITBEHOERDE_ADDRESS_2': 'Johnsburgh',
     'LEITBEHOERDE_ADRESSE_1': '',
-    'LEITBEHOERDE_ADRESSE_2': '',
-    'LEITBEHOERDE_CITY': '',
+    'LEITBEHOERDE_ADRESSE_2': 'Johnsburgh',
+    'LEITBEHOERDE_CITY': 'Johnsburgh',
     'LEITBEHOERDE_EMAIL': 'michelleboone@example.org',
-    'LEITBEHOERDE_NAME': 'Alex Smith',
-    'LEITBEHOERDE_NAME_KURZ': 'Alex Smith',
+    'LEITBEHOERDE_NAME': 'John Thomas',
+    'LEITBEHOERDE_NAME_KURZ': 'John Thomas',
     'LEITBEHOERDE_PHONE': '',
-    'LEITBEHOERDE_STADT': '',
+    'LEITBEHOERDE_STADT': 'Johnsburgh',
     'LEITBEHOERDE_TELEFON': '',
     'LEITPERSON': '',
     'LIEN_PUBLICATION': 'http://ebau-portal.localhost/public-instances/1',
@@ -13899,12 +14914,12 @@
     'MATIERES_DANGEREUSES': list([
     ]),
     'MEINE_ORGANISATION_ADRESSE_1': '',
-    'MEINE_ORGANISATION_ADRESSE_2': '',
+    'MEINE_ORGANISATION_ADRESSE_2': 'Johnsburgh',
     'MEINE_ORGANISATION_EMAIL': 'michelleboone@example.org',
-    'MEINE_ORGANISATION_NAME': 'Alex Smith',
-    'MEINE_ORGANISATION_NAME_ADRESSE': 'Alex Smith',
-    'MEINE_ORGANISATION_NAME_KURZ': 'Alex Smith',
-    'MEINE_ORGANISATION_ORT': '',
+    'MEINE_ORGANISATION_NAME': 'John Thomas',
+    'MEINE_ORGANISATION_NAME_ADRESSE': 'John Thomas, Johnsburgh',
+    'MEINE_ORGANISATION_NAME_KURZ': 'John Thomas',
+    'MEINE_ORGANISATION_ORT': 'Johnsburgh',
     'MEINE_ORGANISATION_TELEFON': '',
     'MES_EMOLUMENTS': list([
     ]),
@@ -13912,12 +14927,12 @@
     'MODIFICATION_DATE': '',
     'MODIFICATION_TIME': '',
     'MON_ORGANISATION_ADRESSE_1': '',
-    'MON_ORGANISATION_ADRESSE_2': '',
+    'MON_ORGANISATION_ADRESSE_2': 'Johnsburgh',
     'MON_ORGANISATION_EMAIL': 'michelleboone@example.org',
-    'MON_ORGANISATION_LIEU': '',
-    'MON_ORGANISATION_NOM': 'Alex Smith',
-    'MON_ORGANISATION_NOM_ABR': 'Alex Smith',
-    'MON_ORGANISATION_NOM_ADRESSE': 'Alex Smith',
+    'MON_ORGANISATION_LIEU': 'Johnsburgh',
+    'MON_ORGANISATION_NOM': 'John Thomas',
+    'MON_ORGANISATION_NOM_ABR': 'John Thomas',
+    'MON_ORGANISATION_NOM_ADRESSE': 'John Thomas, Johnsburgh',
     'MON_ORGANISATION_TELEPHONE': '',
     'MOTS_CLES': '',
     'MUNICIPALITY': '',
@@ -14130,6 +15145,32 @@
     'ZUSTAENDIG_NAME': '',
     'ZUSTAENDIG_PHONE': '',
     'ZUSTAENDIG_TELEFON': '',
+  })
+# ---
+# name: test_dms_placeholders_empty[Placholders empty. App config kt_schwyz: lower case placeholder variables.]
+  dict({
+    'field_bauherrschaft': list([
+    ]),
+    'field_betroffene_nutzungszonen': '',
+    'field_bezeichnung': '',
+    'field_bezeichnung_override': '',
+    'field_energie_photovoltaik_gesamtleistung': '',
+    'field_grundeigentumerschaft': list([
+    ]),
+    'field_kategorie_des_vorhabens': '',
+    'field_ortsbezeichnung_des_vorhabens': '',
+    'field_parzellen': list([
+    ]),
+    'field_projektverfasser_planer': list([
+    ]),
+    'field_publikation_bemerkung': '',
+    'field_punkte': '',
+    'field_standort_adresse': '',
+    'field_standort_koordinaten': '',
+    'field_standort_ort': '',
+    'field_standort_spezialbezeichnung': '',
+    'field_vertreter_mit_vollmacht': list([
+    ]),
   })
 # ---
 # name: test_dms_placeholders_gr[municipality-lead]
@@ -16130,6 +17171,116 @@
     'ZUSTAENDIG_POSITION': '',
     'ZUSTAENDIG_TELEFON': '',
     'ZUSTAENDIG_TITEL': '',
+  })
+# ---
+# name: test_dms_placeholders_sz[Placholders response for kt_schwyz]
+  dict({
+    'field_bauherrschaft': list([
+      dict({
+        'ADDRESS': 'Teststrasse 3, 5678 Musterdorf',
+        'EMAIL': '',
+        'FIRST_NAME': 'Max',
+        'JURISTIC_NAME': 'ACME AG',
+        'LAST_NAME': 'Mustermann',
+        'NAME': 'Max Mustermann',
+        'PO_BOX': '',
+        'REPRESENTATIVE_ADDRESS': '',
+        'REPRESENTATIVE_EMAIL': '',
+        'REPRESENTATIVE_FIRST_NAME': '',
+        'REPRESENTATIVE_JURISTIC_NAME': '',
+        'REPRESENTATIVE_LAST_NAME': '',
+        'REPRESENTATIVE_NAME': '',
+        'REPRESENTATIVE_PO_BOX': '',
+        'REPRESENTATIVE_SALUTATION': '',
+        'REPRESENTATIVE_STREET': '',
+        'REPRESENTATIVE_STREET_NUMBER': '',
+        'REPRESENTATIVE_TEL': '',
+        'REPRESENTATIVE_TITLE': '',
+        'REPRESENTATIVE_TOWN': '',
+        'REPRESENTATIVE_ZIP': '',
+        'SALUTATION': '',
+        'STREET': 'Teststrasse 3',
+        'STREET_NUMBER': '',
+        'TEL': '',
+        'TITLE': '',
+        'TOWN': 'Musterdorf',
+        'ZIP': 5678,
+        'adresse': 'Teststrasse 3, 5678 Musterdorf',
+        'anrede': '',
+        'email': '',
+        'firma': 'ACME AG',
+        'hausnummer': '',
+        'nachname': 'Mustermann',
+        'name': 'Max Mustermann',
+        'ort': 'Musterdorf',
+        'plz': 5678,
+        'postfach': '',
+        'strasse': 'Teststrasse 3',
+        'tel': '',
+        'titel': '',
+        'vertreter_adresse': '',
+        'vertreter_anrede': '',
+        'vertreter_email': '',
+        'vertreter_hausnummer': '',
+        'vertreter_nachname': '',
+        'vertreter_name': '',
+        'vertreter_name_juristische_person': '',
+        'vertreter_ortschaft': '',
+        'vertreter_plz': '',
+        'vertreter_postfach': '',
+        'vertreter_strasse': '',
+        'vertreter_telefon': '',
+        'vertreter_titel': '',
+        'vertreter_vorname': '',
+        'vorname': 'Max',
+      }),
+    ]),
+    'field_betroffene_nutzungszonen': '',
+    'field_bezeichnung': 'Grosses Haus',
+    'field_bezeichnung_override': 'Grosses Haus',
+    'field_energie_photovoltaik_gesamtleistung': '',
+    'field_grundeigentumerschaft': list([
+    ]),
+    'field_kategorie_des_vorhabens': '',
+    'field_ortsbezeichnung_des_vorhabens': '',
+    'field_parzellen': list([
+      dict({
+        'egrid': 'CH1234567890',
+        'egrid_number': 'CH1234567890',
+        'number': 1234,
+        'plot_number': 1234,
+      }),
+    ]),
+    'field_projektverfasser_planer': list([
+    ]),
+    'field_publikation_bemerkung': '',
+    'field_punkte': list([
+      list([
+        dict({
+          'lat': 47.175669937318816,
+          'lng': 8.8984885140077,
+        }),
+        dict({
+          'lat': 47.03185841071765,
+          'lng': 8.622585392467867,
+        }),
+      ]),
+      list([
+        dict({
+          'lat': 47.03185841071765,
+          'lng': 8.622585392467867,
+        }),
+      ]),
+    ]),
+    'field_standort_adresse': '',
+    'field_standort_koordinaten': '''
+      2693525; 1210987
+  
+    ''',
+    'field_standort_ort': '',
+    'field_standort_spezialbezeichnung': '',
+    'field_vertreter_mit_vollmacht': list([
+    ]),
   })
 # ---
 # name: test_dms_placeholders_ur[Municipality]

@@ -617,7 +617,6 @@ class MasterDataField(AliasedMixin, serializers.ReadOnlyField):
             parsed_values = list(filter(None, [parse(v) for v in value]))
 
             return sum(parsed_values) if len(parsed_values) else ""
-
         return self.parser(super().to_representation(value))
 
     def _get_attribute(self, instance, source):
@@ -1157,7 +1156,7 @@ class MasterDataPersonObjectField(MasterDataField):
     nested_aliases = {
         "NAME": [_("NAME")],
         "ADDRESS": [_("ADDRESS")],
-        "JURISTIC_NAME": [_("NAME_JURISTIC_PERSON")],
+        "JURISTIC_NAME": [{"default": _("NAME_JURISTIC_PERSON"), "sz": _("COMPANY")}],
         "SALUTATION": [_("SALUTATION")],
         "TITLE": [_("TITLE")],
         "FIRST_NAME": [_("FIRST_NAME")],
@@ -1166,8 +1165,8 @@ class MasterDataPersonObjectField(MasterDataField):
         "STREET_NUMBER": [_("STREET_NUMBER")],
         "PO_BOX": [_("PO_BOX")],
         "ZIP": [_("ZIP")],
-        "TOWN": [_("TOWN")],
-        "TEL": [_("PHONE")],
+        "TOWN": [{"default": _("TOWN"), "sz": _("LOCATION")}],
+        "TEL": [{"default": _("PHONE"), "sz": _("TEL")}],
         "EMAIL": [_("EMAIL")],
         "REPRESENTATIVE_NAME": [_("REPRESENTATIVE_NAME")],
         "REPRESENTATIVE_ADDRESS": [_("REPRESENTATIVE_ADDRESS")],

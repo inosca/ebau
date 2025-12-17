@@ -1766,6 +1766,12 @@ def sz_master_data_case(db, sz_instance, form_field_factory, location_factory):
         ],
     )
 
+    form_field_factory(
+        instance=sz_instance,
+        name="standort-koordinaten",
+        value="2693525; 1210987\n",
+    )
+
     return sz_instance.case
 
 
