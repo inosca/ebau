@@ -27,13 +27,11 @@ from camac.constants import (
     kt_bern as be_constants,
     kt_uri as uri_constants,
 )
-from camac.core.models import Chapter, Question, QuestionType
+from camac.core.models import Chapter, QuestionType
 from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import Instance
 from camac.instance.serializers import (
-    SUBMIT_DATE_CHAPTER,
     SUBMIT_DATE_FORMAT,
-    SUBMIT_DATE_QUESTION_ID,
     CalumaInstanceSerializer,
     CalumaInstanceSubmitSerializer,
 )
@@ -44,18 +42,6 @@ from camac.permissions.conditions import (
 from camac.permissions.switcher import PERMISSION_MODE
 from camac.user.models import Location, Service
 from camac.utils import flatten
-
-
-@pytest.fixture
-def submit_date_question(db):
-    chap, _ = Chapter.objects.get_or_create(pk=SUBMIT_DATE_CHAPTER, name="Hidden")
-    qtype, _ = QuestionType.objects.get_or_create(name="Date")
-    question, _ = Question.objects.get_or_create(
-        pk=SUBMIT_DATE_QUESTION_ID, question_type=qtype
-    )
-    question.trans.create(language="de", name="Einreichedatum")
-
-    return question
 
 
 @pytest.fixture
@@ -283,7 +269,6 @@ def test_create_instance_caluma_ur(  # noqa: C901
     instance_state_factory(name="new")
 
     project_modification_settings["ALLOW_FORMS"] = ["main-form"]
-    application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = True
 
     role = admin_client.user.groups.first().role
@@ -541,7 +526,6 @@ def test_instance_submit_be(
     service,
     admin_user,
     notification_template,
-    submit_date_question,
     settings,
     mock_public_status,
     multilang,
@@ -607,7 +591,6 @@ def test_instance_submit_ur(
     service,
     admin_user,
     notification_template,
-    submit_date_question,
     settings,
     mock_public_status,
     multilang,
@@ -628,7 +611,6 @@ def test_instance_submit_ur(
         {"template_slug": notification_template.slug, "recipient_types": ["applicant"]}
     ]
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = True
-    application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
     application_settings["PAPER"]["ALLOWED_SERVICE_GROUPS"]["DEFAULT"] = [
         ur_instance.group.service.service_group_id
     ]
@@ -844,7 +826,6 @@ def test_instance_submit_cantonal_territory_usage_ur(
         ],
     }
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = True
-    application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
 
     location = location_factory(communal_federal_number="1")
 
@@ -912,7 +893,6 @@ def test_instance_submit_mitbericht_bund_ur(
         ],
     }
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = True
-    application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
 
     location = location_factory(communal_federal_number="1")
 
@@ -985,7 +965,6 @@ def test_instance_submit_heat_extraction_ur(
         ],
     }
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = True
-    application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
 
     workflow_item_factory(workflow_item_id=uri_constants.WORKFLOW_ITEM_DOSSIER_ERFASST)
 
@@ -1074,7 +1053,6 @@ def test_instance_submit_pgv_gemeindestrasse_ur(
         ],
     }
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = True
-    application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
 
     workflow_item_factory(workflow_item_id=uri_constants.WORKFLOW_ITEM_DOSSIER_ERFASST)
 
@@ -1149,7 +1127,6 @@ def test_instance_submit_einfache_anfrage_ur(
         ],
     }
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = True
-    application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
 
     workflow_item_factory(workflow_item_id=uri_constants.WORKFLOW_ITEM_DOSSIER_ERFASST)
 
@@ -1199,8 +1176,6 @@ def test_instance_submit_mitbericht_kanton_doesnt_send_mail(
     ur_instance.case.document.form_id = "mitbericht-kanton"
     ur_instance.case.document.save()
 
-    application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
-
     location = location_factory()
 
     ur_instance.case.document.answers.get(question_id="municipality").delete()
@@ -1247,7 +1222,6 @@ def test_instance_authority_by_submission_for_koor_afg(
 ):
     settings.APPLICATION_NAME = "kt_uri"
     application_settings["STORE_PDF"] = False
-    application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
 
     ur_instance.case.document.form_id = "bgbb"
     ur_instance.case.document.save()
@@ -1426,7 +1400,6 @@ def test_oereb_instance_copy_for_koor_afj(
         )
 
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = True
-    application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
 
     instance_state_factory(name="ext")
     instance_state_factory(name="comm")
@@ -1503,7 +1476,6 @@ def test_instance_submit_message_building_services_ur(
     )
 
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = True
-    application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
 
     workflow_item_factory(workflow_item_id=uri_constants.WORKFLOW_ITEM_DOSSIER_ERFASST)
 
@@ -1541,7 +1513,6 @@ def test_instance_submit_state_change_be(
     instance_state_factory,
     service,
     admin_user,
-    submit_date_question,
     settings,
     mock_public_status,
     multilang,
@@ -2487,7 +2458,6 @@ def test_rejection(
     caluma_workflow_config_be,
     mock_generate_and_store_pdf,
     application_settings,
-    submit_date_question,
     rejection_settings,
     caluma_admin_user,
     disable_ech0211_settings,
@@ -2566,7 +2536,6 @@ def test_be_copy_responsible_user_on_submit(
     caluma_workflow_config_be,
     mock_generate_and_store_pdf,
     application_settings,
-    submit_date_question,
     rejection_settings,
     caluma_work_item_factory,
     user_factory,
@@ -3131,7 +3100,6 @@ def test_instance_submit_so(
 ):
     settings.APPLICATION_NAME = "kt_so"
     application_settings["SHORT_NAME"] = "so"
-    application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = False
     application_settings["NOTIFICATIONS"] = {"SUBMIT": [], "SUBMIT_OTHERS": []}
 
@@ -3190,7 +3158,6 @@ def test_instance_submit_so_bab(
 ):
     settings.APPLICATION_NAME = "kt_so"
     application_settings["SHORT_NAME"] = "so"
-    application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = False
     application_settings["NOTIFICATIONS"] = {"SUBMIT": [], "SUBMIT_OTHERS": []}
 
@@ -3240,7 +3207,6 @@ def test_instance_submit_so_canton(
     utils,
 ):
     settings.APPLICATION_NAME = "kt_so"
-    application_settings["SET_SUBMIT_DATE_CAMAC_ANSWER"] = False
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = False
     application_settings["NOTIFICATIONS"] = {"SUBMIT": [], "SUBMIT_OTHERS": []}
 
