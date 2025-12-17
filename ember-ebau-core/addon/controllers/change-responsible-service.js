@@ -25,6 +25,12 @@ export default class ChangeResponsibleServiceController extends Controller {
     return this.activeServices?.records?.[0];
   }
 
+  get selectableServicesWithoutOwnService() {
+    return this.selectableServices?.records?.filter(
+      (service) => service.id !== this.activeService?.id,
+    );
+  }
+
   instance = findRecord(this, "instance", () => [
     this.ebauModules.instanceId,
     { include: "services,services.service_group" },
