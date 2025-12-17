@@ -128,6 +128,7 @@ def test_notify_manual_work_item(
     addressed_service = service_factory()
 
     deadline = timezone.now()
+    deadline_future = timezone.now() + timedelta(days=2)
     task = caluma_task_factory(
         slug=application_settings["CALUMA"]["MANUAL_WORK_ITEM_TASK"],
     )
@@ -148,8 +149,12 @@ def test_notify_manual_work_item(
         },
         **work_item_args,
     )
+    instance.case = work_item.case
+    instance.save()
+
     caluma_work_item_factory(
         task=task,
+        case=instance.case,
         meta={
             "ebau-number": "2020-01",
             "notify-completed": True,
@@ -160,6 +165,7 @@ def test_notify_manual_work_item(
 
     caluma_work_item_factory(
         task=task_ignored,
+        case=instance.case,
         meta={
             "ebau-number": "2020-01",
             "notify-completed": True,
@@ -167,9 +173,16 @@ def test_notify_manual_work_item(
         },
         **work_item_args,
     )
-
-    instance.case = work_item.case
-    instance.save()
+    caluma_work_item_factory(
+        task=task,
+        case=instance.case,
+        meta={
+            "ebau-number": "2020-01",
+            "notify-completed": True,
+            "notify-deadline": True,
+        },
+        **{**work_item_args, "deadline": deadline_future},
+    )
 
     # Setup periodic task
 

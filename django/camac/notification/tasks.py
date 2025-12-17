@@ -67,7 +67,7 @@ def send_notification_for_overdue_workitems(self):
                 **{
                     "task": task_id,
                     "meta__notify-deadline": True,
-                    "deadline__gt": check_deadlines_since,
+                    "deadline__range": [check_deadlines_since, now],
                     "closed_at__isnull": True,
                 }
             ):
