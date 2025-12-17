@@ -39,7 +39,7 @@
         @searchField="name"
         @allowClear={{true}}
         @renderInPlace={{true}}
-        @options={{this.selectableServices.records}}
+        @options={{this.selectableServicesWithoutOwnService}}
         @disabled={{this.change.isRunning}}
         @selected={{this.selectedService}}
         @onChange={{fn (mut this.selectedService)}}
