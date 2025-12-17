@@ -4,6 +4,8 @@ import pytest
 from django.urls import reverse
 from rest_framework import status
 
+from camac.user.models import Service
+
 
 @pytest.fixture
 def mock_cache(mocker):
@@ -372,3 +374,112 @@ def test_suggestion_for_instance_filter_camac_ng(
             reverse("publicservice-list"),
             {"suggestion_for_instance": sz_instance.pk},
         )
+
+
+@pytest.mark.parametrize(
+    "is_bab,is_responsible,expected_services",
+    [
+        (
+            False,
+            False,
+            ["are", "awn", "amz", "anu", "gvg-brandschutz", "pro-infirmis"],
+        ),
+        (
+            False,
+            True,
+            ["are", "awn", "amz", "anu", "gvg-brandschutz", "pro-infirmis"],
+        ),
+        (
+            True,
+            False,
+            ["are", "awn", "amz", "anu", "gvg-brandschutz", "pro-infirmis"],
+        ),
+        # bab + responsible service can only see a limited set of suggestions
+        (True, True, ["are", "gvg-brandschutz", "pro-infirmis"]),
+    ],
+)
+@pytest.mark.parametrize(
+    "answers",
+    [
+        [
+            # are
+            ("ausserhalb-bauzone", ["ausserhalb-bauzone-ja"]),
+            # awn
+            ("waldareal", "waldareal-ja"),
+            # amz
+            ("wohnnutzung", "wohnnutzung-ja"),
+            # pro-infirmis
+            (
+                "mehr-als-vier-wohneinheiten",
+                "mehr-als-vier-wohneinheiten-ja",
+            ),
+            # anu
+            (
+                "beschreibung-der-nutzung",
+                "beschreibung-der-nutzung-abfallanlage",
+            ),
+            # gvg-brandschutz
+            (
+                "haustechnische-anlagen-brandschutz",
+                "haustechnische-anlagen-brandschutz-ja",
+            ),
+        ],
+    ],
+)
+@pytest.mark.parametrize(
+    "role__name,service_group__name", [("municipality-lead", "municipality")]
+)
+def test_suggestion_for_instance_filter_caluma_gr(
+    admin_client,
+    gr_instance,
+    service_factory,
+    caluma_question_factory,
+    gr_distribution_settings,
+    responsible_service_factory,
+    instance_service_factory,
+    service,
+    is_bab,
+    expected_services,
+    answers,
+    is_responsible,
+    service_group,
+    role,
+    mock_cache,
+    set_application_gr,
+):
+    gr_instance.case.meta["is-bab"] = is_bab
+    gr_instance.case.save()
+
+    if is_responsible:
+        responsible_service_factory(
+            instance=gr_instance, service=service, responsible_user=admin_client.user
+        )
+        instance_service_factory(instance=gr_instance, service=service, active=1)
+
+    # create all necessary services
+    for service_id in set(
+        chain(
+            *[
+                chain(*config.values())
+                for config in gr_distribution_settings["SUGGESTIONS"].values()
+            ]
+        )
+    ):
+        service_factory(slug=service_id)
+
+    # create questions/answers to trigger suggestions.
+    for ans in answers:
+        caluma_question_factory(slug=ans[0])
+        gr_instance.case.document.answers.create(question_id=ans[0], value=ans[1])
+
+    response = admin_client.get(
+        reverse("publicservice-list"),
+        {"suggestion_for_instance": gr_instance.pk},
+    )
+    assert response.status_code == status.HTTP_200_OK
+    assert set(
+        [
+            str(Service.objects.get(pk=entry["id"]).slug)
+            for entry in response.json()["data"]
+        ]
+    ) == set(expected_services)
