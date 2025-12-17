@@ -407,6 +407,8 @@ paper:
     forme papier (dossier papier). Si vous souhaitez créer un dossier normal en
     tant que requérant/e, sélectionnez "Requérant/e" dans le menu de groupe
     en haut à droite de la page.'
+  warningTitle: "ATTENTION:"
+  warningBody: "Aucune autorisation ne peut être accordée pour les dossiers papier. Les personnes requérantes n'ont pas accès à ces dossiers."
 
 modification:
   type: "modification du projet"

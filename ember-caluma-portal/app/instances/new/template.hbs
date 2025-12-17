@@ -28,11 +28,24 @@
     {{/if}}
 
     {{#if (and isPaper (not (is-application "ur" "so")))}}
-      <div class="uk-flex uk-flex-center uk-margin-large-top">
-        <div class="uk-alert uk-alert-warning uk-width-large">
+      <div
+        class="uk-flex uk-flex-column uk-flex-middle uk-flex-center uk-margin-large-top"
+      >
+        <div
+          class={{concat
+            "uk-alert uk-width-large "
+            (if (is-application "be") "uk-alert-danger" "uk-alert-warning")
+          }}
+        >
           <strong>{{t "paper.noteTitle"}}</strong>
           {{t "paper.noteBody"}}
         </div>
+        {{#if (is-application "be")}}
+          <div class="uk-alert uk-alert-danger uk-width-large">
+            <strong>{{t "paper.warningTitle"}}</strong>
+            {{t "paper.warningBody"}}
+          </div>
+        {{/if}}
       </div>
     {{/if}}
 
