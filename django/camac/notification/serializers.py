@@ -1767,7 +1767,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             ):  # pragma: no cover
                 # GR doesn't want to have events in their logs with
                 # "Notification sent to no receivers"
-                return 0
+                continue
 
             subject = subj_prefix + validated_data["subject"]
 
