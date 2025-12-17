@@ -1,4 +1,3 @@
-import json
 import uuid
 
 from django.conf import settings
@@ -756,48 +755,6 @@ class Answer(models.Model):
     )
     item = models.IntegerField(db_column="ITEM")
     answer = models.TextField(db_column="ANSWER")
-
-    @staticmethod
-    def get_value_by_cqi(
-        instance, chapter, question, item, *, default=None, fail_on_not_found=False
-    ):
-        """
-        Fetch CAMAC form answer specified by a CQI triplet for the given instance.
-
-        CQI is ChapterID, QuestionID, Item and is used a lot in "old" CAMAC
-
-        By default, returns `None` if the answer is not found, but can be told
-        to raise an exception by passing `fail_on_not_found=True`. You can also
-        pass in another fallback value by passing `default=your_value`.
-        """
-
-        def _json_valid_or_none(data):
-            try:
-                return json.loads(data)
-            except json.decoder.JSONDecodeError:  # pragma: no cover
-                return None
-
-        try:
-            ans = Answer.objects.get(
-                instance=instance, question=question, chapter=chapter, item=item
-            )
-            option_values = _json_valid_or_none(ans.answer)
-            if option_values and ans.question.answerlist.exists():
-                # make the extra effort to get the correct ordering
-                option_labels = {
-                    vl.value: vl.get_name()
-                    for vl in ans.question.answerlist.all().filter(
-                        value__in=option_values
-                    )
-                }
-                return ", ".join(option_labels.get(val, "") for val in option_values)
-            else:  # pragma: no cover
-                return ans.answer
-
-        except Answer.DoesNotExist:  # pragma: no cover
-            if fail_on_not_found:
-                raise
-            return default
 
     class Meta:
         managed = True
