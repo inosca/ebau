@@ -96,6 +96,7 @@ DOSSIER_IMPORT = {
             "DJANGO_DOSSIER_IMPORT_PROD_AUTH_URL",
             "https://ebau.so.ch/auth/realms/ebau/protocol/openid-connect/token",
         ),
+        "QUEUE": "celery",
     },
     "kt_ag": {
         "ENABLED": True,
