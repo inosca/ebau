@@ -93,6 +93,7 @@ COMPLETE_PRELIMINARY_CLARIFICATION_SLUGS_BE = [
     "vorabklaerung-vollstaendig-v3",
     "vorabklaerung-vollstaendig-v4",
     "vorabklaerung-vollstaendig-v5",
+    "vorabklaerung-vollstaendig-v6",
 ]
 PREVENT_SUBMIT_MUNICIPALITY_RESPONSE_CODE = "municipality_not_allowed"
 

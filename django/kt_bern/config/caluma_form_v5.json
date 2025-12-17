@@ -197,7 +197,7 @@
         "is-creatable": true,
         "is-main-form": true
       },
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": "baugesuch-generell-v3"
     }
@@ -220,7 +220,7 @@
         "is-creatable": true,
         "is-main-form": true
       },
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": "baugesuch-mit-uvp-v3"
     }
@@ -243,7 +243,7 @@
         "is-creatable": true,
         "is-main-form": true
       },
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": "baugesuch-v3"
     }
@@ -523,7 +523,7 @@
         "is-creatable": true,
         "is-main-form": true
       },
-      "is_published": true,
+      "is_published": false,
       "is_archived": false,
       "source": "vorabklaerung-vollstaendig-v4"
     }
@@ -5689,8 +5689,8 @@
     "model": "caluma_form.formquestion",
     "pk": "nutzung-bauvorhaben-v5.triage-v5",
     "fields": {
-      "created_at": "2024-07-22T19:41:59.079Z",
-      "modified_at": "2024-07-22T19:41:59.079Z",
+      "created_at": "2025-10-31T15:40:30.944Z",
+      "modified_at": "2025-10-31T15:40:30.945Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": null,
@@ -20468,7 +20468,7 @@
     "pk": "triage-v5",
     "fields": {
       "created_at": "2024-07-22T19:41:59.016Z",
-      "modified_at": "2024-07-22T19:42:22.458Z",
+      "modified_at": "2025-10-31T15:36:41.334Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -20479,7 +20479,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},

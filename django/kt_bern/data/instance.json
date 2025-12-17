@@ -57,6 +57,25 @@
     }
   },
   {
+    "model": "instance.instance",
+    "pk": 4,
+    "fields": {
+      "instance_state": 1,
+      "form": 1,
+      "user": 2,
+      "group": 6,
+      "creation_date": "2025-11-27T09:31:13.091Z",
+      "modification_date": "2025-11-27T09:31:13.091Z",
+      "previous_instance_state": 1,
+      "identifier": null,
+      "location": null,
+      "case": "069281a6-1fcb-7693-8000-53d79d1acb0d",
+      "instance_group": null,
+      "rejection_feedback": null,
+      "copy_source": null
+    }
+  },
+  {
     "model": "instance.historyentry",
     "pk": 4,
     "fields": {

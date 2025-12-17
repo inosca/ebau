@@ -765,7 +765,7 @@
               'choices': list([
                 dict({
                   'checked': False,
-                  'label': 'Solar- oder Photovoltaik-Anlage',
+                  'label': 'Thermische Solaranlage oder Photovoltaikanlage',
                 }),
                 dict({
                   'checked': False,
