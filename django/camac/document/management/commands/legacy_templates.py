@@ -16,7 +16,7 @@ class Command(BaseCommand):
             self.template_class = getattr(
                 importlib.import_module("camac.document.models"), "Template"
             )
-        except ImportError:
+        except ImportError:  # pragma: no cover, handles future deprecation
             raise CommandError(
                 "'camac.document.models.Template' is not defined anymore."
             )
@@ -36,12 +36,6 @@ class Command(BaseCommand):
             help="Extract used placeholders from legacy templates.",
         )
         extract_used_parser.set_defaults(method=self.extract_used)
-
-        # migrate templates to DMS
-        migrate_to_dms_parser = subparsers.add_parser(
-            "migrate_templates", help="Migrate legacy templates to DMS"
-        )
-        migrate_to_dms_parser.set_defaults(method=self.migrate_to_dms)
 
     def handle(self, *args, method, **options):
         method(*args, **options)
@@ -73,6 +67,3 @@ class Command(BaseCommand):
 
         for placeholder in sorted(self.all_placeholders):
             self.stdout.write(f"\t- {placeholder}")
-
-    def migrate_to_dms(self, *args, **options):
-        raise NotImplementedError
