@@ -64370,10 +64370,10 @@
     "pk": "hinweis-einzelfeuerung",
     "fields": {
       "created_at": "2024-06-24T05:47:06.504Z",
-      "modified_at": "2024-09-11T14:58:40.789Z",
+      "modified_at": "2025-12-17T15:09:52.349Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Hinweis Einzelfeuerung\", \"fr\": null, \"it\": \"Nota impianto di combustione singolo\"}",
       "type": "static",
@@ -64381,9 +64381,9 @@
       "is_hidden": "!(\n\t\"sind-folgende-anlagen-betroffen-einzelfeuerungen\" in \"sind-folgende-anlagen-betroffen\"|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"Für die Erstellung einer Einzelfeuerung für feste Brennstoffe oder Öl muss das Formular [Gesuch für eine Bewilligung sowie Übereinstimmungserklärung für eine Einzelfeuerung für feste Brennstoffe oder Öl](https://gvg.gr.ch/gvg-download-bereich#Brandschutz+Formulare_und_Gesuche) der Gebäudeversicherung Graubünden, Brandschutz, vom Errichter der Anlage unterzeichnet, eingereicht werden.\", \"fr\": \"\", \"it\": \"Chi intende realizzare un impianto di combustione singolo per combustibili solidi oppure a olio deve firmare e inoltrare il modulo [Domanda di permesso per impianti di combustione singoli a combustibili solidi e olio](https://gvg.gr.ch/it/gvg-area-download#Protezione_antincendio+Moduli) dell'Assicurazione fabbricati dei Grigioni, protezione antincendio.\"}",
+      "static_content": "{\"de\": \"Für die Erstellung einer Einzelfeuerung für feste Brennstoffe oder Öl muss das Formular [Gesuch für eine Bewilligung sowie Übereinstimmungserklärung für eine Einzelfeuerung für feste Brennstoffe oder Öl](https://gvg.gr.ch/de/downloads) der Gebäudeversicherung Graubünden, Brandschutz, vom Errichter der Anlage unterzeichnet, eingereicht werden.\", \"fr\": \"\", \"it\": \"Chi intende realizzare un impianto di combustione singolo per combustibili solidi oppure a olio deve firmare e inoltrare il modulo [Domanda di permesso per impianti di combustione singoli a combustibili solidi e olio](https://gvg.gr.ch/it/download) dell'Assicurazione fabbricati dei Grigioni, protezione antincendio.\"}",
       "configuration": {
         "max_length": null,
         "min_length": null
@@ -64946,7 +64946,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"**Bitte beachten:** Bei Gefahrenzonen ist dem Gesuch ein [Vorprüfungsentscheid der Gebäudeversicherung Graubünden](https://gvg.gr.ch/de/bauen-in-gefahrenzonen) beizulegen.\", \"fr\": \"\", \"it\": \"**Attenzione:** Alle domande che riguardano zone di pericolo deve essere allegata una [decisione dell'Assicurazione fabbricati del Cantone dei Grigioni relativa all'esame preliminare](https://gvg.gr.ch/de/bauen-in-gefahrenzonen).\"}",
+      "static_content": "{\"de\": \"**Bitte beachten:** Bei Gefahrenzonen ist dem Gesuch ein [Vorprüfungsentscheid der Gebäudeversicherung Graubünden](https://gvg.gr.ch/de/bauen-in-gefahrenzonen) beizulegen.\", \"fr\": \"\", \"it\": \"**Attenzione:** Alle domande che riguardano zone di pericolo deve essere allegata una [decisione dell'Assicurazione fabbricati del Cantone dei Grigioni relativa all'esame preliminare](https://gvg.gr.ch/it/costruire-in-zone-di-pericolo).\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
