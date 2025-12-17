@@ -32,6 +32,7 @@ lint.ignore = [
     "D406", # Section name should end with a newline
     "D203", # one-blank-line-before-class (docstring)
     "D413", # Missing blank line after last section
+    "D417", # Missing argument descriptions in the docstring
 ]
 
 line-length = 88
@@ -58,7 +59,6 @@ known-third-party = [
     "caluma",
     "jwt",
 ]
-
 
 [tool.whichtest]
 
