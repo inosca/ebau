@@ -1827,6 +1827,129 @@ def test_notification_additional_demand(
     assert serializer._get_recipients_additional_demand_inviter(gr_instance) == [
         {"to": inviter.email}
     ]
+    assert serializer._get_recipients_additional_demand_sender(gr_instance) == [
+        {"to": service.email}
+    ]
+
+
+@pytest.mark.parametrize(
+    "sender,is_bab,are_involved,expected_leitbehoerde,expected_sender,expected_are",
+    [
+        # Sent by lead authority, they always get an email as sender,
+        # but not as leitbehoerde because they are already the sender.
+        # ARE only gets an email when BaB and involved.
+        ("lead", False, False, [], ["lead@example.ch"], []),
+        ("lead", False, True, [], ["lead@example.ch"], []),
+        ("lead", True, False, [], ["lead@example.ch"], []),
+        ("lead", True, True, [], ["lead@example.ch"], ["are@example.ch"]),
+        # Sent by ARE, the lead authority gets an email.
+        # ARE gets an email as sender.
+        # ARE does not get a separate email, even when BaB and involved.
+        ("are", False, False, ["lead@example.ch"], ["are@example.ch"], []),
+        ("are", False, True, ["lead@example.ch"], ["are@example.ch"], []),
+        ("are", True, False, ["lead@example.ch"], ["are@example.ch"], []),
+        ("are", True, True, ["lead@example.ch"], ["are@example.ch"], []),
+        # Sent by other service, lead authority always gets an email.
+        # Sender also always gets an email.
+        # ARE only gets an email when BaB and involved.
+        ("other", False, False, ["lead@example.ch"], ["other@example.ch"], []),
+        ("other", False, True, ["lead@example.ch"], ["other@example.ch"], []),
+        ("other", True, False, ["lead@example.ch"], ["other@example.ch"], []),
+        (
+            "other",
+            True,
+            True,
+            ["lead@example.ch"],
+            ["other@example.ch"],
+            ["are@example.ch"],
+        ),
+    ],
+)
+def test_notification_additional_demand_gr(
+    db,
+    gr_instance,
+    service_factory,
+    caluma_case_factory,
+    caluma_work_item_factory,
+    notification_template_factory,
+    active_inquiry_factory,
+    group_factory,
+    sender,
+    is_bab,
+    are_involved,
+    expected_leitbehoerde,
+    expected_sender,
+    expected_are,
+    user_group,
+    gr_additional_demand_settings,
+):
+    gr_instance.case.meta["is-bab"] = is_bab
+    gr_instance.case.save()
+
+    service_are = service_factory(slug="are", email="are@example.ch")
+    lead_service = gr_instance.responsible_service(filter_type="municipality")
+    lead_service.email = "lead@example.ch"
+    lead_service.save()
+    other_service = group_factory(
+        service=service_factory(email="other@example.ch")
+    ).service
+
+    if are_involved:
+        active_inquiry_factory(gr_instance, service_are)
+    active_inquiry_factory(gr_instance, other_service)
+
+    if sender == "lead":
+        sender_service = lead_service
+    elif sender == "are":
+        sender_service = service_are
+    else:
+        sender_service = other_service
+
+    case = caluma_case_factory()
+    caluma_work_item_factory(addressed_groups=[str(sender_service.pk)], child_case=case)
+    work_item = caluma_work_item_factory(case=case)
+
+    notification_template = notification_template_factory()
+
+    serializer = serializers.NotificationTemplateSendmailSerializer(
+        data={
+            "template_slug": notification_template.slug,
+            "recipient_types": [],
+            "notification_template": {
+                "type": "notification-templates",
+                "id": notification_template.pk,
+            },
+            "instance": {"type": "instances", "id": gr_instance.pk},
+            "work_item": {"type": "work-items", "id": work_item.pk},
+        },
+        context={"request": FakeRequest(group=user_group.group, user=user_group.user)},
+    )
+    serializer.is_valid()
+    assert not serializer.errors
+
+    assert (
+        sorted(
+            r["to"]
+            for r in serializer._get_recipients_additional_demand_leitbehoerde(
+                gr_instance
+            )
+        )
+        == expected_leitbehoerde
+    )
+    assert (
+        sorted(
+            r["to"]
+            for r in serializer._get_recipients_additional_demand_sender(gr_instance)
+        )
+        == expected_sender
+    )
+    assert (
+        sorted(
+            r["to"]
+            for r in serializer._get_recipients_additional_demand_are_bab(gr_instance)
+        )
+        == expected_are
+    )
 
 
 def test_notifications_without_receivers_sz(

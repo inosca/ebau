@@ -92,6 +92,7 @@ RECIPIENT_TYPE_NAMES = {
         "Services which have incomplete inquiries"
     ),
     "leitbehoerde": translation.gettext_noop("Authority"),
+    "additional_demand_leitbehoerde": translation.gettext_noop("Authority"),
     "municipality": translation.gettext_noop("Municipality"),
     "unanswered_inquiries": translation.gettext_noop(
         "Services with unanswered inquiries"
@@ -103,6 +104,7 @@ RECIPIENT_TYPE_NAMES = {
     "additional_demand_inviter": translation.gettext_noop(
         "Inviter of additional demand creator"
     ),
+    "additional_demand_sender": translation.gettext_noop("Sender of additional demand"),
     "geometer_acl_services": translation.gettext_noop(
         "Geometer (via permissions module)"
     ),
@@ -1183,6 +1185,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             "work_item_addressed",
             "work_item_controlling",
             "additional_demand_inviter",
+            "additional_demand_sender",
             "acl_authorized",
             # GR specific
             "involved_in_distribution_except_gvg",
@@ -1546,6 +1549,22 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
                 )
         return flatten(data)
 
+    def _get_recipients_additional_demand_sender(self, instance):
+        """Use the sender of the additional demand as recipient."""
+        if not settings.ADDITIONAL_DEMAND:  # pragma: no cover
+            return []
+
+        current_group = self.validated_data.get(
+            "work_item"
+        ).case.parent_work_item.addressed_groups
+
+        return flatten(
+            [
+                self._get_responsible(instance, service)
+                for service in Service.objects.filter(pk__in=current_group)
+            ]
+        )
+
     def _get_recipients_additional_demand_inviter(self, instance):
         if not settings.ADDITIONAL_DEMAND:  # pragma: no cover
             return []
@@ -1569,6 +1588,23 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
                 for service in Service.objects.filter(pk__in=groups)
             ]
         )
+
+    def _get_recipients_additional_demand_leitbehoerde(self, instance):
+        """Use the leitbehörde as recipient.
+
+        If the additional demand was created by the leitbehörde itself, do not add.
+        """
+        if not settings.ADDITIONAL_DEMAND:  # pragma: no cover
+            return []
+
+        responsible_service = instance.responsible_service(filter_type="municipality")
+        work_item = self.validated_data.get("work_item")
+        current_group = work_item.case.parent_work_item.addressed_groups
+
+        if work_item and str(responsible_service.pk) in current_group:
+            return []
+
+        return self._get_responsible(instance, responsible_service)
 
     def _get_recipients_involved_in_construction_step(self, instance):
         work_item = self.validated_data.get("work_item")
@@ -1646,7 +1682,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
 
     def _get_recipients_are_bab(self, instance):
         if instance.case.meta.get("is-bab"):
-            are_service = Service.objects.filter(slug="are").first()
+            are_service = Service.objects.get(slug="are")
 
             if (
                 Inquiry.objects.for_instance(instance)
@@ -1656,6 +1692,23 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
                 return self._get_recipients_are(instance)
 
         return []
+
+    def _get_recipients_additional_demand_are_bab(self, instance):
+        """Use the ARE as recipient for BaB cases.
+
+        If the additional demand was created by the ARE itself, do not add.
+        """
+        are_service = Service.objects.get(slug="are")
+        work_item = self.validated_data.get("work_item")
+        is_sender = (
+            work_item
+            and str(are_service.pk) in work_item.case.parent_work_item.addressed_groups
+        )
+
+        if not is_sender:
+            return self._get_recipients_are_bab(instance)
+        else:
+            return []
 
     def _get_recipients_abwasser_uri(self, instance):
         service = Service.objects.filter(slug="awu").first()
