@@ -1,6 +1,15 @@
 {{#unless this.hidden}}
   <div class="uk-flex uk-flex-column uk-flex-middle">
-    <img src={{this.data}} alt={{this.url}} class="uk-box-shadow-medium" />
+    <div class="uk-inline">
+      <img src={{this.data}} alt={{this.url}} class="uk-box-shadow-medium" />
+      {{#if this.preview}}
+        <div class="uk-overlay uk-overlay-default uk-position-center">
+          <p
+            class="uk-text-large uk-text-uppercase uk-text-bolder uk-text-danger"
+          >{{t "publication.qr-code.preview"}}</p>
+        </div>
+      {{/if}}
+    </div>
     <div class="uk-margin-top">
       <UkButton
         @color="text"
