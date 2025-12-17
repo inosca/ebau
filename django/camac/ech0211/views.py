@@ -29,6 +29,7 @@ from rest_framework.serializers import Serializer
 from rest_framework.viewsets import GenericViewSet
 from rest_framework_xml.renderers import XMLRenderer
 
+from camac.alexandria.extensions.common import has_alexandria_delete_permission
 from camac.communications.models import CommunicationsAttachment
 from camac.constants.kt_bern import ECH_BASE_DELIVERY
 from camac.ech0211.models import Message
@@ -431,6 +432,9 @@ class ECHFileView(
             raise NotFound()
 
         file = self.get_object()
+
+        if not has_alexandria_delete_permission(request, file.document):
+            raise PermissionDenied()
 
         # do not allow deletion of files that are linked to a communication attachment
         if CommunicationsAttachment.objects.filter(alexandria_file=file).exists():

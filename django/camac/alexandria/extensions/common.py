@@ -2,7 +2,7 @@ from functools import lru_cache
 from itertools import chain
 from typing import List, Tuple, Union
 
-from alexandria.core.models import Category
+from alexandria.core.models import Category, Document
 from django.conf import settings
 from django.http import HttpRequest
 from django.utils.functional import SimpleLazyObject
@@ -88,6 +88,33 @@ def get_user_and_group(request: HttpRequest) -> Tuple[int, int]:
     return user, group
 
 
+def has_alexandria_permission(
+    request: Request,
+    instance: Instance,
+    category: Category,
+    document: Document | None,
+    v1_permission: str,
+    v2_permission: P,
+) -> bool:
+    """Check an alexandria permission independent of the permission class version."""
+
+    if not settings.ALEXANDRIA["USE_V2_PERMISSIONS"]:
+        from camac.alexandria.extensions.permissions.extension import CustomPermission
+
+        return v1_permission in CustomPermission().get_available_permissions(
+            request,
+            instance,
+            category,
+            document,
+        )
+
+    return (
+        AlexandriaPermissionManager.from_request(request)
+        .scoped_for(document or instance)
+        .has(v2_permission)
+    )
+
+
 def has_alexandria_create_permission(
     request: Request,
     instance: Instance,
@@ -99,26 +126,41 @@ def has_alexandria_create_permission(
     the canton.
     """
 
-    if not settings.ALEXANDRIA["USE_V2_PERMISSIONS"]:
-        # Needed to avoid circular import
-        from camac.alexandria.extensions.permissions.extension import (
-            MODE_CREATE,
-            CustomPermission,
-        )
+    from camac.alexandria.extensions.permissions.extension import MODE_CREATE
 
-        return MODE_CREATE in CustomPermission().get_available_permissions(
-            request,
-            instance,
-            category,
-        )
+    return has_alexandria_permission(
+        request,
+        instance,
+        category,
+        None,
+        MODE_CREATE,
+        P.any(
+            f"{category.pk}:all",
+            f"{category.pk}:create",
+        ),
+    )
 
-    return (
-        AlexandriaPermissionManager.from_request(request)
-        .scoped_for(instance)
-        .has(
-            P.any(
-                f"{category.pk}:all",
-                f"{category.pk}:create",
-            )
-        )
+
+def has_alexandria_delete_permission(request: Request, document: Document) -> bool:
+    """Check delete permission for a request on a document.
+
+    This will either use v2 or v1 permissions depending on the configuration of
+    the canton.
+    """
+
+    from camac.alexandria.extensions.permissions.extension import MODE_DELETE
+
+    instance = document.instance_document.instance
+    category = document.category
+
+    return has_alexandria_permission(
+        request,
+        instance,
+        category,
+        document,
+        MODE_DELETE,
+        P.any(
+            f"{category.pk}:all",
+            f"{category.pk}:delete",
+        ),
     )
