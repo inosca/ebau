@@ -9,6 +9,7 @@ CHANGE_FORM = {
             ["baugesuch-v2", "baugesuch-generell-v2", "baugesuch-mit-uvp-v2"],
             ["baugesuch-v3", "baugesuch-generell-v3", "baugesuch-mit-uvp-v3"],
             ["baugesuch-v5", "baugesuch-generell-v5", "baugesuch-mit-uvp-v5"],
+            ["baugesuch-v6", "baugesuch-generell-v6", "baugesuch-mit-uvp-v6"],
         ],
     },
     "kt_schwyz": {
