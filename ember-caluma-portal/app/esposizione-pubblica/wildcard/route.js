@@ -3,7 +3,7 @@ import { service } from "@ember/service";
 
 import { redirectPublicInstances } from "caluma-portal/router";
 
-export default class OeffentlicheAuflageRoute extends Route {
+export default class EsposizionePubblicaWildcardRoute extends Route {
   @service router;
   @service intl;
   @service session;
