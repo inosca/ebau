@@ -266,10 +266,12 @@ def test_delete_disabled_api_level(
 @pytest.mark.parametrize("role__name", ["Municipality"])
 @pytest.mark.parametrize("has_remaining_files", [False, True])
 @pytest.mark.parametrize(
-    "has_attachment,expected_status",
+    ("has_permission", "has_attachment", "expected_status"),
     [
-        (False, status.HTTP_204_NO_CONTENT),
-        (True, status.HTTP_403_FORBIDDEN),
+        (True, False, status.HTTP_204_NO_CONTENT),
+        (False, False, status.HTTP_403_FORBIDDEN),
+        (True, True, status.HTTP_403_FORBIDDEN),
+        (False, True, status.HTTP_403_FORBIDDEN),
     ],
 )
 def test_delete(
@@ -278,13 +280,20 @@ def test_delete(
     communications_attachment_factory,
     has_remaining_files,
     has_attachment,
+    has_permission,
     expected_status,
     instance,
     application_settings,
     gr_ech0211_settings,
     reload_ech0211_urls,
+    mocker,
 ):
     application_settings["DOCUMENT_BACKEND"] = "alexandria"
+
+    mocker.patch(
+        "camac.ech0211.views.has_alexandria_delete_permission",
+        return_value=has_permission,
+    )
 
     file = FileFactory(
         document__metainfo={"camac-instance-id": str(instance.pk)},

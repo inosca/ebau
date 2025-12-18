@@ -3,6 +3,7 @@ import pytest
 from camac.alexandria.extensions.common import (
     get_permission_key,
     has_alexandria_create_permission,
+    has_alexandria_delete_permission,
 )
 from camac.permissions.api import GRANT_CHOICES, grant
 from camac.permissions.conditions import Always, Never
@@ -61,9 +62,10 @@ def test_get_permission_key(
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
-def test_has_alexandria_create_permission_v1(
+def test_has_alexandria_permission_v1(
     db,
     alexandria_category_factory,
+    alexandria_document_factory,
     alexandria_settings,
     fake_request,
     instance,
@@ -79,28 +81,43 @@ def test_has_alexandria_create_permission_v1(
                         {
                             "scope": "All",
                             "permission": "create",
-                        }
+                        },
+                        {
+                            "scope": "All",
+                            "permission": "delete",
+                        },
                     ],
                 }
             }
         }
     )
     disallowed_category = alexandria_category_factory()
+    allowed_document = alexandria_document_factory(
+        metainfo={"camac-instance-id": instance.pk},
+        category=allowed_category,
+    )
+    disallowed_document = alexandria_document_factory(
+        metainfo={"camac-instance-id": instance.pk},
+        category=disallowed_category,
+    )
 
     assert (
         has_alexandria_create_permission(fake_request, instance, allowed_category)
         is True
     )
+    assert has_alexandria_delete_permission(fake_request, allowed_document) is True
     assert (
         has_alexandria_create_permission(fake_request, instance, disallowed_category)
         is False
     )
+    assert has_alexandria_delete_permission(fake_request, disallowed_document) is False
 
 
-def test_has_alexandria_create_permission_v2(
+def test_has_alexandria_permission_v2(
     db,
     access_level_factory,
     alexandria_category_factory,
+    alexandria_document_factory,
     alexandria_settings,
     fake_request,
     instance,
@@ -114,19 +131,30 @@ def test_has_alexandria_create_permission_v2(
     access_level = access_level_factory()
     allowed_category = alexandria_category_factory()
     disallowed_category = alexandria_category_factory()
+    allowed_document = alexandria_document_factory(
+        metainfo={"camac-instance-id": instance.pk},
+        category=allowed_category,
+    )
+    disallowed_document = alexandria_document_factory(
+        metainfo={"camac-instance-id": instance.pk},
+        category=disallowed_category,
+    )
 
     settings.PERMISSIONS_ALEXANDRIA["ACCESS_LEVELS"] = {
         access_level.pk: [
             (f"{allowed_category.pk}:create", Always()),
+            (f"{allowed_category.pk}:delete", Always()),
             (f"{disallowed_category.pk}:create", Never()),
+            (f"{disallowed_category.pk}:delete", Never()),
         ]
     }
 
-    # allowed category, but permission not granted yet
+    # allowed category / document, but permission not granted yet
     assert (
         has_alexandria_create_permission(fake_request, instance, allowed_category)
         is False
     )
+    assert has_alexandria_delete_permission(fake_request, allowed_document) is False
 
     grant(
         instance,
@@ -135,14 +163,16 @@ def test_has_alexandria_create_permission_v2(
         service=service,
     )
 
-    # allowed category, now permission is granted
+    # allowed category / document, now permission is granted
     assert (
         has_alexandria_create_permission(fake_request, instance, allowed_category)
         is True
     )
+    assert has_alexandria_delete_permission(fake_request, allowed_document) is True
 
-    # disallowed category
+    # disallowed category / document
     assert (
         has_alexandria_create_permission(fake_request, instance, disallowed_category)
         is False
     )
+    assert has_alexandria_delete_permission(fake_request, disallowed_document) is False
