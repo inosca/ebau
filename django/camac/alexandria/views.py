@@ -65,6 +65,7 @@ class PatchedDocumentViewSet(views.DocumentViewSet):
         "created_by_username",
         "group_name",
         "category__name",
+        "category__sort",
     ]
 
     def get_queryset(self):
