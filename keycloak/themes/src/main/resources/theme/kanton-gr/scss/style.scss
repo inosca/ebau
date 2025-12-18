@@ -140,7 +140,6 @@ h1 {
 
 .kc-form-card.is-login-form {
   margin-top: 0;
-  height: 100%;
 }
 
 .kc-form-card.account-container {
@@ -151,9 +150,17 @@ h1 {
 .kc-form-card.is-login-page {
   max-width: 1000px;
 }
-
+#kc-form-login-footer {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
 #kc-form-login h1 {
   padding-top: 32px;
+  margin: 0;
+}
+#kc-form-login h2,
+#kc-form-login-footer h2 {
+  padding-top: 20px;
   margin: 0;
 }
 
