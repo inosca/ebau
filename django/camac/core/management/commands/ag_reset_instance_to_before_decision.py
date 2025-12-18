@@ -24,15 +24,15 @@ class Command(BaseCommand):
             help="The ID of the instance to reset",
         )
         parser.add_argument(
-            "--dry-run",
+            "--commit",
             action="store_true",
-            help="Show what would be done without making any changes",
+            help="Actually perform the changes (default is dry-run)",
         )
 
     @transaction.atomic
     def handle(self, *args, **options):
         instance_id = options["instance_id"]
-        dry_run = options.get("dry_run", False)
+        dry_run = not options.get("commit", False)
 
         if dry_run:
             self.stdout.write(self.style.WARNING("DRY RUN - no changes will be made"))
@@ -73,16 +73,24 @@ class Command(BaseCommand):
         )
 
         # Find all work items created after the decision work item
-        work_items_to_cancel = instance.case.work_items.filter(
-            created_at__gt=decision_created_at,
-        ).exclude(status=WorkItem.STATUS_CANCELED)
+        # Exclude manual work items and already canceled items
+        work_items_to_cancel = (
+            instance.case.work_items.filter(
+                created_at__gt=decision_created_at,
+            )
+            .exclude(status=WorkItem.STATUS_CANCELED)
+            .exclude(task_id="create-manual-workitems")
+        )
 
         self.stdout.write(
             f"  {work_items_to_cancel.count()} work item(s) will be set to 'canceled':"
         )
         for wi in work_items_to_cancel:
+            child_case_info = (
+                f" (has child case: {wi.child_case_id})" if wi.child_case_id else ""
+            )
             self.stdout.write(
-                f"    - {wi.task_id} (status: {wi.status}, created: {wi.created_at})"
+                f"    - {wi.task_id} (status: {wi.status}, created: {wi.created_at}){child_case_info}"
             )
 
         # Check current case status
@@ -92,7 +100,7 @@ class Command(BaseCommand):
             self.stdout.write(
                 self.style.WARNING("\nDRY RUN completed - no changes were made")
             )
-            self.stdout.write("Run the command without --dry-run to apply the changes")
+            self.stdout.write("Run the command with --commit to apply the changes")
             return
 
         # Reset the decision work item to ready
@@ -103,13 +111,17 @@ class Command(BaseCommand):
         decision_work_item.save()
         self.stdout.write(self.style.SUCCESS("  Decision work item reset to 'ready'"))
 
-        # Set all subsequent work items to canceled
+        # Cancel all subsequent work items
         now = timezone.now()
+        cancel_count = work_items_to_cancel.count()
         work_items_to_cancel.update(
             status=WorkItem.STATUS_CANCELED,
             closed_at=now,
         )
-        self.stdout.write(self.style.SUCCESS("  Work item(s) set to 'canceled'"))
+
+        self.stdout.write(
+            self.style.SUCCESS(f"  {cancel_count} work item(s) set to 'canceled'")
+        )
 
         # Set the case to running
         if instance.case.status != Case.STATUS_RUNNING:
