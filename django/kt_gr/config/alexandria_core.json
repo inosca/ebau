@@ -914,6 +914,13 @@
                   "PaperInstance": true
                 },
                 "permission": "delete"
+              },
+              {
+                "scope": "All",
+                "condition": {
+                  "IsExternalClient": true
+                },
+                "permission": "delete"
               }
             ]
           }
@@ -2354,6 +2361,13 @@
                     "finished",
                     "construction-acceptance"
                   ]
+                },
+                "permission": "delete"
+              },
+              {
+                "scope": "All",
+                "condition": {
+                  "IsExternalClient": true
                 },
                 "permission": "delete"
               }
