@@ -1072,6 +1072,7 @@ def test_accompanying_report_send_handler(
             "true_value": "inquiry-checked",
         },
     }
+    be_ech0211_settings["ACCOMPANYING_REPORT"]["ENABLE_ORGANISATION_EXTENSION"] = True
     CategoryFactory(slug="beteiligte-behoerden")
     be_ech0211_settings["ACCOMPANYING_REPORT"]["ALEXANDRIA_CATEGORY"] = (
         "beteiligte-behoerden"
