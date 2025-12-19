@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-04 10:33+0100\n"
+"POT-Creation-Date: 2025-12-19 13:20+0100\n"
 "PO-Revision-Date: 2025-08-28 10:03+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -137,10 +137,8 @@ msgid "Processing fee BG BVUAFB"
 msgstr ""
 
 #: camac/billing/models.py
-#, fuzzy
-#| msgid "Translation"
 msgid "Calculation"
-msgstr "Traduction"
+msgstr ""
 
 #: camac/billing/models.py
 msgid "VAT rate"
@@ -163,10 +161,8 @@ msgid "Total cost"
 msgstr ""
 
 #: camac/billing/models.py
-#, fuzzy
-#| msgid "Municipality"
 msgid "Municipal"
-msgstr "Municipalité"
+msgstr ""
 
 #: camac/billing/models.py
 msgid "Cantonal"
@@ -177,10 +173,8 @@ msgid "Type"
 msgstr "Type"
 
 #: camac/billing/models.py
-#, fuzzy
-#| msgid "Lead authority"
 msgid "By authority"
-msgstr "Autorité directrice"
+msgstr ""
 
 #: camac/billing/models.py
 msgid "Forwarded"
@@ -309,10 +303,8 @@ msgid "Others"
 msgstr "Autres"
 
 #: camac/caluma/extensions/data_sources.py
-#, fuzzy
-#| msgid "Lead authority"
 msgid "Local building authority"
-msgstr "Autorité directrice"
+msgstr ""
 
 #: camac/caluma/extensions/data_sources.py
 msgid "All sanctions that could be fulfilled until now have been fullfilled"
@@ -495,10 +487,8 @@ msgid "Involved entity must be either 'APPLICANT' or a valid service ID"
 msgstr ""
 
 #: camac/communications/serializers.py
-#, fuzzy
-#| msgid "There is already a service with this name"
 msgid "There is no active service for this instance"
-msgstr "Il existe déjà une organisation portant ce nom"
+msgstr ""
 
 #: camac/communications/serializers.py
 msgid ""
@@ -884,12 +874,11 @@ msgid "have an inconsistent workflow state"
 msgstr "ont un état de flux de travail incohérent"
 
 #: camac/dossier_import/messages.py
-#, fuzzy, python-format
-#| msgid "%(count)i dossiers %(message)s. Affected dossiers:%(entries)s"
+#, python-format
 msgid ""
 "%(count)i dossiers %(message)s. Affected dossiers:\n"
 "%(entries)s"
-msgstr "%(count)i dossiers %(message)s. Dossiers concernés:%(entries)s"
+msgstr ""
 
 #: camac/dossier_import/models.py
 #, python-format
@@ -946,10 +935,9 @@ msgid "Deletion not allowed"
 msgstr "Suppression non autorisée"
 
 #: camac/dossier_import/validation.py
-#, fuzzy, python-format
-#| msgid "STATUS will be ignored when updating the dossier"
+#, python-format
 msgid "The value %(value)s will be ignored when updating the dossier."
-msgstr "STATUS ignoré en misant en jour le dossier"
+msgstr ""
 
 #: camac/dossier_import/validation.py
 #, python-format
@@ -966,16 +954,11 @@ msgstr ""
 "Colonnes obligatoires: %(required)s"
 
 #: camac/dossier_import/validation.py
-#, fuzzy, python-format
-#| msgid ""
-#| "Found unknown columns: %(extra)s. Those columns will be ignored while "
-#| "importing."
+#, python-format
 msgid ""
 "Found unknown columns which will be ignored while importing:\n"
 "%(extra)s"
 msgstr ""
-"Colonnes inconnues trouvées : %(extra)s. Ces colonnes seront ignorées lors "
-"de l'importation."
 
 #: camac/dossier_import/validation.py
 #, python-format
@@ -1049,10 +1032,8 @@ msgid ""
 msgstr ""
 
 #: camac/ech0211/send_handlers.py
-#, fuzzy
-#| msgid "Dossier submitted"
 msgid "ECH Dossier submitted"
-msgstr "Dossier envoyé"
+msgstr ""
 
 #: camac/eeba_integration/client.py
 #, python-format
@@ -1214,10 +1195,9 @@ msgid "Created %(date)s at %(time)s"
 msgstr "Créé le %(date)s à %(time)s"
 
 #: camac/instance/document_merge_service.py
-#, fuzzy, python-format
-#| msgid "Modified %(date)s at %(time)s"
+#, python-format
 msgid "Uploaded %(date)s at %(time)s"
-msgstr "Dernière modification le %(date)s à %(time)s"
+msgstr ""
 
 #: camac/instance/document_merge_service.py
 #, python-format
@@ -1383,10 +1363,8 @@ msgid "paper"
 msgstr "papier"
 
 #: camac/instance/serializers.py
-#, fuzzy
-#| msgid "SB1 submitted"
 msgid "ech-submitted"
-msgstr "DC1 envoyé"
+msgstr ""
 
 #: camac/instance/serializers.py
 msgid "modification"
@@ -1519,10 +1497,8 @@ msgstr ""
 
 #: camac/instance/tests/test_document_merge_service.py
 #: camac/settings/modules/dms.py
-#, fuzzy
-#| msgid "Signature"
 msgid "Signature page"
-msgstr "Signature"
+msgstr ""
 
 #: camac/instance/utils.py
 #, python-format
@@ -1587,16 +1563,12 @@ msgid "Notification template management"
 msgstr ""
 
 #: camac/notification/models.py
-#, fuzzy
-#| msgid "Circulation completed"
 msgid "Notification template"
-msgstr "Procédure de circulation close"
+msgstr ""
 
 #: camac/notification/models.py
-#, fuzzy
-#| msgid "Circulation completed"
 msgid "Notification templates"
-msgstr "Procédure de circulation close"
+msgstr ""
 
 #: camac/notification/models.py
 msgid "Body"
@@ -1635,10 +1607,8 @@ msgid "Involved services"
 msgstr "Services impliqués"
 
 #: camac/notification/serializers.py
-#, fuzzy
-#| msgid "Services with unanswered inquiries"
 msgid "Services which have incomplete inquiries"
-msgstr "Services avec avis sans réponse"
+msgstr ""
 
 #: camac/notification/serializers.py
 msgid "Services with unanswered inquiries"
@@ -1766,10 +1736,8 @@ msgid "Preliminary exam performed"
 msgstr ""
 
 #: camac/settings/django.py
-#, fuzzy
-#| msgid "Construction control"
 msgid "Construction monitoring performed"
-msgstr "Contrôle construction"
+msgstr ""
 
 #: camac/settings/django.py
 msgid "Formal exam performed"
