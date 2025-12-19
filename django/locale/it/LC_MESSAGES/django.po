@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-04 10:33+0100\n"
+"POT-Creation-Date: 2025-12-19 13:18+0100\n"
 "PO-Revision-Date: 2024-09-12 16:24+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -140,10 +140,8 @@ msgid "Processing fee BG BVUAFB"
 msgstr ""
 
 #: camac/billing/models.py
-#, fuzzy
-#| msgid "Translation"
 msgid "Calculation"
-msgstr "Traduzione"
+msgstr ""
 
 #: camac/billing/models.py
 msgid "VAT rate"
@@ -166,10 +164,8 @@ msgid "Total cost"
 msgstr ""
 
 #: camac/billing/models.py
-#, fuzzy
-#| msgid "Municipality"
 msgid "Municipal"
-msgstr "Comune"
+msgstr ""
 
 #: camac/billing/models.py
 msgid "Cantonal"
@@ -180,10 +176,8 @@ msgid "Type"
 msgstr "Tipo"
 
 #: camac/billing/models.py
-#, fuzzy
-#| msgid "Lead authority"
 msgid "By authority"
-msgstr "Autorità direttrice"
+msgstr ""
 
 #: camac/billing/models.py
 msgid "Forwarded"
@@ -215,16 +209,12 @@ msgid "Hint"
 msgstr ""
 
 #: camac/billing/models.py
-#, fuzzy
-#| msgid "Building permit type"
 msgid "Billing entry template"
-msgstr "Procedura"
+msgstr ""
 
 #: camac/billing/models.py
-#, fuzzy
-#| msgid "Building permit type"
 msgid "Billing entry templates"
-msgstr "Procedura"
+msgstr ""
 
 #: camac/billing/serializers.py
 msgid "Date added"
@@ -502,10 +492,8 @@ msgstr ""
 "valido"
 
 #: camac/communications/serializers.py
-#, fuzzy
-#| msgid "There is already a service with this name"
 msgid "There is no active service for this instance"
-msgstr "Esiste già un'organizzazione con questo nome"
+msgstr ""
 
 #: camac/communications/serializers.py
 msgid ""
@@ -890,12 +878,11 @@ msgid "have an inconsistent workflow state"
 msgstr "hanno uno stato del workflow non valido"
 
 #: camac/dossier_import/messages.py
-#, fuzzy, python-format
-#| msgid "%(count)i dossiers %(message)s. Affected dossiers:%(entries)s"
+#, python-format
 msgid ""
 "%(count)i dossiers %(message)s. Affected dossiers:\n"
 "%(entries)s"
-msgstr "%(count)i dossier %(message)s. Dossier interessati:%(entries)s"
+msgstr ""
 
 #: camac/dossier_import/models.py
 #, python-format
@@ -952,10 +939,9 @@ msgid "Deletion not allowed"
 msgstr "Non è possibile cancellare"
 
 #: camac/dossier_import/validation.py
-#, fuzzy, python-format
-#| msgid "STATUS will be ignored when updating the dossier"
+#, python-format
 msgid "The value %(value)s will be ignored when updating the dossier."
-msgstr "Nel corso dell'importazione del dossier lo STATO sarà ignorato."
+msgstr ""
 
 #: camac/dossier_import/validation.py
 #, python-format
@@ -972,16 +958,11 @@ msgstr ""
 "richieste: %(required)s"
 
 #: camac/dossier_import/validation.py
-#, fuzzy, python-format
-#| msgid ""
-#| "Found unknown columns: %(extra)s. Those columns will be ignored while "
-#| "importing."
+#, python-format
 msgid ""
 "Found unknown columns which will be ignored while importing:\n"
 "%(extra)s"
 msgstr ""
-"Le colonne seguenti non sono state riconosciute e non saranno importate: "
-"%(extra)s."
 
 #: camac/dossier_import/validation.py
 #, python-format
@@ -1096,16 +1077,12 @@ msgid "GEVER"
 msgstr ""
 
 #: camac/gis/admin.py
-#, fuzzy
-#| msgid "Disable selected services"
 msgid "Disable selected GIS data sources"
-msgstr "Disattiva servizi selezionati"
+msgstr ""
 
 #: camac/gis/admin.py
-#, fuzzy
-#| msgid "Enable selected services"
 msgid "Enable selected GIS data sources"
-msgstr "Attiva servizi selezionati"
+msgstr ""
 
 #: camac/gis/clients/admin.py
 #, python-format
@@ -1115,12 +1092,8 @@ msgstr ""
 "geo.admin.ch"
 
 #: camac/gis/clients/ag.py
-#, fuzzy
-#| msgid "Error %(code)s while fetching data from the geo.so.ch API"
 msgid "An error occured while fetching data from the AGIS API."
 msgstr ""
-"Errore %(code)s nel corso dell'interrogazione dei dati dall'interfaccia "
-"geo.so.ch"
 
 #: camac/gis/clients/sogis.py
 #, python-format
@@ -1138,10 +1111,8 @@ msgid "GIS Canton GR"
 msgstr "Geoportale del Cantone dei Grigioni"
 
 #: camac/gis/models.py
-#, fuzzy
-#| msgid "GIS Canton GR"
 msgid "GIS Canton AG"
-msgstr "Geoportale del Cantone dei Grigioni"
+msgstr ""
 
 #: camac/gis/models.py
 msgid "GIS Canton Bern"
@@ -1246,10 +1217,8 @@ msgid "Draft"
 msgstr "Bozza"
 
 #: camac/instance/document_merge_service.py
-#, fuzzy
-#| msgid "Additional demand sent"
 msgid "Additional demand"
-msgstr "Richiesta di precisazioni avviata"
+msgstr ""
 
 #: camac/instance/document_merge_service.py
 #, python-format
@@ -1308,10 +1277,8 @@ msgid "Status"
 msgstr "Stato"
 
 #: camac/instance/export/serializers.py
-#, fuzzy
-#| msgid "Applicant"
 msgid "Applicants emails"
-msgstr "Persona richiedente"
+msgstr ""
 
 #: camac/instance/export/serializers.py
 msgid "Decision"
@@ -1406,10 +1373,8 @@ msgid "paper"
 msgstr "su carta"
 
 #: camac/instance/serializers.py
-#, fuzzy
-#| msgid "Dossier submitted"
 msgid "ech-submitted"
-msgstr "Dossier inoltrato"
+msgstr ""
 
 #: camac/instance/serializers.py
 msgid "modification"
@@ -1545,10 +1510,8 @@ msgstr "Esportazione di moduli"
 
 #: camac/instance/tests/test_document_merge_service.py
 #: camac/settings/modules/dms.py
-#, fuzzy
-#| msgid "Signature"
 msgid "Signature page"
-msgstr "Firma"
+msgstr ""
 
 #: camac/instance/utils.py
 #, python-format
@@ -1960,16 +1923,12 @@ msgid "Enable selected services"
 msgstr "Attiva servizi selezionati"
 
 #: camac/user/admin/views.py
-#, fuzzy
-#| msgid "Disable selected services"
 msgid "Disable notifications for selected services"
-msgstr "Disattiva servizi selezionati"
+msgstr ""
 
 #: camac/user/admin/views.py
-#, fuzzy
-#| msgid "Enable selected services"
 msgid "Enable notifications for selected services"
-msgstr "Attiva servizi selezionati"
+msgstr ""
 
 #: camac/user/apps.py
 msgid "User management"
