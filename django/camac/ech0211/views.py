@@ -37,7 +37,6 @@ from camac.ech0211.throttling import ECHMessageThrottle
 from camac.ech0211.utils import clean_text_for_xml
 from camac.instance.models import Instance
 from camac.swagger.utils import (
-    conditional_factory,
     get_operation_description,
     group_param,
 )
@@ -61,6 +60,36 @@ last_param = openapi.Parameter(
     ),
     type=openapi.TYPE_STRING,
 )
+
+
+class NoOperationAutoSchema(SwaggerAutoSchema):
+    """AutoSchema to disable a view method operation.
+
+    Used via conditional_factory(), see below
+    """
+
+    def get_operation(self, operation_keys):
+        # Cause Swagger to ignore this operation / view method
+        return None
+
+
+def conditional_factory(when_ok, check_callback):
+    """Return a factory to delay a check to call time.
+
+    The returned factory will call the `when_ok` function (may be a class, ...)
+    with the given parameters, but only if the `check_callback` returns True.
+    Otherwise, `None` is returned.
+
+    Useful for checking settings at run-time instead of startup-time.
+    """
+
+    def the_actual_factory(*args, **kwargs):
+        if check_callback():
+            return when_ok(*args, **kwargs)
+        else:
+            return NoOperationAutoSchema(*args, **kwargs)
+
+    return the_actual_factory
 
 
 class FileSwaggerAutoSchema(SwaggerAutoSchema):
