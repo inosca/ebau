@@ -31,6 +31,10 @@ services:
 
   db:
     image: postgres:15-bullseye
+    # uncomment and build image to install PostgreSQL Anonymizer
+    # build:
+    #   context: ../db
+    #   dockerfile: ../db/Dockerfile.anon
     shm_size: 1g
     ports:
       - "5432:5432"
