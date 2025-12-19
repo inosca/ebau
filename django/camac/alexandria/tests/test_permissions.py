@@ -21,6 +21,7 @@ from rest_framework.status import (
     HTTP_403_FORBIDDEN,
     HTTP_405_METHOD_NOT_ALLOWED,
 )
+from rest_framework.test import APIClient
 
 from camac.permissions import api as permissions_api
 
@@ -1362,6 +1363,63 @@ def test_condition_access_has_any_mark(
         )
 
     assert response.status_code == status_code
+
+
+@pytest.mark.parametrize("role__name", ["municipality"])
+def test_condition_is_external_client(
+    db,
+    admin_client,
+    admin_user,
+    alexandria_category_factory,
+    alexandria_document_factory,
+    alexandria_file_factory,
+    application_settings,
+    gr_instance,
+    mocker,
+):
+    application_settings["DOCUMENT_BACKEND"] = "alexandria"
+
+    mocker.patch(
+        "camac.alexandria.extensions.visibilities.CustomVisibility._all_visible_instances",
+        return_value=[gr_instance.pk],
+    )
+
+    document = alexandria_document_factory(
+        category=alexandria_category_factory(
+            metainfo={
+                "access": {
+                    "municipality": {
+                        "visibility": "all",
+                        "permissions": [
+                            {
+                                "permission": "delete",
+                                "scope": "All",
+                                "condition": {"IsExternalClient": True},
+                            },
+                        ],
+                    },
+                }
+            }
+        ),
+        metainfo={"camac-instance-id": gr_instance.pk},
+    )
+    file = alexandria_file_factory(document=document)
+
+    int_client = admin_client
+    ext_client = APIClient()
+    ext_client.force_authenticate(user=admin_user, token={"azp": "gemeinde-xyz"})
+
+    int_url = reverse("document-detail", args=[document.pk])
+    ext_url = reverse("ech-file-detail", args=[file.pk])
+
+    # Internal client can't delete on internal API because no permission
+    assert int_client.delete(int_url).status_code == HTTP_403_FORBIDDEN
+    # Internal client can't delete on external API because no permission
+    assert int_client.delete(ext_url).status_code == HTTP_403_FORBIDDEN
+    # External client can't delete on internal API because client is not allowed
+    assert ext_client.delete(int_url).status_code == HTTP_403_FORBIDDEN
+    # External client can delete on external API
+    assert ext_client.delete(ext_url).status_code == HTTP_204_NO_CONTENT
 
 
 @pytest.mark.parametrize(

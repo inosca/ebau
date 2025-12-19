@@ -2,6 +2,7 @@ from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 
 from camac.caluma.api import CalumaApi
+from camac.user.permissions import is_allowed_client
 
 
 class Condition:
@@ -103,3 +104,10 @@ class HasAnyMark(Condition):
             return False
 
         return self.document.marks.filter(pk__in=slugs).exists()
+
+
+class IsExternalClient(Condition):
+    """Condition that evaluates to `True` if the request comes from an external client (eCH0211)."""
+
+    def evaluate(self) -> bool:
+        return not is_allowed_client(self.request)
