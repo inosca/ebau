@@ -15,7 +15,6 @@
     'get:/ech/v1/applications',
     'get:/ech/v1/files/{id}',
     'get:/ech/v1/message/',
-    'patch:/api/v1/me',
     'post:/ech/v1/files',
     'post:/ech/v1/send/',
   ])
@@ -37,7 +36,6 @@
     'get:/ech/v1/application/{instance_id}/',
     'get:/ech/v1/applications',
     'get:/ech/v1/message/',
-    'patch:/api/v1/me',
     'post:/api/v1/attachments',
     'post:/ech/v1/send/',
   ])
@@ -54,7 +52,6 @@
     'get:/ech/v1/applications',
     'get:/ech/v1/files/{id}',
     'get:/ech/v1/message/',
-    'patch:/api/v1/me',
     'post:/ech/v1/files',
     'post:/ech/v1/send/',
   ])
@@ -71,7 +68,6 @@
     'get:/ech/v1/application/{instance_id}/',
     'get:/ech/v1/applications',
     'get:/ech/v1/message/',
-    'patch:/api/v1/me',
     'post:/api/v1/attachments',
   ])
 # ---
@@ -87,7 +83,6 @@
     'get:/ech/v1/applications',
     'get:/ech/v1/files/{id}',
     'get:/ech/v1/message/',
-    'patch:/api/v1/me',
     'post:/ech/v1/files',
     'post:/ech/v1/send/',
   ])
@@ -118,7 +113,6 @@
     'get:/ech/v1/application/{instance_id}/',
     'get:/ech/v1/applications',
     'get:/ech/v1/message/',
-    'patch:/api/v1/me',
     'post:/api/v1/attachments',
     'post:/ech/v1/send/',
   ])

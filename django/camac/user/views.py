@@ -305,6 +305,10 @@ class MeView(
     def retrieve(self, request, *args, **kwargs):
         return super().retrieve(request, *args, **kwargs)
 
+    @swagger_auto_schema(auto_schema=None)
+    def update(self, request, *args, **kwargs):
+        return super().update(request, *args, **kwargs)
+
 
 class RoleView(MultilangMixin, ReadOnlyModelViewSet):
     serializer_class = serializers.RoleSerializer
