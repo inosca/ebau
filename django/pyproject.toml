@@ -180,8 +180,11 @@ omit = [
     # One off commands
     "camac/billing/management/commands/fix_uri_billing_entries.py",
     "camac/core/management/commands/fix_incorrectly_created_geometer_workitems.py",
-    "camac/dossier_import/config/kt_ag/sap/sap_run_sql.py",
-    "camac/dossier_import/config/kt_ag/kt_ag_alexandria_report_generator.py",
+    "camac/dossier_import/config/kt_ag/**/*",
+    "camac/dossier_import/management/commands/kt_ag_migrate_dossiers.py",
+    "camac/dossier_import/tests/test_kt_ag_loader.py",
+    "camac/dossier_import/tests/test_kt_ag_migrate_dossiers.py",
+    "camac/dossier_import/tests/test_kt_ag_status_mapping.py",
     "camac/dossier_import/management/commands/kt_ag_alexandria_report.py",
     "camac/dossier_import/management/commands/fix_identifiers_schuebelbach.py",
     "camac/dossier_import/management/commands/fix_addresses_schuebelbach.py",

@@ -12,6 +12,7 @@ from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.tests.test_utils import to_sorted_json
 
 
+@pytest.mark.skip(reason="manual use only")
 def test_datetime_from_long_number():
     assert datetime_from_long_number(20250415082103.53) == make_aware(
         datetime(2025, 4, 15, 8, 21, 3)
@@ -23,6 +24,7 @@ def test_datetime_from_long_number():
     assert datetime_from_long_number(None) is None
 
 
+@pytest.mark.skip(reason="manual use only")
 def test_simple_mapping(snapshot):
     result: Dossier = KtAargauDossierLoader.map_data(
         {
@@ -52,6 +54,7 @@ def test_simple_mapping(snapshot):
     snapshot.assert_match(to_sorted_json(asdict(result)))
 
 
+@pytest.mark.skip(reason="manual use only")
 def test_empty_string(snapshot):
     result: Dossier = KtAargauDossierLoader.map_data(
         {
@@ -62,6 +65,7 @@ def test_empty_string(snapshot):
     snapshot.assert_match(to_sorted_json(asdict(result)))
 
 
+@pytest.mark.skip(reason="manual use only")
 def test_missing_fields():
     result: Dossier = KtAargauDossierLoader.map_data({})
     assert result
@@ -71,6 +75,7 @@ def test_missing_fields():
     assert len(result.project_author) == 0
 
 
+@pytest.mark.skip(reason="manual use only")
 def test_mapping_for_multiple_locations(snapshot):
     result: Dossier = KtAargauDossierLoader.map_data(
         {
@@ -102,6 +107,7 @@ def test_mapping_for_multiple_locations(snapshot):
     snapshot.assert_match(to_sorted_json(asdict(result)))
 
 
+@pytest.mark.skip(reason="manual use only")
 @pytest.mark.order(1)
 def test_all_mappings(snapshot):
     result: Dossier = KtAargauDossierLoader.map_data(

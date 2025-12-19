@@ -40,7 +40,7 @@ def test_validate_extra_columns(snapshot):
     )
 
 
-def normalize_structure(data):
+def normalize_structure(data):  # pragma: no cover
     """
     Recursive normalization of the structure:
     - Dictionaries are sorted by keys
@@ -66,7 +66,7 @@ def normalize_structure(data):
         return data
 
 
-def to_sorted_json(data):
+def to_sorted_json(data):  # pragma: no cover
     """Converts the normalized structure into reproducible, sorted JSON."""  # noqa: D401
     normalized_data = normalize_structure(data)
     return json.dumps(

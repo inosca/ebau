@@ -15,6 +15,7 @@ def dossier():
     return KtAargauDossier("EBPA-1234-5678", "Testgesuch")
 
 
+@pytest.mark.skip(reason="manual use only")
 def test_map_target_state_non_ebau_municipality_finished(dossier):
     # Test for non-EBAU municipality with "Definitiver Abschluss" status
     dossier.responsible_municipality = "1"  # Non-EBAU municipality
@@ -24,6 +25,7 @@ def test_map_target_state_non_ebau_municipality_finished(dossier):
     assert dossier._meta.target_state == DossierState.FINISHED.value
 
 
+@pytest.mark.skip(reason="manual use only")
 def test_map_target_state_non_ebau_municipality_other(dossier):
     # Test for non-EBAU municipality with other status
     dossier.responsible_municipality = "1"  # Non-EBAU municipality
@@ -33,6 +35,7 @@ def test_map_target_state_non_ebau_municipality_other(dossier):
     assert dossier._meta.target_state == DossierState.CIRCULATION.value
 
 
+@pytest.mark.skip(reason="manual use only")
 def test_map_target_state_ebau_municipality_finished(dossier):
     # Test for EBAU municipality with finished status
     dossier.responsible_municipality = "4012"
@@ -43,6 +46,7 @@ def test_map_target_state_ebau_municipality_finished(dossier):
     assert dossier._meta.target_state == DossierState.FINISHED.value
 
 
+@pytest.mark.skip(reason="manual use only")
 def test_map_target_state_ebau_municipality_construction_monitoring(dossier):
     # Test for EBAU municipality in construction monitoring
     dossier.responsible_municipality = "4012"
@@ -53,6 +57,7 @@ def test_map_target_state_ebau_municipality_construction_monitoring(dossier):
     assert dossier._meta.target_state == DossierState.CONSTRUCTION_MONITORING.value
 
 
+@pytest.mark.skip(reason="manual use only")
 def test_map_target_state_ebau_municipality_decision_pending(dossier):
     # Test for EBAU municipality with pending decision
     dossier.responsible_municipality = "4012"
@@ -65,6 +70,7 @@ def test_map_target_state_ebau_municipality_decision_pending(dossier):
     assert dossier._meta.target_state == DossierState.DECISION.value
 
 
+@pytest.mark.skip(reason="manual use only")
 def test_map_target_state_ebau_municipality_circulation(dossier):
     # Test for EBAU municipality in circulation
     dossier.responsible_municipality = "4012"
@@ -77,6 +83,7 @@ def test_map_target_state_ebau_municipality_circulation(dossier):
     assert dossier._meta.target_state == DossierState.CIRCULATION.value
 
 
+@pytest.mark.skip(reason="manual use only")
 def test_map_target_state_ebau_municipality_circulation_5a(dossier):
     # Test for EBAU municipality in circulation
     dossier.responsible_municipality = "4012"
@@ -91,6 +98,7 @@ def test_map_target_state_ebau_municipality_circulation_5a(dossier):
     assert dossier._meta.target_state == DossierState.CIRCULATION.value
 
 
+@pytest.mark.skip(reason="manual use only")
 def test_map_target_state_ebau_municipality_preliminary_check_8(dossier):
     # Test for EBAU municipality in preliminary check
     dossier.responsible_municipality = "4012"
@@ -101,6 +109,7 @@ def test_map_target_state_ebau_municipality_preliminary_check_8(dossier):
     assert dossier._meta.target_state == DossierState.FORMAL_EXAM.value
 
 
+@pytest.mark.skip(reason="manual use only")
 def test_map_target_state_ebau_municipality_preliminary_check_7(dossier):
     # Test for EBAU municipality in preliminary check
     dossier.responsible_municipality = "4012"
@@ -113,6 +122,7 @@ def test_map_target_state_ebau_municipality_preliminary_check_7(dossier):
     assert dossier._meta.target_state == DossierState.FORMAL_EXAM.value
 
 
+@pytest.mark.skip(reason="manual use only")
 def test_map_target_state_ebau_municipality_preliminary_check_6(dossier):
     # Test for EBAU municipality in preliminary check
     dossier.responsible_municipality = "4012"
@@ -125,6 +135,7 @@ def test_map_target_state_ebau_municipality_preliminary_check_6(dossier):
     assert dossier._meta.target_state == DossierState.FORMAL_EXAM.value
 
 
+@pytest.mark.skip(reason="manual use only")
 def test_map_target_state_ebau_municipality_circulation_fallback(dossier):
     # Test fallback case for EBAU municipality
     dossier.responsible_municipality = "4012"

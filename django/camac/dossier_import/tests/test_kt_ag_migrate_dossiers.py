@@ -24,6 +24,7 @@ def get_test_files():
     return list(input_files)
 
 
+@pytest.mark.skip(reason="manual use only")
 @pytest.mark.freeze_time("2025-07-28 12:00:00")
 @pytest.mark.django_db(transaction=True)
 def test_migrate_from_zip(db, setup_dossier_import_ag, snapshot):

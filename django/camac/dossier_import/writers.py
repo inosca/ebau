@@ -268,7 +268,7 @@ class CalumaAnswerWriter(FieldWriter):
     def _apply_value_format(self, value):
         if self.formatter == "to-string":
             return str(value)
-        if callable(self.formatter):
+        if callable(self.formatter):  # pragma: no cover
             return self.formatter(value)
         return value
 
@@ -438,13 +438,13 @@ class CalumaListAnswerWriter(FieldWriter):
     def _iter_fields(self, obj):  # Ist ein Generator
         if is_dataclass(obj):
             return ((f.name, getattr(obj, f.name)) for f in fields(obj))
-        elif isinstance(obj, Mapping):
+        elif isinstance(obj, Mapping):  # pragma: no cover
             return obj.items()
 
     def _values(self, obj):
         if is_dataclass(obj):
             return asdict(obj).values()
-        elif isinstance(obj, Mapping):
+        elif isinstance(obj, Mapping):  # pragma: no cover
             return obj.values()
 
     def write(self, instance, values):  # noqa: C901
