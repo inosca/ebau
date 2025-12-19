@@ -684,6 +684,18 @@
     }
   },
   {
+    "model": "notification.notificationtemplate",
+    "pk": 73,
+    "fields": {
+      "slug": "bericht-wiedereroeffnet",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
     "model": "notification.notificationtemplatet",
     "pk": 1,
     "fields": {
@@ -1365,6 +1377,18 @@
       "purpose": "Einladung zu eBau",
       "subject": "Einladung zu eBau / Invitation à eBau",
       "body": "Guten Tag\r\n\r\nSie haben eine Berechtigung im internen Bereich von eBau für die Organisation \"{{ INVITED_TO_SERVICE }}\" erhalten. Um die Berechtigung zu aktivieren, ist eine Registrierung auf dem BE LOGIN Portal des Kantons Bern erforderlich.\r\n\r\nUnter folgendem Link können Sie sich registrieren: {{ INTERNAL_BASE_URL }}\r\n\r\nDiese Einladung ist 14 Tage lang gültig. Falls die Frist abgelaufen ist, melden Sie sich beim Administrator in ihrer Organisation.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau\r\n\r\n*** version française ***\r\n\r\nBonjour\r\n \r\nVous avez reçu un droit d'accès au domaine interne de eBau pour l'organisation « {{ INVITED_TO_SERVICE }} ». Pour activer ce droit, vous devez vous inscrire sur le portail BE-Login du canton de Berne.\r\n\r\nVous pouvez vous inscrire en cliquant sur le lien suivant : {{ INTERNAL_BASE_URL }}\r\n\r\nCette invitation est valable pendant 14 jours. Si le délai est dépassé, veuillez contacter l'administrateur de votre organisation ou le service de support de eBau.\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nMeilleures salutations\r\neBau"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 105,
+    "fields": {
+      "template": 73,
+      "template_slug": "bericht-wiedereroeffnet",
+      "language": "de",
+      "purpose": "Wiedereröffnung einer Stellungnahme",
+      "subject": "Hinweis zum Verfahrensablauf (eBau Nr. {{EBAU_NUMBER}}) / Précision sur le déroulement de la procédure (n° eBau {{EBAU_NUMBER}})",
+      "body": "Guten Tag\r\n\r\nIhre Stellungnahme zum Dossier mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) wurde wiedereröffnet und kann überarbeitet werden.\r\n\r\nBemerkung: {{INQUIRY_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n\r\n{{CURRENT_SERVICE_DE}}\r\n\r\n*** version française ***\r\n\r\nMadame, Monsieur,\r\n\r\nVotre prise de position relative au dossier eBau n° {{EBAU_NUMBER}} ({{INSTANCE_ID}}, {{FORM_NAME_FR}}, {{MUNICIPALITY_FR}}) a été rouverte et peut être remaniée.\r\n\r\nRemarque: {{INQUIRY_LINK}}\r\n\r\nCe message a été généré automatiquement, veuillez ne pas y répondre.\r\n\r\nVeuillez agréer, Madame, Monsieur, nos salutations les meilleures.\r\n\r\n{{CURRENT_SERVICE_FR}}"
     }
   }
 ]
