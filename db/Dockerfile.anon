@@ -1,0 +1,13 @@
+FROM postgres:15-bullseye
+
+RUN \
+  --mount=type=cache,target=/var/cache/apt,sharing=locked \
+  apt-get update && apt-get install -y --no-install-recommends curl lsb-release
+
+RUN \
+  --mount=type=cache,target=/var/cache/apt,sharing=locked \
+  echo deb http://apt.dalibo.org/labs $(lsb_release -cs)-dalibo main > /etc/apt/sources.list.d/dalibo-labs.list \
+  && curl -fsSL -o /etc/apt/trusted.gpg.d/dalibo-labs.gpg https://apt.dalibo.org/labs/debian-dalibo.gpg \
+  && apt-get update && apt-get install -y --no-install-recommends postgresql_anonymizer_15
+
+COPY init-user-db.sh /docker-entrypoint-initdb.d/init-user-db.sh
