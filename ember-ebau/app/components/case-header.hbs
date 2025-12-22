@@ -12,9 +12,7 @@
     </div>
     <div class={{if (or @fullscreen this.compact) "uk-text-truncate"}}>
       <div class="uk-text-bold">{{t "cases.tableHeaders.intent"}}</div>
-      <TruncatedText
-        @content={{or @case.modificationDescription @case.intent "-"}}
-      />
+      <TruncatedText @content={{this.intent}} />
     </div>
     <div>
       <div class="uk-text-bold">{{t "cases.tableHeaders.applicants"}}</div>

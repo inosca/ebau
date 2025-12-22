@@ -3,6 +3,7 @@ import { service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { dropTask } from "ember-concurrency";
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 
 const LOCAL_STORAGE_KEY = "ebau-hide-master-data";
 
@@ -17,6 +18,16 @@ export default class CaseHeaderComponent extends Component {
 
   get extended() {
     return !this.compact;
+  }
+
+  get intent() {
+    return (
+      this.args?.case?.modificationDescription ||
+      (hasFeature("instanceHeader.shortIntent")
+        ? this.args?.case?.shortIntent
+        : this.args?.case?.intent) ||
+      "-"
+    );
   }
 
   get toggleButtonTooltip() {

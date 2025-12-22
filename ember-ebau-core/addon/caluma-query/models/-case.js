@@ -26,6 +26,7 @@ const rootQuestions = [
   answerSlugs.coordinates,
   answerSlugs.modificationDescription,
   answerSlugs.evenProjectNumber,
+  answerSlugs.shortDescription,
   ...mainConfig.intentSlugs,
 ]
   .filter(Boolean)
@@ -85,6 +86,10 @@ export default class CustomCaseBaseModel extends CaseModel {
 
   get intent() {
     return this.getAnswerDisplayValue(mainConfig.intentSlugs);
+  }
+
+  get shortIntent() {
+    return this.getAnswerDisplayValue(answerSlugs.shortDescription);
   }
 
   get modificationDescription() {
