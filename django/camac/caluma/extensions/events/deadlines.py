@@ -379,7 +379,10 @@ def post_complete_inquiry(sender, work_item, user, context=None, **kwargs):
 @filter_events(lambda: settings.DEADLINES and settings.DEADLINES.enabled)
 @transaction.atomic
 def post_complete_decision(sender, work_item, user, context=None, **kwargs):
-    """Update the process deadline date when a decision is completed."""
+    """Update the process deadline date when a decision is completed.
+
+    Will also mark the instance deadlines as complete.
+    """
 
     instance = get_instance(work_item)
     for deadline in deadlines_models.InstanceDeadline.objects.for_instance(instance):

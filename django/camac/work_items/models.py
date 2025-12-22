@@ -15,6 +15,7 @@ from django.db.models import (
     F,
     OuterRef,
     Q,
+    Subquery,
     Value,
     When,
 )
@@ -348,10 +349,20 @@ class WorkItemListRowManager(models.Manager["WorkItemListRow"]):
         if not settings.DEADLINES.enabled:
             return Value(None, output_field=DateField())
 
-        return (
-            InstanceDeadline.objects.filter(service=service_id)
-            .filter(instance_id=OuterRef("instance_id"))
-            .values("target_deadline_date")[:1]
+        deadline_qs = InstanceDeadline.objects.filter(
+            service=service_id,
+            instance_id=OuterRef("instance_id"),
+        )
+
+        return Subquery(
+            deadline_qs.annotate(
+                _target_deadline_date=Case(
+                    When(completed=True, then=Value(None)),
+                    default="target_deadline_date",
+                    output_field=DateField(),
+                )
+            ).values("_target_deadline_date")[:1],
+            output_field=DateField(),
         )
 
     def _annotate_suspended_services(self) -> F | Value:

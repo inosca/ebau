@@ -35,6 +35,7 @@ cases:
     parcel: "Parzellen"
     parcelPicture: "Parzellenbild"
     processingDeadline: "Frist"
+    processDeadlineDate: "Verfahrensende"
     reason: "Grund"
     responsibility: "Zuständig"
     street: "Strasse/Flurname"

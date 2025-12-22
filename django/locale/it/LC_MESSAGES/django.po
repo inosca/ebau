@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-19 13:18+0100\n"
+"POT-Creation-Date: 2025-12-22 10:22+0100\n"
 "PO-Revision-Date: 2024-09-12 16:24+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -678,6 +678,14 @@ msgstr ""
 
 #: camac/deadlines/models.py
 msgid "The number of days processed since the start date."
+msgstr ""
+
+#: camac/deadlines/models.py
+msgid "Completed"
+msgstr ""
+
+#: camac/deadlines/models.py
+msgid "Indicates whether the deadline is completed."
 msgstr ""
 
 #: camac/deadlines/models.py

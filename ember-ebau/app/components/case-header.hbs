@@ -29,13 +29,17 @@
           (and (has-feature "deadlines.enabled") (await (can "read deadline")))
         }}
           /
-          {{or
-            (if
-              (has-feature "deadlines.useEndDate")
-              (t "cases.tableHeaders.deadlineEndDate")
-            )
-            (t "cases.tableHeaders.processDuration")
-          }}
+          {{#if (has-feature "deadlines.useEndDate")}}
+            {{t
+              (if
+                @case.deadline.completed
+                "cases.tableHeaders.processDeadlineDate"
+                "cases.tableHeaders.deadlineEndDate"
+              )
+            }}
+          {{else}}
+            {{t "cases.tableHeaders.processDuration"}}
+          {{/if}}
         {{/if}}
       </div>
       {{or @case.submitDate "-"}}
@@ -46,21 +50,30 @@
         /
         <LinkTo @route={{module-route "deadlines" "index"}}>
           {{#if (has-feature "deadlines.useEndDate")}}
-            {{#if @case.deadline.instance.isSuspended}}
-              <s>
+            {{#let
+              (if
+                @case.deadline.completed
+                @case.deadline.processDeadlineDate
+                @case.deadline.targetDeadlineDate
+              )
+              as |deadlineDate|
+            }}
+              {{#if @case.deadline.instance.isSuspended}}
+                <s>
+                  {{if
+                    deadlineDate
+                    (format-date deadlineDate format="date")
+                    (t "deadlines.deadline.noEndDate")
+                  }}
+                </s>
+              {{else}}
                 {{if
-                  @case.deadline.targetDeadlineDate
-                  (format-date @case.deadline.targetDeadlineDate format="date")
+                  deadlineDate
+                  (format-date deadlineDate format="date")
                   (t "deadlines.deadline.noEndDate")
                 }}
-              </s>
-            {{else}}
-              {{if
-                @case.deadline.targetDeadlineDate
-                (format-date @case.deadline.targetDeadlineDate format="date")
-                (t "deadlines.deadline.noEndDate")
-              }}
-            {{/if}}
+              {{/if}}
+            {{/let}}
           {{else}}
             {{#if @case.deadline.instance.isSuspended}}
               <s>

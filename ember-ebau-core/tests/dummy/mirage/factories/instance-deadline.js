@@ -14,5 +14,6 @@ export default Factory.extend({
     DateTime.fromJSDate(faker.date.future()).toISODate(),
   targetDeadlineDate: () =>
     DateTime.fromJSDate(faker.date.future()).toISODate(),
+  completed: () => faker.datatype.boolean(),
   createdAt: () => DateTime.fromJSDate(faker.date.past()).toISODate(),
 });

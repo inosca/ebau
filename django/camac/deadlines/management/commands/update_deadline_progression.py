@@ -50,4 +50,5 @@ class Command(BaseCommand):
                     f"processed days: {deadline.process_deadline_days}, "
                     f"end date {end_date} with lead time "
                     f"{lead_time} days."
+                    f" Completed: {deadline.completed}"
                 )

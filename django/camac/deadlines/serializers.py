@@ -108,6 +108,7 @@ class InstanceDeadlineSerializer(serializers.ModelSerializer):
             "total_days_of_suspension",
             "process_deadline_days",
             "target_deadline_date",
+            "completed",
         )
         fields = read_only_fields + (
             "instance",

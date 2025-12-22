@@ -8,6 +8,7 @@ export default class DeadlinesInstanceDeadlineModel extends Model {
   @attr("number") processDeadlineDays;
   @attr("date") targetDeadlineDate;
   @attr("number") totalDaysOfSuspension;
+  @attr("boolean") completed;
 
   @belongsTo("deadline-type", {
     inverse: null,
