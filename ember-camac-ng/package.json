@@ -1,6 +1,6 @@
 {
   "name": "camac-ng",
-  "version": "3.8.3",
+  "version": "0.0.0-dev",
   "private": true,
   "description": "Ember modules for camac-ng",
   "license": "Proprietary",
