@@ -31,7 +31,7 @@
   			<ns1:dossierIdentification><!-- INSTANCE_ID --></ns1:dossierIdentification>
   		</ns1:planningPermissionApplicationIdentification>
   		<ns1:document>
-  			<ns4:uuid>663448f0-a6d9-44da-a1d9-8890fdc6912c</ns4:uuid>
+  			<ns4:uuid>b8822250-882b-42e2-81f0-0ac8a139a6a3</ns4:uuid>
   			<ns4:titles>
   				<ns5:title>parent</ns5:title>
   			</ns4:titles>
@@ -39,13 +39,13 @@
   			<ns4:files>
   				<ns4:file>
   					<ns4:pathFileName>http://ebau.localhost/api/v1/attachments/files/?attachments=<!-- ATTACHMENT_ID --></ns4:pathFileName>
-  					<ns4:mimeType>multipart/related</ns4:mimeType>
+  					<ns4:mimeType>message/rfc822</ns4:mimeType>
   				</ns4:file>
   			</ns4:files>
-  			<ns4:documentKind>Nicole Pineda</ns4:documentKind>
+  			<ns4:documentKind>David Gomez</ns4:documentKind>
   		</ns1:document>
   		<ns1:document>
-  			<ns4:uuid>8e17ca7f-668b-4327-bac6-99a321dcf879</ns4:uuid>
+  			<ns4:uuid>4e382781-a359-4e2e-b977-b48c410fdb5c</ns4:uuid>
   			<ns4:titles>
   				<ns5:title>child</ns5:title>
   			</ns4:titles>
@@ -53,10 +53,10 @@
   			<ns4:files>
   				<ns4:file>
   					<ns4:pathFileName>http://ebau.localhost/api/v1/attachments/files/?attachments=<!-- ATTACHMENT_ID --></ns4:pathFileName>
-  					<ns4:mimeType>model/example</ns4:mimeType>
+  					<ns4:mimeType>video/x-flv</ns4:mimeType>
   				</ns4:file>
   			</ns4:files>
-  			<ns4:documentKind>Nicole Pineda</ns4:documentKind>
+  			<ns4:documentKind>David Gomez</ns4:documentKind>
   		</ns1:document>
   	</ns1:eventAccompanyingReport>
   </ns1:delivery>
@@ -95,7 +95,7 @@
   			<ns1:dossierIdentification><!-- INSTANCE_ID --></ns1:dossierIdentification>
   		</ns1:planningPermissionApplicationIdentification>
   		<ns1:document>
-  			<ns4:uuid>663448f0-a6d9-44da-a1d9-8890fdc6912c</ns4:uuid>
+  			<ns4:uuid>b8822250-882b-42e2-81f0-0ac8a139a6a3</ns4:uuid>
   			<ns4:titles>
   				<ns5:title>parent</ns5:title>
   			</ns4:titles>
@@ -103,13 +103,13 @@
   			<ns4:files>
   				<ns4:file>
   					<ns4:pathFileName>http://ebau.localhost/api/v1/attachments/files/?attachments=<!-- ATTACHMENT_ID --></ns4:pathFileName>
-  					<ns4:mimeType>multipart/related</ns4:mimeType>
+  					<ns4:mimeType>message/rfc822</ns4:mimeType>
   				</ns4:file>
   			</ns4:files>
-  			<ns4:documentKind>Nicole Pineda</ns4:documentKind>
+  			<ns4:documentKind>David Gomez</ns4:documentKind>
   		</ns1:document>
   		<ns1:document>
-  			<ns4:uuid>8e17ca7f-668b-4327-bac6-99a321dcf879</ns4:uuid>
+  			<ns4:uuid>4e382781-a359-4e2e-b977-b48c410fdb5c</ns4:uuid>
   			<ns4:titles>
   				<ns5:title>child</ns5:title>
   			</ns4:titles>
@@ -117,10 +117,10 @@
   			<ns4:files>
   				<ns4:file>
   					<ns4:pathFileName>http://ebau.localhost/api/v1/attachments/files/?attachments=<!-- ATTACHMENT_ID --></ns4:pathFileName>
-  					<ns4:mimeType>model/example</ns4:mimeType>
+  					<ns4:mimeType>video/x-flv</ns4:mimeType>
   				</ns4:file>
   			</ns4:files>
-  			<ns4:documentKind>Nicole Pineda</ns4:documentKind>
+  			<ns4:documentKind>David Gomez</ns4:documentKind>
   		</ns1:document>
   		<ns1:remark>lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum l…</ns1:remark>
   		<ns1:ancillaryClauses>nebenbestimmung&amp;#13;&amp;#10;blablabla&amp;#13;&amp;#10;blu; yeah</ns1:ancillaryClauses>
@@ -169,7 +169,7 @@
   			<ns4:files>
   				<ns4:file>
   					<ns4:pathFileName>http://ember-ebau.localhost/ech/v1/files/<!-- ATTACHMENT_ID --></ns4:pathFileName>
-  					<ns4:mimeType>image/svg+xml</ns4:mimeType>
+  					<ns4:mimeType>multipart/mixed</ns4:mimeType>
   				</ns4:file>
   			</ns4:files>
   			<ns4:documentKind>Timothy Malone</ns4:documentKind>
@@ -183,7 +183,7 @@
   			<ns4:files>
   				<ns4:file>
   					<ns4:pathFileName>http://ember-ebau.localhost/ech/v1/files/<!-- ATTACHMENT_ID --></ns4:pathFileName>
-  					<ns4:mimeType>multipart/alternative</ns4:mimeType>
+  					<ns4:mimeType>audio/ogg</ns4:mimeType>
   				</ns4:file>
   			</ns4:files>
   			<ns4:documentKind>Timothy Malone</ns4:documentKind>

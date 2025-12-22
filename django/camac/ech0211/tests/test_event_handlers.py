@@ -142,6 +142,7 @@ def test_accompanying_report_event_handler(
     set_application_be,
     user,
 ):
+    inviting_service = service_factory()
     parent_service = service_factory()
     parent_group = group_factory(service=parent_service)
 
@@ -187,6 +188,7 @@ def test_accompanying_report_event_handler(
     inquiry = active_inquiry_factory(
         for_instance=ech_instance_be,
         addressed_service=parent_service,
+        created_by_group=inviting_service.pk,
     )
 
     caluma_answer_factory(
@@ -212,7 +214,7 @@ def test_accompanying_report_event_handler(
 
     assert Message.objects.count() == 1
     message = Message.objects.first()
-    assert message.receiver.get_name() == "Leitbehörde Burgdorf"
+    assert message.receiver == inviting_service
     ech_snapshot(message.body)
 
 
@@ -358,7 +360,8 @@ def test_accompanying_report_event_handler_alexandria(
 
     so_ech0211_settings["ACCOMPANYING_REPORT"] = {"ALEXANDRIA_CATEGORY": category.pk}
 
-    subservice = service_factory(service_parent=service)
+    invited_service = service_factory()
+    subservice = service_factory(service_parent=invited_service)
     other_service = service_factory()
 
     freezer.move_to("12:01")
@@ -368,7 +371,7 @@ def test_accompanying_report_event_handler_alexandria(
             title="service-visible-document",
             metainfo={"camac-instance-id": ech_instance_so.pk},
             category=category,
-            created_by_group=str(service.pk),
+            created_by_group=str(invited_service.pk),
         ),
     )
     freezer.move_to("12:02")
@@ -388,7 +391,7 @@ def test_accompanying_report_event_handler_alexandria(
             title="service-hidden-document",
             metainfo={"camac-instance-id": ech_instance_so.pk},
             category=other_category,
-            created_by_group=str(service.pk),
+            created_by_group=str(invited_service.pk),
         ),
     )
     freezer.move_to("12:04")
@@ -404,7 +407,8 @@ def test_accompanying_report_event_handler_alexandria(
 
     inquiry = active_inquiry_factory(
         for_instance=ech_instance_so,
-        addressed_service=service,
+        addressed_service=invited_service,
+        created_by_group=service.pk,
     )
 
     caluma_answer_factory(
@@ -423,6 +427,7 @@ def test_accompanying_report_event_handler_alexandria(
 
     assert Message.objects.count() == 1
     message = Message.objects.first()
+    assert message.receiver == service
     ech_snapshot(message.body)
 
 
@@ -441,6 +446,7 @@ def test_accompanying_report_event_handler_extension(
     multilang,
     documents_available,
     service,
+    service_factory,
     utils,
 ):
     gr_ech0211_settings["ACCOMPANYING_REPORT"]["EXTENSION_MAPPING"] = {
@@ -459,11 +465,13 @@ def test_accompanying_report_event_handler_extension(
             "true_value": "stellungnahme-in-dokumentanablage-ja",
         },
     }
+    inviting_service = service_factory()
     inquiry = active_inquiry_factory(
         for_instance=ech_instance_gr,
         addressed_service=service,
         status=WorkItem.STATUS_COMPLETED,
         closed_by_group=service.pk,
+        created_by_group=inviting_service.pk,
     )
 
     caluma_answer_factory(
