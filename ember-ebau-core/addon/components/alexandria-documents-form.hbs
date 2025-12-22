@@ -23,11 +23,7 @@
 
 {{#if this.allRequiredTags.length}}
   <p class="uk-text-bold">
-    {{#if this.showReducedConfirmText}}
-      {{t "documents.confirm-reduced"}}
-    {{else}}
-      {{t "documents.confirm" count=this.allRequiredTags.length}}
-    {{/if}}
+    {{t "documents.confirm" count=this.allRequiredTags.length}}
   </p>
   {{#if (t "documents.no-special-forms")}}
     <div class="uk-padding-small uk-margin-bottom border-highlight">
