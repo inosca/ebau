@@ -256,6 +256,7 @@ module.exports = function (environment) {
           "entfernen-von-hecken-und-feldgehoelzen-dokument-begruendung-v2",
           "solaranlagen-tabelle-grundriss-ansichtsplan-dokument-begruendung-v2",
           "solaranlagen-tabelle-situationsplan-mit-eingezeichneter-solaranlage-dokument-begruendung-v3",
+          "eignung-der-dachflaechen-zur-solarenergienutzung-dokument-begruendung",
         ],
       },
       instanceStates: instanceStatesBe,
@@ -274,6 +275,7 @@ module.exports = function (environment) {
             "heat-generator",
             "reklamegesuch",
             "benuetzung-oeffentlichem-terrain-meldung",
+            "solareignung-meldung",
           ],
         },
         {

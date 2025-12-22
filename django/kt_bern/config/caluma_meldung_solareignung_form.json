@@ -1,0 +1,1130 @@
+[
+  {
+    "model": "caluma_form.form",
+    "pk": "solareignung-meldung",
+    "fields": {
+      "created_at": "2025-11-06T08:51:40.188Z",
+      "modified_at": "2025-11-06T08:53:16.390Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Meldung Solareignung\", \"fr\": \"Annonce concernant le potentiel solaire d’une toiture\", \"it\": null}",
+      "description": "{\"de\": \"Meldung Solareignung\", \"fr\": \"Annonce concernant le potentiel solaire d’une toiture\", \"it\": null}",
+      "meta": {
+        "order": 3,
+        "category": "special-procedure",
+        "is-creatable": true,
+        "is-main-form": true
+      },
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "solareignung-meldung-bei-umfassender-dachsanierung",
+    "fields": {
+      "created_at": "2025-11-28T09:44:40.358Z",
+      "modified_at": "2025-11-28T09:44:40.358Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Meldung Solareignung bei umfassender Dachsanierung\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "solareignung-meldung-bestaetigung",
+    "fields": {
+      "created_at": "2025-11-28T10:12:20.309Z",
+      "modified_at": "2025-11-28T10:12:20.309Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Bestätigung\", \"fr\": \"Attestation\", \"it\": null}",
+      "description": "{\"de\": \"Meldung Solareignung > Bestätigung\", \"fr\": \"Meldung Solareignung > Bestätigung\", \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "solareignung-meldung-dokumente",
+    "fields": {
+      "created_at": "2025-11-28T11:56:35.877Z",
+      "modified_at": "2025-11-28T11:56:35.877Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Dokumente\", \"fr\": \"Documents\", \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "solareignung-meldung-solareignung",
+    "fields": {
+      "created_at": "2025-11-28T13:07:22.648Z",
+      "modified_at": "2025-11-28T13:07:22.648Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Solareignung\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "solareignung-meldung-tabelle",
+    "fields": {
+      "created_at": "2025-11-28T13:09:36.316Z",
+      "modified_at": "2025-11-28T13:09:36.316Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Meldung Solareignung Tabelle\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solareignung-meldung.8-freigabequittung",
+    "fields": {
+      "created_at": "2025-11-28T10:10:40.876Z",
+      "modified_at": "2025-11-28T10:10:40.876Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solareignung-meldung",
+      "question": "8-freigabequittung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solareignung-meldung.allgemeine-angaben-kurz-formular-v5",
+    "fields": {
+      "created_at": "2025-11-28T10:02:55.736Z",
+      "modified_at": "2025-11-28T10:02:55.736Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solareignung-meldung",
+      "question": "allgemeine-angaben-kurz-formular-v5",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solareignung-meldung-bei-umfassender-dachsanierung.hinweis-solareignung-meldung",
+    "fields": {
+      "created_at": "2025-11-28T09:47:10.115Z",
+      "modified_at": "2025-11-28T09:47:10.115Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solareignung-meldung-bei-umfassender-dachsanierung",
+      "question": "hinweis-solareignung-meldung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solareignung-meldung-bestaetigung.solareignung-meldung-bestaetigung-richtigkeit-der-angaben",
+    "fields": {
+      "created_at": "2025-11-28T10:15:27.112Z",
+      "modified_at": "2025-11-28T10:15:27.112Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solareignung-meldung-bestaetigung",
+      "question": "solareignung-meldung-bestaetigung-richtigkeit-der-angaben",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solareignung-meldung-dokumente.dokumente-platzhalter",
+    "fields": {
+      "created_at": "2025-11-28T11:57:38.839Z",
+      "modified_at": "2025-11-28T11:57:38.839Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solareignung-meldung-dokumente",
+      "question": "dokumente-platzhalter",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solareignung-meldung-dokumente.eignung-der-dachflaechen-zur-solarenergienutzung-dokument",
+    "fields": {
+      "created_at": "2025-11-28T12:07:47.501Z",
+      "modified_at": "2025-11-28T12:07:47.501Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solareignung-meldung-dokumente",
+      "question": "eignung-der-dachflaechen-zur-solarenergienutzung-dokument",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solareignung-meldung-dokumente.eignung-der-dachflaechen-zur-solarenergienutzung-dokument-begruendung",
+    "fields": {
+      "created_at": "2025-11-28T12:34:00.272Z",
+      "modified_at": "2025-11-28T12:34:00.272Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solareignung-meldung-dokumente",
+      "question": "eignung-der-dachflaechen-zur-solarenergienutzung-dokument-begruendung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solareignung-meldung-dokumente.infotext-pflichtdokumente-v5",
+    "fields": {
+      "created_at": "2025-11-28T12:29:45.734Z",
+      "modified_at": "2025-11-28T12:29:45.734Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solareignung-meldung-dokumente",
+      "question": "infotext-pflichtdokumente-v5",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solareignung-meldung.personalien-kurz-formular",
+    "fields": {
+      "created_at": "2025-11-06T11:14:24.960Z",
+      "modified_at": "2025-11-06T11:14:24.960Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solareignung-meldung",
+      "question": "personalien-kurz-formular",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solareignung-meldung.solareignung-meldung-bei-umfassender-dachsanierung",
+    "fields": {
+      "created_at": "2025-11-28T09:48:07.180Z",
+      "modified_at": "2025-11-28T09:48:07.180Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solareignung-meldung",
+      "question": "solareignung-meldung-bei-umfassender-dachsanierung",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solareignung-meldung.solareignung-meldung-bestaetigung",
+    "fields": {
+      "created_at": "2025-11-28T10:17:52.087Z",
+      "modified_at": "2025-11-28T10:17:52.087Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solareignung-meldung",
+      "question": "solareignung-meldung-bestaetigung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solareignung-meldung.solareignung-meldung-dokumente",
+    "fields": {
+      "created_at": "2025-11-28T11:58:46.197Z",
+      "modified_at": "2025-11-28T11:58:46.197Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solareignung-meldung",
+      "question": "solareignung-meldung-dokumente",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solareignung-meldung.solareignung-meldung-solareignung",
+    "fields": {
+      "created_at": "2025-11-28T13:15:25.905Z",
+      "modified_at": "2025-11-28T13:15:25.905Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solareignung-meldung",
+      "question": "solareignung-meldung-solareignung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solareignung-meldung-solareignung.solareignung-meldung-tabelle",
+    "fields": {
+      "created_at": "2025-11-28T13:14:24.682Z",
+      "modified_at": "2025-11-28T13:14:24.682Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solareignung-meldung-solareignung",
+      "question": "solareignung-meldung-tabelle",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solareignung-meldung-tabelle.solareignung-meldung-dachflaeche",
+    "fields": {
+      "created_at": "2025-11-28T13:11:32.891Z",
+      "modified_at": "2025-11-28T13:11:32.891Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solareignung-meldung-tabelle",
+      "question": "solareignung-meldung-dachflaeche",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "solareignung-meldung-tabelle.solareignung-meldung-eignung",
+    "fields": {
+      "created_at": "2025-11-28T13:12:47.229Z",
+      "modified_at": "2025-11-28T13:12:47.229Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solareignung-meldung-tabelle",
+      "question": "solareignung-meldung-eignung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "eignung-der-dachflaechen-zur-solarenergienutzung-dokument-ja",
+    "fields": {
+      "created_at": "2025-11-28T12:07:47.287Z",
+      "modified_at": "2025-12-01T15:10:33.747Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hochgeladen\", \"fr\": \"Téléchargé\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "eignung-der-dachflaechen-zur-solarenergienutzung-dokument-nein",
+    "fields": {
+      "created_at": "2025-11-28T12:07:47.276Z",
+      "modified_at": "2025-12-01T15:10:33.758Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht erforderlich\", \"fr\": \"Pas nécessaire\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "solareignung-meldung-bestaetigung-richtigkeit-der-angaben-ja",
+    "fields": {
+      "created_at": "2025-11-28T10:15:26.719Z",
+      "modified_at": "2025-11-28T10:15:26.719Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die Richtigkeit der Angaben bestätigt die Liegenschaftseigentümerschaft oder deren Vertretung\", \"fr\": \"Je confirme par la présente avoir téléversé les contenus suivants obligatoires. La liste des docu-ments obligatoires est exhaustive.\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "solareignung-meldung-dachflaeche-flachdach",
+    "fields": {
+      "created_at": "2025-11-28T13:11:32.491Z",
+      "modified_at": "2025-12-01T15:01:57.246Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Flachdach\", \"fr\": \"Toit plat\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "solareignung-meldung-dachflaeche-nord",
+    "fields": {
+      "created_at": "2025-11-28T13:11:32.496Z",
+      "modified_at": "2025-11-28T13:11:32.496Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nord\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "solareignung-meldung-dachflaeche-ost",
+    "fields": {
+      "created_at": "2025-11-28T13:11:32.523Z",
+      "modified_at": "2025-12-01T15:01:57.192Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ost\", \"fr\": \"Est\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "solareignung-meldung-dachflaeche-sued",
+    "fields": {
+      "created_at": "2025-11-28T13:11:32.498Z",
+      "modified_at": "2025-12-01T15:01:57.249Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Süd\", \"fr\": \"Sud\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "solareignung-meldung-dachflaeche-west",
+    "fields": {
+      "created_at": "2025-11-28T13:11:32.497Z",
+      "modified_at": "2025-12-01T15:01:57.241Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"West\", \"fr\": \"Ouest\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "solareignung-meldung-eignung-gering",
+    "fields": {
+      "created_at": "2025-11-28T13:12:46.967Z",
+      "modified_at": "2025-12-01T15:02:44.574Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gering\", \"fr\": \"faible\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "solareignung-meldung-eignung-gut",
+    "fields": {
+      "created_at": "2025-11-28T13:12:46.985Z",
+      "modified_at": "2025-12-01T15:02:44.639Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gut\", \"fr\": \"bonne\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "solareignung-meldung-eignung-hervorragend",
+    "fields": {
+      "created_at": "2025-11-28T13:12:46.977Z",
+      "modified_at": "2025-12-01T15:02:44.649Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hervorragend\", \"fr\": \"excellente\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "solareignung-meldung-eignung-mittel",
+    "fields": {
+      "created_at": "2025-11-28T13:12:46.959Z",
+      "modified_at": "2025-12-17T09:13:42.912Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Mittel\", \"fr\": \"moyenne\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "solareignung-meldung-eignung-sehr-gut",
+    "fields": {
+      "created_at": "2025-11-28T13:12:46.985Z",
+      "modified_at": "2025-12-01T15:02:44.621Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sehr gut\", \"fr\": \"très bonne\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "eignung-der-dachflaechen-zur-solarenergienutzung-dokument",
+    "fields": {
+      "created_at": "2025-11-28T12:07:47.409Z",
+      "modified_at": "2025-12-01T15:10:33.953Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die Eignung der Dachflächen zur Solarenergienutzung, wird mit dem Report vom Solarrechner von energieschweiz nachgewiesen.\", \"fr\": \"L’adéquation des toitures pour l’utilisation de l’énergie solaire est attestée au moyen du rapport généré par le calculateur solaire de SuisseÉnergie.\", \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "vertical": true,
+        "documentCategory": "solareignung-dachflaechen"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "eignung-der-dachflaechen-zur-solarenergienutzung-dokument-begruendung",
+    "fields": {
+      "created_at": "2025-11-28T12:34:00.171Z",
+      "modified_at": "2025-12-01T15:11:26.819Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Begründung\", \"fr\": \"Justification\", \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "!(\"eignung-der-dachflaechen-zur-solarenergienutzung-dokument-nein\" in \"eignung-der-dachflaechen-zur-solarenergienutzung-dokument\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {
+        "vertical": true,
+        "documentCategory": "solareignung-dachflaechen"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-solareignung-meldung",
+    "fields": {
+      "created_at": "2025-11-28T09:47:10.031Z",
+      "modified_at": "2025-12-01T14:49:27.348Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Meldung Solareignung\", \"fr\": \"Hinweis Meldung Solareignung\", \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Bei umfassenden Erneuerungen von Dachflächen von bestehenden, auf Dauer angelegten Bauten gilt nach Art. 39d des Kantonalen Energiegesetzes eine Meldepflicht. Die Meldung muss Auskunft über die Eignung der Dachflächen für die Solarenergienutzung, das solare Potenzial und die Solarausstattungskosten geben. Massgebend sind die einzelnen Dachflächen und nicht die Gesamtsumme aller Dächer einer Baute.\\n\\nDachflächen, die kleiner als 20 m2 sind von der Meldepflicht befreit.\\n\\n\\nBei baubewilligungspflichtigen Vorhaben, bei denen kein Einbau einer Solaranlage vorgesehen ist, muss die Meldung spätestens zusammen mit dem Baugesuch eingereicht werden. Wird im Rahmen einer baubewilligungspflichtigen Dachsanierung eine Solaranlage installiert, ist die Einreichung einer zusätzlichen Meldung nicht erforderlich. Die Meldepflicht wird in diesen Fällen durch die Einreichung des Baugesuchs erfüllt.\\n\\n\\nDie Meldung muss eine Eignungsanalyse pro Dachfläche enthalten, die den prognostizierten jährlichen Energieertrag für die Solarenergienutzung (Solarthermie und / oder Photovoltaik) und die geschätzten Solarausstattungskosten ausweist. Unter Solarausstattungskosten sind die Bruttoinvestitionen für eine Solaranlage zu verstehen (bspw.: Planung, Material, Installation, sowie Anmeldung und Inbetriebnahme der Anlage). Die Analyse erfolgt mit dem Solarrechner des Bundesamtes für Energie (BFE; [www.sonnendach.ch](https://sonnendach.ch)).\", \"fr\": \"L’article 39d de la loi cantonale sur l'énergie impose une obligation d’annoncer les rénovations intégrales des toitures de bâtiments existants destinés à durer. Cette annonce doit renseigner sur le niveau d’adéquation de la toiture pour l’utilisation de l’énergie solaire, sur le rendement potentiel et les coûts d’équipement. L’annonce doit porter sur chacune des surfaces en toiture et non sur la somme de toutes les toitures d’un bâtiment.\\n\\nL’obligation d’annoncer ne s’applique pas aux toitures de moins de 20 m2.\\n\\nDans le cas de projets soumis au régime du permis de construire qui ne comprennent pas la pose d’une installation solaire, l’annonce doit être déposée au plus tard avec la demande de permis de construire. Lorsqu’une installation solaire est montée dans le cadre d’une rénovation de toiture soumise au régime du permis de construire, il n’est pas nécessaire de déposer une annonce supplémentaire : dans ce cas-là, la demande de permis de construire déposée fait office d'annonce.\\n\\nL’annonce doit comprendre une analyse de l’adéquation pour l’utilisation de l’énergie solaire de chacune des toitures qui détaille le rendement énergétique annuel escompté (installation thermique solaire et/ou photovoltaïque) et un devis des coûts d’équipement. Les coûts d’équipement découlent des investissements bruts consentis pour une installation solaire (par ex. : planification, matériel, montage ainsi qu’enregistrement et mise en service de l’installation). L’analyse s’effectue au moyen du calculateur solaire de l’Office fédéral de l’énergie (OFEV ; [www.toitsolaire.ch](https://toitsolaire.ch)).\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "solareignung-meldung-bei-umfassender-dachsanierung",
+    "fields": {
+      "created_at": "2025-11-28T09:48:07.094Z",
+      "modified_at": "2025-12-22T10:33:38.322Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Meldung Solareignung bei umfassender Dachsanierung\", \"fr\": \"Annonce concernant le potentiel solaire d’une toiture\", \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "solareignung-meldung-bei-umfassender-dachsanierung",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "solareignung-meldung-bestaetigung",
+    "fields": {
+      "created_at": "2025-11-28T10:17:51.888Z",
+      "modified_at": "2025-11-28T10:17:51.888Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bestätigung\", \"fr\": \"Attestation\", \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "solareignung-meldung-bestaetigung",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "solareignung-meldung-bestaetigung-richtigkeit-der-angaben",
+    "fields": {
+      "created_at": "2025-11-28T10:15:26.922Z",
+      "modified_at": "2025-11-28T10:15:26.922Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die Richtigkeit der Angaben bestätigt die Liegenschaftseigentümerschaft oder deren Vertretung\", \"fr\": \"Je confirme par la présente avoir téléversé les contenus suivants obligatoires. La liste des documents obligatoires est exhaustive.\", \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "solareignung-meldung-dachflaeche",
+    "fields": {
+      "created_at": "2025-11-28T13:11:32.637Z",
+      "modified_at": "2025-12-01T15:01:57.421Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dachfläche\", \"fr\": \"Toiture\", \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "solareignung-meldung-dokumente",
+    "fields": {
+      "created_at": "2025-11-28T11:58:46.107Z",
+      "modified_at": "2025-11-28T12:31:51.585Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dokumente\", \"fr\": \"Documents\", \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "be-documents-form"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "solareignung-meldung-dokumente",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "solareignung-meldung-eignung",
+    "fields": {
+      "created_at": "2025-11-28T13:12:47.107Z",
+      "modified_at": "2025-12-17T09:13:43.278Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Eignung\", \"fr\": \"Adéquation\", \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "solareignung-meldung-solareignung",
+    "fields": {
+      "created_at": "2025-11-28T13:15:25.815Z",
+      "modified_at": "2025-12-01T14:52:29.104Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Solareignung\", \"fr\": \"Annonce concernant le potentiel solaire d’une toiture\", \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "solareignung-meldung-solareignung",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "solareignung-meldung-tabelle",
+    "fields": {
+      "created_at": "2025-11-28T13:14:24.585Z",
+      "modified_at": "2025-12-01T15:01:04.861Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Welche Eignung für die Solarenergienutzung, gemäss Solarrechner des Bundes, weisen die von der Sanierung betroffenen Dachflächen auf?\", \"fr\": \"Quel degré d’adéquation présentent les toitures concernées par la rénovation selon le calculateur solaire de la Confédération ?\", \"it\": null}",
+      "type": "table",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "columnsToDisplay": [
+          "solareignung-meldung-dachflaeche",
+          "solareignung-meldung-eignung"
+        ]
+      },
+      "data_source": null,
+      "row_form": "solareignung-meldung-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "eignung-der-dachflaechen-zur-solarenergienutzung-dokument.eignung-der-dachflaechen-zur-solarenergienutzung-dokument-ja",
+    "fields": {
+      "created_at": "2025-12-01T15:10:33.969Z",
+      "modified_at": "2025-12-01T15:10:33.969Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "eignung-der-dachflaechen-zur-solarenergienutzung-dokument",
+      "option": "eignung-der-dachflaechen-zur-solarenergienutzung-dokument-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "eignung-der-dachflaechen-zur-solarenergienutzung-dokument.eignung-der-dachflaechen-zur-solarenergienutzung-dokument-nein",
+    "fields": {
+      "created_at": "2025-12-01T15:10:33.964Z",
+      "modified_at": "2025-12-01T15:10:33.964Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "eignung-der-dachflaechen-zur-solarenergienutzung-dokument",
+      "option": "eignung-der-dachflaechen-zur-solarenergienutzung-dokument-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "solareignung-meldung-bestaetigung-richtigkeit-der-angaben.solareignung-meldung-bestaetigung-richtigkeit-der-angaben-ja",
+    "fields": {
+      "created_at": "2025-11-28T10:15:26.935Z",
+      "modified_at": "2025-11-28T10:15:26.935Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "solareignung-meldung-bestaetigung-richtigkeit-der-angaben",
+      "option": "solareignung-meldung-bestaetigung-richtigkeit-der-angaben-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "solareignung-meldung-dachflaeche.solareignung-meldung-dachflaeche-flachdach",
+    "fields": {
+      "created_at": "2025-12-01T15:01:57.433Z",
+      "modified_at": "2025-12-01T15:01:57.433Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "solareignung-meldung-dachflaeche",
+      "option": "solareignung-meldung-dachflaeche-flachdach",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "solareignung-meldung-dachflaeche.solareignung-meldung-dachflaeche-nord",
+    "fields": {
+      "created_at": "2025-12-01T15:01:57.451Z",
+      "modified_at": "2025-12-01T15:01:57.451Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "solareignung-meldung-dachflaeche",
+      "option": "solareignung-meldung-dachflaeche-nord",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "solareignung-meldung-dachflaeche.solareignung-meldung-dachflaeche-ost",
+    "fields": {
+      "created_at": "2025-12-01T15:01:57.447Z",
+      "modified_at": "2025-12-01T15:01:57.447Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "solareignung-meldung-dachflaeche",
+      "option": "solareignung-meldung-dachflaeche-ost",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "solareignung-meldung-dachflaeche.solareignung-meldung-dachflaeche-sued",
+    "fields": {
+      "created_at": "2025-12-01T15:01:57.441Z",
+      "modified_at": "2025-12-01T15:01:57.441Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "solareignung-meldung-dachflaeche",
+      "option": "solareignung-meldung-dachflaeche-sued",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "solareignung-meldung-dachflaeche.solareignung-meldung-dachflaeche-west",
+    "fields": {
+      "created_at": "2025-12-01T15:01:57.438Z",
+      "modified_at": "2025-12-01T15:01:57.438Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "solareignung-meldung-dachflaeche",
+      "option": "solareignung-meldung-dachflaeche-west",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "solareignung-meldung-eignung.solareignung-meldung-eignung-gering",
+    "fields": {
+      "created_at": "2025-12-17T09:13:43.340Z",
+      "modified_at": "2025-12-17T09:13:43.340Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "solareignung-meldung-eignung",
+      "option": "solareignung-meldung-eignung-gering",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "solareignung-meldung-eignung.solareignung-meldung-eignung-gut",
+    "fields": {
+      "created_at": "2025-12-17T09:13:43.323Z",
+      "modified_at": "2025-12-17T09:13:43.323Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "solareignung-meldung-eignung",
+      "option": "solareignung-meldung-eignung-gut",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "solareignung-meldung-eignung.solareignung-meldung-eignung-hervorragend",
+    "fields": {
+      "created_at": "2025-12-17T09:13:43.304Z",
+      "modified_at": "2025-12-17T09:13:43.304Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "solareignung-meldung-eignung",
+      "option": "solareignung-meldung-eignung-hervorragend",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "solareignung-meldung-eignung.solareignung-meldung-eignung-mittel",
+    "fields": {
+      "created_at": "2025-12-17T09:13:43.328Z",
+      "modified_at": "2025-12-17T09:13:43.328Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "solareignung-meldung-eignung",
+      "option": "solareignung-meldung-eignung-mittel",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "solareignung-meldung-eignung.solareignung-meldung-eignung-sehr-gut",
+    "fields": {
+      "created_at": "2025-12-17T09:13:43.308Z",
+      "modified_at": "2025-12-17T09:13:43.308Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "solareignung-meldung-eignung",
+      "option": "solareignung-meldung-eignung-sehr-gut",
+      "sort": 2
+    }
+  }
+]

@@ -63,6 +63,7 @@ def caluma_form_fixture(db):
         "config/caluma_legal_submission_form.json",
         "config/caluma_appeal_form.json",
         "config/caluma_geometer_form.json",
+        "config/caluma_meldung_solareignung_form.json",
         # load test data as well
         "data/caluma_form.json",
         "data/caluma_workflow.json",
