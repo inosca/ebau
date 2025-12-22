@@ -27,6 +27,7 @@ const config = {
     objectNumber: "strasse-nummer",
     objectLocation: "ort",
     description: "umschreibung-bauprojekt",
+    shortDescription: "kurzbeschreibung-bauprojekt",
     municipality: "gemeinde",
     specialId: "dossier-number",
     parcel: "parzellen",

@@ -85,4 +85,7 @@ export default {
   changeGeometer: {
     enabled: false,
   },
+  instanceHeader: {
+    shortIntent: true,
+  },
 };
