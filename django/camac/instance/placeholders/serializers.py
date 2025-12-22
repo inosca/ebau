@@ -777,6 +777,11 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("DECISION")],
         description=_("Decision"),
     )
+    beschreibung_bauvorhaben = fields.MasterDataField(
+        source="proposal",
+        aliases=[_("PROPOSAL")],
+        description=_("Description of the project"),
+    )
     beginn_publikationsorgan_gemeinde = fields.PublicationField(
         source="beginn-publikationsorgan-gemeinde",
         value_key="date",
@@ -833,6 +838,94 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
     genereller_erschliessungsplan = fields.AliasedMethodField(
         aliases=[_("GENERAL_ACCESS_PLAN")],
         description=_("General access plan"),
+    )
+    alle_gesuchsteller_telefon = fields.MasterDataPersonField(
+        source="applicants",
+        fields=["tel"],
+        aliases=[_("ALL_APPLICANTS_PHONE")],
+        description=_("Phone numbers of all applicants"),
+    )
+    gesuchsteller_telefon = fields.MasterDataPersonField(
+        source="applicants",
+        fields=["tel"],
+        only_first=True,
+        aliases=[_("APPLICANT_PHONE")],
+        description=_("Phone number of the applicant"),
+    )
+    alle_gesuchsteller_email = fields.MasterDataPersonField(
+        source="applicants",
+        fields=["email"],
+        aliases=[_("ALL_APPLICANTS_EMAIL")],
+        description=_("Email addresses of all applicants"),
+    )
+    gesuchsteller_email = fields.MasterDataPersonField(
+        source="applicants",
+        fields=["email"],
+        only_first=True,
+        aliases=[_("APPLICANT_EMAIL")],
+        description=_("Email address of the applicant"),
+    )
+    alle_grundeigentuemer_telefon = fields.MasterDataPersonField(
+        source="landowners",
+        fields=["tel"],
+        aliases=[_("ALL_LANDOWNERS_PHONE")],
+        description=_("Phone numbers of all landowners"),
+    )
+    grundeigentuemer_telefon = fields.MasterDataPersonField(
+        source="landowners",
+        fields=["tel"],
+        only_first=True,
+        aliases=[_("LANDOWNER_PHONE")],
+        description=_("Phone number of the landowner"),
+    )
+    alle_grundeigentuemer_email = fields.MasterDataPersonField(
+        source="landowners",
+        fields=["email"],
+        aliases=[_("ALL_LANDOWNERS_EMAIL")],
+        description=_("Email addresses of all landowners"),
+    )
+    grundeigentuemer_email = fields.MasterDataPersonField(
+        source="landowners",
+        fields=["email"],
+        only_first=True,
+        aliases=[_("LANDOWNER_EMAIL")],
+        description=_("Email address of the landowner"),
+    )
+    alle_projektverfasser_telefon = fields.MasterDataPersonField(
+        source="project_authors",
+        fields=["tel"],
+        aliases=[_("ALL_PROJECT_AUTHORS_PHONE")],
+        description=_("Phone numbers of all project authors"),
+    )
+    projektverfasser_telefon = fields.MasterDataPersonField(
+        source="project_authors",
+        fields=["tel"],
+        only_first=True,
+        aliases=[_("PROJECT_AUTHOR_PHONE")],
+        description=_("Phone number of the project author"),
+    )
+    alle_projektverfasser_email = fields.MasterDataPersonField(
+        source="project_authors",
+        fields=["email"],
+        aliases=[_("ALL_PROJECT_AUTHORS_EMAIL")],
+        description=_("Email addresses of all project authors"),
+    )
+    projektverfasser_email = fields.MasterDataPersonField(
+        source="project_authors",
+        fields=["email"],
+        only_first=True,
+        aliases=[_("PROJECT_AUTHOR_EMAIL")],
+        description=_("Email address of the project author"),
+    )
+    voraussichtliche_fertigstellung = fields.MasterDataField(
+        source="completion_date",
+        parser=get_date_parser_for_canton(),
+        aliases=[_("EXPECTED_COMPLETION")],
+        description=_("Expected completion date of the instance"),
+    )
+    stichworte = fields.KeywordsField(
+        aliases=[_("KEYWORDS")],
+        description=_("Keywords of the instance"),
     )
     folgeplanung = fields.AliasedMethodField(
         aliases=[_("FOLLOWUP_PLANNING")],

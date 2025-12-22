@@ -24,6 +24,7 @@ from camac.caluma.utils import (
     find_answer,
     work_item_by_addressed_service_condition,
 )
+from camac.tags.models import Keyword
 from camac.user.models import Service, User
 from camac.utils import build_url, clean_join, get_dict_item
 
@@ -862,6 +863,16 @@ class MasterDataPersonField(MasterDataField):
         if self.use_representative and not has_representative:
             return ""
 
+        return clean_join(
+            *[
+                *self._parse_row_name_parts(row),
+                *self._parse_row_address_parts(row),
+                *self._parse_row_extra_parts(row),
+            ],
+            separator=", ",
+        )
+
+    def _parse_row_name_parts(self, row):
         parts = []
 
         if "salutation" in self.fields:
@@ -903,6 +914,10 @@ class MasterDataPersonField(MasterDataField):
                 )
             )
 
+        return parts
+
+    def _parse_row_address_parts(self, row):
+        parts = []
         if "address_1" in self.fields:
             parts.append(
                 get_person_address_1(
@@ -919,10 +934,20 @@ class MasterDataPersonField(MasterDataField):
                 )
             )
 
+        return parts
+
+    def _parse_row_extra_parts(self, row):
+        parts = []
+        if "tel" in self.fields:
+            parts.append(row.get("tel"))
+
+        if "email" in self.fields:
+            parts.append(row.get("email"))
+
         if "reference_number" in self.fields:
             parts.append(row.get("reference_number"))
 
-        return clean_join(*parts, separator=", ")
+        return parts
 
     def to_representation(self, value):
         if not value or not len(value):  # pragma: no cover
@@ -1208,4 +1233,20 @@ class AlexandriaSimpleDocumentField(AlexandriaDocumentField):
                 }
                 for document in documents
             ]
+        )
+
+
+class KeywordsField(AliasedMixin, serializers.ReadOnlyField):
+    def __init__(self, join_by=", ", *args, **kwargs):
+        super().__init__(**kwargs)
+        self.join_by = join_by
+
+    def to_representation(self, value):
+        keywords = [keyword.get("name") for keyword in value]
+
+        return clean_join(*keywords, separator=self.join_by)
+
+    def get_attribute(self, instance):
+        return (
+            Keyword.objects.filter(instances=instance).values("name").order_by("name")
         )

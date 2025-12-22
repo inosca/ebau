@@ -101,6 +101,7 @@ def nebenbestimmungen_question(be_distribution_settings):
 )  # always reset instance id
 def test_dms_placeholders_gr(
     db,
+    admin_user,
     admin_client,
     application_settings,
     gr_master_data_case,  # noqa
@@ -113,6 +114,7 @@ def test_dms_placeholders_gr(
     caluma_document_factory,
     caluma_question_factory,
     caluma_form_question_factory,
+    keyword_factory,
     active_inquiry_factory,
     gr_dms_config,
     gr_publication_settings,
@@ -299,6 +301,16 @@ def test_dms_placeholders_gr(
             question=nebenbestimmungen_question,
             value=f"Nebenbestimmungen {i + 1}",
         )
+
+    utils.add_answer(
+        gr_instance.case.document, "voraussichtliche-fertigstellung", date(2022, 12, 31)
+    )
+
+    admin_service = admin_user.groups.first().service
+    kw_current1 = keyword_factory(name="keyword3", service=admin_service)
+    kw_current2 = keyword_factory(name="keyword2", service=admin_service)
+    kw_other1 = keyword_factory(name="keyword1", service=service_factory())
+    gr_instance.keywords.set([kw_current1, kw_current2, kw_other1])
 
     url = reverse("instance-dms-placeholders", args=[gr_instance.pk])
 
