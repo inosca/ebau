@@ -1,4 +1,4 @@
-import os
+from io import StringIO
 
 import pytest
 from django.core.management import call_command
@@ -15,6 +15,7 @@ def test_migrate_service(
     caluma_work_item_factory,
     user_factory,
     group_factory,
+    snapshot,
 ):
     instance_service = instance_service_factory()
     source_2 = service_factory()
@@ -36,7 +37,8 @@ def test_migrate_service(
     if disable:
         args.append("--disable")
 
-    call_command("migrate_service", *args, stdout=open(os.devnull, "w"))
+    out = StringIO()
+    call_command("migrate_service", *args, stdout=out)
     instance_service.refresh_from_db()
     work_item.refresh_from_db()
     controlling_work_item.refresh_from_db()
@@ -54,3 +56,10 @@ def test_migrate_service(
         assert not work_item.addressed_groups == target.pk
         assert not work_item.assigned_users == []
         assert not controlling_work_item.controlling_groups == target.pk
+
+        snapshot.assert_match(
+            out.getvalue()
+            .replace(str(service.pk), "<<source_id_1>>")
+            .replace(str(source_2.pk), "<<source_id_2>>")
+            .replace(str(target.pk), "<<target_id>>")
+        )

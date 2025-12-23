@@ -258,6 +258,8 @@ class ServiceView(MultilangMixin, ModelViewSet):
         from_service.save()
 
     def _migrate_service(self, from_service, to_service):
+        # TODO: extract relevant business logic and get rid of call_command
+        # TODO: defer to celery, this can take a while!
         call_command(
             "migrate_service",
             source=str(from_service.pk),

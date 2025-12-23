@@ -61,10 +61,25 @@ class Command(BaseCommand):
             cursor.execute(query)
             return [row for row in cursor.fetchall()]
 
-    def _get_query(self, table, column, source, target):
-        return (
+    def _get_queries(self, table, column, source, target):
+        if table == "rulesets_responsibleuserrule_municipalities":
+            # this table has a composite unique constraint, which needs special
+            # "only create if doesn't exist already" semantics
+            return [
+                f"""UPDATE rulesets_responsibleuserrule_municipalities AS r
+                  SET service_id = {target}
+                  WHERE service_id = {source}
+                    AND NOT EXISTS (
+                      SELECT 1
+                      FROM rulesets_responsibleuserrule_municipalities AS r2
+                      WHERE r2.responsibleuserrule_id = r.responsibleuserrule_id
+                        AND r2.service_id = {target}
+                    );""",
+                f"DELETE FROM rulesets_responsibleuserrule_municipalities WHERE service_id = {source};",
+            ]
+        return [
             f'UPDATE "{table}" SET "{column}" = {target} WHERE "{column}" = {source};'
-        )
+        ]
 
     def _get_workitem_queries(self, source, target):
         return [
@@ -91,8 +106,8 @@ class Command(BaseCommand):
             queries.append(f"\n-- source: {source}, target: {options['target']}")
             for table, columns in self._filter(self._get_all_service_foreign_keys()):
                 for column in columns.split(";"):
-                    queries.append(
-                        self._get_query(table, column, source, options["target"])
+                    queries += self._get_queries(
+                        table, column, source, options["target"]
                     )
             queries.extend(self._get_workitem_queries(source, options["target"]))
 
