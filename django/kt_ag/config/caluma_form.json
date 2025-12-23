@@ -21731,7 +21731,7 @@
       "label": "{\"de\": \"Fotodokumentation\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
-      "is_hidden": "!(\"ausserhalb-bauzone\"|answer == \"ausserhalb-bauzone-ja\" \n  && [\"vorhaben-neubau\", \"vorhaben-umbau-erweiterung-zweckaenderung\", \"vorhaben-zweckaenderung\"] intersects \"vorhaben\"|answer\n  && (\n  \t\"zweckbestimmung-wohnnutzung\" in \"zweckbestimmung\"|answer \n    || \"beschreibung-der-landwirtschaftlichen-bauten-wohnhaus\" in \"beschreibung-der-landwirtschaftlichen-bauten\"|answer\n  )\n)",
+      "is_hidden": "!(\"ausserhalb-bauzone\"|answer == \"ausserhalb-bauzone-ja\" \n  && [\"vorhaben-neubau\", \"vorhaben-umbau-erweiterung-zweckaenderung\", \"vorhaben-zweckaenderung\"] intersects \"vorhaben\"|answer([])\n  && (\n  \t\"zweckbestimmung-wohnnutzung\" in \"zweckbestimmung\"|answer \n    || \"beschreibung-der-landwirtschaftlichen-bauten-wohnhaus\" in \"beschreibung-der-landwirtschaftlichen-bauten\"|answer\n  )\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
