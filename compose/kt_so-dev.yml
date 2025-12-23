@@ -328,6 +328,22 @@ services:
     environment:
       - REDIS_PASSWORD=redis
 
+  flower:
+    image: mher/flower:2.0
+    environment:
+      FLOWER_URL_PREFIX: "/celery-flower/"
+    ports:
+      - "7777:7777"
+    networks:
+      - ebau.localhost
+    command:
+      [
+        "celery",
+        "--broker=redis://default:redis@redis:6379/0",
+        "flower",
+        "--port=7777",
+      ]
+
 networks:
   ebau.localhost:
 
