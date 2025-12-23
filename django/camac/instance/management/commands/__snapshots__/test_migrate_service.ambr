@@ -112,6 +112,12 @@
   UPDATE "caluma_workflow_workitem" SET "addressed_groups" = '{<<target_id>>}' WHERE "addressed_groups" = '{<<source_id_2>>}';
   UPDATE "caluma_workflow_workitem" SET "controlling_groups" = '{<<target_id>>}' WHERE "controlling_groups" = '{<<source_id_2>>}';
   
+  -- migrate form answers for question 'gemeinde'
+  UPDATE "caluma_form_answer" SET "value" = '"<<target_id>>"' WHERE "value" = '"<<source_id_1>>"' AND "question_id" = 'gemeinde';
+  UPDATE "caluma_form_dynamicoption" SET "slug" = '<<target_id>>', label = '"de"=>"Target Municipality", "fr"=>NULL, "it"=>"Target escape \\'' quote\""'::hstore WHERE "slug" = '<<source_id_1>>' AND "question_id" = 'gemeinde';
+  UPDATE "caluma_form_answer" SET "value" = '"<<target_id>>"' WHERE "value" = '"<<source_id_2>>"' AND "question_id" = 'gemeinde';
+  UPDATE "caluma_form_dynamicoption" SET "slug" = '<<target_id>>', label = '"de"=>"Target Municipality", "fr"=>NULL, "it"=>"Target escape \\'' quote\""'::hstore WHERE "slug" = '<<source_id_2>>' AND "question_id" = 'gemeinde';
+  
   '''
 # ---
 # name: test_migrate_service[True-False]
@@ -230,6 +236,12 @@
   -- disable old services and groups
   UPDATE "SERVICE" SET "DISABLED"=1 WHERE "SERVICE_ID" IN (<<source_id_1>>,<<source_id_2>>);
   UPDATE "GROUP" SET "DISABLED"=1 WHERE "SERVICE_ID" IN (<<source_id_1>>,<<source_id_2>>);
+  
+  -- migrate form answers for question 'gemeinde'
+  UPDATE "caluma_form_answer" SET "value" = '"<<target_id>>"' WHERE "value" = '"<<source_id_1>>"' AND "question_id" = 'gemeinde';
+  UPDATE "caluma_form_dynamicoption" SET "slug" = '<<target_id>>', label = '"de"=>"Target Municipality", "fr"=>NULL, "it"=>"Target escape \\'' quote\""'::hstore WHERE "slug" = '<<source_id_1>>' AND "question_id" = 'gemeinde';
+  UPDATE "caluma_form_answer" SET "value" = '"<<target_id>>"' WHERE "value" = '"<<source_id_2>>"' AND "question_id" = 'gemeinde';
+  UPDATE "caluma_form_dynamicoption" SET "slug" = '<<target_id>>', label = '"de"=>"Target Municipality", "fr"=>NULL, "it"=>"Target escape \\'' quote\""'::hstore WHERE "slug" = '<<source_id_2>>' AND "question_id" = 'gemeinde';
   
   '''
 # ---

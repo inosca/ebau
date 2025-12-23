@@ -16,6 +16,7 @@ def test_migrate_service(
     user_factory,
     group_factory,
     snapshot,
+    mocker,
 ):
     instance_service = instance_service_factory()
     source_2 = service_factory()
@@ -26,11 +27,40 @@ def test_migrate_service(
     )
     controlling_work_item = caluma_work_item_factory(controlling_groups=[source_2.pk])
 
+    mocker.patch(
+        "camac.instance.master_data.MasterData.get_question_slug",
+        return_value="gemeinde",
+    )
+    mocker.patch(
+        "camac.caluma.extensions.data_sources.Municipalities.get_data",
+        return_value=[
+            (
+                str(service.pk),
+                {
+                    "de": "Source Municipality",
+                    "fr": None,
+                    # test escape characters in hstore string
+                    "it": "Source escape \\' quote\"",
+                },
+            ),
+            (
+                str(target.pk),
+                {
+                    "de": "Target Municipality",
+                    "fr": None,
+                    # test escape characters in hstore string
+                    "it": "Target escape \\' quote\"",
+                },
+            ),
+        ],
+    )
+
     args = [
         "--source",
         ",".join([str(instance_service.service.pk), str(source_2.pk)]),
         "--target",
         target.pk,
+        "--form-answer",
     ]
     if exec:
         args.append("--exec")
