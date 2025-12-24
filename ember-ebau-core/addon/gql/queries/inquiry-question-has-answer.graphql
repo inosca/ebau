@@ -1,0 +1,10 @@
+query InquiryQuestionHasAnswer($documentId: ID!, $question: ID!, $value:GenericScalar! ) {
+  allDocuments(
+    filter: [
+      { id: $documentId }
+      { hasAnswer: { question: $question, value: $value } }
+    ]
+  ) {
+    totalCount
+  }
+}

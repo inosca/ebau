@@ -16,7 +16,6 @@ import DecisionInfoGeometerComponent from "ember-ebau-core/components/decision/i
 import DecisionInfoMissingGeometerInvolvementComponent from "ember-ebau-core/components/decision/info-missing-geometer-involvement";
 import DecisionSubmitButtonComponent from "ember-ebau-core/components/decision/submit-button";
 import DirectInquiryCheckboxComponent from "ember-ebau-core/components/direct-inquiry-checkbox";
-import DirectInquiryInfoComponent from "ember-ebau-core/components/direct-inquiry-info";
 import DocumentValidityButtonComponent from "ember-ebau-core/components/document-validity-button";
 import DynamicMaxDateInputComponent from "ember-ebau-core/components/dynamic-max-date-input";
 import EebaConfirmationComponent from "ember-ebau-core/components/eeba-confirmation";
@@ -32,6 +31,7 @@ import PublicationFillEndDateComponent from "ember-ebau-core/components/publicat
 import PublicationStartDateComponent from "ember-ebau-core/components/publication-start-date";
 import QrCodeComponent from "ember-ebau-core/components/qr-code";
 import ServiceContentComponent from "ember-ebau-core/components/service-content";
+import ShowIfInquiryQuestionHasValue from "ember-ebau-core/components/show-if-inquiry-question-has-value";
 import SoGisComponent from "ember-ebau-core/components/so-gis";
 import SubmitInstanceComponent from "ember-ebau-core/components/submit-instance";
 import UrGisComponent from "ember-ebau-core/components/ur-gis";
@@ -283,9 +283,10 @@ export default class ApplicationRoute extends Route {
       componentClass: DirectInquiryCheckboxComponent,
     });
     this.calumaOptions.registerComponentOverride({
-      label: "Infotext direkte Erledigung",
-      component: "direct-inquiry-info",
-      componentClass: DirectInquiryInfoComponent,
+      label:
+        "Frage anzeigen wenn konfigurierte Stellungnahme-Frage konfiguriertem Wert entspricht",
+      component: "show-if-inquiry-question-has-value",
+      componentClass: ShowIfInquiryQuestionHasValue,
     });
     this.calumaOptions.registerComponentOverride({
       label: "Infotext Belastungswerte",

@@ -8,8 +8,6 @@ import CoordinatesPlaceholderComponent from "ember-ebau-core/components/coordina
 import DecisionAppealButtonComponent from "ember-ebau-core/components/decision/appeal-button";
 import DecisionInfoAppealComponent from "ember-ebau-core/components/decision/info-appeal";
 import DecisionSubmitButtonComponent from "ember-ebau-core/components/decision/submit-button";
-import DirectInquiryCheckboxComponent from "ember-ebau-core/components/direct-inquiry-checkbox";
-import DirectInquiryInfoComponent from "ember-ebau-core/components/direct-inquiry-info";
 import DynamicMaxDateInputComponent from "ember-ebau-core/components/dynamic-max-date-input";
 import EebaConfirmationComponent from "ember-ebau-core/components/eeba-confirmation";
 import EebaLinkComponent from "ember-ebau-core/components/eeba-link";
@@ -22,6 +20,7 @@ import PublicationDateKantonsamtsblattComponent from "ember-ebau-core/components
 import PublicationFillEndDateComponent from "ember-ebau-core/components/publication-fill-end-date";
 import PublicationStartDateComponent from "ember-ebau-core/components/publication-start-date";
 import QrCodeComponent from "ember-ebau-core/components/qr-code";
+import ShowIfInquiryQuestionHasValue from "ember-ebau-core/components/show-if-inquiry-question-has-value";
 import SoGisComponent from "ember-ebau-core/components/so-gis";
 import SubmitInstanceComponent from "ember-ebau-core/components/submit-instance";
 
@@ -138,14 +137,10 @@ export default class ApplicationRoute extends Route {
       componentClass: ExamResultTextareaComponent,
     });
     this.calumaOptions.registerComponentOverride({
-      label: "Checkbox direkte Erledigung",
-      component: "direct-inquiry-checkbox",
-      componentClass: DirectInquiryCheckboxComponent,
-    });
-    this.calumaOptions.registerComponentOverride({
-      label: "Infotext direkte Erledigung",
-      component: "direct-inquiry-info",
-      componentClass: DirectInquiryInfoComponent,
+      label:
+        "Frage anzeigen wenn konfigurierte Stellungnahme-Frage konfiguriertem Wert entspricht",
+      component: "show-if-inquiry-question-has-value",
+      componentClass: ShowIfInquiryQuestionHasValue,
     });
     this.calumaOptions.registerComponentOverride({
       label: "AG: Zirkulation Warnung Organisationstyp",
