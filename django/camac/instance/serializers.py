@@ -1756,15 +1756,19 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             return Service.objects.get(pk=uri_constants.KOOR_BD_SERVICE_ID)
         elif form_slug == "einfache-anfrage":
             return Service.objects.get(pk=uri_constants.KOOR_NP_SERVICE_ID)
-        elif form_slug in [
-            "mitbericht-bund",
-            "mitbericht-kanton",
-            "bgbb",
-            "oereb",
-            "bauverwaltung",
-            "archivdossier",
-            "commercial-permit",
-        ]:
+        elif (
+            form_slug
+            in [
+                "mitbericht-bund",
+                "mitbericht-kanton",
+                "bgbb",
+                "oereb",
+                "bauverwaltung",
+                "archivdossier",
+                "commercial-permit",
+            ]
+            and instance.group.service
+        ):
             return instance.group.service
 
         # fallback default case
