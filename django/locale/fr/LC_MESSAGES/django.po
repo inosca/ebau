@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-19 13:20+0100\n"
+"POT-Creation-Date: 2025-12-29 10:50+0100\n"
 "PO-Revision-Date: 2025-08-28 10:03+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1500,7 +1500,7 @@ msgstr ""
 msgid "Signature page"
 msgstr ""
 
-#: camac/instance/utils.py
+#: camac/instance/utils.py camac/user/serializers.py
 #, python-format
 msgid "Could not find lead authority for construction control %(id)d"
 msgstr ""
