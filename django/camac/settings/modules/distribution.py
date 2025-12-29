@@ -105,6 +105,10 @@ DISTRIBUTION = {
                 "template_slug": "05-bericht-erstellt",
                 "recipient_types": ["inquiry_controlling"],
             },
+            "INQUIRY_REDO": {
+                "template_slug": "bericht-wiedereroeffnet",
+                "recipient_types": ["inquiry_addressed"],
+            },
         },
         "SUGGESTIONS": BE_DISTRIBUTION_SUGGESTIONS,
         "AVAILABLE_SERVICES_FOR_INQUIRY": {
