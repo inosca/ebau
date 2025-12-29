@@ -1,7 +1,10 @@
 import { sharedConfig } from "./work-item-list";
 
 export default {
-  showTaskFilter: false,
+  showTaskFilter: true,
+  showFilterPresets: true,
+  taskFilterAsDropdown: true,
+  availableTasks: {},
   columns(status, role) {
     return [
       ...sharedConfig.columns(status),
