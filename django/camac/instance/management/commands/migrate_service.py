@@ -125,7 +125,7 @@ class Command(BaseCommand):
             for source in sources:
                 queries.append(
                     f"""UPDATE caluma_workflow_case
-    SET meta = jsonb_set(meta, \'{{migrated-from}}\', \'{source}\', true)
+    SET meta = jsonb_set(meta, \'{{migrated-from-service}}\', \'{source}\', true)
     FROM "INSTANCE"
         JOIN "INSTANCE_SERVICE" ON "INSTANCE_SERVICE"."INSTANCE_ID" = "INSTANCE"."INSTANCE_ID"
     WHERE "INSTANCE".case_id = caluma_workflow_case.id
