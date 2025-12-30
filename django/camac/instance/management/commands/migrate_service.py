@@ -51,6 +51,14 @@ class Command(BaseCommand):
             action="store_true",
             help="Migrate the form answer for the municipality as well",
         )
+        parser.add_argument(
+            "-l",
+            "--log-to-case-meta",
+            default=True,
+            dest="log_to_case_meta",
+            action="store_true",
+            help="Log to the meta of all cases where the lead authority is migrated (for future reference).",
+        )
 
     @staticmethod
     def _get_all_service_foreign_keys():
@@ -78,14 +86,14 @@ class Command(BaseCommand):
             # "only create if doesn't exist already" semantics
             return [
                 f"""UPDATE rulesets_responsibleuserrule_municipalities AS r
-                  SET service_id = {target}
-                  WHERE service_id = {source}
-                    AND NOT EXISTS (
-                      SELECT 1
-                      FROM rulesets_responsibleuserrule_municipalities AS r2
-                      WHERE r2.responsibleuserrule_id = r.responsibleuserrule_id
-                        AND r2.service_id = {target}
-                    );""",
+  SET service_id = {target}
+  WHERE service_id = {source}
+    AND NOT EXISTS (
+      SELECT 1
+      FROM rulesets_responsibleuserrule_municipalities AS r2
+      WHERE r2.responsibleuserrule_id = r.responsibleuserrule_id
+        AND r2.service_id = {target}
+    );""",
                 f"DELETE FROM rulesets_responsibleuserrule_municipalities WHERE service_id = {source};",
             ]
         return [
@@ -113,6 +121,16 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         sources = options["source"].split(",")
         queries = []
+        if options["log_to_case_meta"]:
+            for source in sources:
+                queries.append(
+                    f"""UPDATE caluma_workflow_case
+    SET meta = jsonb_set(meta, \'{{migrated-from}}\', \'{source}\', true)
+    FROM "INSTANCE"
+        JOIN "INSTANCE_SERVICE" ON "INSTANCE_SERVICE"."INSTANCE_ID" = "INSTANCE"."INSTANCE_ID"
+    WHERE "INSTANCE".case_id = caluma_workflow_case.id
+        AND "INSTANCE_SERVICE"."SERVICE_ID" = {source};"""
+                )
         for source in sources:
             queries.append(f"\n-- source: {source}, target: {options['target']}")
             for table, columns in self._filter(self._get_all_service_foreign_keys()):

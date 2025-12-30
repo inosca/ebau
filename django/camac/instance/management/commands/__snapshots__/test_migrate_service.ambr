@@ -1,6 +1,18 @@
 # serializer version: 1
 # name: test_migrate_service[False-False]
   '''
+  UPDATE caluma_workflow_case
+      SET meta = jsonb_set(meta, '{migrated-from}', '<<source_id_1>>', true)
+      FROM "INSTANCE"
+          JOIN "INSTANCE_SERVICE" ON "INSTANCE_SERVICE"."INSTANCE_ID" = "INSTANCE"."INSTANCE_ID"
+      WHERE "INSTANCE".case_id = caluma_workflow_case.id
+          AND "INSTANCE_SERVICE"."SERVICE_ID" = <<source_id_1>>;
+  UPDATE caluma_workflow_case
+      SET meta = jsonb_set(meta, '{migrated-from}', '<<source_id_2>>', true)
+      FROM "INSTANCE"
+          JOIN "INSTANCE_SERVICE" ON "INSTANCE_SERVICE"."INSTANCE_ID" = "INSTANCE"."INSTANCE_ID"
+      WHERE "INSTANCE".case_id = caluma_workflow_case.id
+          AND "INSTANCE_SERVICE"."SERVICE_ID" = <<source_id_2>>;
   
   -- source: <<source_id_1>>, target: <<target_id>>
   UPDATE "ACTIVATION" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_1>>;
@@ -33,14 +45,14 @@
   UPDATE "rulesets_distributiondeadlinerule" SET "source_service_id" = <<target_id>> WHERE "source_service_id" = <<source_id_1>>;
   UPDATE "rulesets_responsibleuserrule" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
   UPDATE rulesets_responsibleuserrule_municipalities AS r
-                    SET service_id = <<target_id>>
-                    WHERE service_id = <<source_id_1>>
-                      AND NOT EXISTS (
-                        SELECT 1
-                        FROM rulesets_responsibleuserrule_municipalities AS r2
-                        WHERE r2.responsibleuserrule_id = r.responsibleuserrule_id
-                          AND r2.service_id = <<target_id>>
-                      );
+    SET service_id = <<target_id>>
+    WHERE service_id = <<source_id_1>>
+      AND NOT EXISTS (
+        SELECT 1
+        FROM rulesets_responsibleuserrule_municipalities AS r2
+        WHERE r2.responsibleuserrule_id = r.responsibleuserrule_id
+          AND r2.service_id = <<target_id>>
+      );
   DELETE FROM rulesets_responsibleuserrule_municipalities WHERE service_id = <<source_id_1>>;
   UPDATE "sanctions_sanction" SET "created_by_service_id" = <<target_id>> WHERE "created_by_service_id" = <<source_id_1>>;
   UPDATE "sanctions_sanction" SET "assigned_service_id" = <<target_id>> WHERE "assigned_service_id" = <<source_id_1>>;
@@ -88,14 +100,14 @@
   UPDATE "rulesets_distributiondeadlinerule" SET "source_service_id" = <<target_id>> WHERE "source_service_id" = <<source_id_2>>;
   UPDATE "rulesets_responsibleuserrule" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
   UPDATE rulesets_responsibleuserrule_municipalities AS r
-                    SET service_id = <<target_id>>
-                    WHERE service_id = <<source_id_2>>
-                      AND NOT EXISTS (
-                        SELECT 1
-                        FROM rulesets_responsibleuserrule_municipalities AS r2
-                        WHERE r2.responsibleuserrule_id = r.responsibleuserrule_id
-                          AND r2.service_id = <<target_id>>
-                      );
+    SET service_id = <<target_id>>
+    WHERE service_id = <<source_id_2>>
+      AND NOT EXISTS (
+        SELECT 1
+        FROM rulesets_responsibleuserrule_municipalities AS r2
+        WHERE r2.responsibleuserrule_id = r.responsibleuserrule_id
+          AND r2.service_id = <<target_id>>
+      );
   DELETE FROM rulesets_responsibleuserrule_municipalities WHERE service_id = <<source_id_2>>;
   UPDATE "sanctions_sanction" SET "created_by_service_id" = <<target_id>> WHERE "created_by_service_id" = <<source_id_2>>;
   UPDATE "sanctions_sanction" SET "assigned_service_id" = <<target_id>> WHERE "assigned_service_id" = <<source_id_2>>;
@@ -122,6 +134,18 @@
 # ---
 # name: test_migrate_service[True-False]
   '''
+  UPDATE caluma_workflow_case
+      SET meta = jsonb_set(meta, '{migrated-from}', '<<source_id_1>>', true)
+      FROM "INSTANCE"
+          JOIN "INSTANCE_SERVICE" ON "INSTANCE_SERVICE"."INSTANCE_ID" = "INSTANCE"."INSTANCE_ID"
+      WHERE "INSTANCE".case_id = caluma_workflow_case.id
+          AND "INSTANCE_SERVICE"."SERVICE_ID" = <<source_id_1>>;
+  UPDATE caluma_workflow_case
+      SET meta = jsonb_set(meta, '{migrated-from}', '<<source_id_2>>', true)
+      FROM "INSTANCE"
+          JOIN "INSTANCE_SERVICE" ON "INSTANCE_SERVICE"."INSTANCE_ID" = "INSTANCE"."INSTANCE_ID"
+      WHERE "INSTANCE".case_id = caluma_workflow_case.id
+          AND "INSTANCE_SERVICE"."SERVICE_ID" = <<source_id_2>>;
   
   -- source: <<source_id_1>>, target: <<target_id>>
   UPDATE "ACTIVATION" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_1>>;
@@ -154,14 +178,14 @@
   UPDATE "rulesets_distributiondeadlinerule" SET "source_service_id" = <<target_id>> WHERE "source_service_id" = <<source_id_1>>;
   UPDATE "rulesets_responsibleuserrule" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
   UPDATE rulesets_responsibleuserrule_municipalities AS r
-                    SET service_id = <<target_id>>
-                    WHERE service_id = <<source_id_1>>
-                      AND NOT EXISTS (
-                        SELECT 1
-                        FROM rulesets_responsibleuserrule_municipalities AS r2
-                        WHERE r2.responsibleuserrule_id = r.responsibleuserrule_id
-                          AND r2.service_id = <<target_id>>
-                      );
+    SET service_id = <<target_id>>
+    WHERE service_id = <<source_id_1>>
+      AND NOT EXISTS (
+        SELECT 1
+        FROM rulesets_responsibleuserrule_municipalities AS r2
+        WHERE r2.responsibleuserrule_id = r.responsibleuserrule_id
+          AND r2.service_id = <<target_id>>
+      );
   DELETE FROM rulesets_responsibleuserrule_municipalities WHERE service_id = <<source_id_1>>;
   UPDATE "sanctions_sanction" SET "created_by_service_id" = <<target_id>> WHERE "created_by_service_id" = <<source_id_1>>;
   UPDATE "sanctions_sanction" SET "assigned_service_id" = <<target_id>> WHERE "assigned_service_id" = <<source_id_1>>;
@@ -209,14 +233,14 @@
   UPDATE "rulesets_distributiondeadlinerule" SET "source_service_id" = <<target_id>> WHERE "source_service_id" = <<source_id_2>>;
   UPDATE "rulesets_responsibleuserrule" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
   UPDATE rulesets_responsibleuserrule_municipalities AS r
-                    SET service_id = <<target_id>>
-                    WHERE service_id = <<source_id_2>>
-                      AND NOT EXISTS (
-                        SELECT 1
-                        FROM rulesets_responsibleuserrule_municipalities AS r2
-                        WHERE r2.responsibleuserrule_id = r.responsibleuserrule_id
-                          AND r2.service_id = <<target_id>>
-                      );
+    SET service_id = <<target_id>>
+    WHERE service_id = <<source_id_2>>
+      AND NOT EXISTS (
+        SELECT 1
+        FROM rulesets_responsibleuserrule_municipalities AS r2
+        WHERE r2.responsibleuserrule_id = r.responsibleuserrule_id
+          AND r2.service_id = <<target_id>>
+      );
   DELETE FROM rulesets_responsibleuserrule_municipalities WHERE service_id = <<source_id_2>>;
   UPDATE "sanctions_sanction" SET "created_by_service_id" = <<target_id>> WHERE "created_by_service_id" = <<source_id_2>>;
   UPDATE "sanctions_sanction" SET "assigned_service_id" = <<target_id>> WHERE "assigned_service_id" = <<source_id_2>>;

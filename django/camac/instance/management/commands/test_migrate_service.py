@@ -14,14 +14,17 @@ def test_migrate_service(
     instance_service_factory,
     caluma_work_item_factory,
     user_factory,
-    group_factory,
     snapshot,
     mocker,
+    ag_instance,
+    set_application_ag,
+    service_group_factory,
 ):
-    instance_service = instance_service_factory()
-    source_2 = service_factory()
-    service = instance_service.service
-    target = service_factory()
+    sg = service_group_factory(name="municipality")
+    instance_service_factory(instance=ag_instance, service__service_group=sg)
+    source = ag_instance.responsible_service()
+    source_2 = service_factory(service_group=sg)
+    target = service_factory(service_group=sg)
     work_item = caluma_work_item_factory(
         addressed_groups=[source_2.pk], assigned_users=[user_factory().username]
     )
@@ -35,7 +38,7 @@ def test_migrate_service(
         "camac.caluma.extensions.data_sources.Municipalities.get_data",
         return_value=[
             (
-                str(service.pk),
+                str(source.pk),
                 {
                     "de": "Source Municipality",
                     "fr": None,
@@ -57,7 +60,7 @@ def test_migrate_service(
 
     args = [
         "--source",
-        ",".join([str(instance_service.service.pk), str(source_2.pk)]),
+        ",".join([str(source.pk), str(source_2.pk)]),
         "--target",
         target.pk,
         "--form-answer",
@@ -69,27 +72,29 @@ def test_migrate_service(
 
     out = StringIO()
     call_command("migrate_service", *args, stdout=out)
-    instance_service.refresh_from_db()
+    ag_instance.refresh_from_db()
+    source.refresh_from_db()
     work_item.refresh_from_db()
     controlling_work_item.refresh_from_db()
     addressed_groups = [int(i) for i in work_item.addressed_groups]
     controlling_groups = [int(i) for i in controlling_work_item.controlling_groups]
 
     if exec:
-        assert not instance_service.service == service
-        assert instance_service.service == target
+        assert ag_instance.responsible_service() == target
         assert addressed_groups == [target.pk]
         assert work_item.assigned_users == []
         assert controlling_groups == [target.pk]
+        assert ag_instance.case.meta["migrated-from"] == source.pk
     else:
-        assert instance_service.service == service
+        assert ag_instance.responsible_service() == source
         assert not work_item.addressed_groups == target.pk
         assert not work_item.assigned_users == []
         assert not controlling_work_item.controlling_groups == target.pk
+        assert "migrated-from" not in ag_instance.case.meta
 
         snapshot.assert_match(
             out.getvalue()
-            .replace(str(service.pk), "<<source_id_1>>")
+            .replace(str(source.pk), "<<source_id_1>>")
             .replace(str(source_2.pk), "<<source_id_2>>")
             .replace(str(target.pk), "<<target_id>>")
         )
