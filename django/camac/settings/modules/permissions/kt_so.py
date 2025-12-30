@@ -149,6 +149,17 @@ MODULE_PORTAL_CONSTRUCTION_MONITORING_WRITE = (
     MODULE_PORTAL_CONSTRUCTION_MONITORING_READ & HasApplicantRole(["ADMIN", "EDITOR"])
 )
 
+MODULE_DEADLINES_SUSPENSION = (
+    STATES_ALL
+    & IsServiceGroup(["municipality", "service-bab"])
+    & HasRole(["municipality-lead", "service-lead"])
+)
+MODULE_DEADLINES_DEADLINE = (
+    STATES_ALL
+    & IsServiceGroup(["municipality", "service-bab"])
+    & HasRole(["municipality-lead", "service-lead"])
+)
+
 ACTION_INSTANCE_COPY_AFTER_REJECTION = RequireInstanceState(["rejected"]) & (
     HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper())
 )
@@ -223,6 +234,10 @@ SO_PERMISSIONS_SETTINGS = {
             ("billing-read", MODULE_BILLING),
             ("communications-read", MODULE_COMMUNICATIONS),
             ("communications-write", MODULE_COMMUNICATIONS),
+            ("deadlines-suspensions-read", MODULE_DEADLINES_SUSPENSION),
+            ("deadlines-suspensions-write", MODULE_DEADLINES_SUSPENSION),
+            ("deadlines-deadlines-read", MODULE_DEADLINES_DEADLINE),
+            ("deadlines-deadlines-write", MODULE_DEADLINES_DEADLINE),
             ("decision-read", MODULE_DECISION),
             ("distribution-read", MODULE_DISTRIBUTION),
             ("dms-generate-read", MODULE_DMS_GENERATE),
@@ -249,6 +264,10 @@ SO_PERMISSIONS_SETTINGS = {
             ("construction-monitoring-read", MODULE_CONSTRUCTION_MONITORING),
             ("construction-monitoring-write", MODULE_CONSTRUCTION_MONITORING),
             ("corrections-read", MODULE_CORRECTIONS),
+            ("deadlines-suspensions-read", MODULE_DEADLINES_SUSPENSION),
+            ("deadlines-suspensions-write", MODULE_DEADLINES_SUSPENSION),
+            ("deadlines-deadlines-read", MODULE_DEADLINES_DEADLINE),
+            ("deadlines-deadlines-write", MODULE_DEADLINES_DEADLINE),
             ("decision-read", MODULE_DECISION),
             ("distribution-read", MODULE_DISTRIBUTION),
             ("dms-generate-read", MODULE_DMS_GENERATE),

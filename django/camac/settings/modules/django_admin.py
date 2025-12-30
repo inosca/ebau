@@ -47,6 +47,7 @@ DJANGO_ADMIN = {
             "core.Resource",
             "gis.GISDataSource",
             "notification.NotificationTemplate",
+            "deadlines.DeadlineType",
             "django_q.Success",
             "django_q.Failure",
             "django_q.OrmQ",
@@ -54,7 +55,10 @@ DJANGO_ADMIN = {
             "django_celery_beat.PeriodicTask",
             "django_celery_beat.CrontabSchedule",
         ],
-        "CUSTOMER_MANAGED_MODELS": ["gis.GISDataSource"],
+        "CUSTOMER_MANAGED_MODELS": [
+            "gis.GISDataSource",
+            "deadlines.DeadlineType",
+        ],
     },
     "kt_bern": {
         "ENABLED": True,
@@ -62,6 +66,7 @@ DJANGO_ADMIN = {
             "alexandria_core.Category",
             "alexandria_core.Mark",
             "gis.GISDataSource",
+            "deadlines.DeadlineType",
             "django_q.Success",
             "django_q.Failure",
             "django_q.OrmQ",
