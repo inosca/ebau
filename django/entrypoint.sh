@@ -89,7 +89,7 @@ case "$1" in
     exec watchmedo auto-restart -d . --recursive -p '*.py' -- celery -A camac beat -l INFO --scheduler django_celery_beat.schedulers:DatabaseScheduler
   ;;
   webdav )
-    exec gunicorn --workers "${DJANGO_WEBDAV_GUNICORN_WORKERS:-8}" --threads "${DJANGO_WEBDAV_GUNICORN_THREADS:-1}" --access-logfile - --limit-request-line "${DJANGO_LIMIT_REQUEST_LINE:-8190}" --bind :"${DJANGO_WEBDAV_SERVER_PORT:-8000}" camac.wsgi_dav
+    exec gunicorn --workers "${DJANGO_WEBDAV_GUNICORN_WORKERS:-8}" --threads "${DJANGO_WEBDAV_GUNICORN_THREADS:-1}" --access-logfile - --limit-request-line "${DJANGO_LIMIT_REQUEST_LINE:-8190}" --bind :"${DJANGO_WEBDAV_SERVER_PORT:-8000}" --max-requests "${DJANGO_WEBDAV_MAX_REQUESTS:-0}" --max-requests-jitter "${DJANGO_WEBDAV_MAX_REQUESTS_JITTER:-0}" camac.wsgi_dav
     ;;
   migrate_and_loadconfig )
     migrate
