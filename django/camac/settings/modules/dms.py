@@ -363,6 +363,9 @@ DMS = {
                     "nachname": "familyName",
                     "vorname": "givenName",
                     "juristische-person-name": "juristicName",
+                    "vertretung-nachname": "representationFamilyName",
+                    "vertretung-vorname": "representationGivenName",
+                    "vertretung-juristische-person-name": "representationJuristicName",
                 },
             },
             "baugesuch": {
