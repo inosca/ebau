@@ -373,11 +373,6 @@ class InstanceDeadline(models.Model):
         verbose_name=_("Process deadline days"),
         help_text=_("The number of days processed since the start date."),
     )
-    completed = models.BooleanField(
-        default=False,
-        verbose_name=_("Completed"),
-        help_text=_("Indicates whether the deadline is completed."),
-    )
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -437,36 +432,10 @@ class InstanceDeadline(models.Model):
 
         This will update the start date, progression, and instance case meta.
         """
-        self.update_completed()
         self.update_startdate()
         self.update_target_end_date()
         self.update_progression()
         self.update_instance_case_meta()
-
-    def update_completed(self) -> None:
-        """Update the completed status of the deadline.
-
-        The deadline for the responsible service is marked as completed
-        when the decision work item is completed.
-
-        From that point on, the visible deadline end date will show the
-        process deadline date instead of the target deadline date.
-        """
-        if not self.completed:
-            responsible = self.instance.responsible_service()
-
-            if responsible and responsible.pk == self.service.pk:
-                workitem_decision = WorkItem.objects.filter(
-                    task_id=settings.DECISION["TASK"],
-                    case__family=self.instance.case.family,
-                ).first()
-
-                if (
-                    workitem_decision
-                    and workitem_decision.status == WorkItem.STATUS_COMPLETED
-                ):
-                    self.completed = True
-                    self.save(update_fields=["completed"])
 
     def update_startdate(self) -> None:
         """Update the deadline start date if it is not already set."""

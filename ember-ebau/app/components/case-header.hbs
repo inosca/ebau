@@ -32,7 +32,7 @@
           {{#if (has-feature "deadlines.useEndDate")}}
             {{t
               (if
-                @case.deadline.completed
+                @case.deadline.processDeadlineDate
                 "cases.tableHeaders.processDeadlineDate"
                 "cases.tableHeaders.deadlineEndDate"
               )
@@ -52,7 +52,7 @@
           {{#if (has-feature "deadlines.useEndDate")}}
             {{#let
               (if
-                @case.deadline.completed
+                @case.deadline.processDeadlineDate
                 @case.deadline.processDeadlineDate
                 @case.deadline.targetDeadlineDate
               )

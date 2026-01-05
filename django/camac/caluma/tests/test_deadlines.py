@@ -321,7 +321,6 @@ def test_events_deadlines_decision_gr(
         instance=case.family.instance,
         service=service,
         start_date=date(2025, 1, 1),
-        completed=False,
         process_deadline_date_override=current_enddate_override,
         process_deadline_date=date.fromisoformat(current_enddate)
         if current_enddate
@@ -346,7 +345,6 @@ def test_events_deadlines_decision_gr(
     )
 
     deadline.refresh_from_db()
-    assert deadline.completed is True
     assert deadline.instance == case.family.instance
     assert str(deadline.process_deadline_date) == expected_date
 

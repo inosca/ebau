@@ -156,7 +156,9 @@ export default class WorkItemsGlobalController extends Controller {
       applicants: { fields: ["applicants"] },
       closedAt: { fields: ["closed_at"] },
       closedBy: { fields: ["closed_by_user"], include: ["closed_by_user"] },
-      deadline: { fields: ["deadline", "target_deadline_date"] },
+      deadline: {
+        fields: ["deadline", "target_deadline_date", "process_deadline_date"],
+      },
       description: { fields: ["description"] },
       instance: { fields: ["instance_name", "special_id"] },
       municipality: { fields: ["municipality"] },
