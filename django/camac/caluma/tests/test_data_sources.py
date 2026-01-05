@@ -56,15 +56,10 @@ def test_mitberichtsverfahren(db, role, location_factory, expected_count):
 
 
 @pytest.mark.parametrize(
-    "test_class,expected,is_rsta,camac_role",
+    "test_class,expected,is_rsta",
     [
-        (Authorities, [[1, "Baukommission Altdorf"]], False, "applicant"),
-        (
-            Municipalities,
-            [[1, {"de": "Bern", "fr": "Berne", "it": "Bern"}]],
-            False,
-            "applicant",
-        ),
+        (Authorities, [[1, "Baukommission Altdorf"]], False),
+        (Municipalities, [[1, {"de": "Bern", "fr": "Berne", "it": "Bern"}]], False),
         (
             Municipalities,
             [
@@ -78,22 +73,6 @@ def test_mitberichtsverfahren(db, role, location_factory, expected_count):
                 ]
             ],
             True,
-            "applicant",
-        ),
-        (
-            Municipalities,
-            [
-                [
-                    2,
-                    {
-                        "de": "Biel (nicht aktiviert)",
-                        "fr": "Bienne (non activé)",
-                        "it": "Biel (nicht aktiviert)",
-                    },
-                ]
-            ],
-            True,
-            "support",
         ),
         (
             Services,
@@ -111,13 +90,11 @@ def test_mitberichtsverfahren(db, role, location_factory, expected_count):
                 ["4", {"de": "service4", "fr": "service4", "it": "service4"}],
             ],
             False,
-            "applicant",
         ),
         (
             Countries,
             list(COUNTRIES.keys()),
             False,
-            "applicant",
         ),
     ],
 )
@@ -131,7 +108,6 @@ def test_data_sources(
     expected,
     is_rsta,
     authority_factory,
-    camac_role,
 ):
     if is_rsta:
         service1 = service_factory(
@@ -180,9 +156,11 @@ def test_data_sources(
         disabled=False,
         service_group__name="service",
     )
+    # make sure that "light" municipalities (Kt. AG) are not considered
+    service_factory(pk=5, service_group__name="municipality-light")
 
-    User = namedtuple("OIDCUser", ["group", "camac_role"])
-    user = User(group=service1.pk, camac_role=camac_role)
+    User = namedtuple("OIDCUser", "group")
+    user = User(group=service1.pk)
 
     data = test_class().get_data(user, None, None)
 
@@ -449,6 +427,25 @@ def test_municipalities_so(db, service_factory, service_t_factory):
     assert len(data) == 1
     assert data[0][0] == service.pk
     assert data[0][1]["de"] == "Solothurn"
+
+
+@pytest.mark.parametrize(
+    "role,expected", [("applicant", ["Full"]), ("municipality", ["Full", "Light"])]
+)
+def test_municipalities_ag(
+    db, role, service_factory, service_t_factory, set_application_ag, expected
+):
+    service = service_factory(service_group__name="municipality")
+    service_light = service_factory(service_group__name="municipality-light")
+    service_t_factory(service=service, name="Gemeinde Full")
+    service_t_factory(service=service_light, name="Gemeinde Light")
+
+    User = namedtuple("OIDCUser", ["group", "camac_role"])
+    user = User(group=service.pk, camac_role=role)
+
+    data = Municipalities().get_data(user, None, None)
+
+    assert set([r[1]["de"] for r in data]) == set(expected)
 
 
 def test_preliminary_clarfication_targets(db, caluma_admin_user, service_factory):

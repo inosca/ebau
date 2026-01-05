@@ -13,6 +13,7 @@ from django.utils.translation import gettext as _, gettext_noop, override
 from camac.caluma.models import Inquiry
 from camac.caluma.utils import find_answer
 from camac.core.models import Authority
+from camac.core.utils import canton_aware
 from camac.document.models import Attachment
 from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
@@ -83,6 +84,24 @@ def on_copy_from_reference_document(
 class Municipalities(BaseDataSource):
     info = "List of municipalities from Camac"
 
+    @canton_aware
+    def get_service_groups(self, user):
+        """Get service groups to consider as municipalities.
+
+        Return a tuple:
+        - list of service group names
+        - a cache key
+        """
+        return (["municipality"], "")
+
+    def get_service_groups_ag(self, user):
+        service_groups = ["municipality"]
+        cache_key = "_applicant"
+        if not user or getattr(user, "camac_role", None) != "applicant":
+            service_groups.append("municipality-light")
+            cache_key = "_non_applicant"
+        return (service_groups, cache_key)
+
     def get_data(self, user, question, context):
         cache_key = f"data_source_{type(self).__name__}"
         include_disabled = (
@@ -94,12 +113,8 @@ class Municipalities(BaseDataSource):
         )
 
         filters = {}
-        group_names = ["municipality"]
-        if not user or getattr(user, "camac_role", None) != "applicant":
-            group_names.append("municipality-light")
-            cache_key += "_non_applicant"
-        else:
-            cache_key += "_applicant"
+        group_names, cache_key_addition = self.get_service_groups(user)
+        cache_key += cache_key_addition
 
         if include_disabled:
             cache_key += "_with_disabled"
