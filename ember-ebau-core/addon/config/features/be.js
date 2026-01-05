@@ -30,6 +30,7 @@ export default {
   },
   gis: {
     v3: true,
+    showChanges: true,
   },
   communications: {
     enabled: true,
