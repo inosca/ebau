@@ -61,4 +61,13 @@ def test_swagger_paths(
     response = admin_client.get(reverse("schema-json", args=["json"]))
     result = response.json()
 
-    assert sorted(set(result["paths"].keys())) == snapshot
+    urls = []
+
+    for url, config in result["paths"].items():
+        for method in config.keys():
+            if method == "parameters":
+                continue
+
+            urls.append(f"{method}:{url}")
+
+    assert sorted(urls) == snapshot
