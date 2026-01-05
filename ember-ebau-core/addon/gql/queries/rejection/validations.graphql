@@ -6,10 +6,7 @@ query RejectionValidations(
     filter: [
       { task: "inquiry" }
       { rootCaseMetaValue: { key: "camac-instance-id", value: $instanceId } }
-      { status: CANCELED, invert: true }
-      { status: COMPLETED, invert: true }
-      { status: SKIPPED, invert: true }
-      { status: REDO, invert: true }
+      { status: READY }
     ]
   ) {
     totalCount

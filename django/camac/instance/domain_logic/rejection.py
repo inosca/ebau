@@ -42,11 +42,7 @@ class RejectionLogic:
 
     @classmethod
     def validate_for_rejection(cls, instance: Instance) -> None:
-        if (
-            Inquiry.objects.for_instance(instance)
-            .for_status(WorkItem.STATUS_READY, WorkItem.STATUS_SUSPENDED)
-            .exists()
-        ):
+        if Inquiry.objects.for_instance(instance).only_pending().exists():
             raise ValidationError(
                 _("Instance can't be rejected while there is an open circulation")
             )
