@@ -428,6 +428,13 @@ class InstanceView(
             pk__in=[ur_constants.KOOR_NP_GROUP_ID, ur_constants.KOOR_BG_GROUP_ID]
         )
 
+    @canton_aware
+    def has_object_link_permission_for_service(self, instance):
+        return False
+
+    def has_object_link_permission_for_service_ag(self, instance):  # pragma: no cover
+        return self.request.user.groups.filter(service__slug="afb").exists()
+
     def has_object_unlink_permission(self, instance):
         return self.has_object_link_permission(instance)
 

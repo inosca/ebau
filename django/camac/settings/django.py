@@ -2603,14 +2603,14 @@ APPLICATIONS = {
         "LOG_NOTIFICATIONS": True,
         "LOG_NOTIFICATIONS_WITH_NO_RECEIVERS": True,
         "LINK_INSTANCES_ON_COPY": True,
-        # "STORE_PDF": {
-        #     "SECTION": {
-        #         "MAIN": {
-        #             "DEFAULT": "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
-        #             "PAPER": "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
-        #         }
-        #     },
-        # },
+        "STORE_PDF": {
+            "SECTION": {
+                "MAIN": {
+                    "DEFAULT": "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
+                    "PAPER": "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
+                }
+            },
+        },
         # Mapping between camac role and instance permission.
         "ROLE_PERMISSIONS": {
             "applicant": "applicant",
@@ -2704,7 +2704,7 @@ APPLICATIONS = {
                 },
                 # Cancel manual work items after complete instance and skip AfB
                 # specific work items
-                "complete-instance": {
+                "archive-instance": {
                     "cancel": ["create-manual-workitems"],
                     "skip": ["check-pa", "cantonal-exam"],
                 },
@@ -2742,7 +2742,6 @@ APPLICATIONS = {
                         "template_slug": "fill-additional-demand",
                         "recipient_types": ["work_item_controlling"],
                     },
-                    "ech_event": "camac.ech0211.signals.file_subsequently",
                 },
                 "complete-construction-monitoring": {
                     "next_instance_state": "to-finish",
@@ -3324,13 +3323,18 @@ JSON_API_FORMAT_FIELD_NAMES = "dasherize"
 JSON_API_FORMAT_TYPES = "dasherize"
 JSON_API_PLURALIZE_TYPES = True
 
-# Clamav service
-
+# django-clamd config (see https://github.com/vstoykov/django-clamd)
 CLAMD_USE_TCP = env.bool("DJANGO_CLAMD_USE_TCP", default=True)
 CLAMD_TCP_ADDR = env.str("DJANGO_CLAMD_TCP_ADDR", default="localhost")
 CLAMD_SOCKET = env.str("DJANGO_CLAMD_SOCKET", default="/var/run/clamav/clamd.ctl")
 CLAMD_FAIL_BY_DEFAULT = env.bool("DJANGO_CLAMD_FAIL_BY_DEFAULT", default=False)
 CLAMD_ENABLED = env.bool("DJANGO_CLAMD_ENABLED", default=True)
+
+# alexandria uses aliased versions of some of the django-clamd settings,
+# make sure they match
+ALEXANDRIA_CLAMD_TCP_ADDR = CLAMD_TCP_ADDR
+ALEXANDRIA_CLAMD_TCP_SOCKET = CLAMD_SOCKET
+ALEXANDRIA_CLAMD_ENABLED = CLAMD_ENABLED
 
 
 # Keycloak service

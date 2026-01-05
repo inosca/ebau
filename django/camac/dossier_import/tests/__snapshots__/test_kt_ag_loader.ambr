@@ -323,6 +323,23 @@
           }
       ],
       "description": "Dies ist eine detaillierte Beschreibung",
+      "document_statuses": [
+          {
+              "dms_id": "0000000000000010001922835",
+              "dms_version": "00",
+              "status": "bewilligt"
+          },
+          {
+              "dms_id": "0000000000000010001922836",
+              "dms_version": "00",
+              "status": "bewilligt"
+          },
+          {
+              "dms_id": "0000000000000010001925808",
+              "dms_version": "00",
+              "status": "ungültig"
+          }
+      ],
       "dossier_file_path": null,
       "dossier_number": null,
       "dossier_types": {
@@ -370,6 +387,7 @@
               "zip": 7777
           }
       ],
+      "is_municipality_light": false,
       "is_paper": null,
       "landowner": [
           {
@@ -475,9 +493,9 @@
       "ratio_coverage_building_project": "1.9",
       "ratio_coverage_zone_regulation": "2.8",
       "ratio_floor_area_building_project": "3.7",
-      "ratio_floor_area_zone_regulation": "6.4",
+      "ratio_floor_area_zone_regulation": "4.6",
       "ratio_green_area_building_project": "5.5",
-      "ratio_green_area_zone_regulation": "4.6",
+      "ratio_green_area_zone_regulation": "6.4",
       "ratio_utilization_building_project": "9.1",
       "ratio_utilization_zone_regulation": "10.0",
       "ratio_volume_building_project": "7.3",
@@ -740,6 +758,7 @@
               "workflow_type": "Stellungnahme Gesuch"
           }
       ],
+      "zip": "5004",
       "zone_flood_hazard": true,
       "zone_seismic_compliance": "nicht erforderlich",
       "zone_sensitivity_level": "4",
@@ -857,6 +876,7 @@
       "decision_date": null,
       "decisions": [],
       "description": null,
+      "document_statuses": [],
       "dossier_file_path": null,
       "dossier_number": null,
       "dossier_types": {
@@ -891,6 +911,7 @@
       "id": null,
       "instance_state": null,
       "invoice_recipient": [],
+      "is_municipality_light": false,
       "is_paper": null,
       "landowner": [],
       "leased_land_total_ha": null,
@@ -978,6 +999,7 @@
       "workflow_docs": [],
       "workflow_recipients": [],
       "workflows": [],
+      "zip": null,
       "zone_flood_hazard": false,
       "zone_seismic_compliance": null,
       "zone_sensitivity_level": null,
@@ -1117,6 +1139,7 @@
       "decision_date": null,
       "decisions": [],
       "description": null,
+      "document_statuses": [],
       "dossier_file_path": null,
       "dossier_number": null,
       "dossier_types": {
@@ -1151,6 +1174,7 @@
       "id": null,
       "instance_state": null,
       "invoice_recipient": [],
+      "is_municipality_light": false,
       "is_paper": null,
       "landowner": [],
       "leased_land_total_ha": null,
@@ -1242,6 +1266,7 @@
       "workflow_docs": [],
       "workflow_recipients": [],
       "workflows": [],
+      "zip": null,
       "zone_flood_hazard": false,
       "zone_seismic_compliance": null,
       "zone_sensitivity_level": null,
@@ -1369,6 +1394,7 @@
       "decision_date": null,
       "decisions": [],
       "description": null,
+      "document_statuses": [],
       "dossier_file_path": null,
       "dossier_number": null,
       "dossier_types": {
@@ -1403,6 +1429,7 @@
       "id": "EBPA-0001-6924",
       "instance_state": null,
       "invoice_recipient": [],
+      "is_municipality_light": false,
       "is_paper": null,
       "landowner": [],
       "leased_land_total_ha": null,
@@ -1490,6 +1517,7 @@
       "workflow_docs": [],
       "workflow_recipients": [],
       "workflows": [],
+      "zip": "4663",
       "zone_flood_hazard": false,
       "zone_seismic_compliance": null,
       "zone_sensitivity_level": null,

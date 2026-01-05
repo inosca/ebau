@@ -9,7 +9,9 @@ from django.core.management import call_command
 from django.db.models.query_utils import Q
 
 from camac.applicants.models import Applicant
+from camac.deadlines.models import InstanceDeadline, Suspension
 from camac.dossier_import.conftest import JSON_INPUT_DIR, TEST_IMPORT_FILE_PATH
+from camac.dossier_import.models import MigrationDocumentStatus
 from camac.dossier_import.tests.test_utils import to_sorted_json
 from camac.instance.models import Instance, JournalEntry
 from camac.tags.models import Keyword
@@ -22,6 +24,7 @@ def get_test_files():
     return list(input_files)
 
 
+@pytest.mark.skip(reason="manual use only")
 @pytest.mark.freeze_time("2025-07-28 12:00:00")
 @pytest.mark.django_db(transaction=True)
 def test_migrate_from_zip(db, setup_dossier_import_ag, snapshot):
@@ -180,7 +183,8 @@ def _assert_migration_result_from_expected_file(input_file, snapshot, out, err):
 
     id_keyword = dossier_id_keyword.first()
     user_name = group_name = instance_state = instance_service = keywords = None
-    case_meta = work_items = answers = journal = applicants = None
+    case_meta = work_items = answers = journal = applicants = deadlines = None
+    suspensions = doc_status = None
 
     if id_keyword is not None:
         instance: Instance = id_keyword.instances.first()
@@ -237,6 +241,30 @@ def _assert_migration_result_from_expected_file(input_file, snapshot, out, err):
             )
         )
 
+        deadlines = list(
+            InstanceDeadline.objects.filter(instance=instance).values(
+                "start_date",
+                "total_days_of_suspension",
+                "process_deadline_date",
+                "service_id",
+                "process_deadline_date_override",
+                "target_deadline_date",
+                "target_deadline_date",
+            )
+        )
+
+        suspensions = list(
+            Suspension.objects.filter(deadline__instance=instance).values(
+                "start_date", "end_date", "reason", "reason_text", "created_at"
+            )
+        )
+
+        doc_status = list(
+            MigrationDocumentStatus.objects.filter(instance=instance).values(
+                "dms_id", "dms_version", "status"
+            )
+        )
+
     result = to_sorted_json(
         {
             "user": user_name,
@@ -249,6 +277,9 @@ def _assert_migration_result_from_expected_file(input_file, snapshot, out, err):
             "answers": answers,
             "journal": journal,
             "applicants": applicants,
+            "deadlines": deadlines,
+            "suspensions": suspensions,
+            "doc_status": doc_status,
         }
     )
 

@@ -1364,6 +1364,14 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 22000045,
+    "fields": {
+      "resource": 22000006,
+      "role": 10000
+    }
+  },
+  {
     "model": "core.resource",
     "pk": 2000000,
     "fields": {
@@ -1515,7 +1523,7 @@
       "description": null,
       "template": "/ember-camac-ng/alexandria-search.phtml",
       "class_field": null,
-      "hidden": 0,
+      "hidden": 1,
       "sort": 4
     }
   },
@@ -1530,6 +1538,19 @@
       "class_field": null,
       "hidden": 0,
       "sort": 12
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 22000006,
+    "fields": {
+      "available_resource": "page",
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/merge-municipality.phtml",
+      "class_field": null,
+      "hidden": 1,
+      "sort": 14
     }
   },
   {
@@ -1660,6 +1681,16 @@
       "language": "de",
       "name": "Migration",
       "description": "Dossier Imports durch Migrations-Scripts"
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 22000005,
+    "fields": {
+      "resource": 22000006,
+      "language": "de",
+      "name": "Gemeindefusionen",
+      "description": null
     }
   }
 ]

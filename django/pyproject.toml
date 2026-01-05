@@ -156,6 +156,7 @@ omit = [
     "camac/core/management/commands/importrsta.py",
     "camac/core/management/commands/importservices.py",
     "camac/core/management/commands/sequencenamespace.py",
+    "camac/core/management/commands/ag_reset_instance_to_before_decision.py",
     "camac/instance/management/commands/duplicate_instance.py",
     "camac/instance/management/commands/create_rsta_migrated_instance.py",
     "camac/instance/management/commands/fix_broken_be_instances.py",
@@ -163,6 +164,7 @@ omit = [
     "camac/instance/management/commands/fix_gr_workitems_no_addressedgroups.py",
     "camac/instance/management/commands/migrate_activations.py",
     "camac/instance/management/commands/migrate_bab_case_gr.py",
+    "camac/instance/management/commands/migrate_service_plot_numbers.py",
     "camac/core/management/commands/repair_sz_workflow.py",
     # Permission module temporary commands. These are used during the transition
     # phase and will be removed again later on.
@@ -179,8 +181,11 @@ omit = [
     # One off commands
     "camac/billing/management/commands/fix_uri_billing_entries.py",
     "camac/core/management/commands/fix_incorrectly_created_geometer_workitems.py",
-    "camac/dossier_import/config/kt_ag/sap/sap_run_sql.py",
-    "camac/dossier_import/config/kt_ag/kt_ag_alexandria_report_generator.py",
+    "camac/dossier_import/config/kt_ag/**/*",
+    "camac/dossier_import/management/commands/kt_ag_migrate_dossiers.py",
+    "camac/dossier_import/tests/test_kt_ag_loader.py",
+    "camac/dossier_import/tests/test_kt_ag_migrate_dossiers.py",
+    "camac/dossier_import/tests/test_kt_ag_status_mapping.py",
     "camac/dossier_import/management/commands/kt_ag_alexandria_report.py",
     "camac/dossier_import/management/commands/fix_identifiers_schuebelbach.py",
     "camac/dossier_import/management/commands/fix_addresses_schuebelbach.py",

@@ -179,16 +179,30 @@ class CustomDynamicTasks(BaseDynamicTasks):
         if (
             Inquiry.objects.for_root_case(case)
             .addressed_to(Service.objects.get(slug="afb"))
-            .only_answered()
+            .only_active()
         ):
             tasks.append("check-pa")
 
         if domain_logic.DecisionLogic.should_continue_after_decision(
             case.instance, prev_work_item
         ):
-            tasks.append(
-                settings.CONSTRUCTION_MONITORING["INIT_CONSTRUCTION_MONITORING_TASK"]
-            )
+            if wis_to_reopen := case.work_items.filter(
+                task_id__in=[
+                    settings.CONSTRUCTION_MONITORING["CONSTRUCTION_STAGE_TASK"],
+                    settings.CONSTRUCTION_MONITORING[
+                        "COMPLETE_CONSTRUCTION_MONITORING_TASK"
+                    ],
+                ],
+                status=WorkItem.STATUS_CANCELED,
+            ):  # pragma: no cover
+                # "re-entry" after running "reset_instance_to_before_decision" mgmt cmd
+                wis_to_reopen.update(status=WorkItem.STATUS_READY)
+            else:
+                tasks.append(
+                    settings.CONSTRUCTION_MONITORING[
+                        "INIT_CONSTRUCTION_MONITORING_TASK"
+                    ]
+                )
         else:
             tasks.append(settings.CONSTRUCTION_MONITORING["COMPLETE_INSTANCE_TASK"])
 

@@ -143,8 +143,8 @@ def test_resolve_send_handler(xml_file, expected_send_handler):
             ECH_JUDGEMENT_DECLINED,
             "subm",
             False,
-            "leitbehoerde",
             False,
+            "leitbehoerde",
             None,
             "camac-ng",
         ),
@@ -790,7 +790,6 @@ def test_task_send_claim_handler(
     test_case,
     success,
     access_level,
-    mock_remote_file,
 ):
     mocker.patch(
         "camac.ech0211.send_handlers.has_alexandria_create_permission",
@@ -1073,6 +1072,7 @@ def test_accompanying_report_send_handler(
             "true_value": "inquiry-checked",
         },
     }
+    be_ech0211_settings["ACCOMPANYING_REPORT"]["ENABLE_ORGANISATION_EXTENSION"] = True
     CategoryFactory(slug="beteiligte-behoerden")
     be_ech0211_settings["ACCOMPANYING_REPORT"]["ALEXANDRIA_CATEGORY"] = (
         "beteiligte-behoerden"

@@ -1,0 +1,173 @@
+<h2>{{t "merge-municipality.title"}}</h2>
+
+{{#if this.migrationCompleted}}
+  <div class="uk-alert uk-alert-success">
+    <p>{{t "merge-municipality.result.success"}}</p>
+  </div>
+
+  <UkButton
+    @color="primary"
+    @label={{t "merge-municipality.result.reset"}}
+    @onClick={{this.resetMerge}}
+  />
+{{else}}
+  {{#unless this.showResult}}
+    {{#if this.municipalities}}
+      <div uk-grid class="uk-grid-small uk-margin uk-child-width-1-2 uk-grid">
+        <div>
+          <label class="uk-form-label" for="status">{{t
+              "merge-municipality.municipality-from"
+            }}</label>
+          <div class="uk-form-controls">
+            <PowerSelect
+              @triggerId="municipalityFrom"
+              @selected={{this.selectedMunicipalityFrom}}
+              @options={{this.municipalities}}
+              @allowClear={{true}}
+              @renderInPlace={{true}}
+              @onChange={{fn this.selectMunicipality "from"}}
+              class="uk-select"
+              data-test-from
+              as |municipality|
+            >
+              {{municipality.label}}
+            </PowerSelect>
+          </div>
+        </div>
+
+        <div>
+          <label class="uk-form-label" for="status">{{t
+              "merge-municipality.municipality-to"
+            }}</label>
+          <div class="uk-form-controls">
+            <PowerSelect
+              @triggerId="municipalityTo"
+              @selected={{this.selectedMunicipalityTo}}
+              @options={{this.municipalities}}
+              @allowClear={{true}}
+              @renderInPlace={{true}}
+              @onChange={{fn this.selectMunicipality "to"}}
+              class="uk-select"
+              data-test-to
+              as |municipality|
+            >
+              {{municipality.label}}
+            </PowerSelect>
+          </div>
+        </div>
+      </div>
+
+      {{#if this.childServicesFrom}}
+        <div
+          uk-grid
+          class="uk-grid-small uk-margin uk-child-width-1-2 uk-grid"
+          data-test-services-grid
+        >
+          <div>
+            <label class="uk-form-label" for="status">{{t
+                "merge-municipality.service-from"
+              }}</label>
+          </div>
+          <div>
+            <label class="uk-form-label" for="status">{{t
+                "merge-municipality.service-to"
+              }}</label>
+          </div>
+          {{#each-in this.childServicesFrom as |childIndex childServiceFrom|}}
+            <div>
+              <div class="uk-form-controls" data-test-service-from>
+                {{childServiceFrom.label}}
+              </div>
+            </div>
+            <div class="uk-form-controls">
+              <PowerSelect
+                data-test-service-to
+                @triggerId={{concat "childServiceTo-" childIndex}}
+                @selected={{get
+                  this.selectedChildServices
+                  childServiceFrom.value
+                }}
+                @options={{this.childServicesTo}}
+                @allowClear={{true}}
+                @renderInPlace={{true}}
+                @onChange={{fn this.selectChildService childServiceFrom}}
+                as |childServiceToEntry|
+              >
+                {{childServiceToEntry.label}}
+              </PowerSelect>
+            </div>
+          {{/each-in}}
+        </div>
+      {{/if}}
+    {{/if}}
+  {{/unless}}
+
+  {{#if this.showPreviewButton}}
+    <UkButton
+      data-test-preview-button
+      @color="primary"
+      @label={{t "merge-municipality.result.preview"}}
+      @onClick={{this.submitPreview}}
+    />
+  {{else if this.showResult}}
+    <table class="uk-table uk-table-small uk-table-striped">
+      <tbody>
+        <tr>
+          <td><strong>{{this.selectedMunicipalityFrom.label}}</strong></td>
+          <td>
+            <div
+              uk-icon="icon: chevron-right"
+              title={{t "merge-municipality.result.action.merge"}}
+            ></div>
+          </td>
+          <td><strong>{{this.selectedMunicipalityTo.label}}</strong></td>
+        </tr>
+        {{#each this.mergeResult as |entry|}}
+          <tr>
+            <td
+              class={{if
+                (eq entry.action "merge")
+                "uk-text-warning"
+                (if (eq entry.action "adopt") "uk-text-success" "")
+              }}
+            >
+              {{#if (not-eq entry.action "retain")}}
+                {{entry.from.label}}
+              {{/if}}
+            </td>
+            <td>
+              <div
+                uk-icon={{this.getMergeActionIconForEntry entry}}
+                title={{this.getMergeActionTranslationForEntry entry}}
+              ></div>
+            </td>
+            <td>
+              {{#if (eq entry.action "retain")}}
+                {{entry.from.label}}
+              {{else if (eq entry.action "merge")}}
+                {{entry.to.label}}
+              {{/if}}
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+
+    <UkButton
+      data-test-confirm-button
+      @color="primary"
+      @label={{t "merge-municipality.result.confirm"}}
+      @disabled={{this.confirm.isRunning}}
+      @loading={{this.confirm.isRunning}}
+      @onClick={{this.confirm.perform}}
+    />
+
+    <UkButton
+      data-test-cancel-button
+      @color="default"
+      @label={{t "merge-municipality.result.cancel"}}
+      @disabled={{this.confirm.isRunning}}
+      @onClick={{this.cancel}}
+    />
+  {{/if}}
+{{/if}}

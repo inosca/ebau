@@ -18,6 +18,7 @@ module.exports = function (environment) {
       "ALEXANDRIA_MANABI_ALLOWED_MIMETYPES",
       "LOCALES",
       "EEBA_BASE_URL",
+      "EVEN_URL",
     ],
     path: path.join(path.dirname(__dirname), "../.env"),
     enabled: environment !== "production",

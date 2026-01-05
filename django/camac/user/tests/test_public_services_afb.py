@@ -23,7 +23,6 @@ def ag_services(service_factory, service):
         ("service-cantonal", "amb"),
         ("service-cantonal", "aew"),
         ("service-cantonal", "axpo"),
-        ("service-cantonal", "gvm"),
         ("service-cantonal", "dgs-avs-vet"),
         ("service-cantonal", "dgs-avs-lmi"),
         ("service-cantonal", "alg-wb"),

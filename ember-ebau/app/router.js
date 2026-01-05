@@ -13,6 +13,7 @@ import registerDMSAdmin from "ember-ebau-core/modules/dms-admin";
 import registerDossierImport from "ember-ebau-core/modules/dossier-import";
 import registerLegalSubmission from "ember-ebau-core/modules/legal-submission";
 import registerLinkedInstances from "ember-ebau-core/modules/linked-instances";
+import registerMergeMunicipality from "ember-ebau-core/modules/merge-municipality";
 import registerPermissions from "ember-ebau-core/modules/permissions";
 import registerProfile from "ember-ebau-core/modules/profile";
 import registerPublication from "ember-ebau-core/modules/publication";
@@ -109,6 +110,7 @@ Router.map(function () {
     registerSnippets(this, { resetNamespace });
     registerProfile(this, { resetNamespace });
     registerRulesets(this, { resetNamespace });
+    registerMergeMunicipality(this, { resetNamespace });
     this.route("documents", { resetNamespace }, function () {
       this.mount("ember-alexandria", {
         as: "alexandria",

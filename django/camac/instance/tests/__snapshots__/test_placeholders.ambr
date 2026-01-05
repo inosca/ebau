@@ -1609,6 +1609,10 @@
     'BESCHREIBUNG_PROJEKTAENDERUNG': '',
     'DECISION_DATE': '28. März 2025',
     'DESCRIPTION_MODIFICATION': '',
+    'DOCUMENTS': list([
+    ]),
+    'DOKUMENTE': list([
+    ]),
     'DOSSIER_NUMBER': '2025-1',
     'DOSSIER_NUMMER': '2025-1',
     'DOSSIER_TYP': 'Baugesuch',
@@ -1622,6 +1626,7 @@
       }),
     ]),
     'EIGENE_GEBUEHREN_TOTAL': '200.00',
+    'ENTSCHEIDDOKUMENTE': '',
     'FACHSTELLEN_KANTONAL': list([
     ]),
     'FORM_NAME': 'Baugesuch',
@@ -2026,6 +2031,68 @@
       'nested_aliases': dict({
       }),
     }),
+    'DOCUMENTS': dict({
+      'aliases': list([
+        dict({
+          'de': 'DOKUMENTE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Dokumente mit Metadaten',
+      }),
+      'nested_aliases': dict({
+        'CATEGORY': list([
+          dict({
+            'de': 'KATEGORIE',
+          }),
+        ]),
+        'CREATED_AT': list([
+          dict({
+            'de': 'ERSTELLT_AM',
+          }),
+        ]),
+        'CREATED_BY': list([
+          dict({
+            'de': 'ERSTELLT_VON',
+          }),
+        ]),
+        'DESCRIPTION': list([
+          dict({
+            'de': 'BESCHREIBUNG',
+          }),
+        ]),
+        'MARKS': list([
+          dict({
+            'de': 'MARKIERUNGEN',
+          }),
+        ]),
+        'MODIFIED_AT': list([
+          dict({
+            'de': 'GEAENDERT_AM',
+          }),
+        ]),
+        'MODIFIED_BY': list([
+          dict({
+            'de': 'GEAENDERT_VON',
+          }),
+        ]),
+        'NAME': list([
+          dict({
+            'de': 'NAME',
+          }),
+        ]),
+        'ORIGINAL_NAME': list([
+          dict({
+            'de': 'ORIGINAL_NAME',
+          }),
+        ]),
+        'TAGS': list([
+          dict({
+            'de': 'STICHWORTE',
+          }),
+        ]),
+      }),
+    }),
     'DOSSIER_NUMBER': dict({
       'aliases': list([
         dict({
@@ -2078,6 +2145,18 @@
       ]),
       'description': dict({
         'de': 'Totalbetrag aller eigenen Gebühren des Dossiers',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ENTSCHEIDDOKUMENTE': dict({
+      'aliases': list([
+        dict({
+          'de': 'ENTSCHEIDDOKUMENTE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Alle Dokumente die als Entscheiddokument markiert wurden',
       }),
       'nested_aliases': dict({
       }),
@@ -10398,6 +10477,18 @@
     'BAUKOSTEN',
     'BESCHREIBUNG_BAUVORHABEN',
     'BESCHREIBUNG_PROJEKTAENDERUNG',
+    'DOKUMENTE',
+    'DOKUMENTE[]',
+    'DOKUMENTE[].BESCHREIBUNG',
+    'DOKUMENTE[].ERSTELLT_AM',
+    'DOKUMENTE[].ERSTELLT_VON',
+    'DOKUMENTE[].GEAENDERT_AM',
+    'DOKUMENTE[].GEAENDERT_VON',
+    'DOKUMENTE[].KATEGORIE',
+    'DOKUMENTE[].MARKIERUNGEN',
+    'DOKUMENTE[].NAME',
+    'DOKUMENTE[].ORIGINAL_NAME',
+    'DOKUMENTE[].STICHWORTE',
     'DOSSIER_NUMMER',
     'DOSSIER_TYP',
     'EBAU_URL',
@@ -10408,6 +10499,7 @@
     'EIGENE_GEBUEHREN[].POSITION',
     'EIGENE_GEBUEHREN[].VERRECHNET_AM',
     'EIGENE_GEBUEHREN_TOTAL',
+    'ENTSCHEIDDOKUMENTE',
     'FACHSTELLEN_KANTONAL',
     'FACHSTELLEN_KANTONAL[]',
     'FACHSTELLEN_KANTONAL[].BEANTWORTET',

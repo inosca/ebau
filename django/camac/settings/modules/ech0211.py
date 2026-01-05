@@ -312,6 +312,7 @@ ECH0211 = {
         "NOTICE_RULING": {
             "ALLOWED_STATES": ["coordination", "circulation"],
             "ONLY_DECLINE": ["circulation_init"],
+            "SKIP_TASKS_ON_APPROVAL": ["distribution"],
         },
         "JUDGEMENT_MAPPING": {
             "inquiry-answer-status-positive": 1,
@@ -427,6 +428,7 @@ ECH0211 = {
         },
         "ACCOMPANYING_REPORT": {
             "ALEXANDRIA_CATEGORY": "beteiligte-behörden",
+            "ENABLE_ORGANISATION_EXTENSION": True,
             "EXTENSION_MAPPING": {
                 "inquiry-answer-situation": {
                     "tag": "situation",
@@ -458,6 +460,7 @@ ECH0211 = {
         "NOTICE_RULING": {
             "ALLOWED_STATES": ["decision", "circulation"],
             "ONLY_DECLINE": ["distribution-init"],
+            "SKIP_TASKS_ON_APPROVAL": ["distribution"],
             "ALEXANDRIA_CATEGORY": "alle-beteiligten",
             "ALEXANDRIA_MARK": "decision",
         },
@@ -642,6 +645,7 @@ ECH0211 = {
         "NOTICE_RULING": {
             "ALLOWED_STATES": ["decision", "distribution"],
             "ONLY_DECLINE": ["distribution-init"],
+            "SKIP_TASKS_ON_APPROVAL": ["distribution"],
             "ALEXANDRIA_CATEGORY": "beteiligte-behoerden",
             "ALEXANDRIA_MARK": "decision",
         },
@@ -720,7 +724,10 @@ ECH0211 = {
                 "category": "beilagen-zum-gesuch",
             },
         },
-        "ACCOMPANYING_REPORT": {"ALEXANDRIA_CATEGORY": "beteiligte-behörden"},
+        "ACCOMPANYING_REPORT": {
+            "ALEXANDRIA_CATEGORY": "beteiligte-behörden",
+            "ENABLE_ORGANISATION_EXTENSION": True,
+        },
         "REDIRECTS": {
             r"instance/<int:instance_id>/": "/cases/%(instance_id)i",
             r"claim/<int:instance_id>/": "/cases/%(instance_id)i/additional-demand",
@@ -733,8 +740,9 @@ ECH0211 = {
             "alle-beteiligten",
         ],
         "NOTICE_RULING": {
-            "ALLOWED_STATES": ["decision", "circulation"],
-            "ONLY_DECLINE": ["distribution-init"],
+            "ALLOWED_STATES": ["subm", "distribution-init", "circulation", "decision"],
+            "ONLY_DECLINE": [],
+            "SKIP_TASKS_ON_APPROVAL": ["formal-exam", "distribution"],
             "ALEXANDRIA_CATEGORY": "alle-beteiligten",
             "ALEXANDRIA_MARK": "decision",
         },
@@ -756,6 +764,10 @@ ECH0211 = {
                     },
                     "ech0211:planningPermissionApplication/ech0211:locationAddress/ech0010:town": {
                         "question_slug": "ort-grundstueck",
+                    },
+                    "ech0211:planningPermissionApplication/ech0211:locationAddress/ech0010:swissZipCode": {
+                        "question_slug": "plz",
+                        "default": 0000,
                     },
                 },
                 "TABLE": {

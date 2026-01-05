@@ -73,7 +73,8 @@ services:
       DATABASE_PASSWORD: camac
       DATABASE_USER: camac
       DJANGO_CACHE_LOCATION: cache:11211
-      DJANGO_CLAMD_ENABLED: false
+      DJANGO_CLAMD_ENABLED: true
+      DJANGO_CLAMD_TCP_ADDR: clamav
       DJANGO_DEFAULT_FILE_STORAGE: storages.backends.s3.S3Storage
       DJANGO_EMAIL_HOST: mailpit
       DJANGO_EMAIL_PORT: 1025
@@ -153,6 +154,7 @@ services:
       KEYCLOAK_HOST: http://ebau-keycloak.localhost
       KEYCLOAK_CLIENT: portal
       INTERNAL_URL: http://ember-ebau.localhost
+      EVEN_URL: https://www.energievollzug.ch/project-id/
       ENABLE_WATERMARK: true
       WATERMARK: local
     networks:
@@ -164,6 +166,7 @@ services:
       KEYCLOAK_HOST: http://ebau-keycloak.localhost
       KEYCLOAK_CLIENT: camac
       PORTAL_URL: http://ebau-portal.localhost
+      EVEN_URL: https://www.energievollzug.ch/project-id/
       ENABLE_WATERMARK: true
       WATERMARK: local
       ALEXANDRIA_MANABI_ALLOWED_MIMETYPES: application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
@@ -277,8 +280,18 @@ services:
     networks:
       - ebau.localhost
 
+  clamav:
+    profiles:
+      - full
+    ports:
+      - "3310:3310"
+    environment:
+      - ENABLE_DEFINITIONS_UPDATE=false
+    networks:
+      - ebau.localhost
+
   tika:
-    image: apache/tika:2.9.2.1-full
+    image: apache/tika:3.2.3.0-full
     user: ${UID}
     networks:
       - ebau.localhost

@@ -2,9 +2,9 @@ from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 
 from camac.core.utils import canton_aware
-from camac.notification.utils import send_mail
+from camac.notification.utils import send_mail_without_request
 from camac.responsible.models import ResponsibleService
-from camac.user.models import User
+from camac.user.models import Group, User
 
 
 class ResponsibleServiceDomainLogic:
@@ -12,7 +12,8 @@ class ResponsibleServiceDomainLogic:
     def update_responsibility(
         cls,
         responsible_service: ResponsibleService,
-        serializer_context: dict,
+        user: User,
+        group: Group,
         old_user: User | None = None,
     ):
         """
@@ -22,7 +23,7 @@ class ResponsibleServiceDomainLogic:
         and new responsible user of the instance can be notified.
         """
         cls.update_work_item_assigned_user(responsible_service, old_user)
-        cls.send_notification(responsible_service, serializer_context)
+        cls.send_notification(responsible_service, user, group)
 
     @classmethod
     @canton_aware
@@ -75,16 +76,15 @@ class ResponsibleServiceDomainLogic:
         )
 
     @classmethod
-    def send_notification(
-        cls, responsible_service: ResponsibleService, serializer_context: dict
-    ):
+    def send_notification(cls, responsible_service: ResponsibleService, user, group):
         """Send a notification to the new responsible user of the instance."""
         config = settings.APPLICATION["NOTIFICATIONS"].get("CHANGE_RESPONSIBLE_USER")
 
         if config:
-            send_mail(
+            send_mail_without_request(
                 config["template_slug"],
-                serializer_context,
+                user,
+                group,
                 recipient_types=["email_list"],
                 email_list=responsible_service.responsible_user.email,
                 instance={"type": "instances", "id": responsible_service.instance.pk},

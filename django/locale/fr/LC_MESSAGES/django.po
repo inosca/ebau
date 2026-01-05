@@ -1787,6 +1787,10 @@ msgstr "Réouverture de la circulation"
 msgid "Receipt"
 msgstr ""
 
+#: camac/settings/modules/dms.py
+msgid "Form"
+msgstr ""
+
 #: camac/settings/modules/ech0211.py
 msgid "Inquiry sent"
 msgstr "Demande de prise de position"

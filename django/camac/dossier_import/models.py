@@ -205,3 +205,32 @@ class DossierImport(models.Model):
         file.write(self.source_file.file.file.read())
 
         return zipfile.ZipFile(file, "r")
+
+
+class MigrationDocumentStatus(models.Model):
+    instance = models.ForeignKey(
+        "instance.Instance",
+        on_delete=models.CASCADE,
+        related_name="migration_document_statuses",
+    )
+    dms_id = models.CharField(max_length=255)
+    dms_version = models.CharField(max_length=255)
+    status = models.CharField(
+        max_length=50,
+        choices=[
+            ("ungültig", "ungültig"),
+            ("bewilligt", "bewilligt"),
+        ],
+    )
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["instance", "dms_id", "dms_version"],
+                name="migration_document_status_pk",
+            )
+        ]
+        db_table = "dossier_import_migration_document_status"
+
+    def __str__(self):
+        return f"{self.instance_id}/{self.dms_id}/{self.dms_version}: {self.status}"

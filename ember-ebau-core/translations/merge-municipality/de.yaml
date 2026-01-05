@@ -1,0 +1,22 @@
+merge-municipality:
+  title: Gemeindefusionen
+  option:
+    adopt: Als neu übernehmen
+    empty: Keine ausgewählt
+  result: 
+    preview: Vorschau
+    cancel: Abbrechen
+    confirm: Bestätigen
+    error: Es ist ein Fehler aufgetreten und die Gemeindefusion konnte nicht durchgeführt werden.
+    success: Die Gemeindefusion wurde erfolgreich durchgeführt.
+    reset: Neue Gemeindefusion starten
+    confirm-dialog: Sind Sie sicher, dass Sie die Gemeindefusion durchführen möchten? Diese Aktion kann nicht rückgängig gemacht werden.
+    action:
+      merge: Fusionieren
+      adopt: Übernehmen
+      none: Keine ausgewählt
+      retain: Bewahren
+  municipality-from: Gemeinde von
+  municipality-to: Gemeinde nach
+  service-from: Dienstleistung von
+  service-to: Dienstleistung nach

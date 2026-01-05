@@ -1495,8 +1495,9 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                     service=target_active_service,
                     responsible_user=source_responsible_service.responsible_user,
                 )
+                request = self.context["request"]
                 ResponsibleServiceDomainLogic.update_responsibility(
-                    target_responsible_service, self.context
+                    target_responsible_service, request.user, request.group
                 )
 
     def _complete_submit_work_item(self, instance):

@@ -682,42 +682,47 @@ def accompanying_report(
         judgement=settings.ECH0211["JUDGEMENT_MAPPING"].get(status.value),
     )
 
-    if extensions := settings.ECH0211["ACCOMPANYING_REPORT"].get("EXTENSION_MAPPING"):
+    ar_settings = settings.ECH0211["ACCOMPANYING_REPORT"]
+
+    if ar_settings.get("EXTENSION_MAPPING") or ar_settings.get(
+        "ENABLE_ORGANISATION_EXTENSION"
+    ):
         # Add xml tags to extension attribute
         xml_dom = xml.dom.minidom.getDOMImplementation()
         xml_doc = xml_dom.createDocument(None, "root", None)
-
         report.extension = pyxb.binding.datatypes.anyType()
 
-        answers_by_slug = {
-            ans.question_id: ans
-            for ans in inquiry.child_case.document.answers.filter(
-                question_id__in=extensions.keys()
-            ).select_related("question")
-        }
-        for slug, mapping in extensions.items():
-            if slug not in answers_by_slug:
-                continue
-            xml_element = xml_doc.createElement(mapping["tag"])
-            caluma_answer = answers_by_slug[slug]
-            caluma_value = caluma_answer.value
-            if caluma_answer.question.type == Question.TYPE_MULTIPLE_CHOICE:
-                caluma_value = str(mapping["true_value"] in caluma_value).lower()
-            xml_value = xml_doc.createTextNode(caluma_value or "")
-            xml_element.appendChild(xml_value)
+        if extensions := ar_settings.get("EXTENSION_MAPPING"):
+            answers_by_slug = {
+                ans.question_id: ans
+                for ans in inquiry.child_case.document.answers.filter(
+                    question_id__in=extensions.keys()
+                ).select_related("question")
+            }
+            for slug, mapping in extensions.items():
+                if slug not in answers_by_slug:
+                    continue
+                xml_element = xml_doc.createElement(mapping["tag"])
+                caluma_answer = answers_by_slug[slug]
+                caluma_value = caluma_answer.value
+                if caluma_answer.question.type == Question.TYPE_MULTIPLE_CHOICE:
+                    caluma_value = str(mapping["true_value"] in caluma_value).lower()
+                xml_value = xml_doc.createTextNode(caluma_value or "")
+                xml_element.appendChild(xml_value)
 
-            report.extension._appendWildcardElement(value=xml_element)
+                report.extension._appendWildcardElement(value=xml_element)
 
-        service = Service.objects.get(pk=inquiry.closed_by_group)
-        service_info = {
-            "organisationId": str(service.pk),
-            "organisationName": service.get_name(),
-        }
-        for tag, value in service_info.items():
-            xml_element = xml_doc.createElement(tag)
-            xml_value = xml_doc.createTextNode(value)
-            xml_element.appendChild(xml_value)
-            report.extension._appendWildcardElement(value=xml_element)
+        if ar_settings.get("ENABLE_ORGANISATION_EXTENSION"):
+            service = Service.objects.get(pk=inquiry.closed_by_group)
+            service_info = {
+                "organisationId": str(service.pk),
+                "organisationName": service.get_name(),
+            }
+            for tag, value in service_info.items():
+                xml_element = xml_doc.createElement(tag)
+                xml_value = xml_doc.createTextNode(value)
+                xml_element.appendChild(xml_value)
+                report.extension._appendWildcardElement(value=xml_element)
 
     return report
 

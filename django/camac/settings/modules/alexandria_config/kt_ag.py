@@ -152,6 +152,12 @@ MOVE_ALL_UNTIL_DECISION = {
     "permission": "update",
 }
 
+MOVE_ALL_AFTER_MIGRATION = {
+    "scope": "All",
+    "fields": ["category"],
+    "permission": "update",
+}
+
 MOVE_ALL_PAPER_UNTIL_DECISION = {
     "scope": "All",
     "fields": ["category"],
@@ -244,7 +250,7 @@ CONFIG = {
             "permissions": [
                 CREATE_UNTIL_DECISION,
                 MOVE_OWN_UNTIL_DECISION,
-                MOVE_ALL_PAPER_UNTIL_DECISION,
+                MOVE_ALL_AFTER_MIGRATION,
                 UPDATE_ALL_TAGS,
                 UPDATE_ALL_MARKS_UNTIL_DECISION,
                 UPDATE_ALL_METADATA_UNTIL_DECISION,
@@ -275,7 +281,7 @@ CONFIG = {
                 UPDATE_ALL_TAGS,
                 UPDATE_ALL_MARKS_UNTIL_DECISION,
                 UPDATE_ALL_METADATA_UNTIL_DECISION,
-                MOVE_OWN_UNTIL_DECISION,
+                MOVE_ALL_AFTER_MIGRATION,
                 REPLACE_OWN_UNTIL_DECISION,
                 DELETE_OWN_UNTIL_DECISION,
             ],

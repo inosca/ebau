@@ -82,6 +82,7 @@ class AlexandriaDocumentMixin:
         category: alexandria_models.Category,
         skip_linking=False,
         caluma_document_id=None,
+        raise_on_download_error=True,
     ) -> List[alexandria_models.Document]:
         created_documents = []
         all_documents = []
@@ -90,10 +91,10 @@ class AlexandriaDocumentMixin:
             # means that the file has a download link and does not exist yet. If the
             # uuid is anything else, we expect that the document has already been created.
             if UUID(doc.uuid) == UUID(int=0):
-                document = self.create_document_and_files(
-                    doc, category, caluma_document_id
-                )
-                created_documents.append(document)
+                if document := self.create_document_and_files(
+                    doc, category, caluma_document_id, raise_on_download_error
+                ):
+                    created_documents.append(document)
             else:
                 document = self.get_existing_document(doc.uuid)
 
@@ -122,12 +123,19 @@ class AlexandriaDocumentMixin:
             document.save()
 
     def convert_xml_to_alexandria_documents(
-        self, xmlDocuments, category_slug: str, caluma_document_id=None
+        self,
+        xmlDocuments,
+        category_slug: str,
+        caluma_document_id=None,
+        raise_on_download_error=True,
     ):
         category = alexandria_models.Category.objects.get(slug=category_slug)
         self.check_alexandria_category_permission(category)
         return self.create_alexandria_documents(
-            xmlDocuments, category, caluma_document_id=caluma_document_id
+            xmlDocuments,
+            category,
+            caluma_document_id=caluma_document_id,
+            raise_on_download_error=raise_on_download_error,
         )
 
     def get_existing_document(self, document_uuid):
@@ -146,14 +154,24 @@ class AlexandriaDocumentMixin:
             )
         return document
 
-    def create_document_and_files(self, doc, category, caluma_document_id):
+    def create_document_and_files(
+        self, doc, category, caluma_document_id, raise_on_download_error=True
+    ):
         document = None
         # use first title as document title
         title = doc.titles.title[0].value()
         description = doc.comments.comment[0].value() if doc.comments else None
         for file in doc.files.file:
             file_response = requests.get(file.pathFileName)
-            file_response.raise_for_status()
+            try:
+                file_response.raise_for_status()
+            except Exception:
+                if raise_on_download_error:  # pragma: no cover
+                    raise SendHandlerException(
+                        f'File at "{file.pathFileName}" could not be downloaded.'
+                    )
+                continue
+
             file_name = urlparse(file.pathFileName).path.split("/")[-1]
             file_obj = ContentFile(file_response.content, name=file_name)
             if not document:
@@ -181,7 +199,7 @@ class AlexandriaDocumentMixin:
                     size=len(file_response.content),
                 )
 
-        if caluma_document_id:
+        if document and caluma_document_id:  # pragma: no cover
             document.metainfo["caluma-document-id"] = caluma_document_id
             document.save()
         return document
@@ -341,7 +359,10 @@ class NoticeRulingSendHandler(
             # suspend case
             workflow_api.suspend_case(case=case, user=self.caluma_user)
         else:
-            self.skip_work_item(settings.DISTRIBUTION["DISTRIBUTION_TASK"])
+            for slug in settings.ECH0211["NOTICE_RULING"].get(
+                "SKIP_TASKS_ON_APPROVAL", []
+            ):
+                self.skip_work_item(slug)
 
             # write the decision document
             decision_document = self._get_decision_document(case)
@@ -700,6 +721,7 @@ class TaskSendHandler(AlexandriaDocumentMixin, BaseSendHandler):
             self.data.eventRequest.directive.documents.document,
             category_slug=settings.ECH0211["CLAIM"]["ALEXANDRIA_CATEGORY"],
             caluma_document_id=str(additional_demand_send.document.pk),
+            raise_on_download_error=False,
         )
 
         # complete the additional demand send work item after filling out the form

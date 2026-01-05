@@ -210,7 +210,7 @@ def test_withdraw_instance_light(
         == "Rückzug beantragt"
     )
 
-    assert Message.objects.count() == 0
+    assert Message.objects.count() == 1
 
     assert len(mailoutbox) == 2
     assert notification_subject in mailoutbox[0].subject

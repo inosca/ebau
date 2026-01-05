@@ -201,7 +201,7 @@ def load_fixtures_ag(
     ag_decision_settings,
     ag_permissions_settings,
     ag_construction_monitoring_settings,
-):
+):  # pragma: no cover
     extra_fixtures = [
         settings.ROOT_DIR("kt_ag/config/caluma_audit_form.json"),
         settings.ROOT_DIR("kt_ag/config/caluma_decision_form.json"),
@@ -353,7 +353,7 @@ def setup_dossier_import_ag(
     disable_ech0211_settings,
     role_factory,
     mocker,
-):
+):  # pragma: no cover
     config = "kt_ag"
     # Needed for permissions module `instance_created` trigger
     role_factory(name="Support")

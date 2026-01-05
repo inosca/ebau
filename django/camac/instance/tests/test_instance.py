@@ -1119,6 +1119,8 @@ def test_involved_services(
         ("Municipality", status.HTTP_200_OK),
         ("Coordination", status.HTTP_200_OK),
         ("TrustedService", status.HTTP_403_FORBIDDEN),
+        ("Service", status.HTTP_403_FORBIDDEN),
+        ("Canton", status.HTTP_403_FORBIDDEN),
     ],
 )
 def test_instance_group_link(

@@ -286,7 +286,7 @@ services:
       - ebau.localhost
 
   tika:
-    image: apache/tika:2.9.2.1-full
+    image: apache/tika:3.2.3.0-full
     user: ${UID}
     networks:
       - ebau.localhost

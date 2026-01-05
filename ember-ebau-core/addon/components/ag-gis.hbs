@@ -124,7 +124,9 @@
     {{#if this.centerCoordinate}}
       <div class="uk-width-expand uk-text-right uk-text-small">
         <div class="uk-text-bolder">{{t "gis.centeredCoordinates"}}</div>
-        <div>{{format-coordinate this.centerCoordinate}}
+        <div>{{round this.centerCoordinate.x}}
+          /
+          {{round this.centerCoordinate.y}}
           <a
             class="uk-link-text uk-text-nowrap uk-padding-left-small"
             href={{this.centerCoordinateUrl}}

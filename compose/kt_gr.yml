@@ -105,7 +105,7 @@ services:
       - DEFINITIONS_UPDATE_BEGIN=0300
 
   tika:
-    image: apache/tika:2.9.2.1-full
+    image: apache/tika:3.2.3.0-full
 
   redis:
     image: redis:7.4

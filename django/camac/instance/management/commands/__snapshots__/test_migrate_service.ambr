@@ -1,0 +1,271 @@
+# serializer version: 1
+# name: test_migrate_service[False-False]
+  '''
+  UPDATE caluma_workflow_case
+      SET meta = jsonb_set(meta, '{migrated-from-service}', '<<source_id_1>>', true)
+      FROM "INSTANCE"
+          JOIN "INSTANCE_SERVICE" ON "INSTANCE_SERVICE"."INSTANCE_ID" = "INSTANCE"."INSTANCE_ID"
+      WHERE "INSTANCE".case_id = caluma_workflow_case.id
+          AND "INSTANCE_SERVICE"."SERVICE_ID" = <<source_id_1>>;
+  UPDATE caluma_workflow_case
+      SET meta = jsonb_set(meta, '{migrated-from-service}', '<<source_id_2>>', true)
+      FROM "INSTANCE"
+          JOIN "INSTANCE_SERVICE" ON "INSTANCE_SERVICE"."INSTANCE_ID" = "INSTANCE"."INSTANCE_ID"
+      WHERE "INSTANCE".case_id = caluma_workflow_case.id
+          AND "INSTANCE_SERVICE"."SERVICE_ID" = <<source_id_2>>;
+  
+  -- source: <<source_id_1>>, target: <<target_id>>
+  UPDATE "ACTIVATION" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_1>>;
+  UPDATE "ACTIVATION" SET "SERVICE_PARENT_ID" = <<target_id>> WHERE "SERVICE_PARENT_ID" = <<source_id_1>>;
+  UPDATE "ATTACHMENT" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_1>>;
+  UPDATE "BILLING_ENTRY" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_1>>;
+  UPDATE "CIRCULATION" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_1>>;
+  UPDATE "INSTANCE_PARENT" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_1>>;
+  UPDATE "INSTANCE_SERVICE" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_1>>;
+  UPDATE "PROPOSAL_ACTIVATION" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_1>>;
+  UPDATE "RESPONSIBLE_SERVICE" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_1>>;
+  UPDATE "SANCTION" SET "CONTROL_INSTANCE_ID" = <<target_id>> WHERE "CONTROL_INSTANCE_ID" = <<source_id_1>>;
+  UPDATE "SANCTION" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_1>>;
+  UPDATE "TAGS" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_1>>;
+  UPDATE "billing_billingv2entrytemplate_services" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
+  UPDATE "core_servicecontent" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
+  UPDATE "deadlines_deadlinetype_services" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
+  UPDATE "deadlines_instancedeadline" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
+  UPDATE "ech0211_message" SET "receiver_id" = <<target_id>> WHERE "receiver_id" = <<source_id_1>>;
+  UPDATE "instance_historyentry" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
+  UPDATE "instance_instanceresponsibility" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_1>>;
+  UPDATE "instance_issue" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
+  UPDATE "instance_issuetemplate" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
+  UPDATE "instance_issuetemplateset" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
+  UPDATE "instance_journalentry" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
+  UPDATE "permissions_instanceacl" SET "created_by_service_id" = <<target_id>> WHERE "created_by_service_id" = <<source_id_1>>;
+  UPDATE "permissions_instanceacl" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
+  UPDATE "permissions_instanceacl" SET "revoked_by_service_id" = <<target_id>> WHERE "revoked_by_service_id" = <<source_id_1>>;
+  UPDATE "rulesets_distributiondeadlinerule" SET "target_service_id" = <<target_id>> WHERE "target_service_id" = <<source_id_1>>;
+  UPDATE "rulesets_distributiondeadlinerule" SET "source_service_id" = <<target_id>> WHERE "source_service_id" = <<source_id_1>>;
+  UPDATE "rulesets_responsibleuserrule" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
+  UPDATE rulesets_responsibleuserrule_municipalities AS r
+    SET service_id = <<target_id>>
+    WHERE service_id = <<source_id_1>>
+      AND NOT EXISTS (
+        SELECT 1
+        FROM rulesets_responsibleuserrule_municipalities AS r2
+        WHERE r2.responsibleuserrule_id = r.responsibleuserrule_id
+          AND r2.service_id = <<target_id>>
+      );
+  DELETE FROM rulesets_responsibleuserrule_municipalities WHERE service_id = <<source_id_1>>;
+  UPDATE "sanctions_sanction" SET "created_by_service_id" = <<target_id>> WHERE "created_by_service_id" = <<source_id_1>>;
+  UPDATE "sanctions_sanction" SET "assigned_service_id" = <<target_id>> WHERE "assigned_service_id" = <<source_id_1>>;
+  UPDATE "sanctions_sanctiontemplate" SET "created_by_service_id" = <<target_id>> WHERE "created_by_service_id" = <<source_id_1>>;
+  UPDATE "sanctions_sanctiontemplate" SET "assigned_service_id" = <<target_id>> WHERE "assigned_service_id" = <<source_id_1>>;
+  UPDATE "tags_keyword" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
+  UPDATE "user_geometerchangetask" SET "municipality_id" = <<target_id>> WHERE "municipality_id" = <<source_id_1>>;
+  UPDATE "user_geometerchangetask" SET "geometer_id" = <<target_id>> WHERE "geometer_id" = <<source_id_1>>;
+  UPDATE "user_servicerelation" SET "receiver_id" = <<target_id>> WHERE "receiver_id" = <<source_id_1>>;
+  UPDATE "user_servicerelation" SET "provider_id" = <<target_id>> WHERE "provider_id" = <<source_id_1>>;
+  UPDATE "work_items_workitemlistfilterpreset_services" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
+  UPDATE "work_items_workitemtemplate_services" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
+  UPDATE "caluma_workflow_workitem" SET "assigned_users" = '{}' WHERE "addressed_groups" = '{<<source_id_1>>}';
+  UPDATE "caluma_workflow_workitem" SET "addressed_groups" = '{<<target_id>>}' WHERE "addressed_groups" = '{<<source_id_1>>}';
+  UPDATE "caluma_workflow_workitem" SET "controlling_groups" = '{<<target_id>>}' WHERE "controlling_groups" = '{<<source_id_1>>}';
+  
+  -- source: <<source_id_2>>, target: <<target_id>>
+  UPDATE "ACTIVATION" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_2>>;
+  UPDATE "ACTIVATION" SET "SERVICE_PARENT_ID" = <<target_id>> WHERE "SERVICE_PARENT_ID" = <<source_id_2>>;
+  UPDATE "ATTACHMENT" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_2>>;
+  UPDATE "BILLING_ENTRY" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_2>>;
+  UPDATE "CIRCULATION" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_2>>;
+  UPDATE "INSTANCE_PARENT" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_2>>;
+  UPDATE "INSTANCE_SERVICE" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_2>>;
+  UPDATE "PROPOSAL_ACTIVATION" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_2>>;
+  UPDATE "RESPONSIBLE_SERVICE" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_2>>;
+  UPDATE "SANCTION" SET "CONTROL_INSTANCE_ID" = <<target_id>> WHERE "CONTROL_INSTANCE_ID" = <<source_id_2>>;
+  UPDATE "SANCTION" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_2>>;
+  UPDATE "TAGS" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_2>>;
+  UPDATE "billing_billingv2entrytemplate_services" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
+  UPDATE "core_servicecontent" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
+  UPDATE "deadlines_deadlinetype_services" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
+  UPDATE "deadlines_instancedeadline" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
+  UPDATE "ech0211_message" SET "receiver_id" = <<target_id>> WHERE "receiver_id" = <<source_id_2>>;
+  UPDATE "instance_historyentry" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
+  UPDATE "instance_instanceresponsibility" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_2>>;
+  UPDATE "instance_issue" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
+  UPDATE "instance_issuetemplate" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
+  UPDATE "instance_issuetemplateset" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
+  UPDATE "instance_journalentry" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
+  UPDATE "permissions_instanceacl" SET "created_by_service_id" = <<target_id>> WHERE "created_by_service_id" = <<source_id_2>>;
+  UPDATE "permissions_instanceacl" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
+  UPDATE "permissions_instanceacl" SET "revoked_by_service_id" = <<target_id>> WHERE "revoked_by_service_id" = <<source_id_2>>;
+  UPDATE "rulesets_distributiondeadlinerule" SET "target_service_id" = <<target_id>> WHERE "target_service_id" = <<source_id_2>>;
+  UPDATE "rulesets_distributiondeadlinerule" SET "source_service_id" = <<target_id>> WHERE "source_service_id" = <<source_id_2>>;
+  UPDATE "rulesets_responsibleuserrule" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
+  UPDATE rulesets_responsibleuserrule_municipalities AS r
+    SET service_id = <<target_id>>
+    WHERE service_id = <<source_id_2>>
+      AND NOT EXISTS (
+        SELECT 1
+        FROM rulesets_responsibleuserrule_municipalities AS r2
+        WHERE r2.responsibleuserrule_id = r.responsibleuserrule_id
+          AND r2.service_id = <<target_id>>
+      );
+  DELETE FROM rulesets_responsibleuserrule_municipalities WHERE service_id = <<source_id_2>>;
+  UPDATE "sanctions_sanction" SET "created_by_service_id" = <<target_id>> WHERE "created_by_service_id" = <<source_id_2>>;
+  UPDATE "sanctions_sanction" SET "assigned_service_id" = <<target_id>> WHERE "assigned_service_id" = <<source_id_2>>;
+  UPDATE "sanctions_sanctiontemplate" SET "created_by_service_id" = <<target_id>> WHERE "created_by_service_id" = <<source_id_2>>;
+  UPDATE "sanctions_sanctiontemplate" SET "assigned_service_id" = <<target_id>> WHERE "assigned_service_id" = <<source_id_2>>;
+  UPDATE "tags_keyword" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
+  UPDATE "user_geometerchangetask" SET "municipality_id" = <<target_id>> WHERE "municipality_id" = <<source_id_2>>;
+  UPDATE "user_geometerchangetask" SET "geometer_id" = <<target_id>> WHERE "geometer_id" = <<source_id_2>>;
+  UPDATE "user_servicerelation" SET "receiver_id" = <<target_id>> WHERE "receiver_id" = <<source_id_2>>;
+  UPDATE "user_servicerelation" SET "provider_id" = <<target_id>> WHERE "provider_id" = <<source_id_2>>;
+  UPDATE "work_items_workitemlistfilterpreset_services" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
+  UPDATE "work_items_workitemtemplate_services" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
+  UPDATE "caluma_workflow_workitem" SET "assigned_users" = '{}' WHERE "addressed_groups" = '{<<source_id_2>>}';
+  UPDATE "caluma_workflow_workitem" SET "addressed_groups" = '{<<target_id>>}' WHERE "addressed_groups" = '{<<source_id_2>>}';
+  UPDATE "caluma_workflow_workitem" SET "controlling_groups" = '{<<target_id>>}' WHERE "controlling_groups" = '{<<source_id_2>>}';
+  
+  -- migrate form answers for question 'gemeinde'
+  UPDATE "caluma_form_answer" SET "value" = '"<<target_id>>"' WHERE "value" = '"<<source_id_1>>"' AND "question_id" = 'gemeinde';
+  UPDATE "caluma_form_dynamicoption" SET "slug" = '<<target_id>>', label = '"de"=>"Target Municipality", "fr"=>NULL, "it"=>"Target escape \\'' quote\""'::hstore WHERE "slug" = '<<source_id_1>>' AND "question_id" = 'gemeinde';
+  UPDATE "caluma_form_answer" SET "value" = '"<<target_id>>"' WHERE "value" = '"<<source_id_2>>"' AND "question_id" = 'gemeinde';
+  UPDATE "caluma_form_dynamicoption" SET "slug" = '<<target_id>>', label = '"de"=>"Target Municipality", "fr"=>NULL, "it"=>"Target escape \\'' quote\""'::hstore WHERE "slug" = '<<source_id_2>>' AND "question_id" = 'gemeinde';
+  
+  '''
+# ---
+# name: test_migrate_service[True-False]
+  '''
+  UPDATE caluma_workflow_case
+      SET meta = jsonb_set(meta, '{migrated-from-service}', '<<source_id_1>>', true)
+      FROM "INSTANCE"
+          JOIN "INSTANCE_SERVICE" ON "INSTANCE_SERVICE"."INSTANCE_ID" = "INSTANCE"."INSTANCE_ID"
+      WHERE "INSTANCE".case_id = caluma_workflow_case.id
+          AND "INSTANCE_SERVICE"."SERVICE_ID" = <<source_id_1>>;
+  UPDATE caluma_workflow_case
+      SET meta = jsonb_set(meta, '{migrated-from-service}', '<<source_id_2>>', true)
+      FROM "INSTANCE"
+          JOIN "INSTANCE_SERVICE" ON "INSTANCE_SERVICE"."INSTANCE_ID" = "INSTANCE"."INSTANCE_ID"
+      WHERE "INSTANCE".case_id = caluma_workflow_case.id
+          AND "INSTANCE_SERVICE"."SERVICE_ID" = <<source_id_2>>;
+  
+  -- source: <<source_id_1>>, target: <<target_id>>
+  UPDATE "ACTIVATION" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_1>>;
+  UPDATE "ACTIVATION" SET "SERVICE_PARENT_ID" = <<target_id>> WHERE "SERVICE_PARENT_ID" = <<source_id_1>>;
+  UPDATE "ATTACHMENT" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_1>>;
+  UPDATE "BILLING_ENTRY" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_1>>;
+  UPDATE "CIRCULATION" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_1>>;
+  UPDATE "INSTANCE_PARENT" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_1>>;
+  UPDATE "INSTANCE_SERVICE" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_1>>;
+  UPDATE "PROPOSAL_ACTIVATION" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_1>>;
+  UPDATE "RESPONSIBLE_SERVICE" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_1>>;
+  UPDATE "SANCTION" SET "CONTROL_INSTANCE_ID" = <<target_id>> WHERE "CONTROL_INSTANCE_ID" = <<source_id_1>>;
+  UPDATE "SANCTION" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_1>>;
+  UPDATE "TAGS" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_1>>;
+  UPDATE "billing_billingv2entrytemplate_services" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
+  UPDATE "core_servicecontent" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
+  UPDATE "deadlines_deadlinetype_services" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
+  UPDATE "deadlines_instancedeadline" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
+  UPDATE "ech0211_message" SET "receiver_id" = <<target_id>> WHERE "receiver_id" = <<source_id_1>>;
+  UPDATE "instance_historyentry" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
+  UPDATE "instance_instanceresponsibility" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_1>>;
+  UPDATE "instance_issue" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
+  UPDATE "instance_issuetemplate" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
+  UPDATE "instance_issuetemplateset" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
+  UPDATE "instance_journalentry" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
+  UPDATE "permissions_instanceacl" SET "created_by_service_id" = <<target_id>> WHERE "created_by_service_id" = <<source_id_1>>;
+  UPDATE "permissions_instanceacl" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
+  UPDATE "permissions_instanceacl" SET "revoked_by_service_id" = <<target_id>> WHERE "revoked_by_service_id" = <<source_id_1>>;
+  UPDATE "rulesets_distributiondeadlinerule" SET "target_service_id" = <<target_id>> WHERE "target_service_id" = <<source_id_1>>;
+  UPDATE "rulesets_distributiondeadlinerule" SET "source_service_id" = <<target_id>> WHERE "source_service_id" = <<source_id_1>>;
+  UPDATE "rulesets_responsibleuserrule" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
+  UPDATE rulesets_responsibleuserrule_municipalities AS r
+    SET service_id = <<target_id>>
+    WHERE service_id = <<source_id_1>>
+      AND NOT EXISTS (
+        SELECT 1
+        FROM rulesets_responsibleuserrule_municipalities AS r2
+        WHERE r2.responsibleuserrule_id = r.responsibleuserrule_id
+          AND r2.service_id = <<target_id>>
+      );
+  DELETE FROM rulesets_responsibleuserrule_municipalities WHERE service_id = <<source_id_1>>;
+  UPDATE "sanctions_sanction" SET "created_by_service_id" = <<target_id>> WHERE "created_by_service_id" = <<source_id_1>>;
+  UPDATE "sanctions_sanction" SET "assigned_service_id" = <<target_id>> WHERE "assigned_service_id" = <<source_id_1>>;
+  UPDATE "sanctions_sanctiontemplate" SET "created_by_service_id" = <<target_id>> WHERE "created_by_service_id" = <<source_id_1>>;
+  UPDATE "sanctions_sanctiontemplate" SET "assigned_service_id" = <<target_id>> WHERE "assigned_service_id" = <<source_id_1>>;
+  UPDATE "tags_keyword" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
+  UPDATE "user_geometerchangetask" SET "municipality_id" = <<target_id>> WHERE "municipality_id" = <<source_id_1>>;
+  UPDATE "user_geometerchangetask" SET "geometer_id" = <<target_id>> WHERE "geometer_id" = <<source_id_1>>;
+  UPDATE "user_servicerelation" SET "receiver_id" = <<target_id>> WHERE "receiver_id" = <<source_id_1>>;
+  UPDATE "user_servicerelation" SET "provider_id" = <<target_id>> WHERE "provider_id" = <<source_id_1>>;
+  UPDATE "work_items_workitemlistfilterpreset_services" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
+  UPDATE "work_items_workitemtemplate_services" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
+  UPDATE "caluma_workflow_workitem" SET "assigned_users" = '{}' WHERE "addressed_groups" = '{<<source_id_1>>}';
+  UPDATE "caluma_workflow_workitem" SET "addressed_groups" = '{<<target_id>>}' WHERE "addressed_groups" = '{<<source_id_1>>}';
+  UPDATE "caluma_workflow_workitem" SET "controlling_groups" = '{<<target_id>>}' WHERE "controlling_groups" = '{<<source_id_1>>}';
+  
+  -- source: <<source_id_2>>, target: <<target_id>>
+  UPDATE "ACTIVATION" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_2>>;
+  UPDATE "ACTIVATION" SET "SERVICE_PARENT_ID" = <<target_id>> WHERE "SERVICE_PARENT_ID" = <<source_id_2>>;
+  UPDATE "ATTACHMENT" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_2>>;
+  UPDATE "BILLING_ENTRY" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_2>>;
+  UPDATE "CIRCULATION" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_2>>;
+  UPDATE "INSTANCE_PARENT" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_2>>;
+  UPDATE "INSTANCE_SERVICE" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_2>>;
+  UPDATE "PROPOSAL_ACTIVATION" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_2>>;
+  UPDATE "RESPONSIBLE_SERVICE" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_2>>;
+  UPDATE "SANCTION" SET "CONTROL_INSTANCE_ID" = <<target_id>> WHERE "CONTROL_INSTANCE_ID" = <<source_id_2>>;
+  UPDATE "SANCTION" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_2>>;
+  UPDATE "TAGS" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_2>>;
+  UPDATE "billing_billingv2entrytemplate_services" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
+  UPDATE "core_servicecontent" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
+  UPDATE "deadlines_deadlinetype_services" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
+  UPDATE "deadlines_instancedeadline" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
+  UPDATE "ech0211_message" SET "receiver_id" = <<target_id>> WHERE "receiver_id" = <<source_id_2>>;
+  UPDATE "instance_historyentry" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
+  UPDATE "instance_instanceresponsibility" SET "SERVICE_ID" = <<target_id>> WHERE "SERVICE_ID" = <<source_id_2>>;
+  UPDATE "instance_issue" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
+  UPDATE "instance_issuetemplate" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
+  UPDATE "instance_issuetemplateset" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
+  UPDATE "instance_journalentry" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
+  UPDATE "permissions_instanceacl" SET "created_by_service_id" = <<target_id>> WHERE "created_by_service_id" = <<source_id_2>>;
+  UPDATE "permissions_instanceacl" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
+  UPDATE "permissions_instanceacl" SET "revoked_by_service_id" = <<target_id>> WHERE "revoked_by_service_id" = <<source_id_2>>;
+  UPDATE "rulesets_distributiondeadlinerule" SET "target_service_id" = <<target_id>> WHERE "target_service_id" = <<source_id_2>>;
+  UPDATE "rulesets_distributiondeadlinerule" SET "source_service_id" = <<target_id>> WHERE "source_service_id" = <<source_id_2>>;
+  UPDATE "rulesets_responsibleuserrule" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
+  UPDATE rulesets_responsibleuserrule_municipalities AS r
+    SET service_id = <<target_id>>
+    WHERE service_id = <<source_id_2>>
+      AND NOT EXISTS (
+        SELECT 1
+        FROM rulesets_responsibleuserrule_municipalities AS r2
+        WHERE r2.responsibleuserrule_id = r.responsibleuserrule_id
+          AND r2.service_id = <<target_id>>
+      );
+  DELETE FROM rulesets_responsibleuserrule_municipalities WHERE service_id = <<source_id_2>>;
+  UPDATE "sanctions_sanction" SET "created_by_service_id" = <<target_id>> WHERE "created_by_service_id" = <<source_id_2>>;
+  UPDATE "sanctions_sanction" SET "assigned_service_id" = <<target_id>> WHERE "assigned_service_id" = <<source_id_2>>;
+  UPDATE "sanctions_sanctiontemplate" SET "created_by_service_id" = <<target_id>> WHERE "created_by_service_id" = <<source_id_2>>;
+  UPDATE "sanctions_sanctiontemplate" SET "assigned_service_id" = <<target_id>> WHERE "assigned_service_id" = <<source_id_2>>;
+  UPDATE "tags_keyword" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
+  UPDATE "user_geometerchangetask" SET "municipality_id" = <<target_id>> WHERE "municipality_id" = <<source_id_2>>;
+  UPDATE "user_geometerchangetask" SET "geometer_id" = <<target_id>> WHERE "geometer_id" = <<source_id_2>>;
+  UPDATE "user_servicerelation" SET "receiver_id" = <<target_id>> WHERE "receiver_id" = <<source_id_2>>;
+  UPDATE "user_servicerelation" SET "provider_id" = <<target_id>> WHERE "provider_id" = <<source_id_2>>;
+  UPDATE "work_items_workitemlistfilterpreset_services" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
+  UPDATE "work_items_workitemtemplate_services" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
+  UPDATE "caluma_workflow_workitem" SET "assigned_users" = '{}' WHERE "addressed_groups" = '{<<source_id_2>>}';
+  UPDATE "caluma_workflow_workitem" SET "addressed_groups" = '{<<target_id>>}' WHERE "addressed_groups" = '{<<source_id_2>>}';
+  UPDATE "caluma_workflow_workitem" SET "controlling_groups" = '{<<target_id>>}' WHERE "controlling_groups" = '{<<source_id_2>>}';
+  
+  -- disable old services and groups
+  UPDATE "SERVICE" SET "DISABLED"=1 WHERE "SERVICE_ID" IN (<<source_id_1>>,<<source_id_2>>);
+  UPDATE "GROUP" SET "DISABLED"=1 WHERE "SERVICE_ID" IN (<<source_id_1>>,<<source_id_2>>);
+  
+  -- migrate form answers for question 'gemeinde'
+  UPDATE "caluma_form_answer" SET "value" = '"<<target_id>>"' WHERE "value" = '"<<source_id_1>>"' AND "question_id" = 'gemeinde';
+  UPDATE "caluma_form_dynamicoption" SET "slug" = '<<target_id>>', label = '"de"=>"Target Municipality", "fr"=>NULL, "it"=>"Target escape \\'' quote\""'::hstore WHERE "slug" = '<<source_id_1>>' AND "question_id" = 'gemeinde';
+  UPDATE "caluma_form_answer" SET "value" = '"<<target_id>>"' WHERE "value" = '"<<source_id_2>>"' AND "question_id" = 'gemeinde';
+  UPDATE "caluma_form_dynamicoption" SET "slug" = '<<target_id>>', label = '"de"=>"Target Municipality", "fr"=>NULL, "it"=>"Target escape \\'' quote\""'::hstore WHERE "slug" = '<<source_id_2>>' AND "question_id" = 'gemeinde';
+  
+  '''
+# ---

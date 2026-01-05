@@ -76,9 +76,13 @@ export default class InstanceAbility extends Ability {
     );
   }
 
-  // GR and UR
+  // GR, UR, AG, SO
+  // service-afb only exists in AG
   get canLinkDossiers() {
-    return ["municipality", "coordination"].includes(this.ebauModules.baseRole);
+    return (
+      ["municipality", "coordination"].includes(this.ebauModules.baseRole) ||
+      ["service-afb"].includes(this.ebauModules.serviceGroupSlug)
+    );
   }
 
   async canWriteForm() {

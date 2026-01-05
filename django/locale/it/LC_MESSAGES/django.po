@@ -1797,6 +1797,10 @@ msgstr "Circolazione riaperta"
 msgid "Receipt"
 msgstr "Ricevuta"
 
+#: camac/settings/modules/dms.py
+msgid "Form"
+msgstr ""
+
 #: camac/settings/modules/ech0211.py
 msgid "Inquiry sent"
 msgstr "Richiesta inviata"

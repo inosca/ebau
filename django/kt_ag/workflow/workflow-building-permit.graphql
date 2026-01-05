@@ -130,3 +130,27 @@ mutation CreateFlowAfterWithdrawal {
     clientMutationId
   }
 }
+
+mutation CreateFlowAfterCompleteConstructionMonitoring {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["complete-construction-monitoring"]
+      next: "[\"complete-instance\"]|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlowAfterCompleteInstance {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["complete-instance"]
+      next: "[\"archive-instance\"]|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}

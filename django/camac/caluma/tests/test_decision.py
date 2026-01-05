@@ -702,9 +702,10 @@ def test_complete_decision_ag(
         )
 
     ag_instance.refresh_from_db()
-    assert not ag_instance.case.work_items.filter(status=WorkItem.STATUS_READY).exists()
     assert ag_instance.instance_state.name == "finished"
-    assert ag_instance.case.status == Case.STATUS_COMPLETED
+    # "archive-instance" work item should be open
+    assert ag_instance.case.work_items.filter(status=WorkItem.STATUS_READY).count() == 1
+    assert ag_instance.case.status == Case.STATUS_RUNNING
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])

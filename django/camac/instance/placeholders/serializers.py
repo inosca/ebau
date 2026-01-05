@@ -2420,6 +2420,15 @@ class AgDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("LOGGED_IN_TITLE")],
         description=_("Title of the currently logged in user"),
     )
+    entscheiddokumente = fields.AlexandriaSimpleDocumentField(
+        mark="decision",
+        aliases=[_("DECISION_DOCUMENTS")],
+        description=_("All documents marked as decision documents"),
+    )
+    documents = fields.AlexandriaDocumentField(
+        aliases=[_("DOCUMENTS")],
+        description=_("Documents with metadata"),
+    )
 
     def get_koordinaten(self, instance):
         return get_koordinaten_by_json_props(instance, "markers")

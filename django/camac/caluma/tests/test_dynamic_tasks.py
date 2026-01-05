@@ -302,18 +302,20 @@ def test_after_decision_gr(
 
 
 @pytest.mark.parametrize(
-    "afb_involved,should_continue,expected_tasks",
+    "afb_answered,afb_skipped,should_continue,expected_tasks",
     [
-        (True, True, {"check-pa", "init-construction-monitoring"}),
-        (True, False, {"check-pa", "complete-instance"}),
-        (False, True, {"init-construction-monitoring"}),
-        (False, False, {"complete-instance"}),
+        (True, False, True, {"check-pa", "init-construction-monitoring"}),
+        (False, True, True, {"check-pa", "init-construction-monitoring"}),
+        (True, False, False, {"check-pa", "complete-instance"}),
+        (False, False, True, {"init-construction-monitoring"}),
+        (False, False, False, {"complete-instance"}),
     ],
 )
 def test_after_decision_ag(
     db,
     active_inquiry_factory,
-    afb_involved,
+    afb_answered,
+    afb_skipped,
     ag_construction_monitoring_settings,
     ag_instance,
     expected_tasks,
@@ -328,8 +330,14 @@ def test_after_decision_ag(
         return_value=should_continue,
     )
 
-    if afb_involved:
-        active_inquiry_factory(ag_instance, afb, status=WorkItem.STATUS_COMPLETED)
+    if afb_answered or afb_skipped:
+        active_inquiry_factory(
+            ag_instance,
+            afb,
+            status=WorkItem.STATUS_COMPLETED
+            if afb_answered
+            else WorkItem.STATUS_SKIPPED,
+        )
 
     assert (
         set(

@@ -163,7 +163,9 @@ def scrub(value, default=None):
     if settings.ENV == "development":
         return default
 
-    return value.strip()
+    if isinstance(value, str):
+        return value.strip()
+    return value
 
 
 class Command(BaseCommand):
@@ -199,12 +201,13 @@ class Command(BaseCommand):
 
             raw_name = row[1].strip()
             name = f"{prefix} {raw_name}" if prefix else raw_name
+            slug = row[2] or None
 
             service_data = dict(
                 service_parent=None,
                 service_group=service_group,
                 name=None,
-                slug=row[2] or None,
+                slug=slug,
                 description=None,
                 email=scrub(row[3], "email@example.ch"),
                 zip=scrub(str(row[4])),
@@ -218,7 +221,12 @@ class Command(BaseCommand):
                 external_identifier=row[10] or None,
             )
 
-            existing = Service.objects.filter(trans__name=name).first()
+            existing = None
+            if slug:
+                existing = Service.objects.filter(slug=slug).first()
+
+            if not existing:
+                existing = Service.objects.filter(trans__name=name).first()
 
             if existing:
                 if update:

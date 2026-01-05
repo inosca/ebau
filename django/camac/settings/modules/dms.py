@@ -497,14 +497,19 @@ DMS = {
                 "forms": [
                     "anfrage",
                     "anfrage-intern",
+                    "anfrage-migration",
                     "baugesuch",
                     "baugesuch-migration",
                     "baugesuch-mit-uvp",
                     "internes-dossier",
+                    "pgv-migration",
                     "plangenehmigungsverfahren-bund",
                     "plangenehmigungsverfahren-gas",
                     "reklame",
+                    "reklame-migration",
+                    "uvp-migration",
                     "vorentscheid",
+                    "vorentscheid-migration",
                 ],
                 "template": "form",
                 "personalien": "personalien",
@@ -527,6 +532,7 @@ DMS = {
         ],
         "FILENAME_ADDITION_MAPPING": {
             "eingabequittung-de": _("Receipt"),
+            "form": _("Form"),
         },
     },
 }

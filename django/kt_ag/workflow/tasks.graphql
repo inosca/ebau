@@ -181,6 +181,19 @@ mutation CreateCompleteInstanceTask {
   }
 }
 
+mutation CreateArchiveInstanceTask {
+  saveSimpleTask(
+    input: {
+      slug: "archive-instance"
+      name: "Dossier archivieren"
+      addressGroups: "[\"municipality\"]|groups"
+      controlGroups: "[\"municipality\"]|groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
 mutation CreateCheckPATask {
   saveSimpleTask(
     input: {
