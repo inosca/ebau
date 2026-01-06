@@ -3346,6 +3346,7 @@ JSON_API_PLURALIZE_TYPES = True
 # django-clamd config (see https://github.com/vstoykov/django-clamd)
 CLAMD_USE_TCP = env.bool("DJANGO_CLAMD_USE_TCP", default=True)
 CLAMD_TCP_ADDR = env.str("DJANGO_CLAMD_TCP_ADDR", default="localhost")
+CLAMD_TCP_SOCKET = env.str("DJANGO_CLAMD_TCP_SOCKET", default=3310)
 CLAMD_SOCKET = env.str("DJANGO_CLAMD_SOCKET", default="/var/run/clamav/clamd.ctl")
 CLAMD_FAIL_BY_DEFAULT = env.bool("DJANGO_CLAMD_FAIL_BY_DEFAULT", default=False)
 CLAMD_ENABLED = env.bool("DJANGO_CLAMD_ENABLED", default=True)
@@ -3353,7 +3354,7 @@ CLAMD_ENABLED = env.bool("DJANGO_CLAMD_ENABLED", default=True)
 # alexandria uses aliased versions of some of the django-clamd settings,
 # make sure they match
 ALEXANDRIA_CLAMD_TCP_ADDR = CLAMD_TCP_ADDR
-ALEXANDRIA_CLAMD_TCP_SOCKET = CLAMD_SOCKET
+ALEXANDRIA_CLAMD_TCP_SOCKET = CLAMD_TCP_SOCKET
 ALEXANDRIA_CLAMD_ENABLED = CLAMD_ENABLED
 
 
