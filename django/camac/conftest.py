@@ -2213,10 +2213,13 @@ def gr_master_data_case(db, gr_instance, group, master_data_is_visible_mock, uti
             {
                 "vorname-gesuchstellerin": "Hans",
                 "name-gesuchstellerin": "Muster",
+                "juristische-person-gesuchstellerin": "juristische-person-gesuchstellerin-nein",
                 "strasse-gesuchstellerin": "Bahnhofstrasse",
                 "nummer-gesuchstellerin": 3,
                 "plz-gesuchstellerin": 3600,
                 "ort-gesuchstellerin": "Thun",
+                "telefon-oder-mobile-gesuchstellerin": "+41781234567",
+                "e-mail-gesuchstellerin": "hans.muster@example.com",
             },
         ],
     )
@@ -2227,10 +2230,13 @@ def gr_master_data_case(db, gr_instance, group, master_data_is_visible_mock, uti
             {
                 "vorname-gesuchstellerin": "Sandra",
                 "name-gesuchstellerin": "Beispiel",
+                "juristische-person-gesuchstellerin": "juristische-person-gesuchstellerin-nein",
                 "strasse-gesuchstellerin": "Beispielstrasse",
                 "nummer-gesuchstellerin": 16,
                 "plz-gesuchstellerin": 2222,
                 "ort-gesuchstellerin": "Beispieldorf",
+                "telefon-oder-mobile-gesuchstellerin": "+417676767",
+                "e-mail-gesuchstellerin": "sandra.beispiel@example.com",
             },
         ],
     )

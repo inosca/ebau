@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-19 13:20+0100\n"
+"POT-Creation-Date: 2025-12-23 11:59+0100\n"
 "PO-Revision-Date: 2025-05-26 15:56+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1178,6 +1178,118 @@ msgstr "PIANO_GENERALE_DI_URBANIZZAZIONE"
 #: camac/instance/placeholders/serializers.py
 msgid "General access plan"
 msgstr "Piano generale di urbanizzazione"
+
+#: camac/instance/placeholders/serializers.py
+msgid "ALL_APPLICANTS_PHONE"
+msgstr "TUTTI_I_RICHIEDENTI_TELEFONO"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Phone numbers of all applicants"
+msgstr "Numeri di telefono di tutte le persone richiedenti"
+
+#: camac/instance/placeholders/serializers.py
+msgid "APPLICANT_PHONE"
+msgstr "RICHIEDENTE_TELEFONO"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Phone number of the applicant"
+msgstr "Telefono della persona richiedente"
+
+#: camac/instance/placeholders/serializers.py
+msgid "ALL_APPLICANTS_EMAIL"
+msgstr "TUTTI_I_RICHIEDENTI_EMAIL"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Email addresses of all applicants"
+msgstr "Indirizzi e-mail di tutte le persone richiedenti"
+
+#: camac/instance/placeholders/serializers.py
+msgid "APPLICANT_EMAIL"
+msgstr "RICHIEDENTE_EMAIL"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Email address of the applicant"
+msgstr "Indirizzo e-mail della persona richiedente"
+
+#: camac/instance/placeholders/serializers.py
+msgid "ALL_LANDOWNERS_PHONE"
+msgstr "TUTTI_I_PROPRIETARI_FONDIARI_TELEFONO"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Phone numbers of all landowners"
+msgstr "Numeri di telefono di tutte le persone proprietarie dei fondi"
+
+#: camac/instance/placeholders/serializers.py
+msgid "LANDOWNER_PHONE"
+msgstr "PROPRIETARIO_FONDIARIO_TELEFONO"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Phone number of the landowner"
+msgstr "Numero di telefono della persona proprietaria del fondo"
+
+#: camac/instance/placeholders/serializers.py
+msgid "ALL_LANDOWNERS_EMAIL"
+msgstr "TUTTI_I_PROPRIETARI_FONDIARI_EMAIL"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Email addresses of all landowners"
+msgstr "Indirizzi e-mail di tutte le persone proprietarie dei fondi"
+
+#: camac/instance/placeholders/serializers.py
+msgid "LANDOWNER_EMAIL"
+msgstr "PROPRIETARIO_FONDIARIO_EMAIL"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Email address of the landowner"
+msgstr "Indirizzo e-mail della persona proprietaria del fondo"
+
+#: camac/instance/placeholders/serializers.py
+msgid "ALL_PROJECT_AUTHORS_PHONE"
+msgstr "TUTTI_I_PROGETTISTI_TELEFONO"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Phone numbers of all project authors"
+msgstr "Numeri di telefono di tutte le progettiste/tutti i progettisti"
+
+#: camac/instance/placeholders/serializers.py
+msgid "PROJECT_AUTHOR_PHONE"
+msgstr "PROGETTISTA_TELEFONO"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Phone number of the project author"
+msgstr "Numero di telefono della/del progettista"
+
+#: camac/instance/placeholders/serializers.py
+msgid "ALL_PROJECT_AUTHORS_EMAIL"
+msgstr "TUTTI_I_PROGETTISTI_EMAIL"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Email addresses of all project authors"
+msgstr "Indirizzi e-mail di tutte le progettiste/tutti i progettisti"
+
+#: camac/instance/placeholders/serializers.py
+msgid "PROJECT_AUTHOR_EMAIL"
+msgstr "PROGETTISTA_EMAIL"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Email address of the project author"
+msgstr "Indirizzo e-mail della/del progettista"
+
+#: camac/instance/placeholders/serializers.py
+msgid "EXPECTED_COMPLETION"
+msgstr "PREVISTA_FINE_LAVORI"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Expected completion date of the instance"
+msgstr "Data prevista di completamento del dossier"
+
+#: camac/instance/placeholders/serializers.py
+msgid "KEYWORDS"
+msgstr "PAROLE_CHIAVE"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Keywords of the instance"
+msgstr "Parole chiave del dossier"
 
 #: camac/instance/placeholders/serializers.py
 msgid "FOLLOWUP_PLANNING"

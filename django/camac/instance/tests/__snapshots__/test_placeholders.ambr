@@ -6124,6 +6124,20 @@
       'nested_aliases': dict({
       }),
     }),
+    'ALLE_GESUCHSTELLER_EMAIL': dict({
+      'aliases': list([
+        dict({
+          'de': 'ALLE_GESUCHSTELLER_EMAIL',
+          'it': 'TUTTI_I_RICHIEDENTI_EMAIL',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Email-Adressen aller Gesuchsteller/innen',
+        'it': 'Indirizzi e-mail di tutte le persone richiedenti',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'ALLE_GESUCHSTELLER_NAME_ADDRESS': dict({
       'aliases': list([
         dict({
@@ -6134,6 +6148,20 @@
       'description': dict({
         'de': 'Namen und Adressen aller Gesuchsteller/innen',
         'it': 'Nomi e indirizzi di tutte le persone richiedenti',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ALLE_GESUCHSTELLER_TELEFON': dict({
+      'aliases': list([
+        dict({
+          'de': 'ALLE_GESUCHSTELLER_TELEFON',
+          'it': 'TUTTI_I_RICHIEDENTI_TELEFONO',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Telefonnummern aller Gesuchsteller/innen',
+        'it': 'Numeri di telefono di tutte le persone richiedenti',
       }),
       'nested_aliases': dict({
       }),
@@ -6152,6 +6180,20 @@
       'nested_aliases': dict({
       }),
     }),
+    'ALLE_GRUNDEIGENTUEMER_EMAIL': dict({
+      'aliases': list([
+        dict({
+          'de': 'ALLE_GRUNDEIGENTUEMER_EMAIL',
+          'it': 'TUTTI_I_PROPRIETARI_FONDIARI_EMAIL',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Email-Adressen aller Grundeigentümer/innen',
+        'it': 'Indirizzi e-mail di tutte le persone proprietarie dei fondi',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'ALLE_GRUNDEIGENTUEMER_NAME_ADDRESS': dict({
       'aliases': list([
         dict({
@@ -6162,6 +6204,20 @@
       'description': dict({
         'de': 'Namen und Adressen aller Grundeigentümer/innen',
         'it': 'Nomi e indirizzi di tutte le persone proprietarie di un fondo',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ALLE_GRUNDEIGENTUEMER_TELEFON': dict({
+      'aliases': list([
+        dict({
+          'de': 'ALLE_GRUNDEIGENTUEMER_TELEFON',
+          'it': 'TUTTI_I_PROPRIETARI_FONDIARI_TELEFONO',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Telefonnummern aller Grundeigentümer/innen',
+        'it': 'Numeri di telefono di tutte le persone proprietarie dei fondi',
       }),
       'nested_aliases': dict({
       }),
@@ -6180,6 +6236,20 @@
       'nested_aliases': dict({
       }),
     }),
+    'ALLE_PROJEKTVERFASSER_EMAIL': dict({
+      'aliases': list([
+        dict({
+          'de': 'ALLE_PROJEKTVERFASSER_EMAIL',
+          'it': 'TUTTI_I_PROGETTISTI_EMAIL',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Email-Adressen aller Projektverfasser/innen',
+        'it': 'Indirizzi e-mail di tutte le progettiste/tutti i progettisti',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'ALLE_PROJEKTVERFASSER_NAME_ADDRESS': dict({
       'aliases': list([
         dict({
@@ -6190,6 +6260,20 @@
       'description': dict({
         'de': 'Namen und Adressen aller Projektverfasser/innen',
         'it': 'Nomi e indirizzi di tutte le progettiste/tutti i progettisti',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'ALLE_PROJEKTVERFASSER_TELEFON': dict({
+      'aliases': list([
+        dict({
+          'de': 'ALLE_PROJEKTVERFASSER_TELEFON',
+          'it': 'TUTTI_I_PROGETTISTI_TELEFONO',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Telefonnummern aller Projektverfasser/innen',
+        'it': 'Numeri di telefono di tutte le progettiste/tutti i progettisti',
       }),
       'nested_aliases': dict({
       }),
@@ -6772,6 +6856,20 @@
       'nested_aliases': dict({
       }),
     }),
+    'GESUCHSTELLER_EMAIL': dict({
+      'aliases': list([
+        dict({
+          'de': 'GESUCHSTELLER_EMAIL',
+          'it': 'RICHIEDENTE_EMAIL',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Email-Adresse des/r Gesuchsteller/in',
+        'it': 'Indirizzo e-mail della persona richiedente',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'GESUCHSTELLER_NAME_ADDRESS': dict({
       'aliases': list([
         dict({
@@ -6782,6 +6880,20 @@
       'description': dict({
         'de': 'Name und Adresse des/r ersten Gesuchsteller/in',
         'it': 'Nome e indirizzo della persona richiedente',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'GESUCHSTELLER_TELEFON': dict({
+      'aliases': list([
+        dict({
+          'de': 'GESUCHSTELLER_TELEFON',
+          'it': 'RICHIEDENTE_TELEFONO',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Telefonnummer des/r Gesuchsteller/in',
+        'it': 'Telefono della persona richiedente',
       }),
       'nested_aliases': dict({
       }),
@@ -6828,6 +6940,20 @@
       'nested_aliases': dict({
       }),
     }),
+    'GRUNDEIGENTUEMER_EMAIL': dict({
+      'aliases': list([
+        dict({
+          'de': 'GRUNDEIGENTUEMER_EMAIL',
+          'it': 'PROPRIETARIO_FONDIARIO_EMAIL',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Email-Adresse des/r Grundeigentümer/in',
+        'it': 'Indirizzo e-mail della persona proprietaria del fondo',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'GRUNDEIGENTUEMER_NAME_ADDRESS': dict({
       'aliases': list([
         dict({
@@ -6838,6 +6964,20 @@
       'description': dict({
         'de': 'Name und Adresse des/r Grundeigentümer/in',
         'it': 'Nome e indirizzo della persona proprietaria del fondo',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'GRUNDEIGENTUEMER_TELEFON': dict({
+      'aliases': list([
+        dict({
+          'de': 'GRUNDEIGENTUEMER_TELEFON',
+          'it': 'PROPRIETARIO_FONDIARIO_TELEFONO',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Telefonnummer des/r Grundeigentümer/in',
+        'it': 'Numero di telefono della persona proprietaria del fondo',
       }),
       'nested_aliases': dict({
       }),
@@ -7254,6 +7394,20 @@
       'nested_aliases': dict({
       }),
     }),
+    'PROJEKTVERFASSER_EMAIL': dict({
+      'aliases': list([
+        dict({
+          'de': 'PROJEKTVERFASSER_EMAIL',
+          'it': 'PROGETTISTA_EMAIL',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Email-Adresse des/r Projektverfasser/in',
+        'it': 'Indirizzo e-mail della/del progettista',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'PROJEKTVERFASSER_NAME_ADDRESS': dict({
       'aliases': list([
         dict({
@@ -7264,6 +7418,20 @@
       'description': dict({
         'de': 'Name und Adresse des/r Projektverfasser/in',
         'it': 'Nome e indirizzo della/del progettista',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'PROJEKTVERFASSER_TELEFON': dict({
+      'aliases': list([
+        dict({
+          'de': 'PROJEKTVERFASSER_TELEFON',
+          'it': 'PROGETTISTA_TELEFONO',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Telefonnummer des/r Projektverfasser/in',
+        'it': 'Numero di telefono della/del progettista',
       }),
       'nested_aliases': dict({
       }),
@@ -7356,6 +7524,20 @@
       'nested_aliases': dict({
       }),
     }),
+    'STICHWORTE': dict({
+      'aliases': list([
+        dict({
+          'de': 'STICHWORTE',
+          'it': 'PAROLE_CHIAVE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Stichworte des Dossiers',
+        'it': 'Parole chiave del dossier',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'STRASSE': dict({
       'aliases': list([
         dict({
@@ -7394,6 +7576,20 @@
       'description': dict({
         'de': 'Volumen des Schutzplatzes',
         'it': 'Volume del posto protetto',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'VORAUSSICHTLICHE_FERTIGSTELLUNG': dict({
+      'aliases': list([
+        dict({
+          'de': 'VORAUSSICHTLICHE_FERTIGSTELLUNG',
+          'it': 'PREVISTA_FINE_LAVORI',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Voraussichtliches Fertigstellungsdatum des Dossiers',
+        'it': 'Data prevista di completamento del dossier',
       }),
       'nested_aliases': dict({
       }),
@@ -11319,11 +11515,17 @@
   list([
     'ADRESSE',
     'ALLE_GESUCHSTELLER',
+    'ALLE_GESUCHSTELLER_EMAIL',
     'ALLE_GESUCHSTELLER_NAME_ADRESSE',
+    'ALLE_GESUCHSTELLER_TELEFON',
     'ALLE_GRUNDEIGENTUEMER',
+    'ALLE_GRUNDEIGENTUEMER_EMAIL',
     'ALLE_GRUNDEIGENTUEMER_NAME_ADRESSE',
+    'ALLE_GRUNDEIGENTUEMER_TELEFON',
     'ALLE_PROJEKTVERFASSER',
+    'ALLE_PROJEKTVERFASSER_EMAIL',
     'ALLE_PROJEKTVERFASSER_NAME_ADRESSE',
+    'ALLE_PROJEKTVERFASSER_TELEFON',
     'AMZ_ANZAHL_RAEUME',
     'AMZ_ANZAHL_SCHUTZPLAETZE',
     'AMZ_ANZAHL_SPITALBETTEN',
@@ -11504,11 +11706,15 @@
     'GESUCHSTELLER',
     'GESUCHSTELLER_ADRESSE_1',
     'GESUCHSTELLER_ADRESSE_2',
+    'GESUCHSTELLER_EMAIL',
     'GESUCHSTELLER_NAME_ADRESSE',
+    'GESUCHSTELLER_TELEFON',
     'GRUNDEIGENTUEMER',
     'GRUNDEIGENTUEMER_ADRESSE_1',
     'GRUNDEIGENTUEMER_ADRESSE_2',
+    'GRUNDEIGENTUEMER_EMAIL',
     'GRUNDEIGENTUEMER_NAME_ADRESSE',
+    'GRUNDEIGENTUEMER_TELEFON',
     'HEUTE',
     'ID',
     'INDIRIZZO',
@@ -11551,6 +11757,7 @@
     'NUMERO_LOCALI',
     'OGGI',
     'ORT',
+    'PAROLE_CHIAVE',
     'PARTICELLA',
     'PARZELLE',
     'PERSONA_PROPRIETARIA_DEL_FONDO',
@@ -11560,17 +11767,24 @@
     'PIANO_GENERALE_DELLE_STRUTTURE',
     'PIANO_GENERALE_DI_URBANIZZAZIONE',
     'PRESE_DI_POSIZIONE',
+    'PREVISTA_FINE_LAVORI',
     'PROGETTISTA',
+    'PROGETTISTA_EMAIL',
     'PROGETTISTA_INDIRIZZO_1',
     'PROGETTISTA_INDIRIZZO_2',
     'PROGETTISTA_NOME_INDIRIZZO',
+    'PROGETTISTA_TELEFONO',
     'PROJEKTVERFASSER',
     'PROJEKTVERFASSER_ADRESSE_1',
     'PROJEKTVERFASSER_ADRESSE_2',
+    'PROJEKTVERFASSER_EMAIL',
     'PROJEKTVERFASSER_NAME_ADRESSE',
+    'PROJEKTVERFASSER_TELEFON',
+    'PROPRIETARIO_FONDIARIO_EMAIL',
     'PROPRIETARIO_FONDIARIO_INDIRIZZO_1',
     'PROPRIETARIO_FONDIARIO_INDIRIZZO_2',
     'PROPRIETARIO_FONDIARIO_NOME_INDIRIZZO',
+    'PROPRIETARIO_FONDIARIO_TELEFONO',
     'PROPRIE_DISPOSIZIONI_ACCESSORIE',
     'PROPRIE_PRESE_DI_POSIZIONE',
     'PUBBLICAZIONE_LINK',
@@ -11582,9 +11796,11 @@
     'PUBLIKATION_LINK_IT',
     'PUBLIKATION_TEXT',
     'RESPONSABILE_NOME',
+    'RICHIEDENTE_EMAIL',
     'RICHIEDENTE_INDIRIZZO_1',
     'RICHIEDENTE_INDIRIZZO_2',
     'RICHIEDENTE_NOME_INDIRIZZO',
+    'RICHIEDENTE_TELEFONO',
     'SERVIZI_CANTONALI',
     'SERVIZI_CANTONALI[]',
     'SERVIZI_CANTONALI[].BEANTWORTET',
@@ -11601,6 +11817,7 @@
     'STATO',
     'STATUS',
     'STELLUNGNAHME',
+    'STICHWORTE',
     'STRASSE',
     'TIPO_DOSSIER',
     'TUTTE_LE_PERSONE_PROPRIETARIE_DI_UN_FONDO',
@@ -11608,7 +11825,13 @@
     'TUTTE_LE_PERSONE_RICHIEDENTI',
     'TUTTE_LE_PERSONE_RICHIEDENTI_NOME_INDIRIZZO',
     'TUTTI_I_PROGETTISTI',
+    'TUTTI_I_PROGETTISTI_EMAIL',
     'TUTTI_I_PROGETTISTI_NOME_INDIRIZZO',
+    'TUTTI_I_PROGETTISTI_TELEFONO',
+    'TUTTI_I_PROPRIETARI_FONDIARI_EMAIL',
+    'TUTTI_I_PROPRIETARI_FONDIARI_TELEFONO',
+    'TUTTI_I_RICHIEDENTI_EMAIL',
+    'TUTTI_I_RICHIEDENTI_TELEFONO',
     'UBICAZIONE',
     'UMPC_NUMERO_DI_LETTI_DI_OSPEDALE',
     'UMPC_NUMERO_DI_POSTI_PROTETTI',
@@ -11617,6 +11840,7 @@
     'UMPC_TIPO_DI_EDIFICIO',
     'UMPC_VOLUME_POSTO_PROTETTO',
     'VIA',
+    'VORAUSSICHTLICHE_FERTIGSTELLUNG',
     'ZIRKULATION_ALLE',
     'ZIRKULATION_ALLE[]',
     'ZIRKULATION_ALLE[].BEANTWORTET',
@@ -12601,14 +12825,20 @@
     'ADDRESS': 'Teststrasse 12, Testhausen',
     'ADRESSE': 'Teststrasse 12, Testhausen',
     'ALLE_GESUCHSTELLER': 'Test AG, Esther Tester',
+    'ALLE_GESUCHSTELLER_EMAIL': 'example@example.com',
     'ALLE_GESUCHSTELLER_NAME_ADDRESS': 'Test AG, Esther Tester, Testweg 321, 4321 Testingen',
     'ALLE_GESUCHSTELLER_NAME_ADRESSE': 'Test AG, Esther Tester, Testweg 321, 4321 Testingen',
+    'ALLE_GESUCHSTELLER_TELEFON': '+417878787',
     'ALLE_GRUNDEIGENTUEMER': 'Sandra Beispiel',
+    'ALLE_GRUNDEIGENTUEMER_EMAIL': 'sandra.beispiel@example.com',
     'ALLE_GRUNDEIGENTUEMER_NAME_ADDRESS': 'Sandra Beispiel, Beispielstrasse 16, 2222 Beispieldorf',
     'ALLE_GRUNDEIGENTUEMER_NAME_ADRESSE': 'Sandra Beispiel, Beispielstrasse 16, 2222 Beispieldorf',
+    'ALLE_GRUNDEIGENTUEMER_TELEFON': '+417676767',
     'ALLE_PROJEKTVERFASSER': 'Hans Muster',
+    'ALLE_PROJEKTVERFASSER_EMAIL': 'hans.muster@example.com',
     'ALLE_PROJEKTVERFASSER_NAME_ADDRESS': 'Hans Muster, Bahnhofstrasse 3, 3600 Thun',
     'ALLE_PROJEKTVERFASSER_NAME_ADRESSE': 'Hans Muster, Bahnhofstrasse 3, 3600 Thun',
+    'ALLE_PROJEKTVERFASSER_TELEFON': '+41781234567',
     'AMZ_ANZAHL_RAEUME': 100,
     'AMZ_ANZAHL_SCHUTZPLAETZE': 50,
     'AMZ_ANZAHL_SPITALBETTEN': 10,
@@ -13091,15 +13321,19 @@
     'GESUCHSTELLER_ADDRESS_2': '4321 Testingen',
     'GESUCHSTELLER_ADRESSE_1': 'Testweg 321',
     'GESUCHSTELLER_ADRESSE_2': '4321 Testingen',
+    'GESUCHSTELLER_EMAIL': 'example@example.com',
     'GESUCHSTELLER_NAME_ADDRESS': 'Test AG, Esther Tester, Testweg 321, 4321 Testingen',
     'GESUCHSTELLER_NAME_ADRESSE': 'Test AG, Esther Tester, Testweg 321, 4321 Testingen',
+    'GESUCHSTELLER_TELEFON': '+417878787',
     'GRUNDEIGENTUEMER': 'Sandra Beispiel',
     'GRUNDEIGENTUEMER_ADDRESS_1': 'Beispielstrasse 16',
     'GRUNDEIGENTUEMER_ADDRESS_2': '2222 Beispieldorf',
     'GRUNDEIGENTUEMER_ADRESSE_1': 'Beispielstrasse 16',
     'GRUNDEIGENTUEMER_ADRESSE_2': '2222 Beispieldorf',
+    'GRUNDEIGENTUEMER_EMAIL': 'sandra.beispiel@example.com',
     'GRUNDEIGENTUEMER_NAME_ADDRESS': 'Sandra Beispiel, Beispielstrasse 16, 2222 Beispieldorf',
     'GRUNDEIGENTUEMER_NAME_ADRESSE': 'Sandra Beispiel, Beispielstrasse 16, 2222 Beispieldorf',
+    'GRUNDEIGENTUEMER_TELEFON': '+417676767',
     'HEUTE': '30. August 2021',
     'ID': 1,
     'INDIRIZZO': 'Teststrasse 12, Testhausen',
@@ -13148,6 +13382,7 @@
     'NUMERO_LOCALI': 100,
     'OGGI': '30. August 2021',
     'ORT': 'Testhausen',
+    'PAROLE_CHIAVE': 'keyword1, keyword2, keyword3',
     'PARTICELLA': '123465, 789876',
     'PARZELLE': '123465, 789876',
     'PERSONA_PROPRIETARIA_DEL_FONDO': 'Sandra Beispiel',
@@ -13157,20 +13392,27 @@
     'PIANO_GENERALE_DELLE_STRUTTURE': 'Historischer Weg',
     'PIANO_GENERALE_DI_URBANIZZAZIONE': 'Fuss- / Spazierweg, Parkierung Gebiete D',
     'PRESE_DI_POSIZIONE': '',
+    'PREVISTA_FINE_LAVORI': '31. Dezember 2022',
     'PROGETTISTA': 'Hans Muster',
+    'PROGETTISTA_EMAIL': 'hans.muster@example.com',
     'PROGETTISTA_INDIRIZZO_1': 'Bahnhofstrasse 3',
     'PROGETTISTA_INDIRIZZO_2': '3600 Thun',
     'PROGETTISTA_NOME_INDIRIZZO': 'Hans Muster, Bahnhofstrasse 3, 3600 Thun',
+    'PROGETTISTA_TELEFONO': '+41781234567',
     'PROJEKTVERFASSER': 'Hans Muster',
     'PROJEKTVERFASSER_ADDRESS_1': 'Bahnhofstrasse 3',
     'PROJEKTVERFASSER_ADDRESS_2': '3600 Thun',
     'PROJEKTVERFASSER_ADRESSE_1': 'Bahnhofstrasse 3',
     'PROJEKTVERFASSER_ADRESSE_2': '3600 Thun',
+    'PROJEKTVERFASSER_EMAIL': 'hans.muster@example.com',
     'PROJEKTVERFASSER_NAME_ADDRESS': 'Hans Muster, Bahnhofstrasse 3, 3600 Thun',
     'PROJEKTVERFASSER_NAME_ADRESSE': 'Hans Muster, Bahnhofstrasse 3, 3600 Thun',
+    'PROJEKTVERFASSER_TELEFON': '+41781234567',
+    'PROPRIETARIO_FONDIARIO_EMAIL': 'sandra.beispiel@example.com',
     'PROPRIETARIO_FONDIARIO_INDIRIZZO_1': 'Beispielstrasse 16',
     'PROPRIETARIO_FONDIARIO_INDIRIZZO_2': '2222 Beispieldorf',
     'PROPRIETARIO_FONDIARIO_NOME_INDIRIZZO': 'Sandra Beispiel, Beispielstrasse 16, 2222 Beispieldorf',
+    'PROPRIETARIO_FONDIARIO_TELEFONO': '+417676767',
     'PROPRIE_DISPOSIZIONI_ACCESSORIE': '',
     'PROPRIE_PRESE_DI_POSIZIONE': '',
     'PUBBLICAZIONE_LINK': 'http://ebau-portal.localhost/oeffentliche-auflage/1',
@@ -13182,9 +13424,11 @@
     'PUBLIKATION_LINK_IT': 'http://ebau-portal.localhost/esposizione-pubblica/1',
     'PUBLIKATION_TEXT': 'Text',
     'RESPONSABILE_NOME': 'Heather Murphy',
+    'RICHIEDENTE_EMAIL': 'example@example.com',
     'RICHIEDENTE_INDIRIZZO_1': 'Testweg 321',
     'RICHIEDENTE_INDIRIZZO_2': '4321 Testingen',
     'RICHIEDENTE_NOME_INDIRIZZO': 'Test AG, Esther Tester, Testweg 321, 4321 Testingen',
+    'RICHIEDENTE_TELEFONO': '+417878787',
     'SERVIZI_CANTONALI': list([
       dict({
         'BEANTWORTET': '',
@@ -13253,6 +13497,7 @@
     'STATO': 'David Rangel',
     'STATUS': 'David Rangel',
     'STELLUNGNAHME': '',
+    'STICHWORTE': 'keyword1, keyword2, keyword3',
     'STRASSE': 'Teststrasse 12',
     'TIPO_DOSSIER': 'Baugesuch',
     'TODAY': '30. August 2021',
@@ -13261,7 +13506,13 @@
     'TUTTE_LE_PERSONE_RICHIEDENTI': 'Test AG, Esther Tester',
     'TUTTE_LE_PERSONE_RICHIEDENTI_NOME_INDIRIZZO': 'Test AG, Esther Tester, Testweg 321, 4321 Testingen',
     'TUTTI_I_PROGETTISTI': 'Hans Muster',
+    'TUTTI_I_PROGETTISTI_EMAIL': 'hans.muster@example.com',
     'TUTTI_I_PROGETTISTI_NOME_INDIRIZZO': 'Hans Muster, Bahnhofstrasse 3, 3600 Thun',
+    'TUTTI_I_PROGETTISTI_TELEFONO': '+41781234567',
+    'TUTTI_I_PROPRIETARI_FONDIARI_EMAIL': 'sandra.beispiel@example.com',
+    'TUTTI_I_PROPRIETARI_FONDIARI_TELEFONO': '+417676767',
+    'TUTTI_I_RICHIEDENTI_EMAIL': 'example@example.com',
+    'TUTTI_I_RICHIEDENTI_TELEFONO': '+417878787',
     'UBICAZIONE': 'Testhausen',
     'UMPC_NUMERO_DI_LETTI_DI_OSPEDALE': 10,
     'UMPC_NUMERO_DI_POSTI_PROTETTI': 50,
@@ -13271,6 +13522,7 @@
     'UMPC_VOLUME_POSTO_PROTETTO': 30,
     'VIA': 'Teststrasse 12',
     'VOLUMEN_SCHUTZPLAETZE': 30,
+    'VORAUSSICHTLICHE_FERTIGSTELLUNG': '31. Dezember 2022',
     'ZIRKULATION_ALLE': list([
       dict({
         'BEANTWORTET': '',
