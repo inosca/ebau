@@ -106,5 +106,33 @@
       "date_changed": "2025-12-05T12:16:57.055Z",
       "description": ""
     }
+  },
+  {
+    "model": "django_celery_beat.periodictask",
+    "pk": 4,
+    "fields": {
+      "name": "Send notifications for overdue work items",
+      "task": "camac.notification.tasks.send_notification_for_overdue_workitems",
+      "interval": null,
+      "crontab": 1,
+      "solar": null,
+      "clocked": null,
+      "args": "[]",
+      "kwargs": "{}",
+      "queue": null,
+      "exchange": null,
+      "routing_key": null,
+      "headers": "{}",
+      "priority": null,
+      "expires": null,
+      "expire_seconds": null,
+      "one_off": false,
+      "start_time": null,
+      "enabled": true,
+      "last_run_at": null,
+      "total_run_count": 0,
+      "date_changed": "2025-12-16T12:44:00Z",
+      "description": ""
+    }
   }
 ]
