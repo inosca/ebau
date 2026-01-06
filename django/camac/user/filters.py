@@ -278,6 +278,7 @@ class PublicServiceFilterSet(FilterSet):
 
         return not has_running_publication and has_completed_publication
 
+    @canton_aware
     def filter_suggestion_for_instance(self, queryset, name, value):
         form_backend = settings.APPLICATION["FORM_BACKEND"]
         if form_backend == "camac-ng":
@@ -289,6 +290,24 @@ class PublicServiceFilterSet(FilterSet):
         if all(isinstance(item, str) for item in list(suggested_service_ids_or_slugs)):
             return queryset.filter(slug__in=suggested_service_ids_or_slugs)
         return queryset.filter(pk__in=suggested_service_ids_or_slugs)
+
+    def filter_suggestion_for_instance_gr(self, queryset, name, value):
+        """Filter suggestions for responsible service in BaB dossiers."""
+        instance = Instance.objects.get(pk=value)
+        suggested_service_slugs = get_service_suggestions(instance)
+
+        if instance.case.meta.get(
+            "is-bab"
+        ) and self.request.group.service == instance.responsible_service(
+            filter_type="municipality"
+        ):
+            suggested_service_slugs = [
+                s
+                for s in suggested_service_slugs
+                if s in settings.DISTRIBUTION["SUGGESTIONS_FILTER_RESPONSIBLE_BAB"]
+            ]
+
+        return queryset.filter(slug__in=suggested_service_slugs)
 
     def filter_exclude_own_service(self, queryset, name, value):
         if value and self.request.group.service_id:

@@ -235,6 +235,11 @@ DISTRIBUTION = {
             },
         },
         "SUGGESTIONS": GR_DISTRIBUTION_SUGGESTIONS,
+        "SUGGESTIONS_FILTER_RESPONSIBLE_BAB": [
+            "are",
+            "gvg-brandschutz",
+            "pro-infirmis",
+        ],
         "AVAILABLE_SERVICES_FOR_INQUIRY": {
             "default": [
                 # Never show AIB or the base GVG service
