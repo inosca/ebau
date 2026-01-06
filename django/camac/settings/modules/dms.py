@@ -469,6 +469,7 @@ DMS = {
         "NUMBER_SEPARATOR_EXCEPTIONS": [
             "plz-parzelle",
             "plz-gesuchstellerin",
+            "plz",
         ],
         "FORM": {
             "_base": {
