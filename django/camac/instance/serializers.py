@@ -28,7 +28,6 @@ from camac.caluma.api import CalumaApi
 from camac.caluma.models import Inquiry
 from camac.constants import kt_uri as uri_constants
 from camac.core.models import (
-    Answer,
     AuthorityLocation,
     HistoryActionConfig,
     InstanceLocation,
@@ -84,8 +83,6 @@ from camac.utils import get_unversioned_slug
 from ..utils import clean_join, get_paper_settings
 from . import document_merge_service, domain_logic, models, validators
 
-SUBMIT_DATE_CHAPTER = 100001
-SUBMIT_DATE_QUESTION_ID = 20036
 SUBMIT_DATE_FORMAT = "%Y-%m-%dT%H:%M:%S%z"
 COMPLETE_PRELIMINARY_CLARIFICATION_SLUGS_BE = [
     "vorabklaerung-vollstaendig",
@@ -1354,18 +1351,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         }
         case.save()
 
-        if settings.APPLICATION.get("SET_SUBMIT_DATE_CAMAC_ANSWER"):
-            # Set submit date in Camac first...
-            # TODO drop this after this is not used anymore in Camac
-            Answer.objects.get_or_create(
-                instance=instance,
-                question_id=SUBMIT_DATE_QUESTION_ID,
-                item=1,
-                chapter_id=SUBMIT_DATE_CHAPTER,
-                # CAMAC date is formatted in "dd.mm.yyyy"
-                defaults={"answer": submit_date},
-            )
-        elif settings.APPLICATION.get("SET_SUBMIT_DATE_CAMAC_WORKFLOW"):
+        if settings.APPLICATION.get("SET_SUBMIT_DATE_CAMAC_WORKFLOW"):
             WorkflowEntry.objects.create(
                 workflow_date=submit_date,
                 instance=instance,

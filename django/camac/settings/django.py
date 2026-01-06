@@ -277,7 +277,6 @@ APPLICATIONS = {
             "CALUMA_WORKFLOW_NOTIFICATIONS": {},
         },
         "STORE_PDF": {"SECTION": 1},
-        "SET_SUBMIT_DATE_CAMAC_ANSWER": True,
         "SIDE_EFFECTS": {
             "document_downloaded": "camac.document.side_effects.create_workflow_entry",
         },
@@ -1343,7 +1342,6 @@ APPLICATIONS = {
         "SEQUENCE_NAMESPACE_APPS": ["core", "responsible", "document"],
         "HAS_EBAU_NUMBER": True,
         "HAS_GESUCHSNUMMER": False,
-        "SET_SUBMIT_DATE_CAMAC_ANSWER": True,
         "NOTIFICATIONS_EXCLUDED_TASKS": [],
         "MUNICIPALITY_DATA_SHEET": APPLICATION_DIR(
             "Verwaltungskreise und -regionen der Gemeinden.csv"
