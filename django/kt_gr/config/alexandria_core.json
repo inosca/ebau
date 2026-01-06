@@ -2674,7 +2674,7 @@
         }
       },
       "name": "{\"de\": \"Situationsplan\", \"fr\": \"\", \"it\": \"Piano della situazione\"}",
-      "description": "{\"de\": \"Hier werden Systemdokumente hochgeladen.\", \"fr\": \"\", \"it\": \"Qui vengono caricati documenti di sistema.\"}",
+      "description": "{\"de\": \"Hier werden Systemdokumente hochgeladen. Ordner ist nur mit Rolle Support sichtbar.\", \"fr\": \"\", \"it\": \"Qui vengono caricati i documenti di sistema. La cartella è visibile solo con il ruolo Supporto.\"}",
       "allowed_mime_types": "[\"image/png\"]",
       "color": "#CCCCCC",
       "parent": null,
