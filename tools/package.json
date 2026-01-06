@@ -9,7 +9,7 @@
     "upload-rsta-templates": "node bin/upload-rsta-templates.js"
   },
   "dependencies": {
-    "@inquirer/prompts": "5.1.0",
+    "@inquirer/prompts": "8.1.0",
     "calver": "22.9.1",
     "chalk": "5.3.0",
     "csv-writer": "1.6.0",
