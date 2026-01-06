@@ -2575,6 +2575,18 @@ def sz_work_item_list_settings(settings, request):
 
 
 @pytest.fixture
+def be_work_item_list_settings(settings, request):
+    """Module-specific settings for work item list (canton BE)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="work_item_list",
+        canton="kt_bern",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def so_work_item_list_settings(settings, request):
     """Module-specific settings for work item list (canton SO)."""
     return generate_module_settings(

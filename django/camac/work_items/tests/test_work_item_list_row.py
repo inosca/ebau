@@ -263,7 +263,7 @@ def test_work_item_list_row_list_no_pagination(
 
 
 @pytest.mark.freeze_time("2025-07-17 14:33")
-@pytest.mark.parametrize("canton", ["ag", "so", "gr", "sz", "ur"])
+@pytest.mark.parametrize("canton", ["ag", "so", "gr", "sz", "ur", "be"])
 def test_work_item_list_row_list(
     admin_client,
     canton,
