@@ -2,14 +2,10 @@ import { select, confirm, checkbox } from "@inquirer/prompts";
 import { execa } from "execa";
 import calver from "calver";
 import chalk from "chalk";
-import yargs from "yargs";
-import { hideBin } from "yargs/helpers";
 
 const warn = chalk.bold.hex("#FFA500");
 const error = chalk.bold.red;
 const success = chalk.bold.green;
-
-const argv = yargs(hideBin(process.argv)).argv;
 
 function cleanVersion(version, canton) {
   return version.replace(new RegExp(`^${canton}-v`), "");
@@ -34,19 +30,17 @@ async function getLatest(canton, limit = 10) {
   }
 }
 
-const canton =
-  argv.canton ??
-  (await select({
-    message: "Select a canton",
-    choices: [
-      { value: "be", name: "Bern" },
-      { value: "gr", name: "Graubünden" },
-      { value: "so", name: "Solothurn" },
-      { value: "sz", name: "Schwyz" },
-      { value: "ur", name: "Uri" },
-      { value: "ag", name: "Aargau" },
-    ],
-  }));
+const canton = await select({
+  message: "Select a canton",
+  choices: [
+    { value: "be", name: "Bern" },
+    { value: "gr", name: "Graubünden" },
+    { value: "so", name: "Solothurn" },
+    { value: "sz", name: "Schwyz" },
+    { value: "ur", name: "Uri" },
+    { value: "ag", name: "Aargau" },
+  ],
+});
 
 const latest10 = await getLatest(canton);
 let latest = latest10[0];
@@ -69,22 +63,14 @@ if (!latest) {
   console.log(warn("No latest version found"));
 }
 
-const typesFromArgs = [
-  ...(argv.minor ? ["minor"] : []),
-  ...(argv.patch ? ["patch"] : []),
-  ...(argv.rc ? ["rc"] : []),
-];
-
-const types = typesFromArgs.length
-  ? typesFromArgs
-  : await checkbox({
-      message: "Select a release type",
-      choices: [
-        { value: "minor", name: "Minor" },
-        { value: "patch", name: "Patch (bugfixes only)" },
-        { value: "rc", name: "Release candidate (staging only)" },
-      ],
-    });
+const types = await checkbox({
+  message: "Select a release type",
+  choices: [
+    { value: "minor", name: "Minor" },
+    { value: "patch", name: "Patch (bugfixes only)" },
+    { value: "rc", name: "Release candidate (staging only)" },
+  ],
+});
 
 const calverLevel = ["calendar", ...types].join(".");
 
