@@ -2225,9 +2225,9 @@ APPLICATIONS = {
                         "notification": {
                             "template_slug": "send-additional-demand-internal",
                             "recipient_types": [
-                                "leitbehoerde",
-                                "additional_demand_inviter",
-                                "are_bab",
+                                "additional_demand_leitbehoerde",
+                                "additional_demand_sender",
+                                "additional_demand_are_bab",
                             ],
                         },
                     },
@@ -2266,7 +2266,14 @@ APPLICATIONS = {
         "SIDE_EFFECTS": {
             "document_downloaded": "camac.document.side_effects.create_workflow_entry",
         },
-        "CUSTOM_NOTIFICATION_TYPES": ["gvg", "aib", "are", "are_bab"],
+        "CUSTOM_NOTIFICATION_TYPES": [
+            "gvg",
+            "aib",
+            "are",
+            "are_bab",
+            "additional_demand_are_bab",
+            "additional_demand_leitbehoerde",
+        ],
         "NOTIFICATIONS": {
             "SUBMIT": [
                 {
