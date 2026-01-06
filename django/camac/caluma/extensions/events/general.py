@@ -238,7 +238,7 @@ def post_create_review_building_commission(sender, work_item, user, context, **k
         question_id="release-for-bk-meeting-date"
     ).first()
 
-    if meeting_date_answer:
+    if meeting_date_answer and meeting_date_answer.date:
         meeting_date_string = meeting_date_answer.date.strftime("%d.%m.%Y")
 
         work_item.name = f"{work_item.name} (BK Sitzung: {meeting_date_string})"
