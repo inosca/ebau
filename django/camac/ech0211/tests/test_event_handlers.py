@@ -188,7 +188,7 @@ def test_accompanying_report_event_handler(
     inquiry = active_inquiry_factory(
         for_instance=ech_instance_be,
         addressed_service=parent_service,
-        created_by_group=inviting_service.pk,
+        controlling_service=inviting_service,
     )
 
     caluma_answer_factory(

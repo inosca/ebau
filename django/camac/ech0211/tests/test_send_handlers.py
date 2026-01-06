@@ -1108,7 +1108,7 @@ def test_accompanying_report_send_handler(
         existing_inquiry = active_inquiry_factory(
             for_instance=ech_instance_be,
             addressed_service=user_group.group.service,
-            created_by_group=inviting_service.pk,
+            controlling_service=inviting_service,
         )
 
         caluma_work_item_factory(
@@ -1214,7 +1214,7 @@ def test_accompanying_report_send_handler(
             question_id="inquiry-checkbox"
         ).exists()
 
-        assert service.email in mailoutbox[0].to
+        assert inviting_service.email in mailoutbox[0].to
 
     else:
         with pytest.raises(SendHandlerException):
