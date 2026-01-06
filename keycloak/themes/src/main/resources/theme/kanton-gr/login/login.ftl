@@ -32,60 +32,66 @@
                                 </p>
                             </#if>
                         </div>
-                        <form id="kc-form-login" class="kc-form-card is-login-form uk-form-horizontal uk-width-xlarge uk-margin-auto" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
-                            <h2 class="uk-margin-top">${msg("login")}</h2>
-                            <div class="${properties.kcFormGroupClass!}">
-                                <label for="username" class="${properties.kcLabelClass!}"><#if !realm.loginWithEmailAllowed>${msg("username")}<#elseif !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if></label>
+                        <div>
+                            <form id="kc-form-login" class="kc-form-card is-login-form uk-form-horizontal uk-width-xlarge uk-margin-auto uk-margin-remove-bottom" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
+                                <h2>${msg("login")}</h2>
+                                <div class="${properties.kcFormGroupClass!}">
+                                    <label for="username" class="${properties.kcLabelClass!}"><#if !realm.loginWithEmailAllowed>${msg("username")}<#elseif !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if></label>
 
-                                <div class="uk-form-controls">
-                                    <#if usernameEditDisabled??>
-                                        <input tabindex="1" id="username" class="${properties.kcInputClass!}" name="username" value="${(login.username!'')}" type="text" disabled />
-                                    <#else>
-                                        <input tabindex="1" id="username" class="${properties.kcInputClass!}" name="username" value="${(login.username!'')}"  type="text" autofocus autocomplete="off" />
-                                    </#if>
-                                </div>
-                            </div>
-
-                            <div class="${properties.kcFormGroupClass!}">
-                                <label for="password" class="${properties.kcLabelClass!}">${msg("password")}</label>
-                                <div class="uk-form-controls">
-                                    <input tabindex="2" id="password" class="${properties.kcInputClass!}" name="password" type="password" autocomplete="off" />
-                                </div>
-                            </div>
-
-                            <div class="${properties.kcFormGroupClass!} ${properties.kcFormSettingClass!}">
-                                <div id="kc-form-options">
-                                    <#if realm.rememberMe && !usernameEditDisabled??>
-                                        <div class="checkbox">
-                                            <label>
-                                                <#if login.rememberMe??>
-                                                    <input tabindex="3" id="rememberMe" name="rememberMe" type="checkbox" checked> ${msg("rememberMe")}
-                                                <#else>
-                                                    <input tabindex="3" id="rememberMe" name="rememberMe" type="checkbox"> ${msg("rememberMe")}
-                                                </#if>
-                                            </label>
-                                        </div>
-                                    </#if>
-                                    <div class="${properties.kcFormOptionsWrapperClass!}">
-                                        <#if realm.resetPasswordAllowed>
-                                            <span><a tabindex="5" href="${url.loginResetCredentialsUrl}">${msg("doForgotPassword")}</a></span>
+                                    <div class="uk-form-controls">
+                                        <#if usernameEditDisabled??>
+                                            <input tabindex="1" id="username" class="${properties.kcInputClass!}" name="username" value="${(login.username!'')}" type="text" disabled />
+                                        <#else>
+                                            <input tabindex="1" id="username" class="${properties.kcInputClass!}" name="username" value="${(login.username!'')}"  type="text" autofocus autocomplete="off" />
                                         </#if>
                                     </div>
-
                                 </div>
 
-                                <div id="kc-form-buttons" class="${properties.kcFormGroupClass!}">
-                                    <input type="hidden" id="id-hidden-input" name="credentialId" <#if auth.selectedCredential?has_content>value="${auth.selectedCredential}"</#if>/>
-                                    <input tabindex="4" class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" name="login" id="kc-login" type="submit" value="${msg("doLogIn")}"/>
+                                <div class="${properties.kcFormGroupClass!}">
+                                    <label for="password" class="${properties.kcLabelClass!}">${msg("password")}</label>
+                                    <div class="uk-form-controls">
+                                        <input tabindex="2" id="password" class="${properties.kcInputClass!}" name="password" type="password" autocomplete="off" />
+                                    </div>
                                 </div>
+
+                                <div class="${properties.kcFormGroupClass!} ${properties.kcFormSettingClass!}">
+                                    <div id="kc-form-options">
+                                        <#if realm.rememberMe && !usernameEditDisabled??>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <#if login.rememberMe??>
+                                                        <input tabindex="3" id="rememberMe" name="rememberMe" type="checkbox" checked> ${msg("rememberMe")}
+                                                    <#else>
+                                                        <input tabindex="3" id="rememberMe" name="rememberMe" type="checkbox"> ${msg("rememberMe")}
+                                                    </#if>
+                                                </label>
+                                            </div>
+                                        </#if>
+                                        <div class="${properties.kcFormOptionsWrapperClass!}">
+                                            <#if realm.resetPasswordAllowed>
+                                                <span><a tabindex="5" href="${url.loginResetCredentialsUrl}">${msg("doForgotPassword")}</a></span>
+                                            </#if>
+                                        </div>
+
+                                    </div>
+
+                                    <div id="kc-form-buttons" class="${properties.kcFormGroupClass!}">
+                                        <input type="hidden" id="id-hidden-input" name="credentialId" <#if auth.selectedCredential?has_content>value="${auth.selectedCredential}"</#if>/>
+                                        <input tabindex="4" class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" name="login" id="kc-login" type="submit" value="${msg("doLogIn")}"/>
+                                    </div>
+                                </div>
+                                <span>${msg("noAccount")} <a tabindex="6" href="${url.registrationUrl}">${msg("doRegister")}</a></span>
+                                <#if client.clientId == "eeba">
+                                <span>${msg("needHelpEeba")?no_esc}</span>
+                                <#else>
+                                <span>${msg("needHelp")?no_esc}</span>
+                                </#if>
+                            </form>
+                            <div id="kc-form-login-footer" class="kc-form-card uk-width-xlarge uk-margin-small-right uk-width-xlarge uk-margin-auto">
+                                <h2>${msg("publicInstancesTitle")}</h2>
+                                <p>${msg("publicInstancesText")?no_esc}</p>
                             </div>
-                            <span>${msg("noAccount")} <a tabindex="6" href="${url.registrationUrl}">${msg("doRegister")}</a></span>
-                            <#if client.clientId == "eeba">
-                              <span>${msg("needHelpEeba")?no_esc}</span>
-                            <#else>
-                              <span>${msg("needHelp")?no_esc}</span>
-                            </#if>
-                        </form>
+                        </div>
                     </#if>
                     <#if social.providers??>
                       <#list social.providers as p>

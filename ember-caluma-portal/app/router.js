@@ -67,8 +67,29 @@ Router.map(function () {
     });
     registerStaticContent(this, {}, "public-static-content");
   });
+
   this.route("oeffentliche-auflage");
+  this.route("oeffentliche-auflage.wildcard", {
+    path: "/oeffentliche-auflage/*wildcard",
+  });
   this.route("esposizione-pubblica");
+  this.route("esposizione-pubblica.wildcard", {
+    path: "/esposizione-pubblica/*wildcard",
+  });
 
   registerStaticContent(this, { resetNamespace });
 });
+
+export function redirectPublicInstances(router) {
+  const paths = ["oeffentliche-auflage", "esposizione-pubblica"];
+  for (const path of paths) {
+    const regex = new RegExp(`\\/${path}\\/([0-9]+)\\/?.*`);
+    const match = document.location.pathname.match(regex);
+    if (match) {
+      router.transitionTo("public-instances.detail", match[1]);
+      return;
+    }
+  }
+
+  router.transitionTo("public-instances");
+}
