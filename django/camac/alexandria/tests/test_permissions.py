@@ -1375,10 +1375,12 @@ def test_condition_is_external_client(
     alexandria_document_factory,
     alexandria_file_factory,
     application_settings,
+    reload_ech0211_urls,
     gr_instance,
+    set_document_backend,
     mocker,
 ):
-    application_settings["DOCUMENT_BACKEND"] = "alexandria"
+    set_document_backend("alexandria")
 
     mocker.patch(
         "camac.alexandria.extensions.visibilities.CustomVisibility._all_visible_instances",

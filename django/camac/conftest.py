@@ -3376,6 +3376,28 @@ def setup_sql_views(django_db_setup, django_db_blocker):
                         raise
 
 
+@pytest.fixture
+def set_document_backend(application_settings):
+    """
+    Set the document backend to the desired module.
+
+    Needs to be either "camac-ng" or "alexandria".
+
+    Example:
+    >>> def test_something(set_document_backend, ...):
+    ...     set_document_backend('camac-ng')
+    ...     assert something
+    """
+
+    def do_it(backend):
+        assert backend in ["camac-ng", "alexandria"], (
+            f"Unrecognized document backend: '{backend}'"
+        )
+        application_settings["DOCUMENT_BACKEND"] = backend
+
+    return do_it
+
+
 @pytest.fixture(autouse=True, scope="function")
 def ensure_no_leaks():
     SETTINGS_TO_VALIDATE = ["APPLICATIONS"]
