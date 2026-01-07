@@ -72,6 +72,30 @@ def test_me_service_municipality(
 
 
 @pytest.mark.parametrize(
+    "service_t__name,service_group__name",
+    [("Baukontrolle Test", "construction-control")],
+)
+def test_me_service_municipality_exception(admin_client, admin_user, service, mocker):
+    url = reverse("me")
+
+    # Force get_lead_authority to raise
+    mocker.patch(
+        "camac.instance.utils.get_lead_authority",
+        side_effect=Exception("boom"),
+    )
+
+    response = admin_client.get(url, data={"include": "service.municipality"})
+    assert response.status_code == status.HTTP_200_OK
+
+    json = response.json()
+    user_service_id = json["data"]["relationships"]["service"]["data"]["id"]
+    user_service = next(i for i in json["included"] if i["id"] == user_service_id)
+
+    # Municipality should be null when exception occurs
+    assert user_service["relationships"]["municipality"]["data"] is None
+
+
+@pytest.mark.parametrize(
     "role__name,size",
     [
         ("Applicant", 0),

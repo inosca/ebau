@@ -190,11 +190,20 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
         ).distinct()
 
     def get_municipality(self, obj):
-        return (
-            get_lead_authority(obj)
-            if obj.service_group.name == "construction-control"
-            else None
-        )
+        try:
+            return (
+                get_lead_authority(obj)
+                if obj.service_group.name == "construction-control"
+                else None
+            )
+        except Exception:
+            print(
+                _(
+                    "Could not find lead authority for construction control %(id)d"
+                    % {"id": obj.pk}
+                )
+            )
+            return None
 
     included_serializers = {
         "users": "camac.user.serializers.UserSerializer",
