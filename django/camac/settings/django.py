@@ -2192,7 +2192,10 @@ APPLICATIONS = {
                     "history_text": _("Additional demand was answered"),
                     "notification": {
                         "template_slug": "fill-additional-demand",
-                        "recipient_types": ["leitbehoerde", "work_item_controlling"],
+                        "recipient_types": [
+                            "additional_demand_leitbehoerde",
+                            "work_item_controlling",
+                        ],
                     },
                     "ech_event": "camac.ech0211.signals.file_subsequently",
                 },
