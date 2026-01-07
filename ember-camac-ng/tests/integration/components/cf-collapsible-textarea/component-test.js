@@ -8,7 +8,10 @@ module("Integration | Component | cf-collapsible-textarea", function (hooks) {
   setupRenderingTest(hooks);
 
   test("it renders", async function (assert) {
-    this.set("field", { question: { label: "Textarea" } });
+    this.set("field", {
+      question: { label: "Textarea" },
+      answer: { raw: { meta: { "gis-value": "test" } } },
+    });
 
     await render(hbs`<CfCollapsibleTextarea @field={{this.field}} />`);
 
