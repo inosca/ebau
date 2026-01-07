@@ -313,6 +313,7 @@ APPLICATIONS = {
     "kt_schwyz": {
         "SHORT_NAME": "sz",
         "INTERNAL_FRONTEND": "camac",
+        "TAGGED_RELEASES": True,
         "SHORT_DATE_FORMAT": "%-d. %B %Y",
         "INCLUDE_STATIC_FILES": [("xml", "kt_schwyz/static/ech0211/xml/")],
         "USE_CAMAC_ADMIN": True,
