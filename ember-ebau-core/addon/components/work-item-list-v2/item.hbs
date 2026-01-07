@@ -1,6 +1,12 @@
 <tr class={{this.rowClasses}}>
   {{#if @highlight}}
     <td class="uk-padding-remove-right {{this.highlightClasses}}"></td>
+    {{#if (has-feature "workItemList.useColorForNFD")}}
+      <td
+        class="uk-padding-remove-right highlight
+          {{if @row.hasAdditionalDemand 'highlight--nfd'}}"
+      ></td>
+    {{/if}}
   {{/if}}
   {{#each @columns as |column|}}
     <td class={{if (eq column "task") "uk-width-1-4"}}>

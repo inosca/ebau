@@ -3,6 +3,8 @@ import { service } from "@ember/service";
 import { htmlSafe } from "@ember/template";
 import Model, { attr, belongsTo } from "@ember-data/model";
 
+import mainConfig from "ember-ebau-core/config/main";
+
 export default class WorkItemListRowModel extends Model {
   @service fetch;
   @service ebauModules;
@@ -14,6 +16,7 @@ export default class WorkItemListRowModel extends Model {
   @attr description;
   @attr directLink;
   @attr editLink;
+  @attr hasAdditionalDemand;
   @attr instanceId;
   @attr instanceName;
   @attr isAddressedToCurrentService;
@@ -45,8 +48,12 @@ export default class WorkItemListRowModel extends Model {
   }
 
   get instance() {
+    const prefix = mainConfig.showInstanceIdAfterSubmission
+      ? `${this.instanceId} - `
+      : "";
+
     return htmlSafe(
-      `${this.instanceName} <span class="uk-text-nowrap">(${this.specialId})</span>`,
+      `${prefix}${this.instanceName} <span class="uk-text-nowrap">(${this.specialId})</span>`,
     );
   }
 

@@ -16,6 +16,7 @@ export default {
   },
   workItems: {
     showDocument: true,
+    v2: true,
   },
   dashboard: {
     useLegacy: true,

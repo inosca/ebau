@@ -2587,6 +2587,18 @@ def so_work_item_list_settings(settings, request):
 
 
 @pytest.fixture
+def ur_work_item_list_settings(settings, request):
+    """Module-specific settings for work item list (canton UR)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="work_item_list",
+        canton="kt_uri",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def gr_work_item_list_settings(settings, request):
     """Module-specific settings for work item list (canton GR)."""
     return generate_module_settings(

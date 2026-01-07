@@ -81,6 +81,7 @@ class WorkItemListFilterPresetSerializer(serializers.ModelSerializer):
 class WorkItemListRowSerializer(serializers.ModelSerializer):
     applicants = serializers.CharField()
     description = serializers.CharField(source="instance_description")
+    has_additional_demand = serializers.BooleanField()
     instance_id = serializers.IntegerField()
     instance_name = serializers.CharField()
     target_deadline_date = serializers.DateField(allow_null=True)
@@ -118,6 +119,7 @@ class WorkItemListRowSerializer(serializers.ModelSerializer):
             "description",
             "direct_link",
             "edit_link",
+            "has_additional_demand",
             "instance_id",
             "instance_name",
             "is_addressed_to_current_service",
