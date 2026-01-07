@@ -1170,6 +1170,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
 
         copy_source = validated_data.pop("copy_source", None)
         is_modification = self.initial_data.get("is_modification", False)
+        copy_attachments_from = self.initial_data.get("copy_attachments_from", [])
 
         source_instance = None
         if copy_source:
@@ -1267,6 +1268,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             is_paper=is_paper,
             caluma_form=caluma_form,
             source_instance=source_instance,
+            copy_attachments_from=copy_attachments_from,
         )
 
     class Meta(InstanceSerializer.Meta):
@@ -1617,6 +1619,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 caluma_form=caluma_form,
                 source_instance=instance,
                 skip_exported_form_attachment=True,
+                copy_attachments_from=[],
             )
             koor_afj_instance.case.meta["oereb_copy"] = True
             koor_afj_instance.case.save()

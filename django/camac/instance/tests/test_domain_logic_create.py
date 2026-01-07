@@ -1,40 +1,139 @@
 import pytest
 from alexandria.core.factories import CategoryFactory, DocumentFactory, FileFactory
 from alexandria.core.models import Document, File
+from pytest_lazy_fixtures import lf
 from rest_framework.exceptions import ValidationError
 
+from camac.document.models import Attachment
 from camac.instance.domain_logic.create import CreateInstanceLogic
 
 
 @pytest.mark.parametrize(
-    "application_short_name,is_modification,skip_exported_form_attachment,expected_copies",
+    "args,expected_copies",
     [
-        # default/SO with alexandria attachments
-        ("so", False, False, 3),
-        ("so", True, False, 3),
-        ("so", False, True, 2),
-        ("so", True, True, 2),
-        # BE with camac attachments
-        ("bern", False, False, 3),
-        ("bern", True, False, 3),
-        ("bern", False, True, 2),
-        ("bern", True, True, 2),
-        # GR with alexandria and no copy for modifications
-        ("gr", False, False, 2),
-        ("gr", True, False, 0),
-        ("gr", False, True, 2),
-        ("gr", True, True, 0),
+        (
+            {"skip_exported_form_attachment": False, "copy_attachments_from": [99]},
+            1,
+        ),
+        (
+            {
+                "skip_exported_form_attachment": False,
+                "copy_attachments_from": [],
+            },
+            5,
+        ),
+        (
+            {
+                "skip_exported_form_attachment": True,
+                "copy_attachments_from": [],
+            },
+            4,
+        ),
     ],
 )
-def test_copy_attachments(
+def test_copy_attachments_camac_ng(
+    db,
+    application_settings,
+    args,
+    expected_copies,
+    be_instance,
+    instance_with_case,
+    instance_factory,
+    attachment_factory,
+    attachment_section_factory,
+):
+    application_settings["DOCUMENT_BACKEND"] = "camac-ng"
+    source_instance = be_instance
+    source_instance.case.document.form.name = "test"
+    source_instance.case.document.form.save()
+    target_instance = instance_with_case(instance_factory())
+
+    attachment_section_other = attachment_section_factory(pk=100)
+    docs = [
+        attachment_factory(
+            name="important-doc",
+            instance=source_instance,
+        ),
+        attachment_factory(
+            name="some-doc",
+            instance=source_instance,
+        ),
+        attachment_factory(
+            name="baugesuch",
+            instance=source_instance,
+        ),
+        attachment_factory(
+            name=f"{source_instance.pk}-{source_instance.case.document.form.name}.pdf",
+            instance=source_instance,
+        ),
+    ]
+    for doc in docs:
+        doc.attachment_sections.add(attachment_section_other)
+
+    applicant_attachment = attachment_factory(
+        name="only_applicant",
+        instance=source_instance,
+    )
+    attachment_section_applicant = attachment_section_factory(pk=99)
+    applicant_attachment.attachment_sections.add(attachment_section_applicant)
+    docs.append(applicant_attachment)
+
+    total_docs = len(docs)
+    assert Attachment.objects.count() == total_docs
+
+    CreateInstanceLogic.copy_attachments(source_instance, target_instance, **args)
+
+    assert Attachment.objects.count() == total_docs + expected_copies
+
+    new_attachment = Attachment.objects.last()
+
+    assert new_attachment.instance_id == target_instance.pk
+
+    old_attachment = [d for d in docs if d.name == new_attachment.name][0]
+
+    assert new_attachment.name == old_attachment.name
+    assert new_attachment.attachment_id != old_attachment.attachment_id
+
+
+@pytest.mark.parametrize(
+    "application_short_name,caluma_workflow_config,args,expected_copies",
+    [
+        # default/SO with alexandria attachments
+        (
+            "so",
+            lf("caluma_workflow_config_so"),
+            {"skip_exported_form_attachment": False, "is_modification": False},
+            3,
+        ),
+        (
+            "so",
+            lf("caluma_workflow_config_so"),
+            {"skip_exported_form_attachment": True, "is_modification": False},
+            2,
+        ),
+        # GR with alexandria and no copy for modifications
+        (
+            "gr",
+            lf("caluma_workflow_config_gr"),
+            {"skip_exported_form_attachment": True, "is_modification": False},
+            2,
+        ),
+        (
+            "gr",
+            lf("caluma_workflow_config_gr"),
+            {"skip_exported_form_attachment": False, "is_modification": True},
+            0,
+        ),
+    ],
+)
+def test_copy_attachments_alexandria(
     db,
     instance_factory,
     application_settings,
     instance_with_case,
-    caluma_workflow_config_gr,
+    caluma_workflow_config,
     application_short_name,
-    is_modification,
-    skip_exported_form_attachment,
+    args,
     expected_copies,
 ):
     application_settings["SHORT_NAME"] = application_short_name
@@ -84,8 +183,7 @@ def test_copy_attachments(
     CreateInstanceLogic.copy_attachments(
         source_instance,
         target_instance,
-        skip_exported_form_attachment,
-        is_modification,
+        **args,
     )
 
     assert Document.objects.count() == total_docs + expected_copies
