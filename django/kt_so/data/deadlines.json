@@ -1,0 +1,63 @@
+[
+  {
+    "model": "deadlines.deadlinetype",
+    "pk": "0695d36f-2761-7fbd-8000-7c5be7762bbf",
+    "fields": {
+      "form_types": [
+        "baugesuch",
+        "erdwaermesonden",
+        "meldung",
+        "meldung-pv",
+        "migriertes-dossier",
+        "reklamegesuch",
+        "voranfrage",
+        "baugesuch-v2",
+        "erdwaermesonden-v2",
+        "meldung-pv-v2",
+        "meldung-v2",
+        "reklamegesuch-v2",
+        "voranfrage-v2"
+      ],
+      "name": "{\"de\": \"Beispiel  Sistierungstyp 14 Tage\", \"fr\": \"\", \"it\": \"\"}",
+      "lead_time": 14,
+      "created_at": "2026-01-06T16:23:14.462Z",
+      "is_default": true,
+      "exclude_weekends": true,
+      "exclude_public_holidays": true,
+      "services": [],
+      "service_groups": []
+    }
+  },
+  {
+    "model": "deadlines.instancedeadline",
+    "pk": "0695d374-4c4c-7a8b-8000-ad99cfcdb2d5",
+    "fields": {
+      "deadline_type": "0695d36f-2761-7fbd-8000-7c5be7762bbf",
+      "instance": 1,
+      "service": 1,
+      "start_date": "2023-10-05",
+      "total_days_of_suspension": 0,
+      "target_deadline_date": "2023-10-25",
+      "process_deadline_date": null,
+      "process_deadline_date_override": false,
+      "process_deadline_days": 576,
+      "created_at": "2026-01-06T16:24:36.769Z"
+    }
+  },
+  {
+    "model": "deadlines.instancedeadline",
+    "pk": "0695d374-517b-7513-8000-3aec70e89770",
+    "fields": {
+      "deadline_type": "0695d36f-2761-7fbd-8000-7c5be7762bbf",
+      "instance": 2,
+      "service": 1,
+      "start_date": "2023-11-27",
+      "total_days_of_suspension": 0,
+      "target_deadline_date": "2023-12-15",
+      "process_deadline_date": null,
+      "process_deadline_date_override": false,
+      "process_deadline_days": 539,
+      "created_at": "2026-01-06T16:24:37.093Z"
+    }
+  }
+]

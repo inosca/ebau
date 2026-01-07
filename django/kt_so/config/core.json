@@ -792,6 +792,22 @@
     }
   },
   {
+    "model": "core.instanceresource",
+    "pk": 26,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 3,
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/deadlines.phtml",
+      "class_field": "menu-category-analysis",
+      "hidden": 0,
+      "sort": 25,
+      "form_group": 1,
+      "require_permission": "deadlines-suspensions-read"
+    }
+  },
+  {
     "model": "core.instanceresourcet",
     "pk": 1,
     "fields": {
@@ -1038,6 +1054,16 @@
       "instance_resource": 25,
       "language": "de",
       "name": "Verknüpfte Dossiers",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 26,
+    "fields": {
+      "instance_resource": 26,
+      "language": "de",
+      "name": "Fristenkontrolle",
       "description": null
     }
   },

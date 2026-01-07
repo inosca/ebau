@@ -370,6 +370,7 @@ DUMP = {
             "APPS": [
                 "circulation",
                 "core",
+                "deadlines",
                 "document",
                 "instance",
                 "notification",

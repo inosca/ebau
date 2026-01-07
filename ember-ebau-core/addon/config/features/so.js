@@ -88,4 +88,8 @@ export default {
   instanceHeader: {
     shortIntent: true,
   },
+  deadlines: {
+    enabled: true,
+    useEndDate: true,
+  },
 };
