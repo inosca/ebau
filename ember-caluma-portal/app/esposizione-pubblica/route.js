@@ -9,8 +9,8 @@ export default class EsposizionePubblicaRoute extends Route {
   @service session;
 
   beforeModel() {
-    this.intl.setLocale("de");
-    this.session.language = "de";
+    this.intl.setLocale("it");
+    this.session.language = "it";
     return redirectPublicInstances(this.router);
   }
 }
