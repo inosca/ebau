@@ -2,17 +2,21 @@ import { select, confirm, checkbox } from "@inquirer/prompts";
 import { execa } from "execa";
 import calver from "calver";
 import chalk from "chalk";
-import yargs from "yargs";
-import { hideBin } from "yargs/helpers";
 
 const warn = chalk.bold.hex("#FFA500");
 const error = chalk.bold.red;
 const success = chalk.bold.green;
 
-const argv = yargs(hideBin(process.argv)).argv;
-
 function cleanVersion(version, canton) {
   return version.replace(new RegExp(`^${canton}-v`), "");
+}
+
+function isReleaseCandidate(version) {
+  return /-rc\.\d+$/.test(version);
+}
+
+function removeReleaseCandidate(version) {
+  return version.replace(/-rc\.\d+$/, "");
 }
 
 async function getLatest(canton, limit = 10) {
@@ -34,19 +38,17 @@ async function getLatest(canton, limit = 10) {
   }
 }
 
-const canton =
-  argv.canton ??
-  (await select({
-    message: "Select a canton",
-    choices: [
-      { value: "be", name: "Bern" },
-      { value: "gr", name: "Graubünden" },
-      { value: "so", name: "Solothurn" },
-      { value: "sz", name: "Schwyz" },
-      { value: "ur", name: "Uri" },
-      { value: "ag", name: "Aargau" },
-    ],
-  }));
+const canton = await select({
+  message: "Select a canton",
+  choices: [
+    { value: "be", name: "Bern (SemVer)", disabled: true },
+    { value: "gr", name: "Graubünden (branches)", disabled: true },
+    { value: "so", name: "Solothurn" },
+    { value: "sz", name: "Schwyz" },
+    { value: "ur", name: "Uri (branches)", disabled: true },
+    { value: "ag", name: "Aargau" },
+  ],
+});
 
 const latest10 = await getLatest(canton);
 let latest = latest10[0];
@@ -69,31 +71,72 @@ if (!latest) {
   console.log(warn("No latest version found"));
 }
 
-const typesFromArgs = [
-  ...(argv.minor ? ["minor"] : []),
-  ...(argv.patch ? ["patch"] : []),
-  ...(argv.rc ? ["rc"] : []),
-];
+let version = cleanVersion(latest ?? "", canton);
 
-const types = typesFromArgs.length
-  ? typesFromArgs
-  : await checkbox({
-      message: "Select a release type",
-      choices: [
-        { value: "minor", name: "Minor" },
-        { value: "patch", name: "Patch (bugfixes only)" },
-        { value: "rc", name: "Release candidate (staging only)" },
-      ],
-    });
+let types = await checkbox({
+  message: "Select a release type",
+  choices: [
+    {
+      value: "calendar.minor",
+      name: "Minor",
+      description:
+        "Regular feature release. Can be combined with release candidate.",
+    },
+    {
+      value: "calendar.patch",
+      name: "Patch (bugfixes only)",
+      description:
+        "Bugfix release (commonly known as hotfix). Can be combined with release candidate",
+    },
+    {
+      value: "rc",
+      name: "Release candidate",
+      description:
+        "Release candidate, for testing environments only. If selected without combination with minor or patch, the existing RC version will be bumped.",
+    },
+    ...(isReleaseCandidate(version)
+      ? [
+          {
+            value: "calendar",
+            name: "Promote release candidate",
+            description: "Removes the RC suffix from the latest version.",
+          },
+        ]
+      : []),
+  ],
+  shortcuts: {
+    all: null,
+    invert: null,
+  },
+  required: true,
+  validate: (items) => {
+    const values = items.map((i) => i.value);
 
-const calverLevel = ["calendar", ...types].join(".");
+    if (
+      values.includes("calendar.minor") &&
+      values.includes("calendar.patch")
+    ) {
+      return "Minor and patch can't be combined";
+    }
+
+    if (values.includes("calendar") && values.length > 1) {
+      return "Promotion of release candidate can't be combined with other release types";
+    }
+
+    return true;
+  },
+});
+
+if (types.includes("rc") && types.length > 1) {
+  // If we combine rc with minor or mayor but the latest version already
+  // contains an rc number, it would increase the rc number while also bumping
+  // the minor / patch version which doesn't make sense for our use-case.
+  // To avoid this behaviour, we simply remove the rc version for that case.
+  version = removeReleaseCandidate(version);
+}
 
 try {
-  const nextVersion = calver.inc(
-    "yy.minor.patch",
-    latest ? cleanVersion(latest, canton) : "",
-    calverLevel,
-  );
+  const nextVersion = calver.inc("yy.minor.patch", version, types.join("."));
 
   const fullVersion = `${canton}-v${nextVersion}`;
   console.log(success(`Next version is: ${fullVersion}`));
