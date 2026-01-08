@@ -3,6 +3,7 @@ import { service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
 import mainConfig from "ember-ebau-core/config/main";
 import getCaseBySpecialId from "ember-ebau-core/gql/queries/get-case-by-special-id.graphql";
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 
 export default class CasesDetailRoute extends Route {
   @queryManager apollo;
@@ -37,9 +38,17 @@ export default class CasesDetailRoute extends Route {
     try {
       // fetch instance to allow reloading after state changes
       // from ebau-modules.js (redirectToCaseWorkItems)
+      const includes = [
+        "instance_state",
+        "responsible_service_users",
+        "linked_instances",
+        "keywords",
+      ];
+      if (hasFeature("cases.showNoApplicantRegisteredWarning")) {
+        includes.push("involved_applicants", "involved_applicants.invitee");
+      }
       return await this.store.findRecord("instance", instance_id, {
-        include:
-          "instance_state,responsible_service_users,linked_instances,keywords",
+        include: includes.join(","),
       });
     } catch (error) {
       console.error(error);
