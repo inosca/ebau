@@ -7552,6 +7552,20 @@
       'nested_aliases': dict({
       }),
     }),
+    'TITEL_BAUVORHABEN': dict({
+      'aliases': list([
+        dict({
+          'de': 'TITEL_BAUVORHABEN',
+          'it': 'TITOLO_PROGETTO',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Titel des Bauvorhabens',
+        'it': 'Titolo del progetto di costruzione',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'TODAY': dict({
       'aliases': list([
         dict({
@@ -11820,6 +11834,8 @@
     'STICHWORTE',
     'STRASSE',
     'TIPO_DOSSIER',
+    'TITEL_BAUVORHABEN',
+    'TITOLO_PROGETTO',
     'TUTTE_LE_PERSONE_PROPRIETARIE_DI_UN_FONDO',
     'TUTTE_LE_PERSONE_PROPRIETARIE_DI_UN_FONDO_NOME_INDIRIZZO',
     'TUTTE_LE_PERSONE_RICHIEDENTI',
@@ -12863,7 +12879,7 @@
     'BEGINN_PUBLIKATIONSORGAN_GEMEINDE': '20. August 2021',
     'BEGINN_PUBLIKATION_KANTONSAMTSBLATT': '22. August 2021',
     'BEMERKUNGEN_SCHUTZPLAETZE': 'Foo bar baz',
-    'BESCHREIBUNG_BAUVORHABEN': 'Projektänderung',
+    'BESCHREIBUNG_BAUVORHABEN': '',
     'BESCHREIBUNG_PROJEKTAENDERUNG': 'Projektänderung',
     'CIRCOLAZIONE_COMUNI': list([
       dict({
@@ -13085,7 +13101,7 @@
     'DENOMINAZIONE_GIURIDICA': 'Test AG',
     'DESCRIPTION_MODIFICATION': 'Projektänderung',
     'DESCRIZIONE_MODIFICA': 'Projektänderung',
-    'DESCRIZIONE_PROGETTO': 'Projektänderung',
+    'DESCRIZIONE_PROGETTO': '',
     'DISPOSIZIONI_ACCESSORIE': '',
     'DISPOSIZIONI_ACCESSORIE_MAPPED': list([
     ]),
@@ -13500,6 +13516,8 @@
     'STICHWORTE': 'keyword1, keyword2, keyword3',
     'STRASSE': 'Teststrasse 12',
     'TIPO_DOSSIER': 'Baugesuch',
+    'TITEL_BAUVORHABEN': 'Projektänderung',
+    'TITOLO_PROGETTO': 'Projektänderung',
     'TODAY': '30. August 2021',
     'TUTTE_LE_PERSONE_PROPRIETARIE_DI_UN_FONDO': 'Sandra Beispiel',
     'TUTTE_LE_PERSONE_PROPRIETARIE_DI_UN_FONDO_NOME_INDIRIZZO': 'Sandra Beispiel, Beispielstrasse 16, 2222 Beispieldorf',
