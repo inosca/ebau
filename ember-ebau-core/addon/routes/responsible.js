@@ -11,8 +11,6 @@ export default class ResponsibleRoute extends Route {
   resetController(controller, isExiting) {
     if (isExiting) {
       controller._selectedUser = null;
-      controller.responsibilities = [];
-      controller.users = [];
     }
   }
 }
