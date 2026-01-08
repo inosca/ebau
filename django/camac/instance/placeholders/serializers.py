@@ -777,9 +777,14 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("DECISION")],
         description=_("Decision"),
     )
-    beschreibung_bauvorhaben = fields.MasterDataField(
+    titel_bauvorhaben = fields.MasterDataField(
         source="proposal",
-        aliases=[_("PROPOSAL")],
+        aliases=[_("PROPOSAL_TITLE")],
+        description=_("Title of the project"),
+    )
+    beschreibung_bauvorhaben = fields.MasterDataField(
+        source="remark",
+        aliases=[_("PROPOSAL_REMARK")],
         description=_("Description of the project"),
     )
     beginn_publikationsorgan_gemeinde = fields.PublicationField(
