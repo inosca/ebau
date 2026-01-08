@@ -542,6 +542,7 @@ module.exports = function (environment) {
           forms: [
             "baugesuch",
             "baugesuch-v2",
+            "baugesuch-v3",
             "erdwaermesonden",
             "erdwaermesonden-v2",
             "voranfrage",

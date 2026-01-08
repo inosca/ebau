@@ -1,0 +1,1102 @@
+[
+  {
+    "model": "caluma_form.form",
+    "pk": "baugesuch-v3",
+    "fields": {
+      "created_at": "2026-01-08T14:32:34.071Z",
+      "modified_at": "2026-01-08T14:38:04.362Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Baugesuch\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Baugesuch V3\", \"fr\": null, \"it\": null}",
+      "meta": {
+        "order": 1,
+        "category": "building-permit",
+        "is-creatable": true,
+        "is-main-form": true
+      },
+      "is_published": true,
+      "is_archived": false,
+      "source": "baugesuch-v2"
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "bauprojekt-v3",
+    "fields": {
+      "created_at": "2026-01-08T14:38:48.799Z",
+      "modified_at": "2026-01-08T14:52:44.601Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Bauprojekt\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Baugesuch > Bauprojekt V3\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": "bauprojekt-v2"
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "generelle-fachthemen-v3",
+    "fields": {
+      "created_at": "2026-01-09T08:40:19.365Z",
+      "modified_at": "2026-01-09T08:40:35.179Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Generelle Fachthemen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Generelle Fachthemen V3\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": "generelle-fachthemen-v2"
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "hochbau-v3",
+    "fields": {
+      "created_at": "2026-01-08T14:51:37.648Z",
+      "modified_at": "2026-01-08T14:53:07.258Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Hochbau\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Hochbau V3\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": "hochbau-v2"
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-v3.allgemeine-informationen",
+    "fields": {
+      "created_at": "2026-01-08T14:32:34.086Z",
+      "modified_at": "2026-01-08T14:32:34.086Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baugesuch-v3",
+      "question": "allgemeine-informationen",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-v3.bauen-ausserhalb-bauzone",
+    "fields": {
+      "created_at": "2026-01-08T14:32:34.124Z",
+      "modified_at": "2026-01-08T14:32:34.124Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baugesuch-v3",
+      "question": "bauen-ausserhalb-bauzone",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-v3.bauprojekt-v3",
+    "fields": {
+      "created_at": "2026-01-08T14:39:42.061Z",
+      "modified_at": "2026-01-08T14:39:42.061Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baugesuch-v3",
+      "question": "bauprojekt-v3",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-v3.dokumente-v2",
+    "fields": {
+      "created_at": "2026-01-08T16:13:42.716Z",
+      "modified_at": "2026-01-08T16:13:42.716Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baugesuch-v3",
+      "question": "dokumente-v2",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-v3.durchgefuehrte-vorabklaerungen",
+    "fields": {
+      "created_at": "2026-01-08T14:32:34.098Z",
+      "modified_at": "2026-01-08T14:32:34.098Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baugesuch-v3",
+      "question": "durchgefuehrte-vorabklaerungen",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-v3.einreichen",
+    "fields": {
+      "created_at": "2026-01-08T14:32:34.142Z",
+      "modified_at": "2026-01-08T14:32:34.142Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baugesuch-v3",
+      "question": "einreichen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-v3.generelle-fachthemen-v3",
+    "fields": {
+      "created_at": "2026-01-09T08:52:42.741Z",
+      "modified_at": "2026-01-09T08:52:42.741Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baugesuch-v3",
+      "question": "generelle-fachthemen-v3",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-v3.lokalisierung-v2",
+    "fields": {
+      "created_at": "2026-01-08T14:32:34.111Z",
+      "modified_at": "2026-01-08T14:32:34.111Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baugesuch-v3",
+      "question": "lokalisierung-v2",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch-v3.personalien",
+    "fields": {
+      "created_at": "2026-01-08T14:32:34.104Z",
+      "modified_at": "2026-01-08T14:32:34.104Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "baugesuch-v3",
+      "question": "personalien",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauprojekt-v3.abstandsvorschriften",
+    "fields": {
+      "created_at": "2026-01-08T14:38:48.960Z",
+      "modified_at": "2026-01-08T14:38:48.960Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "bauprojekt-v3",
+      "question": "abstandsvorschriften",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauprojekt-v3.allgemeine-angaben-titel",
+    "fields": {
+      "created_at": "2026-01-08T14:38:48.921Z",
+      "modified_at": "2026-01-08T14:38:48.921Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "bauprojekt-v3",
+      "question": "allgemeine-angaben-titel",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauprojekt-v3.art-der-bauwerke",
+    "fields": {
+      "created_at": "2026-01-08T14:38:48.850Z",
+      "modified_at": "2026-01-08T14:38:48.850Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "bauprojekt-v3",
+      "question": "art-der-bauwerke",
+      "sort": 26
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauprojekt-v3.aushublagerplaetze-oder-baupisten",
+    "fields": {
+      "created_at": "2026-01-08T14:38:48.898Z",
+      "modified_at": "2026-01-08T14:38:48.898Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "bauprojekt-v3",
+      "question": "aushublagerplaetze-oder-baupisten",
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauprojekt-v3.bab",
+    "fields": {
+      "created_at": "2026-01-08T14:38:48.911Z",
+      "modified_at": "2026-01-08T14:38:48.911Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "bauprojekt-v3",
+      "question": "bab",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauprojekt-v3.bab-nachtraeglich-anforderungen",
+    "fields": {
+      "created_at": "2026-01-08T14:38:48.916Z",
+      "modified_at": "2026-01-08T14:38:48.916Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "bauprojekt-v3",
+      "question": "bab-nachtraeglich-anforderungen",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauprojekt-v3.bab-titel",
+    "fields": {
+      "created_at": "2026-01-08T14:38:48.891Z",
+      "modified_at": "2026-01-08T14:38:48.891Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "bauprojekt-v3",
+      "question": "bab-titel",
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauprojekt-v3.bauprojekt-titel",
+    "fields": {
+      "created_at": "2026-01-08T14:38:48.814Z",
+      "modified_at": "2026-01-08T14:38:48.814Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "bauprojekt-v3",
+      "question": "bauprojekt-titel",
+      "sort": 32
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauprojekt-v3.bauten-einrichtungen-arbeitnehmende-betroffen",
+    "fields": {
+      "created_at": "2026-01-08T14:38:48.859Z",
+      "modified_at": "2026-01-08T14:38:48.859Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "bauprojekt-v3",
+      "question": "bauten-einrichtungen-arbeitnehmende-betroffen",
+      "sort": 24
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauprojekt-v3.begruendung-ausnahme",
+    "fields": {
+      "created_at": "2026-01-08T14:38:48.970Z",
+      "modified_at": "2026-01-08T14:38:48.970Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "bauprojekt-v3",
+      "question": "begruendung-ausnahme",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauprojekt-v3.behig",
+    "fields": {
+      "created_at": "2026-01-08T14:38:48.885Z",
+      "modified_at": "2026-01-08T14:38:48.885Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "bauprojekt-v3",
+      "question": "behig",
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauprojekt-v3.bemerkungen",
+    "fields": {
+      "created_at": "2026-01-08T14:38:48.955Z",
+      "modified_at": "2026-01-08T14:38:48.955Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "bauprojekt-v3",
+      "question": "bemerkungen",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauprojekt-v3.beschreibung",
+    "fields": {
+      "created_at": "2026-01-08T14:38:48.877Z",
+      "modified_at": "2026-01-08T14:38:48.877Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "bauprojekt-v3",
+      "question": "beschreibung",
+      "sort": 21
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauprojekt-v3.beschreibung-projektaenderung",
+    "fields": {
+      "created_at": "2026-01-08T14:38:48.843Z",
+      "modified_at": "2026-01-08T14:38:48.843Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "bauprojekt-v3",
+      "question": "beschreibung-projektaenderung",
+      "sort": 27
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauprojekt-v3.datum-bis-zu-welchem-der-rueckbau-erfolgt",
+    "fields": {
+      "created_at": "2026-01-08T14:38:48.902Z",
+      "modified_at": "2026-01-08T14:38:48.902Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "bauprojekt-v3",
+      "question": "datum-bis-zu-welchem-der-rueckbau-erfolgt",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauprojekt-v3.dauer-in-monaten",
+    "fields": {
+      "created_at": "2026-01-08T14:38:48.945Z",
+      "modified_at": "2026-01-08T14:38:48.945Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "bauprojekt-v3",
+      "question": "dauer-in-monaten",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauprojekt-v3.einfache-hochbaute",
+    "fields": {
+      "created_at": "2026-01-08T14:38:48.854Z",
+      "modified_at": "2026-01-08T14:38:48.854Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "bauprojekt-v3",
+      "question": "einfache-hochbaute",
+      "sort": 25
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauprojekt-v3.geplanter-baustart",
+    "fields": {
+      "created_at": "2026-01-08T14:38:48.939Z",
+      "modified_at": "2026-01-08T14:38:48.939Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "bauprojekt-v3",
+      "question": "geplanter-baustart",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauprojekt-v3.gesamthoehe-gemaess-ivhb",
+    "fields": {
+      "created_at": "2026-01-08T14:38:48.931Z",
+      "modified_at": "2026-01-08T14:38:48.931Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "bauprojekt-v3",
+      "question": "gesamthoehe-gemaess-ivhb",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauprojekt-v3.gesamtkosten",
+    "fields": {
+      "created_at": "2026-01-08T14:38:48.925Z",
+      "modified_at": "2026-01-08T14:38:48.925Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "bauprojekt-v3",
+      "question": "gesamtkosten",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauprojekt-v3.hinweis-art-der-arbeiten",
+    "fields": {
+      "created_at": "2026-01-08T14:38:48.866Z",
+      "modified_at": "2026-01-08T14:38:48.866Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "bauprojekt-v3",
+      "question": "hinweis-art-der-arbeiten",
+      "sort": 23
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauprojekt-v3.hinweis-aushublagerplaetze-sowie-baupisten",
+    "fields": {
+      "created_at": "2026-01-08T14:38:48.906Z",
+      "modified_at": "2026-01-08T14:38:48.906Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "bauprojekt-v3",
+      "question": "hinweis-aushublagerplaetze-sowie-baupisten",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauprojekt-v3.hochbau-v3",
+    "fields": {
+      "created_at": "2026-01-08T15:47:12.426Z",
+      "modified_at": "2026-01-08T15:47:12.426Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauprojekt-v3",
+      "question": "hochbau-v3",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauprojekt-v3.kurzbeschreibung-bauprojekt",
+    "fields": {
+      "created_at": "2026-01-08T14:38:48.834Z",
+      "modified_at": "2026-01-08T14:38:48.834Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "bauprojekt-v3",
+      "question": "kurzbeschreibung-bauprojekt",
+      "sort": 29
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauprojekt-v3.mindest-und-grenzabstaende",
+    "fields": {
+      "created_at": "2026-01-08T14:38:48.966Z",
+      "modified_at": "2026-01-08T14:38:48.966Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "bauprojekt-v3",
+      "question": "mindest-und-grenzabstaende",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauprojekt-v3.nutzungszwecke",
+    "fields": {
+      "created_at": "2026-01-08T14:38:48.871Z",
+      "modified_at": "2026-01-08T14:38:48.871Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "bauprojekt-v3",
+      "question": "nutzungszwecke",
+      "sort": 22
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauprojekt-v3.stand-der-realisierung",
+    "fields": {
+      "created_at": "2026-01-08T14:38:48.828Z",
+      "modified_at": "2026-01-08T14:38:48.828Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "bauprojekt-v3",
+      "question": "stand-der-realisierung",
+      "sort": 30
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauprojekt-v3.status-bauprojekt",
+    "fields": {
+      "created_at": "2026-01-08T14:38:48.821Z",
+      "modified_at": "2026-01-08T14:38:48.821Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "bauprojekt-v3",
+      "question": "status-bauprojekt",
+      "sort": 31
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauprojekt-v3.tiefbau",
+    "fields": {
+      "created_at": "2026-01-08T14:38:48.984Z",
+      "modified_at": "2026-01-08T14:38:48.984Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "bauprojekt-v3",
+      "question": "tiefbau",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauprojekt-v3.umbauter-raum",
+    "fields": {
+      "created_at": "2026-01-08T14:38:48.935Z",
+      "modified_at": "2026-01-08T14:38:48.935Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "bauprojekt-v3",
+      "question": "umbauter-raum",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauprojekt-v3.umschreibung-bauprojekt",
+    "fields": {
+      "created_at": "2026-01-08T14:38:48.838Z",
+      "modified_at": "2026-01-08T14:38:48.838Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "bauprojekt-v3",
+      "question": "umschreibung-bauprojekt",
+      "sort": 28
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "generelle-fachthemen-v3.afu-umweltschutz",
+    "fields": {
+      "created_at": "2026-01-09T08:40:19.388Z",
+      "modified_at": "2026-01-09T08:40:19.388Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "generelle-fachthemen-v3",
+      "question": "afu-umweltschutz",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "generelle-fachthemen-v3.arbeitssicherheit-und-gesundheitsschutz-v2",
+    "fields": {
+      "created_at": "2026-01-09T08:40:19.465Z",
+      "modified_at": "2026-01-09T08:40:19.465Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "generelle-fachthemen-v3",
+      "question": "arbeitssicherheit-und-gesundheitsschutz-v2",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "generelle-fachthemen-v3.archaeologie-formular",
+    "fields": {
+      "created_at": "2026-01-09T08:40:19.443Z",
+      "modified_at": "2026-01-09T08:40:19.443Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "generelle-fachthemen-v3",
+      "question": "archaeologie-formular",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "generelle-fachthemen-v3.brandschutz",
+    "fields": {
+      "created_at": "2026-01-09T08:40:19.457Z",
+      "modified_at": "2026-01-09T08:40:19.457Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "generelle-fachthemen-v3",
+      "question": "brandschutz",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "generelle-fachthemen-v3.denkmalpflege-formular",
+    "fields": {
+      "created_at": "2026-01-09T08:40:19.436Z",
+      "modified_at": "2026-01-09T08:40:19.436Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "generelle-fachthemen-v3",
+      "question": "denkmalpflege-formular",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "generelle-fachthemen-v3.energetische-massnahmen",
+    "fields": {
+      "created_at": "2026-01-09T08:40:19.471Z",
+      "modified_at": "2026-01-09T08:40:19.471Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "generelle-fachthemen-v3",
+      "question": "energetische-massnahmen",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "generelle-fachthemen-v3.fuss-und-wanderwege",
+    "fields": {
+      "created_at": "2026-01-09T08:40:19.425Z",
+      "modified_at": "2026-01-09T08:40:19.425Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "generelle-fachthemen-v3",
+      "question": "fuss-und-wanderwege",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "generelle-fachthemen-v3.gastgewerbe",
+    "fields": {
+      "created_at": "2026-01-09T08:40:19.481Z",
+      "modified_at": "2026-01-09T08:40:19.481Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "generelle-fachthemen-v3",
+      "question": "gastgewerbe",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "generelle-fachthemen-v3.heimatschutz",
+    "fields": {
+      "created_at": "2026-01-09T08:40:19.407Z",
+      "modified_at": "2026-01-09T08:40:19.407Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "generelle-fachthemen-v3",
+      "question": "heimatschutz",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "generelle-fachthemen-v3.naturgefahren",
+    "fields": {
+      "created_at": "2026-01-09T08:40:19.451Z",
+      "modified_at": "2026-01-09T08:40:19.451Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "generelle-fachthemen-v3",
+      "question": "naturgefahren",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "generelle-fachthemen-v3.naturschutz",
+    "fields": {
+      "created_at": "2026-01-09T08:40:19.417Z",
+      "modified_at": "2026-01-09T08:40:19.417Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "generelle-fachthemen-v3",
+      "question": "naturschutz",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "generelle-fachthemen-v3.verkehr",
+    "fields": {
+      "created_at": "2026-01-09T08:40:19.402Z",
+      "modified_at": "2026-01-09T08:40:19.402Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "generelle-fachthemen-v3",
+      "question": "verkehr",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "generelle-fachthemen-v3.zivilschutz",
+    "fields": {
+      "created_at": "2026-01-09T08:41:09.604Z",
+      "modified_at": "2026-01-09T08:41:09.604Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "generelle-fachthemen-v3",
+      "question": "zivilschutz",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "hochbau-v3.gebaeude",
+    "fields": {
+      "created_at": "2026-01-08T15:01:57.222Z",
+      "modified_at": "2026-01-08T15:01:57.222Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "hochbau-v3",
+      "question": "gebaeude",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "hochbau-v3.gebaeudetechnik",
+    "fields": {
+      "created_at": "2026-01-08T16:09:26.470Z",
+      "modified_at": "2026-01-08T16:09:26.470Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "hochbau-v3",
+      "question": "gebaeudetechnik",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "hochbau-v3.haustechnische-anlagen-erstellt",
+    "fields": {
+      "created_at": "2025-07-10T08:46:36.367Z",
+      "modified_at": "2025-07-10T08:46:36.367Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "hochbau-v3",
+      "question": "haustechnische-anlagen-erstellt",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "hochbau-v3.hochbau-titel",
+    "fields": {
+      "created_at": "2025-07-10T08:46:36.339Z",
+      "modified_at": "2025-07-10T08:46:36.339Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "hochbau-v3",
+      "question": "hochbau-titel",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "hochbau-v3.info-bewilligung-oder-befreiung",
+    "fields": {
+      "created_at": "2026-01-08T16:09:26.470Z",
+      "modified_at": "2026-01-08T16:09:26.470Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "hochbau-v3",
+      "question": "info-bewilligung-oder-befreiung",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "hochbau-v3.schutzraum-vorhanden-oder-geplant",
+    "fields": {
+      "created_at": "2026-01-12T16:00:56.721Z",
+      "modified_at": "2026-01-12T16:00:56.721Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "hochbau-v3",
+      "question": "schutzraum-vorhanden-oder-geplant",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "hochbau-v3.wohnungen-info",
+    "fields": {
+      "created_at": "2026-01-08T15:57:48.193Z",
+      "modified_at": "2026-01-08T15:57:48.193Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "hochbau-v3",
+      "question": "wohnungen-info",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "hochbau-v3.wohnungen-v2",
+    "fields": {
+      "created_at": "2026-02-09T13:05:24.259Z",
+      "modified_at": "2026-02-09T13:05:24.259Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "hochbau-v3",
+      "question": "wohnungen-v2",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "hochbau-v3.zivilschutz-befreiung-oder-bewilligung",
+    "fields": {
+      "created_at": "2026-01-12T15:47:44.608Z",
+      "modified_at": "2026-01-12T15:47:44.608Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "hochbau-v3",
+      "question": "zivilschutz-befreiung-oder-bewilligung",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bauprojekt-v3",
+    "fields": {
+      "created_at": "2026-01-08T14:39:41.942Z",
+      "modified_at": "2026-01-08T14:39:41.942Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauprojekt\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "bauprojekt-v3",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "generelle-fachthemen-v3",
+    "fields": {
+      "created_at": "2026-01-09T08:52:42.642Z",
+      "modified_at": "2026-01-09T08:52:42.643Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Generelle Fachthemen\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "generelle-fachthemen-v3",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hochbau-v3",
+    "fields": {
+      "created_at": "2026-01-08T15:47:12.298Z",
+      "modified_at": "2026-01-08T15:47:30.904Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hochbau\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!( \"art-der-bauwerke-hochbaute\" in \"art-der-bauwerke\"|answer && \"einfache-hochbaute\"|answer != \"einfache-hochbaute-ja\" )",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "hochbau-v3",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  }
+]
