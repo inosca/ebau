@@ -40,7 +40,7 @@ export default {
     stateInfoButton: true,
   },
   dashboard: {
-    useLegacy: true,
+    useLegacy: false,
   },
   submitComponent: {
     requiredPermissions: ["instance-submit"],

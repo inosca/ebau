@@ -54,7 +54,6 @@ Router.map(function () {
     });
 
     this.route("support", { resetNamespace });
-    this.route("faq", { resetNamespace });
     registerCommunicationsGlobal(this, { resetNamespace });
   });
 

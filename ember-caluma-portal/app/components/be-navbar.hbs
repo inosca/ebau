@@ -113,11 +113,6 @@
                 {{t "nav.public-instance"}}
               </UkSubnav::Item>
             {{/if}}
-            {{#if (macroCondition (macroGetOwnConfig "enableFaq"))}}
-              {{#if this.session.isAuthenticated}}
-                <UkSubnav::Item @href="/faq">{{t "nav.faq"}}</UkSubnav::Item>
-              {{/if}}
-            {{/if}}
             {{#if (macroCondition (macroGetOwnConfig "enableStaticFaq"))}}
               {{#if this.session.isAuthenticated}}
                 <UkSubnav::Item @href="/static-content/portal-faq">
