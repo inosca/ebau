@@ -54,10 +54,14 @@ DJANGO_ADMIN = {
             "ech0211.Message",
             "django_celery_beat.PeriodicTask",
             "django_celery_beat.CrontabSchedule",
+            "work_items.WorkItemListFilterPreset",
+            "work_items.WorkItemTemplate",
         ],
         "CUSTOMER_MANAGED_MODELS": [
             "gis.GISDataSource",
             "deadlines.DeadlineType",
+            "work_items.WorkItemListFilterPreset",
+            "work_items.WorkItemTemplate",
         ],
     },
     "kt_bern": {
