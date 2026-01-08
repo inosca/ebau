@@ -260,6 +260,7 @@ class WorkItemListRowManager(models.Manager["WorkItemListRow"]):
                 applicants=self._annotate_applicants(),
                 direct_link_config=F("task__meta__directLink"),
                 direct_link_models=self._annotate_direct_link_models(),
+                has_additional_demand=self._annotate_has_additional_demand(),
             )
         )
 
@@ -470,6 +471,25 @@ class WorkItemListRowManager(models.Manager["WorkItemListRow"]):
             construction_step_id=CONSTRUCTION_STEP_ANNOTATION.values(
                 "meta__construction-step-id"
             )[:1],
+        )
+
+    def _annotate_has_additional_demand(self) -> Coalesce | Value:
+        """Annotate whether the instance currently has an additional demand.
+
+        For now, this implementation only checks for a certain instance state
+        and is only used in Kt. UR.
+        """
+
+        additional_demand_status = (
+            settings.WORK_ITEM_LIST.annotations.additional_demand_status
+        )
+
+        if additional_demand_status is None:
+            return Value(None, output_field=models.BooleanField())
+
+        return Coalesce(
+            Q(case__family__instance__instance_state__name=additional_demand_status),
+            Value(False),
         )
 
 

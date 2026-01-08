@@ -204,6 +204,19 @@ def setup_work_item_list(
             deadline="2025-01-05",
         )
 
+        if canton == "ur":
+            additional_demand_instance = instance_factory(
+                case=caluma_case_factory(), instance_state__name="nfd"
+            )
+            work_item_list_row_factory(
+                canton=canton,
+                name="additional-demand",
+                addressed=service,
+                case=additional_demand_instance.case,
+                created_at="2026-01-07",
+                deadline="2026-01-07",
+            )
+
         # because the target deadline date is set on the instance,
         # we need to create a new instance for this work item.
         target_deadline_instance = instance_factory(case=caluma_case_factory())
@@ -250,7 +263,7 @@ def test_work_item_list_row_list_no_pagination(
 
 
 @pytest.mark.freeze_time("2025-07-17 14:33")
-@pytest.mark.parametrize("canton", ["ag", "so", "gr", "sz"])
+@pytest.mark.parametrize("canton", ["ag", "so", "gr", "sz", "ur"])
 def test_work_item_list_row_list(
     admin_client,
     canton,
@@ -400,8 +413,8 @@ def test_work_item_list_row_list_ordering(
         (
             "target_deadline_date",
             "target-deadline-date",
-            # 36 is the column index for target_deadline_date in the SELECT statement because it is a subquery result.
-            "ORDER BY 36 ASC LIMIT",
+            # 37 is the column index for target_deadline_date in the SELECT statement because it is a subquery result.
+            "ORDER BY 37 ASC LIMIT",
         ),
     ]:
         params = {

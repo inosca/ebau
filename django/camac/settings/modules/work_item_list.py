@@ -3,6 +3,7 @@ from django.db.models import F
 from camac.settings.ebau_schema import ModuleConfig
 from camac.settings.modules.work_item_list_schema import (
     AnnotationsConfig,
+    PersonConfig,
     WorkItemListConfig,
 )
 
@@ -136,6 +137,44 @@ WORK_ITEM_LIST = ModuleConfig[WorkItemListConfig](
             special_id=F("case__family__instance__identifier"),
             municipality=None,
             applicants=None,
+        ),
+    ),
+    kt_uri=WorkItemListConfig(
+        enabled=True,
+        available_tasks_include_count=True,
+        available_tasks_for_role={
+            "municipality": [
+                "complete-check",
+                "check-additional-demand",
+                "init-distribution",
+                "check-inquiries",
+                "decision",
+                "init-construction-monitoring",
+                "complete-instance",
+            ],
+            "service": ["inquiry", "check-inquiries", "check-additional-demand"],
+            "coordination": ["inquiry", "check-inquiries", "check-additional-demand"],
+        },
+        annotations=AnnotationsConfig(
+            description=[
+                "proposal-description",
+                "beschreibung-zu-mbv",
+                "bezeichnung",
+                "vorhaben-proposal-description",
+                "veranstaltung-beschrieb",
+                "beschreibung-reklame",
+                "beschrieb-verfahren",
+            ],
+            municipality="municipality",
+            applicants=PersonConfig(
+                table_question="applicant",
+                is_juristic="is-juristic-person",
+                is_juristic_yes="is-juristic-person-yes",
+                juristic_name="juristic-person-name",
+                first_name="first-name",
+                last_name="last-name",
+            ),
+            additional_demand_status="nfd",
         ),
     ),
 )

@@ -50,6 +50,10 @@ class AnnotationsConfig(EBauConfig):
         default="beschreibung-bauvorhaben",
     )
     applicants: PersonConfig | None = PersonConfig()
+    additional_demand_status: str | None = Field(
+        description="Instance state name for additional demand (only used in UR)",
+        default=None,
+    )
 
 
 class WorkItemListConfig(ModuleApplicationConfig):

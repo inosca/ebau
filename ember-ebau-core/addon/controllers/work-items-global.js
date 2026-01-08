@@ -140,6 +140,16 @@ export default class WorkItemsGlobalController extends Controller {
   }
 
   get requestedFields() {
+    const conditionalFields = [];
+
+    if (this.highlight) {
+      conditionalFields.push("unread");
+
+      if (hasFeature("workItemList.useColorForNFD")) {
+        conditionalFields.push("has_additional_demand");
+      }
+    }
+
     const columnToField = {
       __all__: {
         fields: [
@@ -150,7 +160,7 @@ export default class WorkItemsGlobalController extends Controller {
           "is_manually_completable",
           "is_ready",
           "is_suspended",
-          ...(this.highlight ? ["unread"] : []),
+          ...conditionalFields,
         ],
       },
       applicants: { fields: ["applicants"] },
@@ -158,7 +168,7 @@ export default class WorkItemsGlobalController extends Controller {
       closedBy: { fields: ["closed_by_user"], include: ["closed_by_user"] },
       deadline: { fields: ["deadline", "target_deadline_date"] },
       description: { fields: ["description"] },
-      instance: { fields: ["instance_name", "special_id"] },
+      instance: { fields: ["instance_name", "special_id", "instance_id"] },
       municipality: { fields: ["municipality"] },
       responsible: {
         fields: ["assigned_user", "addressed_service"],
