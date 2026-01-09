@@ -100,7 +100,7 @@ services:
         - acr.run/camac-ng/camac-ng/keycloak:${CI_COMMIT_TAG:-master}
 
   metabase:
-    image: metabase/metabase:v0.45.3
+    image: metabase/metabase:v0.58.1
     ports:
       - "666:3000"
     environment:
