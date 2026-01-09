@@ -158,6 +158,14 @@ button,
   border-width: 1px;
 }
 
+/* Custom button-like link */
+a.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
 button:hover,
 button:focus,
 .button:hover,
@@ -165,6 +173,7 @@ button:focus,
   -webkit-transform: scale(1.07);
   -ms-transform: scale(1.07);
   transform: scale(1.07);
+  text-decoration: none;
 }
 
 button.primary,
@@ -180,77 +189,36 @@ button.secondary,
   border: 1px solid #4e4e4e;
 }
 
-/* form related */
-.form-group {
-  position: relative;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-
-  .label-wrapper {
-    position: absolute;
-    top: -5px;
-    left: 23px;
-    -webkit-transform: translateY(8px);
-    -ms-transform: translateY(8px);
-    transform: translateY(8px);
-    -webkit-transition: all 250ms ease-out;
-    transition: all 250ms ease-out;
-    background-color: #fff;
-    padding: 2px 5px;
-    opacity: 1;
-
-    label.floating-label {
-      font-size: 13px;
-      line-height: 17px;
-      font-weight: 400;
-    }
-  }
-
-  .input-wrapper {
-    .floating-input {
-      height: 59px;
-      width: 100%;
-      max-width: 800px;
-      padding: 3px 10px;
-      padding-left: 28px;
-      margin-bottom: 20px;
-      margin-top: 20px;
-      background-color: #fefefe;
-      border: 1px solid #707070;
-      border-radius: 3px;
-      box-sizing: border-box;
-      font-family: "Roboto";
-      font-style: normal;
-      font-weight: 400;
-      font-size: 16px;
-      color: #000 !important;
-
-      &:focus {
-        border: 1px solid #000;
-        border-left: 6px solid #000;
-      }
-
-      &:focus-visible {
-        outline: none;
-      }
-    }
-  }
-
-  #kc-form-buttons {
-    .button {
-      margin-top: 0;
-    }
-  }
+.block-button {
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+  margin-top: 0;
 }
 
 .form-error-text {
   color: variables.$global-color-red;
 }
 
+.logo {
+  background-image: url(../img/kanton-bern-logo.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  height: 68.5px;
+  width: 150px;
+}
+
+@media screen and (max-width: 1119px) {
+  .logo {
+    margin-top: 0px;
+    width: 110px;
+  }
+}
+
 .logo-caption {
-  line-height: 17px;
+  font-size: var(--global-header-line-height);
+  line-height: var(--global-header-line-height);
   letter-spacing: 0.01rem;
   word-spacing: 0.025rem;
   font-weight: 400;
@@ -260,13 +228,9 @@ button.secondary,
 }
 
 @media screen and (max-width: 1119px) {
-  div.logo-caption {
+  .logo-caption {
     margin-top: 12px;
     max-width: 210px;
-    font-size: 12px;
-    line-height: 13px;
-    letter-spacing: 0.01rem;
-    word-spacing: 0.025rem;
   }
 }
 
@@ -535,8 +499,8 @@ a.text-link-2:focus {
     background-image: url(../img/icon-info.svg);
     background-repeat: no-repeat;
     background-attachment: scroll;
-    background-position: center center;
-    background-size: auto;
+    background-position: center 16px;
+    background-size: 60px;
   }
 
   .feedback-text {
@@ -646,6 +610,7 @@ body.login {
       /* Aligns child divs including feedback-box */
       & > div {
         margin-left: var(--page-content-margin-horizontal);
+        margin-right: var(--page-content-margin-horizontal);
       }
 
       div.main-column {
@@ -699,8 +664,91 @@ body.login {
       }
     }
 
+    @media screen and (max-width: 767px) {
+      main.content {
+        margin-top: var(--page-content-margin-vertical);
+      }
+    }
+
     .js-contact-box {
       display: none;
+    }
+  }
+}
+
+/* form related */
+.form-group {
+  position: relative;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .label-wrapper {
+    position: absolute;
+    top: -5px;
+    left: 23px;
+    -webkit-transform: translateY(8px);
+    -ms-transform: translateY(8px);
+    transform: translateY(8px);
+    -webkit-transition: all 250ms ease-out;
+    transition: all 250ms ease-out;
+    background-color: #fff;
+    padding: 2px 5px;
+    opacity: 1;
+
+    label.floating-label {
+      font-size: 13px;
+      line-height: 17px;
+      font-weight: 400;
+    }
+  }
+
+  .input-wrapper {
+    .floating-input {
+      height: 59px;
+      width: 100%;
+      max-width: 800px;
+      padding: 3px 10px;
+      padding-left: 28px;
+      margin-bottom: 20px;
+      margin-top: 20px;
+      background-color: #fefefe;
+      border: 1px solid #707070;
+      border-radius: 3px;
+      box-sizing: border-box;
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      color: #000 !important;
+
+      &:focus {
+        border: 1px solid #000;
+        border-left: 6px solid #000;
+      }
+
+      &:focus-visible {
+        outline: none;
+      }
+    }
+  }
+
+  button,
+  .button {
+    width: 60%;
+  }
+
+  @media screen and (max-width: 1119px) {
+    button,
+    .button {
+      width: 100%;
+    }
+  }
+
+  #kc-form-buttons {
+    .button {
+      margin-top: 0;
     }
   }
 }

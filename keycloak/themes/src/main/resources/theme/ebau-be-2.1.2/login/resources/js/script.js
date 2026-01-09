@@ -1,4 +1,4 @@
-(function (window) {
+(function(window) {
   window.onload = init;
 
   function init() {
@@ -19,7 +19,7 @@ function toggleMenu() {
 function setupMobileMenuToggle() {
   const menuButton = document.getElementById("mobile-menu-toggle");
   if (menuButton) {
-    menuButton.addEventListener("click", function () {
+    menuButton.addEventListener("click", function() {
       toggleMenu();
     });
   }
@@ -31,7 +31,7 @@ function setupMobileMenuToggle() {
  * */
 function setupContactPageToggle() {
   const loginLinks = document.querySelectorAll(".js-login-link");
-  const toggleLinks = document.querySelectorAll(".js-contact-toggle");
+  const contactLinks = document.querySelectorAll(".js-contact-toggle");
   const mainContent = document.querySelector(".js-main-content");
   const contactBox = document.querySelector(".js-contact-box");
 
@@ -40,14 +40,14 @@ function setupContactPageToggle() {
       mainContent.style.display = "none";
       contactBox.style.display = "block";
       loginLinks.forEach((link) => link.classList.remove("active"));
-      toggleLinks.forEach((link) => {
+      contactLinks.forEach((link) => {
         link.classList.add("active");
       });
     } else {
       mainContent.style.display = "block";
       contactBox.style.display = "none";
       loginLinks.forEach((link) => link.classList.add("active"));
-      toggleLinks.forEach((link) => {
+      contactLinks.forEach((link) => {
         link.classList.remove("active");
       });
     }
@@ -61,14 +61,20 @@ function setupContactPageToggle() {
     showContactBox(event.state?.contactVisible);
   });
 
-  toggleLinks.forEach((link) => {
-    link.addEventListener("click", function (event) {
+  [...loginLinks, ...contactLinks].forEach((link) => {
+    link.addEventListener("click", function(event) {
       event.preventDefault();
       event.target.blur();
 
-      if (mainContent.style.display !== "none") {
-        showContactBox(true);
-        history.pushState({ contactVisible: true }, "", location.href);
+      mainContentVisible = mainContent.style.display !== "none";
+      loginLinkPressed = loginLinks.values().some((e) => e === event.target);
+      if (mainContentVisible !== loginLinkPressed) {
+        showContactBox(mainContentVisible);
+        history.pushState(
+          { contactVisible: !history.state.contactVisible },
+          "",
+          location.href,
+        );
       }
       if (this.closest("#mobile-menu")) {
         toggleMenu();

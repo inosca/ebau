@@ -100,4 +100,4 @@ file and from the `keycloak/themes/src/main/resources/theme/` directory.
 
 ### Deliverables
 Build the keycloak theme by building the keycloak container and deliver the generated JAR
-under the path `/opt/keycloak/providers` from the container.
+under the path `/opt/keycloak/providers` from the container. Remember to turn of the caching mechanisms for docker compose in `compose/kt_bern-dev.yml`.
