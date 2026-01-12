@@ -1871,7 +1871,17 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 
         return None
 
+    def _get_cantonal_usage_authority(self, instance):
+        event_type_answer = self.get_master_data(instance.case).veranstaltung_art
+
+        if event_type_answer in settings.APPLICATION["CALUMA"].get("KOOR_SD_SLUGS"):
+            return str(uri_constants.SICHERHEITSDIREKTION_AUTHORITY_ID)
+        else:
+            return str(uri_constants.BAUDIREKTION_AUTHORITY_ID)
+
     def _get_authority_pk(self, instance):
+        if instance.case.document.form.slug == "cantonal-territory-usage":
+            return self._get_cantonal_usage_authority(instance)
         if instance.case.document.form.slug == "pgv-gemeindestrasse":
             return str(uri_constants.BAUDIREKTION_AUTHORITY_ID)
         if instance.case.document.form.slug == "einfache-anfrage":
