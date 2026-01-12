@@ -17,6 +17,7 @@ def test_assign_responsible_user_on_acl_creation(
     municipality = service_factory()
     service_1 = service_factory()
     service_2 = service_factory()
+    service_factory(slug="afb")
     read_only = service_factory()
 
     access_level_factory(pk="lead-authority")
