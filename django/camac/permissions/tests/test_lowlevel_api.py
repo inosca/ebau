@@ -12,23 +12,16 @@ from camac.permissions.conditions import Always, Never
 from camac.permissions.switcher import PERMISSION_MODE
 
 
-@pytest.mark.parametrize(
-    "grant_type", ["user", "service", "service_group", "token", "role"]
-)
-def test_grant_permission(
+def test_grant_user_permission(
     db,
-    grant_type,
     user,
     service,
     user_factory,
-    service_factory,
-    service_group,
     token,
     instance,
     access_level,
     role,
 ):
-    """Test whether visibility of the ACLs themselves works correctly."""
     # Fetch before grant - should be no access
     visible_acls = models.InstanceACL.for_current_user(
         user=user, service=service, token=token, role=role
@@ -36,47 +29,156 @@ def test_grant_permission(
     assert visible_acls.count() == 0
 
     # Grant permission to our user
-    grant_kwargs = {
-        grant_type: locals().get(grant_type),
-        "grant_type": grant_type.upper(),
-    }
-    api.grant(**grant_kwargs, instance=instance, access_level=access_level)
-
-    current_acl_kwargs = {grant_type: locals().get(grant_type)}
-    # special case: service_group permission is resolved via service
-    if grant_type == "service_group":
-        current_acl_kwargs = {"service": service}
-    acls_by_current_grant_type = models.InstanceACL.for_current_user(
-        **current_acl_kwargs
+    api.grant(
+        user=user, grant_type="USER", instance=instance, access_level=access_level
     )
 
-    other_acl_kwargs = {"user": user, "service": service, "token": token, "role": role}
-    if grant_type == "service_group":
-        del other_acl_kwargs["service"]
-    else:
-        del other_acl_kwargs[grant_type]
-    acls_by_other_grant_types = models.InstanceACL.for_current_user(**other_acl_kwargs)
+    acls_by_user = models.InstanceACL.for_current_user(user=user)
+    acls_by_other_grant_types = models.InstanceACL.for_current_user(
+        service=service, token=token, role=role
+    )
 
-    assert acls_by_current_grant_type.count() == 1
+    assert acls_by_user.count() == 1
     assert acls_by_other_grant_types.count() == 0
 
-    if grant_type == "user":
-        other_user = user_factory()
-        visible_acls = models.InstanceACL.for_current_user(user=other_user)
-        assert visible_acls.count() == 0
+    other_user = user_factory()
+    assert models.InstanceACL.for_current_user(user=other_user).count() == 0
 
-    if grant_type == "service":
-        other_service = service_factory()
-        visible_acls = models.InstanceACL.for_current_user(service=other_service)
-        assert visible_acls.count() == 0
 
-    if grant_type == "service_group":
-        same_group_service = service_factory(service_group=service.service_group)
-        visible_acls = models.InstanceACL.for_current_user(service=same_group_service)
-        assert visible_acls.count() == 1
-        other_group_service = service_factory()
-        visible_acls = models.InstanceACL.for_current_user(service=other_group_service)
-        assert visible_acls.count() == 0
+def test_grant_service_permission(
+    db,
+    user,
+    service,
+    service_factory,
+    token,
+    instance,
+    access_level,
+    role,
+):
+    # Fetch before grant - should be no access
+    visible_acls = models.InstanceACL.for_current_user(
+        user=user, service=service, token=token, role=role
+    )
+    assert visible_acls.count() == 0
+
+    # Grant permission to our service
+    api.grant(
+        service=service,
+        grant_type="SERVICE",
+        instance=instance,
+        access_level=access_level,
+    )
+
+    acls_by_service = models.InstanceACL.for_current_user(service=service)
+    acls_by_other_grant_types = models.InstanceACL.for_current_user(
+        user=user, token=token, role=role
+    )
+
+    assert acls_by_service.count() == 1
+    assert acls_by_other_grant_types.count() == 0
+
+    other_service = service_factory()
+    assert models.InstanceACL.for_current_user(service=other_service).count() == 0
+
+
+def test_grant_service_group_permission(
+    db,
+    user,
+    service,
+    service_factory,
+    token,
+    instance,
+    access_level,
+    role,
+):
+    # Fetch before grant - should be no access
+    visible_acls = models.InstanceACL.for_current_user(
+        user=user, service=service, token=token, role=role
+    )
+    assert visible_acls.count() == 0
+
+    # Grant permission to our service group
+    api.grant(
+        service_group=service.service_group,
+        grant_type="SERVICE_GROUP",
+        instance=instance,
+        access_level=access_level,
+    )
+
+    acls_by_service = models.InstanceACL.for_current_user(service=service)
+    acls_by_other_grant_types = models.InstanceACL.for_current_user(
+        user=user, token=token, role=role
+    )
+
+    assert acls_by_service.count() == 1
+    assert acls_by_other_grant_types.count() == 0
+
+    same_group_service = service_factory(service_group=service.service_group)
+    assert models.InstanceACL.for_current_user(service=same_group_service).count() == 1
+    other_group_service = service_factory()
+    assert models.InstanceACL.for_current_user(service=other_group_service).count() == 0
+
+
+def test_grant_role_permission(
+    db,
+    user,
+    service,
+    token,
+    instance,
+    access_level,
+    role,
+    role_factory,
+):
+    # Fetch before grant - should be no access
+    visible_acls = models.InstanceACL.for_current_user(
+        user=user, service=service, token=token, role=role
+    )
+    assert visible_acls.count() == 0
+
+    # Grant permission to our role
+    api.grant(
+        role=role, grant_type="ROLE", instance=instance, access_level=access_level
+    )
+
+    acls_by_role = models.InstanceACL.for_current_user(role=role)
+    acls_by_other_grant_types = models.InstanceACL.for_current_user(
+        user=user, service=service, token=token
+    )
+
+    assert acls_by_role.count() == 1
+    assert acls_by_other_grant_types.count() == 0
+
+    other_role = role_factory()
+    assert models.InstanceACL.for_current_user(role=other_role).count() == 0
+
+
+def test_grant_token_permission(
+    db,
+    user,
+    service,
+    token,
+    instance,
+    access_level,
+    role,
+):
+    # Fetch before grant - should be no access
+    visible_acls = models.InstanceACL.for_current_user(
+        user=user, service=service, token=token, role=role
+    )
+    assert visible_acls.count() == 0
+
+    # Grant permission to our role
+    api.grant(
+        token=token, grant_type="TOKEN", instance=instance, access_level=access_level
+    )
+
+    acls_by_role = models.InstanceACL.for_current_user(token=token)
+    acls_by_other_grant_types = models.InstanceACL.for_current_user(
+        user=user, service=service, role=role
+    )
+
+    assert acls_by_role.count() == 1
+    assert acls_by_other_grant_types.count() == 0
 
 
 def _get_instances(user, service, token):
