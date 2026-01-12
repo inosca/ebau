@@ -90,7 +90,7 @@ def assign_ebau_nr(instance, year=None) -> str:
 
 def create_history_entry(
     instance: Instance,
-    user: User,
+    user: User | None,
     text: str,
     text_data: Callable[[str], dict] = lambda language: {},
     history_type: str = HistoryActionConfig.HISTORY_TYPE_STATUS,
@@ -102,11 +102,14 @@ def create_history_entry(
     """
     Create a multilingual history entry for an instance.
 
-    The parameters `instance`, `user` and `text` are required. Optionally it
+    The parameters `instance` and `text` are required. Optionally it
     accepts a function `text_data` that takes the language as parameter and
     should return a dictionary of data that will be formatted into the text.
     Also, the `history_type` can be passed if it's anything other than a
     status change.
+
+    The `user` parameter can be empty (None) if the action was performed
+    by the system.
 
     >>> create_history_entry(
     ...     instance,

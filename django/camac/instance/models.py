@@ -571,7 +571,7 @@ class HistoryEntry(core_models.MultilingualModel, models.Model):
     service = models.ForeignKey(
         "user.Service", models.DO_NOTHING, related_name="+", null=True
     )
-    user = models.ForeignKey(User, models.DO_NOTHING, related_name="+")
+    user = models.ForeignKey(User, models.DO_NOTHING, related_name="+", null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     title = models.TextField(blank=True, null=True)
     body = models.TextField(blank=True, null=True)

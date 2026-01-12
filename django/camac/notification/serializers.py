@@ -55,7 +55,7 @@ from camac.instance.utils import (
 from camac.instance.validators import transform_coordinates
 from camac.lookups import Any
 from camac.permissions.models import InstanceACL
-from camac.user.models import Group, Role, Service, User
+from camac.user.models import Group, Service, User
 from camac.user.utils import get_tax_administration, unpack_service_emails
 from camac.utils import (
     build_url,
@@ -1862,18 +1862,6 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
                 user = User.objects.filter(
                     username=settings.APPLICATION.get("SYSTEM_USER")
                 ).first()
-
-            if not user:
-                # This should be removed in the future since it's a really
-                # strange fallback that does not really make sense in any case
-                # to choose a random support user as sender. This can be removed
-                # when the notifyoverdue command of UR is using the system user
-                user = (
-                    Role.objects.get(name__iexact="support")
-                    .groups.order_by("group_id")
-                    .first()
-                    .users.first()
-                )
 
             self._create_history_entry(
                 instance, subject, body, recipients, recipient_type, user
