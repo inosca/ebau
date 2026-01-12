@@ -19,6 +19,11 @@ class GRANT_CHOICES(models.TextChoices):
     # linked to said service.
     SERVICE = "SERVICE", "Service"
 
+    # Grant type: Service Group means user must be in the linked
+    # service group, AND the x-camac-group header refers to a group
+    # linked to a service in said service group.
+    SERVICE_GROUP = "SERVICE_GROUP", "Service Group"
+
     # Grant type: Role means user must have the linked
     # role, AND the x-camac-group header refers to a group
     # linked to said role.
@@ -79,8 +84,8 @@ class InstanceACL(models.Model):
         AccessLevel, on_delete=models.DO_NOTHING, related_name="acls"
     )
 
-    # One (and exactly one) of user,service,token must be set to identify
-    # which users are affected
+    # One (and exactly one) of user, service, service_group, role, token must be
+    # set to identify which users are affected
     user = models.ForeignKey(
         user_models.User,
         null=True,
@@ -90,6 +95,13 @@ class InstanceACL(models.Model):
     )
     service = models.ForeignKey(
         user_models.Service,
+        null=True,
+        blank=True,
+        on_delete=models.CASCADE,
+        related_name="acls",
+    )
+    service_group = models.ForeignKey(
+        user_models.ServiceGroup,
         null=True,
         blank=True,
         on_delete=models.CASCADE,
@@ -186,6 +198,9 @@ class InstanceACL(models.Model):
             )
         if service:
             user_filter_parts.append(models.Q(**{f"{prefix}service": service}))
+            user_filter_parts.append(
+                models.Q(**{f"{prefix}service_group": service.service_group_id})
+            )
 
             if area is None:
                 area = APPLICABLE_AREAS.INTERNAL.value

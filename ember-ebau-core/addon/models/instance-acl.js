@@ -9,6 +9,7 @@ export const AVAILABLE_GRANT_TYPES = [
   "ANONYMOUS-PUBLIC",
   "AUTHENTICATED-PUBLIC",
   "SERVICE",
+  "SERVICE_GROUP",
   "TOKEN",
   "USER",
 ];
@@ -36,6 +37,8 @@ export default class InstanceAclModel extends Model {
   // only one of those can be set.
   @attr token;
   @belongsTo("public-service", { inverse: null, async: true }) service;
+  @belongsTo("public-service-group", { inverse: null, async: true })
+  serviceGroup;
   @belongsTo("public-user", { inverse: null, async: true }) user;
   @belongsTo("public-role", { inverse: null, async: true }) role;
 
@@ -108,6 +111,8 @@ export default class InstanceAclModel extends Model {
         return this.user.get("fullName") ?? placeholder;
       case "SERVICE":
         return this.service.get("name") ?? placeholder;
+      case "SERVICE_GROUP":
+        return this.serviceGroup.get("name") ?? placeholder;
       case "ROLE":
         return this.role.get("name") ?? placeholder;
       default:
@@ -125,6 +130,11 @@ export default class InstanceAclModel extends Model {
       case "SERVICE":
         return {
           label: this.intl.t("permissions.entities.service"),
+          color: "muted",
+        };
+      case "SERVICE_GROUP":
+        return {
+          label: this.intl.t("permissions.entities.service-group"),
           color: "muted",
         };
       case "AUTHENTICATED-PUBLIC":

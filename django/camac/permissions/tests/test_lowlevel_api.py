@@ -12,9 +12,21 @@ from camac.permissions.conditions import Always, Never
 from camac.permissions.switcher import PERMISSION_MODE
 
 
-@pytest.mark.parametrize("grant_type", ["user", "service", "token", "role"])
+@pytest.mark.parametrize(
+    "grant_type", ["user", "service", "service_group", "token", "role"]
+)
 def test_grant_permission(
-    db, grant_type, user, service, token, instance, access_level, role
+    db,
+    grant_type,
+    user,
+    service,
+    user_factory,
+    service_factory,
+    service_group,
+    token,
+    instance,
+    access_level,
+    role,
 ):
     """Test whether visibility of the ACLs themselves works correctly."""
     # Fetch before grant - should be no access
@@ -30,10 +42,41 @@ def test_grant_permission(
     }
     api.grant(**grant_kwargs, instance=instance, access_level=access_level)
 
-    visible_acls = models.InstanceACL.for_current_user(
-        user=user, service=service, token=token, role=role
+    current_acl_kwargs = {grant_type: locals().get(grant_type)}
+    # special case: service_group permission is resolved via service
+    if grant_type == "service_group":
+        current_acl_kwargs = {"service": service}
+    acls_by_current_grant_type = models.InstanceACL.for_current_user(
+        **current_acl_kwargs
     )
-    assert visible_acls.count() == 1
+
+    other_acl_kwargs = {"user": user, "service": service, "token": token, "role": role}
+    if grant_type == "service_group":
+        del other_acl_kwargs["service"]
+    else:
+        del other_acl_kwargs[grant_type]
+    acls_by_other_grant_types = models.InstanceACL.for_current_user(**other_acl_kwargs)
+
+    assert acls_by_current_grant_type.count() == 1
+    assert acls_by_other_grant_types.count() == 0
+
+    if grant_type == "user":
+        other_user = user_factory()
+        visible_acls = models.InstanceACL.for_current_user(user=other_user)
+        assert visible_acls.count() == 0
+
+    if grant_type == "service":
+        other_service = service_factory()
+        visible_acls = models.InstanceACL.for_current_user(service=other_service)
+        assert visible_acls.count() == 0
+
+    if grant_type == "service_group":
+        same_group_service = service_factory(service_group=service.service_group)
+        visible_acls = models.InstanceACL.for_current_user(service=same_group_service)
+        assert visible_acls.count() == 1
+        other_group_service = service_factory()
+        visible_acls = models.InstanceACL.for_current_user(service=other_group_service)
+        assert visible_acls.count() == 0
 
 
 def _get_instances(user, service, token):
@@ -42,9 +85,9 @@ def _get_instances(user, service, token):
     )
 
 
-@pytest.mark.parametrize("grant_type", ["user", "service", "token"])
+@pytest.mark.parametrize("grant_type", ["user", "service", "service_group", "token"])
 def test_visible_instances(
-    db, grant_type, user, service, token, instance, access_level
+    db, grant_type, user, service, service_group, token, instance, access_level
 ):
     """Test whether the "simple" ACL types all work on the "instance" queryset."""
     visible_instances = _get_instances(user, service, token)
@@ -282,9 +325,12 @@ def test_cache_eviction(
 
 MSG_USER = "Grant type USER must have only the `user` value set"
 MSG_SERVICE = "Grant type SERVICE must have only the `service` value set"
+MSG_SERVICE_GROUP = (
+    "Grant type SERVICE_GROUP must have only the `service_group` value set"
+)
 MSG_TOKEN = "Grant type TOKEN must have only the `token` value set"
 MSG_ENDTIME = "End time must be either None or later than start time"
-MSG_ANON = "Anonymous grants must not have user or service or token"
+MSG_ANON = "Anonymous grants must not have user, service, service_group, role or token"
 MSG_INVALID_GRANT = "Unhandled grant type blah"
 MSG_GRANTTYPE = "Access level requires grant type USER"
 
@@ -307,6 +353,7 @@ MSG_GRANTTYPE = "Access level requires grant type USER"
         # Setting the wrong attributes for given grant type
         (False, False, None, "USER", None, None, MSG_USER),
         (True, False, None, "SERVICE", None, None, MSG_SERVICE),
+        (False, True, None, "SERVICE_GROUP", None, None, MSG_SERVICE_GROUP),
         (True, True, None, "SERVICE", None, None, MSG_SERVICE),
         (True, True, "blah", "TOKEN", None, None, MSG_TOKEN),
         (False, True, None, "TOKEN", None, None, MSG_TOKEN),

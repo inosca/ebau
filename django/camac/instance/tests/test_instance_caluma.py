@@ -1710,7 +1710,7 @@ def test_instance_report(
 
         save_answer(
             question=caluma_question_factory(
-                slug="geometer-beurteilung-notwendigkeit-vermessung"
+                slug="geometer-beurteilung-notwendigkeit-vermessung", type="text"
             ),
             document=geometer_work_item.document,
             value=geometer_value,
@@ -1865,7 +1865,7 @@ def test_instance_finalize(
 
         save_answer(
             question=caluma_question_factory(
-                slug="geometer-beurteilung-notwendigkeit-vermessung"
+                slug="geometer-beurteilung-notwendigkeit-vermessung", type="text"
             ),
             document=geometer_work_item.document,
             value=geometer_value,

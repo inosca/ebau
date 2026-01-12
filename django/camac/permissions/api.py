@@ -20,7 +20,7 @@ from camac.permissions import models
 from camac.permissions.conditions import PermissionContext, Static
 from camac.permissions.models import AccessLevel, InstanceACL
 from camac.user import models as user_models
-from camac.user.models import Role, Service, User
+from camac.user.models import Role, Service, ServiceGroup, User
 
 from . import exceptions
 
@@ -151,8 +151,8 @@ class ACLUserInfo:
     def to_kwargs(self):
         """Turn the userinfo into a "kwargs" dict.
 
-        The kwargs dict consists of the keys `user`, `service`, `token`, and
-        `area` - suitable for passing along to the filtering methods in
+        The kwargs dict consists of the keys `user`, `service`, `role`, `token`
+        and `area` - suitable for passing along to the filtering methods in
         `camac.permissions.models`.
         """
 
@@ -425,6 +425,7 @@ class PermissionManager:
         access_level: Union[AccessLevel, str],
         user: Optional[User] = None,
         service: Optional[Service] = None,
+        service_group: Optional[ServiceGroup] = None,
         role: Optional[Role] = None,
         token: Optional[str] = None,
         starting_at: Optional[datetime] = None,
@@ -435,7 +436,7 @@ class PermissionManager:
         """Grant permissions by creating a new ACL on the given Instance.
 
         Depending on the `grant_type` given, the parameters `user`,
-        `service`, or `token` may be required or disallowed.
+        `service`, `service_group`, `role` or `token` may be required or disallowed.
 
         If you pass `starting_at`, the ACL will be valid starting exactly at
         the given time. Otherwise, it starts at the current time.
@@ -461,6 +462,7 @@ class PermissionManager:
             grant_type=grant_type,
             user=user,
             service=service,
+            service_group=service_group,
             token=token,
             role=role,
             starting_at=starting_at,
@@ -474,6 +476,7 @@ class PermissionManager:
             instance=instance,
             access_level=access_level,
             service=service,
+            service_group=service_group,
             token=token,
             role=role,
             end_time=ends_at,
@@ -593,6 +596,7 @@ def _validate_grant(  # noqa: C901
     grant_type,
     user,
     service,
+    service_group,
     role,
     token,
     ends_at,
@@ -613,7 +617,13 @@ def _validate_grant(  # noqa: C901
 
     # Anonymous must not have any parameters. All others (parametrized ones)
     # must have exactly one (and the right one as well).
-    only_one = {"SERVICE": service, "TOKEN": token, "ROLE": role, "USER": user}
+    only_one = {
+        "SERVICE": service,
+        "SERVICE_GROUP": service_group,
+        "TOKEN": token,
+        "ROLE": role,
+        "USER": user,
+    }
     has_required_param = only_one.pop(grant_type, None)
     anonymous_ok = not has_required_param and not any(only_one.values())
     parametrized_ok = has_required_param and not any(only_one.values())
@@ -629,7 +639,7 @@ def _validate_grant(  # noqa: C901
         # audience to a specific user group. If we reach this, then there's at
         # least one limiting parameter given that we do not want.
         raise exceptions.GrantValidationError(
-            "Anonymous grants must not have user or service or token"
+            "Anonymous grants must not have user, service, service_group, role or token"
         )
     elif is_parametrized and not parametrized_ok:
         # All "parametrized" grant types must have exactly the matching

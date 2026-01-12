@@ -10,6 +10,7 @@ permissions:
 
   entities:
     service: Organisation
+    service-group: Organisationstyp
     user: Benutzer
     public-registered: Öffentlicher Zugriff (registriert)
     public-anonymous: Öffentlicher Zugriff (nicht registriert)
