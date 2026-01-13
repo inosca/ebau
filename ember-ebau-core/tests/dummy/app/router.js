@@ -5,6 +5,7 @@ import config from "dummy/config/environment";
 import registerBilling from "ember-ebau-core/modules/billing";
 import registerDeadlines from "ember-ebau-core/modules/deadlines";
 import registerHistory from "ember-ebau-core/modules/history";
+import registerJournal from "ember-ebau-core/modules/journal";
 import registerPermissions from "ember-ebau-core/modules/permissions";
 import registerProfile from "ember-ebau-core/modules/profile";
 import registerRejection from "ember-ebau-core/modules/rejection";
@@ -51,4 +52,5 @@ Router.map(function () {
   registerDeadlines(this);
   registerResponsible(this);
   registerHistory(this);
+  registerJournal(this);
 });
