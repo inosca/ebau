@@ -177,4 +177,12 @@ WORK_ITEM_LIST = ModuleConfig[WorkItemListConfig](
             additional_demand_status="nfd",
         ),
     ),
+    kt_bern=WorkItemListConfig(
+        enabled=True,
+        annotations=AnnotationsConfig(
+            special_id=F("case__family__meta__ebau-number"),
+            municipality=None,
+            applicants=None,
+        ),
+    ),
 )

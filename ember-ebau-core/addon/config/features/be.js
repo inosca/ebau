@@ -68,4 +68,7 @@ export default {
     showAuthor: true,
     showMigrated: true,
   },
+  workItems: {
+    v2: true,
+  },
 };

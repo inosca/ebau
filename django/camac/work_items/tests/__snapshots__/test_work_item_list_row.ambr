@@ -274,6 +274,244 @@
     }),
   })
 # ---
+# name: test_work_item_list_row_list[be]
+  dict({
+    'data': list([
+      dict({
+        'attributes': dict({
+          'applicants': None,
+          'closed-at': None,
+          'deadline': '2025-01-01T01:00:00+01:00',
+          'description': 'Grosses Haus',
+          'direct-link': None,
+          'edit-link': '/index/redirect-to-instance-resource/instance-id/<INSTANCE_ID>?instance-resource-name=work-items&ember-hash=/work-items/instances/<INSTANCE_ID>/work-items/f29c90f4-dff4-4375-b361-47f8032bf53e',
+          'has-additional-demand': None,
+          'instance-id': '<INSTANCE_ID>',
+          'instance-name': 'Baugesuch',
+          'is-addressed-to-current-service': True,
+          'is-assigned-to-current-user': False,
+          'is-controlled-by-current-service': False,
+          'is-created-by-current-service': False,
+          'is-manually-completable': False,
+          'is-ready': True,
+          'is-suspended': False,
+          'municipality': None,
+          'special-id': '2021-1',
+          'status': 'ready',
+          'target-deadline-date': None,
+          'task': 'from-template-and-read',
+          'unread': False,
+        }),
+        'id': 'f29c90f4-dff4-4375-b361-47f8032bf53e',
+        'relationships': dict({
+          'addressed-service': dict({
+            'data': dict({
+              'id': '<SERVICE_ID>',
+              'type': 'public-services',
+            }),
+          }),
+          'assigned-user': dict({
+            'data': None,
+          }),
+          'closed-by-user': dict({
+            'data': None,
+          }),
+        }),
+        'type': 'work-item-list-rows',
+      }),
+      dict({
+        'attributes': dict({
+          'applicants': None,
+          'closed-at': None,
+          'deadline': '2025-01-02T01:00:00+01:00',
+          'description': 'Grosses Haus',
+          'direct-link': '/index/redirect-to-instance-resource/instance-id/<INSTANCE_ID>?instance-resource-name=foobar&ember-hash=/foobar/song-light',
+          'edit-link': '/index/redirect-to-instance-resource/instance-id/<INSTANCE_ID>?instance-resource-name=work-items&ember-hash=/work-items/instances/<INSTANCE_ID>/work-items/a9ac2c62-5d16-454f-bc62-5312db0e00c9',
+          'has-additional-demand': None,
+          'instance-id': '<INSTANCE_ID>',
+          'instance-name': 'Baugesuch',
+          'is-addressed-to-current-service': True,
+          'is-assigned-to-current-user': False,
+          'is-controlled-by-current-service': False,
+          'is-created-by-current-service': False,
+          'is-manually-completable': False,
+          'is-ready': True,
+          'is-suspended': False,
+          'municipality': None,
+          'special-id': '2021-1',
+          'status': 'ready',
+          'target-deadline-date': None,
+          'task': 'from-task',
+          'unread': True,
+        }),
+        'id': 'a9ac2c62-5d16-454f-bc62-5312db0e00c9',
+        'relationships': dict({
+          'addressed-service': dict({
+            'data': dict({
+              'id': '<SERVICE_ID>',
+              'type': 'public-services',
+            }),
+          }),
+          'assigned-user': dict({
+            'data': None,
+          }),
+          'closed-by-user': dict({
+            'data': None,
+          }),
+        }),
+        'type': 'work-item-list-rows',
+      }),
+      dict({
+        'attributes': dict({
+          'applicants': None,
+          'closed-at': None,
+          'deadline': '2025-01-03T01:00:00+01:00',
+          'description': 'Grosses Haus',
+          'direct-link': None,
+          'edit-link': '/index/redirect-to-instance-resource/instance-id/<INSTANCE_ID>?instance-resource-name=work-items&ember-hash=/work-items/instances/<INSTANCE_ID>/work-items/0abbb3fc-1c0c-4c6a-95df-e7250b14b540',
+          'has-additional-demand': None,
+          'instance-id': '<INSTANCE_ID>',
+          'instance-name': 'Baugesuch',
+          'is-addressed-to-current-service': True,
+          'is-assigned-to-current-user': False,
+          'is-controlled-by-current-service': False,
+          'is-created-by-current-service': False,
+          'is-manually-completable': False,
+          'is-ready': True,
+          'is-suspended': False,
+          'municipality': None,
+          'special-id': '2021-1',
+          'status': 'ready',
+          'target-deadline-date': None,
+          'task': 'assigned',
+          'unread': True,
+        }),
+        'id': '0abbb3fc-1c0c-4c6a-95df-e7250b14b540',
+        'relationships': dict({
+          'addressed-service': dict({
+            'data': dict({
+              'id': '<SERVICE_ID>',
+              'type': 'public-services',
+            }),
+          }),
+          'assigned-user': dict({
+            'data': dict({
+              'id': '<USER_ID>',
+              'type': 'public-users',
+            }),
+          }),
+          'closed-by-user': dict({
+            'data': None,
+          }),
+        }),
+        'type': 'work-item-list-rows',
+      }),
+      dict({
+        'attributes': dict({
+          'applicants': None,
+          'closed-at': None,
+          'deadline': '2025-01-06T01:00:00+01:00',
+          'description': None,
+          'direct-link': None,
+          'edit-link': '/index/redirect-to-instance-resource/instance-id/<INSTANCE_ID>?instance-resource-name=work-items&ember-hash=/work-items/instances/<INSTANCE_ID>/work-items/f5859ec4-eff4-4f00-bce6-5952372893dd',
+          'has-additional-demand': None,
+          'instance-id': '<INSTANCE_ID>',
+          'instance-name': 'Ing. Heinz-Werner Adolph B.Eng.',
+          'is-addressed-to-current-service': True,
+          'is-assigned-to-current-user': False,
+          'is-controlled-by-current-service': False,
+          'is-created-by-current-service': False,
+          'is-manually-completable': False,
+          'is-ready': True,
+          'is-suspended': False,
+          'municipality': None,
+          'special-id': None,
+          'status': 'ready',
+          'target-deadline-date': None,
+          'task': 'target-deadline-date',
+          'unread': True,
+        }),
+        'id': 'f5859ec4-eff4-4f00-bce6-5952372893dd',
+        'relationships': dict({
+          'addressed-service': dict({
+            'data': dict({
+              'id': '<SERVICE_ID>',
+              'type': 'public-services',
+            }),
+          }),
+          'assigned-user': dict({
+            'data': dict({
+              'id': '<USER_ID>',
+              'type': 'public-users',
+            }),
+          }),
+          'closed-by-user': dict({
+            'data': None,
+          }),
+        }),
+        'type': 'work-item-list-rows',
+      }),
+      dict({
+        'attributes': dict({
+          'applicants': None,
+          'closed-at': '2025-07-17T16:33:00+02:00',
+          'deadline': '2025-01-07T01:00:00+01:00',
+          'description': 'Grosses Haus',
+          'direct-link': None,
+          'edit-link': '/index/redirect-to-instance-resource/instance-id/<INSTANCE_ID>?instance-resource-name=work-items&ember-hash=/work-items/instances/<INSTANCE_ID>/work-items/d1ceed20-8f5a-47cb-bee8-c28190d6f755',
+          'has-additional-demand': None,
+          'instance-id': '<INSTANCE_ID>',
+          'instance-name': 'Baugesuch',
+          'is-addressed-to-current-service': True,
+          'is-assigned-to-current-user': False,
+          'is-controlled-by-current-service': False,
+          'is-created-by-current-service': False,
+          'is-manually-completable': False,
+          'is-ready': False,
+          'is-suspended': False,
+          'municipality': None,
+          'special-id': '2021-1',
+          'status': 'completed',
+          'target-deadline-date': None,
+          'task': 'completed',
+          'unread': True,
+        }),
+        'id': 'd1ceed20-8f5a-47cb-bee8-c28190d6f755',
+        'relationships': dict({
+          'addressed-service': dict({
+            'data': dict({
+              'id': '<SERVICE_ID>',
+              'type': 'public-services',
+            }),
+          }),
+          'assigned-user': dict({
+            'data': None,
+          }),
+          'closed-by-user': dict({
+            'data': dict({
+              'id': '<USER_ID>',
+              'type': 'public-users',
+            }),
+          }),
+        }),
+        'type': 'work-item-list-rows',
+      }),
+    ]),
+    'links': dict({
+      'first': 'http://testserver/api/v1/work-item-list-rows?page%5Bnumber%5D=1&page%5Bsize%5D=20&role=active',
+      'last': 'http://testserver/api/v1/work-item-list-rows?page%5Bnumber%5D=1&page%5Bsize%5D=20&role=active',
+      'next': None,
+      'prev': None,
+    }),
+    'meta': dict({
+      'pagination': dict({
+        'count': 5,
+        'page': 1,
+        'pages': 1,
+      }),
+    }),
+  })
+# ---
 # name: test_work_item_list_row_list[gr]
   dict({
     'data': list([
