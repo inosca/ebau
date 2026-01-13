@@ -9265,7 +9265,6 @@
       "slug": "are",
       "service_group": 3,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -9280,7 +9279,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -9290,7 +9290,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -9305,7 +9304,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3542"
+      "external_identifier": "3542",
+      "meta": {}
     }
   },
   {
@@ -9315,7 +9315,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -9330,7 +9329,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3701"
+      "external_identifier": "3701",
+      "meta": {}
     }
   },
   {
@@ -9340,7 +9340,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -9355,7 +9354,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3921"
+      "external_identifier": "3921",
+      "meta": {}
     }
   },
   {
@@ -9365,7 +9365,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -9380,7 +9379,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3681"
+      "external_identifier": "3681",
+      "meta": {}
     }
   },
   {
@@ -9390,7 +9390,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -9405,7 +9404,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3544"
+      "external_identifier": "3544",
+      "meta": {}
     }
   },
   {
@@ -9415,7 +9415,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -9430,7 +9429,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3781"
+      "external_identifier": "3781",
+      "meta": {}
     }
   },
   {
@@ -9440,7 +9440,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -9455,7 +9454,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3721"
+      "external_identifier": "3721",
+      "meta": {}
     }
   },
   {
@@ -9465,7 +9465,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -9480,7 +9479,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3792"
+      "external_identifier": "3792",
+      "meta": {}
     }
   },
   {
@@ -9490,7 +9490,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -9505,7 +9504,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3981"
+      "external_identifier": "3981",
+      "meta": {}
     }
   },
   {
@@ -9515,7 +9515,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -9530,7 +9529,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3551"
+      "external_identifier": "3551",
+      "meta": {}
     }
   },
   {
@@ -9540,7 +9540,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -9555,7 +9554,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3804"
+      "external_identifier": "3804",
+      "meta": {}
     }
   },
   {
@@ -9565,7 +9565,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -9580,7 +9579,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3837"
+      "external_identifier": "3837",
+      "meta": {}
     }
   },
   {
@@ -9590,7 +9590,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -9605,7 +9604,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3831"
+      "external_identifier": "3831",
+      "meta": {}
     }
   },
   {
@@ -9615,7 +9615,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -9630,7 +9629,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3805"
+      "external_identifier": "3805",
+      "meta": {}
     }
   },
   {
@@ -9640,7 +9640,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -9655,7 +9654,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3661"
+      "external_identifier": "3661",
+      "meta": {}
     }
   },
   {
@@ -9665,7 +9665,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -9680,7 +9679,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3782"
+      "external_identifier": "3782",
+      "meta": {}
     }
   },
   {
@@ -9690,7 +9690,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -9705,7 +9704,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3901"
+      "external_identifier": "3901",
+      "meta": {}
     }
   },
   {
@@ -9715,7 +9715,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -9730,7 +9729,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3911"
+      "external_identifier": "3911",
+      "meta": {}
     }
   },
   {
@@ -9740,7 +9740,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -9755,7 +9754,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3881"
+      "external_identifier": "3881",
+      "meta": {}
     }
   },
   {
@@ -9765,7 +9765,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -9780,7 +9779,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3851"
+      "external_identifier": "3851",
+      "meta": {}
     }
   },
   {
@@ -9790,7 +9790,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -9805,7 +9804,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3982"
+      "external_identifier": "3982",
+      "meta": {}
     }
   },
   {
@@ -9815,7 +9815,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -9830,7 +9829,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3722"
+      "external_identifier": "3722",
+      "meta": {}
     }
   },
   {
@@ -9840,7 +9840,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -9855,7 +9854,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3673"
+      "external_identifier": "3673",
+      "meta": {}
     }
   },
   {
@@ -9865,7 +9865,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -9880,7 +9879,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3572"
+      "external_identifier": "3572",
+      "meta": {}
     }
   },
   {
@@ -9890,7 +9890,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -9905,7 +9904,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3731"
+      "external_identifier": "3731",
+      "meta": {}
     }
   },
   {
@@ -9915,7 +9915,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -9930,7 +9929,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3713"
+      "external_identifier": "3713",
+      "meta": {}
     }
   },
   {
@@ -9940,7 +9940,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -9955,7 +9954,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3861"
+      "external_identifier": "3861",
+      "meta": {}
     }
   },
   {
@@ -9965,7 +9965,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -9980,7 +9979,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3951"
+      "external_identifier": "3951",
+      "meta": {}
     }
   },
   {
@@ -9990,7 +9990,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10005,7 +10004,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3662"
+      "external_identifier": "3662",
+      "meta": {}
     }
   },
   {
@@ -10015,7 +10015,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10030,7 +10029,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3732"
+      "external_identifier": "3732",
+      "meta": {}
     }
   },
   {
@@ -10040,7 +10040,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10055,7 +10054,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3862"
+      "external_identifier": "3862",
+      "meta": {}
     }
   },
   {
@@ -10065,7 +10065,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10080,7 +10079,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3633"
+      "external_identifier": "3633",
+      "meta": {}
     }
   },
   {
@@ -10090,7 +10090,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10105,7 +10104,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3832"
+      "external_identifier": "3832",
+      "meta": {}
     }
   },
   {
@@ -10115,7 +10115,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10130,7 +10129,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3961"
+      "external_identifier": "3961",
+      "meta": {}
     }
   },
   {
@@ -10140,7 +10140,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10155,7 +10154,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3619"
+      "external_identifier": "3619",
+      "meta": {}
     }
   },
   {
@@ -10165,7 +10165,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10180,7 +10179,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3863"
+      "external_identifier": "3863",
+      "meta": {}
     }
   },
   {
@@ -10190,7 +10190,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10205,7 +10204,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3952"
+      "external_identifier": "3952",
+      "meta": {}
     }
   },
   {
@@ -10215,7 +10215,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10230,7 +10229,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3871"
+      "external_identifier": "3871",
+      "meta": {}
     }
   },
   {
@@ -10240,7 +10240,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10255,7 +10254,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3882"
+      "external_identifier": "3882",
+      "meta": {}
     }
   },
   {
@@ -10265,7 +10265,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10280,7 +10279,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3785"
+      "external_identifier": "3785",
+      "meta": {}
     }
   },
   {
@@ -10290,7 +10290,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10305,7 +10304,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3575"
+      "external_identifier": "3575",
+      "meta": {}
     }
   },
   {
@@ -10315,7 +10315,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10330,7 +10329,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3955"
+      "external_identifier": "3955",
+      "meta": {}
     }
   },
   {
@@ -10340,7 +10340,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10355,7 +10354,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3513"
+      "external_identifier": "3513",
+      "meta": {}
     }
   },
   {
@@ -10365,7 +10365,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10380,7 +10379,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3821"
+      "external_identifier": "3821",
+      "meta": {}
     }
   },
   {
@@ -10390,7 +10390,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10405,7 +10404,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3618"
+      "external_identifier": "3618",
+      "meta": {}
     }
   },
   {
@@ -10415,7 +10415,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10430,7 +10429,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3891"
+      "external_identifier": "3891",
+      "meta": {}
     }
   },
   {
@@ -10440,7 +10440,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10455,7 +10454,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3783"
+      "external_identifier": "3783",
+      "meta": {}
     }
   },
   {
@@ -10465,7 +10465,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10480,7 +10479,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3953"
+      "external_identifier": "3953",
+      "meta": {}
     }
   },
   {
@@ -10490,7 +10490,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10505,7 +10504,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3954"
+      "external_identifier": "3954",
+      "meta": {}
     }
   },
   {
@@ -10515,7 +10515,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10530,7 +10529,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3663"
+      "external_identifier": "3663",
+      "meta": {}
     }
   },
   {
@@ -10540,7 +10540,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10555,7 +10554,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3983"
+      "external_identifier": "3983",
+      "meta": {}
     }
   },
   {
@@ -10565,7 +10565,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10580,7 +10579,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3822"
+      "external_identifier": "3822",
+      "meta": {}
     }
   },
   {
@@ -10590,7 +10590,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10605,7 +10604,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3715"
+      "external_identifier": "3715",
+      "meta": {}
     }
   },
   {
@@ -10615,7 +10615,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10630,7 +10629,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3988"
+      "external_identifier": "3988",
+      "meta": {}
     }
   },
   {
@@ -10640,7 +10640,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10655,7 +10654,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3784"
+      "external_identifier": "3784",
+      "meta": {}
     }
   },
   {
@@ -10665,7 +10665,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10680,7 +10679,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3561"
+      "external_identifier": "3561",
+      "meta": {}
     }
   },
   {
@@ -10690,7 +10690,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10705,7 +10704,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3723"
+      "external_identifier": "3723",
+      "meta": {}
     }
   },
   {
@@ -10715,7 +10715,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10730,7 +10729,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3714"
+      "external_identifier": "3714",
+      "meta": {}
     }
   },
   {
@@ -10740,7 +10740,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10755,7 +10754,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3711"
+      "external_identifier": "3711",
+      "meta": {}
     }
   },
   {
@@ -10765,7 +10765,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10780,7 +10779,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3808"
+      "external_identifier": "3808",
+      "meta": {}
     }
   },
   {
@@ -10790,7 +10790,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10805,7 +10804,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3637"
+      "external_identifier": "3637",
+      "meta": {}
     }
   },
   {
@@ -10815,7 +10815,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10830,7 +10829,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3834"
+      "external_identifier": "3834",
+      "meta": {}
     }
   },
   {
@@ -10840,7 +10840,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10855,7 +10854,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3672"
+      "external_identifier": "3672",
+      "meta": {}
     }
   },
   {
@@ -10865,7 +10865,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10880,7 +10879,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3581"
+      "external_identifier": "3581",
+      "meta": {}
     }
   },
   {
@@ -10890,7 +10890,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10905,7 +10904,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3786"
+      "external_identifier": "3786",
+      "meta": {}
     }
   },
   {
@@ -10915,7 +10915,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10930,7 +10929,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3752"
+      "external_identifier": "3752",
+      "meta": {}
     }
   },
   {
@@ -10940,7 +10940,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10955,7 +10954,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3835"
+      "external_identifier": "3835",
+      "meta": {}
     }
   },
   {
@@ -10965,7 +10965,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -10980,7 +10979,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3788"
+      "external_identifier": "3788",
+      "meta": {}
     }
   },
   {
@@ -10990,7 +10990,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11005,7 +11004,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3638"
+      "external_identifier": "3638",
+      "meta": {}
     }
   },
   {
@@ -11015,7 +11015,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11030,7 +11029,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3962"
+      "external_identifier": "3962",
+      "meta": {}
     }
   },
   {
@@ -11040,7 +11040,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11055,7 +11054,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3582"
+      "external_identifier": "3582",
+      "meta": {}
     }
   },
   {
@@ -11065,7 +11065,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11080,7 +11079,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3514"
+      "external_identifier": "3514",
+      "meta": {}
     }
   },
   {
@@ -11090,7 +11090,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11105,7 +11104,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3762"
+      "external_identifier": "3762",
+      "meta": {}
     }
   },
   {
@@ -11115,7 +11115,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11130,7 +11129,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3972"
+      "external_identifier": "3972",
+      "meta": {}
     }
   },
   {
@@ -11140,7 +11140,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11155,7 +11154,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3640"
+      "external_identifier": "3640",
+      "meta": {}
     }
   },
   {
@@ -11165,7 +11165,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11180,7 +11179,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3789"
+      "external_identifier": "3789",
+      "meta": {}
     }
   },
   {
@@ -11190,7 +11190,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11205,7 +11204,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3790"
+      "external_identifier": "3790",
+      "meta": {}
     }
   },
   {
@@ -11215,7 +11215,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11230,7 +11229,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3823"
+      "external_identifier": "3823",
+      "meta": {}
     }
   },
   {
@@ -11240,7 +11240,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11255,7 +11254,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3787"
+      "external_identifier": "3787",
+      "meta": {}
     }
   },
   {
@@ -11265,7 +11265,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11280,7 +11279,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3810"
+      "external_identifier": "3810",
+      "meta": {}
     }
   },
   {
@@ -11290,7 +11290,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11305,7 +11304,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3695"
+      "external_identifier": "3695",
+      "meta": {}
     }
   },
   {
@@ -11315,7 +11315,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11330,7 +11329,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3985"
+      "external_identifier": "3985",
+      "meta": {}
     }
   },
   {
@@ -11340,7 +11340,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11355,7 +11354,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3543"
+      "external_identifier": "3543",
+      "meta": {}
     }
   },
   {
@@ -11365,7 +11365,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11380,7 +11379,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3733"
+      "external_identifier": "3733",
+      "meta": {}
     }
   },
   {
@@ -11390,7 +11390,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11405,7 +11404,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3668"
+      "external_identifier": "3668",
+      "meta": {}
     }
   },
   {
@@ -11415,7 +11415,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11430,7 +11429,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3945"
+      "external_identifier": "3945",
+      "meta": {}
     }
   },
   {
@@ -11440,7 +11440,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11455,7 +11454,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3734"
+      "external_identifier": "3734",
+      "meta": {}
     }
   },
   {
@@ -11465,7 +11465,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11480,7 +11479,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3987"
+      "external_identifier": "3987",
+      "meta": {}
     }
   },
   {
@@ -11490,7 +11490,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11505,7 +11504,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3669"
+      "external_identifier": "3669",
+      "meta": {}
     }
   },
   {
@@ -11515,7 +11515,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11530,7 +11529,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3932"
+      "external_identifier": "3932",
+      "meta": {}
     }
   },
   {
@@ -11540,7 +11540,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11555,7 +11554,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3986"
+      "external_identifier": "3986",
+      "meta": {}
     }
   },
   {
@@ -11565,7 +11565,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11580,7 +11579,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3946"
+      "external_identifier": "3946",
+      "meta": {}
     }
   },
   {
@@ -11590,7 +11590,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11605,7 +11604,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3670"
+      "external_identifier": "3670",
+      "meta": {}
     }
   },
   {
@@ -11615,7 +11615,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11630,7 +11629,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3847"
+      "external_identifier": "3847",
+      "meta": {}
     }
   },
   {
@@ -11640,7 +11640,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11655,7 +11654,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3603"
+      "external_identifier": "3603",
+      "meta": {}
     }
   },
   {
@@ -11665,7 +11665,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11680,7 +11679,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3764"
+      "external_identifier": "3764",
+      "meta": {}
     }
   },
   {
@@ -11690,7 +11690,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11705,7 +11704,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3506"
+      "external_identifier": "3506",
+      "meta": {}
     }
   },
   {
@@ -11715,7 +11715,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11730,7 +11729,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3746"
+      "external_identifier": "3746",
+      "meta": {}
     }
   },
   {
@@ -11740,7 +11740,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11755,7 +11754,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3712"
+      "external_identifier": "3712",
+      "meta": {}
     }
   },
   {
@@ -11765,7 +11765,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11780,7 +11779,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3947"
+      "external_identifier": "3947",
+      "meta": {}
     }
   },
   {
@@ -11790,7 +11790,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11805,7 +11804,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": "3791"
+      "external_identifier": "3791",
+      "meta": {}
     }
   },
   {
@@ -11815,7 +11815,6 @@
       "slug": "aev",
       "service_group": 1,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11830,7 +11829,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -11840,7 +11840,6 @@
       "slug": "kiga",
       "service_group": 1,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11855,7 +11854,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -11865,7 +11865,6 @@
       "slug": "ajf",
       "service_group": 1,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11880,7 +11879,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -11890,7 +11890,6 @@
       "slug": "alg1",
       "service_group": 1,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11905,7 +11904,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -11915,7 +11915,6 @@
       "slug": "alg2",
       "service_group": 1,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11930,7 +11929,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -11940,7 +11940,6 @@
       "slug": "alt",
       "service_group": 1,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11955,7 +11954,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -11965,7 +11965,6 @@
       "slug": "amz",
       "service_group": 1,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -11980,7 +11979,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -11990,7 +11990,6 @@
       "slug": "anu",
       "service_group": 1,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -12005,7 +12004,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -12015,7 +12015,6 @@
       "slug": "awn",
       "service_group": 1,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -12030,7 +12029,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -12040,7 +12040,6 @@
       "slug": "adg",
       "service_group": 1,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -12055,7 +12054,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -12065,7 +12065,6 @@
       "slug": null,
       "service_group": 1,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -12080,7 +12079,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -12090,7 +12090,6 @@
       "slug": null,
       "service_group": 1,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -12105,7 +12104,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -12115,7 +12115,6 @@
       "slug": "bafu",
       "service_group": 1,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -12130,7 +12129,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -12140,7 +12140,6 @@
       "slug": "denkmalpflege",
       "service_group": 1,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -12155,7 +12154,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -12165,7 +12165,6 @@
       "slug": "gvg",
       "service_group": 1,
       "service_parent": null,
-      "meta": {},
       "name": "gvg",
       "description": null,
       "sort": 0,
@@ -12180,7 +12179,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -12190,7 +12190,6 @@
       "slug": null,
       "service_group": 1,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -12205,7 +12204,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -12215,7 +12215,6 @@
       "slug": null,
       "service_group": 1,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -12230,7 +12229,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -12240,7 +12240,6 @@
       "slug": null,
       "service_group": 1,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -12255,7 +12254,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -12265,7 +12265,6 @@
       "slug": null,
       "service_group": 1,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -12280,7 +12279,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -12290,7 +12290,6 @@
       "slug": "tba",
       "service_group": 1,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -12305,7 +12304,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -12315,7 +12315,6 @@
       "slug": null,
       "service_group": 4,
       "service_parent": 1,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 0,
@@ -12330,7 +12329,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -12340,7 +12340,6 @@
       "slug": "aib",
       "service_group": 1,
       "service_parent": null,
-      "meta": {},
       "name": "aib",
       "description": null,
       "sort": 1,
@@ -12355,7 +12354,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -12365,7 +12365,6 @@
       "slug": null,
       "service_group": 2,
       "service_parent": 18,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 2,
@@ -12380,7 +12379,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -12390,7 +12390,6 @@
       "slug": "pro-infirmis",
       "service_group": 1,
       "service_parent": null,
-      "meta": {},
       "name": null,
       "description": null,
       "sort": 3,
@@ -12405,7 +12404,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -12415,7 +12415,6 @@
       "slug": "gvg-brandschutz",
       "service_group": 1,
       "service_parent": null,
-      "meta": {},
       "name": "gvg-brandschutz",
       "description": null,
       "sort": 0,
@@ -12430,7 +12429,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {
@@ -12440,7 +12440,6 @@
       "slug": "gvg-elementarschutz",
       "service_group": 1,
       "service_parent": null,
-      "meta": {},
       "name": "gvg-elementarschutz",
       "description": null,
       "sort": 0,
@@ -12455,7 +12454,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "meta": {}
     }
   },
   {

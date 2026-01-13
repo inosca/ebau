@@ -23,6 +23,7 @@ class InstanceACLSerializer(serializers.ModelSerializer):
     included_serializers = {
         "instance": "camac.instance.serializers.InstanceSerializer",
         "service": "camac.user.serializers.PublicServiceSerializer",
+        "service_group": "camac.user.serializers.PublicServiceGroupSerializer",
         "user": "camac.user.serializers.PublicUserSerializer",
         "role": "camac.user.serializers.PublicRoleSerializer",
         "created_by_user": "camac.user.serializers.PublicUserSerializer",
@@ -43,6 +44,7 @@ class InstanceACLSerializer(serializers.ModelSerializer):
             # Only at most one of them can be set
             "user",
             "service",
+            "service_group",
             "token",
             "role",
             # Creation data
