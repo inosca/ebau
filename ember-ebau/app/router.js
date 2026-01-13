@@ -11,6 +11,7 @@ import registerCorrections from "ember-ebau-core/modules/corrections";
 import registerDeadlines from "ember-ebau-core/modules/deadlines";
 import registerDMSAdmin from "ember-ebau-core/modules/dms-admin";
 import registerDossierImport from "ember-ebau-core/modules/dossier-import";
+import registerHistory from "ember-ebau-core/modules/history";
 import registerLegalSubmission from "ember-ebau-core/modules/legal-submission";
 import registerLinkedInstances from "ember-ebau-core/modules/linked-instances";
 import registerMergeMunicipality from "ember-ebau-core/modules/merge-municipality";
@@ -74,7 +75,6 @@ Router.map(function () {
           this.route("new");
         });
         this.route("journal");
-        this.route("history");
         this.route("dms-generate");
         this.route("distribution", function () {
           this.mount("@projectcaluma/ember-distribution", {
@@ -97,6 +97,7 @@ Router.map(function () {
         registerLinkedInstances(this);
         registerAddressAssignment(this);
         registerCorrections(this);
+        registerHistory(this);
       });
       this.route("new");
       this.route("not-found");
