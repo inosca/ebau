@@ -1150,7 +1150,10 @@ def test_notification_template_merge_without_context(
 
     entry = HistoryEntry.objects.latest("created_at")
     assert entry.instance == be_instance
-    assert entry.user == system_operation_user
+    if use_static_user:
+        assert entry.user == system_operation_user
+    else:
+        assert entry.user is None
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])

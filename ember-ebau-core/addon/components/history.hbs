@@ -40,7 +40,7 @@
               {{format-date entry.createdAt format="datetime"}}
             </td>
             <td class="uk-text-nowrap">
-              {{entry.user.fullName}}
+              {{or entry.user.fullName (t "history.system")}}
             </td>
             <td>
               {{#if entry.body}}
