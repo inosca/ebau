@@ -6,3 +6,5 @@ cases:
     searchKeyword: "Stichwort suchen"
     addKeyword: '"{term}" hinzufügen'
     keywordSaveFailed: "Beim Speichern des Stichwortes ist ein Fehler aufgetreten"
+    noApplicantRegisteredWarning: "Achtung: Noch keiner der Gesuchstellenden hat sich bisher auf eBau angemeldet."
+    noApplicantRegisteredWarningTooltip: "Das bedeutet, dass aktuell keine Notifikationen an Gesuchstellende (z.B. bei Nachforderungen, Entscheid, Kommunikationsmodul) versendet werden können. Bitte kontaktieren Sie die Gesuchstellenden auf einem Drittkanal anhand der Personalien im Gesuchsformular."

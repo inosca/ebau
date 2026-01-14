@@ -4,6 +4,7 @@ import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { dropTask } from "ember-concurrency";
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
+import { trackedFunction } from "reactiveweb/function";
 
 const LOCAL_STORAGE_KEY = "ebau-hide-master-data";
 
@@ -12,9 +13,29 @@ export default class CaseHeaderComponent extends Component {
   @service dms;
   @service notification;
   @service intl;
+  @service store;
 
   @tracked compact =
     JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) ?? false;
+
+  showNoApplicantRegisteredWarning = trackedFunction(this, async () => {
+    if (
+      !this.args.case?.instanceId ||
+      !hasFeature("cases.showNoApplicantRegisteredWarning")
+    ) {
+      return false;
+    }
+    const instance = this.args.case.instance;
+    const invitees = await Promise.all(
+      instance.involvedApplicants.map((applicant) => applicant.invitee),
+    );
+
+    return invitees.every((invitee) => !invitee);
+  });
+
+  get showNoApplicantRegisteredWarningForInstance() {
+    return this.showNoApplicantRegisteredWarning.value;
+  }
 
   get extended() {
     return !this.compact;

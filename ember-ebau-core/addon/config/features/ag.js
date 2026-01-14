@@ -42,6 +42,7 @@ export default {
   internalCaseCreation: true,
   cases: {
     exportExcel: true,
+    showNoApplicantRegisteredWarning: true,
   },
   dms: {
     hideDownloadButton: true,
