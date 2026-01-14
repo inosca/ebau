@@ -408,7 +408,6 @@ def test_accompanying_report_event_handler_alexandria(
     inquiry = active_inquiry_factory(
         for_instance=ech_instance_so,
         addressed_service=invited_service,
-        created_by_group=service.pk,
     )
 
     caluma_answer_factory(
@@ -471,7 +470,7 @@ def test_accompanying_report_event_handler_extension(
         addressed_service=service,
         status=WorkItem.STATUS_COMPLETED,
         closed_by_group=service.pk,
-        created_by_group=inviting_service.pk,
+        controlling_service=inviting_service,
     )
 
     caluma_answer_factory(
@@ -508,6 +507,7 @@ def test_accompanying_report_event_handler_extension(
 
     assert Message.objects.count() == 1
     message = Message.objects.first()
+    assert message.receiver == inviting_service
     ech_snapshot(message.body)
 
     if documents_available:

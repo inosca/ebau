@@ -1102,6 +1102,8 @@ def test_accompanying_report_send_handler(
 
     user_group = user_group_factory(default_group=1)
 
+    # the inviting service needs to have at least one group,
+    # otherwise event_handlers.py::get_fake_request returns None
     inviting_group = group_factory()
     inviting_service = inviting_group.service
     if has_inquiry:
