@@ -297,6 +297,9 @@ class AccompanyingReportEventHandler(BaseEventHandler):
         super().__init__(instance, user_pk, group_pk)
 
         self.inquiry = inquiry
+        # override message receiver: accompanying reports are always sent to the
+        # organisation that requested them, which is not always the responsible service.
+        self.message_receiver = Service.objects.get(pk=inquiry.controlling_groups[0])
 
         services = Service.objects.filter(
             Q(pk=self.inquiry.addressed_groups[0])

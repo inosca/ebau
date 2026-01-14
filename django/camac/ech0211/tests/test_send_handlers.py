@@ -1060,6 +1060,7 @@ def test_accompanying_report_send_handler(
     documents_available,
     mocker,
     mock_remote_file,
+    group_factory,
 ):
     notification_template_factory(slug="05-bericht-erstellt")
     settings.APPLICATION["DOCUMENT_BACKEND"] = document_backend
@@ -1101,10 +1102,15 @@ def test_accompanying_report_send_handler(
 
     user_group = user_group_factory(default_group=1)
 
+    # the inviting service needs to have at least one group,
+    # otherwise event_handlers.py::get_fake_request returns None
+    inviting_group = group_factory()
+    inviting_service = inviting_group.service
     if has_inquiry:
         existing_inquiry = active_inquiry_factory(
             for_instance=ech_instance_be,
             addressed_service=user_group.group.service,
+            controlling_service=inviting_service,
         )
 
         caluma_work_item_factory(
@@ -1176,7 +1182,7 @@ def test_accompanying_report_send_handler(
 
         assert Message.objects.count() == 1
         message = Message.objects.first()
-        assert message.receiver == support_group.service
+        assert message.receiver == inviting_service
 
         xml = message.body
         if document_backend == "alexandria":
@@ -1210,7 +1216,7 @@ def test_accompanying_report_send_handler(
             question_id="inquiry-checkbox"
         ).exists()
 
-        assert service.email in mailoutbox[0].to
+        assert inviting_service.email in mailoutbox[0].to
 
     else:
         with pytest.raises(SendHandlerException):
