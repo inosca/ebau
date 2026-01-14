@@ -171,6 +171,10 @@ MODULE_PORTAL_FORM_WRITE = RequireWorkItem("submit", "ready") & (
     | ((ROLES_MUNICIPALITY | ROLES_AFB) & IsPaper())
 )
 
+MODULE_RELATED_GWR_PROJECTS = STATES_ALL & IsForm(
+    ["baugesuch", "baugesuch-mit-uvp", "baugesuch-migration"]
+)
+
 ACTION_INSTANCE_CREATE_MODIFICATION = (
     RequireWorkItem("init-construction-monitoring")
     & HasApplicantRole(["ADMIN"])
@@ -327,6 +331,7 @@ AG_PERMISSIONS_SETTINGS = {
                     ["plangenehmigungsverfahren-gas", "plangenehmigungsverfahren-bund"],
                 ),
             ),
+            ("related-gwr-projects-read", MODULE_RELATED_GWR_PROJECTS),
         ],
         "read": [
             ("documents-read", MODULE_DOCUMENTS),
@@ -345,6 +350,7 @@ AG_PERMISSIONS_SETTINGS = {
             ("instance-delete", RequireInstanceState(["new"])),
             ("permissions-read-any", Always()),
             ("permissions-read", Always()),
+            ("related-gwr-projects-read", MODULE_RELATED_GWR_PROJECTS),
         ],
     },
     "EVENT_HANDLER": "camac.permissions.config.kt_ag.PermissionEventHandlerAG",
