@@ -64,9 +64,9 @@ def post_create_additional_demand(sender, work_item, user, context=None, **kwarg
         user=user,
         parent_work_item=work_item,
         context=context,
-        created_by_user=user.group,
+        created_by_user=user.username,
         created_by_group=user.group,
-        modified_by_user=user.group,
+        modified_by_user=user.username,
         modified_by_group=user.group,
     )
 
