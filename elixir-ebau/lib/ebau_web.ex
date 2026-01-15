@@ -23,10 +23,11 @@ defmodule EbauWeb do
     quote do
       use Phoenix.Router, helpers: false
 
-      # Import common connection and controller functions to use in pipelines
-      import Plug.Conn
       import Phoenix.Controller
       import Phoenix.LiveView.Router
+
+      # Import common connection and controller functions to use in pipelines
+      import Plug.Conn
     end
   end
 
@@ -39,7 +40,6 @@ defmodule EbauWeb do
   def controller do
     quote do
       use Phoenix.Controller, formats: [:html, :json]
-
       use Gettext, backend: EbauWeb.Gettext
 
       import Plug.Conn
@@ -82,14 +82,15 @@ defmodule EbauWeb do
       # Translation
       use Gettext, backend: EbauWeb.Gettext
 
+      import EbauWeb.CoreComponents
+
       # HTML escaping functionality
       import Phoenix.HTML
       # Core UI components
-      import EbauWeb.CoreComponents
+      alias EbauWeb.Layouts
 
       # Common modules used in templates
       alias Phoenix.LiveView.JS
-      alias EbauWeb.Layouts
 
       # Routes generation with the ~p sigil
       unquote(verified_routes())

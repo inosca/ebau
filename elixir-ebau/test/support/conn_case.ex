@@ -19,15 +19,14 @@ defmodule EbauWeb.ConnCase do
 
   using do
     quote do
+      use EbauWeb, :verified_routes
+      import EbauWeb.ConnCase
+      import Phoenix.ConnTest
+      import Plug.Conn
       # The default endpoint for testing
       @endpoint EbauWeb.Endpoint
 
-      use EbauWeb, :verified_routes
-
       # Import conveniences for testing with connections
-      import Plug.Conn
-      import Phoenix.ConnTest
-      import EbauWeb.ConnCase
     end
   end
 

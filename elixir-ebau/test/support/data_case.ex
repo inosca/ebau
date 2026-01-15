@@ -18,12 +18,12 @@ defmodule Ebau.DataCase do
 
   using do
     quote do
-      alias Ebau.Repo
-
+      import Ebau.DataCase
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import Ebau.DataCase
+
+      alias Ebau.Repo
     end
   end
 
