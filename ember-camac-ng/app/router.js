@@ -14,6 +14,8 @@ import registerDeadlines from "ember-ebau-core/modules/deadlines";
 import registerDMSAdmin from "ember-ebau-core/modules/dms-admin";
 import registerDossierImport from "ember-ebau-core/modules/dossier-import";
 import registerGwrTasks from "ember-ebau-core/modules/gwr-tasks";
+import registerHistory from "ember-ebau-core/modules/history";
+import registerJournal from "ember-ebau-core/modules/journal";
 import registerLegalSubmission from "ember-ebau-core/modules/legal-submission";
 import registerPermissions from "ember-ebau-core/modules/permissions";
 import registerPublication from "ember-ebau-core/modules/publication";
@@ -49,8 +51,6 @@ export default class Router extends EmberRouter {
 
 /* eslint-disable-next-line array-callback-return */
 Router.map(function () {
-  this.route("history", { path: "/instances/:instance_id/history" });
-  this.route("journal", { path: "/instances/:instance_id/journal" });
   if (hasFeature("workItems.v2")) {
     registerWorkItemsGlobal(this);
   } else {
@@ -130,4 +130,6 @@ Router.map(function () {
   registerCorrections(this);
   registerChangeResponsibleService(this);
   registerChangeGeometer(this);
+  registerHistory(this);
+  registerJournal(this);
 });

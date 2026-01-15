@@ -1,19 +1,17 @@
 import { visit, click } from "@ember/test-helpers";
 import { setupMirage } from "ember-cli-mirage/test-support";
 import { t } from "ember-intl/test-support";
-import { authenticateSession } from "ember-simple-auth/test-support";
 import { module, test } from "qunit";
 
-import { setupApplicationTest } from "camac-ng/tests/helpers";
+import { setupApplicationTest } from "dummy/tests/helpers";
 
 module("Acceptance | history", function (hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
 
   hooks.beforeEach(async function () {
-    await authenticateSession({ token: "sometoken" });
-
     this.instance = this.server.create("instance");
+    this.owner.lookup("service:ebau-modules").instanceId = this.instance.id;
   });
 
   test("it can list history entires", async function (assert) {
@@ -21,13 +19,13 @@ module("Acceptance | history", function (hooks) {
       instanceId: this.instance.id,
     });
 
-    await visit(`/instances/${this.instance.id}/history`);
+    await visit(`/history`);
 
     assert.dom("tbody > tr").exists({ count: 5 });
   });
 
   test("it handles empty state", async function (assert) {
-    await visit(`/instances/${this.instance.id}/history`);
+    await visit(`/history`);
 
     assert.dom("tbody > tr").exists({ count: 1 });
     assert.dom("tbody > tr > td").hasText(t("global.empty"));
@@ -39,7 +37,7 @@ module("Acceptance | history", function (hooks) {
       body: "test",
     });
 
-    await visit(`/instances/${this.instance.id}/history`);
+    await visit(`/history`);
 
     assert.dom("[data-test-history-body]").doesNotExist();
     await click("[data-test-history-toggle]");
