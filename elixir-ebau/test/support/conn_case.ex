@@ -20,6 +20,7 @@ defmodule EbauWeb.ConnCase do
   using do
     quote do
       use EbauWeb, :verified_routes
+
       import EbauWeb.ConnCase
       import Phoenix.ConnTest
       import Plug.Conn

@@ -241,6 +241,36 @@ services:
     ports: []
     command: celery-beat-dev
 
+  elixir:
+    build:
+      context: ../elixir-ebau
+      args:
+        APPLICATION: ${APPLICATION}
+    entrypoint: /entrypoint.sh
+    # We cache _build, deps and language server folders to prevent having to recompile
+    # the entire project everytime. However, if you use the container to develop
+    # you don't have formatting (run `mix format` in the container for that) and you don't
+    # have any language server integration in your editor (which is highly recommended).
+    volumes:
+      - ../elixir-ebau/entrypoint.sh:/entrypoint.sh
+      - ../elixir-ebau:/app # mounting the source code
+      - elixir-ebau_build:/app/_build # caching the _build folder to a local volume
+      - elixir-ebau_dependencies:/app/deps # caching the dependencies to a local volume
+      - elixir-ebau_language-server:/app/.elixir_ls # caching the language server to a local volume
+    networks:
+      - ebau.localhost
+    ports:
+      - 4000:4000
+      - 4007:4007
+    depends_on:
+      - db
+    environment:
+      - APPLICATION=${APPLICATION}
+      - DATABASE_PASSWORD=camac
+      - DATABASE_USER=camac
+      - DATABASE_NAME=${APPLICATION}
+      - DATABASE_HOST=db
+
 networks:
   ebau.localhost:
 
@@ -248,3 +278,6 @@ volumes:
   minio_data:
     driver: local
   templatefiles:
+  elixir-ebau_build:
+  elixir-ebau_dependencies:
+  elixir-ebau_language-server:
