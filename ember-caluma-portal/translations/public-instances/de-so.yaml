@@ -6,29 +6,44 @@ publicInstances:
       <div style="display: flex">
         <span>
           <ul style="min-width: 200px">
+            <li>Aeschi</li>
             <li>Balsthal</li>
             <li>Biberist</li>
+            <li>Biezwil</li>
+            <li>Bolken</li>
             <li>Breitenbach</li>
+            <li>Däniken</li>
             <li>Derendingen</li>
             <li>Erschwil</li>
-            <li>Gerlafingen</li>
-            <li>Gunzgen</li>
-            <li>Günsberg</li>
-            <li>Laupersdorf</li>
-            <li>Lostorf</li>
+            <li>Etziken</li>
           </ul>
         </span>
         <span>
-          <ul>
+          <ul style="min-width: 200px">
+            <li>Gerlafingen</li>
+            <li>Gunzgen</li>
+            <li>Günsberg</li>
+            <li>Herbetswil</li>
+            <li>Laupersdorf</li>
+            <li>Lostorf</li>
+            <li>Lüsslingen-Nennigkofen</li>
+            <li>Luterbach</li>
+            <li>Lüterkofen-Ichertswil</li>
             <li>Messen</li>
+          </ul>
+        </span>
+        <span>
+          <ul style="min-width: 200px">
             <li>Metzerlen-Mariastein</li>
             <li>Mümliswil-Ramiswil</li>
             <li>Niederbuchsiten</li>
+            <li>Obergösgen</li>
             <li>Olten</li>
             <li>Selzach</li>
             <li>Solothurn</li>
             <li>Stüsslingen</li>
             <li>Walterswil</li>
+            <li>Zuchwil</li>
           </ul>
         </span>
       </div>
