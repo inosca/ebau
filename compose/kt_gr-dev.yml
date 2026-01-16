@@ -270,6 +270,7 @@ services:
       - DATABASE_USER=camac
       - DATABASE_NAME=${APPLICATION}
       - DATABASE_HOST=db
+      - URL_PREFIX=/elixir
 
 networks:
   ebau.localhost:

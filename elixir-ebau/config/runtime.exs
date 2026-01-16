@@ -45,7 +45,9 @@ config :ebau, Ebau.Repo,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
-config :ebau, EbauWeb.Endpoint, http: [port: String.to_integer(System.get_env("PORT", "4000"))]
+config :ebau, EbauWeb.Endpoint,
+  http: [port: String.to_integer(System.get_env("PORT", "4000"))],
+  url: [path: System.get_env("URL_PREFIX", "/")]
 
 if config_env() == :prod do
   database_url =
