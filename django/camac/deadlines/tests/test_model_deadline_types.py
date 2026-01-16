@@ -159,6 +159,7 @@ def test_deadline_types_list_instance_gr(
 )
 def test_deadline_types_filters(
     db,
+    gr_deadlines_settings,
     admin_client,
     deadline_type_factory,
     service_group,
