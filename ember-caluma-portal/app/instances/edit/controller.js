@@ -124,7 +124,7 @@ export default class InstancesEditController extends Controller {
   get hasFeedbackSection() {
     return Boolean(
       config.APPLICATION.documents.feedbackSections ||
-        mainConfig.alexandria?.feedbackCategories,
+      mainConfig.alexandria?.feedbackCategories,
     );
   }
 
