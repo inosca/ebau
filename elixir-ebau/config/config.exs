@@ -49,18 +49,4 @@ config :logger, :default_formatter,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
-# Configure tailwind (the version is required)
-config :tailwind,
-  version: "4.1.12",
-  ebau: [
-    args: ~w(
-      --input=assets/css/app.css
-      --output=priv/static/assets/css/app.css
-    ),
-
-    # Import environment specific config. This must remain at the bottom
-    # of this file so it overrides the configuration defined above.
-    cd: Path.expand("..", __DIR__)
-  ]
-
 import_config "#{config_env()}.exs"

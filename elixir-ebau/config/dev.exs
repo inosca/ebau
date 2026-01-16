@@ -17,8 +17,7 @@ config :ebau, EbauWeb.Endpoint,
   debug_errors: true,
   secret_key_base: "YQJEbV4PNghnQm7rjjkYtkiA/8yNipPpJRpBr4ITfEFO18jPiG77iUyguVY0dvjL",
   watchers: [
-    esbuild: {Esbuild, :install_and_run, [:ebau, ~w(--sourcemap=inline --watch)]},
-    tailwind: {Tailwind, :install_and_run, [:ebau, ~w(--watch)]}
+    esbuild: {Esbuild, :install_and_run, [:ebau, ~w(--sourcemap=inline --watch)]}
   ]
 
 # Reload browser tabs when matching files change.

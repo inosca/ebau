@@ -2,6 +2,8 @@ defmodule EbauWeb.CoreComponents do
   @moduledoc """
   Provides core UI components.
 
+  HOWEVER: These all assume tailwind so these will have to be removed at some point
+
   At first glance, this module may seem daunting, but its goal is to provide
   core building blocks for your application, such as tables, forms, and
   inputs. The components consist mostly of markup and are well-documented

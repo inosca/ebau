@@ -15,7 +15,7 @@ RUN mix local.hex --force && \
 
 WORKDIR /app/
 
-ENV MIX_OS_DEPS_COMPILE_PARTITION_COUNT=6
+ENV MIX_OS_DEPS_COMPILE_PARTITION_COUNT=4
 
 RUN mix deps.get
 
