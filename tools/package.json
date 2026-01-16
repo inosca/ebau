@@ -14,7 +14,7 @@
     "chalk": "5.3.0",
     "csv-writer": "1.6.0",
     "execa": "9.3.0",
-    "form-data": "4.0.0",
+    "form-data": "4.0.4",
     "fs": "0.0.1-security",
     "glob": "10.4.2",
     "markdown-it": "14.1.0",
