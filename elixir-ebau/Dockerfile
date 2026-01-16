@@ -15,9 +15,7 @@ RUN mix local.hex --force && \
 
 WORKDIR /app/
 
-ENV MIX_OS_DEPS_COMPILE_PARTITION_COUNT=4
-
-RUN mix deps.get
+RUN MIX_OS_DEPS_COMPILE_PARTITION_COUNT=$(($(nproc) / 2)) mix deps.get
 
 EXPOSE 4000
 EXPOSE 4007
