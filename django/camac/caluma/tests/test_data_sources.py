@@ -430,10 +430,24 @@ def test_municipalities_so(db, service_factory, service_t_factory):
 
 
 @pytest.mark.parametrize(
-    "role,expected", [("applicant", ["Full"]), ("municipality", ["Full", "Light"])]
+    "role__name,form_slug,expected",
+    [
+        ("applicant", None, ["Full"]),
+        ("municipality", None, ["Full", "Light"]),
+        ("applicant", "baugesuch", ["Full"]),
+        ("applicant", "plangenehmigungsverfahren-gas", ["Full", "Light"]),
+        ("municipality", "baugesuch", ["Full", "Light"]),
+    ],
 )
-def test_municipalities_ag(
-    db, role, service_factory, service_t_factory, set_application_ag, expected
+def test_municipalities_with_instance_ag(
+    db,
+    service_factory,
+    service_t_factory,
+    set_application_ag,
+    ag_instance,
+    role__name,
+    form_slug,
+    expected,
 ):
     service = service_factory(service_group__name="municipality")
     service_light = service_factory(service_group__name="municipality-light")
@@ -441,9 +455,13 @@ def test_municipalities_ag(
     service_t_factory(service=service_light, name="Gemeinde Light")
 
     User = namedtuple("OIDCUser", ["group", "camac_role"])
-    user = User(group=service.pk, camac_role=role)
+    user = User(group=service.pk, camac_role=role__name)
 
-    data = Municipalities().get_data(user, None, None)
+    if form_slug:
+        ag_instance.case.document.form_id = form_slug
+        ag_instance.case.document.save()
+
+    data = Municipalities().get_data(user, None, {"instanceId": ag_instance.pk})
 
     assert set([r[1]["de"] for r in data]) == set(expected)
 

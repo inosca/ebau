@@ -85,7 +85,7 @@ class Municipalities(BaseDataSource):
     info = "List of municipalities from Camac"
 
     @canton_aware
-    def get_service_groups(self, user):
+    def get_service_groups(self, user, context):
         """Get service groups to consider as municipalities.
 
         Return a tuple:
@@ -94,12 +94,20 @@ class Municipalities(BaseDataSource):
         """
         return (["municipality"], "")
 
-    def get_service_groups_ag(self, user):
+    def get_service_groups_ag(self, user, context):
         service_groups = ["municipality"]
         cache_key = "_applicant"
-        if not user or getattr(user, "camac_role", None) != "applicant":
+        is_internal = getattr(user, "camac_role", None) != "applicant"
+        is_pgv_gas = False
+        if context and "instanceId" in context:
+            case = Case.objects.get(instance__pk=context["instanceId"])
+            is_pgv_gas = case.document.form_id == "plangenehmigungsverfahren-gas"
+        if not user or is_internal or is_pgv_gas:
             service_groups.append("municipality-light")
-            cache_key = "_non_applicant"
+            if is_internal:
+                cache_key = "_non_applicant"
+            else:
+                cache_key += "_pgv_gas" if is_pgv_gas else "_other"
         return (service_groups, cache_key)
 
     def get_data(self, user, question, context):
@@ -113,7 +121,7 @@ class Municipalities(BaseDataSource):
         )
 
         filters = {}
-        group_names, cache_key_addition = self.get_service_groups(user)
+        group_names, cache_key_addition = self.get_service_groups(user, context)
         cache_key += cache_key_addition
 
         if include_disabled:
