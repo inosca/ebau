@@ -31,9 +31,13 @@
           {{date-from-now @row.deadline}}
         </span>
       {{else if (eq column "targetDeadlineDate")}}
-        <span class={{this.targetDeadlineClasses}}>
-          {{format-date @row.targetDeadlineDate format="date"}}
-        </span>
+        {{#if @row.processDeadlineDate}}
+          -
+        {{else}}
+          <span class={{this.targetDeadlineClasses}}>
+            {{format-date @row.targetDeadlineDate format="date"}}
+          </span>
+        {{/if}}
       {{else if (eq column "closedAt")}}
         {{format-date @row.closedAt format="datetime"}}
       {{else}}

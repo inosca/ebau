@@ -35,6 +35,7 @@ cases:
     parcel: ""
     parcelPicture: ""
     processingDeadline: ""
+    processDeadlineDate: ""
     reason: ""
     responsibility: ""
     street: ""

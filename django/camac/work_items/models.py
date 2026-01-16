@@ -328,6 +328,7 @@ class WorkItemListRowManager(models.Manager["WorkItemListRow"]):
         """Add annotated fields with current service id context."""
         return self.get_queryset().annotate(
             target_deadline_date=self._annotate_target_deadline_date(service_id),
+            process_deadline_date=self._annotate_process_deadline_date(service_id),
             is_suspended=Coalesce(
                 Q(suspended_services__contains=[service_id]), Value(False)
             ),
@@ -353,6 +354,16 @@ class WorkItemListRowManager(models.Manager["WorkItemListRow"]):
             InstanceDeadline.objects.filter(service=service_id)
             .filter(instance_id=OuterRef("instance_id"))
             .values("target_deadline_date")[:1]
+        )
+
+    def _annotate_process_deadline_date(self, service_id: int):
+        if not settings.DEADLINES.enabled:
+            return Value(None, output_field=DateField())
+
+        return (
+            InstanceDeadline.objects.filter(service=service_id)
+            .filter(instance_id=OuterRef("instance_id"))
+            .values("process_deadline_date")[:1]
         )
 
     def _annotate_suspended_services(self) -> F | Value:

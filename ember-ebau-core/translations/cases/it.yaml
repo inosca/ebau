@@ -35,6 +35,7 @@ cases:
     parcel: "Particelle"
     parcelPicture: "Immagine delle particelle"
     processingDeadline: "Scadenza"
+    processDeadlineDate: ""
     reason: "Motivo"
     responsibility: "Responsabile"
     street: "Via/toponimo"

@@ -238,12 +238,16 @@ def setup_work_item_list(
             instance_deadline_factory(
                 instance=master_data_case.family.instance,
                 start_date="2025-01-02",
+                process_deadline_date_override=True,
+                process_deadline_date="2025-01-01",
                 target_deadline_date="2025-01-02",
                 service=service,
             )
             instance_deadline_factory(
                 instance=target_deadline_instance,
                 start_date="2025-01-01",
+                process_deadline_date_override=True,
+                process_deadline_date="2025-01-01",
                 target_deadline_date="2025-01-01",
                 service=service,
             )
