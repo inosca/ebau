@@ -7,14 +7,6 @@ import Config
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we can use it
 # to bundle .js and .css sources.
-config :ebau, Ebau.Repo,
-  username: System.get_env("DATABASE_USER", "camac"),
-  password: System.get_env("DATABASE_PASSWORD", "camac"),
-  hostname: System.get_env("DATABASE_HOST", "localhost"),
-  database: System.get_env("DATABASE_NAME", "camac"),
-  stacktrace: true,
-  show_sensitive_data_on_connection_error: true,
-  pool_size: 10
 
 config :ebau, EbauWeb.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.

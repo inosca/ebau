@@ -77,7 +77,8 @@ defmodule Ebau.MixProject do
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.2.0"},
       {:bandit, "~> 1.5"},
-      {:quokka, "~> 2.11", only: [:dev, :test], runtime: false}
+      {:quokka, "~> 2.11", only: [:dev, :test], runtime: false},
+      {:nvir, "~> 0.15.0"}
     ]
   end
 

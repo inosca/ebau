@@ -10,9 +10,9 @@ import Config
 config :ebau, Ebau.Mailer, adapter: Swoosh.Adapters.Test
 
 config :ebau, Ebau.Repo,
-  username: "postgres",
-  password: "postgres",
-  hostname: "localhost",
+  username: System.get_env("DATABASE_USER", "camac"),
+  password: System.get_env("DATABASE_PASSWORD", "camac"),
+  hostname: System.get_env("DATABASE_HOST", "localhost"),
   database: "ebau_test#{System.get_env("MIX_TEST_PARTITION")}",
   pool: Ecto.Adapters.SQL.Sandbox,
   # We don't run a server during test. If one is required,
