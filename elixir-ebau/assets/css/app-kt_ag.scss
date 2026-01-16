@@ -1,0 +1,46 @@
+@use "sass:color";
+
+$global-font-family: "Arial", sans-serif;
+
+// Base colors
+$global-primary-background: rgb(0 122 184);
+$global-secondary-background: rgb(38 38 38);
+$global-danger-background: rgb(184 13 34);
+$global-success-background: rgb(129 175 23);
+$global-warning-background: rgb(250 160 90);
+
+// Font colors
+$global-color: $global-secondary-background;
+$global-inverse-color: rgb(255 255 255);
+$global-emphasis-color: $global-color;
+$global-muted-color: rgb(100 100 100);
+$ember-power-select-placeholder-color: $global-muted-color;
+$global-link-color: color.adjust($global-primary-background, $blackness: 3%);
+$global-link-hover-color: color.adjust($global-link-color, $blackness: 20%);
+$watermark-background-color: $global-danger-background;
+
+// Alert colors
+$alert-primary-background: $global-primary-background;
+$alert-primary-color: $global-inverse-color;
+$alert-danger-background: $global-danger-background;
+$alert-danger-color: $global-inverse-color;
+$alert-success-background: $global-success-background;
+$alert-success-color: $global-color;
+$alert-warning-background: $global-warning-background;
+$alert-warning-color: $global-color;
+
+// Alert customization
+.uk-alert-primary,
+.uk-alert-danger,
+.uk-alert-success,
+.uk-alert-warning {
+  a {
+    color: inherit;
+
+    &:hover {
+      color: inherit;
+    }
+  }
+}
+
+@import "base.scss";

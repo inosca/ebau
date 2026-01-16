@@ -17,7 +17,12 @@ config :ebau, EbauWeb.Endpoint,
   debug_errors: true,
   secret_key_base: "YQJEbV4PNghnQm7rjjkYtkiA/8yNipPpJRpBr4ITfEFO18jPiG77iUyguVY0dvjL",
   watchers: [
-    esbuild: {Esbuild, :install_and_run, [:ebau, ~w(--sourcemap=inline --watch)]}
+    esbuild: {Esbuild, :install_and_run, [:ebau, ~w(--sourcemap=inline --watch)]},
+    sass: {
+      DartSass,
+      :install_and_run,
+      [:default, ~w(--embed-source-map --source-map-urls=absolute --watch)]
+    }
   ]
 
 # Reload browser tabs when matching files change.

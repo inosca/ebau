@@ -22,6 +22,20 @@ end
 
 Nvir.dotenv!(["../.env", ".env", ".env.#{config_env()}"])
 
+# We don't build scss in test
+if config_env() in [:dev, :prod] do
+  # We dynamically need to build different cantonal scss files here
+  config :dart_sass,
+    version: "1.77.8",
+    default: [
+      args: [
+        "css/app-#{System.fetch_env!("APPLICATION")}.scss",
+        "../priv/static/assets/css/app.css"
+      ],
+      cd: Path.expand("../assets", __DIR__)
+    ]
+end
+
 config :ebau, Ebau.Repo,
   username: System.get_env("DATABASE_USER", "camac"),
   password: System.get_env("DATABASE_PASSWORD", "camac"),

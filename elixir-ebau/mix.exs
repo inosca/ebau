@@ -70,7 +70,8 @@ defmodule Ebau.MixProject do
       {:dns_cluster, "~> 0.2.0"},
       {:bandit, "~> 1.5"},
       {:quokka, "~> 2.11", only: [:dev, :test], runtime: false},
-      {:nvir, "~> 0.15.0"}
+      {:nvir, "~> 0.15.0"},
+      {:dart_sass, "~> 0.7", only: [:dev]}
     ]
   end
 
@@ -90,6 +91,7 @@ defmodule Ebau.MixProject do
       "assets.build": ["compile", "esbuild ebau"],
       "assets.deploy": [
         "esbuild ebau --minify",
+        "sass default --no-source-map --style=compressed",
         "phx.digest"
       ],
       precommit: ["compile --warnings-as-errors", "deps.unlock --unused", "format", "test"]

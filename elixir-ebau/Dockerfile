@@ -7,6 +7,12 @@ RUN apt-get update -y && \
   apt-get clean && \
   dpkg --configure -a
 
+# Install Node.js (via NodeSource)
+# This is only necessary because of uikit. I would love to get rid of this.
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+  && apt-get install -y nodejs \
+  && npm install -g npm@latest
+
 COPY . /app/
 
 RUN mix local.hex --force && \
