@@ -4,13 +4,14 @@
 
 There are two ways to work on the elixir application:
 
-### a) using a local installation of elixir (highly recommended)
+### Development setups
+#### a) using a local installation of elixir (highly recommended)
 
 In this case you have to install a suitable version of erlang and elixir. Ideally you use similar version
 to the ones specified in the Dockerfile in the `elixir-ebau` folder.
 
 
-#### Starting the dev server
+##### Starting the dev server
 You can then start the development server with:
 
 ```ex
@@ -20,7 +21,7 @@ mix phx.server
 You can now access the application under [http://localhost:4000](http://localhost:4000). As an example the dev dashboard lives under:
 [http://localhost:4000/dev/dashboard](http://localhost:4000/dev/dashboard).
 
-### b) using the container
+#### b) using the container
 
 - Hot code reloading and browser refresh still works
 - Formatting has to be done inside the container using `mix format`
@@ -34,7 +35,7 @@ access the live dashboard at [http://ember-ebau.localhost/elixir/dev/dashboard](
 [`Expert`](https://expert-lsp.org) is the official language server. The docs have instructions on how to setup
 [different editors](https://expert-lsp.org/docs/editors/).
 
-## REPL
+### REPL
 
 Elixir also has a REPL (similar to the django shell) which can be started with `iex -S mix`. You can also start
 your webserver with an active REPL:
@@ -60,6 +61,18 @@ Process.info(pid, :memory)
 Process.exit(pid, :kill)
 # You will see that there is a refresh and in your console you get the message that the liveview has reconnected
 ```
+
+## Cantonal theming of uikit
+
+Cantonal theming of uikit is done using custom input files to dart_sass. The `runtime.exs` file uses the `APPLICATION`
+env variable to decide which cantonal `.scss` file should be used. It then compiles it and writes to `app.css` which is
+then served.
+
+Instead of `_variables-gr.scss` that then gets rewritten to `variables.scss` during build time we instead have a `app-kt_gr.scss` which
+includes shared theming stuff (mainly the base uikit things) and then gets built and served as `app.css` by sass.
+
+> [!warning] If you change canton you have to restart your development server. Otherwise the app will continue to serve the previously built
+app.css file which includes the customisation for the previous canton.
 
 ## Learn more
 
