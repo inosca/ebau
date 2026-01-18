@@ -30,7 +30,7 @@ if config_env() in [:dev, :prod] do
     default: [
       args: [
         "css/app-#{System.fetch_env!("APPLICATION")}.scss",
-        "../priv/static/elixir-assets/css/app.css"
+        "../priv/static/assets/css/app.css"
       ],
       cd: Path.expand("../assets", __DIR__)
     ]
