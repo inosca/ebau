@@ -71,8 +71,7 @@ then served.
 Instead of `_variables-gr.scss` that then gets rewritten to `variables.scss` during build time we instead have a `app-kt_gr.scss` which
 includes shared theming stuff (mainly the base uikit things) and then gets built and served as `app.css` by sass.
 
-> [!warning] If you change canton you have to restart your development server. Otherwise the app will continue to serve the previously built
-app.css file which includes the customisation for the previous canton.
+If you change canton while having the dev server running you need to restart the dev server.
 
 ## Learn more
 
