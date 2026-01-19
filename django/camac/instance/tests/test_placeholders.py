@@ -908,13 +908,7 @@ def test_dms_placeholders(
             "municipality-admin",
             lf("be_instance"),
             "kt_bern",
-            id="Placeholders empty. App config kt_bern: upper case placeholder variables.",
-        ),
-        pytest.param(
-            "Gemeinde",
-            lf("sz_instance"),
-            "kt_schwyz",
-            id="Placholders empty. App config kt_schwyz: lower case placeholder variables.",
+            id="Municipality",
         ),
     ],
     indirect=["any_application"],
@@ -925,9 +919,9 @@ def test_dms_placeholders(
 def test_dms_placeholders_empty(
     db,
     admin_client,
-    any_application,
     application_settings,
     settings,
+    any_application,
     app_instance,
     snapshot,
 ):
@@ -935,10 +929,7 @@ def test_dms_placeholders_empty(
         reverse("instance-dms-placeholders", args=[app_instance.pk])
     )
     assert response.status_code == status.HTTP_200_OK
-    resp_data = response.json()
     snapshot.assert_match(response.json())
-    for key in resp_data.keys():
-        assert key == getattr(str, settings.PLACEHOLDERS["PLACEHOLDER_CASE"])(key)
 
 
 @pytest.mark.freeze_time("2023-01-24")
@@ -1222,13 +1213,21 @@ def test_dms_placeholders_ag(
     indirect=["any_application"],
 )
 def test_dms_placeholders_sz(
-    db, admin_client, master_data_case, app_instance, any_application, snapshot
+    db,
+    admin_client,
+    master_data_case,
+    app_instance,
+    any_application,
+    settings,
+    snapshot,
 ):
     response = admin_client.get(
         reverse("instance-dms-placeholders", args=[app_instance.pk])
     )
     assert response.status_code == status.HTTP_200_OK
     assert response.json() == snapshot
+    for key in response.json().keys():
+        assert key == getattr(str, settings.PLACEHOLDERS["PLACEHOLDER_CASE"])(key)
 
 
 @pytest.mark.parametrize(

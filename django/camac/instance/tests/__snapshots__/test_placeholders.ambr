@@ -13533,7 +13533,7 @@
     'FIELD_VERTRETER_MIT_VOLLMACHT[].VORNAME',
   ])
 # ---
-# name: test_dms_placeholders_empty[Placeholders empty. App config kt_bern: upper case placeholder variables.]
+# name: test_dms_placeholders_empty[Municipality]
   dict({
     'ACE': '',
     'ADDRESS': '',
@@ -13576,11 +13576,11 @@
     'AUTEUR_PROJET_TOUS': '',
     'AUTEUR_PROJET_TOUS_NOM_ADRESSE': '',
     'AUTORITE_DIRECTRICE_ADRESSE_1': '',
-    'AUTORITE_DIRECTRICE_ADRESSE_2': 'Johnsburgh',
-    'AUTORITE_DIRECTRICE_EMAIL': 'michelleboone@example.org',
-    'AUTORITE_DIRECTRICE_LIEU': 'Johnsburgh',
-    'AUTORITE_DIRECTRICE_NOM': 'John Thomas',
-    'AUTORITE_DIRECTRICE_NOM_ABR': 'John Thomas',
+    'AUTORITE_DIRECTRICE_ADRESSE_2': '',
+    'AUTORITE_DIRECTRICE_EMAIL': '',
+    'AUTORITE_DIRECTRICE_LIEU': '',
+    'AUTORITE_DIRECTRICE_NOM': '',
+    'AUTORITE_DIRECTRICE_NOM_ABR': '',
     'AUTORITE_DIRECTRICE_TELEPHONE': '',
     'BASE_URL': 'http://ebau.localhost',
     'BAUEINGABE_DATUM': '30. August 2021',
@@ -13785,15 +13785,15 @@
     'LEGAL_CUSTODIANS': list([
     ]),
     'LEITBEHOERDE_ADDRESS_1': '',
-    'LEITBEHOERDE_ADDRESS_2': 'Johnsburgh',
+    'LEITBEHOERDE_ADDRESS_2': '',
     'LEITBEHOERDE_ADRESSE_1': '',
-    'LEITBEHOERDE_ADRESSE_2': 'Johnsburgh',
-    'LEITBEHOERDE_CITY': 'Johnsburgh',
-    'LEITBEHOERDE_EMAIL': 'michelleboone@example.org',
-    'LEITBEHOERDE_NAME': 'John Thomas',
-    'LEITBEHOERDE_NAME_KURZ': 'John Thomas',
+    'LEITBEHOERDE_ADRESSE_2': '',
+    'LEITBEHOERDE_CITY': '',
+    'LEITBEHOERDE_EMAIL': '',
+    'LEITBEHOERDE_NAME': '',
+    'LEITBEHOERDE_NAME_KURZ': '',
     'LEITBEHOERDE_PHONE': '',
-    'LEITBEHOERDE_STADT': 'Johnsburgh',
+    'LEITBEHOERDE_STADT': '',
     'LEITBEHOERDE_TELEFON': '',
     'LEITPERSON': '',
     'LIEN_PUBLICATION': 'http://ebau-portal.localhost/public-instances/1',
@@ -14037,32 +14037,6 @@
     'ZUSTAENDIG_NAME': '',
     'ZUSTAENDIG_PHONE': '',
     'ZUSTAENDIG_TELEFON': '',
-  })
-# ---
-# name: test_dms_placeholders_empty[Placholders empty. App config kt_schwyz: lower case placeholder variables.]
-  dict({
-    'field_bauherrschaft': list([
-    ]),
-    'field_betroffene_nutzungszonen': '',
-    'field_bezeichnung': '',
-    'field_bezeichnung_override': '',
-    'field_energie_photovoltaik_gesamtleistung': '',
-    'field_grundeigentumerschaft': list([
-    ]),
-    'field_kategorie_des_vorhabens': '',
-    'field_ortsbezeichnung_des_vorhabens': '',
-    'field_parzellen': list([
-    ]),
-    'field_projektverfasser_planer': list([
-    ]),
-    'field_publikation_bemerkung': '',
-    'field_punkte': '',
-    'field_standort_adresse': '',
-    'field_standort_koordinaten': '',
-    'field_standort_ort': '',
-    'field_standort_spezialbezeichnung': '',
-    'field_vertreter_mit_vollmacht': list([
-    ]),
   })
 # ---
 # name: test_dms_placeholders_gr[municipality-lead]
