@@ -216,6 +216,11 @@ class AliasedMixin:
         names = copy.copy(available_placeholders)
         nested_names = set()
         for alias in names:
+            # NOTE: Nested aliases like `nested.prefix.alias` are only added
+            # added in their addition to `nested[].prefix[].alias`
+            if not alias.endswith("]"):
+                continue
+
             nested_base = alias
             nested_names.add(nested_base)
             for nested_name, nested_aliases_list in self.nested_aliases.items():
@@ -228,11 +233,6 @@ class AliasedMixin:
                 base_prefix = nested_base
 
                 if "." in nested_name:
-                    # NOTE: Double nested paths similar to `nested.prefix.alias`
-                    # are not added in addition to `nested[].prefix[].alias`
-                    if not alias.endswith("]"):
-                        continue
-
                     # NOTE: The middle part of the nested placeholder is not translated
                     prefix, nested_name = nested_name.split(".")
                     base_prefix = f"{nested_base}.{prefix}[]"
