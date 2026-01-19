@@ -259,9 +259,6 @@ services:
       - elixir-ebau_language-server:/app/.elixir_ls # caching the language server to a local volume
     networks:
       - ebau.localhost
-    ports:
-      - 4000:4000
-      - 4007:4007
     depends_on:
       - db
     environment:
