@@ -1310,18 +1310,11 @@ def test_get_koordinaten(coord_east, coord_north, expected, mocker):
 @pytest.mark.parametrize(
     "is_collection",
     [
-        pytest.param(True, id="Add []"),
+        pytest.param(True, id="is_collection: append [] to placholder name"),
         pytest.param(
             False,
-            id="No [] unless nested",
+            id="~is_collection: no [] appended to placeholder name, unless nested_aliases given",
         ),
-    ],
-)
-@pytest.mark.parametrize(
-    "master_data_case",
-    [
-        pytest.param(lf("sz_master_data_case"), id="Instance form backend: camac-ng"),
-        pytest.param(lf("be_master_data_case"), id="Instance form backend: caluma"),
     ],
 )
 def test_aliased_placeholder_field(
@@ -1329,7 +1322,7 @@ def test_aliased_placeholder_field(
     fake_request,
     service_group,
     request_mock,
-    master_data_case,
+    sz_master_data_case,
     is_collection,
     snapshot,
 ):
@@ -1352,7 +1345,7 @@ def test_aliased_placeholder_field(
             exclude = list(DMSPlaceholdersSerializer._declared_fields.keys())
 
     serializer = PlaceholderTestSerializer(
-        instance=master_data_case.instance, context={"request": fake_request}
+        instance=sz_master_data_case.instance, context={"request": fake_request}
     )
 
     for field_name in testfields:

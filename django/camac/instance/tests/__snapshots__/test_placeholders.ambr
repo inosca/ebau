@@ -1,5 +1,5 @@
 # serializer version: 1
-# name: test_aliased_placeholder_field[Instance form backend: caluma-Add []]
+# name: test_aliased_placeholder_field[is_collection: append [] to placholder name]
   dict({
     'aliases': list([
       dict({
@@ -18,7 +18,7 @@
     }),
   })
 # ---
-# name: test_aliased_placeholder_field[Instance form backend: caluma-Add []].1
+# name: test_aliased_placeholder_field[is_collection: append [] to placholder name].1
   list([
     'BATEAU',
     'BAT_DE',
@@ -26,7 +26,7 @@
     'CHAT',
   ])
 # ---
-# name: test_aliased_placeholder_field[Instance form backend: caluma-Add []].2
+# name: test_aliased_placeholder_field[is_collection: append [] to placholder name].2
   dict({
     'aliases': list([
       dict({
@@ -45,7 +45,7 @@
     }),
   })
 # ---
-# name: test_aliased_placeholder_field[Instance form backend: caluma-Add []].3
+# name: test_aliased_placeholder_field[is_collection: append [] to placholder name].3
   list([
     'BATEAUX',
     'BATEAUX[]',
@@ -57,7 +57,7 @@
     'KATZENLISTE[]',
   ])
 # ---
-# name: test_aliased_placeholder_field[Instance form backend: caluma-Add []].4
+# name: test_aliased_placeholder_field[is_collection: append [] to placholder name].4
   dict({
     'aliases': list([
       dict({
@@ -90,7 +90,7 @@
     }),
   })
 # ---
-# name: test_aliased_placeholder_field[Instance form backend: caluma-Add []].5
+# name: test_aliased_placeholder_field[is_collection: append [] to placholder name].5
   list([
     'BOBJEKTE',
     'BOBJEKTE[]',
@@ -122,7 +122,7 @@
     '🦇[].NESTED[].BAT_DE',
   ])
 # ---
-# name: test_aliased_placeholder_field[Instance form backend: caluma-No [] unless nested]
+# name: test_aliased_placeholder_field[~is_collection: no [] appended to placeholder name, unless nested_aliases given]
   dict({
     'aliases': list([
       dict({
@@ -141,7 +141,7 @@
     }),
   })
 # ---
-# name: test_aliased_placeholder_field[Instance form backend: caluma-No [] unless nested].1
+# name: test_aliased_placeholder_field[~is_collection: no [] appended to placeholder name, unless nested_aliases given].1
   list([
     'BATEAU',
     'BAT_DE',
@@ -149,7 +149,7 @@
     'CHAT',
   ])
 # ---
-# name: test_aliased_placeholder_field[Instance form backend: caluma-No [] unless nested].2
+# name: test_aliased_placeholder_field[~is_collection: no [] appended to placeholder name, unless nested_aliases given].2
   dict({
     'aliases': list([
       dict({
@@ -168,7 +168,7 @@
     }),
   })
 # ---
-# name: test_aliased_placeholder_field[Instance form backend: caluma-No [] unless nested].3
+# name: test_aliased_placeholder_field[~is_collection: no [] appended to placeholder name, unless nested_aliases given].3
   list([
     'BATEAUX',
     'BATZENLISTE',
@@ -176,7 +176,7 @@
     'KATZENLISTE',
   ])
 # ---
-# name: test_aliased_placeholder_field[Instance form backend: caluma-No [] unless nested].4
+# name: test_aliased_placeholder_field[~is_collection: no [] appended to placeholder name, unless nested_aliases given].4
   dict({
     'aliases': list([
       dict({
@@ -209,249 +209,7 @@
     }),
   })
 # ---
-# name: test_aliased_placeholder_field[Instance form backend: caluma-No [] unless nested].5
-  list([
-    'BOBJEKTE',
-    'BOBJEKTE[]',
-    'BOBJEKTE[].CAT_DE',
-    'BOBJEKTE[].CHAT',
-    'BOBJEKTE[].NESTED[]',
-    'BOBJEKTE[].NESTED[].BATEAU',
-    'BOBJEKTE[].NESTED[].BAT_DE',
-    'KOBJEKTE',
-    'KOBJEKTE[]',
-    'KOBJEKTE[].CAT_DE',
-    'KOBJEKTE[].CHAT',
-    'KOBJEKTE[].NESTED[]',
-    'KOBJEKTE[].NESTED[].BATEAU',
-    'KOBJEKTE[].NESTED[].BAT_DE',
-    '🐈',
-    '🐈[]',
-    '🐈[].CAT_DE',
-    '🐈[].CHAT',
-    '🐈[].NESTED[]',
-    '🐈[].NESTED[].BATEAU',
-    '🐈[].NESTED[].BAT_DE',
-    '🦇',
-    '🦇[]',
-    '🦇[].CAT_DE',
-    '🦇[].CHAT',
-    '🦇[].NESTED[]',
-    '🦇[].NESTED[].BATEAU',
-    '🦇[].NESTED[].BAT_DE',
-  ])
-# ---
-# name: test_aliased_placeholder_field[Instance form backend: camac-ng-Add []]
-  dict({
-    'aliases': list([
-      dict({
-        'de': 'BAT_DE',
-        'fr': 'BATEAU',
-        'it': 'BAT_DE',
-      }),
-      dict({
-        'de': 'CAT_DE',
-        'fr': 'CHAT',
-        'it': 'CAT_DE',
-      }),
-    ]),
-    'description': None,
-    'nested_aliases': dict({
-    }),
-  })
-# ---
-# name: test_aliased_placeholder_field[Instance form backend: camac-ng-Add []].1
-  list([
-    'BATEAU',
-    'BAT_DE',
-    'CAT_DE',
-    'CHAT',
-  ])
-# ---
-# name: test_aliased_placeholder_field[Instance form backend: camac-ng-Add []].2
-  dict({
-    'aliases': list([
-      dict({
-        'de': 'BATZENLISTE',
-        'fr': 'BATEAUX',
-        'it': 'BATZENLISTE',
-      }),
-      dict({
-        'de': 'KATZENLISTE',
-        'fr': 'CHATEAUX',
-        'it': 'KATZENLISTE',
-      }),
-    ]),
-    'description': None,
-    'nested_aliases': dict({
-    }),
-  })
-# ---
-# name: test_aliased_placeholder_field[Instance form backend: camac-ng-Add []].3
-  list([
-    'BATEAUX',
-    'BATEAUX[]',
-    'BATZENLISTE',
-    'BATZENLISTE[]',
-    'CHATEAUX',
-    'CHATEAUX[]',
-    'KATZENLISTE',
-    'KATZENLISTE[]',
-  ])
-# ---
-# name: test_aliased_placeholder_field[Instance form backend: camac-ng-Add []].4
-  dict({
-    'aliases': list([
-      dict({
-        'de': 'BOBJEKTE',
-        'fr': '🦇',
-        'it': 'BOBJEKTE',
-      }),
-      dict({
-        'de': 'KOBJEKTE',
-        'fr': '🐈',
-        'it': 'KOBJEKTE',
-      }),
-    ]),
-    'description': None,
-    'nested_aliases': dict({
-      'NAME': list([
-        dict({
-          'de': 'CAT_DE',
-          'fr': 'CHAT',
-          'it': 'CAT_DE',
-        }),
-      ]),
-      'NESTED.NAME': list([
-        dict({
-          'de': 'BAT_DE',
-          'fr': 'BATEAU',
-          'it': 'BAT_DE',
-        }),
-      ]),
-    }),
-  })
-# ---
-# name: test_aliased_placeholder_field[Instance form backend: camac-ng-Add []].5
-  list([
-    'BOBJEKTE',
-    'BOBJEKTE[]',
-    'BOBJEKTE[].CAT_DE',
-    'BOBJEKTE[].CHAT',
-    'BOBJEKTE[].NESTED[]',
-    'BOBJEKTE[].NESTED[].BATEAU',
-    'BOBJEKTE[].NESTED[].BAT_DE',
-    'KOBJEKTE',
-    'KOBJEKTE[]',
-    'KOBJEKTE[].CAT_DE',
-    'KOBJEKTE[].CHAT',
-    'KOBJEKTE[].NESTED[]',
-    'KOBJEKTE[].NESTED[].BATEAU',
-    'KOBJEKTE[].NESTED[].BAT_DE',
-    '🐈',
-    '🐈[]',
-    '🐈[].CAT_DE',
-    '🐈[].CHAT',
-    '🐈[].NESTED[]',
-    '🐈[].NESTED[].BATEAU',
-    '🐈[].NESTED[].BAT_DE',
-    '🦇',
-    '🦇[]',
-    '🦇[].CAT_DE',
-    '🦇[].CHAT',
-    '🦇[].NESTED[]',
-    '🦇[].NESTED[].BATEAU',
-    '🦇[].NESTED[].BAT_DE',
-  ])
-# ---
-# name: test_aliased_placeholder_field[Instance form backend: camac-ng-No [] unless nested]
-  dict({
-    'aliases': list([
-      dict({
-        'de': 'BAT_DE',
-        'fr': 'BATEAU',
-        'it': 'BAT_DE',
-      }),
-      dict({
-        'de': 'CAT_DE',
-        'fr': 'CHAT',
-        'it': 'CAT_DE',
-      }),
-    ]),
-    'description': None,
-    'nested_aliases': dict({
-    }),
-  })
-# ---
-# name: test_aliased_placeholder_field[Instance form backend: camac-ng-No [] unless nested].1
-  list([
-    'BATEAU',
-    'BAT_DE',
-    'CAT_DE',
-    'CHAT',
-  ])
-# ---
-# name: test_aliased_placeholder_field[Instance form backend: camac-ng-No [] unless nested].2
-  dict({
-    'aliases': list([
-      dict({
-        'de': 'BATZENLISTE',
-        'fr': 'BATEAUX',
-        'it': 'BATZENLISTE',
-      }),
-      dict({
-        'de': 'KATZENLISTE',
-        'fr': 'CHATEAUX',
-        'it': 'KATZENLISTE',
-      }),
-    ]),
-    'description': None,
-    'nested_aliases': dict({
-    }),
-  })
-# ---
-# name: test_aliased_placeholder_field[Instance form backend: camac-ng-No [] unless nested].3
-  list([
-    'BATEAUX',
-    'BATZENLISTE',
-    'CHATEAUX',
-    'KATZENLISTE',
-  ])
-# ---
-# name: test_aliased_placeholder_field[Instance form backend: camac-ng-No [] unless nested].4
-  dict({
-    'aliases': list([
-      dict({
-        'de': 'BOBJEKTE',
-        'fr': '🦇',
-        'it': 'BOBJEKTE',
-      }),
-      dict({
-        'de': 'KOBJEKTE',
-        'fr': '🐈',
-        'it': 'KOBJEKTE',
-      }),
-    ]),
-    'description': None,
-    'nested_aliases': dict({
-      'NAME': list([
-        dict({
-          'de': 'CAT_DE',
-          'fr': 'CHAT',
-          'it': 'CAT_DE',
-        }),
-      ]),
-      'NESTED.NAME': list([
-        dict({
-          'de': 'BAT_DE',
-          'fr': 'BATEAU',
-          'it': 'BAT_DE',
-        }),
-      ]),
-    }),
-  })
-# ---
-# name: test_aliased_placeholder_field[Instance form backend: camac-ng-No [] unless nested].5
+# name: test_aliased_placeholder_field[~is_collection: no [] appended to placeholder name, unless nested_aliases given].5
   list([
     'BOBJEKTE',
     'BOBJEKTE[]',
