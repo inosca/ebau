@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-08 09:41+0100\n"
+"POT-Creation-Date: 2026-01-19 17:29+0100\n"
 "PO-Revision-Date: 2025-05-09 15:48+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1389,6 +1389,38 @@ msgstr "AMZ_SCHUTZPLATZ_BEMERKUNGEN"
 #: camac/instance/placeholders/serializers.py
 msgid "Remarks on the shelters"
 msgstr "Bemerkungen zu den Schutzplätzen"
+
+#: camac/instance/placeholders/serializers.py
+msgid "CONSTRUCTION_ACCEPTANCE_DATE"
+msgstr "BAUABNAHME_DATUM"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Date of the construction acceptance"
+msgstr "Datum der Bauabnahme"
+
+#: camac/instance/placeholders/serializers.py
+msgid "CONSTRUCTION_ACCEPTANCE_COMMENTS"
+msgstr "BAUABNAHME_ABGENOMMEN"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Comments for the construction acceptance"
+msgstr "Abgenommen an der Bauabnahme"
+
+#: camac/instance/placeholders/serializers.py
+msgid "CONSTRUCTION_ACCEPTANCE_DEFECTS"
+msgstr "BAUABNAHME_MAENGEL"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Defects for the construction acceptance"
+msgstr "Nicht abgenommen / Mängel zur Bauabnahme"
+
+#: camac/instance/placeholders/serializers.py
+msgid "CONSTRUCTION_ACCEPTANCE_OBSERVATIONS"
+msgstr "BAUABNAHME_BEMERKUNGEN"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Observations for the construction acceptance"
+msgstr "Bemerkungen zur Bauabnahme"
 
 #: camac/instance/placeholders/serializers.py
 msgid "PROJECT"

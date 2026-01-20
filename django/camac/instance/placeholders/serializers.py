@@ -999,6 +999,22 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("CIRCULATION_FEEDBACK")],
         description=_("Opinions and ancillary clauses of the invited services"),
     )
+    bauabnahme_datum = fields.MasterDataField(
+        aliases=[_("CONSTRUCTION_ACCEPTANCE_DATE")],
+        description=_("Date of the construction acceptance"),
+    )
+    bauabnahme_abgenommen = fields.MasterDataField(
+        aliases=[_("CONSTRUCTION_ACCEPTANCE_COMMENTS")],
+        description=_("Comments for the construction acceptance"),
+    )
+    bauabnahme_nicht_abgenommen_maengel = fields.MasterDataField(
+        aliases=[_("CONSTRUCTION_ACCEPTANCE_DEFECTS")],
+        description=_("Defects for the construction acceptance"),
+    )
+    bauabnahme_bemerkungen = fields.MasterDataField(
+        aliases=[_("CONSTRUCTION_ACCEPTANCE_OBSERVATIONS")],
+        description=_("Observations for the construction acceptance"),
+    )
 
     def get_zonenplan(self, instance):
         answer = Answer.objects.filter(

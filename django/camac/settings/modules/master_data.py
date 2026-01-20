@@ -2441,6 +2441,35 @@ MASTER_DATA = {
                     )
                 },
             ),
+            "bauabnahme_datum": (
+                "answer",
+                "bauabnahme",
+                {
+                    "value_key": "date",
+                    "document_from_work_item": "formal-exam",
+                },
+            ),
+            "bauabnahme_abgenommen": (
+                "answer",
+                "bauabnahme",
+                {
+                    "document_from_work_item": "formal-exam",
+                },
+            ),
+            "bauabnahme_nicht_abgenommen_maengel": (
+                "answer",
+                "bauabnahme_nicht_abgenommen_maengel",
+                {
+                    "document_from_work_item": "formal-exam",
+                },
+            ),
+            "bauabnahme_bemerkungen ": (
+                "answer",
+                "bauabnahme_bemerkungen",
+                {
+                    "document_from_work_item": "formal-exam",
+                },
+            ),
         },
     },
     "kt_so": {

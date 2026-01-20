@@ -6334,6 +6334,62 @@
       'nested_aliases': dict({
       }),
     }),
+    'BAUABNAHME_ABGENOMMEN': dict({
+      'aliases': list([
+        dict({
+          'de': 'BAUABNAHME_ABGENOMMEN',
+          'it': 'BAUABNAHME_ABGENOMMEN',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Abgenommen an der Bauabnahme',
+        'it': 'Abgenommen an der Bauabnahme',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'BAUABNAHME_BEMERKUNGEN': dict({
+      'aliases': list([
+        dict({
+          'de': 'BAUABNAHME_BEMERKUNGEN',
+          'it': 'BAUABNAHME_BEMERKUNGEN',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Bemerkungen zur Bauabnahme',
+        'it': 'Bemerkungen zur Bauabnahme',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'BAUABNAHME_DATUM': dict({
+      'aliases': list([
+        dict({
+          'de': 'BAUABNAHME_DATUM',
+          'it': 'BAUABNAHME_DATUM',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Datum der Bauabnahme',
+        'it': 'Datum der Bauabnahme',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'BAUABNAHME_NICHT_ABGENOMMEN_MAENGEL': dict({
+      'aliases': list([
+        dict({
+          'de': 'BAUABNAHME_MAENGEL',
+          'it': 'BAUABNAHME_MAENGEL',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Nicht abgenommen / Mängel zur Bauabnahme',
+        'it': 'Nicht abgenommen / Mängel zur Bauabnahme',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'BAUEINGABE_DATUM': dict({
       'aliases': list([
         dict({
@@ -11554,6 +11610,10 @@
     'AUTORITÀ_DIRETTRICE_NOME',
     'AUTORITÀ_DIRETTRICE_NOME_BREVE',
     'AUTORITÀ_DIRETTRICE_TELEFONO',
+    'BAUABNAHME_ABGENOMMEN',
+    'BAUABNAHME_BEMERKUNGEN',
+    'BAUABNAHME_DATUM',
+    'BAUABNAHME_MAENGEL',
     'BAUEINGABE_DATUM',
     'BAUENTSCHEID',
     'BAUENTSCHEID_DATUM',
@@ -12873,6 +12933,11 @@
     'AUTORITÀ_DIRETTRICE_NOME_BREVE': 'Alex Smith',
     'AUTORITÀ_DIRETTRICE_TELEFONO': '032163546546',
     'BASE_URL': 'http://ember-ebau.localhost',
+    'BAUABNAHME_ABGENOMMEN': '',
+    'BAUABNAHME_BEMERKUNGEN': '',
+    'BAUABNAHME_DATUM': '',
+    'BAUABNAHME_MAENGEL': '',
+    'BAUABNAHME_NICHT_ABGENOMMEN_MAENGEL': '',
     'BAUEINGABE_DATUM': '31. März 2021',
     'BAUENTSCHEID': 'Bewilligt',
     'BAUENTSCHEID_DATUM': '30. August 2021',
