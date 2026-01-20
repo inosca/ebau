@@ -215,7 +215,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Nachforderung\", \"fr\": null, \"it\": \"Richiesta di precisazioni\"}",
+      "label": "{\"de\": \"Nachforderung / Projektanpassung\", \"fr\": null, \"it\": \"Richiesta di precisazioni / Adeguamento del progetto\"}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
