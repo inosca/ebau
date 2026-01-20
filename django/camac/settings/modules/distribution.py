@@ -222,7 +222,7 @@ DISTRIBUTION = {
         },
         "INQUIRY_TASK": "inquiry",
         "DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICE_GROUPS": {
-            "uso": 7,
+            "uso": 20,
             "authority-bab": 90,
         },
         "ANSWERS": {
