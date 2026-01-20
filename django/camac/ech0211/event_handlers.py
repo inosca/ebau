@@ -105,6 +105,7 @@ class BaseEventHandler:
             receiver=self.message_receiver,
             created_at=self.message_date,
             id=self.message_id,
+            instance=self.instance,
         )
 
     def run(self):
