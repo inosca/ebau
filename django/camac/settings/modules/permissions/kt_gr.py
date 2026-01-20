@@ -6,6 +6,7 @@ from camac.permissions.conditions import (
     IsForm,
     IsPaper,
     IsServiceGroup,
+    Never,
     RequireDeadline,
     RequireInstanceState,
     RequireWorkItem,
@@ -79,10 +80,11 @@ MODULE_LEGAL_SUBMISSIONS = IsForm(BAUGESUCH_FORMS) & (
     RequireWorkItem("objections", addressed_to_current_service=True)
     | IsServiceGroup(["authority-bab"])
 )
-MODULE_LEGAL_APPEALS = IsForm(BAUGESUCH_FORMS) & (
-    RequireWorkItem("appeals", addressed_to_current_service=True)
-    | IsServiceGroup(["authority-bab"])
-)
+MODULE_LEGAL_APPEALS = Never()
+# MODULE_LEGAL_APPEALS = IsForm(BAUGESUCH_FORMS) & (
+#     RequireWorkItem("appeals", addressed_to_current_service=True)
+#     | IsServiceGroup(["authority-bab"])
+# )
 MODULE_LINKED_INSTANCES = STATES_ALL
 MODULE_PERMISSIONS = STATES_ALL
 MODULE_PUBLICATION = RequireWorkItem("fill-publication")
