@@ -5,6 +5,14 @@ import { EEBA_ANSWER_QUESTIONS, EEBA_STATE } from "ember-ebau-core/config/eeba";
 export default class EebaClientService extends Service {
   @service fetch;
 
+  // performing the eEBA refresh will run in a debounced timeout to prevent
+  // conflicting multiple saves/refreshes during quick consequent save actions.
+  // This can occur e.g. when using a auto-fill extension in the browser.
+  debounce = {
+    timeout: null,
+    fields: {},
+  };
+
   async checkIntegration(instanceId, params = {}, headers = {}) {
     const fullQuery = this.mapQuery(params);
     const response = await this.fetch.fetch(
@@ -23,6 +31,8 @@ export default class EebaClientService extends Service {
   }
 
   async onSaveEebaRefresh(document, question) {
+    clearTimeout(this.debounce.timeout);
+
     const eebaStateField = document.findField(EEBA_ANSWER_QUESTIONS.STATE);
     const linkedFields =
       eebaStateField?.question?.raw?.meta?.eebaLinkedFields || [];
@@ -34,7 +44,12 @@ export default class EebaClientService extends Service {
       linkedFields.length === 0 ||
       !linkedFields.includes(question.slug)
     ) {
-      return;
+      // If there are still fields in the debounce list, we keep the timeout
+      // to perform the refresh for those.
+      return (this.debounce.timeout = setTimeout(
+        () => this.performEebaRefresh(),
+        250,
+      ));
     }
 
     const isDirtyField = document.findField(EEBA_ANSWER_QUESTIONS.IS_DIRTY);
@@ -59,16 +74,37 @@ export default class EebaClientService extends Service {
     }
 
     // refresh all linked fields except the one that was just saved.
+    // add all these fields to the debounce list for refreshing.
+    Object.values(EEBA_ANSWER_QUESTIONS)
+      .filter((slug) => slug !== question.slug)
+      .forEach(async (slug) => {
+        this.debounce.fields[slug] = await document
+          .findField(slug)
+          ?.refreshAnswer.linked();
+      });
+
+    return (this.debounce.timeout = setTimeout(
+      () => this.performEebaRefresh(),
+      250,
+    ));
+  }
+
+  /**
+   * Performs the actual debounced refresh for all queued fields.
+   */
+  async performEebaRefresh() {
+    const fields = this.debounce.fields;
+    this.debounce.timeout = null;
+    this.debounce.fields = {};
+
     return await Promise.all(
-      Object.values(EEBA_ANSWER_QUESTIONS)
-        .filter((slug) => slug !== question.slug)
-        .map((slug) => {
-          try {
-            return document.findField(slug)?.refreshAnswer.linked().perform();
-          } catch {
-            return Promise.resolve();
-          }
-        }),
+      Object.values(fields).map(async (refresh) => {
+        try {
+          return await refresh?.perform();
+        } catch {
+          return Promise.resolve();
+        }
+      }),
     );
   }
 
