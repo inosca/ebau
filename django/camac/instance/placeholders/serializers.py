@@ -20,7 +20,10 @@ from camac.caluma.api import CalumaApi
 from camac.constants import kt_gr as gr_constants
 from camac.core.translations import get_translations_canton_aware
 from camac.instance.models import Instance
-from camac.instance.placeholders.utils import format_gis_center_coordinates
+from camac.instance.placeholders.utils import (
+    format_gis_center_coordinates,
+    to_configured_case,
+)
 from camac.user.models import Service
 from camac.utils import build_url, clean_join
 
@@ -86,11 +89,11 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
 
     def get_aliased_field(self, key, value):
         field = self.fields[key]
-        keys = set([key.upper()])
+        keys = set([to_configured_case(key)])
 
         for alias_config in field.aliases:
             for alias in get_translations_canton_aware(alias_config).values():
-                keys.add(alias.upper())
+                keys.add(to_configured_case(alias))
 
         if field.nested_aliases:
             value = self.get_aliased_value(value, field.nested_aliases)
@@ -102,7 +105,10 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
             key: list(
                 itertools.chain(
                     *[
-                        get_translations_canton_aware(alias).values()
+                        map(
+                            to_configured_case,
+                            get_translations_canton_aware(alias).values(),
+                        )
                         for alias in alias_config
                     ]
                 )
@@ -115,7 +121,7 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
     def get_aliased_value_item(self, item, aliases):
         """Recursively enrich complex placeholder data.
 
-        Enreich one item of a list value based on the available aliases for all
+        Enrich one item of a list value based on the available aliases for all
         configured languages.
 
         item = {
@@ -2310,6 +2316,95 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             # number for the user
             "zustaendig_phone",
         ]
+
+
+class SzDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
+    field_bauherrschaft = fields.MasterDataPersonObjectField(
+        source="applicants",
+        aliases=[_("FIELD_BAUHERRSCHAFT")],
+        description=_("Name and address of all applicants"),
+    )
+    field_betroffene_nutzungszonen = fields.MasterDataField(
+        source="usage_zone",
+        aliases=[_("FIELD_BETROFFENE_NUTZUNGSZONEN")],
+        description=_("Usage zones affected by the project"),
+    )
+    field_bezeichnung = fields.MasterDataField(
+        source="proposal",
+        aliases=[_("FIELD_BEZEICHNUNG"), _("FIELD_BEZEICHNUNG_OVERRIDE")],
+        description=_("Project name and description"),
+    )
+    field_grundeigentumerschaft = fields.MasterDataPersonObjectField(
+        source="landowners",
+        aliases=[_("FIELD_GRUNDEIGENTUMERSCHAFT")],
+        description=_("Name and address of all land owners"),
+    )
+    field_kategorie_des_vorhabens = fields.MasterDataField(
+        source="building_category",
+        aliases=[_("FIELD_KATEGORIE_DES_VORHABENS")],
+        description=_("Usage type"),
+        is_collection=True,
+    )
+    field_ortsbezeichnung_des_vorhabens = fields.MasterDataField(
+        # settings.LOCATION_NAME_QUESTION (set to `ortsbezeichnung-des-vorhabens`)
+        # is aliased with `standort-adresse`. No fields by that name found on prod,
+        #  so assuming backwards compatibility with legacy template placeholders.
+        source="street",
+        aliases=[_("FIELD_ORTSBEZEICHNUNG_DES_VORHABENS"), _("FIELD_STANDORT_ADRESSE")],
+        description=_("Project address (street and building number)"),
+    )
+
+    field_energie_photovoltaik_gesamtleistung = fields.MasterDataField(
+        source="energy_pv_total_power",
+        aliases=[_("FIELD_ENERGIE_PHOTOVOLTAIK_GESAMTLEISTUNG")],
+        description=_("Total PV power"),
+    )
+    field_punkte = fields.MasterDataField(
+        source="coordinates",
+        aliases=[_("FIELD_PUNKTE")],
+        description=_(
+            "List of geolocated geometries (paths) outlining the project's affected area"
+        ),
+    )
+    field_standort_koordinaten = fields.MasterDataField(
+        source="location_coordinates",
+        aliases=[_("FIELD_STANDORT_KOORDINATEN")],
+        description=_("List of geolocated points referencing the project location"),
+    )
+    field_parzellen = fields.MasterDataField(
+        source="plot_data",
+        aliases=[_("FIELD_PARZELLEN")],
+        description=_("Project plot data (egrid ID/plot nr)"),
+        nested_aliases={"plot_number": [_("NUMBER")], "egrid_number": [_("EGRID")]},
+    )
+    field_projektverfasser_planer = fields.MasterDataPersonObjectField(
+        source="project_authors",
+        aliases=[_("FIELD_PROJEKTVERFASSER_PLANER")],
+        description=_("Name and address of project authors"),
+    )
+    field_publikation_bemerkung = fields.MasterDataField(
+        source="publication_addon",
+        aliases=[_("FIELD_PUBLIKATION_BEMERKUNG")],
+        description=_("Publication remark"),
+    )
+    field_standort_ort = fields.MasterDataField(
+        source="city",
+        aliases=[_("FIELD_STANDORT_ORT")],
+        description=_("Town name of project location"),
+    )
+    field_standort_spezialbezeichnung = fields.MasterDataField(
+        source="street_addition",
+        aliases=[_("FIELD_STANDORT_SPEZIALBEZEICHNUNG")],
+        description=_("Addions to project location address"),
+    )
+    field_vertreter_mit_vollmacht = fields.MasterDataPersonObjectField(
+        source="legal_representatives",
+        aliases=[_("FIELD_VERTRETER_MIT_VOLLMACHT")],
+        description=_("Name and address of legal representatives."),
+    )
+
+    class Meta:
+        exclude = list(DMSPlaceholdersSerializer._declared_fields.keys())
 
 
 class UrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):

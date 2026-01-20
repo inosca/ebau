@@ -19,10 +19,11 @@ from caluma.caluma_workflow.models import WorkItem
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.timezone import make_aware
-from django.utils.translation import override
+from django.utils.translation import gettext_noop as _, override
 from pytest_lazy_fixtures import lf
 from rest_framework import status
 
+from camac.instance.placeholders.fields import MasterDataField
 from camac.instance.placeholders.serializers import DMSPlaceholdersSerializer
 from camac.instance.placeholders.utils import (
     format_gis_center_coordinates,
@@ -58,6 +59,14 @@ def so_dms_config(settings, application_settings, so_placeholders_settings):
     settings.APPLICATION_NAME = "kt_so"
     settings.INTERNAL_BASE_URL = "http://ember-ebau.localhost"
     application_settings["SHORT_NAME"] = "so"
+    application_settings["AVAILABLE_LANGUAGES"] = ["de"]
+
+
+@pytest.fixture
+def sz_dms_config(settings, application_settings, so_placeholders_settings):
+    settings.APPLICATION_NAME = "kt_schwyz"
+    settings.INTERNAL_BASE_URL = "http://ebau.localhost"
+    application_settings["SHORT_NAME"] = "sz"
     application_settings["AVAILABLE_LANGUAGES"] = ["de"]
 
 
@@ -892,7 +901,18 @@ def test_dms_placeholders(
 
 
 @pytest.mark.freeze_time("2021-08-30")
-@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize(
+    "role__name,app_instance,any_application",
+    [
+        pytest.param(
+            "municipality-admin",
+            lf("be_instance"),
+            "kt_bern",
+            id="Municipality",
+        ),
+    ],
+    indirect=["any_application"],
+)
 @pytest.mark.django_db(
     transaction=True, reset_sequences=True
 )  # always reset instance id
@@ -901,19 +921,12 @@ def test_dms_placeholders_empty(
     admin_client,
     application_settings,
     settings,
-    be_instance,
+    any_application,
+    app_instance,
     snapshot,
-    be_dms_config,
-    be_master_data_settings,
 ):
-    application_settings["INTERNAL_FRONTEND"] = "camac"
-    application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
-        "kt_bern",
-        pathlib.Path(settings.APPLICATIONS["kt_bern"]["MUNICIPALITY_DATA_SHEET"]).name,
-    )
-
     response = admin_client.get(
-        reverse("instance-dms-placeholders", args=[be_instance.pk])
+        reverse("instance-dms-placeholders", args=[app_instance.pk])
     )
     assert response.status_code == status.HTTP_200_OK
     snapshot.assert_match(response.json())
@@ -930,15 +943,17 @@ def test_human_readable_date(language, expected):
 
 
 @pytest.mark.parametrize(
-    "dms_config",
+    "any_application",
     [
-        lf("be_dms_config"),
-        lf("gr_dms_config"),
-        lf("so_dms_config"),
-        lf("ag_dms_config"),
+        pytest.param("kt_ag", id="ag_dms_config"),
+        pytest.param("kt_bern", id="be_dms_config"),
+        pytest.param("kt_gr", id="gr_dms_config"),
+        pytest.param("kt_so", id="so_dms_config"),
+        pytest.param("kt_schwyz", id="sz_dms_config"),
     ],
+    indirect=["any_application"],
 )
-def test_dms_placeholders_docs(admin_client, snapshot, dms_config):
+def test_dms_placeholders_docs(admin_client, snapshot, any_application):
     response = admin_client.get(reverse("dms-placeholders-docs"))
     assert response.status_code == status.HTTP_200_OK
     snapshot.assert_match(response.json())
@@ -947,10 +962,11 @@ def test_dms_placeholders_docs(admin_client, snapshot, dms_config):
 @pytest.mark.parametrize(
     "dms_config",
     [
+        lf("ag_dms_config"),
         lf("be_dms_config"),
         lf("gr_dms_config"),
         lf("so_dms_config"),
-        lf("ag_dms_config"),
+        lf("sz_dms_config"),
     ],
 )
 def test_dms_placeholders_docs_available_placeholders(
@@ -1184,6 +1200,37 @@ def test_dms_placeholders_ag(
 
 
 @pytest.mark.parametrize(
+    "role__name,app_instance,master_data_case,any_application",
+    [
+        pytest.param(
+            "Gemeinde",
+            lf("sz_instance"),
+            lf("sz_master_data_case"),
+            "kt_schwyz",
+            id="Placholders response for kt_schwyz",
+        ),
+    ],
+    indirect=["any_application"],
+)
+def test_dms_placeholders_sz(
+    db,
+    admin_client,
+    master_data_case,
+    app_instance,
+    any_application,
+    settings,
+    snapshot,
+):
+    response = admin_client.get(
+        reverse("instance-dms-placeholders", args=[app_instance.pk])
+    )
+    assert response.status_code == status.HTTP_200_OK
+    assert response.json() == snapshot
+    for key in response.json().keys():
+        assert key == getattr(str, settings.PLACEHOLDERS["PLACEHOLDER_CASE"])(key)
+
+
+@pytest.mark.parametrize(
     "options,expected",
     [
         ([False, True], "Ja"),
@@ -1257,3 +1304,50 @@ def test_get_koordinaten(coord_east, coord_north, expected, mocker):
         DMSPlaceholdersSerializer(instance_mock).get_koordinaten(instance_mock)
         == expected
     )
+
+
+@pytest.mark.parametrize(
+    "is_collection",
+    [
+        pytest.param(True, id="is_collection: append [] to placholder name"),
+        pytest.param(
+            False,
+            id="~is_collection: no [] appended to placeholder name, unless nested_aliases given",
+        ),
+    ],
+)
+def test_aliased_placeholder_field(
+    db,
+    fake_request,
+    service_group,
+    request_mock,
+    sz_master_data_case,
+    is_collection,
+    snapshot,
+):
+    testfields = ["test_literal_field", "test_list_field", "test_nested_field"]
+
+    class PlaceholderTestSerializer(DMSPlaceholdersSerializer):
+        test_literal_field = MasterDataField(aliases=[_("TEST_CAT"), _("TEST_BAT")])
+        test_list_field = MasterDataField(
+            aliases=[_("TEST_LIST_CATS"), _("TEST_LIST_BATS")],
+            is_collection=is_collection,
+        )
+        test_nested_field = MasterDataField(
+            aliases=[_("TEST_CAT_OBJECTS"), _("TEST_BAT_OBJECTS")],
+            is_collection=is_collection,
+            nested_aliases={"NAME": [_("TEST_CAT")], "NESTED.NAME": [_("TEST_BAT")]},
+        )
+
+        class Meta:
+            # ignore BaseClass' declared fields
+            exclude = list(DMSPlaceholdersSerializer._declared_fields.keys())
+
+    serializer = PlaceholderTestSerializer(
+        instance=sz_master_data_case.instance, context={"request": fake_request}
+    )
+
+    for field_name in testfields:
+        field = serializer.fields[field_name]
+        assert field.get_docs() == snapshot
+        assert field.make_placeholders() == snapshot

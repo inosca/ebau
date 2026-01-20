@@ -1500,6 +1500,30 @@ msgstr ""
 msgid "Signature page"
 msgstr ""
 
+#: camac/instance/tests/test_placeholders.py
+msgid "TEST_CAT"
+msgstr "CHAT"
+
+#: camac/instance/tests/test_placeholders.py
+msgid "TEST_BAT"
+msgstr "BATEAU"
+
+#: camac/instance/tests/test_placeholders.py
+msgid "TEST_LIST_CATS"
+msgstr "CHATEAUX"
+
+#: camac/instance/tests/test_placeholders.py
+msgid "TEST_LIST_BATS"
+msgstr "BATEAUX"
+
+#: camac/instance/tests/test_placeholders.py
+msgid "TEST_CAT_OBJECTS"
+msgstr "🐈"
+
+#: camac/instance/tests/test_placeholders.py
+msgid "TEST_BAT_OBJECTS"
+msgstr "🦇"
+
 #: camac/instance/utils.py camac/user/serializers.py
 #, python-format
 msgid "Could not find lead authority for construction control %(id)d"

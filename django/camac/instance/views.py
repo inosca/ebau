@@ -84,6 +84,7 @@ from .placeholders.serializers import (
     DMSPlaceholdersSerializer,
     GrDMSPlaceholdersSerializer,
     SoDMSPlaceholdersSerializer,
+    SzDMSPlaceholdersSerializer,
     UrDMSPlaceholdersSerializer,
 )
 
@@ -214,6 +215,7 @@ class InstanceView(
                     "kt_ag": AgDMSPlaceholdersSerializer,
                     "kt_bern": BeDMSPlaceholdersSerializer,
                     "kt_gr": GrDMSPlaceholdersSerializer,
+                    "kt_schwyz": SzDMSPlaceholdersSerializer,
                     "kt_so": SoDMSPlaceholdersSerializer,
                     "kt_uri": UrDMSPlaceholdersSerializer,
                     "default": DMSPlaceholdersSerializer,
@@ -228,6 +230,10 @@ class InstanceView(
                 "rejection": serializers.CalumaInstanceRejectionSerializer,
             },
             "camac-ng": {
+                "dms_placeholders": {
+                    "kt_schwyz": SzDMSPlaceholdersSerializer,
+                    "default": DMSPlaceholdersSerializer,
+                },
                 "submit": serializers.InstanceSubmitSerializer,
                 "default": serializers.SchwyzInstanceSerializer,
                 "change_form": serializers.CamacInstanceChangeFormSerializer,

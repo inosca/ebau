@@ -942,6 +942,7 @@
     ]),
     'application_type': 'Elizabeth Garcia',
     'application_type_migrated': None,
+    'building_category': None,
     'building_owners': list([
       dict({
         'company': 'ACME AG',
@@ -1005,12 +1006,17 @@
     ]),
     'decision_date': None,
     'dossier_number': None,
+    'energy_pv_total_power': None,
     'final_approval_date': None,
     'joined_street_and_number': True,
     'landowners': list([
     ]),
     'legal_representatives': list([
     ]),
+    'location_coordinates': '''
+      2693525; 1210987
+  
+    ''',
     'municipality_name': 'Schübelbach',
     'municipality_slug': 999,
     'nature_risk': list([
@@ -1056,6 +1062,7 @@
     ]),
     'application_type': 'Elizabeth Garcia',
     'application_type_migrated': None,
+    'building_category': None,
     'building_owners': list([
       dict({
         'company': 'ACME AG',
@@ -1127,12 +1134,17 @@
     ]),
     'decision_date': None,
     'dossier_number': None,
+    'energy_pv_total_power': None,
     'final_approval_date': None,
     'joined_street_and_number': True,
     'landowners': list([
     ]),
     'legal_representatives': list([
     ]),
+    'location_coordinates': '''
+      2693525; 1210987
+  
+    ''',
     'municipality_name': 'Schübelbach',
     'municipality_slug': 999,
     'nature_risk': list([

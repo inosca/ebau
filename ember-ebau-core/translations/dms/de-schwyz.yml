@@ -1,0 +1,47 @@
+dms:
+  docs:
+    general-info-text: "Platzhalter können mit doppelt geschweiften Klammern in
+    eine Vorlage eingefügt werden (z.B. <code>'{{ field_bezeichnung '}}</code>).
+    Falls Sie ein mehrzeiliges Textfeld mit Zeilenumbrüchen ausgeben möchten,
+    können Sie dieses mit <code>multiline</code> markieren (z.B. <code>'{{
+    BAUVORHABEN | multiline '}}</code>.
+    "
+    complexInfo: "
+    <p>
+      Platzhalter, die eine Liste von Objekten repräsentieren, können in einer Vorlage in einer Iteration wie
+      folgt benutzt werden:
+    </p>
+    <p>
+      Das Beispiel zeigt den Gebrauch des Platzhalters <code>'{{
+      field_bauherrschaft '}}</code>
+    </p>
+    <p>Beispiel für Tabellen:</p>
+    <table class=''uk-table uk-table-divider uk-table-small''>
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>vorname</th>
+          <th>plz</th>
+          <th>ort</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td colspan=''3''>'{%tr for bauherrschaft in field_bauherrschaft %'}</td></tr>
+        <tr>
+          <td>'{{ bauherrschaft.name '}}</td>
+          <td>'{{ bauherrschaft.vorname '}}</td>
+          <td>'{{ bauherrschaft.plz '}}</td>
+          <td>'{{ bauherrschaft.ort '}}</td>
+        </tr>
+        <tr><td colspan=''3''>'{%tr endfor %'}</td></tr>
+      </tbody>
+    </table>
+    <p>Beispiel für Listen:</p>
+    '{%p for nutzung in field_betroffene_nutzungszonen %'}
+    <ul class=''uk-list uk-list-bullet uk-margin-remove''>
+      <li>
+        '{{ nutzung '}}
+      </li>
+    </ul>
+    '{%p endfor %'}
+    "
