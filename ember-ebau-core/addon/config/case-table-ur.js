@@ -95,6 +95,7 @@ export default {
     "64",
     "41",
     "71",
+    "72",
   ],
   availableOrderings: {
     municipality: {
