@@ -10,6 +10,12 @@ FALLBACK_QUESTION_SLUGS = [
     "anzahl-wohnungen-nach-bauvollendung-v5",
     "bestand-nach-realisierung-in-quadratmeter-v5",
 ]
+FALLBACK_FORM_SLUGS = [
+    "baugesuch-v5",
+    "baugesuch-generell-v5",
+    "baugesuch-mit-uvp-v5",
+    "vorabklaerung-vollstaendig-v5",
+]
 
 
 class Command(BaseCommand):
@@ -28,13 +34,29 @@ class Command(BaseCommand):
 
     def add_arguments(self, parser):
         parser.add_argument(
-            "questions",
+            "--questions",
             nargs="*",
-            type=str,
+            default=[],
             help=(
                 "One or more question slugs to recalculate answers for. "
                 "If none are provided, a default list will be used."
             ),
+        )
+        parser.add_argument(
+            "--forms",
+            nargs="*",
+            default=[],
+            help=(
+                "One or more form slugs to recalculate answers for. "
+                "If none are provided, a default list will be used."
+            ),
+        )
+        parser.add_argument(
+            "--only-empty",
+            dest="only_empty",
+            action="store_true",
+            default=False,
+            help="Only recalculate answers that are currently empty.",
         )
         parser.add_argument(
             "--commit", dest="commit", action="store_true", default=False
@@ -44,6 +66,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):  # noqa: C901
         sid = transaction.savepoint()
         questions_to_recalculate = options["questions"]
+        form_slugs = options["forms"]
 
         # If no question slugs were provided, use the fallback list.
         if not questions_to_recalculate:  # pragma: no cover
@@ -51,21 +74,29 @@ class Command(BaseCommand):
                 self.style.WARNING("No question slugs provided. Using fallback list.")
             )
             questions_to_recalculate = FALLBACK_QUESTION_SLUGS
+        self.stdout.write(
+            f" > recalculating answers for questions: {', '.join(questions_to_recalculate)}"
+        )
+
+        if not form_slugs:  # pragma: no cover
+            self.stdout.write(
+                self.style.WARNING("No form slugs provided. Using fallback list.")
+            )
+            form_slugs = FALLBACK_FORM_SLUGS
+        self.stdout.write(f" > considering forms: {', '.join(form_slugs)}")
 
         answers_to_recalculate = Answer.objects.filter(
             question__type="calculated_float",
             document__family=OuterRef("pk"),
             question__slug__in=questions_to_recalculate,
         )
+        if options["only_empty"]:  # pragma: no cover
+            answers_to_recalculate = answers_to_recalculate.filter(value__isnull=True)
+            self.stdout.write(" > only recalculating empty answers.")
 
         documents_to_recalculate = Document.objects.filter(
             Exists(answers_to_recalculate),
-            form__in=[
-                "baugesuch-v5",
-                "baugesuch-generell-v5",
-                "baugesuch-mit-uvp-v5",
-                "vorabklaerung-vollstaendig-v5",
-            ],
+            form__in=form_slugs,
         )
         count_documents = documents_to_recalculate.count()
 
@@ -86,7 +117,9 @@ class Command(BaseCommand):
         questions = Question.objects.filter(
             slug__in=questions_to_recalculate, type="calculated_float"
         )
-        for document in tqdm(documents_to_recalculate.iterator()):
+        for document in tqdm(
+            documents_to_recalculate.iterator(), total=count_documents
+        ):
             root = validators.DocumentValidator().get_validation_context(
                 document.family
             )

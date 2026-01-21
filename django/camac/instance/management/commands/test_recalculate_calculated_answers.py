@@ -55,8 +55,8 @@ def test_recalculate_calculated_answers(
 
     call_command(
         "recalculate_calculated_answers",
-        *question_list,
-        "--commit",
+        questions=question_list,
+        commit=True,
         stdout=open(os.devnull, "w"),
     )
 
@@ -72,8 +72,8 @@ def test_recalculate_calculated_answers(
     )
     call_command(
         "recalculate_calculated_answers",
-        *question_list,
-        "--commit",
+        questions=question_list,
+        commit=True,
         stdout=open(os.devnull, "w"),
     )
 
@@ -89,8 +89,8 @@ def test_recalculate_calculated_answers(
     )
     call_command(
         "recalculate_calculated_answers",
-        *question_list,
-        "--commit",
+        questions=question_list,
+        commit=True,
         stdout=open(os.devnull, "w"),
     )
 
