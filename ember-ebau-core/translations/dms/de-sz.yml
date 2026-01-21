@@ -4,8 +4,8 @@ dms:
     eine Vorlage eingefügt werden (z.B. <code>'{{ field_bezeichnung '}}</code>).
     Falls Sie ein mehrzeiliges Textfeld mit Zeilenumbrüchen ausgeben möchten,
     können Sie dieses mit <code>multiline</code> markieren (z.B. <code>'{{
-    BAUVORHABEN | multiline '}}</code>.
-    "
+    field_publikation_bemerkung | multiline '}}</code>."
+
     complexInfo: "
     <p>
       Platzhalter, die eine Liste von Objekten repräsentieren, können in einer Vorlage in einer Iteration wie
