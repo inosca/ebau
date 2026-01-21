@@ -2351,6 +2351,17 @@ APPLICATIONS = {
                 },
             ],
             "CHANGE_RESPONSIBLE_USER": {"template_slug": "zustaedigkeit-wechsel"},
+            "PUBLICATION_START": {
+                "condition": {
+                    "question": "oeffentliche-auflage-informieren",
+                    "answer": ["oeffentliche-auflage-informieren-ja"],
+                },
+                "date_question": "beginn-publikationsorgan-gemeinde",
+                "notification": {
+                    "template_slug": "publication-start",
+                    "recipient_types": ["applicant"],
+                },
+            },
         },
         "SUBSERVICE_ROLES": ["subservice"],
         "DOCUMENT_BACKEND": "alexandria",

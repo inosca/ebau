@@ -109,7 +109,7 @@ def send_notification_for_overdue_workitems(self):
 
 
 @shared_task(bind=True)
-def send_notification_for_publication(self):
+def send_notification_for_publication(self, workitem_id=None):
     """
     Send notifications for publication start.
 
@@ -119,23 +119,22 @@ def send_notification_for_publication(self):
     - The work item with id fill_work_item must match the work item's task_id.
     - The notification is sent to the configured recipient_types with the template_slug as notificationtemplate pk.
 
+    The notifications can be confiured in django/camac/settings/django.py with the NOTIFICATIONS key:
 
     ```
-    "PUBLICATION": {
-        "NOTIFICATIONS": {
-            "PUBLICATION_START": {
-                "condition": {
-                    "question": "oeffentliche-auflage-informieren",
-                    "answer": ["oeffentliche-auflage-informieren-ja"],
-                },
-                "date_question": "beginn-publikationsorgan-gemeinde",
-                "notification": {
-                    "template_slug": "publication-start",
-                    "recipient_types": ["applicant"],
-                },
-            }
-        },
-    }
+    "NOTIFICATIONS": {
+        "PUBLICATION_START": {
+            "condition": {
+                "question": "oeffentliche-auflage-informieren",
+                "answer": ["oeffentliche-auflage-informieren-ja"],
+            },
+            "date_question": "beginn-publikationsorgan-gemeinde",
+            "notification": {
+                "template_slug": "publication-start",
+                "recipient_types": ["applicant"],
+            },
+        }
+    },
     ```
     """
 
@@ -147,7 +146,7 @@ def send_notification_for_publication(self):
     from camac.caluma.extensions.events.general import get_instance_id
     from camac.notification.utils import send_mail_without_request
 
-    config = settings.PUBLICATION["NOTIFICATIONS"].get("PUBLICATION_START")
+    config = settings.APPLICATION["NOTIFICATIONS"].get("PUBLICATION_START")
     if not config:  # pragma: no cover
         return
 
@@ -158,7 +157,10 @@ def send_notification_for_publication(self):
     recipient_types = notification["recipient_types"]
 
     task = PeriodicTask.objects.filter(task=self.name).first()
-    work_items = WorkItem.objects.filter(task_id=task_id)
+    work_items = WorkItem.objects.filter(
+        task_id=task_id,
+        meta__publication_start_notification_sent_at__isnull=True,
+    )
 
     if settings.PUBLICATION.get("PUBLISH_QUESTION"):
         work_items = work_items.annotate(
@@ -195,6 +197,9 @@ def send_notification_for_publication(self):
         )
     ).filter(has_matching_date=True)
 
+    if workitem_id:
+        work_items = work_items.filter(pk=workitem_id)
+
     log.info(
         f"Send {work_items.count()} publication-start notifications ({task_id}/{recipient_types}). Last run at {task.last_run_at}."
     )
@@ -212,6 +217,10 @@ def send_notification_for_publication(self):
                     instance={"id": instance_id, "type": "instances"},
                     work_item={"id": work_item.pk, "type": "work-items"},
                 )
+                work_item.meta["publication_start_notification_sent_at"] = (
+                    timezone.now().isoformat()
+                )
+                work_item.save(update_fields=["meta"])
                 count += 1
             except Exception as e:  # pragma: no cover
                 log.error(

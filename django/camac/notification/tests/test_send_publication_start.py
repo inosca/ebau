@@ -10,6 +10,7 @@ from camac.notification.tasks import send_notification_for_publication
 @pytest.mark.parametrize("condition_match", [False, True])
 @pytest.mark.parametrize("date_match", [False, True])
 @pytest.mark.parametrize("is_published", [False, True])
+@pytest.mark.parametrize("used_workitem_id", [None, "current", "other"])
 def test_notify_publication_start(
     db,
     caluma_admin_user,
@@ -21,20 +22,31 @@ def test_notify_publication_start(
     condition_match,
     date_match,
     is_published,
+    used_workitem_id,
     mailoutbox,
     notification_template_factory,
     publication_settings,
+    application_settings,
     settings,
     caluma_workflow_config_gr,
     support_role,
 ):
-    expected_outbox = 1 if (condition_match and date_match and is_published) else 0
+    expected_outbox = (
+        1
+        if (
+            condition_match
+            and date_match
+            and is_published
+            and used_workitem_id in [None, "current"]
+        )
+        else 0
+    )
     settings.CELERY_TASK_ALWAYS_EAGER = True
 
     notification_template = notification_template_factory()
     publication_settings["PUBLISH_QUESTION"] = "oeffentliche-auflage"
     publication_settings["PUBLISH_ANSWER"] = ["oeffentliche-auflage-ja"]
-    publication_settings["NOTIFICATIONS"] = {
+    application_settings["NOTIFICATIONS"] = {
         "PUBLICATION_START": {
             "condition": {
                 "question": "oeffentliche-auflage-informieren",
@@ -71,6 +83,14 @@ def test_notify_publication_start(
     caluma_work_item_factory(task_id="fill-publication")
     caluma_work_item_factory(task_id="some-other-task")
 
+    if used_workitem_id == "current":
+        workitem_id = str(work_item.pk)
+    elif used_workitem_id == "other":
+        other_work_item = caluma_work_item_factory(task_id="fill-publication")
+        workitem_id = str(other_work_item.pk)
+    else:
+        workitem_id = None
+
     instance.case = work_item.case
     instance.save()
 
@@ -100,10 +120,17 @@ def test_notify_publication_start(
         enabled=True,
     )
 
-    send_notification_for_publication.delay()
+    assert work_item.meta.get("publication_start_notification_sent_at") is None
+
+    send_notification_for_publication.delay(workitem_id=workitem_id)
+    # run a second time to make sure no duplicate notifications are sent
+    send_notification_for_publication.delay(workitem_id=workitem_id)
 
     assert len(mailoutbox) == expected_outbox
     if expected_outbox:
+        work_item.refresh_from_db()
+        assert work_item.meta.get("publication_start_notification_sent_at") is not None
+
         mail = mailoutbox[0]
         assert notification_template.subject in mail.subject
         assert notification_template.body in mail.body
