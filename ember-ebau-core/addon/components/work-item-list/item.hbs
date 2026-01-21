@@ -45,7 +45,7 @@
       {{else if (eq column "instanceId")}}
         {{@workItem.instanceId}}
       {{else if (eq column "deadline")}}
-        {{date-from-now @workItem.deadline}}
+        {{date-from-now @workItem.deadline startOfDay=true}}
       {{else if (eq column "responsible")}}
         {{@workItem.responsible}}
       {{else if (eq column "closedAt")}}
