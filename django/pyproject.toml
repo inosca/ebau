@@ -317,5 +317,7 @@ omit = [
     "camac/instance/management/commands/migrate_moutier_instances.py",
     # Gever BFS number import
     "camac/user/management/commands/import_bfs_nr_from_api.py",
+    # BE Claims migration
+    "camac/instance/management/commands/migrate_additional_demands_be.py",
 ]
 show_missing = true
