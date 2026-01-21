@@ -1,18 +1,9 @@
-services:
-  proxy:
-    image: nginx:1.27-alpine
-    depends_on:
-      - ember
-      - ember-camac-ng
-      - django
-      - keycloak
-    volumes:
-      - djangomedia:/var/lib/camac/media:ro
-      # Mounting a subdirectory of a named volume currently isn't possible:
-      # https://github.com/moby/moby/issues/32582
-      - djangotmpmedia:/tmp/external-tmp:ro
+# This configuration is much slimmer than in other cantons as it is only being
+# used for building and pushing the application images into the registry and not
+# for running an environment via `-prod` or `-stage` compose configuration.
 
-  django: &django
+services:
+  django:
     image: acr.run/camac-ng/camac-ng/django:${CI_COMMIT_TAG:-master}
     build:
       context: ../django
@@ -20,70 +11,6 @@ services:
         - acr.run/camac-ng/camac-ng/django:${CI_COMMIT_TAG:-master}
       args:
         APPLICATION: ${APPLICATION}
-    depends_on:
-      - cache
-      - clamav
-      - keycloak
-      - unoconv
-    environment:
-      - APPLICATION=${APPLICATION}
-      - CACHE_BACKEND=django.core.cache.backends.memcached.PyMemcacheCache
-      - CACHE_LOCATION=cache:11211
-      - DATA_SOURCE_CLASSES=camac.caluma.extensions.data_sources.Municipalities,camac.caluma.extensions.data_sources.Services,camac.caluma.extensions.data_sources.Sanctions
-      - DJANGO_CACHE_LOCATION=cache:11211
-      - DJANGO_CLAMD_TCP_ADDR=clamav
-      - DJANGO_MEDIA_ROOT=/var/lib/camac/media
-      - DJANGO_UNOCONV_URL=http://unoconv:3000
-      - DOCUMENT_MERGE_SERVICE_URL=http://document-merge-service:8000/api/v1/
-      - DYNAMIC_GROUPS_CLASSES=camac.caluma.extensions.dynamic_groups.CustomDynamicGroups
-      - DYNAMIC_TASKS_CLASSES=camac.caluma.extensions.dynamic_tasks.CustomDynamicTasks
-      - ENABLE_HISTORICAL_API=true
-      - EVENT_RECEIVER_MODULES=camac.caluma.extensions.events
-      - FORMAT_VALIDATOR_CLASSES=camac.caluma.extensions.format_validators.IntegerListFormatValidator
-      - META_FIELDS=camac-instance-id,ebau-number,submit-date
-      - PERMISSION_CLASSES=camac.caluma.extensions.permissions.CustomPermission
-      - VALIDATION_CLASSES=camac.caluma.extensions.validations.CustomValidation
-      - VISIBILITY_CLASSES=camac.caluma.extensions.visibilities.CustomVisibilitySZ
-    volumes:
-      - djangomedia:/var/lib/camac/media
-      - djangotmpmedia:/tmp
-
-  django-q:
-    <<: *django
-
-  document-merge-service:
-    image: acr.run/camac-ng/camac-ng/document-merge-service:${CI_COMMIT_TAG:-master}
-    build:
-      context: ../document-merge-service
-      cache_from:
-        - acr.run/camac-ng/camac-ng/document-merge-service:${CI_COMMIT_TAG:-master}
-      args:
-        APPLICATION: ${APPLICATION}
-    user: ${UID}
-    depends_on:
-      - cache
-      - minio
-    cap_add:
-      - CAP_SYS_ADMIN
-    volumes:
-      - ../document-merge-service/extensions:/app/document_merge_service/extensions
-    environment:
-      - CACHE_LOCATION=cache:11211
-      - DATABASE_HOST=db
-      - DATABASE_NAME=${APPLICATION}
-      - DMS_S3_ACCESS_KEY_ID
-      - DMS_S3_ENDPOINT_URL
-      - DMS_S3_SECRET_ACCESS_KEY
-      - DMS_S3_SIGNATURE_VERSION=s3v4
-      - DMS_STORAGE_BUCKET_NAME=dms-media
-      - EXTENSIONS_ARGUMENTS=DJANGO_API=http://django
-      - FILE_STORAGE=storages.backends.s3.S3Storage
-      - ISOLATE_UNOCONV=true
-      - OIDC_VERIFY_SSL=true
-      - REQUIRE_AUTHENTICATION=true
-      - URL_PREFIX=document-merge-service/
-      - DATABASE_PASSWORD
-      - DATABASE_USER
 
   ember:
     image: acr.run/camac-ng/camac-ng/ember:${CI_COMMIT_TAG:-master}
@@ -114,18 +41,14 @@ services:
       target: prod-env
 
 
-  cache:
-    image: memcached:1.6-alpine
-
-  clamav:
-    image: tiredofit/clamav:2.6.99
-    environment:
-      - CONCURRENT_DATABASE_RELOAD=false
-      - DEFINITIONS_UPDATE_FREQUENCY=1440
-      - DEFINITIONS_UPDATE_BEGIN=0300
-      - MAX_FILE_SIZE=60M
-      - MAX_SCAN_SIZE=200M
-      - STREAM_MAX_LENGTH=60M
+  document-merge-service:
+    image: acr.run/camac-ng/camac-ng/document-merge-service:${CI_COMMIT_TAG:-master}
+    build:
+      context: ../document-merge-service
+      cache_from:
+        - acr.run/camac-ng/camac-ng/document-merge-service:${CI_COMMIT_TAG:-master}
+      args:
+        APPLICATION: ${APPLICATION}
 
   keycloak:
     image: acr.run/camac-ng/camac-ng/keycloak:${CI_COMMIT_TAG:-master}
@@ -133,43 +56,3 @@ services:
       context: ../keycloak
       cache_from:
         - acr.run/camac-ng/camac-ng/keycloak:${CI_COMMIT_TAG:-master}
-
-  metabase:
-    image: metabase/metabase:v0.58.1
-    environment:
-      - MB_DB_TYPE=postgres
-      - MB_DB_DBNAME=metabase
-      - MB_DB_PORT=5432
-
-  minio:
-    image: minio/minio:RELEASE.2025-07-23T15-54-02Z
-    # user: ${UID}
-    volumes:
-      - minio_data:/data:rw
-    environment:
-      - MINIO_ROOT_USER
-      - MINIO_ROOT_PASSWORD
-      - MINIO_BROWSER_REDIRECT_URL
-    command: server data --console-address ":9090"
-
-  mc:
-    image: minio/mc:RELEASE.2024-07-31T15-58-33Z
-    depends_on:
-      - minio
-    restart: on-failure
-    volumes:
-      - ../mc/entrypoint.sh:/entrypoint.sh
-    entrypoint: /entrypoint.sh
-    environment:
-      - MINIO_ROOT_USER
-      - MINIO_ROOT_PASSWORD
-
-  unoconv:
-    image: zrrrzzt/docker-unoconv-webservice:8.9.4
-
-volumes:
-  djangomedia:
-  djangotmpmedia:
-  phpsessions:
-  templatefiles:
-  minio_data:
