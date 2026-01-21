@@ -2279,6 +2279,23 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "soemmerungsgebiet-nicht-alpwirtschaftlich-begruendet",
+    "fields": {
+      "created_at": "2026-01-21T08:04:05.856Z",
+      "modified_at": "2026-01-21T08:04:05.856Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht Alpwirtschaftlich begründet\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "versiegelt-oder-entsiegelt-ja",
     "fields": {
       "created_at": "2025-11-14T12:50:49.932Z",
@@ -3119,10 +3136,10 @@
     "pk": "soemmerungsgebiet",
     "fields": {
       "created_at": "2025-11-26T15:21:32.159Z",
-      "modified_at": "2025-11-26T15:21:32.159Z",
+      "modified_at": "2026-01-21T08:04:05.968Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Liegt das Vorhaben in einem Sömmerungsgebiet\", \"fr\": null, \"it\": null}",
       "type": "choice",
@@ -3130,8 +3147,8 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -4793,29 +4810,44 @@
     "model": "caluma_form.questionoption",
     "pk": "soemmerungsgebiet.soemmerungsgebiet-ja",
     "fields": {
-      "created_at": "2025-11-26T15:21:32.187Z",
-      "modified_at": "2025-11-26T15:21:32.187Z",
+      "created_at": "2026-01-21T08:04:05.986Z",
+      "modified_at": "2026-01-21T08:04:05.986Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "soemmerungsgebiet",
       "option": "soemmerungsgebiet-ja",
-      "sort": 2
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "soemmerungsgebiet.soemmerungsgebiet-nein",
     "fields": {
-      "created_at": "2025-11-26T15:21:32.177Z",
-      "modified_at": "2025-11-26T15:21:32.177Z",
+      "created_at": "2026-01-21T08:04:05.982Z",
+      "modified_at": "2026-01-21T08:04:05.982Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "question": "soemmerungsgebiet",
       "option": "soemmerungsgebiet-nein",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "soemmerungsgebiet.soemmerungsgebiet-nicht-alpwirtschaftlich-begruendet",
+    "fields": {
+      "created_at": "2026-01-21T08:04:05.978Z",
+      "modified_at": "2026-01-21T08:04:05.978Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "soemmerungsgebiet",
+      "option": "soemmerungsgebiet-nicht-alpwirtschaftlich-begruendet",
       "sort": 1
     }
   },
