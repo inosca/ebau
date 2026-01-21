@@ -46,40 +46,40 @@ services:
       - mailpit
       - unoconv
     environment:
-      - APPLICATION=${APPLICATION}
-      - APPLICATION_ENV=development
-      - CACHE_BACKEND=django.core.cache.backends.memcached.PyMemcacheCache
-      - CACHE_LOCATION=cache:11211
-      - DATABASE_HOST=db
-      - DATABASE_NAME=${APPLICATION}
-      - DATABASE_PASSWORD=camac
-      - DATABASE_USER=camac
-      - DATA_SOURCE_CLASSES=camac.caluma.extensions.data_sources.Municipalities,camac.caluma.extensions.data_sources.Services,camac.caluma.extensions.data_sources.Sanctions
-      - DJANGO_CACHE_LOCATION=cache:11211
-      - DJANGO_CLAMD_TCP_ADDR=clamav
-      - DJANGO_EMAIL_HOST=mailpit
-      - DJANGO_EMAIL_PORT=1025
-      - DJANGO_MEDIA_ROOT=/var/lib/camac/media
-      - DJANGO_Q_ENABLE_SYNC=${DJANGO_Q_ENABLE_SYNC:-false}
-      - DJANGO_UNOCONV_URL=http://unoconv:3000
-      - DOCUMENT_MERGE_SERVICE_URL=http://document-merge-service:8000/api/v1/
-      - DYNAMIC_GROUPS_CLASSES=camac.caluma.extensions.dynamic_groups.CustomDynamicGroups
-      - DYNAMIC_TASKS_CLASSES=camac.caluma.extensions.dynamic_tasks.CustomDynamicTasks
-      - ECH0211_API_ACTIVE=True
-      - ENABLE_HISTORICAL_API=true
-      - ENV=development
-      - EVENT_RECEIVER_MODULES=camac.caluma.extensions.events
-      - FORMAT_VALIDATOR_CLASSES=camac.caluma.extensions.format_validators.IntegerListFormatValidator
-      - GWR_FERNET_KEY=GUdwT6yKxqfszrnHC7wyKDmtVZdhjSVQEPnpeJYNLf8=
-      - GWR_HOUSING_STAT_BASE_URI=https://www-r.housing-stat.ch/regbl/api/ech0216/2
-      - KEYCLOAK_URL=http://ebau-keycloak.localhost/auth/
-      - MANABI_ENABLE=False
-      - META_FIELDS=camac-instance-id,ebau-number,submit-date
-      - OAUTHLIB_INSECURE_TRANSPORT=1
-      - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.localhost/auth/realms/ebau/protocol/openid-connect/userinfo
-      - PERMISSION_CLASSES=camac.caluma.extensions.permissions.CustomPermission
-      - VALIDATION_CLASSES=camac.caluma.extensions.validations.CustomValidation
-      - VISIBILITY_CLASSES=camac.caluma.extensions.visibilities.CustomVisibilitySZ
+      APPLICATION: ${APPLICATION}
+      APPLICATION_ENV: development
+      CACHE_BACKEND: django.core.cache.backends.memcached.PyMemcacheCache
+      CACHE_LOCATION: cache:11211
+      DATABASE_HOST: db
+      DATABASE_NAME: ${APPLICATION}
+      DATABASE_PASSWORD: camac
+      DATABASE_USER: camac
+      DATA_SOURCE_CLASSES: camac.caluma.extensions.data_sources.Municipalities,camac.caluma.extensions.data_sources.Services,camac.caluma.extensions.data_sources.Sanctions
+      DJANGO_CACHE_LOCATION: cache:11211
+      DJANGO_CLAMD_TCP_ADDR: clamav
+      DJANGO_EMAIL_HOST: mailpit
+      DJANGO_EMAIL_PORT: 1025
+      DJANGO_MEDIA_ROOT: /var/lib/camac/media
+      DJANGO_Q_ENABLE_SYNC: ${DJANGO_Q_ENABLE_SYNC:-false}
+      DJANGO_UNOCONV_URL: http://unoconv:3000
+      DOCUMENT_MERGE_SERVICE_URL: http://document-merge-service:8000/api/v1/
+      DYNAMIC_GROUPS_CLASSES: camac.caluma.extensions.dynamic_groups.CustomDynamicGroups
+      DYNAMIC_TASKS_CLASSES: camac.caluma.extensions.dynamic_tasks.CustomDynamicTasks
+      ECH0211_API_ACTIVE: True
+      ENABLE_HISTORICAL_API: true
+      ENV: development
+      EVENT_RECEIVER_MODULES: camac.caluma.extensions.events
+      FORMAT_VALIDATOR_CLASSES: camac.caluma.extensions.format_validators.IntegerListFormatValidator
+      GWR_FERNET_KEY: GUdwT6yKxqfszrnHC7wyKDmtVZdhjSVQEPnpeJYNLf8=
+      GWR_HOUSING_STAT_BASE_URI: https://www-r.housing-stat.ch/regbl/api/ech0216/2
+      KEYCLOAK_URL: http://ebau-keycloak.localhost/auth/
+      MANABI_ENABLE: False
+      META_FIELDS: camac-instance-id,ebau-number,submit-date
+      OAUTHLIB_INSECURE_TRANSPORT: 1
+      OIDC_USERINFO_ENDPOINT: http://ebau-keycloak.localhost/auth/realms/ebau/protocol/openid-connect/userinfo
+      PERMISSION_CLASSES: camac.caluma.extensions.permissions.CustomPermission
+      VALIDATION_CLASSES: camac.caluma.extensions.validations.CustomValidation
+      VISIBILITY_CLASSES: camac.caluma.extensions.visibilities.CustomVisibilitySZ
     networks:
       - ebau.localhost
     command: devserver
@@ -118,13 +118,13 @@ services:
     ports:
       - "3310:3310"
     environment:
-      - CONCURRENT_DATABASE_RELOAD=false
-      - DEFINITIONS_UPDATE_FREQUENCY=1440
-      - DEFINITIONS_UPDATE_BEGIN=0300
-      - ENABLE_DEFINITIONS_UPDATE=false
-      - MAX_FILE_SIZE=60M
-      - MAX_SCAN_SIZE=200M
-      - STREAM_MAX_LENGTH=60M
+      CONCURRENT_DATABASE_RELOAD: false
+      DEFINITIONS_UPDATE_FREQUENCY: 1440
+      DEFINITIONS_UPDATE_BEGIN: 0300
+      ENABLE_DEFINITIONS_UPDATE: false
+      MAX_FILE_SIZE: 60M
+      MAX_SCAN_SIZE: 200M
+      STREAM_MAX_LENGTH: 60M
     networks:
       - ebau.localhost
 
@@ -133,9 +133,9 @@ services:
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_PASSWORD=camac
-      - POSTGRES_USER=camac
-      - POSTGRES_DATABASE=${APPLICATION}
+      POSTGRES_PASSWORD: camac
+      POSTGRES_USER: camac
+      POSTGRES_DATABASE: ${APPLICATION}
     volumes:
       - pg16data:/var/lib/postgresql/data
       - ../db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
@@ -190,12 +190,12 @@ services:
       - ../keycloak/config/${APPLICATION}-test-config.json:/opt/keycloak/data/import/test-config.json
       - ../keycloak/themes/src/main/resources/theme/kanton-schwyz:/opt/keycloak/themes/kanton-schwyz-dev
     environment:
-      - KC_DB_URL=jdbc:postgresql://db:5432/${APPLICATION}
-      - KC_DB_PASSWORD=camac
-      - KC_DB_USERNAME=camac
-      - KC_HOSTNAME=ebau-keycloak.localhost
-      - KEYCLOAK_ADMIN=admin
-      - KEYCLOAK_ADMIN_PASSWORD=camac
+      KC_DB_URL: jdbc:postgresql://db:5432/${APPLICATION}
+      KC_DB_PASSWORD: camac
+      KC_DB_USERNAME: camac
+      KC_HOSTNAME: ebau-keycloak.localhost
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: camac
     networks:
       - ebau.localhost
     command:
@@ -211,7 +211,7 @@ services:
     networks:
       - ebau.localhost
     environment:
-      - MP_WEBROOT=mailpit
+      MP_WEBROOT: mailpit
 
   mc:
     image: minio/mc:RELEASE.2024-07-31T15-58-33Z
@@ -234,12 +234,12 @@ services:
     ports:
       - "3001:3000"
     environment:
-      - MB_DB_TYPE=postgres
-      - MB_DB_HOST=db
-      - MB_DB_PORT=5432
-      - MB_DB_USER=camac
-      - MB_DB_PASS=camac
-      - MB_DB_DBNAME=metabase
+      MB_DB_TYPE: postgres
+      MB_DB_HOST: db
+      MB_DB_PORT: 5432
+      MB_DB_USER: camac
+      MB_DB_PASS: camac
+      MB_DB_DBNAME: metabase
     networks:
       - ebau.localhost
 
