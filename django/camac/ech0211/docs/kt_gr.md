@@ -103,7 +103,7 @@ Verschiedene Aufgaben werden gemäss Spezifikation direkt in eBau erledigt. Unte
   - `situation`: Sachverhalt
   - `considerations`: Erwägungen
   - `comments`: Bemerkungen
-  - `documentsAvailable` (true/false): Die Stellungnahme/Verfügung/Bewilligung befindet sich in der Dokumentenablage
+  - `documentsAvailable` (true/false): Die Stellungnahme/Verfügung/Bewilligung befindet sich in der Dokumentenablage / La presa di posizione/la decisione/il permesso si trova nell'archivio dei documenti
   - `organisationId`: Id der Organisation welche den `accompanyingReport` ausgefüllt hat
   - `organisationName`: Name der Organisation welche den `accompanyingReport` ausgefüllt hat
 

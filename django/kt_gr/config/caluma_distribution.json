@@ -368,7 +368,7 @@
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Die Stellungnahme/Verfügung/Bewilligung befindet sich in der Dokumentenablage\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Die Stellungnahme/Verfügung/Bewilligung befindet sich in der Dokumentenablage\", \"fr\": null, \"it\": \"La presa di posizione/la decisione/il permesso si trova nell'archivio dei documenti\"}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
