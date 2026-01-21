@@ -51,40 +51,6 @@ services:
   django-q:
     <<: *django
 
-  document-merge-service:
-    image: acr.run/camac-ng/camac-ng/document-merge-service:${CI_COMMIT_TAG:-master}
-    build:
-      context: ../document-merge-service
-      cache_from:
-        - acr.run/camac-ng/camac-ng/document-merge-service:${CI_COMMIT_TAG:-master}
-      args:
-        APPLICATION: ${APPLICATION}
-    user: ${UID}
-    depends_on:
-      - cache
-      - minio
-    cap_add:
-      - CAP_SYS_ADMIN
-    volumes:
-      - ../document-merge-service/extensions:/app/document_merge_service/extensions
-    environment:
-      - CACHE_LOCATION=cache:11211
-      - DATABASE_HOST=db
-      - DATABASE_NAME=${APPLICATION}
-      - DMS_S3_ACCESS_KEY_ID
-      - DMS_S3_ENDPOINT_URL
-      - DMS_S3_SECRET_ACCESS_KEY
-      - DMS_S3_SIGNATURE_VERSION=s3v4
-      - DMS_STORAGE_BUCKET_NAME=dms-media
-      - EXTENSIONS_ARGUMENTS=DJANGO_API=http://django
-      - FILE_STORAGE=storages.backends.s3.S3Storage
-      - ISOLATE_UNOCONV=true
-      - OIDC_VERIFY_SSL=true
-      - REQUIRE_AUTHENTICATION=true
-      - URL_PREFIX=document-merge-service/
-      - DATABASE_PASSWORD
-      - DATABASE_USER
-
   ember:
     image: acr.run/camac-ng/camac-ng/ember:${CI_COMMIT_TAG:-master}
     build:
@@ -127,12 +93,58 @@ services:
       - MAX_SCAN_SIZE=200M
       - STREAM_MAX_LENGTH=60M
 
+  document-merge-service:
+    image: acr.run/camac-ng/camac-ng/document-merge-service:${CI_COMMIT_TAG:-master}
+    build:
+      context: ../document-merge-service
+      cache_from:
+        - acr.run/camac-ng/camac-ng/document-merge-service:${CI_COMMIT_TAG:-master}
+      args:
+        APPLICATION: ${APPLICATION}
+    user: ${UID}
+    depends_on:
+      - cache
+      - minio
+    cap_add:
+      - CAP_SYS_ADMIN
+    volumes:
+      - ../document-merge-service/extensions:/app/document_merge_service/extensions
+    environment:
+      - CACHE_LOCATION=cache:11211
+      - DATABASE_HOST=db
+      - DATABASE_NAME=${APPLICATION}
+      - DMS_S3_ACCESS_KEY_ID
+      - DMS_S3_ENDPOINT_URL
+      - DMS_S3_SECRET_ACCESS_KEY
+      - DMS_S3_SIGNATURE_VERSION=s3v4
+      - DMS_STORAGE_BUCKET_NAME=dms-media
+      - EXTENSIONS_ARGUMENTS=DJANGO_API=http://django
+      - FILE_STORAGE=storages.backends.s3.S3Storage
+      - ISOLATE_UNOCONV=true
+      - OIDC_VERIFY_SSL=true
+      - REQUIRE_AUTHENTICATION=true
+      - URL_PREFIX=document-merge-service/
+      - DATABASE_PASSWORD
+      - DATABASE_USER
+
   keycloak:
     image: acr.run/camac-ng/camac-ng/keycloak:${CI_COMMIT_TAG:-master}
     build:
       context: ../keycloak
       cache_from:
         - acr.run/camac-ng/camac-ng/keycloak:${CI_COMMIT_TAG:-master}
+
+  mc:
+    image: minio/mc:RELEASE.2024-07-31T15-58-33Z
+    depends_on:
+      - minio
+    restart: on-failure
+    volumes:
+      - ../mc/entrypoint.sh:/entrypoint.sh
+    entrypoint: /entrypoint.sh
+    environment:
+      - MINIO_ROOT_USER
+      - MINIO_ROOT_PASSWORD
 
   metabase:
     image: metabase/metabase:v0.58.1
@@ -151,18 +163,6 @@ services:
       - MINIO_ROOT_PASSWORD
       - MINIO_BROWSER_REDIRECT_URL
     command: server data --console-address ":9090"
-
-  mc:
-    image: minio/mc:RELEASE.2024-07-31T15-58-33Z
-    depends_on:
-      - minio
-    restart: on-failure
-    volumes:
-      - ../mc/entrypoint.sh:/entrypoint.sh
-    entrypoint: /entrypoint.sh
-    environment:
-      - MINIO_ROOT_USER
-      - MINIO_ROOT_PASSWORD
 
   unoconv:
     image: zrrrzzt/docker-unoconv-webservice:8.9.4
