@@ -278,6 +278,7 @@ GR_PERMISSIONS_SETTINGS = {
             ("deadlines-suspensions-write", MODULE_DEADLINES_SUSPENSION),
             ("deadlines-deadlines-read", MODULE_DEADLINES_DEADLINE),
             ("deadlines-deadlines-write", MODULE_DEADLINES_DEADLINE),
+            ("form-formal-exam-write", MODULE_AUDIT),
         ],
         "read": [
             ("communications-write", MODULE_COMMUNICATIONS),
