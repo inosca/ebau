@@ -53,12 +53,13 @@ def send_notification_for_overdue_workitems(self):
         return
 
     task = PeriodicTask.objects.filter(task=self.name).first()
-
     now = timezone.now()
-    check_deadlines_since = task.last_run_at or (now - timedelta(hours=24))
+
+    # Dont send notification's for missed work items 2 weeks in the past
+    cut_off_date = now - timedelta(days=14)
 
     log.info(
-        f"Send notifications for WorkItems since {check_deadlines_since}. Last run at {task.last_run_at}."
+        f"Send notifications for overdue WorkItems in range {cut_off_date} to {now}. Task last run at: {task.last_run_at or 'Never'}."
     )
 
     for task_id in config.keys():
@@ -67,7 +68,8 @@ def send_notification_for_overdue_workitems(self):
                 **{
                     "task": task_id,
                     "meta__notify-deadline": True,
-                    "deadline__range": [check_deadlines_since, now],
+                    "meta__deadline_notification_sent_at__isnull": True,
+                    "deadline__range": [cut_off_date, now],
                     "closed_at__isnull": True,
                 }
             ):
@@ -80,6 +82,8 @@ def send_notification_for_overdue_workitems(self):
                         recipient_types=notification["recipient_types"],
                         work_item={"id": work_item.pk, "type": "work-items"},
                     )
+                    work_item.meta["deadline_notification_sent_at"] = now.isoformat()
+                    work_item.save()
                 except Exception as e:  # pragma: no cover
                     log.error(
                         f"Failed sending notification for WorkItem {work_item.pk}: {e}"
