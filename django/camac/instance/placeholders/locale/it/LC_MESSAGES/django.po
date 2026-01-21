@@ -1410,35 +1410,35 @@ msgstr "Osservazioni relative ai posti protetti"
 
 #: camac/instance/placeholders/serializers.py
 msgid "CONSTRUCTION_ACCEPTANCE_DATE"
-msgstr ""
+msgstr "COLLAUDO_DATA"
 
 #: camac/instance/placeholders/serializers.py
 msgid "Date of the construction acceptance"
-msgstr ""
+msgstr "Data del collaudo"
 
 #: camac/instance/placeholders/serializers.py
 msgid "CONSTRUCTION_ACCEPTANCE_COMMENTS"
-msgstr ""
+msgstr "COLLAUDO_ACCETTATO"
 
 #: camac/instance/placeholders/serializers.py
 msgid "Comments for the construction acceptance"
-msgstr ""
+msgstr "Collaudato al momento del collaudo"
 
 #: camac/instance/placeholders/serializers.py
 msgid "CONSTRUCTION_ACCEPTANCE_DEFECTS"
-msgstr ""
+msgstr "COLLAUDO_NON_ACCETTATO"
 
 #: camac/instance/placeholders/serializers.py
 msgid "Defects for the construction acceptance"
-msgstr ""
+msgstr "Non collaudato / Difetti al momento del collaudo"
 
 #: camac/instance/placeholders/serializers.py
 msgid "CONSTRUCTION_ACCEPTANCE_OBSERVATIONS"
-msgstr ""
+msgstr "COLLAUDO_OSSERVAZIONI"
 
 #: camac/instance/placeholders/serializers.py
 msgid "Observations for the construction acceptance"
-msgstr ""
+msgstr "Osservazioni sul collaudo"
 
 #: camac/instance/placeholders/serializers.py
 msgid "PROJECT"

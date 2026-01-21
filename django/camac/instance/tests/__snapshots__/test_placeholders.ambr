@@ -6580,12 +6580,12 @@
       'aliases': list([
         dict({
           'de': 'BAUABNAHME_ABGENOMMEN',
-          'it': 'BAUABNAHME_ABGENOMMEN',
+          'it': 'COLLAUDO_ACCETTATO',
         }),
       ]),
       'description': dict({
         'de': 'Abgenommen an der Bauabnahme',
-        'it': 'Abgenommen an der Bauabnahme',
+        'it': 'Collaudato al momento del collaudo',
       }),
       'nested_aliases': dict({
       }),
@@ -6594,12 +6594,12 @@
       'aliases': list([
         dict({
           'de': 'BAUABNAHME_BEMERKUNGEN',
-          'it': 'BAUABNAHME_BEMERKUNGEN',
+          'it': 'COLLAUDO_OSSERVAZIONI',
         }),
       ]),
       'description': dict({
         'de': 'Bemerkungen zur Bauabnahme',
-        'it': 'Bemerkungen zur Bauabnahme',
+        'it': 'Osservazioni sul collaudo',
       }),
       'nested_aliases': dict({
       }),
@@ -6608,12 +6608,12 @@
       'aliases': list([
         dict({
           'de': 'BAUABNAHME_DATUM',
-          'it': 'BAUABNAHME_DATUM',
+          'it': 'COLLAUDO_DATA',
         }),
       ]),
       'description': dict({
         'de': 'Datum der Bauabnahme',
-        'it': 'Datum der Bauabnahme',
+        'it': 'Data del collaudo',
       }),
       'nested_aliases': dict({
       }),
@@ -6622,12 +6622,12 @@
       'aliases': list([
         dict({
           'de': 'BAUABNAHME_MAENGEL',
-          'it': 'BAUABNAHME_MAENGEL',
+          'it': 'COLLAUDO_NON_ACCETTATO',
         }),
       ]),
       'description': dict({
         'de': 'Nicht abgenommen / Mängel zur Bauabnahme',
-        'it': 'Nicht abgenommen / Mängel zur Bauabnahme',
+        'it': 'Non collaudato / Difetti al momento del collaudo',
       }),
       'nested_aliases': dict({
       }),
@@ -12679,6 +12679,10 @@
     'CIRCOLAZIONE_TUTTI[].NOME',
     'CIRCOLAZIONE_TUTTI[].RISPOSTO',
     'CIRCOLAZIONE_TUTTI[].SCADENZA',
+    'COLLAUDO_ACCETTATO',
+    'COLLAUDO_DATA',
+    'COLLAUDO_NON_ACCETTATO',
+    'COLLAUDO_OSSERVAZIONI',
     'COMUNE',
     'COMUNE_INDIRIZZO',
     'COMUNE_LOCALITÀ',
@@ -14295,6 +14299,10 @@
         'SCADENZA': '13.11.1972',
       }),
     ]),
+    'COLLAUDO_ACCETTATO': '',
+    'COLLAUDO_DATA': '',
+    'COLLAUDO_NON_ACCETTATO': '',
+    'COLLAUDO_OSSERVAZIONI': '',
     'COMUNE': 'Patricia Shelton',
     'COMUNE_INDIRIZZO': '',
     'COMUNE_LOCALITÀ': '',
