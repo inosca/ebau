@@ -2764,7 +2764,7 @@ msgstr ""
 
 #: camac/instance/placeholders/serializers.py
 msgid "Usage zones affected by the project"
-msgstr ""
+msgstr "Betroffene Nutzungszonen"
 
 #: camac/instance/placeholders/serializers.py
 msgid "FIELD_BEZEICHNUNG"

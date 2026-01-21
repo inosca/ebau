@@ -11118,7 +11118,7 @@
         }),
       ]),
       'description': dict({
-        'de': 'Usage zones affected by the project',
+        'de': 'Betroffene Nutzungszonen',
       }),
       'nested_aliases': dict({
       }),
