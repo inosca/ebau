@@ -18,3 +18,13 @@ $watermark-background-color: #f0506e;
 span.cf-label__mandatory-asterisk.uk-text-muted {
   color: #f0506e !important;
 }
+
+span.subnav-header {
+  &__label {
+    &--read-only {
+      background: rgb(180 134 0 / 20%);
+      color: #b48600;
+      border: 1px solid #b48600;
+    }
+  }
+}
