@@ -253,7 +253,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
       ui: {
         readonly: this.session.isReadOnlyRole,
         new: {
-          showAllServices: getOwnConfig().application === "ag",
+          showAllServices: ["ag", "gr"].includes(getOwnConfig().application),
         },
       },
       inquiry: {
