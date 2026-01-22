@@ -2551,8 +2551,11 @@ APPLICATIONS = {
                 "create-manual-workitems": {
                     "template_slug": "expired-manual-work-item",
                     "recipient_types": ["work_item_controlling"],
-                }
+                },
             },
+            "PROCESS_DEADLINES_FROM": env.str(
+                "NOTIFICATIONS_PROCESS_DEADLINES_FROM", default=None
+            ),
             "SUBMIT": [
                 {
                     "template_slug": "empfang-baugesuch-bauherrschaft",

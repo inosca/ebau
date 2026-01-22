@@ -115,6 +115,7 @@ def test_notify_manual_work_item(
     settings,
 ):
     settings.CELERY_TASK_ALWAYS_EAGER = True
+    settings.APPLICATION["NOTIFICATIONS"]["PROCESS_DEADLINES_FROM"] = "2020-08-09"
 
     notification_template_expired = notification_template_factory()
     application_settings["NOTIFICATIONS"]["WORKITEM_DEADLINE_OVERDUE"] = {
@@ -127,7 +128,8 @@ def test_notify_manual_work_item(
     controlling_service = service_factory()
     addressed_service = service_factory()
 
-    deadline = timezone.now()
+    deadline_past_initial_check = timezone.now() - timedelta(days=3)
+    deadline = timezone.now() - timedelta(days=1)
     deadline_future = timezone.now() + timedelta(days=2)
     task = caluma_task_factory(
         slug=application_settings["CALUMA"]["MANUAL_WORK_ITEM_TASK"],
@@ -180,8 +182,29 @@ def test_notify_manual_work_item(
             "ebau-number": "2020-01",
             "notify-completed": True,
             "notify-deadline": True,
+            "deadline_notification_sent_at": "Some random date",
+        },
+        **work_item_args,
+    )
+    caluma_work_item_factory(
+        task=task,
+        case=instance.case,
+        meta={
+            "ebau-number": "2020-01",
+            "notify-completed": True,
+            "notify-deadline": True,
         },
         **{**work_item_args, "deadline": deadline_future},
+    )
+    caluma_work_item_factory(
+        task=task,
+        case=instance.case,
+        meta={
+            "ebau-number": "2020-01",
+            "notify-completed": True,
+            "notify-deadline": True,
+        },
+        **{**work_item_args, "deadline": deadline_past_initial_check},
     )
 
     # Setup periodic task

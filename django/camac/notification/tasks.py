@@ -43,6 +43,7 @@ def send_notification_for_overdue_workitems(self):
     from caluma.caluma_workflow.models import WorkItem
     from django.conf import settings
     from django.utils import timezone
+    from django.utils.dateparse import parse_datetime
     from django_celery_beat.models import PeriodicTask
 
     from camac.caluma.extensions.events.general import get_instance_id
@@ -54,9 +55,22 @@ def send_notification_for_overdue_workitems(self):
 
     task = PeriodicTask.objects.filter(task=self.name).first()
     now = timezone.now()
+    process_deadlines_from = settings.APPLICATION["NOTIFICATIONS"].get(
+        "PROCESS_DEADLINES_FROM"
+    )
+    # Dont send notification's for missed work items more than 2 days in the past
+    # While this is running daily, givin one day additional might prevent missing
+    # notifications if a server was restarted while the task would be running or
+    # similar events.
+    cut_off_date = now - timedelta(days=2)
 
-    # Dont send notification's for missed work items 2 weeks in the past
-    cut_off_date = now - timedelta(days=14)
+    # When deploying for the first time, dont send a notification for all workitems in the past.
+    if process_deadlines_from := parse_datetime(str(process_deadlines_from) or ""):
+        if timezone.is_naive(process_deadlines_from):
+            process_deadlines_from = timezone.make_aware(process_deadlines_from)
+        if process_deadlines_from > cut_off_date:
+            cut_off_date = process_deadlines_from
+            log.info(f"Use configured value for process_deadlines_from: {cut_off_date}")
 
     log.info(
         f"Send notifications for overdue WorkItems in range {cut_off_date} to {now}. Task last run at: {task.last_run_at or 'Never'}."
@@ -83,7 +97,7 @@ def send_notification_for_overdue_workitems(self):
                         work_item={"id": work_item.pk, "type": "work-items"},
                     )
                     work_item.meta["deadline_notification_sent_at"] = now.isoformat()
-                    work_item.save()
+                    work_item.save(update_fields=["meta"])
                 except Exception as e:  # pragma: no cover
                     log.error(
                         f"Failed sending notification for WorkItem {work_item.pk}: {e}"
