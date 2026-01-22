@@ -72,7 +72,6 @@ services:
       - ENABLE_HISTORICAL_API=true
       - GWR_FERNET_KEY=GUdwT6yKxqfszrnHC7wyKDmtVZdhjSVQEPnpeJYNLf8=
       - MANABI_SHARED_KEY=bNEZsIjvxDAiLhDA1chvF9zL9OJYPNlCqNPlm7KbhmU
-      - DEADLINES_ENABLED=true
     volumes:
       - djangomedia:/var/lib/camac/media
       - djangotmpmedia:/tmp/camac/tmpfiles
