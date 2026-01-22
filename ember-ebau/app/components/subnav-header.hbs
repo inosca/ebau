@@ -14,7 +14,7 @@
   <div>
     {{#if (await (can "access instance on level read for instance"))}}
       <span
-        class="uk-label subnav-header__label subnav-header__label--primary"
+        class="uk-label subnav-header__label subnav-header__label--primary subnav-header__label--read-only"
       >{{t "nav.hasOnlyReadPermission"}}</span>
     {{/if}}
     {{#if @case.instanceState}}
