@@ -28,7 +28,7 @@
         </span>
       {{else if (eq column "deadline")}}
         <span {{uk-tooltip (format-date @row.deadline format="datetime")}}>
-          {{date-from-now @row.deadline}}
+          {{date-from-now @row.deadline startOfDay=true}}
         </span>
       {{else if (eq column "targetDeadlineDate")}}
         {{#if @row.processDeadlineDate}}
