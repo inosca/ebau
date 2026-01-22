@@ -2142,8 +2142,10 @@ APPLICATIONS = {
                 "main",
                 "einsprachen",
                 "address-assignment-make-suggestion",
+                "formal-exam",
             ],
             "FORM_PERMISSIONS_MAPPING": {
+                "form-formal-exam-write": "form-formal-exam-write",
                 "form-einsprachen-write": "legal-submissions-write",
                 "form-address-assignment-make-suggestion-write": "address-assignment-write",
             },
