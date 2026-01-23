@@ -25,3 +25,18 @@
   
   '''
 # ---
+# name: test_template_export
+  dict({
+    'fields': dict({
+      'description': 'Rebecca Gonzalez',
+      'engine': 'docx-template',
+      'meta': dict({
+        'service': '2',
+        'service_group': '',
+      }),
+      'template': 'template.docx',
+    }),
+    'model': 'api.template',
+    'pk': 'rebecca-gonzalez',
+  })
+# ---
