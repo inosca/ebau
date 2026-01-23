@@ -37,7 +37,8 @@
                 "baugesuch-v2",
                 "baugesuch-v3",
                 "baugesuch-v4",
-                "baugesuch-v5"
+                "baugesuch-v5",
+                "baugesuch-v6"
               ],
               "mapper": "near_forest",
               "question": "waldareal"
@@ -53,7 +54,8 @@
                 "baugesuch-v2",
                 "baugesuch-v3",
                 "baugesuch-v4",
-                "baugesuch-v5"
+                "baugesuch-v5",
+                "baugesuch-v6"
               ],
               "mapper": "ausserhalb_bauzone",
               "question": "ausserhalb-bauzone",
@@ -65,7 +67,8 @@
                 "baugesuch-v2",
                 "baugesuch-v3",
                 "baugesuch-v4",
-                "baugesuch-v5"
+                "baugesuch-v5",
+                "baugesuch-v6"
               ],
               "mapper": "in_forest",
               "question": "waldareal",
@@ -77,7 +80,8 @@
                 "baugesuch-v2",
                 "baugesuch-v3",
                 "baugesuch-v4",
-                "baugesuch-v5"
+                "baugesuch-v5",
+                "baugesuch-v6"
               ],
               "mapper": "archaeologiezone",
               "question": "das-bauvorhaben-befindet-sich-in",
@@ -94,7 +98,8 @@
                 "baugesuch-v2",
                 "baugesuch-v3",
                 "baugesuch-v4",
-                "baugesuch-v5"
+                "baugesuch-v5",
+                "baugesuch-v6"
               ],
               "mapper": "yes_or_no",
               "question": "kantonsstrassen"
@@ -110,7 +115,8 @@
                 "baugesuch-v2",
                 "baugesuch-v3",
                 "baugesuch-v4",
-                "baugesuch-v5"
+                "baugesuch-v5",
+                "baugesuch-v6"
               ],
               "mapper": "gefahrenzone",
               "question": "das-bauvorhaben-befindet-sich-in",
@@ -127,7 +133,8 @@
                 "baugesuch-v2",
                 "baugesuch-v3",
                 "baugesuch-v4",
-                "baugesuch-v5"
+                "baugesuch-v5",
+                "baugesuch-v6"
               ],
               "mapper": "bauvorhaben_gewaesser",
               "question": "das-bauvorhaben-befindet-sich-in",
@@ -139,7 +146,8 @@
                 "baugesuch-v2",
                 "baugesuch-v3",
                 "baugesuch-v4",
-                "baugesuch-v5"
+                "baugesuch-v5",
+                "baugesuch-v6"
               ],
               "mapper": "gewaesserschutzbereich",
               "question": "art-gewaesserschutzbereich",
@@ -151,7 +159,8 @@
                 "baugesuch-v2",
                 "baugesuch-v3",
                 "baugesuch-v4",
-                "baugesuch-v5"
+                "baugesuch-v5",
+                "baugesuch-v6"
               ],
               "hidden": true,
               "mapper": "gewaesserschutzbereich",
@@ -169,7 +178,8 @@
                 "baugesuch-v2",
                 "baugesuch-v3",
                 "baugesuch-v4",
-                "baugesuch-v5"
+                "baugesuch-v5",
+                "baugesuch-v6"
               ],
               "mapper": "grundwasserschutzzone",
               "question": "grundwasserschutzzone",
@@ -181,7 +191,8 @@
                 "baugesuch-v2",
                 "baugesuch-v3",
                 "baugesuch-v4",
-                "baugesuch-v5"
+                "baugesuch-v5",
+                "baugesuch-v6"
               ],
               "hidden": true,
               "mapper": "grundwasserschutzzone",
@@ -199,7 +210,8 @@
                 "baugesuch-v2",
                 "baugesuch-v3",
                 "baugesuch-v4",
-                "baugesuch-v5"
+                "baugesuch-v5",
+                "baugesuch-v6"
               ],
               "mapper": "archaeologiezone_2",
               "question": "das-bauvorhaben-befindet-sich-in",

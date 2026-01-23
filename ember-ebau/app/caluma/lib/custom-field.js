@@ -43,6 +43,7 @@ export default class CustomField extends Field {
           "vorlaeufige-beurteilung",
           "vorlaeufige-beurteilung-v3",
           "vorlaeufige-beurteilung-v4",
+          "vorlaeufige-beurteilung-v6",
         ].includes(this.caseInformation?.value?.form);
       }
     }
