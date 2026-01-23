@@ -32,5 +32,5 @@ COPY $APPLICATION /tmp/document-merge-service/
 
 COPY entrypoint.sh /app/
 
-CMD "gunicorn"
+CMD ["gunicorn"]
 ENTRYPOINT ["/app/entrypoint.sh"]
