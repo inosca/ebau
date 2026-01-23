@@ -25,7 +25,7 @@ def test_import(
         "gesuchsteller": "Kanton Uri, v.d. Baudirektion Uri",
         "gesuchsteller-backup": "Kanton Uri, v.d. Baudirektion Uri",
         "erfassungsjahr": 1992,
-        "parzelle-nr": 11,
+        "parzelle-nr": "11",
         "baurecht-nr": None,
         "gemeinde": "Gurtnellen 1209",
         "vorhaben": "Erschliessungsstrasse",
@@ -61,7 +61,7 @@ def test_import_validation_error(requests_mock, capsys):
         "included": [
             {
                 "attributes": {
-                    "identifier": "parzelle-nr",
+                    "identifier": "baurecht-nr",
                     "value": "string not int",
                 },
             }
@@ -81,7 +81,7 @@ def test_import_validation_error(requests_mock, capsys):
     client = ParashiftImporter("KOOR_BG")
     record = client.fetch_data("138866")
     assert record is None
-    assert capsys.readouterr().out == "138866: parzelle-nr: Must be an integer!\n"
+    assert capsys.readouterr().out == "138866: baurecht-nr: Must be an integer!\n"
 
 
 @pytest.mark.xfail(reason="form is not properly configured")
@@ -171,7 +171,7 @@ def test_command_validation_error(requests_mock, capsys):
         "included": [
             {
                 "attributes": {
-                    "identifier": "parzelle-nr",
+                    "identifier": "baurecht-nr",
                     "value": "string not int",
                 },
             }
@@ -188,7 +188,7 @@ def test_command_validation_error(requests_mock, capsys):
         "included": [
             {
                 "attributes": {
-                    "identifier": "parzelle-nr",
+                    "identifier": "baurecht-nr",
                     "value": "string not int",
                 },
             }
@@ -216,7 +216,7 @@ def test_command_validation_error(requests_mock, capsys):
 
     call_command("parashift_import", "138866", "138867", "KOOR_BG")
     out = capsys.readouterr().out
-    assert out.rsplit("\n")[0] == "138866: parzelle-nr: Must be an integer!"
+    assert out.rsplit("\n")[0] == "138866: baurecht-nr: Must be an integer!"
 
 
 def test_command_data_error(parashift_mock, requests_mock):
