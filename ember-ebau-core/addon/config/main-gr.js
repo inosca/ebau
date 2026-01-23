@@ -178,6 +178,7 @@ export default {
       "baugesuch-v3",
       "baugesuch-v4",
       "baugesuch-v5",
+      "baugesuch-v6",
     ],
     disallowStates: ["new"],
   },

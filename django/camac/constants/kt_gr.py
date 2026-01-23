@@ -13,6 +13,7 @@ BAUGESUCH_FORMS = [
     "baugesuch-v3",
     "baugesuch-v4",
     "baugesuch-v5",
+    "baugesuch-v6",
 ]
 BAUANZEIGE_FORMS = [
     "bauanzeige",
@@ -22,10 +23,12 @@ VORLAEUFIGE_BEURTEILUNG_FORMS = [
     "vorlaeufige-beurteilung",
     "vorlaeufige-beurteilung-v3",
     "vorlaeufige-beurteilung-v4",
+    "vorlaeufige-beurteilung-v6",
 ]
 SOLARANLAGE_FORMS = [
     "solaranlage",
     "solaranlage-v2",
+    "solaranlage-v6",
     "solaranlage-andere",
 ]
 
