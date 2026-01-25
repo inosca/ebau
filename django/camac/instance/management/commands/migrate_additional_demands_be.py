@@ -1,3 +1,4 @@
+import textwrap
 import traceback
 from collections import defaultdict
 from datetime import datetime
@@ -20,7 +21,7 @@ MIGRATION_META_TIMESTAMP_KEY = "nfd-migrated-at"
 MIGRATION_META_CLAIM_ID_KEY = "nfd-migrated-from-claimId"
 PRECEDING_TASK = "submit"
 STATUS_COMPLETED = "completed"  # same for Case and WorkItem
-
+INDENT = "    "  # define standard log indentation
 
 CANCEL_INSTANCE_STATES = [
     "sb1",
@@ -105,6 +106,11 @@ class Command(BaseCommand):
             "--commit",
             action="store_true",
             help="Commit the changes to the database.",
+        )
+        parser.add_argument(
+            "--no-logging",
+            action="store_true",
+            help="Run migration script without the case summary logs.",
         )
 
     def reset(self):
@@ -501,16 +507,18 @@ class Command(BaseCommand):
         )
         return check_answers_to_create
 
-    def migrate_attachments(self, all_attachments, row_pk, fill_document):
+    @staticmethod
+    def migrate_attachments(all_related_attachments, row_pk, fill_document):
         original_claim_id = str(row_pk)
 
         new_claim_id = str(fill_document.pk)
         migration_timestamp = timezone.now().isoformat()
 
-        attachments = all_attachments.get(original_claim_id, [])
-
         attachments_to_update = []
-        for att in attachments:
+        instance_mapping = defaultdict(list)
+        for att in all_related_attachments:
+            instance_id = str(att.instance.pk)
+            instance_mapping[instance_id].append(str(att.pk))
             try:
                 att.context[MIGRATION_META_CLAIM_ID_KEY] = original_claim_id
                 att.context[MIGRATION_META_TIMESTAMP_KEY] = migration_timestamp
@@ -519,14 +527,12 @@ class Command(BaseCommand):
 
             except Exception as e:
                 tqdm.write(
-                    f"    ERROR: Row {row_pk}: Failed to modify Attachment {att.pk}. Error: {e}"
+                    f" ERROR: Row {row_pk}: Failed to modify Attachment {att.pk} of Instance ({instance_id}) with new 'claimId':{new_claim_id}. Error: {e}"
                 )
         if attachments_to_update:
             Attachment.objects.bulk_update(attachments_to_update, ["context"])
-            if self.verbosity >= 2:
-                tqdm.write(
-                    f"    Row {row_pk}: Migrated {len(attachments_to_update)} attachments to Fill Document {fill_document.pk}."
-                )
+
+        return instance_mapping
 
     def bulk_create_init_work_items(self, cases_qs):
         created_map = {}
@@ -538,7 +544,7 @@ class Command(BaseCommand):
         # https://docs.python.org/3.12/library/itertools.html#itertools.batched
         for chunk in tqdm(
             batched(cases_qs.iterator(chunk_size=batch_size), batch_size),
-            desc="Bulk Creating Init Work Items",
+            desc="Bulk creating 'init-additional-demand' work items",
         ):
             batch_to_create = []
 
@@ -594,7 +600,9 @@ class Command(BaseCommand):
                     work_items_to_update, ["created_at"], batch_size=batch_size
                 )
 
-        tqdm.write(f"Bulk created {len(created_map)} initial work items.")
+        tqdm.write(
+            f"Bulk created {len(created_map)} 'init-additional-demand' work items."
+        )
         return created_map
 
     @staticmethod
@@ -682,10 +690,6 @@ class Command(BaseCommand):
         workflow = context["workflow"]
         original_claim_id = context["original_claim_id"]
         step_data = context["step_data"]
-        if self.verbosity >= 3:
-            tqdm.write(
-                f"    Instance {case.instance.pk}, Case {case.pk}, Row {row.pk}: Running 'draft' step..."
-            )
 
         original_username, original_service_id = self._get_original_owner(
             answers_dict,
@@ -707,8 +711,6 @@ class Command(BaseCommand):
             assigned_users=case.nfd_work_item.assigned_users,
             original_claim_id=original_claim_id,
         )
-        if self.verbosity >= 3:
-            tqdm.write(f"      => Completed Init Work Item: {init_work_item.pk}")
 
         assigned_users = self._get_assigned_users(
             current_responsible_service_id, case.instance
@@ -724,8 +726,7 @@ class Command(BaseCommand):
             status=parent_init_status,
             created_at_override=row.created_at,
         )
-        if self.verbosity >= 3:
-            tqdm.write(f"      => Created new Init Work Item: {new_init_work_item.pk}")
+
         step_data["new_init_work_item"] = new_init_work_item
 
         request_datetime = self._get_datetime_from_answer(
@@ -747,11 +748,6 @@ class Command(BaseCommand):
                 original_claim_id=original_claim_id,
             )
         )
-        if self.verbosity >= 3:
-            tqdm.write(f"      => Created Child Case: {child_case.pk}")
-            tqdm.write(
-                f"      => Created Parent Work Item: {additional_demand_work_item.pk}"
-            )
 
         send_document, send_work_item = self._create_document_and_work_item(
             case=child_case,
@@ -767,10 +763,7 @@ class Command(BaseCommand):
             parent_init_status=parent_init_status,
             original_claim_id=original_claim_id,
         )
-        if self.verbosity >= 3:
-            tqdm.write(
-                f"      => Created Send Document: {send_document.pk} & Send Work Item: {send_work_item.pk}"
-            )
+
         context["documents_to_create"].append(send_document)
 
         answers_to_create = self._get_send_document_answers(
@@ -786,6 +779,8 @@ class Command(BaseCommand):
             additional_demand_work_item
         )
         context["step_data"]["send_work_item"] = send_work_item
+        context["step_data"]["send_document"] = send_document
+        context["step_data"]["send_answers"] = answers_to_create
         context["step_data"]["original_username"] = original_username
         context["step_data"]["original_service_id"] = original_service_id
 
@@ -797,10 +792,6 @@ class Command(BaseCommand):
         parent_init_status = context["parent_init_status"]
         original_claim_id = context["original_claim_id"]
         step_data = context["step_data"]
-        if self.verbosity >= 3:
-            tqdm.write(
-                f"    Instance {case.instance.pk}, Case {case.pk}, Row {row.pk}: Running 'in progress' step..."
-            )
 
         send_work_item = step_data["send_work_item"]
         child_case = step_data["child_case"]
@@ -823,8 +814,6 @@ class Command(BaseCommand):
             assigned_users=case.nfd_work_item.assigned_users,
             save=False,
         )
-        if self.verbosity >= 3:
-            tqdm.write(f"      => Completed Send Work Item: {send_work_item.pk}")
 
         fill_document, fill_work_item = self._create_document_and_work_item(
             case=child_case,
@@ -839,10 +828,6 @@ class Command(BaseCommand):
             parent_init_status=parent_init_status,
             original_claim_id=original_claim_id,
         )
-        if self.verbosity >= 3:
-            tqdm.write(
-                f"      => Created Fill Document: {fill_document.pk} & Fill Work Item: {fill_work_item.pk}"
-            )
 
         context["documents_to_create"].append(fill_document)
 
@@ -855,9 +840,9 @@ class Command(BaseCommand):
 
         context["step_data"]["fill_work_item"] = fill_work_item
         context["step_data"]["fill_document"] = fill_document
+        context["step_data"]["fill_answers"] = answers_to_create
 
     def _run_answered_step(self, context):
-        row = context["row"]
         row_attachments = context["row_attachments"]
         case = context["case"]
         answers_dict = context["answers_dict"]
@@ -866,11 +851,6 @@ class Command(BaseCommand):
         original_claim_id = context["original_claim_id"]
         current_responsible_service_id = context["service_id"]
         step_data = context["step_data"]
-
-        if self.verbosity >= 3:
-            tqdm.write(
-                f"    Instance {case.instance.pk}, Case {case.pk}: Row {row.pk} => Running 'answered' step..."
-            )
 
         child_case = step_data["child_case"]
         fill_work_item = step_data["fill_work_item"]
@@ -902,8 +882,6 @@ class Command(BaseCommand):
             closed_at=closed_at,
             save=False,
         )
-        if self.verbosity >= 3:
-            tqdm.write(f"      => Completed Fill Work Item: {fill_work_item.pk}")
 
         check_document, check_work_item = self._create_document_and_work_item(
             case=child_case,
@@ -921,10 +899,6 @@ class Command(BaseCommand):
             parent_init_status=parent_init_status,
             original_claim_id=original_claim_id,
         )
-        if self.verbosity >= 3:
-            tqdm.write(
-                f"      => Created Check Document: {check_document.pk} & Check Work Item: {check_work_item.pk}"
-            )
 
         context["documents_to_create"].append(check_document)
 
@@ -934,17 +908,13 @@ class Command(BaseCommand):
         context["answers_to_create"].extend(answers_to_create)
         context["work_items_to_create"].append(check_work_item)
         context["step_data"]["check_work_item"] = check_work_item
+        context["step_data"]["check_document"] = check_document
+        context["step_data"]["check_answers"] = answers_to_create
 
     def _run_done_step(self, context):
-        row = context["row"]
         case = context["case"]
         step_data = context["step_data"]
         answers_dict = context["answers_dict"]
-
-        if self.verbosity >= 3:
-            tqdm.write(
-                f"    Instance {case.instance.pk}, Case {case.pk}: Row {row.pk} => Running 'done' step..."
-            )
 
         check_work_item = step_data["check_work_item"]
         child_case = step_data["child_case"]
@@ -966,8 +936,6 @@ class Command(BaseCommand):
             closed_at=final_closed_at,
             save=False,
         )
-        if self.verbosity >= 3:
-            tqdm.write(f"      => Completed Check Work Item: {check_work_item.pk}")
 
         self._complete_object(
             obj=additional_demand_work_item,
@@ -977,10 +945,6 @@ class Command(BaseCommand):
             assigned_users=case.nfd_work_item.assigned_users,
             closed_at=final_closed_at,
         )
-        if self.verbosity >= 3:
-            tqdm.write(
-                f"      => Completed Parent Work Item: {additional_demand_work_item.pk}"
-            )
 
         self._complete_object(
             obj=child_case,
@@ -988,8 +952,6 @@ class Command(BaseCommand):
             closed_by_group=original_service_id,
             closed_at=final_closed_at,
         )
-        if self.verbosity >= 3:
-            tqdm.write(f"      => Completed Child Case: {child_case.pk}")
 
     def process_nfd_row(
         self,
@@ -1003,7 +965,7 @@ class Command(BaseCommand):
         answers_dict,
         user_map,
         row_attachments,
-        all_attachments,
+        all_related_attachments,
         workflow,
         batch_data,
     ):
@@ -1040,17 +1002,21 @@ class Command(BaseCommand):
 
             if "fill_document" in context["step_data"]:
                 batch_data["attachment_tasks"].append(
-                    (all_attachments, row.pk, context["step_data"]["fill_document"])
+                    (
+                        all_related_attachments,
+                        row.pk,
+                        context["step_data"]["fill_document"],
+                    )
                 )
 
         except Exception as e:
             tqdm.write(
-                f"\n  FAILED: Instance {case.instance.pk}, Case {case.pk}, Row {row.pk}: Error: {e}"
+                f"\n FAILED: Instance {case.instance.pk}, Case {case.pk}, Row {row.pk}: Error: {e}"
             )
             tqdm.write(traceback.format_exc())
             raise
-
-        return context["step_data"].get("new_init_work_item", init_work_item)
+        next_work_item = context["step_data"].get("new_init_work_item", init_work_item)
+        return next_work_item, context["step_data"]
 
     @staticmethod
     def _build_author_user_map(document_list):
@@ -1137,7 +1103,8 @@ class Command(BaseCommand):
 
         return DRAFT_STATUS_VALUE
 
-    def _transfer_batch_to_db(self, batch_data):  # noqa: C901
+    def _transfer_batch_to_db(self, batch_data, case):  # noqa: C901
+        attachment_summary = {}
         try:
             if batch_data["documents"]:
                 created_documents = Document.objects.bulk_create(
@@ -1168,15 +1135,24 @@ class Command(BaseCommand):
                     WorkItem.objects.bulk_update(work_items_to_update, ["created_at"])
 
             if batch_data["attachment_tasks"]:
-                for row_attachments, row_pk, fill_document in batch_data[
+                for all_related_attachments, row_pk, fill_document in batch_data[
                     "attachment_tasks"
                 ]:
-                    self.migrate_attachments(row_attachments, row_pk, fill_document)
+                    attachment_info = self.migrate_attachments(
+                        all_related_attachments=all_related_attachments,
+                        row_pk=row_pk,
+                        fill_document=fill_document,
+                    )
+                    attachment_summary[str(row_pk)] = attachment_info
 
         except Exception as e:
-            tqdm.write(f" ERROR while transferring to database : {e}")
+            tqdm.write(
+                f"Instance {case.instance.pk}: ERROR while transferring to database: {str(e)}"
+            )
             tqdm.write(traceback.format_exc())
             raise
+
+        return attachment_summary
 
     def migrate_case(
         self, case, workflow, init_work_item, global_attachments_map, global_rows_map
@@ -1198,26 +1174,23 @@ class Command(BaseCommand):
             "work_items": [],
             "attachment_tasks": [],
         }
+        # used for logging
+        case_trace_data = {"rows": {}, "init_work_item": init_work_item}
 
         if nfd_table_rows:
-            if self.verbosity >= 2:
-                tqdm.write(
-                    f"    Instance {case.instance.pk},  Case {case.pk}: {len(nfd_table_rows)} NFD rows found."
-                )
-
             for row in nfd_table_rows:
                 answers_dict = {
                     answer.question_id: answer for answer in row.answers.all()
                 }
                 row_attachments = attachments_map.get(str(row.pk), [])
-
+                all_related_attachments = global_attachments_map.get(str(row.pk), [])
                 status = self._get_row_status(
                     init_status=parent_init_status,
                     answers_dict=answers_dict,
                     row_attachments=row_attachments,
                 )
                 try:
-                    next_init_work_item = self.process_nfd_row(
+                    next_init_work_item, step_data = self.process_nfd_row(
                         row=row,
                         init_work_item=current_init_work_item,
                         parent_init_status=parent_init_status,
@@ -1228,7 +1201,7 @@ class Command(BaseCommand):
                         answers_dict=answers_dict,
                         user_map=user_map,
                         row_attachments=row_attachments,
-                        all_attachments=global_attachments_map,
+                        all_related_attachments=all_related_attachments,
                         workflow=workflow,
                         batch_data=batch_data,
                     )
@@ -1236,24 +1209,156 @@ class Command(BaseCommand):
                     if next_init_work_item:
                         current_init_work_item = next_init_work_item
 
+                    case_trace_data["rows"][str(row.pk)] = step_data
+
                 except Exception as e:
                     tqdm.write(
                         f"\n FAILED to migrate Row PK {row.pk} for Instance {case.instance.pk}, Case {case.pk}: {str(e)}"
                     )
                     pass
-            self._transfer_batch_to_db(batch_data=batch_data)
+            attachment_summary = self._transfer_batch_to_db(
+                batch_data=batch_data, case=case
+            )
+            self._log_case_summary(
+                case=case,
+                case_trace_data=case_trace_data,
+                attachment_summary=attachment_summary,
+            )
         else:
-            # do nothing, init additional demand work item already created with bulk-create.
-            if self.verbosity >= 2:
-                tqdm.write(
-                    f"    Instance {case.instance.pk},  Case {case.pk}: No NFD rows found. Default Init Work Item used."
-                )
+            # log init additional demand work item (already created with bulk-create).
+            self._log_case_summary(
+                case=case, case_trace_data=case_trace_data, attachment_summary={}
+            )
             pass
 
         case.meta[MIGRATION_META_TIMESTAMP_KEY] = timezone.now().isoformat()
-        if self.verbosity >= 2:
-            tqdm.write(f"  Migrated:  Instance {case.instance.pk},  Case {case.pk}")
         case.save(update_fields=["meta"])
+
+    @staticmethod
+    def _format_work_item_log(step_data, work_item_key):
+        if work_item_key not in step_data:
+            return None
+
+        work_item = step_data[work_item_key]
+        message = (
+            f"- {work_item.task_id} work item: {work_item.pk} ({work_item.status})"
+        )
+        return textwrap.indent(message, INDENT)
+
+    @staticmethod
+    def _format_document_log(step_data, document_key, answers_key):
+        if document_key not in step_data:
+            return None
+
+        document = step_data[document_key]
+        answers_list = step_data.get(answers_key, [])
+
+        log_lines = [f"- {document.form_id} document: {document.pk}"]
+
+        answers_info = [
+            (str(answer.question_id), str(answer.pk)) for answer in answers_list
+        ]
+
+        if answers_info:
+            message = f"- {document.form_id} document answers: {answers_info}"
+            log_lines.append(textwrap.indent(message, INDENT))
+
+        full_block = "\n".join(log_lines)
+        return textwrap.indent(full_block, INDENT)
+
+    @staticmethod
+    def _format_attachment_log(row_pk, attachment_summary):
+        row_attachments = attachment_summary.get(str(row_pk), {})
+        log_lines = []
+
+        if row_attachments:
+            log_lines.append("- Attachments:")
+            for instance_id, attachment_ids in row_attachments.items():
+                message = f"- Instance ({instance_id}): {attachment_ids}"
+                log_lines.append(textwrap.indent(message, INDENT))
+        else:
+            log_lines.append("- Attachments: [NO ATTACHMENTS TO MIGRATE]")
+
+        full_block = "\n".join(log_lines)
+        return textwrap.indent(full_block, INDENT)
+
+    def _log_case_summary(self, case, case_trace_data, attachment_summary):
+        if self.logging_disabled:
+            return
+
+        # header
+        log_lines = [f" Instance ({case.instance.pk}), Case: ({case.pk}):"]
+
+        init_work_item = case_trace_data.get("init_work_item")
+        if init_work_item:
+            init_work_item_message = f"- {init_work_item.task_id} work item: {init_work_item.pk} ({init_work_item.status})"
+            log_lines.append(textwrap.indent(init_work_item_message, INDENT))
+        else:
+            init_work_item_message = (
+                "- init-additional-demand work item: [ERROR: NOT CREATED]"
+            )
+            log_lines.append(textwrap.indent(init_work_item_message, INDENT))
+
+        rows_data = case_trace_data.get("rows", {})
+        row_count = len(rows_data)
+
+        row_count_message = f"- NFD Rows Count: {row_count}"
+        log_lines.append(textwrap.indent(row_count_message, INDENT))
+
+        for row_pk, step_data in rows_data.items():
+            row_header = f"- NFD Row ({row_pk}):"
+            log_lines.append(textwrap.indent(row_header, INDENT))
+
+            row_lines = []
+
+            top_work_item_keys = ["new_init_work_item", "additional_demand_work_item"]
+
+            # new_init_work_item and parent_work_item
+            for key in top_work_item_keys:
+                row_lines.append(
+                    self._format_work_item_log(
+                        step_data=step_data,
+                        work_item_key=key,
+                    )
+                )
+
+            # child case
+            if "child_case" in step_data:
+                child_case = step_data["child_case"]
+                child_case_message = f"- {child_case.workflow_id} child case: {child_case.pk} ({child_case.status})"
+                row_lines.append(textwrap.indent(child_case_message, INDENT))
+
+            stages = ["send", "fill", "check"]
+
+            for stage in stages:
+                # child work item
+                row_lines.append(
+                    self._format_work_item_log(
+                        step_data=step_data,
+                        work_item_key=f"{stage}_work_item",
+                    )
+                )
+
+                # document and answers
+                row_lines.append(
+                    self._format_document_log(
+                        step_data=step_data,
+                        document_key=f"{stage}_document",
+                        answers_key=f"{stage}_answers",
+                    )
+                )
+
+            # attachments
+            row_lines.append(
+                self._format_attachment_log(
+                    row_pk=row_pk, attachment_summary=attachment_summary
+                )
+            )
+
+            full_row_block = "\n".join(filter(None, row_lines))
+            log_lines.append(textwrap.indent(full_row_block, INDENT))
+
+        tqdm.write("\n".join(log_lines))
 
     @staticmethod
     def get_cases_to_migrate(only_ids=None):
@@ -1328,7 +1433,7 @@ class Command(BaseCommand):
 
     @transaction.atomic
     def handle(self, *args, **options):  # noqa: C901
-        self.verbosity = options.get("verbosity", 1)
+        self.logging_disabled = options.get("no_logging")
 
         if options.get("reset"):
             self.reset()
@@ -1356,7 +1461,7 @@ class Command(BaseCommand):
         except Workflow.DoesNotExist:
             self.stdout.write(
                 self.style.ERROR(
-                    f"CRITICAL: Workflow {settings.ADDITIONAL_DEMAND['WORKFLOW']} not found. Aborting migration."
+                    f" CRITICAL: Workflow {settings.ADDITIONAL_DEMAND['WORKFLOW']} not found. Aborting migration."
                 )
             )  # probably not needed.
             return
@@ -1364,7 +1469,6 @@ class Command(BaseCommand):
         # get the initial queryset that filters cases without init work items
         cases_qs_initial = self.get_cases_to_migrate()
 
-        tqdm.write("Fetching list of Case IDs to migrate...")
         case_ids = list(cases_qs_initial.values_list("pk", flat=True))
 
         case_count = len(case_ids)
@@ -1393,14 +1497,14 @@ class Command(BaseCommand):
         global_rows_map = defaultdict(list)
         all_row_ids = []
 
-        for row in tqdm(all_rows_qs, desc="Mapping Rows"):
+        for row in all_rows_qs:
             case_id = row.family.work_item.case_id
             global_rows_map[case_id].append(row)
 
             all_row_ids.append(str(row.pk))
 
         self.stdout.write(
-            f"  => Mapped {len(all_row_ids)} rows across {len(global_rows_map)} cases."
+            f"Mapped {len(all_row_ids)} rows across {len(global_rows_map)} cases."
         )
 
         # Query for all attachments that point to the original claim document
@@ -1411,14 +1515,14 @@ class Command(BaseCommand):
         global_attachments_map = defaultdict(list)
 
         count = 0
-        for att in tqdm(all_attachments_qs.iterator(), desc="Mapping Attachments"):
+        for att in all_attachments_qs.iterator():
             claim_id = att.context.get("claimId")
             if claim_id:
                 global_attachments_map[str(claim_id)].append(att)
                 count += 1
 
         self.stdout.write(
-            f"  => Mapped {count} attachments to {len(global_attachments_map)} rows."
+            f"Mapped {count} attachments to {len(global_attachments_map)} rows."
         )
         init_work_item_map = self.bulk_create_init_work_items(cases_to_process)
 
