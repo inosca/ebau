@@ -1,6 +1,7 @@
 # TODO: revert if xfail is removed
 # pragma: exclude file
 
+import re
 import shutil
 from pathlib import Path
 
@@ -138,15 +139,22 @@ def _get_value_or_backup(data, key):
 
 
 def _update_answers(instance, data):
-    plot_row = Document.objects.get(
+    parcel_numbers = (
+        re.findall(r"\d+", data["parzelle-nr"])
+        if isinstance(data["parzelle-nr"], str)
+        else []
+    )
+    plot_rows = Document.objects.filter(
         form_id="parcel-table", family=instance.case.document
     )
-    plot_row.answers.filter(question_id="parcel-number").update(
-        value=str(data["parzelle-nr"])
-    )
-    plot_row.answers.filter(question_id="building-law-number").update(
-        value=data["baurecht-nr"]
-    )
+    for i, row in enumerate(plot_rows):
+        row.answers.filter(question_id="parcel-number").update(
+            value=str(parcel_numbers[i])
+        )
+        if i == 0:
+            row.answers.filter(question_id="building-law-number").update(
+                value=data["baurecht-nr"]
+            )
 
     applicant_row = Document.objects.get(
         form_id="personal-data-table", family=instance.case.document
@@ -163,23 +171,30 @@ def _update_answers(instance, data):
     ).update(value=_get_value_or_backup(data, "vorhaben"))
     Answer.objects.filter(
         question__slug="parzellen-oder-baurechtsnummer", document=instance.case.document
-    ).update(value=data["parzelle-nr"])
+    ).update(value=",".join(parcel_numbers))
     print(
         f"The Instance with external ID {data['external-id']} has been updated (Instance ID: {instance.pk})"
     )
 
 
 def _write_answers(instance, data):
+    parcel_numbers = (
+        re.findall(r"\d+", data["parzelle-nr"])
+        if isinstance(data["parzelle-nr"], str)
+        else []
+    )
     # write the parcel-number and building-law-numer in the parcels table
     plot_table = instance.case.document.answers.create(question_id="parcels")
-    plot_row = Document.objects.create(
-        form_id="parcel-table", family=instance.case.document
-    )
-    plot_row.answers.create(question_id="parcel-number", value=str(data["parzelle-nr"]))
-    plot_row.answers.create(
-        question_id="building-law-number", value=data["baurecht-nr"]
-    )
-    plot_table.documents.add(plot_row)
+    for i, number in enumerate(parcel_numbers):
+        plot_row = Document.objects.create(
+            form_id="parcel-table", family=instance.case.document
+        )
+        plot_row.answers.create(question_id="parcel-number", value=str(number))
+        if i == 0:
+            plot_row.answers.create(
+                question_id="building-law-number", value=data["baurecht-nr"]
+            )
+        plot_table.documents.add(plot_row)
 
     # write the last-name in the applicant table
     applicant_table = instance.case.document.answers.create(question_id="applicant")
@@ -203,7 +218,7 @@ def _write_answers(instance, data):
         question=Question.objects.get(slug="parcel-street"),
     )
     Answer.objects.create(
-        value=data["parzelle-nr"],
+        value=",".join(parcel_numbers),
         document=instance.case.document,
         question=Question.objects.get(slug="parzellen-oder-baurechtsnummer"),
     )

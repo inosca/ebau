@@ -77,7 +77,6 @@ class ParashiftImporter:
             lambda a: int(a) + 1900 if int(a) > 70 else int(a) + 2000,
             "Must be an integer!",
         ),
-        "parzelle-nr": (lambda a: int(a), "Must be an integer!"),
         "baurecht-nr": (lambda a: int(a), "Must be an integer!"),
     }
 
