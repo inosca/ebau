@@ -3,13 +3,179 @@ import pathlib
 
 import pyexcel
 import pytest
+from caluma.caluma_form.models import Form
 from caluma.caluma_workflow.models import WorkItem
 from django.urls import reverse
+from django.utils import timezone
 from django.utils.timezone import make_aware
 from rest_framework import status
 
-from camac.instance.export.views import InstanceExportView
+from camac.instance.export.views import (
+    BabStatisticsExportView,
+    InstanceExportView,
+    generate_bab_statistics_export_file,
+)
 from camac.instance.models import Instance
+
+
+@pytest.fixture
+def data_for_bab_statistics_export(
+    ur_instance,
+    utils,
+    service,
+    ur_work_item_list_settings,
+    ur_distribution_settings,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    caluma_form_factory,
+):
+    ur_instance.case.meta["dossier-number"] = "1201-01-123"
+    ur_instance.case.save()
+
+    ur_instance.case.document.form.name = "Baugesuch"
+    ur_instance.case.document.form.save()
+
+    caluma_work_item_factory(
+        task_id="init-distribution",
+        case=ur_instance.case,
+        status=WorkItem.STATUS_COMPLETED,
+        closed_at=timezone.make_aware(datetime.datetime(2025, 6, 16, 0, 0)),
+    )
+
+    bab_work_item = caluma_work_item_factory(
+        task_id="bab",
+        case=ur_instance.case,
+        document=caluma_document_factory(form=Form.objects.get(slug="bab")),
+    )
+
+    caluma_form_factory(slug="bab-lage-flaechenbedarf-form")
+    caluma_form_factory(slug="bab-versiegelte-entsiegelte-flaechen-form")
+
+    # instance answers
+    utils.add_municipality(ur_instance.case.document, "municipality", service)
+    utils.add_table_answer(
+        ur_instance.case.document,
+        "applicant",
+        [
+            {
+                "first-name": "Max",
+                "last-name": "Mustermann",
+                "is-juristic-person": "is-juristic-person-yes",
+                "juristic-person-name": "ACME AG",
+                "street": "Teststrasse",
+                "street-number": 123,
+                "zip": 1233,
+                "city": "Musterdorf",
+                "country": "Schweiz",
+            }
+        ],
+    )
+    utils.add_answer(
+        ur_instance.case.document, "proposal-description", "Einfamilienhaus"
+    )
+
+    # bab answers
+    utils.add_answer(
+        bab_work_item.document,
+        "bab-art-der-massnahme",
+        "bab-art-der-massnahme-neubau",
+        "Neubau",
+    )
+    utils.add_answer(
+        bab_work_item.document,
+        "beschrieb-der-massnahme",
+        "Beschrieb der Massnahme",
+    )
+    utils.add_answer(
+        bab_work_item.document, "bab-objektart", "bab-objektart-wohnbaute", "Wohnbaute"
+    )
+    utils.add_answer(bab_work_item.document, "objektbeschrieb", "Objektbeschrieb")
+    utils.add_answer(
+        bab_work_item.document,
+        "bab-nutzung-nach-rpg",
+        "bab-nutzung-nach-rpg-zonenkonform",
+        "Zonenkonform",
+    )
+    utils.add_answer(
+        bab_work_item.document,
+        "bab-bewilligungsgrund",
+        "bab-bewilligungsgrund-innerhalb-bauzone",
+        "Innerhalb Bauzone",
+    )
+    utils.add_answer(
+        bab_work_item.document, "bab-entscheid", "bab-entscheid-positiv", "Positiv"
+    )
+    utils.add_answer(
+        bab_work_item.document,
+        "bab-typ-der-auftraggeber",
+        "bab-typ-der-auftraggeber-privatpersonen",
+        "Privatpersonen",
+    )
+    utils.add_table_answer(
+        bab_work_item.document,
+        "bab-lage-flaechenbedarf-tabelle",
+        [
+            {
+                "bab-grundnutzung": {
+                    "value": "bab-grundnutzung-landwirtschaftszone",
+                    "options": [
+                        ("bab-grundnutzung-landwirtschaftszone", "Landwirtschaftszone")
+                    ],
+                },
+                "bab-flaechenbedarf-grundnutzung": 1000,
+            }
+        ],
+        row_form_id="bab-lage-flaechenbedarf-form",
+    )
+    utils.add_answer(
+        bab_work_item.document, "bab-flaechenbedarf-fruchtfolgeflaechen", 10
+    )
+    utils.add_answer(bab_work_item.document, "bab-kompensation-fruchtfolgeflaechen", 20)
+    utils.add_answer(bab_work_item.document, "bab-neue-gebaeude", 3)
+    utils.add_answer(bab_work_item.document, "bab-gebaeude-abbruch", 1)
+    utils.add_answer(bab_work_item.document, "anzahl-gebaeude-unter-schutz", 2)
+    utils.add_answer(
+        bab_work_item.document,
+        "versiegelt-oder-entsiegelt",
+        "versiegelt-oder-entsiegelt-ja",
+        "Ja",
+    )
+    utils.add_table_answer(
+        bab_work_item.document,
+        "versiegelte-entsiegelte-flaechen",
+        [
+            {
+                "bab-art-versiegelung": {
+                    "value": "bab-art-versiegelung-neu-versiegelt-gebaeude",
+                    "options": [
+                        (
+                            "bab-art-versiegelung-neu-versiegelt-gebaeude",
+                            "Neu versiegelte Gebäude",
+                        )
+                    ],
+                },
+                "bab-versiegelung-flaeche": 300,
+                "bab-nutzung-versiegelte-flaeche": {
+                    "value": "bab-nutzung-versiegelte-flaeche-andere",
+                    "options": [("bab-nutzung-versiegelte-flaeche-andere", "Andere")],
+                },
+                "soemmerungsgebiet": {
+                    "value": "soemmerungsgebiet-ja",
+                    "options": [("soemmerungsgebiet-ja", "Ja")],
+                },
+                "bab-beschreibung-nutzung-flaeche-andere": {
+                    "value": "bab-beschreibung-nutzung-flaeche-andere",
+                    "options": [
+                        (
+                            "bab-beschreibung-nutzung-flaeche-andere",
+                            "Beschreibung andere",
+                        )
+                    ],
+                },
+            }
+        ],
+        row_form_id="bab-versiegelte-entsiegelte-flaechen-form",
+    )
 
 
 @pytest.mark.parametrize(
@@ -411,3 +577,124 @@ def test_caluma_export_ag(
 
     assert ag_master_data_case.meta["dossier-number"] in row
     assert row == snapshot
+
+
+@pytest.mark.parametrize("service__name", ["Altdorf"])
+def test_bab_statistics_export_file(
+    db,
+    admin_client,
+    ur_instance,
+    data_for_bab_statistics_export,
+):
+    start_date = "2025-01-01T00:00:00Z"
+    end_date = "2026-01-01T00:00:00Z"
+    _, data = generate_bab_statistics_export_file(start_date, end_date)
+    assert len(data) == 2
+    assert data[0] == [
+        "Altdorf",
+        "ACME AG, Max Mustermann, Teststrasse 123, 1233 Musterdorf",
+        "Einfamilienhaus",
+        "1201-01-123",
+        str(ur_instance.pk),
+        "Baugesuch",
+        "Neubau",
+        "Wohnbaute",
+        "Objektbeschrieb",
+        "Zonenkonform",
+        "Innerhalb Bauzone",
+        "Positiv",
+        "Privatpersonen",
+        "Landwirtschaftszone",
+        "1000",
+        "10",
+        "20",
+        "3",
+        "1",
+        "2",
+        "Ja",
+        "-",
+        "-",
+        "-",
+        "-",
+    ]
+    assert data[1] == [
+        "Altdorf",
+        "ACME AG, Max Mustermann, Teststrasse 123, 1233 Musterdorf",
+        "Einfamilienhaus",
+        "1201-01-123",
+        str(ur_instance.pk),
+        "Baugesuch",
+        "Neubau",
+        "Wohnbaute",
+        "Objektbeschrieb",
+        "Zonenkonform",
+        "Innerhalb Bauzone",
+        "Positiv",
+        "Privatpersonen",
+        "-",
+        "-",
+        "10",
+        "20",
+        "3",
+        "1",
+        "2",
+        "Ja",
+        "Neu versiegelte Gebäude",
+        "300",
+        "Andere",
+        "Ja",
+    ]
+
+
+def test_bab_statistics_request(
+    db,
+    admin_client,
+    data_for_bab_statistics_export,
+):
+    start_date = "2024-01-01T00:00:00Z"
+    end_date = "2026-01-01T00:00:00Z"
+    url = reverse("bab-statistics-export")
+    response = admin_client.post(
+        url, data={"data": "instances", "from": start_date, "to": end_date}
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+
+    book = pyexcel.get_book(file_content=response.content, file_type="xlsx")
+    sheet = book.get_dict()["pyexcel_sheet1"]
+    row = sheet[1]
+
+    assert len(sheet) == 3  # two instance because of two table rows plus header row
+    assert len(row) == 25  # number of expected columns
+
+
+@pytest.mark.parametrize(
+    "role__name,method,has_access,expected_count",
+    [
+        ("Municipality", "get_queryset_for_municipality", False, 0),
+        ("Service", "get_queryset_for_service", True, 1),
+        ("Applicant", "_get_queryset_for_applicant", False, 0),
+        ("Public", "get_queryset_for_public", False, 0),
+        ("Municipality", "get_queryset_for_municipality", False, 0),
+        ("Applicant", "_get_queryset_for_applicant", False, 0),
+        ("Public", "get_queryset_for_public", False, 0),
+    ],
+)
+def test_bab_statistics_export_visibility(
+    db, method, has_access, expected_count, mocker, role, group, instance
+):
+    is_public = role.name == "Public"
+    mocker.patch(
+        "camac.user.permissions.get_group", return_value=None if is_public else group
+    )
+    mocker.patch(
+        f"camac.instance.mixins.InstanceQuerysetMixin.{method}",
+        return_value=Instance.objects.filter(pk=instance.pk)
+        if has_access
+        else Instance.objects.none(),
+    )
+
+    view = BabStatisticsExportView()
+    assert view.get_queryset().count() == expected_count
+    if expected_count:
+        assert instance in view.get_queryset()

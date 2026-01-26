@@ -42178,6 +42178,13 @@
     }
   },
   {
+    "model": "core.rpage",
+    "pk": 12000007,
+    "fields": {
+      "pdf_class": null
+    }
+  },
+  {
     "model": "core.rroleacl",
     "pk": 2,
     "fields": {
@@ -43106,6 +43113,14 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 12000076,
+    "fields": {
+      "resource": 12000007,
+      "role": 4
+    }
+  },
+  {
     "model": "core.rsearch",
     "pk": 42,
     "fields": {
@@ -43605,7 +43620,7 @@
       "template": "/portal/notfound.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 14
+      "sort": 13
     }
   },
   {
@@ -43683,7 +43698,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 13
+      "sort": 12
     }
   },
   {
@@ -43722,7 +43737,7 @@
       "template": "/ember/form-builder.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 15
+      "sort": 14
     }
   },
   {
@@ -43761,7 +43776,7 @@
       "template": "/ember-camac-ng/dms-admin.phtml",
       "class_field": null,
       "hidden": 0,
-      "sort": 16
+      "sort": 15
     }
   },
   {
@@ -43785,6 +43800,19 @@
       "name": "News",
       "description": null,
       "template": "/ember-camac-ng/news.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 16
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 12000007,
+    "fields": {
+      "available_resource": "page",
+      "name": "BaB Datenauswertung",
+      "description": null,
+      "template": "/ember-camac-ng/bab-statistics-export.phtml",
       "class_field": null,
       "hidden": 0,
       "sort": 17

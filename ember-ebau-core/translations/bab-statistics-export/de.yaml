@@ -1,0 +1,5 @@
+bab-statistics-export:
+  title: "BaB Datenauswertung"
+  generate-success: "Die Datei wurde erfolgreich heruntergeladen"
+  generate-error: "Beim erstellen der BaB Datenauswertung ist ein Fehler aufgetreten"
+  generate: "Generieren"

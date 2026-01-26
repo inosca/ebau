@@ -31,6 +31,22 @@ class PersonConfig(EBauConfig):
         description="Question slug for the persons last name",
         default="name-gesuchstellerin",
     )
+    street: str = Field(
+        description="Question slug for the persons street",
+        default="street",
+    )
+    street_number: str = Field(
+        description="Question slug for the persons street number",
+        default="street-number",
+    )
+    zip: str = Field(
+        description="Question slug for the persons zip",
+        default="zip",
+    )
+    city: str = Field(
+        description="Question slug for the persons city",
+        default="city",
+    )
 
 
 class AnnotationsConfig(EBauConfig):
