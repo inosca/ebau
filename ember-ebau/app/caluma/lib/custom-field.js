@@ -1,7 +1,7 @@
 import { service } from "@ember/service";
 import { getOwnConfig, macroCondition } from "@embroider/macros";
 import Field from "@projectcaluma/ember-form/lib/field";
-import { dropTask, restartableTask } from "ember-concurrency";
+import { didCancel, dropTask } from "ember-concurrency";
 import { removeVersion } from "ember-ebau-core/utils/form-filters";
 import { trackedTask } from "reactiveweb/ember-concurrency";
 
@@ -157,22 +157,22 @@ export default class CustomField extends Field {
   }
 
   /**
-   * Override parent save to perform a refresh after specific questions are saved.
-   *
-   * We cannot use ember-concurrency `task()` because it needs to be the same
-   * as the parent implementation.
+   * Override parent afterSave hook to perform a refresh after specific questions are saved.
    */
-  @restartableTask
-  *save() {
-    const result = yield super.save.perform();
+  async afterSave(response) {
     if (macroCondition(getOwnConfig().application !== "gr")) {
-      return result;
+      return;
     }
 
-    const { question } = result;
+    const { question } = response;
+    try {
+      await this.eebaClient.onSaveEebaRefresh.perform(this.document, question);
+    } catch (e) {
+      if (didCancel(e)) {
+        return;
+      }
 
-    yield this.eebaClient.onSaveEebaRefresh(this.document, question);
-
-    return result;
+      throw e;
+    }
   }
 }
