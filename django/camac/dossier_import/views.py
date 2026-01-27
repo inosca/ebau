@@ -101,9 +101,14 @@ class DossierImportView(ModelViewSet):
 
         dossier_import.status = DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS
         if settings.DOSSIER_IMPORT.get("QUEUE") == "celery":  # pragma: no cover
+            queue = settings.DOSSIER_IMPORT.get("CELERY_QUEUE")
             chained_tasks = chain(
-                perform_import_celery.s(dossier_import_id=str(dossier_import.pk)),
-                set_status_callback_celery.s(dossier_import_id=str(dossier_import.pk)),
+                perform_import_celery.s(dossier_import_id=str(dossier_import.pk)).set(
+                    queue=queue
+                ),
+                set_status_callback_celery.s(
+                    dossier_import_id=str(dossier_import.pk)
+                ).set(queue=queue),
             )
             async_result = chained_tasks.apply_async()
             task_id = async_result.id
@@ -219,9 +224,14 @@ class DossierImportView(ModelViewSet):
         instance = self.get_object()
         instance.status = DossierImport.IMPORT_STATUS_UNDO_IN_PROGRESS
         if settings.DOSSIER_IMPORT.get("QUEUE") == "celery":  # pragma: no cover
+            queue = settings.DOSSIER_IMPORT.get("CELERY_QUEUE")
             chained_tasks = chain(
-                undo_import_celery.s(dossier_import_id=str(instance.pk)),
-                set_status_callback_celery.s(dossier_import_id=str(instance.pk)),
+                undo_import_celery.s(dossier_import_id=str(instance.pk)).set(
+                    queue=queue
+                ),
+                set_status_callback_celery.s(dossier_import_id=str(instance.pk)).set(
+                    queue=queue
+                ),
             )
             async_result = chained_tasks.apply_async()
             task_id = async_result.id

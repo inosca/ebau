@@ -65,7 +65,7 @@ services:
       - djangomedia:/var/lib/camac/media
       - djangotmpmedia:/tmp/camac/tmpfiles
       - /app/staticfiles # prevent staticfiles from leaking to the host system
-    environment:
+    environment: &django_env
       APPLICATION_ENV: development
       APPLICATION: ${APPLICATION}
       DATABASE_HOST: db
@@ -106,26 +106,15 @@ services:
       # Alexandria
       TIKA_CLIENT_ONLY: true
       TIKA_SERVER_ENDPOINT: "http://tika:9998"
+      ALEXANDRIA_CONTENT_SEARCH_CELERY_QUEUE: "tika"
       # celery
       CELERY_RDB_HOST: 0.0.0.0. # to be able to telnet from outside the container
-      CELERY_WORKER_CONCURRENCY: 1
       PYTHONUNBUFFERED: 1
     networks:
       - ebau.localhost
     tty: true
     stdin_open: true
     command: devserver
-
-  django-q:
-    <<: *django
-    build:
-      context: ../django
-      cache_from:
-        - acr.run/camac-ng/camac-ng/django:master
-      args:
-        REQUIREMENTS: requirements-dev.txt
-    command: qclusterdev
-    ports: []
 
   celery:
     <<: *django
@@ -135,8 +124,43 @@ services:
         - acr.run/camac-ng/camac-ng/django:master
       args:
         REQUIREMENTS: requirements-dev.txt
-    ports:
-      - "6900-7000:6900-7000"
+    environment:
+      <<: *django_env
+      CELERY_QUEUE: celery
+      CELERY_WORKER_CONCURRENCY: 2
+    ports: []
+    command: celerydev
+
+  celery-import:
+    <<: *django
+    build:
+      context: ../django
+      cache_from:
+        - acr.run/camac-ng/camac-ng/django:master
+      args:
+        REQUIREMENTS: requirements-dev.txt
+    environment:
+      <<: *django_env
+      CELERY_QUEUE: import
+      CELERY_WORKER_CONCURRENCY: 1
+      CELERY_TASK_SOFT_TIME_LIMIT: 43200 # 12hours
+    ports: []
+    command: celerydev
+
+  celery-tika:
+    <<: *django
+    build:
+      context: ../django
+      cache_from:
+        - acr.run/camac-ng/camac-ng/django:master
+      args:
+        REQUIREMENTS: requirements-dev.txt
+    environment:
+      <<: *django_env
+      CELERY_QUEUE: tika
+      CELERY_WORKER_CONCURRENCY: 1
+      CELERY_TASK_SOFT_TIME_LIMIT: 300 # 5min
+    ports: []
     command: celerydev
 
   celery-beat:

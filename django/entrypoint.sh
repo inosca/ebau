@@ -81,11 +81,11 @@ case "$1" in
     ;;
   celery )
     wait-for-it ${REDIS_HOST:-redis}:${REDIS_PORT:-6379}
-    celery -A camac worker -l INFO -E -O fair;
+    celery -A camac worker -l INFO -E -O fair -Q "${CELERY_QUEUE:-celery}";
     ;;
   celerydev )
     wait-for-it ${REDIS_HOST:-redis}:${REDIS_PORT:-6379}
-    watchmedo auto-restart -d . --recursive -p '*.py' -- celery -A camac worker -l INFO -E -O fair;
+    watchmedo auto-restart -d . --recursive -p '*.py' -- celery -A camac worker -l INFO -E -O fair -Q "${CELERY_QUEUE:-celery}";
     ;;
   celery-beat)
     exec celery -A camac beat -l INFO --scheduler django_celery_beat.schedulers:DatabaseScheduler
