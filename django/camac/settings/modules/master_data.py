@@ -2632,7 +2632,7 @@ MASTER_DATA = {
             "construction_costs": ("answer", "gesamtkosten"),
             "dwellings": (
                 "table",
-                "wohnungen",
+                ["wohnungen", "wohnungen-v2"],
                 {
                     "column_mapping": {
                         "name_of_building": (
@@ -2654,51 +2654,60 @@ MASTER_DATA = {
                                 )
                             },
                         ),
-                        "floor_number": "stockwerknummer",
-                        "location_on_floor": "lage",
-                        "number_of_rooms": "anzahl-zimmer",
-                        "kitchen_facilities": "kocheinrichtung",
+                        "floor_number": ["stockwerknummer", "stockwerknummer-v2"],
+                        "location_on_floor": ["lage", "lage-v2"],
+                        "number_of_rooms": ["anzahl-zimmer", "anzahl-zimmer-v2"],
+                        "kitchen_facilities": ["kocheinrichtung", "kocheinrichtung-v2"],
                         "has_kitchen_facilities": (
-                            "kocheinrichtung",
+                            ["kocheinrichtung", "kocheinrichtung-v2"],
                             {
                                 "value_parser": (
                                     "value_mapping",
                                     {
                                         "mapping": {
                                             "kocheinrichtung-keine-kocheinrichtung": False,
+                                            "kocheinrichtung-keine-kocheinrichtung-v2": False,
                                             "kocheinrichtung-kochnische-greater-4-m2": True,
+                                            "kocheinrichtung-kochnische-greater-4-m2-v2": True,
                                             "kocheinrichtung-kueche-less-4-m2": True,
+                                            "kocheinrichtung-kueche-less-4-m2-v2": True,
                                         }
                                     },
                                 )
                             },
                         ),
-                        "area": "flaeche",
+                        "area": ["flaeche", "flaeche-v2"],
                         "multiple_floors": (
-                            "maisonette",
+                            ["maisonette", "maisonette-v2"],
                             {
                                 "value_parser": (
                                     "value_mapping",
                                     {
                                         "mapping": {
                                             "maisonette-ja": True,
+                                            "maisonette-ja-v2": True,
                                             "maisonette-nein": False,
+                                            "maisonette-nein-v2": False,
                                         }
                                     },
                                 )
                             },
                         ),
                         "usage_limitation": (
-                            "zwg",
+                            ["zwg", "zwg-v2"],
                             {
                                 "value_parser": (
                                     "value_mapping",
                                     {
                                         "mapping": {
-                                            "zwg-keine": 3401,
                                             "zwg-erstwohnung": 3402,
+                                            "zwg-erstwohnung-v2": 3402,
+                                            "zwg-keine": 3401,
+                                            "zwg-keine-v2": 3401,
                                             "zwg-touristisch-a": 3403,
+                                            "zwg-touristisch-a-v2": 3403,
                                             "zwg-touristisch-b": 3404,
+                                            "zwg-touristisch-b-v2": 3404,
                                         }
                                     },
                                 )
