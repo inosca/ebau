@@ -1,4 +1,5 @@
 import pytest
+from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_workflow import (
     factories as caluma_workflow_factories,
 )
@@ -412,3 +413,107 @@ def test_master_data_municipality_service_content_resolver(
     master_data_value = getattr(master_data, "municipality_service_content")
 
     assert master_data_value == expected
+
+
+@pytest.mark.parametrize(
+    "versioned",
+    [False, True],
+)
+def test_master_data_table_resolver(
+    db,
+    application_settings,
+    snapshot,
+    caluma_question_factory,
+    instance,
+    master_data_is_visible_mock,
+    master_data_settings,
+    utils,
+    versioned,
+):
+    master_data_settings["CONFIG"] = {
+        "table_example": (
+            "table",
+            ["table-question", "table-question-v2"],
+            {
+                "column_mapping": {
+                    "question_value": ["question", "question-v2"],
+                    "question_mapped_value": (
+                        ["question-mapped", "question-mapped-v2"],
+                        {
+                            "value_parser": (
+                                "value_mapping",
+                                {
+                                    "mapping": {
+                                        "yes": True,
+                                        "no": False,
+                                        "yes-v2": True,
+                                        "no-v2": False,
+                                    }
+                                },
+                            )
+                        },
+                    ),
+                },
+            },
+        ),
+    }
+
+    case = caluma_workflow_factories.CaseFactory(
+        meta={"my-date": "2021-08-18", "my-datetime": "2021-08-18T06:58:08.397Z"},
+    )
+    instance.case = case
+    instance.save()
+
+    if versioned:
+        table_question_v2 = caluma_question_factory(
+            slug="table-question-v2",
+            type=caluma_form_models.Question.TYPE_TABLE,
+        )
+
+        utils.add_table_answer(
+            instance.case.document,
+            table_question_v2,
+            [
+                {
+                    "question-v2": "3",
+                    "question-mapped-v2": "no-v2",
+                },
+                {
+                    "question-v2": "4",
+                    "question-mapped-v2": "yes-v2",
+                },
+            ],
+        )
+    else:
+        table_question = caluma_question_factory(
+            slug="table-question",
+            type=caluma_form_models.Question.TYPE_TABLE,
+        )
+        utils.add_table_answer(
+            instance.case.document,
+            table_question,
+            [
+                {
+                    "question": "1",
+                    "question-mapped": "no",
+                },
+                {
+                    "question": "2",
+                    "question-mapped": "yes",
+                },
+            ],
+        )
+
+    master_data = MasterData(case)
+    data = getattr(master_data, "table_example")
+
+    if versioned:
+        assert data == [
+            {"question_mapped_value": False, "question_value": "3"},
+            {"question_mapped_value": True, "question_value": "4"},
+        ]
+    else:
+        assert data == [
+            {"question_mapped_value": False, "question_value": "1"},
+            {"question_mapped_value": True, "question_value": "2"},
+        ]
