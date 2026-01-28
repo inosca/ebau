@@ -77,6 +77,9 @@ ALEXANDRIA = {
         "PERMISSION_KEY": {
             "USE_ROLE_PERMISSIONS_MAPPING": True,
         },
+        "MARK_VISIBILITY": {
+            "GEOMETER": ["geometer"],
+        },
     },
     "test": {
         "ENABLED": True,
