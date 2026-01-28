@@ -319,6 +319,7 @@ omit = [
     "camac/user/management/commands/import_bfs_nr_from_api.py",
     # BE Claims migration
     "camac/instance/management/commands/migrate_additional_demands_be.py",
+    "camac/instance/management/commands/additional_demands_analyze_be.py",
     # AG AfB permission migration
     "camac/permissions/management/commands/grant_permission_for_afb_instances_to_all_cantonal_services_ag.py",
 ]
