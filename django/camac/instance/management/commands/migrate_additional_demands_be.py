@@ -1,3 +1,4 @@
+import math
 import textwrap
 import traceback
 from collections import defaultdict
@@ -542,8 +543,10 @@ class Command(BaseCommand):
         # in order to also call bulk_update on chunks (for more historically accurate created_at)
         # slight performance gain
         # https://docs.python.org/3.12/library/itertools.html#itertools.batched
+        batch_count = math.ceil(cases_qs.count() / batch_size)
         for chunk in tqdm(
             batched(cases_qs.iterator(chunk_size=batch_size), batch_size),
+            total=batch_count,
             desc="Bulk creating 'init-additional-demand' work items",
         ):
             batch_to_create = []
@@ -732,8 +735,6 @@ class Command(BaseCommand):
         request_datetime = self._get_datetime_from_answer(
             answers_dict=answers_dict, key="nfd-tabelle-datum-anfrage"
         )
-        if request_datetime > timezone.now():
-            request_datetime = row.created_at
 
         child_case, additional_demand_work_item = (
             self._create_child_case_and_parent_work_item(
@@ -786,7 +787,6 @@ class Command(BaseCommand):
 
     def _run_in_progress_step(self, context):
         case = context["case"]
-        row = context["row"]
         current_responsible_service_id = context["service_id"]
         answers_dict = context["answers_dict"]
         parent_init_status = context["parent_init_status"]
@@ -802,9 +802,6 @@ class Command(BaseCommand):
             answers_dict=answers_dict, key="nfd-tabelle-datum-anfrage"
         )
 
-        if request_datetime > timezone.now():
-            request_datetime = row.created_at
-
         self._complete_object(
             obj=send_work_item,
             closed_by_user=original_username,
@@ -815,12 +812,18 @@ class Command(BaseCommand):
             save=False,
         )
 
+        is_paper = getattr(case, "is_paper_annotated", False)
         fill_document, fill_work_item = self._create_document_and_work_item(
             case=child_case,
             form_id=FILL_DEMAND_FORM_ID,
             task_id=settings.ADDITIONAL_DEMAND["FILL_TASK"],
             previous_work_item=send_work_item,
-            addressed_groups=[],
+            addressed_groups=[current_responsible_service_id] if is_paper else [],
+            assigned_users=self._get_assigned_users(
+                current_responsible_service_id, case.instance
+            )
+            if is_paper
+            else [],
             controlling_groups=[current_responsible_service_id],
             created_by_group=send_work_item.closed_by_group,
             created_by_user=send_work_item.closed_by_user,
@@ -859,26 +862,64 @@ class Command(BaseCommand):
             answers_dict=answers_dict, key="nfd-tabelle-datum-antwort"
         )
         source_comment_answer = answers_dict.get("nfd-tabelle-bemerkung")
+        latest_attachment = row_attachments[0] if row_attachments else None
+        is_paper = getattr(case, "is_paper_annotated", False)
 
         closed_at = (
-            row_attachments[0].date
-            if row_attachments
-            else source_comment_answer.modified_at
+            source_comment_answer.modified_at
             if source_comment_answer
+            else latest_attachment.date
+            if latest_attachment
             else response_datetime
         )
 
-        closed_by_user = (
-            row_attachments[0].user.username
-            if row_attachments and row_attachments[0].user
-            else source_comment_answer.modified_by_user
+        source_comment_created_at = (
+            source_comment_answer.created_at.replace(microsecond=0, second=0)
             if source_comment_answer
             else None
         )
+        source_comment_modified_at = (
+            source_comment_answer.modified_at.replace(microsecond=0, second=0)
+            if source_comment_answer
+            else None
+        )
+        attachment_date = (
+            latest_attachment.date.replace(microsecond=0, second=0)
+            if latest_attachment
+            else None
+        )
+
+        # If the closed-by information cannot be determined accurately, we
+        # don't include the information.
+        closed_by_user = None
+        closed_by_group = None
+
+        # If the comment answer hasn't been updated since creation, use the
+        # modified-by-user and modified-by-group fields, since they are accurate
+        # on creation and were always written when answering a claim. The
+        # modified-by fields haven't been updated properly in caluma, so as
+        # soon as the answer was updated through a re-open, we can't use it
+        # anymore.
+        if source_comment_answer and (
+            source_comment_created_at == source_comment_modified_at
+        ):
+            closed_by_user = source_comment_answer.modified_by_user
+            if is_paper:
+                closed_by_group = source_comment_answer.modified_by_group
+
+        # If an attachment was uploaded with the latest answer of the claim,
+        # use the user and service information on the latest attachment
+        elif latest_attachment and (attachment_date == source_comment_modified_at):
+            if latest_attachment.user:
+                closed_by_user = latest_attachment.user.username
+
+            if is_paper and latest_attachment.service:
+                closed_by_group = str(latest_attachment.service.pk)
 
         self._complete_object(
             obj=fill_work_item,
             closed_by_user=closed_by_user,
+            closed_by_group=closed_by_group,
             closed_at=closed_at,
             save=False,
         )
@@ -925,7 +966,13 @@ class Command(BaseCommand):
         response_datetime = self._get_datetime_from_answer(
             answers_dict=answers_dict, key="nfd-tabelle-datum-antwort"
         )
-        final_closed_at = case.nfd_work_item.closed_at or response_datetime
+        source_status_answer = answers_dict.get("nfd-tabelle-status")
+
+        final_closed_at = (
+            source_status_answer.modified_at
+            if source_status_answer
+            else case.nfd_work_item.closed_at or response_datetime
+        )
 
         self._complete_object(
             obj=check_work_item,
