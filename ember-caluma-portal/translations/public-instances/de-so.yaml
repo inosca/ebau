@@ -1,4 +1,5 @@
 publicInstances:
+  applicant: "Gesuchsteller/in (Bauherrschaft)"
   info: |-
       <strong>
         Bitte beachten Sie, dass die digitale öffentliche Planauflage zunächst nur für die folgenden Gemeinden möglich ist:
@@ -54,5 +55,6 @@ publicInstancesDetail:
   zuständige Gemeinde gestattet."
   privacyText: "Es werden hier nur die für das Baubewilligungsverfahren
   relevanten Dokumente publiziert, die von der Gesuchstellerin bzw. dem
-  Gesuchsteller nicht explizit als vertraulich und nicht öffentlich zugänglich
+  Gesuchsteller (Bauherrschaft) nicht explizit als vertraulich und nicht öffentlich zugänglich
   eingestuft wurden."
+
