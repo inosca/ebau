@@ -3246,6 +3246,9 @@ CACHES = {
             "DJANGO_CACHE_BACKEND",
             default="django.core.cache.backends.memcached.PyMemcacheCache",
         ),
+        # Note: If we change the cache to something non-tcp, we'll need to
+        # update the entrpyoint script to reflect that! As long as it's
+        # of the format host:port, it should work though
         "LOCATION": env.str("DJANGO_CACHE_LOCATION", default="127.0.0.1:11211"),
         "OPTIONS": env.dict(
             "DJANGO_CACHE_OPTIONS",
