@@ -122,7 +122,6 @@ services:
       - ebau.localhost
 
   keycloak:
-    image: acr.run/camac-ng/camac-ng/keycloak-${APPLICATION}:master
     depends_on:
       - db
     volumes:

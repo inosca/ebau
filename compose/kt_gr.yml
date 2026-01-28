@@ -76,13 +76,14 @@ services:
       - MP_WEBROOT=mailpit
 
   keycloak:
+    image: acr.run/camac-ng/camac-ng/keycloak:${CI_COMMIT_TAG:-master}
     build:
       context: ../keycloak
       args:
         VERSION: 26.2
       target: keycloak-v26
       cache_from:
-        - acr.run/camac-ng/camac-ng/keycloak:master
+        - acr.run/camac-ng/camac-ng/keycloak:${CI_COMMIT_TAG:-master}
 
   document-merge-service:
     build:

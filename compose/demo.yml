@@ -85,12 +85,13 @@ services:
     image: axllent/mailpit
 
   keycloak:
+    image: acr.run/camac-ng/camac-ng/keycloak:${CI_COMMIT_TAG:-master}
     depends_on:
       - db
     build:
       context: ../keycloak
       cache_from:
-        - acr.run/camac-ng/camac-ng/keycloak-${APPLICATION}:master
+        - acr.run/camac-ng/camac-ng/keycloak:${CI_COMMIT_TAG:-master}
 
   document-merge-service:
     image: ghcr.io/adfinis/document-merge-service:5.0.5

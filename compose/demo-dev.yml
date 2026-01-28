@@ -75,7 +75,6 @@ services:
       - ebau.localhost
 
   keycloak:
-    image: acr.run/camac-ng/camac-ng/keycloak-${APPLICATION}:master
     volumes:
       - ../keycloak/config/${APPLICATION}-test-config.json:/opt/keycloak/data/import/test-config.json
     environment:
