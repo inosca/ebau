@@ -40,6 +40,7 @@ defmodule Ebau.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:picosat_elixir, "~> 0.2"},
       {:live_debugger, "~> 0.5", only: [:dev]},
       {:oban_web, "~> 2.0"},
       {:ash_oban, "~> 0.7"},

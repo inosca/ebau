@@ -53,7 +53,7 @@ config :ebau, EbauWeb.Endpoint,
 #
 # The `http:` config above can be replaced with:
 #
-config :ebau, dev_routes: true
+config :ebau, dev_routes: true, token_signing_secret: "YoorlwyimV6kp8MGl5f74PhXVqJGvD4P"
 
 # Do not include metadata nor timestamps in development logs
 #     https: [

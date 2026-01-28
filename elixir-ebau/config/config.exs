@@ -29,7 +29,8 @@ config :ebau, EbauWeb.Endpoint,
 
 config :ebau,
   ecto_repos: [Ebau.Repo],
-  generators: [timestamp_type: :utc_datetime]
+  generators: [timestamp_type: :utc_datetime],
+  ash_domains: [Ebau.User]
 
 # Configure esbuild (the version is required)
 config :esbuild,

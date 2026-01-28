@@ -12,20 +12,20 @@
     <link integrity="" rel="stylesheet" href="{{rootURL}}assets/ebau.css">
 
     <link rel="icon" type="image/x-icon" href="{{rootURL}}favicon.ico" />
-
+    <style>
+      /* Hide the skeleton loader only once the REAL navbar component has signaled it is ready */
+      .nav-ready #initial-loader {
+        display: none !important;
+      }
+    </style>
     {{content-for "head-footer"}}
   </head>
   <body>
-    <nav class="main-navigation uk-navbar-container">
-      <!-- <header class="watermark watermark--internal"> -->
-        <!-- test -->
-      <!-- </header> -->
-
+    <nav id="initial-loader" class="main-navigation uk-navbar-container">
       <div class="uk-padding-small uk-padding-remove-vertical">
         <div class="uk-navbar">
           <div class="uk-navbar-left uk-flex-nowrap">
             <a id="ember4" class="ember-view uk-navbar-item uk-logo" href="/">
-              <!-- <img alt="eBau by inosca Logo" src="/assets/images/ebau-gr-logo.svg"> -->
             </a>
             <ul class="uk-navbar-nav uk-margin-right">
             </ul>
@@ -38,10 +38,34 @@
         </div>
       </div>
     </nav>
+
+    <script>
+      /**
+       * Instant Navigation Restoration
+       * Prevents "white screen flash" by restoring the navbar from localStorage
+       * before the heavy Ember JS is parsed and executed.
+       */
+      (function() {
+        try {
+          var cache = localStorage.getItem('ebau-nav-cache');
+          if (cache) {
+            var nav = document.getElementById('initial-loader');
+            if (nav) {
+              nav.innerHTML = cache;
+            }
+          }
+        } catch (e) {
+          console.warn('Failed to restore navbar cache', e);
+        }
+      })();
+    </script>
+
     {{content-for "body"}}
 
     <script src="{{rootURL}}assets/vendor.js"></script>
     <script src="{{rootURL}}assets/ebau.js"></script>
+
+    <script src="{{rootURL}}assets/persist-nav.js"></script>
 
     {{content-for "body-footer"}}
   </body>

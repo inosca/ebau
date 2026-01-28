@@ -24,6 +24,8 @@ config :ebau, EbauWeb.Endpoint,
   secret_key_base: "T0W1/wc0qchpSGAM3hjpqGkwOPXaKmA4ZWhs6l0/9LRkZ3Bgy6Hc9AnvViaUeHrw",
   server: false
 
+config :ebau, token_signing_secret: "9sflOmq636a7ftJq2gp72FlyeWS4/yIl"
+
 # Print only warnings and errors during test
 config :logger, level: :warning
 
