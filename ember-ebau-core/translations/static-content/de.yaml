@@ -34,10 +34,11 @@ static-content:
           Service-Katalog - Self-Service-Portal (service-now.com)
         </a>
       </p>
-      <p class="uk-text-bold">Support Meldung Wärmeerzeugerersatz</p>
+      <p class="uk-text-bold">Support Meldung Wärmeerzeugerersatz / Meldung Solareignung</p>
       <p class="uk-margin-remove-bottom">
-        Für die Beantwortung von Fragen zur Meldung Wärmeerzeugerersatz, ist das
-        Amt für Umwelt und Energie zuständig. Melden Sie sich direkt bei:
+        Für die Beantwortung von Fragen zur <b style="color:red">Meldung Wärmeerzeugerersatz</b> sowie
+        <b style="color:red">Meldung Solareignung</b>, ist das Amt für Umwelt und Energie zuständig.
+        Melden Sie sich direkt bei:
         <br>
         <a href="mailto:meldeverfahren.heizungsersatz.aue@be.ch">
           meldeverfahren.heizungsersatz.aue@be.ch
