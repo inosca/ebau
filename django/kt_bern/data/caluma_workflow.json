@@ -467,38 +467,6 @@
   },
   {
     "model": "caluma_workflow.workitem",
-    "pk": "35287a1f-5c9a-41d4-9b93-769ba50822b9",
-    "fields": {
-      "created_at": "2021-03-31T13:17:09.801Z",
-      "modified_at": "2021-04-06T12:19:37.751Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "name": "{\"de\": \"Nachforderungen\", \"fr\": \"Demandes de complément d'information\", \"it\": null}",
-      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "closed_at": "2021-04-06T12:19:37.751Z",
-      "closed_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "closed_by_group": "2",
-      "deadline": null,
-      "task": "nfd",
-      "status": "completed",
-      "meta": {
-        "not-viewed": false,
-        "notify-deadline": true,
-        "notify-completed": false
-      },
-      "addressed_groups": "[\"2\"]",
-      "controlling_groups": "[]",
-      "assigned_users": "[]",
-      "case": "e9197275-36df-460c-b261-ff27f781c5d9",
-      "child_case": null,
-      "document": "4b765394-28a6-4955-b36b-8a0f6a3a4c07",
-      "previous_work_item": "20acda8a-2a9f-4d9d-a422-fb9aaf9b4e0e"
-    }
-  },
-  {
-    "model": "caluma_workflow.workitem",
     "pk": "39f52c7a-19d9-4fb5-b809-559f920e5e8e",
     "fields": {
       "created_at": "2021-03-31T13:17:09.801Z",
@@ -559,37 +527,6 @@
       "child_case": null,
       "document": null,
       "previous_work_item": "8b0c2176-02df-4a83-b621-0f4b03dd4995"
-    }
-  },
-  {
-    "model": "caluma_workflow.workitem",
-    "pk": "4bb0968b-86ee-444c-a71c-4586eaaf7ad0",
-    "fields": {
-      "created_at": "2020-06-30T15:02:51.934Z",
-      "modified_at": "2020-09-15T09:42:07.436Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "name": "{\"de\": \"Nachforderungen\", \"fr\": \"Demandes de complément d'information\", \"it\": null}",
-      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "closed_at": null,
-      "closed_by_user": null,
-      "closed_by_group": null,
-      "deadline": null,
-      "task": "nfd",
-      "status": "ready",
-      "meta": {
-        "migrated": true,
-        "not-viewed": true
-      },
-      "addressed_groups": "[\"2\"]",
-      "controlling_groups": "[]",
-      "assigned_users": "[]",
-      "case": "7d2bb3fe-83a1-4abc-a6c8-732c366678b1",
-      "child_case": null,
-      "document": "cb3d4d28-86a9-42f9-ba0b-f90876b61976",
-      "previous_work_item": "147e4eab-8666-43ac-9e17-fcd0e8f78de5"
     }
   },
   {
