@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import copy
 import inspect
 import logging
@@ -8,6 +10,7 @@ from dataclasses import dataclass, field
 from datetime import date, timedelta
 from importlib import import_module, reload
 from pathlib import Path
+from typing import TypedDict
 
 import faker
 import pytest
@@ -19,6 +22,7 @@ from caluma.caluma_form import (
     factories as caluma_form_factories,
     models as caluma_form_models,
 )
+from caluma.caluma_form.models import Answer, Document
 from caluma.caluma_user.models import OIDCUser
 from caluma.caluma_workflow import (
     api as workflow_api,
@@ -76,7 +80,7 @@ from camac.tests.data import (
     so_personal_row_factory,
 )
 from camac.user import factories as user_factories
-from camac.user.models import Group, User
+from camac.user.models import Group, Service, User
 from camac.utils import build_url
 from camac.work_items import factories as work_items_factories
 
@@ -3025,6 +3029,13 @@ def configure_custom_notification_types(
 
 
 class Utils:
+    AnswerValue = str | date | float | int | list[str]
+    Options = list[str | tuple[str, str]]
+
+    class TableCell(TypedDict):
+        value: Utils.AnswerValue
+        options: Utils.Options
+
     def __init__(self):
         self._sort = 99999999
 
@@ -3083,14 +3094,72 @@ class Utils:
 
     def add_answer(
         self,
-        document,
-        question,
-        value,
-        label=None,
-        question_label=None,
-        options=None,
-        question_type=None,
-    ):
+        document: Document,
+        question: str,
+        value: AnswerValue,
+        label: str | list[str] | None = None,
+        question_label: str | None = None,
+        options: Options | None = None,
+        question_type: str | None = None,
+    ) -> Answer:
+        """Add answer to a caluma document for test cases.
+
+        This will automatically create questions and options if necessary.
+
+        Args:
+            document: The document to add the answer to.
+            question: The question slug.
+            value:
+                The value of the answer.
+
+                The datatype of this argument determines the question type
+                automatically.
+            label:
+                Label(s) for the option(s).
+
+                If provided, one option (or multiple if a list is passed) will be
+                created automatically and the question type will be set to
+                choice or multiple choice.
+            question_label: Label for the question.
+            options:
+                Options for the question.
+
+                - If a list of tuples is passed, the first item is used as the
+                slug and the second as the label.
+                - If a list of strings is passed, slug and label are the same.
+            question_type:
+                Fixed type for the question.
+
+                Overrides all automatic question type detection logic.
+
+        Returns:
+            The newly created answer.
+
+        Examples:
+            Add an answer to a text question:
+                >>> utils.add_answer(document, "text-question", "Test value")
+
+            Add an answer to a date question with a custom question label:
+                >>> utils.add_answer(
+                ...     document,
+                ...     "birthday",
+                ...     date(1999, 9, 9),
+                ...     question_label="When were you born?",
+                ... )
+
+            Add an answer to a choice question with predefined options:
+                >>> utils.add_answer(
+                ...     document,
+                ...     "sure",
+                ...     "sure-yes",
+                ...     options=[
+                ...         ("sure-yes", "Yes"),
+                ...         ("sure-no", "No"),
+                ...         ("sure-maybe", "Maybe"),
+                ...     ],
+                ... )
+        """
+
         question_type = question_type or Utils._get_question_type(value, options, label)
         value_key = (
             "date"
@@ -3127,8 +3196,72 @@ class Utils:
         return answer
 
     def add_table_answer(
-        self, document, question, rows, table_answer=None, row_form_id=None
-    ):
+        self,
+        document: Document,
+        question: str,
+        rows: list[dict[str, TableCell]],
+        table_answer: Answer | None = None,
+        row_form_id: str | None = None,
+    ) -> Answer:
+        """Add a table answer (including row documents) to a document.
+
+        Create the table question if necessary and populate it with a row form
+        and it's (column) questions based on the provided data, then fill in the
+        rows.
+
+        Args:
+            document: The document to add the table answer to.
+            question: The table question slug.
+            rows:
+                Row data for the table.
+
+                Each item represents a table row and must be a mapping of
+                column slugs to values. If a value is a dictionary, it may
+                contain `value` and `options` keys to define choice
+                options for the cell.
+            table_answer:
+                Existing table answer to append rows to.
+
+                If not provided, a new table answer will be created.
+            row_form_id:
+                Form slug to use for table rows.
+
+                If not provided, the row form slug will be taken from the table
+                question.
+
+        Returns:
+            The newly created answer.
+
+        Examples:
+            Add a table answer with two rows:
+                >>> utils.add_table_answer(
+                ...     document,
+                ...     "applicants",
+                ...     [
+                ...         {"first-name": "Hans", "last-name": "Muster"},
+                ...         {"first-name": "Sandra", "last-name": "Testerin"},
+                ...     ],
+                ... )
+
+            Add a table answer with choice options in a cell:
+                >>> utils.add_table_answer(
+                ...     document,
+                ...     "representative",
+                ...     [
+                ...         {
+                ...             "first-name": "Hans",
+                ...             "last-name": "Muster",
+                ...             "is-juristic": {
+                ...                 "value": "is-juristic-yes",
+                ...                 "options": [
+                ...                     ("is-juristic-yes", "Yes"),
+                ...                     ("is-juristic-no", "No"),
+                ...                 ]
+                ...             }
+                ...         },
+                ...     ],
+                ... )
+        """
         answer = (
             self.add_answer(document, question, value=None, question_type="table")
             if not table_answer
@@ -3158,18 +3291,45 @@ class Utils:
 
         return answer
 
-    def add_municipality(self, document, question, service):
+    def add_municipality(
+        self,
+        document: Document,
+        question: str,
+        service: Service,
+    ) -> Answer:
+        """Add a municipality answer (including a dynamic option) to a document.
+
+        Args:
+            document: The document to add the answer to.
+            question: The municipality question slug (usually `"gemeinde"`).
+            service:
+                The service to set as the municipality.
+
+                The service name is used as the label for the dynamically created
+                option.
+
+        Returns:
+            The newly created answer.
+
+        Examples:
+            >>> utils.add_municipality(
+            ...     instance.case.document,
+            ...     "gemeinde",
+            ...     my_service
+            ... )
+        """
+
         caluma_form_factories.DynamicOptionFactory(
             question_id=question,
             document=document,
             slug=str(service.pk),
             label={"de": service.get_name()},
         )
-        self.add_answer(document, question, str(service.pk))
+        return self.add_answer(document, question, str(service.pk))
 
 
 @pytest.fixture
-def utils():
+def utils() -> Utils:
     return Utils()
 
 
