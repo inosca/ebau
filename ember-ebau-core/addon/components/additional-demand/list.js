@@ -8,19 +8,14 @@ export default class AdditionalDemandListComponent extends Component {
   @service additionalDemand;
   @service ebauModules;
 
-  get validAdditionalDemands() {
-    return this.additionalDemand.demands.filter((demand) => {
-      return (
-        demand.raw.childCase.workItems.edges[0].node.task.slug ===
-          "send-additional-demand" &&
-        demand.raw.childCase.workItems.edges[0].node.status !== "CANCELED"
-      );
-    });
-  }
-
   @action
   async newAdditionalDemand() {
     await this.additionalDemand.refetch();
+
+    const demand = this.additionalDemand.latestDemand;
+    if (!demand) {
+      return;
+    }
 
     const route = this.ebauModules.resolveModuleRoute(
       "additional-demand",
@@ -28,15 +23,12 @@ export default class AdditionalDemandListComponent extends Component {
     );
 
     if (this.ebauModules.isLegacyApp) {
-      this.router.transitionTo(
-        route,
-        decodeId(this.additionalDemand.demands.at(-1).raw.childCase.id),
-      );
+      this.router.transitionTo(route, decodeId(demand.raw.childCase.id));
     } else {
       this.router.transitionTo(
         route,
         this.ebauModules.instanceId,
-        decodeId(this.additionalDemand.demands.at(-1).raw.childCase.id),
+        decodeId(demand.raw.childCase.id),
       );
     }
   }
