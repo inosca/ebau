@@ -5912,6 +5912,22 @@
     }
   },
   {
+    "model": "user.group",
+    "pk": 608,
+    "fields": {
+      "role": 13,
+      "service": 134,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "test@test.ch",
+      "website": null
+    }
+  },
+  {
     "model": "user.groupt",
     "pk": 4,
     "fields": {
@@ -9552,6 +9568,16 @@
     }
   },
   {
+    "model": "user.groupt",
+    "pk": 608,
+    "fields": {
+      "group": 608,
+      "language": "de",
+      "name": "Geometer Test",
+      "city": null
+    }
+  },
+  {
     "model": "user.usergroup",
     "pk": 1,
     "fields": {
@@ -9700,7 +9726,7 @@
     "fields": {
       "user": 1,
       "group": 572,
-      "default_group": 1,
+      "default_group": 0,
       "created_at": "2024-09-13T06:53:14.711Z",
       "created_by": 1
     }
@@ -9714,6 +9740,26 @@
       "default_group": 0,
       "created_at": "2024-09-13T06:53:14.712Z",
       "created_by": 1
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 17,
+    "fields": {
+      "user": 1,
+      "group": 608,
+      "default_group": 0,
+      "created_at": "2026-01-13T12:38:27.566Z",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "user.servicerelation",
+    "pk": 2,
+    "fields": {
+      "receiver": 1,
+      "provider": 134,
+      "function": "geometer"
     }
   },
   {
@@ -12992,6 +13038,31 @@
     }
   },
   {
+    "model": "user.service",
+    "pk": 134,
+    "fields": {
+      "slug": null,
+      "service_group": 6,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 19,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "geometer@test.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {}
+    }
+  },
+  {
     "model": "user.servicet",
     "pk": 1,
     "fields": {
@@ -14560,6 +14631,18 @@
       "name": "Amt für Wirtschaft und Arbeit (Energiefachstelle)",
       "description": "Amt für Wirtschaft und Arbeit (Energiefachstelle)",
       "city": "Solothurn",
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 134,
+    "fields": {
+      "service": 134,
+      "language": "de",
+      "name": "Geometer Test",
+      "description": null,
+      "city": null,
       "department": null
     }
   }

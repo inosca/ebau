@@ -6261,6 +6261,38 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 46,
+    "fields": {
+      "resource": 1,
+      "role": 13
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 47,
+    "fields": {
+      "resource": 3,
+      "role": 13
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 49,
+    "fields": {
+      "resource": 6,
+      "role": 13
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 50,
+    "fields": {
+      "resource": 10,
+      "role": 13
+    }
+  },
+  {
     "model": "core.resource",
     "pk": 1,
     "fields": {

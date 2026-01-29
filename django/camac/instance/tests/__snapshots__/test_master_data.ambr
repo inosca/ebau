@@ -771,6 +771,7 @@
       }),
     ]),
     'final_approval_date': None,
+    'geometer_required': None,
     'invoice_recipients': list([
       dict({
         'country': 'Schweiz',

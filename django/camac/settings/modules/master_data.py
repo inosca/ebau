@@ -3221,6 +3221,22 @@ MASTER_DATA = {
             ),
             "usage_zone": ("answer", "nutzungsplanung-grundnutzung"),
             "zip": ("answer", "plz"),
+            "geometer_required": (
+                "answer",
+                "formelle-pruefung-geometer",
+                {
+                    "document_from_work_item": "formal-exam",
+                    "value_parser": (
+                        "value_mapping",
+                        {
+                            "mapping": {
+                                "formelle-pruefung-geometer-ja": True,
+                                "formelle-pruefung-geometer-nein": False,
+                            }
+                        },
+                    ),
+                },
+            ),
         },
     },
     "kt_ag": {

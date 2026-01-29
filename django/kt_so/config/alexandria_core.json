@@ -519,6 +519,32 @@
               }
             ]
           },
+          "geometer": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date", "files"],
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
           "subservice": {
             "visibility": "all",
             "permissions": [

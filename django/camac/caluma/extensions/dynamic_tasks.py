@@ -513,6 +513,10 @@ class CustomDynamicTasks(BaseDynamicTasks):
             return [settings.REJECTION["WORK_ITEM"]["TASK"]]
 
         if prev_work_item.task_id == "formal-exam":
+            master_data = MasterData.from_case_id(case.pk)
+            if master_data.geometer_required:
+                return ["material-exam", "geometer"]
+
             return ["material-exam"]
         elif prev_work_item.task_id == "material-exam":
             if (

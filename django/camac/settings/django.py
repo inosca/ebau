@@ -2539,6 +2539,15 @@ APPLICATIONS = {
                         ],
                     },
                 ],
+                "geometer": [
+                    {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "geometer-invited",
+                            "recipient_types": ["work_item_addressed"],
+                        },
+                    }
+                ],
             },
         },
         "INSTANCE_PERMISSIONS": {"MUNICIPALITY_WRITE": ["correction"]},

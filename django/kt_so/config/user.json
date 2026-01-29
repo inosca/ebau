@@ -90,6 +90,16 @@
     }
   },
   {
+    "model": "user.role",
+    "pk": 13,
+    "fields": {
+      "role_parent": null,
+      "name": "geometer",
+      "group_prefix": null,
+      "slug": "geometer"
+    }
+  },
+  {
     "model": "user.rolet",
     "pk": 1,
     "fields": {
@@ -180,6 +190,16 @@
     }
   },
   {
+    "model": "user.rolet",
+    "pk": 13,
+    "fields": {
+      "role": 13,
+      "language": "de",
+      "name": "Geometer",
+      "group_prefix": null
+    }
+  },
+  {
     "model": "user.servicegroup",
     "pk": 1,
     "fields": {
@@ -221,6 +241,15 @@
     "fields": {
       "slug": null,
       "name": "canton",
+      "sort": null
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 6,
+    "fields": {
+      "slug": "geometer",
+      "name": "geometer",
       "sort": null
     }
   },
@@ -267,6 +296,15 @@
       "service_group": 5,
       "language": "de",
       "name": "Kanton"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 6,
+    "fields": {
+      "service_group": 6,
+      "language": "de",
+      "name": "Geometer"
     }
   }
 ]

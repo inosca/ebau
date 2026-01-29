@@ -153,6 +153,10 @@ def instance_for_appeal_so(
 
             if task_id == "formal-exam":
                 work_item.document.answers.create(
+                    question_id="formelle-pruefung-geometer",
+                    value="formelle-pruefung-geometer-nein",
+                )
+                work_item.document.answers.create(
                     question_id="formelle-pruefung-resultat",
                     value="formelle-pruefung-resultat-positiv",
                 )

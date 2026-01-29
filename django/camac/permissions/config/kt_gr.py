@@ -11,11 +11,12 @@ from camac.instance.models import Instance
 from camac.permissions import api as permissions_api, models as permissions_models
 from camac.permissions.events import EmptyEventHandler
 from camac.permissions.models import InstanceACL
-from camac.user.models import Group, Service, ServiceRelation
+from camac.user.models import Group, Service
 
 from .common import (
     ApplicantsEventHandlerMixin,
     ConstructionMonitoringHandlerMixin,
+    GeometerHandlerMixin,
     InstanceCreationHandlerMixin,
     InstanceSubmissionHandlerMixin,
 )
@@ -71,6 +72,7 @@ def gr_include_gvg(instance):
 
 
 class PermissionEventHandlerGR(
+    GeometerHandlerMixin,
     ApplicantsEventHandlerMixin,
     InstanceCreationHandlerMixin,
     InstanceSubmissionHandlerMixin,
@@ -152,24 +154,11 @@ class PermissionEventHandlerGR(
         if domain_logic.AddressAssignmentLogic.requires_address_assignment(
             work_item.case
         ):
-            geometer_service = Service.objects.filter(
-                pk__in=ServiceRelation.objects.filter(
-                    receiver=work_item.case.instance.responsible_service(),
-                    function=ServiceRelation.FUNCTION_GEOMETER,
-                ).values_list("provider", flat=True)
-            ).first()
-            gvg_service = Service.objects.get(slug="gvg")
-
-            self.manager.grant(
-                instance,
-                grant_type="SERVICE",
-                access_level="geometer",
-                service=geometer_service,
-                event_name="formal-exam-completed",
-            )
+            self.grant_geometer_permission(work_item)
 
             # The GVG also gets access to the dossier as they will
             # have to get involved in the address assignment process.
+            gvg_service = Service.objects.get(slug="gvg")
             self.manager.grant(
                 instance,
                 grant_type="SERVICE",

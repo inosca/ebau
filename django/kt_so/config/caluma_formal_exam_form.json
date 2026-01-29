@@ -470,7 +470,7 @@
       "modified_by_group": null,
       "form": "formelle-pruefung-ergebnis",
       "question": "ergebnis-der-formellen-pruefung",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -486,6 +486,21 @@
       "form": "formelle-pruefung-ergebnis",
       "question": "formelle-pruefung-abschliessen",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "formelle-pruefung-ergebnis.formelle-pruefung-geometer",
+    "fields": {
+      "created_at": "2026-01-29T14:21:55.083Z",
+      "modified_at": "2026-01-29T14:21:55.083Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "formelle-pruefung-ergebnis",
+      "question": "formelle-pruefung-geometer",
+      "sort": 4
     }
   },
   {
@@ -1729,6 +1744,40 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Vorhanden\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "formelle-pruefung-geometer-ja",
+    "fields": {
+      "created_at": "2026-01-29T14:21:54.987Z",
+      "modified_at": "2026-01-29T14:21:54.987Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "formelle-pruefung-geometer-nein",
+    "fields": {
+      "created_at": "2026-01-29T14:21:54.989Z",
+      "modified_at": "2026-01-29T14:21:54.989Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -3370,6 +3419,37 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "formelle-pruefung-formalitaeten",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "formelle-pruefung-geometer",
+    "fields": {
+      "created_at": "2026-01-29T14:21:55.033Z",
+      "modified_at": "2026-01-29T14:22:15.354Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist die Einbindung eines Geometers erforderlich?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -5533,6 +5613,36 @@
       "question": "fassadenplaene-plaene",
       "option": "fassadenplaene-plaene-vorhanden",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "formelle-pruefung-geometer.formelle-pruefung-geometer-ja",
+    "fields": {
+      "created_at": "2026-01-29T14:22:15.254Z",
+      "modified_at": "2026-01-29T14:22:15.254Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "formelle-pruefung-geometer",
+      "option": "formelle-pruefung-geometer-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "formelle-pruefung-geometer.formelle-pruefung-geometer-nein",
+    "fields": {
+      "created_at": "2026-01-29T14:22:15.252Z",
+      "modified_at": "2026-01-29T14:22:15.252Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "formelle-pruefung-geometer",
+      "option": "formelle-pruefung-geometer-nein",
+      "sort": 1
     }
   },
   {

@@ -155,3 +155,16 @@ mutation CreateMaterialExamBaBTask {
     clientMutationId
   }
 }
+
+mutation CreateGeometerTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "geometer"
+      name: "Zur Kentniss"
+      addressGroups: "[\"geometer\"]|groups"
+      meta: "{\"is-manually-completable\":true}"
+    }
+  ) {
+    clientMutationId
+  }
+}
