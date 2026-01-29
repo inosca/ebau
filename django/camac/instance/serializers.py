@@ -903,34 +903,6 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         return ["read", "write"]
 
     @permission_aware
-    def _get_nfd_form_permissions(self, instance):
-        return CalumaApi().get_nfd_form_permissions(instance)
-
-    def _get_nfd_form_permissions_for_service(self, instance):
-        return set()
-
-    def _get_nfd_form_permissions_for_municipality(self, instance):
-        permissions = set(["read"])
-
-        if (
-            instance.instance_state.name
-            in [
-                "subm",
-                "circulation_init",
-                "circulation",
-                "coordination",
-                "in_progress_internal",
-            ]
-            and not self._is_read_only()
-        ):
-            permissions.add("write")
-
-        return permissions
-
-    def _get_nfd_form_permissions_for_support(self, instance):
-        return set(["read", "write"])
-
-    @permission_aware
     def _get_dossierpruefung_form_permissions(self, instance):
         return set()
 
