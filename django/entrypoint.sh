@@ -5,6 +5,11 @@ loadconfig() {
   wait-for-it "$DATABASE_HOST:$DATABASE_PORT" -- ./manage.py camac_load
 }
 
+clear_cache() {
+  # to be run *after* loadconfig
+  wait-for-it "$DJANGO_CACHE_LOCATION" -- ./manage.py clear_cache
+}
+
 migrate() {
   wait-for-it "$DATABASE_HOST:$DATABASE_PORT" -- ./manage.py migrate
 }
@@ -94,6 +99,7 @@ case "$1" in
   migrate_and_loadconfig )
     migrate
     loadconfig
+    clear_cache
     ;;
   * )
     exec "$@"
