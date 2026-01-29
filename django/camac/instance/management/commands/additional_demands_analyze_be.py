@@ -199,8 +199,10 @@ class Command(BaseCommand):
             errors_found.append(error_msg)
 
             if missing_migration_document_ids:
-                self.style.WARNING(
-                    "    Claim Document IDs (Eligible but not migrated):"
+                self.stdout.write(
+                    self.style.WARNING(
+                        "    Claim Document IDs (Eligible but not migrated):"
+                    )
                 )
                 for document_id in sorted(list(missing_migration_document_ids)):
                     instance_id = eligible_source_map.get(document_id)
@@ -209,7 +211,11 @@ class Command(BaseCommand):
                     )
 
             if unexpected_migration_document_ids:
-                self.style.WARNING("    Claim Document IDs (Migrated but unexpected):")
+                self.stdout.write(
+                    self.style.WARNING(
+                        "    Claim Document IDs (Migrated but unexpected):"
+                    )
+                )
                 for document_id in sorted(list(unexpected_migration_document_ids)):
                     instance_id = migrated_child_map.get(document_id)
                     self.stdout.write(
