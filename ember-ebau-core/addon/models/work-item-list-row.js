@@ -53,9 +53,11 @@ export default class WorkItemListRowModel extends Model {
       ? `${this.instanceId} - `
       : "";
 
-    return htmlSafe(
-      `${prefix}${this.instanceName} <span class="uk-text-nowrap">(${this.specialId})</span>`,
-    );
+    const suffix = this.specialId
+      ? ` <span class="uk-text-nowrap">(${this.specialId})</span>`
+      : "";
+
+    return htmlSafe(`${prefix}${this.instanceName}${suffix}`);
   }
 
   get closedBy() {
