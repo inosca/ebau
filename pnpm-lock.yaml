@@ -211,8 +211,8 @@ importers:
         specifier: 8.0.1
         version: 8.0.1(@ember/test-helpers@4.0.5(@babel/core@7.26.10)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))
       ember-simple-auth-oidc:
-        specifier: 7.3.2
-        version: 7.3.2(fai74kqnb7hwv35ojxm53yiwhu)
+        specifier: 7.4.1
+        version: 7.4.1(fai74kqnb7hwv35ojxm53yiwhu)
       ember-source:
         specifier: 5.12.0
         version: 5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)
@@ -562,8 +562,8 @@ importers:
         specifier: 8.0.1
         version: 8.0.1(@ember/test-helpers@4.0.5(@babel/core@7.26.10)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))
       ember-simple-auth-oidc:
-        specifier: 7.3.2
-        version: 7.3.2(fai74kqnb7hwv35ojxm53yiwhu)
+        specifier: 7.4.1
+        version: 7.4.1(fai74kqnb7hwv35ojxm53yiwhu)
       ember-source:
         specifier: 5.12.0
         version: 5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)
@@ -1195,8 +1195,8 @@ importers:
         specifier: 8.0.1
         version: 8.0.1(@ember/test-helpers@4.0.5(@babel/core@7.26.10)(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))(@glint/template@1.5.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1))
       ember-simple-auth-oidc:
-        specifier: 7.3.2
-        version: 7.3.2(fai74kqnb7hwv35ojxm53yiwhu)
+        specifier: 7.4.1
+        version: 7.4.1(fai74kqnb7hwv35ojxm53yiwhu)
       ember-source:
         specifier: 5.12.0
         version: 5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)
@@ -5279,9 +5279,9 @@ packages:
   ember-set-helper@3.0.1:
     resolution: {integrity: sha512-Ord3CuttDiF88wiNpHNDjf4aFKPnHSkpeK7zFfH9nV7YdDFSJissDCZEg42A0ReWY1WuqWbc2hMl5XkgupdyZQ==}
 
-  ember-simple-auth-oidc@7.3.2:
-    resolution: {integrity: sha512-XvQPjh9ZvTwdAv5q1iZU3AVLC8F7OIjiTaKiO9Zhic6XQ7roYtsqc+UGhPyy5kUvSMXnztMma6q4tnGhsJYQwg==}
-    engines: {node: '>= 20.11'}
+  ember-simple-auth-oidc@7.4.1:
+    resolution: {integrity: sha512-+QhFImsmtrRQXH/5ci7AYUSl8zb9lqcLoug8cJ0zJW5gm5vQt4qrJ4K3I+kILNc0fgE/EyB6JbZmhoFhOfBGRw==}
+    engines: {node: '>= 20.19'}
     peerDependencies:
       '@apollo/client': ^3.13.0
       '@ember-data/adapter': ~4.12.0 || >= 5.0.0 <= 5.3.11
@@ -14853,7 +14853,7 @@ snapshots:
       - '@babel/core'
       - supports-color
 
-  ember-simple-auth-oidc@7.3.2(fai74kqnb7hwv35ojxm53yiwhu):
+  ember-simple-auth-oidc@7.4.1(fai74kqnb7hwv35ojxm53yiwhu):
     dependencies:
       '@babel/core': 7.26.10
       '@ember-data/adapter': 4.12.8(@ember-data/store@4.12.8)(@ember/string@4.0.0)(@glint/template@1.5.0)(ember-inflector@4.0.3(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.97.1)))
