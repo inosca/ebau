@@ -55,6 +55,38 @@ SO_DISTRIBUTION_SUGGESTIONS = {
         ): ["arp-bab"],
         ("bab", "bab-ja"): ["arp-bab"],
         (
+            "nutzungszwecke",
+            "nutzungszwecke-industrie",
+        ): ["awa-arbeitsinspektorat"],
+        (
+            "nutzungszwecke",
+            "nutzungszwecke-gewerbe",
+        ): ["awa-arbeitsinspektorat"],
+        (
+            "nutzungszwecke",
+            "nutzungszwecke-dienstleistung",
+        ): ["awa-arbeitsinspektorat"],
+        (
+            "nutzungszwecke",
+            "nutzungszwecke-verkauf",
+        ): ["awa-arbeitsinspektorat"],
+        (
+            "nutzungszwecke",
+            "nutzungszwecke-lager",
+        ): ["awa-arbeitsinspektorat"],
+        (
+            "nutzungszwecke",
+            "nutzungszwecke-forstwirtschaft",
+        ): ["awa-arbeitsinspektorat"],
+        (
+            "nutzungszwecke",
+            "nutzungszwecke-gastgewerbe",
+        ): ["awa-arbeitsinspektorat"],
+        (
+            "nutzungszwecke",
+            "nutzungszwecke-oeffentlich-zugaenglich",
+        ): ["awa-arbeitsinspektorat"],
+        (
             "bauten-einrichtungen-arbeitnehmende-betroffen",
             "bauten-einrichtungen-arbeitnehmende-betroffen-ja",
         ): ["awa-arbeitsinspektorat"],
