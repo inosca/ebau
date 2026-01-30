@@ -21,37 +21,79 @@
 
   <content.form />
 
-  {{#if
-    (or
-      (can "create publication" this.publication.value)
-      (can "cancel publication" this.publication.value)
-    )
-  }}
-    <div class="uk-flex">
-      {{#if (can "create publication" this.publication.value)}}
-        <TaskButton
-          class="uk-margin-right"
-          @color="primary"
-          @task={{if
-            (eq @model.type "neighbors")
-            "create-information-of-neighbors"
-            "create-publication"
-          }}
-          @mutation="complete"
-          @filters={{this.filters}}
-          @onSuccess={{fn this.refreshNavigation true}}
-          @label={{t (concat "publication.new." @model.type)}}
-        />
-      {{/if}}
-
-      {{#if (can "cancel publication" this.publication.value)}}
-        <UkButton
-          @label={{t "global.cancel"}}
-          @loading={{this.cancel.isRunning}}
-          @disabled={{this.cancel.isRunning}}
-          @onClick={{perform this.cancel}}
-        />
-      {{/if}}
-    </div>
-  {{/if}}
+  <DocumentValidity @document={{content.document}} as |isValid validate|>
+    {{#if
+      (or
+        (can "create publication" this.publication.value)
+        (can "submit publication" this.publication.value)
+        (can "cancel publication" this.publication.value)
+        (can "delete publication" this.publication.value)
+      )
+    }}
+      <div class="uk-flex">
+        {{#if (can "create publication" this.publication.value)}}
+          <TaskButton
+            class="uk-margin-right"
+            @color="primary"
+            @task={{if
+              (eq @model.type "neighbors")
+              "create-information-of-neighbors"
+              "create-publication"
+            }}
+            @mutation="complete"
+            @filters={{this.filters}}
+            @onSuccess={{fn this.refreshNavigation true}}
+            @label={{t (concat "publication.new." @model.type)}}
+          />
+        {{/if}}
+        {{#if (can "submit publication" this.publication.value)}}
+          <TaskButton
+            class="uk-margin-right"
+            @color="primary"
+            @disabled={{not isValid}}
+            @task={{if
+              (eq @model.type "neighbors")
+              "fill-information-of-neighbors"
+              "fill-publication"
+            }}
+            @beforeMutate={{fn
+              this.confirm
+              (t (concat "publication.submitConfirm." @model.type))
+              validate
+            }}
+            @mutation="complete"
+            @filters={{this.filters}}
+            @onSuccess={{fn this.refreshNavigation true}}
+            @label={{t (concat "publication.submit." @model.type)}}
+          />
+        {{/if}}
+        {{#if (can "cancel publication" this.publication.value)}}
+          <UkButton
+            @label={{t "global.cancel"}}
+            @loading={{this.cancel.isRunning}}
+            @disabled={{this.cancel.isRunning}}
+            @onClick={{perform this.cancel}}
+          />
+        {{/if}}
+        {{#if (can "delete publication" this.publication.value)}}
+          <TaskButton
+            class="uk-margin-right"
+            @task={{if
+              (eq @model.type "neighbors")
+              "fill-information-of-neighbors"
+              "fill-publication"
+            }}
+            @beforeMutate={{fn
+              this.confirm
+              (t (concat "publication.deleteConfirm." @model.type))
+            }}
+            @mutation="skip"
+            @filters={{this.filters}}
+            @onSuccess={{fn this.refreshNavigation true}}
+            @label={{t (concat "publication.delete." @model.type)}}
+          />
+        {{/if}}
+      </div>
+    {{/if}}
+  </DocumentValidity>
 </CfContent>

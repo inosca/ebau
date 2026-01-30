@@ -370,8 +370,7 @@ class CustomDynamicTasks(BaseDynamicTasks):
         tasks = [
             "distribution",
             "audit",
-            "publication",
-            "fill-publication",
+            "create-publication",
             "information-of-neighbors",
             "legal-submission",
         ]

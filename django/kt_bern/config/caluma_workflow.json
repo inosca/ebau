@@ -61,7 +61,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['create-publication']|tasks"
+      "next": "['publication','fill-publication']|tasks"
     }
   },
   {
@@ -74,7 +74,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "'fill-publication'|task"
+      "next": "'create-publication'|task"
     }
   },
   {
@@ -126,7 +126,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['fill-publication']|tasks"
+      "next": "['create-publication']|tasks"
     }
   },
   {
@@ -360,7 +360,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "'create-publication'|task"
+      "next": "['publication','fill-publication']|tasks"
     }
   },
   {
@@ -947,7 +947,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "workflow": "building-permit",
-      "task": "fill-publication",
+      "task": "create-publication",
       "flow": "2b422ed2-7091-467a-81d3-be4e32a770eb",
       "redoable": null
     }
@@ -963,7 +963,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "workflow": "preliminary-clarification",
-      "task": "fill-publication",
+      "task": "create-publication",
       "flow": "f0bc799a-54ee-41ae-86e5-56f41a085872",
       "redoable": null
     }
@@ -1011,7 +1011,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "workflow": "building-permit",
-      "task": "create-publication",
+      "task": "fill-publication",
       "flow": "3f07b928-da62-44ce-837f-ee4315e4c40f",
       "redoable": null
     }
@@ -1219,7 +1219,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "workflow": "preliminary-clarification",
-      "task": "create-publication",
+      "task": "fill-publication",
       "flow": "35207bd3-ab3b-4ef3-910a-bcb5a3f971cb",
       "redoable": null
     }
@@ -1385,9 +1385,9 @@
       "allow_all_forms": false,
       "start_tasks": [
         "create-manual-workitems",
+        "create-publication",
         "decision",
         "ebau-number",
-        "fill-publication",
         "information-of-neighbors"
       ],
       "allow_forms": ["migriertes-dossier"]
