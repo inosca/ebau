@@ -10,6 +10,7 @@ import mainConfig from "ember-ebau-core/config/main";
 export default class CamacAdditionalDemandFilesComponent extends Component {
   @service store;
   @service ebauModules;
+  @service session;
   @service fetch;
   @service intl;
   @service notification;
@@ -56,11 +57,27 @@ export default class CamacAdditionalDemandFilesComponent extends Component {
       .filter(byClaim);
   }
 
+  get isPaper() {
+    const instance = this.store.peekRecord(
+      "instance",
+      this.ebauModules.instanceId,
+    );
+    return instance?.isPaper;
+  }
+
   get claimId() {
     return this.args.field.document.uuid;
   }
 
   get section() {
+    if (
+      additionalDemandsConfig.sectionPaper &&
+      this.isPaper &&
+      this.session.isInternal
+    ) {
+      return additionalDemandsConfig.sectionPaper;
+    }
+
     return additionalDemandsConfig.section;
   }
 

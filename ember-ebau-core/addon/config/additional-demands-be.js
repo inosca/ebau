@@ -6,6 +6,7 @@ export default {
     "dokument-weitere-gesuchsunterlagen",
   ],
   section: "7",
+  sectionPaper: "12",
   STATUS_COLOR_MAP: {
     internal: {
       draft: "muted",
