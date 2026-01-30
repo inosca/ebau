@@ -13,7 +13,7 @@ from camac.caluma.extensions.events.construction_monitoring import (
 )
 from camac.caluma.extensions.visibilities import CustomVisibility
 from camac.instance.models import InstanceState
-from camac.tests.utils import Utils
+from camac.tests.form_utils import FormUtils
 
 
 @pytest.mark.freeze_time("2023-09-04")
@@ -206,7 +206,7 @@ def test_complete_construction_stage(
     service,
     distribution_settings,
     cancel,
-    utils: Utils,
+    form_utils: FormUtils,
 ):
     sz_construction_monitoring_settings["NOTIFICATIONS"][
         sz_construction_monitoring_settings["CONSTRUCTION_STAGE_WORKFLOW"]
@@ -248,8 +248,8 @@ def test_complete_construction_stage(
     else:
         # Complete last work-item of case
         plan_stage = construction_stage.child_case.work_items.first()
-        utils.add_answer(plan_stage.document, "construction-stage-name", "Test")
-        utils.add_answer(
+        form_utils.add_answer(plan_stage.document, "construction-stage-name", "Test")
+        form_utils.add_answer(
             plan_stage.document, "construction-steps", ["construction-step-baubeginn"]
         )
 
@@ -355,7 +355,7 @@ def test_complete_construction_step_work_item(
     construction_monitoring_initialized_case_sz,
     caluma_admin_schema_executor,
     service,
-    utils: Utils,
+    form_utils: FormUtils,
     notification_template,
     mocker,
 ):
@@ -364,8 +364,8 @@ def test_complete_construction_step_work_item(
     )
 
     plan_stage = construction_monitoring_initialized_case_sz.work_items.first()
-    utils.add_answer(plan_stage.document, "construction-stage-name", "Test")
-    utils.add_answer(
+    form_utils.add_answer(plan_stage.document, "construction-stage-name", "Test")
+    form_utils.add_answer(
         plan_stage.document, "construction-steps", ["construction-step-baubeginn"]
     )
     sz_construction_monitoring_settings["NOTIFICATIONS"] = {

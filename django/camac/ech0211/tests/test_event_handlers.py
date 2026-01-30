@@ -11,7 +11,7 @@ from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
 )
 from camac.ech0211.signals import file_subsequently, instance_submitted
-from camac.tests.utils import Utils
+from camac.tests.form_utils import FormUtils
 
 from ...core.models import InstanceService
 from .. import event_handlers
@@ -447,7 +447,7 @@ def test_accompanying_report_event_handler_extension(
     documents_available,
     service,
     service_factory,
-    utils: Utils,
+    form_utils: FormUtils,
 ):
     gr_ech0211_settings["ACCOMPANYING_REPORT"]["EXTENSION_MAPPING"] = {
         "inquiry-answer-considerations": {
@@ -495,7 +495,7 @@ def test_accompanying_report_event_handler_extension(
         question__type=Question.TYPE_MULTIPLE_CHOICE,
         question__slug="empty-choice",
     )
-    utils.add_answer(
+    form_utils.add_answer(
         inquiry.child_case.document,
         "stellungnahme-in-dokumentanablage",
         value=["stellungnahme-in-dokumentanablage-ja"] if documents_available else [],

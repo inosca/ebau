@@ -16,13 +16,13 @@ from caluma.caluma_form.models import Answer, Document, FormQuestion, Option, Qu
 from camac.user.models import Service
 
 
-class Utils:
+class FormUtils:
     AnswerValue = str | date | float | int | list[str]
     Options = list[str | tuple[str, str]]
 
     class TableCell(TypedDict):
-        value: Utils.AnswerValue
-        options: Utils.Options
+        value: FormUtils.AnswerValue
+        options: FormUtils.Options
 
     def __init__(self):
         self._sort = 99999999
@@ -125,10 +125,10 @@ class Utils:
 
         Examples:
             Add an answer to a text question:
-                >>> utils.add_answer(document, "text-question", "Test value")
+                >>> form_utils.add_answer(document, "text-question", "Test value")
 
             Add an answer to a date question with a custom question label:
-                >>> utils.add_answer(
+                >>> form_utils.add_answer(
                 ...     document,
                 ...     "birthday",
                 ...     date(1999, 9, 9),
@@ -136,7 +136,7 @@ class Utils:
                 ... )
 
             Add an answer to a choice question with predefined options:
-                >>> utils.add_answer(
+                >>> form_utils.add_answer(
                 ...     document,
                 ...     "sure",
                 ...     "sure-yes",
@@ -148,7 +148,9 @@ class Utils:
                 ... )
         """
 
-        question_type = question_type or Utils._get_question_type(value, options, label)
+        question_type = question_type or FormUtils._get_question_type(
+            value, options, label
+        )
         value_key = "date" if question_type == Question.TYPE_DATE else "value"
 
         answer = AnswerFactory(
@@ -218,7 +220,7 @@ class Utils:
 
         Examples:
             Add a table answer with two rows:
-                >>> utils.add_table_answer(
+                >>> form_utils.add_table_answer(
                 ...     document,
                 ...     "applicants",
                 ...     [
@@ -228,7 +230,7 @@ class Utils:
                 ... )
 
             Add a table answer with choice options in a cell:
-                >>> utils.add_table_answer(
+                >>> form_utils.add_table_answer(
                 ...     document,
                 ...     "representative",
                 ...     [
@@ -292,7 +294,7 @@ class Utils:
             The newly created answer.
 
         Examples:
-            >>> utils.add_municipality(
+            >>> form_utils.add_municipality(
             ...     instance.case.document,
             ...     "gemeinde",
             ...     my_service

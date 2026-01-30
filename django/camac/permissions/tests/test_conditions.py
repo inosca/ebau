@@ -10,7 +10,7 @@ from camac.permissions.conditions import (
     PermissionContext,
     RequireWorkItem,
 )
-from camac.tests.utils import Utils
+from camac.tests.form_utils import FormUtils
 
 
 @pytest.fixture
@@ -19,9 +19,9 @@ def userinfo(user, service, role):
 
 
 @pytest.mark.parametrize("is_paper", [True, False])
-def test_condition_is_paper(db, is_paper, so_instance, userinfo, utils: Utils):
+def test_condition_is_paper(db, is_paper, so_instance, userinfo, form_utils: FormUtils):
     if is_paper:
-        utils.add_answer(so_instance.case.document, "is-paper", "is-paper-yes")
+        form_utils.add_answer(so_instance.case.document, "is-paper", "is-paper-yes")
 
     assert IsPaper().apply(userinfo, PermissionContext(so_instance)) == is_paper
 

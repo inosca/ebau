@@ -40,7 +40,7 @@ from camac.permissions.conditions import (
     HasApplicantRole,
 )
 from camac.permissions.switcher import PERMISSION_MODE
-from camac.tests.utils import Utils
+from camac.tests.form_utils import FormUtils
 from camac.user.models import Location, Service
 from camac.utils import flatten
 
@@ -1258,7 +1258,7 @@ def test_instance_authority_by_submission_for_koor_afg(
 
 @pytest.mark.parametrize("service_group__name", ["Sekretariate Gemeindebaubehörden"])
 def test_set_instance_service_ur_bgbb(
-    db, ur_instance, mocker, set_application_ur, group_factory, utils: Utils
+    db, ur_instance, mocker, set_application_ur, group_factory, form_utils: FormUtils
 ):
     # if form is "bgbb" and the form was submitted by the AFG
     # AFG should be the responsible service. Otherwise it is the
@@ -1270,7 +1270,7 @@ def test_set_instance_service_ur_bgbb(
         service__name="KOOR AFG", service__service_group__name="Koordinationsstellen"
     )
 
-    utils.add_answer(
+    form_utils.add_answer(
         ur_instance.case.document,
         "municipality",
         ur_instance.group.locations.first().communal_federal_number,
@@ -1314,7 +1314,7 @@ def test_oereb_instance_copy_for_koor_afj(
     authority_location_factory,
     form_slug,
     attachment_factory,
-    utils: Utils,
+    form_utils: FormUtils,
     disable_ech0211_settings,
     ur_master_data_case,
 ):
@@ -1382,7 +1382,7 @@ def test_oereb_instance_copy_for_koor_afj(
         mocker.patch("camac.constants.kt_uri.KOOR_NP_GROUP_ID", group.pk)
         email = group.service.email
 
-        utils.add_answer(
+        form_utils.add_answer(
             ur_instance.case.document,
             "waldfeststellung-mit-statischen-waldgrenzen-kanton",
             "waldfeststellung-mit-statischen-waldgrenzen-kanton-ja",
@@ -1394,7 +1394,7 @@ def test_oereb_instance_copy_for_koor_afj(
         mocker.patch("camac.constants.kt_uri.GBB_ALTDORF_SERVICE_ID", group.pk)
         email = group.service.email
 
-        utils.add_answer(
+        form_utils.add_answer(
             ur_instance.case.document,
             "waldfeststellung-mit-statischen-waldgrenzen-gemeinde",
             "waldfeststellung-mit-statischen-waldgrenzen-gemeinde-ja",
@@ -2462,7 +2462,7 @@ def test_rejection(
     rejection_settings,
     caluma_admin_user,
     disable_ech0211_settings,
-    utils: Utils,
+    form_utils: FormUtils,
 ):
     application_settings["NOTIFICATIONS"]["SUBMIT"] = []
 
@@ -2511,7 +2511,7 @@ def test_rejection(
 
     case = new_instance.case
 
-    utils.add_municipality(case.document, "gemeinde", service)
+    form_utils.add_municipality(case.document, "gemeinde", service)
 
     submit_response = admin_client.post(
         reverse("instance-submit", args=[new_instance.pk])
@@ -2541,7 +2541,7 @@ def test_be_copy_responsible_user_on_submit(
     caluma_work_item_factory,
     user_factory,
     disable_ech0211_settings,
-    utils: Utils,
+    form_utils: FormUtils,
 ):
     application_settings["NOTIFICATIONS"]["SUBMIT"] = []
     application_settings["COPY_RESPONSIBLE_PERSON_ON_SUBMIT"] = True
@@ -2598,7 +2598,7 @@ def test_be_copy_responsible_user_on_submit(
     assert new_instance.copy_source == source_instance
 
     case = new_instance.case
-    utils.add_municipality(case.document, "gemeinde", service)
+    form_utils.add_municipality(case.document, "gemeinde", service)
 
     submit_response = admin_client.post(
         reverse("instance-submit", args=[new_instance.pk])
@@ -3155,7 +3155,7 @@ def test_instance_submit_so_bab(
     so_instance,
     so_master_data_settings,
     service_factory,
-    utils: Utils,
+    form_utils: FormUtils,
 ):
     settings.APPLICATION_NAME = "kt_so"
     application_settings["SHORT_NAME"] = "so"
@@ -3176,7 +3176,7 @@ def test_instance_submit_so_bab(
         return_value=[],
     )
 
-    utils.add_answer(so_instance.case.document, bab_question, f"{bab_question}-ja")
+    form_utils.add_answer(so_instance.case.document, bab_question, f"{bab_question}-ja")
 
     response = admin_client.post(reverse("instance-submit", args=[so_instance.pk]))
 
@@ -3205,7 +3205,7 @@ def test_instance_submit_so_canton(
     so_bab_settings,
     so_instance,
     so_master_data_settings,
-    utils: Utils,
+    form_utils: FormUtils,
 ):
     settings.APPLICATION_NAME = "kt_so"
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = False
@@ -3234,10 +3234,10 @@ def test_instance_submit_so_canton(
         slug=str(municipality_service.pk),
         label={"de": municipality_service.name},
     )
-    utils.add_answer(
+    form_utils.add_answer(
         so_instance.case.document, "gemeinde", str(municipality_service.pk)
     )
-    utils.add_answer(
+    form_utils.add_answer(
         so_instance.case.document, "kanton-leitbehoerde", "kanton-leitbehoerde-ja"
     )
 
@@ -3585,7 +3585,7 @@ def test_instance_submit_ag_internal(
     mocker,
     service,
     set_application_ag,
-    utils: Utils,
+    form_utils: FormUtils,
 ):
     mocker.patch(
         "camac.instance.serializers.CalumaInstanceSubmitSerializer._send_notification"
@@ -3603,7 +3603,7 @@ def test_instance_submit_ag_internal(
 
     instance_service_factory(instance=ag_instance, service=service)
 
-    utils.add_municipality(ag_instance.case.document, "gemeinde", service)
+    form_utils.add_municipality(ag_instance.case.document, "gemeinde", service)
     ag_instance.case.document.form_id = form_slug
     ag_instance.case.document.save()
 
@@ -3637,7 +3637,7 @@ def test_instance_submit_ag_pgv(
     settings,
     ag_instance,
     ag_master_data_settings,
-    utils: Utils,
+    form_utils: FormUtils,
 ):
     mocker.patch(
         "camac.instance.serializers.CalumaInstanceSubmitSerializer._send_notification"
@@ -3660,7 +3660,7 @@ def test_instance_submit_ag_pgv(
     instance_state_factory(name="init-distribution")
 
     # Set municipality in form
-    utils.add_answer(
+    form_utils.add_answer(
         ag_instance.case.document, "gemeinde", str(municipality_service.pk)
     )
     caluma_dynamic_option_factory(

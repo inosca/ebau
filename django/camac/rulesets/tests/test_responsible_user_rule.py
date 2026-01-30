@@ -4,7 +4,7 @@ from pytest_lazy_fixtures import lf
 from rest_framework import status
 
 from camac.rulesets.models import ResponsibleUserRule
-from camac.tests.utils import Utils
+from camac.tests.form_utils import FormUtils
 from camac.user.models import Service
 
 
@@ -63,7 +63,7 @@ def test_responsible_user_for_instance(
     service_factory,
     service,
     user_factory,
-    utils: Utils,
+    form_utils: FormUtils,
 ):
     form1 = caluma_form_factory(pk="form1")
     form1_with_suffix = caluma_form_factory(pk="form1-with-suffix")
@@ -103,7 +103,7 @@ def test_responsible_user_for_instance(
     ag_instance.case.document.save()
 
     if municipality is not None:
-        utils.add_municipality(
+        form_utils.add_municipality(
             ag_instance.case.document,
             "gemeinde",
             Service.objects.get(name=municipality),

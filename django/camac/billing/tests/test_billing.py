@@ -16,7 +16,7 @@ from camac.billing.utils import (
 from camac.billing.views import BillingV2EntryViewset
 from camac.instance.models import Instance
 from camac.settings.modules.billing_schema import BillingConfig, ProductNumberConfig
-from camac.tests.utils import Utils
+from camac.tests.form_utils import FormUtils
 from camac.utils import get_unversioned_slug
 
 
@@ -311,9 +311,9 @@ def test_billing_entry_delete(
 
 @pytest.mark.parametrize("role__name", [("Municipality")])
 def test_billing_entry_create_with_ag_processing_fee(
-    db, admin_client, ag_instance, master_data_is_visible_mock, utils: Utils
+    db, admin_client, ag_instance, master_data_is_visible_mock, form_utils: FormUtils
 ):
-    utils.add_answer(ag_instance.case.document, "baukosten", 25_000_000)
+    form_utils.add_answer(ag_instance.case.document, "baukosten", 25_000_000)
 
     response = admin_client.post(
         reverse("billing-v2-entry-list"),

@@ -8,7 +8,7 @@ from pytest_lazy_fixtures import lf
 from rest_framework import status
 from syrupy.filters import paths
 
-from camac.tests.utils import Utils
+from camac.tests.form_utils import FormUtils
 
 from ..master_data import MasterData
 
@@ -66,7 +66,7 @@ def test_master_data_parsers(
     instance,
     master_data_is_visible_mock,
     master_data_settings,
-    utils: Utils,
+    form_utils: FormUtils,
 ):
     master_data_settings["CONFIG"] = {
         "date": ("case_meta", "my-date", {"value_parser": "date"}),
@@ -125,8 +125,8 @@ def test_master_data_parsers(
     instance.case = case
     instance.save()
 
-    utils.add_answer(case.document, "my-success", "my-success-yes")
-    utils.add_answer(
+    form_utils.add_answer(case.document, "my-success", "my-success-yes")
+    form_utils.add_answer(
         case.document, "multiple-choice", ["multiple-choice-yes", "multiple-choice-no"]
     )
 
@@ -374,7 +374,7 @@ def test_master_data_municipality_service_content_resolver(
     caluma_dynamic_option_factory,
     service_factory,
     service_content_factory,
-    utils: Utils,
+    form_utils: FormUtils,
     has_municipality_answer,
     expected,
 ):
@@ -396,7 +396,7 @@ def test_master_data_municipality_service_content_resolver(
     )
     municipality = service_factory(service_group__name="municipality")
     if has_municipality_answer:
-        utils.add_answer(document, "gemeinde", str(municipality.pk))
+        form_utils.add_answer(document, "gemeinde", str(municipality.pk))
         caluma_dynamic_option_factory(
             slug=str(municipality.pk),
             question_id="gemeinde",

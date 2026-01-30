@@ -7,7 +7,7 @@ from rest_framework import status
 from camac.core.models import InstanceService
 from camac.permissions import api as permissions_api
 from camac.permissions.models import InstanceACL
-from camac.tests.utils import Utils
+from camac.tests.form_utils import FormUtils
 from camac.user.models import GeometerChangeTask, Service, ServiceRelation
 from camac.user.tasks import change_geometer_task
 
@@ -454,7 +454,7 @@ def test_instance_selection_for_geometer_change(
     instance_service_factory,
     instance_acl_factory,
     service_factory,
-    utils: Utils,
+    form_utils: FormUtils,
 ):
     InstanceService.objects.all().delete()
     selected_geometer = service_factory()
@@ -471,7 +471,7 @@ def test_instance_selection_for_geometer_change(
     other_municipality_2 = service_factory(
         service_group__name="municipality",
     )
-    utils.add_answer(
+    form_utils.add_answer(
         be_instance.case.document, "gemeinde", str(other_municipality_1.pk)
     )
     DynamicOption.objects.create(

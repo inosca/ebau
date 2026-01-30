@@ -13,7 +13,7 @@ from camac.gis.utils import to_query
 from camac.settings.modules.work_item_list_schema import (
     WorkItemListConfig,
 )
-from camac.tests.utils import Utils
+from camac.tests.form_utils import FormUtils
 
 fake = Faker()
 
@@ -611,7 +611,7 @@ def test_work_item_list_row_description_coalesce(
     expected_description,
     work_item_list_row_factory,
     gr_work_item_list_settings: WorkItemListConfig,
-    utils: Utils,
+    form_utils: FormUtils,
     set_application_gr,
 ):
     """Test that the description annotation can be a list of slugs.
@@ -633,7 +633,7 @@ def test_work_item_list_row_description_coalesce(
     )
     bauvorhaben_answer.value = "bauvorhaben"
     bauvorhaben_answer.save()
-    utils.add_answer(
+    form_utils.add_answer(
         work_item.case.document,
         "beschreibung-projektaenderung",
         "projektaenderung",

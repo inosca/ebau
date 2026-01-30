@@ -7,7 +7,7 @@ from caluma.caluma_form.factories import QuestionFactory
 from django.core.cache import cache
 
 from camac.tests.data import so_personal_row_factory
-from camac.tests.utils import Utils
+from camac.tests.form_utils import FormUtils
 
 from ..extensions.countries import COUNTRIES
 from ..extensions.data_sources import (
@@ -257,7 +257,7 @@ def test_landowners_be(
     db,
     caluma_admin_user,
     be_instance,
-    utils: Utils,
+    form_utils: FormUtils,
     be_master_data_settings,
     master_data_is_visible_mock,
 ):
@@ -266,7 +266,7 @@ def test_landowners_be(
         type=caluma_form_models.Question.TYPE_TABLE,
     )
 
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         be_instance.case.document,
         question,
         [
@@ -296,7 +296,7 @@ def test_landowners_so(
     db,
     caluma_admin_user,
     so_instance,
-    utils: Utils,
+    form_utils: FormUtils,
     so_master_data_settings,
     master_data_is_visible_mock,
     snapshot,
@@ -304,12 +304,12 @@ def test_landowners_so(
 ):
     settings.APPLICATION_NAME = "kt_so"
 
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         so_instance.case.document,
         "bauherrin",
         [so_personal_row_factory(True), so_personal_row_factory(False)],
     )
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         so_instance.case.document,
         "grundeigentuemerin",
         [so_personal_row_factory(True), so_personal_row_factory(False)],
@@ -330,7 +330,7 @@ def test_landowners_dynamic_on_copy(
     caluma_document_factory,
     caluma_question_factory,
     caluma_dynamic_option_factory,
-    utils: Utils,
+    form_utils: FormUtils,
     settings,
 ):
     settings.DATA_SOURCE_CLASSES = ["camac.caluma.extensions.data_sources.Landowners"]
@@ -352,7 +352,7 @@ def test_landowners_dynamic_on_copy(
     dynamic_choice_question.data_source = "Landowners"
     dynamic_choice_question.save()
 
-    dynamic_answer = utils.add_answer(
+    dynamic_answer = form_utils.add_answer(
         document=main_document,
         question=dynamic_choice_question,
         value=[
@@ -476,14 +476,14 @@ def test_preliminary_clarfication_targets(db, caluma_admin_user, service_factory
 
 
 def test_buildings(
-    db, caluma_admin_user, caluma_question_factory, so_instance, utils: Utils
+    db, caluma_admin_user, caluma_question_factory, so_instance, form_utils: FormUtils
 ):
     question = caluma_question_factory(
         slug="gebaeude",
         type=caluma_form_models.Question.TYPE_TABLE,
     )
 
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         so_instance.case.document,
         question,
         [
@@ -510,7 +510,7 @@ def test_buildings_dynamic_on_copy(
     caluma_document_factory,
     caluma_question_factory,
     caluma_dynamic_option_factory,
-    utils: Utils,
+    form_utils: FormUtils,
     settings,
 ):
     settings.DATA_SOURCE_CLASSES = ["camac.caluma.extensions.data_sources.Buildings"]
@@ -529,7 +529,7 @@ def test_buildings_dynamic_on_copy(
     dynamic_choice_question.data_source = "Buildings"
     dynamic_choice_question.save()
 
-    dynamic_answer = utils.add_answer(
+    dynamic_answer = form_utils.add_answer(
         document=main_document,
         question=dynamic_choice_question,
         value=str(test_document.pk),
@@ -567,7 +567,7 @@ def test_services_for_final_report(
     db,
     caluma_admin_user,
     caluma_question_factory,
-    utils: Utils,
+    form_utils: FormUtils,
     ur_instance,
     caluma_work_item_factory,
     service_factory,
@@ -587,7 +587,7 @@ def test_services_for_final_report(
         addressed_groups=[str(services_that_wants_to_be_invited.pk)],
     )
 
-    utils.add_answer(
+    form_utils.add_answer(
         inquiry_1.child_case.document,
         "inquiry-answer-invite-service",
         "inquiry-answer-invite-service-yes",

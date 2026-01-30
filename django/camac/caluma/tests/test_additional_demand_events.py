@@ -8,7 +8,7 @@ from caluma.caluma_workflow.api import (
 from caluma.caluma_workflow.models import WorkItem
 
 from camac.caluma.extensions.events import additional_demand
-from camac.tests.utils import Utils
+from camac.tests.form_utils import FormUtils
 
 
 def test_creating_an_additional_demand_sets_the_correct_instance_state(
@@ -167,7 +167,7 @@ def test_post_create_check_additional_demand(
     gr_ech0211_settings,
     gr_instance,
     mocker,
-    utils: Utils,
+    form_utils: FormUtils,
     test_case,
 ):
     # mock the follow up signal file_subsequently for this test,
@@ -240,7 +240,7 @@ def test_post_create_check_additional_demand(
         meta=meta,
         child_case=None,
     )
-    utils.add_answer(
+    form_utils.add_answer(
         work_item_fill.document,
         gr_additional_demand_settings["QUESTIONS"]["DEADLINE"],
         date.today() + timedelta(days=30),

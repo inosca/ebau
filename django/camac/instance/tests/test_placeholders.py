@@ -36,7 +36,7 @@ from camac.tests.data import (
     so_fill_cantonal_exam,
     so_personal_row_factory,
 )
-from camac.tests.utils import Utils
+from camac.tests.form_utils import FormUtils
 
 
 @pytest.fixture
@@ -131,7 +131,7 @@ def test_dms_placeholders_gr(
     group,
     user_factory,
     responsible_service_factory,
-    utils: Utils,
+    form_utils: FormUtils,
     gr_master_data_settings,
 ):
     application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
@@ -175,14 +175,22 @@ def test_dms_placeholders_gr(
     # publication
     document = DocumentFactory()
 
-    utils.add_answer(document, "publikation-anzeiger-von", "Bärnerblatt")
-    utils.add_answer(document, "publikation-text", "Text")
-    utils.add_answer(document, "beginn-publikationsorgan-gemeinde", date(2021, 8, 20))
-    utils.add_answer(document, "ende-publikationsorgan-gemeinde", date(2021, 8, 21))
-    utils.add_answer(document, "beginn-publikation-kantonsamtsblatt", date(2021, 8, 22))
-    utils.add_answer(document, "ende-publikation-kantonsamtsblatt", date(2021, 8, 23))
+    form_utils.add_answer(document, "publikation-anzeiger-von", "Bärnerblatt")
+    form_utils.add_answer(document, "publikation-text", "Text")
+    form_utils.add_answer(
+        document, "beginn-publikationsorgan-gemeinde", date(2021, 8, 20)
+    )
+    form_utils.add_answer(
+        document, "ende-publikationsorgan-gemeinde", date(2021, 8, 21)
+    )
+    form_utils.add_answer(
+        document, "beginn-publikation-kantonsamtsblatt", date(2021, 8, 22)
+    )
+    form_utils.add_answer(
+        document, "ende-publikation-kantonsamtsblatt", date(2021, 8, 23)
+    )
 
-    utils.add_answer(document, "oeffentliche-auflage", ["oeffentliche-auflage-ja"])
+    form_utils.add_answer(document, "oeffentliche-auflage", ["oeffentliche-auflage-ja"])
 
     WorkItemFactory(
         case=gr_instance.case,
@@ -194,7 +202,7 @@ def test_dms_placeholders_gr(
     )
 
     # shelter form
-    utils.add_answer(
+    form_utils.add_answer(
         gr_instance.case.document,
         "gebaeudeart",
         [
@@ -208,36 +216,44 @@ def test_dms_placeholders_gr(
             ("gebaeudeart-andere", "Andere"),
         ],
     )
-    utils.add_answer(gr_instance.case.document, "wohnhaus-anzahl-zimmer", 100)
-    utils.add_answer(gr_instance.case.document, "anzahl-schutzplaetze-wohnhaus", 50)
-    utils.add_answer(gr_instance.case.document, "spital-anzahl-betten", 10)
-    utils.add_answer(gr_instance.case.document, "flaeche-projektierte-schutzraeume", 20)
-    utils.add_answer(gr_instance.case.document, "volumen-projektierte-schutzraeume", 30)
-    utils.add_answer(
+    form_utils.add_answer(gr_instance.case.document, "wohnhaus-anzahl-zimmer", 100)
+    form_utils.add_answer(
+        gr_instance.case.document, "anzahl-schutzplaetze-wohnhaus", 50
+    )
+    form_utils.add_answer(gr_instance.case.document, "spital-anzahl-betten", 10)
+    form_utils.add_answer(
+        gr_instance.case.document, "flaeche-projektierte-schutzraeume", 20
+    )
+    form_utils.add_answer(
+        gr_instance.case.document, "volumen-projektierte-schutzraeume", 30
+    )
+    form_utils.add_answer(
         gr_instance.case.document, "bemerkungen-schutzplaetze", "Foo bar baz"
     )
 
     # zones
-    utils.add_answer(gr_instance.case.document, "zonenplan", "Rebwirtschaftszone")
-    utils.add_answer(
+    form_utils.add_answer(gr_instance.case.document, "zonenplan", "Rebwirtschaftszone")
+    form_utils.add_answer(
         gr_instance.case.document, "genereller-gestaltungsplan", "Historischer Weg"
     )
-    utils.add_answer(
+    form_utils.add_answer(
         gr_instance.case.document,
         "genereller-erschliessungsplan",
         "Fuss- / Spazierweg, Parkierung Gebiete D",
     )
-    utils.add_answer(gr_instance.case.document, "folgeplanung", "Baulinie allgemein")
+    form_utils.add_answer(
+        gr_instance.case.document, "folgeplanung", "Baulinie allgemein"
+    )
 
     # gis
-    utils.add_answer(
+    form_utils.add_answer(
         gr_instance.case.document,
         "gis-map",
         '{"markers": [{"x": 2569941.12345, "y": 1298923.12345}], "center": {"x": 2609995.12345,"y": 1271340.12345} }',
     )
 
     # Prepare project modification
-    utils.add_answer(
+    form_utils.add_answer(
         gr_instance.case.document, "beschreibung-projektaenderung", "Projektänderung"
     )
 
@@ -312,7 +328,7 @@ def test_dms_placeholders_gr(
             value=f"Nebenbestimmungen {i + 1}",
         )
 
-    utils.add_answer(
+    form_utils.add_answer(
         gr_instance.case.document, "voraussichtliche-fertigstellung", date(2022, 12, 31)
     )
 
@@ -349,7 +365,7 @@ def test_dms_placeholders_so(
     caluma_dynamic_option_factory,
     mocker,
     multilang,
-    utils: Utils,
+    form_utils: FormUtils,
     caluma_document_factory,
     active_inquiry_factory,
     master_data_is_visible_mock,
@@ -373,7 +389,7 @@ def test_dms_placeholders_so(
 
     # Municipality
     municipality = service_factory(website="https://gemeinde.ch")
-    utils.add_answer(so_instance.case.document, "gemeinde", str(municipality.pk))
+    form_utils.add_answer(so_instance.case.document, "gemeinde", str(municipality.pk))
     caluma_dynamic_option_factory(
         slug=str(municipality.pk),
         question_id="gemeinde",
@@ -381,12 +397,12 @@ def test_dms_placeholders_so(
     )
 
     # Land use
-    utils.add_answer(
+    form_utils.add_answer(
         so_instance.case.document,
         "nutzungsplanung-grundnutzung",
         "Wohnzone 3 - AZ 0.6",
     )
-    utils.add_answer(
+    form_utils.add_answer(
         so_instance.case.document,
         "nutzungsplanung-grundnutzung-kanton",
         "N112_Wohnzone_3_G",
@@ -403,7 +419,7 @@ def test_dms_placeholders_so(
     )
 
     # Builder
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         so_instance.case.document,
         "bauherrin",
         [
@@ -415,7 +431,7 @@ def test_dms_placeholders_so(
     )
 
     # Invoice recipients
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         so_instance.case.document,
         "rechnungsempfaengerin",
         [so_personal_row_factory(), so_personal_row_factory(True)],
@@ -429,7 +445,7 @@ def test_dms_placeholders_so(
         case=so_instance.case,
     )
 
-    table_answer = utils.add_table_answer(
+    table_answer = form_utils.add_table_answer(
         objections_work_item.document,
         "einsprachen",
         [
@@ -441,7 +457,7 @@ def test_dms_placeholders_so(
 
     objections = table_answer.answerdocument_set.order_by("-sort")
 
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         objections.first().document,
         "einsprache-einsprechende",
         [
@@ -451,7 +467,7 @@ def test_dms_placeholders_so(
         row_form_id="personalien-tabelle",
     )
 
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         objections.last().document,
         "einsprache-einsprechende",
         [so_personal_row_factory(True)],
@@ -467,19 +483,19 @@ def test_dms_placeholders_so(
         meta={"is-published": True},
     )
 
-    utils.add_answer(
+    form_utils.add_answer(
         publication_work_item.document, "publikation-start", date(2023, 12, 1)
     )
-    utils.add_answer(
+    form_utils.add_answer(
         publication_work_item.document, "publikation-ende", date(2023, 12, 15)
     )
-    utils.add_answer(
+    form_utils.add_answer(
         publication_work_item.document, "publikation-anzeiger", date(2023, 11, 28)
     )
-    utils.add_answer(
+    form_utils.add_answer(
         publication_work_item.document, "publikation-amtsblatt", date(2023, 11, 29)
     )
-    utils.add_answer(
+    form_utils.add_answer(
         publication_work_item.document,
         "publikation-organ",
         ["publikation-organ-amtsblatt", "publikation-organ-azeiger"],
@@ -547,10 +563,12 @@ def test_dms_placeholders_so(
         status=WorkItem.STATUS_COMPLETED,
         document=caluma_document_factory(form_id="entscheid"),
     )
-    utils.add_answer(decision_work_item.document, "entscheid-datum", date(2024, 4, 18))
+    form_utils.add_answer(
+        decision_work_item.document, "entscheid-datum", date(2024, 4, 18)
+    )
 
     # General data
-    utils.add_answer(so_instance.case.document, "ort", "Rüttenen")
+    form_utils.add_answer(so_instance.case.document, "ort", "Rüttenen")
 
     # Distribution
     inquiry = active_inquiry_factory(
@@ -573,7 +591,7 @@ def test_dms_placeholders_so(
         status=WorkItem.STATUS_SUSPENDED,
     )
 
-    utils.add_answer(inquiry.document, "inquiry-remark", "Bemerkungen")
+    form_utils.add_answer(inquiry.document, "inquiry-remark", "Bemerkungen")
 
     for q, v in [
         ("inquiry-answer-status", "inquiry-answer-status-positive"),
@@ -586,7 +604,7 @@ def test_dms_placeholders_so(
         ("inquiry-answer-notices-for-authority-arp", "Hinweis ARP"),
         ("inquiry-answer-forward", "Weiterleiten an SGV"),
     ]:
-        utils.add_answer(inquiry.child_case.document, q, v)
+        form_utils.add_answer(inquiry.child_case.document, q, v)
 
     inquiry.case.parent_work_item.closed_at = make_aware(faker.Faker().date_time())
     inquiry.case.parent_work_item.status = WorkItem.STATUS_COMPLETED
@@ -596,7 +614,7 @@ def test_dms_placeholders_so(
     cantonal_exam = caluma_work_item_factory(
         task_id="material-exam-bab", case=so_instance.case
     )
-    so_fill_cantonal_exam(cantonal_exam.document, utils)
+    so_fill_cantonal_exam(cantonal_exam.document, form_utils)
 
     url = reverse("instance-dms-placeholders", args=[so_instance.pk])
 
@@ -639,7 +657,7 @@ def test_dms_placeholders(
     be_decision_settings,
     be_master_data_settings,
     be_publication_settings,
-    utils: Utils,
+    form_utils: FormUtils,
 ):
     application_settings["INTERNAL_FRONTEND"] = "camac"
     application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
@@ -650,29 +668,29 @@ def test_dms_placeholders(
     # publication
     document = DocumentFactory()
 
-    utils.add_answer(document, "publikation-anzeiger-von", "Bärnerblatt")
-    utils.add_answer(document, "publikation-text", "Text")
-    utils.add_answer(
+    form_utils.add_answer(document, "publikation-anzeiger-von", "Bärnerblatt")
+    form_utils.add_answer(document, "publikation-text", "Text")
+    form_utils.add_answer(
         document,
         "publikation-1-publikation-anzeiger",
         date(2021, 8, 30),
     )
-    utils.add_answer(
+    form_utils.add_answer(
         document,
         "publikation-2-publikation-anzeiger",
         date(2021, 8, 20),
     )
-    utils.add_answer(
+    form_utils.add_answer(
         document,
         "publikation-amtsblatt",
         date(2021, 8, 10),
     )
-    utils.add_answer(
+    form_utils.add_answer(
         document,
         "publikation-startdatum",
         date(2021, 9, 1),
     )
-    utils.add_answer(
+    form_utils.add_answer(
         document,
         "publikation-ablaufdatum",
         date(2021, 9, 15),
@@ -688,7 +706,9 @@ def test_dms_placeholders(
     )
 
     # Modification
-    utils.add_answer(document, "beschreibung-projektaenderung", "Umbau Haus in Garage")
+    form_utils.add_answer(
+        document, "beschreibung-projektaenderung", "Umbau Haus in Garage"
+    )
 
     # Neighbors
     information_of_neighbors_document = DocumentFactory(
@@ -702,7 +722,7 @@ def test_dms_placeholders(
         case=be_instance.case,
         meta={"is-published": True},
     )
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         information_of_neighbors_document,
         "information-of-neighbors-neighbors",
         [
@@ -724,7 +744,7 @@ def test_dms_placeholders(
         case=be_instance.case,
     )
 
-    table_answer = utils.add_table_answer(
+    table_answer = form_utils.add_table_answer(
         legal_submission.document,
         "legal-submission-table",
         [
@@ -765,7 +785,7 @@ def test_dms_placeholders(
         answers__value=["legal-submission-type-load-compensation-request"]
     )
 
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         objection,
         "legal-submission-legal-claimants-table-question",
         [
@@ -782,7 +802,7 @@ def test_dms_placeholders(
         row_form_id="personalien-tabelle",
     )
 
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         legal_custody,
         "legal-submission-legal-claimants-table-question",
         [
@@ -799,7 +819,7 @@ def test_dms_placeholders(
         row_form_id="personalien-tabelle",
     )
 
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         load_compensation,
         "legal-submission-legal-claimants-table-question",
         [
@@ -1101,12 +1121,12 @@ def test_dms_placeholders_ag(
     responsible_service_factory,
     service,
     snapshot,
-    utils: Utils,
+    form_utils: FormUtils,
 ):
     ag_instance = ag_master_data_case.instance
 
     # GIS
-    utils.add_answer(
+    form_utils.add_answer(
         ag_instance.case.document,
         "gis-map",
         '{"markers": [{"x": 2569941.12345, "y": 1298923.12345}, {"x": 2609995.12345,"y": 1271340.12345}] }',
@@ -1137,8 +1157,10 @@ def test_dms_placeholders_ag(
         addressed_groups=[str(service.pk)],
         end=date(2025, 7, 1),
     )
-    utils.add_answer(publication.document, "publikation-text", "Text zur Publikation")
-    utils.add_answer(
+    form_utils.add_answer(
+        publication.document, "publikation-text", "Text zur Publikation"
+    )
+    form_utils.add_answer(
         publication.document, "ende-publikation-kantonsamtsblatt", date(2025, 8, 1)
     )
 
@@ -1150,7 +1172,7 @@ def test_dms_placeholders_ag(
         addressed_groups=[str(service.pk)],
         document__pk="878109fb-24c4-43e8-a00f-76999ca0f531",
     )
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         information_of_neighbors.document,
         "nachbarschaftsorientierung-auswaertige-anstoesser",
         [ag_personal_row_factory(), ag_personal_row_factory(True)],

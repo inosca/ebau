@@ -15,7 +15,7 @@ from camac.instance.utils import copy_instance
 from camac.permissions import api as permissions_api, events, exceptions
 from camac.permissions.models import InstanceACL
 from camac.permissions.switcher import PERMISSION_MODE
-from camac.tests.utils import Utils
+from camac.tests.form_utils import FormUtils
 from camac.user.models import ServiceRelation
 
 
@@ -333,7 +333,7 @@ def test_submit_create_acl_be(
     be_access_levels,
     disable_ech0211_settings,
     is_paper,
-    utils: Utils,
+    form_utils: FormUtils,
     caplog,
 ):
     # ensure we can submit
@@ -354,9 +354,11 @@ def test_submit_create_acl_be(
 
     # Set municipality in Caluma form
     municipality_svc = service_factory(service_group__name="municipality")
-    utils.add_answer(be_instance.case.document, "gemeinde", str(municipality_svc.pk))
+    form_utils.add_answer(
+        be_instance.case.document, "gemeinde", str(municipality_svc.pk)
+    )
     if is_paper:
-        utils.add_answer(be_instance.case.document, "is-paper", "is-paper-yes")
+        form_utils.add_answer(be_instance.case.document, "is-paper", "is-paper-yes")
 
     # Event handler so we actually get the ACL
     be_permissions_settings["EVENT_HANDLER"] = (

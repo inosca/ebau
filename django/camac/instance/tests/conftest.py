@@ -1,11 +1,11 @@
 import pytest
 
-from camac.tests.utils import Utils
+from camac.tests.form_utils import FormUtils
 
 
 @pytest.fixture
 def ur_master_data_case_gwr(
-    ur_instance, ur_master_data_case, workflow_entry_factory, utils: Utils
+    ur_instance, ur_master_data_case, workflow_entry_factory, form_utils: FormUtils
 ):
     ur_master_data_case.meta = {"dossier-number": "1201-21-003"}
     ur_master_data_case.save()
@@ -33,7 +33,7 @@ def ur_master_data_case_gwr(
     # Check logic for heating / warmwater devices and
     # primary / secondary devices
     table_answer = document.answers.filter(question_id="haustechnik-tabelle").first()
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         document,
         "haustechnik-tabelle",
         [

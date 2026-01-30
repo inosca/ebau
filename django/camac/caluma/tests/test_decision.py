@@ -16,7 +16,7 @@ from camac.ech0211.models import Message
 from camac.instance.domain_logic import DecisionLogic
 from camac.instance.models import HistoryEntryT, Instance
 from camac.instance.utils import copy_instance
-from camac.tests.utils import Utils
+from camac.tests.form_utils import FormUtils
 
 
 @pytest.fixture
@@ -990,7 +990,7 @@ def test_get_notification_config_be(
     is_appeal,
     expected_notification_slug,
     caluma_work_item_factory,
-    utils: Utils,
+    form_utils: FormUtils,
     master_data_settings,
 ):
     settings.APPLICATION_NAME = "kt_be"
@@ -1019,7 +1019,7 @@ def test_get_notification_config_be(
     decision = caluma_work_item_factory(task_id="decision", case=be_instance.case)
 
     if is_other_decision:
-        utils.add_answer(
+        form_utils.add_answer(
             decision.document,
             "decision-decision-assessment",
             "decision-decision-assessment-other",
