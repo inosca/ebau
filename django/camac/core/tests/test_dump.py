@@ -24,7 +24,7 @@ def test_dump_and_load(
 ):
     # test data might contain files - we don't want thumbnails to be
     # created here
-    mocker.patch("alexandria.core.tasks.create_thumbnail.delay")
+    mocker.patch("alexandria.core.tasks.create_thumbnail.apply_async")
     short_name = settings.APPLICATIONS[application]["SHORT_NAME"]
     request.getfixturevalue(f"{short_name}_dump_settings")
 

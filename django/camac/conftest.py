@@ -3386,17 +3386,16 @@ def be_access_levels(be_permissions_settings, db, access_level_factory, role_fac
 def mock_celery(mocker):
     mocker.patch("django.db.transaction.on_commit", side_effect=lambda f: f())
     mocker.patch(
-        "alexandria.core.tasks.set_checksum.delay",
-        side_effect=lambda id: alexandria_tasks.set_checksum(id),
+        "alexandria.core.tasks.set_checksum.apply_async",
+        side_effect=lambda args, queue: alexandria_tasks.set_checksum(*args),
     )
     mocker.patch(
-        "alexandria.core.tasks.set_content_vector.delay",
-        side_effect=lambda id,
-        document_update=False: alexandria_tasks.set_content_vector(id, document_update),
+        "alexandria.core.tasks.set_content_vector.apply_async",
+        side_effect=lambda args, queue: alexandria_tasks.set_content_vector(*args),
     )
     mocker.patch(
-        "alexandria.core.tasks.create_thumbnail.delay",
-        side_effect=lambda id: alexandria_tasks.create_thumbnail(id),
+        "alexandria.core.tasks.create_thumbnail.apply_async",
+        side_effect=lambda args, queue: alexandria_tasks.create_thumbnail(*args),
     )
 
 
