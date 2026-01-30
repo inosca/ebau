@@ -3,10 +3,10 @@ import random
 import pytest
 
 from camac.caluma.extensions import data_sources
-from camac.conftest import Utils
 from camac.core import utils as core_utils
 from camac.document.models import Attachment
 from camac.gever import api, client
+from camac.tests.utils import Utils
 from camac.utils import retry
 
 

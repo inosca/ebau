@@ -22,7 +22,7 @@ from rest_framework import status
 
 from camac.applicants.models import ROLE_CHOICES
 from camac.caluma.api import CalumaApi
-from camac.conftest import CALUMA_FORM_TYPES_SLUGS, Utils
+from camac.conftest import CALUMA_FORM_TYPES_SLUGS
 from camac.constants import (
     kt_bern as be_constants,
     kt_uri as uri_constants,
@@ -40,6 +40,7 @@ from camac.permissions.conditions import (
     HasApplicantRole,
 )
 from camac.permissions.switcher import PERMISSION_MODE
+from camac.tests.utils import Utils
 from camac.user.models import Location, Service
 from camac.utils import flatten
 

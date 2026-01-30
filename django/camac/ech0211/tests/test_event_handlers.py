@@ -3,7 +3,6 @@ from alexandria.core.factories import CategoryFactory, DocumentFactory, FileFact
 from caluma.caluma_form.models import Question
 from caluma.caluma_workflow.models import WorkItem
 
-from camac.conftest import Utils
 from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_ALLE_BETEILIGTEN,
     ATTACHMENT_SECTION_BEILAGEN_GESUCH,
@@ -12,6 +11,7 @@ from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN,
 )
 from camac.ech0211.signals import file_subsequently, instance_submitted
+from camac.tests.utils import Utils
 
 from ...core.models import InstanceService
 from .. import event_handlers

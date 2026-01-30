@@ -2,7 +2,7 @@ from datetime import date
 
 from faker import Faker
 
-from camac.conftest import Utils
+from camac.tests.utils import Utils
 
 
 def so_personal_row_factory(

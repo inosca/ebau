@@ -4,10 +4,10 @@ from caluma.caluma_workflow.models import WorkItem
 from django.urls import reverse
 from rest_framework import status
 
-from camac.conftest import Utils
 from camac.core.models import InstanceService
 from camac.permissions import api as permissions_api
 from camac.permissions.models import InstanceACL
+from camac.tests.utils import Utils
 from camac.user.models import GeometerChangeTask, Service, ServiceRelation
 from camac.user.tasks import change_geometer_task
 

@@ -8,11 +8,12 @@ from caluma.caluma_workflow import models as workflow_models
 from django.conf import settings
 from django.core.management import call_command
 
-from camac.conftest import Utils, reload_urlconf
+from camac.conftest import reload_urlconf
 from camac.core import utils as core_utils
 from camac.gever import apimodels
 from camac.gever.api import GeverAPI
 from camac.gever.client import Endpoint, GEVERClient
+from camac.tests.utils import Utils
 
 
 @pytest.fixture(scope="module")

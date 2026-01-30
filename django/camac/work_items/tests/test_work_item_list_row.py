@@ -9,11 +9,11 @@ from faker import Faker
 from rest_framework import status
 
 from camac.caluma.utils import date_to_deadline
-from camac.conftest import Utils
 from camac.gis.utils import to_query
 from camac.settings.modules.work_item_list_schema import (
     WorkItemListConfig,
 )
+from camac.tests.utils import Utils
 
 fake = Faker()
 

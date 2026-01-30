@@ -13,9 +13,9 @@ from camac.caluma.extensions.events.deadlines import (
     post_create_withdrawal_check_closes_suspensions,
     post_redo_inquiry_ag,
 )
-from camac.conftest import Utils
 from camac.constants.kt_gr import ARE_SERVICE_GROUP
 from camac.deadlines import models as deadlines_models
+from camac.tests.utils import Utils
 
 
 @pytest.mark.parametrize(

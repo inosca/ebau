@@ -1,11 +1,11 @@
 import pytest
 
-from camac.conftest import Utils
 from camac.constants import kt_uri as uri_constants
 from camac.instance.serializers import (
     CalumaInstanceSerializer,
     CalumaInstanceSubmitSerializer,
 )
+from camac.tests.utils import Utils
 
 
 def test_rejection_feedback(db, instance_factory):

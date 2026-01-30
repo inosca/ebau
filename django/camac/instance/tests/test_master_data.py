@@ -8,7 +8,7 @@ from pytest_lazy_fixtures import lf
 from rest_framework import status
 from syrupy.filters import paths
 
-from camac.conftest import Utils
+from camac.tests.utils import Utils
 
 from ..master_data import MasterData
 

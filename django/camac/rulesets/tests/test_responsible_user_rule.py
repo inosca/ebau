@@ -3,8 +3,8 @@ from django.urls import reverse
 from pytest_lazy_fixtures import lf
 from rest_framework import status
 
-from camac.conftest import Utils
 from camac.rulesets.models import ResponsibleUserRule
+from camac.tests.utils import Utils
 from camac.user.models import Service
 
 

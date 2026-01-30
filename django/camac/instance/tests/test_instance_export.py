@@ -8,9 +8,9 @@ from django.urls import reverse
 from django.utils.timezone import make_aware
 from rest_framework import status
 
-from camac.conftest import Utils
 from camac.instance.export.views import InstanceExportView
 from camac.instance.models import Instance
+from camac.tests.utils import Utils
 
 
 @pytest.mark.parametrize(

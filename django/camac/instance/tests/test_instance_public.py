@@ -14,9 +14,9 @@ from django.urls import reverse
 from django.utils import timezone
 from rest_framework import status
 
-from camac.conftest import Utils
 from camac.core.models import PublicationEntry
 from camac.document import permissions
+from camac.tests.utils import Utils
 
 
 def test_public_caluma_instance_disabled(settings, admin_client):

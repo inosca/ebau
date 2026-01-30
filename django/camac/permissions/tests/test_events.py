@@ -9,13 +9,13 @@ from django.urls import reverse
 from django.utils import timezone
 from rest_framework import status
 
-from camac.conftest import Utils
 from camac.constants import kt_gr as gr_constants
 from camac.instance.models import Instance, InstanceState
 from camac.instance.utils import copy_instance
 from camac.permissions import api as permissions_api, events, exceptions
 from camac.permissions.models import InstanceACL
 from camac.permissions.switcher import PERMISSION_MODE
+from camac.tests.utils import Utils
 from camac.user.models import ServiceRelation
 
 

@@ -1,6 +1,6 @@
 import pytest
 
-from camac.conftest import Utils
+from camac.tests.utils import Utils
 
 
 @pytest.fixture

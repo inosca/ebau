@@ -11,11 +11,11 @@ from caluma.caluma_workflow import api as workflow_api, models as caluma_workflo
 from django.core.management import call_command
 from lxml import etree
 
-from camac.conftest import Utils
 from camac.document.tests.data import django_file
 from camac.instance.domain_logic import CreateInstanceLogic
 from camac.instance.serializers import SUBMIT_DATE_FORMAT
 from camac.tests.data import so_personal_row_factory
+from camac.tests.utils import Utils
 
 
 @pytest.fixture

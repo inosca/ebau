@@ -3,9 +3,9 @@ import json
 import pytest
 from django.conf import settings
 
-from camac.conftest import Utils
 from camac.instance.serializers import SUBMIT_DATE_FORMAT
 from camac.permissions.api import PermissionManager
+from camac.tests.utils import Utils
 
 from ..models import AGGISExport, InstanceProxyAG
 from ..utils import export_agis

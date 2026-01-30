@@ -8,7 +8,7 @@ from caluma.caluma_workflow.api import (
 from caluma.caluma_workflow.models import WorkItem
 
 from camac.caluma.extensions.events import additional_demand
-from camac.conftest import Utils
+from camac.tests.utils import Utils
 
 
 def test_creating_an_additional_demand_sets_the_correct_instance_state(

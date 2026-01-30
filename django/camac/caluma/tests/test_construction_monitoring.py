@@ -12,8 +12,8 @@ from camac.caluma.extensions.events.construction_monitoring import (
     post_create_plan_construction_stage_ur,
 )
 from camac.caluma.extensions.visibilities import CustomVisibility
-from camac.conftest import Utils
 from camac.instance.models import InstanceState
+from camac.tests.utils import Utils
 
 
 @pytest.mark.freeze_time("2023-09-04")

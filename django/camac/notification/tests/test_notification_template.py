@@ -19,13 +19,14 @@ from django.utils import timezone
 from pytest_lazy_fixtures import lf
 from rest_framework import status
 
-from camac.conftest import CALUMA_FORM_TYPES_SLUGS, FakeRequest, Utils
+from camac.conftest import CALUMA_FORM_TYPES_SLUGS, FakeRequest
 from camac.instance.models import HistoryEntry
 from camac.notification import serializers
 from camac.notification.serializers import (
     InstanceMergeSerializer,
     PermissionlessNotificationTemplateSendmailSerializer,
 )
+from camac.tests.utils import Utils
 
 
 @pytest.mark.parametrize(

@@ -23,7 +23,6 @@ from django.utils.translation import gettext_noop as _, override
 from pytest_lazy_fixtures import lf
 from rest_framework import status
 
-from camac.conftest import Utils
 from camac.instance.placeholders.fields import MasterDataField
 from camac.instance.placeholders.serializers import DMSPlaceholdersSerializer
 from camac.instance.placeholders.utils import (
@@ -37,6 +36,7 @@ from camac.tests.data import (
     so_fill_cantonal_exam,
     so_personal_row_factory,
 )
+from camac.tests.utils import Utils
 
 
 @pytest.fixture

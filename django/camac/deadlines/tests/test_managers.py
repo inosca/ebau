@@ -5,9 +5,9 @@ from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_workflow.models import Task, WorkItem
 from django.utils.timezone import make_aware
 
-from camac.conftest import Utils
 from camac.constants.kt_gr import ARE_SERVICE_GROUP
 from camac.deadlines import models as deadlines_models
+from camac.tests.utils import Utils
 
 
 @pytest.mark.parametrize(

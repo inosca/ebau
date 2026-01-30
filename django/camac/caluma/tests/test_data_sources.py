@@ -6,8 +6,8 @@ from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_form.factories import QuestionFactory
 from django.core.cache import cache
 
-from camac.conftest import Utils
 from camac.tests.data import so_personal_row_factory
+from camac.tests.utils import Utils
 
 from ..extensions.countries import COUNTRIES
 from ..extensions.data_sources import (

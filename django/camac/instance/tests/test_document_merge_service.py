@@ -14,7 +14,7 @@ from django.utils.timezone import make_aware
 from django.utils.translation import gettext as _
 from rest_framework import exceptions, status
 
-from camac.conftest import Utils
+from camac.tests.utils import Utils
 from camac.utils import build_url
 
 from ..document_merge_service import DMSClient, DMSHandler, DMSVisitor

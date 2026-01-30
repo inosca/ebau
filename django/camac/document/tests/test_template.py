@@ -14,7 +14,7 @@ from lxml import etree
 from pytest_lazy_fixtures import lf, lfc
 from rest_framework import status
 
-from camac.conftest import Utils
+from camac.tests.utils import Utils
 
 from .data import django_file
 

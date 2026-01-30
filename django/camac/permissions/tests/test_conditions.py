@@ -2,7 +2,6 @@ import pytest
 from caluma.caluma_workflow.models import WorkItem
 
 from camac.applicants.models import ROLE_CHOICES
-from camac.conftest import Utils
 from camac.permissions.api import ACLUserInfo
 from camac.permissions.conditions import (
     HasApplicantRole,
@@ -11,6 +10,7 @@ from camac.permissions.conditions import (
     PermissionContext,
     RequireWorkItem,
 )
+from camac.tests.utils import Utils
 
 
 @pytest.fixture

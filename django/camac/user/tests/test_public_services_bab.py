@@ -5,7 +5,7 @@ from caluma.caluma_workflow.models import WorkItem
 from django.urls import reverse
 from rest_framework import status
 
-from camac.conftest import Utils
+from camac.tests.utils import Utils
 
 
 @pytest.fixture

@@ -14,9 +14,9 @@ from camac.billing.utils import (
     get_totals,
 )
 from camac.billing.views import BillingV2EntryViewset
-from camac.conftest import Utils
 from camac.instance.models import Instance
 from camac.settings.modules.billing_schema import BillingConfig, ProductNumberConfig
+from camac.tests.utils import Utils
 from camac.utils import get_unversioned_slug
 
 

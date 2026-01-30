@@ -11,12 +11,12 @@ from caluma.caluma_workflow.events import post_complete_work_item, post_create_w
 from caluma.caluma_workflow.models import Case, Workflow, WorkItem
 from django.core.management import call_command
 
-from camac.conftest import Utils
 from camac.core.models import HistoryActionConfig
 from camac.ech0211.models import Message
 from camac.instance.domain_logic import DecisionLogic
 from camac.instance.models import HistoryEntryT, Instance
 from camac.instance.utils import copy_instance
+from camac.tests.utils import Utils
 
 
 @pytest.fixture

@@ -10,8 +10,9 @@ from camac.caluma.tests.test_distribution_workflow import (  # noqa: F401
     distribution_child_case_be,
     inquiry_factory_be,
 )
-from camac.conftest import Utils, yes_no
+from camac.conftest import yes_no
 from camac.instance import domain_logic
+from camac.tests.utils import Utils
 
 
 @pytest.mark.parametrize(
