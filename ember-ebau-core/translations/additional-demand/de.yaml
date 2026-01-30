@@ -5,11 +5,11 @@ additional-demand:
   request-info: "Die Anfrage zur Nachforderung wird direkt den Gesuchstellenden zugestellt. Sofern eine kant. Fachstelle eine Nachforderung auslöst, wird zudem auch die Gemeinde über die Nachforderung informiert."
   answer: "Antwort"
   check: "Prüfung"
-  sent-message: "Gesendet am {date}"
   header-info:
-    fill-additional-demand: "Beantwortet am {date} durch {user}"
-    check-additional-demand: "Geprüft am {date} durch {user}"
-    send-additional-demand: "Gesendet am {date} durch {user}"
+    fill-additional-demand: "Gesendet am {date}"
+    check-additional-demand: "Gesendet am {date}"
+    send-additional-demand: "Gesendet am {date}"
+    closed-by: " durch {user}{service}"
   empty: "Keine Nachforderungen vorhanden."
   empty-create: 'Klicken Sie "+" um eine Nachforderung zu starten.'
   no-create: 'Im aktuellen Zustand können keine Nachforderungen erstellt werden.'
