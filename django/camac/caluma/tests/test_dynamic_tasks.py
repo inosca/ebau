@@ -10,7 +10,7 @@ from camac.caluma.tests.test_distribution_workflow import (  # noqa: F401
     distribution_child_case_be,
     inquiry_factory_be,
 )
-from camac.conftest import yes_no
+from camac.conftest import Utils, yes_no
 from camac.instance import domain_logic
 
 
@@ -1098,7 +1098,7 @@ def test_dynamic_task_after_construction_step(
     sz_construction_monitoring_settings,
     construction_monitoring_initialized_case_sz,
     sz_instance,
-    utils,
+    utils: Utils,
 ):
     plan_stage = construction_monitoring_initialized_case_sz.work_items.first()
     utils.add_answer(plan_stage.document, "construction-stage-name", "Test")
@@ -1488,7 +1488,7 @@ def test_dynamic_task_maybe_publication(
     information_of_neighbors_required,
     master_data_is_visible_mock,
     publication_required,
-    utils,
+    utils: Utils,
 ):
     formal_exam = caluma_work_item_factory(
         case=ag_instance.case,

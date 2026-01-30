@@ -14,6 +14,7 @@ from django.utils.timezone import make_aware
 from django.utils.translation import gettext as _
 from rest_framework import exceptions, status
 
+from camac.conftest import Utils
 from camac.utils import build_url
 
 from ..document_merge_service import DMSClient, DMSHandler, DMSVisitor
@@ -157,7 +158,7 @@ def test_document_merge_service_cover_sheet_with_header_values(
     master_data_is_visible_mock,
     freezer,
     be_master_data_settings,
-    utils,
+    utils: Utils,
 ):
     be_instance.case.meta = {
         "camac-instance-id": be_instance.pk,
@@ -275,7 +276,7 @@ def test_document_merge_service_cover_sheet_without_header_values(
     snapshot,
     application_settings,
     be_master_data_settings,
-    utils,
+    utils: Utils,
 ):
     # Prepare applicant answer
     utils.add_table_answer(be_instance.case.document, "personalien-gesuchstellerin", [])
@@ -314,7 +315,7 @@ def test_eingabebestaetigung_gr(
     freezer,
     application_settings,
     master_data_is_visible_mock,
-    utils,
+    utils: Utils,
     gr_master_data_settings,
 ):
     settings.APPLICATION_NAME = "kt_gr"
@@ -494,7 +495,7 @@ def test_number_separator(
     caluma_form_question_factory,
     so_instance,
     use_number_separator,
-    utils,
+    utils: Utils,
 ):
     dms_settings["FORM"] = {"baugesuch": {"forms": ["main-form"]}}
     dms_settings["USE_NUMBER_SEPARATOR"] = use_number_separator
@@ -628,7 +629,7 @@ def test_print_meta_attributes(
     caluma_form_question_factory,
     caluma_form_factory,
     so_instance,
-    utils,
+    utils: Utils,
     snapshot,
 ):
     dms_settings["FORM"] = {"baugesuch": {"forms": ["print-form"]}}

@@ -8,6 +8,7 @@ from django.urls import reverse
 from django.utils.timezone import make_aware
 from rest_framework import status
 
+from camac.conftest import Utils
 from camac.instance.export.views import InstanceExportView
 from camac.instance.models import Instance
 
@@ -93,7 +94,7 @@ def test_caluma_export_be(
     expected_count,
     expected_num_queries,
     snapshot,
-    utils,
+    utils: Utils,
 ):
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
@@ -201,7 +202,7 @@ def test_caluma_export_sz(
     settings,
     sz_distribution_settings,
     django_assert_num_queries,
-    utils,
+    utils: Utils,
 ):
     settings.APPLICATION_NAME = "kt_schwyz"
     settings.SHORT_DATE_FORMAT = "%d.%m.%Y"
@@ -353,7 +354,7 @@ def test_caluma_export_ag(
     service,
     settings,
     snapshot,
-    utils,
+    utils: Utils,
     active_inquiry_factory,
 ):
     settings.APPLICATION_NAME = "kt_ag"

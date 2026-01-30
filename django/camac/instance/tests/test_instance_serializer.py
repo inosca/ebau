@@ -1,5 +1,6 @@
 import pytest
 
+from camac.conftest import Utils
 from camac.constants import kt_uri as uri_constants
 from camac.instance.serializers import (
     CalumaInstanceSerializer,
@@ -78,7 +79,7 @@ def test_ur_get_responsible_service(
     service_name,
     service_factory,
     mocker,
-    utils,
+    utils: Utils,
     set_application_ur,
     veranstaltungs_art,
     caluma_form_question_factory,

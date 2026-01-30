@@ -3,6 +3,7 @@ import json
 import pytest
 from django.conf import settings
 
+from camac.conftest import Utils
 from camac.instance.serializers import SUBMIT_DATE_FORMAT
 from camac.permissions.api import PermissionManager
 
@@ -23,7 +24,7 @@ def test_agis_export(
     caluma_form_factory,
     caluma_dynamic_option_factory,
     snapshot,
-    utils,
+    utils: Utils,
     freezer,
     admin_client,
     responsible_service_factory,

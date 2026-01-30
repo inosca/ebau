@@ -2,6 +2,7 @@ import pytest
 from caluma.caluma_workflow.models import WorkItem
 
 from camac.applicants.models import ROLE_CHOICES
+from camac.conftest import Utils
 from camac.permissions.api import ACLUserInfo
 from camac.permissions.conditions import (
     HasApplicantRole,
@@ -18,7 +19,7 @@ def userinfo(user, service, role):
 
 
 @pytest.mark.parametrize("is_paper", [True, False])
-def test_condition_is_paper(db, is_paper, so_instance, userinfo, utils):
+def test_condition_is_paper(db, is_paper, so_instance, userinfo, utils: Utils):
     if is_paper:
         utils.add_answer(so_instance.case.document, "is-paper", "is-paper-yes")
 

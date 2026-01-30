@@ -5,6 +5,8 @@ from caluma.caluma_workflow.models import WorkItem
 from django.urls import reverse
 from rest_framework import status
 
+from camac.conftest import Utils
+
 
 @pytest.fixture
 def so_services(service_factory, service):
@@ -103,7 +105,7 @@ def test_so_distribution_services(
     so_instance,
     so_publication_settings,
     so_services,
-    utils,
+    utils: Utils,
     caluma_work_item_factory,
 ):
     mocker.patch(

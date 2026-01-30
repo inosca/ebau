@@ -23,6 +23,7 @@ from django.utils.translation import gettext_noop as _, override
 from pytest_lazy_fixtures import lf
 from rest_framework import status
 
+from camac.conftest import Utils
 from camac.instance.placeholders.fields import MasterDataField
 from camac.instance.placeholders.serializers import DMSPlaceholdersSerializer
 from camac.instance.placeholders.utils import (
@@ -130,7 +131,7 @@ def test_dms_placeholders_gr(
     group,
     user_factory,
     responsible_service_factory,
-    utils,
+    utils: Utils,
     gr_master_data_settings,
 ):
     application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
@@ -348,7 +349,7 @@ def test_dms_placeholders_so(
     caluma_dynamic_option_factory,
     mocker,
     multilang,
-    utils,
+    utils: Utils,
     caluma_document_factory,
     active_inquiry_factory,
     master_data_is_visible_mock,
@@ -638,7 +639,7 @@ def test_dms_placeholders(
     be_decision_settings,
     be_master_data_settings,
     be_publication_settings,
-    utils,
+    utils: Utils,
 ):
     application_settings["INTERNAL_FRONTEND"] = "camac"
     application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
@@ -995,7 +996,6 @@ def test_dms_placeholders_ur(
     admin_client,
     ur_instance,
     ur_distribution_settings,
-    utils,
     caluma_dynamic_option_factory,
     service_factory,
     group_factory,
@@ -1101,7 +1101,7 @@ def test_dms_placeholders_ag(
     responsible_service_factory,
     service,
     snapshot,
-    utils,
+    utils: Utils,
 ):
     ag_instance = ag_master_data_case.instance
 

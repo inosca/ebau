@@ -9,6 +9,7 @@ from django.urls import reverse
 from django.utils import timezone
 from rest_framework import status
 
+from camac.conftest import Utils
 from camac.constants import kt_gr as gr_constants
 from camac.instance.models import Instance, InstanceState
 from camac.instance.utils import copy_instance
@@ -332,7 +333,7 @@ def test_submit_create_acl_be(
     be_access_levels,
     disable_ech0211_settings,
     is_paper,
-    utils,
+    utils: Utils,
     caplog,
 ):
     # ensure we can submit

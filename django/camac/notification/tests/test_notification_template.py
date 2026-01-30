@@ -19,7 +19,7 @@ from django.utils import timezone
 from pytest_lazy_fixtures import lf
 from rest_framework import status
 
-from camac.conftest import CALUMA_FORM_TYPES_SLUGS, FakeRequest
+from camac.conftest import CALUMA_FORM_TYPES_SLUGS, FakeRequest, Utils
 from camac.instance.models import HistoryEntry
 from camac.notification import serializers
 from camac.notification.serializers import (
@@ -145,7 +145,7 @@ def test_notification_template_merge(
     caluma_document_factory,
     settings,
     snapshot,
-    utils,
+    utils: Utils,
 ):
     notification_template.body = """
         identifier: {{identifier}}
@@ -857,7 +857,7 @@ def test_notification_placeholders(
     objection_participant_factory,
     caluma_work_item_factory,
     distribution_settings,
-    utils,
+    utils: Utils,
 ):
     settings.APPLICATION["WORKFLOW_ITEMS"]["SUBMIT"] = workflow_entry_factory(
         instance=sz_instance,
@@ -1486,7 +1486,7 @@ def test_ur_placeholders(
     mailoutbox,
     settings,
     has_parcel_filled,
-    utils,
+    utils: Utils,
 ):
     utils.add_answer(
         ur_instance.case.document, "proposal-description", "my description"
@@ -1673,7 +1673,7 @@ def test_notification_bauverwaltung_placeholders(
     caluma_work_item_factory,
     caluma_document_factory,
     settings,
-    utils,
+    utils: Utils,
 ):
     call_command(
         "loaddata", settings.ROOT_DIR("kt_schwyz/config/buildingauthority.json")

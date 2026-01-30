@@ -3,6 +3,7 @@ from django.urls import reverse
 from pytest_lazy_fixtures import lf
 from rest_framework import status
 
+from camac.conftest import Utils
 from camac.rulesets.models import ResponsibleUserRule
 from camac.user.models import Service
 
@@ -62,7 +63,7 @@ def test_responsible_user_for_instance(
     service_factory,
     service,
     user_factory,
-    utils,
+    utils: Utils,
 ):
     form1 = caluma_form_factory(pk="form1")
     form1_with_suffix = caluma_form_factory(pk="form1-with-suffix")

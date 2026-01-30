@@ -11,6 +11,7 @@ from caluma.caluma_workflow.events import post_complete_work_item, post_create_w
 from caluma.caluma_workflow.models import Case, Workflow, WorkItem
 from django.core.management import call_command
 
+from camac.conftest import Utils
 from camac.core.models import HistoryActionConfig
 from camac.ech0211.models import Message
 from camac.instance.domain_logic import DecisionLogic
@@ -989,7 +990,7 @@ def test_get_notification_config_be(
     is_appeal,
     expected_notification_slug,
     caluma_work_item_factory,
-    utils,
+    utils: Utils,
     master_data_settings,
 ):
     settings.APPLICATION_NAME = "kt_be"

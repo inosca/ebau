@@ -4,6 +4,7 @@ from caluma.caluma_workflow.models import WorkItem
 from django.urls import reverse
 from rest_framework import status
 
+from camac.conftest import Utils
 from camac.core.models import InstanceService
 from camac.permissions import api as permissions_api
 from camac.permissions.models import InstanceACL
@@ -453,7 +454,7 @@ def test_instance_selection_for_geometer_change(
     instance_service_factory,
     instance_acl_factory,
     service_factory,
-    utils,
+    utils: Utils,
 ):
     InstanceService.objects.all().delete()
     selected_geometer = service_factory()

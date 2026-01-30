@@ -14,6 +14,8 @@ from lxml import etree
 from pytest_lazy_fixtures import lf, lfc
 from rest_framework import status
 
+from camac.conftest import Utils
+
 from .data import django_file
 
 
@@ -141,7 +143,7 @@ def test_template_merge(
     service_factory,
     application_settings,
     responsible_service_factory,
-    utils,
+    utils: Utils,
 ):
     call_command(
         "loaddata",

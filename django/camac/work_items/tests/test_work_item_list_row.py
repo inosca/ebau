@@ -9,6 +9,7 @@ from faker import Faker
 from rest_framework import status
 
 from camac.caluma.utils import date_to_deadline
+from camac.conftest import Utils
 from camac.gis.utils import to_query
 from camac.settings.modules.work_item_list_schema import (
     WorkItemListConfig,
@@ -610,7 +611,7 @@ def test_work_item_list_row_description_coalesce(
     expected_description,
     work_item_list_row_factory,
     gr_work_item_list_settings: WorkItemListConfig,
-    utils,
+    utils: Utils,
     set_application_gr,
 ):
     """Test that the description annotation can be a list of slugs.

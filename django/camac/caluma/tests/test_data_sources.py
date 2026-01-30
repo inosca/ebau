@@ -6,6 +6,7 @@ from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_form.factories import QuestionFactory
 from django.core.cache import cache
 
+from camac.conftest import Utils
 from camac.tests.data import so_personal_row_factory
 
 from ..extensions.countries import COUNTRIES
@@ -256,7 +257,7 @@ def test_landowners_be(
     db,
     caluma_admin_user,
     be_instance,
-    utils,
+    utils: Utils,
     be_master_data_settings,
     master_data_is_visible_mock,
 ):
@@ -295,7 +296,7 @@ def test_landowners_so(
     db,
     caluma_admin_user,
     so_instance,
-    utils,
+    utils: Utils,
     so_master_data_settings,
     master_data_is_visible_mock,
     snapshot,
@@ -329,7 +330,7 @@ def test_landowners_dynamic_on_copy(
     caluma_document_factory,
     caluma_question_factory,
     caluma_dynamic_option_factory,
-    utils,
+    utils: Utils,
     settings,
 ):
     settings.DATA_SOURCE_CLASSES = ["camac.caluma.extensions.data_sources.Landowners"]
@@ -474,7 +475,9 @@ def test_preliminary_clarfication_targets(db, caluma_admin_user, service_factory
     assert data[4][1]["de"] == "Procap"
 
 
-def test_buildings(db, caluma_admin_user, caluma_question_factory, so_instance, utils):
+def test_buildings(
+    db, caluma_admin_user, caluma_question_factory, so_instance, utils: Utils
+):
     question = caluma_question_factory(
         slug="gebaeude",
         type=caluma_form_models.Question.TYPE_TABLE,
@@ -507,7 +510,7 @@ def test_buildings_dynamic_on_copy(
     caluma_document_factory,
     caluma_question_factory,
     caluma_dynamic_option_factory,
-    utils,
+    utils: Utils,
     settings,
 ):
     settings.DATA_SOURCE_CLASSES = ["camac.caluma.extensions.data_sources.Buildings"]
@@ -564,7 +567,7 @@ def test_services_for_final_report(
     db,
     caluma_admin_user,
     caluma_question_factory,
-    utils,
+    utils: Utils,
     ur_instance,
     caluma_work_item_factory,
     service_factory,

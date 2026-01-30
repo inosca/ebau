@@ -8,6 +8,8 @@ from pytest_lazy_fixtures import lf
 from rest_framework import status
 from syrupy.filters import paths
 
+from camac.conftest import Utils
+
 from ..master_data import MasterData
 
 
@@ -64,7 +66,7 @@ def test_master_data_parsers(
     instance,
     master_data_is_visible_mock,
     master_data_settings,
-    utils,
+    utils: Utils,
 ):
     master_data_settings["CONFIG"] = {
         "date": ("case_meta", "my-date", {"value_parser": "date"}),
@@ -372,7 +374,7 @@ def test_master_data_municipality_service_content_resolver(
     caluma_dynamic_option_factory,
     service_factory,
     service_content_factory,
-    utils,
+    utils: Utils,
     has_municipality_answer,
     expected,
 ):

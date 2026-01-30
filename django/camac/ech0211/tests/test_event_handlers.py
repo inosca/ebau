@@ -3,6 +3,7 @@ from alexandria.core.factories import CategoryFactory, DocumentFactory, FileFact
 from caluma.caluma_form.models import Question
 from caluma.caluma_workflow.models import WorkItem
 
+from camac.conftest import Utils
 from camac.constants.kt_bern import (
     ATTACHMENT_SECTION_ALLE_BETEILIGTEN,
     ATTACHMENT_SECTION_BEILAGEN_GESUCH,
@@ -446,7 +447,7 @@ def test_accompanying_report_event_handler_extension(
     documents_available,
     service,
     service_factory,
-    utils,
+    utils: Utils,
 ):
     gr_ech0211_settings["ACCOMPANYING_REPORT"]["EXTENSION_MAPPING"] = {
         "inquiry-answer-considerations": {

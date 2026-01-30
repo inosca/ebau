@@ -3,6 +3,7 @@ import random
 import pytest
 
 from camac.caluma.extensions import data_sources
+from camac.conftest import Utils
 from camac.core import utils as core_utils
 from camac.document.models import Attachment
 from camac.gever import api, client
@@ -24,7 +25,7 @@ def configure_for_gever(
     service_factory,
     mocker,
     instance_service_factory,
-    utils,
+    utils: Utils,
     gever_test_utils,
     user_factory,
     gever_groups,

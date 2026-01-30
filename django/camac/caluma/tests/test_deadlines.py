@@ -13,6 +13,7 @@ from camac.caluma.extensions.events.deadlines import (
     post_create_withdrawal_check_closes_suspensions,
     post_redo_inquiry_ag,
 )
+from camac.conftest import Utils
 from camac.constants.kt_gr import ARE_SERVICE_GROUP
 from camac.deadlines import models as deadlines_models
 
@@ -155,7 +156,7 @@ def test_events_deadlines_publication_inquiry_gr(
     gr_deadlines_settings,
     set_application_gr,
     mocker,
-    utils,
+    utils: Utils,
 ):
     """Test deadline creation and the defined start date for the municipality/ARE.
 
@@ -293,7 +294,7 @@ def test_events_deadlines_decision_gr(
     gr_decision_settings,
     set_application_gr,
     mocker,
-    utils,
+    utils: Utils,
 ):
     group = admin_user.groups.first()
     service = group.service
@@ -614,7 +615,7 @@ def test_post_complete_inquiry_fill_ag_creates_deadline(
     action,
     has_suspension,
     mocker,
-    utils,
+    utils: Utils,
 ):
     """Test suspension created for deadline on completing the fill task.
 

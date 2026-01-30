@@ -1,9 +1,11 @@
 import pytest
 
+from camac.conftest import Utils
+
 
 @pytest.fixture
 def ur_master_data_case_gwr(
-    ur_instance, ur_master_data_case, workflow_entry_factory, utils
+    ur_instance, ur_master_data_case, workflow_entry_factory, utils: Utils
 ):
     ur_master_data_case.meta = {"dossier-number": "1201-21-003"}
     ur_master_data_case.save()

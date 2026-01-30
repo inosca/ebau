@@ -8,7 +8,7 @@ from caluma.caluma_workflow import models as workflow_models
 from django.conf import settings
 from django.core.management import call_command
 
-from camac.conftest import reload_urlconf
+from camac.conftest import Utils, reload_urlconf
 from camac.core import utils as core_utils
 from camac.gever import apimodels
 from camac.gever.api import GeverAPI
@@ -136,7 +136,7 @@ def gever_config_data(db):
 
 
 @pytest.fixture
-def gever_test_utils(be_instance, utils):
+def gever_test_utils(be_instance, utils: Utils):
     """Provide test utils based on the camac "utils" fixture."""
     utils_cls = type(utils)
 

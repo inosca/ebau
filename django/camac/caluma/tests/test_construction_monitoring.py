@@ -12,6 +12,7 @@ from camac.caluma.extensions.events.construction_monitoring import (
     post_create_plan_construction_stage_ur,
 )
 from camac.caluma.extensions.visibilities import CustomVisibility
+from camac.conftest import Utils
 from camac.instance.models import InstanceState
 
 
@@ -205,7 +206,7 @@ def test_complete_construction_stage(
     service,
     distribution_settings,
     cancel,
-    utils,
+    utils: Utils,
 ):
     sz_construction_monitoring_settings["NOTIFICATIONS"][
         sz_construction_monitoring_settings["CONSTRUCTION_STAGE_WORKFLOW"]
@@ -354,7 +355,7 @@ def test_complete_construction_step_work_item(
     construction_monitoring_initialized_case_sz,
     caluma_admin_schema_executor,
     service,
-    utils,
+    utils: Utils,
     notification_template,
     mocker,
 ):

@@ -6,6 +6,7 @@ from caluma.caluma_form import (
 )
 
 from camac.caluma.extensions.events import address_assignment
+from camac.conftest import Utils
 
 
 def test_prefill_street_answer(
@@ -41,7 +42,7 @@ def test_prefill_street_answer(
 def test_address_assignment_write_street_to_main_form(
     db,
     gr_instance,
-    utils,
+    utils: Utils,
     caluma_work_item_factory,
     gr_address_assignment_settings,
     caluma_admin_user,

@@ -22,7 +22,7 @@ from rest_framework import status
 
 from camac.applicants.models import ROLE_CHOICES
 from camac.caluma.api import CalumaApi
-from camac.conftest import CALUMA_FORM_TYPES_SLUGS
+from camac.conftest import CALUMA_FORM_TYPES_SLUGS, Utils
 from camac.constants import (
     kt_bern as be_constants,
     kt_uri as uri_constants,
@@ -1257,7 +1257,7 @@ def test_instance_authority_by_submission_for_koor_afg(
 
 @pytest.mark.parametrize("service_group__name", ["Sekretariate Gemeindebaubehörden"])
 def test_set_instance_service_ur_bgbb(
-    db, ur_instance, mocker, set_application_ur, group_factory, utils
+    db, ur_instance, mocker, set_application_ur, group_factory, utils: Utils
 ):
     # if form is "bgbb" and the form was submitted by the AFG
     # AFG should be the responsible service. Otherwise it is the
@@ -1313,7 +1313,7 @@ def test_oereb_instance_copy_for_koor_afj(
     authority_location_factory,
     form_slug,
     attachment_factory,
-    utils,
+    utils: Utils,
     disable_ech0211_settings,
     ur_master_data_case,
 ):
@@ -2461,7 +2461,7 @@ def test_rejection(
     rejection_settings,
     caluma_admin_user,
     disable_ech0211_settings,
-    utils,
+    utils: Utils,
 ):
     application_settings["NOTIFICATIONS"]["SUBMIT"] = []
 
@@ -2540,7 +2540,7 @@ def test_be_copy_responsible_user_on_submit(
     caluma_work_item_factory,
     user_factory,
     disable_ech0211_settings,
-    utils,
+    utils: Utils,
 ):
     application_settings["NOTIFICATIONS"]["SUBMIT"] = []
     application_settings["COPY_RESPONSIBLE_PERSON_ON_SUBMIT"] = True
@@ -3154,7 +3154,7 @@ def test_instance_submit_so_bab(
     so_instance,
     so_master_data_settings,
     service_factory,
-    utils,
+    utils: Utils,
 ):
     settings.APPLICATION_NAME = "kt_so"
     application_settings["SHORT_NAME"] = "so"
@@ -3204,7 +3204,7 @@ def test_instance_submit_so_canton(
     so_bab_settings,
     so_instance,
     so_master_data_settings,
-    utils,
+    utils: Utils,
 ):
     settings.APPLICATION_NAME = "kt_so"
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = False
@@ -3584,7 +3584,7 @@ def test_instance_submit_ag_internal(
     mocker,
     service,
     set_application_ag,
-    utils,
+    utils: Utils,
 ):
     mocker.patch(
         "camac.instance.serializers.CalumaInstanceSubmitSerializer._send_notification"
@@ -3636,7 +3636,7 @@ def test_instance_submit_ag_pgv(
     settings,
     ag_instance,
     ag_master_data_settings,
-    utils,
+    utils: Utils,
 ):
     mocker.patch(
         "camac.instance.serializers.CalumaInstanceSubmitSerializer._send_notification"

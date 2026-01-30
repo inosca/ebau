@@ -5,6 +5,7 @@ from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_workflow.models import Task, WorkItem
 from django.utils.timezone import make_aware
 
+from camac.conftest import Utils
 from camac.constants.kt_gr import ARE_SERVICE_GROUP
 from camac.deadlines import models as deadlines_models
 
@@ -275,7 +276,7 @@ def test_update_deadline_startdate_gr(
     gr_permissions_settings,
     set_application_gr,
     disable_deadline_side_effects,
-    utils,
+    utils: Utils,
     mocker,
 ):
     """Test the api to update the start date of a deadline for a GR instance."""
@@ -800,7 +801,7 @@ def test_update_deadline_enddate_ag(
     application_settings,
     disable_deadline_side_effects,
     mocker,
-    utils,
+    utils: Utils,
 ):
     """Test the api to update the deadline enddate for a AG instance."""
     application_settings["SHORT_NAME"] = "ag"

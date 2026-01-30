@@ -2,6 +2,8 @@ from datetime import date
 
 from faker import Faker
 
+from camac.conftest import Utils
+
 
 def so_personal_row_factory(
     is_juristic: bool = False,
@@ -124,7 +126,7 @@ def ag_personal_row_factory(is_juristic: bool = False) -> dict:
     }
 
 
-def so_fill_cantonal_exam(document, utils):
+def so_fill_cantonal_exam(document, utils: Utils):
     utils.add_answer(document, "mp-bab-datum-eingang-arp", date(2025, 2, 13))
     utils.add_answer(document, "mp-bab-terminvorgabe-bei-erfassung", date(2023, 1, 2))
     utils.add_answer(document, "mp-bab-massgebliche-terminvorgabe", date(2023, 1, 5))

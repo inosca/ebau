@@ -11,6 +11,7 @@ from caluma.caluma_workflow import api as workflow_api, models as caluma_workflo
 from django.core.management import call_command
 from lxml import etree
 
+from camac.conftest import Utils
 from camac.document.tests.data import django_file
 from camac.instance.domain_logic import CreateInstanceLogic
 from camac.instance.serializers import SUBMIT_DATE_FORMAT
@@ -30,7 +31,7 @@ def ech_instance_sz(
     caluma_config_sz,
     caluma_work_item_factory,
     location,
-    utils,
+    utils: Utils,
 ):
     ech_instance = instance_with_case(ech_instance)
     ech_instance.instance_group = instance_group
@@ -112,7 +113,7 @@ def ech_instance(
 
 @pytest.fixture
 def ech_instance_gr(
-    ech_instance, instance_with_case, caluma_workflow_config_gr, utils, group
+    ech_instance, instance_with_case, caluma_workflow_config_gr, utils: Utils, group
 ):
     ech_instance = instance_with_case(ech_instance)
     ech_instance.case.meta["dossier-number"] = "2020-1"
@@ -186,7 +187,9 @@ def ech_instance_gr(
 
 
 @pytest.fixture
-def ech_instance_be(ech_instance, instance_with_case, caluma_workflow_config_be, utils):
+def ech_instance_be(
+    ech_instance, instance_with_case, caluma_workflow_config_be, utils: Utils
+):
     ech_instance = instance_with_case(ech_instance)
     ech_instance.case.meta["ebau-number"] = "2020-1"
 
@@ -371,7 +374,7 @@ def ech_instance_so(
     ech_instance,
     instance_with_case,
     caluma_workflow_config_so,
-    utils,
+    utils: Utils,
     decision_factory_so,
     caluma_work_item_factory,
     group,

@@ -14,6 +14,7 @@ from django.urls import reverse
 from django.utils import timezone
 from rest_framework import status
 
+from camac.conftest import Utils
 from camac.core.models import PublicationEntry
 from camac.document import permissions
 
@@ -189,7 +190,7 @@ def test_public_caluma_instance_oereb_ur(
     instance_factory,
     instance_group_factory,
     role,
-    utils,
+    utils: Utils,
     is_oereb_form,
     master_data_is_visible_mock,
 ):
@@ -928,7 +929,7 @@ def test_publication_date_range(
     publication_backend,
     expected_start,
     expected_end,
-    utils,
+    utils: Utils,
 ):
     gr_publication_settings["BACKEND"] = publication_backend
 

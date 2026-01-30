@@ -1463,7 +1463,7 @@ def so_master_data_case(
     caluma_work_item_factory,
     master_data_is_visible_mock,
     so_instance,
-    utils,
+    utils: Utils,
 ):
     so_instance.case.meta = {
         "dossier-number": "2601-2024-1",
@@ -1781,7 +1781,9 @@ def sz_master_data_case(db, sz_instance, form_field_factory, location_factory):
 
 
 @pytest.fixture
-def be_master_data_case(db, be_instance, group, master_data_is_visible_mock, utils):
+def be_master_data_case(
+    db, be_instance, group, master_data_is_visible_mock, utils: Utils
+):
     be_instance.case.meta = {
         "ebau-number": "2021-1",
         "submit-date": "2021-03-31T13:17:08+0000",
@@ -2307,7 +2309,7 @@ def ag_master_data_case(
     db,
     master_data_is_visible_mock,
     ag_instance,
-    utils,
+    utils: Utils,
     caluma_dynamic_option_factory,
     caluma_work_item_factory,
     service_factory,
@@ -2432,7 +2434,7 @@ def ur_master_data_case(
     workflow_entry_factory,
     camac_answer_factory,
     master_data_is_visible_mock,
-    utils,
+    utils: Utils,
 ):
     ur_instance.case.meta = {"dossier-number": "1201-21-003"}
     ur_instance.case.save()
@@ -2740,7 +2742,7 @@ def decision_factory_so(so_instance, so_decision_settings):
 
 @pytest.fixture
 def decision_factory_ag(
-    ag_instance, ag_decision_settings, caluma_work_item_factory, utils
+    ag_instance, ag_decision_settings, caluma_work_item_factory, utils: Utils
 ):
     def factory(
         instance=ag_instance,
@@ -3406,7 +3408,7 @@ def construction_monitoring_initialized_case_sz(
 def construction_monitoring_planned_case_sz(
     construction_monitoring_initialized_case_sz,
     caluma_admin_user,
-    utils,
+    utils: Utils,
 ):
     plan_stage = construction_monitoring_initialized_case_sz.work_items.first()
     utils.add_answer(plan_stage.document, "construction-stage-name", "Test")
@@ -3561,7 +3563,7 @@ def mock_celery(mocker):
 
 
 @pytest.fixture
-def create_caluma_publication(db, caluma_work_item_factory, utils, request):
+def create_caluma_publication(db, caluma_work_item_factory, utils: Utils, request):
     def wrapper(
         instance,
         start=now() - timedelta(days=1),
