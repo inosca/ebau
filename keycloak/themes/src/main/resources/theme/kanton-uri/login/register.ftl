@@ -1,9 +1,10 @@
-<#-- Copy of https://github.com/keycloak/keycloak/blob/dc9de96f7b82b9ca97532cf985a2fe8f9e11e7fe/themes/src/main/resources/theme/base/login/register.ftl -->
+<#-- Copy of https://github.com/keycloak/keycloak/blob/release/26.5/themes/src/main/resources/theme/base/login/register.ftl -->
 <#-- Changes are highlighted with "CHANGE:" -->
 <#import "template.ftl" as layout>
 <#import "user-profile-commons.ftl" as userProfileCommons>
 <#import "register-commons.ftl" as registerCommons>
-<@layout.registrationLayout displayMessage=messagesPerField.exists('global') displayRequiredFields=true; section>
+<#-- CHANGE: hide info on required fields marked with * -->
+<@layout.registrationLayout displayMessage=messagesPerField.exists('global') displayRequiredFields=false; section>
     <#if section = "header">
         <#if messageHeader??>
             ${kcSanitize(msg("${messageHeader}"))?no_esc}
@@ -28,7 +29,14 @@
                                            autocomplete="new-password"
                                            aria-invalid="<#if messagesPerField.existsError('password','password-confirm')>true</#if>"
                                     />
-                                    <#-- CHANGE: remove password visibility toggle -->
+                                    <#-- CHANGE: remove password visibility toggle
+                                    <button class="${properties.kcFormPasswordVisibilityButtonClass!}" type="button" aria-label="${msg('showPassword')}"
+                                            aria-controls="password"  data-password-toggle
+                                            data-icon-show="${properties.kcFormPasswordVisibilityIconShow!}" data-icon-hide="${properties.kcFormPasswordVisibilityIconHide!}"
+                                            data-label-show="${msg('showPassword')}" data-label-hide="${msg('hidePassword')}">
+                                        <i class="${properties.kcFormPasswordVisibilityIconShow!}" aria-hidden="true"></i>
+                                    </button>
+                                    -->
                                 </div>
 
                                 <#if messagesPerField.existsError('password')>
@@ -48,10 +56,17 @@
                             <div class="${properties.kcInputWrapperClass!}">
                                 <div class="${properties.kcInputGroup!}" dir="ltr">
                                     <input type="password" id="password-confirm" class="${properties.kcInputClass!}"
-                                           name="password-confirm"
+                                           name="password-confirm" autocomplete="new-password"
                                            aria-invalid="<#if messagesPerField.existsError('password-confirm')>true</#if>"
                                     />
-                                    <#-- CHANGE: remove password visibility toggle -->
+                                    <#-- CHANGE: remove password visibility toggle
+                                    <button class="${properties.kcFormPasswordVisibilityButtonClass!}" type="button" aria-label="${msg('showPassword')}"
+                                            aria-controls="password-confirm"  data-password-toggle
+                                            data-icon-show="${properties.kcFormPasswordVisibilityIconShow!}" data-icon-hide="${properties.kcFormPasswordVisibilityIconHide!}"
+                                            data-label-show="${msg('showPassword')}" data-label-hide="${msg('hidePassword')}">
+                                        <i class="${properties.kcFormPasswordVisibilityIconShow!}" aria-hidden="true"></i>
+                                    </button>
+                                    -->
                                 </div>
 
                                 <#if messagesPerField.existsError('password-confirm')>
@@ -78,14 +93,14 @@
             <div class="${properties.kcFormGroupClass!}">
                 <div id="kc-form-options" class="${properties.kcFormOptionsClass!}">
                     <div class="${properties.kcFormOptionsWrapperClass!}">
-                        <span><a href="${url.loginUrl}">${kcSanitize(msg("backToLogin"))?no_esc}</a></span>
+                        <span><a href="${url.loginUrl}">${msg("backToLogin")}</a></span>
                     </div>
                 </div>
 
                 <#if recaptchaRequired?? && !(recaptchaVisible!false)>
                     <script>
                         function onSubmitRecaptcha(token) {
-                            document.getElementById("kc-register-form").submit();
+                            document.getElementById("kc-register-form").requestSubmit();
                         }
                     </script>
                     <div id="kc-form-buttons" class="${properties.kcFormButtonsClass!}">
