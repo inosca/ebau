@@ -169,6 +169,7 @@ def test_decision_event_handler_be(
     geometer_relation_exists,
     expected_count,
     deactivated_municipality,
+    form_utils: FormUtils,
 ):
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
@@ -177,9 +178,7 @@ def test_decision_event_handler_be(
         "camac.permissions.config.kt_bern.GeneralPermissionEventHandlerBE"
     )
 
-    be_instance.case.document.answers.create(
-        question_id="is-paper", value="is-paper-no"
-    )
+    form_utils.set_is_paper(be_instance.case.document, False)
 
     municipality_service = service_factory(
         service_group__name="municipality",

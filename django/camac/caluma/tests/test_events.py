@@ -29,6 +29,7 @@ from camac.caluma.extensions.events.complete_check import (
 )
 from camac.caluma.extensions.events.general import post_decision_ur
 from camac.instance.models import HistoryEntryT
+from camac.tests.form_utils import FormUtils
 
 
 @pytest.mark.parametrize("expected_value", ["is-paper-yes", "is-paper-no"])
@@ -85,12 +86,13 @@ def test_copy_sb_personalien(
     decision_factory,
     application_settings,
     be_decision_settings,
+    form_utils: FormUtils,
 ):
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
     case = be_instance.case
 
-    case.document.answers.create(question_id="is-paper", value="is-paper-no")
+    form_utils.set_is_paper(case.document, False)
 
     if use_fallback:
         table = case.document.answers.create(question_id="personalien-gesuchstellerin")
@@ -224,6 +226,7 @@ def test_copy_municipality_tags_for_sb1(
     application_settings,
     be_decision_settings,
     be_ech0211_settings,
+    form_utils: FormUtils,
 ):
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["SHORT_NAME"] = "be"
@@ -256,9 +259,7 @@ def test_copy_municipality_tags_for_sb1(
     tag_factory(name="Foobar", instance=be_instance, service=municipality_burgdorf)
     tag_factory(name="Baz", instance=be_instance, service=municipality_kirchberg)
 
-    be_instance.case.document.answers.create(
-        question_id="is-paper", value="is-paper-no"
-    )
+    form_utils.set_is_paper(be_instance.case.document, False)
 
     for task_id in [
         "submit",

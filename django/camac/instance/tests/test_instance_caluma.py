@@ -606,6 +606,7 @@ def test_instance_submit_ur(
     form_slug,
     special_case,
     disable_ech0211_settings,
+    form_utils: FormUtils,
 ):
     settings.APPLICATION_NAME = "kt_uri"
     application_settings["NOTIFICATIONS"]["SUBMIT"] = [
@@ -678,9 +679,7 @@ def test_instance_submit_ur(
         )
 
     if ur_instance.group.role.name in ["Municipality", "Coordination"]:
-        ur_instance.case.document.answers.create(
-            question_id="is-paper", value="is-paper-yes"
-        )
+        form_utils.set_is_paper(ur_instance.case.document, True)
 
     group_factory(role=role_factory(name="support"))
     instance_state_factory(name="subm")
@@ -2050,15 +2049,14 @@ def test_caluma_instance_list_filter(
     admin_user,
     mock_public_status,
     mock_nfd_permissions,
+    form_utils: FormUtils,
 ):
     for instance, paper in [
         (instance_with_case(instance_factory(user=admin_user)), False),
         (instance_with_case(instance_factory(user=admin_user)), False),
         (be_instance, True),
     ]:
-        instance.case.document.answers.create(
-            question_id="is-paper", value=f"is-paper-{'yes' if paper else 'no'}"
-        )
+        form_utils.set_is_paper(instance.case.document, paper)
 
     url = reverse("instance-list")
     response = admin_client.get(url, data={"is_paper": is_paper})

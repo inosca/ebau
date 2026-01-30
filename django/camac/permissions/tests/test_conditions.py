@@ -21,7 +21,7 @@ def userinfo(user, service, role):
 @pytest.mark.parametrize("is_paper", [True, False])
 def test_condition_is_paper(db, is_paper, so_instance, userinfo, form_utils: FormUtils):
     if is_paper:
-        form_utils.add_answer(so_instance.case.document, "is-paper", "is-paper-yes")
+        form_utils.set_is_paper(so_instance.case.document, True)
 
     assert IsPaper().apply(userinfo, PermissionContext(so_instance)) == is_paper
 
