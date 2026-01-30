@@ -28,4 +28,7 @@ export default {
   servicePermissions: {
     includeSubRoutes: ["organisation"],
   },
+  attachmentSections: {
+    internal: 7,
+  },
 };
