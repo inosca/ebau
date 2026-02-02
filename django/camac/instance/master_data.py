@@ -7,7 +7,7 @@ from uuid import UUID
 
 from caluma.caluma_core.models import HistoricalRecords
 from caluma.caluma_form.models import Document
-from caluma.caluma_form.structure import FastLoader
+from caluma.caluma_form.structure import BaseField, FastLoader, FieldSet
 from caluma.caluma_form.validators import DocumentValidator
 from caluma.caluma_workflow.models import Case, WorkItem
 from dateutil.parser import ParserError, parse as dateutil_parse
@@ -177,8 +177,28 @@ class MasterData(object):
         except Exception:  # pragma: todo cover
             return self._parse_value(None, **options)
 
+    def _get_first_field_from_lookup_list(
+        self, lookup: list[str], fieldset: FieldSet
+    ) -> BaseField:
+        """Get the first question slug in `lookup` that is visible and has a value in `fieldset`.
+
+        This is used when questions are versioned so we can configure all relevant slugs
+        in master data.
+        """
+        return (
+            next(
+                filter(
+                    lambda f: f is not None and f.is_visible(),
+                    (fieldset.get_field(slug) for slug in lookup),
+                ),
+                None,
+            )
+            if isinstance(lookup, list)
+            else fieldset.get_field(lookup)
+        )
+
     def struc_field_resolver(self, lookup, fieldset, **options):
-        field = fieldset.get_field(lookup)
+        field = self._get_first_field_from_lookup_list(lookup, fieldset)
         if not field:
             log.warning("Field %s does not exist in %s", lookup, fieldset.get_path())
             return None
@@ -320,13 +340,7 @@ class MasterData(object):
             return None
 
         struc = self._get_structure(document)
-        field = next(
-            filter(
-                lambda f: f is not None and f.is_visible(),
-                (struc.get_field(slug) for slug in lookup),
-            ),
-            None,
-        )
+        field = self._get_first_field_from_lookup_list(lookup, struc)
 
         # Field may be None if the question is hidden for example. Just
         # fallback to None instead
@@ -391,18 +405,26 @@ class MasterData(object):
                                 )
                             }
                         }
+                    ),
+                    "dwellings": (
+                        "table",
+                        ["dwellings", "dwellings-v2"],
+                        {
+                            "column_mapping": {
+                                "floor": "floor",
+                            }
+                        }
                     )
                 }
             }
         }
         """
-
         document = self._get_document(kwargs.get("document_from_work_item"))
         if not document:
             return []
 
         struc = self._get_structure(document)
-        table_field = struc.get_field(lookup)
+        table_field = self._get_first_field_from_lookup_list(lookup, struc)
 
         if not table_field:
             log.warning(
