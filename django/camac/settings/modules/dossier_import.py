@@ -13,6 +13,7 @@ DOSSIER_IMPORT = {
         "RESOURCE_ID_PATH": "/dossier-import",
         "DELETE_KEYWORD": "<LÖSCHEN>",
         "QUEUE": "django-q",
+        "CELERY_QUEUE": "celery",
     },
     "kt_schwyz": {
         "ENABLED": True,
@@ -97,6 +98,7 @@ DOSSIER_IMPORT = {
             "https://ebau.so.ch/auth/realms/ebau/protocol/openid-connect/token",
         ),
         "QUEUE": "celery",
+        "CELERY_QUEUE": "import",
     },
     "kt_ag": {
         "ENABLED": True,
