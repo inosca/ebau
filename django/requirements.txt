@@ -2,7 +2,7 @@ Babel==2.17.0
 backoff==2.2.1
 boto3==1.40.26
 caluma==12.2.3
-caluma-alexandria==8.5.0
+caluma-alexandria==8.6.0
 celery==5.5.3
 codetiming==1.4.0
 cryptography==44.0.2
