@@ -20,6 +20,7 @@ from . import (  # noqa: F401
     formal_exam,
     general,
     gever,
+    publication,
     rejection,
     sb,
     simple_workflow,

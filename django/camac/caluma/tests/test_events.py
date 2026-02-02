@@ -598,11 +598,14 @@ def test_notify_manual_work_item(
 
 
 def test_set_is_published(
+    db,
+    settings,
     caluma_admin_user,
     caluma_work_item_factory,
     service_factory,
     caluma_task_factory,
 ):
+    settings.CELERY_TASK_ALWAYS_EAGER = True
     work_item = caluma_work_item_factory(
         task=caluma_task_factory(slug="fill-publication"),
         status="ready",
