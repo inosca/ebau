@@ -2,7 +2,6 @@ import json
 from functools import wraps
 from logging import getLogger
 
-import requests
 from caluma.caluma_core.mutation import Mutation
 from caluma.caluma_core.permissions import (
     BasePermission,
@@ -38,11 +37,13 @@ from inflection import underscore
 
 from camac.caluma.utils import CamacRequest
 from camac.constants.kt_bern import DASHBOARD_FORM_SLUG
-from camac.instance.serializers import CalumaInstanceSerializer
+from camac.instance.serializers import (
+    CalumaInstanceSerializer,
+    SchwyzInstanceSerializer,
+)
 from camac.permissions.api import PermissionManager
 from camac.permissions.switcher import is_permission_module_fully_enabled
 from camac.user.permissions import permission_aware
-from camac.utils import build_url, headers
 
 log = getLogger()
 
@@ -532,36 +533,18 @@ class CustomPermission(BasePermission):
                 case.family.instance, permission_name
             )
 
-        if settings.APPLICATION_NAME == "kt_uri":
-            serializer = CalumaInstanceSerializer(
-                case.family.instance, context={"request": self.request}
-            )
-            permissions = serializer.get_permissions(case.family.instance)
-
-            return required_permission in permissions.get(permission_key, [])
-
-        resp = requests.get(
-            build_url(
-                settings.API_HOST, f"/api/v1/instances/{case.family.instance.pk}"
-            ),
-            headers=headers(info),
+        form_backend = settings.APPLICATION["FORM_BACKEND"]
+        serializer_class = (
+            SchwyzInstanceSerializer
+            if form_backend == "camac-ng"
+            else CalumaInstanceSerializer
         )
+        serializer = serializer_class(
+            case.family.instance, context={"request": self.request}
+        )
+        permissions = serializer.get_permissions(case.family.instance)
 
-        resp.raise_for_status()
-
-        try:
-            jsondata = resp.json()
-            if "error" in jsondata:  # pragma: no cover
-                raise RuntimeError("Error from NG API: %s" % jsondata["error"])
-
-            permissions = jsondata["data"]["meta"]["permissions"]
-
-            return required_permission in permissions.get(permission_key, [])
-
-        except KeyError:  # pragma: no cover
-            raise RuntimeError(
-                f"NG API returned unexpected data structure (no data key) {jsondata}"
-            )
+        return required_permission in permissions.get(permission_key, [])
 
     def _get_work_item(self, document):
         document = document.family

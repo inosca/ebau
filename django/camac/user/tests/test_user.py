@@ -7,8 +7,6 @@ from caluma.caluma_form import (
 from django.urls import reverse
 from rest_framework import status
 
-from camac.utils import build_url
-
 
 def test_check_password(admin_user):
     assert admin_user.check_password("password")
@@ -180,24 +178,16 @@ def test_user_keycloak_apply(
     admin_user,
     gr_instance,
     settings,
-    requests_mock,
+    mocker,
     has_permission,
     expected_status,
 ):
     caluma_form_models.Question.objects.create(
         slug="e-mail-gesuchstellerin", type=caluma_form_models.Question.TYPE_TEXT
     )
-    requests_mock.get(
-        build_url(
-            settings.API_HOST, reverse("instance-detail", args=(gr_instance.pk,))
-        ),
-        json={
-            "data": {
-                "id": gr_instance.pk,
-                "type": "instances",
-                "meta": {"permissions": {"main": ["write"] if has_permission else []}},
-            }
-        },
+    mocker.patch(
+        "camac.instance.serializers.CalumaInstanceSerializer.get_permissions",
+        return_value={"main": ["write"] if has_permission else []},
     )
 
     response = admin_client.post(

@@ -576,7 +576,7 @@ def test_specific_form_permissions(
     mocker.patch("caluma.caluma_core.types.Node.visibility_classes", [Any])
 
     case = caluma_case_factory()
-    instance_factory(case=case)
+    instance = instance_factory(case=case)
     if is_main_form:
         document = case.document
         form = "main"
@@ -587,12 +587,10 @@ def test_specific_form_permissions(
 
     application_settings["CALUMA"]["FORM_PERMISSIONS"] = [form]
 
-    response = Mock(spec=requests.models.Response)
-    response.status_code = 200
-    response.json.return_value = {
-        "data": {"meta": {"permissions": {form: form_permissions}}}
-    }
-    mocker.patch.object(requests, "get", return_value=response)
+    permissions_mock = mocker.patch(
+        "camac.instance.serializers.SchwyzInstanceSerializer.get_permissions",
+        return_value={form: form_permissions},
+    )
 
     question = caluma_form_question_factory(
         form=document.form, question__type=Question.TYPE_TEXT
@@ -614,7 +612,7 @@ def test_specific_form_permissions(
 
     result = caluma_admin_schema_executor(query, variables=variables)
 
-    requests.get.assert_called()
+    permissions_mock.assert_called_with(instance)
     assert bool(result.errors) != success
 
 

@@ -7,8 +7,6 @@ from django.core.cache import cache
 from django.urls import reverse
 from rest_framework import status
 
-from camac.utils import build_url
-
 
 @pytest.fixture
 def gis_apply_data(
@@ -141,19 +139,13 @@ def test_gis_apply(
     gis_apply_data,
     has_cache,
     has_permission,
-    requests_mock,
+    mocker,
     settings,
     so_instance,
 ):
-    requests_mock.get(
-        build_url(settings.API_HOST, f"/api/v1/instances/{so_instance.pk}"),
-        json={
-            "data": {
-                "id": so_instance.pk,
-                "type": "instances",
-                "meta": {"permissions": {"main": ["write"] if has_permission else []}},
-            }
-        },
+    mocker.patch(
+        "camac.instance.serializers.CalumaInstanceSerializer.get_permissions",
+        return_value={"main": ["write"] if has_permission else []},
     )
 
     data, cache_key = gis_apply_data
