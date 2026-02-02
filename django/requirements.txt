@@ -16,6 +16,8 @@ django-celery-beat==2.8.1
 django-clamd==1.0.0
 django-environ==0.12.0
 django-excel==0.0.10
+# needed for clear_cache command (and some other niceties that arent's strictly required for prod)
+django-extensions==4.1
 django-filter==25.1
 django-generic-api-permissions==3.0.0
 django-ipware==7.0.1
