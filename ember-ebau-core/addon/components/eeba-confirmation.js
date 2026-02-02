@@ -105,7 +105,7 @@ export default class EebaConfirmationComponent extends Component {
 
       return result;
     } catch {
-      this.eebaClient.onSaveEebaRefresh(
+      this.eebaClient.onSaveEebaRefresh.perform(
         this.args.field.document,
         this.args.field.document.findField(EEBA_ANSWER_QUESTIONS.CONFIRMATION)
           .question.raw,

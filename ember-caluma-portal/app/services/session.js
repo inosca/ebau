@@ -34,36 +34,6 @@ export default class CustomSession extends Session {
   @localCopy("data.language") _language;
   @localCopy("data.groupId") _groupId;
 
-  constructor(...args) {
-    super(...args);
-
-    // override refreshAuthentication to add a check for captcha token.
-    const parentTask = this.refreshAuthentication;
-    const parentPerform = parentTask.perform.bind(parentTask);
-
-    parentTask.perform = (...args) => {
-      // Don't use captcha auth when authenticated
-      if (this.requireCaptchaToken && !this.isAuthenticated) {
-        if (!this.validateCaptchaAuth()) {
-          // use location.replace to break execution, and perform
-          // the redirect without allowing the page to continue performing
-          // further requests.
-          return document.location.replace(
-            this.router.urlFor("captcha", {
-              queryParams: {
-                nextURL: location.href,
-              },
-            }),
-          );
-        }
-
-        return;
-      }
-
-      return parentPerform(...args);
-    };
-  }
-
   fetchUser = trackedFunction(this, async () => {
     await Promise.resolve();
 
@@ -243,6 +213,35 @@ export default class CustomSession extends Session {
     } catch (e) {
       console.error("Failed to decode captcha token", e);
       return false;
+    }
+  }
+
+  async shouldRefresh() {
+    // Don't perform a refresh for the captcha protection when already authenticated.
+    if (this.requireCaptchaToken && this.isAuthenticated) {
+      return false;
+    }
+
+    return await super.shouldRefresh();
+  }
+
+  async afterRefreshAuthentication() {
+    if (
+      this.requireCaptchaToken &&
+      // Redirect when not authenticated and the captcha token is invalid.
+      !this.isAuthenticated &&
+      !this.validateCaptchaAuth()
+    ) {
+      // use location.replace and return false to break execution, and perform
+      // the redirect without allowing the page to continue performing
+      // further requests.
+      document.location.replace(
+        this.router.urlFor("captcha", {
+          queryParams: {
+            nextURL: location.href,
+          },
+        }),
+      );
     }
   }
 }

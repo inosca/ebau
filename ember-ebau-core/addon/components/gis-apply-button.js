@@ -120,7 +120,7 @@ export default class GisApplyButtonComponent extends Component {
 
       if (confirmField?.question?.raw) {
         promises.push(
-          this.eebaClient.onSaveEebaRefresh(
+          this.eebaClient.onSaveEebaRefresh.perform(
             this.args.document,
             this.args.document.findField(EEBA_ANSWER_QUESTIONS.CONFIRMATION)
               .question.raw,
