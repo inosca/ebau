@@ -1,63 +1,65 @@
-<#-- Copy of https://github.com/keycloak/keycloak/blob/dc9de96f7b82b9ca97532cf985a2fe8f9e11e7fe/themes/src/main/resources/theme/base/login/user-profile-commons.ftl -->
-<#-- Changes are highlighted with "CHANGE:" -->
 <#macro userProfileFormFields>
 	<#assign currentGroup="">
-
 	<#list profile.attributes as attribute>
+		<#if attribute.name=='locale' && realm.internationalizationEnabled && locale.currentLanguageTag?has_content>
+			<input type="hidden" id="${attribute.name}" name="${attribute.name}" value="${locale.currentLanguageTag}"/>
+		<#else>
 
-		<#assign group = (attribute.group)!"">
-		<#if group != currentGroup>
-			<#assign currentGroup=group>
-			<#if currentGroup != "">
-				<div class="${properties.kcFormGroupClass!}"
-				<#list group.html5DataAnnotations as key, value>
-					data-${key}="${value}"
-				</#list>
-				>
+			<#assign group = (attribute.group)!"">
+			<#if group != currentGroup>
+				<#assign currentGroup=group>
+				<#if currentGroup != "">
+					<div class="${properties.kcFormGroupClass!}"
+					<#list group.html5DataAnnotations as key, value>
+						data-${key}="${value}"
+					</#list>
+					>
 
-					<#assign groupDisplayHeader=group.displayHeader!"">
-					<#if groupDisplayHeader != "">
-						<#assign groupHeaderText=advancedMsg(groupDisplayHeader)!group>
-					<#else>
-						<#assign groupHeaderText=group.name!"">
-					</#if>
-					<div class="${properties.kcContentWrapperClass!}">
-						<label id="header-${attribute.group.name}" class="${kcFormGroupHeader!}">${groupHeaderText}</label>
-					</div>
-
-					<#assign groupDisplayDescription=group.displayDescription!"">
-					<#if groupDisplayDescription != "">
-						<#assign groupDescriptionText=advancedMsg(groupDisplayDescription)!"">
-						<div class="${properties.kcLabelWrapperClass!}">
-							<label id="description-${group.name}" class="${properties.kcLabelClass!}">${groupDescriptionText}</label>
+						<#assign groupDisplayHeader=group.displayHeader!"">
+						<#if groupDisplayHeader != "">
+							<#assign groupHeaderText=advancedMsg(groupDisplayHeader)!group>
+						<#else>
+							<#assign groupHeaderText=group.name!"">
+						</#if>
+						<div class="${properties.kcContentWrapperClass!}">
+							<label id="header-${attribute.group.name}" class="${kcFormGroupHeader!}">${groupHeaderText}</label>
 						</div>
+
+						<#assign groupDisplayDescription=group.displayDescription!"">
+						<#if groupDisplayDescription != "">
+							<#assign groupDescriptionText=advancedMsg(groupDisplayDescription)!"">
+							<div class="${properties.kcLabelWrapperClass!}">
+								<label id="description-${group.name}" class="${properties.kcLabelClass!}">${groupDescriptionText}</label>
+							</div>
+						</#if>
+					</div>
+				</#if>
+			</#if>
+
+			<#nested "beforeField" attribute>
+			<div class="${properties.kcFormGroupClass!}">
+				<div class="${properties.kcLabelWrapperClass!}">
+					<#-- CHANGE: move the "*" inside the label tag -->
+					<label for="${attribute.name}" class="${properties.kcLabelClass!}">${advancedMsg(attribute.displayName!'')}<#if attribute.required> *</#if></label>
+				</div>
+				<div class="${properties.kcInputWrapperClass!}">
+					<#if attribute.annotations.inputHelperTextBefore??>
+						<div class="${properties.kcInputHelperTextBeforeClass!}" id="form-help-text-before-${attribute.name}" aria-live="polite">${kcSanitize(advancedMsg(attribute.annotations.inputHelperTextBefore))?no_esc}</div>
+					</#if>
+					<@inputFieldByType attribute=attribute/>
+					<#if messagesPerField.existsError('${attribute.name}')>
+						<span id="input-error-${attribute.name}" class="${properties.kcInputErrorMessageClass!}" aria-live="polite">
+							${kcSanitize(messagesPerField.get('${attribute.name}'))?no_esc}
+						</span>
+					</#if>
+					<#if attribute.annotations.inputHelperTextAfter??>
+						<div class="${properties.kcInputHelperTextAfterClass!}" id="form-help-text-after-${attribute.name}" aria-live="polite">${kcSanitize(advancedMsg(attribute.annotations.inputHelperTextAfter))?no_esc}</div>
 					</#if>
 				</div>
-			</#if>
-		</#if>
+			</div>
+			<#nested "afterField" attribute>
 
-		<#nested "beforeField" attribute>
-		<div class="${properties.kcFormGroupClass!}">
-			<div class="${properties.kcLabelWrapperClass!}">
-				<#-- CHANGE: move the "*" inside the label tag -->
-				<label for="${attribute.name}" class="${properties.kcLabelClass!}">${advancedMsg(attribute.displayName!'')}<#if attribute.required> *</#if></label>
-			</div>
-			<div class="${properties.kcInputWrapperClass!}">
-				<#if attribute.annotations.inputHelperTextBefore??>
-					<div class="${properties.kcInputHelperTextBeforeClass!}" id="form-help-text-before-${attribute.name}" aria-live="polite">${kcSanitize(advancedMsg(attribute.annotations.inputHelperTextBefore))?no_esc}</div>
-				</#if>
-				<@inputFieldByType attribute=attribute/>
-				<#if messagesPerField.existsError('${attribute.name}')>
-					<span id="input-error-${attribute.name}" class="${properties.kcInputErrorMessageClass!}" aria-live="polite">
-						${kcSanitize(messagesPerField.get('${attribute.name}'))?no_esc}
-					</span>
-				</#if>
-				<#if attribute.annotations.inputHelperTextAfter??>
-					<div class="${properties.kcInputHelperTextAfterClass!}" id="form-help-text-after-${attribute.name}" aria-live="polite">${kcSanitize(advancedMsg(attribute.annotations.inputHelperTextAfter))?no_esc}</div>
-				</#if>
-			</div>
-		</div>
-		<#nested "afterField" attribute>
+		</#if>
 	</#list>
 
 	<#list profile.html5DataAnnotations?keys as key>
@@ -101,7 +103,6 @@
 		<#if attribute.annotations.inputTypeMinlength??>minlength="${attribute.annotations.inputTypeMinlength}"</#if>
 		<#if attribute.annotations.inputTypeMax??>max="${attribute.annotations.inputTypeMax}"</#if>
 		<#if attribute.annotations.inputTypeMin??>min="${attribute.annotations.inputTypeMin}"</#if>
-		<#if attribute.annotations.inputTypeStep??>step="${attribute.annotations.inputTypeStep}"</#if>
 		<#if attribute.annotations.inputTypeStep??>step="${attribute.annotations.inputTypeStep}"</#if>
 		<#list attribute.html5DataAnnotations as key, value>
     		data-${key}="${value}"
@@ -205,4 +206,3 @@
 	</#if>
 	</#compress>
 </#macro>
-
