@@ -27,7 +27,6 @@ def test_notify_publication_start(
     settings,
     caluma_workflow_config_gr,
     support_role,
-    utils,
 ):
     expected_outbox = 1 if (condition_match and date_match and is_published) else 0
     settings.CELERY_TASK_ALWAYS_EAGER = True

@@ -7,6 +7,7 @@ from django.utils.timezone import make_aware
 
 from camac.constants.kt_gr import ARE_SERVICE_GROUP
 from camac.deadlines import models as deadlines_models
+from camac.tests.form_utils import FormUtils
 
 
 @pytest.mark.parametrize(
@@ -275,7 +276,7 @@ def test_update_deadline_startdate_gr(
     gr_permissions_settings,
     set_application_gr,
     disable_deadline_side_effects,
-    utils,
+    form_utils: FormUtils,
     mocker,
 ):
     """Test the api to update the start date of a deadline for a GR instance."""
@@ -298,7 +299,7 @@ def test_update_deadline_startdate_gr(
             created_by_group=str(service.pk),
             status=WorkItem.STATUS_COMPLETED,
         )
-        utils.add_answer(
+        form_utils.add_answer(
             wi.document,
             "ende-publikationsorgan-gemeinde" if publication_date else None,
             publication_date,
@@ -322,7 +323,7 @@ def test_update_deadline_startdate_gr(
         task=Task.objects.get(slug="formal-exam"),
         status=WorkItem.STATUS_COMPLETED if formal_completed else WorkItem.STATUS_READY,
     )
-    utils.add_answer(
+    form_utils.add_answer(
         wi.document,
         "verfahrensart",
         "verfahrensart-vereinfachtes-baubewilligungsverfahren"
@@ -800,7 +801,7 @@ def test_update_deadline_enddate_ag(
     application_settings,
     disable_deadline_side_effects,
     mocker,
-    utils,
+    form_utils: FormUtils,
 ):
     """Test the api to update the deadline enddate for a AG instance."""
     application_settings["SHORT_NAME"] = "ag"
@@ -837,7 +838,7 @@ def test_update_deadline_enddate_ag(
         created_by_group=str(service.pk),
         status=WorkItem.STATUS_COMPLETED,
     )
-    utils.add_answer(
+    form_utils.add_answer(
         workitem_decision.document,
         "entscheid-datum",
         "2025-02-02",

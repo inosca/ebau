@@ -6,6 +6,7 @@ from camac.caluma.extensions import data_sources
 from camac.core import utils as core_utils
 from camac.document.models import Attachment
 from camac.gever import api, client
+from camac.tests.form_utils import FormUtils
 from camac.utils import retry
 
 
@@ -24,7 +25,7 @@ def configure_for_gever(
     service_factory,
     mocker,
     instance_service_factory,
-    utils,
+    form_utils: FormUtils,
     gever_test_utils,
     user_factory,
     gever_groups,
@@ -49,7 +50,7 @@ def configure_for_gever(
                 user=None, question=None, context=None
             )[0]
 
-            utils.add_answer(
+            form_utils.add_answer(
                 be_gever_workitem.document, "agr-erledigungsart-auswahl", erledigungsart
             )
 

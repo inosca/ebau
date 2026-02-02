@@ -15,6 +15,7 @@ from camac.caluma.extensions.events.deadlines import (
 )
 from camac.constants.kt_gr import ARE_SERVICE_GROUP
 from camac.deadlines import models as deadlines_models
+from camac.tests.form_utils import FormUtils
 
 
 @pytest.mark.parametrize(
@@ -155,7 +156,7 @@ def test_events_deadlines_publication_inquiry_gr(
     gr_deadlines_settings,
     set_application_gr,
     mocker,
-    utils,
+    form_utils: FormUtils,
 ):
     """Test deadline creation and the defined start date for the municipality/ARE.
 
@@ -194,7 +195,7 @@ def test_events_deadlines_publication_inquiry_gr(
         created_by_group=str(service.pk),
         status=WorkItem.STATUS_COMPLETED,
     )
-    utils.add_answer(
+    form_utils.add_answer(
         workitem_publication.document,
         "ende-publikationsorgan-gemeinde",
         "2025-02-02",
@@ -225,7 +226,7 @@ def test_events_deadlines_publication_inquiry_gr(
             created_by_group=str(service.pk),
             status=WorkItem.STATUS_COMPLETED,
         )
-        utils.add_answer(
+        form_utils.add_answer(
             workitem_formal_exam.document,
             "verfahrensart",
             "verfahrensart-ordentliches-baubewilligungsverfahren"
@@ -293,7 +294,7 @@ def test_events_deadlines_decision_gr(
     gr_decision_settings,
     set_application_gr,
     mocker,
-    utils,
+    form_utils: FormUtils,
 ):
     group = admin_user.groups.first()
     service = group.service
@@ -333,7 +334,7 @@ def test_events_deadlines_decision_gr(
         created_by_group=str(service.pk),
         status=WorkItem.STATUS_COMPLETED,
     )
-    utils.add_answer(
+    form_utils.add_answer(
         workitem_decision.document,
         "decision-date",
         "2025-02-02",
@@ -614,7 +615,7 @@ def test_post_complete_inquiry_fill_ag_creates_deadline(
     action,
     has_suspension,
     mocker,
-    utils,
+    form_utils: FormUtils,
 ):
     """Test suspension created for deadline on completing the fill task.
 
@@ -648,7 +649,7 @@ def test_post_complete_inquiry_fill_ag_creates_deadline(
         document=caluma_document_factory(),
     )
     if action != "no_answer":
-        utils.add_answer(
+        form_utils.add_answer(
             inquiry_fill_work_item.case.document,
             ag_distribution_settings["QUESTIONS"]["STATUS"],
             "inquiry-answer-status-claim",

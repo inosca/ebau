@@ -2,6 +2,8 @@ from datetime import date
 
 from faker import Faker
 
+from camac.tests.form_utils import FormUtils
+
 
 def so_personal_row_factory(
     is_juristic: bool = False,
@@ -124,23 +126,27 @@ def ag_personal_row_factory(is_juristic: bool = False) -> dict:
     }
 
 
-def so_fill_cantonal_exam(document, utils):
-    utils.add_answer(document, "mp-bab-datum-eingang-arp", date(2025, 2, 13))
-    utils.add_answer(document, "mp-bab-terminvorgabe-bei-erfassung", date(2023, 1, 2))
-    utils.add_answer(document, "mp-bab-massgebliche-terminvorgabe", date(2023, 1, 5))
-    utils.add_answer(
+def so_fill_cantonal_exam(document, form_utils: FormUtils):
+    form_utils.add_answer(document, "mp-bab-datum-eingang-arp", date(2025, 2, 13))
+    form_utils.add_answer(
+        document, "mp-bab-terminvorgabe-bei-erfassung", date(2023, 1, 2)
+    )
+    form_utils.add_answer(
+        document, "mp-bab-massgebliche-terminvorgabe", date(2023, 1, 5)
+    )
+    form_utils.add_answer(
         document,
         "mp-bab-verfahrensstand",
         "mp-bab-verfahrensstand-entscheid",
         label="Entscheid",
     )
-    utils.add_answer(
+    form_utils.add_answer(
         document,
         "mp-bab-bearbeitungsstatus",
         "mp-bab-bearbeitungsstatus-in-bearbeitung",
         label="in Bearbeitung",
     )
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         document,
         "mp-bab-grund-der-sistierung",
         [
@@ -159,19 +165,19 @@ def so_fill_cantonal_exam(document, utils):
             }
         ],
     )
-    utils.add_answer(
+    form_utils.add_answer(
         document,
         "mp-bab-bewilligungsbehoerde",
         "mp-bab-bewilligungsbehoerde-oertliche-baubehoerde",
         label="örtliche Baubehörde",
     )
-    utils.add_answer(
+    form_utils.add_answer(
         document,
         "mp-bab-interesse-am-vorhaben",
         "mp-bab-interesse-am-vorhaben-privat",
         label="privat",
     )
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         document,
         "mp-bab-journal-tabelle",
         [
@@ -186,24 +192,24 @@ def so_fill_cantonal_exam(document, utils):
             }
         ],
     )
-    utils.add_answer(
+    form_utils.add_answer(
         document,
         "mp-bab-gemeindenummer-kantonal-arp",
         "1234",
     )
-    utils.add_answer(
+    form_utils.add_answer(
         document,
         "mp-bab-bauzone",
         "mp-bab-bauzone-ausserhalb",
         label="ausserhalb",
     )
-    utils.add_answer(
+    form_utils.add_answer(
         document,
         "mp-bab-objektschutz",
         "mp-bab-objektschutz-geschuetzt",
         label="geschützt",
     )
-    utils.add_answer(
+    form_utils.add_answer(
         document,
         "mp-bab-checkliste-bab-so-nach-rpg",
         [
@@ -215,20 +221,22 @@ def so_fill_cantonal_exam(document, utils):
             ("mp-bab-checkliste-bab-so-nach-rpg-a2", "A2 - Weilerzone"),
         ],
     )
-    utils.add_answer(
+    form_utils.add_answer(
         document,
         "mp-bab-entscheid-kanton",
         "mp-bab-entscheid-kanton-ablehnung",
         label="Ablehnung",
     )
-    utils.add_answer(document, "mp-bab-datum-des-entscheides-kanton", date(2025, 7, 8))
-    utils.add_answer(
+    form_utils.add_answer(
+        document, "mp-bab-datum-des-entscheides-kanton", date(2025, 7, 8)
+    )
+    form_utils.add_answer(
         document,
         "mp-bab-eroeffnungsart-des-entscheides-kanton",
         "mp-bab-eroeffnungsart-des-entscheides-kanton-e-mail",
         label="E-Mail",
     )
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         document,
         "mp-bab-angaben-zur-unterschutzstellung",
         [

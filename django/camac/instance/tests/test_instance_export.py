@@ -10,6 +10,7 @@ from rest_framework import status
 
 from camac.instance.export.views import InstanceExportView
 from camac.instance.models import Instance
+from camac.tests.form_utils import FormUtils
 
 
 @pytest.mark.parametrize(
@@ -93,7 +94,7 @@ def test_caluma_export_be(
     expected_count,
     expected_num_queries,
     snapshot,
-    utils,
+    form_utils: FormUtils,
 ):
     settings.APPLICATION_NAME = "kt_bern"
     application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
@@ -130,7 +131,7 @@ def test_caluma_export_be(
         status=WorkItem.STATUS_COMPLETED,
         document=caluma_document_factory(form_id="decision"),
     )
-    utils.add_answer(
+    form_utils.add_answer(
         decision_work_item.document,
         "decision-date",
         datetime.date(2025, 5, 8),
@@ -201,7 +202,7 @@ def test_caluma_export_sz(
     settings,
     sz_distribution_settings,
     django_assert_num_queries,
-    utils,
+    form_utils: FormUtils,
 ):
     settings.APPLICATION_NAME = "kt_schwyz"
     settings.SHORT_DATE_FORMAT = "%d.%m.%Y"
@@ -291,12 +292,12 @@ def test_caluma_export_sz(
     )
     work_item.document = caluma_document_factory(form_id="bauverwaltung")
     work_item.save()
-    utils.add_answer(
+    form_utils.add_answer(
         work_item.document,
         "bewilligungsverfahren-gr-sitzung-bewilligungsdatum",
         make_aware(datetime.datetime(2023, 4, 1)),
     )
-    utils.add_answer(
+    form_utils.add_answer(
         work_item.document,
         "bewilligungsverfahren-datum-gesamtentscheid",
         make_aware(datetime.datetime(2023, 4, 3)),
@@ -353,7 +354,7 @@ def test_caluma_export_ag(
     service,
     settings,
     snapshot,
-    utils,
+    form_utils: FormUtils,
     active_inquiry_factory,
 ):
     settings.APPLICATION_NAME = "kt_ag"
@@ -380,7 +381,7 @@ def test_caluma_export_ag(
         status=WorkItem.STATUS_COMPLETED,
         document=caluma_document_factory(form_id="entscheid"),
     )
-    utils.add_answer(
+    form_utils.add_answer(
         decision_work_item.document,
         "entscheid-datum",
         datetime.date(2025, 5, 8),

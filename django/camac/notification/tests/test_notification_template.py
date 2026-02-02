@@ -26,6 +26,7 @@ from camac.notification.serializers import (
     InstanceMergeSerializer,
     PermissionlessNotificationTemplateSendmailSerializer,
 )
+from camac.tests.form_utils import FormUtils
 
 
 @pytest.mark.parametrize(
@@ -145,7 +146,7 @@ def test_notification_template_merge(
     caluma_document_factory,
     settings,
     snapshot,
-    utils,
+    form_utils: FormUtils,
 ):
     notification_template.body = """
         identifier: {{identifier}}
@@ -189,25 +190,25 @@ def test_notification_template_merge(
     )
     work_item.document = caluma_document_factory(form_id="bauverwaltung")
     work_item.save()
-    utils.add_answer(
+    form_utils.add_answer(
         work_item.document, "bewilligungsverfahren-gr-sitzung-beschluss", "foo"
     )
-    utils.add_answer(
+    form_utils.add_answer(
         work_item.document,
         "beschwerdeverfahren-weiterzug-durch",
         "beschwerdeverfahren-weiterzug-durch-beschwerdegegner",
     )
-    utils.add_answer(
+    form_utils.add_answer(
         work_item.document,
         "bewilligungsverfahren-gr-sitzung-datum",
         timezone.now(),
     )
-    utils.add_answer(
+    form_utils.add_answer(
         work_item.document,
         "bewilligungsverfahren-gr-sitzung-bewilligungsdatum",
         timezone.now(),
     )
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         work_item.document,
         "bewilligungsverfahren-sitzung-baukommission",
         [
@@ -857,7 +858,7 @@ def test_notification_placeholders(
     objection_participant_factory,
     caluma_work_item_factory,
     distribution_settings,
-    utils,
+    form_utils: FormUtils,
 ):
     settings.APPLICATION["WORKFLOW_ITEMS"]["SUBMIT"] = workflow_entry_factory(
         instance=sz_instance,
@@ -886,7 +887,7 @@ def test_notification_placeholders(
         status=caluma_workflow_models.WorkItem.STATUS_READY,
         task_id="building-authority",
     )
-    utils.add_answer(
+    form_utils.add_answer(
         building_authority_work_item.document,
         "bewilligungsverfahren-gr-sitzung-bewilligungsdatum",
         timezone.make_aware(datetime(2019, 10, 24, 10)),
@@ -1486,12 +1487,12 @@ def test_ur_placeholders(
     mailoutbox,
     settings,
     has_parcel_filled,
-    utils,
+    form_utils: FormUtils,
 ):
-    utils.add_answer(
+    form_utils.add_answer(
         ur_instance.case.document, "proposal-description", "my description"
     )
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         ur_instance.case.document,
         "parcels",
         [
@@ -1500,7 +1501,7 @@ def test_ur_placeholders(
             }
         ],
     )
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         ur_instance.case.document,
         "applicant",
         [
@@ -1673,7 +1674,7 @@ def test_notification_bauverwaltung_placeholders(
     caluma_work_item_factory,
     caluma_document_factory,
     settings,
-    utils,
+    form_utils: FormUtils,
 ):
     call_command(
         "loaddata", settings.ROOT_DIR("kt_schwyz/config/buildingauthority.json")
@@ -1691,21 +1692,21 @@ def test_notification_bauverwaltung_placeholders(
     )
     work_item.document = caluma_document_factory(form_id="bauverwaltung")
     work_item.save()
-    utils.add_answer(
+    form_utils.add_answer(
         work_item.document, "bewilligungsverfahren-gr-sitzung-beschluss", "foo"
     )
-    utils.add_answer(
+    form_utils.add_answer(
         work_item.document,
         "beschwerdeverfahren-weiterzug-durch",
         "beschwerdeverfahren-weiterzug-durch-beschwerdegegner",
     )
     date = timezone.now()
-    utils.add_answer(
+    form_utils.add_answer(
         work_item.document,
         "bewilligungsverfahren-gr-sitzung-datum",
         date,
     )
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         work_item.document,
         "bewilligungsverfahren-sitzung-baukommission",
         [

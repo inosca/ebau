@@ -15,6 +15,7 @@ from camac.document.tests.data import django_file
 from camac.instance.domain_logic import CreateInstanceLogic
 from camac.instance.serializers import SUBMIT_DATE_FORMAT
 from camac.tests.data import so_personal_row_factory
+from camac.tests.form_utils import FormUtils
 
 
 @pytest.fixture
@@ -30,7 +31,7 @@ def ech_instance_sz(
     caluma_config_sz,
     caluma_work_item_factory,
     location,
-    utils,
+    form_utils: FormUtils,
 ):
     ech_instance = instance_with_case(ech_instance)
     ech_instance.instance_group = instance_group
@@ -55,12 +56,12 @@ def ech_instance_sz(
     ba_work_item = caluma_work_item_factory(
         task_id="building-authority", case=ech_instance.case
     )
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         ba_work_item.document,
         "baukontrolle-realisierung-table",
         [{"baukontrolle-realisierung-baubeginn": datetime.now()}],
     )
-    utils.add_answer(
+    form_utils.add_answer(
         ba_work_item.document,
         "bewilligungsverfahren-gr-sitzung-bewilligungsdatum",
         datetime.now(),
@@ -112,7 +113,11 @@ def ech_instance(
 
 @pytest.fixture
 def ech_instance_gr(
-    ech_instance, instance_with_case, caluma_workflow_config_gr, utils, group
+    ech_instance,
+    instance_with_case,
+    caluma_workflow_config_gr,
+    form_utils: FormUtils,
+    group,
 ):
     ech_instance = instance_with_case(ech_instance)
     ech_instance.case.meta["dossier-number"] = "2020-1"
@@ -120,7 +125,7 @@ def ech_instance_gr(
     municipality = ech_instance.instance_services.first().service
     municipality.name = "Testgemeinde"
     municipality.save()
-    utils.add_answer(
+    form_utils.add_answer(
         ech_instance.case.document,
         "gemeinde",
         str(municipality.pk),
@@ -133,10 +138,10 @@ def ech_instance_gr(
         label=municipality.name,
     )
 
-    utils.add_answer(
+    form_utils.add_answer(
         ech_instance.case.document, "beschreibung-bauvorhaben", "Testvorhaben"
     )
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         ech_instance.case.document,
         "parzelle",
         [
@@ -146,12 +151,12 @@ def ech_instance_gr(
             }
         ],
     )
-    utils.add_answer(
+    form_utils.add_answer(
         ech_instance.case.document, "street-and-housenumber", "Teststrasse 12a"
     )
-    utils.add_answer(ech_instance.case.document, "ort-grundstueck", "Chur")
-    utils.add_answer(ech_instance.case.document, "plz", "1234")
-    utils.add_table_answer(
+    form_utils.add_answer(ech_instance.case.document, "ort-grundstueck", "Chur")
+    form_utils.add_answer(ech_instance.case.document, "plz", "1234")
+    form_utils.add_table_answer(
         ech_instance.case.document,
         "personalien-gesuchstellerin",
         [
@@ -186,14 +191,16 @@ def ech_instance_gr(
 
 
 @pytest.fixture
-def ech_instance_be(ech_instance, instance_with_case, caluma_workflow_config_be, utils):
+def ech_instance_be(
+    ech_instance, instance_with_case, caluma_workflow_config_be, form_utils: FormUtils
+):
     ech_instance = instance_with_case(ech_instance)
     ech_instance.case.meta["ebau-number"] = "2020-1"
 
     municipality = ech_instance.instance_services.first().service
     municipality.name = "Testgemeinde"
     municipality.save()
-    utils.add_answer(
+    form_utils.add_answer(
         ech_instance.case.document,
         "gemeinde",
         str(municipality.pk),
@@ -206,10 +213,10 @@ def ech_instance_be(ech_instance, instance_with_case, caluma_workflow_config_be,
         label=municipality.name,
     )
 
-    utils.add_answer(
+    form_utils.add_answer(
         ech_instance.case.document, "beschreibung-bauvorhaben", "Testvorhaben"
     )
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         ech_instance.case.document,
         "parzelle",
         [
@@ -221,9 +228,9 @@ def ech_instance_be(ech_instance, instance_with_case, caluma_workflow_config_be,
             }
         ],
     )
-    utils.add_answer(ech_instance.case.document, "strasse-flurname", "Teststrasse")
-    utils.add_answer(ech_instance.case.document, "nr", "23b")
-    utils.add_table_answer(
+    form_utils.add_answer(ech_instance.case.document, "strasse-flurname", "Teststrasse")
+    form_utils.add_answer(ech_instance.case.document, "nr", "23b")
+    form_utils.add_table_answer(
         ech_instance.case.document,
         "personalien-gesuchstellerin",
         [
@@ -241,16 +248,16 @@ def ech_instance_be(ech_instance, instance_with_case, caluma_workflow_config_be,
             }
         ],
     )
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         ech_instance.case.document, "personalien-grundeigentumerin", []
     )
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         ech_instance.case.document, "personalien-vertreterin-mit-vollmacht", []
     )
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         ech_instance.case.document, "personalien-projektverfasserin", []
     )
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         ech_instance.case.document,
         "beschreibung-der-prozessart-tabelle",
         [
@@ -262,17 +269,19 @@ def ech_instance_be(ech_instance, instance_with_case, caluma_workflow_config_be,
             }
         ],
     )
-    utils.add_answer(ech_instance.case.document, "gwr-egid", "1738778")
-    utils.add_answer(
+    form_utils.add_answer(ech_instance.case.document, "gwr-egid", "1738778")
+    form_utils.add_answer(
         ech_instance.case.document,
         "nutzungsart",
         ["wohnen"],
         options=["wohnen", "landwirtschaft"],
     )
-    utils.add_answer(ech_instance.case.document, "sammelschutzraum", "Ja")
-    utils.add_answer(ech_instance.case.document, "baukosten-in-chf", 42)
-    utils.add_answer(ech_instance.case.document, "nutzungszone", "Testnutzungszone")
-    utils.add_answer(ech_instance.case.document, "effektive-geschosszahl", 2)
+    form_utils.add_answer(ech_instance.case.document, "sammelschutzraum", "Ja")
+    form_utils.add_answer(ech_instance.case.document, "baukosten-in-chf", 42)
+    form_utils.add_answer(
+        ech_instance.case.document, "nutzungszone", "Testnutzungszone"
+    )
+    form_utils.add_answer(ech_instance.case.document, "effektive-geschosszahl", 2)
     return ech_instance
 
 
@@ -371,7 +380,7 @@ def ech_instance_so(
     ech_instance,
     instance_with_case,
     caluma_workflow_config_so,
-    utils,
+    form_utils: FormUtils,
     decision_factory_so,
     caluma_work_item_factory,
     group,
@@ -384,7 +393,7 @@ def ech_instance_so(
     municipality = ech_instance.instance_services.first().service
     municipality.name = "Testgemeinde"
     municipality.save()
-    utils.add_answer(
+    form_utils.add_answer(
         ech_instance.case.document,
         "gemeinde",
         str(municipality.pk),
@@ -396,35 +405,39 @@ def ech_instance_so(
         label=municipality.name,
     )
 
-    utils.add_answer(
+    form_utils.add_answer(
         ech_instance.case.document, "umschreibung-bauprojekt", "Testvorhaben"
     )
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         ech_instance.case.document,
         "parzellen",
         [{"parzellennummer": "1586", "e-grid": "CH123456789"}],
     )
-    utils.add_answer(ech_instance.case.document, "strasse-flurname", "Musterstrasse")
-    utils.add_answer(ech_instance.case.document, "strasse-nummer", 4)
-    utils.add_answer(ech_instance.case.document, "ort", "Solothurn")
-    utils.add_answer(ech_instance.case.document, "plz", "4500")
+    form_utils.add_answer(
+        ech_instance.case.document, "strasse-flurname", "Musterstrasse"
+    )
+    form_utils.add_answer(ech_instance.case.document, "strasse-nummer", 4)
+    form_utils.add_answer(ech_instance.case.document, "ort", "Solothurn")
+    form_utils.add_answer(ech_instance.case.document, "plz", "4500")
 
-    utils.add_answer(ech_instance.case.document, "dauer-in-monaten", 15)
-    utils.add_answer(ech_instance.case.document, "geplanter-baustart", date(2025, 1, 1))
-    utils.add_answer(ech_instance.case.document, "gesamtkosten", 12_000_000)
+    form_utils.add_answer(ech_instance.case.document, "dauer-in-monaten", 15)
+    form_utils.add_answer(
+        ech_instance.case.document, "geplanter-baustart", date(2025, 1, 1)
+    )
+    form_utils.add_answer(ech_instance.case.document, "gesamtkosten", 12_000_000)
 
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         ech_instance.case.document, "bauherrin", [so_personal_row_factory()]
     )
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         ech_instance.case.document, "grundeigentuemerin", [so_personal_row_factory()]
     )
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         ech_instance.case.document,
         "tiefbauten",
         [{"tiefbau-siedlung-art": "tiefbau-siedlung-art-parkplaetze"}],
     )
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         ech_instance.case.document,
         "gebaeude",
         [

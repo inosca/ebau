@@ -5,6 +5,8 @@ from caluma.caluma_workflow.models import WorkItem
 from django.urls import reverse
 from rest_framework import status
 
+from camac.tests.form_utils import FormUtils
+
 
 @pytest.fixture
 def so_services(service_factory, service):
@@ -103,7 +105,7 @@ def test_so_distribution_services(
     so_instance,
     so_publication_settings,
     so_services,
-    utils,
+    form_utils: FormUtils,
     caluma_work_item_factory,
 ):
     mocker.patch(
@@ -130,7 +132,7 @@ def test_so_distribution_services(
             case=so_instance.case,
             meta={"is-published": True},
         )
-        utils.add_answer(
+        form_utils.add_answer(
             work_item.document,
             "publikation-ende",
             date.today() - timedelta(days=1),
@@ -143,12 +145,12 @@ def test_so_distribution_services(
             case=so_instance.case,
             meta={"is-published": True},
         )
-        utils.add_answer(
+        form_utils.add_answer(
             work_item.document,
             "publikation-ende",
             date.today() + timedelta(days=1),
         )
-        utils.add_answer(
+        form_utils.add_answer(
             work_item.document,
             "publikation-start",
             date.today() - timedelta(days=1),

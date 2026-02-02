@@ -16,6 +16,7 @@ from rest_framework import status
 
 from camac.core.models import PublicationEntry
 from camac.document import permissions
+from camac.tests.form_utils import FormUtils
 
 
 def test_public_caluma_instance_disabled(settings, admin_client):
@@ -189,7 +190,7 @@ def test_public_caluma_instance_oereb_ur(
     instance_factory,
     instance_group_factory,
     role,
-    utils,
+    form_utils: FormUtils,
     is_oereb_form,
     master_data_is_visible_mock,
 ):
@@ -209,7 +210,7 @@ def test_public_caluma_instance_oereb_ur(
     ur_instance.case.save()
     ur_instance.save()
 
-    utils.add_answer(ur_instance.case.document, "form-type", "main-form")
+    form_utils.add_answer(ur_instance.case.document, "form-type", "main-form")
 
     admin_client.user.groups.clear()
 
@@ -226,7 +227,7 @@ def test_public_caluma_instance_oereb_ur(
         question_id="leitbehoerde", value=dynamic_option.slug
     )
 
-    utils.add_answer(
+    form_utils.add_answer(
         ur_instance.case.document,
         "oereb-thema",
         value=["oereb-thema-kpz"],
@@ -234,7 +235,7 @@ def test_public_caluma_instance_oereb_ur(
         question_type=Question.TYPE_MULTIPLE_CHOICE,
     )
 
-    utils.add_answer(
+    form_utils.add_answer(
         ur_instance.case.document,
         "typ-des-verfahrens",
         value="typ-des-verfahrens-meldung",
@@ -928,7 +929,7 @@ def test_publication_date_range(
     publication_backend,
     expected_start,
     expected_end,
-    utils,
+    form_utils: FormUtils,
 ):
     gr_publication_settings["BACKEND"] = publication_backend
 
@@ -973,18 +974,18 @@ def test_publication_date_range(
             case=gr_instance.case,
             meta={"is-published": True},
         )
-        utils.add_answer(
+        form_utils.add_answer(
             publication_workitem.document,
             "beginn-publikationsorgan-gemeinde",
             date.fromisoformat(start_date),
         )
-        utils.add_answer(
+        form_utils.add_answer(
             publication_workitem.document,
             "ende-publikationsorgan-gemeinde",
             date.fromisoformat(end_date),
         )
         if is_published:
-            utils.add_answer(
+            form_utils.add_answer(
                 publication_workitem.document,
                 gr_publication_settings["PUBLISH_QUESTION"],
                 gr_publication_settings["PUBLISH_ANSWER"],

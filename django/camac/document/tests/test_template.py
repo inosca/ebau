@@ -14,6 +14,8 @@ from lxml import etree
 from pytest_lazy_fixtures import lf, lfc
 from rest_framework import status
 
+from camac.tests.form_utils import FormUtils
+
 from .data import django_file
 
 
@@ -141,7 +143,7 @@ def test_template_merge(
     service_factory,
     application_settings,
     responsible_service_factory,
-    utils,
+    form_utils: FormUtils,
 ):
     call_command(
         "loaddata",
@@ -217,13 +219,15 @@ def test_template_merge(
     )
     work_item.document = caluma_document_factory(form_id="bauverwaltung")
     work_item.save()
-    utils.add_answer(work_item.document, "bewilligungsverfahren-gr-sitzung-nummer", 12)
-    utils.add_answer(
+    form_utils.add_answer(
+        work_item.document, "bewilligungsverfahren-gr-sitzung-nummer", 12
+    )
+    form_utils.add_answer(
         work_item.document,
         "bewilligungsverfahren-gr-sitzung-bewilligungsdatum",
         make_aware(datetime(2023, 1, 2)),
     )
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         work_item.document,
         "bewilligungsverfahren-sitzung-baukommission",
         [

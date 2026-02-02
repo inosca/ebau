@@ -5,6 +5,7 @@ from camac.instance.serializers import (
     CalumaInstanceSerializer,
     CalumaInstanceSubmitSerializer,
 )
+from camac.tests.form_utils import FormUtils
 
 
 def test_rejection_feedback(db, instance_factory):
@@ -78,7 +79,7 @@ def test_ur_get_responsible_service(
     service_name,
     service_factory,
     mocker,
-    utils,
+    form_utils: FormUtils,
     set_application_ur,
     veranstaltungs_art,
     caluma_form_question_factory,
@@ -97,7 +98,7 @@ def test_ur_get_responsible_service(
             form=ur_instance.case.document.form,
             question__slug="veranstaltung-art",
         )
-        utils.add_answer(
+        form_utils.add_answer(
             ur_instance.case.document,
             "veranstaltung-art",
             "veranstaltung-art-sportanlass",

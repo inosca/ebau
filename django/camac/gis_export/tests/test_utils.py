@@ -5,6 +5,7 @@ from django.conf import settings
 
 from camac.instance.serializers import SUBMIT_DATE_FORMAT
 from camac.permissions.api import PermissionManager
+from camac.tests.form_utils import FormUtils
 
 from ..models import AGGISExport, InstanceProxyAG
 from ..utils import export_agis
@@ -23,7 +24,7 @@ def test_agis_export(
     caluma_form_factory,
     caluma_dynamic_option_factory,
     snapshot,
-    utils,
+    form_utils: FormUtils,
     freezer,
     admin_client,
     responsible_service_factory,
@@ -54,26 +55,26 @@ def test_agis_export(
 
     # Form data
     document = ag_instance.case.document
-    utils.add_answer(document, "beschreibung-bauvorhaben", "Test Vorhaben")
+    form_utils.add_answer(document, "beschreibung-bauvorhaben", "Test Vorhaben")
     municipality = service_factory(service_group__name="municipality")
-    utils.add_answer(document, "gemeinde", str(municipality.pk))
+    form_utils.add_answer(document, "gemeinde", str(municipality.pk))
     caluma_dynamic_option_factory(
         slug=str(municipality.pk),
         label="Test Municipality",
         question_id="gemeinde",
         document=document,
     )
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         document,
         "parzelle",
         [{"parzellennummer": "1338", "e-grid-nr": "CH270677774577"}],
     )
-    utils.add_answer(
+    form_utils.add_answer(
         document,
         "gis-map",
         json.dumps({"markers": [{"x": 2641234.1234, "y": 1245670.121212}]}),
     )
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         document,
         "personalien-gesuchstellerin",
         [
@@ -119,7 +120,7 @@ def test_agis_export(
     ag_instance.save()
 
     document.answers.filter(question_id="personalien-gesuchstellerin").delete()
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         document,
         "personalien-gesuchstellerin",
         [

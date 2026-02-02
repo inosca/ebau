@@ -12,6 +12,7 @@ from camac.caluma.tests.test_distribution_workflow import (  # noqa: F401
 )
 from camac.conftest import yes_no
 from camac.instance import domain_logic
+from camac.tests.form_utils import FormUtils
 
 
 @pytest.mark.parametrize(
@@ -1098,11 +1099,11 @@ def test_dynamic_task_after_construction_step(
     sz_construction_monitoring_settings,
     construction_monitoring_initialized_case_sz,
     sz_instance,
-    utils,
+    form_utils: FormUtils,
 ):
     plan_stage = construction_monitoring_initialized_case_sz.work_items.first()
-    utils.add_answer(plan_stage.document, "construction-stage-name", "Test")
-    utils.add_answer(plan_stage.document, "construction-steps", selected_steps)
+    form_utils.add_answer(plan_stage.document, "construction-stage-name", "Test")
+    form_utils.add_answer(plan_stage.document, "construction-steps", selected_steps)
     complete_work_item(work_item=plan_stage, user=caluma_admin_user)
 
     previous_work_items = construction_monitoring_initialized_case_sz.work_items.filter(
@@ -1117,7 +1118,7 @@ def test_dynamic_task_after_construction_step(
     if needs_approval:
         question = previous_work_item.meta["construction-step"]["needs-approval"]
         answer = f"{question}-yes" if is_approved else f"{question}-no"
-        utils.add_answer(previous_work_item.document, question, answer)
+        form_utils.add_answer(previous_work_item.document, question, answer)
 
     tasks = set(
         CustomDynamicTasks().resolve_after_construction_step(
@@ -1488,19 +1489,19 @@ def test_dynamic_task_maybe_publication(
     information_of_neighbors_required,
     master_data_is_visible_mock,
     publication_required,
-    utils,
+    form_utils: FormUtils,
 ):
     formal_exam = caluma_work_item_factory(
         case=ag_instance.case,
         task_id="formal-exam",
     )
 
-    utils.add_answer(
+    form_utils.add_answer(
         formal_exam.document,
         "vorlaeufige-pruefung-publikation",
         f"vorlaeufige-pruefung-publikation-{yes_no(publication_required, 'de')}",
     )
-    utils.add_answer(
+    form_utils.add_answer(
         formal_exam.document,
         "vorlaeufige-pruefung-auswaertige-anstoesser",
         f"vorlaeufige-pruefung-auswaertige-anstoesser-{yes_no(information_of_neighbors_required, 'de')}",

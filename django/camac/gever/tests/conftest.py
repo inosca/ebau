@@ -13,6 +13,7 @@ from camac.core import utils as core_utils
 from camac.gever import apimodels
 from camac.gever.api import GeverAPI
 from camac.gever.client import Endpoint, GEVERClient
+from camac.tests.form_utils import FormUtils
 
 
 @pytest.fixture(scope="module")
@@ -136,9 +137,9 @@ def gever_config_data(db):
 
 
 @pytest.fixture
-def gever_test_utils(be_instance, utils):
-    """Provide test utils based on the camac "utils" fixture."""
-    utils_cls = type(utils)
+def gever_test_utils(be_instance, form_utils: FormUtils):
+    """Provide test utils based on the camac "form_utils" fixture."""
+    utils_cls = type(form_utils)
 
     class Helper(utils_cls):
         def add_plot_data(self):
@@ -148,7 +149,7 @@ def gever_test_utils(be_instance, utils):
             Plot has impact on folder name as well as the Geschaeftstitel.
             """
             doc = be_instance.case.document
-            utils.add_table_answer(
+            form_utils.add_table_answer(
                 doc,
                 "parzelle",
                 [

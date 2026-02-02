@@ -14,6 +14,7 @@ from django.utils.timezone import make_aware
 from django.utils.translation import gettext as _
 from rest_framework import exceptions, status
 
+from camac.tests.form_utils import FormUtils
 from camac.utils import build_url
 
 from ..document_merge_service import DMSClient, DMSHandler, DMSVisitor
@@ -157,7 +158,7 @@ def test_document_merge_service_cover_sheet_with_header_values(
     master_data_is_visible_mock,
     freezer,
     be_master_data_settings,
-    utils,
+    form_utils: FormUtils,
 ):
     be_instance.case.meta = {
         "camac-instance-id": be_instance.pk,
@@ -176,7 +177,7 @@ def test_document_merge_service_cover_sheet_with_header_values(
     group.save()
 
     # Prepare plot answer
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         be_instance.case.document,
         "parzelle",
         [
@@ -193,7 +194,7 @@ def test_document_merge_service_cover_sheet_with_header_values(
     )
 
     # Prepare applicant answer
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         be_instance.case.document,
         "personalien-gesuchstellerin",
         [
@@ -209,17 +210,19 @@ def test_document_merge_service_cover_sheet_with_header_values(
             }
         ],
     )
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         be_instance.case.document, "personalien-grundeigentumerin", []
     )
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         be_instance.case.document, "personalien-projektverfasserin", []
     )
 
     # Prepare plot address
-    utils.add_answer(be_instance.case.document, "strasse-flurname", "Bahnhofstrasse")
-    utils.add_answer(be_instance.case.document, "nr", "2")
-    utils.add_answer(be_instance.case.document, "ort-grundstueck", "Testhausen")
+    form_utils.add_answer(
+        be_instance.case.document, "strasse-flurname", "Bahnhofstrasse"
+    )
+    form_utils.add_answer(be_instance.case.document, "nr", "2")
+    form_utils.add_answer(be_instance.case.document, "ort-grundstueck", "Testhausen")
 
     # Prepare tags
     tag_factory(name="some tag", instance=be_instance, service=municipality)
@@ -235,17 +238,17 @@ def test_document_merge_service_cover_sheet_with_header_values(
     )
 
     # Prepare modification
-    utils.add_answer(
+    form_utils.add_answer(
         be_instance.case.document, "beschreibung-projektaenderung", "Anbau Haus"
     )
 
     # Prepare proposal
-    utils.add_answer(
+    form_utils.add_answer(
         be_instance.case.document, "beschreibung-bauvorhaben", "Bau Einfamilienhaus"
     )
 
     # Municipality
-    utils.add_answer(be_instance.case.document, "gemeinde", "1")
+    form_utils.add_answer(be_instance.case.document, "gemeinde", "1")
     DynamicOption.objects.create(
         document=be_instance.case.document,
         question_id="gemeinde",
@@ -275,14 +278,16 @@ def test_document_merge_service_cover_sheet_without_header_values(
     snapshot,
     application_settings,
     be_master_data_settings,
-    utils,
+    form_utils: FormUtils,
 ):
     # Prepare applicant answer
-    utils.add_table_answer(be_instance.case.document, "personalien-gesuchstellerin", [])
-    utils.add_table_answer(
+    form_utils.add_table_answer(
+        be_instance.case.document, "personalien-gesuchstellerin", []
+    )
+    form_utils.add_table_answer(
         be_instance.case.document, "personalien-grundeigentumerin", []
     )
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         be_instance.case.document, "personalien-projektverfasserin", []
     )
 
@@ -314,7 +319,7 @@ def test_eingabebestaetigung_gr(
     freezer,
     application_settings,
     master_data_is_visible_mock,
-    utils,
+    form_utils: FormUtils,
     gr_master_data_settings,
 ):
     settings.APPLICATION_NAME = "kt_gr"
@@ -352,7 +357,7 @@ def test_eingabebestaetigung_gr(
     )
 
     # Prepare plot answer
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         gr_instance.case.document,
         "parzelle",
         [
@@ -367,7 +372,7 @@ def test_eingabebestaetigung_gr(
     )
 
     # Prepare applicant answer
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         gr_instance.case.document,
         "personalien-gesuchstellerin",
         [
@@ -381,7 +386,7 @@ def test_eingabebestaetigung_gr(
     )
 
     # Prepare landowner answer
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         gr_instance.case.document,
         "personalien-grundeigentumerin",
         [
@@ -395,7 +400,7 @@ def test_eingabebestaetigung_gr(
     )
 
     # Prepare project author answer
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         gr_instance.case.document,
         "personalien-projektverfasserin",
         [
@@ -409,25 +414,25 @@ def test_eingabebestaetigung_gr(
     )
 
     # Prepare project modification
-    utils.add_answer(
+    form_utils.add_answer(
         gr_instance.case.document, "projektaenderung", "projektaenderung-ja"
     )
-    utils.add_answer(
+    form_utils.add_answer(
         gr_instance.case.document, "beschreibung-projektaenderung", "Projekt Änderung"
     )
 
     # Prepare plot address
-    utils.add_answer(
+    form_utils.add_answer(
         gr_instance.case.document, "street-and-housenumber", "Bahnhofstrasse 2"
     )
-    utils.add_answer(gr_instance.case.document, "ort-grundstueck", "Testhausen")
+    form_utils.add_answer(gr_instance.case.document, "ort-grundstueck", "Testhausen")
 
     # Prepare authority
     gr_instance.instance_services.all().delete()
     gr_instance.instance_services.create(service=municipality, active=1)
 
     # Prepare proposal
-    utils.add_answer(
+    form_utils.add_answer(
         gr_instance.case.document, "beschreibung-bauvorhaben", "Bau Einfamilienhaus"
     )
 
@@ -443,7 +448,7 @@ def test_eingabebestaetigung_gr(
     )
 
     # Municipality
-    utils.add_answer(gr_instance.case.document, "gemeinde", "1")
+    form_utils.add_answer(gr_instance.case.document, "gemeinde", "1")
     DynamicOption.objects.create(
         document=gr_instance.case.document,
         question_id="gemeinde",
@@ -494,7 +499,7 @@ def test_number_separator(
     caluma_form_question_factory,
     so_instance,
     use_number_separator,
-    utils,
+    form_utils: FormUtils,
 ):
     dms_settings["FORM"] = {"baugesuch": {"forms": ["main-form"]}}
     dms_settings["USE_NUMBER_SEPARATOR"] = use_number_separator
@@ -510,8 +515,8 @@ def test_number_separator(
         question__type=Question.TYPE_FLOAT,
     )
 
-    utils.add_answer(so_instance.case.document, "integer", 57000000)
-    utils.add_answer(so_instance.case.document, "float", 1304.12)
+    form_utils.add_answer(so_instance.case.document, "integer", 57000000)
+    form_utils.add_answer(so_instance.case.document, "float", 1304.12)
 
     visitor = DMSVisitor(so_instance.case.document, so_instance, BaseUser())
 
@@ -628,7 +633,7 @@ def test_print_meta_attributes(
     caluma_form_question_factory,
     caluma_form_factory,
     so_instance,
-    utils,
+    form_utils: FormUtils,
     snapshot,
 ):
     dms_settings["FORM"] = {"baugesuch": {"forms": ["print-form"]}}
@@ -656,9 +661,9 @@ def test_print_meta_attributes(
         sort=2,
     )
 
-    utils.add_answer(so_instance.case.document, "integer", 57000000)
-    utils.add_answer(so_instance.case.document, "float", 1304.12)
-    utils.add_answer(so_instance.case.document, "integer-print", 12)
+    form_utils.add_answer(so_instance.case.document, "integer", 57000000)
+    form_utils.add_answer(so_instance.case.document, "float", 1304.12)
+    form_utils.add_answer(so_instance.case.document, "integer-print", 12)
 
     visitor = DMSVisitor(so_instance.case.document, so_instance, BaseUser())
 
