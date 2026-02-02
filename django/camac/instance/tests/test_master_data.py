@@ -429,7 +429,7 @@ def test_master_data_table_resolver(
     instance,
     master_data_is_visible_mock,
     master_data_settings,
-    utils,
+    form_utils: FormUtils,
     versioned,
 ):
     master_data_settings["CONFIG"] = {
@@ -472,7 +472,7 @@ def test_master_data_table_resolver(
             type=caluma_form_models.Question.TYPE_TABLE,
         )
 
-        utils.add_table_answer(
+        form_utils.add_table_answer(
             instance.case.document,
             table_question_v2,
             [
@@ -491,7 +491,7 @@ def test_master_data_table_resolver(
             slug="table-question",
             type=caluma_form_models.Question.TYPE_TABLE,
         )
-        utils.add_table_answer(
+        form_utils.add_table_answer(
             instance.case.document,
             table_question,
             [
