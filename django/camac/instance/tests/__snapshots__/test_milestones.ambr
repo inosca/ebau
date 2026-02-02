@@ -1,5 +1,5 @@
 # serializer version: 1
-# name: test_milestones_ur[False-is-paper-no-complete-check-vollstaendigkeitspruefung-complete-False-Sekretariat der Gemeindebaubeh\xf6rde]
+# name: test_milestones_ur[False-False-complete-check-vollstaendigkeitspruefung-complete-False-Sekretariat der Gemeindebaubeh\xf6rde]
   dict({
     'sections': list([
       dict({
@@ -235,7 +235,7 @@
     ]),
   })
 # ---
-# name: test_milestones_ur[False-is-paper-no-complete-check-vollstaendigkeitspruefung-incomplete-False-Sekretariat der Gemeindebaubeh\xf6rde]
+# name: test_milestones_ur[False-False-complete-check-vollstaendigkeitspruefung-incomplete-False-Sekretariat der Gemeindebaubeh\xf6rde]
   dict({
     'sections': list([
       dict({
@@ -471,7 +471,7 @@
     ]),
   })
 # ---
-# name: test_milestones_ur[False-is-paper-no-complete-check-vollstaendigkeitspruefung-incomplete-True-Sekretariat der Gemeindebaubeh\xf6rde]
+# name: test_milestones_ur[False-False-complete-check-vollstaendigkeitspruefung-incomplete-True-Sekretariat der Gemeindebaubeh\xf6rde]
   dict({
     'sections': list([
       dict({
@@ -707,7 +707,7 @@
     ]),
   })
 # ---
-# name: test_milestones_ur[False-is-paper-yes-complete-check-vollstaendigkeitspruefung-complete-False-Sekretariat der Gemeindebaubeh\xf6rde]
+# name: test_milestones_ur[False-True-complete-check-vollstaendigkeitspruefung-complete-False-Sekretariat der Gemeindebaubeh\xf6rde]
   dict({
     'sections': list([
       dict({
@@ -943,7 +943,7 @@
     ]),
   })
 # ---
-# name: test_milestones_ur[True-is-paper-no-complete-check-vollstaendigkeitspruefung-complete-False-Sekretariat der Gemeindebaubeh\xf6rde]
+# name: test_milestones_ur[True-False-complete-check-vollstaendigkeitspruefung-complete-False-Sekretariat der Gemeindebaubeh\xf6rde]
   dict({
     'sections': list([
       dict({
@@ -1179,7 +1179,7 @@
     ]),
   })
 # ---
-# name: test_milestones_ur[True-is-paper-no-complete-check-vollstaendigkeitspruefung-incomplete-False-Sekretariat der Gemeindebaubeh\xf6rde]
+# name: test_milestones_ur[True-False-complete-check-vollstaendigkeitspruefung-incomplete-False-Sekretariat der Gemeindebaubeh\xf6rde]
   dict({
     'sections': list([
       dict({
@@ -1415,7 +1415,7 @@
     ]),
   })
 # ---
-# name: test_milestones_ur[True-is-paper-no-complete-check-vollstaendigkeitspruefung-incomplete-True-Sekretariat der Gemeindebaubeh\xf6rde]
+# name: test_milestones_ur[True-False-complete-check-vollstaendigkeitspruefung-incomplete-True-Sekretariat der Gemeindebaubeh\xf6rde]
   dict({
     'sections': list([
       dict({
@@ -1651,7 +1651,7 @@
     ]),
   })
 # ---
-# name: test_milestones_ur[True-is-paper-yes-complete-check-vollstaendigkeitspruefung-complete-False-Sekretariat der Gemeindebaubeh\xf6rde]
+# name: test_milestones_ur[True-True-complete-check-vollstaendigkeitspruefung-complete-False-Sekretariat der Gemeindebaubeh\xf6rde]
   dict({
     'sections': list([
       dict({

@@ -24,6 +24,7 @@ from rest_framework.status import (
 from rest_framework.test import APIClient
 
 from camac.permissions import api as permissions_api
+from camac.tests.form_utils import FormUtils
 
 
 def document_post_data(category_id, instance_id, metainfo={}):
@@ -1757,13 +1758,12 @@ def test_condition_paper_instance(
     access,
     method,
     status_code,
+    form_utils: FormUtils,
 ):
     applicant_factory(invitee=admin_client.user, instance=gr_instance)
     alexandria_category = CategoryFactory(metainfo={"access": access})
     if status_code != HTTP_403_FORBIDDEN:
-        gr_instance.case.document.answers.create(
-            question_id="is-paper", value="is-paper-yes"
-        )
+        form_utils.set_is_paper(gr_instance.case.document, True)
 
     if method in ["patch", "delete"]:
         doc = DocumentFactory(

@@ -14,6 +14,7 @@ from camac.instance.milestones.serializers import (
     _get_date_of_downloaded_decision_document,
     _get_decision_work_item_closed_at,
 )
+from camac.tests.form_utils import FormUtils
 
 
 @pytest.mark.parametrize(
@@ -23,12 +24,12 @@ from camac.instance.milestones.serializers import (
     ],
 )
 @pytest.mark.parametrize(
-    "is_paper_answer,complete_check_outcome,open_additional_demands",
+    "is_paper,complete_check_outcome,open_additional_demands",
     [
-        ("is-paper-no", "complete-check-vollstaendigkeitspruefung-complete", False),
-        ("is-paper-yes", "complete-check-vollstaendigkeitspruefung-complete", False),
-        ("is-paper-no", "complete-check-vollstaendigkeitspruefung-incomplete", True),
-        ("is-paper-no", "complete-check-vollstaendigkeitspruefung-incomplete", False),
+        (False, "complete-check-vollstaendigkeitspruefung-complete", False),
+        (True, "complete-check-vollstaendigkeitspruefung-complete", False),
+        (False, "complete-check-vollstaendigkeitspruefung-incomplete", True),
+        (False, "complete-check-vollstaendigkeitspruefung-incomplete", False),
     ],
 )
 @pytest.mark.freeze_time("2023-12-31")
@@ -54,15 +55,12 @@ def test_milestones_ur(
     workflow_item_factory,
     receipt_confirmation_of_decision_documents,
     set_application_ur,
-    is_paper_answer,
+    is_paper,
     complete_check_outcome,
     open_additional_demands,
+    form_utils: FormUtils,
 ):
-    caluma_answer_factory(
-        document=ur_instance.case.document,
-        question_id="is-paper",
-        value=is_paper_answer,
-    )
+    form_utils.set_is_paper(ur_instance.case.document, is_paper)
 
     submit_task = ur_instance.case.work_items.get(task_id="submit")
     submit_task.closed_at = timezone.make_aware(datetime(2023, 1, 1, 20, 0, 0))

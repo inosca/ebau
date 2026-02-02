@@ -3,13 +3,11 @@ from collections import OrderedDict
 from pathlib import Path
 
 import pytest
-from caluma.caluma_user.models import BaseUser
 from django.conf import settings
 from django.utils import timezone
 from pytest_lazy_fixtures import lf
 from syrupy.filters import paths
 
-from camac.caluma.api import CalumaApi
 from camac.core.models import InstanceLocation
 from camac.document.tests.data import django_file
 from camac.dossier_import.dossier_classes import Attachment, Dossier
@@ -24,6 +22,7 @@ from camac.instance.domain_logic.decision import DecisionLogic
 from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
 from camac.instance.utils import get_construction_control
+from camac.tests.form_utils import FormUtils
 
 TEST_IMPORT_FILE_PATH = str(
     Path(settings.ROOT_DIR) / "camac/dossier_import/tests/data/"
@@ -1089,6 +1088,7 @@ def test_set_workflow_state_be(
     expected_work_items_states,
     expected_case_status,
     be_permissions_settings,
+    form_utils: FormUtils,
 ):
     be_permissions_settings["EVENT_HANDLER"] = (
         "camac.permissions.config.kt_bern.GeneralPermissionEventHandlerBE"
@@ -1103,18 +1103,10 @@ def test_set_workflow_state_be(
         service=writer._group.service,
         active=1,
     )
-    CalumaApi().update_or_create_answer(
-        document=be_instance.case.document,
-        question_slug="gemeinde",
-        value=str(writer._group.service.pk),
-        user=BaseUser(),
+    form_utils.add_municipality(
+        be_instance.case.document, "gemeinde", writer._group.service
     )
-    CalumaApi().update_or_create_answer(
-        document=be_instance.case.document,
-        question_slug="is-paper",
-        value="is-paper-no",
-        user=BaseUser(),
-    )
+    form_utils.set_is_paper(be_instance.case.document, False)
     if ebau_number:
         be_instance.case.meta["ebau-number"] = ebau_number
         be_instance.case.save()

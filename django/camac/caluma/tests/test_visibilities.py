@@ -17,6 +17,7 @@ from django.utils.timezone import make_aware
 from pytest_lazy_fixtures import lf
 
 from camac.caluma.extensions.visibilities import CustomVisibility, CustomVisibilitySZ
+from camac.tests.form_utils import FormUtils
 from camac.user.models import User
 
 
@@ -319,6 +320,7 @@ def test_work_item_visibility(
     instance_with_case,
     role,
     mocker,
+    form_utils: FormUtils,
 ):
     mocker.patch("caluma.caluma_core.types.Node.visibility_classes", [CustomVisibility])
 
@@ -328,9 +330,7 @@ def test_work_item_visibility(
     active_inquiry_factory(visible_instance, group.service)
 
     for instance in [visible_instance, not_visible_instance]:
-        instance.case.document.answers.create(
-            question_id="is-paper", value="is-paper-no"
-        )
+        form_utils.set_is_paper(instance.case.document, False)
 
         # complete submit work item, there should now be 4 work items
         workflow_api.complete_work_item(
@@ -1058,6 +1058,7 @@ def test_visibility_performance_heuristic_workitems(
     instance_with_case,
     role,
     mocker,
+    form_utils: FormUtils,
     #
     param,
     filter,
@@ -1074,9 +1075,7 @@ def test_visibility_performance_heuristic_workitems(
     visible_instance.case.save()
 
     for instance in [visible_instance, not_visible_instance]:
-        instance.case.document.answers.create(
-            question_id="is-paper", value="is-paper-no"
-        )
+        form_utils.set_is_paper(instance.case.document, False)
 
         # complete submit work item, there should now be 4 work items
         workflow_api.complete_work_item(
@@ -1147,6 +1146,7 @@ def test_visibility_performance_heuristic_cases(
     instance_with_case,
     role,
     mocker,
+    form_utils: FormUtils,
     #
     param,
     filter,
@@ -1163,9 +1163,7 @@ def test_visibility_performance_heuristic_cases(
     visible_instance.case.save()
 
     for instance in [visible_instance, not_visible_instance]:
-        instance.case.document.answers.create(
-            question_id="is-paper", value="is-paper-no"
-        )
+        form_utils.set_is_paper(instance.case.document, False)
 
         # complete submit work item, there should now be 4 work items
         workflow_api.complete_work_item(

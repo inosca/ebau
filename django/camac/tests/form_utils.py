@@ -308,3 +308,23 @@ class FormUtils:
             label={"de": service.get_name()},
         )
         return self.add_answer(document, question, str(service.pk))
+
+    def set_is_paper(self, document: Document, is_paper: bool) -> Answer:
+        """Add "is-paper" answer to a document.
+
+        Args:
+            document: The document to add the answer to.
+            is_paper: Whether the instance is paper or not.
+
+        Returns:
+            The newly created answer.
+
+        Examples:
+            >>> utils.set_is_paper(instance.case.document, True)
+        """
+
+        return self.add_answer(
+            document,
+            "is-paper",
+            f"is-paper-{'yes' if is_paper else 'no'}",
+        )
