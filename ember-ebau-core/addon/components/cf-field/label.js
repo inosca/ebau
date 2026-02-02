@@ -18,8 +18,12 @@ export default class CustomCfFieldLabelComponent extends Component {
       return null;
     }
 
-    const gisValue = this.args.field.answer.raw.meta?.["gis-value"];
-    const value = this.args.field.answer.serializedValue;
+    if (this.args.field.question.isCalculated) {
+      return null;
+    }
+
+    const gisValue = this.args.field.answer?.raw.meta?.["gis-value"];
+    const value = this.args.field.answer?.serializedValue;
 
     if (
       gisValue === undefined ||
