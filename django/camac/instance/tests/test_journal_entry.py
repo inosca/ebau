@@ -293,40 +293,6 @@ def test_journal_entry_create(
         )
 
 
-@pytest.mark.parametrize("journal_entry__user", [lf("admin_user")])
-@pytest.mark.parametrize(
-    "role__name,status_code",
-    [
-        ("Applicant", status.HTTP_404_NOT_FOUND),
-        ("Municipality", status.HTTP_204_NO_CONTENT),
-        ("Canton", status.HTTP_204_NO_CONTENT),
-        ("Service", status.HTTP_204_NO_CONTENT),
-        ("Geometer", status.HTTP_204_NO_CONTENT),
-        ("Legal-Authority", status.HTTP_204_NO_CONTENT),
-    ],
-)
-def test_journal_entry_destroy(
-    admin_client,
-    journal_entry,
-    activation,
-    role,
-    service,
-    instance_acl_factory,
-    status_code,
-):
-    url = reverse("journal-entry-detail", args=[journal_entry.pk])
-
-    if role.name in ["Geometer", "Legal-Authority"]:
-        instance_acl_factory(
-            instance=journal_entry.instance,
-            grant_type="SERVICE",
-            service=service,
-        )
-
-    response = admin_client.delete(url)
-    assert response.status_code == status_code
-
-
 @pytest.mark.parametrize("role__name", [("Municipality")])
 @pytest.mark.parametrize(
     "journal_entry_duration,response_duration",

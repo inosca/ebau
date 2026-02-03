@@ -1303,35 +1303,6 @@ class JournalEntryView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
     def has_object_update_permission_rbac_for_legal_authority(self, obj):
         return self._matching_user_and_service(obj)
 
-    @permission_switching_method
-    def has_object_destroy_permission(self, obj):
-        return self._matching_user_and_service(
-            obj
-        ) and permissions_api.PermissionManager.from_request(self.request).has_all(
-            obj.instance, "journal-write"
-        )
-
-    @has_object_destroy_permission.register_old
-    @permission_aware
-    def has_object_destroy_permission_rbac(self, obj):  # pragma: no cover
-        # see comment has_object_update_permission
-        return False
-
-    def has_object_destroy_permission_rbac_for_canton(self, obj):
-        return self._matching_user_and_service(obj)
-
-    def has_object_destroy_permission_rbac_for_service(self, obj):
-        return self._matching_user_and_service(obj)
-
-    def has_object_destroy_permission_rbac_for_municipality(self, obj):
-        return self._matching_user_and_service(obj)
-
-    def has_object_destroy_permission_rbac_for_geometer(self, obj):
-        return self._matching_user_and_service(obj)
-
-    def has_object_destroy_permission_rbac_for_legal_authority(self, obj):
-        return self._matching_user_and_service(obj)
-
 
 class HistoryEntryView(
     mixins.InstanceQuerysetMixin, mixins.InstanceEditableMixin, views.ModelViewSet
