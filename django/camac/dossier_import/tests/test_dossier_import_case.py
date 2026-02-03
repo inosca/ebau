@@ -996,10 +996,12 @@ def test_validation(
                 ("distribution", "skipped"),
                 ("audit", "skipped"),  # "Dossier prüfen"
                 ("publication", "skipped"),  # "Dossier publizieren"
-                ("fill-publication", "skipped"),  # "Publikation ausfüllen"
                 ("create-publication", "canceled"),  # "Neue Publikation"
                 ("decision", "skipped"),  # "Entscheid verfügen"
-                ("information-of-neighbors", "canceled"),  # Nachbarschaftsorientierung
+                (
+                    "create-information-of-neighbors",
+                    "canceled",
+                ),  # Nachbarschaftsorientierung
                 ("legal-submission", "skipped"),  # Rechtsbegehren
             ],
             "completed",
@@ -1046,10 +1048,12 @@ def test_validation(
                 ("distribution", "skipped"),  # "Zirkulation"
                 ("audit", "skipped"),  # "Dossier prüfen"
                 ("publication", "skipped"),  # "Dossier publizieren"
-                ("fill-publication", "skipped"),  # "Publikation ausfüllen"
                 ("create-publication", "canceled"),  # "Neue Publikation"
                 ("decision", "skipped"),  # "Entscheid verfügen"
-                ("information-of-neighbors", "canceled"),  # Nachbarschaftsorientierung
+                (
+                    "create-information-of-neighbors",
+                    "canceled",
+                ),  # Nachbarschaftsorientierung
                 ("sb1", "ready"),  # "Entscheid verfügen"
             ],
             "running",
@@ -1066,10 +1070,12 @@ def test_validation(
                 ("distribution", "skipped"),  # "Zirkulation überspringen"
                 ("audit", "skipped"),  # "Dossier prüfen"
                 ("publication", "skipped"),  # "Dossier publizieren"
-                ("fill-publication", "skipped"),  # "Publikation ausfüllen"
                 ("create-publication", "canceled"),  # "Neue Publikation"
                 ("decision", "skipped"),  # "Entscheid verfügen"
-                ("information-of-neighbors", "canceled"),  # Nachbarschaftsorientierung
+                (
+                    "create-information-of-neighbors",
+                    "canceled",
+                ),  # Nachbarschaftsorientierung
                 ("legal-submission", "skipped"),  # Rechtsbegehren
             ],
             "completed",

@@ -1,4 +1,5 @@
 import Controller from "@ember/controller";
+import { assert } from "@ember/debug";
 import { action } from "@ember/object";
 import { service } from "@ember/service";
 import { queryManager, getObservable } from "ember-apollo-client";
@@ -41,6 +42,7 @@ export default class PublicationController extends Controller {
   @cached
   get variables() {
     const { task, dateRanges } = this.#config;
+    assert(`A 'task' must be defined for type "${this.model.type}".`, task);
 
     return {
       instanceId: this.instanceId,
@@ -86,13 +88,18 @@ export default class PublicationController extends Controller {
 
   @dropTask
   *fetchCreatePublicationWorkItem() {
+    assert(
+      `A 'createTask' must be defined for type "${this.model.type}".`,
+      this.#config.createTask,
+    );
+
     try {
       return yield this.apollo.watchQuery(
         {
           query: getWorkItemOfTask,
           variables: {
             ...this.variables,
-            task: "create-publication",
+            task: this.#config.createTask,
             status: "READY",
             invert: false,
           },

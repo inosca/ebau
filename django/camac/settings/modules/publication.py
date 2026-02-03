@@ -24,7 +24,6 @@ PUBLICATION = {
     },
     "kt_bern": {
         "ENABLED": True,
-        "FILL_TASKS": {"NEIGHBORS": "information-of-neighbors"},
         "RANGE_QUESTIONS": {
             "PUBLIC": [("publikation-startdatum", "publikation-ablaufdatum")],
             "NEIGHBORS": [

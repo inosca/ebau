@@ -38,6 +38,18 @@ export default class PublicationEditController extends Controller {
     ];
   }
 
+  get #config() {
+    return mainConfig.publication[this.model.type];
+  }
+
+  get createTask() {
+    return this.#config.createTask;
+  }
+
+  get fillTask() {
+    return this.#config.task;
+  }
+
   publication = trackedTask(this, this.fetchPublication, () => [
     this.model.workItemId,
   ]);
@@ -90,7 +102,7 @@ export default class PublicationEditController extends Controller {
 
   @action
   async refreshNavigation(transitionToIndex = false) {
-    const { task, dateRanges } = mainConfig.publication[this.model.type];
+    const { task, dateRanges } = this.#config;
 
     await this.apollo.query({
       query: getPublications,

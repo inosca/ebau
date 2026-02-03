@@ -35,11 +35,7 @@
           <TaskButton
             class="uk-margin-right"
             @color="primary"
-            @task={{if
-              (eq @model.type "neighbors")
-              "create-information-of-neighbors"
-              "create-publication"
-            }}
+            @task={{this.createTask}}
             @mutation="complete"
             @filters={{this.filters}}
             @onSuccess={{fn this.refreshNavigation true}}
@@ -51,11 +47,7 @@
             class="uk-margin-right"
             @color="primary"
             @disabled={{not isValid}}
-            @task={{if
-              (eq @model.type "neighbors")
-              "fill-information-of-neighbors"
-              "fill-publication"
-            }}
+            @task={{this.fillTask}}
             @beforeMutate={{fn
               this.confirm
               (t (concat "publication.submitConfirm." @model.type))
@@ -78,11 +70,7 @@
         {{#if (can "delete publication" this.publication.value)}}
           <TaskButton
             class="uk-margin-right"
-            @task={{if
-              (eq @model.type "neighbors")
-              "fill-information-of-neighbors"
-              "fill-publication"
-            }}
+            @task={{this.fillTask}}
             @beforeMutate={{fn
               this.confirm
               (t (concat "publication.deleteConfirm." @model.type))
