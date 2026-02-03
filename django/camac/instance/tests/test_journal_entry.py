@@ -5,6 +5,7 @@ from rest_framework import status
 from rest_framework.test import APIClient
 
 from camac.instance.models import JournalEntry
+from camac.permissions.conditions import Always
 
 
 @pytest.mark.parametrize("role__name", ["Support"])
@@ -127,7 +128,7 @@ def test_journal_entry_visible_for(
         ("Legal-Authority", status.HTTP_200_OK),
     ],
 )
-def test_journal_entry_update(
+def test_journal_entry_update_rbac(
     admin_client,
     journal_entry,
     activation,
@@ -136,6 +137,7 @@ def test_journal_entry_update(
     instance_acl_factory,
     status_code,
 ):
+    """Test journal entry update permissions with legacy role-based permission system."""
     url = reverse("journal-entry-detail", args=[journal_entry.pk])
 
     if role.name in ["Geometer", "Legal-Authority"]:
@@ -143,6 +145,47 @@ def test_journal_entry_update(
             instance=journal_entry.instance,
             grant_type="SERVICE",
             service=service,
+        )
+
+    response = admin_client.patch(url)
+    assert response.status_code == status_code
+
+
+@pytest.mark.parametrize(
+    "has_permission,status_code",
+    [
+        (False, status.HTTP_404_NOT_FOUND),
+        (True, status.HTTP_200_OK),
+    ],
+)
+@pytest.mark.parametrize("role__name", ["Municipality"])
+def test_journal_entry_update(
+    admin_client,
+    journal_entry,
+    permissions_settings,
+    settings,
+    access_level,
+    service,
+    role,
+    instance_acl_factory,
+    has_permission,
+    status_code,
+):
+    journal_entry.user = admin_client.user
+    journal_entry.save()
+    permissions_settings["ENABLED"] = True
+    permissions_settings["PERMISSION_MODE"] = "FULL"
+    permissions_settings["ACCESS_LEVELS"] = {
+        access_level.pk: [("journal-read", Always()), ("journal-write", Always())]
+    }
+    url = reverse("journal-entry-detail", args=[journal_entry.pk])
+
+    if has_permission:
+        instance_acl_factory(
+            instance=journal_entry.instance,
+            grant_type="SERVICE",
+            service=service,
+            access_level=access_level,
         )
 
     response = admin_client.patch(url)
@@ -163,15 +206,70 @@ def test_journal_entry_update(
         ("Legal-Authority", status.HTTP_201_CREATED),
     ],
 )
-def test_journal_entry_create(
+def test_journal_entry_create_rbac(
     admin_client, instance, activation, role, service, instance_acl_factory, status_code
 ):
+    """Test journal entry create permissions with legacy role-based permission system."""
     url = reverse("journal-entry-list")
 
     if role.name == "Geometer":
         instance_acl_factory(
             instance=instance,
             grant_type="SERVICE",
+            service=service,
+        )
+
+    data = {
+        "data": {
+            "type": "journal-entries",
+            "id": None,
+            "attributes": {"text": "Test", "visibility": "all", "duration": "12:34:00"},
+            "relationships": {
+                "instance": {"data": {"type": "instances", "id": instance.pk}}
+            },
+        }
+    }
+
+    response = admin_client.post(url, data=data)
+    assert response.status_code == status_code
+    if status_code == status.HTTP_201_CREATED:
+        json = response.json()
+        assert json["data"]["relationships"]["service"]["data"]["id"] == (
+            str(service.pk)
+        )
+
+
+@pytest.mark.parametrize(
+    "has_permission,status_code",
+    [
+        (False, status.HTTP_403_FORBIDDEN),
+        (True, status.HTTP_201_CREATED),
+    ],
+)
+@pytest.mark.parametrize("role__name", ["Municipality"])
+def test_journal_entry_create(
+    admin_client,
+    instance,
+    service,
+    instance_acl_factory,
+    access_level,
+    permissions_settings,
+    has_permission,
+    status_code,
+):
+    url = reverse("journal-entry-list")
+
+    permissions_settings["ENABLED"] = True
+    permissions_settings["PERMISSION_MODE"] = "FULL"
+    permissions_settings["ACCESS_LEVELS"] = {
+        access_level.pk: [("journal-write", Always())]
+    }
+
+    if has_permission:
+        instance_acl_factory(
+            instance=instance,
+            grant_type="SERVICE",
+            access_level=access_level,
             service=service,
         )
 

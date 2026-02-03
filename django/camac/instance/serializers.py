@@ -2650,6 +2650,14 @@ class JournalEntrySerializer(InstanceEditableMixin, serializers.ModelSerializer)
     visibility = serializers.ChoiceField(choices=models.JournalEntry.VISIBILITIES)
     duration = DurationField(allow_null=True)
 
+    @permission_switching_method
+    def validate_instance(self, value):  # pragma: no cover
+        return value
+
+    @validate_instance.register_old
+    def validate_instance_rbac(self, value):
+        return super().validate_instance(value)
+
     def create(self, validated_data):
         validated_data["modification_date"] = timezone.now()
         validated_data["creation_date"] = timezone.now()

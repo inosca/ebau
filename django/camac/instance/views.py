@@ -1232,77 +1232,105 @@ class JournalEntryView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
     def get_queryset(self):
         return super().get_queryset().visible_for(self.request)
 
-    @permission_aware
+    @permission_switching_method
     def has_create_permission(self):
-        return False
+        return permissions_api.PermissionManager.from_request(self.request).has_all(
+            self.request.data["instance"]["id"], "journal-write"
+        )
 
-    def has_create_permission_for_canton(self):
-        return True
-
-    def has_create_permission_for_commission(self):
-        return False
-
-    def has_create_permission_for_coordination(self):
-        return True
-
-    def has_create_permission_for_service(self):
-        return True
-
-    def has_create_permission_for_municipality(self):
-        return True
-
-    def has_create_permission_for_geometer(self):
-        return True
-
-    def has_create_permission_for_legal_authority(self):
-        return True
-
+    @has_create_permission.register_old
     @permission_aware
-    def has_object_update_permission(self, obj):  # pragma: no cover
+    def has_create_permission_rbac(self):
+        return False
+
+    def has_create_permission_rbac_for_canton(self):
+        return True
+
+    def has_create_permission_rbac_for_commission(self):
+        return False
+
+    def has_create_permission_rbac_for_coordination(self):
+        return True
+
+    def has_create_permission_rbac_for_service(self):
+        return True
+
+    def has_create_permission_rbac_for_municipality(self):
+        return True
+
+    def has_create_permission_rbac_for_geometer(self):
+        return True
+
+    def has_create_permission_rbac_for_legal_authority(self):
+        return True
+
+    def _matching_user_and_service(self, obj):
+        return (
+            obj.user == self.request.user and obj.service == self.request.group.service
+        )
+
+    @permission_switching_method
+    def has_object_update_permission(self, obj):
+        return self._matching_user_and_service(
+            obj
+        ) and permissions_api.PermissionManager.from_request(self.request).has_all(
+            obj.instance, "journal-write"
+        )
+
+    @has_object_update_permission.register_old
+    @permission_aware
+    def has_object_update_permission_rbac(self, obj):  # pragma: no cover
         # only needed as entry for permission aware decorator
         # but actually never executed as applicant may actually
         # not read any journal entries
         return False
 
-    def has_object_update_permission_for_canton(self, obj):
-        return (
-            obj.user == self.request.user and obj.service == self.request.group.service
+    def has_object_update_permission_rbac_for_canton(self, obj):
+        return self._matching_user_and_service(obj)
+
+    def has_object_update_permission_rbac_for_coordination(self, obj):
+        return self._matching_user_and_service(obj)
+
+    def has_object_update_permission_rbac_for_service(self, obj):
+        return self._matching_user_and_service(obj)
+
+    def has_object_update_permission_rbac_for_municipality(self, obj):
+        return self._matching_user_and_service(obj)
+
+    def has_object_update_permission_rbac_for_geometer(self, obj):
+        return self._matching_user_and_service(obj)
+
+    def has_object_update_permission_rbac_for_legal_authority(self, obj):
+        return self._matching_user_and_service(obj)
+
+    @permission_switching_method
+    def has_object_destroy_permission(self, obj):
+        return self._matching_user_and_service(
+            obj
+        ) and permissions_api.PermissionManager.from_request(self.request).has_all(
+            obj.instance, "journal-write"
         )
 
-    def has_object_update_permission_for_coordination(self, obj):
-        return self.has_object_update_permission_for_canton(obj)
-
-    def has_object_update_permission_for_service(self, obj):
-        return self.has_object_update_permission_for_canton(obj)
-
-    def has_object_update_permission_for_municipality(self, obj):
-        return self.has_object_update_permission_for_canton(obj)
-
-    def has_object_update_permission_for_geometer(self, obj):
-        return self.has_object_update_permission_for_canton(obj)
-
-    def has_object_update_permission_for_legal_authority(self, obj):
-        return self.has_object_update_permission_for_canton(obj)
-
+    @has_object_destroy_permission.register_old
     @permission_aware
-    def has_object_destroy_permission(self, obj):  # pragma: no cover
+    def has_object_destroy_permission_rbac(self, obj):  # pragma: no cover
         # see comment has_object_update_permission
         return False
 
-    def has_object_destroy_permission_for_canton(self, obj):
-        return self.has_object_update_permission_for_canton(obj)
+    def has_object_destroy_permission_rbac_for_canton(self, obj):
+        return self._matching_user_and_service(obj)
 
-    def has_object_destroy_permission_for_service(self, obj):
-        return self.has_object_update_permission_for_canton(obj)
+    def has_object_destroy_permission_rbac_for_service(self, obj):
+        return self._matching_user_and_service(obj)
 
-    def has_object_destroy_permission_for_municipality(self, obj):
-        return self.has_object_update_permission_for_canton(obj)
+    def has_object_destroy_permission_rbac_for_municipality(self, obj):
+        return self._matching_user_and_service(obj)
 
-    def has_object_destroy_permission_for_geometer(self, obj):
-        return self.has_object_update_permission_for_canton(obj)
+    def has_object_destroy_permission_rbac_for_geometer(self, obj):
+        return self._matching_user_and_service(obj)
 
-    def has_object_destroy_permission_for_legal_authority(self, obj):
-        return self.has_object_update_permission_for_canton(obj)
+    def has_object_destroy_permission_rbac_for_legal_authority(self, obj):
+        return self._matching_user_and_service(obj)
 
 
 class HistoryEntryView(
