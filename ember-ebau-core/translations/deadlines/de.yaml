@@ -32,6 +32,7 @@ deadlines:
       startDate: "Sistierung von"
       endDate: "Sistierung bis"
       reason: "Grund"
+      remark: "Bemerkung"
       author: "Autor"
     saveSuccess: "Sistierung erfolgreich gespeichert"
     saveError: "Fehler beim Speichern der Sistierung"

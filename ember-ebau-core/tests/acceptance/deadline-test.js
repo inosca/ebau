@@ -36,6 +36,7 @@ module("Acceptance | deadline", function (hooks) {
     this.owner.lookup("service:ebau-modules").serviceId = service.id;
 
     this.deadlineTypes = this.server.createList("deadline-type", 3, {});
+    this.suspensionReasons = this.server.createList("suspension-reason", 3, {});
     this.deadline = this.server.create("instance-deadline", {
       instance: this.instance,
       deadlineType: this.deadlineTypes[1],
@@ -84,7 +85,11 @@ module("Acceptance | deadline", function (hooks) {
           true,
         );
       }
-      fillIn("[data-test-suspension-reason-input]", "Test reason");
+      await selectChoose(
+        "[data-test-suspension-reason-input]",
+        this.suspensionReasons[0].label,
+      );
+      fillIn("[data-test-suspension-remark-input]", "Test remark");
       await click("[data-test-suspension-submit]");
 
       // new suspension should be listed

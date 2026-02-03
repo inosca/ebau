@@ -4,7 +4,7 @@ export default class DeadlinesSuspensionModel extends Model {
   @attr("date") startDate;
   @attr("date") endDate;
   @attr reason;
-  @attr reasonText;
+  @attr remark;
   @attr reasonFormatted;
   @attr authorFormatted;
 

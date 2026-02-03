@@ -132,7 +132,7 @@ def post_cancel_additional_demand(sender, work_item, user, context=None, **kwarg
     if deadline := instance.deadlines.filter(service=service).first():
         if suspension := (
             deadlines_models.Suspension.objects.for_deadline(deadline)
-            .for_additional_demand(work_item=work_item)
+            .for_workitem(work_item=work_item)
             .order_by("-created_at")
             .first()
         ):
@@ -162,7 +162,7 @@ def post_complete_fill_additional_demand(
         if deadline := instance.deadlines.filter(service=service).first():
             if suspension := (
                 deadlines_models.Suspension.objects.for_deadline(deadline)
-                .for_additional_demand(work_item=main_workitem)
+                .for_workitem(work_item=main_workitem)
                 .order_by("-created_at")
                 .first()
             ):
@@ -247,7 +247,7 @@ def post_redo_inquiry_ag(sender, work_item, user, context=None, **kwargs):
                 "CLAIM"
             ] and not (
                 deadlines_models.Suspension.objects.for_deadline(deadline)
-                .for_inquiry(work_item)
+                .for_workitem(work_item)
                 .only_open()
                 .exists()
             ):
@@ -308,7 +308,7 @@ def post_create_inquiry(sender, work_item, user, context=None, **kwargs):
                 != settings.DISTRIBUTION["ANSWERS"]["STATUS"]["CLAIM"]
                 and not (
                     deadlines_models.Suspension.objects.for_deadline(deadline)
-                    .for_inquiry(previous_inquiry)
+                    .for_workitem(previous_inquiry)
                     .only_open()
                     .exists()
                 )
@@ -358,7 +358,7 @@ def post_complete_inquiry_fill_ag(sender, work_item, user, context=None, **kwarg
             )
             if not (
                 deadline.suspensions.for_deadline(deadline)
-                .for_inquiry(workitem_inquiry)
+                .for_workitem(workitem_inquiry)
                 .first()
             ):
                 deadlines_models.Suspension.objects.create(

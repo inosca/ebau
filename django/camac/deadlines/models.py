@@ -85,20 +85,6 @@ class SuspensionQuerySet(DeadlinePermissionMixin, models.QuerySet["Suspension"])
             work_item=work_item,
         )
 
-    def for_additional_demand(self: TSuspension, work_item: WorkItem) -> TSuspension:
-        return self.for_workitem(
-            work_item=work_item,
-        ).filter(
-            reason=Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_ADDITIONAL_DEMAND
-        )
-
-    def for_inquiry(self: TSuspension, work_item: WorkItem) -> TSuspension:
-        return self.for_workitem(
-            work_item=work_item,
-        ).filter(
-            reason=Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_INQUIRY_CLAIM
-        )
-
     def only_open(self: TSuspension) -> TSuspension:
         """Filter to only include suspensions that are currently open."""
         return self.filter(end_date__isnull=True)
@@ -256,7 +242,7 @@ class Suspension(models.Model):
         choices=SuspensionReasonChoices.choices,
         default=SuspensionReasonChoices.SUSPENSION_TYPE_MANUAL,
     )
-    reason_text = models.TextField(
+    remark = models.TextField(
         blank=True,
         null=True,
     )
@@ -284,10 +270,9 @@ class Suspension(models.Model):
     def reason_formatted(self) -> str:
         """Format the reason for the suspension.
 
-        If the reason is a manual suspension, return the custom reason text.
-        Otherwise, return the label of the suspension reason choice.
+        Return the translated label of the suspension reason choice.
         """
-        return self.reason_text or Suspension.SuspensionReasonChoices(self.reason).label
+        return Suspension.SuspensionReasonChoices(self.reason).label
 
     @property
     def author_formatted(self) -> str:

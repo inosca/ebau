@@ -10,19 +10,17 @@ from camac.user.factories import GroupFactory, UserFactory
 
 
 @pytest.mark.parametrize(
-    "reason_type,reason_text,expected_reason,expected_formatted_reason",
+    "reason_type,expected_reason,expected_formatted_reason",
     [
         (
             models.Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_MANUAL.value,
-            "Test reason Manual",
             models.Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_MANUAL.value,
-            "Test reason Manual",
+            models.Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_MANUAL.label,
         ),
         (
             models.Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_ADDITIONAL_DEMAND.value,
-            None,
             models.Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_ADDITIONAL_DEMAND.value,
-            "Nachforderungssistierung",
+            models.Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_ADDITIONAL_DEMAND.label,
         ),
     ],
 )
@@ -33,7 +31,6 @@ def test_suspensions_reason_formatted(
     instance_deadline_factory,
     suspension_factory,
     reason_type,
-    reason_text,
     expected_reason,
     expected_formatted_reason,
     disable_deadline_side_effects,
@@ -43,12 +40,12 @@ def test_suspensions_reason_formatted(
     suspension = suspension_factory(
         deadline=deadline,
         reason=reason_type,
-        reason_text=reason_text,
+        remark="Some remark",
     )
 
     assert suspension.reason == expected_reason
-    assert suspension.reason_text == reason_text
     assert suspension.reason_formatted == expected_formatted_reason
+    assert suspension.remark == "Some remark"
 
 
 @pytest.mark.parametrize(

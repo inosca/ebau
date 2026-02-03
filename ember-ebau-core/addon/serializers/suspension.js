@@ -3,8 +3,6 @@ import { DateTime } from "luxon";
 
 export default class SuspensionSerializer extends JSONAPISerializer {
   attrs = {
-    // The `reason` field is auto-set by the backend.
-    reason: { serialize: false },
     // The `reasonFormatted` field is a backend calculated field.
     reasonFormatted: { serialize: false },
     // The `authorFormatted` field is a backend calculated field.
