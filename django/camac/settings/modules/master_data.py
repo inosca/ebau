@@ -2452,28 +2452,28 @@ MASTER_DATA = {
                 "bauabnahme",
                 {
                     "value_key": "date",
-                    "document_from_work_item": "formal-exam",
+                    "document_from_work_item": "construction-acceptance",
                 },
             ),
             "bauabnahme_abgenommen": (
                 "answer",
-                "bauabnahme",
+                "abgenommen",
                 {
-                    "document_from_work_item": "formal-exam",
+                    "document_from_work_item": "construction-acceptance",
                 },
             ),
             "bauabnahme_nicht_abgenommen_maengel": (
                 "answer",
-                "bauabnahme_nicht_abgenommen_maengel",
+                "nicht-abgenommen-maengel",
                 {
-                    "document_from_work_item": "formal-exam",
+                    "document_from_work_item": "construction-acceptance",
                 },
             ),
-            "bauabnahme_bemerkungen ": (
+            "bauabnahme_bemerkungen": (
                 "answer",
-                "bauabnahme_bemerkungen",
+                "bemerkungen-baubegleitung",
                 {
-                    "document_from_work_item": "formal-exam",
+                    "document_from_work_item": "construction-acceptance",
                 },
             ),
         },
