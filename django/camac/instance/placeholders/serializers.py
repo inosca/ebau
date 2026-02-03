@@ -1006,6 +1006,7 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         description=_("Opinions and ancillary clauses of the invited services"),
     )
     bauabnahme_datum = fields.MasterDataField(
+        parser=get_date_parser_for_canton(),
         aliases=[_("CONSTRUCTION_ACCEPTANCE_DATE")],
         description=_("Date of the construction acceptance"),
     )
