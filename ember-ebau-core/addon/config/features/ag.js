@@ -20,7 +20,6 @@ export default {
     applicantRoles: true,
   },
   rejection: {
-    useLegacyClaims: false,
     snippets: true,
     revert: true,
   },

@@ -1144,7 +1144,7 @@ APPLICATIONS = {
                 "klaerung-baubewilligungspflicht",
                 "klaerung-baubewilligungspflicht-v2",
             ],
-            "COPY_PAPER_ANSWER_TO": ["nfd", "sb1", "sb2"],
+            "COPY_PAPER_ANSWER_TO": ["sb1", "sb2"],
             "COPY_PERSONAL": [
                 {
                     "TASK": "sb1",
@@ -1189,7 +1189,6 @@ APPLICATIONS = {
                         "init-additional-demand",
                         "additional-demand",
                     ],
-                    # TODO: Remove nfd
                     "complete": ["nfd", "gever"],
                 },
                 "complete": {

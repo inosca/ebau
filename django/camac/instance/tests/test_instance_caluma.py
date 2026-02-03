@@ -54,14 +54,6 @@ def mock_public_status(mocker):
 
 
 @pytest.fixture
-def mock_nfd_permissions(mocker):
-    mocker.patch(
-        "camac.instance.serializers.CalumaInstanceSerializer._get_nfd_form_permissions",
-        lambda s, i: [],
-    )
-
-
-@pytest.fixture
 def mock_generate_and_store_pdf(mocker):
     mocker.patch(
         "camac.instance.serializers.CalumaInstanceSubmitSerializer._generate_and_store_pdf"
@@ -84,7 +76,6 @@ def test_create_instance_caluma_be(
     instance_state,
     instance_state_factory,
     form,
-    mock_nfd_permissions,
     group,
     caluma_workflow_config_be,
     application_settings,
@@ -235,7 +226,6 @@ def test_create_instance_caluma_ur(  # noqa: C901
     instance_state,
     instance_state_factory,
     form,
-    mock_nfd_permissions,
     group,
     caluma_workflow_config_ur,
     application_settings,
@@ -466,7 +456,6 @@ def test_instance_list(
     editable,
     mock_public_status,
     multilang,
-    mock_nfd_permissions,
 ):
     active_inquiry_factory(be_instance)
 
@@ -531,7 +520,6 @@ def test_instance_submit_be(
     mock_public_status,
     multilang,
     application_settings,
-    mock_nfd_permissions,
     mock_generate_and_store_pdf,
     caluma_workflow_config_be,
     has_personalien_sb1,
@@ -596,7 +584,6 @@ def test_instance_submit_ur(
     mock_public_status,
     multilang,
     application_settings,
-    mock_nfd_permissions,
     mock_generate_and_store_pdf,
     caluma_workflow_config_ur,
     caluma_admin_user,
@@ -1517,7 +1504,6 @@ def test_instance_submit_state_change_be(
     mock_public_status,
     multilang,
     application_settings,
-    mock_nfd_permissions,
     mock_generate_and_store_pdf,
     caluma_workflow_config_be,
     notification_template,
@@ -1622,7 +1608,6 @@ def test_instance_report(
     notification_template,
     application_settings,
     multilang,
-    mock_nfd_permissions,
     mock_generate_and_store_pdf,
     caluma_workflow_config_be,
     caluma_admin_user,
@@ -1753,7 +1738,6 @@ def test_instance_finalize(
     notification_template,
     application_settings,
     multilang,
-    mock_nfd_permissions,
     mock_generate_and_store_pdf,
     caluma_admin_user,
     create_awa_workitem,
@@ -1918,7 +1902,7 @@ def test_instance_finalize(
 
 
 @pytest.mark.parametrize("paper", [(True, False)])
-@pytest.mark.parametrize("form_slug", [(None), ("nfd")])
+@pytest.mark.parametrize("form_slug", [(None), ("ebau-number")])
 @pytest.mark.parametrize("service_group__name", ["municipality"])
 def test_generate_and_store_pdf(
     db,
@@ -1970,13 +1954,12 @@ def test_generate_and_store_pdf(
 
     dms_settings["FORM"] = {
         "main-form": {"template": "some-template"},
-        "nfd": {"template": "some-template"},
+        "ebau-number": {"template": "some-template"},
     }
 
     be_instance.case.document.answers.create(
         value=str(service.pk), question_id="gemeinde"
     )
-
     if form_slug:
         workflow_api.complete_work_item(
             work_item=be_instance.case.work_items.get(task_id="submit"),
@@ -2048,7 +2031,6 @@ def test_caluma_instance_list_filter(
     role,
     admin_user,
     mock_public_status,
-    mock_nfd_permissions,
     form_utils: FormUtils,
 ):
     for instance, paper in [
@@ -2270,7 +2252,7 @@ def test_has_pending_sanction_filter(
     [
         (None, False, status.HTTP_200_OK),
         (None, True, status.HTTP_200_OK),
-        ("nfd", False, status.HTTP_200_OK),
+        ("ebau-number", False, status.HTTP_200_OK),
         ("something", False, status.HTTP_400_BAD_REQUEST),
     ],
 )
@@ -2310,7 +2292,7 @@ def test_generate_pdf_action(
 
     dms_settings["FORM"] = {
         "main-form": {"template": "some-template"},
-        "nfd": {"template": "some-template"},
+        "ebau-number": {"template": "some-template"},
         "mp-form": {"template": "some-template"},
     }
 
@@ -2387,7 +2369,6 @@ def test_instance_delete(
     instance_state,
     instance_state_factory,
     form,
-    mock_nfd_permissions,
     caluma_workflow_config_be,
     application_settings,
     attachment,
@@ -2453,7 +2434,6 @@ def test_rejection(
     form,
     service,
     service_group,
-    mock_nfd_permissions,
     caluma_workflow_config_be,
     mock_generate_and_store_pdf,
     application_settings,
@@ -2531,7 +2511,6 @@ def test_be_copy_responsible_user_on_submit(
     instance_state_factory,
     form,
     service,
-    mock_nfd_permissions,
     caluma_workflow_config_be,
     mock_generate_and_store_pdf,
     application_settings,
@@ -2730,7 +2709,6 @@ def test_create_instance_caluma_internal_forms(
     instance_state_factory,
     form,
     role,
-    mock_nfd_permissions,
     group,
     caluma_workflow_config_be,
     application_settings,
@@ -2775,7 +2753,6 @@ def test_create_instance_caluma_modification(
     instance_state_factory,
     role,
     form,
-    mock_nfd_permissions,
     caluma_workflow_config_be,
     caluma_form,
     expected_status,
@@ -2856,7 +2833,6 @@ def test_create_instance_from_modification(
     be_instance,
     instance_state_factory,
     role,
-    mock_nfd_permissions,
     project_modification_settings,
 ):
     instance_state_factory(name="new")

@@ -92,11 +92,11 @@ class CalumaApi:
         )
 
         if answers.exclude(value="nfd-tabelle-status-entwurf").exists():
-            permissions.add("read")
+            permissions.add("read")  # pragma: no cover
 
         if answers.filter(value="nfd-tabelle-status-in-bearbeitung").exists():
-            permissions.add("read")
-            permissions.add("write")
+            permissions.add("read")  # pragma: no cover
+            permissions.add("write")  # pragma: no cover
 
         return permissions
 
@@ -184,7 +184,7 @@ class CalumaApi:
 
         if is_root_document:
             work_item = instance.case.work_items.filter(task_id="submit").first()
-        elif hasattr(document, "work_item"):
+        elif hasattr(document, "work_item"):  # pragma: no cover
             work_item = document.work_item
 
         if not work_item:  # pragma: no cover

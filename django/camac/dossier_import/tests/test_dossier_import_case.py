@@ -979,7 +979,7 @@ def test_validation(
             [
                 ("submit", "skipped"),  # "Gesuch ausfüllen"
                 ("ebau-number", "ready"),  # "eBau Nummer vergeben"
-                ("nfd", "ready"),  # Nachforderungen
+                ("init-additional-demand", "ready"),  # Nachforderungen
                 ("create-manual-workitems", "ready"),  # "Manuelle aufgabe erfassen"
             ],
             "running",
@@ -991,7 +991,7 @@ def test_validation(
             [
                 ("submit", "skipped"),  # "Gesuch ausfüllen"
                 ("ebau-number", "skipped"),  # "eBau Nummer vergeben"
-                ("nfd", "completed"),  # Nachforderungen
+                ("init-additional-demand", "canceled"),  # Nachforderungen
                 ("create-manual-workitems", "canceled"),  # "Manuelle aufgabe erfassen"
                 ("distribution", "skipped"),
                 ("audit", "skipped"),  # "Dossier prüfen"
@@ -1011,7 +1011,7 @@ def test_validation(
             [
                 ("submit", "skipped"),  # "Gesuch ausfüllen"
                 ("ebau-number", "ready"),  # "eBau Nummer vergeben"
-                ("nfd", "ready"),  # Nachforderungen
+                ("init-additional-demand", "ready"),  # Nachforderungen
                 ("create-manual-workitems", "ready"),  # "Manuelle aufgabe erfassen"
             ],
             "running",
@@ -1026,7 +1026,7 @@ def test_validation(
                 ("distribution", "ready"),  # "Zirkulation"
                 ("publication", "ready"),  # "Dossier publizieren"
                 ("audit", "ready"),  # "Dossier prüfen"
-                ("nfd", "ready"),  # Nachforderungen
+                ("init-additional-demand", "ready"),  # Nachforderungen
                 ("create-manual-workitems", "ready"),  # "Manuelle aufgabe erfassen"
             ],
             "running",
@@ -1038,7 +1038,7 @@ def test_validation(
             [
                 ("submit", "skipped"),  # "Gesuch ausfüllen"
                 ("ebau-number", "skipped"),  # "eBau Nummer vergeben"
-                ("nfd", "completed"),  # Nachforderungen
+                ("init-additional-demand", "canceled"),  # Nachforderungen
                 (
                     "create-manual-workitems",
                     "canceled",
@@ -1061,7 +1061,7 @@ def test_validation(
             [
                 ("submit", "skipped"),  # "Gesuch ausfüllen"
                 ("ebau-number", "skipped"),  # "eBau Nummer vergeben"
-                ("nfd", "completed"),  # Nachforderungen
+                ("init-additional-demand", "canceled"),  # Nachforderungen
                 ("create-manual-workitems", "canceled"),  # "Manuelle aufgabe erfassen"
                 ("distribution", "skipped"),  # "Zirkulation überspringen"
                 ("audit", "skipped"),  # "Dossier prüfen"

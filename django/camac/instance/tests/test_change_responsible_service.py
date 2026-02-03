@@ -9,7 +9,6 @@ from camac.permissions import api as permissions_api
 from camac.permissions.switcher import PERMISSION_MODE
 
 
-# TODO: Update test after removing nfd work items
 @pytest.mark.parametrize("role__name", ["Municipality", "Support"])
 @pytest.mark.parametrize(
     "service_type,expected_status",
@@ -75,7 +74,7 @@ def test_change_responsible_service(
         be_instance.case.work_items.filter(
             status="ready", addressed_groups__contains=[str(old_service.pk)]
         ).count()
-        == 8
+        == 7
     )
     assert (
         be_instance.case.work_items.filter(
@@ -130,7 +129,7 @@ def test_change_responsible_service(
             be_instance.case.work_items.filter(
                 status="ready", addressed_groups__contains=[str(new_service.pk)]
             ).count()
-            == 8
+            == 7
         )
 
         assert caluma_workflow_models.WorkItem.objects.filter(

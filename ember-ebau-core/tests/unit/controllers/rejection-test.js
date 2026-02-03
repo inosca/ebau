@@ -5,8 +5,6 @@ import { setupTest } from "dummy/tests/helpers";
 import {
   CLAIMS_EMPTY,
   CLAIMS_NOT_EMPTY,
-  LEGACY_CLAIMS_EMPTY,
-  LEGACY_CLAIMS_NOT_EMPTY,
   DISTRIBUTION_EMPTY,
   DISTRIBUTION_NOT_EMPTY,
 } from "dummy/tests/unit/controllers/rejection-data";
@@ -25,16 +23,6 @@ module("Unit | Controller | rejection", function (hooks) {
   test.each(
     "it computes validations",
     [
-      [
-        ["rejection.useLegacyClaims"],
-        [LEGACY_CLAIMS_EMPTY, DISTRIBUTION_EMPTY],
-        { hasOpenClaims: false },
-      ],
-      [
-        ["rejection.useLegacyClaims"],
-        [LEGACY_CLAIMS_NOT_EMPTY, DISTRIBUTION_EMPTY],
-        { hasOpenClaims: true },
-      ],
       [[], [CLAIMS_EMPTY, DISTRIBUTION_EMPTY], { hasOpenClaims: false }],
       [[], [CLAIMS_NOT_EMPTY, DISTRIBUTION_EMPTY], { hasOpenClaims: true }],
       [

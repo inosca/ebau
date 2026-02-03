@@ -152,7 +152,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['ebau-number', 'nfd', 'init-additional-demand', 'create-manual-workitems']|tasks"
+      "next": "['ebau-number', 'init-additional-demand', 'create-manual-workitems']|tasks"
     }
   },
   {
@@ -269,7 +269,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['ebau-number', 'nfd', 'init-additional-demand', 'create-manual-workitems']|tasks"
+      "next": "['ebau-number', 'init-additional-demand', 'create-manual-workitems']|tasks"
     }
   },
   {
@@ -321,7 +321,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['ebau-number', 'audit', 'nfd', 'init-additional-demand', 'decision', 'create-manual-workitems']|tasks"
+      "next": "['ebau-number', 'audit', 'init-additional-demand', 'decision', 'create-manual-workitems']|tasks"
     }
   },
   {
