@@ -3697,7 +3697,11 @@ MANABI_VERSION_CREATION_THRESHOLD_SECONDS = env.int(
     "MANABI_VERSION_CREATION_THRESHOLD_SECONDS", default=1800
 )  # In seconds
 MANABI_TOKEN_ACTIVATE_TIMEOUT = env.int("MANABI_TOKEN_ACTIVATE_TIMEOUT", default=600)
-MANABI_TOKEN_REFRESH_TIMEOUT = env.int("MANABI_TOKEN_REFRESH_TIMEOUT", default=600)
+# Use a relatively long refresh timeout because since Word 2509, the server-sent lock timeout is ignored,
+# and re-locking is done after ~40mins.
+# https://learn.microsoft.com/en-us/answers/questions/5629856/webdav-lock-issues-with-ms-office-v2509-monthly-cu
+MANABI_TOKEN_REFRESH_TIMEOUT = env.int("MANABI_TOKEN_REFRESH_TIMEOUT", default=60 * 60)
+
 MANABI_DEBUG = env.bool("MANABI_DEBUG", default=default(True, False))
 
 # GWR
