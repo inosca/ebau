@@ -36,6 +36,9 @@ class GISDataView(ListAPIView):
     def add_labels(self, data: dict) -> dict:
         labeled_data = {}
 
+        instance_id = self.request.query_params.get("instance")
+        context = {"instanceId": instance_id} if instance_id else {}
+
         for question_slug, value in data.items():
             question = (
                 Question.objects.filter(pk=question_slug)
@@ -83,7 +86,9 @@ class GISDataView(ListAPIView):
                 data_source = get_data_sources(dic=True)[question.data_source]()
                 mapped = {
                     label[get_language()]: str(slug)
-                    for slug, label in data_source.get_data(caluma_user, question, {})
+                    for slug, label in data_source.get_data(
+                        caluma_user, question, context
+                    )
                 }
 
                 labeled_data[question_slug]["value"] = mapped.get(value)
