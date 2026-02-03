@@ -4,6 +4,7 @@ journal:
   edit: "Modifier l'entrée"
   textareaEdit: "Zone de texte pour l'édition de l'entrée"
   noEntries: "Aucune entrée de journal disponible"
+  saveError: "Une erreur s'est produite lors de l'enregistrement de l'entrée."
 
   visibility: "Visibilité de l'entrée"
   visibleForAuthorities: "Visible pour tous les autorités participantes"
