@@ -1,35 +1,43 @@
 import { action } from "@ember/object";
+import { service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { dropTask } from "ember-concurrency";
 import { localCopy } from "tracked-toolbox";
 
 export default class JournalTextareaComponent extends Component {
+  @service intl;
+  @service notification;
+
   @tracked isValidDuration = true;
   @localCopy("args.journalEntry.duration") entryDuration;
 
   @dropTask
   *saveEntry(entry) {
-    if (this.args.showJournalEntryDuration) {
-      if (!this.isValidDuration) {
-        return;
+    try {
+      if (this.args.showJournalEntryDuration) {
+        if (!this.isValidDuration) {
+          return;
+        }
+
+        // Only write duration to record at this point, to prevent duration
+        // changes from showing up in journal entry header before saving
+        entry.duration = this.entryDuration;
       }
 
-      // Only write duration to record at this point, to prevent duration
-      // changes from showing up in journal entry header before saving
-      entry.duration = this.entryDuration;
+      const newEntry = !entry.id;
+
+      yield entry.save();
+
+      if (newEntry && typeof this.args.onSaveNewJournalEntry === "function") {
+        yield this.args.onSaveNewJournalEntry();
+      }
+
+      entry.edit = false;
+      return entry;
+    } catch {
+      this.notification.danger(this.intl.t("journal.saveError"));
     }
-
-    const newEntry = !entry.id;
-
-    yield entry.save();
-
-    if (newEntry && typeof this.args.onSaveNewJournalEntry === "function") {
-      yield this.args.onSaveNewJournalEntry();
-    }
-
-    entry.edit = false;
-    return entry;
   }
 
   @action

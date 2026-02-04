@@ -4,6 +4,7 @@ journal:
   edit: "Modifica"
   textareaEdit: "Casella di testo per elaborare una voce"
   noEntries: "Nessuna voce di registro disponibile"
+  saveError: "Si è verificato un errore durante il salvataggio della voce."
 
   visibility: "Visibilità della voce"
   visibleForAuthorities: "Visibile per le autorità interessate"

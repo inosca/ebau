@@ -213,6 +213,7 @@ GR_PERMISSIONS_SETTINGS = {
                 ACTION_INSTANCE_DOWNLOAD_FORM_AS_PDF,
             ),
             ("journal-read", MODULE_JOURNAL),
+            ("journal-write", MODULE_JOURNAL),
             ("legal-submissions-read", MODULE_LEGAL_SUBMISSIONS),
             ("legal-appeals-read", MODULE_LEGAL_APPEALS),
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
@@ -258,6 +259,7 @@ GR_PERMISSIONS_SETTINGS = {
             ("instance-submit", ACTION_INSTANCE_SUBMIT),
             # ("instance-withdraw", ACTION_INSTANCE_WITHDRAW),  # needs to be commented out otherwise module is shown in portal
             ("journal-read", MODULE_JOURNAL),
+            ("journal-write", MODULE_JOURNAL),
             ("legal-submissions-read", MODULE_LEGAL_SUBMISSIONS),
             ("legal-submissions-write", MODULE_LEGAL_SUBMISSIONS),
             ("legal-appeals-read", MODULE_LEGAL_APPEALS),
