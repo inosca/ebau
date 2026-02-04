@@ -29,6 +29,7 @@ module("Integration | Component | decision/submit-button", function (hooks) {
         },
       },
       document: {
+        uuid: faker.string.uuid(),
         fields: [],
         workItemUuid: faker.string.uuid(),
         findAnswer: (slug) => {
@@ -136,6 +137,22 @@ module("Integration | Component | decision/submit-button", function (hooks) {
                 {
                   node: {
                     status: "READY",
+                  },
+                },
+              ],
+            },
+          },
+        };
+      } else if (operationName === "DocumentValidity") {
+        return {
+          data: {
+            documentValidity: {
+              edges: [
+                {
+                  node: {
+                    id: faker.string.uuid(),
+                    isValid: true,
+                    errors: [],
                   },
                 },
               ],
