@@ -154,7 +154,7 @@ def test_journal_entry_update_rbac(
 @pytest.mark.parametrize(
     "has_permission,status_code",
     [
-        (False, status.HTTP_404_NOT_FOUND),
+        (False, status.HTTP_403_FORBIDDEN),
         (True, status.HTTP_200_OK),
     ],
 )
@@ -175,18 +175,20 @@ def test_journal_entry_update(
     journal_entry.save()
     permissions_settings["ENABLED"] = True
     permissions_settings["PERMISSION_MODE"] = "FULL"
-    permissions_settings["ACCESS_LEVELS"] = {
-        access_level.pk: [("journal-read", Always()), ("journal-write", Always())]
-    }
+
+    permissions = [("journal-read", Always())]
+    if has_permission:
+        permissions.append(("journal-write", Always()))
+
+    permissions_settings["ACCESS_LEVELS"] = {access_level.pk: permissions}
     url = reverse("journal-entry-detail", args=[journal_entry.pk])
 
-    if has_permission:
-        instance_acl_factory(
-            instance=journal_entry.instance,
-            grant_type="SERVICE",
-            service=service,
-            access_level=access_level,
-        )
+    instance_acl_factory(
+        instance=journal_entry.instance,
+        grant_type="SERVICE",
+        service=service,
+        access_level=access_level,
+    )
 
     response = admin_client.patch(url)
     assert response.status_code == status_code
