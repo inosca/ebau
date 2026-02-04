@@ -12,6 +12,7 @@ import requests
 from caluma.caluma_workflow.models import Case
 from celery import shared_task
 from django.conf import settings
+from django.db.models import Count
 from django.utils import timezone
 from django.utils.module_loading import import_string
 from requests_toolbelt.multipart.encoder import MultipartEncoder
@@ -31,6 +32,7 @@ from camac.dossier_import.messages import (
 )
 from camac.dossier_import.models import DossierImport
 from camac.instance.models import Instance
+from camac.tags.models import Keyword
 from camac.user.models import User
 from camac.utils import build_url
 
@@ -222,9 +224,15 @@ def _do_undo_import(dossier_import):
         # wait shortly to avoid race condition when "in progress" status is saved for
         # very quick "undo" operations
         time.sleep(0.1)
-        Instance.objects.filter(
+        instances = Instance.objects.filter(
             **{"case__meta__import-id": str(dossier_import.pk)}
-        ).delete()
+        )
+        for instance in instances:
+            Keyword.objects.annotate(instance_count=Count("instances")).filter(
+                instance_count=1, instances=instance
+            ).delete()
+
+        instances.delete()
         Case.objects.filter(**{"meta__import-id": str(dossier_import.pk)}).delete()
         dossier_import.delete()
         return DossierImport.IMPORT_STATUS_UNDONE

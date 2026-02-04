@@ -18,16 +18,36 @@ from camac.dossier_import.dossier_classes import Dossier
 from camac.dossier_import.messages import MessageCodes
 from camac.dossier_import.models import DossierImport
 from camac.instance.master_data import MasterData
+from camac.instance.models import Instance
 from camac.settings.modules.master_data import MASTER_DATA
+from camac.tags.models import Keyword
 
 
-def test_undo_import(db, dossier_import, caluma_case_factory, instance_with_case):
-    caluma_case_factory.create_batch(2, meta={"import-id": str(dossier_import.pk)})
-    caluma_case_factory()  # unrelated case
+def test_undo_import(
+    db, dossier_import, caluma_case_factory, instance_factory, keyword_factory
+):
+    cases = caluma_case_factory.create_batch(
+        2, meta={"import-id": str(dossier_import.pk)}
+    )
+    for case in cases:
+        instance = instance_factory.create(case=case)
+        keyword = keyword_factory.create()
+        keyword.instances.set([instance])
+
+    unrelated_case = caluma_case_factory()
+    unrelated_instance = instance_factory(case=unrelated_case)
+    keyword = keyword_factory.create()
+    keyword.instances.set([unrelated_instance])
+
     undo_import(dossier_import)
     assert not Case.objects.filter(
         **{"meta__import-id": str(dossier_import.pk)}
     ).exists()
+    assert not Instance.objects.filter(
+        **{"case__meta__import-id": str(dossier_import.pk)}
+    ).exists()
+    assert Keyword.objects.count() == 1
+    assert Keyword.objects.first().pk == keyword.pk
 
 
 @pytest.mark.freeze_time("2023-4-1")
