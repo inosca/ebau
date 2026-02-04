@@ -132,20 +132,23 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
       if (["bauanzeige", "bauanzeige-v3"].includes(instance.calumaForm)) {
         return {
           suggestions: { disabled: false },
-          municipality: {
-            label: "distribution.municipalities",
+          subservice: {
+            label: "distribution.subservices",
           },
           service: {
             label: "distribution.services",
           },
-          subservice: {
-            label: "distribution.subservices",
+          municipality: {
+            label: "distribution.municipalities",
           },
         };
       }
 
       return {
         suggestions: { disabled: false },
+        subservice: {
+          label: "distribution.subservices",
+        },
         "authority-bab": {
           label: "distribution.authority-bab",
         },
@@ -154,9 +157,6 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
         },
         municipality: {
           label: "distribution.municipalities",
-        },
-        subservice: {
-          label: "distribution.subservices",
         },
       };
     }
