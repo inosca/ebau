@@ -48,6 +48,23 @@ export default class CustomCfFieldLabelComponent extends Component {
       };
     }
 
+    if (
+      this.args.field.question.isChoice ||
+      this.args.field.question.isMultipleChoice
+    ) {
+      const options = this.args.field.question.options;
+
+      const findOptionLabel = (slug) =>
+        options.find((option) => option.slug === slug)?.label;
+      const getOptionLabels = (slug) =>
+        Array.isArray(slug) ? slug.map(findOptionLabel) : findOptionLabel(slug);
+
+      return {
+        new: getOptionLabels(value),
+        old: getOptionLabels(gisValue),
+      };
+    }
+
     return {
       new: value,
       old: gisValue,
