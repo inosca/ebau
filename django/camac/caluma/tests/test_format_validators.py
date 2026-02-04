@@ -1,7 +1,7 @@
 from datetime import date
 
 import pytest
-from graphql.error import GraphQLError
+from caluma.caluma_form.exceptions import CustomFormatValidationError
 
 from ..extensions.format_validators import (
     DateAfterValidator,
@@ -31,11 +31,17 @@ from ..extensions.format_validators import (
         (EvenProjectNumberFormatValidator, "AG-fyr5a, zh-12345", False),
     ],
 )
-def test_format_validators(test_class, user_input, result):
+def test_format_validators(
+    db, test_class, user_input, result, caluma_document_factory, caluma_question_factory
+):
     try:
-        test_class.validate(user_input, None, None)
+        test_class.validate(
+            user_input,
+            caluma_document_factory(),
+            caluma_question_factory(),
+        )
         assert result
-    except GraphQLError:
+    except CustomFormatValidationError:
         assert not result
 
 
@@ -59,10 +65,12 @@ def test_date_after_validator(
     assert DateAfterValidator.is_valid(date(2025, 9, 12), document, question) is True
     assert DateAfterValidator.is_valid(date(2025, 9, 10), document, question) is False
 
-    with pytest.raises(GraphQLError):
+    with pytest.raises(CustomFormatValidationError):
         DateAfterValidator.validate(date(2025, 9, 10), document, question)
 
-    with pytest.raises(GraphQLError) as e:
+    with pytest.raises(CustomFormatValidationError) as e:
         DateAfterValidator.validate(date(2025, 9, 10), document, question)
 
-    assert e.value.message == f'Das Datum muss nach "{after_question.label}" liegen'
+    assert (
+        str(e.value.detail[0]) == f'Das Datum muss nach "{after_question.label}" liegen'
+    )

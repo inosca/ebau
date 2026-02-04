@@ -75,6 +75,7 @@ class GISApplySerializer(serializers.Serializer):
                 user=self.context["request"].caluma_info.context.user,
                 value=value,
                 meta={"gis-value": value},
+                context={"instanceId": self.validated_data["instance"].pk},
             )
         except (ConfigurationError, CustomValidationError):
             # Question does not exist in this form, ignore it.

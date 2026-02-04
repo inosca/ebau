@@ -66,19 +66,21 @@ module("Integration | Component | gis-apply-button", function (hooks) {
       };
 
       this.server.get("/api/v1/gis/data", (_, request) => {
-        assert.deepEqual(
-          Object.keys(request.queryParams),
-          Object.keys(this.params),
-        );
+        assert.deepEqual(Object.keys(request.queryParams), [
+          ...Object.keys(this.params),
+          "instance",
+        ]);
 
         if (hasFeature("gis.v3")) {
           return { task_id: "1234" };
         }
+
         return dataResponse;
       });
 
       this.server.get("/api/v1/gis/data/:id", (_, request) => {
-        assert.deepEqual(Object.keys(request.params.id), Object.keys("1234"));
+        assert.equal(request.params.id, "1234");
+        assert.equal(request.queryParams.instance, "1");
 
         return dataResponse;
       });
@@ -91,6 +93,7 @@ module("Integration | Component | gis-apply-button", function (hooks) {
       await render(hbs`<GisApplyButton
   @disabled={{false}}
   @params={{this.params}}
+  @instanceId="1"
   @document={{this.document}}
 />`);
 

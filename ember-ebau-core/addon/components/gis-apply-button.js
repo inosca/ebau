@@ -24,13 +24,16 @@ export default class GisApplyButtonComponent extends Component {
     if (this.args.disabled) return;
 
     try {
-      const params = Object.entries(this.args.params)
+      const params = [
+        ...Object.entries(this.args.params),
+        ["instance", this.args.instanceId],
+      ]
         .map(([key, value]) => `${key}=${value}`)
         .join("&");
 
       this.args.onGetData?.();
 
-      const response = await this.fetch.fetch(`/api/v1/gis/data/?${params}`, {
+      const response = await this.fetch.fetch(`/api/v1/gis/data?${params}`, {
         headers: { accept: "application/json" },
       });
 
@@ -71,9 +74,12 @@ export default class GisApplyButtonComponent extends Component {
 
     while (!response || response.status === 202) {
       /* eslint-disable no-await-in-loop */
-      response = await this.fetch.fetch(`/api/v1/gis/data/${taskId}/`, {
-        headers: { accept: "application/json" },
-      });
+      response = await this.fetch.fetch(
+        `/api/v1/gis/data/${taskId}?instance=${this.args.instanceId}`,
+        {
+          headers: { accept: "application/json" },
+        },
+      );
 
       if (!response.ok) {
         throw new Error("Error while polling GIS task results.");
