@@ -112,7 +112,10 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
         category: {
           label: "category",
           sort: true,
-          sortKey: "category__name",
+          sortKey: [
+            { key: "category__name" },
+            { key: "category__sort", icons: ["folder-tree"], directions: [""] },
+          ],
         },
       };
     }

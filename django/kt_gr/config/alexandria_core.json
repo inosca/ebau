@@ -307,7 +307,7 @@
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#CB68C1",
       "parent": null,
-      "sort": 3
+      "sort": 7
     }
   },
   {
@@ -480,7 +480,7 @@
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#66CFC9",
       "parent": null,
-      "sort": 10
+      "sort": 17
     }
   },
   {
@@ -564,7 +564,7 @@
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#CB68C1",
       "parent": null,
-      "sort": 5
+      "sort": 12
     }
   },
   {
@@ -948,7 +948,7 @@
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#9CDD69",
       "parent": "beilagen-zum-gesuch",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -967,7 +967,7 @@
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#9CDD69",
       "parent": "beilagen-zum-gesuch",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -986,7 +986,7 @@
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#9CDD69",
       "parent": "beilagen-zum-gesuch",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -1005,7 +1005,7 @@
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#9CDD69",
       "parent": "beilagen-zum-gesuch",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -1080,7 +1080,7 @@
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#E1B422",
       "parent": "einsprachen-beschwerden",
-      "sort": 6
+      "sort": 11
     }
   },
   {
@@ -1391,7 +1391,7 @@
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#8791EC",
       "parent": null,
-      "sort": 4
+      "sort": 8
     }
   },
   {
@@ -1475,7 +1475,7 @@
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#E1B422",
       "parent": "einsprachen-beschwerden",
-      "sort": 5
+      "sort": 10
     }
   },
   {
@@ -1559,7 +1559,7 @@
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#E1B422",
       "parent": null,
-      "sort": 5
+      "sort": 9
     }
   },
   {
@@ -1769,7 +1769,7 @@
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#DB8B72",
       "parent": null,
-      "sort": 6
+      "sort": 13
     }
   },
   {
@@ -1945,7 +1945,7 @@
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#af6023",
       "parent": null,
-      "sort": 7
+      "sort": 14
     }
   },
   {
@@ -2291,7 +2291,7 @@
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\", \"text/plain\"]",
       "color": "#000000",
       "parent": null,
-      "sort": 12
+      "sort": 19
     }
   },
   {
@@ -2650,7 +2650,7 @@
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#66CFC9",
       "parent": null,
-      "sort": 2
+      "sort": 6
     }
   },
   {
@@ -2889,7 +2889,7 @@
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#66CFC9",
       "parent": null,
-      "sort": 9
+      "sort": 16
     }
   },
   {
@@ -2948,7 +2948,7 @@
       "allowed_mime_types": "[\"image/png\"]",
       "color": "#CCCCCC",
       "parent": null,
-      "sort": 11
+      "sort": 18
     }
   },
   {
@@ -3082,7 +3082,7 @@
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#66CFC9",
       "parent": null,
-      "sort": 8
+      "sort": 15
     }
   },
   {
