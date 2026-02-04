@@ -31,26 +31,33 @@ def get_coverage_data():
 
 
 def which_tests_for_code(file, line):
+    """Return list of tests for the given file and line.
+
+    If line is None, return all tests covering the given file.
+
+    Return is a list and a boolean as a tuple, where the boolean
+    denotes whether the requested line was found.
+    """
     cov_data = get_coverage_data()
 
     cov_info = cov_data["files"].get(file)
     if not cov_info:
         return []
 
-    if line and line in cov_info["contexts"]:
-        return cov_info["contexts"][line]
-    else:
-        all_contexts = sorted(
-            set(
-                [
-                    ctx
-                    for ctx_list in cov_info["contexts"].values()
-                    for ctx in ctx_list
-                    if ctx
-                ]
-            )
+    if line:
+        if line in cov_info["contexts"]:
+            return cov_info["contexts"][line], True
+    all_contexts = sorted(
+        set(
+            [
+                ctx
+                for ctx_list in cov_info["contexts"].values()
+                for ctx in ctx_list
+                if ctx
+            ]
         )
-        return all_contexts
+    )
+    return all_contexts, False
 
 
 def do_validate_test_locality(verbose, report_100percent):  # noqa: C901
@@ -183,10 +190,21 @@ def do_show_tests_for_code(filenames):
             file, line = file.split(":")
 
         ind = "    "
-        tests = which_tests_for_code(file, line)
+        tests, found_line = which_tests_for_code(file, line)
 
         lines = f"\n{ind}".join(tests)
-        print(f"{filename} is covered by:\n{ind}{lines}")
+        if line:
+            if found_line:
+                print(f"{filename} is covered by:\n{ind}{lines}")
+
+            else:
+                print(
+                    f"In {file}, line {line} is not in coverage data: Either not\n"
+                    "covered, or it's not a code line. Here's all tests for the file:\n"
+                    f"{file} is covered by:\n{ind}{lines}"
+                )
+        else:
+            print(f"{filename} is covered by:\n{ind}{lines}")
 
 
 HELP_TEXT = """
