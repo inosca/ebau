@@ -269,6 +269,7 @@ class Command(BaseCommand):
         created_by_user=None,
         created_by_group=None,
         addressed_groups=None,
+        controlling_groups=None,
         assigned_users=None,
         closed_at=None,
         original_claim_id=None,
@@ -281,6 +282,7 @@ class Command(BaseCommand):
             "created_by_user": created_by_user,
             "created_by_group": created_by_group,
             "addressed_groups": addressed_groups,
+            "controlling_groups": controlling_groups,
             "assigned_users": assigned_users,
         }
 
@@ -314,6 +316,7 @@ class Command(BaseCommand):
         username,
         service_id,
         addressed_groups,
+        assigned_users,
         created_at_override=None,
         original_claim_id=None,
         parent_init_status=WorkItem.STATUS_READY,
@@ -357,7 +360,7 @@ class Command(BaseCommand):
             name=WORK_ITEM_NAME_MAPPING.get(settings.ADDITIONAL_DEMAND["TASK"]),
             addressed_groups=addressed_groups,
             controlling_groups=addressed_groups,
-            assigned_users=self._get_assigned_users(service_id, parent_case.instance),
+            assigned_users=assigned_users,
             status=parent_init_status,
             meta=work_item_meta,
             case=parent_case,
@@ -548,6 +551,7 @@ class Command(BaseCommand):
             batched(cases_qs.iterator(chunk_size=batch_size), batch_size),
             total=batch_count,
             desc="Bulk creating 'init-additional-demand' work items",
+            mininterval=5,
         ):
             batch_to_create = []
 
@@ -698,20 +702,17 @@ class Command(BaseCommand):
             answers_dict,
             user_map,
         )
+        original_assigned_users = self._get_assigned_users(
+            original_service_id, case.instance
+        )
 
         self._complete_object(
             obj=init_work_item,
-            closed_by_user=original_username,
-            closed_by_group=original_service_id,
+            closed_by_user=row.created_by_user,
+            closed_by_group=row.created_by_group,
             closed_at=row.created_at,
-            created_by_user=original_username
-            if init_work_item.created_by_group
-            else None,
-            created_by_group=original_service_id
-            if init_work_item.created_by_group
-            else None,
             addressed_groups=[original_service_id],
-            assigned_users=case.nfd_work_item.assigned_users,
+            assigned_users=original_assigned_users,
             original_claim_id=original_claim_id,
         )
 
@@ -722,8 +723,8 @@ class Command(BaseCommand):
         new_init_work_item = self._initialize_additional_demand(
             case=case,
             previous_work_item_id=init_work_item.pk,
-            created_by_group=original_service_id,
-            created_by_user=original_username,
+            created_by_group=row.created_by_group,
+            created_by_user=row.created_by_user,
             addressed_groups=[current_responsible_service_id],
             assigned_users=assigned_users,
             status=parent_init_status,
@@ -741,9 +742,11 @@ class Command(BaseCommand):
                 parent_case=case,
                 workflow=workflow,
                 previous_work_item=init_work_item,
+                # created-by-group is used to display in list, which should correspond to the old module, which showed the last modified
                 username=original_username,
                 service_id=original_service_id,
                 addressed_groups=[current_responsible_service_id],
+                assigned_users=assigned_users,
                 parent_init_status=parent_init_status,
                 created_at_override=request_datetime,
                 original_claim_id=original_claim_id,
@@ -758,8 +761,8 @@ class Command(BaseCommand):
             addressed_groups=[current_responsible_service_id],
             assigned_users=assigned_users,
             controlling_groups=[],
-            created_by_user=original_username,
-            created_by_group=original_service_id,
+            created_by_user=row.created_by_user,
+            created_by_group=row.created_by_group,
             created_at_override=request_datetime,
             parent_init_status=parent_init_status,
             original_claim_id=original_claim_id,
@@ -808,7 +811,7 @@ class Command(BaseCommand):
             closed_by_group=original_service_id,
             closed_at=request_datetime,
             addressed_groups=[original_service_id],
-            assigned_users=case.nfd_work_item.assigned_users,
+            assigned_users=self._get_assigned_users(original_service_id, case.instance),
             save=False,
         )
 
@@ -857,6 +860,7 @@ class Command(BaseCommand):
 
         child_case = step_data["child_case"]
         fill_work_item = step_data["fill_work_item"]
+        original_service_id = step_data["original_service_id"]
 
         response_datetime = self._get_datetime_from_answer(
             answers_dict=answers_dict, key="nfd-tabelle-datum-antwort"
@@ -921,6 +925,11 @@ class Command(BaseCommand):
             closed_by_user=closed_by_user,
             closed_by_group=closed_by_group,
             closed_at=closed_at,
+            addressed_groups=[original_service_id] if is_paper else [],
+            controlling_groups=[original_service_id],
+            assigned_users=self._get_assigned_users(original_service_id, case.instance)
+            if is_paper
+            else [],
             save=False,
         )
 
@@ -929,11 +938,11 @@ class Command(BaseCommand):
             form_id=CHECK_DEMAND_FORM_ID,
             task_id=settings.ADDITIONAL_DEMAND["CHECK_TASK"],
             previous_work_item=fill_work_item,
-            addressed_groups=fill_work_item.controlling_groups,
+            addressed_groups=[current_responsible_service_id],
+            controlling_groups=[current_responsible_service_id],
             assigned_users=self._get_assigned_users(
                 current_responsible_service_id, case.instance
             ),
-            controlling_groups=fill_work_item.controlling_groups,
             created_by_user=fill_work_item.closed_by_user,
             created_by_group=fill_work_item.closed_by_group,
             created_at_override=fill_work_item.closed_at,
@@ -979,7 +988,8 @@ class Command(BaseCommand):
             closed_by_user=original_username,
             closed_by_group=original_service_id,
             addressed_groups=[original_service_id],
-            assigned_users=case.nfd_work_item.assigned_users,
+            controlling_groups=[original_service_id],
+            assigned_users=self._get_assigned_users(original_service_id, case.instance),
             closed_at=final_closed_at,
             save=False,
         )
@@ -989,7 +999,8 @@ class Command(BaseCommand):
             closed_by_user=original_username,
             closed_by_group=original_service_id,
             addressed_groups=[original_service_id],
-            assigned_users=case.nfd_work_item.assigned_users,
+            controlling_groups=[original_service_id],
+            assigned_users=self._get_assigned_users(original_service_id, case.instance),
             closed_at=final_closed_at,
         )
 
@@ -1037,7 +1048,7 @@ class Command(BaseCommand):
 
         steps_to_run = self.STEP_MAP.get(status)
         if not steps_to_run:
-            return init_work_item
+            return init_work_item, {}
 
         try:
             for step_function in steps_to_run:
@@ -1058,7 +1069,7 @@ class Command(BaseCommand):
 
         except Exception as e:
             tqdm.write(
-                f"\n FAILED: Instance {case.instance.pk}, Case {case.pk}, Row {row.pk}: Error: {e}"
+                f"\n ERROR: FAILED Instance {case.instance.pk}, Case {case.pk}, Row {row.pk}: Error: {e}"
             )
             tqdm.write(traceback.format_exc())
             raise
@@ -1194,7 +1205,7 @@ class Command(BaseCommand):
 
         except Exception as e:
             tqdm.write(
-                f"Instance {case.instance.pk}: ERROR while transferring to database: {str(e)}"
+                f"ERROR: Instance {case.instance.pk}: ERROR while transferring to database: {str(e)}"
             )
             tqdm.write(traceback.format_exc())
             raise
@@ -1260,7 +1271,7 @@ class Command(BaseCommand):
 
                 except Exception as e:
                     tqdm.write(
-                        f"\n FAILED to migrate Row PK {row.pk} for Instance {case.instance.pk}, Case {case.pk}: {str(e)}"
+                        f"\n ERROR: FAILED to migrate Row PK {row.pk} for Instance {case.instance.pk}, Case {case.pk}: {str(e)}"
                     )
                     pass
             attachment_summary = self._transfer_batch_to_db(
@@ -1577,6 +1588,7 @@ class Command(BaseCommand):
             cases_to_process.iterator(chunk_size=2000),
             total=case_count,
             desc="Migrating NFD cases",
+            mininterval=5,
         ):
             try:
                 nfd_work_item = self._get_nfd_work_item(case)
@@ -1596,7 +1608,7 @@ class Command(BaseCommand):
                 )
             except Exception as e:
                 tqdm.write(
-                    f"\n FAILED to migrate Instance {case.instance.pk}, Case {case.pk}: {str(e)}"
+                    f"\n ERROR: FAILED to migrate Instance {case.instance.pk}, Case {case.pk}: {str(e)}"
                 )
                 continue
 
