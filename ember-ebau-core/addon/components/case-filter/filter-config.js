@@ -137,7 +137,9 @@ export default {
     type: "async-select-multiple",
     options: "selectedKeywords",
     search: "searchKeywords",
-    valueField: "name",
+    valueField: macroCondition(getOwnConfig().application === "be")
+      ? "name"
+      : "id",
     labelField: "name",
     showWithoutOptions: true,
   },
