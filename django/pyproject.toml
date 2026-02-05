@@ -255,6 +255,7 @@ omit = [
     "camac/alexandria/management/commands/fix_alexandria_instance_document_links.py",
     "camac/alexandria/management/commands/fix_alexandria_created_by.py",
     "camac/alexandria/management/commands/generate_alexandria_documents.py",
+    "camac/alexandria/management/commands/fix_alexandria_migrated_document_metainfo_ag.py",
     "camac/core/management/commands/create_unique_dossier_identifier_index.py",
     "camac/core/management/commands/fix_missing_default_group.py",
     "camac/core/management/commands/migrate_bab_form_ur.py",
