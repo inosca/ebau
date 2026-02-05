@@ -3,10 +3,9 @@ from datetime import timedelta
 from caluma.caluma_core.events import send_event
 from caluma.caluma_core.validations import BaseValidation, validation_for
 from caluma.caluma_form.api import save_answer
-from caluma.caluma_form.models import Answer, Question
+from caluma.caluma_form.models import Question
 from caluma.caluma_form.schema import (
     SaveDocumentDateAnswer,
-    SaveDocumentStringAnswer,
     SaveDocumentTableAnswer,
 )
 from caluma.caluma_workflow.events import post_create_work_item
@@ -18,90 +17,13 @@ from django.utils.translation import gettext_noop
 from rest_framework import exceptions
 
 from camac.caluma.utils import (
-    CamacRequest,
     date_to_deadline,
     sync_inquiry_deadline,
 )
 from camac.core.translations import get_translations
-from camac.ech0211.signals import file_subsequently
-from camac.notification.utils import send_mail
-
-CLAIM_QUESTION = "nfd-tabelle-table"
-CLAIM_STATUS_QUESTION = "nfd-tabelle-status"
-CLAIM_STATUS_IN_PROGRESS = "nfd-tabelle-status-in-bearbeitung"
-CLAIM_STATUS_ANSWERED = "nfd-tabelle-status-beantwortet"
-
-NOTIFICATION_CLAIM_IN_PROGRESS = "03-zusatzliche-unterlagen-notwendig-gesuchsteller"
-NOTIFICATION_CLAIM_IN_PROGRESS_MUNICIPALITY = (
-    "03-zusaetzliche-unterlagen-notwendig-gemeinde"
-)
-NOTIFICATION_CLAIM_ANSWERED = "03-nachforderung-beantwortet-leitbehorde"
 
 
-# TODO: Cleanup after additional-demands module is live
 class CustomValidation(BaseValidation):
-    def _send_claim_notification(
-        self, info, instance, template_slug, recipient_types
-    ):  # pragma: no cover
-        send_mail(
-            template_slug,
-            {"request": CamacRequest(info).request},
-            recipient_types=recipient_types,
-            instance={"type": "instances", "id": instance.pk},
-        )
-
-    def _send_claim_ech_event(self, info, instance):  # pragma: no cover
-        file_subsequently.send(
-            sender=self.__class__,
-            instance=instance,
-            user_pk=None,  # Not needed, hence not querying for it
-            group_pk=None,  # Not needed, hence not querying for it
-        )
-
-    @validation_for(SaveDocumentStringAnswer)
-    def validate_save_document_string_answer(
-        self, mutation, data, info
-    ):  # pragma: no cover
-        if data["question"].slug == CLAIM_STATUS_QUESTION:
-            instance = data["document"].family.work_item.case.instance
-            new_status = data["value"]
-
-            try:
-                old_status = (
-                    data["document"].answers.get(question=CLAIM_STATUS_QUESTION).value
-                )
-            except Answer.DoesNotExist:
-                old_status = None
-
-            if old_status and new_status == old_status:
-                # the status did not change, no further action
-                return data
-
-            if new_status == CLAIM_STATUS_IN_PROGRESS:
-                # claim is now in progress, inform the applicant
-                self._send_claim_notification(
-                    info, instance, NOTIFICATION_CLAIM_IN_PROGRESS, ["applicant"]
-                )
-                self._send_claim_notification(
-                    info,
-                    instance,
-                    NOTIFICATION_CLAIM_IN_PROGRESS_MUNICIPALITY,
-                    ["inactive_municipality"],
-                )
-
-            if new_status == CLAIM_STATUS_ANSWERED:
-                # claim is answered, inform the active service and create an
-                # eCH event
-                self._send_claim_notification(
-                    info,
-                    instance,
-                    NOTIFICATION_CLAIM_ANSWERED,
-                    ["leitbehoerde", "inactive_municipality"],
-                )
-                self._send_claim_ech_event(info, instance)
-
-        return data
-
     @validation_for(CompleteWorkItem)
     def validate_complete_create_inquiry(self, mutation, data, info):
         work_item = WorkItem.objects.get(pk=data["id"])
