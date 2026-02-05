@@ -1,2 +1,7 @@
 additional-demand:
   request-info: "La demande de complément est envoyée directement aux personnes requérantes."
+  header-info:
+    fill-additional-demand: "Répondue le {date}"
+    check-additional-demand: "Controlée le {date}"
+    send-additional-demand: "Envoyée le {date}"
+

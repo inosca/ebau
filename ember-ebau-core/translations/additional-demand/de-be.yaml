@@ -1,2 +1,6 @@
 additional-demand:
   request-info: "Die Anfrage zur Nachforderung wird direkt den Gesuchstellenden zugestellt."
+  header-info:
+    fill-additional-demand: "Beantwortet am {date}"
+    check-additional-demand: "Geprüft am {date}"
+    send-additional-demand: "Gesendet am {date}"
