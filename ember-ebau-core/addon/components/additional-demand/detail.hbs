@@ -21,7 +21,7 @@
           {{/if}}
         </h3>
         {{#if demand.isCompleted}}
-          <span class="uk-text-muted uk-text-small uk-margin-bottom">
+          <span class="uk-text-muted uk-text-small">
             {{concat
               (t
                 (concat "additional-demand.header-info." demand.task.slug)
@@ -41,16 +41,20 @@
             }}
           </span>
         {{/if}}
-        <CfContent
-          @documentId={{demand.document.id}}
-          @disabled={{await
-            (cannot "fill additional-demand" demand instanceId=this.instanceId)
-          }}
-          @context={{hash
-            actionButtonOnSuccess=this.onSuccessComplete
-            instanceId=this.instanceId
-          }}
-        />
+        <div class="uk-margin-top">
+          <CfContent
+            @documentId={{demand.document.id}}
+            @disabled={{await
+              (cannot
+                "fill additional-demand" demand instanceId=this.instanceId
+              )
+            }}
+            @context={{hash
+              actionButtonOnSuccess=this.onSuccessComplete
+              instanceId=this.instanceId
+            }}
+          />
+        </div>
       </div>
     {{/if}}
   {{/each}}

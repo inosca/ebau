@@ -22,7 +22,7 @@
     {{#each this.additionalDemand.validAdditionalDemands as |demand|}}
       <AdditionalDemand::List::Item @demand={{demand}} />
     {{else}}
-      <li class="uk-text-center">
+      <li class="uk-text-center uk-margin-right">
         {{#if (not this.additionalDemand.initWorkItem)}}
           {{t "additional-demand.no-create"}}
         {{else if (can "create additional-demand")}}
