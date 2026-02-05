@@ -94,6 +94,22 @@ export default class EbauModulesService extends Service {
     return this.additionalDemands.demands ?? [];
   }
 
+  get validAdditionalDemands() {
+    return this.demands.filter((demand) => {
+      // Due to migrated data the send-additional-demand work-item
+      // may not appear in order, but there should only be one.
+      const sendWorkItem = demand.raw.childCase.workItems.edges.find(
+        ({ node }) => node.task.slug === "send-additional-demand",
+      );
+
+      return sendWorkItem?.node.status !== "CANCELED";
+    });
+  }
+
+  get latestDemand() {
+    return this.validAdditionalDemands?.at(-1);
+  }
+
   get initWorkItem() {
     return this.additionalDemands.init;
   }
