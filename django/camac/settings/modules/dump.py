@@ -811,6 +811,24 @@ DUMP = {
             ],
         },
     },
+    "kt_sg": {
+        "ENABLED": True,
+        "CONFIG": {
+            "GROUPS": {
+                "email_notifications": {
+                    "notification.NotificationTemplate": Q(type="email"),
+                    "notification.NotificationTemplateT": Q(template__type="email"),
+                },
+                # Sync the "core" groups (admin, support, portal) between servers, the rest is treated as data
+                "user_core_groups": {
+                    "user.Group": Q(role__name__in=["admin", "applicant", "support"]),
+                    "user.GroupT": Q(
+                        group__role__name__in=["admin", "applicant", "support"]
+                    ),
+                },
+            },
+        },
+    },
     "demo": {
         "ENABLED": True,
         "CONFIG": {

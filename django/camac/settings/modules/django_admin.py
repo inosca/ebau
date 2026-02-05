@@ -118,4 +118,5 @@ DJANGO_ADMIN = {
             "alert_message.AlertMessage",
         ],
     },
+    "kt_sg": {"ENABLED": True},
 }

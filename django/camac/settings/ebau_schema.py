@@ -21,6 +21,7 @@ class ModuleConfig(EBauConfig, Generic[Module]):
     kt_uri: Module | None = None
     kt_gr: Module | None = None
     kt_ag: Module | None = None
+    kt_sg: Module | None = None
 
 
 class ModuleApplicationConfig(EBauConfig):

@@ -71,6 +71,10 @@
     'post:/api/v1/attachments',
   ])
 # ---
+# name: test_swagger_paths[kt_sg]
+  list([
+  ])
+# ---
 # name: test_swagger_paths[kt_so]
   list([
     'delete:/ech/v1/files/{id}',

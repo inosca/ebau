@@ -13,6 +13,8 @@ if (macroCondition(getOwnConfig().application === "be")) {
   config = importSync("ember-ebau-core/config/main-so");
 } else if (macroCondition(getOwnConfig().application === "ag")) {
   config = importSync("ember-ebau-core/config/main-ag");
+} else if (macroCondition(getOwnConfig().application === "sg")) {
+  config = importSync("ember-ebau-core/config/main-sg");
 } else if (macroCondition(getOwnConfig().application === "demo")) {
   config = importSync("ember-ebau-core/config/main-demo");
 } else if (macroCondition(getOwnConfig().application === "test")) {

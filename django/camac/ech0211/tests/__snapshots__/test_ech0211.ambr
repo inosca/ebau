@@ -866,12 +866,12 @@
   							<ns8:organisationIdCategory>ebausz</ns8:organisationIdCategory>
   							<ns8:organisationId><!-- ORGANISATION_ID --></ns8:organisationId>
   						</ns8:localOrganisationId>
-  						<ns8:organisationName>Christine Powers</ns8:organisationName>
+  						<ns8:organisationName>Eric Ford Jr.</ns8:organisationName>
   						<ns8:legalForm>0223</ns8:legalForm>
   					</ns3:buildingAuthorityIdentificationType>
   					<ns3:address>
   						<ns4:street>None</ns4:street>
-  						<ns4:town>unknown</ns4:town>
+  						<ns4:town>Brandonmouth</ns4:town>
   						<ns4:country>
   							<ns4:countryNameShort>CH</ns4:countryNameShort>
   						</ns4:country>
@@ -888,11 +888,11 @@
   						<ns8:organisationIdCategory>ebausz</ns8:organisationIdCategory>
   						<ns8:organisationId><!-- ORGANISATION_ID --></ns8:organisationId>
   					</ns8:localOrganisationId>
-  					<ns8:organisationName>Christine Powers</ns8:organisationName>
+  					<ns8:organisationName>Eric Ford Jr.</ns8:organisationName>
   					<ns8:legalForm>0223</ns8:legalForm>
   				</ns1:entryOfficeIdentification>
   				<ns1:municipality>
-  					<ns5:municipalityName>unknown</ns5:municipalityName>
+  					<ns5:municipalityName>Brandonmouth</ns5:municipalityName>
   					<ns5:cantonAbbreviation>SZ</ns5:cantonAbbreviation>
   				</ns1:municipality>
   			</ns1:entryOffice>
