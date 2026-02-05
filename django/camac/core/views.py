@@ -4,6 +4,7 @@ from django.db.models import Exists, F, OuterRef, Q
 from django.utils.module_loading import import_string
 from pyproj import CRS, Transformer
 from rest_framework.decorators import action
+from rest_framework.exceptions import ValidationError
 from rest_framework.response import Response
 from rest_framework_json_api import django_filters, filters as json_api_filters
 from rest_framework_json_api.views import ModelViewSet, ReadOnlyModelViewSet
@@ -19,6 +20,37 @@ from camac.user.permissions import (
 )
 
 from . import filters, models, serializers
+
+
+class EnforcePaginationMixin:
+    def paginate_queryset(self, queryset):
+        """Paginate the queryset.
+
+        Enforce pagination on this viewset. If clients don't pass page
+        information (page[number] and optional page[size]), a validation error
+        will be thrown.
+
+        You can define a custom maximum page size by defining `max_page_size`
+        on your viewset class. If you don't, a default of 100 is used.
+
+        You can define a default page size by defining `default_page_size`
+        on your viewset class. If you don't, a default of 20 is used.
+        """
+
+        if "page[number]" not in self.request.query_params:
+            raise ValidationError("Pagination is required")
+
+        default_page_size = getattr(self, "default_page_size", 20)
+        page_size = int(self.request.query_params.get("page[size]", default_page_size))
+
+        max_page_size = getattr(self, "max_page_size", 100)
+
+        if page_size == 0 or page_size > max_page_size:
+            raise ValidationError(
+                f"Pagination outside permissible range. Max page size: {max_page_size}"
+            )
+
+        return super().paginate_queryset(queryset)
 
 
 class MultilangMixin:
