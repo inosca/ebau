@@ -94,7 +94,7 @@ export default class CaseFilterComponent extends Component {
   municipalities = findAll(this, "location", () => ({}));
 
   get keywordModel() {
-    return caseTableConfig.useLegacyTags ? "tag" : "keyword";
+    return caseTableConfig.useLegacyTags ? "camac-tag" : "keyword";
   }
 
   get hasNewCaseCreationPermission() {
