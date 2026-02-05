@@ -128,6 +128,25 @@ export default class WorkItemListItemComponent extends Component {
     ].join(" ");
   }
 
+  get targetDeadlineClasses() {
+    if (!this.args.targetDeadlineDate) {
+      return "";
+    }
+
+    const now = DateTime.now();
+    const targetDeadline = DateTime.fromISO(
+      this.args.targetDeadlineDate.toISOString(),
+    );
+
+    if (targetDeadline <= now) {
+      return "uk-text-danger";
+    }
+
+    const diff = targetDeadline.diff(now, "days").days;
+
+    return diff <= 7 ? "uk-text-warning" : "";
+  }
+
   @dropTask
   *toggleRead(event) {
     event.preventDefault();
