@@ -93,8 +93,10 @@ export default class CaseFilterComponent extends Component {
 
   municipalities = findAll(this, "location", () => ({}));
 
-  get keywordModel() {
-    return caseTableConfig.useLegacyTags ? "camac-tag" : "keyword";
+  get keywordConfig() {
+    return caseTableConfig.useLegacyTags
+      ? { model: "camac-tag", field: "name" }
+      : { model: "keyword", field: "id" };
   }
 
   get hasNewCaseCreationPermission() {
@@ -129,9 +131,9 @@ export default class CaseFilterComponent extends Component {
     }
 
     await Promise.resolve();
-
-    return await this.store.query(this.keywordModel, {
-      name: String(selected),
+    const { model, field } = this.keywordConfig;
+    return await this.store.query(model, {
+      [field]: String(selected),
     });
   });
 
@@ -147,7 +149,7 @@ export default class CaseFilterComponent extends Component {
 
     yield Promise.resolve();
 
-    return yield this.store.query(this.keywordModel, {
+    return yield this.store.query(this.keywordConfig.model, {
       search,
       "page[size]": 50,
       "page[number]": 1,
