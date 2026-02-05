@@ -321,83 +321,91 @@ def admin_client(db, admin_user, request_mock, settings):
 
 
 @pytest.fixture
-def set_application_be(settings):
-    config_name = "kt_bern"
-    application_dict = copy.deepcopy(settings.APPLICATIONS[config_name])
-    settings.APPLICATION = application_dict
-    settings.APPLICATION_NAME = config_name
+def set_application_be(settings, application_settings):
+    application_dict = copy.deepcopy(settings.APPLICATIONS["kt_bern"])
+    application_settings.clear()
+    application_settings.update(application_dict)
+    settings.APPLICATION_NAME = "kt_bern"
     settings.INTERNAL_BASE_URL = "http://ebau.localhost"
 
     # use correct path to data_sheet in tests
-    application_dict["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
-        config_name,
-        Path(settings.APPLICATIONS[config_name]["MUNICIPALITY_DATA_SHEET"]).name,
+    application_settings["MUNICIPALITY_DATA_SHEET"] = settings.ROOT_DIR(
+        "kt_bern",
+        Path(settings.APPLICATIONS["kt_bern"]["MUNICIPALITY_DATA_SHEET"]).name,
     )
 
-    return application_dict
+    return application_settings
 
 
 @pytest.fixture
-def set_application_sz(settings):
+def set_application_sz(settings, application_settings):
     application_dict = copy.deepcopy(settings.APPLICATIONS["kt_schwyz"])
+    application_settings.clear()
+    application_settings.update(application_dict)
     settings.APPLICATION = application_dict
     settings.APPLICATION_NAME = "kt_schwyz"
     settings.INTERNAL_BASE_URL = "http://ebau.localhost"
-    return application_dict
+    return application_settings
 
 
 @pytest.fixture
-def set_application_ur(settings):
+def set_application_ur(settings, application_settings):
     application_dict = copy.deepcopy(settings.APPLICATIONS["kt_uri"])
-    settings.APPLICATION = application_dict
+    application_settings.clear()
+    application_settings.update(application_dict)
     settings.APPLICATION_NAME = "kt_uri"
     settings.INTERNAL_BASE_URL = "http://ebau.localhost"
-    return application_dict
+    return application_settings
 
 
 @pytest.fixture
-def set_application_gr(settings):
+def set_application_gr(settings, application_settings):
     application_dict = copy.deepcopy(settings.APPLICATIONS["kt_gr"])
-    settings.APPLICATION = application_dict
+    application_settings.clear()
+    application_settings.update(application_dict)
     settings.APPLICATION_NAME = "kt_gr"
     settings.INTERNAL_BASE_URL = "http://ember-ebau.localhost"
-    return application_dict
+    return application_settings
 
 
 @pytest.fixture
-def set_application_so(settings):
+def set_application_so(settings, application_settings):
     application_dict = copy.deepcopy(settings.APPLICATIONS["kt_so"])
-    settings.APPLICATION = application_dict
+    application_settings.clear()
+    application_settings.update(application_dict)
     settings.APPLICATION_NAME = "kt_so"
     settings.INTERNAL_BASE_URL = "http://ember-ebau.localhost"
-    return application_dict
+    return application_settings
 
 
 @pytest.fixture
-def set_application_ag(settings):
+def set_application_ag(settings, application_settings):
     application_dict = copy.deepcopy(settings.APPLICATIONS["kt_ag"])
-    settings.APPLICATION = application_dict
+    application_settings.clear()
+    application_settings.update(application_dict)
     settings.APPLICATION_NAME = "kt_ag"
     settings.INTERNAL_BASE_URL = "http://ember-ebau.localhost"
-    return application_dict
+    return application_settings
 
 
 @pytest.fixture
-def set_application_test(settings):
+def set_application_test(settings, application_settings):
     application_dict = copy.deepcopy(settings.APPLICATIONS["test"])
-    settings.APPLICATION = application_dict
+    application_settings.clear()
+    application_settings.update(application_dict)
     settings.APPLICATION_NAME = "test"
     settings.INTERNAL_BASE_URL = "http://ember-ebau.localhost"
-    return application_dict
+    return application_settings
 
 
 @pytest.fixture
-def set_application_demo(settings):
+def set_application_demo(settings, application_settings):
     application_dict = copy.deepcopy(settings.APPLICATIONS["demo"])
-    settings.APPLICATION = application_dict
+    application_settings.clear()
+    application_settings.update(application_dict)
     settings.APPLICATION_NAME = "demo"
     settings.INTERNAL_BASE_URL = "http://ember-ebau.localhost"
-    return application_dict
+    return application_settings
 
 
 @pytest.fixture(params=list(settings.APPLICATIONS.keys()))
@@ -3336,3 +3344,21 @@ def fake_request(rf, admin_user, group):
     request.group = group
 
     return request
+
+
+@pytest.fixture(autouse=True, scope="function")
+def ensure_no_leaks():
+    SETTINGS_TO_VALIDATE = ["APPLICATIONS"]
+    from django.conf import settings
+
+    before_settings = {
+        s: copy.deepcopy(getattr(settings, s)) for s in SETTINGS_TO_VALIDATE
+    }
+
+    yield
+
+    after_settings = {
+        s: copy.deepcopy(getattr(settings, s)) for s in SETTINGS_TO_VALIDATE
+    }
+
+    assert before_settings == after_settings

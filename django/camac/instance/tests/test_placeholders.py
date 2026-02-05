@@ -945,7 +945,12 @@ def test_dms_placeholders_empty(
     any_application,
     app_instance,
     snapshot,
+    mocker,
 ):
+    mocker.patch(
+        "camac.instance.models.Instance.responsible_service", return_value=None
+    )
+
     response = admin_client.get(
         reverse("instance-dms-placeholders", args=[app_instance.pk])
     )

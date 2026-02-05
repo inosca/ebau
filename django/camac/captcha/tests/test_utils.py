@@ -18,11 +18,13 @@ from camac.captcha.utils import validate_captcha_token
         ("ok", True),
     ],
 )
-def test_validate_request(db, settings, captcha_disabled, action, mocker, expected):
+def test_validate_request(
+    db, application_settings, captcha_disabled, action, mocker, expected
+):
     expected = captcha_disabled or expected
 
-    settings.APPLICATION["ENABLE_PUBLIC_CALUMA"] = True
-    settings.APPLICATION["ENABLE_PUBLIC_CALUMA_CAPTCHA"] = not captcha_disabled
+    application_settings["ENABLE_PUBLIC_CALUMA"] = True
+    application_settings["ENABLE_PUBLIC_CALUMA_CAPTCHA"] = not captcha_disabled
 
     signer = Signer()
     expiry = make_aware(
