@@ -75,53 +75,61 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
   }
 
   get documentListColumns() {
+    let columns = {
+      type: {
+        label: "type",
+        labelHidden: true,
+      },
+      title: {
+        label: "document-title",
+        sort: true,
+      },
+      marks: {
+        label: "marks",
+        labelHidden: true,
+      },
+      date: {
+        label: "date",
+        sort: true,
+      },
+      modifiedAt: {
+        label: "modified-at",
+        sort: true,
+        sortKey: "modified_at",
+      },
+      createdByUser: {
+        label: "created-by-user",
+        sort: true,
+        sortKey: "created_by_username",
+      },
+      createdByGroup: {
+        label: "created-by-group",
+        sort: true,
+        sortKey: "group_name",
+      },
+    };
+
     if (macroCondition(getOwnConfig().application === "gr")) {
-      return {
-        type: {
-          label: "type",
-          labelHidden: true,
-        },
-        title: {
-          label: "document-title",
-          sort: true,
-        },
-        marks: {
-          label: "marks",
-          labelHidden: true,
-        },
-        date: {
-          label: "date",
-          sort: true,
-          sortKey: "created_at",
-        },
-        modifiedAt: {
-          label: "modified-at",
-          sort: true,
-          sortKey: "modified_at",
-        },
-        createdByUser: {
-          label: "created-by-user",
-          sort: true,
-          sortKey: "created_by_username",
-        },
-        createdByGroup: {
-          label: "created-by-group",
-          sort: true,
-          sortKey: "group_name",
-        },
-        category: {
-          label: "category",
-          sort: true,
-          sortKey: [
-            { key: "category__name" },
-            { key: "category__sort", icons: ["folder-tree"], directions: [""] },
-          ],
+      columns = {
+        ...columns,
+        ...{
+          category: {
+            label: "category",
+            sort: true,
+            sortKey: [
+              { key: "category__name" },
+              {
+                key: "category__sort",
+                icons: ["folder-tree"],
+                directions: [""],
+              },
+            ],
+          },
         },
       };
     }
 
-    // Fallback of null means that the default alexandria columns will be used
-    return null;
+    return columns;
   }
 
   @action
