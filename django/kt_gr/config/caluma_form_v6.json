@@ -2066,6 +2066,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "solaranlagen-tabelle-v6.beschreibung-der-sonstige-anlage-v6",
+    "fields": {
+      "created_at": "2026-02-06T09:12:48.390Z",
+      "modified_at": "2026-02-06T09:12:48.390Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "solaranlagen-tabelle-v6",
+      "question": "beschreibung-der-sonstige-anlage-v6",
+      "sort": 46
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "solaranlagen-tabelle-v6.beschreibung-farbton-absorberflaeche-v6",
     "fields": {
       "created_at": "2026-01-09T11:56:49.109Z",
@@ -2376,7 +2391,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle-v6",
       "question": "informationen-zur-solaranlage-titel",
-      "sort": 47
+      "sort": 48
     }
   },
   {
@@ -2586,7 +2601,7 @@
       "modified_by_group": null,
       "form": "solaranlagen-tabelle-v6",
       "question": "solaranlagentyp-v6",
-      "sort": 46
+      "sort": 47
     }
   },
   {
@@ -6803,6 +6818,40 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"#### Bedarf und Einsatzzweck der aufbereiteten Recyclingprodukte\", \"fr\": \"\", \"it\": \"#### Fabbisogno e scopo d'impiego dei prodotti riciclati trattati\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beschreibung-der-sonstige-anlage-v6",
+    "fields": {
+      "created_at": "2026-02-06T09:12:48.336Z",
+      "modified_at": "2026-02-06T09:12:48.336Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung der Anlage\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "(\"solaranlage\" in info.root.form || !(\"solaranlagentyp-sonstige-v6\" in \"solaranlagentyp-v6\"|answer))",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
