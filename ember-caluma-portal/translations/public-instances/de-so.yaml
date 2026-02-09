@@ -4,45 +4,56 @@ publicInstances:
       <strong>
         Bitte beachten Sie, dass die digitale öffentliche Planauflage zunächst nur für die folgenden Gemeinden möglich ist:
       </strong>
-      <div style="display: flex">
-        <span>
-          <ul style="min-width: 200px">
-            <li>Aeschi</li>
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));">
+        <span style="min-width: 200px;">
+          <ul>
+            <li>Aedermannsdorf</li>
+            <li>Aeschi (SO)</li>
             <li>Balsthal</li>
             <li>Biberist</li>
             <li>Biezwil</li>
             <li>Bolken</li>
             <li>Breitenbach</li>
+            <li>Deitingen</li>
             <li>Derendingen</li>
+            <li>Erlinsbach (SO)</li>
+          </ul>
+        </span>
+        <span style="min-width: 200px;">
+          <ul>
             <li>Erschwil</li>
             <li>Etziken</li>
             <li>Gerlafingen</li>
-          </ul>
-        </span>
-        <span>
-          <ul style="min-width: 200px">
             <li>Gunzgen</li>
             <li>Günsberg</li>
+            <li>Hauenstein-Ifenthal</li>
             <li>Herbetswil</li>
             <li>Laupersdorf</li>
             <li>Lostorf</li>
             <li>Lüsslingen-Nennigkofen</li>
+          </ul>
+        </span>
+        <span style="min-width: 200px;">
+          <ul>
             <li>Luterbach</li>
             <li>Lüterkofen-Ichertswil</li>
             <li>Messen</li>
             <li>Metzerlen-Mariastein</li>
-          </ul>
-        </span>
-        <span>
-          <ul style="min-width: 200px">
             <li>Mümliswil-Ramiswil</li>
             <li>Niederbuchsiten</li>
             <li>Obergösgen</li>
             <li>Olten</li>
+            <li>Seewen</li>
             <li>Selzach</li>
+          </ul>
+        </span>
+        <span style="min-width: 200px;">
+          <ul>
             <li>Solothurn</li>
             <li>Stüsslingen</li>
-            <li>Walterswil</li>
+            <li>Trimbach</li>
+            <li>Walterswil (SO)</li>
+            <li>Wolfwil</li>
             <li>Zuchwil</li>
           </ul>
         </span>
