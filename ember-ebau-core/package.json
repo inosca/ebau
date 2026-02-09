@@ -46,7 +46,7 @@
     "@projectcaluma/ember-form": "14.8.3",
     "@projectcaluma/ember-workflow": "14.8.3",
     "dompurify": "3.3.1",
-    "ember-alexandria": "10.10.0",
+    "ember-alexandria": "10.10.1",
     "ember-apollo-client": "5.0.0",
     "ember-auto-import": "2.11.1",
     "ember-can": "7.0.0",
