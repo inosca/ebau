@@ -3578,6 +3578,23 @@ def disable_timelines_settings(
 
 
 @pytest.fixture
+def gr_timelines_settings(
+    request,
+    settings,
+    timelines_settings,
+):
+    """Module-specific settings for timelines (canton GR)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=timelines_settings,
+        module_name="timelines",
+        canton="kt_gr",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def user_settings(
     request,
     settings,

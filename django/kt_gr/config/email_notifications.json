@@ -423,7 +423,7 @@
     "model": "notification.notificationtemplate",
     "pk": 36,
     "fields": {
-      "slug": "additional-demand-created-with-changes",
+      "slug": "send-additional-demand-internal-with-changes",
       "purpose": null,
       "subject": null,
       "body": null,
@@ -868,11 +868,12 @@
     "pk": 256,
     "fields": {
       "template": 36,
-      "template_slug": "additional-demand-created-with-changes",
+      "template_slug": "send-additional-demand-internal-with-changes",
       "language": "de",
-      "purpose": "Nachforderung mit Änderungen erstellt",
-      "subject": "Nachforderung mit Änderungen erstellt (Dossier-Nr. {{DOSSIER_NR}}) / Richiesta di precisazioni creata con modifiche (dossier n. {{DOSSIER_NR}})",
-      "body": "Guten Tag\r\n\r\nIm eBau wurde eine Nachforderung mit Änderungen im Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) erstellt.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau\r\n\r\n---\r\n\r\nBuongiorno,\r\n\r\nin eBau è stata creata una richiesta di precisazioni con modifiche relativa al dossier n. {{DOSSIER_NR}} ({{FORM_NAME_IT}}, {{MUNICIPALITY_IT}}).\r\n\r\n{{PUBLIC_DOSSIER_LINK}}/additional-demand\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere."
+
+      "purpose": "Nachforderung mit Änderungen, Neu",
+      "subject": "Neue Nachforderung mit Änderungen (Dossier-Nr. {{DOSSIER_NR}}) / Nuova richiesta di precisazioni creata con modifiche (dossier n. {{DOSSIER_NR}})",
+      "body": "Guten Tag\r\n\r\nIm eBau gibt es eine neue Nachforderung im Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\neBau\r\n\r\n---\r\n\r\nBuongiorno,\r\n\r\nin eBau è arrivata una nuova richiesta di precisazioni relativa al dossier n. {{DOSSIER_NR}} ({{FORM_NAME_IT}}, {{MUNICIPALITY_IT}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}/additional-demand\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere."
     }
   },
   {
@@ -882,9 +883,9 @@
       "template": 37,
       "template_slug": "additional-demand-decision-accept-with-changes",
       "language": "de",
-      "purpose": "Nachforderung geprüft positiv mit Änderungen",
+      "purpose": "Nachforderung mit Änderungen geprüft positiv",
       "subject": "Nachforderung mit Änderungen akzeptiert (Dossier-Nr. {{DOSSIER_NR}}) / Richiesta di precisazioni con modifiche accettata (dossier n. {{DOSSIER_NR}})",
-      "body": "Guten Tag\r\n\r\nIm eBau wurde die Nachforderung mit Änderungen angeschlossen im Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau\r\n\r\n---\r\n\r\nBuongiorno,\r\n\r\nin eBau si è conclusa la richiesta di precisazioni con modifiche relativa al dossier n. {{DOSSIER_NR}} ({{FORM_NAME_IT}}, {{MUNICIPALITY_IT}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}/additional-demand\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\r\n\r\nCordiali saluti\r\neBau"
+      "body": "Guten Tag\r\n\r\nIm eBau wurde die Nachforderung angeschlossen im Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}/additional-demand\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau\r\n\r\n---\r\n\r\nBuongiorno,\r\n\r\nin eBau si è conclusa la richiesta di precisazioni relativa al dossier n. {{DOSSIER_NR}} ({{FORM_NAME_IT}}, {{MUNICIPALITY_IT}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}/additional-demand\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\r\n\r\nCordiali saluti\r\neBau"
     }
   }
 ]

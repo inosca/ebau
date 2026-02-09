@@ -185,6 +185,7 @@ export default {
   submitComponent: {
     requiredPermissions: {
       submit: ["instance-submit"],
+      "additional-demand-changes-submit": ["additional-demand-changes-submit"],
     },
     export: {
       enabled: (instance) =>

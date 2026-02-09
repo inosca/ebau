@@ -40,6 +40,10 @@ ROLES_GEOMETER = HasRole(["geometer"])
 APPLICANT_WRITE = HasApplicantRole(["ADMIN", "EDITOR"])
 
 
+MODULE_PORTAL_ADDITIONAL_DEMAND_CHANGES = (
+    APPLICANT_WRITE & HasAdditionalDemandWithFormEdit()
+)
+
 ADDITIONAL_DEMAND_REQUEST_CHANGES = IsServiceGroup(
     ["municipality", ARE_SERVICE_GROUP]
 ) & HasRole(["municipality-lead", "service-lead"])
@@ -115,9 +119,9 @@ MODULE_PORTAL_COMMUNICATIONS_WRITE = (
     MODULE_PORTAL_COMMUNICATIONS_READ & HasApplicantRole(["ADMIN", "EDITOR"])
 )
 MODULE_PORTAL_FORM_READ = Always()
-MODULE_PORTAL_FORM_WRITE = (
-    RequireInstanceState(["new"]) & (APPLICANT_WRITE | (ROLES_MUNICIPALITY & IsPaper()))
-) | (HasAdditionalDemandWithFormEdit() & APPLICANT_WRITE)
+MODULE_PORTAL_FORM_WRITE = RequireInstanceState(["new"]) & (
+    APPLICANT_WRITE | (ROLES_MUNICIPALITY & IsPaper())
+)
 MODULE_PORTAL_FORM_FORMAL_EXAM_WRITE = ROLES_MUNICIPALITY & (
     RequireInstanceState(["subm", "init-distribution", "circulation", "decision"])
     | IsPaper()
@@ -175,6 +179,14 @@ GR_PERMISSIONS_SETTINGS = {
         "applicant": [
             ("additional-demands-read", MODULE_PORTAL_ADDITIONAL_DEMANDS_READ),
             ("additional-demands-write", MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE),
+            (
+                "additional-demands-correction-document-upload",
+                MODULE_PORTAL_ADDITIONAL_DEMAND_CHANGES,
+            ),
+            (
+                "additional-demands-correction-document-void",
+                MODULE_PORTAL_ADDITIONAL_DEMAND_CHANGES,
+            ),
             ("applicant-add", MODULE_PORTAL_APPLICANTS),
             ("applicant-read", MODULE_PORTAL_APPLICANTS),
             ("applicant-remove", MODULE_PORTAL_APPLICANTS),
@@ -190,7 +202,10 @@ GR_PERMISSIONS_SETTINGS = {
             ),
             ("documents-write", MODULE_PORTAL_DOCUMENTS_WRITE),
             ("form-read", MODULE_PORTAL_FORM_READ),
-            ("form-write", MODULE_PORTAL_FORM_WRITE),
+            (
+                "form-write",
+                MODULE_PORTAL_FORM_WRITE | MODULE_PORTAL_ADDITIONAL_DEMAND_CHANGES,
+            ),
             ("instance-copy-after-rejection", ACTION_INSTANCE_COPY_AFTER_REJECTION),
             ("instance-create-modification", ACTION_INSTANCE_CREATE_MODIFICATION),
             ("instance-delete", ACTION_INSTANCE_DELETE),
@@ -199,6 +214,10 @@ GR_PERMISSIONS_SETTINGS = {
                 ACTION_INSTANCE_DOWNLOAD_FORM_AS_PDF,
             ),
             ("instance-submit", ACTION_INSTANCE_SUBMIT),
+            (
+                "additional-demand-changes-submit",
+                MODULE_PORTAL_ADDITIONAL_DEMAND_CHANGES,
+            ),
             # ("instance-withdraw", ACTION_INSTANCE_WITHDRAW),  # needs to be commented out otherwise module is shown in portal
         ],
         "distribution-service": [
