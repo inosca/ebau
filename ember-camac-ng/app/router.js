@@ -2,6 +2,7 @@ import EmberRouter from "@ember/routing/router";
 import { service } from "@ember/service";
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 import registerAdditionalDemand from "ember-ebau-core/modules/additional-demand";
+import registerBabStatisticsExport from "ember-ebau-core/modules/bab-statistics-export";
 import registerBilling from "ember-ebau-core/modules/billing";
 import registerBillingGlobal from "ember-ebau-core/modules/billing-global";
 import registerChangeGeometer from "ember-ebau-core/modules/change-geometer";
@@ -132,4 +133,5 @@ Router.map(function () {
   registerChangeGeometer(this);
   registerHistory(this);
   registerJournal(this);
+  registerBabStatisticsExport(this);
 });

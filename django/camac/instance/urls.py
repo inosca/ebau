@@ -1,8 +1,8 @@
-from django.urls import re_path
+from django.urls import path, re_path
 from rest_framework.routers import SimpleRouter
 
 from . import views
-from .export.views import InstanceExportView
+from .export.views import BabStatisticsExportView, InstanceExportView
 from .placeholders.views import DMSPlaceholdersDocsView
 
 urlpatterns = [
@@ -20,6 +20,11 @@ urlpatterns = [
         r"form-config",
         views.FormConfigDownloadView.as_view(),
         name="form-config-download",
+    ),
+    path(
+        r"bab-statistics-export/",
+        BabStatisticsExportView.as_view(),
+        name="bab-statistics-export",
     ),
 ]
 
