@@ -70,6 +70,7 @@ requests-toolbelt==1.0.0
 # TODO: When updating sorl-thumbnail to a version that includes
 # https://github.com/jazzband/sorl-thumbnail/pull/778, you can remove the
 # monkeypatch in camac/document/apps.py
+setuptools==81.0.0
 sorl-thumbnail==12.11.0
 tabulate==0.9.0
 tqdm==4.67.1
