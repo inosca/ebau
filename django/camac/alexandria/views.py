@@ -61,6 +61,7 @@ class PatchedDocumentViewSet(views.DocumentViewSet):
     ordering_fields = [
         "title",
         "modified_at",
+        "date",
         "created_at",
         "created_by_username",
         "group_name",
