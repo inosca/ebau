@@ -22,7 +22,7 @@ from camac.tests.form_utils import FormUtils
 @pytest.fixture
 def data_for_bab_statistics_export(
     ur_instance,
-    utils,
+    form_utils: FormUtils,
     service,
     ur_work_item_list_settings,
     ur_distribution_settings,
@@ -53,8 +53,8 @@ def data_for_bab_statistics_export(
     caluma_form_factory(slug="bab-versiegelte-entsiegelte-flaechen-form")
 
     # instance answers
-    utils.add_municipality(ur_instance.case.document, "municipality", service)
-    utils.add_table_answer(
+    form_utils.add_municipality(ur_instance.case.document, "municipality", service)
+    form_utils.add_table_answer(
         ur_instance.case.document,
         "applicant",
         [
@@ -71,48 +71,48 @@ def data_for_bab_statistics_export(
             }
         ],
     )
-    utils.add_answer(
+    form_utils.add_answer(
         ur_instance.case.document, "proposal-description", "Einfamilienhaus"
     )
 
     # bab answers
-    utils.add_answer(
+    form_utils.add_answer(
         bab_work_item.document,
         "bab-art-der-massnahme",
         "bab-art-der-massnahme-neubau",
         "Neubau",
     )
-    utils.add_answer(
+    form_utils.add_answer(
         bab_work_item.document,
         "beschrieb-der-massnahme",
         "Beschrieb der Massnahme",
     )
-    utils.add_answer(
+    form_utils.add_answer(
         bab_work_item.document, "bab-objektart", "bab-objektart-wohnbaute", "Wohnbaute"
     )
-    utils.add_answer(bab_work_item.document, "objektbeschrieb", "Objektbeschrieb")
-    utils.add_answer(
+    form_utils.add_answer(bab_work_item.document, "objektbeschrieb", "Objektbeschrieb")
+    form_utils.add_answer(
         bab_work_item.document,
         "bab-nutzung-nach-rpg",
         "bab-nutzung-nach-rpg-zonenkonform",
         "Zonenkonform",
     )
-    utils.add_answer(
+    form_utils.add_answer(
         bab_work_item.document,
         "bab-bewilligungsgrund",
         "bab-bewilligungsgrund-innerhalb-bauzone",
         "Innerhalb Bauzone",
     )
-    utils.add_answer(
+    form_utils.add_answer(
         bab_work_item.document, "bab-entscheid", "bab-entscheid-positiv", "Positiv"
     )
-    utils.add_answer(
+    form_utils.add_answer(
         bab_work_item.document,
         "bab-typ-der-auftraggeber",
         "bab-typ-der-auftraggeber-privatpersonen",
         "Privatpersonen",
     )
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         bab_work_item.document,
         "bab-lage-flaechenbedarf-tabelle",
         [
@@ -128,20 +128,22 @@ def data_for_bab_statistics_export(
         ],
         row_form_id="bab-lage-flaechenbedarf-form",
     )
-    utils.add_answer(
+    form_utils.add_answer(
         bab_work_item.document, "bab-flaechenbedarf-fruchtfolgeflaechen", 10
     )
-    utils.add_answer(bab_work_item.document, "bab-kompensation-fruchtfolgeflaechen", 20)
-    utils.add_answer(bab_work_item.document, "bab-neue-gebaeude", 3)
-    utils.add_answer(bab_work_item.document, "bab-gebaeude-abbruch", 1)
-    utils.add_answer(bab_work_item.document, "anzahl-gebaeude-unter-schutz", 2)
-    utils.add_answer(
+    form_utils.add_answer(
+        bab_work_item.document, "bab-kompensation-fruchtfolgeflaechen", 20
+    )
+    form_utils.add_answer(bab_work_item.document, "bab-neue-gebaeude", 3)
+    form_utils.add_answer(bab_work_item.document, "bab-gebaeude-abbruch", 1)
+    form_utils.add_answer(bab_work_item.document, "anzahl-gebaeude-unter-schutz", 2)
+    form_utils.add_answer(
         bab_work_item.document,
         "versiegelt-oder-entsiegelt",
         "versiegelt-oder-entsiegelt-ja",
         "Ja",
     )
-    utils.add_table_answer(
+    form_utils.add_table_answer(
         bab_work_item.document,
         "versiegelte-entsiegelte-flaechen",
         [
