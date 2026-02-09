@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-29 10:50+0100\n"
+"POT-Creation-Date: 2026-02-23 11:07+0100\n"
 "PO-Revision-Date: 2025-08-28 10:03+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1486,6 +1486,10 @@ msgstr ""
 "Le dossier ne peut pas être corrigé, car des prises de position ont déjà été "
 "demandées."
 
+#: camac/instance/serializers.py
+msgid "Instance has no pending additional demand with changes."
+msgstr ""
+
 #: camac/instance/tests/test_document_merge_service.py
 #: camac/settings/modules/dms.py
 msgid "Form export"
@@ -1863,6 +1867,26 @@ msgstr "Accès refusé"
 #: camac/templates/admin/login.html
 msgid "Sorry, but it seems that you don’t have access to this page."
 msgstr "Désolé, mais il semble que vous n'ayez pas accès à cette page."
+
+#: camac/timelines/models.py
+msgid "Project Change"
+msgstr ""
+
+#: camac/timelines/models.py
+msgid "Submit After Rejection"
+msgstr ""
+
+#: camac/timelines/models.py
+msgid "Additional Demand"
+msgstr ""
+
+#: camac/timelines/models.py
+msgid "Correction"
+msgstr ""
+
+#: camac/timelines/models.py
+msgid "Additional Demands"
+msgstr ""
 
 #: camac/user/admin/filters.py
 msgid "Disabled"

@@ -135,6 +135,7 @@ INSTALLED_APPS = [
     "camac.deadlines.apps.DeadlinesConfig",
     "camac.gis_export.apps.GISExportConfig",
     "camac.captcha.apps.DefaultConfig",
+    "camac.timelines.apps.TimelinesConfig",
     "camac.alexandria_migration.apps.AlexandriaMigrationConfig",
     "django_extensions",
 ]
@@ -3909,6 +3910,7 @@ TAGS = load_module_settings("tags")
 WORK_ITEM_LIST = load_module_settings("work_item_list")
 LINKED_INSTANCES = load_module_settings("linked_instances")
 SANCTIONS = load_module_settings("sanctions")
+TIMELINES = load_module_settings("timelines")
 
 # Permissions incl. module specific integrations
 PERMISSIONS = load_module_settings("permissions")
