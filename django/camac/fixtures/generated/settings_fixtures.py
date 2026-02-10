@@ -1075,6 +1075,18 @@ def ag_django_admin_settings(settings, request):
 
 
 @pytest.fixture
+def sg_django_admin_settings(settings, request):
+    """Module-specific settings for django admin (canton SG)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="django_admin",
+        canton="kt_sg",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def dms_settings(settings, request):
     """Module-specific settings for dms (default)."""
     return generate_module_settings(
@@ -1346,6 +1358,18 @@ def ag_dump_settings(settings, request):
         request=request,
         module_name="dump",
         canton="kt_ag",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def sg_dump_settings(settings, request):
+    """Module-specific settings for dump (canton SG)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="dump",
+        canton="kt_sg",
         disable=False,
     )
 

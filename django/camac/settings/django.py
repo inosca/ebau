@@ -3030,6 +3030,76 @@ APPLICATIONS = {
         "SUBSERVICE_ROLES": ["subservice"],
         "DOCUMENT_BACKEND": "alexandria",
     },
+    "kt_sg": {
+        "SHORT_NAME": "sg",
+        "AVAILABLE_LANGUAGES": ["de"],
+        "INTERNAL_FRONTEND": "ebau",
+        "TAGGED_RELEASES": True,
+        "USE_CAMAC_ADMIN": False,
+        "LOG_NOTIFICATIONS": True,
+        "LOG_NOTIFICATIONS_WITH_NO_RECEIVERS": True,
+        "LINK_INSTANCES_ON_COPY": True,
+        # Mapping between camac role and instance permission.
+        "ROLE_PERMISSIONS": {
+            # TODO
+            "applicant": "applicant",
+            "support": "support",
+        },
+        "ADMIN_GROUP": 1,
+        "PORTAL_GROUP": 3,
+        "IS_MULTILINGUAL": True,
+        "FORM_BACKEND": "caluma",
+        "THUMBNAIL_SIZE": "x300",
+        "GROUP_RENAME_ON_SERVICE_RENAME": True,
+        "SERVICE_UPDATE_ALLOWED_ROLES": [],  # if unset, all are allowed
+        "SEQUENCE_NAMESPACE_APPS": [],
+        "NOTIFICATIONS_EXCLUDED_TASKS": [],
+        "OIDC_SYNC_USER_ATTRIBUTES": [
+            "language",
+            "email",
+            "username",
+            "name",
+            "surname",
+        ],
+        "CALUMA": {
+            "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
+            "SUBMIT_TASKS": ["submit"],
+            "FORM_PERMISSIONS": ["main"],
+            "HAS_PROJECT_CHANGE": True,
+            "CREATE_IN_PROCESS": False,
+            "GENERATE_IDENTIFIER": True,
+            "USE_LOCATION": False,
+            "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
+            "SIMPLE_WORKFLOW": {
+                # TODO
+            },
+            "PRE_COMPLETE": {
+                # TODO
+            },
+            "PUBLIC_STATUS": {
+                "USE_SLUGS": True,
+                "MAP": {
+                    "new": "creation",
+                    # TODO
+                },
+                "DEFAULT": "inProcedure",
+            },
+        },
+        "USE_INSTANCE_SERVICE": True,
+        "NOTIFICATIONS": {
+            # TODO
+        },
+        "SUBSERVICE_ROLES": ["subservice"],
+        "ACTIVE_SERVICES": {
+            "MUNICIPALITY": {
+                "FILTERS": {
+                    "service__service_group__name": "municipality",
+                },
+                "DEFAULT": True,
+            },
+        },
+        "DOCUMENT_BACKEND": "alexandria",
+    },
 }
 
 APPLICATION = APPLICATIONS.get(APPLICATION_NAME, {})

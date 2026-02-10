@@ -2,6 +2,7 @@ import pytest
 from django.conf import settings
 from django.urls import get_resolver
 from rest_framework import status
+from rest_framework.generics import GenericAPIView
 from rest_framework.permissions import OperandHolder
 from rest_framework.test import APIClient
 
@@ -17,8 +18,20 @@ CANTONS = [
 CANTONS.append(("sz", "wilken"))
 
 
-def get_all_urls():
-    """Get all URLs and arguments of class based views in the application."""
+def _get_all_urls(instance_id: int) -> tuple[str, str, GenericAPIView]:
+    """Get all URLs of class based views in the application.
+
+    Returns a tuple consisting of:
+
+    - The raw URL pattern (e.g. "/ech/v1/application/%(instance_id)s")
+    - A concrete URL with placeholders replaced (e.g. "/ech/v1/application/99")
+    - The corresponding view class
+
+    WARNING: This function does **not** guarantee full coverage of all
+    application URLs. It is intentionally incomplete and exists solely as a
+    helper for the public access test referenced below. It must not be used for
+    production logic or URL introspection outside of that test context.
+    """
 
     urls = []
 
@@ -32,11 +45,27 @@ def get_all_urls():
 
         if len(args) and "instance_id" not in args:
             # Only use urls that either don't require any arguments or those
-            # that require the instance ID in order to reduce the mass data
+            # that require the instance ID in order to reduce the mass of data
             # needed to test
             continue
 
-        urls.append((f"/{url}", args, view.cls))
+        raw_url = f"/{url}"
+        request_url = raw_url
+
+        for arg in args:
+            if arg == "instance_id":
+                request_url = request_url.replace(
+                    "%(instance_id)s",
+                    # Because some of the ech endpoints raise if the xml is invalid,
+                    # we just see if it returns a 404.
+                    str(
+                        instance_id + 1 if "application" in request_url else instance_id
+                    ),
+                )
+            elif arg == "event_type":
+                request_url = request_url.replace("%(event_type)s", "TestEvent")
+
+        urls.append((raw_url, request_url, view.cls))
 
     return urls
 
@@ -64,6 +93,17 @@ def test_external_client_access(
 
     request.getfixturevalue(f"set_application_{canton}")
 
+    if canton == "sg":
+        # Currently, SG does not have an `sg_instance` yet as there is neither
+        # form nor workflow defined. As soon as this fixture is defined (this
+        # will happen quite soon), this test will fail and will only pass again
+        # if this whole block is removed and the snapshot generated.
+        # This way we can make sure this test will not be disabled for SG forever.
+        with pytest.raises(pytest.FixtureLookupError):
+            request.getfixturevalue(f"{canton}_instance")
+
+        return
+
     instance = request.getfixturevalue(f"{canton}_instance")
 
     # Load or disable canton specific eCH0211 settings
@@ -84,19 +124,7 @@ def test_external_client_access(
 
     allowed_urls = []
 
-    for url, arg_names, view in get_all_urls():
-        request_url = url
-        for arg_name in arg_names:
-            if arg_name == "instance_id":
-                request_url = request_url.replace(
-                    "%(instance_id)s",
-                    # Because some of the ech endpoints raise if the xml is invalid,
-                    # we just see if it returns a 404.
-                    str(instance.pk + 1 if "application" in url else instance.pk),
-                )
-            elif arg_name == "event_type":
-                request_url = request_url.replace("%(event_type)s", "TestEvent")
-
+    for url, request_url, view in _get_all_urls(instance.pk):
         for method in ["post", "patch", "get", "delete"]:
             response = getattr(client, method)(request_url)
 

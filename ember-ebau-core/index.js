@@ -7,6 +7,7 @@ const ENV_MAP = {
   kt_gr: "gr",
   kt_so: "so",
   kt_ag: "ag",
+  kt_sg: "sg",
   test: "test",
 };
 

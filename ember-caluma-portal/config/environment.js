@@ -80,6 +80,9 @@ module.exports = function (environment) {
     withdrawal: 13,
     decided: 14,
   };
+  const instanceStatesSg = {
+    new: 1,
+  };
   const appConfig = {
     demo: {
       name: "demo",
@@ -606,6 +609,34 @@ module.exports = function (environment) {
             "vorabklaerung",
             "baugesuch-migration",
           ],
+        },
+      ],
+    },
+    kt_sg: {
+      name: "sg",
+      internalFrontend: "ebau",
+      supportGroups: [2],
+      defaultInstanceStateCategory: "pending",
+      instanceStateCategories: {
+        pending: [instanceStatesSg.new],
+        decided: [],
+        done: [],
+      },
+      completePreliminaryClarificationSlugs: [],
+      selectableGroups: {
+        roles: [
+          2, // support
+        ],
+      },
+      documents: {
+        excludeFromDocuments: [],
+      },
+      instanceStates: instanceStatesSg,
+      // Who can create which forms. Roles can be given by ID, or magic key ("internal" or "public")
+      formCreationPermissions: [
+        {
+          roles: ["public"],
+          forms: ["baugesuch"],
         },
       ],
     },
