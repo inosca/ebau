@@ -431,7 +431,11 @@ class InstanceView(
         user = self.request.user
 
         return user.groups.filter(
-            pk__in=[ur_constants.KOOR_NP_GROUP_ID, ur_constants.KOOR_BG_GROUP_ID]
+            pk__in=[
+                ur_constants.KOOR_NP_GROUP_ID,
+                ur_constants.KOOR_BG_GROUP_ID,
+                ur_constants.KOOR_AFE_GROUP_ID,
+            ]
         )
 
     @canton_aware
