@@ -1,0 +1,13 @@
+mutation CreateBuildingPermitWorkflow {
+  saveWorkflow(
+    input: {
+      slug: "building-permit"
+      name: "Baugesuch"
+      startTasks: ["submit"]
+      allowForms: ["baugesuch"]
+      isPublished: true
+    }
+  ) {
+    clientMutationId
+  }
+}

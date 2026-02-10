@@ -2491,6 +2491,18 @@ def ag_user_settings(settings, request):
 
 
 @pytest.fixture
+def sg_user_settings(settings, request):
+    """Module-specific settings for user (canton SG)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="user",
+        canton="kt_sg",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def withdrawal_settings(settings, request):
     """Module-specific settings for withdrawal (default)."""
     return generate_module_settings(

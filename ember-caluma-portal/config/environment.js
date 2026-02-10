@@ -712,7 +712,7 @@ module.exports = function (environment) {
         en: "m/d/Y",
       },
       FLATPICKR_DATE_FORMAT_DEFAULT: "d.m.Y",
-      USE_MANDATORY_ASTERISK: ["kt_ag", "kt_gr"].includes(
+      USE_MANDATORY_ASTERISK: ["kt_ag", "kt_gr", "kt_sg"].includes(
         process.env.APPLICATION,
       ),
     },
