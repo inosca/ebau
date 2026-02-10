@@ -16,6 +16,11 @@ $watermark-background-color: #a9a9a9 !default;
   background-color: $watermark-background-color;
   text-transform: uppercase;
   box-shadow: 0 0 3px rgb(0 0 0 / 50%);
+  transition: opacity, ease-in, 300ms;
+
+  &:hover {
+    opacity: 0.5;
+  }
 }
 
 .so-navbar .watermark {

@@ -36,6 +36,10 @@
                   alt={{t "global.title"}}
                 />
               </div>
+            {{else if (is-application "sg")}}
+              <div class="logo-sg">
+                {{t "global.title"}}
+              </div>
             {{else if (is-application "demo")}}
               <img
                 class="uk-height-1-1"
