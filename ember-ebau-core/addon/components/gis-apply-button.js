@@ -118,20 +118,14 @@ export default class GisApplyButtonComponent extends Component {
     );
 
     if (macroCondition(getOwnConfig().application === "gr")) {
-      // trigger EEBA update on the confirmation field to set the EEBA isDirty flag,
-      // and reset the state if it was completed.
-      const confirmField = this.args.document.findField(
-        EEBA_ANSWER_QUESTIONS.CONFIRMATION,
+      // trigger EEBA update on the confirmation field to set the EEBA isDirty flag.
+      const isDirtyField = this.args.document.findField(
+        EEBA_ANSWER_QUESTIONS.IS_DIRTY,
       );
-
-      if (confirmField?.question?.raw) {
-        promises.push(
-          this.eebaClient.onSaveEebaRefresh.perform(
-            this.args.document,
-            this.args.document.findField(EEBA_ANSWER_QUESTIONS.CONFIRMATION)
-              .question.raw,
-          ),
-        );
+      const isDirtyYes = `${EEBA_ANSWER_QUESTIONS.IS_DIRTY}-ja`;
+      if (isDirtyField && isDirtyField.answer.value !== isDirtyYes) {
+        isDirtyField.answer.value = isDirtyYes;
+        promises.push(isDirtyField.save.perform());
       }
     }
 

@@ -42,7 +42,7 @@ export default class EebaClientService extends Service {
         linkedFields.length === 0 ||
         !linkedFields.includes(question.slug)
       ) {
-        return await this.performEebaRefresh.perform();
+        return await this.performEebaRefresh.perform(document);
       }
 
       const isDirtyField = document.findField(EEBA_ANSWER_QUESTIONS.IS_DIRTY);
@@ -71,28 +71,26 @@ export default class EebaClientService extends Service {
       Object.values(EEBA_ANSWER_QUESTIONS)
         .filter((slug) => slug !== question.slug)
         .forEach(async (slug) => {
-          this.debounceFields[slug] = await document
-            .findField(slug)
-            ?.refreshAnswer.linked();
+          this.debounceFields[slug] = true;
         });
 
-      return await this.performEebaRefresh.perform();
+      return await this.performEebaRefresh.perform(document);
     },
   );
 
   /**
    * Performs the actual debounced refresh for all queued fields.
    */
-  performEebaRefresh = task({ restartable: true }, async () => {
+  performEebaRefresh = task({ restartable: true }, async (document) => {
     try {
       await timeout(250);
-      await Promise.all(
-        Object.values(this.debounceFields).map(async (refresh) => {
-          return await refresh?.perform();
-        }),
-      );
-
+      const fieldSlugs = Object.keys(this.debounceFields);
       this.debounceFields = {};
+      await Promise.all(
+        fieldSlugs.map((slug) =>
+          document.findField(slug)?.refreshAnswer.linked().perform(),
+        ),
+      );
     } catch (e) {
       console.error("Error during eEBA refresh task:", e);
 
