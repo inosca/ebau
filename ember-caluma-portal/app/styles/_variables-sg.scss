@@ -1,1 +1,39 @@
-// TODO
+@use "sass:color";
+@import "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap";
+
+// Font
+$global-font-family: "Space Grotesk", sans-serif;
+
+// SG main colors (only darkgreen is the primary color)
+$sg-darkgreen: rgb(3 51 48);
+$sg-olivgreen: rgb(182 219 163);
+
+// Base colors
+$global-primary-background: $sg-darkgreen;
+$global-secondary-background: rgb(244 146 22);
+$global-muted-background: rgb(245 244 241);
+$global-success-background: rgb(46 133 1);
+$global-danger-background: rgb(206 24 15);
+
+// Font colors
+$global-color: rgb(0 0 0);
+$global-emphasis-color: $global-color;
+$global-muted-color: rgb(100 100 100);
+$global-link-color: $global-primary-background;
+$global-link-hover-color: $sg-olivgreen;
+
+// Watermark
+$watermark-background-color: $global-danger-background;
+
+// Buttons
+$button-default-color: $global-primary-background;
+$button-default-border: $global-primary-background;
+$button-default-hover-border: $global-primary-background;
+$button-default-hover-background: color.adjust(
+  $global-primary-background,
+  $alpha: -0.95
+);
+$button-primary-hover-background: color.adjust(
+  $global-primary-background,
+  $alpha: -0.25
+);
