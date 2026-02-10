@@ -1,0 +1,48 @@
+<tr
+  class="{{if
+      @node.activationWarning
+      (concat 'activation-warning-row ' @node.activationWarning)
+    }}"
+>
+  {{#each @tableColumns as |tColumn|}}
+    <td
+      class="{{if (eq tColumn.name 'dossierNumber') 'uk-text-nowrap'}}
+        {{if (eq tColumn.name 'intent') 'uk-text-truncate uk-table-expand'}}
+        {{if
+          (includes tColumn.name (array 'applicants' 'address'))
+          'uk-text-break'
+        }}
+        "
+      title={{if
+        (eq tColumn.name "instanceState")
+        (get @node "instanceStateDescription")
+      }}
+    >
+      {{#if (eq tColumn.name "applicant")}}
+        {{get @node (concat tColumn.name ".name")}}
+      {{else if
+        (includes
+          tColumn.name
+          (array
+            "instanceFormDescription"
+            "instanceId"
+            "dossierNumber"
+            "form"
+            "address"
+          )
+        )
+      }}
+        {{#if (or this.redirectToPortal.value this.ebauModules.isLegacyApp)}}
+          <a href={{this.redirectUrl}}>
+            {{get @node tColumn.name}}
+          </a>
+        {{else}}
+          <LinkTo @route="cases.detail" @model={{@node.instanceId}}>
+            {{get @node tColumn.name}}</LinkTo>
+        {{/if}}
+      {{else}}
+        {{get @node tColumn.name}}
+      {{/if}}
+    </td>
+  {{/each}}
+</tr>

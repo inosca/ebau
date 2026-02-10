@@ -1,4 +1,3 @@
-import { action } from "@ember/object";
 import { service } from "@ember/service";
 import { isEmpty } from "@ember/utils";
 import { getOwnConfig, macroCondition } from "@embroider/macros";
@@ -10,9 +9,7 @@ import { dropTask } from "ember-concurrency";
 import { saveAs } from "file-saver";
 
 import caseTableConfig from "ember-ebau-core/config/case-table";
-import mainConfig from "ember-ebau-core/config/main";
 import caseInstanceIdsQuery from "ember-ebau-core/gql/queries/case-instance-ids.graphql";
-import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 import {
   getCalumaFilters,
   getCamacFilters,
@@ -213,40 +210,6 @@ export default class CaseTableComponent extends Component {
       name,
       order: availableOrderings.find((ordering) => ordering === name),
     }));
-  }
-
-  @action
-  async redirectToCase(caseRecord) {
-    const instanceId = caseRecord.instanceId;
-
-    const isNewCase =
-      parseInt(caseRecord.instance.get("instanceState.id")) ===
-      parseInt(mainConfig.instanceStates?.new);
-
-    let redirectToPortal = caseRecord.instance.isPaper && isNewCase;
-    if (hasFeature("permissions.municipalityBeforeSubmission")) {
-      redirectToPortal ||= await this.permissions.hasAny(
-        instanceId,
-        "redirect-to-portal",
-      );
-    }
-
-    if (hasFeature("internalCaseCreation")) {
-      redirectToPortal = false;
-    }
-
-    let url = `/index/redirect-to-instance-resource/instance-id/${instanceId}/`;
-
-    if (redirectToPortal) {
-      const portalURL = getOwnConfig().portalUrl;
-      const group = this.ebauModules.groupId;
-      const language = this.ebauModules.language;
-      url = `${portalURL}/instances/${instanceId}?group=${group}&language=${language}&referrer=internal`;
-    } else if (!this.ebauModules.isLegacyApp) {
-      return this.router.transitionTo("cases.detail", instanceId);
-    }
-
-    location.assign(url);
   }
 
   @dropTask
