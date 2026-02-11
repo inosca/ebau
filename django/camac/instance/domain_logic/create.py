@@ -438,6 +438,7 @@ class CreateInstanceLogic:
         target,
         skip_exported_form_attachment=False,
         is_modification=False,
+        copy_attachments_from=[],
     ):
         if settings.APPLICATION["DOCUMENT_BACKEND"] == "alexandria":
             CreateInstanceLogic.copy_alexandria_attachments(
@@ -450,6 +451,7 @@ class CreateInstanceLogic:
                 source,
                 target,
                 skip_exported_form_attachment=skip_exported_form_attachment,
+                copy_attachments_from=copy_attachments_from,
             )
 
     @classmethod
@@ -459,6 +461,7 @@ class CreateInstanceLogic:
         target,
         skip_exported_form_attachment=False,
         is_modification=False,
+        copy_attachments_from=False,
     ):
         if is_modification:
             return
@@ -497,8 +500,20 @@ class CreateInstanceLogic:
             new_document.save()
 
     @staticmethod
-    def copy_camac_attachments(source, target, skip_exported_form_attachment=False):
+    def copy_camac_attachments(
+        source,
+        target,
+        skip_exported_form_attachment=False,
+        copy_attachments_from=[],
+    ):
         attachments = source.attachments.all()
+
+        # UR only: when we copy dossiers from php, we only want to
+        # copy attachments from the applicant attachment section.
+        if copy_attachments_from:
+            attachments = attachments.filter(
+                attachment_sections__attachment_section_id__in=copy_attachments_from
+            )
 
         if skip_exported_form_attachment:
             form_attachment_name = (
@@ -574,6 +589,7 @@ class CreateInstanceLogic:
         case,
         user,
         skip_exported_form_attachment,
+        copy_attachments_from,
     ):
         if is_paper:
             # create instance service for permissions
@@ -593,6 +609,7 @@ class CreateInstanceLogic:
                 instance,
                 skip_exported_form_attachment,
                 is_modification,
+                copy_attachments_from,
             )
 
             if not is_modification:
@@ -633,6 +650,7 @@ class CreateInstanceLogic:
         workflow_slug=None,
         skip_exported_form_attachment=False,
         skip_applicant_creation=False,
+        copy_attachments_from=[],
     ):
         """Create an instance.
 
@@ -731,6 +749,7 @@ class CreateInstanceLogic:
             case,
             caluma_user,
             skip_exported_form_attachment,
+            copy_attachments_from,
         )
 
         Trigger.instance_created(None, instance)
