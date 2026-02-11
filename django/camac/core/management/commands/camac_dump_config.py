@@ -147,6 +147,11 @@ class Command(BaseCommand):
                 # filters for the current model_identifier.
                 continue
 
+            if dependency_index < config_index:
+                # Continue because the dependency has already higher complexity
+                # or was already re-sorted by another config with the same depdenency.
+                continue
+
             del sorted_filter_list[dependency_index]
             sorted_filter_list.insert(config_index, dependency_config)
 

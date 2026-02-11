@@ -226,6 +226,7 @@ CALUMA_FORM_TYPES_SLUGS = [
 CALUMA_VERSIONED_FORM_TYPES_SLUGS_SO = [
     "baugesuch",
     "baugesuch-v2",
+    "baugesuch-v3",
     "erdwaermesonden",
     "erdwaermesonden-v2",
     "voranfrage-v2",

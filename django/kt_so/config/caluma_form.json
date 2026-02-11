@@ -1023,6 +1023,42 @@
     }
   },
   {
+    "model": "caluma_form.form",
+    "pk": "zivilschutz",
+    "fields": {
+      "created_at": "2026-01-09T08:05:12.051Z",
+      "modified_at": "2026-01-09T08:05:12.051Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Zivilschutz\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "zivilschutz-schutzraeume-tabelle",
+    "fields": {
+      "created_at": "2026-01-14T10:11:27.648Z",
+      "modified_at": "2026-01-14T10:11:27.648Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Schutzräume Tabelle\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
     "model": "caluma_form.formquestion",
     "pk": "allgemeine-informationen.anleitung",
     "fields": {
@@ -18033,6 +18069,501 @@
     }
   },
   {
+    "model": "caluma_form.formquestion",
+    "pk": "zivilschutz-schutzraeume-tabelle.zivilschutz-flaeche",
+    "fields": {
+      "created_at": "2026-01-14T10:13:29.978Z",
+      "modified_at": "2026-01-14T10:13:29.978Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zivilschutz-schutzraeume-tabelle",
+      "question": "zivilschutz-flaeche",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zivilschutz-schutzraeume-tabelle.zivilschutz-innenabmessung",
+    "fields": {
+      "created_at": "2026-01-14T10:12:52.954Z",
+      "modified_at": "2026-01-14T10:12:52.954Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zivilschutz-schutzraeume-tabelle",
+      "question": "zivilschutz-innenabmessung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zivilschutz-schutzraeume-tabelle.zivilschutz-nr-sr-abteil",
+    "fields": {
+      "created_at": "2026-01-14T10:12:08.596Z",
+      "modified_at": "2026-01-14T10:12:08.596Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zivilschutz-schutzraeume-tabelle",
+      "question": "zivilschutz-nr-sr-abteil",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zivilschutz-schutzraeume-tabelle.zivilschutz-ventilationsaggregat",
+    "fields": {
+      "created_at": "2026-01-14T10:14:36.621Z",
+      "modified_at": "2026-01-14T10:14:36.621Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zivilschutz-schutzraeume-tabelle",
+      "question": "zivilschutz-ventilationsaggregat",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zivilschutz-schutzraeume-tabelle.zivilschutz-volumen",
+    "fields": {
+      "created_at": "2026-01-14T10:14:07.003Z",
+      "modified_at": "2026-01-14T10:14:07.003Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zivilschutz-schutzraeume-tabelle",
+      "question": "zivilschutz-volumen",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zivilschutz.zivilschutz-anzahl-schutzplaetze-ersatzbeitraege",
+    "fields": {
+      "created_at": "2026-01-14T09:49:20.866Z",
+      "modified_at": "2026-01-14T09:49:20.866Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zivilschutz",
+      "question": "zivilschutz-anzahl-schutzplaetze-ersatzbeitraege",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zivilschutz.zivilschutz-anzahl-schutzplaetze-spitaeler",
+    "fields": {
+      "created_at": "2026-01-09T16:00:05.262Z",
+      "modified_at": "2026-01-09T16:00:05.262Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zivilschutz",
+      "question": "zivilschutz-anzahl-schutzplaetze-spitaeler",
+      "sort": 25
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zivilschutz.zivilschutz-anzahl-schutzplaetze-vorhandener-schutzraum",
+    "fields": {
+      "created_at": "2026-01-14T09:13:48.032Z",
+      "modified_at": "2026-01-14T09:13:48.032Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zivilschutz",
+      "question": "zivilschutz-anzahl-schutzplaetze-vorhandener-schutzraum",
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zivilschutz.zivilschutz-anzahl-schutzplaetze-wohnungen",
+    "fields": {
+      "created_at": "2026-01-09T15:57:55.473Z",
+      "modified_at": "2026-01-09T15:57:55.473Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zivilschutz",
+      "question": "zivilschutz-anzahl-schutzplaetze-wohnungen",
+      "sort": 26
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zivilschutz.zivilschutz-baujahr",
+    "fields": {
+      "created_at": "2026-01-14T09:41:19.781Z",
+      "modified_at": "2026-01-14T09:41:19.781Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zivilschutz",
+      "question": "zivilschutz-baujahr",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zivilschutz.zivilschutz-begruendung-aufhebung",
+    "fields": {
+      "created_at": "2026-01-14T12:27:47.871Z",
+      "modified_at": "2026-01-14T12:27:47.871Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zivilschutz",
+      "question": "zivilschutz-begruendung-aufhebung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zivilschutz.zivilschutz-begruendungen-des-befreiungsgesuchs",
+    "fields": {
+      "created_at": "2026-01-14T14:47:58.132Z",
+      "modified_at": "2026-01-14T14:47:58.132Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zivilschutz",
+      "question": "zivilschutz-begruendungen-des-befreiungsgesuchs",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zivilschutz.zivilschutz-begruendung-fuer-aufhebung",
+    "fields": {
+      "created_at": "2026-01-14T12:25:31.754Z",
+      "modified_at": "2026-01-14T12:25:31.754Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zivilschutz",
+      "question": "zivilschutz-begruendung-fuer-aufhebung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zivilschutz.zivilschutz-bemerkungen",
+    "fields": {
+      "created_at": "2026-01-14T09:59:41.071Z",
+      "modified_at": "2026-01-14T09:59:41.071Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zivilschutz",
+      "question": "zivilschutz-bemerkungen",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zivilschutz.zivilschutz-beschreibung-begruendung-andere",
+    "fields": {
+      "created_at": "2026-01-14T14:50:32.344Z",
+      "modified_at": "2026-01-14T14:50:32.345Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zivilschutz",
+      "question": "zivilschutz-beschreibung-begruendung-andere",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zivilschutz.zivilschutz-bezahlter-ersatzbeitrag",
+    "fields": {
+      "created_at": "2026-01-14T09:47:30.503Z",
+      "modified_at": "2026-01-14T09:47:30.503Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zivilschutz",
+      "question": "zivilschutz-bezahlter-ersatzbeitrag",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zivilschutz.zivilschutz-bz-nr",
+    "fields": {
+      "created_at": "2026-01-14T08:45:27.434Z",
+      "modified_at": "2026-01-14T08:45:27.434Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zivilschutz",
+      "question": "zivilschutz-bz-nr",
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zivilschutz.zivilschutz-erforderliche-schutzplaetze",
+    "fields": {
+      "created_at": "2026-01-14T09:42:44.390Z",
+      "modified_at": "2026-01-14T09:42:44.390Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zivilschutz",
+      "question": "zivilschutz-erforderliche-schutzplaetze",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zivilschutz.zivilschutz-ersatzbeitraege-geleistet",
+    "fields": {
+      "created_at": "2026-01-14T09:45:13.709Z",
+      "modified_at": "2026-01-14T09:45:13.709Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zivilschutz",
+      "question": "zivilschutz-ersatzbeitraege-geleistet",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zivilschutz.zivilschutz-gesuch-aufhebung-schutzraum-titel",
+    "fields": {
+      "created_at": "2026-01-14T12:18:50.742Z",
+      "modified_at": "2026-01-14T12:18:50.742Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zivilschutz",
+      "question": "zivilschutz-gesuch-aufhebung-schutzraum-titel",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zivilschutz.zivilschutz-reserve",
+    "fields": {
+      "created_at": "2026-01-12T13:17:32.153Z",
+      "modified_at": "2026-01-12T13:17:32.153Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zivilschutz",
+      "question": "zivilschutz-reserve",
+      "sort": 23
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zivilschutz.zivilschutz-schutzraeume-tabelle",
+    "fields": {
+      "created_at": "2026-01-14T10:16:29.321Z",
+      "modified_at": "2026-01-14T10:16:29.322Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zivilschutz",
+      "question": "zivilschutz-schutzraeume-tabelle",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zivilschutz.zivilschutz-schutzraum-aufgehoben",
+    "fields": {
+      "created_at": "2026-01-14T09:55:07.541Z",
+      "modified_at": "2026-01-14T09:55:07.541Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zivilschutz",
+      "question": "zivilschutz-schutzraum-aufgehoben",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zivilschutz.zivilschutz-schutzraumbefreiung-titel",
+    "fields": {
+      "created_at": "2026-01-09T08:06:33.653Z",
+      "modified_at": "2026-01-09T08:06:33.653Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zivilschutz",
+      "question": "zivilschutz-schutzraumbefreiung-titel",
+      "sort": 28
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zivilschutz.zivilschutz-schutzraum-bestehend",
+    "fields": {
+      "created_at": "2026-01-14T09:03:51.014Z",
+      "modified_at": "2026-01-14T09:03:51.014Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zivilschutz",
+      "question": "zivilschutz-schutzraum-bestehend",
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zivilschutz.zivilschutz-schutzraumbewilligung-titel",
+    "fields": {
+      "created_at": "2026-01-09T15:49:34.926Z",
+      "modified_at": "2026-01-09T15:49:34.926Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zivilschutz",
+      "question": "zivilschutz-schutzraumbewilligung-titel",
+      "sort": 27
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zivilschutz.zivilschutz-schutzraum-mit-ueberkapazitaet-bestehend",
+    "fields": {
+      "created_at": "2026-01-14T08:39:36.238Z",
+      "modified_at": "2026-01-14T08:39:36.238Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zivilschutz",
+      "question": "zivilschutz-schutzraum-mit-ueberkapazitaet-bestehend",
+      "sort": 21
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zivilschutz.zivilschutz-technische-weisungen",
+    "fields": {
+      "created_at": "2026-01-14T10:02:45.913Z",
+      "modified_at": "2026-01-14T10:02:45.914Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zivilschutz",
+      "question": "zivilschutz-technische-weisungen",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zivilschutz.zivilschutz-total-flaeche",
+    "fields": {
+      "created_at": "2026-01-14T10:25:12.257Z",
+      "modified_at": "2026-01-14T10:25:12.257Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zivilschutz",
+      "question": "zivilschutz-total-flaeche",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zivilschutz.zivilschutz-total-pflichtschutzplaetze",
+    "fields": {
+      "created_at": "2026-01-12T11:01:06.479Z",
+      "modified_at": "2026-01-12T11:01:06.479Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zivilschutz",
+      "question": "zivilschutz-total-pflichtschutzplaetze",
+      "sort": 24
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zivilschutz.zivilschutz-total-schutzplaetze",
+    "fields": {
+      "created_at": "2026-01-12T13:20:50.447Z",
+      "modified_at": "2026-01-12T13:20:50.447Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zivilschutz",
+      "question": "zivilschutz-total-schutzplaetze",
+      "sort": 22
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zivilschutz.zivilschutz-total-volumen",
+    "fields": {
+      "created_at": "2026-01-14T10:41:03.454Z",
+      "modified_at": "2026-01-14T10:41:03.454Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zivilschutz",
+      "question": "zivilschutz-total-volumen",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "zivilschutz.zivilschutz-verfuegungsjahr",
+    "fields": {
+      "created_at": "2026-01-14T09:50:25.508Z",
+      "modified_at": "2026-01-14T09:50:25.508Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "zivilschutz",
+      "question": "zivilschutz-verfuegungsjahr",
+      "sort": 13
+    }
+  },
+  {
     "model": "caluma_form.option",
     "pk": "200m3-abfall-ja",
     "fields": {
@@ -25499,11 +26030,11 @@
     "model": "caluma_form.option",
     "pk": "haustechnische-anlagen-erstellt-ja",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2026-01-08T16:06:59.743Z",
+      "modified_at": "2026-01-08T16:06:59.743Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
@@ -25516,11 +26047,11 @@
     "model": "caluma_form.option",
     "pk": "haustechnische-anlagen-erstellt-nein",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-07-05T09:47:01.796Z",
+      "created_at": "2026-01-08T16:06:59.749Z",
+      "modified_at": "2026-01-08T16:06:59.749Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
@@ -29152,6 +29683,40 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "schutzraum-vorhanden-oder-geplant-ja",
+    "fields": {
+      "created_at": "2026-01-08T15:13:40.279Z",
+      "modified_at": "2026-01-08T15:13:40.279Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "schutzraum-vorhanden-oder-geplant-nein",
+    "fields": {
+      "created_at": "2026-01-08T15:13:40.282Z",
+      "modified_at": "2026-01-08T15:13:40.282Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "sicherung-gegen-das-selbststaendige-ausfliessen-abhebern-eigensicher",
     "fields": {
       "created_at": "2024-04-23T16:27:33.823Z",
@@ -32323,6 +32888,431 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zivilschutz-befreiung-oder-bewilligung-befreiung",
+    "fields": {
+      "created_at": "2026-01-09T15:36:19.499Z",
+      "modified_at": "2026-01-09T15:38:49.546Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schutzraumbefreiung gegen Ersatzbeitrag für Pflichtschutzplätze in Neubauten beantragen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zivilschutz-befreiung-oder-bewilligung-bewilligung",
+    "fields": {
+      "created_at": "2026-01-09T15:36:19.474Z",
+      "modified_at": "2026-01-09T15:38:49.569Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schutzraum-Bewilligung für Pflichtschutzräume beantragen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zivilschutz-begruendungen-des-befreiungsgesuchs-andere",
+    "fields": {
+      "created_at": "2026-01-14T14:46:54.577Z",
+      "modified_at": "2026-01-14T14:47:57.789Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zivilschutz-begruendungen-des-befreiungsgesuchs-erforderliche-anzahl-schutzplaetze-geringer-als-25",
+    "fields": {
+      "created_at": "2026-01-14T14:47:57.714Z",
+      "modified_at": "2026-01-14T14:47:57.714Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die erforderliche Anzahl Pflichtschutzplätze ist kleiner als 25\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zivilschutz-begruendungen-des-befreiungsgesuchs-grosse-bautechnischen-schwierigkeiten",
+    "fields": {
+      "created_at": "2026-01-14T14:46:54.585Z",
+      "modified_at": "2026-01-14T14:47:57.765Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Der Einbau eines Schutzraumes ist mit grossen bautechnischen Schwierigkeiten verbunden und/oder die Schutzraumbaukosten liegen weit über dem Durchschnittspreis ähnlicher Objekte\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zivilschutz-begruendungen-des-befreiungsgesuchs-im-beurteilungsgebiet",
+    "fields": {
+      "created_at": "2026-01-14T14:46:54.592Z",
+      "modified_at": "2026-01-14T14:47:57.774Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Es handelt sich um eine Gebäudeart nach ZSV Art. 70, das Bauprojekt befindet sich in einem Beurteilungsgebiet (Gemeinde, Teile einer Gemeinde), in welchem der Schutzplatzbedarf für den Wohnbereich gedeckt ist (Steuerung des Schutzraumbaus)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zivilschutz-begruendungen-des-befreiungsgesuchs-im-dicht-ueberbauten-gebiet",
+    "fields": {
+      "created_at": "2026-01-14T14:46:54.571Z",
+      "modified_at": "2026-01-14T14:47:57.760Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Das Bauobjekt liegt in einem dicht überbauten, stark brand- und/oder trümmergefährdeten Gebiet, in welchem gemäss GZP und Gefahrenplan keine Schutzbauten erstellt werden dürfen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zivilschutz-begruendungen-des-befreiungsgesuchs-kein-bedarf",
+    "fields": {
+      "created_at": "2026-01-14T14:46:54.541Z",
+      "modified_at": "2026-01-14T14:47:57.796Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Die auf dem gleichen Areal des gleichen Eigentümers bereits vorhandenen, vollwertigen Schutzräume (TWP, TWS, TWE) decken auch den Bedarf für dieses Bauprojekt ab (Nachweis erbringen)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zivilschutz-begruendung-fuer-aufhebung-entspricht-nicht-vorschriften",
+    "fields": {
+      "created_at": "2026-01-14T12:25:31.488Z",
+      "modified_at": "2026-01-14T12:25:31.488Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Der Schutzraum entspricht nicht mehr den Vorschriften gem. TWP 1966\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zivilschutz-begruendung-fuer-aufhebung-umbau",
+    "fields": {
+      "created_at": "2026-01-14T12:25:31.497Z",
+      "modified_at": "2026-01-14T12:25:31.497Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Umbau mit Beeinträchtigung des Schutzraums\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zivilschutz-begruendung-fuer-aufhebung-zweckaenderung",
+    "fields": {
+      "created_at": "2026-01-14T12:25:31.484Z",
+      "modified_at": "2026-01-14T12:25:31.484Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zweckänderung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zivilschutz-detailplan-des-schutzraumes-ja",
+    "fields": {
+      "created_at": "2026-01-14T14:25:18.453Z",
+      "modified_at": "2026-01-14T14:25:18.453Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Detailplan des Schutzraumes (Massstab 1:50)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zivilschutz-ersatzbeitraege-geleistet-ja",
+    "fields": {
+      "created_at": "2026-01-14T09:45:13.338Z",
+      "modified_at": "2026-01-14T09:45:13.338Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zivilschutz-ersatzbeitraege-geleistet-nein",
+    "fields": {
+      "created_at": "2026-01-14T09:45:13.357Z",
+      "modified_at": "2026-01-14T09:45:13.357Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zivilschutz-grundriss-fassaden-und-gebaeudeschnitte-ja",
+    "fields": {
+      "created_at": "2026-01-14T14:07:52.570Z",
+      "modified_at": "2026-01-14T14:07:52.570Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Grundriss, Fassaden und Gebäudeschnitte (Massstab 1:100 oder 1:50) mit Angaben über den Fassadenmauerwerksaufbau im Erdgeschoss\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zivilschutz-saemtliche-projektplaene-ja",
+    "fields": {
+      "created_at": "2026-01-14T14:54:05.728Z",
+      "modified_at": "2026-01-15T08:16:41.808Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sämtliche Projektpläne des Gebäudes (Grundrisse, Schnitte, Fassaden Massstab 1:100 oder 1:50)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zivilschutz-schutzraum-aufgehoben-ja",
+    "fields": {
+      "created_at": "2026-01-14T09:55:07.174Z",
+      "modified_at": "2026-01-14T09:55:07.174Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zivilschutz-schutzraum-aufgehoben-nein",
+    "fields": {
+      "created_at": "2026-01-14T09:55:07.224Z",
+      "modified_at": "2026-01-14T09:55:07.224Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zivilschutz-schutzraum-bestehend-ja",
+    "fields": {
+      "created_at": "2026-01-14T09:03:50.766Z",
+      "modified_at": "2026-01-14T09:03:50.766Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zivilschutz-schutzraum-bestehend-nein",
+    "fields": {
+      "created_at": "2026-01-14T09:03:50.794Z",
+      "modified_at": "2026-01-14T09:03:50.794Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zivilschutz-schutzraum-mit-ueberkapazitaet-bestehend-ja",
+    "fields": {
+      "created_at": "2026-01-14T08:39:35.978Z",
+      "modified_at": "2026-01-14T08:39:35.978Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zivilschutz-schutzraum-mit-ueberkapazitaet-bestehend-nein",
+    "fields": {
+      "created_at": "2026-01-14T08:39:35.985Z",
+      "modified_at": "2026-01-14T08:39:35.985Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zivilschutz-situationsplan-gemaess-twp-84-ja",
+    "fields": {
+      "created_at": "2026-01-14T14:04:19.694Z",
+      "modified_at": "2026-01-14T14:04:19.694Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Situationsplan mit Angaben gemäss TWP 84\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zivilschutz-situationsplan-mit-schutzraum-ja",
+    "fields": {
+      "created_at": "2026-01-14T14:53:00.910Z",
+      "modified_at": "2026-01-14T14:53:00.910Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Situationsplan wenn geplant mit Schutzraum\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zivilschutz-ventilationsprojekt-ja",
+    "fields": {
+      "created_at": "2026-01-14T14:26:42.090Z",
+      "modified_at": "2026-01-14T14:26:42.090Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ventilationsprojekt (inkl. Offertbeschrieb und Zulassungs-Nr.)\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -42393,7 +43383,7 @@
     "pk": "detailplan-lager-und-umschlagsanlage",
     "fields": {
       "created_at": "2024-02-21T10:17:52.875Z",
-      "modified_at": "2024-02-21T10:28:49.487Z",
+      "modified_at": "2026-01-08T16:20:13.369Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -48632,20 +49622,20 @@
     "model": "caluma_form.question",
     "pk": "gebaeudetechnik",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2024-01-04T16:08:59.145Z",
+      "created_at": "2026-01-08T16:09:26.350Z",
+      "modified_at": "2026-01-08T16:09:26.350Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Gebäudetechnik\", \"fr\": null, \"it\": null}",
       "type": "table",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
-      "is_hidden": "!(\n\tinfo.root.form in [\"erdwaermesonden\",\"erdwaermesonden-v2\"] ||\n\t\"haustechnische-anlagen-erstellt\"|answer(null) == \"haustechnische-anlagen-erstellt-ja\"\n)",
+      "is_hidden": "!( info.root.form in [\"erdwaermesonden\",\"erdwaermesonden-v2\"] || \"haustechnische-anlagen-erstellt\"|answer(null) == \"haustechnische-anlagen-erstellt-ja\" )",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
@@ -50591,11 +51581,11 @@
     "model": "caluma_form.question",
     "pk": "haustechnische-anlagen-erstellt",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-09-14T08:58:05.442Z",
+      "created_at": "2026-01-08T16:06:59.889Z",
+      "modified_at": "2026-01-08T16:06:59.889Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "645a484a-3312-4602-9d87-77215f03f5bf",
+      "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Werden gebäudetechnische Anlagen erstellt oder verändert?\", \"fr\": null, \"it\": null}",
       "type": "choice",
@@ -50604,7 +51594,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"Werden gebäudetechnische Anlagen wie die Heizung usw. erst im Laufe des Baufortschritts bestimmt, sind diese der zuständigen kommunalen Brandschutzbehörde zu melden.\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -54251,6 +55241,37 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"**Hinweis:** Die Installation einer Luft/Wasser- Wärmepumpe  erfordert einen Lärmschutznachweis. Bitte erfassen Sie die Anlage in der Rubrik \\\"Hochbau\\\", Tabelle \\\"Gebäudetechnik\\\" (aktivieren Sie bei Bedarf unter \\\"Bauprojekt\\\" die Rubrik \\\"Hochbau\\\").\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "info-bewilligung-oder-befreiung",
+    "fields": {
+      "created_at": "2026-02-09T12:10:46.293Z",
+      "modified_at": "2026-02-09T12:55:21.680Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Info Bewilligung oder Befreiung\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!( \"schutzraum-vorhanden-oder-geplant-ja\" in \"schutzraum-vorhanden-oder-geplant\"|answer || [ \"typ-des-bauwerks-einfamilienhaus\", \"typ-des-bauwerks-doppeleinfamilienhaus\", \"typ-des-bauwerks-mehrfamilienhaus\", \"typ-des-bauwerks-wohn-und-geschaftshaus\", \"typ-des-bauwerks-heim-mit-unterkunft\", \"typ-des-bauwerks-spital\", \"typ-des-bauwerks-landwirtschaft-betrieb-wohnteil\" ] intersects \"gebaeude\"|answer|mapby(\"typ-des-bauwerks\") || info.root.form in [\"reklamegesuch\", \"reklamegesuch-v2\"])",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Sie müssen mit diesem Baugesuch entweder eine \\\"Schutzraumbefreiung gegen Ersatzbeitrag für Pflichtschutzplätze in Neubauten\\\" oder eine \\\"Schutzraum-Bewilligung für Pflichtschutzräume\\\" beantragen.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -62210,6 +63231,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "schutzraum-vorhanden-oder-geplant",
+    "fields": {
+      "created_at": "2026-01-08T15:13:40.566Z",
+      "modified_at": "2026-02-09T12:54:30.441Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist in einem der von Ihrem Gesuch betroffenen Gebäude mindestens ein Schutzraum vorhanden oder geplant?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "!([\n\t\"typ-des-bauwerks-industrie\",\n\t\"typ-des-bauwerks-geschaftshaus\",\n\t\"typ-des-bauwerks-garage-oder-carport\",\n\t\"typ-des-bauwerks-parkhaus\",\n\t\"typ-des-bauwerks-bauten-und-anlagen-gastgewerbe\",\n\t\"typ-des-bauwerks-wohnheim-ohne-pflege\",\n\t\"typ-des-bauwerks-schulen\",\n\t\"typ-des-bauwerks-sporthallen\",\n\t\"typ-des-bauwerks-tourismusanlagen\",\n\t\"typ-des-bauwerks-kirchen\",\n\t\"typ-des-bauwerks-kulturbauten\",\n\t\"typ-des-bauwerks-oekonomie-mit-tieren-mit-tieren\",\n\t\"typ-des-bauwerks-oekonomiegebaude\",\n\t\"typ-des-bauwerks-forstwirtschaft\",\n\t\"typ-des-bauwerks-energieholzlager\",\n\t\"typ-des-bauwerks-materiallager\",\n\t\"typ-des-bauwerks-brennstofflager\",\n\t\"typ-des-bauwerks-silo\",\n\t\"typ-des-bauwerks-reklamebauten\",\n\t\"typ-des-bauwerks-kommunikationsanlagen\",\n\t\"typ-des-bauwerks-kehrichtentsorgungsanlagen\",\n\t\"typ-des-bauwerks-andere\"\n] intersects \"gebaeude\"|answer([])|mapby(\"typ-des-bauwerks\") ||\n\tinfo.root.form in [\"reklamegesuch\", \"reklamegesuch-v2\"]\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "sicherung-gegen-das-selbststaendige-ausfliessen-abhebern",
     "fields": {
       "created_at": "2024-04-23T16:27:34.270Z",
@@ -62317,6 +63369,39 @@
       "type": "multiple_choice",
       "is_required": "true",
       "is_hidden": "!(\n\t\"art-der-bauwerke-hochbaute\" in \"art-der-bauwerke\"|answer([]) ||\n\t[\n\t\t\"terrainveraenderungen-gelaendeaufschuettung\",\n\t\t\"terrainveraenderungen-deponie\",\n\t\t\"terrainveraenderungen-kiesabbau\",\n\t\t\"terrainveraenderungen-steinabbau\",\n\t\t\"terrainveraenderungen-bodenverbesserungohne-materialzufuhr\",\n\t\t\"terrainveraenderungen-bodenverbesserung-mit-materialzufuhr\"\n\t]\n\tintersects \"tiefbauten-landschaft\"|answer([])|mapby(\"terrainveraenderungen\") ||\n\t[\n\t\t\"erschliessungen-flurweg-befahrbar\",\n\t\t\"erschliessungen-liegenschaftszufahrt\",\n\t\t\"erschliessungen-baupiste-temporaer\"\n\t]\n\tintersects \"tiefbauten-landschaft\"|answer([])|mapby(\"erschliessungen\") ||\n\t[\n\t\t\"tiefbau-landschaft-art-schutzbauten\",\n\t\t\"tiefbau-landschaft-art-revitalisierung\"\n\t]\n\tintersects \"tiefbauten-landschaft\"|answer([])|mapby(\"tiefbau-landschaft-art\") ||\n\t[\n\t\t\"tiefbau-siedlung-art-parkplaetze\",\n\t\t\"tiefbau-siedlung-art-veloabstellplaetze\",\n\t\t\"tiefbau-siedlung-art-spielplaetze\",\n\t\t\"tiefbau-siedlung-art-stromanschluss\",\n\t\t\"tiefbau-siedlung-art-trinkwasser\",\n\t\t\"tiefbau-siedlung-art-fernheizung\",\n\t\t\"tiefbau-siedlung-art-gasnetz\",\n\t\t\"tiefbau-siedlung-art-abwasser\",\n\t\t\"tiefbau-siedlung-art-datenleitung\"\n\t]\n\tintersects \"tiefbauten\"|answer([])|mapby(\"tiefbau-siedlung-art\") ||\n\t[\n\t\t\"nutzungszwecke-gewerbe\",\n\t\t\"nutzungszwecke-industrie\",\n\t\t\"nutzungszwecke-dienstleistung\",\n\t\t\"nutzungszwecke-gastgewerbe\"\n\t] intersects \"nutzungszwecke\"|answer([])\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "situationsplan-gemaess-twp-84",
+    "fields": {
+      "created_at": "2026-01-14T14:04:19.866Z",
+      "modified_at": "2026-01-14T14:05:16.005Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Situationsplan mit Angaben gemäss TWP 84\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "!( \"schutzraum-vorhanden-oder-geplant-ja\" in \"schutzraum-vorhanden-oder-geplant\"|answer || [ \"typ-des-bauwerks-einfamilienhaus\", \"typ-des-bauwerks-doppeleinfamilienhaus\", \"typ-des-bauwerks-mehrfamilienhaus\", \"typ-des-bauwerks-wohn-und-geschaftshaus\", \"typ-des-bauwerks-heim-mit-unterkunft\", \"typ-des-bauwerks-spital\", \"typ-des-bauwerks-landwirtschaft-betrieb-wohnteil\" ] intersects \"gebaeude\"|answer|mapby(\"typ-des-bauwerks\") )",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -67156,16 +68241,16 @@
     "model": "caluma_form.question",
     "pk": "wohnungen",
     "fields": {
-      "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2023-10-27T13:57:14.119Z",
+      "created_at": "2026-01-08T16:04:14.828Z",
+      "modified_at": "2026-01-09T12:32:25.001Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Wohnungen\", \"fr\": null, \"it\": null}",
       "type": "table",
-      "is_required": "[\n\t\"typ-des-bauwerks-einfamilienhaus\",\n\t\"typ-des-bauwerks-doppeleinfamilienhaus\",\n\t\"typ-des-bauwerks-mehrfamilienhaus\",\n\t\"typ-des-bauwerks-wohn-und-geschaftshaus\"\n] intersects \"gebaeude\"|answer|mapby(\"typ-des-bauwerks\") ||\n[\n\t\"gebaeudekategorie-ausschliessliche-wohnnutzung\",\n\t\"gebaeudekategorie-teilweise-wohnnutzung\",\n\t\"gebaeudekategorie-andere\"\n] intersects \"gebaeude\"|answer|mapby(\"gebaeudekategorie\")",
-      "is_hidden": "!(\n\t[\n\t\t\"gebaeudekategorie-ausschliessliche-wohnnutzung\",\n\t\t\"gebaeudekategorie-teilweise-wohnnutzung\",\n\t\t\"gebaeudekategorie-andere\",\n\t\t\"gebaeudekategorie-provisorische-unterkunft\",\n\t\t\"gebaeudekategorie-sonderbau\"\n\t] intersects \"gebaeude\"|answer|mapby(\"gebaeudekategorie\")\n)",
+      "is_required": "\"art-der-arbeiten-neubau\" in \"gebaeude\"|answer|mapby(\"art-der-arbeiten\")|flatten && ([ \"typ-des-bauwerks-einfamilienhaus\", \"typ-des-bauwerks-doppeleinfamilienhaus\", \"typ-des-bauwerks-mehrfamilienhaus\", \"typ-des-bauwerks-wohn-und-geschaftshaus\" ] intersects \"gebaeude\"|answer|mapby(\"typ-des-bauwerks\") || [ \"gebaeudekategorie-ausschliessliche-wohnnutzung\", \"gebaeudekategorie-teilweise-wohnnutzung\", \"gebaeudekategorie-andere\" ] intersects \"gebaeude\"|answer|mapby(\"gebaeudekategorie\"))",
+      "is_hidden": "!( [ \"gebaeudekategorie-ausschliessliche-wohnnutzung\", \"gebaeudekategorie-teilweise-wohnnutzung\", \"gebaeudekategorie-andere\", \"gebaeudekategorie-provisorische-unterkunft\", \"gebaeudekategorie-sonderbau\" ] intersects \"gebaeude\"|answer|mapby(\"gebaeudekategorie\") )",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -67176,14 +68261,14 @@
         "columnsToDisplay": [
           "dazugehoeriges-gebaeude",
           "stockwerktyp",
-          "lage",
-          "anzahl-zimmer",
-          "kocheinrichtung",
-          "flaeche"
+          "lage-v2",
+          "anzahl-zimmer-v2",
+          "kocheinrichtung-v2",
+          "flaeche-v2"
         ]
       },
       "data_source": null,
-      "row_form": "wohnungen-tabelle",
+      "row_form": "wohnungen-tabelle-v2",
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
@@ -67196,11 +68281,11 @@
     "model": "caluma_form.question",
     "pk": "wohnungen-info",
     "fields": {
-      "created_at": "2025-07-08T09:14:33.218Z",
-      "modified_at": "2025-07-08T09:16:16.704Z",
+      "created_at": "2026-01-08T15:57:48.096Z",
+      "modified_at": "2026-01-08T15:57:48.096Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"wohnungen-info\", \"fr\": null, \"it\": null}",
       "type": "static",
@@ -67208,7 +68293,7 @@
       "is_hidden": "!( [ \"gebaeudekategorie-ausschliessliche-wohnnutzung\", \"gebaeudekategorie-teilweise-wohnnutzung\", \"gebaeudekategorie-andere\", \"gebaeudekategorie-provisorische-unterkunft\", \"gebaeudekategorie-sonderbau\" ] intersects \"gebaeude\"|answer|mapby(\"gebaeudekategorie\") )",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"Für Gebäude mit Wohnnutzung erfassen Sie bitte vollständig die im Gebäude vorgesehenen Wohnungen, ansonsten behalten wir uns vor, Ihr Gesuch zurückzuweisen.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -67252,6 +68337,1412 @@
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz",
+    "fields": {
+      "created_at": "2026-01-09T08:07:02.911Z",
+      "modified_at": "2026-01-15T08:35:58.193Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zivilschutz\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!(\"zivilschutz-befreiung-oder-bewilligung\"|answer != null)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "zivilschutz",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-anzahl-schutzplaetze-ersatzbeitraege",
+    "fields": {
+      "created_at": "2026-01-14T09:49:20.688Z",
+      "modified_at": "2026-01-14T09:49:20.688Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl Schutzplätze für welche die Ersatzbeiträge geleistet wurden\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "\"zivilschutz-ersatzbeitraege-geleistet-ja\" != \"zivilschutz-ersatzbeitraege-geleistet\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-anzahl-schutzplaetze-spitaeler",
+    "fields": {
+      "created_at": "2026-01-09T16:00:05.058Z",
+      "modified_at": "2026-01-12T15:06:16.010Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl Schutzplätze für Spitäler, Alters- und Pflegeheime (1 Schutzplatz pro Patientenbett)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "!(\"zivilschutz-befreiung-oder-bewilligung\"|answer != None)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": 0
+      },
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[\"zivilschutz-total-pflichtschutzplaetze\"]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-anzahl-schutzplaetze-vorhandener-schutzraum",
+    "fields": {
+      "created_at": "2026-01-14T09:13:47.902Z",
+      "modified_at": "2026-01-14T09:13:47.902Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl Schutzplätze des vorhandenen Schutzraums (Zahl)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "!(\"zivilschutz-schutzraum-mit-ueberkapazitaet-bestehend-ja\" == \"zivilschutz-schutzraum-mit-ueberkapazitaet-bestehend\"|answer || \"zivilschutz-schutzraum-bestehend-ja\" == \"zivilschutz-schutzraum-bestehend\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-anzahl-schutzplaetze-wohnungen",
+    "fields": {
+      "created_at": "2026-01-09T15:57:55.361Z",
+      "modified_at": "2026-01-12T15:06:07.577Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl Schutzplätze für Wohnungen und Wohnheime (2 Schutzplätze pro 3 Zimmer)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "!(\"zivilschutz-befreiung-oder-bewilligung\"|answer != None)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": 0
+      },
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[\"zivilschutz-total-pflichtschutzplaetze\"]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-baujahr",
+    "fields": {
+      "created_at": "2026-01-14T09:41:19.659Z",
+      "modified_at": "2026-02-09T12:06:40.912Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baujahr\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "!(\"zivilschutz-schutzraum-mit-ueberkapazitaet-bestehend-ja\" == \"zivilschutz-schutzraum-mit-ueberkapazitaet-bestehend\"|answer || \"zivilschutz-schutzraum-bestehend-ja\" == \"zivilschutz-schutzraum-bestehend\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-befreiung-oder-bewilligung",
+    "fields": {
+      "created_at": "2026-01-09T15:36:19.653Z",
+      "modified_at": "2026-02-09T12:55:35.382Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Art des Antrags\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "!( \"schutzraum-vorhanden-oder-geplant-ja\" in \"schutzraum-vorhanden-oder-geplant\"|answer || [ \"typ-des-bauwerks-einfamilienhaus\", \"typ-des-bauwerks-doppeleinfamilienhaus\", \"typ-des-bauwerks-mehrfamilienhaus\", \"typ-des-bauwerks-wohn-und-geschaftshaus\", \"typ-des-bauwerks-heim-mit-unterkunft\", \"typ-des-bauwerks-spital\", \"typ-des-bauwerks-landwirtschaft-betrieb-wohnteil\" ] intersects \"gebaeude\"|answer|mapby(\"typ-des-bauwerks\") || info.root.form in [\"reklamegesuch\", \"reklamegesuch-v2\"])",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-begruendung-aufhebung",
+    "fields": {
+      "created_at": "2026-01-14T12:27:47.752Z",
+      "modified_at": "2026-01-14T12:27:56.118Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Begründung\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "\"zivilschutz-schutzraum-aufgehoben-ja\" != \"zivilschutz-schutzraum-aufgehoben\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-begruendungen-des-befreiungsgesuchs",
+    "fields": {
+      "created_at": "2026-01-14T14:47:57.962Z",
+      "modified_at": "2026-01-14T14:48:39.912Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Begründung(en) des Befreiungsgesuchs\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "\"zivilschutz-befreiung-oder-bewilligung-befreiung\" != \"zivilschutz-befreiung-oder-bewilligung\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-begruendung-fuer-aufhebung",
+    "fields": {
+      "created_at": "2026-01-14T12:25:31.647Z",
+      "modified_at": "2026-01-14T12:25:41.659Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Begründung für das Gesuch um Aufhebung\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "\"zivilschutz-schutzraum-aufgehoben-ja\" != \"zivilschutz-schutzraum-aufgehoben\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-bemerkungen",
+    "fields": {
+      "created_at": "2026-01-14T09:59:40.891Z",
+      "modified_at": "2026-01-14T09:59:40.891Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "\"zivilschutz-befreiung-oder-bewilligung-bewilligung\" != \"zivilschutz-befreiung-oder-bewilligung\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-beschreibung-begruendung-andere",
+    "fields": {
+      "created_at": "2026-01-14T14:50:32.202Z",
+      "modified_at": "2026-01-15T08:40:40.236Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Begründung\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "!(\"zivilschutz-begruendungen-des-befreiungsgesuchs-andere\" in \"zivilschutz-begruendungen-des-befreiungsgesuchs\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-bezahlter-ersatzbeitrag",
+    "fields": {
+      "created_at": "2026-01-14T09:47:30.362Z",
+      "modified_at": "2026-01-14T09:47:30.362Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bezahlter Ersatzbeitrag\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "\"zivilschutz-ersatzbeitraege-geleistet-ja\" != \"zivilschutz-ersatzbeitraege-geleistet\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-bz-nr",
+    "fields": {
+      "created_at": "2026-01-14T08:45:27.314Z",
+      "modified_at": "2026-01-14T09:11:54.762Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"BZ-Nr. des vorhandenen Schutzraums\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "!(\"zivilschutz-schutzraum-mit-ueberkapazitaet-bestehend-ja\" == \"zivilschutz-schutzraum-mit-ueberkapazitaet-bestehend\"|answer || \"zivilschutz-schutzraum-bestehend-ja\" == \"zivilschutz-schutzraum-bestehend\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-detailplan-des-schutzraumes",
+    "fields": {
+      "created_at": "2026-01-14T14:25:18.625Z",
+      "modified_at": "2026-01-14T14:25:31.953Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Detailplan des Schutzraumes (Massstab 1:50)\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "\"zivilschutz-schutzraum-aufgehoben-ja\" != \"zivilschutz-schutzraum-aufgehoben\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Enthaltend:\\n\\n- Grundriss, Schnitt durch Eingang, Notausstieg oder Fluchtröhre\\n- Anordnung der Beleuchtung\\n- Einrichtungsvorschläge (Liegestellen, Aborte, usw.)\\n- Leitungsdurchführung und Durchmesser von Kanalisations-, Sanitär oder Heizungsleitungen\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-erforderliche-schutzplaetze",
+    "fields": {
+      "created_at": "2026-01-14T09:42:44.280Z",
+      "modified_at": "2026-01-14T09:52:36.712Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl erforderliche Schutzplätze für sämtliche Gebäude auf dem gleichen Areal\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "!(\"zivilschutz-schutzraum-mit-ueberkapazitaet-bestehend-ja\" == \"zivilschutz-schutzraum-mit-ueberkapazitaet-bestehend\"|answer || \"zivilschutz-schutzraum-bestehend-ja\" == \"zivilschutz-schutzraum-bestehend\"|answer || \"zivilschutz-ersatzbeitraege-geleistet-ja\" == \"zivilschutz-ersatzbeitraege-geleistet\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-ersatzbeitraege-geleistet",
+    "fields": {
+      "created_at": "2026-01-14T09:45:13.547Z",
+      "modified_at": "2026-01-14T09:45:13.547Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wurden bereits Ersatzbeiträge geleistet?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-flaeche",
+    "fields": {
+      "created_at": "2026-01-14T10:13:29.796Z",
+      "modified_at": "2026-01-14T10:31:21.938Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fläche (m²)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[\"zivilschutz-total-flaeche\"]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-gesuch-aufhebung-schutzraum",
+    "fields": {
+      "created_at": "2026-01-14T12:18:50.632Z",
+      "modified_at": "2026-01-14T12:20:05.035Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Titel Gesuch um Aufhebung des Schutzraums\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "\"zivilschutz-schutzraum-aufgehoben-ja\" != \"zivilschutz-schutzraum-aufgehoben\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"## Gesuch um Aufhebung des Schutzraums\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-gesuch-aufhebung-schutzraum-titel",
+    "fields": {
+      "created_at": "2026-01-14T12:18:50.632Z",
+      "modified_at": "2026-01-14T12:20:05.035Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Titel Gesuch um Aufhebung des Schutzraums\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "\"zivilschutz-schutzraum-aufgehoben-ja\" != \"zivilschutz-schutzraum-aufgehoben\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"## Gesuch um Aufhebung des Schutzraums\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-grundriss-fassaden-und-gebaeudeschnitte",
+    "fields": {
+      "created_at": "2026-01-14T14:07:52.699Z",
+      "modified_at": "2026-01-14T14:19:42.816Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Grundriss, Fassaden und Gebäudeschnitte (Massstab 1:100 oder 1:50) mit Angaben über den Fassadenmauerwerksaufbau im Erdgeschoss\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "\"zivilschutz-schutzraum-aufgehoben-ja\" != \"zivilschutz-schutzraum-aufgehoben\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-innenabmessung",
+    "fields": {
+      "created_at": "2026-01-14T10:12:52.765Z",
+      "modified_at": "2026-01-14T10:12:52.765Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Innenabmessung\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"(L x B x H)\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-nr-sr-abteil",
+    "fields": {
+      "created_at": "2026-01-14T10:12:08.414Z",
+      "modified_at": "2026-01-14T10:12:08.414Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nr. SR-Abteil\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-reserve",
+    "fields": {
+      "created_at": "2026-01-12T12:23:05.725Z",
+      "modified_at": "2026-01-12T15:07:18.855Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Reserve\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "\"zivilschutz-befreiung-oder-bewilligung-bewilligung\" != \"zivilschutz-befreiung-oder-bewilligung\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": 0
+      },
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[\"zivilschutz-total-schutzplaetze\"]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-saemtliche-projektplaene",
+    "fields": {
+      "created_at": "2026-01-14T14:54:05.861Z",
+      "modified_at": "2026-01-15T08:16:41.912Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Sämtliche Projektpläne des Gebäudes (Grundrisse, Schnitte, Fassaden Massstab 1:100 oder 1:50)\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "\"zivilschutz-befreiung-oder-bewilligung-befreiung\" != \"zivilschutz-befreiung-oder-bewilligung\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Bei einem Umbau, welcher möglicherweise als Neubau eingestuft werden könnte, sind die bestehenden, abzubrechenden und neuen Bauteile farblich zu unterscheiden.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-schutzraeume-tabelle",
+    "fields": {
+      "created_at": "2026-01-14T10:16:29.013Z",
+      "modified_at": "2026-01-14T10:41:03.327Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Grösse der projektierten Schutzräume\", \"fr\": null, \"it\": null}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "\"zivilschutz-befreiung-oder-bewilligung-bewilligung\" != \"zivilschutz-befreiung-oder-bewilligung\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "columnsToDisplay": [
+          "zivilschutz-nr-sr-abteil",
+          "zivilschutz-innenabmessung",
+          "zivilschutz-flaeche",
+          "zivilschutz-volumen",
+          "zivilschutz-ventilationsaggregat"
+        ]
+      },
+      "data_source": null,
+      "row_form": "zivilschutz-schutzraeume-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[\"zivilschutz-total-volumen\", \"zivilschutz-total-flaeche\"]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-schutzraum-aufgehoben",
+    "fields": {
+      "created_at": "2026-01-14T09:55:07.377Z",
+      "modified_at": "2026-01-15T08:28:55.852Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wird der bestehende Schutzraum (gegen Ersatzbeitrag) aufgehoben?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "!((\"zivilschutz-schutzraum-bestehend-ja\" == \"zivilschutz-schutzraum-bestehend\"|answer || \"zivilschutz-ersatzbeitraege-geleistet-ja\" == \"zivilschutz-ersatzbeitraege-geleistet\"|answer) && \"zivilschutz-befreiung-oder-bewilligung-befreiung\" != \"zivilschutz-befreiung-oder-bewilligung\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-schutzraumbefreiung-titel",
+    "fields": {
+      "created_at": "2026-01-09T08:06:33.530Z",
+      "modified_at": "2026-01-09T15:48:05.560Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zivilschutz Schutzraumbefreiung Titel\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "\"zivilschutz-befreiung-oder-bewilligung-befreiung\" != \"zivilschutz-befreiung-oder-bewilligung\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"## Gesuch zur Schutzraumbefreiung gegen Ersatzbeitrag für Pflichtschutzplätze in Neubauten\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-schutzraum-bestehend",
+    "fields": {
+      "created_at": "2026-01-14T09:03:50.902Z",
+      "modified_at": "2026-01-14T09:03:50.902Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Besteht auf dem gleichen Areal des gleichen Eigentümers bereits ein vollwertiger Schutzraum?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "\"zivilschutz-befreiung-oder-bewilligung-bewilligung\" != \"zivilschutz-befreiung-oder-bewilligung\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-schutzraumbewilligung-titel",
+    "fields": {
+      "created_at": "2026-01-09T15:49:34.801Z",
+      "modified_at": "2026-01-09T15:49:34.801Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zivilschutz Schutzraumbewilligung Titel\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "\"zivilschutz-befreiung-oder-bewilligung-bewilligung\" != \"zivilschutz-befreiung-oder-bewilligung\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"## Schutzraum-Bewilligungsgesuch für Pflichtschutzräume\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-schutzraum-mit-ueberkapazitaet-bestehend",
+    "fields": {
+      "created_at": "2026-01-14T08:39:36.120Z",
+      "modified_at": "2026-01-14T08:39:36.120Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Besteht auf dem gleichen Areal des gleichen Eigentümers bereits ein vollwertiger Schutzraum mit Überkapazität?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "\"zivilschutz-befreiung-oder-bewilligung-befreiung\" != \"zivilschutz-befreiung-oder-bewilligung\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-situationsplan-gemaess-twp-84",
+    "fields": {
+      "created_at": "2026-01-14T14:04:19.866Z",
+      "modified_at": "2026-01-14T14:19:35.227Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Situationsplan mit Angaben gemäss TWP 84\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "\"zivilschutz-schutzraum-aufgehoben-ja\" != \"zivilschutz-schutzraum-aufgehoben\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-situationsplan-mit-schutzraum",
+    "fields": {
+      "created_at": "2026-01-14T14:53:01.047Z",
+      "modified_at": "2026-01-14T14:53:01.047Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Situationsplan wenn geplant mit Schutzraum\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "\"zivilschutz-befreiung-oder-bewilligung-befreiung\" != \"zivilschutz-befreiung-oder-bewilligung\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-technische-weisungen",
+    "fields": {
+      "created_at": "2026-01-14T10:02:45.737Z",
+      "modified_at": "2026-01-14T10:08:26.727Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Technische Weisungen\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "\"zivilschutz-befreiung-oder-bewilligung-bewilligung\" != \"zivilschutz-befreiung-oder-bewilligung\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Für die Mindestanforderung an Platzbedarf und die Konstruktion der Schutzräume sind die technischen Weisungen des Bundesamtes für Bevölkerungsschutz massgebend, insbesondere\\n\\na) Wohnungen und Wohnheime TWP 1984 / TWK 2017<br>\\nb) Spitäler, Alters- und Pflegeheime TWS 1982 / TWK 2017 (überarbeitetes Kapital 4 , gültig ab 2012)\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-total-flaeche",
+    "fields": {
+      "created_at": "2026-01-14T10:25:12.006Z",
+      "modified_at": "2026-01-14T10:31:21.951Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Total Fläche (m²)\", \"fr\": null, \"it\": null}",
+      "type": "calculated_float",
+      "is_required": "false",
+      "is_hidden": "\"zivilschutz-befreiung-oder-bewilligung-bewilligung\" != \"zivilschutz-befreiung-oder-bewilligung\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": "\"zivilschutz-schutzraeume-tabelle\"|answer([])|mapby(\"zivilschutz-flaeche\")|sum",
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-total-pflichtschutzplaetze",
+    "fields": {
+      "created_at": "2026-01-12T11:01:06.373Z",
+      "modified_at": "2026-01-12T15:07:53.575Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Total Pflichtschutzplätze\", \"fr\": null, \"it\": null}",
+      "type": "calculated_float",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": "\"zivilschutz-anzahl-schutzplaetze-wohnungen\"|answer(0) + \"zivilschutz-anzahl-schutzplaetze-spitaeler\"|answer(0)",
+      "calc_dependents": "[\"zivilschutz-total-schutzplaetze\"]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-total-schutzplaetze",
+    "fields": {
+      "created_at": "2026-01-12T13:20:50.229Z",
+      "modified_at": "2026-01-12T13:21:03.947Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Total Schutzplätze\", \"fr\": null, \"it\": null}",
+      "type": "calculated_float",
+      "is_required": "false",
+      "is_hidden": "\"zivilschutz-befreiung-oder-bewilligung-bewilligung\" != \"zivilschutz-befreiung-oder-bewilligung\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": "\"zivilschutz-total-pflichtschutzplaetze\"|answer(0) + \"zivilschutz-reserve\"|answer(0)",
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-total-volumen",
+    "fields": {
+      "created_at": "2026-01-14T10:41:03.334Z",
+      "modified_at": "2026-01-14T10:41:03.334Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Total Volumen (m³)\", \"fr\": null, \"it\": null}",
+      "type": "calculated_float",
+      "is_required": "false",
+      "is_hidden": "\"zivilschutz-befreiung-oder-bewilligung-bewilligung\" != \"zivilschutz-befreiung-oder-bewilligung\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": "\"zivilschutz-schutzraeume-tabelle\"|answer([])|mapby(\"zivilschutz-volumen\")|sum",
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-ventilationsaggregat",
+    "fields": {
+      "created_at": "2026-01-14T10:14:36.422Z",
+      "modified_at": "2026-01-14T10:14:36.422Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ventilationsaggregat (VA)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-ventilationsprojekt",
+    "fields": {
+      "created_at": "2026-01-14T14:26:42.218Z",
+      "modified_at": "2026-01-14T14:26:57.758Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ventilationsprojekt (inkl. Offertbeschrieb und Zulassungs-Nr.)\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "\"zivilschutz-schutzraum-aufgehoben-ja\" != \"zivilschutz-schutzraum-aufgehoben\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-verfuegungsjahr",
+    "fields": {
+      "created_at": "2026-01-14T09:50:25.286Z",
+      "modified_at": "2026-02-09T12:07:08.739Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verfügungsjahr\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "\"zivilschutz-ersatzbeitraege-geleistet-ja\" != \"zivilschutz-ersatzbeitraege-geleistet\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zivilschutz-volumen",
+    "fields": {
+      "created_at": "2026-01-14T10:14:06.852Z",
+      "modified_at": "2026-01-14T10:41:03.318Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Volumen (m³)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {
+        "widgetOverride": "cf-field/input/number-separator"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[\"zivilschutz-total-volumen\"]"
     }
   },
   {
@@ -71553,8 +74044,8 @@
     "model": "caluma_form.questionoption",
     "pk": "detailplan-lager-und-umschlagsanlage.detailplan-lager-und-umschlagsanlage-grundriss-schnitte-ja",
     "fields": {
-      "created_at": "2024-02-21T10:28:49.500Z",
-      "modified_at": "2024-02-21T10:28:49.500Z",
+      "created_at": "2026-01-08T16:20:13.377Z",
+      "modified_at": "2026-01-08T16:20:13.377Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -74013,11 +76504,11 @@
     "model": "caluma_form.questionoption",
     "pk": "haustechnische-anlagen-erstellt.haustechnische-anlagen-erstellt-ja",
     "fields": {
-      "created_at": "2023-09-14T08:58:05.450Z",
-      "modified_at": "2023-09-14T08:58:05.450Z",
-      "created_by_user": "645a484a-3312-4602-9d87-77215f03f5bf",
+      "created_at": "2026-01-08T16:06:59.902Z",
+      "modified_at": "2026-01-08T16:06:59.902Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "645a484a-3312-4602-9d87-77215f03f5bf",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "haustechnische-anlagen-erstellt",
       "option": "haustechnische-anlagen-erstellt-ja",
@@ -74028,11 +76519,11 @@
     "model": "caluma_form.questionoption",
     "pk": "haustechnische-anlagen-erstellt.haustechnische-anlagen-erstellt-nein",
     "fields": {
-      "created_at": "2023-09-14T08:58:05.448Z",
-      "modified_at": "2023-09-14T08:58:05.448Z",
-      "created_by_user": "645a484a-3312-4602-9d87-77215f03f5bf",
+      "created_at": "2026-01-08T16:06:59.897Z",
+      "modified_at": "2026-01-08T16:06:59.898Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": "645a484a-3312-4602-9d87-77215f03f5bf",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "haustechnische-anlagen-erstellt",
       "option": "haustechnische-anlagen-erstellt-nein",
@@ -77266,6 +79757,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "schutzraum-vorhanden-oder-geplant.schutzraum-vorhanden-oder-geplant-ja",
+    "fields": {
+      "created_at": "2026-02-09T12:54:30.466Z",
+      "modified_at": "2026-02-09T12:54:30.466Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "schutzraum-vorhanden-oder-geplant",
+      "option": "schutzraum-vorhanden-oder-geplant-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "schutzraum-vorhanden-oder-geplant.schutzraum-vorhanden-oder-geplant-nein",
+    "fields": {
+      "created_at": "2026-02-09T12:54:30.456Z",
+      "modified_at": "2026-02-09T12:54:30.456Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "schutzraum-vorhanden-oder-geplant",
+      "option": "schutzraum-vorhanden-oder-geplant-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "sicherung-gegen-das-selbststaendige-ausfliessen-abhebern.sicherung-gegen-das-selbststaendige-ausfliessen-abhebern-eigensicher",
     "fields": {
       "created_at": "2024-04-23T16:29:22.724Z",
@@ -80066,6 +82587,381 @@
       "modified_by_group": null,
       "question": "wurden-vorabklaerungen-durchgefuehrt",
       "option": "wurden-vorabklaerungen-durchgefuehrt-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zivilschutz-befreiung-oder-bewilligung.zivilschutz-befreiung-oder-bewilligung-befreiung",
+    "fields": {
+      "created_at": "2026-02-09T12:55:35.403Z",
+      "modified_at": "2026-02-09T12:55:35.403Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zivilschutz-befreiung-oder-bewilligung",
+      "option": "zivilschutz-befreiung-oder-bewilligung-befreiung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zivilschutz-befreiung-oder-bewilligung.zivilschutz-befreiung-oder-bewilligung-bewilligung",
+    "fields": {
+      "created_at": "2026-02-09T12:55:35.414Z",
+      "modified_at": "2026-02-09T12:55:35.414Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zivilschutz-befreiung-oder-bewilligung",
+      "option": "zivilschutz-befreiung-oder-bewilligung-bewilligung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zivilschutz-begruendungen-des-befreiungsgesuchs.zivilschutz-begruendungen-des-befreiungsgesuchs-andere",
+    "fields": {
+      "created_at": "2026-01-14T14:48:39.920Z",
+      "modified_at": "2026-01-14T14:48:39.920Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zivilschutz-begruendungen-des-befreiungsgesuchs",
+      "option": "zivilschutz-begruendungen-des-befreiungsgesuchs-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zivilschutz-begruendungen-des-befreiungsgesuchs.zivilschutz-begruendungen-des-befreiungsgesuchs-erforderliche-anzahl-schutzplaetze-geringer-als-25",
+    "fields": {
+      "created_at": "2026-01-14T14:48:39.947Z",
+      "modified_at": "2026-01-14T14:48:39.947Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zivilschutz-begruendungen-des-befreiungsgesuchs",
+      "option": "zivilschutz-begruendungen-des-befreiungsgesuchs-erforderliche-anzahl-schutzplaetze-geringer-als-25",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zivilschutz-begruendungen-des-befreiungsgesuchs.zivilschutz-begruendungen-des-befreiungsgesuchs-grosse-bautechnischen-schwierigkeiten",
+    "fields": {
+      "created_at": "2026-01-14T14:48:39.935Z",
+      "modified_at": "2026-01-14T14:48:39.935Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zivilschutz-begruendungen-des-befreiungsgesuchs",
+      "option": "zivilschutz-begruendungen-des-befreiungsgesuchs-grosse-bautechnischen-schwierigkeiten",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zivilschutz-begruendungen-des-befreiungsgesuchs.zivilschutz-begruendungen-des-befreiungsgesuchs-im-beurteilungsgebiet",
+    "fields": {
+      "created_at": "2026-01-14T14:48:39.930Z",
+      "modified_at": "2026-01-14T14:48:39.930Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zivilschutz-begruendungen-des-befreiungsgesuchs",
+      "option": "zivilschutz-begruendungen-des-befreiungsgesuchs-im-beurteilungsgebiet",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zivilschutz-begruendungen-des-befreiungsgesuchs.zivilschutz-begruendungen-des-befreiungsgesuchs-im-dicht-ueberbauten-gebiet",
+    "fields": {
+      "created_at": "2026-01-14T14:48:39.942Z",
+      "modified_at": "2026-01-14T14:48:39.942Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zivilschutz-begruendungen-des-befreiungsgesuchs",
+      "option": "zivilschutz-begruendungen-des-befreiungsgesuchs-im-dicht-ueberbauten-gebiet",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zivilschutz-begruendungen-des-befreiungsgesuchs.zivilschutz-begruendungen-des-befreiungsgesuchs-kein-bedarf",
+    "fields": {
+      "created_at": "2026-01-14T14:48:39.926Z",
+      "modified_at": "2026-01-14T14:48:39.926Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zivilschutz-begruendungen-des-befreiungsgesuchs",
+      "option": "zivilschutz-begruendungen-des-befreiungsgesuchs-kein-bedarf",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zivilschutz-begruendung-fuer-aufhebung.zivilschutz-begruendung-fuer-aufhebung-entspricht-nicht-vorschriften",
+    "fields": {
+      "created_at": "2026-01-14T12:25:41.677Z",
+      "modified_at": "2026-01-14T12:25:41.677Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zivilschutz-begruendung-fuer-aufhebung",
+      "option": "zivilschutz-begruendung-fuer-aufhebung-entspricht-nicht-vorschriften",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zivilschutz-begruendung-fuer-aufhebung.zivilschutz-begruendung-fuer-aufhebung-umbau",
+    "fields": {
+      "created_at": "2026-01-14T12:25:41.669Z",
+      "modified_at": "2026-01-14T12:25:41.669Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zivilschutz-begruendung-fuer-aufhebung",
+      "option": "zivilschutz-begruendung-fuer-aufhebung-umbau",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zivilschutz-begruendung-fuer-aufhebung.zivilschutz-begruendung-fuer-aufhebung-zweckaenderung",
+    "fields": {
+      "created_at": "2026-01-14T12:25:41.673Z",
+      "modified_at": "2026-01-14T12:25:41.673Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zivilschutz-begruendung-fuer-aufhebung",
+      "option": "zivilschutz-begruendung-fuer-aufhebung-zweckaenderung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zivilschutz-detailplan-des-schutzraumes.zivilschutz-detailplan-des-schutzraumes-ja",
+    "fields": {
+      "created_at": "2026-01-14T14:25:31.963Z",
+      "modified_at": "2026-01-14T14:25:31.963Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zivilschutz-detailplan-des-schutzraumes",
+      "option": "zivilschutz-detailplan-des-schutzraumes-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zivilschutz-ersatzbeitraege-geleistet.zivilschutz-ersatzbeitraege-geleistet-ja",
+    "fields": {
+      "created_at": "2026-01-14T09:45:13.568Z",
+      "modified_at": "2026-01-14T09:45:13.568Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zivilschutz-ersatzbeitraege-geleistet",
+      "option": "zivilschutz-ersatzbeitraege-geleistet-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zivilschutz-ersatzbeitraege-geleistet.zivilschutz-ersatzbeitraege-geleistet-nein",
+    "fields": {
+      "created_at": "2026-01-14T09:45:13.560Z",
+      "modified_at": "2026-01-14T09:45:13.560Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zivilschutz-ersatzbeitraege-geleistet",
+      "option": "zivilschutz-ersatzbeitraege-geleistet-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zivilschutz-grundriss-fassaden-und-gebaeudeschnitte.zivilschutz-grundriss-fassaden-und-gebaeudeschnitte-ja",
+    "fields": {
+      "created_at": "2026-01-14T14:19:42.827Z",
+      "modified_at": "2026-01-14T14:19:42.827Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zivilschutz-grundriss-fassaden-und-gebaeudeschnitte",
+      "option": "zivilschutz-grundriss-fassaden-und-gebaeudeschnitte-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zivilschutz-saemtliche-projektplaene.zivilschutz-saemtliche-projektplaene-ja",
+    "fields": {
+      "created_at": "2026-01-15T08:16:41.919Z",
+      "modified_at": "2026-01-15T08:16:41.919Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zivilschutz-saemtliche-projektplaene",
+      "option": "zivilschutz-saemtliche-projektplaene-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zivilschutz-schutzraum-aufgehoben.zivilschutz-schutzraum-aufgehoben-ja",
+    "fields": {
+      "created_at": "2026-01-15T08:28:55.862Z",
+      "modified_at": "2026-01-15T08:28:55.862Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zivilschutz-schutzraum-aufgehoben",
+      "option": "zivilschutz-schutzraum-aufgehoben-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zivilschutz-schutzraum-aufgehoben.zivilschutz-schutzraum-aufgehoben-nein",
+    "fields": {
+      "created_at": "2026-01-15T08:28:55.857Z",
+      "modified_at": "2026-01-15T08:28:55.857Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zivilschutz-schutzraum-aufgehoben",
+      "option": "zivilschutz-schutzraum-aufgehoben-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zivilschutz-schutzraum-bestehend.zivilschutz-schutzraum-bestehend-ja",
+    "fields": {
+      "created_at": "2026-01-14T09:03:50.920Z",
+      "modified_at": "2026-01-14T09:03:50.920Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zivilschutz-schutzraum-bestehend",
+      "option": "zivilschutz-schutzraum-bestehend-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zivilschutz-schutzraum-bestehend.zivilschutz-schutzraum-bestehend-nein",
+    "fields": {
+      "created_at": "2026-01-14T09:03:50.914Z",
+      "modified_at": "2026-01-14T09:03:50.914Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zivilschutz-schutzraum-bestehend",
+      "option": "zivilschutz-schutzraum-bestehend-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zivilschutz-schutzraum-mit-ueberkapazitaet-bestehend.zivilschutz-schutzraum-mit-ueberkapazitaet-bestehend-ja",
+    "fields": {
+      "created_at": "2026-01-14T08:39:36.142Z",
+      "modified_at": "2026-01-14T08:39:36.142Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zivilschutz-schutzraum-mit-ueberkapazitaet-bestehend",
+      "option": "zivilschutz-schutzraum-mit-ueberkapazitaet-bestehend-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zivilschutz-schutzraum-mit-ueberkapazitaet-bestehend.zivilschutz-schutzraum-mit-ueberkapazitaet-bestehend-nein",
+    "fields": {
+      "created_at": "2026-01-14T08:39:36.133Z",
+      "modified_at": "2026-01-14T08:39:36.133Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zivilschutz-schutzraum-mit-ueberkapazitaet-bestehend",
+      "option": "zivilschutz-schutzraum-mit-ueberkapazitaet-bestehend-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zivilschutz-situationsplan-gemaess-twp-84.zivilschutz-situationsplan-gemaess-twp-84-ja",
+    "fields": {
+      "created_at": "2026-01-14T14:19:35.235Z",
+      "modified_at": "2026-01-14T14:19:35.235Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zivilschutz-situationsplan-gemaess-twp-84",
+      "option": "zivilschutz-situationsplan-gemaess-twp-84-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zivilschutz-situationsplan-mit-schutzraum.zivilschutz-situationsplan-mit-schutzraum-ja",
+    "fields": {
+      "created_at": "2026-01-14T14:53:01.062Z",
+      "modified_at": "2026-01-14T14:53:01.062Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zivilschutz-situationsplan-mit-schutzraum",
+      "option": "zivilschutz-situationsplan-mit-schutzraum-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zivilschutz-ventilationsprojekt.zivilschutz-ventilationsprojekt-ja",
+    "fields": {
+      "created_at": "2026-01-14T14:26:57.765Z",
+      "modified_at": "2026-01-14T14:26:57.765Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zivilschutz-ventilationsprojekt",
+      "option": "zivilschutz-ventilationsprojekt-ja",
       "sort": 1
     }
   },

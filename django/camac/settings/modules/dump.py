@@ -710,6 +710,10 @@ DUMP = {
                     filters=generate_form_dump_config(version=2),
                     dependency="caluma_form_default_answers",
                 ),
+                "caluma_form_v3": DumpConfig(
+                    filters=generate_form_dump_config(version=3),
+                    dependency="caluma_form_default_answers",
+                ),
                 "caluma_bab_exam_form": generate_form_dump_config(
                     regex=r"^(materielle-pruefung-bab|mp-bab)"
                 ),
