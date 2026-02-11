@@ -1,6 +1,16 @@
 [
   {
     "model": "permissions.accesslevel",
+    "pk": "are-service",
+    "fields": {
+      "name": "{\"de\": \"ARE-Dienst\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "required_grant_type": "SERVICE",
+      "applicable_area": "INTERNAL"
+    }
+  },
+  {
+    "model": "permissions.accesslevel",
     "pk": "read",
     "fields": {
       "name": "{\"de\": \"Leseberechtigung\", \"fr\": \"\", \"it\": \"\"}",

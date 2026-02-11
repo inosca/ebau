@@ -1,6 +1,8 @@
 from camac.permissions.conditions import (
+    Always,
     HasRole,
     RequireInstanceState,
+    RequireRunningCase,
     RequireWorkItem,
 )
 from camac.permissions.switcher import PERMISSION_MODE
@@ -90,6 +92,19 @@ SZ_PERMISSIONS_SETTINGS = {
             ("form-read", MODULE_FORM),
             ("integrity-dashboard-read", MODULE_INTEGRITY_DASHBOARD),
             ("work-items-read", MODULE_WORK_ITEMS),
+        ],
+        "are-service": [
+            ("form-view-internal", Always()),
+            ("form-read", Always()),
+            ("form-write", RequireRunningCase()),
+            ("documents-view-internal", Always()),
+            ("documents-read", Always()),
+            ("documents-write", Always()),
+            ("work-items-view-internal", Always()),
+            ("work-items-read", Always()),
+            ("journal-view-internal", Always()),
+            ("journal-read", Always()),
+            ("journal-write", Always()),
         ],
     },
     "ENABLED": True,

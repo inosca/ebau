@@ -2679,7 +2679,7 @@
       "hidden": 0,
       "sort": 0,
       "form_group": 1,
-      "require_permission": null
+      "require_permission": "work-items-view-internal"
     }
   },
   {
@@ -2695,7 +2695,7 @@
       "hidden": 0,
       "sort": 1,
       "form_group": 1,
-      "require_permission": null
+      "require_permission": "form-view-internal"
     }
   },
   {
@@ -2711,7 +2711,7 @@
       "hidden": 0,
       "sort": 2,
       "form_group": 1,
-      "require_permission": null
+      "require_permission": "journal-view-internal"
     }
   },
   {
@@ -2727,7 +2727,7 @@
       "hidden": 0,
       "sort": 3,
       "form_group": 1,
-      "require_permission": null
+      "require_permission": "documents-view-internal"
     }
   },
   {
