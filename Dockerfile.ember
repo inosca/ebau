@@ -68,7 +68,7 @@ ENV KEYCLOAK_SCOPES=openid
 USER root
 RUN chown -R nginx:nginx /usr/share/nginx/html
 USER nginx
-COPY --from=build --chown=nginx:nginx /myapp/$WORKSPACE/dist /usr/share/nginx/html
+COPY --from=build --chown=nginx:nginx /myapp/$WORKSPACE/dist /usr/share/nginx/html-raw
 COPY nginx/ember.conf /etc/nginx/conf.d/default.conf
 COPY nginx/replace-env-vars.sh /usr/local/bin/replace-env-vars
-CMD /bin/sh -c "replace-env-vars $REPLACE_ENV_RUNTIME /usr/share/nginx/html && nginx -g 'daemon off;'"
+CMD /bin/sh -c "replace-env-vars $REPLACE_ENV_RUNTIME /usr/share/nginx/html-raw /usr/share/nginx/html && nginx -g 'daemon off;'"
