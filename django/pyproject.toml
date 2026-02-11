@@ -95,8 +95,6 @@ filterwarnings = [
     "ignore:.*_after_postgeneration will stop saving the instance.*:DeprecationWarning",
     # Caused by josepy which is used by mozilla-django-oidc
     "ignore:CSR support in pyOpenSSL is deprecated. You should use the APIs in cryptography.:DeprecationWarning",
-    # Deprecated usage of pkg_resources (from setuptools) in docxtpl
-    "ignore:pkg_resources is deprecated as an API:DeprecationWarning",
     # deprecation warning for holidays package for upcoming v1 release
     "ignore::DeprecationWarning:holidays.deprecations.v1_incompatibility",
     # https://github.com/lidatong/dataclasses-json/pull/351

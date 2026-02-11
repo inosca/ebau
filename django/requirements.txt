@@ -31,7 +31,7 @@ django-storages==1.14.6
 djangorestframework==3.16.1
 djangorestframework-jsonapi==8.0.0
 djangorestframework-xml==2.0.0
-docxtpl==0.20.1
+docxtpl==0.20.2
 drf-extra-fields==3.7.0
 drf-yasg==1.21.10
 ebau-gwr==0.8.3
