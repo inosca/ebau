@@ -38,5 +38,15 @@
         <Corrections::ArchiveInstance @instance={{this.instance.record}} />
       </div>
     {{/if}}
+    {{#if
+      (and
+        (has-feature "corrections.deleteInternalInstance")
+        (can "delete instance" this.instance.record)
+      )
+    }}
+      <div>
+        <Corrections::DeleteInstance @instance={{this.instance.record}} />
+      </div>
+    {{/if}}
   </div>
 {{/if}}

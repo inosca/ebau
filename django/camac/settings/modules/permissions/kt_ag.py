@@ -185,7 +185,16 @@ ACTION_INSTANCE_CREATE_MODIFICATION = (
 ACTION_INSTANCE_COPY_AFTER_REJECTION = RequireInstanceState(
     ["rejected"]
 ) & HasApplicantRole(["ADMIN"])
-ACTION_INSTANCE_DELETE = RequireInstanceState(["new"]) & HasApplicantRole(["ADMIN"])
+ACTION_INSTANCE_DELETE = RequireInstanceState(["new"]) & (
+    HasApplicantRole(["ADMIN"])
+    | (
+        IsServiceGroup(
+            ["municipality", "service-cantonal", "service-afb", "authority-pgv"]
+        )
+        & IsPaper()
+    )
+)
+
 ACTION_INSTANCE_SUBMIT = RequireWorkItem("submit", "ready") & (
     HasApplicantRole(["ADMIN"]) | ((ROLES_MUNICIPALITY | ROLES_AFB) & IsPaper())
 )
@@ -334,6 +343,7 @@ AG_PERMISSIONS_SETTINGS = {
                 ),
             ),
             ("related-gwr-projects-read", MODULE_RELATED_GWR_PROJECTS),
+            ("instance-delete", ACTION_INSTANCE_DELETE),
         ],
         "read": [
             ("documents-read", MODULE_DOCUMENTS),
