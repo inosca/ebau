@@ -1,4 +1,3 @@
-import django_excel
 from django.conf import settings
 from django.db import transaction
 from django.db.models import OuterRef, Subquery
@@ -11,6 +10,7 @@ from camac.core.models import Activation, Circulation, CirculationState
 from camac.instance.filters import FormFieldOrdering
 from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
 from camac.instance.models import FormField
+from camac.response import make_xlsx_response
 
 from . import filters, serializers
 
@@ -181,7 +181,4 @@ class ActivationView(InstanceQuerysetMixin, views.ReadOnlyModelViewSet):
             for activation in queryset
         ]
 
-        sheet = django_excel.pe.Sheet(content)
-        return django_excel.make_response(
-            sheet, file_type="xlsx", file_name="list.xlsx"
-        )
+        return make_xlsx_response(content, "list.xlsx")

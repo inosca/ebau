@@ -10,6 +10,7 @@ from importlib import import_module, reload
 from pathlib import Path
 
 import faker
+import pyexcel
 import pytest
 from alexandria.core import tasks as alexandria_tasks
 from alexandria.storages.backends.s3 import SsecGlobalS3Storage
@@ -29,6 +30,7 @@ from deepmerge import always_merger
 from django.conf import settings
 from django.core.cache import cache
 from django.core.management import call_command
+from django.http import FileResponse
 from django.urls import clear_url_caches
 from django.utils.timezone import make_aware, now
 from factory import Faker
@@ -3182,8 +3184,13 @@ def reload_ech0211_urls():
 
 @pytest.fixture(autouse=True)
 def mock_tika(mocker):
-    mocker.patch("tika.parser.from_buffer", return_value={"content": "Important text"})
-    mocker.patch("tika.language.from_buffer", return_value="en")
+    mocker.patch(
+        "alexandria.core.tika.TikaClient.get_content_from_buffer",
+        return_value="Important text",
+    )
+    mocker.patch(
+        "alexandria.core.tika.TikaClient.get_language_from_content", return_value="en"
+    )
 
 
 @pytest.fixture
@@ -3345,3 +3352,12 @@ def ensure_no_leaks():
     }
 
     assert before_settings == after_settings
+
+
+def parse_xlsx_response(response: FileResponse) -> pyexcel.Book:
+    """Parse a file response and return the contained XLSX book."""
+
+    return pyexcel.get_book(
+        file_content=b"".join(response.streaming_content),
+        file_type="xlsx",
+    )

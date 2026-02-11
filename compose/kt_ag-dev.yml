@@ -102,7 +102,6 @@ services:
       DYNAMIC_TASKS_CLASSES: camac.caluma.extensions.dynamic_tasks.CustomDynamicTasks
       FORMAT_VALIDATOR_CLASSES: camac.caluma.extensions.format_validators.EvenProjectNumberFormatValidator
       # Alexandria
-      TIKA_CLIENT_ONLY: true
       TIKA_SERVER_ENDPOINT: "http://tika:9998"
       # GWR
       GWR_FERNET_KEY: GUdwT6yKxqfszrnHC7wyKDmtVZdhjSVQEPnpeJYNLf8=

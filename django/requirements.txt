@@ -2,7 +2,7 @@ Babel==2.17.0
 backoff==2.2.1
 boto3==1.40.26
 caluma==12.3.3
-caluma-alexandria==8.6.0
+caluma-alexandria==8.6.1
 celery==5.5.3
 codetiming==1.4.0
 cryptography==44.0.2
@@ -15,7 +15,6 @@ django-admin-sortable2==2.2.8
 django-celery-beat==2.8.1
 django-clamd==1.0.0
 django-environ==0.12.0
-django-excel==0.0.10
 # needed for clear_cache command (and some other niceties that arent's strictly required for prod)
 django-extensions==4.1
 django-filter==25.1
@@ -32,7 +31,7 @@ django-storages==1.14.6
 djangorestframework==3.16.1
 djangorestframework-jsonapi==8.0.0
 djangorestframework-xml==2.0.0
-docxtpl==0.20.1
+docxtpl==0.20.2
 drf-extra-fields==3.7.0
 drf-yasg==1.21.10
 ebau-gwr==0.8.3
@@ -70,7 +69,6 @@ requests-toolbelt==1.0.0
 # TODO: When updating sorl-thumbnail to a version that includes
 # https://github.com/jazzband/sorl-thumbnail/pull/778, you can remove the
 # monkeypatch in camac/document/apps.py
-setuptools==81.0.0
 sorl-thumbnail==12.11.0
 tabulate==0.9.0
 tqdm==4.67.1

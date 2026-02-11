@@ -81,20 +81,3 @@ def test_generate_sort_key(db, caluma_case_factory):
     assert utils.generate_sort_key("2020-999999") == 2020999999
     assert utils.generate_sort_key("KW-07-21-999999") == 721999999
     assert utils.generate_sort_key("1201-2021-13") == 12012021000013
-
-
-def test_tika_does_not_write_own_log():
-    """Tika wants to write it's own log file. Ensure our settings disable it.
-
-    Tika uses env variables to configure it's own logging, but we want our
-    logging config to take precedence, and most importantly, don't want Tika
-    to try starting/writing a logfile in /tmp (which is it's default behaviour).
-    """
-
-    # lazy import to avoid test discovery from tripping up
-    # the settings - loading order is important here
-    from tika import tika
-
-    # If we've successfully disabled tika's own log, it's logfile won't point
-    # to that path
-    assert tika.log_file != "/tmp/tika.log"

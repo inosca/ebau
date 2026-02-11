@@ -2,7 +2,6 @@ import mimetypes
 from datetime import timedelta
 from logging import getLogger
 
-import django_excel
 from caluma.caluma_form import models as form_models
 from caluma.caluma_workflow import api as workflow_api, models as workflow_models
 from django.conf import settings
@@ -56,6 +55,7 @@ from camac.permissions import api as permissions_api
 from camac.permissions.events import Trigger
 from camac.permissions.models import InstanceACL
 from camac.permissions.switcher import permission_switching_method
+from camac.response import make_xlsx_response
 from camac.swagger.utils import get_operation_description, group_param
 from camac.user.models import Service, User
 from camac.user.permissions import (
@@ -654,10 +654,7 @@ class InstanceView(
             for instance in queryset
         ]
 
-        sheet = django_excel.pe.Sheet(content)
-        return django_excel.make_response(
-            sheet, file_type="xlsx", file_name="list.xlsx"
-        )
+        return make_xlsx_response(content, "list.xlsx")
 
     def get_export_detail_data(self, instance, type):
         validator = validators.FormDataValidator(instance)

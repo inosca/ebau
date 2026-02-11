@@ -89,24 +89,13 @@ filterwarnings = [
     "ignore:No directory at:UserWarning",
     # Caused by multiple tests using the same test files
     "ignore:Duplicate name:UserWarning",
-    # Deprecated usage of django-filters method in drf-yasg
-    "ignore:Built-in schema generation is deprecated.*:DeprecationWarning",
     # Issue in pytest-factoryboy
     "ignore:.*_after_postgeneration will stop saving the instance.*:DeprecationWarning",
-    # the (unmaintened) django-excel package is using distutils which will get removed in python 3.12
-    "ignore:distutils Version classes are deprecated.*:DeprecationWarning",
-    # Caused by josepy which is used by mozilla-django-oidc
-    "ignore:CSR support in pyOpenSSL is deprecated. You should use the APIs in cryptography.:DeprecationWarning",
-    # Deprecated usage of pkg_resources (from setuptools) in docxtpl
-    "ignore:pkg_resources is deprecated as an API:DeprecationWarning",
-    # Deprecated usage of pkg_resources.declare_namespace (from setuptools) in tika
-    "ignore:Deprecated call to `pkg_resources.declare_namespace:DeprecationWarning",
-    # deprecation warning for holidays package for upcoming v1 release
-    "ignore::DeprecationWarning:holidays.deprecations.v1_incompatibility",
     # https://github.com/lidatong/dataclasses-json/pull/351
     "ignore:The 'default' argument to fields is deprecated. Use 'dump_default' instead.",
     "ignore:`Field` should not be instantiated.:marshmallow.warnings.ChangedInMarshmallow4Warning",
     "ignore:jsonschema.RefResolver is deprecated.*",
+    "ignore:Unknown type .* It's advised to pass the correct marshmallow type to `mm_field`.:UserWarning",
 ]
 
 [tool.coverage.run]
