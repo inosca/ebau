@@ -3182,8 +3182,13 @@ def reload_ech0211_urls():
 
 @pytest.fixture(autouse=True)
 def mock_tika(mocker):
-    mocker.patch("tika.parser.from_buffer", return_value={"content": "Important text"})
-    mocker.patch("tika.language.from_buffer", return_value="en")
+    mocker.patch(
+        "alexandria.core.tika.TikaClient.get_content_from_buffer",
+        return_value="Important text",
+    )
+    mocker.patch(
+        "alexandria.core.tika.TikaClient.get_language_from_content", return_value="en"
+    )
 
 
 @pytest.fixture

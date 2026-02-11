@@ -108,7 +108,6 @@ services:
       GEVER_API_BASE_URL: ${GEVER_API_BASE_URL}
       # Alexandria
       ALEXANDRIA_MANABI_DAV_URL_PATH: /webdav
-      TIKA_CLIENT_ONLY: true
       TIKA_SERVER_ENDPOINT: "http://tika:9998"
       CELERY_RDB_HOST: redis
       CELERY_WORKER_CONCURRENCY: 1

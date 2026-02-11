@@ -104,7 +104,6 @@ services:
       DYNAMIC_GROUPS_CLASSES: camac.caluma.extensions.dynamic_groups.CustomDynamicGroups
       DYNAMIC_TASKS_CLASSES: camac.caluma.extensions.dynamic_tasks.CustomDynamicTasks
       # Alexandria
-      TIKA_CLIENT_ONLY: true
       TIKA_SERVER_ENDPOINT: "http://tika:9998"
       ALEXANDRIA_CONTENT_SEARCH_CELERY_QUEUE: "tika"
       # celery

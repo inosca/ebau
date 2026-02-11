@@ -23,10 +23,6 @@ from camac.utils import build_url, should_notify_on_manual_workitems
 from caluma.settings.caluma import *  # noqa isort:skip
 from alexandria.settings.alexandria import *  # noqa isort:skip
 
-# Keep Tika from creating it's own log. We're configuring it's logger
-# in our LOGGING config block below.
-os.environ["TIKA_LOG_FILE"] = ""
-
 ENV = env.str("APPLICATION_ENV", default="production")
 APPLICATION_NAME = env.str("APPLICATION")
 APPLICATION_DIR = ROOT_DIR.path(APPLICATION_NAME)
@@ -3147,7 +3143,6 @@ LOGGING = {
     "loggers": {
         "django": {"handlers": ["console", "mail_admins"], "level": "INFO"},
         "camac": {"handlers": ["console", "mail_admins"], "level": "INFO"},
-        "tika": {"handlers": ["console", "mail_admins"], "level": "INFO"},
     },
 }
 

@@ -76,7 +76,6 @@ services:
       - CONSTRUCTION_MONITORING_ENABLED=true
       - DEADLINES_ENABLED=true
       # Alexandria
-      - TIKA_CLIENT_ONLY=true
       - TIKA_SERVER_ENDPOINT=http://tika:9998
       # GWR
       - GWR_FERNET_KEY=GUdwT6yKxqfszrnHC7wyKDmtVZdhjSVQEPnpeJYNLf8=
