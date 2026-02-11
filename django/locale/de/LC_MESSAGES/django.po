@@ -64,6 +64,16 @@ msgstr "Warnmeldung"
 msgid "Alert Messages"
 msgstr "Warnmeldungen"
 
+#: camac/alexandria/extensions/events.py
+#, python-format
+msgid "Document %(doc)s was marked as %(mark)s."
+msgstr "Dokument %(doc)s wurde als %(mark)s markiert."
+
+#: camac/alexandria/extensions/events.py
+#, python-format
+msgid "Mark %(mark)s was removed from document %(doc)s."
+msgstr "Markierung %(mark)s wurde vom Dokument %(doc)s entfernt."
+
 #: camac/alexandria/extensions/validations.py
 #, python-format
 msgid "Mark \"%(mark)s\" can not be combined with other marks."

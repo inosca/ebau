@@ -4122,7 +4122,12 @@ class Archive(models.Model):
 class HistoryActionConfig(models.Model):
     HISTORY_TYPE_NOTIFICATION = "notification"
     HISTORY_TYPE_STATUS = "status-change"
-    HISTORY_TYPES = (HISTORY_TYPE_NOTIFICATION, HISTORY_TYPE_STATUS)
+    HISTORY_TYPE_DOCUMENT_MARK = "document-mark"
+    HISTORY_TYPES = (
+        HISTORY_TYPE_NOTIFICATION,
+        HISTORY_TYPE_STATUS,
+        HISTORY_TYPE_DOCUMENT_MARK,
+    )
     HISTORY_TYPES_TUPLE = ((t, t) for t in HISTORY_TYPES)
 
     action = models.OneToOneField(
