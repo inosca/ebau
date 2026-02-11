@@ -31,6 +31,14 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
   @tracked instanceId;
   @tracked documentId;
 
+  constructor(...args) {
+    super(...args);
+
+    if (macroCondition(getOwnConfig().application === "gr")) {
+      this.enableMoveCopyFallback = false;
+    }
+  }
+
   get modelMetaFilters() {
     return {
       document: [{ key: "camac-instance-id", value: String(this.instanceId) }],
