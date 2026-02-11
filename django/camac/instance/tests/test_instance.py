@@ -2,7 +2,6 @@ import functools
 import json
 from datetime import datetime, timedelta
 
-import pyexcel
 import pytest
 import pytz
 from caluma.caluma_form import models as caluma_form_models
@@ -15,6 +14,7 @@ from pytest_lazy_fixtures import lf, lfc
 from rest_framework import status
 
 from camac.applicants.models import Applicant
+from camac.conftest import parse_xlsx_response
 from camac.constants import kt_uri as uri_constants
 from camac.core.models import InstanceLocation, WorkflowEntry
 from camac.instance import domain_logic, serializers
@@ -1672,7 +1672,7 @@ def test_instance_export_list(
         )
     assert response.status_code == status.HTTP_200_OK
 
-    book = pyexcel.get_book(file_content=response.content, file_type="xlsx")
+    book = parse_xlsx_response(response)
     # bookdict is a dict of tuples(name, content)
     sheet = book.bookdict.popitem()[1]
     assert len(sheet) == len(instances)

@@ -1,6 +1,5 @@
 import json
 
-import django_excel
 from caluma.caluma_form.models import Answer, AnswerDocument, DynamicOption, Option
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
@@ -24,6 +23,7 @@ from camac.instance.export import filters, serializers
 from camac.instance.export.filters import StringAggSubquery, caluma_answer
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.instance.models import Instance
+from camac.response import make_xlsx_response
 from camac.settings.modules.work_item_list_schema import (
     AnnotationsConfig,
 )
@@ -373,7 +373,7 @@ class InstanceExportView(InstanceQuerysetMixin, ListAPIView):
         queryset = self.filter_queryset(self.get_queryset())
         data = self.get_serializer(queryset, many=True).data
 
-        return django_excel.make_response(django_excel.pe.Sheet(data), file_type="xlsx")
+        return make_xlsx_response(data, "export.xlsx")
 
 
 class BabStatisticsExportView(InstanceQuerysetMixin, ListAPIView):
@@ -411,6 +411,4 @@ class BabStatisticsExportView(InstanceQuerysetMixin, ListAPIView):
 
         sheet_data = [header] + data
 
-        return django_excel.make_response_from_array(
-            sheet_data, file_type="xlsx", file_name="export"
-        )
+        return make_xlsx_response(sheet_data, "export.xlsx")

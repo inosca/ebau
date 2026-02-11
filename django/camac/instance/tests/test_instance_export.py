@@ -1,7 +1,6 @@
 import datetime
 import pathlib
 
-import pyexcel
 import pytest
 from caluma.caluma_form.models import Form
 from caluma.caluma_workflow.models import WorkItem
@@ -10,6 +9,7 @@ from django.utils import timezone
 from django.utils.timezone import make_aware
 from rest_framework import status
 
+from camac.conftest import parse_xlsx_response
 from camac.instance.export.views import (
     BabStatisticsExportView,
     InstanceExportView,
@@ -326,7 +326,7 @@ def test_caluma_export_be(
 
     assert response.status_code == expected_status
     if expected_status == status.HTTP_200_OK:
-        book = pyexcel.get_book(file_content=response.content, file_type="xlsx")
+        book = parse_xlsx_response(response)
         assert len(book.get_dict()["pyexcel sheet"]) - 1 == expected_count
         if expected_count:
             # Remove instance id from snapshot since it is always generated new
@@ -483,7 +483,7 @@ def test_caluma_export_sz(
 
     assert response.status_code == expected_status
     if expected_status == status.HTTP_200_OK:
-        book = pyexcel.get_book(file_content=response.content, file_type="xlsx")
+        book = parse_xlsx_response(response)
         assert len(book.get_dict()["pyexcel sheet"]) - 1 == expected_count
         if expected_count:
             data = book.get_dict()["pyexcel sheet"][1]
@@ -571,7 +571,7 @@ def test_caluma_export_ag(
 
     assert response.status_code == status.HTTP_200_OK
 
-    book = pyexcel.get_book(file_content=response.content, file_type="xlsx")
+    book = parse_xlsx_response(response)
     sheet = book.get_dict()["pyexcel sheet"]
     row = sheet[1]
 
@@ -663,8 +663,8 @@ def test_bab_statistics_request(
 
     assert response.status_code == status.HTTP_200_OK
 
-    book = pyexcel.get_book(file_content=response.content, file_type="xlsx")
-    sheet = book.get_dict()["pyexcel_sheet1"]
+    book = parse_xlsx_response(response)
+    sheet = book.get_dict()["pyexcel sheet"]
     row = sheet[1]
 
     assert len(sheet) == 3  # two instance because of two table rows plus header row

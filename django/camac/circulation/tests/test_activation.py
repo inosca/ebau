@@ -1,12 +1,12 @@
 import functools
 
-import pyexcel
 import pytest
 from django.urls import reverse
 from pytest_lazy_fixtures import lf
 from rest_framework import status
 
 from camac.circulation import serializers
+from camac.conftest import parse_xlsx_response
 
 
 @pytest.mark.parametrize(
@@ -77,7 +77,7 @@ def test_activation_export(
             },
         )
     assert response.status_code == status.HTTP_200_OK
-    book = pyexcel.get_book(file_content=response.content, file_type="xlsx")
+    book = parse_xlsx_response(response)
     # bookdict is a dict of tuples(name, content)
     sheet = book.bookdict.popitem()[1]
     assert len(sheet) == len(activations)

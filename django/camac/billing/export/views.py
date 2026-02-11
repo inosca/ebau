@@ -1,4 +1,3 @@
-import django_excel as excel
 from rest_framework.exceptions import ErrorDetail
 from rest_framework.generics import ListAPIView
 from rest_framework.renderers import BaseRenderer
@@ -12,6 +11,7 @@ from camac.billing.filters import (
 from camac.billing.models import BillingV2Entry
 from camac.billing.serializers import BillingV2EntryExportSerializer
 from camac.instance.mixins import InstanceQuerysetMixin
+from camac.response import make_xlsx_response
 
 
 class XLSXRenderer(jsonapi_renderers.JSONRenderer, BaseRenderer):
@@ -48,9 +48,7 @@ class XLSXRenderer(jsonapi_renderers.JSONRenderer, BaseRenderer):
 
         rows = [[row[col] for col in columns] for row in data]
 
-        sheet = excel.pe.Sheet([header] + rows)
-
-        return excel.make_response(sheet, file_type="xlsx", file_name="list.xlsx")
+        return make_xlsx_response([header] + rows, "list.xlsx")
 
 
 class BillingV2EntryExportView(InstanceQuerysetMixin, ListAPIView):
