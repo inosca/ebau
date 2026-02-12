@@ -182,4 +182,14 @@ export default {
     ],
     disallowStates: ["new"],
   },
+  submitComponent: {
+    requiredPermissions: null,
+    export: {
+      enabled: (instance) =>
+        !instance.isPaper &&
+        !instance.calumaForm.startsWith("vorlaeufige-beurteilung"),
+      templateName: (locale) => `eingabequittung-${locale}`,
+      errorMessage: "dms.downloadError",
+    },
+  },
 };

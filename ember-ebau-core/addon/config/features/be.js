@@ -41,16 +41,6 @@ export default {
   dashboard: {
     useLegacy: false,
   },
-  submitComponent: {
-    requiredPermissions: ["instance-submit"],
-    buttonHintEnabled: (session) => session.isSupport,
-    export: {
-      enabled: (instance) => !instance.isPaper,
-      templateName: () => `form`,
-      errorMessage: "dms.downloadError",
-      customFormSlugs: ["sb1", "sb1-v2", "sb2"],
-    },
-  },
   corrections: {
     archiveInstance: true,
     changeDossierNumber: true,

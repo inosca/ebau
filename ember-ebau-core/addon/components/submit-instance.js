@@ -5,7 +5,6 @@ import { dropTask } from "ember-concurrency";
 import { confirm } from "ember-uikit";
 
 import { hasInstanceState } from "ember-ebau-core/abilities/instance";
-import featuresConfig from "ember-ebau-core/config/features";
 import mainConfig from "ember-ebau-core/config/main";
 
 const PREVENT_SUBMIT_MUNICIPALITY_RESPONSE_CODE = "municipality_not_allowed";
@@ -28,7 +27,7 @@ export default class SubmitInstanceComponent extends Component {
 
   constructor(...args) {
     super(...args);
-    this.config = featuresConfig?.features?.submitComponent;
+    this.config = mainConfig.submitComponent;
     if (!this.config) {
       console.error("No submitComponent config found!");
     }

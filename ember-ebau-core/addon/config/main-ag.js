@@ -249,4 +249,7 @@ export default {
       ],
     },
   ],
+  submitComponent: {
+    requiredPermissions: null,
+  },
 };

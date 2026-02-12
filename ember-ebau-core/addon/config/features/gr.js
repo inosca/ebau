@@ -40,16 +40,6 @@ export default {
   workItemList: {
     useExperimentalLayout: true,
   },
-  submitComponent: {
-    requiredPermissions: null,
-    export: {
-      enabled: (instance) =>
-        !instance.isPaper &&
-        !instance.calumaForm.startsWith("vorlaeufige-beurteilung"),
-      templateName: (locale) => `eingabequittung-${locale}`,
-      errorMessage: "dms.downloadError",
-    },
-  },
   corrections: {
     archiveInstance: false,
     changeDossierNumber: false,

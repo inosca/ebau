@@ -53,9 +53,6 @@ export default {
   organisation: {
     department: true,
   },
-  submitComponent: {
-    requiredPermissions: null,
-  },
   workItems: {
     cancel: true,
     v2: true,
