@@ -5,7 +5,8 @@
 # bash.
 
 varnames=$1
-path=$2
+source_path=$2
+target_path=$3
 
 # Prefix each variable name with a dollar sign. This converts a value of
 # "FOO,BAR,BAZ" to "$FOO,$BAR,$BAZ" which is required for envsubst to work
@@ -18,7 +19,13 @@ for item in "$@"; do
   eval "echo \" - \$item: $item\""
 done
 
-for file in $(find $path -iname "*.js");
+# Force copy source files to the target folder to make sure the target folder
+# contains unprocessed files before replacing the variables.
+# The raw files (`$source_path`) are kept so we can change variables, restart
+# and have the new values in the processed files.
+cp -rf "$source_path/." "$target_path/"
+
+for file in $(find $target_path -iname "*.js");
 do
   tmpfile="/tmp/$(basename $file)"
   envsubst $variables < $file > $tmpfile;
