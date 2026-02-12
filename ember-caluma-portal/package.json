@@ -51,7 +51,7 @@
     "@ember/optional-features": "2.2.0",
     "@ember/render-modifiers": "3.0.0",
     "@ember/string": "4.0.0",
-    "@ember/test-helpers": "4.0.5",
+    "@ember/test-helpers": "5.4.1",
     "@embroider/macros": "1.16.12",
     "@faker-js/faker": "9.5.0",
     "@fortawesome/ember-fontawesome": "2.0.0",
