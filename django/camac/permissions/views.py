@@ -10,6 +10,7 @@ from rest_framework.views import APIView
 from rest_framework_json_api.views import ModelViewSet, ReadOnlyModelViewSet
 
 from camac.core import models as core_models
+from camac.core.utils import canton_aware
 from camac.instance import filters as instance_filters, models as instance_models
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.permissions.switcher import (
@@ -124,6 +125,12 @@ class InstanceACLViewset(InstanceQuerysetMixin, ModelViewSet):
             qs = self.get_queryset_for_coordination()
 
             return qs
+
+        elif settings.APPLICATION_NAME == "kt_schwyz" and role_name == "service":
+            # For SZ only: Allow owning service to see ACLs:
+            qs = self.get_queryset_for_service()
+
+            return qs.filter(instance__group__service=group.service)
 
         return models.InstanceACL.objects.none()
 
@@ -260,6 +267,13 @@ class AccessLevelViewset(ReadOnlyModelViewSet):
         return super().get_queryset()
 
     def get_queryset_for_coordination(self):
+        return super().get_queryset()
+
+    @canton_aware
+    def get_queryset_for_service(self):
+        return super().get_queryset().none()
+
+    def get_queryset_for_service_sz(self):
         return super().get_queryset()
 
 
