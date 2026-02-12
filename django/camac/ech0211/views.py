@@ -428,7 +428,7 @@ class ECHFileView(
             ),
         ],
         operation_summary="Download multiple files as ZIP archive",
-        operation_description=get_operation_description(),
+        operation_description=get_operation_description(is_preview=True),
         responses={
             status.HTTP_200_OK: openapi.Response(
                 "The requested file",
@@ -465,7 +465,10 @@ class ECHFileView(
             group_param,
         ],
         operation_summary="Download file",
-        operation_description=get_operation_description(),
+        operation_description=get_operation_description(
+            # This was here for alexandria cantons already, but for camac-ng it's "preview mode"
+            is_preview=settings.APPLICATION.get("DOCUMENT_BACKEND") == "camac-ng"
+        ),
         responses={
             status.HTTP_200_OK: openapi.Response(
                 "The requested file",
@@ -514,7 +517,10 @@ class ECHFileView(
             ),
         ],
         operation_summary="Upload file",
-        operation_description=get_operation_description(),
+        operation_description=get_operation_description(
+            # This was here for alexandria cantons already, but for camac-ng it's "preview mode"
+            is_preview=settings.APPLICATION.get("DOCUMENT_BACKEND") == "camac-ng"
+        ),
         responses={
             status.HTTP_201_CREATED: openapi.Response("File was successfully created"),
             status.HTTP_400_BAD_REQUEST: openapi.Response("Invalid request"),
@@ -553,7 +559,10 @@ class ECHFileView(
             group_param,
         ],
         operation_summary="Delete a file",
-        operation_description=get_operation_description(),
+        operation_description=get_operation_description(
+            # This was here for alexandria cantons already, but for camac-ng it's "preview mode"
+            is_preview=settings.APPLICATION.get("DOCUMENT_BACKEND") == "camac-ng"
+        ),
         auto_schema=conditional_factory(
             SwaggerAutoSchema, lambda: settings.ECH0211.get("API_LEVEL") == "full"
         ),
@@ -655,7 +664,7 @@ class ECHCategoryView(
         tags=["Documents and files for eCH-0211 clients"],
         manual_parameters=[group_param],
         operation_summary="Get list of accessible categories",
-        operation_description=get_operation_description(),
+        operation_description=get_operation_description(is_preview=True),
     )
     def list(self, request, *args, **kwargs):
         return super().list(request, *args, **kwargs)
@@ -752,7 +761,7 @@ class ECHDocumentView(
             ),
         ],
         operation_summary="List documents with their associated information",
-        operation_description=get_operation_description(),
+        operation_description=get_operation_description(is_preview=True),
     )
     def list(self, request, *args, **kwargs):
         return super().list(request, *args, **kwargs)
@@ -761,7 +770,7 @@ class ECHDocumentView(
         tags=["Documents and files for eCH-0211 clients"],
         manual_parameters=[group_param],
         operation_summary="Retrieve documents and associated information",
-        operation_description=get_operation_description(),
+        operation_description=get_operation_description(is_preview=True),
     )
     def retrieve(self, request, *args, **kwargs):
         return super().retrieve(request, *args, **kwargs)
