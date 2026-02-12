@@ -30,6 +30,9 @@ class Command(BaseCommand):
         savepoint = transaction.savepoint()
 
         instances = Instance.objects.all().order_by("pk")
+        # during the migration we manually trigger the deadline recalculation, so we disable the side effects to avoid unnecessary recalculations.
+        deadlines_models.InstanceDeadline.enable_side_effects = False
+
         for instance in tqdm(instances.iterator(), desc="Processing instances"):
             if verbosity >= 1:
                 log.info(f"> Processing instance {instance.pk} for deadline migration.")
