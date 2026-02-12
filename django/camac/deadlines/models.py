@@ -331,6 +331,11 @@ class Suspension(models.Model):
 
 
 class InstanceDeadline(models.Model):
+    # the side effects are enabled by default which will trigger recalculation on changing
+    # certain values on the deadline. Disabling this flag (e.g. during the migration) we
+    # prevent unnecessary recalculations.
+    enable_side_effects = True
+
     id = models.UUIDField(
         primary_key=True, default=uuid_extensions.uuid7, editable=False
     )
@@ -398,6 +403,9 @@ class InstanceDeadline(models.Model):
         )
 
     def save(self, *args, **kwargs):
+        if not self.enable_side_effects:  # pragma: no cover
+            return super().save(*args, **kwargs)
+
         # fetch the original, to compare which fields have changed,
         # because even a new object already has a UUIDv7 pk,
         # we need to use a try-except block to handle the case where the object does not
