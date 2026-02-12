@@ -165,7 +165,10 @@ class AlexandriaDocumentMixin:
             file_response = requests.get(file.pathFileName)
             try:
                 file_response.raise_for_status()
-            except Exception:
+            except Exception:  # pragma: todo cover
+                # FIXME: coverage here is missing (exception block), need to investigate
+                # The inner block raise_on_download_error) was never covered.
+
                 if raise_on_download_error:  # pragma: no cover
                     raise SendHandlerException(
                         f'File at "{file.pathFileName}" could not be downloaded.'

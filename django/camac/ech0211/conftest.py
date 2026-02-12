@@ -4,14 +4,21 @@ from collections import namedtuple
 from datetime import date, datetime
 
 import pytest
-from alexandria.core.factories import DocumentFactory, FileFactory, TagFactory
+from alexandria.core.factories import (
+    CategoryFactory,
+    DocumentFactory,
+    FileFactory,
+    TagFactory,
+)
 from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_form.models import DynamicOption
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 from django.core.management import call_command
 from lxml import etree
 
+from camac.document import permissions as document_permissions
 from camac.document.tests.data import django_file
+from camac.ech0211.models import ECH0211Document
 from camac.instance.domain_logic import CreateInstanceLogic
 from camac.instance.serializers import SUBMIT_DATE_FORMAT
 from camac.tests.data import so_personal_row_factory
@@ -500,3 +507,135 @@ def mock_remote_file(requests_mock):
         "https://dev.ebpzh.ch/this/is/a/temporary/download/link/myFile.pdf",
         content=django_file("multiple-pages.pdf").file.read(),
     )
+
+
+@pytest.fixture
+def set_document_backend(application_settings):
+    def do_it(backend):
+        assert backend in ["camac-ng", "alexandria"], (
+            f"Unrecognized document backend: '{backend}'"
+        )
+        application_settings["DOCUMENT_BACKEND"] = backend
+
+    return do_it
+
+
+@pytest.fixture
+def file_setup(
+    category_setup, instance_factory, instance, application_settings, attachment_factory
+):
+    def fn_camac():
+        visible_category, _, invisible_category = category_setup()
+
+        visible_file = attachment_factory(
+            name="foo.pdf", mime_type="application/pdf", instance=instance
+        )
+        visible_file.attachment_sections.add(visible_category)
+
+        invisible_file_category = attachment_factory(
+            instance=instance,
+        )
+        invisible_file_category.attachment_sections.add(invisible_category)
+
+        invisible_file_instance = attachment_factory(instance=instance_factory())
+        invisible_file_instance.attachment_sections.add(visible_category)
+
+        # Since we're dealing with the ech0211 File API, and that one will deal
+        # with ECH0211Document, we need to turn the attachments into that model
+        # instead -- which has a pseudo-composite primary key (att_id-cat_id)
+
+        return (
+            ECH0211Document.from_attachment(visible_file),
+            ECH0211Document.from_attachment(invisible_file_category),
+            ECH0211Document.from_attachment(invisible_file_instance),
+        )
+
+    def fn_alexandria():
+        visible_category, _, invisible_category = category_setup()
+        visible_file = FileFactory(
+            name="foo.pdf",
+            mime_type="application/pdf",
+            document__metainfo={"camac-instance-id": str(instance.pk)},
+            document__category=visible_category,
+        )
+        invisible_file_category = FileFactory(
+            document__metainfo={"camac-instance-id": str(instance.pk)},
+            document__category=invisible_category,
+        )
+        invisible_file_instance = FileFactory(
+            document__metainfo={"camac-instance-id": str(instance_factory().pk)},
+            document__category=visible_category,
+        )
+
+        return visible_file, invisible_file_category, invisible_file_instance
+
+    def run():
+        if application_settings["DOCUMENT_BACKEND"] == "camac-ng":
+            return fn_camac()
+        elif application_settings["DOCUMENT_BACKEND"] == "alexandria":
+            return fn_alexandria()
+
+    return run
+
+
+@pytest.fixture
+def category_setup(db, application_settings, attachment_section_factory):
+    def fn_alexandria():
+        visible_category = CategoryFactory(
+            metainfo={"access": {"Municipality": {"visibility": "all"}}}
+        )
+        uploadable_category = CategoryFactory(
+            metainfo={
+                "access": {
+                    "Municipality": {
+                        "visibility": "all",
+                        "permissions": [{"permission": "create"}],
+                    }
+                }
+            }
+        )
+        invisible_category = CategoryFactory(
+            metainfo={"access": {"Support": {"visibility": "all"}}}
+        )
+
+        return visible_category, uploadable_category, invisible_category
+
+    def fn_camac():
+        perms = document_permissions.PERMISSIONS[application_settings["SHORT_NAME"]]
+        perms.setdefault("municipality", {})
+
+        visible_category = attachment_section_factory()
+        perms["municipality"].setdefault(document_permissions.ReadPermission, [])
+        perms["municipality"][document_permissions.ReadPermission].append(
+            visible_category.pk
+        )
+
+        uploadable_category = attachment_section_factory()
+        perms["municipality"].setdefault(document_permissions.AdminPermission, [])
+        perms["municipality"][document_permissions.AdminPermission].append(
+            uploadable_category.pk
+        )
+
+        invisible_category = attachment_section_factory()
+
+        return visible_category, uploadable_category, invisible_category
+
+    def run():
+        if application_settings["DOCUMENT_BACKEND"] == "camac-ng":
+            return fn_camac()
+        elif application_settings["DOCUMENT_BACKEND"] == "alexandria":
+            return fn_alexandria()
+
+    return run
+
+
+@pytest.fixture()
+def disable_alexandria_features(settings):
+    """Disable Alexandria's additional features.
+
+    We're not testing them here, so disable them for speed and simplicity
+    of setup.
+    """
+    settings.ALEXANDRIA_ENABLE_CHECKSUM = False
+    settings.ALEXANDRIA_ENABLE_CONTENT_SEARCH = False
+    settings.ALEXANDRIA_ENABLE_THUMBNAIL_GENERATION = False

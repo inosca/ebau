@@ -9,6 +9,7 @@ from datetime import date, timedelta
 from importlib import import_module, reload
 from pathlib import Path
 
+import django.db
 import faker
 import pyexcel
 import pytest
@@ -3334,6 +3335,57 @@ def fake_request(rf, admin_user, group):
     request.group = group
 
     return request
+
+
+@pytest.fixture(scope="session", autouse=True)
+def setup_sql_views(django_db_setup, django_db_blocker):
+    """
+    Set up the SQL views as needed.
+
+    SQL views can simplify accessing complex data behind a complex query.
+    For this to work, you need to add the corresponding DB migration to
+    settings.SQL_VIEW_MIGRATIONS.
+
+    Note: Such migrations may not have any other operations defined than
+    to create a VIEW, as otherwise, stuff will break
+    """
+
+    for module, migration in settings.SQL_VIEW_MIGRATIONS:
+        migration_mod = import_module(f"camac.{module}.migrations.{migration}")
+        with django_db_blocker.unblock():
+            for op in migration_mod.Migration.operations:
+                try:
+                    cursor = django.db.connection.cursor()
+                    cursor.execute(op.sql)
+                except django.db.utils.ProgrammingError as exc:  # pragma: no cover
+                    # This setup might run after DB was already created.
+                    # Therefore the VIEW might already exist, which is OK (And
+                    # we don't wanna mess with the SQL to add a IF NOT EXISTS
+                    # or similar
+                    if "already exists" not in str(exc.args):
+                        raise
+
+
+@pytest.fixture
+def set_document_backend(application_settings):
+    """
+    Set the document backend to the desired module.
+
+    Needs to be either "camac-ng" or "alexandria".
+
+    Example:
+    >>> def test_something(set_document_backend, ...):
+    ...     set_document_backend('camac-ng')
+    ...     assert something
+    """
+
+    def do_it(backend):
+        assert backend in ["camac-ng", "alexandria"], (
+            f"Unrecognized document backend: '{backend}'"
+        )
+        application_settings["DOCUMENT_BACKEND"] = backend
+
+    return do_it
 
 
 @pytest.fixture(autouse=True, scope="function")

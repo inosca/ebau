@@ -142,7 +142,9 @@ def test_accompanying_report_event_handler(
     service_factory,
     set_application_be,
     user,
+    set_document_backend,
 ):
+    set_document_backend("camac-ng")
     inviting_service = service_factory()
     parent_service = service_factory()
     parent_group = group_factory(service=parent_service)
@@ -232,7 +234,9 @@ def test_task_event_handler_stellungnahme(
     instance_state_factory,
     service_factory,
     set_application_be,
+    set_document_backend,
 ):
+    set_document_backend("camac-ng")
     asection_gesuch = attachment_section_factory(pk=ATTACHMENT_SECTION_BEILAGEN_GESUCH)
     attachment_attachment_section_factory(
         attachment__instance=ech_instance_be, attachmentsection=asection_gesuch
@@ -310,7 +314,9 @@ def test_file_subsequently_signal(
     ech_instance_be,
     be_ech0211_settings,
     ech_snapshot,
+    set_document_backend,
 ):
+    set_document_backend("camac-ng")
     file_subsequently.send(
         sender=None, instance=ech_instance_be, user_pk=None, group_pk=None
     )
@@ -348,8 +354,9 @@ def test_accompanying_report_event_handler_alexandria(
     mocker,
     application_settings,
     freezer,
+    set_document_backend,
 ):
-    application_settings["DOCUMENT_BACKEND"] = "alexandria"
+    set_document_backend("alexandria")
 
     mocker.patch(
         "camac.instance.models.Instance.responsible_service", return_value=service

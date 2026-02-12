@@ -1110,8 +1110,8 @@ APPLICATIONS = {
                             "template_slug": "create-manual-work-item",
                             "recipient_types": ["work_item_addressed"],
                         },
-                        "condition": lambda work_item: should_notify_on_manual_workitems(
-                            work_item
+                        "condition": lambda work_item: (
+                            should_notify_on_manual_workitems(work_item)
                         ),
                     }
                 ],
@@ -1151,9 +1151,9 @@ APPLICATIONS = {
                 },
                 {
                     "TASK": "sb2",
-                    "DOCUMENT": lambda work_item: work_item.case.work_items.get(
-                        task_id="sb1"
-                    ).document,
+                    "DOCUMENT": lambda work_item: (
+                        work_item.case.work_items.get(task_id="sb1").document
+                    ),
                     "SOURCE": "personalien-sb1-sb2",
                     "TARGET": "personalien-sb1-sb2",
                     "FALLBACK": None,
@@ -2524,8 +2524,8 @@ APPLICATIONS = {
                             "template_slug": "create-manual-work-item",
                             "recipient_types": ["work_item_addressed"],
                         },
-                        "condition": lambda work_item: should_notify_on_manual_workitems(
-                            work_item
+                        "condition": lambda work_item: (
+                            should_notify_on_manual_workitems(work_item)
                         ),
                     },
                     {
@@ -4004,3 +4004,8 @@ KEYCLOAK_ALLOWED_CLIENTS = [
 DISABLE_MAGIC_BYTE_CHECK_FOR_MIME_TYPES = env.list(
     "DISABLE_MAGIC_BYTE_CHECK_FOR_MIME_TYPES", default=[]
 )
+
+SQL_VIEW_MIGRATIONS = [
+    # Tuples of (module, migration name)
+    ("ech0211", "0003_document_model_views"),
+]

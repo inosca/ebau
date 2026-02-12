@@ -384,6 +384,18 @@ ECH0211 = {
                 },
             },
         },
+        "ALLOWED_CATEGORIES": [
+            # TODO this needs to be configured fully and correctly
+            # once we migrate to Alexandria.
+            "beteiligte-behörden",
+            "intern",
+        ],
+        "ALLOWED_ATTACHMENT_SECTIONS": [
+            # TODO this needs to be configured fully and correctly. This is
+            # for now "just" an assumption
+            "2",  # Beteiligte Behörden
+            "4",  # Intern
+        ],
     },
     "kt_gr": {
         "ENABLED": True,

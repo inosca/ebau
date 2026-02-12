@@ -166,7 +166,8 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
             ):
                 raise exceptions.ValidationError(
                     _("Insufficent permissions to add file to section '%(section)s'.")
-                    % {"section": attachment_section.get_name()}
+                    % {"section": attachment_section.get_name()},
+                    code="disallowed-attachment-section",
                 )
 
         if self.instance:

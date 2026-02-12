@@ -564,7 +564,9 @@ def test_task_send_handler(
     service_factory,
     set_application_be,
     caluma_work_item_factory,
+    set_document_backend,
 ):
+    set_document_backend("camac-ng")
     notification_template_factory(slug="03-verfahrensablauf-fachstelle")
 
     state = instance_state_factory(name="circulation")
@@ -790,6 +792,7 @@ def test_task_send_claim_handler(
     test_case,
     success,
     access_level,
+    mock_request_get,
 ):
     mocker.patch(
         "camac.ech0211.send_handlers.has_alexandria_create_permission",

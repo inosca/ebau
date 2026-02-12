@@ -1,0 +1,331 @@
+from functools import singledispatch
+from io import StringIO
+
+import pytest
+from alexandria.core.models import File
+from django.urls import reverse
+from rest_framework import status
+from syrupy.filters import paths
+
+from camac.document import permissions
+from camac.ech0211.models import ECH0211Document
+from camac.utils import get_dict_item
+
+
+@singledispatch
+def iter_all_objects(val, prefix=""):
+    yield val, prefix
+
+
+@iter_all_objects.register
+def iter_all_objects_dict(val: dict, prefix=""):
+    yield val, prefix
+    for k, v in val.items():
+        yield from iter_all_objects(v, f"{prefix}.{k}")
+
+
+@iter_all_objects.register
+def iter_all_objects_list(val: list, prefix=""):
+    yield val, prefix
+    for i, v in enumerate(val):
+        yield from iter_all_objects(v, f"{prefix}[{i}]")
+
+
+@pytest.mark.freeze_time("2025-11-22")
+@pytest.mark.parametrize("document_backend", ["alexandria", "camac-ng"])
+@pytest.mark.parametrize("role__name", ["municipality-lead"])
+def test_document_details(
+    settings,
+    admin_client,
+    document_backend,
+    alexandria_document_factory,
+    alexandria_file_factory,
+    alexandria_category_factory,
+    be_instance,
+    attachment_factory,
+    admin_user,
+    instance_acl_factory,
+    be_permissions_settings,
+    be_access_levels,
+    attachment_section_factory,
+    set_document_backend,
+    be_alexandria_settings,
+    disable_alexandria_features,
+    role,
+    mocker,
+    snapshot,
+):
+    set_document_backend(document_backend)
+
+    camac_cat = attachment_section_factory(description="foo")
+
+    # We're only testing the view's data structure here, the visibilities
+    # are tested in test_document_visibilities.py
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS",
+        {"test": {role.name.lower(): {permissions.AdminPermission: [camac_cat.pk]}}},
+    )
+
+    alexandria_category_factory(
+        slug="intern",
+        metainfo={
+            "access": {
+                "service": {"visibility": "service"},
+                "municipality": {"visibility": "service"},
+            }
+        },
+    )
+
+    user_service = admin_user.get_default_group().service
+
+    instance_acl_factory(
+        instance=be_instance,
+        service=user_service,
+        access_level_id="lead-authority",
+        grant_type="SERVICE",
+    )
+
+    camac_attachment = attachment_factory(
+        instance=be_instance,
+        user=admin_client.user,
+        group=admin_client.user.get_default_group(),
+        size=5,
+    )
+    alexandria_doc = alexandria_document_factory(
+        category_id="intern",
+        metainfo={"camac-instance-id": be_instance.pk},
+        created_by_user=admin_client.user.pk,
+        created_by_group=user_service.pk,
+    )
+
+    # we want the attachment / document to have a file, so the test
+    # represents that aspect as well
+    camac_attachment.path.save("test.txt", StringIO("hello"), save=True)
+
+    a_file = alexandria_file_factory(
+        document=alexandria_doc, variant=File.Variant.ORIGINAL, size=5
+    )
+    a_file.content.save("test.txt", StringIO("hello"), save=True)
+
+    camac_attachment.attachment_sections.set([camac_cat])
+
+    docs = {
+        "alexandria": alexandria_doc,
+        "camac-ng": ECH0211Document.from_attachment(camac_attachment),
+    }
+
+    expected_pk = docs[document_backend].pk
+
+    url = reverse("ech-document-detail", args=[expected_pk])
+    ech_resp = admin_client.get(url, {"include": "category"})
+
+    ech_doc = ech_resp.json()
+    assert ech_resp.status_code == status.HTTP_200_OK, ech_doc
+
+    def _t(expected_type):
+        def require_type(val, key):
+            assert isinstance(val, expected_type), (
+                f"Check '{key}' for backend {document_backend}: "
+                f"expected type {expected_type} but got {type(val)}"
+            )
+
+        return require_type
+
+    def _v(expected_value):
+        def require_value(val, key):
+            assert val == expected_value, (
+                f"Check '{key}' for backend {document_backend}: "
+                f"expected value {expected_value} but got {val}"
+            )
+
+        return require_value
+
+    seen_items = set()
+    # We use the snapshot test to verify the full value of the returned
+    # data - but we ensure that the structure exactly matches our expectations
+    # explicitly
+    checks = {
+        "data": _t(dict),
+        "data.id": _v(str(expected_pk)),
+        "data.attributes": _t(dict),
+        "data.attributes.title": _t(str),
+        "data.attributes.description": _t(str | None),
+        "data.attributes.created-at": _t(str),
+        "data.attributes.mime-type": _t(str),
+        "data.attributes.download-url": _t(str),
+        "data.attributes.size": _v(5),
+        "data.relationships": _t(dict),
+        "data.relationships.category": _t(dict),
+        "data.relationships.category.data.type": _v("ech0211-document-categories"),
+        "data.relationships.category.data.id": _t(str),
+        "data.relationships.instance": _t(dict),
+        "data.relationships.instance.data.type": _v("instances"),
+        "data.relationships.instance.data.id": _t(str),
+        "data.relationships.created-by-user": _t(dict),
+        "data.relationships.created-by-user.data.type": _v("users"),
+        "data.relationships.created-by-user.data.id": _t(str),
+        "data.relationships.created-by-service": _t(dict),
+        "data.relationships.created-by-service.data.type": _v("services"),
+        "data.relationships.created-by-service.data.id": _t(str),
+        "data.type": _v("ech0211-documents"),
+        "included": _t(list),
+        "included.0.id": _t(str),
+        "included.0.type": _v("ech0211-document-categories"),
+        "included.0.attributes.name": _t(str),
+        "included.0.attributes.full-name": _t(str),
+        "included.0.attributes.description": _t(str | None),
+        "included.0.relationships": _t(dict),
+        "included.0.relationships.parent.data": _v(None),
+    }
+    for path, check in checks.items():
+        val = get_dict_item(ech_doc, path, list_lookups=True, default=None)
+        check(val, path)
+        seen_items.add(id(val))
+
+    # we want *only* the expected attributes here, nothing else
+    for item, path in iter_all_objects(ech_doc):
+        # We do not fully check that all the intermediate dicts are part of the
+        # structure, therefore if it's a dict, and it's not in seen_items, we
+        # don't fail the test
+        assert id(item) in seen_items or isinstance(item, dict), (
+            f"{path} was not checked, api has more data than test expects"
+        )
+    # In the snapshot, we don't want to compare DB identifiers either. The
+    # Download URL also contains IDs as well as possible signatures, so can't
+    # snapshot these either
+    assert ech_doc == snapshot(
+        exclude=lambda prop, path: prop in ("id", "download-url")
+    )
+
+
+def test_alexandria_full_category_name(
+    settings,
+    admin_client,
+    alexandria_category_factory,
+    set_document_backend,
+    snapshot,
+    mocker,
+):
+    set_document_backend("alexandria")
+
+    mocker.patch(
+        "camac.alexandria.extensions.visibilities.CustomVisibility.filter_queryset_for_category",
+        side_effect=lambda queryset, request: queryset,
+    )
+
+    cat0, cat1, cat2 = alexandria_category_factory.create_batch(3)
+    subcat0, subcat1 = alexandria_category_factory.create_batch(2, parent=cat1)
+
+    url = reverse("ech-category-list")
+    cat_list_data = admin_client.get(url).json()
+
+    subcat0_data = next(c for c in cat_list_data["data"] if c["id"] == subcat0.pk)
+    subcat1_data = next(c for c in cat_list_data["data"] if c["id"] == subcat1.pk)
+
+    # Ensure proper hierarchical naming
+    assert subcat0_data["attributes"]["full-name"] == f"{cat1.name} › {subcat0.name}"
+    assert subcat1_data["attributes"]["full-name"] == f"{cat1.name} › {subcat1.name}"
+
+    subcat0_parent = subcat0_data["relationships"]["parent"]
+    subcat1_parent = subcat1_data["relationships"]["parent"]
+    assert subcat0_parent["data"]["type"] == "ech0211-document-categories"
+    assert subcat1_parent["data"]["type"] == "ech0211-document-categories"
+
+    assert sorted(cat_list_data["data"], key=lambda x: x["id"]) == snapshot
+
+
+@pytest.mark.parametrize("document_backend", ["camac-ng", "alexandria"])
+def test_category_list(
+    settings,
+    admin_client,
+    alexandria_category_factory,
+    set_document_backend,
+    category_setup,
+    document_backend,
+    snapshot,
+    mocker,
+):
+    set_document_backend(document_backend)
+
+    alexandria_visibility_fn = mocker.patch(
+        "camac.alexandria.extensions.visibilities.CustomVisibility.filter_queryset_for_category",
+        side_effect=lambda queryset, request: queryset,
+    )
+
+    camac_visibility_fn = mocker.patch(
+        "camac.document.models.AttachmentSectionQuerySet.filter_group",
+        side_effect=lambda self, *_: self,
+        autospec=True,
+    )
+
+    some_cat, *cats = category_setup()
+
+    view = reverse("ech-category-list")
+
+    resp = admin_client.get(view)
+    assert resp.status_code == status.HTTP_200_OK
+    assert resp.json() == snapshot(
+        exclude=paths(
+            "data.0.id",
+            "data.1.id",
+            "data.2.id",
+        )
+    )
+
+    # we've mocked the visibility functions / methods, but we still want to know
+    # if the view code calls them correctly
+    if document_backend == "camac-ng":
+        assert camac_visibility_fn.call_count == 1
+        assert alexandria_visibility_fn.call_count == 0
+    elif document_backend == "alexandria":
+        assert alexandria_visibility_fn.call_count == 1
+        assert camac_visibility_fn.call_count == 0
+
+
+@pytest.mark.freeze_time("2025-11-22")
+@pytest.mark.parametrize("role__name", ["municipality-lead"])
+@pytest.mark.parametrize("instance_state__name", ["subm"])
+@pytest.mark.parametrize("document_backend", ["camac-ng", "alexandria"])
+def test_document_create_forbidden(
+    db,
+    set_document_backend,
+    be_instance,
+    set_application_be,
+    admin_user,
+    admin_client,
+    document_backend,
+):
+    set_document_backend(document_backend)
+
+    user_group = admin_user.get_default_group()
+
+    data = {
+        "data": {
+            "type": "ech0211-documents",
+            "attributes": {
+                "name": "test.docx",
+                "mime-type": "application/zip",
+                "size": 1234,
+            },
+            "relationships": {
+                "instance": {"data": {"id": None, "type": "instances"}},
+                "category": {
+                    "data": {"id": None, "type": "ech0211-document-categories"}
+                },
+            },
+        }
+    }
+    url = reverse("ech-document-list")
+    resp = admin_client.post(url, data, headers={"x-camac-group": str(user_group.pk)})
+
+    assert resp.status_code == status.HTTP_405_METHOD_NOT_ALLOWED
+    assert resp.json() == {
+        "errors": [
+            {
+                "detail": 'Methode "POST" nicht erlaubt.',
+                "status": "405",
+                "source": {"pointer": "/data"},
+                "code": "method_not_allowed",
+            }
+        ]
+    }
