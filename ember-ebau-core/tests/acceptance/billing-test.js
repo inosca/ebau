@@ -13,12 +13,13 @@ import { clickTrigger } from "ember-power-select/test-support/helpers";
 import { module, test } from "qunit";
 
 import { setupApplicationTest } from "dummy/tests/helpers";
-import { setupFeatures } from "ember-ebau-core/test-support";
+import { setupFeatures, setupConfig } from "ember-ebau-core/test-support";
 
 module("Acceptance | billing", function (hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
   setupFeatures(hooks);
+  setupConfig(hooks);
 
   hooks.beforeEach(function () {
     this.features.disableAll();
@@ -93,16 +94,15 @@ module("Acceptance | billing", function (hooks) {
   });
 
   test("it can release billing entries for clearing", async function (assert) {
-    this.features.enable("billing.releaseForClearing.enabled");
-    this.features.enable("billing.charge.enabled");
-    this.features.set("billing.releaseForClearing.allowedForServiceGroups", [
-      this.serviceGroup.slug,
-    ]);
-    this.features.set(
-      "billing.releaseForClearing.subsequentChargeAllowedForServices",
-      [this.service.slug],
-    );
-    this.features.set("billing.releaseForClearing.forms", ["test-form"]);
+    this.features.enable("billing.releaseForClearing");
+    this.features.enable("billing.charge");
+    this.config.set("billing", {
+      releaseForClearing: {
+        allowedForServiceGroups: [this.serviceGroup.slug],
+        subsequentChargeAllowedForServices: [this.service.slug],
+        form: ["test-form"],
+      },
+    });
 
     this.server.createList("billing-v2-entry", 2, {
       group: this.group,

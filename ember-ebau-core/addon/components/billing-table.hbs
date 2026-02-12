@@ -50,7 +50,7 @@
       <th data-test-amount>{{t "billing.amount"}}</th>
       <th class="uk-text-right" data-test-final-rate>{{t "billing.total"}}</th>
       <th data-test-added>{{t "billing.created-at"}}</th>
-      {{#if (has-feature "billing.releaseForClearing.enabled")}}
+      {{#if (has-feature "billing.releaseForClearing")}}
         <th data-test-released-for-clearing>{{t
             "billing.released-for-clearing"
           }}</th>

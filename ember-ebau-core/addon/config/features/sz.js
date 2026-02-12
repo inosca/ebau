@@ -8,25 +8,7 @@ export default {
     billingType: false,
     legalBasis: false,
     costCenter: false,
-    // Keep this config in sync with django/camac/settings/modules/billing.py
-    releaseForClearing: {
-      enabled: true,
-      forms: [
-        "baugesuch-reklamegesuch",
-        "projektanderung",
-        "vorentscheid-gemass-ss84-pbg",
-        "technische-bewilligung",
-      ],
-      allowedForServiceGroups: ["baugesuchszentrale", "fachstellen"],
-      subsequentChargeAllowedForServices: [
-        "baugesuchszentrale",
-        "amfz-brandschutz",
-        "afg-wasserbau",
-        "afg-fischerei",
-        "afg-industrie-gewerbeabwasser",
-        "afg-entwaesserung",
-      ],
-    },
+    releaseForClearing: true,
     productNumber: true,
   },
   cases: {

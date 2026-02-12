@@ -40,7 +40,7 @@
     {{format-number @entry.finalRate minimumFractionDigits=2}}
   </td>
   <td data-test-entry-added>{{format-date @entry.dateAdded format="date"}}</td>
-  {{#if (has-feature "billing.releaseForClearing.enabled")}}
+  {{#if (has-feature "billing.releaseForClearing")}}
     <td data-test-entry-released-for-clearing>{{format-date
         @entry.releasedForClearing
         format="date"
