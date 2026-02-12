@@ -11867,15 +11867,6 @@
   },
   {
     "model": "core.irroleacl",
-    "pk": 1338,
-    "fields": {
-      "instance_resource": 66,
-      "role": 11,
-      "instance_state": 16
-    }
-  },
-  {
-    "model": "core.irroleacl",
     "pk": 1339,
     "fields": {
       "instance_resource": 66,
@@ -11998,15 +11989,6 @@
       "instance_resource": 66,
       "role": 3,
       "instance_state": 11
-    }
-  },
-  {
-    "model": "core.irroleacl",
-    "pk": 1353,
-    "fields": {
-      "instance_resource": 66,
-      "role": 3,
-      "instance_state": 16
     }
   },
   {
