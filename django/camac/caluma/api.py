@@ -82,24 +82,6 @@ class CalumaApi:
         except caluma_form_models.Answer.DoesNotExist:
             return None
 
-    def get_nfd_form_permissions(self, instance):
-        permissions = set()
-
-        answers = caluma_form_models.Answer.objects.filter(
-            question_id="nfd-tabelle-status",
-            document__family__form_id="nfd",
-            document__family__work_item__case__family__instance__pk=instance.pk,
-        )
-
-        if answers.exclude(value="nfd-tabelle-status-entwurf").exists():
-            permissions.add("read")  # pragma: no cover
-
-        if answers.filter(value="nfd-tabelle-status-in-bearbeitung").exists():
-            permissions.add("read")  # pragma: no cover
-            permissions.add("write")  # pragma: no cover
-
-        return permissions
-
     def copy_document(self, source_pk, exclude_form_slugs=None, meta=None, **kwargs):
         """Use to `copy()` function on a document and do some clean-up.
 
