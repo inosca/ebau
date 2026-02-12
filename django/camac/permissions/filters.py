@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db.models import Q
 from django.utils import timezone
 from django_filters.rest_framework import (
@@ -77,6 +78,18 @@ class AccessLevelFilterset(FilterSet):
         # Uri currently only allows "read" to be assigned by a municipality, trusted service or coordination
         qs = qs.filter(pk="read")
         return qs
+
+    @canton_aware
+    def filter_assignable_in_instance_rbac_for_service(self, qs, name, value):
+        # Services cannot see anything by default
+        return qs.none()
+
+    def filter_assignable_in_instance_rbac_for_service_sz(self, qs, name, value):
+        # Schwyz allows "are-service" to be assigned by an ARE service.
+        # Otherwise services cannot assign any access levels.
+        if self.request.group.service.slug in settings.APPLICATION["ARE_SERVICES"]:
+            return qs.filter(pk="are-service")
+        return qs.none()
 
 
 class InstanceACLFilterSet(FilterSet):

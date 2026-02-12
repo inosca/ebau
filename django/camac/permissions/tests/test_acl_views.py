@@ -299,6 +299,66 @@ def test_create_acl(
         assert result.status_code == status.HTTP_400_BAD_REQUEST
 
 
+@pytest.mark.parametrize("role__name", ["Service"])
+@pytest.mark.parametrize(
+    "is_are, is_lead, can_assign",
+    [
+        (False, False, False),
+        (True, False, False),
+        (True, True, True),
+    ],
+)
+@pytest.mark.django_db
+def test_create_are_acl_sz(
+    admin_client,
+    application_settings,
+    group,
+    instance_factory,
+    permissions_settings,
+    role,
+    service,
+    service_factory,
+    settings,
+    sz_access_levels,
+    # params
+    is_are,
+    is_lead,
+    can_assign,
+):
+    settings.APPLICATION_NAME = "kt_schwyz"
+    application_settings["SHORT_NAME"] = "sz"
+
+    service.slug = "foobar"
+    service.save()
+    application_settings["ARE_SERVICES"] = [service.slug] if is_are else []
+
+    access_level = AccessLevel.objects.get(pk="are-service")
+    instance = instance_factory(**({"group": group} if is_lead else {}))
+    target_service = service_factory()
+
+    url = reverse("instance-acls-list")
+    post_data = {
+        "data": {
+            "type": "instance-acls",
+            "attributes": {"grant-type": "SERVICE"},
+            "relationships": {
+                "instance": {"data": {"type": "instances", "id": instance.pk}},
+                "service": {
+                    "data": {"type": "public-services", "id": target_service.pk}
+                },
+                "access-level": {
+                    "data": {"type": "access-levels", "id": access_level.pk}
+                },
+            },
+        },
+    }
+    response = admin_client.post(url, post_data)
+    if can_assign:
+        assert response.status_code == status.HTTP_201_CREATED
+    else:
+        assert response.status_code == status.HTTP_400_BAD_REQUEST
+
+
 @pytest.mark.parametrize(
     "role__name,access_level_slug",
     [
@@ -615,6 +675,7 @@ def test_get_access_levels_sz(
         ("ur", True, "read", "OFF", "Municipality", 1),
         ("ur", True, "read", "OFF", "TrustedService", 1),
         ("ur", True, "read", "OFF", "Coordination", 1),
+        ("ur", True, "read", "OFF", "Service", 0),
     ],
 )
 @pytest.mark.django_db
@@ -681,6 +742,48 @@ def test_assignable_filter(
 
     resp_data = resp.json()
     assert len(resp_data["data"]) == expect_results
+
+
+@pytest.mark.parametrize("role__name", ["Service"])
+@pytest.mark.parametrize(
+    "is_are, expect_are_service_permission_level",
+    [
+        (False, False),
+        (True, True),
+    ],
+)
+@pytest.mark.django_db
+def test_assignable_filter_for_sz_service(
+    admin_client,
+    application_settings,
+    group,
+    instance_factory,
+    role,
+    service,
+    settings,
+    sz_access_levels,
+    # params
+    is_are,
+    expect_are_service_permission_level,
+):
+    settings.APPLICATION_NAME = "kt_schwyz"
+    application_settings["SHORT_NAME"] = "sz"
+    service.slug = "foobar"
+    service.save()
+    application_settings["ARE_SERVICES"] = [service.slug] if is_are else []
+
+    instance = instance_factory(group=group)
+
+    url = reverse("access-levels-list")
+    resp = admin_client.get(url, {"assignable_in_instance": instance.pk})
+    assert resp.status_code == status.HTTP_200_OK
+
+    resp_data = resp.json()
+    if expect_are_service_permission_level:
+        assert len(resp_data["data"]) == 1
+        assert resp_data["data"][0]["id"] == "are-service"
+    else:
+        assert len(resp_data["data"]) == 0
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
