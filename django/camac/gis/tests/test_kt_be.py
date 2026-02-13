@@ -111,7 +111,7 @@ def test_be_client(
         "emptygis",
     ],
 )
-@pytest.mark.vcr()
+@pytest.mark.vcr(allow_playback_repeats=True)
 def test_be_client_error(
     db,
     admin_client,
@@ -122,6 +122,7 @@ def test_be_client_error(
     settings,
 ):
     settings.BE_GIS_ENABLE_QUEUE = False
+    cache.clear()
 
     response = admin_client.get(
         reverse("gis-data"),
