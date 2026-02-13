@@ -31,4 +31,24 @@ export default {
   attachmentSections: {
     internal: 7,
   },
+  // Keep this config in sync with django/camac/settings/modules/billing.py
+  billing: {
+    releaseForClearing: {
+      forms: [
+        "baugesuch-reklamegesuch",
+        "projektanderung",
+        "vorentscheid-gemass-ss84-pbg",
+        "technische-bewilligung",
+      ],
+      allowedForServiceGroups: ["baugesuchszentrale", "fachstellen"],
+      subsequentChargeAllowedForServices: [
+        "baugesuchszentrale",
+        "amfz-brandschutz",
+        "afg-wasserbau",
+        "afg-fischerei",
+        "afg-industrie-gewerbeabwasser",
+        "afg-entwaesserung",
+      ],
+    },
+  },
 };

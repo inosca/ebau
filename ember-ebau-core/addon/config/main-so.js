@@ -1,3 +1,5 @@
+import { removeVersion } from "ember-ebau-core/utils/form-filters";
+
 const config = {
   name: "so",
   languages: ["de"],
@@ -160,6 +162,15 @@ const config = {
     instanceStates: ["construction-monitoring", "finished"],
   },
   showDownloadReceiptAction: true,
+  submitComponent: {
+    requiredPermissions: ["instance-submit"],
+    export: {
+      enabled: (instance) =>
+        !instance.isPaper &&
+        removeVersion(instance.calumaForm) !== "voranfrage",
+      templateName: () => `signatures`,
+    },
+  },
 };
 
 config.intentSlugs = [config.answerSlugs.description];

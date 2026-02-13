@@ -131,4 +131,7 @@ export default {
     allowedInstanceStates: ["comm", "circ", "done", "control"],
   },
   trustedServiceRole: 4,
+  submitComponent: {
+    requiredPermissions: ["instance-submit"],
+  },
 };

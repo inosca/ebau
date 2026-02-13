@@ -26,9 +26,6 @@ export default {
     useColorForNFD: true,
   },
   watermark: isDevelopingApp() || getOwnConfig().enableWatermark,
-  submitComponent: {
-    requiredPermissions: ["instance-submit"],
-  },
   changeGeometer: {
     enabled: false,
   },

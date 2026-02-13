@@ -249,4 +249,14 @@ export default {
       void: "void",
     },
   },
+  submitComponent: {
+    requiredPermissions: ["instance-submit"],
+    buttonHintEnabled: (session) => session.isSupport,
+    export: {
+      enabled: (instance) => !instance.isPaper,
+      templateName: () => `form`,
+      errorMessage: "dms.downloadError",
+      customFormSlugs: ["sb1", "sb1-v2", "sb2"],
+    },
+  },
 };

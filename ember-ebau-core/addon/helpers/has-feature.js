@@ -20,7 +20,7 @@ export function hasFeature(name) {
     return ["true", "1"].includes(value.toLowerCase());
   }
 
-  return value;
+  return Boolean(value);
 }
 
 export default helper(([name]) => hasFeature(name));

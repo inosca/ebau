@@ -39,7 +39,7 @@ export default class BillingV2EntryAbility extends Ability {
   */
   async canReleaseForClearing() {
     const form = await this.instance.form;
-    const settings = hasFeature("billing.releaseForClearing");
+    const settings = mainConfig.billing.releaseForClearing;
     const billingEntries =
       this.model ??
       this.store
@@ -48,7 +48,7 @@ export default class BillingV2EntryAbility extends Ability {
 
     if (
       !billingEntries.length ||
-      !settings.enabled ||
+      !hasFeature("billing.releaseForClearing") ||
       (settings.forms && !settings.forms.includes(removeVersion(form.name)))
     ) {
       return false;
