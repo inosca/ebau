@@ -129,36 +129,36 @@ class BeGisClient(GISBaseClient):
     ):
         exception_messages = set()
 
-        # Keep executor outside of loop to reuse threads
+        # The executor is the throttle for max parallel requests via `max_workers`
         with concurrent.futures.ThreadPoolExecutor(max_workers=batch_size) as executor:
-            for i in range(0, len(egrids), batch_size):
-                batch = egrids[i : i + batch_size]
-                futures = []
-                for egrid in batch:
-                    futures.append(
-                        executor.submit(
-                            self.get_url_data,
-                            egrid=egrid,
-                            service_code=service_code,
-                            boolean_layers=boolean_layers,
-                            special_layers=special_layers,
-                        )
+            futures = {
+                executor.submit(
+                    self.get_url_data,
+                    egrid=egrid,
+                    service_code=service_code,
+                    boolean_layers=boolean_layers,
+                    special_layers=special_layers,
+                ): egrid
+                for egrid in egrids
+            }
+
+            for future in concurrent.futures.as_completed(futures):
+                egrid = futures[future]
+                try:
+                    response = future.result()
+                    xml_data, et = self.get_xml_data(response)
+                    new_data = self.get_data_from_xml(
+                        service_code=service_code,
+                        boolean_layers=boolean_layers,
+                        special_layers=special_layers,
+                        layers_dict=layers_dict,
+                        xml_data=xml_data,
+                        et=et,
                     )
-                for future in concurrent.futures.as_completed(futures):
-                    try:
-                        response = future.result()
-                        xml_data, et = self.get_xml_data(response)
-                        new_data = self.get_data_from_xml(
-                            service_code=service_code,
-                            boolean_layers=boolean_layers,
-                            special_layers=special_layers,
-                            layers_dict=layers_dict,
-                            xml_data=xml_data,
-                            et=et,
-                        )
-                        self.merge_data_dict(data, new_data, special_layers)
-                    except RuntimeError as e:  # pragma: no cover
-                        exception_messages.add(str(e))
+                    self.merge_data_dict(data, new_data, special_layers)
+
+                except RuntimeError as e:
+                    exception_messages.add(f"Error for {egrid}: {str(e)}")
 
         if exception_messages:  # pragma: no cover
             # We raise a single RuntimeError per GIS datasource;
