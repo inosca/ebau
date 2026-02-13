@@ -175,7 +175,7 @@ class BeGisClient(GISBaseClient):
         if exception_messages:  # pragma: no cover
             # We raise a single RuntimeError per GIS datasource;
             # it includes unique error messages
-            raise RuntimeError("/n".join(exception_messages))
+            raise RuntimeError("\n".join(exception_messages))
 
         return data
 
