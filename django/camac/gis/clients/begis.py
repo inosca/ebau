@@ -17,17 +17,24 @@ logger = logging.getLogger(__name__)
 
 class BeGisClient(GISBaseClient):
     required_params = ["egrids"]
-    is_queue_enabled = settings.BE_GIS_ENABLE_QUEUE
-    batch_size = settings.GIS_REQUESTS_BATCH_SIZE
-    retries = Retry(
-        total=3,
-        backoff_factor=1,
-        status_forcelist=[429, 500, 502, 503, 504],
-        raise_on_status=False,
-    )
+
+    @classmethod
+    def is_queue_enabled(cls):
+        return settings.BE_GIS_ENABLE_QUEUE
+
+    @property
+    def batch_size(self):
+        return settings.GIS_REQUESTS_BATCH_SIZE
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+
+        retries = Retry(
+            total=3,
+            backoff_factor=1,
+            status_forcelist=[429, 500, 502, 503, 504],
+            raise_on_status=True,
+        )
 
         self.session: requests.Session = requests.Session()
         self.session.mount(
@@ -35,7 +42,7 @@ class BeGisClient(GISBaseClient):
             HTTPAdapter(
                 pool_connections=self.batch_size,
                 pool_maxsize=self.batch_size,
-                max_retries=self.retries,
+                max_retries=retries,
             ),
         )
         self.base_url = settings.GIS_BASE_URL
@@ -84,16 +91,16 @@ class BeGisClient(GISBaseClient):
         try:
             polygon = root.find(".//gml:Polygon", root.nsmap)
             polygon_to_string = etree.tostring(polygon, encoding="unicode")
-            cache.set(egrid, polygon_to_string, 60)
             return polygon_to_string
 
         except (SyntaxError, TypeError) as e:
             raise ValueError("No polygon found") from e
 
     def get_url_data(self, egrid, service_code, boolean_layers, special_layers):
-        polygon = cache.get(egrid) or self.get_polygon(
-            egrid
-        )  # checking if polygon already retrieved
+        polygon = cache.get_or_set(
+            egrid, default=lambda: self.get_polygon(egrid), timeout=60
+        )
+
         query = self.get_query(service_code, boolean_layers, special_layers, polygon)
         payload = self.get_feature_xml(service_code, query)
         try:
