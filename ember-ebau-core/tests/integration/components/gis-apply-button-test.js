@@ -3,6 +3,7 @@ import { hbs } from "ember-cli-htmlbars";
 import { setupMirage } from "ember-cli-mirage/test-support";
 import { t } from "ember-intl/test-support";
 import { module, test } from "qunit";
+import { fake } from "sinon";
 
 import { setupRenderingTest } from "dummy/tests/helpers";
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
@@ -31,7 +32,12 @@ module("Integration | Component | gis-apply-button", function (hooks) {
       this.document = {
         findField() {
           return {
-            answer: { value: null },
+            save: {
+              perform: () => fake(),
+            },
+            answer: {
+              value: null,
+            },
             refreshAnswer: {
               linked: () => ({
                 perform: () => assert.step("refresh-answer"),
