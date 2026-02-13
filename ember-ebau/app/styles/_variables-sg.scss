@@ -25,7 +25,7 @@ $global-link-hover-color: $sg-olivgreen;
 // Watermark
 $watermark-background-color: $global-danger-background;
 
-// Buttons
+// Button default
 $button-default-color: $global-primary-background;
 $button-default-border: $global-primary-background;
 $button-default-hover-border: $global-primary-background;
@@ -33,7 +33,23 @@ $button-default-hover-background: color.adjust(
   $global-primary-background,
   $alpha: -0.95
 );
+$button-default-active-border: $global-primary-background;
+$button-default-active-background: color.adjust(
+  $global-primary-background,
+  $alpha: -0.9
+);
+
+// Button primary
 $button-primary-hover-background: color.adjust(
   $global-primary-background,
   $alpha: -0.25
 );
+$button-primary-active-background: color.adjust(
+  $global-primary-background,
+  $alpha: -0.2
+);
+
+// Ember-power-select
+$ember-power-select-trigger-icon-color: $global-muted-color;
+$ember-power-select-selected-background: $global-primary-background;
+$ember-power-select-highlighted-background: $global-secondary-background;

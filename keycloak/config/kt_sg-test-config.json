@@ -1601,8 +1601,9 @@
             "consentRequired": false,
             "config": {
               "user.session.note": "clientHost",
-              "id.token.claim": "true",
               "introspection.token.claim": "true",
+              "userinfo.token.claim": "true",
+              "id.token.claim": "true",
               "access.token.claim": "true",
               "claim.name": "clientHost",
               "jsonType.label": "String"
@@ -1616,8 +1617,9 @@
             "consentRequired": false,
             "config": {
               "user.session.note": "client_id",
-              "id.token.claim": "true",
               "introspection.token.claim": "true",
+              "userinfo.token.claim": "true",
+              "id.token.claim": "true",
               "access.token.claim": "true",
               "claim.name": "client_id",
               "jsonType.label": "String"
@@ -1631,8 +1633,9 @@
             "consentRequired": false,
             "config": {
               "user.session.note": "clientAddress",
-              "id.token.claim": "true",
               "introspection.token.claim": "true",
+              "userinfo.token.claim": "true",
+              "id.token.claim": "true",
               "access.token.claim": "true",
               "claim.name": "clientAddress",
               "jsonType.label": "String"
@@ -2174,14 +2177,14 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
-              "saml-role-list-mapper",
               "oidc-sha256-pairwise-sub-mapper",
-              "saml-user-property-mapper",
               "oidc-usermodel-property-mapper",
-              "saml-user-attribute-mapper",
-              "oidc-usermodel-attribute-mapper",
               "oidc-full-name-mapper",
-              "oidc-address-mapper"
+              "oidc-address-mapper",
+              "saml-role-list-mapper",
+              "saml-user-property-mapper",
+              "saml-user-attribute-mapper",
+              "oidc-usermodel-attribute-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
           }
@@ -2205,14 +2208,14 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
-              "saml-role-list-mapper",
-              "oidc-full-name-mapper",
-              "saml-user-attribute-mapper",
-              "oidc-usermodel-attribute-mapper",
               "saml-user-property-mapper",
-              "oidc-sha256-pairwise-sub-mapper",
               "oidc-address-mapper",
-              "oidc-usermodel-property-mapper"
+              "oidc-usermodel-attribute-mapper",
+              "saml-user-attribute-mapper",
+              "oidc-usermodel-property-mapper",
+              "oidc-full-name-mapper",
+              "saml-role-list-mapper",
+              "oidc-sha256-pairwise-sub-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
           }
@@ -2963,7 +2966,7 @@
     "refreshTokenMaxReuse": 0,
     "accessTokenLifespan": 1800,
     "accessTokenLifespanForImplicitFlow": 1296000,
-    "ssoSessionIdleTimeout": 18000,
+    "ssoSessionIdleTimeout": 36000,
     "ssoSessionMaxLifespan": 36000,
     "ssoSessionIdleTimeoutRememberMe": 0,
     "ssoSessionMaxLifespanRememberMe": 0,
@@ -2990,7 +2993,7 @@
     "loginWithEmailAllowed": false,
     "duplicateEmailsAllowed": false,
     "resetPasswordAllowed": true,
-    "editUsernameAllowed": true,
+    "editUsernameAllowed": false,
     "bruteForceProtected": false,
     "permanentLockout": false,
     "maxTemporaryLockouts": 0,
@@ -5078,8 +5081,9 @@
             "consentRequired": false,
             "config": {
               "user.session.note": "clientAddress",
-              "id.token.claim": "true",
               "introspection.token.claim": "true",
+              "userinfo.token.claim": "true",
+              "id.token.claim": "true",
               "access.token.claim": "true",
               "claim.name": "clientAddress",
               "jsonType.label": "String"
@@ -5093,8 +5097,9 @@
             "consentRequired": false,
             "config": {
               "user.session.note": "client_id",
-              "id.token.claim": "true",
               "introspection.token.claim": "true",
+              "userinfo.token.claim": "true",
+              "id.token.claim": "true",
               "access.token.claim": "true",
               "claim.name": "client_id",
               "jsonType.label": "String"
@@ -5108,8 +5113,9 @@
             "consentRequired": false,
             "config": {
               "user.session.note": "clientHost",
-              "id.token.claim": "true",
               "introspection.token.claim": "true",
+              "userinfo.token.claim": "true",
+              "id.token.claim": "true",
               "access.token.claim": "true",
               "claim.name": "clientHost",
               "jsonType.label": "String"
@@ -5520,21 +5526,26 @@
       "strictTransportSecurity": "max-age=31536000; includeSubDomains"
     },
     "smtpServer": {
+      "allowutf8": "",
+      "debug": "false",
       "replyToDisplayName": "",
       "starttls": "false",
       "auth": "",
+      "writeTimeout": "10000",
+      "envelopeFrom": "",
+      "ssl": "false",
+      "timeout": "10000",
       "port": "1025",
       "host": "mailpit",
       "replyTo": "",
-      "from": "donotreply@example.com",
+      "from": "no-reply@example.com",
       "fromDisplayName": "",
-      "envelopeFrom": "",
-      "ssl": "false"
+      "connectionTimeout": "10000"
     },
-    "loginTheme": "kanton-gr-dev",
-    "accountTheme": "kanton-gr-dev",
+    "loginTheme": "",
+    "accountTheme": "",
     "adminTheme": "",
-    "emailTheme": "kanton-gr-dev",
+    "emailTheme": "",
     "eventsEnabled": false,
     "eventsListeners": ["jboss-logging"],
     "enabledEventTypes": [],
@@ -5552,14 +5563,14 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
-              "saml-user-attribute-mapper",
-              "oidc-sha256-pairwise-sub-mapper",
-              "saml-user-property-mapper",
-              "saml-role-list-mapper",
               "oidc-usermodel-property-mapper",
+              "saml-role-list-mapper",
+              "oidc-address-mapper",
+              "saml-user-property-mapper",
+              "oidc-sha256-pairwise-sub-mapper",
+              "saml-user-attribute-mapper",
               "oidc-full-name-mapper",
-              "oidc-usermodel-attribute-mapper",
-              "oidc-address-mapper"
+              "oidc-usermodel-attribute-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
           }
@@ -5629,14 +5640,14 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
-              "saml-user-attribute-mapper",
-              "oidc-full-name-mapper",
               "saml-user-property-mapper",
               "oidc-address-mapper",
+              "saml-user-attribute-mapper",
               "oidc-usermodel-property-mapper",
               "oidc-usermodel-attribute-mapper",
+              "oidc-sha256-pairwise-sub-mapper",
               "saml-role-list-mapper",
-              "oidc-sha256-pairwise-sub-mapper"
+              "oidc-full-name-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
           }
@@ -5710,8 +5721,7 @@
         }
       ]
     },
-    "internationalizationEnabled": true,
-    "supportedLocales": ["de", "it"],
+    "internationalizationEnabled": false,
     "defaultLocale": "de",
     "authenticationFlows": [
       {
@@ -5856,101 +5866,6 @@
             "priority": 30,
             "autheticatorFlow": true,
             "flowAlias": "forms",
-            "userSetupAllowed": false
-          }
-        ]
-      },
-      {
-        "id": "f8747951-48fa-409a-9b90-10e58f2e30bb",
-        "alias": "browser with SMS",
-        "description": "browser based authentication with 2FA via SMS",
-        "providerId": "basic-flow",
-        "topLevel": true,
-        "builtIn": false,
-        "authenticationExecutions": [
-          {
-            "authenticator": "auth-cookie",
-            "authenticatorFlow": false,
-            "requirement": "ALTERNATIVE",
-            "priority": 10,
-            "autheticatorFlow": false,
-            "userSetupAllowed": false
-          },
-          {
-            "authenticator": "auth-spnego",
-            "authenticatorFlow": false,
-            "requirement": "DISABLED",
-            "priority": 20,
-            "autheticatorFlow": false,
-            "userSetupAllowed": false
-          },
-          {
-            "authenticator": "identity-provider-redirector",
-            "authenticatorFlow": false,
-            "requirement": "ALTERNATIVE",
-            "priority": 25,
-            "autheticatorFlow": false,
-            "userSetupAllowed": false
-          },
-          {
-            "authenticatorFlow": true,
-            "requirement": "ALTERNATIVE",
-            "priority": 30,
-            "autheticatorFlow": true,
-            "flowAlias": "browser with SMS forms",
-            "userSetupAllowed": false
-          }
-        ]
-      },
-      {
-        "id": "1c2050e8-3154-4c0f-8aff-4bfc59dcac68",
-        "alias": "browser with SMS forms",
-        "description": "Username, password, otp and other auth forms.",
-        "providerId": "basic-flow",
-        "topLevel": false,
-        "builtIn": false,
-        "authenticationExecutions": [
-          {
-            "authenticator": "auth-username-password-form",
-            "authenticatorFlow": false,
-            "requirement": "REQUIRED",
-            "priority": 10,
-            "autheticatorFlow": false,
-            "userSetupAllowed": false
-          },
-          {
-            "authenticatorFlow": true,
-            "requirement": "CONDITIONAL",
-            "priority": 20,
-            "autheticatorFlow": true,
-            "flowAlias": "browser with SMS forms - auth-sms-form - Conditional",
-            "userSetupAllowed": false
-          }
-        ]
-      },
-      {
-        "id": "920a076a-1cc2-44b8-9016-a1af026787e8",
-        "alias": "browser with SMS forms - auth-sms-form - Conditional",
-        "description": "Flow to determine if the auth-sms-form authenticator should be used or not.",
-        "providerId": "basic-flow",
-        "topLevel": false,
-        "builtIn": false,
-        "authenticationExecutions": [
-          {
-            "authenticator": "conditional-user-configured",
-            "authenticatorFlow": false,
-            "requirement": "REQUIRED",
-            "priority": 10,
-            "autheticatorFlow": false,
-            "userSetupAllowed": false
-          },
-          {
-            "authenticatorConfig": "SMS auth",
-            "authenticator": "sms-authenticator",
-            "authenticatorFlow": false,
-            "requirement": "REQUIRED",
-            "priority": 11,
-            "autheticatorFlow": false,
             "userSetupAllowed": false
           }
         ]
@@ -6307,19 +6222,6 @@
     ],
     "authenticatorConfig": [
       {
-        "id": "0b825931-386f-4a2d-b275-78637cea61c5",
-        "alias": "SMS auth",
-        "config": {
-          "password": "j-KwNP4LC6S.Bb",
-          "senderId": "004199999999",
-          "simulation": "false",
-          "length": "6",
-          "senderNr": "004199999999",
-          "ttl": "300",
-          "username": "ktgr-ebbv"
-        }
-      },
-      {
         "id": "3a8fcc45-8de1-452a-84ef-79340bc01194",
         "alias": "create unique user config",
         "config": {
@@ -6439,7 +6341,10 @@
       "clientOfflineSessionMaxLifespan": "0",
       "oauth2DevicePollingInterval": "5",
       "clientSessionIdleTimeout": "0",
+      "actionTokenGeneratedByUserLifespan.verify-email": "",
+      "actionTokenGeneratedByUserLifespan.idp-verify-account-via-email": "",
       "clientOfflineSessionIdleTimeout": "0",
+      "actionTokenGeneratedByUserLifespan.execute-actions": "",
       "cibaInterval": "5",
       "realmReusableOtpCode": "false",
       "cibaExpiresIn": "120",
@@ -6448,7 +6353,10 @@
       "parRequestUriLifespan": "60",
       "clientSessionMaxLifespan": "0",
       "frontendUrl": "",
-      "acr.loa.map": "{}"
+      "acr.loa.map": "{}",
+      "shortVerificationUri": "",
+      "actionTokenGeneratedByUserLifespan.reset-credentials": "",
+      "darkMode": "true"
     },
     "keycloakVersion": "26.5.2",
     "userManagedAccessAllowed": false,
