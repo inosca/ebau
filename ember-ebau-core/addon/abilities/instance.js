@@ -100,7 +100,10 @@ export default class InstanceAbility extends Ability {
     }
 
     if (macroCondition(getOwnConfig().application === "sz")) {
-      return (this.model.meta?.editable || []).includes("form");
+      return (
+        (this.model.meta?.editable || []).includes("form") ||
+        (await this.permissions.hasAll(this.model.id, "form-write"))
+      );
     }
     return (this.model.meta?.permissions?.main || []).includes("write");
   }
