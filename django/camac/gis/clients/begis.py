@@ -7,6 +7,7 @@ import requests
 from django.conf import settings
 from django.core.cache import cache
 from lxml import etree
+from requests.adapters import HTTPAdapter, Retry
 
 from camac.gis.clients.base import GISBaseClient
 from camac.patches import safe_lxml_fromstring
@@ -17,11 +18,26 @@ logger = logging.getLogger(__name__)
 class BeGisClient(GISBaseClient):
     required_params = ["egrids"]
     is_queue_enabled = settings.BE_GIS_ENABLE_QUEUE
+    batch_size = settings.GIS_REQUESTS_BATCH_SIZE
+    retries = Retry(
+        total=3,
+        backoff_factor=1,
+        status_forcelist=[429, 500, 502, 503, 504],
+        raise_on_status=False,
+    )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         self.session: requests.Session = requests.Session()
+        self.session.mount(
+            "https://",
+            HTTPAdapter(
+                pool_connections=self.batch_size,
+                pool_maxsize=self.batch_size,
+                max_retries=self.retries,
+            ),
+        )
         self.base_url = settings.GIS_BASE_URL
 
     def get_root(self, response):
