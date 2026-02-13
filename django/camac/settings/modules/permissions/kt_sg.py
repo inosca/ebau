@@ -1,6 +1,7 @@
 from camac.permissions.conditions import (
     Always,
     HasApplicantRole,
+    HasRole,
     RequireInstanceState,
     RequireWorkItem,
 )
@@ -22,6 +23,11 @@ APPLICANT_WRITE = HasApplicantRole(["ADMIN", "EDITOR"])
 # 3. Role rules
 # 4. Other
 MODULE_FORM = STATES_ALL
+MODULE_HISTORY = STATES_ALL
+MODULE_JOURNAL = STATES_ALL
+MODULE_PERMISSIONS = STATES_ALL & HasRole(["municipality-lead"])
+MODULE_RESPONSIBLE = STATES_ALL
+MODULE_WORK_ITEMS = STATES_ALL
 
 MODULE_PORTAL_APPLICANTS = APPLICANT_ADMIN
 MODULE_PORTAL_DOCUMENTS_WRITE = RequireWorkItem("submit", "ready") & APPLICANT_WRITE
@@ -50,6 +56,16 @@ SG_PERMISSIONS_SETTINGS = {
         ],
         "lead-authority": [
             ("form-read", MODULE_FORM),
+            ("history-read", MODULE_HISTORY),
+            ("journal-read", MODULE_JOURNAL),
+            ("journal-write", MODULE_JOURNAL),
+            ("permissions-grant-read", MODULE_PERMISSIONS),
+            ("permissions-read", MODULE_PERMISSIONS),
+            ("permissions-read-any", MODULE_PERMISSIONS),
+            ("permissions-revoke-read", MODULE_PERMISSIONS),
+            ("responsible-read", MODULE_RESPONSIBLE),
+            ("responsible-write", MODULE_RESPONSIBLE),
+            ("work-items-read", MODULE_WORK_ITEMS),
         ],
         "read": [
             ("form-read", MODULE_FORM),

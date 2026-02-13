@@ -2704,3 +2704,15 @@ def ag_work_item_list_settings(settings, request):
         canton="kt_ag",
         disable=False,
     )
+
+
+@pytest.fixture
+def sg_work_item_list_settings(settings, request):
+    """Module-specific settings for work item list (canton SG)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="work_item_list",
+        canton="kt_sg",
+        disable=False,
+    )

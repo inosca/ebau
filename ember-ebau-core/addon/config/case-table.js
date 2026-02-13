@@ -13,6 +13,8 @@ if (macroCondition(getOwnConfig().application === "be")) {
   config = importSync("ember-ebau-core/config/case-table-so");
 } else if (macroCondition(getOwnConfig().application === "ag")) {
   config = importSync("ember-ebau-core/config/case-table-ag");
+} else if (macroCondition(getOwnConfig().application === "sg")) {
+  config = importSync("ember-ebau-core/config/case-table-sg");
 } else if (macroCondition(getOwnConfig().application === "test")) {
   config = importSync("ember-ebau-core/config/case-table-test");
 }
