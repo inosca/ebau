@@ -107,20 +107,17 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
         return { suggestion_for_instance: this.currentInstanceId };
       case "serviceGroup":
         return { service_group_name: filter.value, has_parent: false };
-      // TODO Kt. BE: It's not clear if we just will use the "showAllServices" config like in AG.
-      // So until we have clarified that with the customer the following lines are commented out.
-      //
-      // case "all":
-      //   return {
-      //     available_in_distribution_for_instance: this.currentInstanceId,
-      //   };
+      case "all":
+        return {
+          available_in_distribution_for_instance: this.currentInstanceId,
+        };
       default:
         console.error("unknown filter type: ", filter.type);
     }
   }
 
   async fetchTypedGroups(types, search) {
-    return await types.reduce(async (typed, type) => {
+    const result = await types.reduce(async (typed, type) => {
       let filters = this._getFilter(this.distribution.new.types[type]);
 
       if (macroCondition(getOwnConfig().application === "sz")) {
@@ -142,6 +139,14 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
 
       return { ...(await typed), [type]: result };
     }, Promise.resolve({}));
+
+    if (types.includes("all")) {
+      const { all, ...otherTypes } = result;
+      const excludedTypes = new Set(Object.values(otherTypes).flat());
+      result.all = all.filter((x) => !excludedTypes.has(x));
+    }
+
+    return result;
   }
 
   @cached
@@ -195,13 +200,10 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
         },
         new: {
           types: {
-            // TODO Kt. BE: It's not clear if we just will use the "showAllServices" config like in AG.
-            // So until we have clarified that with the customer the following lines are commented out.
-            //
-            // all: {
-            //   label: "distribution.all",
-            //   type: "all",
-            // },
+            all: {
+              label: "distribution.all",
+              type: "all",
+            },
             suggestions: {
               label: "caluma.distribution.new.suggestions",
               type: "suggestions",
@@ -226,10 +228,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
               type: "subservice",
             },
           },
-          // TODO Kt. BE: It's not clear if we just will use the "showAllServices" config like in AG.
-          // So until we have clarified that with the customer the following line is commented out.
-          //
-          // defaultTypes: ["all"],
+          defaultTypes: ["all"],
         },
         permissions,
         hooks,
