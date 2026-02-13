@@ -3372,4 +3372,19 @@ MASTER_DATA = {
             ),
         },
     },
+    "kt_sg": {
+        "ENABLED": True,
+        "CONFIG": {
+            "municipality_name": (
+                "answer",
+                "gemeinde",
+                {"value_parser": "dynamic_option", "prop": "label"},
+            ),
+            "municipality_slug": (
+                "answer",
+                "gemeinde",
+                {"value_parser": "dynamic_option", "prop": "slug"},
+            ),
+        },
+    },
 }

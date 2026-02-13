@@ -82,6 +82,7 @@ module.exports = function (environment) {
   };
   const instanceStatesSg = {
     new: 1,
+    subm: 2,
   };
   const appConfig = {
     demo: {
@@ -619,7 +620,7 @@ module.exports = function (environment) {
       supportGroups: [2],
       defaultInstanceStateCategory: "pending",
       instanceStateCategories: {
-        pending: [instanceStatesSg.new],
+        pending: [instanceStatesSg.new, instanceStatesSg.subm],
         decided: [],
         done: [],
       },

@@ -11,3 +11,15 @@ mutation CreateBuildingPermitWorkflow {
     clientMutationId
   }
 }
+
+mutation CreateFlow1 {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["submit"]
+      next: "['placeholder']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}

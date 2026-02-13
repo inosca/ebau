@@ -70,13 +70,16 @@ def work_item_list_row_factory(db, caluma_work_item_factory, service_factory, re
     ):
         master_data_case = request.getfixturevalue(f"{canton.lower()}_master_data_case")
 
-        request.getfixturevalue(f"{canton.lower()}_distribution_settings")
-        request.getfixturevalue(f"{canton.lower()}_work_item_list_settings")
-
-        try:
-            request.getfixturevalue(f"{canton.lower()}_deadlines_settings")
-        except pytest.FixtureLookupError:
-            pass
+        for module in [
+            "distribution",
+            "construction_monitoring",
+            "deadlines",
+            "work_item_list",
+        ]:
+            try:
+                request.getfixturevalue(f"{canton.lower()}_{module}_settings")
+            except pytest.FixtureLookupError:
+                pass
 
         addressed = addressed if addressed else service_factory()
         controlling = controlling if controlling else service_factory()

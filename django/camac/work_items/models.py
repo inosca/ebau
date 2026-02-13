@@ -448,40 +448,56 @@ class WorkItemListRowManager(models.Manager["WorkItemListRow"]):
     def _annotate_direct_link_models(self) -> JSONObject:
         """Annotate all needed properties to generate a direct link."""
 
-        INQUIRY_ANNOTATION = WorkItem.objects.filter(
-            Q(task_id=settings.DISTRIBUTION["INQUIRY_TASK"])
-            & Q(Q(pk=OuterRef("pk")) | Q(pk=OuterRef("case__parent_work_item")))
-        )
-        CONSTRUCTION_STEP_ANNOTATION = WorkItem.objects.filter(
-            Q(**{"meta__construction-step-id__isnull": False})
-            & Q(Q(pk=OuterRef("pk")) | Q(pk=OuterRef("case__parent_work_item")))
-        )
+        annotations = {}
+
+        if settings.DISTRIBUTION:
+            INQUIRY_ANNOTATION = WorkItem.objects.filter(
+                Q(task_id=settings.DISTRIBUTION["INQUIRY_TASK"])
+                & Q(Q(pk=OuterRef("pk")) | Q(pk=OuterRef("case__parent_work_item")))
+            )
+
+            annotations.update(
+                {
+                    "distribution_case_uuid": CalumaCase.objects.filter(
+                        Q(workflow_id=settings.DISTRIBUTION["DISTRIBUTION_WORKFLOW"])
+                        & Q(
+                            Q(pk=OuterRef("case"))
+                            | Q(pk=OuterRef("case__parent_work_item__case"))
+                        )
+                    ).values("pk")[:1],
+                    "inquiry_uuid": INQUIRY_ANNOTATION.values("pk")[:1],
+                    "inquiry_addressed": Cast(
+                        INQUIRY_ANNOTATION.values("addressed_groups__0")[:1],
+                        output_field=models.IntegerField(),
+                    ),
+                    "inquiry_controlling": Cast(
+                        INQUIRY_ANNOTATION.values("controlling_groups__0")[:1],
+                        output_field=models.IntegerField(),
+                    ),
+                }
+            )
+
+        if settings.CONSTRUCTION_MONITORING:
+            CONSTRUCTION_STEP_ANNOTATION = WorkItem.objects.filter(
+                Q(**{"meta__construction-step-id__isnull": False})
+                & Q(Q(pk=OuterRef("pk")) | Q(pk=OuterRef("case__parent_work_item")))
+            )
+
+            annotations.update(
+                {
+                    "construction_stage_uuid": CONSTRUCTION_STEP_ANNOTATION.values(
+                        "case__parent_work_item__pk"
+                    )[:1],
+                    "construction_step_id": CONSTRUCTION_STEP_ANNOTATION.values(
+                        "meta__construction-step-id"
+                    )[:1],
+                }
+            )
 
         return JSONObject(
             instance_id=F("instance_id"),
             task_slug=F("task_id"),
-            distribution_case_uuid=CalumaCase.objects.filter(
-                Q(workflow_id=settings.DISTRIBUTION["DISTRIBUTION_WORKFLOW"])
-                & Q(
-                    Q(pk=OuterRef("case"))
-                    | Q(pk=OuterRef("case__parent_work_item__case"))
-                )
-            ).values("pk")[:1],
-            inquiry_uuid=INQUIRY_ANNOTATION.values("pk")[:1],
-            inquiry_addressed=Cast(
-                INQUIRY_ANNOTATION.values("addressed_groups__0")[:1],
-                output_field=models.IntegerField(),
-            ),
-            inquiry_controlling=Cast(
-                INQUIRY_ANNOTATION.values("controlling_groups__0")[:1],
-                output_field=models.IntegerField(),
-            ),
-            construction_stage_uuid=CONSTRUCTION_STEP_ANNOTATION.values(
-                "case__parent_work_item__pk"
-            )[:1],
-            construction_step_id=CONSTRUCTION_STEP_ANNOTATION.values(
-                "meta__construction-step-id"
-            )[:1],
+            **annotations,
         )
 
     def _annotate_has_additional_demand(self) -> Coalesce | Value:

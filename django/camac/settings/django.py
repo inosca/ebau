@@ -3037,9 +3037,13 @@ APPLICATIONS = {
         "LINK_INSTANCES_ON_COPY": True,
         # Mapping between camac role and instance permission.
         "ROLE_PERMISSIONS": {
-            # TODO
             "applicant": "applicant",
             "support": "support",
+            "municipality-admin": "municipality",
+            "municipality-lead": "municipality",
+            "service-admin": "service",
+            "service-lead": "service",
+            "subservice": "service",
         },
         "ADMIN_GROUP": 1,
         "PORTAL_GROUP": 3,

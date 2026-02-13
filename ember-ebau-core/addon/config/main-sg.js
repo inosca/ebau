@@ -39,4 +39,8 @@ export default {
     emailRegexp: "^e-mail$",
   },
   intentSlugs: ["beschreibung-bauvorhaben"],
+  submitComponent: {
+    requiredPermissions: ["instance-submit"],
+    export: { enabled: () => false },
+  },
 };

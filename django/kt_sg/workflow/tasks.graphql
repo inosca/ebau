@@ -9,3 +9,16 @@ mutation CreateSubmitTask {
     clientMutationId
   }
 }
+
+mutation CreatePlaceholderTask {
+  saveSimpleTask(
+    input: {
+      slug: "placeholder"
+      name: "Platzhalter Aufgabe"
+      addressGroups: "[\"municipality\"]|groups"
+      leadTime: 864000 # 10 days
+    }
+  ) {
+    clientMutationId
+  }
+}

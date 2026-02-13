@@ -118,5 +118,11 @@ DJANGO_ADMIN = {
             "alert_message.AlertMessage",
         ],
     },
-    "kt_sg": {"ENABLED": True},
+    "kt_sg": {
+        "ENABLED": True,
+        "ENABLED_MODELS": [
+            "core.InstanceResource",
+            "core.Resource",
+        ],
+    },
 }

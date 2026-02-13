@@ -1785,6 +1785,7 @@ def test_instance_generate_identifier(
 ):
     application_settings["CALUMA"]["SAVE_DOSSIER_NUMBER_IN_CALUMA"] = use_caluma
     application_settings["SHORT_DOSSIER_NUMBER"] = short_dossier_number
+    application_settings["SHORT_NAME"] = "ur"
 
     elements = []
 

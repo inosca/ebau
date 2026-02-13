@@ -42,5 +42,49 @@
       "created_at": "2026-02-05T14:26:20.693Z",
       "created_by": 1
     }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 3,
+    "fields": {
+      "user": 1,
+      "group": 8,
+      "default_group": 0,
+      "created_at": "2026-02-13T11:28:34.431Z",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 4,
+    "fields": {
+      "user": 1,
+      "group": 9,
+      "default_group": 0,
+      "created_at": "2026-02-13T11:28:34.432Z",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 5,
+    "fields": {
+      "user": 1,
+      "group": 154,
+      "default_group": 0,
+      "created_at": "2026-02-13T11:28:34.432Z",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 6,
+    "fields": {
+      "user": 1,
+      "group": 155,
+      "default_group": 0,
+      "created_at": "2026-02-13T11:28:40.149Z",
+      "created_by": 1
+    }
   }
 ]

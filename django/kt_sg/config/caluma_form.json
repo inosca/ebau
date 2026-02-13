@@ -60,6 +60,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "einreichen",
+    "fields": {
+      "created_at": "2026-02-13T11:33:23.913Z",
+      "modified_at": "2026-02-13T11:40:19.498Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Einreichen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Baugesuch > Einreichen\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "grundstueckangaben",
     "fields": {
       "created_at": "2026-02-11T08:54:29.087Z",
@@ -199,7 +217,22 @@
       "modified_by_group": null,
       "form": "baugesuch",
       "question": "allgemeine-informationen",
-      "sort": 9
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch.einreichen",
+    "fields": {
+      "created_at": "2026-02-13T11:33:43.624Z",
+      "modified_at": "2026-02-13T11:33:43.624Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baugesuch",
+      "question": "einreichen",
+      "sort": 1
     }
   },
   {
@@ -214,6 +247,21 @@
       "modified_by_group": null,
       "form": "bauvorhaben",
       "question": "beschreibung-bauvorhaben",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "einreichen.einreichen-button",
+    "fields": {
+      "created_at": "2026-02-13T11:34:57.893Z",
+      "modified_at": "2026-02-13T11:34:57.893Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "einreichen",
+      "question": "einreichen-button",
       "sort": 1
     }
   },
@@ -594,6 +642,23 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "einreichen-button-eingereicht",
+    "fields": {
+      "created_at": "2026-02-13T11:34:57.811Z",
+      "modified_at": "2026-02-13T11:34:57.811Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Eingereicht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "is-paper-no",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -887,6 +952,72 @@
         "min_length": null
       },
       "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "einreichen",
+    "fields": {
+      "created_at": "2026-02-13T11:33:43.580Z",
+      "modified_at": "2026-02-13T11:33:43.580Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Einreichen\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "einreichen",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "einreichen-button",
+    "fields": {
+      "created_at": "2026-02-13T11:34:57.852Z",
+      "modified_at": "2026-02-13T11:51:19.995Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Einreichen\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "action": "submit",
+        "hideLabel": true,
+        "widgetOverride": "submit-instance"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -1743,6 +1874,21 @@
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "einreichen-button.einreichen-button-eingereicht",
+    "fields": {
+      "created_at": "2026-02-13T11:51:20Z",
+      "modified_at": "2026-02-13T11:51:20Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "einreichen-button",
+      "option": "einreichen-button-eingereicht",
+      "sort": 1
     }
   },
   {

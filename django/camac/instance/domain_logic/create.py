@@ -162,7 +162,11 @@ class CreateInstanceLogic:
 
     @classmethod
     @canton_aware
-    def generate_identifier(
+    def generate_identifier(cls, instance: Instance, year: int = None, **kwargs) -> str:
+        return generate_dossier_nr(instance, year or timezone.now().year)
+
+    @classmethod
+    def generate_identifier_ur(
         cls,
         instance: Instance,
         year: int = None,
@@ -170,7 +174,7 @@ class CreateInstanceLogic:
         seq_zero_padding: int = 3,
     ) -> str:
         """
-        Build identifier for instance.
+        Build identifier for Kt. Uri instance.
 
         Format for normal forms:
         two last digits of communal location number
@@ -284,16 +288,6 @@ class CreateInstanceLogic:
                 )
 
         return identifier
-
-    @classmethod
-    def generate_identifier_gr(cls, instance: Instance, year: int = None) -> str:
-        return generate_dossier_nr(instance, year or timezone.now().year)
-
-    @classmethod
-    def generate_identifier_ag(
-        cls, instance: Instance, year: int = None
-    ) -> str:  # pragma: no cover
-        return generate_dossier_nr(instance, year or timezone.now().year)
 
     @classmethod
     def generate_identifier_so(cls, instance: Instance, year: int = None) -> str:
