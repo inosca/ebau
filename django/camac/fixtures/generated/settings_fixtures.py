@@ -1759,6 +1759,18 @@ def ag_master_data_settings(settings, request):
 
 
 @pytest.fixture
+def sg_master_data_settings(settings, request):
+    """Module-specific settings for master data (canton SG)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="master_data",
+        canton="kt_sg",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def parashift_settings(settings, request):
     """Module-specific settings for parashift (default)."""
     return generate_module_settings(
@@ -1910,6 +1922,18 @@ def ur_permissions_settings(settings, request):
         request=request,
         module_name="permissions",
         canton="kt_uri",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def sg_permissions_settings(settings, request):
+    """Module-specific settings for permissions (canton SG)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="permissions",
+        canton="kt_sg",
         disable=False,
     )
 

@@ -39,6 +39,7 @@ def ech_instance_sz(
     caluma_work_item_factory,
     location,
     form_utils: FormUtils,
+    set_application_sz,
 ):
     ech_instance = instance_with_case(ech_instance)
     ech_instance.instance_group = instance_group

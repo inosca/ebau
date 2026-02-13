@@ -672,11 +672,11 @@
   				<ns1:planningPermissionApplicationIdentification>
   					<ns1:localID>
   						<ns3:IdCategory>eBauNr</ns3:IdCategory>
-  						<ns3:Id>TEST-8403-22-001</ns3:Id>
+  						<ns3:Id>TEST-03-22-001</ns3:Id>
   					</ns1:localID>
   					<ns1:otherID>
   						<ns3:IdCategory>eBauNr</ns3:IdCategory>
-  						<ns3:Id>TEST-8403-22-001</ns3:Id>
+  						<ns3:Id>TEST-03-22-001</ns3:Id>
   					</ns1:otherID>
   					<ns1:dossierIdentification><!-- INSTANCE_ID --></ns1:dossierIdentification>
   				</ns1:planningPermissionApplicationIdentification>

@@ -8,4 +8,7 @@ export default {
   workItems: {
     v2: true,
   },
+  instanceOverview: {
+    useSpecialId: true,
+  },
 };
