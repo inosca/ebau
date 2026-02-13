@@ -96,7 +96,10 @@
     >{{@message.body}}</p>
 
     {{#unless this.collapsed}}
-      <Communication::FileList @files={{@message.attachments}} />
+      <Communication::FileList
+        @files={{@message.attachments}}
+        @message={{@message}}
+      />
 
       {{#if this.isExpandable}}
         <div class="uk-flex uk-flex-right uk-flex-middle">

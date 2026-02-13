@@ -1,6 +1,7 @@
 <div class="communications-message-input" ...attributes>
   <Communication::FileList
     @files={{union @message.filesToSave @message.documentAttachmentsToSave}}
+    @message={{@message}}
     @removeFile={{fn this.remove "filesToSave"}}
     @removeAttachment={{fn this.remove "documentAttachmentsToSave"}}
   />
@@ -34,7 +35,7 @@
       @onValidationError={{this.onValidationError}}
     >
       <:content>
-        {{#if (can "link attachments on message")}}
+        {{#if (await (can "link attachments on message" @message))}}
           <p>
             {{t "communications.new.linkFile"}}
             <a href="" data-test-select-files>{{t

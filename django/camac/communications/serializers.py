@@ -17,9 +17,10 @@ from rest_framework.exceptions import PermissionDenied, ValidationError
 from rest_framework_json_api import relations, serializers
 
 from camac.alexandria.extensions.common import has_alexandria_create_permission
-from camac.document import models as document_models
+from camac.document import models as document_models, permissions
 from camac.instance.models import Instance
 from camac.instance.views import InstanceView
+from camac.permissions.api import PermissionManager
 from camac.user import models as user_models
 from camac.user.permissions import get_role_name
 from camac.user.relations import CurrentUserResourceRelatedField
@@ -565,13 +566,21 @@ class ConvertToDocumentSerializer(CommunicationsAttachmentSerializer):
     @transaction.atomic()
     def update(self, instance, validated_data):
         if settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng":
+            request = self.context["request"]
             section = validated_data["section"]
+            manager = PermissionManager.from_request(request)
+            section_permissions = permissions.SectionPermissions(manager)
+            if not section_permissions.can_write(
+                section, None, request.group, instance.message.topic.instance
+            ):
+                raise PermissionDenied()
+
             doc_attachment = document_models.Attachment.objects.create(
                 name=instance.filename,
                 instance=instance.message.topic.instance,
-                user=self.context["request"].user,
-                service=self.context["request"].group.service,
-                group=self.context["request"].group,
+                user=request.user,
+                service=request.group.service,
+                group=request.group,
                 context={"copied-from-communications-attachment": str(instance.pk)},
                 size=instance.file_attachment.size,
                 date=timezone.localtime(),
