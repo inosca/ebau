@@ -2311,7 +2311,7 @@
       "hidden": 0,
       "sort": 6,
       "form_group": 1,
-      "require_permission": "documents-read"
+      "require_permission": "documents-view"
     }
   },
   {
@@ -2327,7 +2327,7 @@
       "hidden": 0,
       "sort": 4,
       "form_group": 1,
-      "require_permission": "form-read"
+      "require_permission": "form-view"
     }
   },
   {
