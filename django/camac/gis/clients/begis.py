@@ -129,12 +129,11 @@ class BeGisClient(GISBaseClient):
     ):
         exception_messages = set()
 
-        for i in range(0, len(egrids), batch_size):
-            batch = egrids[i : i + batch_size]
-            futures = []
-            with concurrent.futures.ThreadPoolExecutor(
-                max_workers=batch_size
-            ) as executor:
+        # Keep executor outside of loop to reuse threads
+        with concurrent.futures.ThreadPoolExecutor(max_workers=batch_size) as executor:
+            for i in range(0, len(egrids), batch_size):
+                batch = egrids[i : i + batch_size]
+                futures = []
                 for egrid in batch:
                     futures.append(
                         executor.submit(
