@@ -20,4 +20,14 @@ SERVICE = {
             "service-bab": ["service-admin", "service-lead"],
         },
     },
+    "kt_sg": {
+        "ENABLED": True,
+        "CREATE_GROUPS_IN_ADMIN": True,
+        "UPDATE_GROUP_NAME_IN_ADMIN": True,
+        "ROLES_FOR_SERVICE_GROUP": {
+            "municipality": ["municipality-admin", "municipality-lead"],
+            "coordination": ["service-admin", "service-lead"],
+            "service": ["service-admin", "service-lead"],
+        },
+    },
 }

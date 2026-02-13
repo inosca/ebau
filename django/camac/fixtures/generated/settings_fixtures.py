@@ -2431,6 +2431,18 @@ def so_service_settings(settings, request):
 
 
 @pytest.fixture
+def sg_service_settings(settings, request):
+    """Module-specific settings for service (canton SG)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="service",
+        canton="kt_sg",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def user_settings(settings, request):
     """Module-specific settings for user (default)."""
     return generate_module_settings(

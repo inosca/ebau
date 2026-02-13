@@ -131,6 +131,33 @@ def get_type_map(canton):
                 6: "Gemeinde",
             },
         }
+    elif canton == "kt_sg":
+        return {
+            "SERVICE_GROUP": {
+                1: ServiceGroup.objects.get(name="municipality"),
+                2: ServiceGroup.objects.get(name="coordination"),
+                3: ServiceGroup.objects.get(name="service"),
+            },
+            "ROLE": {
+                1: {
+                    "admin": Role.objects.get(name="municipality-admin"),
+                    "lead": Role.objects.get(name="municipality-lead"),
+                },
+                2: {
+                    "admin": Role.objects.get(name="service-admin"),
+                    "lead": Role.objects.get(name="service-lead"),
+                },
+                3: {
+                    "admin": Role.objects.get(name="service-admin"),
+                    "lead": Role.objects.get(name="service-lead"),
+                },
+            },
+            "PREFIX": {
+                1: "Gemeinde",
+                2: None,
+                3: None,
+            },
+        }
 
     return {}
 
@@ -150,6 +177,11 @@ def get_group_types(canton):
             "clerk": "Sachbearbeitung",
             "admin": "Administration",
             "read": "Einsichtsberechtigte",
+        }
+    elif canton == "kt_sg":
+        return {
+            "admin": "Administration",
+            "lead": "Sachbearbeitung",
         }
 
     return {}
