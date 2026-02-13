@@ -21,7 +21,7 @@ class CustomPermission:
         return resolve(request.get_full_path_info()).view_name
 
     @permission_for(Template)
-    def has_permission_template(self, request):
+    def has_permission_template(self, request, action=None):
         # skip to object permissions when it's delete or merge
         if (
             request.method == "DELETE"
@@ -47,7 +47,7 @@ class CustomPermission:
         return meta.get("service") in service_data.get("service_ids", [])
 
     @object_permission_for(Template)
-    def has_object_permission_template(self, request, template=None):
+    def has_object_permission_template(self, request, template=None, action=None):
         # Everyone can merge a template if it's visible
         if self.get_view_name(request) == "template-merge":
             return True
@@ -67,9 +67,7 @@ class CustomPermission:
         return template.meta.get("service") in service_data.get("service_ids", [])
 
     def _has_admin_permission_for_shared(
-        self,
-        service_data,
-        template_service_group_slug,
+        self, service_data, template_service_group_slug, **kwargs
     ):
         template_admin_config = DMS_SETTINGS.get(
             "SHARED_TEMPLATE_ADMIN_SERVICES_FOR_SERVICE_GROUP", {}
