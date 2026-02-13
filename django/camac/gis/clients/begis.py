@@ -58,7 +58,12 @@ class BeGisClient(GISBaseClient):
             "Request": "GetFeature",
             "typename": f"{settings.BE_GIS_POLYGON_SERVICE_CODE}:{settings.BE_GIS_POLYGON_LAYER_ID}",
             "count": 10,
-            "Filter": f'<ogc:Filter><ogc:PropertyIsEqualTo matchCase="true"><ogc:PropertyName>EGRID</ogc:PropertyName><ogc:Literal>{egrid}</ogc:Literal></ogc:PropertyIsEqualTo></ogc:Filter>',
+            "Filter": (
+                '<ogc:Filter><ogc:PropertyIsEqualTo matchCase="true">'
+                "<ogc:PropertyName>EGRID</ogc:PropertyName>"
+                f"<ogc:Literal>{egrid}</ogc:Literal></ogc:PropertyIsEqualTo>"
+                "</ogc:Filter>"
+            ),
         }
         full_url = urljoin(self.base_url, path)
         query_string = urlencode(params)
