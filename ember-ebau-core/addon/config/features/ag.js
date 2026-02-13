@@ -36,7 +36,7 @@ export default {
     changeForm: true,
     convertModification: false,
     correctForm: true,
-    withdrawInstance: true,
+    withdrawInstance: false,
   },
   internalCaseCreation: true,
   cases: {
