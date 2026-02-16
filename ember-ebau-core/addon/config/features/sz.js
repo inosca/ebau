@@ -30,4 +30,5 @@ export default {
   workItems: {
     v2: true,
   },
+  noInstanceService: true,
 };

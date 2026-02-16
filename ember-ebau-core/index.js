@@ -47,7 +47,6 @@ module.exports = {
           "application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
         // feature flags
         hasBuildingControl: ENV === "be",
-        useInstanceService: ENV !== "sz",
         enableAlexandriaOriginalDocumentFilename: ENV === "gr",
         // token exchange (this is not a regular feature flag because it differs
         // per environment in Kt. SO)

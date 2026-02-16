@@ -3,6 +3,7 @@ import { macroCondition, getOwnConfig } from "@embroider/macros";
 import { Ability } from "ember-can";
 
 import mainConfig from "ember-ebau-core/config/main";
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 
 export default class extends Ability {
   @service ebauModules;
@@ -17,13 +18,14 @@ export default class extends Ability {
   }
 
   get isActiveOrInvolvedLeadAuthority() {
-    if (macroCondition(getOwnConfig().useInstanceService)) {
+    if (hasFeature("noInstanceService")) {
       let instanceServices = this.model?.get("instance.services") ?? [];
       instanceServices = instanceServices.map((service) =>
         parseInt(service.id),
       );
       return instanceServices.includes(parseInt(this.ebauModules.serviceId));
     }
+
     return this.isActiveInstanceService;
   }
 
