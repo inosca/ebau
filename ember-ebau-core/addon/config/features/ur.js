@@ -30,4 +30,5 @@ export default {
     enabled: false,
   },
   support: true,
+  instancePaperFilterDefault: true,
 };
