@@ -7,6 +7,7 @@ import requests
 from django.conf import settings
 from django.core.cache import cache
 from lxml import etree
+from requests.adapters import HTTPAdapter, Retry
 
 from camac.gis.clients.base import GISBaseClient
 from camac.patches import safe_lxml_fromstring
@@ -16,12 +17,34 @@ logger = logging.getLogger(__name__)
 
 class BeGisClient(GISBaseClient):
     required_params = ["egrids"]
-    is_queue_enabled = settings.BE_GIS_ENABLE_QUEUE
+
+    @classmethod
+    def is_queue_enabled(cls):
+        return settings.BE_GIS_ENABLE_QUEUE
+
+    @property
+    def batch_size(self):
+        return settings.GIS_REQUESTS_BATCH_SIZE
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
+        retries = Retry(
+            total=3,
+            backoff_factor=1,
+            status_forcelist=[429, 500, 502, 503, 504],
+            raise_on_status=True,
+        )
+
         self.session: requests.Session = requests.Session()
+        self.session.mount(
+            "https://",
+            HTTPAdapter(
+                pool_connections=self.batch_size,
+                pool_maxsize=self.batch_size,
+                max_retries=retries,
+            ),
+        )
         self.base_url = settings.GIS_BASE_URL
 
     def get_root(self, response):
@@ -35,7 +58,12 @@ class BeGisClient(GISBaseClient):
             "Request": "GetFeature",
             "typename": f"{settings.BE_GIS_POLYGON_SERVICE_CODE}:{settings.BE_GIS_POLYGON_LAYER_ID}",
             "count": 10,
-            "Filter": f'<ogc:Filter><ogc:PropertyIsEqualTo matchCase="true"><ogc:PropertyName>EGRID</ogc:PropertyName><ogc:Literal>{egrid}</ogc:Literal></ogc:PropertyIsEqualTo></ogc:Filter>',
+            "Filter": (
+                '<ogc:Filter><ogc:PropertyIsEqualTo matchCase="true">'
+                "<ogc:PropertyName>EGRID</ogc:PropertyName>"
+                f"<ogc:Literal>{egrid}</ogc:Literal></ogc:PropertyIsEqualTo>"
+                "</ogc:Filter>"
+            ),
         }
         full_url = urljoin(self.base_url, path)
         query_string = urlencode(params)
@@ -68,16 +96,16 @@ class BeGisClient(GISBaseClient):
         try:
             polygon = root.find(".//gml:Polygon", root.nsmap)
             polygon_to_string = etree.tostring(polygon, encoding="unicode")
-            cache.set(egrid, polygon_to_string, 60)
             return polygon_to_string
 
         except (SyntaxError, TypeError) as e:
             raise ValueError("No polygon found") from e
 
     def get_url_data(self, egrid, service_code, boolean_layers, special_layers):
-        polygon = cache.get(egrid) or self.get_polygon(
-            egrid
-        )  # checking if polygon already retrieved
+        polygon = cache.get_or_set(
+            egrid, default=lambda: self.get_polygon(egrid), timeout=60
+        )
+
         query = self.get_query(service_code, boolean_layers, special_layers, polygon)
         payload = self.get_feature_xml(service_code, query)
         try:
@@ -113,42 +141,41 @@ class BeGisClient(GISBaseClient):
     ):
         exception_messages = set()
 
-        for i in range(0, len(egrids), batch_size):
-            batch = egrids[i : i + batch_size]
-            futures = []
-            with concurrent.futures.ThreadPoolExecutor(
-                max_workers=batch_size
-            ) as executor:
-                for egrid in batch:
-                    futures.append(
-                        executor.submit(
-                            self.get_url_data,
-                            egrid=egrid,
-                            service_code=service_code,
-                            boolean_layers=boolean_layers,
-                            special_layers=special_layers,
-                        )
+        # The executor is the throttle for max parallel requests via `max_workers`
+        with concurrent.futures.ThreadPoolExecutor(max_workers=batch_size) as executor:
+            futures = {
+                executor.submit(
+                    self.get_url_data,
+                    egrid=egrid,
+                    service_code=service_code,
+                    boolean_layers=boolean_layers,
+                    special_layers=special_layers,
+                ): egrid
+                for egrid in egrids
+            }
+
+            for future in concurrent.futures.as_completed(futures):
+                egrid = futures[future]
+                try:
+                    response = future.result()
+                    xml_data, et = self.get_xml_data(response)
+                    new_data = self.get_data_from_xml(
+                        service_code=service_code,
+                        boolean_layers=boolean_layers,
+                        special_layers=special_layers,
+                        layers_dict=layers_dict,
+                        xml_data=xml_data,
+                        et=et,
                     )
-                for future in concurrent.futures.as_completed(futures):
-                    try:
-                        response = future.result()
-                        xml_data, et = self.get_xml_data(response)
-                        new_data = self.get_data_from_xml(
-                            service_code=service_code,
-                            boolean_layers=boolean_layers,
-                            special_layers=special_layers,
-                            layers_dict=layers_dict,
-                            xml_data=xml_data,
-                            et=et,
-                        )
-                        self.merge_data_dict(data, new_data, special_layers)
-                    except RuntimeError as e:  # pragma: no cover
-                        exception_messages.add(str(e))
+                    self.merge_data_dict(data, new_data, special_layers)
+
+                except RuntimeError as e:  # pragma: no cover
+                    exception_messages.add(f"Error for {egrid}: {str(e)}")
 
         if exception_messages:  # pragma: no cover
             # We raise a single RuntimeError per GIS datasource;
             # it includes unique error messages
-            raise RuntimeError("/n".join(exception_messages))
+            raise RuntimeError("\n".join(exception_messages))
 
         return data
 
