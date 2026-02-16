@@ -44,6 +44,7 @@ export default {
   },
   instanceOverview: {
     useSpecialId: true,
+    hideActionDescription: true,
   },
   watermark: isDevelopingApp() || getOwnConfig().enableWatermark,
   municipalityLogo: true,
