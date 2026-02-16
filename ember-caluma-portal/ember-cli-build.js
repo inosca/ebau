@@ -28,7 +28,6 @@ module.exports = function (defaults) {
     "@embroider/macros": {
       setOwnConfig: {
         application: ENV,
-        enableInstanceSupport: ["be", "gr", "ag"].includes(ENV),
         instancePaperFilterDefault: ENV === "ur",
       },
       setConfig: {

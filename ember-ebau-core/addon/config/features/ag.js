@@ -68,4 +68,5 @@ export default {
   },
   support: true,
   staticFaq: true,
+  instanceSupport: true,
 };

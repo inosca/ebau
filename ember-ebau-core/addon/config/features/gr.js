@@ -57,4 +57,5 @@ export default {
   },
   support: true,
   showProfileLink: true,
+  instanceSupport: true,
 };
