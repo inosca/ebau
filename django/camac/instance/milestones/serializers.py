@@ -79,10 +79,12 @@ def _check_decision_answer(instance, answer_slug, question_slug):
 def _get_decision_work_item_closed_at(instance):
     work_item = list(
         filter(
-            lambda work_item: work_item.task_id == "decision"
-            and work_item.case == instance.case
-            and work_item.status == WorkItem.STATUS_COMPLETED
-            and work_item.closed_at is not None,
+            lambda work_item: (
+                work_item.task_id == "decision"
+                and work_item.case == instance.case
+                and work_item.status == WorkItem.STATUS_COMPLETED
+                and work_item.closed_at is not None
+            ),
             instance._all_work_items,
         )
     )[:1]
@@ -176,8 +178,8 @@ class UrMilestonesSerializer(MilestonesSerializer):
                         slug="start-circulation-new",
                         label=_("Start circulation"),
                         task="init-distribution",
-                        filter=lambda instance: _is_addressed_to_the_responsible_service(
-                            instance
+                        filter=lambda instance: (
+                            _is_addressed_to_the_responsible_service(instance)
                         ),
                         status=WorkItem.STATUS_COMPLETED,
                         field="closed_at",
@@ -187,7 +189,9 @@ class UrMilestonesSerializer(MilestonesSerializer):
                         label=_("Forwarding to KOOR"),
                         order_by="created_at",
                         limit=1,
-                        filter=lambda instance: _is_addressed_to_a_coordination_service(),
+                        filter=lambda instance: (
+                            _is_addressed_to_a_coordination_service()
+                        ),
                     ),
                     fields.WorkItemsField(
                         slug="distribution-completed",

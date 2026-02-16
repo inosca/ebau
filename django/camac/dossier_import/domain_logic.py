@@ -58,8 +58,9 @@ def delay_and_refresh(func):
 def perform_import(
     dossier_import: DossierImport,
     skip_existing=False,
-    notify_dossier_imported: Callable[[Dossier, DossierSummary], None] = lambda d,
-    m: None,
+    notify_dossier_imported: Callable[[Dossier, DossierSummary], None] = lambda d, m: (
+        None
+    ),
 ):
     return _do_perform_import(dossier_import, skip_existing, notify_dossier_imported)
 
@@ -76,8 +77,9 @@ def perform_import_celery(
 def _do_perform_import(
     dossier_import: DossierImport,
     skip_existing=False,
-    notify_dossier_imported: Callable[[Dossier, DossierSummary], None] = lambda d,
-    m: None,
+    notify_dossier_imported: Callable[[Dossier, DossierSummary], None] = lambda d, m: (
+        None
+    ),
 ):
     try:
         configured_writer_cls = import_string(settings.DOSSIER_IMPORT["WRITER_CLASS"])

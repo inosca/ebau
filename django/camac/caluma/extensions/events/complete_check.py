@@ -14,8 +14,9 @@ from camac.instance.models import InstanceState
 @on(post_create_work_item, raise_exception=True)
 @transaction.atomic
 @filter_events(
-    lambda work_item: work_item.task.slug == "reject"
-    and settings.APPLICATION_NAME == "kt_uri"
+    lambda work_item: (
+        work_item.task.slug == "reject" and settings.APPLICATION_NAME == "kt_uri"
+    )
 )
 def complete_rejection_work_item(sender, work_item, user, context=None, **kwargs):
     complete_check_work_item = work_item.case.work_items.filter(
@@ -47,8 +48,10 @@ def complete_rejection_work_item(sender, work_item, user, context=None, **kwargs
 @on(post_complete_work_item, raise_exception=True)
 @transaction.atomic
 @filter_events(
-    lambda work_item: work_item.task.slug == "complete-check"
-    and settings.APPLICATION_NAME == "kt_uri"
+    lambda work_item: (
+        work_item.task.slug == "complete-check"
+        and settings.APPLICATION_NAME == "kt_uri"
+    )
 )
 def convert_instance_ur(sender, work_item, user, context=None, **kwargs):
     requires_building_permit = False
@@ -87,8 +90,10 @@ def convert_instance_ur(sender, work_item, user, context=None, **kwargs):
 @on(post_complete_work_item, raise_exception=True)
 @transaction.atomic
 @filter_events(
-    lambda work_item: work_item.task.slug == "complete-check"
-    and settings.APPLICATION_NAME == "kt_uri"
+    lambda work_item: (
+        work_item.task.slug == "complete-check"
+        and settings.APPLICATION_NAME == "kt_uri"
+    )
 )
 def send_notification_after_complete_check(
     sender, work_item, user, context=None, **kwargs

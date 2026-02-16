@@ -8,8 +8,9 @@ from camac.notification.tasks import send_notification_for_publication
 
 @on(post_complete_work_item, raise_exception=True)
 @filter_events(
-    lambda work_item: work_item.task.slug
-    == settings.PUBLICATION.get("FILL_TASKS", {}).get("PUBLIC")
+    lambda work_item: (
+        work_item.task.slug == settings.PUBLICATION.get("FILL_TASKS", {}).get("PUBLIC")
+    )
 )
 @transaction.atomic
 def post_complete_publication(sender, work_item, user, context=None, **kwargs):

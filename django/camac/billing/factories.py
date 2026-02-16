@@ -65,12 +65,14 @@ class BillingV2CommonEntryFactory(DjangoModelFactory):
             lambda e: e.calculation == BillingV2Entry.CalculationModes.CALCULATION_FLAT
         )
         is_percentage = LazyAttribute(
-            lambda e: e.calculation
-            == BillingV2Entry.CalculationModes.CALCULATION_PERCENTAGE
+            lambda e: (
+                e.calculation == BillingV2Entry.CalculationModes.CALCULATION_PERCENTAGE
+            )
         )
         is_hourly = LazyAttribute(
-            lambda e: e.calculation
-            == BillingV2Entry.CalculationModes.CALCULATION_HOURLY
+            lambda e: (
+                e.calculation == BillingV2Entry.CalculationModes.CALCULATION_HOURLY
+            )
         )
         is_flat_or_percentage = LazyAttribute(lambda e: e.is_flat or e.is_percentage)
         is_tax_exempt = LazyAttribute(

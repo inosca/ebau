@@ -11,8 +11,9 @@ from .general import get_instance
 @on(post_create_work_item, raise_exception=True)
 @transaction.atomic
 @filter_events(
-    lambda work_item: work_item.task_id
-    == settings.REJECTION.get("WORK_ITEM", {}).get("TASK")
+    lambda work_item: (
+        work_item.task_id == settings.REJECTION.get("WORK_ITEM", {}).get("TASK")
+    )
 )
 def post_create_reject_work_item(sender, work_item, user, context, **kwargs):
     get_instance(work_item, context).set_instance_state(

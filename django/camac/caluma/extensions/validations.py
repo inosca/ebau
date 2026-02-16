@@ -109,19 +109,21 @@ class CustomValidation(BaseValidation):
             case = data["document"].work_item.case.family
 
             deadline_rows = filter(
-                lambda row: row.answers.filter(
-                    Q(
-                        question_id=settings.APPEAL["QUESTIONS"]["AUTHORITY"],
-                        value=settings.APPEAL["ANSWERS"]["AUTHORITY"][
-                            "LEGAL_DEPARTEMENT"
-                        ],
-                    )
-                    | Q(
-                        question_id=settings.APPEAL["QUESTIONS"]["TYPE"],
-                        value=settings.APPEAL["ANSWERS"]["TYPE"]["DEADLINE"],
-                    )
-                ).count()
-                == 2,
+                lambda row: (
+                    row.answers.filter(
+                        Q(
+                            question_id=settings.APPEAL["QUESTIONS"]["AUTHORITY"],
+                            value=settings.APPEAL["ANSWERS"]["AUTHORITY"][
+                                "LEGAL_DEPARTEMENT"
+                            ],
+                        )
+                        | Q(
+                            question_id=settings.APPEAL["QUESTIONS"]["TYPE"],
+                            value=settings.APPEAL["ANSWERS"]["TYPE"]["DEADLINE"],
+                        )
+                    ).count()
+                    == 2
+                ),
                 data["documents"],
             )
 

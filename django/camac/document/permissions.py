@@ -533,8 +533,8 @@ LOOSEN_FILTERS = {
     "kt_bern": lambda request: Q(
         context__isDecision=True, instance__involved_applicants__invitee=request.user
     ),
-    "kt_uri": lambda request: (
-        Q(context__isDecision=True, instance__involved_applicants__invitee=request.user)
+    "kt_uri": lambda request: Q(
+        context__isDecision=True, instance__involved_applicants__invitee=request.user
     ),
     # in test mode, we don't want to complicate the setup, so we don't enforce
     # user to be invitee

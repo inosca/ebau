@@ -24,8 +24,9 @@ def filter_by_tasks(task_ids):
 def filter_by_additional_demand_task(settings_key):
     """Filter events by the additional demand task slug defined in settings."""
     return filter_events(
-        lambda work_item: work_item.task.slug
-        == settings.ADDITIONAL_DEMAND.get(settings_key)
+        lambda work_item: (
+            work_item.task.slug == settings.ADDITIONAL_DEMAND.get(settings_key)
+        )
     )
 
 
@@ -171,9 +172,11 @@ def post_complete_fill_additional_demand(
 @on(post_create_work_item, raise_exception=True)
 @filter_by_tasks(["fill-publication"])
 @filter_events(
-    lambda: settings.DEADLINES
-    and settings.DEADLINES.enabled
-    and settings.APPLICATION_NAME == "kt_gr"
+    lambda: (
+        settings.DEADLINES
+        and settings.DEADLINES.enabled
+        and settings.APPLICATION_NAME == "kt_gr"
+    )
 )
 @transaction.atomic
 def post_create_publication(sender, work_item, user, context=None, **kwargs):
@@ -191,9 +194,11 @@ def post_create_publication(sender, work_item, user, context=None, **kwargs):
 @on(post_complete_work_item, raise_exception=True)
 @filter_by_tasks(["fill-publication", "formal-exam"])
 @filter_events(
-    lambda: settings.DEADLINES
-    and settings.DEADLINES.enabled
-    and settings.APPLICATION_NAME == "kt_gr"
+    lambda: (
+        settings.DEADLINES
+        and settings.DEADLINES.enabled
+        and settings.APPLICATION_NAME == "kt_gr"
+    )
 )
 @transaction.atomic
 def post_complete_publication_or_formal_exam(
@@ -214,9 +219,11 @@ def post_complete_publication_or_formal_exam(
 @on(post_redo_work_item, raise_exception=True)
 @filter_by_distribution_task("INQUIRY_TASK")
 @filter_events(
-    lambda: settings.DEADLINES
-    and settings.DEADLINES.enabled
-    and settings.APPLICATION_NAME == "kt_ag"
+    lambda: (
+        settings.DEADLINES
+        and settings.DEADLINES.enabled
+        and settings.APPLICATION_NAME == "kt_ag"
+    )
 )
 @transaction.atomic
 def post_redo_inquiry_ag(sender, work_item, user, context=None, **kwargs):
@@ -324,9 +331,11 @@ def post_create_inquiry(sender, work_item, user, context=None, **kwargs):
 @on(post_complete_work_item, raise_exception=True)
 @filter_by_distribution_task("INQUIRY_ANSWER_FILL_TASK")
 @filter_events(
-    lambda: settings.DEADLINES
-    and settings.DEADLINES.enabled
-    and settings.APPLICATION_NAME == "kt_ag"
+    lambda: (
+        settings.DEADLINES
+        and settings.DEADLINES.enabled
+        and settings.APPLICATION_NAME == "kt_ag"
+    )
 )
 @transaction.atomic
 def post_complete_inquiry_fill_ag(sender, work_item, user, context=None, **kwargs):
