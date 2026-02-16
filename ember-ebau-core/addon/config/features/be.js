@@ -61,4 +61,5 @@ export default {
     v2: true,
   },
   support: true,
+  staticFaq: true,
 };

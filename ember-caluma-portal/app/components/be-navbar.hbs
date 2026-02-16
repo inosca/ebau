@@ -117,12 +117,10 @@
                 {{t "nav.public-instance"}}
               </UkSubnav::Item>
             {{/if}}
-            {{#if (macroCondition (macroGetOwnConfig "enableStaticFaq"))}}
-              {{#if this.session.isAuthenticated}}
-                <UkSubnav::Item @href="/static-content/portal-faq">
-                  {{t "nav.faq"}}
-                </UkSubnav::Item>
-              {{/if}}
+            {{#if (and (has-feature "staticFaq") this.session.isAuthenticated)}}
+              <UkSubnav::Item @href="/static-content/portal-faq">
+                {{t "nav.faq"}}
+              </UkSubnav::Item>
             {{/if}}
             {{#if this.showFormBuilder}}
               <UkSubnav::Item @href="/form-builder">{{t

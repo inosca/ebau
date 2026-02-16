@@ -67,4 +67,5 @@ export default {
     enabled: false,
   },
   support: true,
+  staticFaq: true,
 };
