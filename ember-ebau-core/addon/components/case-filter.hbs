@@ -41,7 +41,7 @@
       </button>
     {{/each-in}}
 
-    {{#if (macroCondition (macroGetOwnConfig "isBE"))}}
+    {{#if (has-feature "cases.directLinkToPortal")}}
       <a
         href="{{macroGetOwnConfig 'portalUrl'}}/instances"
         class="uk-button uk-button-default uk-float-right"

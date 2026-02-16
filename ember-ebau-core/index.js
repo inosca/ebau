@@ -32,11 +32,6 @@ module.exports = {
       setOwnConfig: {
         // basic setup
         application: ENV,
-        isBE: ENV === "be",
-        isSZ: ENV === "sz",
-        isUR: ENV === "ur",
-        isGR: ENV === "gr",
-        isSO: ENV === "so",
         // environment-specific settings
         portalUrl: process.env.PORTAL_URL || "http://ebau-portal.localhost",
         soGisUrl: process.env.SO_GIS_URL || "https://geo-i.so.ch",
