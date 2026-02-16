@@ -158,4 +158,5 @@ export default {
     answerSlugs.firstNameApplicant,
     answerSlugs.lastNameApplicant,
   ],
+  specialIdLookup: "EXACT",
 };
