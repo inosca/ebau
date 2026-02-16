@@ -85,7 +85,6 @@ def test_generate_sort_key(db, caluma_case_factory):
 
 
 def test_module_settings_fixture_reject_conflicting_fixtures(request):
-
     # First - generic fixture ("default" entry)
     settings0 = request.getfixturevalue("permissions_settings")
 

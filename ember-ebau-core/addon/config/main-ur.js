@@ -132,6 +132,8 @@ export default {
   },
   trustedServiceRole: 4,
   submitComponent: {
-    requiredPermissions: ["instance-submit"],
+    requiredPermissions: {
+      submit: ["instance-submit"],
+    },
   },
 };

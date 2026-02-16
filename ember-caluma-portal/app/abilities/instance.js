@@ -7,6 +7,18 @@ import { removeVersion } from "ember-ebau-core/utils/form-filters";
 
 import config from "caluma-portal/config/environment";
 
+function getFormPermission(formName, requiredPermission) {
+  const formPermission =
+    formName === "main"
+      ? `form-${requiredPermission}`
+      : `form-${formName}-${requiredPermission}`;
+
+  return (
+    config.APPLICATION.formPermissionsMapping?.[formPermission] ??
+    formPermission
+  );
+}
+
 export default class InstanceAbility extends Ability {
   @service session;
   @service permissions;
@@ -27,10 +39,12 @@ export default class InstanceAbility extends Ability {
 
   async canWriteForm() {
     if (this.permissions.fullyEnabled) {
-      return await this.permissions.hasAll(
-        this.model?.id,
-        this.formName === "main" ? "form-write" : `form-${this.formName}-write`,
-      );
+      if (!this.formName) {
+        return false;
+      }
+
+      const permission = getFormPermission(this.formName, "write");
+      return await this.permissions.hasAll(this.model?.id, permission);
     }
 
     return this.formPermissions.includes("write");
@@ -38,10 +52,12 @@ export default class InstanceAbility extends Ability {
 
   async canReadForm() {
     if (this.permissions.fullyEnabled) {
-      return await this.permissions.hasAll(
-        this.model?.id,
-        this.formName === "main" ? "form-read" : `form-${this.formName}-read`,
-      );
+      if (!this.formName) {
+        return false;
+      }
+
+      const permission = getFormPermission(this.formName, "read");
+      return await this.permissions.hasAll(this.model?.id, permission);
     }
 
     return this.formPermissions.includes("read");

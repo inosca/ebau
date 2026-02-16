@@ -297,6 +297,10 @@ module.exports = function (environment) {
         "heat-generator-v2": 20046,
         "heat-generator-v3": 20046,
       },
+      formPermissionsMapping: {
+        "form-sb1-v2-read": "form-sb1-read",
+        "form-sb1-v2-write": "form-sb1-write",
+      },
     },
     kt_uri: {
       name: "ur",

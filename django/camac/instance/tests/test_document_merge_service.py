@@ -727,7 +727,6 @@ def test_header_keywords_ag(
     ag_instance,
     group,
 ):
-
     municipality = service_factory(
         service_group__name="municipality",
         trans__language="de",
@@ -758,7 +757,6 @@ def test_header_tags_be(
     be_instance,
     group,
 ):
-
     municipality = service_factory(
         service_group__name="municipality",
         trans__language="de",

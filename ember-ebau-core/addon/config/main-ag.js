@@ -254,6 +254,8 @@ export default {
     },
   ],
   submitComponent: {
-    requiredPermissions: null,
+    requiredPermissions: {
+      submit: ["instance-submit"],
+    },
   },
 };

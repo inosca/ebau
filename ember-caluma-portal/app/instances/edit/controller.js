@@ -1,5 +1,6 @@
 import Controller from "@ember/controller";
 import { service } from "@ember/service";
+import { getOwnConfig, macroCondition } from "@embroider/macros";
 import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
 import { allCases } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
@@ -11,6 +12,7 @@ import apolloQuery from "ember-ebau-core/resources/apollo";
 import config from "caluma-portal/config/environment";
 import additionalDemandsCountQuery from "caluma-portal/gql/queries/get-additional-demands-count.graphql";
 import constructionMonitoringCountQuery from "caluma-portal/gql/queries/get-construction-monitoring-count.graphql";
+import getWorkItemFormsQuery from "caluma-portal/gql/queries/get-work-item-forms.graphql";
 
 export default class InstancesEditController extends Controller {
   @service store;
@@ -121,6 +123,27 @@ export default class InstancesEditController extends Controller {
     include: "files,marks",
   }));
 
+  // In Kt. BE the sb1 task form has been versioned,
+  // so depending on the case, the work-item can either
+  // have a sb1 or sb1-v2 form.
+  #workItemForms = macroCondition(getOwnConfig().application === "be")
+    ? apolloQuery(
+        this,
+        () => ({
+          query: getWorkItemFormsQuery,
+          fetchPolicy: "network-only",
+          variables: {
+            instanceId: this.model,
+            tasks: mainConfig.sbTaskSlugs ?? [],
+          },
+        }),
+        "allWorkItems.edges",
+        (raw) => {
+          return raw.map(({ node }) => node.document?.form.slug);
+        },
+      )
+    : null;
+
   get hasFeedbackSection() {
     return Boolean(
       config.APPLICATION.documents.feedbackSections ||
@@ -156,18 +179,27 @@ export default class InstancesEditController extends Controller {
     return this.#objectionAttachments.records;
   }
 
+  get workItemForms() {
+    return this.#workItemForms?.value ?? [];
+  }
+
   get isLoading() {
     return (
       this.#instance.isLoading ||
       this.#cases.isLoading ||
       (this.hasFeedbackSection && this.#feedbackAttachments.isLoading) ||
-      this.#decisionAttachments.isLoading
+      this.#decisionAttachments.isLoading ||
+      this.#workItemForms?.isLoading
     );
   }
 
   reload() {
     if (this.#instance.hasRan) {
       this.#instance.retry();
+    }
+
+    if (!this.#workItemForms?.isLoading && this.#workItemForms?.hasRan) {
+      this.#workItemForms.reload();
     }
   }
 

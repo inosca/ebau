@@ -322,12 +322,26 @@ class InstanceView(
             "rejected",
         )
 
+    @permission_switching_method
     def has_object_report_permission(self, instance):
+        return permissions_api.PermissionManager.from_request(self.request).has_all(
+            instance, "form-sb1-submit"
+        )
+
+    @has_object_report_permission.register_old
+    def _has_object_report_permission(self, instance):
         return (
             self.has_base_permission(instance) and instance.instance_state.name == "sb1"
         )
 
+    @permission_switching_method
     def has_object_finalize_permission(self, instance):
+        return permissions_api.PermissionManager.from_request(self.request).has_all(
+            instance, "form-sb2-submit"
+        )
+
+    @has_object_finalize_permission.register_old
+    def _has_object_finalize_permission(self, instance):
         return (
             self.has_base_permission(instance) and instance.instance_state.name == "sb2"
         )

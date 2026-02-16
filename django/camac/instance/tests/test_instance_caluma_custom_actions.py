@@ -5,7 +5,10 @@ from django.urls import reverse
 from pytest_lazy_fixtures import lf
 from rest_framework import status
 
+from camac.permissions.conditions import Always, Never
 from camac.permissions.models import InstanceACL
+from camac.permissions.switcher import PERMISSION_MODE
+from camac.tests.form_utils import FormUtils
 
 
 @pytest.mark.freeze_time("2020-12-03")
@@ -596,3 +599,239 @@ def test_additional_demand_changes(
         assert response.status_code == status.HTTP_204_NO_CONTENT
     else:
         assert response.status_code == status.HTTP_400_BAD_REQUEST
+
+
+@pytest.mark.parametrize(
+    "role__name,has_permission,expected_status",
+    [
+        # Permissions module: Submitting SB1 requires
+        # form-sb1-submit permission
+        ("Applicant", True, status.HTTP_200_OK),
+        ("Applicant", False, status.HTTP_403_FORBIDDEN),
+        ("Municipality", True, status.HTTP_200_OK),
+        ("Municipality", False, status.HTTP_403_FORBIDDEN),
+    ],
+)
+def test_instance_report_permission_acl_be(
+    admin_client,
+    admin_user,
+    role,
+    be_instance,
+    access_level,
+    mocker,
+    instance_acl_factory,
+    permissions_settings,
+    has_permission,
+    expected_status,
+):
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.FULL
+
+    permissions_settings["ACCESS_LEVELS"] = {
+        access_level.pk: [
+            ("form-sb1-submit", Always() if has_permission else Never()),
+        ],
+    }
+
+    mocker.patch(
+        "camac.instance.serializers.CalumaInstanceReportSerializer.update",
+        return_value=be_instance,
+    )
+
+    if role.name == "Applicant":
+        instance_acl_factory(
+            instance=be_instance, user=admin_user, access_level=access_level
+        )
+    else:
+        service = admin_client.user.groups.first().service
+        instance_acl_factory(
+            instance=be_instance, service=service, access_level=access_level
+        )
+
+    response = admin_client.post(
+        reverse("instance-report", args=[be_instance.pk]),
+    )
+
+    assert response.status_code == expected_status
+
+
+@pytest.mark.parametrize(
+    "role__name,has_permission,expected_status",
+    [
+        # RBAC: Applicants can submit SB1 in instance state "sb1".
+        # Muncipality can submit SB1 as instance service on paper instances.
+        ("Applicant", True, status.HTTP_200_OK),
+        ("Applicant", False, status.HTTP_403_FORBIDDEN),
+        ("Municipality", True, status.HTTP_200_OK),
+        ("Municipality", False, status.HTTP_403_FORBIDDEN),
+        ("Service", True, status.HTTP_403_FORBIDDEN),
+        ("Service", False, status.HTTP_403_FORBIDDEN),
+    ],
+)
+def test_instance_report_permission_rbac_be(
+    admin_client,
+    admin_user,
+    role,
+    be_instance,
+    mocker,
+    instance_acl_factory,
+    instance_state_factory,
+    instance_service_factory,
+    applicant_factory,
+    active_inquiry_factory,
+    application_settings,
+    permissions_settings,
+    form_utils: FormUtils,
+    has_permission,
+    expected_status,
+):
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.OFF
+
+    service = admin_client.user.groups.first().service
+    if role.name == "Applicant":
+        applicant_factory(instance=be_instance, invitee=admin_user)
+    elif role.name == "Municipality":
+        instance_service_factory(instance=be_instance, service=service)
+        form_utils.set_is_paper(be_instance.case.document, True)
+        application_settings["PAPER"] = {
+            "ALLOWED_ROLES": {"DEFAULT": [role.pk]},
+            "ALLOWED_SERVICE_GROUPS": {"DEFAULT": [service.service_group.pk]},
+        }
+    else:
+        active_inquiry_factory(
+            for_instance=be_instance,
+            addressed_service=service,
+        )
+
+    instance_state = instance_state_factory(name="sb1")
+    if has_permission:
+        be_instance.instance_state = instance_state
+        be_instance.save()
+
+    mocker.patch(
+        "camac.instance.serializers.CalumaInstanceReportSerializer.update",
+        return_value=be_instance,
+    )
+
+    response = admin_client.post(
+        reverse("instance-report", args=[be_instance.pk]),
+    )
+
+    assert response.status_code == expected_status
+
+
+@pytest.mark.parametrize(
+    "role__name,has_permission,expected_status",
+    [
+        # Permissions module: Submitting SB2 requires
+        # form-sb2-submit permission
+        ("Applicant", True, status.HTTP_200_OK),
+        ("Applicant", False, status.HTTP_403_FORBIDDEN),
+        ("Municipality", True, status.HTTP_200_OK),
+        ("Municipality", False, status.HTTP_403_FORBIDDEN),
+    ],
+)
+def test_instance_finalize_permission_acl_be(
+    admin_client,
+    admin_user,
+    role,
+    be_instance,
+    access_level,
+    mocker,
+    instance_acl_factory,
+    permissions_settings,
+    has_permission,
+    expected_status,
+):
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.FULL
+
+    permissions_settings["ACCESS_LEVELS"] = {
+        access_level.pk: [
+            ("form-sb2-submit", Always() if has_permission else Never()),
+        ],
+    }
+
+    mocker.patch(
+        "camac.instance.serializers.CalumaInstanceFinalizeSerializer.update",
+        return_value=be_instance,
+    )
+
+    if role.name == "Applicant":
+        instance_acl_factory(
+            instance=be_instance, user=admin_user, access_level=access_level
+        )
+    else:
+        service = admin_client.user.groups.first().service
+        instance_acl_factory(
+            instance=be_instance, service=service, access_level=access_level
+        )
+
+    response = admin_client.post(
+        reverse("instance-finalize", args=[be_instance.pk]),
+    )
+
+    assert response.status_code == expected_status
+
+
+@pytest.mark.parametrize(
+    "role__name,has_permission,expected_status",
+    [
+        # RBAC: Applicants can submit SB2 in instance state "sb2".
+        # Muncipality can submit SB2 as instance service on paper instances.
+        ("Applicant", True, status.HTTP_200_OK),
+        ("Applicant", False, status.HTTP_403_FORBIDDEN),
+        ("Municipality", True, status.HTTP_200_OK),
+        ("Municipality", False, status.HTTP_403_FORBIDDEN),
+        ("Service", True, status.HTTP_403_FORBIDDEN),
+        ("Service", False, status.HTTP_403_FORBIDDEN),
+    ],
+)
+def test_instance_finalize_permission_rbac_be(
+    admin_client,
+    admin_user,
+    role,
+    be_instance,
+    mocker,
+    instance_acl_factory,
+    instance_state_factory,
+    instance_service_factory,
+    applicant_factory,
+    active_inquiry_factory,
+    application_settings,
+    permissions_settings,
+    form_utils: FormUtils,
+    has_permission,
+    expected_status,
+):
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.OFF
+
+    service = admin_client.user.groups.first().service
+    if role.name == "Applicant":
+        applicant_factory(instance=be_instance, invitee=admin_user)
+    elif role.name == "Municipality":
+        instance_service_factory(instance=be_instance, service=service)
+        form_utils.set_is_paper(be_instance.case.document, True)
+        application_settings["PAPER"] = {
+            "ALLOWED_ROLES": {"DEFAULT": [role.pk]},
+            "ALLOWED_SERVICE_GROUPS": {"DEFAULT": [service.service_group.pk]},
+        }
+    else:
+        active_inquiry_factory(
+            for_instance=be_instance,
+            addressed_service=service,
+        )
+
+    instance_state = instance_state_factory(name="sb2")
+    if has_permission:
+        be_instance.instance_state = instance_state
+        be_instance.save()
+
+    mocker.patch(
+        "camac.instance.serializers.CalumaInstanceFinalizeSerializer.update",
+        return_value=be_instance,
+    )
+
+    response = admin_client.post(
+        reverse("instance-finalize", args=[be_instance.pk]),
+    )
+
+    assert response.status_code == expected_status

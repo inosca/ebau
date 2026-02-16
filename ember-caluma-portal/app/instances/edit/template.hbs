@@ -47,7 +47,7 @@
         </AriaHeading>
       </Tab.item>
     {{/if}}
-    {{#each (array "sb1" "sb1-v2" "sb2") as |form|}}
+    {{#each this.workItemForms as |form|}}
       {{#if
         (await
           (can "read form of instance" this.instance form=(hash slug=form))
