@@ -10,7 +10,8 @@ from camac.notification.tasks import send_notification_for_publication
 @filter_events(
     lambda work_item: (
         work_item.task.slug == settings.PUBLICATION.get("FILL_TASKS", {}).get("PUBLIC")
-    )
+        and settings.APPLICATION.get("NOTIFICATIONS", {}).get("PUBLICATION_START")
+    )  # currently only defined for kt. GR.
 )
 @transaction.atomic
 def post_complete_publication(sender, work_item, user, context=None, **kwargs):
