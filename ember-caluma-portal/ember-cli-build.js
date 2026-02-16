@@ -29,7 +29,6 @@ module.exports = function (defaults) {
       setOwnConfig: {
         application: ENV,
         enableStaticFaq: ["ag", "be"].includes(ENV),
-        enableSupport: ["be", "ur", "gr", "ag"].includes(ENV),
         enableInstanceSupport: ["be", "gr", "ag"].includes(ENV),
         enableModificationConfirm: ENV === "be",
         enableInstanceActionDescription: ENV !== "so",

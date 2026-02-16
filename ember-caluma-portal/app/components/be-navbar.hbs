@@ -101,10 +101,10 @@
                   />
                 </UkSubnav::Item>
               {{/if}}
-              {{#if (macroCondition (macroGetOwnConfig "enableSupport"))}}
-                <UkSubnav::Item @href="/support">{{t
-                    "nav.support"
-                  }}</UkSubnav::Item>
+              {{#if (has-feature "support")}}
+                <UkSubnav::Item @href="/support">
+                  {{t "nav.support"}}
+                </UkSubnav::Item>
               {{/if}}
             {{/if}}
             {{#if

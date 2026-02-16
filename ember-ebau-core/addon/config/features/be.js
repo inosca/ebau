@@ -60,4 +60,5 @@ export default {
   workItems: {
     v2: true,
   },
+  support: true,
 };

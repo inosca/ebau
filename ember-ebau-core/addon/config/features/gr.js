@@ -55,4 +55,5 @@ export default {
   changeGeometer: {
     enabled: false,
   },
+  support: true,
 };
