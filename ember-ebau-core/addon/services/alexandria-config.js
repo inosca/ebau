@@ -4,14 +4,13 @@ import { getOwnConfig, macroCondition } from "@embroider/macros";
 import { tracked } from "@glimmer/tracking";
 import AlexandriaConfigService from "ember-alexandria/services/alexandria-config";
 
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 import fetchIfNotCached from "ember-ebau-core/utils/fetch-if-not-cached";
 
 const allowedWebDAVMimeTypes = () => {
   const conf = getOwnConfig().allowedWebDAVMimeTypes;
   return (conf ?? "").split(",");
 };
-const enableOriginalDocumentFilename =
-  getOwnConfig().enableAlexandriaOriginalDocumentFilename;
 
 export default class CustomAlexandriaConfigService extends AlexandriaConfigService {
   markIcons = {
@@ -225,5 +224,7 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
   enablePDFConversion = true;
   enableWebDAV = true;
   allowedWebDAVMimeTypes = allowedWebDAVMimeTypes();
-  enableOriginalDocumentFilename = enableOriginalDocumentFilename;
+  enableOriginalDocumentFilename = hasFeature(
+    "alexandria.originalDocumentFilename",
+  );
 }
