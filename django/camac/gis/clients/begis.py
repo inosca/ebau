@@ -169,7 +169,7 @@ class BeGisClient(GISBaseClient):
                     )
                     self.merge_data_dict(data, new_data, special_layers)
 
-                except RuntimeError as e:
+                except RuntimeError as e:  # pragma: no cover
                     exception_messages.add(f"Error for {egrid}: {str(e)}")
 
         if exception_messages:  # pragma: no cover
