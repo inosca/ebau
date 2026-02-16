@@ -58,6 +58,7 @@ from camac.ech0211.throttling import ECHMessageThrottle
 from camac.ech0211.utils import clean_text_for_xml
 from camac.filters import MultilingualSearchFilter
 from camac.instance.models import Instance
+from camac.settings.modules.ech0211 import DocumentAPIFeature
 from camac.swagger.utils import (
     get_operation_description,
     group_param,
@@ -428,14 +429,21 @@ class ECHFileView(
             ),
         ],
         operation_summary="Download multiple files as ZIP archive",
-        operation_description=get_operation_description(),
+        operation_description=get_operation_description(is_preview=True),
         responses={
             status.HTTP_200_OK: openapi.Response(
                 "The requested file",
                 schema=openapi.Schema(type=openapi.TYPE_FILE),
             )
         },
-        auto_schema=ZipSwaggerAutoSchema,
+        auto_schema=conditional_factory(
+            ZipSwaggerAutoSchema,
+            lambda: DocumentAPIFeature.can(
+                # Multi download requires both download features
+                DocumentAPIFeature.FILES_MULTI_DOWNLOAD,
+                DocumentAPIFeature.FILES_DOWNLOAD,
+            ),
+        ),
     )
     @action(
         methods=["GET"], detail=False, url_path="multi-download", pagination_class=None
@@ -465,16 +473,25 @@ class ECHFileView(
             group_param,
         ],
         operation_summary="Download file",
-        operation_description=get_operation_description(),
+        operation_description=get_operation_description(
+            # This was here for alexandria cantons already, but for camac-ng it's "preview mode"
+            is_preview=is_camac_backend()
+        ),
         responses={
             status.HTTP_200_OK: openapi.Response(
                 "The requested file",
                 schema=openapi.Schema(type=openapi.TYPE_FILE),
             )
         },
-        auto_schema=FileSwaggerAutoSchema,
+        auto_schema=conditional_factory(
+            FileSwaggerAutoSchema,
+            lambda: DocumentAPIFeature.can(DocumentAPIFeature.FILES_DOWNLOAD),
+        ),
     )
     def retrieve(self, request, **kwargs):
+        if not DocumentAPIFeature.can(DocumentAPIFeature.FILES_DOWNLOAD):
+            raise NotFound()  # pragma: no cover
+
         file = self.get_object()
         response = FileResponse(
             file.content,
@@ -514,18 +531,22 @@ class ECHFileView(
             ),
         ],
         operation_summary="Upload file",
-        operation_description=get_operation_description(),
+        operation_description=get_operation_description(
+            # This was here for alexandria cantons already, but for camac-ng it's "preview mode"
+            is_preview=is_camac_backend()
+        ),
         responses={
             status.HTTP_201_CREATED: openapi.Response("File was successfully created"),
             status.HTTP_400_BAD_REQUEST: openapi.Response("Invalid request"),
             status.HTTP_403_FORBIDDEN: openapi.Response("Permission denied"),
         },
         auto_schema=conditional_factory(
-            SwaggerAutoSchema, lambda: settings.ECH0211.get("API_LEVEL") == "full"
+            SwaggerAutoSchema,
+            lambda: DocumentAPIFeature.can(DocumentAPIFeature.FILES_UPLOAD),
         ),
     )
     def create(self, request, **kwargs):
-        if settings.ECH0211.get("API_LEVEL") != "full":
+        if not DocumentAPIFeature.can(DocumentAPIFeature.FILES_UPLOAD):
             raise NotFound()
 
         serializer = self.get_serializer(data=request.data)
@@ -553,14 +574,19 @@ class ECHFileView(
             group_param,
         ],
         operation_summary="Delete a file",
-        operation_description=get_operation_description(),
+        operation_description=get_operation_description(
+            # This was here for alexandria cantons already, but for camac-ng it's "preview mode"
+            is_preview=is_camac_backend()
+        ),
         auto_schema=conditional_factory(
-            SwaggerAutoSchema, lambda: settings.ECH0211.get("API_LEVEL") == "full"
+            SwaggerAutoSchema,
+            lambda: DocumentAPIFeature.can(DocumentAPIFeature.FILES_DELETE),
         ),
     )
     def destroy(self, *args, **kwargs):
-        if settings.ECH0211.get("API_LEVEL") != "full":
+        if not DocumentAPIFeature.can(DocumentAPIFeature.FILES_DELETE):
             raise NotFound()
+
         if is_camac_backend():
             return self._destroy_camac(*args, **kwargs)
         return self._destroy_alexandria(*args, **kwargs)
@@ -649,13 +675,13 @@ class ECHCategoryView(
 
     @classmethod
     def include_in_swagger(cls):
-        return settings.ECH0211.get("API_LEVEL") == "full"
+        return DocumentAPIFeature.can(DocumentAPIFeature.CATEGORIES_READ)
 
     @swagger_auto_schema(
         tags=["Documents and files for eCH-0211 clients"],
         manual_parameters=[group_param],
         operation_summary="Get list of accessible categories",
-        operation_description=get_operation_description(),
+        operation_description=get_operation_description(is_preview=True),
     )
     def list(self, request, *args, **kwargs):
         return super().list(request, *args, **kwargs)
@@ -671,7 +697,7 @@ class ECHDocumentView(
 
     @classmethod
     def include_in_swagger(cls):
-        return bool(settings.ECH0211)
+        return DocumentAPIFeature.can(DocumentAPIFeature.DOCUMENTS_READ)
 
     def get_serializer_class(self):
         if is_camac_backend():
@@ -752,7 +778,7 @@ class ECHDocumentView(
             ),
         ],
         operation_summary="List documents with their associated information",
-        operation_description=get_operation_description(),
+        operation_description=get_operation_description(is_preview=True),
     )
     def list(self, request, *args, **kwargs):
         return super().list(request, *args, **kwargs)
@@ -761,7 +787,7 @@ class ECHDocumentView(
         tags=["Documents and files for eCH-0211 clients"],
         manual_parameters=[group_param],
         operation_summary="Retrieve documents and associated information",
-        operation_description=get_operation_description(),
+        operation_description=get_operation_description(is_preview=True),
     )
     def retrieve(self, request, *args, **kwargs):
         return super().retrieve(request, *args, **kwargs)

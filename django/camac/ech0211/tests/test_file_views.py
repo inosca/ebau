@@ -12,6 +12,7 @@ from rest_framework import status
 from camac.document.models import Attachment, AttachmentSection
 from camac.document.tests.data import django_file
 from camac.ech0211.models import ECH0211Document
+from camac.settings.modules.ech0211 import DocumentAPIFeature
 
 
 @pytest.mark.parametrize("document_backend", ["camac-ng", "alexandria"])
@@ -130,7 +131,7 @@ def test_delete_disabled_api_level(
 ):
     set_document_backend(document_backend)
 
-    gr_ech0211_settings["API_LEVEL"] = "basic"
+    gr_ech0211_settings["DOCUMENT_API_FEATURES"].remove(DocumentAPIFeature.FILES_DELETE)
 
     visible_category, uploadable_category, invisible_category = category_setup()
 
@@ -313,6 +314,8 @@ def test_upload_switching(
     # clamav is not being tested here
     mocker.patch("camac.ech0211.serializers.validate_file_infection", return_value=None)
 
+    ech0211_settings["DOCUMENT_API_FEATURES"] = [DocumentAPIFeature.FILES_UPLOAD]
+
     allowed_cats = [
         uploadable_category.pk,
         visible_category.pk,
@@ -372,7 +375,7 @@ def test_upload_disabled_api_level(
         uploadable_category.pk,
         visible_category.pk,
     ]
-    ech0211_settings["API_LEVEL"] = "basic"
+    ech0211_settings["DOCUMENT_API_FEATURES"] = []  # disable all features
     ech0211_settings["ALLOWED_ATTACHMENT_SECTIONS"] = allowed_cats
     ech0211_settings["ALLOWED_CATEGORIES"] = allowed_cats
 

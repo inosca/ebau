@@ -1,3 +1,5 @@
+import enum
+
 from django.utils.translation import gettext_lazy as _
 
 from camac.constants.kt_bern import (
@@ -27,9 +29,29 @@ from camac.constants.kt_bern import (
 )
 from camac.settings.env import env
 
+
+class DocumentAPIFeature(enum.Enum):
+    FILES_UPLOAD = "file-upload"
+    FILES_DELETE = "file-delete"
+    FILES_DOWNLOAD = "file-download"
+    FILES_MULTI_DOWNLOAD = "file-multi-download"
+    DOCUMENTS_READ = "documents-read"
+    CATEGORIES_READ = "categories-read"
+
+    @classmethod
+    def can(cls, *required):
+        """Return True if all the required features are enabled."""
+        # lazy import to avoid circular dep
+        from django.conf import settings
+
+        feature_list = settings.ECH0211.get("DOCUMENT_API_FEATURES", [])
+        return all(f in feature_list for f in required)
+
+
 ECH0211 = {
     "default": {
         "API_LEVEL": "full",
+        "DOCUMENT_API_FEATURES": [],
         "DOCS": {
             "TABLE_HEADERS": [
                 "Typ",
@@ -244,13 +266,34 @@ ECH0211 = {
     },
     "test": {
         "ENABLED": True,
+        "DOCUMENT_API_FEATURES": [
+            DocumentAPIFeature.FILES_UPLOAD,
+            DocumentAPIFeature.FILES_DELETE,
+            DocumentAPIFeature.FILES_DOWNLOAD,
+            DocumentAPIFeature.FILES_MULTI_DOWNLOAD,
+            DocumentAPIFeature.DOCUMENTS_READ,
+            DocumentAPIFeature.CATEGORIES_READ,
+        ],
     },
     "kt_schwyz": {
         "ENABLED": env.bool("ECH0211_API_ACTIVE", default=False),
         "API_LEVEL": "basic",
+        "DOCUMENT_API_FEATURES": [
+            DocumentAPIFeature.FILES_DOWNLOAD,
+            DocumentAPIFeature.FILES_MULTI_DOWNLOAD,
+        ],
     },
     "kt_bern": {
         "ENABLED": True,
+        "API_LEVEL": "full",
+        "DOCUMENT_API_FEATURES": [
+            DocumentAPIFeature.FILES_UPLOAD,
+            DocumentAPIFeature.FILES_DELETE,
+            DocumentAPIFeature.FILES_DOWNLOAD,
+            DocumentAPIFeature.FILES_MULTI_DOWNLOAD,
+            DocumentAPIFeature.DOCUMENTS_READ,
+            DocumentAPIFeature.CATEGORIES_READ,
+        ],
         "STATUS_NOTIFICATION_TYPES": [
             {
                 "new_state": "circulation_init",
@@ -399,6 +442,11 @@ ECH0211 = {
     },
     "kt_gr": {
         "ENABLED": True,
+        "DOCUMENT_API_FEATURES": [
+            DocumentAPIFeature.FILES_UPLOAD,
+            DocumentAPIFeature.FILES_DELETE,
+            DocumentAPIFeature.FILES_DOWNLOAD,
+        ],
         "ALLOW_SUBMIT_BY_MUNICIPALITY": True,
         "STATUS_NOTIFICATION_TYPES": [
             {
@@ -602,6 +650,11 @@ ECH0211 = {
     },
     "kt_so": {
         "ENABLED": True,
+        "DOCUMENT_API_FEATURES": [
+            DocumentAPIFeature.FILES_UPLOAD,
+            DocumentAPIFeature.FILES_DELETE,
+            DocumentAPIFeature.FILES_DOWNLOAD,
+        ],
         "STATUS_NOTIFICATION_TYPES": [
             {
                 "new_state": "init-distribution",
@@ -693,6 +746,11 @@ ECH0211 = {
     },
     "kt_ag": {
         "ENABLED": True,
+        "DOCUMENT_API_FEATURES": [
+            DocumentAPIFeature.FILES_UPLOAD,
+            DocumentAPIFeature.FILES_DELETE,
+            DocumentAPIFeature.FILES_DOWNLOAD,
+        ],
         "ALLOW_SUBMIT_BY_MUNICIPALITY": True,
         "STATUS_NOTIFICATION_TYPES": [
             {
