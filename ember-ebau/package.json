@@ -114,7 +114,7 @@
     "eslint-plugin-import": "2.32.0",
     "eslint-plugin-n": "17.23.2",
     "eslint-plugin-prettier": "5.5.5",
-    "eslint-plugin-qunit": "8.2.5",
+    "eslint-plugin-qunit": "8.2.6",
     "flatpickr": "4.6.13",
     "get-user-locale": "2.3.2",
     "graphql": "15.10.1",

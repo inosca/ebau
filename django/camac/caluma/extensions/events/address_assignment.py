@@ -15,8 +15,10 @@ from camac.user.models import User
 @on(post_create_work_item, raise_exception=True)
 @transaction.atomic
 @filter_events(
-    lambda work_item: settings.ADDRESS_ASSIGNMENT.get("ENABLED", False)
-    and work_item.task.slug == settings.ADDRESS_ASSIGNMENT.get("SUGGESTION_TASK")
+    lambda work_item: (
+        settings.ADDRESS_ASSIGNMENT.get("ENABLED", False)
+        and work_item.task.slug == settings.ADDRESS_ASSIGNMENT.get("SUGGESTION_TASK")
+    )
 )
 def prefill_street_answer(sender, work_item, user, context=None, **kwargs):
     master_data = MasterData.from_case_id(work_item.case.pk)
@@ -33,8 +35,10 @@ def prefill_street_answer(sender, work_item, user, context=None, **kwargs):
 @on(post_complete_work_item, raise_exception=True)
 @transaction.atomic
 @filter_events(
-    lambda work_item: settings.ADDRESS_ASSIGNMENT.get("ENABLED", False)
-    and work_item.task.slug == settings.ADDRESS_ASSIGNMENT.get("CONFIRM_TASK")
+    lambda work_item: (
+        settings.ADDRESS_ASSIGNMENT.get("ENABLED", False)
+        and work_item.task.slug == settings.ADDRESS_ASSIGNMENT.get("CONFIRM_TASK")
+    )
 )
 def address_assignment_write_street_to_main_form(
     sender, work_item, user, context=None, **kwargs

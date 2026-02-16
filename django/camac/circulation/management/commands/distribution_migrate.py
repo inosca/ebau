@@ -1473,25 +1473,25 @@ class Command(BaseCommand):
         activation_answer_draft_completed = review_date.answer if review_date else None
 
         find_user = (  # noqa: E731
-            lambda chapter, question, item: User.objects.filter(
-                groups__service=str(activation.service_id)
-            )
-            .annotate(fullname=Concat(F("name"), Value(" "), F("surname")))
-            .filter(
-                fullname=Value(
-                    core_models.ActivationAnswer.objects.filter(
-                        activation=activation.pk,
-                        chapter=chapter,
-                        question=question,
-                        item=item,
+            lambda chapter, question, item: (
+                User.objects.filter(groups__service=str(activation.service_id))
+                .annotate(fullname=Concat(F("name"), Value(" "), F("surname")))
+                .filter(
+                    fullname=Value(
+                        core_models.ActivationAnswer.objects.filter(
+                            activation=activation.pk,
+                            chapter=chapter,
+                            question=question,
+                            item=item,
+                        )
+                        .values_list("answer", flat=True)
+                        .first()
                     )
-                    .values_list("answer", flat=True)
-                    .first()
                 )
+                .distinct()
+                .values_list("username", flat=True)
+                .first()
             )
-            .distinct()
-            .values_list("username", flat=True)
-            .first()
         )
 
         assignee = find_user(chapter=1, question=5, item=1)

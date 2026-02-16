@@ -8,8 +8,10 @@ from django.db import transaction
 @on(post_create_work_item, raise_exception=True)
 @transaction.atomic
 @filter_events(
-    lambda work_item: work_item.task.slug == "check-gwr-relevancy"
-    and settings.APPLICATION_NAME == "kt_uri"
+    lambda work_item: (
+        work_item.task.slug == "check-gwr-relevancy"
+        and settings.APPLICATION_NAME == "kt_uri"
+    )
 )
 def suspend_task_for_additional_demand(sender, work_item, user, context=None, **kwargs):
     complete_check_work_item = work_item.case.family.work_items.get(

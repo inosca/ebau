@@ -19,9 +19,11 @@ REQUIRED_CONFIG = {
     "subm": {"tasks": ["ebau-number"]},
     "circulation_init": {
         "tasks": ["skip-circulation", "init-circulation"],
-        "condition": lambda case: not case.work_items.filter(
-            task_id="circulation", status=WorkItem.STATUS_READY
-        ).exists(),
+        "condition": lambda case: (
+            not case.work_items.filter(
+                task_id="circulation", status=WorkItem.STATUS_READY
+            ).exists()
+        ),
         "ignored_tasks": [
             "nfd",
             "publication",
@@ -32,9 +34,11 @@ REQUIRED_CONFIG = {
     },
     "circulation": {
         "tasks": ["start-circulation", "start-decision"],
-        "condition": lambda case: not case.work_items.filter(
-            task_id="circulation", status=WorkItem.STATUS_READY
-        ).exists(),
+        "condition": lambda case: (
+            not case.work_items.filter(
+                task_id="circulation", status=WorkItem.STATUS_READY
+            ).exists()
+        ),
         "ignored_tasks": [
             "nfd",
             "publication",

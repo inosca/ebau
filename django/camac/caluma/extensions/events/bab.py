@@ -37,8 +37,9 @@ def set_bab_deadline(sender, work_item, user, context=None, **kwargs):
 
 @on(post_create_work_item, raise_exception=True)
 @filter_events(
-    lambda work_item: work_item.task.slug == "rpg"
-    and settings.APPLICATION_NAME == "kt_uri"
+    lambda work_item: (
+        work_item.task.slug == "rpg" and settings.APPLICATION_NAME == "kt_uri"
+    )
 )
 @transaction.atomic
 def suspend_rpg_work_item(sender, work_item, user, context=None, **kwargs):
@@ -47,8 +48,9 @@ def suspend_rpg_work_item(sender, work_item, user, context=None, **kwargs):
 
 @on(post_create_work_item, raise_exception=True)
 @filter_events(
-    lambda work_item: work_item.task.slug == "inquiry"
-    and settings.APPLICATION_NAME == "kt_uri"
+    lambda work_item: (
+        work_item.task.slug == "inquiry" and settings.APPLICATION_NAME == "kt_uri"
+    )
 )
 @transaction.atomic
 def resume_rpg_work_item(sender, work_item, user, context=None, **kwargs):

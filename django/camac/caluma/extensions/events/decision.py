@@ -135,8 +135,10 @@ def post_complete_decision(sender, work_item, user, context, **kwargs):
 @on(post_create_work_item, raise_exception=True)
 @transaction.atomic
 @filter_events(
-    lambda work_item: work_item.task.slug == settings.DECISION.get("TASK")
-    and settings.APPLICATION_NAME == "kt_so"
+    lambda work_item: (
+        work_item.task.slug == settings.DECISION.get("TASK")
+        and settings.APPLICATION_NAME == "kt_so"
+    )
 )
 def rename_decision_work_item(sender, work_item, user, context, **kwargs):
     if work_item.case.meta.get("is-appeal"):

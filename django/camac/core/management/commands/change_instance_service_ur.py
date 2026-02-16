@@ -52,9 +52,9 @@ class Command(BaseCommand):
             if str(old_service.pk) in work_item.addressed_groups:
                 work_item.addressed_groups = list(
                     map(
-                        lambda x: str(new_service.pk)
-                        if x == str(old_service.pk)
-                        else x,
+                        lambda x: (
+                            str(new_service.pk) if x == str(old_service.pk) else x
+                        ),
                         work_item.addressed_groups,
                     )
                 )
@@ -62,9 +62,9 @@ class Command(BaseCommand):
             if str(old_service.pk) in work_item.controlling_groups:
                 work_item.controlling_groups = list(
                     map(
-                        lambda x: str(new_service.pk)
-                        if x == str(old_service.pk)
-                        else x,
+                        lambda x: (
+                            str(new_service.pk) if x == str(old_service.pk) else x
+                        ),
                         work_item.controlling_groups,
                     )
                 )
