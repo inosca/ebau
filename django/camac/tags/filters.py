@@ -14,10 +14,11 @@ class TagFilterSet(FilterSet):
 
 
 class KeywordFilterSet(FilterSet):
+    id = NumberMultiValueFilter()
     name = CharMultiValueFilter()
     instance_id = NumberMultiValueFilter()
     exclude_instance = NumberFilter(field_name="instances__pk", exclude=True)
 
     class Meta:
         model = models.Keyword
-        fields = ("name", "instance_id")
+        fields = ("id", "name", "instance_id")
