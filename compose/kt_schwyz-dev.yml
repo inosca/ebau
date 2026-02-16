@@ -87,6 +87,7 @@ services:
   # repeat definition here because otherwise prod settings are applied
   django-q:
     <<: *django
+    image: acr.run/camac-ng/camac-ng/django:${CI_COMMIT_TAG:-master}
     command: qclusterdev
     ports: []
 
