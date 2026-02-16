@@ -232,12 +232,6 @@ class InstanceSerializer(
         )
 
     def get_involved_services(self, obj):
-        # TODO: Involved services should be extended to allow manual
-        # work-items to be assigned to services involved through the
-        # permissions module
-        if not settings.DISTRIBUTION:
-            return Service.objects.none()
-
         filters = Q(
             pk__in=list(
                 itertools.chain(

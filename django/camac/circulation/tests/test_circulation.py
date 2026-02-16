@@ -9,10 +9,10 @@ from camac.circulation import serializers
 @pytest.mark.parametrize(
     "role__name,instance__user,num_queries",
     [
-        ("Applicant", lf("admin_user"), 12),
-        ("Canton", lf("user"), 12),
-        ("Municipality", lf("user"), 11),
-        ("Service", lf("user"), 11),
+        ("Applicant", lf("admin_user"), 13),
+        ("Canton", lf("user"), 13),
+        ("Municipality", lf("user"), 12),
+        ("Service", lf("user"), 12),
     ],
 )
 def test_circulation_list(

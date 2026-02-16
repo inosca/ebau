@@ -1,5 +1,5 @@
 # serializer version: 1
-# name: test_instance_list[Applicant-admin_user-29-1-editable0-new]
+# name: test_instance_list[Applicant-admin_user-33-1-editable0-new]
   list([
     'circulations',
     'forms',
@@ -12,7 +12,7 @@
     'users',
   ])
 # ---
-# name: test_instance_list[Canton-user-26-1-editable2-new]
+# name: test_instance_list[Canton-user-30-1-editable2-new]
   list([
     'circulations',
     'forms',
@@ -25,7 +25,7 @@
     'users',
   ])
 # ---
-# name: test_instance_list[Municipality-user-28-1-editable3-new]
+# name: test_instance_list[Municipality-user-32-1-editable3-new]
   list([
     'circulations',
     'forms',
@@ -38,7 +38,7 @@
     'users',
   ])
 # ---
-# name: test_instance_list[Reader-user-29-1-editable1-new]
+# name: test_instance_list[Reader-user-33-1-editable1-new]
   list([
     'circulations',
     'forms',
@@ -51,7 +51,7 @@
     'users',
   ])
 # ---
-# name: test_instance_list[Service-user-28-1-editable4-new]
+# name: test_instance_list[Service-user-32-1-editable4-new]
   list([
     'circulations',
     'forms',
