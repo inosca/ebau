@@ -45,8 +45,6 @@ module.exports = {
         allowedWebDAVMimeTypes:
           process.env.ALEXANDRIA_MANABI_ALLOWED_MIMETYPES ??
           "application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-        // feature flags
-        hasBuildingControl: ENV === "be",
         // token exchange (this is not a regular feature flag because it differs
         // per environment in Kt. SO)
         enableTokenExchange: process.env.ENABLE_TOKEN_EXCHANGE ?? false,
