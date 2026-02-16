@@ -56,4 +56,5 @@ export default {
     enabled: false,
   },
   support: true,
+  showProfileLink: true,
 };

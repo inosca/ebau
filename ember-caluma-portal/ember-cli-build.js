@@ -32,7 +32,6 @@ module.exports = function (defaults) {
         enableModificationConfirm: ENV === "be",
         enableInstanceActionDescription: ENV !== "so",
         instancePaperFilterDefault: ENV === "ur",
-        showProfileLink: ENV === "gr",
       },
       setConfig: {
         "@ember-data/store": {

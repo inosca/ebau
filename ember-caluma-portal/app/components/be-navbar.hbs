@@ -189,7 +189,7 @@
                 </li>
               {{/each}}
             {{/if}}
-            {{#if (macroCondition (macroGetOwnConfig "showProfileLink"))}}
+            {{#if (has-feature "showProfileLink")}}
               <li>
                 <a
                   href={{this.profileURL}}
