@@ -45,6 +45,13 @@ corrections:
     success: "Das Dossier wurde erfolgreich zurückgezogen"
     error: "Fehler beim Zurückziehen des Dossiers"
 
+  delete:
+    title: "Dossier löschen"
+    description: "Diese Funktion erlaubt es, ein Dossier unwiderruflich zu löschen."
+    confirm: "Sind Sie sicher, dass Sie das Dossier löschen möchten?"
+    success: "Das Dossier wurde erfolgreich gelöscht"
+    error: "Fehler beim Löschen des Dossiers"
+
   change-form:
     title: "Dossiertyp ändern"
     description: "Hier können Sie falsche Dossiertypen korrigieren. Dies ist nur mit den Typen im Dropdown möglich."

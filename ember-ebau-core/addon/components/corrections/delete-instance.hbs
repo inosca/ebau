@@ -1,0 +1,15 @@
+<p class="uk-text-large">{{t "corrections.delete.title"}}</p>
+<p>{{t "corrections.delete.description" htmlSafe=true}}</p>
+<UkButton
+  @color="primary"
+  @label={{t "corrections.delete.title"}}
+  @onClick={{this.deleteInstance.perform}}
+  @loading={{this.deleteInstance.isRunning}}
+  @disabled={{or
+    this.deleteInstance.isRunning
+    (await (cannot "delete instance" @instance))
+  }}
+/>
+{{#if (await (cannot "delete instance" @instance))}}
+  <p class="uk-text-muted">{{t "corrections.not-available"}}</p>
+{{/if}}

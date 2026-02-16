@@ -23,6 +23,7 @@ from camac.instance.models import FormField, Instance, InstanceGroup, InstanceSt
 from camac.permissions import api as permissions_api
 from camac.permissions.events import Trigger
 from camac.permissions.models import InstanceACL
+from camac.tests.form_utils import FormUtils
 
 
 @pytest.mark.freeze_time("2018-04-17")
@@ -1341,6 +1342,36 @@ def test_instance_destroy(
     # verify deleted InstanceLocation if api query was successful
     if response.status_code == status.HTTP_204_NO_CONTENT:
         assert not InstanceLocation.objects.filter(id=instance_location.pk).exists()
+
+
+@pytest.mark.parametrize(
+    "service_group__name,instance__user,instance_state__name,is_paper,status_code",
+    [
+        ("applicant", lf("admin_user"), "new", False, status.HTTP_204_NO_CONTENT),
+        ("applicant", lf("admin_user"), "subm", False, status.HTTP_403_FORBIDDEN),
+        ("municipality", lf("admin_user"), "new", True, status.HTTP_204_NO_CONTENT),
+        ("municipality", lf("admin_user"), "subm", True, status.HTTP_403_FORBIDDEN),
+        ("unknown", lf("user"), "new", False, status.HTTP_404_NOT_FOUND),
+    ],
+)
+def test_instance_destroy_ag(
+    admin_client,
+    ag_instance,
+    is_paper,
+    status_code,
+    application_settings,
+    set_application_ag,
+    form_utils: FormUtils,
+):
+    application_settings["CALUMA"]["CREATE_IN_PROCESS"] = True
+
+    form_utils.set_is_paper(ag_instance.case.document, is_paper)
+
+    url = reverse("instance-detail", args=[ag_instance.pk])
+
+    response = admin_client.delete(url)
+
+    assert response.status_code == status_code
 
 
 @pytest.mark.parametrize(

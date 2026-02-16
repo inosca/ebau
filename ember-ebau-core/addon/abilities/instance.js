@@ -234,4 +234,12 @@ export default class InstanceAbility extends Ability {
           .includes(this.ebauModules.serviceId))
     );
   }
+
+  async canDelete() {
+    if (this.permissions.fullyEnabled) {
+      return await this.permissions.hasAll(this.model?.id, "instance-delete");
+    }
+
+    return hasInstanceState(this.model, "new") && this.model.isPaper;
+  }
 }
