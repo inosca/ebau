@@ -29,7 +29,6 @@ module.exports = function (defaults) {
       setOwnConfig: {
         application: ENV,
         enableInstanceSupport: ["be", "gr", "ag"].includes(ENV),
-        enableModificationConfirm: ENV === "be",
         enableInstanceActionDescription: ENV !== "so",
         instancePaperFilterDefault: ENV === "ur",
       },

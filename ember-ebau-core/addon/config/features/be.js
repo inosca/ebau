@@ -62,4 +62,5 @@ export default {
   },
   support: true,
   staticFaq: true,
+  modificationConfirm: true,
 };

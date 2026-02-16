@@ -1,6 +1,5 @@
 import Controller, { inject as controller } from "@ember/controller";
 import { service } from "@ember/service";
-import { macroCondition, getOwnConfig } from "@embroider/macros";
 import { dropTask, task } from "ember-concurrency";
 import mainConfig from "ember-ebau-core/config/main";
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
@@ -50,10 +49,11 @@ export default class InstancesEditIndexController extends Controller {
 
   @dropTask
   *createModification() {
-    if (macroCondition(getOwnConfig().enableModificationConfirm)) {
-      if (!(yield confirm(this.intl.t("instances.modificationConfirm")))) {
-        return;
-      }
+    if (
+      hasFeature("modificationConfirm") &&
+      !(yield confirm(this.intl.t("instances.modificationConfirm")))
+    ) {
+      return;
     }
 
     yield this.copy.perform(true);
