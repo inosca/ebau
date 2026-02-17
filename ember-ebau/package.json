@@ -48,7 +48,7 @@
     "@ember-data/model": "4.12.8",
     "@ember-data/serializer": "4.12.8",
     "@ember-data/store": "4.12.8",
-    "@ember/optional-features": "2.2.0",
+    "@ember/optional-features": "3.0.0",
     "@ember/string": "4.0.0",
     "@ember/test-helpers": "5.4.1",
     "@embroider/macros": "1.16.12",
