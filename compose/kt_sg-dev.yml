@@ -212,6 +212,7 @@ services:
       DATABASE_NAME: ${APPLICATION}
       DATABASE_PASSWORD: camac
       DATABASE_USER: camac
+      DATABASE_OPTIONS: "options=-c search_path=dms"
       ENV: dev
       EXTENSIONS_ARGUMENTS: DJANGO_API=http://django
       FILE_STORAGE: storages.backends.s3.S3Storage

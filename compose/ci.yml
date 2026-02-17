@@ -201,6 +201,7 @@ services:
       - DATABASE_NAME=kt_bern
       - DATABASE_USER=camac
       - DATABASE_PASSWORD=camac
+      - DATABASE_OPTIONS=options=-c search_path=dms
       - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.localhost/auth/realms/ebau/protocol/openid-connect/userinfo
       - OIDC_BEARER_TOKEN_REVALIDATION_TIME=300
       - EXTENSIONS_ARGUMENTS=DJANGO_API=http://django,APPLICATION=${APPLICATION}

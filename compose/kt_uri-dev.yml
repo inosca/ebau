@@ -134,6 +134,7 @@ services:
       - DATABASE_NAME=camac
       - DATABASE_USER=camac
       - DATABASE_PASSWORD=camac
+      - DATABASE_OPTIONS=options=-c search_path=dms
       - URL_PREFIX=document-merge-service/
       - EXTENSIONS_ARGUMENTS=DJANGO_API=http://django
     user: "${UID:?Set UID env variable to your user id}"

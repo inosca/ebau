@@ -272,6 +272,7 @@ services:
       DATABASE_NAME: ${APPLICATION}
       DATABASE_USER: camac
       DATABASE_PASSWORD: camac
+      DATABASE_OPTIONS: "options=-c search_path=dms"
       URL_PREFIX: document-merge-service/
       # Env variables used in document-merge-service/extensions:
       EXTENSIONS_ARGUMENTS: DJANGO_API=http://django,APPLICATION=${APPLICATION}

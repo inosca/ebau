@@ -107,6 +107,7 @@ services:
       - DATABASE_NAME=${APPLICATION}
       - DATABASE_USER=camac
       - DATABASE_PASSWORD=camac
+      - DATABASE_OPTIONS=options=-c search_path=dms
       - REQUIRE_AUTHENTICATION=True
       - GROUP_ACCESS_ONLY=True
       - OIDC_GROUPS_API_JSONPATH=$$.included[?(@.type=='services')].id

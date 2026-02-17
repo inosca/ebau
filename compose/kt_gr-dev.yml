@@ -169,6 +169,7 @@ services:
       - DATABASE_NAME=${APPLICATION}
       - DATABASE_USER=camac
       - DATABASE_PASSWORD=camac
+      - DATABASE_OPTIONS=options=-c search_path=dms
       - URL_PREFIX=document-merge-service/
       - EXTENSIONS_ARGUMENTS=DJANGO_API=http://django
       - DMS_S3_ACCESS_KEY_ID=minio
