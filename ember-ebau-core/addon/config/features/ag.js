@@ -67,4 +67,7 @@ export default {
   changeGeometer: {
     enabled: false,
   },
+  support: true,
+  staticFaq: true,
+  instanceSupport: true,
 };

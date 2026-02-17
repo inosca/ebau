@@ -55,4 +55,10 @@ export default {
   changeGeometer: {
     enabled: false,
   },
+  support: true,
+  showProfileLink: true,
+  instanceSupport: true,
+  alexandria: {
+    originalDocumentFilename: true,
+  },
 };

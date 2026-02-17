@@ -2,13 +2,13 @@ import Controller from "@ember/controller";
 import { action } from "@ember/object";
 import { service } from "@ember/service";
 import { isEmpty } from "@ember/utils";
-import { getOwnConfig } from "@embroider/macros";
 import { tracked } from "@glimmer/tracking";
 import { useCalumaQuery } from "@projectcaluma/ember-core/caluma-query";
 import { allCases } from "@projectcaluma/ember-core/caluma-query/queries";
 import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
 import mainConfig from "ember-ebau-core/config/main";
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 import {
   removeVersion,
   getRecursiveSources,
@@ -78,7 +78,7 @@ export default class InstancesIndexController extends Controller {
   @trackedFilter({ defaultValue: "" }) applicant;
   @trackedFilter({ ...dateFilter, defaultValue: null }) submitFrom;
   @trackedFilter({ ...dateFilter, defaultValue: null }) submitTo;
-  @trackedFilter({ defaultValue: getOwnConfig().instancePaperFilterDefault })
+  @trackedFilter({ defaultValue: hasFeature("instancePaperFilterDefault") })
   onlyPaper;
 
   cases = useCalumaQuery(this, allCases, () => ({

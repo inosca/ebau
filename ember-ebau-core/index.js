@@ -32,11 +32,6 @@ module.exports = {
       setOwnConfig: {
         // basic setup
         application: ENV,
-        isBE: ENV === "be",
-        isSZ: ENV === "sz",
-        isUR: ENV === "ur",
-        isGR: ENV === "gr",
-        isSO: ENV === "so",
         // environment-specific settings
         portalUrl: process.env.PORTAL_URL || "http://ebau-portal.localhost",
         soGisUrl: process.env.SO_GIS_URL || "https://geo-i.so.ch",
@@ -45,10 +40,6 @@ module.exports = {
         allowedWebDAVMimeTypes:
           process.env.ALEXANDRIA_MANABI_ALLOWED_MIMETYPES ??
           "application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-        // feature flags
-        hasBuildingControl: ENV === "be",
-        useInstanceService: ENV !== "sz",
-        enableAlexandriaOriginalDocumentFilename: ENV === "gr",
         // token exchange (this is not a regular feature flag because it differs
         // per environment in Kt. SO)
         enableTokenExchange: process.env.ENABLE_TOKEN_EXCHANGE ?? false,

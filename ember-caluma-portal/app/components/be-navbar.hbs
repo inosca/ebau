@@ -101,10 +101,10 @@
                   />
                 </UkSubnav::Item>
               {{/if}}
-              {{#if (macroCondition (macroGetOwnConfig "enableSupport"))}}
-                <UkSubnav::Item @href="/support">{{t
-                    "nav.support"
-                  }}</UkSubnav::Item>
+              {{#if (has-feature "support")}}
+                <UkSubnav::Item @href="/support">
+                  {{t "nav.support"}}
+                </UkSubnav::Item>
               {{/if}}
             {{/if}}
             {{#if
@@ -117,12 +117,10 @@
                 {{t "nav.public-instance"}}
               </UkSubnav::Item>
             {{/if}}
-            {{#if (macroCondition (macroGetOwnConfig "enableStaticFaq"))}}
-              {{#if this.session.isAuthenticated}}
-                <UkSubnav::Item @href="/static-content/portal-faq">
-                  {{t "nav.faq"}}
-                </UkSubnav::Item>
-              {{/if}}
+            {{#if (and (has-feature "staticFaq") this.session.isAuthenticated)}}
+              <UkSubnav::Item @href="/static-content/portal-faq">
+                {{t "nav.faq"}}
+              </UkSubnav::Item>
             {{/if}}
             {{#if this.showFormBuilder}}
               <UkSubnav::Item @href="/form-builder">{{t
@@ -191,7 +189,7 @@
                 </li>
               {{/each}}
             {{/if}}
-            {{#if (macroCondition (macroGetOwnConfig "showProfileLink"))}}
+            {{#if (has-feature "showProfileLink")}}
               <li>
                 <a
                   href={{this.profileURL}}

@@ -194,13 +194,11 @@
         <h3 class="instance-overview__action-title">
           {{t "instances.modificationTitle"}}
         </h3>
-        {{#if
-          (macroCondition (macroGetOwnConfig "enableInstanceActionDescription"))
-        }}
+        {{#unless (has-feature "instanceOverview.hideActionDescription")}}
           <p>
             {{t "instances.modificationText"}}
           </p>
-        {{/if}}
+        {{/unless}}
         <UkButton
           @onClick={{perform this.createModification}}
           @disabled={{this.createModification.isRunning}}
@@ -222,13 +220,11 @@
         <h3 class="instance-overview__action-title">
           {{t "instances.furtherProcessingOfForm"}}
         </h3>
-        {{#if
-          (macroCondition (macroGetOwnConfig "enableInstanceActionDescription"))
-        }}
+        {{#unless (has-feature "instanceOverview.hideActionDescription")}}
           <p>
             {{t "instances.furtherProcessingOfFormText"}}
           </p>
-        {{/if}}
+        {{/unless}}
         <LinkTo
           @route="instances.edit.form"
           @model={{this.editController.instance.calumaForm}}
@@ -311,13 +307,11 @@
         <h3 class="instance-overview__action-title">
           {{t "instances.activateFurtherPersons"}}
         </h3>
-        {{#if
-          (macroCondition (macroGetOwnConfig "enableInstanceActionDescription"))
-        }}
+        {{#unless (has-feature "instanceOverview.hideActionDescription")}}
           <p>
             {{t "instances.activateFurtherPersonsText"}}
           </p>
-        {{/if}}
+        {{/unless}}
         <LinkTo
           @route="instances.edit.applicants"
           class="uk-button uk-button-default"
@@ -334,13 +328,11 @@
         <h3 class="instance-overview__action-title">
           {{t "instances.downloadReceipt"}}
         </h3>
-        {{#if
-          (macroCondition (macroGetOwnConfig "enableInstanceActionDescription"))
-        }}
+        {{#unless (has-feature "instanceOverview.hideActionDescription")}}
           <p>
             {{t "instances.downloadReceiptText"}}
           </p>
-        {{/if}}
+        {{/unless}}
         <UkButton
           @label={{t "instances.downloadReceipt"}}
           @disabled={{this.downloadReceipt.isRunning}}
@@ -353,13 +345,11 @@
         <h3 class="instance-overview__action-title">
           {{t "instances.deleteInstance"}}
         </h3>
-        {{#if
-          (macroCondition (macroGetOwnConfig "enableInstanceActionDescription"))
-        }}
+        {{#unless (has-feature "instanceOverview.hideActionDescription")}}
           <p>
             {{t "instances.deleteInstanceText"}}
           </p>
-        {{/if}}
+        {{/unless}}
         <UkButton
           @onClick={{perform this.deleteInstance}}
           @disabled={{this.deleteInstance.isRunning}}
@@ -449,13 +439,11 @@
         <h3 class="instance-overview__action-title">
           {{t "instances.downloadFormAsPdf"}}
         </h3>
-        {{#if
-          (macroCondition (macroGetOwnConfig "enableInstanceActionDescription"))
-        }}
+        {{#unless (has-feature "instanceOverview.hideActionDescription")}}
           <p>
             {{t "instances.downloadFormAsPdfText"}}
           </p>
-        {{/if}}
+        {{/unless}}
         <UkButton
           @label={{t "instances.downloadFormAsPdf"}}
           @disabled={{this.downloadFormAsPdf.isRunning}}

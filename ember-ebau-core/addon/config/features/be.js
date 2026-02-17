@@ -4,6 +4,7 @@ export default {
     endDate: false,
     related: true,
     disableAuthentication: false,
+    showDocumentsInfo: true,
   },
   billing: {
     charge: false,
@@ -20,6 +21,7 @@ export default {
     revert: true,
   },
   cases: {
+    directLinkToPortal: true,
     createPaper: true,
     exportExcel: true,
     downloadFormAsPdf: true,
@@ -60,4 +62,8 @@ export default {
   workItems: {
     v2: true,
   },
+  support: true,
+  staticFaq: true,
+  modificationConfirm: true,
+  instanceSupport: true,
 };

@@ -140,10 +140,8 @@
         </AriaHeading>
       </Tab.item>
     {{/if}}
-    {{#if (macroCondition (macroGetOwnConfig "enableInstanceSupport"))}}
-      {{#if (not (is-embedded))}}
-        <InstanceSupport @instance={{this.instance}} />
-      {{/if}}
+    {{#if (and (has-feature "instanceSupport") (not (is-embedded)))}}
+      <InstanceSupport @instance={{this.instance}} />
     {{/if}}
   </UkTab>
 

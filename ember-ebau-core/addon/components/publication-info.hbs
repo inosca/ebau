@@ -24,7 +24,7 @@
   <div class="uk-background-muted uk-padding-small uk-margin">
     <p
       class={{if
-        (macroCondition (macroGetOwnConfig "isBE"))
+        (has-feature "publication.showDocumentsInfo")
         ""
         "uk-margin-remove-bottom"
       }}
@@ -32,7 +32,7 @@
       <span class="uk-text-bold">{{t "publication.info.attention"}}</span>
       {{t (concat "publication.info.unpublished." @type)}}
     </p>
-    {{#if (macroCondition (macroGetOwnConfig "isBE"))}}
+    {{#if (has-feature "publication.showDocumentsInfo")}}
       <p class="uk-text-italic uk-margin-remove-bottom">
         {{t "publication.info.documents"}}
       </p>

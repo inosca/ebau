@@ -28,13 +28,6 @@ module.exports = function (defaults) {
     "@embroider/macros": {
       setOwnConfig: {
         application: ENV,
-        enableStaticFaq: ["ag", "be"].includes(ENV),
-        enableSupport: ["be", "ur", "gr", "ag"].includes(ENV),
-        enableInstanceSupport: ["be", "gr", "ag"].includes(ENV),
-        enableModificationConfirm: ENV === "be",
-        enableInstanceActionDescription: ENV !== "so",
-        instancePaperFilterDefault: ENV === "ur",
-        showProfileLink: ENV === "gr",
       },
       setConfig: {
         "@ember-data/store": {
