@@ -3494,6 +3494,56 @@ def sg_service_settings(
 
 
 @pytest.fixture
+def tags_settings(
+    request,
+    settings,
+):
+    """Module-specific settings for tags (default)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=None,
+        module_name="tags",
+        canton=None,
+        disable=False,
+    )
+
+
+@pytest.fixture
+def disable_tags_settings(
+    request,
+    settings,
+    tags_settings,
+):
+    """Disable the tags module completely."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=tags_settings,
+        module_name="tags",
+        canton=None,
+        disable=True,
+    )
+
+
+@pytest.fixture
+def be_tags_settings(
+    request,
+    settings,
+    tags_settings,
+):
+    """Module-specific settings for tags (canton BE)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=tags_settings,
+        module_name="tags",
+        canton="kt_bern",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def user_settings(
     request,
     settings,
