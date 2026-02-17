@@ -2284,6 +2284,8 @@
         "energie-photovoltaik-batterie",
         "energie-photovoltaik-gesamtleistung",
         "energie-photovoltaik-jahresertrag",
+        "energie-speicher-solaranlage-gesuchsnummer",
+        "energie-speicher-kapazität",
         "energie-inbetriebnahme",
         "datenverschnitt-energie"
       ]
@@ -6482,7 +6484,7 @@
       }
     },
     "energie-art": {
-      "label": "Um welche Art Solaranlage handelt es sich?",
+      "label": "Um welche Art Solaranlage oder Speicher handelt es sich?",
       "hint": "Der Begriff Solaranlage ist ein Sammelbegriff für technische Anlagen zur Umwandlung von Sonnenenergie in eine andere Energieform. Mit thermischer oder photovoltaischer Solaranlage wird eine grundsätzliche Unterscheidung vorgenommen. Mehr Informationen finden Sie in der <a href=\"/assets/documents/planungshilfe_solaranlagen_final.pdf\" target=\"_blank\">Planungshilfe für Solaranlagen</a>.",
       "type": "checkbox",
       "required": true,
@@ -6490,7 +6492,8 @@
       "config": {
         "options": [
           "Thermische Solaranlage (Wärmeproduktion)",
-          "Photovoltaische Solaranlage (Stromproduktion)"
+          "Photovoltaische Solaranlage (Stromproduktion)",
+          "Speicher"
         ]
       }
     },
@@ -6597,6 +6600,24 @@
         "options": ["Ja", "Nein"]
       }
     },
+    "energie-speicher-solaranlage-gesuchsnummer": {
+      "label": "Gesuchsnummer der dazugehörigen Solaranlage:",
+      "hint": "",
+      "type": "text",
+      "required": false,
+      "active-expression": "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Speicher' in 'energie-art'|value",
+      "config": {}
+    },
+    "energie-speicher-kapazität": {
+      "label": "Speicherkapazität in kWh",
+      "hint": "Es sind das Produkteblatt des Speichers sowie der Aufenthaltsort (Grundriss oder dergleichen) einzureichen.",
+      "type": "number-separator",
+      "required": true,
+      "active-expression": "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Speicher' in 'energie-art'|value",
+      "config": {
+        "min": 1
+      }
+    },
     "energie-photovoltaik-gesamtleistung": {
       "label": "Leistung (in kWp):",
       "hint": "Kilowatt Peak ist eine im Bereich Photovoltaik gebräuchliche, aber nicht normgerechte Bezeichnung für die elektrische Leistung von Solarzellen.  Die Einheit dient dazu, unterschiedliche Solarzellen und Solarmodule unter genormten Testbedingungen vergleichen zu können. ",
@@ -6640,7 +6661,7 @@
       "hint": "Bei Fassadenanlagen kommt (mit Ausnahme von Industrie- und Gewerbezonen sowie in Zonen für öffentliche Bauten und Anlagen) immer das ordentliche Baubewilligungsverfahren zum Zuge.\n\nBei Anlagen auf oder an geschützten Objekten oder in geschützten Zonen kommt im Normalfall ebenfalls das ordentliche Bewilligungsverfahren zum Zuge.\n\nMehr Informationen finden Sie in der <a href=\"/assets/documents/planungshilfe_solaranlagen_final.pdf\" target=\"_blank\">Planungshilfe für Solaranlagen</a> (Kap. 4).",
       "type": "checkbox",
       "required": true,
-      "active-expression": "'Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja'",
+      "active-expression": "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && ('Photovoltaische Solaranlage (Stromproduktion)' in 'energie-art'|value || 'Thermische Solaranlage (Wärmeproduktion)' in 'energie-art'|value)",
       "config": {
         "options": [
           "Dachanlage",
@@ -7854,7 +7875,7 @@
       }
     },
     "bm-solaranlage": {
-      "label": "Handelt es sich bei Ihrem geringfügigen (Bau)Vorhaben um eine Solaranlage?",
+      "label": "Handelt es sich bei Ihrem geringfügigen (Bau)Vorhaben um eine Solaranlage oder Speicher?",
       "hint": "Diese Frage dient dazu, um Ihr Vorhaben dem richtigen Verfahren zuweisen zu können.",
       "type": "radio",
       "required": true,
