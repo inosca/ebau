@@ -290,6 +290,22 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 8,
+    "fields": {
+      "resource": 3,
+      "role": 4
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 9,
+    "fields": {
+      "resource": 3,
+      "role": 6
+    }
+  },
+  {
     "model": "core.resource",
     "pk": 1,
     "fields": {
@@ -316,6 +332,19 @@
     }
   },
   {
+    "model": "core.resource",
+    "pk": 3,
+    "fields": {
+      "available_resource": "page",
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/service-permissions.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 3
+    }
+  },
+  {
     "model": "core.resourcet",
     "pk": 1,
     "fields": {
@@ -332,6 +361,16 @@
       "resource": 2,
       "language": "de",
       "name": "Dossiers",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 3,
+    "fields": {
+      "resource": 3,
+      "language": "de",
+      "name": "Meine Organisation",
       "description": null
     }
   }
