@@ -11,6 +11,7 @@ from camac.notification.tasks import send_notification_for_publication
 @pytest.mark.parametrize("date_match", [False, True])
 @pytest.mark.parametrize("is_published", [False, True])
 @pytest.mark.parametrize("used_workitem_id", [None, "current", "other"])
+@pytest.mark.parametrize("has_publication_start_config", [False, True])
 def test_notify_publication_start(
     db,
     caluma_admin_user,
@@ -23,6 +24,7 @@ def test_notify_publication_start(
     date_match,
     is_published,
     used_workitem_id,
+    has_publication_start_config,
     mailoutbox,
     notification_template_factory,
     publication_settings,
@@ -38,6 +40,7 @@ def test_notify_publication_start(
             and date_match
             and is_published
             and used_workitem_id in [None, "current"]
+            and has_publication_start_config
         )
         else 0
     )
@@ -46,19 +49,22 @@ def test_notify_publication_start(
     notification_template = notification_template_factory()
     publication_settings["PUBLISH_QUESTION"] = "oeffentliche-auflage"
     publication_settings["PUBLISH_ANSWER"] = ["oeffentliche-auflage-ja"]
-    application_settings["NOTIFICATIONS"] = {
-        "PUBLICATION_START": {
-            "condition": {
-                "question": "oeffentliche-auflage-informieren",
-                "answer": ["oeffentliche-auflage-informieren-ja"],
-            },
-            "date_question": "beginn-publikationsorgan-gemeinde",
-            "notification": {
-                "template_slug": notification_template.slug,
-                "recipient_types": ["applicant"],
-            },
+    if has_publication_start_config:
+        application_settings["NOTIFICATIONS"] = {
+            "PUBLICATION_START": {
+                "condition": {
+                    "question": "oeffentliche-auflage-informieren",
+                    "answer": ["oeffentliche-auflage-informieren-ja"],
+                },
+                "date_question": "beginn-publikationsorgan-gemeinde",
+                "notification": {
+                    "template_slug": notification_template.slug,
+                    "recipient_types": ["applicant"],
+                },
+            }
         }
-    }
+    else:
+        application_settings["NOTIFICATIONS"] = {}
 
     date_question = caluma_question_factory(
         slug="beginn-publikationsorgan-gemeinde", type=Question.TYPE_DATE

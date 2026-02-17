@@ -147,7 +147,7 @@ def send_notification_for_publication(self, workitem_id=None):
     from camac.notification.utils import send_mail_without_request
 
     config = settings.APPLICATION["NOTIFICATIONS"].get("PUBLICATION_START")
-    if not config:  # pragma: no cover
+    if not config:
         return
 
     now = timezone.now()

@@ -600,8 +600,10 @@ def test_notify_manual_work_item(
 def test_set_is_published(
     db,
     settings,
+    application_settings,
     caluma_admin_user,
     caluma_work_item_factory,
+    notification_template_factory,
     service_factory,
     caluma_task_factory,
 ):
@@ -613,6 +615,23 @@ def test_set_is_published(
         child_case=None,
         deadline=timezone.now(),
     )
+
+    # Required to avoid guard in the post_complete_publication, which
+    # we want to cover here
+    notification_template = notification_template_factory()
+    application_settings["NOTIFICATIONS"] = {
+        "PUBLICATION_START": {
+            "condition": {
+                "question": "oeffentliche-auflage-informieren",
+                "answer": ["oeffentliche-auflage-informieren-ja"],
+            },
+            "date_question": "beginn-publikationsorgan-gemeinde",
+            "notification": {
+                "template_slug": notification_template.slug,
+                "recipient_types": ["applicant"],
+            },
+        }
+    }
 
     workflow_api.complete_work_item(work_item, user=caluma_admin_user)
 
