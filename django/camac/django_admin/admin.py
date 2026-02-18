@@ -52,6 +52,16 @@ class CategoryAdmin(
             return ["slug"]
         return []
 
+    def formfield_for_dbfield(self, db_field, request, **kwargs):
+        formfield = super().formfield_for_dbfield(db_field, request, **kwargs)
+
+        # This makes sure that an empty dict is allowed as metainfo
+        if db_field.name == "metainfo":
+            formfield.required = False
+            formfield.empty_value = None
+
+        return formfield
+
     def save_model(self, request, obj, form, change):
         super().save_model(request, obj, form, change)
 
