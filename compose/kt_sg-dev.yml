@@ -114,7 +114,7 @@ services:
 
   celery:
     <<: *django
-    image: acr.run/camac-ng/camac-ng/django:${CI_COMMIT_TAG:-master}
+    image: acr.run/camac-ng/camac-ng/django:master
     build:
       context: ../django
       cache_from:
@@ -128,7 +128,7 @@ services:
 
   celery-beat:
     <<: *django
-    image: acr.run/camac-ng/camac-ng/django:${CI_COMMIT_TAG:-master}
+    image: acr.run/camac-ng/camac-ng/django:master
     build:
       context: ../django
       cache_from:

@@ -12,11 +12,6 @@ services:
       args:
         APPLICATION: ${APPLICATION}
 
-  # Not required for the build, but makes the django-q service definition easier
-  # for the development environment.
-  django-q:
-    <<: *django
-
   ember:
     image: acr.run/camac-ng/camac-ng/ember:${CI_COMMIT_TAG:-master}
     build:
