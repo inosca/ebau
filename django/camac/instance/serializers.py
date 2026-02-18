@@ -2674,6 +2674,7 @@ class DurationField(serializers.DurationField):
 
 
 class JournalEntrySerializer(InstanceEditableMixin, serializers.ModelSerializer):
+    instance_editable_acl_permission = "journal"
     included_serializers = {
         "instance": InstanceSerializer,
         "user": "camac.user.serializers.PublicUserSerializer",
