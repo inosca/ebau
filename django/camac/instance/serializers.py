@@ -438,6 +438,7 @@ class SchwyzInstanceSerializer(InstanceSerializer):
             instance.identifier = identifier
 
         instance.save()
+        permissions_events.Trigger.instance_created(self.context["request"], instance)
         return instance
 
     @permission_aware
