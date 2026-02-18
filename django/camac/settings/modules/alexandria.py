@@ -88,6 +88,13 @@ ALEXANDRIA = {
             "GEOMETER": ["geometer"],
         },
     },
+    "kt_sg": {
+        "ENABLED": True,
+        "USE_V2_PERMISSIONS": True,
+        "PERMISSION_KEY": {
+            "USE_ROLE_PERMISSIONS_MAPPING": True,
+        },
+    },
     "test": {
         "ENABLED": True,
     },

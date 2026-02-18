@@ -22,6 +22,7 @@ APPLICANT_WRITE = HasApplicantRole(["ADMIN", "EDITOR"])
 # 2. Form rules
 # 3. Role rules
 # 4. Other
+MODULE_DOCUMENTS = STATES_ALL
 MODULE_FORM = STATES_ALL
 MODULE_HISTORY = STATES_ALL
 MODULE_JOURNAL = STATES_ALL
@@ -55,6 +56,8 @@ SG_PERMISSIONS_SETTINGS = {
             ("form-read", MODULE_FORM),
         ],
         "lead-authority": [
+            ("documents-read", MODULE_DOCUMENTS),
+            ("documents-write", MODULE_DOCUMENTS),
             ("form-read", MODULE_FORM),
             ("history-read", MODULE_HISTORY),
             ("journal-read", MODULE_JOURNAL),
@@ -68,12 +71,15 @@ SG_PERMISSIONS_SETTINGS = {
             ("work-items-read", MODULE_WORK_ITEMS),
         ],
         "read": [
+            ("documents-read", MODULE_DOCUMENTS),
             ("form-read", MODULE_FORM),
         ],
         "support": [
             ("applicant-add", Always()),
             ("applicant-read", Always()),
             ("applicant-remove", Always()),
+            ("documents-read", Always()),
+            ("documents-write", Always()),
             ("form-read", Always()),
             ("form-write", Always()),
         ],

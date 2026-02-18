@@ -121,6 +121,8 @@ DJANGO_ADMIN = {
     "kt_sg": {
         "ENABLED": True,
         "ENABLED_MODELS": [
+            "alexandria_core.Category",
+            "alexandria_core.Mark",
             "core.InstanceResource",
             "core.Resource",
         ],
