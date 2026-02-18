@@ -1,1 +1,127 @@
-[]
+[
+  {
+    "model": "permissions.instanceacl",
+    "pk": 1,
+    "fields": {
+      "instance": 1,
+      "access_level": "applicant",
+      "user": 1,
+      "service": null,
+      "service_group": null,
+      "role": null,
+      "token": null,
+      "start_time": "2026-02-18T09:46:15.120Z",
+      "end_time": null,
+      "created_by_user": null,
+      "revoked_by_user": null,
+      "created_by_service": null,
+      "revoked_by_service": null,
+      "created_by_event": "applicant_added",
+      "revoked_by_event": null,
+      "grant_type": "USER",
+      "created_at": "2026-02-18T09:46:15.120Z",
+      "revoked_at": null,
+      "metainfo": null
+    }
+  },
+  {
+    "model": "permissions.instanceacl",
+    "pk": 2,
+    "fields": {
+      "instance": 1,
+      "access_level": "support",
+      "user": null,
+      "service": null,
+      "service_group": null,
+      "role": 2,
+      "token": null,
+      "start_time": "2026-02-18T09:46:15.247Z",
+      "end_time": null,
+      "created_by_user": null,
+      "revoked_by_user": null,
+      "created_by_service": null,
+      "revoked_by_service": null,
+      "created_by_event": "instance-created",
+      "revoked_by_event": null,
+      "grant_type": "ROLE",
+      "created_at": "2026-02-18T09:46:15.247Z",
+      "revoked_at": null,
+      "metainfo": null
+    }
+  },
+  {
+    "model": "permissions.instanceacl",
+    "pk": 3,
+    "fields": {
+      "instance": 1,
+      "access_level": "lead-authority",
+      "user": null,
+      "service": 3,
+      "service_group": null,
+      "role": null,
+      "token": null,
+      "start_time": "2026-02-18T09:49:27.164Z",
+      "end_time": null,
+      "created_by_user": 1,
+      "revoked_by_user": null,
+      "created_by_service": null,
+      "revoked_by_service": null,
+      "created_by_event": "instance-submitted",
+      "revoked_by_event": null,
+      "grant_type": "SERVICE",
+      "created_at": "2026-02-18T09:49:27.164Z",
+      "revoked_at": null,
+      "metainfo": null
+    }
+  },
+  {
+    "model": "permissions.instanceacl",
+    "pk": 4,
+    "fields": {
+      "instance": 2,
+      "access_level": "applicant",
+      "user": 1,
+      "service": null,
+      "service_group": null,
+      "role": null,
+      "token": null,
+      "start_time": "2026-02-18T09:49:30.267Z",
+      "end_time": null,
+      "created_by_user": null,
+      "revoked_by_user": null,
+      "created_by_service": null,
+      "revoked_by_service": null,
+      "created_by_event": "applicant_added",
+      "revoked_by_event": null,
+      "grant_type": "USER",
+      "created_at": "2026-02-18T09:49:30.267Z",
+      "revoked_at": null,
+      "metainfo": null
+    }
+  },
+  {
+    "model": "permissions.instanceacl",
+    "pk": 5,
+    "fields": {
+      "instance": 2,
+      "access_level": "support",
+      "user": null,
+      "service": null,
+      "service_group": null,
+      "role": 2,
+      "token": null,
+      "start_time": "2026-02-18T09:49:30.323Z",
+      "end_time": null,
+      "created_by_user": null,
+      "revoked_by_user": null,
+      "created_by_service": null,
+      "revoked_by_service": null,
+      "created_by_event": "instance-created",
+      "revoked_by_event": null,
+      "grant_type": "ROLE",
+      "created_at": "2026-02-18T09:49:30.323Z",
+      "revoked_at": null,
+      "metainfo": null
+    }
+  }
+]
