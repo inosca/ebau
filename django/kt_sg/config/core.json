@@ -306,6 +306,102 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 10,
+    "fields": {
+      "resource": 4,
+      "role": 5
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 11,
+    "fields": {
+      "resource": 4,
+      "role": 7
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 12,
+    "fields": {
+      "resource": 4,
+      "role": 8
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 13,
+    "fields": {
+      "resource": 4,
+      "role": 2
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 14,
+    "fields": {
+      "resource": 5,
+      "role": 5
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 15,
+    "fields": {
+      "resource": 5,
+      "role": 7
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 16,
+    "fields": {
+      "resource": 5,
+      "role": 8
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 17,
+    "fields": {
+      "resource": 5,
+      "role": 2
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 18,
+    "fields": {
+      "resource": 6,
+      "role": 5
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 19,
+    "fields": {
+      "resource": 6,
+      "role": 7
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 20,
+    "fields": {
+      "resource": 6,
+      "role": 8
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 21,
+    "fields": {
+      "resource": 6,
+      "role": 2
+    }
+  },
+  {
     "model": "core.resource",
     "pk": 1,
     "fields": {
@@ -345,6 +441,45 @@
     }
   },
   {
+    "model": "core.resource",
+    "pk": 4,
+    "fields": {
+      "available_resource": "page",
+      "name": null,
+      "description": null,
+      "template": "/dashboard/news.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 4
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 5,
+    "fields": {
+      "available_resource": "page",
+      "name": null,
+      "description": null,
+      "template": "/dashboard/help.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 5
+    }
+  },
+  {
+    "model": "core.resource",
+    "pk": 6,
+    "fields": {
+      "available_resource": "page",
+      "name": null,
+      "description": null,
+      "template": "/dashboard/faq.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 6
+    }
+  },
+  {
     "model": "core.resourcet",
     "pk": 1,
     "fields": {
@@ -371,6 +506,36 @@
       "resource": 3,
       "language": "de",
       "name": "Meine Organisation",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 4,
+    "fields": {
+      "resource": 4,
+      "language": "de",
+      "name": "News",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 5,
+    "fields": {
+      "resource": 5,
+      "language": "de",
+      "name": "Hilfe",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 6,
+    "fields": {
+      "resource": 6,
+      "language": "de",
+      "name": "FAQ",
       "description": null
     }
   }
