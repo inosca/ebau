@@ -1,1 +1,63 @@
-[]
+[
+  {
+    "model": "instance.instance",
+    "pk": 1,
+    "fields": {
+      "instance_state": 2,
+      "form": 1,
+      "user": 1,
+      "group": 3,
+      "creation_date": "2026-02-18T09:46:15.107Z",
+      "modification_date": "2026-02-18T09:46:15.107Z",
+      "previous_instance_state": 1,
+      "identifier": null,
+      "location": null,
+      "case": "069958a6-7311-7350-8000-54dd976cbfb4",
+      "instance_group": null,
+      "rejection_feedback": null,
+      "copy_source": null
+    }
+  },
+  {
+    "model": "instance.instance",
+    "pk": 2,
+    "fields": {
+      "instance_state": 1,
+      "form": 1,
+      "user": 1,
+      "group": 3,
+      "creation_date": "2026-02-18T09:49:30.265Z",
+      "modification_date": "2026-02-18T09:49:30.265Z",
+      "previous_instance_state": 1,
+      "identifier": null,
+      "location": null,
+      "case": "069958b2-a4d0-731f-8000-db7b1e5ded9e",
+      "instance_group": null,
+      "rejection_feedback": null,
+      "copy_source": null
+    }
+  },
+  {
+    "model": "instance.historyentry",
+    "pk": 1,
+    "fields": {
+      "instance": 1,
+      "service": null,
+      "user": 1,
+      "created_at": "2026-02-18T09:49:27.070Z",
+      "title": null,
+      "body": null,
+      "history_type": "status-change"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 1,
+    "fields": {
+      "title": "Dossier eingereicht",
+      "body": "",
+      "history_entry": 1,
+      "language": "de"
+    }
+  }
+]

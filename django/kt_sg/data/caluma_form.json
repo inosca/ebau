@@ -1,1 +1,772 @@
-[]
+[
+  {
+    "model": "caluma_form.document",
+    "pk": "069958a6-7204-712c-8000-71d5f39de78c",
+    "fields": {
+      "created_at": "2026-02-18T09:46:15.126Z",
+      "modified_at": "2026-02-18T09:46:15.143Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "family": "069958a6-7204-712c-8000-71d5f39de78c",
+      "form": "baugesuch",
+      "source": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "caluma_form.document",
+    "pk": "069958a6-a4f7-7b54-8000-13fb9b5575be",
+    "fields": {
+      "created_at": "2026-02-18T09:46:18.310Z",
+      "modified_at": "2026-02-18T09:47:58.816Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "family": "069958a6-7204-712c-8000-71d5f39de78c",
+      "form": "personalien-tabelle",
+      "source": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "caluma_form.document",
+    "pk": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+    "fields": {
+      "created_at": "2026-02-18T09:49:30.271Z",
+      "modified_at": "2026-02-18T09:49:30.283Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "family": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "form": "baugesuch",
+      "source": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "caluma_form.document",
+    "pk": "069958b2-cdaf-7742-8000-b5e85849d0fe",
+    "fields": {
+      "created_at": "2026-02-18T09:49:32.855Z",
+      "modified_at": "2026-02-18T09:50:23.515Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "family": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "form": "personalien-tabelle",
+      "source": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "069958a6-73ad-70db-8000-b93575ea5a09",
+    "fields": {
+      "created_at": "2026-02-18T09:46:15.230Z",
+      "modified_at": "2026-02-18T09:46:15.230Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "is-paper",
+      "value": "is-paper-no",
+      "meta": {},
+      "document": "069958a6-7204-712c-8000-71d5f39de78c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "069958a6-73d3-7e22-8000-c1b23a926a9a",
+    "fields": {
+      "created_at": "2026-02-18T09:46:15.239Z",
+      "modified_at": "2026-02-18T09:46:15.239Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "projektaenderung",
+      "value": "projektaenderung-nein",
+      "meta": {},
+      "document": "069958a6-7204-712c-8000-71d5f39de78c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "069958a6-de19-7c1f-8000-8da5d218ae94",
+    "fields": {
+      "created_at": "2026-02-18T09:46:21.881Z",
+      "modified_at": "2026-02-18T09:46:21.881Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "juristische-person",
+      "value": "juristische-person-ja",
+      "meta": {},
+      "document": "069958a6-a4f7-7b54-8000-13fb9b5575be",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "069958a7-05c1-758e-8000-f608de502389",
+    "fields": {
+      "created_at": "2026-02-18T09:46:24.359Z",
+      "modified_at": "2026-02-18T09:46:31.520Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "juristische-person-name",
+      "value": "ACME Inc.",
+      "meta": {},
+      "document": "069958a6-a4f7-7b54-8000-13fb9b5575be",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "069958ab-02da-7a51-8000-62b159d9868c",
+    "fields": {
+      "created_at": "2026-02-18T09:47:28.178Z",
+      "modified_at": "2026-02-18T09:47:28.178Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "vorname",
+      "value": "Max",
+      "meta": {},
+      "document": "069958a6-a4f7-7b54-8000-13fb9b5575be",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "069958ab-2dea-7211-8000-80f51005e79d",
+    "fields": {
+      "created_at": "2026-02-18T09:47:30.869Z",
+      "modified_at": "2026-02-18T09:47:30.869Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "name",
+      "value": "Mustermann",
+      "meta": {},
+      "document": "069958a6-a4f7-7b54-8000-13fb9b5575be",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "069958ab-6875-7d49-8000-f1f58d1fc35f",
+    "fields": {
+      "created_at": "2026-02-18T09:47:34.528Z",
+      "modified_at": "2026-02-18T09:47:34.529Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "strasse-und-nr",
+      "value": "Teststrasse 13",
+      "meta": {},
+      "document": "069958a6-a4f7-7b54-8000-13fb9b5575be",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "069958ab-a37b-7be8-8000-19a89e0d5287",
+    "fields": {
+      "created_at": "2026-02-18T09:47:38.218Z",
+      "modified_at": "2026-02-18T09:47:38.218Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "plz",
+      "value": "3000",
+      "meta": {},
+      "document": "069958a6-a4f7-7b54-8000-13fb9b5575be",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "069958ab-b080-7610-8000-c1b2fd3f5feb",
+    "fields": {
+      "created_at": "2026-02-18T09:47:39.031Z",
+      "modified_at": "2026-02-18T09:47:39.031Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "ort",
+      "value": "Bern",
+      "meta": {},
+      "document": "069958a6-a4f7-7b54-8000-13fb9b5575be",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "069958ab-d880-7b76-8000-79c71351d49a",
+    "fields": {
+      "created_at": "2026-02-18T09:47:41.531Z",
+      "modified_at": "2026-02-18T09:47:41.531Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "land",
+      "value": "Schweiz",
+      "meta": {},
+      "document": "069958a6-a4f7-7b54-8000-13fb9b5575be",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "069958ac-4309-70f1-8000-a1ceb25e4acb",
+    "fields": {
+      "created_at": "2026-02-18T09:47:48.189Z",
+      "modified_at": "2026-02-18T09:47:48.189Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "e-mail",
+      "value": "m.mustermann@gmai.com",
+      "meta": {},
+      "document": "069958a6-a4f7-7b54-8000-13fb9b5575be",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "069958ac-afdc-7a80-8000-6497c3e05bb3",
+    "fields": {
+      "created_at": "2026-02-18T09:47:54.991Z",
+      "modified_at": "2026-02-18T09:47:56.286Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "telefon",
+      "value": "079 888 99 00",
+      "meta": {},
+      "document": "069958a6-a4f7-7b54-8000-13fb9b5575be",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "069958ac-ecec-7426-8000-730109743cbc",
+    "fields": {
+      "created_at": "2026-02-18T09:47:58.807Z",
+      "modified_at": "2026-02-18T09:47:58.807Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "gesuchstellerin",
+      "value": null,
+      "meta": {},
+      "document": "069958a6-7204-712c-8000-71d5f39de78c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "069958ae-da70-7ab7-8000-37795b6cd917",
+    "fields": {
+      "created_at": "2026-02-18T09:48:29.652Z",
+      "modified_at": "2026-02-18T09:48:29.652Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "strasse-und-nr",
+      "value": "Zeughausgasse 12",
+      "meta": {},
+      "document": "069958a6-7204-712c-8000-71d5f39de78c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "069958ae-fc01-7ba8-8000-d390d92d946a",
+    "fields": {
+      "created_at": "2026-02-18T09:48:31.750Z",
+      "modified_at": "2026-02-18T09:48:31.750Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "plz",
+      "value": "9000",
+      "meta": {},
+      "document": "069958a6-7204-712c-8000-71d5f39de78c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "069958af-21fe-7701-8000-ba716692e477",
+    "fields": {
+      "created_at": "2026-02-18T09:48:34.124Z",
+      "modified_at": "2026-02-18T09:48:34.124Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "ort",
+      "value": "St.Gallen",
+      "meta": {},
+      "document": "069958a6-7204-712c-8000-71d5f39de78c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "069958af-6ebe-7769-8000-8f83e4effae3",
+    "fields": {
+      "created_at": "2026-02-18T09:48:38.921Z",
+      "modified_at": "2026-02-18T09:48:38.921Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "gemeinde",
+      "value": "3",
+      "meta": {},
+      "document": "069958a6-7204-712c-8000-71d5f39de78c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "069958af-adcc-7a9c-8000-030c89db1c13",
+    "fields": {
+      "created_at": "2026-02-18T09:48:42.862Z",
+      "modified_at": "2026-02-18T09:49:12.566Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "beschreibung-bauvorhaben",
+      "value": "Ausbau Dachterrasse",
+      "meta": {},
+      "document": "069958a6-7204-712c-8000-71d5f39de78c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "069958b2-6f7f-7813-8000-c5f583b32521",
+    "fields": {
+      "created_at": "2026-02-18T09:49:26.968Z",
+      "modified_at": "2026-02-18T09:49:26.968Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "einreichen-button",
+      "value": ["einreichen-button-eingereicht"],
+      "meta": {},
+      "document": "069958a6-7204-712c-8000-71d5f39de78c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "069958b2-a510-705b-8000-da3afbb3f7c2",
+    "fields": {
+      "created_at": "2026-02-18T09:49:30.316Z",
+      "modified_at": "2026-02-18T09:49:30.316Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "is-paper",
+      "value": "is-paper-no",
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "069958b2-a521-752e-8000-89780a61c096",
+    "fields": {
+      "created_at": "2026-02-18T09:49:30.320Z",
+      "modified_at": "2026-02-18T09:49:30.320Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "question": "projektaenderung",
+      "value": "projektaenderung-nein",
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "069958b2-ef22-7c54-8000-49a8bd586aa1",
+    "fields": {
+      "created_at": "2026-02-18T09:49:34.946Z",
+      "modified_at": "2026-02-18T09:49:34.946Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "juristische-person",
+      "value": "juristische-person-nein",
+      "meta": {},
+      "document": "069958b2-cdaf-7742-8000-b5e85849d0fe",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "069958b3-3856-7635-8000-cd2234a83230",
+    "fields": {
+      "created_at": "2026-02-18T09:49:39.521Z",
+      "modified_at": "2026-02-18T09:49:39.521Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "vorname",
+      "value": "Sandra",
+      "meta": {},
+      "document": "069958b2-cdaf-7742-8000-b5e85849d0fe",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "069958b3-4ca1-7ca4-8000-650e5935e803",
+    "fields": {
+      "created_at": "2026-02-18T09:49:40.789Z",
+      "modified_at": "2026-02-18T09:49:43.195Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "name",
+      "value": "Testerin",
+      "meta": {},
+      "document": "069958b2-cdaf-7742-8000-b5e85849d0fe",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "069958b3-fab5-7028-8000-e13f21bca292",
+    "fields": {
+      "created_at": "2026-02-18T09:49:51.669Z",
+      "modified_at": "2026-02-18T09:49:52.671Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "strasse-und-nr",
+      "value": "Frachtweg 99",
+      "meta": {},
+      "document": "069958b2-cdaf-7742-8000-b5e85849d0fe",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "069958b4-2c94-72bc-8000-5ec7a4f3b48a",
+    "fields": {
+      "created_at": "2026-02-18T09:49:54.786Z",
+      "modified_at": "2026-02-18T09:49:54.786Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "plz",
+      "value": "3000",
+      "meta": {},
+      "document": "069958b2-cdaf-7742-8000-b5e85849d0fe",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "069958b4-3b39-7630-8000-3aab7b6d6dde",
+    "fields": {
+      "created_at": "2026-02-18T09:49:55.701Z",
+      "modified_at": "2026-02-18T09:49:55.701Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "ort",
+      "value": "Bern",
+      "meta": {},
+      "document": "069958b2-cdaf-7742-8000-b5e85849d0fe",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "069958b4-c760-7e90-8000-f0dbe1e35315",
+    "fields": {
+      "created_at": "2026-02-18T09:50:04.461Z",
+      "modified_at": "2026-02-18T09:50:04.461Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "land",
+      "value": "Schweiz",
+      "meta": {},
+      "document": "069958b2-cdaf-7742-8000-b5e85849d0fe",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "069958b5-3c5e-72e5-8000-e5b7ea2cddd9",
+    "fields": {
+      "created_at": "2026-02-18T09:50:11.773Z",
+      "modified_at": "2026-02-18T09:50:11.773Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "e-mail",
+      "value": "s.testerin@gmail.com",
+      "meta": {},
+      "document": "069958b2-cdaf-7742-8000-b5e85849d0fe",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "069958b5-a7e8-7cd7-8000-bee47682d7b0",
+    "fields": {
+      "created_at": "2026-02-18T09:50:18.494Z",
+      "modified_at": "2026-02-18T09:50:21.781Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "telefon",
+      "value": "076 666 88 99",
+      "meta": {},
+      "document": "069958b2-cdaf-7742-8000-b5e85849d0fe",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "069958b5-f819-7a8c-8000-d4987cdc125c",
+    "fields": {
+      "created_at": "2026-02-18T09:50:23.506Z",
+      "modified_at": "2026-02-18T09:50:23.506Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "gesuchstellerin",
+      "value": null,
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "069958b6-4d62-74ec-8000-b003d701ad28",
+    "fields": {
+      "created_at": "2026-02-18T09:50:28.836Z",
+      "modified_at": "2026-02-18T09:50:28.836Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "gemeinde",
+      "value": "3",
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "069958b7-47a7-7e82-8000-126a71642b59",
+    "fields": {
+      "created_at": "2026-02-18T09:50:44.478Z",
+      "modified_at": "2026-02-18T09:50:44.478Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "strasse-und-nr",
+      "value": "Notkerstrasse 16",
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "069958b7-6289-7a30-8000-03f2d66519ee",
+    "fields": {
+      "created_at": "2026-02-18T09:50:46.158Z",
+      "modified_at": "2026-02-18T09:50:46.158Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "plz",
+      "value": "9000",
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "069958b8-2605-7a17-8000-5ae7e35f9b9a",
+    "fields": {
+      "created_at": "2026-02-18T09:50:58.376Z",
+      "modified_at": "2026-02-18T09:50:58.376Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "ort",
+      "value": "St.Gallen",
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "069958b8-9cd8-77a9-8000-518063cb131d",
+    "fields": {
+      "created_at": "2026-02-18T09:51:05.803Z",
+      "modified_at": "2026-02-18T09:51:05.803Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "beschreibung-bauvorhaben",
+      "value": "Einbau Dachfenster",
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answerdocument",
+    "pk": "069958ac-ecfc-76ba-8000-59c4790b3758",
+    "fields": {
+      "created_at": "2026-02-18T09:47:58.811Z",
+      "modified_at": "2026-02-18T09:47:58.811Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "answer": "069958ac-ecec-7426-8000-730109743cbc",
+      "document": "069958a6-a4f7-7b54-8000-13fb9b5575be",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.answerdocument",
+    "pk": "069958b5-f832-7ba5-8000-6a2d34bd1472",
+    "fields": {
+      "created_at": "2026-02-18T09:50:23.512Z",
+      "modified_at": "2026-02-18T09:50:23.512Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "answer": "069958b5-f819-7a8c-8000-d4987cdc125c",
+      "document": "069958b2-cdaf-7742-8000-b5e85849d0fe",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.dynamicoption",
+    "pk": "069958ab-d870-7d08-8000-0370682d4df3",
+    "fields": {
+      "created_at": "2026-02-18T09:47:41.527Z",
+      "modified_at": "2026-02-18T09:47:41.527Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "slug": "Schweiz",
+      "label": "{\"de\": \"Schweiz\", \"fr\": null, \"it\": null}",
+      "document": "069958a6-a4f7-7b54-8000-13fb9b5575be",
+      "question": "land"
+    }
+  },
+  {
+    "model": "caluma_form.dynamicoption",
+    "pk": "069958af-6eb1-78e2-8000-78f20fda5200",
+    "fields": {
+      "created_at": "2026-02-18T09:48:38.918Z",
+      "modified_at": "2026-02-18T09:48:38.918Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "slug": "3",
+      "label": "{\"de\": \"St. Gallen\", \"fr\": \"St. Gallen\", \"it\": \"St. Gallen\"}",
+      "document": "069958a6-7204-712c-8000-71d5f39de78c",
+      "question": "gemeinde"
+    }
+  },
+  {
+    "model": "caluma_form.dynamicoption",
+    "pk": "069958b4-c756-72ee-8000-68fee67fbc01",
+    "fields": {
+      "created_at": "2026-02-18T09:50:04.458Z",
+      "modified_at": "2026-02-18T09:50:04.458Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "slug": "Schweiz",
+      "label": "{\"de\": \"Schweiz\", \"fr\": null, \"it\": null}",
+      "document": "069958b2-cdaf-7742-8000-b5e85849d0fe",
+      "question": "land"
+    }
+  },
+  {
+    "model": "caluma_form.dynamicoption",
+    "pk": "069958b6-4d56-7628-8000-ff107796f76b",
+    "fields": {
+      "created_at": "2026-02-18T09:50:28.833Z",
+      "modified_at": "2026-02-18T09:50:28.833Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "slug": "3",
+      "label": "{\"de\": \"St. Gallen\", \"fr\": \"St. Gallen\", \"it\": \"St. Gallen\"}",
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "question": "gemeinde"
+    }
+  }
+]
