@@ -264,3 +264,23 @@ def post_create_check_additional_demand(
             user=user,
             context=context,
         )
+
+
+@on(post_cancel_work_item, raise_exception=True)
+@filter_by_task("TASK")
+@transaction.atomic
+def post_cancel_additional_demand_notification(
+    sender, work_item, user, context=None, **kwargs
+):
+    if settings.ADDITIONAL_DEMAND.get("NOTIFICATIONS", {}).get("CANCELLED"):
+        instance = get_instance(work_item)
+
+        for config in settings.ADDITIONAL_DEMAND["NOTIFICATIONS"]["CANCELLED"]:
+            send_mail_without_request(
+                config["template_slug"],
+                user.username,
+                user.camac_group,
+                recipient_types=config["recipient_types"],
+                instance={"id": instance.pk, "type": "instances"},
+                work_item={"id": work_item.pk, "type": "work-items"},
+            )

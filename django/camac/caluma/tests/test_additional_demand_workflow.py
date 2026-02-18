@@ -58,6 +58,7 @@ def test_additonal_demand_check_notification(
     db,
     gr_additional_demand_settings,
     caluma_answer_factory,
+    caluma_case_factory,
     caluma_admin_user,
     decision,
     gr_instance,
@@ -102,7 +103,11 @@ def test_additonal_demand_check_notification(
         task=Task.objects.get(slug=gr_additional_demand_settings["CHECK_TASK"]),
         document=answer.document,
         child_case=None,
-        case=gr_instance.case,
+        case=caluma_case_factory(family=gr_instance.case.family),
+    )
+    caluma_work_item_factory(
+        task_id=gr_additional_demand_settings["TASK"],
+        child_case=work_item.case,
     )
 
     complete_work_item(work_item=work_item, user=caluma_admin_user, context={})
@@ -149,6 +154,10 @@ def test_additional_demand_fill_notification_be(
         task=Task.objects.get(slug=be_additional_demand_settings["FILL_TASK"]),
         child_case=None,
         case=be_instance.case,
+    )
+    caluma_work_item_factory(
+        task_id=be_additional_demand_settings["TASK"],
+        child_case=work_item.case,
     )
 
     complete_work_item(work_item=work_item, user=caluma_admin_user, context={})

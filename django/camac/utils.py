@@ -357,7 +357,7 @@ def delay_next_workingday(input_date):
     return input_date
 
 
-def should_notify_on_manual_workitems(work_item) -> bool:
+def should_notify_on_manual_workitems(work_item, ignore_addressed_self=False) -> bool:
     # After the submission of the form and the decision a
     # "create-manual-workitems" will be created to allow the responsible
     # service to create a manual work item. For those work items there must not
@@ -370,6 +370,15 @@ def should_notify_on_manual_workitems(work_item) -> bool:
     # is a create-manual-workitems so it has no previous work_item. Therefore
     # we have to check here that if its the first manual workitem to be
     # created, we ignore it.
+
+    # If we do not want to send a notification if the creator group is in
+    # the addressed groups, return False here.
+    if (
+        ignore_addressed_self
+        and str(work_item.created_by_group) in work_item.addressed_groups
+    ):
+        return False
+
     return (
         work_item.previous_work_item is None
         and not work_item.case.family.work_items.filter(

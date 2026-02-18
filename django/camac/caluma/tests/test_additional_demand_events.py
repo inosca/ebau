@@ -275,3 +275,44 @@ def test_post_create_check_additional_demand(
         )
     else:
         assert work_item_check.status == WorkItem.STATUS_READY
+
+
+def test_post_cancel_additional_demand_notification(
+    db,
+    caluma_work_item_factory,
+    notification_template_factory,
+    caluma_task_factory,
+    caluma_admin_user,
+    caluma_case_factory,
+    instance,
+    mailoutbox,
+    additional_demand_settings,
+):
+    case = caluma_case_factory()
+    instance.case = case
+    instance.save()
+
+    work_item = caluma_work_item_factory(
+        case=instance.case,
+        task=caluma_task_factory(pk=additional_demand_settings["TASK"]),
+    )
+
+    # by default no notifications are configured for cancel.
+    additional_demand.post_cancel_additional_demand_notification(
+        sender=None, work_item=work_item, user=caluma_admin_user
+    )
+    assert len(mailoutbox) == 0
+
+    # test with a cancel notification configured.
+    test_template = notification_template_factory()
+    additional_demand_settings["NOTIFICATIONS"]["CANCELLED"] = [
+        {
+            "template_slug": test_template.slug,
+            "recipient_types": ["applicant"],
+        }
+    ]
+    additional_demand.post_cancel_additional_demand_notification(
+        sender=None, work_item=work_item, user=caluma_admin_user
+    )
+    assert len(mailoutbox) == 1
+    assert test_template.subject in mailoutbox[0].subject

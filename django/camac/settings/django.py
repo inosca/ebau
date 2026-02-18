@@ -289,6 +289,11 @@ APPLICATIONS = {
             "gvg",
             "are",
             "are_bab",
+            "additional_demand_send_gr",
+            "additional_demand_reply_gr",
+            "additional_demand_reject_gr",
+            "additional_demand_accept_gr",
+            "additional_demand_cancel_gr",
             # SZ
             "involved_in_construction_step",
             "geometer",
@@ -2214,7 +2219,7 @@ APPLICATIONS = {
                     "notification": {
                         "template_slug": "fill-additional-demand",
                         "recipient_types": [
-                            "additional_demand_leitbehoerde",
+                            "additional_demand_reply_gr",
                             "work_item_controlling",
                         ],
                     },
@@ -2239,6 +2244,16 @@ APPLICATIONS = {
             "CALUMA_WORKFLOW_NOTIFICATIONS": {
                 "create-manual-workitems": [
                     {
+                        "event": "created",
+                        "notification": {
+                            "template_slug": "create-manual-work-item",
+                            "recipient_types": ["work_item_addressed"],
+                        },
+                        "condition": lambda work_item: (
+                            should_notify_on_manual_workitems(work_item, True)
+                        ),
+                    },
+                    {
                         "event": "completed",
                         "notification": {
                             "template_slug": "complete-manual-work-item",
@@ -2261,11 +2276,7 @@ APPLICATIONS = {
                         "event": "completed",
                         "notification": {
                             "template_slug": "send-additional-demand-internal",
-                            "recipient_types": [
-                                "additional_demand_leitbehoerde",
-                                "additional_demand_sender",
-                                "additional_demand_are_bab",
-                            ],
+                            "recipient_types": ["additional_demand_send_gr"],
                         },
                         "condition": lambda work_item: (
                             not is_additional_demand_with_changes(work_item)
@@ -2275,12 +2286,7 @@ APPLICATIONS = {
                         "event": "completed",
                         "notification": {
                             "template_slug": "send-additional-demand-internal-with-changes",
-                            "recipient_types": [
-                                "additional_demand_leitbehoerde",
-                                "additional_demand_sender",
-                                "additional_demand_are_bab",
-                                "involved_in_distribution",
-                            ],
+                            "recipient_types": ["additional_demand_send_gr"],
                         },
                         "condition": lambda work_item: (
                             is_additional_demand_with_changes(work_item)
@@ -2326,8 +2332,11 @@ APPLICATIONS = {
             "aib",
             "are",
             "are_bab",
-            "additional_demand_are_bab",
-            "additional_demand_leitbehoerde",
+            "additional_demand_send_gr",
+            "additional_demand_reply_gr",
+            "additional_demand_reject_gr",
+            "additional_demand_accept_gr",
+            "additional_demand_cancel_gr",
         ],
         "NOTIFICATIONS": {
             "WORKITEM_DEADLINE_OVERDUE": {

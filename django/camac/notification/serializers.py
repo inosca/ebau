@@ -92,7 +92,6 @@ RECIPIENT_TYPE_NAMES = {
         "Services which have incomplete inquiries"
     ),
     "leitbehoerde": translation.gettext_noop("Authority"),
-    "additional_demand_leitbehoerde": translation.gettext_noop("Authority"),
     "municipality": translation.gettext_noop("Municipality"),
     "unanswered_inquiries": translation.gettext_noop(
         "Services with unanswered inquiries"
@@ -104,7 +103,6 @@ RECIPIENT_TYPE_NAMES = {
     "additional_demand_inviter": translation.gettext_noop(
         "Inviter of additional demand creator"
     ),
-    "additional_demand_sender": translation.gettext_noop("Sender of additional demand"),
     "geometer_acl_services": translation.gettext_noop(
         "Geometer (via permissions module)"
     ),
@@ -274,6 +272,10 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     current_user_name = serializers.SerializerMethodField()
     work_item_name_de = serializers.SerializerMethodField()
     work_item_name_fr = serializers.SerializerMethodField()
+
+    additional_demand_sender_name_de = serializers.SerializerMethodField()
+    additional_demand_sender_name_fr = serializers.SerializerMethodField()
+    additional_demand_sender_name_it = serializers.SerializerMethodField()
 
     public_instance_link = serializers.SerializerMethodField()
     public_instance_link_de = serializers.SerializerMethodField()
@@ -930,6 +932,38 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     def get_work_item_name_fr(self, instance):
         return self.work_item.name.get("fr") if self.work_item else None
 
+    def _get_additional_demand_sender_name(self, instance, language):
+        # only resolve placeholder for additional demand work items.
+        work_item = self.work_item
+        if not work_item or work_item.task_id not in [
+            settings.ADDITIONAL_DEMAND.get("TASK"),
+            settings.ADDITIONAL_DEMAND.get("FILL_TASK"),
+            settings.ADDITIONAL_DEMAND.get("CHECK_TASK"),
+            settings.ADDITIONAL_DEMAND.get("SEND_TASK"),
+        ]:
+            return ""
+
+        if work_item.task_id != settings.ADDITIONAL_DEMAND.get("TASK"):
+            work_item = work_item.case.parent_work_item
+
+        controlling_groups = work_item.controlling_groups
+
+        return ", ".join(
+            [
+                service.get_name(language)
+                for service in Service.objects.filter(pk__in=controlling_groups)
+            ]
+        )
+
+    def get_additional_demand_sender_name_de(self, instance):
+        return self._get_additional_demand_sender_name(instance, "de")
+
+    def get_additional_demand_sender_name_fr(self, instance):
+        return self._get_additional_demand_sender_name(instance, "fr")
+
+    def get_additional_demand_sender_name_it(self, instance):
+        return self._get_additional_demand_sender_name(instance, "it")
+
     def get_decision_de(self, instance):
         return self._get_decision(instance, "de")
 
@@ -1189,7 +1223,6 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             "work_item_addressed",
             "work_item_controlling",
             "additional_demand_inviter",
-            "additional_demand_sender",
             "acl_authorized",
             # GR specific
             "involved_in_distribution_except_gvg",
@@ -1554,22 +1587,6 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
                 )
         return flatten(data)
 
-    def _get_recipients_additional_demand_sender(self, instance):
-        """Use the sender of the additional demand as recipient."""
-        if not settings.ADDITIONAL_DEMAND:  # pragma: no cover
-            return []
-
-        current_group = self.validated_data.get(
-            "work_item"
-        ).case.parent_work_item.addressed_groups
-
-        return flatten(
-            [
-                self._get_responsible(instance, service)
-                for service in Service.objects.filter(pk__in=current_group)
-            ]
-        )
-
     def _get_recipients_additional_demand_inviter(self, instance):
         if not settings.ADDITIONAL_DEMAND:  # pragma: no cover
             return []
@@ -1594,22 +1611,129 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             ]
         )
 
-    def _get_recipients_additional_demand_leitbehoerde(self, instance):
-        """Use the leitbehörde as recipient.
+    def _get_recipients_additional_demand_send_gr(self, instance):  # pragma: no cover
+        return self._get_recipients_additional_demand_gr(
+            instance,
+            bib_lead=True,
+            bab_are_responsible=True,
+            bab_other_reponsible=True,
+            bab_other_are=True,
+        )
 
-        If the additional demand was created by the leitbehörde itself, do not add.
+    def _get_recipients_additional_demand_reply_gr(self, instance):  # pragma: no cover
+        return self._get_recipients_additional_demand_gr(
+            instance,
+            bib_lead=False,
+            bab_are_responsible=False,
+            bab_other_reponsible=False,
+            bab_other_are=False,
+        )
+
+    def _get_recipients_additional_demand_reject_gr(self, instance):  # pragma: no cover
+        return self._get_recipients_additional_demand_gr(
+            instance,
+            bib_lead=False,
+            bab_are_responsible=False,
+            bab_other_reponsible=False,
+            bab_other_are=False,
+        )
+
+    def _get_recipients_additional_demand_accept_gr(self, instance):  # pragma: no cover
+        return self._get_recipients_additional_demand_gr(
+            instance,
+            bib_lead=True,
+            bab_are_responsible=True,
+            bab_other_reponsible=True,
+            bab_other_are=True,
+        )
+
+    def _get_recipients_additional_demand_cancel_gr(self, instance):  # pragma: no cover
+        return self._get_recipients_additional_demand_gr(
+            instance,
+            bib_lead=True,
+            bab_are_responsible=True,
+            bab_other_reponsible=True,
+            bab_other_are=True,
+        )
+
+    def _get_recipients_additional_demand_gr(
+        self,
+        instance,
+        bib_lead=True,
+        bab_are_responsible=True,
+        bab_other_reponsible=True,
+        bab_other_are=True,
+    ):
+        """Decide the recipients for additional demand in Kt. GR.
+
+        Arguments:
+        - bab_are_responsible: In BaB, should the responsible service receive a
+            notification if ARE sent the additional demand?
+        - bab_other_responsible: In BaB, should the responsible service receive a
+            notification if another service (not ARE) sent the additional demand?
+        - bab_other_are: In BaB, should ARE receive a notification if another service
+            (not ARE) sent the additional demand and that service was inquired by ARE?
         """
-        if not settings.ADDITIONAL_DEMAND:  # pragma: no cover
-            return []
-
-        responsible_service = instance.responsible_service(filter_type="municipality")
         work_item = self.validated_data.get("work_item")
-        current_group = work_item.case.parent_work_item.addressed_groups
+        main_work_item = (
+            work_item.case.parent_work_item
+            if work_item.task_id != settings.ADDITIONAL_DEMAND["TASK"]
+            else work_item
+        )
+        case_family = work_item.case.family
+        is_bab = case_family.meta.get("is-bab", False)
 
-        if work_item and str(responsible_service.pk) in current_group:
+        additional_demand_controlling = main_work_item.controlling_groups
+        if not additional_demand_controlling:
             return []
 
-        return self._get_responsible(instance, responsible_service)
+        additional_demand_controlling_service_id = additional_demand_controlling[0]
+        responsible_service = instance.responsible_service(filter_type="municipality")
+
+        # additional demand sent by the responsible service should not send
+        # any notification, in BiB nor in BaB.
+        if str(responsible_service.pk) in additional_demand_controlling:
+            return []
+
+        recipients = []
+        active_inquiries = Inquiry.objects.for_instance(instance).only_active()
+
+        if not is_bab:
+            # In BiB, the responsible service should receive a notification if the
+            # service sending the additional demand is not the responsible service.
+            if bib_lead:
+                recipients.append(responsible_service)
+
+        else:
+            are_service = Service.objects.get(slug=gr_constants.ARE_SERVICE_SLUG)
+            are_is_sender = str(are_service.pk) in additional_demand_controlling
+
+            # In BaB, additional demand sent by ARE should send a notification
+            # to the responsible service.
+            if are_is_sender:
+                if bab_are_responsible:
+                    recipients.append(responsible_service)
+
+            else:
+                # In BaB, additional demand sent by another service, that is not ARE,
+                # should send a notification to the responsible service.
+                if bab_other_reponsible:
+                    recipients.append(responsible_service)
+
+                if (
+                    bab_other_are
+                    and active_inquiries.controlled_by(are_service)
+                    .addressed_to(additional_demand_controlling_service_id)
+                    .exists()
+                ):
+                    # In BaB, additional demand sent by another service that is not ARE,
+                    # should send a notification to ARE if ARE is controlling at least one active
+                    # inquiry that is addressed to that service.
+                    recipients.append(are_service)
+
+        return flatten(
+            chain(self._get_responsible(instance, service) for service in recipients)
+        )
 
     def _get_recipients_involved_in_construction_step(self, instance):
         work_item = self.validated_data.get("work_item")
@@ -1681,39 +1805,23 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         return []  # pragma: no cover
 
     def _get_recipients_are(self, instance):
-        if service := Service.objects.filter(slug="are").first():
-            return [{"to": service.email}]
-        return []  # pragma: no cover
+        are_service = Service.objects.get(slug=gr_constants.ARE_SERVICE_SLUG)
+
+        return [{"to": are_service.email}]
 
     def _get_recipients_are_bab(self, instance):
-        if instance.case.meta.get("is-bab"):
-            are_service = Service.objects.get(slug="are")
+        if not instance.case.meta.get("is-bab"):
+            return []
 
-            if (
-                Inquiry.objects.for_instance(instance)
-                .addressed_to(are_service)
-                .exists()
-            ):
-                return self._get_recipients_are(instance)
-
-        return []
-
-    def _get_recipients_additional_demand_are_bab(self, instance):
-        """Use the ARE as recipient for BaB cases.
-
-        If the additional demand was created by the ARE itself, do not add.
-        """
-        are_service = Service.objects.get(slug="are")
-        work_item = self.validated_data.get("work_item")
-        is_sender = (
-            work_item
-            and str(are_service.pk) in work_item.case.parent_work_item.addressed_groups
+        are_service = Service.objects.get(slug=gr_constants.ARE_SERVICE_SLUG)
+        are_has_inquiry = (
+            Inquiry.objects.for_instance(instance)
+            .addressed_to(are_service)
+            .only_active()
+            .exists()
         )
 
-        if not is_sender:
-            return self._get_recipients_are_bab(instance)
-        else:
-            return []
+        return [{"to": are_service.email}] if are_has_inquiry else []
 
     def _get_recipients_abwasser_uri(self, instance):
         service = Service.objects.filter(slug="awu").first()

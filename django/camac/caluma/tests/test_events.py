@@ -35,6 +35,7 @@ from camac.instance.models import HistoryActionConfig, HistoryEntry, HistoryEntr
 from camac.tests.form_utils import FormUtils
 from camac.utils import (
     send_only_for_einfache_anfrage,
+    should_notify_on_manual_workitems,
 )
 
 
@@ -1693,6 +1694,77 @@ def test_resume_rpg_work_item_ur(
 
     rpg_work_item.refresh_from_db()
     assert rpg_work_item.status == "ready"
+
+
+@pytest.mark.parametrize(
+    ("ignore_addressed_self", "expected"),
+    [(False, 1), (True, 0)],
+)
+def test_notify_manual_work_item_ignore_addressed_self(
+    db,
+    caluma_admin_user,
+    service_factory,
+    gr_instance,
+    caluma_work_item_factory,
+    mailoutbox,
+    application_settings,
+    notification_template_factory,
+    ignore_addressed_self,
+    expected,
+):
+    notification_template = notification_template_factory()
+    application_settings["CALUMA"]["CALUMA_WORKFLOW_NOTIFICATIONS"][
+        "create-manual-workitems"
+    ] = [
+        {
+            "event": "created",
+            "notification": {
+                "template_slug": notification_template.slug,
+                "recipient_types": ["work_item_addressed"],
+            },
+            "condition": lambda work_item: should_notify_on_manual_workitems(
+                work_item,
+                ignore_addressed_self=ignore_addressed_self,
+            ),
+        },
+    ]
+
+    controlling_service = service_factory()
+    addressed_service = service_factory()
+
+    deadline = timezone.now()
+
+    caluma_work_item_factory(
+        task_id=application_settings["CALUMA"]["MANUAL_WORK_ITEM_TASK"],
+        status="ready",
+        deadline=deadline,
+        case=gr_instance.case,
+    )
+    work_item_addressed_self = caluma_work_item_factory(
+        task_id=application_settings["CALUMA"]["MANUAL_WORK_ITEM_TASK"],
+        status="ready",
+        created_by_group=addressed_service.pk,
+        addressed_groups=[str(addressed_service.pk)],
+        controlling_groups=[str(controlling_service.pk)],
+        child_case=None,
+        deadline=deadline,
+        meta={
+            "notify-completed": True,
+            "notify-deadline": True,
+        },
+        case=gr_instance.case,
+    )
+
+    send_event(
+        post_create_work_item,
+        sender="test_notify_created_work_item",
+        work_item=work_item_addressed_self,
+        user=caluma_admin_user,
+        context={},
+    )
+    assert len(mailoutbox) == expected
+    if expected > 0:
+        assert mailoutbox[0].recipients()[0] == addressed_service.email
 
 
 def test_post_resume_inquiry_ur(

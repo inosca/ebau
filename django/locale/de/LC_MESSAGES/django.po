@@ -1882,10 +1882,6 @@ msgid "Inviter of additional demand creator"
 msgstr "Einladende Stelle"
 
 #: camac/notification/serializers.py
-msgid "Sender of additional demand"
-msgstr "Nachfordernde Stelle"
-
-#: camac/notification/serializers.py
 msgid "Geometer (via permissions module)"
 msgstr "Geometer (via Berechtigungsmodul)"
 

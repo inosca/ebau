@@ -8,6 +8,7 @@ from camac.caluma.extensions.events import additional_demand
 from camac.tests.form_utils import FormUtils
 from camac.timelines import events
 from camac.timelines.models import FormTimeline
+from camac.timelines.utils import is_additional_demand_with_changes
 
 
 @pytest.mark.parametrize("test_case", ["applicant_reply", "cancel_additional_demand"])
@@ -133,23 +134,48 @@ def test_post_complete_check_additional_demand_with_changes_gr(
     form_utils: FormUtils,
     allow_changes,
     decision_is_positive,
+    application_settings,
     set_application_gr,
 ):
     service_a = service_factory()
     service_b = service_factory()
 
     active_inquiry_factory(controlling_service=service_a, addressed_service=service_b)
-    tpl_accept_changes = notification_template_factory(
-        slug="additional-demand-decision-accept-with-changes"
-    )
-    tpl_accept = notification_template_factory(slug="additional-demand-decision-accept")
-    tpl_rejected = notification_template_factory(
-        slug="additional-demand-decision-reject"
-    )
+    tpl_accept_changes = notification_template_factory()
+    tpl_accept = notification_template_factory()
+    tpl_rejected = notification_template_factory()
+
+    gr_additional_demand_settings["NOTIFICATIONS"] = {
+        "ACCEPTED": [
+            {
+                "recipient_types": ["work_item_controlling"],
+                "template_slug": tpl_accept.slug,
+                "condition": lambda work_item: (
+                    not is_additional_demand_with_changes(work_item)
+                ),
+            },
+            {
+                "recipient_types": ["work_item_controlling"],
+                "template_slug": tpl_accept_changes.slug,
+                "condition": lambda work_item: is_additional_demand_with_changes(
+                    work_item
+                ),
+            },
+        ],
+        "REJECTED": [
+            {
+                "recipient_types": ["applicant"],
+                "template_slug": tpl_rejected.slug,
+            }
+        ],
+    }
+    application_settings["CALUMA_WORKFLOW_NOTIFICATIONS"] = {}
+
     work_item_send = caluma_work_item_factory(
         case=gr_instance.case,
         task_id=gr_additional_demand_settings["SEND_TASK"],
         status=WorkItem.STATUS_COMPLETED,
+        controlling_groups=[str(service_a.pk)],
     )
     if allow_changes:
         form_utils.add_answer(
@@ -162,6 +188,7 @@ def test_post_complete_check_additional_demand_with_changes_gr(
         child_case=gr_instance.case,
         task_id=gr_additional_demand_settings["CHECK_TASK"],
         status=WorkItem.STATUS_COMPLETED,
+        controlling_groups=[str(service_a.pk)],
     )
     caluma_answer_factory(
         document=work_item.document,
@@ -174,23 +201,18 @@ def test_post_complete_check_additional_demand_with_changes_gr(
         sender=None, work_item=work_item, user=caluma_admin_user
     )
 
+    assert len(mailoutbox) == 1
     if decision_is_positive:
+        assert mailoutbox[0].recipients() == [service_a.email]
+
         if not allow_changes:
-            assert len(mailoutbox) == 1
             assert tpl_accept.subject in mailoutbox[0].subject
-            assert mailoutbox[0].recipients() == [service_a.email]
         else:
-            assert len(mailoutbox) == 2
             assert tpl_accept_changes.subject in mailoutbox[0].subject
-            assert tpl_accept_changes.subject in mailoutbox[1].subject
-            assert set([m.recipients()[0] for m in mailoutbox]) == set(
-                [service_a.email, service_b.email]
-            )
     else:
-        assert len(mailoutbox) == 1
-        assert tpl_rejected.subject in mailoutbox[0].subject
         assert mailoutbox[0].recipients() == [
             applicant.invitee.email
             for applicant in gr_instance.involved_applicants.all()
             if applicant.invitee
         ]
+        assert tpl_rejected.subject in mailoutbox[0].subject
