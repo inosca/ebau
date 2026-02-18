@@ -28,7 +28,6 @@ class ResourceAdmin(
     form = ResourceForm
     inlines = [ResourceTInline, RRoleAclInline]
     list_display = [
-        "resource_id",
         "get_name",
         "get_description",
         "template",
