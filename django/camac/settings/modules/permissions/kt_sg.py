@@ -22,6 +22,7 @@ APPLICANT_WRITE = HasApplicantRole(["ADMIN", "EDITOR"])
 # 2. Form rules
 # 3. Role rules
 # 4. Other
+MODULE_COMMUNICATIONS = STATES_ALL
 MODULE_DOCUMENTS = STATES_ALL
 MODULE_FORM = STATES_ALL
 MODULE_HISTORY = STATES_ALL
@@ -31,6 +32,10 @@ MODULE_RESPONSIBLE = STATES_ALL
 MODULE_WORK_ITEMS = STATES_ALL
 
 MODULE_PORTAL_APPLICANTS = APPLICANT_ADMIN
+MODULE_PORTAL_COMMUNICATIONS_READ = ~RequireInstanceState(["new"])
+MODULE_PORTAL_COMMUNICATIONS_WRITE = (
+    MODULE_PORTAL_COMMUNICATIONS_READ & HasApplicantRole(["ADMIN", "EDITOR"])
+)
 MODULE_PORTAL_DOCUMENTS_WRITE = RequireWorkItem("submit", "ready") & APPLICANT_WRITE
 MODULE_PORTAL_FORM_READ = Always()
 MODULE_PORTAL_FORM_WRITE = RequireWorkItem("submit", "ready") & APPLICANT_WRITE
@@ -46,6 +51,8 @@ SG_PERMISSIONS_SETTINGS = {
             ("applicant-add", MODULE_PORTAL_APPLICANTS),
             ("applicant-read", MODULE_PORTAL_APPLICANTS),
             ("applicant-remove", MODULE_PORTAL_APPLICANTS),
+            ("communications-read", MODULE_PORTAL_COMMUNICATIONS_READ),
+            ("communications-write", MODULE_PORTAL_COMMUNICATIONS_WRITE),
             ("documents-write", MODULE_PORTAL_DOCUMENTS_WRITE),
             ("form-read", MODULE_PORTAL_FORM_READ),
             ("form-write", MODULE_PORTAL_FORM_WRITE),
@@ -56,6 +63,8 @@ SG_PERMISSIONS_SETTINGS = {
             ("form-read", MODULE_FORM),
         ],
         "lead-authority": [
+            ("communications-read", MODULE_COMMUNICATIONS),
+            ("communications-write", MODULE_COMMUNICATIONS),
             ("documents-read", MODULE_DOCUMENTS),
             ("documents-write", MODULE_DOCUMENTS),
             ("form-read", MODULE_FORM),
@@ -71,6 +80,8 @@ SG_PERMISSIONS_SETTINGS = {
             ("work-items-read", MODULE_WORK_ITEMS),
         ],
         "read": [
+            ("communications-read", MODULE_COMMUNICATIONS),
+            ("communications-write", MODULE_COMMUNICATIONS),
             ("documents-read", MODULE_DOCUMENTS),
             ("form-read", MODULE_FORM),
         ],

@@ -1,5 +1,7 @@
 @use "sass:meta";
 
+$navbar-badge-color: $global-danger-background !default;
+
 .main-navigation.uk-navbar-container {
   position: fixed;
   left: 0;
@@ -35,7 +37,7 @@
   }
 
   .uk-badge {
-    background-color: $global-danger-background;
+    background-color: $navbar-badge-color;
   }
 
   @if meta.variable-exists($name: "sg-olivgreen") {
