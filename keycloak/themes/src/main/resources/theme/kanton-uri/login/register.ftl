@@ -29,14 +29,12 @@
                                            autocomplete="new-password"
                                            aria-invalid="<#if messagesPerField.existsError('password','password-confirm')>true</#if>"
                                     />
-                                    <#-- CHANGE: remove password visibility toggle
                                     <button class="${properties.kcFormPasswordVisibilityButtonClass!}" type="button" aria-label="${msg('showPassword')}"
                                             aria-controls="password"  data-password-toggle
                                             data-icon-show="${properties.kcFormPasswordVisibilityIconShow!}" data-icon-hide="${properties.kcFormPasswordVisibilityIconHide!}"
                                             data-label-show="${msg('showPassword')}" data-label-hide="${msg('hidePassword')}">
                                         <i class="${properties.kcFormPasswordVisibilityIconShow!}" aria-hidden="true"></i>
                                     </button>
-                                    -->
                                 </div>
 
                                 <#if messagesPerField.existsError('password')>
@@ -59,14 +57,12 @@
                                            name="password-confirm" autocomplete="new-password"
                                            aria-invalid="<#if messagesPerField.existsError('password-confirm')>true</#if>"
                                     />
-                                    <#-- CHANGE: remove password visibility toggle
                                     <button class="${properties.kcFormPasswordVisibilityButtonClass!}" type="button" aria-label="${msg('showPassword')}"
                                             aria-controls="password-confirm"  data-password-toggle
                                             data-icon-show="${properties.kcFormPasswordVisibilityIconShow!}" data-icon-hide="${properties.kcFormPasswordVisibilityIconHide!}"
                                             data-label-show="${msg('showPassword')}" data-label-hide="${msg('hidePassword')}">
                                         <i class="${properties.kcFormPasswordVisibilityIconShow!}" aria-hidden="true"></i>
                                     </button>
-                                    -->
                                 </div>
 
                                 <#if messagesPerField.existsError('password-confirm')>
