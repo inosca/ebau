@@ -99,7 +99,7 @@ SZ_PERMISSIONS_SETTINGS = {
             ("form-write", RequireRunningCase()),
             ("documents-view-internal", Always()),
             ("documents-read", Always()),
-            ("documents-write", Always()),
+            ("documents-write", RequireRunningCase()),
             ("work-items-view-internal", Always()),
             ("work-items-read", Always()),
             ("journal-view-internal", Always()),

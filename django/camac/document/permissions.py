@@ -532,6 +532,10 @@ PERMISSIONS_BY_ACCESSLEVEL = {
             # section for applicant (9)
             ReadPermission: (_allow_always, [1, 4, 5, 6, 8, 10, 11]),
         },
+        "are-service": {
+            AdminPermission: (_has_documents_write_permission, [12]),
+            ReadPermission: (_allow_always, [12]),
+        },
     },
     "kt_uri": {
         "read": {
