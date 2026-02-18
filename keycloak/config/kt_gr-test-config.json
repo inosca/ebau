@@ -649,8 +649,8 @@
         "lastName": "",
         "email": "admin@example.com",
         "emailVerified": true,
-        "createdTimestamp": 1520250835815,
         "enabled": true,
+        "createdTimestamp": 1520250835815,
         "totp": false,
         "credentials": [
           {
@@ -2177,13 +2177,13 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
-              "saml-user-property-mapper",
-              "oidc-usermodel-attribute-mapper",
-              "oidc-full-name-mapper",
               "oidc-address-mapper",
-              "saml-user-attribute-mapper",
               "saml-role-list-mapper",
+              "oidc-usermodel-attribute-mapper",
               "oidc-usermodel-property-mapper",
+              "saml-user-property-mapper",
+              "saml-user-attribute-mapper",
+              "oidc-full-name-mapper",
               "oidc-sha256-pairwise-sub-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
@@ -2208,14 +2208,14 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
-              "oidc-full-name-mapper",
-              "oidc-address-mapper",
-              "saml-user-property-mapper",
               "saml-user-attribute-mapper",
-              "saml-role-list-mapper",
-              "oidc-usermodel-attribute-mapper",
+              "oidc-full-name-mapper",
+              "saml-user-property-mapper",
+              "oidc-usermodel-property-mapper",
               "oidc-sha256-pairwise-sub-mapper",
-              "oidc-usermodel-property-mapper"
+              "saml-role-list-mapper",
+              "oidc-address-mapper",
+              "oidc-usermodel-attribute-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
           }
@@ -2326,7 +2326,6 @@
       ]
     },
     "internationalizationEnabled": false,
-    "supportedLocales": [],
     "authenticationFlows": [
       {
         "id": "ed7040f7-ea0d-4fb3-a00c-26d184340009",
@@ -2905,6 +2904,15 @@
         "config": {}
       },
       {
+        "alias": "idp_link",
+        "name": "Linking Identity Provider",
+        "providerId": "idp_link",
+        "enabled": true,
+        "defaultAction": false,
+        "priority": 120,
+        "config": {}
+      },
+      {
         "alias": "update_user_locale",
         "name": "Update User Locale",
         "providerId": "update_user_locale",
@@ -2935,7 +2943,7 @@
       "cibaInterval": "5",
       "realmReusableOtpCode": "false"
     },
-    "keycloakVersion": "26.2.4",
+    "keycloakVersion": "26.5.3",
     "userManagedAccessAllowed": false,
     "organizationsEnabled": false,
     "verifiableCredentialsEnabled": false,
@@ -3405,8 +3413,8 @@
         "attributes": {
           "mobile_number": ["0041792597916"]
         },
-        "createdTimestamp": 1520243262564,
         "enabled": true,
+        "createdTimestamp": 1520243262564,
         "totp": false,
         "credentials": [
           {
@@ -3436,8 +3444,8 @@
         "attributes": {
           "locale": ["de"]
         },
-        "createdTimestamp": 1723126617059,
         "enabled": true,
+        "createdTimestamp": 1723126617059,
         "totp": false,
         "credentials": [
           {
@@ -3465,8 +3473,8 @@
         "attributes": {
           "locale": ["de"]
         },
-        "createdTimestamp": 1723126636796,
         "enabled": true,
+        "createdTimestamp": 1723126636796,
         "totp": false,
         "credentials": [
           {
@@ -3488,8 +3496,8 @@
         "id": "4db8ec89-e7e3-4d9d-9b21-65d235d55182",
         "username": "service-account-camac-admin",
         "emailVerified": false,
-        "createdTimestamp": 1641460000372,
         "enabled": true,
+        "createdTimestamp": 1641460000372,
         "totp": false,
         "serviceAccountClientId": "camac-admin",
         "credentials": [],
@@ -3503,8 +3511,8 @@
         "id": "1695ee37-99d4-4ff1-a99c-f28cdabef977",
         "username": "service-account-dossier-import",
         "emailVerified": false,
-        "createdTimestamp": 1642347220333,
         "enabled": true,
+        "createdTimestamp": 1642347220333,
         "totp": false,
         "serviceAccountClientId": "dossier-import",
         "credentials": [],
@@ -3518,8 +3526,8 @@
         "id": "dac6d4cd-34e5-44b1-977e-a62a69c019af",
         "username": "service-account-ech-client",
         "emailVerified": false,
-        "createdTimestamp": 1747899937226,
         "enabled": true,
+        "createdTimestamp": 1747899937226,
         "totp": false,
         "serviceAccountClientId": "ech-client",
         "credentials": [],
@@ -3533,8 +3541,8 @@
         "id": "b3052c81-2603-449c-b897-1cb0bae67004",
         "username": "service-account-test-gemeinde",
         "emailVerified": false,
-        "createdTimestamp": 1641460000288,
         "enabled": true,
+        "createdTimestamp": 1641460000288,
         "totp": false,
         "serviceAccountClientId": "test-gemeinde",
         "credentials": [],
@@ -6274,14 +6282,14 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
-              "oidc-full-name-mapper",
-              "oidc-address-mapper",
-              "oidc-usermodel-attribute-mapper",
               "oidc-usermodel-property-mapper",
+              "saml-user-attribute-mapper",
+              "oidc-usermodel-attribute-mapper",
               "saml-user-property-mapper",
+              "oidc-address-mapper",
               "saml-role-list-mapper",
               "oidc-sha256-pairwise-sub-mapper",
-              "saml-user-attribute-mapper"
+              "oidc-full-name-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
           }
@@ -6351,14 +6359,14 @@
           "subComponents": {},
           "config": {
             "allowed-protocol-mapper-types": [
+              "oidc-usermodel-property-mapper",
+              "saml-user-property-mapper",
+              "oidc-sha256-pairwise-sub-mapper",
+              "saml-role-list-mapper",
+              "oidc-address-mapper",
               "oidc-usermodel-attribute-mapper",
               "saml-user-attribute-mapper",
-              "oidc-full-name-mapper",
-              "saml-user-property-mapper",
-              "oidc-address-mapper",
-              "oidc-usermodel-property-mapper",
-              "saml-role-list-mapper",
-              "oidc-sha256-pairwise-sub-mapper"
+              "oidc-full-name-mapper"
             ],
             "consent-required-for-all-mappers": ["true"]
           }
@@ -7121,6 +7129,15 @@
         "config": {}
       },
       {
+        "alias": "idp_link",
+        "name": "Linking Identity Provider",
+        "providerId": "idp_link",
+        "enabled": true,
+        "defaultAction": false,
+        "priority": 120,
+        "config": {}
+      },
+      {
         "alias": "VERIFY_EMAIL",
         "name": "Verify Email",
         "providerId": "VERIFY_EMAIL",
@@ -7162,7 +7179,7 @@
       "frontendUrl": "",
       "acr.loa.map": "{}"
     },
-    "keycloakVersion": "26.2.4",
+    "keycloakVersion": "26.5.3",
     "userManagedAccessAllowed": false,
     "organizationsEnabled": false,
     "verifiableCredentialsEnabled": false,
