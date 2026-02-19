@@ -1,6 +1,8 @@
 from .kt_bern import BE_PERMISSIONS_ALEXANDRIA
+from .kt_sg import SG_PERMISSIONS_ALEXANDRIA
 
 PERMISSIONS_ALEXANDRIA = {
     "default": {},
     "kt_bern": BE_PERMISSIONS_ALEXANDRIA,
+    "kt_sg": SG_PERMISSIONS_ALEXANDRIA,
 }

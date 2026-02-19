@@ -7,7 +7,6 @@ from django.apps import apps
 from django.urls import reverse
 from rest_framework import status
 
-from camac.alexandria.extensions.permissions_v2 import BASE_PERMISSION
 from camac.alexandria.permissions import AlexandriaPermissionContext
 from camac.document.tests.data import django_file
 from camac.instance.models import Instance
@@ -85,7 +84,7 @@ def assert_permissions(mock, expected_instance, expected_permissions):
 
     assert base_context == module_specific_context.instance == expected_instance
 
-    assert base_permissions == BASE_PERMISSION
+    assert base_permissions == P("documents-write")
     assert module_specific_permissions == expected_permissions
 
 
@@ -247,7 +246,7 @@ def test_alexandria_permissions_update_document(
         context, permissions = permission_mock.call_args_list[0][0]
 
         assert isinstance(context, Instance)
-        assert permissions == BASE_PERMISSION
+        assert permissions == P("documents-write")
 
     else:
         assert_permissions(permission_mock, instance, expected_permissions)
@@ -521,7 +520,7 @@ def test_alexandria_permissions_rbac(
 
     base_message = (
         f"Requesting base alexandria permission:\n"
-        f"\tExpression: {BASE_PERMISSION}\n"
+        f"\tExpression: {P('documents-write')}\n"
         f"\tInstance ID: {instance.pk}\n"
         f"\tDocument UUID: {document.pk}\n"
         f"=> Returning `True` as permission module is not fully enabled"

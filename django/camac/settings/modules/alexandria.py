@@ -23,6 +23,7 @@ ALEXANDRIA = {
         "INSTANCE_COPY_CATEGORIES": ["beilagen-zum-gesuch", "nachforderung"],
         "PERMISSIONS_CONFIG": {},
         "USE_V2_PERMISSIONS": False,
+        "V2_BASE_PERMISSION": "documents-write",
         "PERMISSION_KEY": {
             # Optional mapping between service group slug and custom key
             "SERVICE_GROUP_MAPPING": {},
@@ -74,11 +75,24 @@ ALEXANDRIA = {
     "kt_bern": {
         "ENABLED": True,
         "USE_V2_PERMISSIONS": True,
+        # This base permission from the top-level permission module is required in order
+        # to do any write actions in alexandria. We explicitly don't use
+        # "documents-write" that already exists in order to avoid collisions
+        # with the permission checks of the legacy documents module in the
+        # transition / migration period.
+        "V2_BASE_PERMISSION": "alexandria-write",
         "PERMISSION_KEY": {
             "USE_ROLE_PERMISSIONS_MAPPING": True,
         },
         "MARK_VISIBILITY": {
             "GEOMETER": ["geometer"],
+        },
+    },
+    "kt_sg": {
+        "ENABLED": True,
+        "USE_V2_PERMISSIONS": True,
+        "PERMISSION_KEY": {
+            "USE_ROLE_PERMISSIONS_MAPPING": True,
         },
     },
     "test": {

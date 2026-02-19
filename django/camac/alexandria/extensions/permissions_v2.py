@@ -21,12 +21,6 @@ from camac.user.permissions import get_role_name
 
 log = getLogger(__name__)
 
-# This base permission from the top-level permission module is required in order
-# to do any write actions in alexandria. We explicitly don't use
-# "documents-write" that already exists in order to avoid collisions with the v1
-# permission class.
-BASE_PERMISSION = P("alexandria-write")
-
 
 def get_data_from_multipart_request(request: Request) -> dict:
     """Extract JSON data from an alexandria multipart request."""
@@ -91,6 +85,16 @@ class AlexandriaPermissions:
 
         return category.pk
 
+    @property
+    def base_permission(self) -> P:
+        """The base permission required to do anything in alexandria.
+
+        This is taken from a setting `V2_BASE_PERMISSION` in the alexandria
+        module settings.
+        """
+
+        return P(settings.ALEXANDRIA["V2_BASE_PERMISSION"])
+
     @permission_switching_method
     def has_base_permission_for(
         self,
@@ -99,8 +103,8 @@ class AlexandriaPermissions:
     ) -> bool:
         """Check base permission for an instance or document.
 
-        In order to perform any write actions in alexandria, the permission
-        "alexandria-write" is required.
+        In order to perform any write actions in alexandria, the base permission
+        (`V2_BASE_PERMISSION` in the alexandria module settings) is required.
         """
 
         if isinstance(obj, Document):
@@ -109,7 +113,7 @@ class AlexandriaPermissions:
             instance = obj
 
         return PermissionManager.from_request(request).has_permission(
-            instance, BASE_PERMISSION
+            instance, self.base_permission
         )
 
     @has_base_permission_for.register_old
@@ -130,7 +134,7 @@ class AlexandriaPermissions:
 
         log.info(
             f"Requesting base alexandria permission:\n"
-            f"\tExpression: {BASE_PERMISSION}\n"
+            f"\tExpression: {self.base_permission}\n"
             f"\tInstance ID: {instance_id}\n"
             f"\tDocument UUID: {document_uuid}\n"
             f"=> Returning `True` as permission module is not fully enabled"

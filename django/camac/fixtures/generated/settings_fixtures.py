@@ -199,6 +199,18 @@ def be_alexandria_settings(settings, request):
 
 
 @pytest.fixture
+def sg_alexandria_settings(settings, request):
+    """Module-specific settings for alexandria (canton SG)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="alexandria",
+        canton="kt_sg",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def test_alexandria_settings(settings, request):
     """Module-specific settings for alexandria (canton TEST)."""
     return generate_module_settings(
