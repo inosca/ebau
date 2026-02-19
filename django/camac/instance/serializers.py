@@ -253,7 +253,6 @@ class InstanceSerializer(
         "form": FormSerializer,
         "instance_state": InstanceStateSerializer,
         "previous_instance_state": InstanceStateSerializer,
-        "circulations": "camac.circulation.serializers.CirculationSerializer",
         "services": "camac.user.serializers.ServiceSerializer",
         "involved_services": "camac.user.serializers.ServiceSerializer",
         "linked_instances": "camac.instance.serializers.InstanceSerializer",
@@ -341,7 +340,6 @@ class InstanceSerializer(
             "creation_date",
             "modification_date",
             "previous_instance_state",
-            "circulations",
             "services",
             "involved_services",
             "linked_instances",
@@ -350,7 +348,6 @@ class InstanceSerializer(
             "keywords",
         )
         read_only_fields = (
-            "circulations",
             "creation_date",
             "identifier",
             "modification_date",

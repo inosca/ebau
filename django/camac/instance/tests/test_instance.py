@@ -37,15 +37,15 @@ from camac.tests.form_utils import FormUtils
         (
             "Applicant",
             lf("admin_user"),
-            29,
+            27,
             1,
             {"instance", "form", "document"},
         ),
         # reader should see instances from other users but has no editables
-        ("Reader", lf("user"), 29, 1, set()),
-        ("Canton", lf("user"), 26, 1, {"form", "document"}),
-        ("Municipality", lf("user"), 28, 1, {"form", "document"}),
-        ("Service", lf("user"), 28, 1, {"form", "document"}),
+        ("Reader", lf("user"), 27, 1, set()),
+        ("Canton", lf("user"), 24, 1, {"form", "document"}),
+        ("Municipality", lf("user"), 26, 1, {"form", "document"}),
+        ("Service", lf("user"), 26, 1, {"form", "document"}),
         ("Public", lf("user"), 5, 0, {}),
     ],
 )

@@ -147,7 +147,6 @@ class InstanceView(
 
     queryset = models.Instance.objects.select_related("group__service")
     prefetch_for_includes = {
-        "circulations": ["circulations__activations"],
         "active_service": ["services"],
         "responsible_service_users": [
             "responsible_services",
@@ -169,7 +168,6 @@ class InstanceView(
     search_fields = (
         "=identifier",
         "=location__name",
-        "=circulations__activations__service__name",
         "@form__description",
         "fields__value",
         "instance_state__description",
