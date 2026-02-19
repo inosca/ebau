@@ -37,16 +37,16 @@ from camac.tests.form_utils import FormUtils
         (
             "Applicant",
             lf("admin_user"),
-            27,
+            18,
             1,
             {"instance", "form", "document"},
         ),
         # reader should see instances from other users but has no editables
-        ("Reader", lf("user"), 27, 1, set()),
-        ("Canton", lf("user"), 24, 1, {"form", "document"}),
-        ("Municipality", lf("user"), 26, 1, {"form", "document"}),
-        ("Service", lf("user"), 26, 1, {"form", "document"}),
-        ("Public", lf("user"), 5, 0, {}),
+        ("Reader", lf("user"), 18, 1, set()),
+        ("Canton", lf("user"), 18, 1, {"form", "document"}),
+        ("Municipality", lf("user"), 17, 1, {"form", "document"}),
+        ("Service", lf("user"), 17, 1, {"form", "document"}),
+        ("Public", lf("user"), 2, 0, {}),
     ],
 )
 def test_instance_list(
@@ -1694,7 +1694,7 @@ def test_instance_export_list(
     )
     add_field(name="bezeichnung", value="Bezeichnung")
 
-    with django_assert_num_queries(6):
+    with django_assert_num_queries(4):
         response = admin_client.get(
             url,
             data={
