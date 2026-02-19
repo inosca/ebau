@@ -101,7 +101,6 @@ services:
       DYNAMIC_TASKS_CLASSES: camac.caluma.extensions.dynamic_tasks.CustomDynamicTasks
       # Alexandria
       TIKA_SERVER_ENDPOINT: "http://tika:9998"
-      ALEXANDRIA_CONTENT_SEARCH_CELERY_QUEUE: "tika"
       # celery
       CELERY_RDB_HOST: 0.0.0.0. # to be able to telnet from outside the container
       PYTHONUNBUFFERED: 1
