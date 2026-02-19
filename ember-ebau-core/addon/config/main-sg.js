@@ -43,4 +43,7 @@ export default {
     requiredPermissions: ["instance-submit"],
     export: { enabled: () => false },
   },
+  communication: {
+    rolesWithApplicantContact: ["activeOrInolvedLeadAuthority", "service"],
+  },
 };

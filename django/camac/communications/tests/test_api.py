@@ -245,6 +245,7 @@ def test_included_dossier_number(
     be_instance,
     admin_client,
     communications_topic,
+    be_communications_settings,
 ):
     be_instance.case.meta["ebau-number"] = "2022-1299"
     be_instance.case.save()

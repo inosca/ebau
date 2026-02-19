@@ -10,7 +10,7 @@ COMMUNICATIONS = {
                 "template_slug": "communications-new-message-internal"
             },
         },
-        "DOSSIER_NUMBER_ANNOTATION": F("instance__case__meta__ebau-number"),
+        "DOSSIER_NUMBER_ANNOTATION": F("instance__case__meta__dossier-number"),
         "ROLES_WITH_APPLICANT_CONTACT": ["active_or_involved_lead_authority"],
         "ALLOWED_MIME_TYPES": ["application/pdf", "image/png", "image/jpeg"],
         "SAFE_FOR_INLINE_DISPOSITION": env.list(
@@ -20,10 +20,10 @@ COMMUNICATIONS = {
     },
     "kt_bern": {
         "ENABLED": True,
+        "DOSSIER_NUMBER_ANNOTATION": F("instance__case__meta__ebau-number"),
     },
     "kt_gr": {
         "ENABLED": True,
-        "DOSSIER_NUMBER_ANNOTATION": F("instance__case__meta__dossier-number"),
         "ROLES_WITH_APPLICANT_CONTACT": [
             "active_or_involved_lead_authority",
             "service",
@@ -31,7 +31,6 @@ COMMUNICATIONS = {
     },
     "kt_so": {
         "ENABLED": True,
-        "DOSSIER_NUMBER_ANNOTATION": F("instance__case__meta__dossier-number"),
         "ROLES_WITH_APPLICANT_CONTACT": [
             "active_or_involved_lead_authority",
             "service",
@@ -43,7 +42,13 @@ COMMUNICATIONS = {
     },
     "kt_ag": {
         "ENABLED": True,
-        "DOSSIER_NUMBER_ANNOTATION": F("instance__case__meta__dossier-number"),
+        "ROLES_WITH_APPLICANT_CONTACT": [
+            "active_or_involved_lead_authority",
+            "service",
+        ],
+    },
+    "kt_sg": {
+        "ENABLED": True,
         "ROLES_WITH_APPLICANT_CONTACT": [
             "active_or_involved_lead_authority",
             "service",

@@ -11,4 +11,7 @@ export default {
   instanceOverview: {
     useSpecialId: true,
   },
+  communications: {
+    enabled: true,
+  },
 };

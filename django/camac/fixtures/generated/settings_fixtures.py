@@ -535,6 +535,18 @@ def ag_communications_settings(settings, request):
 
 
 @pytest.fixture
+def sg_communications_settings(settings, request):
+    """Module-specific settings for communications (canton SG)."""
+    return generate_module_settings(
+        settings=settings,
+        request=request,
+        module_name="communications",
+        canton="kt_sg",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def demo_communications_settings(settings, request):
     """Module-specific settings for communications (canton DEMO)."""
     return generate_module_settings(

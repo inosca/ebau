@@ -125,6 +125,7 @@ DJANGO_ADMIN = {
             "alexandria_core.Mark",
             "core.InstanceResource",
             "core.Resource",
+            "notification.NotificationTemplate",
         ],
     },
 }
