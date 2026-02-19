@@ -14,9 +14,11 @@ $global-secondary-background: rgb(244 146 22);
 $global-muted-background: rgb(245 244 241);
 $global-success-background: rgb(46 133 1);
 $global-danger-background: rgb(206 24 15);
+$global-warning-background: rgb(146 88 13);
 
 // Font colors
 $global-color: rgb(0 0 0);
+$global-inverse-color: rgb(255 255 255);
 $global-emphasis-color: $global-color;
 $global-muted-color: rgb(100 100 100);
 $global-link-color: $global-primary-background;
@@ -48,6 +50,16 @@ $button-primary-active-background: color.adjust(
   $global-primary-background,
   $alpha: -0.2
 );
+
+// Alerts
+$alert-primary-background: $sg-olivgreen;
+$alert-primary-color: $sg-darkgreen;
+$alert-danger-background: $global-danger-background;
+$alert-danger-color: $global-inverse-color;
+$alert-success-background: $global-success-background;
+$alert-success-color: $global-inverse-color;
+$alert-warning-background: $global-warning-background;
+$alert-warning-color: $global-inverse-color;
 
 // Ember-power-select
 $ember-power-select-trigger-icon-color: $global-muted-color;

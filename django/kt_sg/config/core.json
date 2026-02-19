@@ -478,6 +478,38 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 25,
+    "fields": {
+      "resource": 8,
+      "role": 5
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 26,
+    "fields": {
+      "resource": 8,
+      "role": 7
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 27,
+    "fields": {
+      "resource": 8,
+      "role": 8
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 28,
+    "fields": {
+      "resource": 8,
+      "role": 2
+    }
+  },
+  {
     "model": "core.resource",
     "pk": 1,
     "fields": {
@@ -569,6 +601,19 @@
     }
   },
   {
+    "model": "core.resource",
+    "pk": 8,
+    "fields": {
+      "available_resource": "page",
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/alexandria-search.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 8
+    }
+  },
+  {
     "model": "core.resourcet",
     "pk": 1,
     "fields": {
@@ -635,6 +680,16 @@
       "resource": 7,
       "language": "de",
       "name": "Kommunikation",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 8,
+    "fields": {
+      "resource": 8,
+      "language": "de",
+      "name": "Dokumentensuche",
       "description": null
     }
   }
