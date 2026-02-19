@@ -160,7 +160,7 @@ export default class CaseTableComponent extends Component {
       include: [
         "instance_state",
         ...(macroCondition(getOwnConfig().application === "ur")
-          ? ["circulation_initializer_services", "user"]
+          ? ["user"]
           : []),
         ...(macroCondition(getOwnConfig().application === "sz")
           ? ["form", "user"]

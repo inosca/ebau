@@ -173,19 +173,12 @@ class InstanceSerializer(
         source="get_linked_instances", model=models.Instance, read_only=True, many=True
     )
 
-    circulation_initializer_services = relations.SerializerMethodResourceRelatedField(
-        source="get_circulation_initializer_services",
-        model=Service,
-        read_only=True,
-        many=True,
-    )
-
     active_service = relations.SerializerMethodResourceRelatedField(
         source="get_active_service", model=Service, read_only=True
     )
 
-    parent_instance = relations.SerializerMethodResourceRelatedField(
-        source="get_parent_instance", model=models.Instance, read_only=True
+    parent_instance = relations.ResourceRelatedField(
+        source="copy_source", model=models.Instance, read_only=True
     )
 
     def get_permissions(self, instance):
@@ -224,13 +217,6 @@ class InstanceSerializer(
 
         return obj.get_linked_instances(queryset)
 
-    def get_circulation_initializer_services(self, obj):
-        return Service.objects.filter(
-            pk__in=obj.circulations.filter(
-                activations__service=self.context["request"].group.service_id
-            ).values("service")
-        )
-
     def get_involved_services(self, obj):
         filters = Q(
             pk__in=list(
@@ -260,19 +246,6 @@ class InstanceSerializer(
     def get_active_service(self, instance):
         return instance.responsible_service(filter_type="municipality")
 
-    def get_parent_instance(self, instance):
-        """
-        Return the "original version" of instances that were created as a copy of another.
-
-        e.g. project modifications or "Dossier erneut einreichen" (re-submission of
-        rejected instance)
-        """
-
-        try:
-            return instance.case.document.source.case.instance
-        except AttributeError:
-            return None
-
     included_serializers = {
         "location": "camac.user.serializers.LocationSerializer",
         "user": "camac.user.serializers.UserSerializer",
@@ -280,11 +253,9 @@ class InstanceSerializer(
         "form": FormSerializer,
         "instance_state": InstanceStateSerializer,
         "previous_instance_state": InstanceStateSerializer,
-        "circulations": "camac.circulation.serializers.CirculationSerializer",
         "services": "camac.user.serializers.ServiceSerializer",
         "involved_services": "camac.user.serializers.ServiceSerializer",
         "linked_instances": "camac.instance.serializers.InstanceSerializer",
-        "circulation_initializer_services": "camac.user.serializers.ServiceSerializer",
         "active_service": "camac.user.serializers.PublicServiceSerializer",
         "keywords": "camac.tags.serializers.KeywordSerializer",
     }
@@ -369,24 +340,20 @@ class InstanceSerializer(
             "creation_date",
             "modification_date",
             "previous_instance_state",
-            "circulations",
             "services",
             "involved_services",
             "linked_instances",
-            "circulation_initializer_services",
             "active_service",
             "parent_instance",
             "keywords",
         )
         read_only_fields = (
-            "circulations",
             "creation_date",
             "identifier",
             "modification_date",
             "services",
             "involved_services",
             "linked_instances",
-            "circulation_initializer_services",
             "active_service",
             "parent_instance",
         )
