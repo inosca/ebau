@@ -1,6 +1,6 @@
 import { action } from "@ember/object";
 import { service } from "@ember/service";
-import { isTesting, macroCondition } from "@embroider/macros";
+import { isDevelopingApp, isTesting, macroCondition } from "@embroider/macros";
 import Component from "@glimmer/component";
 import { findAll } from "ember-data-resources";
 import mainConfig from "ember-ebau-core/config/main";
@@ -65,12 +65,22 @@ export default class MainNavigationComponent extends Component {
   async setGroup(group, event) {
     event?.preventDefault();
 
-    this.session.group = group;
+    if (group === adminGroup) {
+      let url = "/django/admin";
 
-    if (this.session.group === adminGroup) {
-      window.location.href = "/django/admin";
-      return;
+      if (macroCondition(isDevelopingApp())) {
+        // If we're developing locally, we can't redirect to a relative path as
+        // we're on the ember dev server. Instead, we prepend the container
+        // host.
+        url = `http://ember-ebau.localhost${url}`;
+      }
+
+      return window.location.assign(url);
     }
+
+    // Only save group to session if it's not the admin group as we don't want
+    // to persist that.
+    this.session.group = group;
 
     await this.fetch.fetch(`/api/v1/public-groups/${group}/set-default`, {
       method: "POST",
