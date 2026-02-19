@@ -177,8 +177,8 @@ class InstanceSerializer(
         source="get_active_service", model=Service, read_only=True
     )
 
-    parent_instance = relations.SerializerMethodResourceRelatedField(
-        source="get_parent_instance", model=models.Instance, read_only=True
+    parent_instance = relations.ResourceRelatedField(
+        source="copy_source", model=models.Instance, read_only=True
     )
 
     def get_permissions(self, instance):
@@ -245,19 +245,6 @@ class InstanceSerializer(
 
     def get_active_service(self, instance):
         return instance.responsible_service(filter_type="municipality")
-
-    def get_parent_instance(self, instance):
-        """
-        Return the "original version" of instances that were created as a copy of another.
-
-        e.g. project modifications or "Dossier erneut einreichen" (re-submission of
-        rejected instance)
-        """
-
-        try:
-            return instance.case.document.source.case.instance
-        except AttributeError:
-            return None
 
     included_serializers = {
         "location": "camac.user.serializers.LocationSerializer",
