@@ -40,8 +40,6 @@ export default class InstanceModel extends Model {
   })
   deadline;
 
-  @hasMany("service", { inverse: null, async: true, readOnly: true })
-  circulationInitializerServices;
   @hasMany("circulation", { inverse: "instance", async: true, readOnly: true })
   circulations;
   @hasMany("service", { inverse: null, async: true, readOnly: true }) services;

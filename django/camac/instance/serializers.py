@@ -173,13 +173,6 @@ class InstanceSerializer(
         source="get_linked_instances", model=models.Instance, read_only=True, many=True
     )
 
-    circulation_initializer_services = relations.SerializerMethodResourceRelatedField(
-        source="get_circulation_initializer_services",
-        model=Service,
-        read_only=True,
-        many=True,
-    )
-
     active_service = relations.SerializerMethodResourceRelatedField(
         source="get_active_service", model=Service, read_only=True
     )
@@ -223,13 +216,6 @@ class InstanceSerializer(
             return models.Instance.objects.none()
 
         return obj.get_linked_instances(queryset)
-
-    def get_circulation_initializer_services(self, obj):
-        return Service.objects.filter(
-            pk__in=obj.circulations.filter(
-                activations__service=self.context["request"].group.service_id
-            ).values("service")
-        )
 
     def get_involved_services(self, obj):
         filters = Q(
@@ -284,7 +270,6 @@ class InstanceSerializer(
         "services": "camac.user.serializers.ServiceSerializer",
         "involved_services": "camac.user.serializers.ServiceSerializer",
         "linked_instances": "camac.instance.serializers.InstanceSerializer",
-        "circulation_initializer_services": "camac.user.serializers.ServiceSerializer",
         "active_service": "camac.user.serializers.PublicServiceSerializer",
         "keywords": "camac.tags.serializers.KeywordSerializer",
     }
@@ -373,7 +358,6 @@ class InstanceSerializer(
             "services",
             "involved_services",
             "linked_instances",
-            "circulation_initializer_services",
             "active_service",
             "parent_instance",
             "keywords",
@@ -386,7 +370,6 @@ class InstanceSerializer(
             "services",
             "involved_services",
             "linked_instances",
-            "circulation_initializer_services",
             "active_service",
             "parent_instance",
         )

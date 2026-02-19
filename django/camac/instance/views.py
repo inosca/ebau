@@ -155,9 +155,6 @@ class InstanceView(
         ],
         "location": ["location"],
         "involved_services": ["services"],
-        "circulation_initializer_services": [
-            "circulations",
-        ],
     }
     ordering_fields = (
         "instance_id",
