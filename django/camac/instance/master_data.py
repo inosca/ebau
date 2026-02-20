@@ -110,7 +110,7 @@ class MasterData(object):
         )
 
         if not config:
-            available_keys = ", ".join(settings.MASTER_DATA["CONFIG"].keys())
+            available_keys = ", ".join(settings.MASTER_DATA.get("CONFIG", {}).keys())
             raise AttributeError(
                 f"Key '{lookup_key}' is not configured in master data config. "
                 f"Available keys are: {available_keys}"
