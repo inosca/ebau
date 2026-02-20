@@ -15,6 +15,14 @@ from camac.ech0211.models import ECH0211Document
 from camac.settings.modules.ech0211 import DocumentAPIFeature
 
 
+@pytest.mark.parametrize(
+    "file, expected_status",
+    [
+        ("visible_file", status.HTTP_200_OK),
+        ("invisible_file_category", status.HTTP_404_NOT_FOUND),
+        ("invisible_file_instance", status.HTTP_404_NOT_FOUND),
+    ],
+)
 @pytest.mark.parametrize("document_backend", ["camac-ng", "alexandria"])
 @pytest.mark.parametrize("role__name", ["Municipality"])
 def test_download(
@@ -25,30 +33,34 @@ def test_download(
     reload_ech0211_urls,
     document_backend,
     set_document_backend,
+    file,
+    expected_status,
 ):
     set_document_backend(document_backend)
 
     gr_ech0211_settings["API_LEVEL"] = "full"
 
     visible_file, invisible_file_category, invisible_file_instance = file_setup()
+    my_dict = {
+        "visible_file": visible_file,
+        "invisible_file_category": invisible_file_category,
+        "invisible_file_instance": invisible_file_instance,
+    }
 
-    for file, expected_status in [
-        (visible_file, status.HTTP_200_OK),
-        (invisible_file_category, status.HTTP_404_NOT_FOUND),
-        (invisible_file_instance, status.HTTP_404_NOT_FOUND),
-    ]:
-        response = admin_client.get(reverse("ech-file-detail", args=[file.pk]))
+    file = my_dict[file]
 
-        assert response.status_code == expected_status
+    response = admin_client.get(reverse("ech-file-detail", args=[file.pk]))
 
-        if response.status_code == status.HTTP_200_OK:
-            encoded_filename = urllib.parse.quote(file.name)
-            assert (
-                response.headers["content-disposition"]
-                == f"attachment; filename*=UTF-8''{encoded_filename}"
-            )
-            assert response.headers["content-type"] == file.mime_type
-            assert response.getvalue() == file.content.file.read()
+    assert response.status_code == expected_status
+
+    if response.status_code == status.HTTP_200_OK:
+        encoded_filename = urllib.parse.quote(file.name)
+        assert (
+            response.headers["content-disposition"]
+            == f"attachment; filename*=UTF-8''{encoded_filename}"
+        )
+        assert response.headers["content-type"] == file.mime_type
+        assert response.getvalue() == file.content.file.read()
 
 
 @pytest.mark.parametrize("document_backend", ["camac-ng", "alexandria"])
