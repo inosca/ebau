@@ -100,6 +100,7 @@ class PublicUserView(ReadOnlyModelViewSet):
     filterset_class = filters.PublicUserFilterSet
     serializer_class = serializers.PublicUserSerializer
     queryset = models.User.objects.all().distinct()
+    ordering = ["name"]
 
 
 class ServiceView(MultilangMixin, ModelViewSet):
