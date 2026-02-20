@@ -52,13 +52,13 @@ WORKDIR /myapp/$WORKSPACE
 RUN pnpm build
 
 # Production environment
-FROM nginxinc/nginx-unprivileged:1.27-alpine AS prod
+FROM nginxinc/nginx-unprivileged:1.29-alpine AS prod
 ARG WORKSPACE
 COPY --from=build /myapp/$WORKSPACE/dist /usr/share/nginx/html
 COPY nginx/ember.conf /etc/nginx/conf.d/default.conf
 
 # Production environment with runtime environment variables (only used in cantons with tagged releases)
-FROM nginxinc/nginx-unprivileged:1.27-alpine AS prod-env
+FROM nginxinc/nginx-unprivileged:1.29-alpine AS prod-env
 ARG WORKSPACE
 ARG REPLACE_ENV
 ENV REPLACE_ENV_RUNTIME=$REPLACE_ENV

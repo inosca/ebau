@@ -6,7 +6,7 @@ services:
       - ebau.localhost
 
   proxy:
-    image: nginxinc/nginx-unprivileged:1.27-alpine
+    image: nginxinc/nginx-unprivileged:1.29-alpine
     user: nginx:nginx
     volumes:
       - ../proxy/kt_ag.conf:/etc/nginx/conf.d/default.conf.in:ro
@@ -245,7 +245,7 @@ services:
     command: devserver
 
   minio:
-    image: minio/minio:RELEASE.2025-07-23T15-54-02Z
+    image: minio/minio:RELEASE.2025-09-07T16-13-09Z
     user: ${UID}
     volumes:
       - minio_data:/data
@@ -258,7 +258,7 @@ services:
     command: server data --console-address ":9090"
 
   mc:
-    image: minio/mc:RELEASE.2025-07-21T05-28-08Z
+    image: minio/mc:RELEASE.2025-08-13T08-35-41Z
     depends_on:
       - minio
     restart: on-failure
@@ -302,7 +302,7 @@ services:
       - ebau.localhost
 
   redis:
-    image: redis:7.4
+    image: redis:8.4
     volumes:
       - redis_data:/redis/data
     networks:
