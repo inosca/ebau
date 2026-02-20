@@ -8,16 +8,23 @@ from camac.settings.utils import generate_module_settings
 
 {% for module_name, config in modules.items() %}
 {% for module_config in config %}
+{% set _base_fixture = module_name + '_settings' %}
 @pytest.fixture
-def {{module_config.prefix}}{{module_name}}_settings(settings, request):
+def {{module_config.prefix}}{{module_name}}_settings(
+    request,
+    settings,
+{%if module_config.prefix %}    {{_base_fixture}},
+{%endif%}
+):
     {% if module_config.disable %}
     """Disable the {{module_name|humanize|lower}} module completely."""
     {% else %}
     """Module-specific settings for {{module_name|humanize|lower}} ({% if module_config.prefix %}canton {{module_config.prefix|upper|trim("_")}}{% else %}default{% endif %})."""
     {% endif %}
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture={%if module_config.prefix %}{{_base_fixture}}{%else%}None{%endif%},
         module_name="{{module_name}}",
         canton={% if module_config.canton %}"{{module_config.canton}}"{% else %}None{% endif %},
         disable={{module_config.disable}},
