@@ -28,7 +28,7 @@ from caluma.caluma_workflow import (
 )
 from caluma.caluma_workflow.api import complete_work_item, skip_work_item
 from deepmerge import always_merger
-from django.conf import settings
+from django.conf import settings as django_settings
 from django.core.cache import cache
 from django.core.management import call_command
 from django.http import FileResponse
@@ -394,8 +394,9 @@ def set_application_demo(_set_application):
     return _set_application("demo")
 
 
-@pytest.fixture(params=list(settings.APPLICATIONS.keys()))
-def any_application(request):
+# can't use settings fixture here, as we're not *inside* a fixture
+@pytest.fixture(params=list(django_settings.APPLICATIONS.keys()))
+def any_application(request, settings):
     """Return set_application_XY fixture for all possible applications."""
     # TODO either expand fixtures so all of them exist, or filter down
     # the list of accepted applications so only the ones fully supported
@@ -490,7 +491,7 @@ def clear_cache():
 
 
 @pytest.fixture
-def unoconv_pdf_mock(requests_mock):
+def unoconv_pdf_mock(requests_mock, settings):
     requests_mock.register_uri(
         "POST",
         build_url(settings.UNOCONV_URL, "/unoconv/pdf"),
@@ -555,7 +556,7 @@ def caluma_config_ag(
 
 
 @pytest.fixture
-def use_instance_service(application_settings):
+def use_instance_service(application_settings, settings):
     application_settings["USE_INSTANCE_SERVICE"] = True
     application_settings["ACTIVE_SERVICES"] = deepcopy(
         settings.APPLICATIONS["kt_bern"]["ACTIVE_SERVICES"]
@@ -814,7 +815,7 @@ def caluma_workflow_config_ag(
 
 
 @pytest.fixture
-def caluma_audit(caluma_workflow_config_be):
+def caluma_audit(caluma_workflow_config_be, settings):
     for slug in CALUMA_FORM_TYPES_SLUGS:
         caluma_form_models.Form.objects.create(slug=slug)
 
@@ -827,7 +828,7 @@ def caluma_audit(caluma_workflow_config_be):
 
 
 @pytest.fixture
-def caluma_workflow_config_sz(db, caluma_config_sz):
+def caluma_workflow_config_sz(db, caluma_config_sz, settings):
     caluma_form_models.Form.objects.create(slug="baugesuch")
     caluma_form_models.Form.objects.create(slug="bauverwaltung")
     caluma_form_models.Form.objects.create(slug="main-form")
@@ -2658,7 +2659,9 @@ def ur_master_data_case(
 
 
 @pytest.fixture
-def decision_factory(be_instance, caluma_document_factory, caluma_work_item_factory):
+def decision_factory(
+    be_instance, caluma_document_factory, caluma_work_item_factory, settings
+):
     call_command(
         "loaddata", settings.ROOT_DIR("kt_bern/config/caluma_decision_form.json")
     )
@@ -2705,7 +2708,7 @@ def decision_factory(be_instance, caluma_document_factory, caluma_work_item_fact
 
 
 @pytest.fixture
-def decision_factory_so(so_instance, so_decision_settings):
+def decision_factory_so(so_instance, so_decision_settings, settings):
     call_command(
         "loaddata", settings.ROOT_DIR("kt_so/config/caluma_decision_form.json")
     )
@@ -3350,7 +3353,9 @@ def setup_sql_views(django_db_setup, django_db_blocker):
     to create a VIEW, as otherwise, stuff will break
     """
 
-    for module, migration in settings.SQL_VIEW_MIGRATIONS:
+    # can't use settings fixture here, as we're session scoped and the settings
+    # fixture is function scoped, so must be initialized *after*
+    for module, migration in django_settings.SQL_VIEW_MIGRATIONS:
         migration_mod = import_module(f"camac.{module}.migrations.{migration}")
         with django_db_blocker.unblock():
             for op in migration_mod.Migration.operations:
