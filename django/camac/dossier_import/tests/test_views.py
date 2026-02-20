@@ -266,16 +266,15 @@ def test_file_validation(
         admin_client.delete(reverse("dossier-import-detail", args=(resp.data["id"],)))
 
 
-@pytest.mark.freeze_time("2021-12-12")
 @pytest.mark.parametrize(
-    "config,camac_instance",
-    [
-        ("kt_bern", lf("be_instance")),
-        # ("kt_schwyz", lf("sz_instance")),
-    ],
-)
-@pytest.mark.parametrize(
-    "action,host,role__name,status_before,expected_response_code,status_after",
+    (
+        "action",
+        "host",
+        "role__name",
+        "status_before",
+        "expected_response_code",
+        "status_after",
+    ),
     [
         (
             "start",
@@ -386,14 +385,9 @@ def test_file_validation(
 def test_state_transitions(
     db,
     admin_client,
-    admin_user,
-    location,
     settings,
     archive_file,
     dossier_import_factory,
-    setup_dossier_writer,
-    config,
-    camac_instance,
     action,
     status_before,
     expected_response_code,
@@ -402,8 +396,8 @@ def test_state_transitions(
     caluma_case_factory,
     host,
     mailoutbox,
+    be_dossier_import_settings,
 ):
-    setup_dossier_writer(config)
     settings.INTERNAL_BASE_URL = f"https://{host}.example.com"
 
     dossier_import = dossier_import_factory(
