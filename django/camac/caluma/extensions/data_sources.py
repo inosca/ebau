@@ -500,18 +500,3 @@ class Sanctions(BaseDataSource):
             return [generic_sanction]
 
         return sanctions
-
-
-class GEVERErledigungsart(BaseDataSource):
-    info = "Erledigungsart for BE-GEVER"
-
-    @data_source_cache(timeout=3600)
-    def get_data(self, user, question, context):
-        from camac.gever.client import GEVERClient
-
-        client = GEVERClient()
-        erledigungsart_all = sorted(
-            client.erledigungsart.all(), key=lambda rec: rec.bezeichnung
-        )
-
-        return [(str(ea.guid), ea.bezeichnung) for ea in erledigungsart_all]

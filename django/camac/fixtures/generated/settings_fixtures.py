@@ -2180,56 +2180,6 @@ def gr_eeba_integration_settings(
 
 
 @pytest.fixture
-def gever_settings(
-    request,
-    settings,
-):
-    """Module-specific settings for gever (default)."""
-    yield from generate_module_settings(
-        settings=settings,
-        request=request,
-        base_fixture=None,
-        module_name="gever",
-        canton=None,
-        disable=False,
-    )
-
-
-@pytest.fixture
-def disable_gever_settings(
-    request,
-    settings,
-    gever_settings,
-):
-    """Disable the gever module completely."""
-    yield from generate_module_settings(
-        settings=settings,
-        request=request,
-        base_fixture=gever_settings,
-        module_name="gever",
-        canton=None,
-        disable=True,
-    )
-
-
-@pytest.fixture
-def be_gever_settings(
-    request,
-    settings,
-    gever_settings,
-):
-    """Module-specific settings for gever (canton BE)."""
-    yield from generate_module_settings(
-        settings=settings,
-        request=request,
-        base_fixture=gever_settings,
-        module_name="gever",
-        canton="kt_bern",
-        disable=False,
-    )
-
-
-@pytest.fixture
 def linked_instances_settings(
     request,
     settings,

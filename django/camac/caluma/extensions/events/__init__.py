@@ -19,7 +19,6 @@ from . import (  # noqa: F401
     ebau_number,
     formal_exam,
     general,
-    gever,
     publication,
     rejection,
     sb,

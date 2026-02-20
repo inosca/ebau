@@ -1,4 +1,0 @@
-gever:
-  sync: "Synchroniser les données avec GEVER"
-  error: "Erreur lors de la synchronisation"
-  success: "Le dossier a été synchronisé avec succès avec GEVER"

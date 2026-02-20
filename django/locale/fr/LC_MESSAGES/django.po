@@ -1070,10 +1070,6 @@ msgstr ""
 msgid "You do not have permission to edit this instance."
 msgstr ""
 
-#: camac/gever/apps.py
-msgid "GEVER"
-msgstr ""
-
 #: camac/gis/admin.py
 msgid "Disable selected GIS data sources"
 msgstr ""

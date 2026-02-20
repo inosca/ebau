@@ -243,12 +243,6 @@ class CustomDynamicGroups(BaseDynamicGroups):
     def resolve_afb_ag(self, task, case, user, prev_work_item, context, **kwargs):
         return [str(Service.objects.get(slug="afb").pk)]
 
-    @register_dynamic_group("gever")
-    def resolve_gever(
-        self, task, case, user, prev_work_item, context, **kwargs
-    ):  # pragma: no cover
-        return [str(Service.objects.get(slug="agr-bauen").pk)]
-
     @register_dynamic_group("koor-np")
     def resolve_koor_np(self, task, case, user, prev_work_item, context, **kwargs):
         return [str(Service.objects.get(slug="koor-np").pk)]
