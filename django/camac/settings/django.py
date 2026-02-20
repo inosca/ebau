@@ -98,7 +98,6 @@ INSTALLED_APPS = [
     "camac.user.apps.DefaultConfig",
     "camac.instance.apps.DefaultConfig",
     "camac.document.apps.DefaultConfig",
-    "camac.circulation.apps.DefaultConfig",
     "camac.notification.apps.DefaultConfig",
     "camac.responsible.apps.DefaultConfig",
     "camac.applicants.apps.DefaultConfig",

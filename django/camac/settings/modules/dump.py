@@ -368,7 +368,6 @@ DUMP = {
             # List of django apps that include models which should be dumped
             # into the data dump files
             "APPS": [
-                "circulation",
                 "core",
                 "deadlines",
                 "document",

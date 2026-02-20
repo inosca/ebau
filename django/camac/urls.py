@@ -21,7 +21,6 @@ urlpatterns = [
     re_path(r"^api/v1/", include("camac.instance.urls")),
     re_path(r"^api/v1/", include("camac.document.urls")),
     re_path(r"^api/v1/", include("camac.dossier_import.urls")),
-    re_path(r"^api/v1/", include("camac.circulation.urls")),
     re_path(r"^api/v1/", include("camac.notification.urls")),
     re_path(r"^api/v1/", include("camac.objection.urls")),
     re_path(r"^api/v1/", include("camac.responsible.urls")),
