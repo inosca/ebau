@@ -319,7 +319,7 @@ services:
       - ebau.localhost
 
   redis:
-    image: redis:7.4
+    image: redis:8.4
     volumes:
       - redis_data:/redis/data
     profiles:
