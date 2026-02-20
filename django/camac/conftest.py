@@ -3390,20 +3390,32 @@ def set_document_backend(application_settings):
 
 @pytest.fixture(autouse=True, scope="function")
 def ensure_no_leaks():
-    SETTINGS_TO_VALIDATE = ["APPLICATIONS"]
-    from django.conf import settings
+    # Note: We're not checking *every* module settings, just the one
+    # where leaks are most problematic and have the biggest impact on
+    # other modules
+    SETTINGS_TO_VALIDATE = [
+        "APPLICATIONS",
+        "PERMISSIONS",
+        "ALEXANDRIA",
+        "DISTRIBUTION",
+        "COMMUNICATIONS",
+    ]
 
     before_settings = {
-        s: copy.deepcopy(getattr(settings, s)) for s in SETTINGS_TO_VALIDATE
+        s: copy.deepcopy(getattr(django_settings, s)) for s in SETTINGS_TO_VALIDATE
     }
 
     yield
 
     after_settings = {
-        s: copy.deepcopy(getattr(settings, s)) for s in SETTINGS_TO_VALIDATE
+        s: copy.deepcopy(getattr(django_settings, s)) for s in SETTINGS_TO_VALIDATE
     }
 
-    assert before_settings == after_settings
+    for s in SETTINGS_TO_VALIDATE:
+        before = before_settings[s]
+        after = after_settings[s]
+
+        assert before == after, f"Module settings {s} seem to leak"
 
 
 def parse_xlsx_response(response: FileResponse) -> pyexcel.Book:
