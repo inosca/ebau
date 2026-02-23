@@ -44,7 +44,7 @@ def test_overlapping_additional_demand_durations(
         decision_type=be_decision_settings["ANSWERS"]["APPROVAL_TYPE"][
             "BUILDING_PERMIT_FREE"
         ],
-        decision_date=decision_date,
+        decision_date=decision_date.date(),
     )
 
     for additional_demand_duration, offset in additional_demands:
