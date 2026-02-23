@@ -485,7 +485,7 @@ def mock_clamd(mocker):
     )
 
 
-@pytest.fixture
+@pytest.fixture(autouse=True, scope="function")
 def clear_cache():
     cache.clear()
 
@@ -891,10 +891,6 @@ def caluma_forms_be(settings):
     caluma_form_models.Form.objects.create(slug="decision")
     caluma_form_models.Form.objects.create(slug="geometer")
 
-    # dynamic choice options get cached, so we clear them
-    # to ensure the new "gemeinde" options will be valid
-    cache.clear()
-
     # questions
     caluma_form_models.Question.objects.create(
         slug="gemeinde",
@@ -1056,10 +1052,6 @@ def caluma_forms_ur(settings):
         question__row_form_id="parcels",
     )
 
-    # dynamic choice options get cached, so we clear them
-    # to ensure the new "gemeinde" options will be valid
-    cache.clear()
-
     # questions
     simple_questions = [
         ("municipality", caluma_form_models.Question.TYPE_TEXT),
@@ -1132,10 +1124,6 @@ def caluma_forms_gr(settings):
     caluma_form_models.Form.objects.create(slug="personalien-tabelle")
     caluma_form_models.Form.objects.create(slug="entsorgung")
 
-    # dynamic choice options get cached, so we clear them
-    # to ensure the new "gemeinde" options will be valid
-    cache.clear()
-
     # questions
     caluma_form_models.Question.objects.create(
         slug="gemeinde",
@@ -1200,10 +1188,6 @@ def caluma_forms_so(settings):
     caluma_form_models.Form.objects.create(slug="meldung")
     caluma_form_models.Form.objects.create(slug="meldung-pv")
     caluma_form_models.Form.objects.create(slug="materielle-pruefung-bab")
-
-    # dynamic choice options get cached, so we clear them
-    # to ensure the new "gemeinde" options will be valid
-    cache.clear()
 
     # questions
     caluma_form_models.Question.objects.create(
@@ -1273,10 +1257,6 @@ def caluma_forms_ag(settings, caluma_form_factory):
         "complete-instance",
     ]:
         caluma_form_models.Form.objects.create(slug=slug)
-
-    # dynamic choice options get cached, so we clear them
-    # to ensure the new "gemeinde" options will be valid
-    cache.clear()
 
     # questions
     caluma_form_models.Question.objects.create(

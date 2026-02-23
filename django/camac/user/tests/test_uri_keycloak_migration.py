@@ -56,7 +56,7 @@ from camac.user.authentication import JSONWebTokenKeycloakAuthentication
     ],
 )
 def test_authenticate_bootstrap_by_mail(
-    rf, mocker, settings, clear_cache, user, token_value, should_update
+    rf, mocker, settings, user, token_value, should_update
 ):
     settings.OIDC_BOOTSTRAP_BY_EMAIL_FALLBACK = True
 
@@ -92,7 +92,6 @@ def test_migrate_portal_user(
     instance_portal_factory,
     instance_factory,
     group_factory,
-    clear_cache,
 ):
     """Test migration of portal users.
 

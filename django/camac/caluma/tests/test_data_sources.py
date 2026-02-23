@@ -4,7 +4,6 @@ from collections import namedtuple
 import pytest
 from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_form.factories import QuestionFactory
-from django.core.cache import cache
 
 from camac.tests.data import so_personal_row_factory
 from camac.tests.form_utils import FormUtils
@@ -245,8 +244,6 @@ def test_attachments(
         context = {"instanceId": instance1.pk}
     else:
         context = {}
-
-    cache.clear()
 
     data = Attachments().get_data(caluma_admin_user, question, context)
 
