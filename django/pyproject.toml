@@ -275,13 +275,6 @@ omit = [
     # Audit migration"
     "camac/core/management/commands/config/",
     "camac/core/management/commands/migrate_audit.py",
-    # Uri Camac -> Caluma dossier migration"
-    "camac/migrate_to_caluma/management/commands/delete_migrated_cases.py",
-    "camac/migrate_to_caluma/management/commands/migrate_cases.py",
-    "camac/migrate_to_caluma/management/commands/migrate_question.py",
-    "camac/migrate_to_caluma/management/commands/migrate_dynamic_option.py",
-    "camac/migrate_to_caluma/question_map.py",
-    "camac/migrate_to_caluma/transforms.py",
     # Old migrations and their tests
     "camac/core/management/commands/migrate_issues.py",
     "camac/core/management/commands/migrate_schwyz_instances.py",

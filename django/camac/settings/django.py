@@ -105,7 +105,6 @@ INSTALLED_APPS = [
     "camac.tags.apps.DefaultConfig",
     "camac.objection.apps.DefaultConfig",
     "camac.ech0211.apps.Ech0211Config",
-    "camac.migrate_to_caluma.apps.MigrateConfig",
     "camac.stats.apps.StatsConfig",
     "camac.parashift.apps.ParashiftConfig",
     "camac.dossier_import.apps.DossierImportConfig",
