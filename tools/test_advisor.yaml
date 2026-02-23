@@ -1,7 +1,6 @@
 modules:
   - name: Aufgabenmodul
     files:
-      - django/camac/circulation.*
       - php/library/Camac/InstanceResource/Editcirculation.*
       - php/application/views/scripts/circulation.*
       - php/application/modules/admin/views/scripts/circulation.*
