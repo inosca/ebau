@@ -12,6 +12,7 @@ Electronic building permit application for Swiss cantons.
 - [Requirements](#requirements)
 - [Development](#development)
   - [Basic setup](#basic-setup)
+    - [Sysctl caveat](#sysctl-caveat)
   - [Predefined credentials](#predefined-credentials)
   - [Debugging](#debugging)
   - [Working locally with ember](#working-locally-with-ember)
@@ -139,6 +140,24 @@ After, you should be able to use to the following services:
 - [ebau-keycloak.localhost/auth](http://ebau-keycloak.localhost/auth/) - IAM solution
 - [ember-ebau.localhost/mailpit/](http://ember-ebau.localhost/mailpit/) - Mailpit UI
 - [ember-ebau.localhost/minio/ui/](http://ember-ebau.localhost/minio/ui/) - MinIO Admin UI
+
+#### Sysctl caveat
+
+Depending on your system configuration (e.g. on Ubuntu versions >= 23.10), you might run into the following error in the document-merge-service container (because unprivileged user namespaces are restricted by default):
+
+> unoconv failed with returncode: 1 stderr: b'unshare: write failed /proc/self/uid_map: Operation not permitted
+
+To work around this you can set the following sysctl parameters to allow unprivileged user namespaces.
+
+Create the following file `/etc/sysctl.d/99-userns.conf`
+
+```
+kernel.unprivileged_userns_clone=1
+user.max_user_namespaces=28633
+kernel.apparmor_restrict_unprivileged_userns=0
+```
+
+And apply with `sudo sysctl -p` (additionally reboot, and/or recreate the docker container).
 
 ### Predefined credentials
 
