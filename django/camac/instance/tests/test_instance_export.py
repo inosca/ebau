@@ -593,34 +593,8 @@ def test_bab_statistics_export_file(
     end_date = "2026-01-01T00:00:00Z"
     _, data = generate_bab_statistics_export_file(start_date, end_date)
     assert len(data) == 2
+    data.sort()
     assert data[0] == [
-        "Altdorf",
-        "ACME AG, Max Mustermann, Teststrasse 123, 1233 Musterdorf",
-        "Einfamilienhaus",
-        "1201-01-123",
-        str(ur_instance.pk),
-        "Baugesuch",
-        "Neubau",
-        "Wohnbaute",
-        "Objektbeschrieb",
-        "Zonenkonform",
-        "Innerhalb Bauzone",
-        "Positiv",
-        "Privatpersonen",
-        "Landwirtschaftszone",
-        "1000",
-        "10",
-        "20",
-        "3",
-        "1",
-        "2",
-        "Ja",
-        "-",
-        "-",
-        "-",
-        "-",
-    ]
-    assert data[1] == [
         "Altdorf",
         "ACME AG, Max Mustermann, Teststrasse 123, 1233 Musterdorf",
         "Einfamilienhaus",
@@ -646,6 +620,33 @@ def test_bab_statistics_export_file(
         "300",
         "Andere",
         "Ja",
+    ]
+    assert data[1] == [
+        "Altdorf",
+        "ACME AG, Max Mustermann, Teststrasse 123, 1233 Musterdorf",
+        "Einfamilienhaus",
+        "1201-01-123",
+        str(ur_instance.pk),
+        "Baugesuch",
+        "Neubau",
+        "Wohnbaute",
+        "Objektbeschrieb",
+        "Zonenkonform",
+        "Innerhalb Bauzone",
+        "Positiv",
+        "Privatpersonen",
+        "Landwirtschaftszone",
+        "1000",
+        "10",
+        "20",
+        "3",
+        "1",
+        "2",
+        "Ja",
+        "-",
+        "-",
+        "-",
+        "-",
     ]
 
 
