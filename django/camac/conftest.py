@@ -3,6 +3,7 @@ import inspect
 import logging
 import os
 import sys
+import time
 from copy import deepcopy
 from dataclasses import dataclass, field
 from datetime import date, timedelta
@@ -3375,34 +3376,124 @@ def set_document_backend(application_settings):
     return do_it
 
 
+_ensure_no_leaks_stats = {"setup_time": 0.0, "check_time": 0.0, "invocations": 0}
+
+
+def _validateable_settings():
+    """
+    Return all module's settings names for modules that use module-settings.
+
+    In other words return all settings that can reasonably be checked for
+    leaks (see `ensure_no_leaks` fixture below). Additionally, the APPLICATIONS
+    object is added to the list as well, as this is the most likely to cause
+    leaks.
+    """
+    from camac.settings.utils import get_all_modules
+
+    return [m.upper() for m in get_all_modules()] + ["APPLICATIONS"]
+
+
+def _get_module_settings(setting_name):
+    """Return the settings module as imported for the given module.
+
+    the `setting_name` parameter is expected to be an uppercase name of the
+    module, as it's settings object is named in the settings module.
+    """
+    # try using the original module settings object
+    origin = f"camac.settings.modules.{setting_name.lower()}"
+    try:
+        return getattr(import_module(origin), setting_name)
+    except ImportError:
+        # fallback: use the (generated) setting from the main settings module.
+        # This should only happen for APPLICATIONS
+        assert setting_name == "APPLICATIONS"
+        return getattr(django_settings, setting_name)
+
+
+_before_settings = {}
+
+
 @pytest.fixture(autouse=True, scope="function")
-def ensure_no_leaks():
-    # Note: We're not checking *every* module settings, just the one
-    # where leaks are most problematic and have the biggest impact on
-    # other modules
-    SETTINGS_TO_VALIDATE = [
-        "APPLICATIONS",
-        "PERMISSIONS",
-        "ALEXANDRIA",
-        "DISTRIBUTION",
-        "COMMUNICATIONS",
-    ]
+def ensure_no_leaks(request):
+    """Ensure tests do not leak data via settings.
 
-    before_settings = {
-        s: copy.deepcopy(getattr(django_settings, s)) for s in SETTINGS_TO_VALIDATE
-    }
+    It's relatively easy to update a setting without the proper procedures, and
+    then the changed value remains active for the following tests, leading to
+    "flaky behaviour".
 
+    This fixture runs before and after every test and compares the settings
+    in depth. If any setting is changed after the test, this is an indication that
+    the test is not correctly working with the settings (ie, using the appropriate
+    fixtures like `permissions_settings`, `be_application_settings`, etc).
+    """
+
+    # we collect some stats for further analysis
+    started = time.time()
+
+    settings_to_check = _validateable_settings()
+
+    if not _before_settings:
+        # we only do the before settings copy once. This is the expensive
+        # part of the operation
+        _before_settings.update(
+            {s: copy.deepcopy(_get_module_settings(s)) for s in settings_to_check}
+        )
+
+    _ensure_no_leaks_stats["invocations"] += 1
+    _ensure_no_leaks_stats["setup_time"] += time.time() - started
     yield
+    started_checks = time.time()
 
-    after_settings = {
-        s: copy.deepcopy(getattr(django_settings, s)) for s in SETTINGS_TO_VALIDATE
-    }
+    after_settings = {s: _get_module_settings(s) for s in settings_to_check}
 
-    for s in SETTINGS_TO_VALIDATE:
-        before = before_settings[s]
-        after = after_settings[s]
+    try:
+        for s in settings_to_check:
+            before = _before_settings[s]
+            after = after_settings[s]
 
-        assert before == after, f"Module settings {s} seem to leak"
+            if isinstance(after, dict):
+                # Canton-wise diffing for reduced output in case of error
+                for kt in set(before.keys()) | set(after.keys()):
+                    assert before[kt] == after[kt], (
+                        f"Module {s} leaks. check canton {kt}"
+                    )
+            else:
+                # pydantic settings. Again, canton-wise diffing for reduced
+                # output in case of issues
+                for canton in django_settings.APPLICATIONS.keys():
+                    before_cantonal = getattr(before, canton)
+                    after_cantonal = getattr(after, canton)
+
+                    assert before_cantonal == after_cantonal, (
+                        f"Module settings {s} seem to leak for {canton}"
+                    )
+
+    finally:
+        _ensure_no_leaks_stats["check_time"] += time.time() - started_checks
+
+
+@pytest.fixture(autouse=True, scope="session")
+def collect_no_leaks_stats():
+    """After the tests have run, collect and output statistics on the leaks checks.
+
+    The `ensure_no_leaks` fixture adds a bit of overhead, and we need to know exactly
+    how much. This prints out some statistics, so we can decide whether to do
+    full checking or limit it in some way.
+    """
+    yield
+    n_settings = len(_validateable_settings())
+    invocations = _ensure_no_leaks_stats["invocations"]
+    setup_time = _ensure_no_leaks_stats["setup_time"]
+    check_time = _ensure_no_leaks_stats["check_time"]
+    with open("/tmp/camac-leak-check-fixture.stats", "w") as fh_out:
+        for fh in sys.stdout, fh_out:
+            print(f"Ensure-No-Leaks: Time for setup: {setup_time:0.5}s", file=fh)
+            print(f"Ensure-No-Leaks: Time for checks: {check_time:0.5}s", file=fh)
+            print(
+                f"Ensure-No-Leaks: Total time to verify {n_settings} settings "
+                f"objects: {setup_time + check_time:0.5}s ({invocations} tests ran)",
+                file=fh,
+            )
 
 
 def parse_xlsx_response(response: FileResponse) -> pyexcel.Book:
