@@ -125,9 +125,6 @@ INSTALLED_APPS = [
     # alexandria
     "alexandria.core.apps.DefaultConfig",
     "camac.alexandria.apps.AlexandriaConfig",
-    # TODO: remove this when all production environments ran the migration to
-    # delete the tables of this app
-    "camac.file.apps.DefaultConfig",
     "manabi_migrations",
     "adminsortable2",
     "django_json_widget",
