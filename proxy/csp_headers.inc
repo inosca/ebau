@@ -112,7 +112,7 @@ if ($csp_php_allow_localhost_scripts = "true") {
   set $csp_php_frame_src "http://localhost:4200 http://ebau-keycloak.localhost";
   # ebau.localhost:4300 is required for Ember live reload
   set $csp_php_script_eval "${csp_php_script_eval} http://localhost:4200 http://localhost:4300 http://ebau.localhost:4300";
-  set $csp_connect_src "${csp_connect_src} ws://ebau.localhost:4300";
+  set $csp_connect_src "${csp_connect_src} ws://ebau.localhost:4300 http://localhost:4300";
 }
 
 # Final assembly
