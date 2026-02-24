@@ -7,11 +7,15 @@ from camac.settings.utils import generate_module_settings
 
 
 @pytest.fixture
-def additional_demand_settings(settings, request):
+def additional_demand_settings(
+    request,
+    settings,
+):
     """Module-specific settings for additional demand (default)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=None,
         module_name="additional_demand",
         canton=None,
         disable=False,
@@ -19,11 +23,16 @@ def additional_demand_settings(settings, request):
 
 
 @pytest.fixture
-def disable_additional_demand_settings(settings, request):
+def disable_additional_demand_settings(
+    request,
+    settings,
+    additional_demand_settings,
+):
     """Disable the additional demand module completely."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=additional_demand_settings,
         module_name="additional_demand",
         canton=None,
         disable=True,
@@ -31,11 +40,16 @@ def disable_additional_demand_settings(settings, request):
 
 
 @pytest.fixture
-def gr_additional_demand_settings(settings, request):
+def gr_additional_demand_settings(
+    request,
+    settings,
+    additional_demand_settings,
+):
     """Module-specific settings for additional demand (canton GR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=additional_demand_settings,
         module_name="additional_demand",
         canton="kt_gr",
         disable=False,
@@ -43,11 +57,16 @@ def gr_additional_demand_settings(settings, request):
 
 
 @pytest.fixture
-def so_additional_demand_settings(settings, request):
+def so_additional_demand_settings(
+    request,
+    settings,
+    additional_demand_settings,
+):
     """Module-specific settings for additional demand (canton SO)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=additional_demand_settings,
         module_name="additional_demand",
         canton="kt_so",
         disable=False,
@@ -55,11 +74,16 @@ def so_additional_demand_settings(settings, request):
 
 
 @pytest.fixture
-def ur_additional_demand_settings(settings, request):
+def ur_additional_demand_settings(
+    request,
+    settings,
+    additional_demand_settings,
+):
     """Module-specific settings for additional demand (canton UR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=additional_demand_settings,
         module_name="additional_demand",
         canton="kt_uri",
         disable=False,
@@ -67,11 +91,16 @@ def ur_additional_demand_settings(settings, request):
 
 
 @pytest.fixture
-def ag_additional_demand_settings(settings, request):
+def ag_additional_demand_settings(
+    request,
+    settings,
+    additional_demand_settings,
+):
     """Module-specific settings for additional demand (canton AG)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=additional_demand_settings,
         module_name="additional_demand",
         canton="kt_ag",
         disable=False,
@@ -79,11 +108,16 @@ def ag_additional_demand_settings(settings, request):
 
 
 @pytest.fixture
-def be_additional_demand_settings(settings, request):
+def be_additional_demand_settings(
+    request,
+    settings,
+    additional_demand_settings,
+):
     """Module-specific settings for additional demand (canton BE)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=additional_demand_settings,
         module_name="additional_demand",
         canton="kt_bern",
         disable=False,
@@ -91,11 +125,15 @@ def be_additional_demand_settings(settings, request):
 
 
 @pytest.fixture
-def address_assignment_settings(settings, request):
+def address_assignment_settings(
+    request,
+    settings,
+):
     """Module-specific settings for address assignment (default)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=None,
         module_name="address_assignment",
         canton=None,
         disable=False,
@@ -103,11 +141,16 @@ def address_assignment_settings(settings, request):
 
 
 @pytest.fixture
-def disable_address_assignment_settings(settings, request):
+def disable_address_assignment_settings(
+    request,
+    settings,
+    address_assignment_settings,
+):
     """Disable the address assignment module completely."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=address_assignment_settings,
         module_name="address_assignment",
         canton=None,
         disable=True,
@@ -115,11 +158,16 @@ def disable_address_assignment_settings(settings, request):
 
 
 @pytest.fixture
-def gr_address_assignment_settings(settings, request):
+def gr_address_assignment_settings(
+    request,
+    settings,
+    address_assignment_settings,
+):
     """Module-specific settings for address assignment (canton GR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=address_assignment_settings,
         module_name="address_assignment",
         canton="kt_gr",
         disable=False,
@@ -127,11 +175,15 @@ def gr_address_assignment_settings(settings, request):
 
 
 @pytest.fixture
-def alexandria_settings(settings, request):
+def alexandria_settings(
+    request,
+    settings,
+):
     """Module-specific settings for alexandria (default)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=None,
         module_name="alexandria",
         canton=None,
         disable=False,
@@ -139,11 +191,16 @@ def alexandria_settings(settings, request):
 
 
 @pytest.fixture
-def disable_alexandria_settings(settings, request):
+def disable_alexandria_settings(
+    request,
+    settings,
+    alexandria_settings,
+):
     """Disable the alexandria module completely."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=alexandria_settings,
         module_name="alexandria",
         canton=None,
         disable=True,
@@ -151,11 +208,16 @@ def disable_alexandria_settings(settings, request):
 
 
 @pytest.fixture
-def ag_alexandria_settings(settings, request):
+def ag_alexandria_settings(
+    request,
+    settings,
+    alexandria_settings,
+):
     """Module-specific settings for alexandria (canton AG)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=alexandria_settings,
         module_name="alexandria",
         canton="kt_ag",
         disable=False,
@@ -163,11 +225,16 @@ def ag_alexandria_settings(settings, request):
 
 
 @pytest.fixture
-def gr_alexandria_settings(settings, request):
+def gr_alexandria_settings(
+    request,
+    settings,
+    alexandria_settings,
+):
     """Module-specific settings for alexandria (canton GR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=alexandria_settings,
         module_name="alexandria",
         canton="kt_gr",
         disable=False,
@@ -175,11 +242,16 @@ def gr_alexandria_settings(settings, request):
 
 
 @pytest.fixture
-def so_alexandria_settings(settings, request):
+def so_alexandria_settings(
+    request,
+    settings,
+    alexandria_settings,
+):
     """Module-specific settings for alexandria (canton SO)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=alexandria_settings,
         module_name="alexandria",
         canton="kt_so",
         disable=False,
@@ -187,11 +259,16 @@ def so_alexandria_settings(settings, request):
 
 
 @pytest.fixture
-def be_alexandria_settings(settings, request):
+def be_alexandria_settings(
+    request,
+    settings,
+    alexandria_settings,
+):
     """Module-specific settings for alexandria (canton BE)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=alexandria_settings,
         module_name="alexandria",
         canton="kt_bern",
         disable=False,
@@ -199,11 +276,16 @@ def be_alexandria_settings(settings, request):
 
 
 @pytest.fixture
-def sg_alexandria_settings(settings, request):
+def sg_alexandria_settings(
+    request,
+    settings,
+    alexandria_settings,
+):
     """Module-specific settings for alexandria (canton SG)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=alexandria_settings,
         module_name="alexandria",
         canton="kt_sg",
         disable=False,
@@ -211,11 +293,16 @@ def sg_alexandria_settings(settings, request):
 
 
 @pytest.fixture
-def test_alexandria_settings(settings, request):
+def test_alexandria_settings(
+    request,
+    settings,
+    alexandria_settings,
+):
     """Module-specific settings for alexandria (canton TEST)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=alexandria_settings,
         module_name="alexandria",
         canton="test",
         disable=False,
@@ -223,11 +310,15 @@ def test_alexandria_settings(settings, request):
 
 
 @pytest.fixture
-def alexandria_migration_settings(settings, request):
+def alexandria_migration_settings(
+    request,
+    settings,
+):
     """Module-specific settings for alexandria migration (default)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=None,
         module_name="alexandria_migration",
         canton=None,
         disable=False,
@@ -235,11 +326,16 @@ def alexandria_migration_settings(settings, request):
 
 
 @pytest.fixture
-def disable_alexandria_migration_settings(settings, request):
+def disable_alexandria_migration_settings(
+    request,
+    settings,
+    alexandria_migration_settings,
+):
     """Disable the alexandria migration module completely."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=alexandria_migration_settings,
         module_name="alexandria_migration",
         canton=None,
         disable=True,
@@ -247,11 +343,16 @@ def disable_alexandria_migration_settings(settings, request):
 
 
 @pytest.fixture
-def be_alexandria_migration_settings(settings, request):
+def be_alexandria_migration_settings(
+    request,
+    settings,
+    alexandria_migration_settings,
+):
     """Module-specific settings for alexandria migration (canton BE)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=alexandria_migration_settings,
         module_name="alexandria_migration",
         canton="kt_bern",
         disable=False,
@@ -259,11 +360,15 @@ def be_alexandria_migration_settings(settings, request):
 
 
 @pytest.fixture
-def appeal_settings(settings, request):
+def appeal_settings(
+    request,
+    settings,
+):
     """Module-specific settings for appeal (default)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=None,
         module_name="appeal",
         canton=None,
         disable=False,
@@ -271,11 +376,16 @@ def appeal_settings(settings, request):
 
 
 @pytest.fixture
-def disable_appeal_settings(settings, request):
+def disable_appeal_settings(
+    request,
+    settings,
+    appeal_settings,
+):
     """Disable the appeal module completely."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=appeal_settings,
         module_name="appeal",
         canton=None,
         disable=True,
@@ -283,11 +393,16 @@ def disable_appeal_settings(settings, request):
 
 
 @pytest.fixture
-def be_appeal_settings(settings, request):
+def be_appeal_settings(
+    request,
+    settings,
+    appeal_settings,
+):
     """Module-specific settings for appeal (canton BE)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=appeal_settings,
         module_name="appeal",
         canton="kt_bern",
         disable=False,
@@ -295,11 +410,16 @@ def be_appeal_settings(settings, request):
 
 
 @pytest.fixture
-def so_appeal_settings(settings, request):
+def so_appeal_settings(
+    request,
+    settings,
+    appeal_settings,
+):
     """Module-specific settings for appeal (canton SO)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=appeal_settings,
         module_name="appeal",
         canton="kt_so",
         disable=False,
@@ -307,11 +427,15 @@ def so_appeal_settings(settings, request):
 
 
 @pytest.fixture
-def bab_settings(settings, request):
+def bab_settings(
+    request,
+    settings,
+):
     """Module-specific settings for bab (default)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=None,
         module_name="bab",
         canton=None,
         disable=False,
@@ -319,11 +443,16 @@ def bab_settings(settings, request):
 
 
 @pytest.fixture
-def disable_bab_settings(settings, request):
+def disable_bab_settings(
+    request,
+    settings,
+    bab_settings,
+):
     """Disable the bab module completely."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=bab_settings,
         module_name="bab",
         canton=None,
         disable=True,
@@ -331,11 +460,16 @@ def disable_bab_settings(settings, request):
 
 
 @pytest.fixture
-def gr_bab_settings(settings, request):
+def gr_bab_settings(
+    request,
+    settings,
+    bab_settings,
+):
     """Module-specific settings for bab (canton GR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=bab_settings,
         module_name="bab",
         canton="kt_gr",
         disable=False,
@@ -343,11 +477,16 @@ def gr_bab_settings(settings, request):
 
 
 @pytest.fixture
-def so_bab_settings(settings, request):
+def so_bab_settings(
+    request,
+    settings,
+    bab_settings,
+):
     """Module-specific settings for bab (canton SO)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=bab_settings,
         module_name="bab",
         canton="kt_so",
         disable=False,
@@ -355,11 +494,15 @@ def so_bab_settings(settings, request):
 
 
 @pytest.fixture
-def billing_settings(settings, request):
+def billing_settings(
+    request,
+    settings,
+):
     """Module-specific settings for billing (default)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=None,
         module_name="billing",
         canton=None,
         disable=False,
@@ -367,11 +510,16 @@ def billing_settings(settings, request):
 
 
 @pytest.fixture
-def disable_billing_settings(settings, request):
+def disable_billing_settings(
+    request,
+    settings,
+    billing_settings,
+):
     """Disable the billing module completely."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=billing_settings,
         module_name="billing",
         canton=None,
         disable=True,
@@ -379,11 +527,16 @@ def disable_billing_settings(settings, request):
 
 
 @pytest.fixture
-def sz_billing_settings(settings, request):
+def sz_billing_settings(
+    request,
+    settings,
+    billing_settings,
+):
     """Module-specific settings for billing (canton SZ)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=billing_settings,
         module_name="billing",
         canton="kt_schwyz",
         disable=False,
@@ -391,11 +544,15 @@ def sz_billing_settings(settings, request):
 
 
 @pytest.fixture
-def change_form_settings(settings, request):
+def change_form_settings(
+    request,
+    settings,
+):
     """Module-specific settings for change form (default)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=None,
         module_name="change_form",
         canton=None,
         disable=False,
@@ -403,11 +560,16 @@ def change_form_settings(settings, request):
 
 
 @pytest.fixture
-def disable_change_form_settings(settings, request):
+def disable_change_form_settings(
+    request,
+    settings,
+    change_form_settings,
+):
     """Disable the change form module completely."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=change_form_settings,
         module_name="change_form",
         canton=None,
         disable=True,
@@ -415,11 +577,16 @@ def disable_change_form_settings(settings, request):
 
 
 @pytest.fixture
-def be_change_form_settings(settings, request):
+def be_change_form_settings(
+    request,
+    settings,
+    change_form_settings,
+):
     """Module-specific settings for change form (canton BE)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=change_form_settings,
         module_name="change_form",
         canton="kt_bern",
         disable=False,
@@ -427,11 +594,16 @@ def be_change_form_settings(settings, request):
 
 
 @pytest.fixture
-def sz_change_form_settings(settings, request):
+def sz_change_form_settings(
+    request,
+    settings,
+    change_form_settings,
+):
     """Module-specific settings for change form (canton SZ)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=change_form_settings,
         module_name="change_form",
         canton="kt_schwyz",
         disable=False,
@@ -439,11 +611,16 @@ def sz_change_form_settings(settings, request):
 
 
 @pytest.fixture
-def ag_change_form_settings(settings, request):
+def ag_change_form_settings(
+    request,
+    settings,
+    change_form_settings,
+):
     """Module-specific settings for change form (canton AG)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=change_form_settings,
         module_name="change_form",
         canton="kt_ag",
         disable=False,
@@ -451,11 +628,15 @@ def ag_change_form_settings(settings, request):
 
 
 @pytest.fixture
-def communications_settings(settings, request):
+def communications_settings(
+    request,
+    settings,
+):
     """Module-specific settings for communications (default)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=None,
         module_name="communications",
         canton=None,
         disable=False,
@@ -463,11 +644,16 @@ def communications_settings(settings, request):
 
 
 @pytest.fixture
-def disable_communications_settings(settings, request):
+def disable_communications_settings(
+    request,
+    settings,
+    communications_settings,
+):
     """Disable the communications module completely."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=communications_settings,
         module_name="communications",
         canton=None,
         disable=True,
@@ -475,11 +661,16 @@ def disable_communications_settings(settings, request):
 
 
 @pytest.fixture
-def be_communications_settings(settings, request):
+def be_communications_settings(
+    request,
+    settings,
+    communications_settings,
+):
     """Module-specific settings for communications (canton BE)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=communications_settings,
         module_name="communications",
         canton="kt_bern",
         disable=False,
@@ -487,11 +678,16 @@ def be_communications_settings(settings, request):
 
 
 @pytest.fixture
-def gr_communications_settings(settings, request):
+def gr_communications_settings(
+    request,
+    settings,
+    communications_settings,
+):
     """Module-specific settings for communications (canton GR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=communications_settings,
         module_name="communications",
         canton="kt_gr",
         disable=False,
@@ -499,11 +695,16 @@ def gr_communications_settings(settings, request):
 
 
 @pytest.fixture
-def so_communications_settings(settings, request):
+def so_communications_settings(
+    request,
+    settings,
+    communications_settings,
+):
     """Module-specific settings for communications (canton SO)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=communications_settings,
         module_name="communications",
         canton="kt_so",
         disable=False,
@@ -511,11 +712,16 @@ def so_communications_settings(settings, request):
 
 
 @pytest.fixture
-def sz_communications_settings(settings, request):
+def sz_communications_settings(
+    request,
+    settings,
+    communications_settings,
+):
     """Module-specific settings for communications (canton SZ)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=communications_settings,
         module_name="communications",
         canton="kt_schwyz",
         disable=False,
@@ -523,11 +729,16 @@ def sz_communications_settings(settings, request):
 
 
 @pytest.fixture
-def ag_communications_settings(settings, request):
+def ag_communications_settings(
+    request,
+    settings,
+    communications_settings,
+):
     """Module-specific settings for communications (canton AG)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=communications_settings,
         module_name="communications",
         canton="kt_ag",
         disable=False,
@@ -535,11 +746,16 @@ def ag_communications_settings(settings, request):
 
 
 @pytest.fixture
-def sg_communications_settings(settings, request):
+def sg_communications_settings(
+    request,
+    settings,
+    communications_settings,
+):
     """Module-specific settings for communications (canton SG)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=communications_settings,
         module_name="communications",
         canton="kt_sg",
         disable=False,
@@ -547,11 +763,16 @@ def sg_communications_settings(settings, request):
 
 
 @pytest.fixture
-def demo_communications_settings(settings, request):
+def demo_communications_settings(
+    request,
+    settings,
+    communications_settings,
+):
     """Module-specific settings for communications (canton DEMO)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=communications_settings,
         module_name="communications",
         canton="demo",
         disable=False,
@@ -559,11 +780,16 @@ def demo_communications_settings(settings, request):
 
 
 @pytest.fixture
-def test_communications_settings(settings, request):
+def test_communications_settings(
+    request,
+    settings,
+    communications_settings,
+):
     """Module-specific settings for communications (canton TEST)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=communications_settings,
         module_name="communications",
         canton="test",
         disable=False,
@@ -571,11 +797,15 @@ def test_communications_settings(settings, request):
 
 
 @pytest.fixture
-def construction_monitoring_settings(settings, request):
+def construction_monitoring_settings(
+    request,
+    settings,
+):
     """Module-specific settings for construction monitoring (default)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=None,
         module_name="construction_monitoring",
         canton=None,
         disable=False,
@@ -583,11 +813,16 @@ def construction_monitoring_settings(settings, request):
 
 
 @pytest.fixture
-def disable_construction_monitoring_settings(settings, request):
+def disable_construction_monitoring_settings(
+    request,
+    settings,
+    construction_monitoring_settings,
+):
     """Disable the construction monitoring module completely."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=construction_monitoring_settings,
         module_name="construction_monitoring",
         canton=None,
         disable=True,
@@ -595,11 +830,16 @@ def disable_construction_monitoring_settings(settings, request):
 
 
 @pytest.fixture
-def sz_construction_monitoring_settings(settings, request):
+def sz_construction_monitoring_settings(
+    request,
+    settings,
+    construction_monitoring_settings,
+):
     """Module-specific settings for construction monitoring (canton SZ)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=construction_monitoring_settings,
         module_name="construction_monitoring",
         canton="kt_schwyz",
         disable=False,
@@ -607,11 +847,16 @@ def sz_construction_monitoring_settings(settings, request):
 
 
 @pytest.fixture
-def ur_construction_monitoring_settings(settings, request):
+def ur_construction_monitoring_settings(
+    request,
+    settings,
+    construction_monitoring_settings,
+):
     """Module-specific settings for construction monitoring (canton UR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=construction_monitoring_settings,
         module_name="construction_monitoring",
         canton="kt_uri",
         disable=False,
@@ -619,11 +864,16 @@ def ur_construction_monitoring_settings(settings, request):
 
 
 @pytest.fixture
-def gr_construction_monitoring_settings(settings, request):
+def gr_construction_monitoring_settings(
+    request,
+    settings,
+    construction_monitoring_settings,
+):
     """Module-specific settings for construction monitoring (canton GR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=construction_monitoring_settings,
         module_name="construction_monitoring",
         canton="kt_gr",
         disable=False,
@@ -631,11 +881,16 @@ def gr_construction_monitoring_settings(settings, request):
 
 
 @pytest.fixture
-def so_construction_monitoring_settings(settings, request):
+def so_construction_monitoring_settings(
+    request,
+    settings,
+    construction_monitoring_settings,
+):
     """Module-specific settings for construction monitoring (canton SO)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=construction_monitoring_settings,
         module_name="construction_monitoring",
         canton="kt_so",
         disable=False,
@@ -643,11 +898,16 @@ def so_construction_monitoring_settings(settings, request):
 
 
 @pytest.fixture
-def ag_construction_monitoring_settings(settings, request):
+def ag_construction_monitoring_settings(
+    request,
+    settings,
+    construction_monitoring_settings,
+):
     """Module-specific settings for construction monitoring (canton AG)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=construction_monitoring_settings,
         module_name="construction_monitoring",
         canton="kt_ag",
         disable=False,
@@ -655,11 +915,16 @@ def ag_construction_monitoring_settings(settings, request):
 
 
 @pytest.fixture
-def demo_construction_monitoring_settings(settings, request):
+def demo_construction_monitoring_settings(
+    request,
+    settings,
+    construction_monitoring_settings,
+):
     """Module-specific settings for construction monitoring (canton DEMO)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=construction_monitoring_settings,
         module_name="construction_monitoring",
         canton="demo",
         disable=False,
@@ -667,11 +932,15 @@ def demo_construction_monitoring_settings(settings, request):
 
 
 @pytest.fixture
-def correction_settings(settings, request):
+def correction_settings(
+    request,
+    settings,
+):
     """Module-specific settings for correction (default)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=None,
         module_name="correction",
         canton=None,
         disable=False,
@@ -679,11 +948,16 @@ def correction_settings(settings, request):
 
 
 @pytest.fixture
-def disable_correction_settings(settings, request):
+def disable_correction_settings(
+    request,
+    settings,
+    correction_settings,
+):
     """Disable the correction module completely."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=correction_settings,
         module_name="correction",
         canton=None,
         disable=True,
@@ -691,11 +965,16 @@ def disable_correction_settings(settings, request):
 
 
 @pytest.fixture
-def gr_correction_settings(settings, request):
+def gr_correction_settings(
+    request,
+    settings,
+    correction_settings,
+):
     """Module-specific settings for correction (canton GR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=correction_settings,
         module_name="correction",
         canton="kt_gr",
         disable=False,
@@ -703,11 +982,16 @@ def gr_correction_settings(settings, request):
 
 
 @pytest.fixture
-def so_correction_settings(settings, request):
+def so_correction_settings(
+    request,
+    settings,
+    correction_settings,
+):
     """Module-specific settings for correction (canton SO)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=correction_settings,
         module_name="correction",
         canton="kt_so",
         disable=False,
@@ -715,11 +999,16 @@ def so_correction_settings(settings, request):
 
 
 @pytest.fixture
-def ag_correction_settings(settings, request):
+def ag_correction_settings(
+    request,
+    settings,
+    correction_settings,
+):
     """Module-specific settings for correction (canton AG)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=correction_settings,
         module_name="correction",
         canton="kt_ag",
         disable=False,
@@ -727,11 +1016,16 @@ def ag_correction_settings(settings, request):
 
 
 @pytest.fixture
-def be_correction_settings(settings, request):
+def be_correction_settings(
+    request,
+    settings,
+    correction_settings,
+):
     """Module-specific settings for correction (canton BE)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=correction_settings,
         module_name="correction",
         canton="kt_bern",
         disable=False,
@@ -739,11 +1033,16 @@ def be_correction_settings(settings, request):
 
 
 @pytest.fixture
-def test_correction_settings(settings, request):
+def test_correction_settings(
+    request,
+    settings,
+    correction_settings,
+):
     """Module-specific settings for correction (canton TEST)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=correction_settings,
         module_name="correction",
         canton="test",
         disable=False,
@@ -751,11 +1050,15 @@ def test_correction_settings(settings, request):
 
 
 @pytest.fixture
-def deadlines_settings(settings, request):
+def deadlines_settings(
+    request,
+    settings,
+):
     """Module-specific settings for deadlines (default)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=None,
         module_name="deadlines",
         canton=None,
         disable=False,
@@ -763,11 +1066,16 @@ def deadlines_settings(settings, request):
 
 
 @pytest.fixture
-def disable_deadlines_settings(settings, request):
+def disable_deadlines_settings(
+    request,
+    settings,
+    deadlines_settings,
+):
     """Disable the deadlines module completely."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=deadlines_settings,
         module_name="deadlines",
         canton=None,
         disable=True,
@@ -775,11 +1083,16 @@ def disable_deadlines_settings(settings, request):
 
 
 @pytest.fixture
-def so_deadlines_settings(settings, request):
+def so_deadlines_settings(
+    request,
+    settings,
+    deadlines_settings,
+):
     """Module-specific settings for deadlines (canton SO)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=deadlines_settings,
         module_name="deadlines",
         canton="kt_so",
         disable=False,
@@ -787,11 +1100,16 @@ def so_deadlines_settings(settings, request):
 
 
 @pytest.fixture
-def ag_deadlines_settings(settings, request):
+def ag_deadlines_settings(
+    request,
+    settings,
+    deadlines_settings,
+):
     """Module-specific settings for deadlines (canton AG)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=deadlines_settings,
         module_name="deadlines",
         canton="kt_ag",
         disable=False,
@@ -799,11 +1117,15 @@ def ag_deadlines_settings(settings, request):
 
 
 @pytest.fixture
-def decision_settings(settings, request):
+def decision_settings(
+    request,
+    settings,
+):
     """Module-specific settings for decision (default)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=None,
         module_name="decision",
         canton=None,
         disable=False,
@@ -811,11 +1133,16 @@ def decision_settings(settings, request):
 
 
 @pytest.fixture
-def disable_decision_settings(settings, request):
+def disable_decision_settings(
+    request,
+    settings,
+    decision_settings,
+):
     """Disable the decision module completely."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=decision_settings,
         module_name="decision",
         canton=None,
         disable=True,
@@ -823,11 +1150,16 @@ def disable_decision_settings(settings, request):
 
 
 @pytest.fixture
-def be_decision_settings(settings, request):
+def be_decision_settings(
+    request,
+    settings,
+    decision_settings,
+):
     """Module-specific settings for decision (canton BE)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=decision_settings,
         module_name="decision",
         canton="kt_bern",
         disable=False,
@@ -835,11 +1167,16 @@ def be_decision_settings(settings, request):
 
 
 @pytest.fixture
-def so_decision_settings(settings, request):
+def so_decision_settings(
+    request,
+    settings,
+    decision_settings,
+):
     """Module-specific settings for decision (canton SO)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=decision_settings,
         module_name="decision",
         canton="kt_so",
         disable=False,
@@ -847,11 +1184,16 @@ def so_decision_settings(settings, request):
 
 
 @pytest.fixture
-def gr_decision_settings(settings, request):
+def gr_decision_settings(
+    request,
+    settings,
+    decision_settings,
+):
     """Module-specific settings for decision (canton GR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=decision_settings,
         module_name="decision",
         canton="kt_gr",
         disable=False,
@@ -859,11 +1201,16 @@ def gr_decision_settings(settings, request):
 
 
 @pytest.fixture
-def ag_decision_settings(settings, request):
+def ag_decision_settings(
+    request,
+    settings,
+    decision_settings,
+):
     """Module-specific settings for decision (canton AG)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=decision_settings,
         module_name="decision",
         canton="kt_ag",
         disable=False,
@@ -871,11 +1218,16 @@ def ag_decision_settings(settings, request):
 
 
 @pytest.fixture
-def test_decision_settings(settings, request):
+def test_decision_settings(
+    request,
+    settings,
+    decision_settings,
+):
     """Module-specific settings for decision (canton TEST)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=decision_settings,
         module_name="decision",
         canton="test",
         disable=False,
@@ -883,11 +1235,15 @@ def test_decision_settings(settings, request):
 
 
 @pytest.fixture
-def distribution_settings(settings, request):
+def distribution_settings(
+    request,
+    settings,
+):
     """Module-specific settings for distribution (default)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=None,
         module_name="distribution",
         canton=None,
         disable=False,
@@ -895,11 +1251,16 @@ def distribution_settings(settings, request):
 
 
 @pytest.fixture
-def disable_distribution_settings(settings, request):
+def disable_distribution_settings(
+    request,
+    settings,
+    distribution_settings,
+):
     """Disable the distribution module completely."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=distribution_settings,
         module_name="distribution",
         canton=None,
         disable=True,
@@ -907,11 +1268,16 @@ def disable_distribution_settings(settings, request):
 
 
 @pytest.fixture
-def be_distribution_settings(settings, request):
+def be_distribution_settings(
+    request,
+    settings,
+    distribution_settings,
+):
     """Module-specific settings for distribution (canton BE)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=distribution_settings,
         module_name="distribution",
         canton="kt_bern",
         disable=False,
@@ -919,11 +1285,16 @@ def be_distribution_settings(settings, request):
 
 
 @pytest.fixture
-def sz_distribution_settings(settings, request):
+def sz_distribution_settings(
+    request,
+    settings,
+    distribution_settings,
+):
     """Module-specific settings for distribution (canton SZ)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=distribution_settings,
         module_name="distribution",
         canton="kt_schwyz",
         disable=False,
@@ -931,11 +1302,16 @@ def sz_distribution_settings(settings, request):
 
 
 @pytest.fixture
-def gr_distribution_settings(settings, request):
+def gr_distribution_settings(
+    request,
+    settings,
+    distribution_settings,
+):
     """Module-specific settings for distribution (canton GR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=distribution_settings,
         module_name="distribution",
         canton="kt_gr",
         disable=False,
@@ -943,11 +1319,16 @@ def gr_distribution_settings(settings, request):
 
 
 @pytest.fixture
-def so_distribution_settings(settings, request):
+def so_distribution_settings(
+    request,
+    settings,
+    distribution_settings,
+):
     """Module-specific settings for distribution (canton SO)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=distribution_settings,
         module_name="distribution",
         canton="kt_so",
         disable=False,
@@ -955,11 +1336,16 @@ def so_distribution_settings(settings, request):
 
 
 @pytest.fixture
-def ur_distribution_settings(settings, request):
+def ur_distribution_settings(
+    request,
+    settings,
+    distribution_settings,
+):
     """Module-specific settings for distribution (canton UR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=distribution_settings,
         module_name="distribution",
         canton="kt_uri",
         disable=False,
@@ -967,11 +1353,16 @@ def ur_distribution_settings(settings, request):
 
 
 @pytest.fixture
-def ag_distribution_settings(settings, request):
+def ag_distribution_settings(
+    request,
+    settings,
+    distribution_settings,
+):
     """Module-specific settings for distribution (canton AG)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=distribution_settings,
         module_name="distribution",
         canton="kt_ag",
         disable=False,
@@ -979,11 +1370,16 @@ def ag_distribution_settings(settings, request):
 
 
 @pytest.fixture
-def demo_distribution_settings(settings, request):
+def demo_distribution_settings(
+    request,
+    settings,
+    distribution_settings,
+):
     """Module-specific settings for distribution (canton DEMO)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=distribution_settings,
         module_name="distribution",
         canton="demo",
         disable=False,
@@ -991,11 +1387,15 @@ def demo_distribution_settings(settings, request):
 
 
 @pytest.fixture
-def django_admin_settings(settings, request):
+def django_admin_settings(
+    request,
+    settings,
+):
     """Module-specific settings for django admin (default)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=None,
         module_name="django_admin",
         canton=None,
         disable=False,
@@ -1003,11 +1403,16 @@ def django_admin_settings(settings, request):
 
 
 @pytest.fixture
-def disable_django_admin_settings(settings, request):
+def disable_django_admin_settings(
+    request,
+    settings,
+    django_admin_settings,
+):
     """Disable the django admin module completely."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=django_admin_settings,
         module_name="django_admin",
         canton=None,
         disable=True,
@@ -1015,11 +1420,16 @@ def disable_django_admin_settings(settings, request):
 
 
 @pytest.fixture
-def demo_django_admin_settings(settings, request):
+def demo_django_admin_settings(
+    request,
+    settings,
+    django_admin_settings,
+):
     """Module-specific settings for django admin (canton DEMO)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=django_admin_settings,
         module_name="django_admin",
         canton="demo",
         disable=False,
@@ -1027,11 +1437,16 @@ def demo_django_admin_settings(settings, request):
 
 
 @pytest.fixture
-def gr_django_admin_settings(settings, request):
+def gr_django_admin_settings(
+    request,
+    settings,
+    django_admin_settings,
+):
     """Module-specific settings for django admin (canton GR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=django_admin_settings,
         module_name="django_admin",
         canton="kt_gr",
         disable=False,
@@ -1039,11 +1454,16 @@ def gr_django_admin_settings(settings, request):
 
 
 @pytest.fixture
-def so_django_admin_settings(settings, request):
+def so_django_admin_settings(
+    request,
+    settings,
+    django_admin_settings,
+):
     """Module-specific settings for django admin (canton SO)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=django_admin_settings,
         module_name="django_admin",
         canton="kt_so",
         disable=False,
@@ -1051,11 +1471,16 @@ def so_django_admin_settings(settings, request):
 
 
 @pytest.fixture
-def be_django_admin_settings(settings, request):
+def be_django_admin_settings(
+    request,
+    settings,
+    django_admin_settings,
+):
     """Module-specific settings for django admin (canton BE)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=django_admin_settings,
         module_name="django_admin",
         canton="kt_bern",
         disable=False,
@@ -1063,11 +1488,16 @@ def be_django_admin_settings(settings, request):
 
 
 @pytest.fixture
-def sz_django_admin_settings(settings, request):
+def sz_django_admin_settings(
+    request,
+    settings,
+    django_admin_settings,
+):
     """Module-specific settings for django admin (canton SZ)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=django_admin_settings,
         module_name="django_admin",
         canton="kt_schwyz",
         disable=False,
@@ -1075,11 +1505,16 @@ def sz_django_admin_settings(settings, request):
 
 
 @pytest.fixture
-def ur_django_admin_settings(settings, request):
+def ur_django_admin_settings(
+    request,
+    settings,
+    django_admin_settings,
+):
     """Module-specific settings for django admin (canton UR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=django_admin_settings,
         module_name="django_admin",
         canton="kt_uri",
         disable=False,
@@ -1087,11 +1522,16 @@ def ur_django_admin_settings(settings, request):
 
 
 @pytest.fixture
-def ag_django_admin_settings(settings, request):
+def ag_django_admin_settings(
+    request,
+    settings,
+    django_admin_settings,
+):
     """Module-specific settings for django admin (canton AG)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=django_admin_settings,
         module_name="django_admin",
         canton="kt_ag",
         disable=False,
@@ -1099,11 +1539,16 @@ def ag_django_admin_settings(settings, request):
 
 
 @pytest.fixture
-def sg_django_admin_settings(settings, request):
+def sg_django_admin_settings(
+    request,
+    settings,
+    django_admin_settings,
+):
     """Module-specific settings for django admin (canton SG)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=django_admin_settings,
         module_name="django_admin",
         canton="kt_sg",
         disable=False,
@@ -1111,11 +1556,15 @@ def sg_django_admin_settings(settings, request):
 
 
 @pytest.fixture
-def dms_settings(settings, request):
+def dms_settings(
+    request,
+    settings,
+):
     """Module-specific settings for dms (default)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=None,
         module_name="dms",
         canton=None,
         disable=False,
@@ -1123,11 +1572,16 @@ def dms_settings(settings, request):
 
 
 @pytest.fixture
-def disable_dms_settings(settings, request):
+def disable_dms_settings(
+    request,
+    settings,
+    dms_settings,
+):
     """Disable the dms module completely."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=dms_settings,
         module_name="dms",
         canton=None,
         disable=True,
@@ -1135,11 +1589,16 @@ def disable_dms_settings(settings, request):
 
 
 @pytest.fixture
-def demo_dms_settings(settings, request):
+def demo_dms_settings(
+    request,
+    settings,
+    dms_settings,
+):
     """Module-specific settings for dms (canton DEMO)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=dms_settings,
         module_name="dms",
         canton="demo",
         disable=False,
@@ -1147,11 +1606,16 @@ def demo_dms_settings(settings, request):
 
 
 @pytest.fixture
-def be_dms_settings(settings, request):
+def be_dms_settings(
+    request,
+    settings,
+    dms_settings,
+):
     """Module-specific settings for dms (canton BE)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=dms_settings,
         module_name="dms",
         canton="kt_bern",
         disable=False,
@@ -1159,11 +1623,16 @@ def be_dms_settings(settings, request):
 
 
 @pytest.fixture
-def gr_dms_settings(settings, request):
+def gr_dms_settings(
+    request,
+    settings,
+    dms_settings,
+):
     """Module-specific settings for dms (canton GR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=dms_settings,
         module_name="dms",
         canton="kt_gr",
         disable=False,
@@ -1171,11 +1640,16 @@ def gr_dms_settings(settings, request):
 
 
 @pytest.fixture
-def so_dms_settings(settings, request):
+def so_dms_settings(
+    request,
+    settings,
+    dms_settings,
+):
     """Module-specific settings for dms (canton SO)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=dms_settings,
         module_name="dms",
         canton="kt_so",
         disable=False,
@@ -1183,11 +1657,16 @@ def so_dms_settings(settings, request):
 
 
 @pytest.fixture
-def ur_dms_settings(settings, request):
+def ur_dms_settings(
+    request,
+    settings,
+    dms_settings,
+):
     """Module-specific settings for dms (canton UR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=dms_settings,
         module_name="dms",
         canton="kt_uri",
         disable=False,
@@ -1195,11 +1674,16 @@ def ur_dms_settings(settings, request):
 
 
 @pytest.fixture
-def ag_dms_settings(settings, request):
+def ag_dms_settings(
+    request,
+    settings,
+    dms_settings,
+):
     """Module-specific settings for dms (canton AG)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=dms_settings,
         module_name="dms",
         canton="kt_ag",
         disable=False,
@@ -1207,11 +1691,15 @@ def ag_dms_settings(settings, request):
 
 
 @pytest.fixture
-def dossier_import_settings(settings, request):
+def dossier_import_settings(
+    request,
+    settings,
+):
     """Module-specific settings for dossier import (default)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=None,
         module_name="dossier_import",
         canton=None,
         disable=False,
@@ -1219,11 +1707,16 @@ def dossier_import_settings(settings, request):
 
 
 @pytest.fixture
-def disable_dossier_import_settings(settings, request):
+def disable_dossier_import_settings(
+    request,
+    settings,
+    dossier_import_settings,
+):
     """Disable the dossier import module completely."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=dossier_import_settings,
         module_name="dossier_import",
         canton=None,
         disable=True,
@@ -1231,11 +1724,16 @@ def disable_dossier_import_settings(settings, request):
 
 
 @pytest.fixture
-def sz_dossier_import_settings(settings, request):
+def sz_dossier_import_settings(
+    request,
+    settings,
+    dossier_import_settings,
+):
     """Module-specific settings for dossier import (canton SZ)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=dossier_import_settings,
         module_name="dossier_import",
         canton="kt_schwyz",
         disable=False,
@@ -1243,11 +1741,16 @@ def sz_dossier_import_settings(settings, request):
 
 
 @pytest.fixture
-def be_dossier_import_settings(settings, request):
+def be_dossier_import_settings(
+    request,
+    settings,
+    dossier_import_settings,
+):
     """Module-specific settings for dossier import (canton BE)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=dossier_import_settings,
         module_name="dossier_import",
         canton="kt_bern",
         disable=False,
@@ -1255,11 +1758,16 @@ def be_dossier_import_settings(settings, request):
 
 
 @pytest.fixture
-def so_dossier_import_settings(settings, request):
+def so_dossier_import_settings(
+    request,
+    settings,
+    dossier_import_settings,
+):
     """Module-specific settings for dossier import (canton SO)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=dossier_import_settings,
         module_name="dossier_import",
         canton="kt_so",
         disable=False,
@@ -1267,11 +1775,16 @@ def so_dossier_import_settings(settings, request):
 
 
 @pytest.fixture
-def ag_dossier_import_settings(settings, request):
+def ag_dossier_import_settings(
+    request,
+    settings,
+    dossier_import_settings,
+):
     """Module-specific settings for dossier import (canton AG)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=dossier_import_settings,
         module_name="dossier_import",
         canton="kt_ag",
         disable=False,
@@ -1279,11 +1792,16 @@ def ag_dossier_import_settings(settings, request):
 
 
 @pytest.fixture
-def gr_dossier_import_settings(settings, request):
+def gr_dossier_import_settings(
+    request,
+    settings,
+    dossier_import_settings,
+):
     """Module-specific settings for dossier import (canton GR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=dossier_import_settings,
         module_name="dossier_import",
         canton="kt_gr",
         disable=False,
@@ -1291,11 +1809,15 @@ def gr_dossier_import_settings(settings, request):
 
 
 @pytest.fixture
-def dump_settings(settings, request):
+def dump_settings(
+    request,
+    settings,
+):
     """Module-specific settings for dump (default)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=None,
         module_name="dump",
         canton=None,
         disable=False,
@@ -1303,11 +1825,16 @@ def dump_settings(settings, request):
 
 
 @pytest.fixture
-def disable_dump_settings(settings, request):
+def disable_dump_settings(
+    request,
+    settings,
+    dump_settings,
+):
     """Disable the dump module completely."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=dump_settings,
         module_name="dump",
         canton=None,
         disable=True,
@@ -1315,11 +1842,16 @@ def disable_dump_settings(settings, request):
 
 
 @pytest.fixture
-def be_dump_settings(settings, request):
+def be_dump_settings(
+    request,
+    settings,
+    dump_settings,
+):
     """Module-specific settings for dump (canton BE)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=dump_settings,
         module_name="dump",
         canton="kt_bern",
         disable=False,
@@ -1327,11 +1859,16 @@ def be_dump_settings(settings, request):
 
 
 @pytest.fixture
-def sz_dump_settings(settings, request):
+def sz_dump_settings(
+    request,
+    settings,
+    dump_settings,
+):
     """Module-specific settings for dump (canton SZ)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=dump_settings,
         module_name="dump",
         canton="kt_schwyz",
         disable=False,
@@ -1339,11 +1876,16 @@ def sz_dump_settings(settings, request):
 
 
 @pytest.fixture
-def ur_dump_settings(settings, request):
+def ur_dump_settings(
+    request,
+    settings,
+    dump_settings,
+):
     """Module-specific settings for dump (canton UR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=dump_settings,
         module_name="dump",
         canton="kt_uri",
         disable=False,
@@ -1351,11 +1893,16 @@ def ur_dump_settings(settings, request):
 
 
 @pytest.fixture
-def gr_dump_settings(settings, request):
+def gr_dump_settings(
+    request,
+    settings,
+    dump_settings,
+):
     """Module-specific settings for dump (canton GR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=dump_settings,
         module_name="dump",
         canton="kt_gr",
         disable=False,
@@ -1363,11 +1910,16 @@ def gr_dump_settings(settings, request):
 
 
 @pytest.fixture
-def so_dump_settings(settings, request):
+def so_dump_settings(
+    request,
+    settings,
+    dump_settings,
+):
     """Module-specific settings for dump (canton SO)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=dump_settings,
         module_name="dump",
         canton="kt_so",
         disable=False,
@@ -1375,11 +1927,16 @@ def so_dump_settings(settings, request):
 
 
 @pytest.fixture
-def ag_dump_settings(settings, request):
+def ag_dump_settings(
+    request,
+    settings,
+    dump_settings,
+):
     """Module-specific settings for dump (canton AG)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=dump_settings,
         module_name="dump",
         canton="kt_ag",
         disable=False,
@@ -1387,11 +1944,16 @@ def ag_dump_settings(settings, request):
 
 
 @pytest.fixture
-def sg_dump_settings(settings, request):
+def sg_dump_settings(
+    request,
+    settings,
+    dump_settings,
+):
     """Module-specific settings for dump (canton SG)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=dump_settings,
         module_name="dump",
         canton="kt_sg",
         disable=False,
@@ -1399,11 +1961,16 @@ def sg_dump_settings(settings, request):
 
 
 @pytest.fixture
-def demo_dump_settings(settings, request):
+def demo_dump_settings(
+    request,
+    settings,
+    dump_settings,
+):
     """Module-specific settings for dump (canton DEMO)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=dump_settings,
         module_name="dump",
         canton="demo",
         disable=False,
@@ -1411,11 +1978,16 @@ def demo_dump_settings(settings, request):
 
 
 @pytest.fixture
-def test_dump_settings(settings, request):
+def test_dump_settings(
+    request,
+    settings,
+    dump_settings,
+):
     """Module-specific settings for dump (canton TEST)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=dump_settings,
         module_name="dump",
         canton="test",
         disable=False,
@@ -1423,11 +1995,15 @@ def test_dump_settings(settings, request):
 
 
 @pytest.fixture
-def ech0211_settings(settings, request):
+def ech0211_settings(
+    request,
+    settings,
+):
     """Module-specific settings for ech0211 (default)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=None,
         module_name="ech0211",
         canton=None,
         disable=False,
@@ -1435,11 +2011,16 @@ def ech0211_settings(settings, request):
 
 
 @pytest.fixture
-def disable_ech0211_settings(settings, request):
+def disable_ech0211_settings(
+    request,
+    settings,
+    ech0211_settings,
+):
     """Disable the ech0211 module completely."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=ech0211_settings,
         module_name="ech0211",
         canton=None,
         disable=True,
@@ -1447,11 +2028,16 @@ def disable_ech0211_settings(settings, request):
 
 
 @pytest.fixture
-def test_ech0211_settings(settings, request):
+def test_ech0211_settings(
+    request,
+    settings,
+    ech0211_settings,
+):
     """Module-specific settings for ech0211 (canton TEST)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=ech0211_settings,
         module_name="ech0211",
         canton="test",
         disable=False,
@@ -1459,11 +2045,16 @@ def test_ech0211_settings(settings, request):
 
 
 @pytest.fixture
-def sz_ech0211_settings(settings, request):
+def sz_ech0211_settings(
+    request,
+    settings,
+    ech0211_settings,
+):
     """Module-specific settings for ech0211 (canton SZ)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=ech0211_settings,
         module_name="ech0211",
         canton="kt_schwyz",
         disable=False,
@@ -1471,11 +2062,16 @@ def sz_ech0211_settings(settings, request):
 
 
 @pytest.fixture
-def be_ech0211_settings(settings, request):
+def be_ech0211_settings(
+    request,
+    settings,
+    ech0211_settings,
+):
     """Module-specific settings for ech0211 (canton BE)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=ech0211_settings,
         module_name="ech0211",
         canton="kt_bern",
         disable=False,
@@ -1483,11 +2079,16 @@ def be_ech0211_settings(settings, request):
 
 
 @pytest.fixture
-def gr_ech0211_settings(settings, request):
+def gr_ech0211_settings(
+    request,
+    settings,
+    ech0211_settings,
+):
     """Module-specific settings for ech0211 (canton GR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=ech0211_settings,
         module_name="ech0211",
         canton="kt_gr",
         disable=False,
@@ -1495,11 +2096,16 @@ def gr_ech0211_settings(settings, request):
 
 
 @pytest.fixture
-def so_ech0211_settings(settings, request):
+def so_ech0211_settings(
+    request,
+    settings,
+    ech0211_settings,
+):
     """Module-specific settings for ech0211 (canton SO)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=ech0211_settings,
         module_name="ech0211",
         canton="kt_so",
         disable=False,
@@ -1507,11 +2113,16 @@ def so_ech0211_settings(settings, request):
 
 
 @pytest.fixture
-def ag_ech0211_settings(settings, request):
+def ag_ech0211_settings(
+    request,
+    settings,
+    ech0211_settings,
+):
     """Module-specific settings for ech0211 (canton AG)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=ech0211_settings,
         module_name="ech0211",
         canton="kt_ag",
         disable=False,
@@ -1519,11 +2130,15 @@ def ag_ech0211_settings(settings, request):
 
 
 @pytest.fixture
-def eeba_integration_settings(settings, request):
+def eeba_integration_settings(
+    request,
+    settings,
+):
     """Module-specific settings for eeba integration (default)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=None,
         module_name="eeba_integration",
         canton=None,
         disable=False,
@@ -1531,11 +2146,16 @@ def eeba_integration_settings(settings, request):
 
 
 @pytest.fixture
-def disable_eeba_integration_settings(settings, request):
+def disable_eeba_integration_settings(
+    request,
+    settings,
+    eeba_integration_settings,
+):
     """Disable the eeba integration module completely."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=eeba_integration_settings,
         module_name="eeba_integration",
         canton=None,
         disable=True,
@@ -1543,11 +2163,16 @@ def disable_eeba_integration_settings(settings, request):
 
 
 @pytest.fixture
-def gr_eeba_integration_settings(settings, request):
+def gr_eeba_integration_settings(
+    request,
+    settings,
+    eeba_integration_settings,
+):
     """Module-specific settings for eeba integration (canton GR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=eeba_integration_settings,
         module_name="eeba_integration",
         canton="kt_gr",
         disable=False,
@@ -1555,11 +2180,15 @@ def gr_eeba_integration_settings(settings, request):
 
 
 @pytest.fixture
-def gever_settings(settings, request):
+def gever_settings(
+    request,
+    settings,
+):
     """Module-specific settings for gever (default)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=None,
         module_name="gever",
         canton=None,
         disable=False,
@@ -1567,11 +2196,16 @@ def gever_settings(settings, request):
 
 
 @pytest.fixture
-def disable_gever_settings(settings, request):
+def disable_gever_settings(
+    request,
+    settings,
+    gever_settings,
+):
     """Disable the gever module completely."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=gever_settings,
         module_name="gever",
         canton=None,
         disable=True,
@@ -1579,11 +2213,16 @@ def disable_gever_settings(settings, request):
 
 
 @pytest.fixture
-def be_gever_settings(settings, request):
+def be_gever_settings(
+    request,
+    settings,
+    gever_settings,
+):
     """Module-specific settings for gever (canton BE)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=gever_settings,
         module_name="gever",
         canton="kt_bern",
         disable=False,
@@ -1591,11 +2230,15 @@ def be_gever_settings(settings, request):
 
 
 @pytest.fixture
-def linked_instances_settings(settings, request):
+def linked_instances_settings(
+    request,
+    settings,
+):
     """Module-specific settings for linked instances (default)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=None,
         module_name="linked_instances",
         canton=None,
         disable=False,
@@ -1603,11 +2246,16 @@ def linked_instances_settings(settings, request):
 
 
 @pytest.fixture
-def disable_linked_instances_settings(settings, request):
+def disable_linked_instances_settings(
+    request,
+    settings,
+    linked_instances_settings,
+):
     """Disable the linked instances module completely."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=linked_instances_settings,
         module_name="linked_instances",
         canton=None,
         disable=True,
@@ -1615,11 +2263,16 @@ def disable_linked_instances_settings(settings, request):
 
 
 @pytest.fixture
-def sz_linked_instances_settings(settings, request):
+def sz_linked_instances_settings(
+    request,
+    settings,
+    linked_instances_settings,
+):
     """Module-specific settings for linked instances (canton SZ)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=linked_instances_settings,
         module_name="linked_instances",
         canton="kt_schwyz",
         disable=False,
@@ -1627,11 +2280,16 @@ def sz_linked_instances_settings(settings, request):
 
 
 @pytest.fixture
-def so_linked_instances_settings(settings, request):
+def so_linked_instances_settings(
+    request,
+    settings,
+    linked_instances_settings,
+):
     """Module-specific settings for linked instances (canton SO)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=linked_instances_settings,
         module_name="linked_instances",
         canton="kt_so",
         disable=False,
@@ -1639,11 +2297,16 @@ def so_linked_instances_settings(settings, request):
 
 
 @pytest.fixture
-def ur_linked_instances_settings(settings, request):
+def ur_linked_instances_settings(
+    request,
+    settings,
+    linked_instances_settings,
+):
     """Module-specific settings for linked instances (canton UR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=linked_instances_settings,
         module_name="linked_instances",
         canton="kt_uri",
         disable=False,
@@ -1651,11 +2314,16 @@ def ur_linked_instances_settings(settings, request):
 
 
 @pytest.fixture
-def gr_linked_instances_settings(settings, request):
+def gr_linked_instances_settings(
+    request,
+    settings,
+    linked_instances_settings,
+):
     """Module-specific settings for linked instances (canton GR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=linked_instances_settings,
         module_name="linked_instances",
         canton="kt_gr",
         disable=False,
@@ -1663,11 +2331,16 @@ def gr_linked_instances_settings(settings, request):
 
 
 @pytest.fixture
-def ag_linked_instances_settings(settings, request):
+def ag_linked_instances_settings(
+    request,
+    settings,
+    linked_instances_settings,
+):
     """Module-specific settings for linked instances (canton AG)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=linked_instances_settings,
         module_name="linked_instances",
         canton="kt_ag",
         disable=False,
@@ -1675,11 +2348,15 @@ def ag_linked_instances_settings(settings, request):
 
 
 @pytest.fixture
-def master_data_settings(settings, request):
+def master_data_settings(
+    request,
+    settings,
+):
     """Module-specific settings for master data (default)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=None,
         module_name="master_data",
         canton=None,
         disable=False,
@@ -1687,11 +2364,16 @@ def master_data_settings(settings, request):
 
 
 @pytest.fixture
-def disable_master_data_settings(settings, request):
+def disable_master_data_settings(
+    request,
+    settings,
+    master_data_settings,
+):
     """Disable the master data module completely."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=master_data_settings,
         module_name="master_data",
         canton=None,
         disable=True,
@@ -1699,11 +2381,16 @@ def disable_master_data_settings(settings, request):
 
 
 @pytest.fixture
-def sz_master_data_settings(settings, request):
+def sz_master_data_settings(
+    request,
+    settings,
+    master_data_settings,
+):
     """Module-specific settings for master data (canton SZ)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=master_data_settings,
         module_name="master_data",
         canton="kt_schwyz",
         disable=False,
@@ -1711,11 +2398,16 @@ def sz_master_data_settings(settings, request):
 
 
 @pytest.fixture
-def be_master_data_settings(settings, request):
+def be_master_data_settings(
+    request,
+    settings,
+    master_data_settings,
+):
     """Module-specific settings for master data (canton BE)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=master_data_settings,
         module_name="master_data",
         canton="kt_bern",
         disable=False,
@@ -1723,11 +2415,16 @@ def be_master_data_settings(settings, request):
 
 
 @pytest.fixture
-def ur_master_data_settings(settings, request):
+def ur_master_data_settings(
+    request,
+    settings,
+    master_data_settings,
+):
     """Module-specific settings for master data (canton UR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=master_data_settings,
         module_name="master_data",
         canton="kt_uri",
         disable=False,
@@ -1735,11 +2432,16 @@ def ur_master_data_settings(settings, request):
 
 
 @pytest.fixture
-def demo_master_data_settings(settings, request):
+def demo_master_data_settings(
+    request,
+    settings,
+    master_data_settings,
+):
     """Module-specific settings for master data (canton DEMO)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=master_data_settings,
         module_name="master_data",
         canton="demo",
         disable=False,
@@ -1747,11 +2449,16 @@ def demo_master_data_settings(settings, request):
 
 
 @pytest.fixture
-def gr_master_data_settings(settings, request):
+def gr_master_data_settings(
+    request,
+    settings,
+    master_data_settings,
+):
     """Module-specific settings for master data (canton GR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=master_data_settings,
         module_name="master_data",
         canton="kt_gr",
         disable=False,
@@ -1759,11 +2466,16 @@ def gr_master_data_settings(settings, request):
 
 
 @pytest.fixture
-def so_master_data_settings(settings, request):
+def so_master_data_settings(
+    request,
+    settings,
+    master_data_settings,
+):
     """Module-specific settings for master data (canton SO)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=master_data_settings,
         module_name="master_data",
         canton="kt_so",
         disable=False,
@@ -1771,11 +2483,16 @@ def so_master_data_settings(settings, request):
 
 
 @pytest.fixture
-def ag_master_data_settings(settings, request):
+def ag_master_data_settings(
+    request,
+    settings,
+    master_data_settings,
+):
     """Module-specific settings for master data (canton AG)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=master_data_settings,
         module_name="master_data",
         canton="kt_ag",
         disable=False,
@@ -1783,11 +2500,16 @@ def ag_master_data_settings(settings, request):
 
 
 @pytest.fixture
-def sg_master_data_settings(settings, request):
+def sg_master_data_settings(
+    request,
+    settings,
+    master_data_settings,
+):
     """Module-specific settings for master data (canton SG)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=master_data_settings,
         module_name="master_data",
         canton="kt_sg",
         disable=False,
@@ -1795,11 +2517,15 @@ def sg_master_data_settings(settings, request):
 
 
 @pytest.fixture
-def parashift_settings(settings, request):
+def parashift_settings(
+    request,
+    settings,
+):
     """Module-specific settings for parashift (default)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=None,
         module_name="parashift",
         canton=None,
         disable=False,
@@ -1807,11 +2533,16 @@ def parashift_settings(settings, request):
 
 
 @pytest.fixture
-def disable_parashift_settings(settings, request):
+def disable_parashift_settings(
+    request,
+    settings,
+    parashift_settings,
+):
     """Disable the parashift module completely."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=parashift_settings,
         module_name="parashift",
         canton=None,
         disable=True,
@@ -1819,11 +2550,16 @@ def disable_parashift_settings(settings, request):
 
 
 @pytest.fixture
-def test_parashift_settings(settings, request):
+def test_parashift_settings(
+    request,
+    settings,
+    parashift_settings,
+):
     """Module-specific settings for parashift (canton TEST)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=parashift_settings,
         module_name="parashift",
         canton="test",
         disable=False,
@@ -1831,11 +2567,16 @@ def test_parashift_settings(settings, request):
 
 
 @pytest.fixture
-def ur_parashift_settings(settings, request):
+def ur_parashift_settings(
+    request,
+    settings,
+    parashift_settings,
+):
     """Module-specific settings for parashift (canton UR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=parashift_settings,
         module_name="parashift",
         canton="kt_uri",
         disable=False,
@@ -1843,11 +2584,15 @@ def ur_parashift_settings(settings, request):
 
 
 @pytest.fixture
-def permissions_settings(settings, request):
+def permissions_settings(
+    request,
+    settings,
+):
     """Module-specific settings for permissions (default)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=None,
         module_name="permissions",
         canton=None,
         disable=False,
@@ -1855,11 +2600,16 @@ def permissions_settings(settings, request):
 
 
 @pytest.fixture
-def disable_permissions_settings(settings, request):
+def disable_permissions_settings(
+    request,
+    settings,
+    permissions_settings,
+):
     """Disable the permissions module completely."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=permissions_settings,
         module_name="permissions",
         canton=None,
         disable=True,
@@ -1867,11 +2617,16 @@ def disable_permissions_settings(settings, request):
 
 
 @pytest.fixture
-def demo_permissions_settings(settings, request):
+def demo_permissions_settings(
+    request,
+    settings,
+    permissions_settings,
+):
     """Module-specific settings for permissions (canton DEMO)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=permissions_settings,
         module_name="permissions",
         canton="demo",
         disable=False,
@@ -1879,11 +2634,16 @@ def demo_permissions_settings(settings, request):
 
 
 @pytest.fixture
-def be_permissions_settings(settings, request):
+def be_permissions_settings(
+    request,
+    settings,
+    permissions_settings,
+):
     """Module-specific settings for permissions (canton BE)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=permissions_settings,
         module_name="permissions",
         canton="kt_bern",
         disable=False,
@@ -1891,11 +2651,16 @@ def be_permissions_settings(settings, request):
 
 
 @pytest.fixture
-def gr_permissions_settings(settings, request):
+def gr_permissions_settings(
+    request,
+    settings,
+    permissions_settings,
+):
     """Module-specific settings for permissions (canton GR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=permissions_settings,
         module_name="permissions",
         canton="kt_gr",
         disable=False,
@@ -1903,11 +2668,16 @@ def gr_permissions_settings(settings, request):
 
 
 @pytest.fixture
-def so_permissions_settings(settings, request):
+def so_permissions_settings(
+    request,
+    settings,
+    permissions_settings,
+):
     """Module-specific settings for permissions (canton SO)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=permissions_settings,
         module_name="permissions",
         canton="kt_so",
         disable=False,
@@ -1915,11 +2685,16 @@ def so_permissions_settings(settings, request):
 
 
 @pytest.fixture
-def sz_permissions_settings(settings, request):
+def sz_permissions_settings(
+    request,
+    settings,
+    permissions_settings,
+):
     """Module-specific settings for permissions (canton SZ)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=permissions_settings,
         module_name="permissions",
         canton="kt_schwyz",
         disable=False,
@@ -1927,11 +2702,16 @@ def sz_permissions_settings(settings, request):
 
 
 @pytest.fixture
-def ag_permissions_settings(settings, request):
+def ag_permissions_settings(
+    request,
+    settings,
+    permissions_settings,
+):
     """Module-specific settings for permissions (canton AG)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=permissions_settings,
         module_name="permissions",
         canton="kt_ag",
         disable=False,
@@ -1939,11 +2719,16 @@ def ag_permissions_settings(settings, request):
 
 
 @pytest.fixture
-def ur_permissions_settings(settings, request):
+def ur_permissions_settings(
+    request,
+    settings,
+    permissions_settings,
+):
     """Module-specific settings for permissions (canton UR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=permissions_settings,
         module_name="permissions",
         canton="kt_uri",
         disable=False,
@@ -1951,11 +2736,16 @@ def ur_permissions_settings(settings, request):
 
 
 @pytest.fixture
-def sg_permissions_settings(settings, request):
+def sg_permissions_settings(
+    request,
+    settings,
+    permissions_settings,
+):
     """Module-specific settings for permissions (canton SG)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=permissions_settings,
         module_name="permissions",
         canton="kt_sg",
         disable=False,
@@ -1963,11 +2753,15 @@ def sg_permissions_settings(settings, request):
 
 
 @pytest.fixture
-def placeholders_settings(settings, request):
+def placeholders_settings(
+    request,
+    settings,
+):
     """Module-specific settings for placeholders (default)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=None,
         module_name="placeholders",
         canton=None,
         disable=False,
@@ -1975,11 +2769,16 @@ def placeholders_settings(settings, request):
 
 
 @pytest.fixture
-def disable_placeholders_settings(settings, request):
+def disable_placeholders_settings(
+    request,
+    settings,
+    placeholders_settings,
+):
     """Disable the placeholders module completely."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=placeholders_settings,
         module_name="placeholders",
         canton=None,
         disable=True,
@@ -1987,11 +2786,16 @@ def disable_placeholders_settings(settings, request):
 
 
 @pytest.fixture
-def so_placeholders_settings(settings, request):
+def so_placeholders_settings(
+    request,
+    settings,
+    placeholders_settings,
+):
     """Module-specific settings for placeholders (canton SO)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=placeholders_settings,
         module_name="placeholders",
         canton="kt_so",
         disable=False,
@@ -1999,11 +2803,16 @@ def so_placeholders_settings(settings, request):
 
 
 @pytest.fixture
-def be_placeholders_settings(settings, request):
+def be_placeholders_settings(
+    request,
+    settings,
+    placeholders_settings,
+):
     """Module-specific settings for placeholders (canton BE)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=placeholders_settings,
         module_name="placeholders",
         canton="kt_bern",
         disable=False,
@@ -2011,11 +2820,16 @@ def be_placeholders_settings(settings, request):
 
 
 @pytest.fixture
-def gr_placeholders_settings(settings, request):
+def gr_placeholders_settings(
+    request,
+    settings,
+    placeholders_settings,
+):
     """Module-specific settings for placeholders (canton GR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=placeholders_settings,
         module_name="placeholders",
         canton="kt_gr",
         disable=False,
@@ -2023,11 +2837,16 @@ def gr_placeholders_settings(settings, request):
 
 
 @pytest.fixture
-def ur_placeholders_settings(settings, request):
+def ur_placeholders_settings(
+    request,
+    settings,
+    placeholders_settings,
+):
     """Module-specific settings for placeholders (canton UR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=placeholders_settings,
         module_name="placeholders",
         canton="kt_uri",
         disable=False,
@@ -2035,11 +2854,16 @@ def ur_placeholders_settings(settings, request):
 
 
 @pytest.fixture
-def ag_placeholders_settings(settings, request):
+def ag_placeholders_settings(
+    request,
+    settings,
+    placeholders_settings,
+):
     """Module-specific settings for placeholders (canton AG)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=placeholders_settings,
         module_name="placeholders",
         canton="kt_ag",
         disable=False,
@@ -2047,11 +2871,16 @@ def ag_placeholders_settings(settings, request):
 
 
 @pytest.fixture
-def sz_placeholders_settings(settings, request):
+def sz_placeholders_settings(
+    request,
+    settings,
+    placeholders_settings,
+):
     """Module-specific settings for placeholders (canton SZ)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=placeholders_settings,
         module_name="placeholders",
         canton="kt_schwyz",
         disable=False,
@@ -2059,11 +2888,16 @@ def sz_placeholders_settings(settings, request):
 
 
 @pytest.fixture
-def test_placeholders_settings(settings, request):
+def test_placeholders_settings(
+    request,
+    settings,
+    placeholders_settings,
+):
     """Module-specific settings for placeholders (canton TEST)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=placeholders_settings,
         module_name="placeholders",
         canton="test",
         disable=False,
@@ -2071,11 +2905,15 @@ def test_placeholders_settings(settings, request):
 
 
 @pytest.fixture
-def project_modification_settings(settings, request):
+def project_modification_settings(
+    request,
+    settings,
+):
     """Module-specific settings for project modification (default)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=None,
         module_name="project_modification",
         canton=None,
         disable=False,
@@ -2083,11 +2921,16 @@ def project_modification_settings(settings, request):
 
 
 @pytest.fixture
-def disable_project_modification_settings(settings, request):
+def disable_project_modification_settings(
+    request,
+    settings,
+    project_modification_settings,
+):
     """Disable the project modification module completely."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=project_modification_settings,
         module_name="project_modification",
         canton=None,
         disable=True,
@@ -2095,11 +2938,16 @@ def disable_project_modification_settings(settings, request):
 
 
 @pytest.fixture
-def be_project_modification_settings(settings, request):
+def be_project_modification_settings(
+    request,
+    settings,
+    project_modification_settings,
+):
     """Module-specific settings for project modification (canton BE)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=project_modification_settings,
         module_name="project_modification",
         canton="kt_bern",
         disable=False,
@@ -2107,11 +2955,16 @@ def be_project_modification_settings(settings, request):
 
 
 @pytest.fixture
-def ur_project_modification_settings(settings, request):
+def ur_project_modification_settings(
+    request,
+    settings,
+    project_modification_settings,
+):
     """Module-specific settings for project modification (canton UR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=project_modification_settings,
         module_name="project_modification",
         canton="kt_uri",
         disable=False,
@@ -2119,11 +2972,16 @@ def ur_project_modification_settings(settings, request):
 
 
 @pytest.fixture
-def gr_project_modification_settings(settings, request):
+def gr_project_modification_settings(
+    request,
+    settings,
+    project_modification_settings,
+):
     """Module-specific settings for project modification (canton GR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=project_modification_settings,
         module_name="project_modification",
         canton="kt_gr",
         disable=False,
@@ -2131,11 +2989,16 @@ def gr_project_modification_settings(settings, request):
 
 
 @pytest.fixture
-def so_project_modification_settings(settings, request):
+def so_project_modification_settings(
+    request,
+    settings,
+    project_modification_settings,
+):
     """Module-specific settings for project modification (canton SO)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=project_modification_settings,
         module_name="project_modification",
         canton="kt_so",
         disable=False,
@@ -2143,11 +3006,15 @@ def so_project_modification_settings(settings, request):
 
 
 @pytest.fixture
-def publication_settings(settings, request):
+def publication_settings(
+    request,
+    settings,
+):
     """Module-specific settings for publication (default)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=None,
         module_name="publication",
         canton=None,
         disable=False,
@@ -2155,11 +3022,16 @@ def publication_settings(settings, request):
 
 
 @pytest.fixture
-def disable_publication_settings(settings, request):
+def disable_publication_settings(
+    request,
+    settings,
+    publication_settings,
+):
     """Disable the publication module completely."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=publication_settings,
         module_name="publication",
         canton=None,
         disable=True,
@@ -2167,11 +3039,16 @@ def disable_publication_settings(settings, request):
 
 
 @pytest.fixture
-def test_publication_settings(settings, request):
+def test_publication_settings(
+    request,
+    settings,
+    publication_settings,
+):
     """Module-specific settings for publication (canton TEST)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=publication_settings,
         module_name="publication",
         canton="test",
         disable=False,
@@ -2179,11 +3056,16 @@ def test_publication_settings(settings, request):
 
 
 @pytest.fixture
-def demo_publication_settings(settings, request):
+def demo_publication_settings(
+    request,
+    settings,
+    publication_settings,
+):
     """Module-specific settings for publication (canton DEMO)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=publication_settings,
         module_name="publication",
         canton="demo",
         disable=False,
@@ -2191,11 +3073,16 @@ def demo_publication_settings(settings, request):
 
 
 @pytest.fixture
-def be_publication_settings(settings, request):
+def be_publication_settings(
+    request,
+    settings,
+    publication_settings,
+):
     """Module-specific settings for publication (canton BE)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=publication_settings,
         module_name="publication",
         canton="kt_bern",
         disable=False,
@@ -2203,11 +3090,16 @@ def be_publication_settings(settings, request):
 
 
 @pytest.fixture
-def gr_publication_settings(settings, request):
+def gr_publication_settings(
+    request,
+    settings,
+    publication_settings,
+):
     """Module-specific settings for publication (canton GR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=publication_settings,
         module_name="publication",
         canton="kt_gr",
         disable=False,
@@ -2215,11 +3107,16 @@ def gr_publication_settings(settings, request):
 
 
 @pytest.fixture
-def so_publication_settings(settings, request):
+def so_publication_settings(
+    request,
+    settings,
+    publication_settings,
+):
     """Module-specific settings for publication (canton SO)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=publication_settings,
         module_name="publication",
         canton="kt_so",
         disable=False,
@@ -2227,11 +3124,16 @@ def so_publication_settings(settings, request):
 
 
 @pytest.fixture
-def sz_publication_settings(settings, request):
+def sz_publication_settings(
+    request,
+    settings,
+    publication_settings,
+):
     """Module-specific settings for publication (canton SZ)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=publication_settings,
         module_name="publication",
         canton="kt_schwyz",
         disable=False,
@@ -2239,11 +3141,16 @@ def sz_publication_settings(settings, request):
 
 
 @pytest.fixture
-def ur_publication_settings(settings, request):
+def ur_publication_settings(
+    request,
+    settings,
+    publication_settings,
+):
     """Module-specific settings for publication (canton UR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=publication_settings,
         module_name="publication",
         canton="kt_uri",
         disable=False,
@@ -2251,11 +3158,16 @@ def ur_publication_settings(settings, request):
 
 
 @pytest.fixture
-def ag_publication_settings(settings, request):
+def ag_publication_settings(
+    request,
+    settings,
+    publication_settings,
+):
     """Module-specific settings for publication (canton AG)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=publication_settings,
         module_name="publication",
         canton="kt_ag",
         disable=False,
@@ -2263,11 +3175,15 @@ def ag_publication_settings(settings, request):
 
 
 @pytest.fixture
-def rejection_settings(settings, request):
+def rejection_settings(
+    request,
+    settings,
+):
     """Module-specific settings for rejection (default)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=None,
         module_name="rejection",
         canton=None,
         disable=False,
@@ -2275,11 +3191,16 @@ def rejection_settings(settings, request):
 
 
 @pytest.fixture
-def disable_rejection_settings(settings, request):
+def disable_rejection_settings(
+    request,
+    settings,
+    rejection_settings,
+):
     """Disable the rejection module completely."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=rejection_settings,
         module_name="rejection",
         canton=None,
         disable=True,
@@ -2287,11 +3208,16 @@ def disable_rejection_settings(settings, request):
 
 
 @pytest.fixture
-def ag_rejection_settings(settings, request):
+def ag_rejection_settings(
+    request,
+    settings,
+    rejection_settings,
+):
     """Module-specific settings for rejection (canton AG)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=rejection_settings,
         module_name="rejection",
         canton="kt_ag",
         disable=False,
@@ -2299,11 +3225,16 @@ def ag_rejection_settings(settings, request):
 
 
 @pytest.fixture
-def be_rejection_settings(settings, request):
+def be_rejection_settings(
+    request,
+    settings,
+    rejection_settings,
+):
     """Module-specific settings for rejection (canton BE)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=rejection_settings,
         module_name="rejection",
         canton="kt_bern",
         disable=False,
@@ -2311,11 +3242,16 @@ def be_rejection_settings(settings, request):
 
 
 @pytest.fixture
-def gr_rejection_settings(settings, request):
+def gr_rejection_settings(
+    request,
+    settings,
+    rejection_settings,
+):
     """Module-specific settings for rejection (canton GR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=rejection_settings,
         module_name="rejection",
         canton="kt_gr",
         disable=False,
@@ -2323,11 +3259,16 @@ def gr_rejection_settings(settings, request):
 
 
 @pytest.fixture
-def so_rejection_settings(settings, request):
+def so_rejection_settings(
+    request,
+    settings,
+    rejection_settings,
+):
     """Module-specific settings for rejection (canton SO)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=rejection_settings,
         module_name="rejection",
         canton="kt_so",
         disable=False,
@@ -2335,11 +3276,16 @@ def so_rejection_settings(settings, request):
 
 
 @pytest.fixture
-def ur_rejection_settings(settings, request):
+def ur_rejection_settings(
+    request,
+    settings,
+    rejection_settings,
+):
     """Module-specific settings for rejection (canton UR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=rejection_settings,
         module_name="rejection",
         canton="kt_uri",
         disable=False,
@@ -2347,11 +3293,16 @@ def ur_rejection_settings(settings, request):
 
 
 @pytest.fixture
-def test_rejection_settings(settings, request):
+def test_rejection_settings(
+    request,
+    settings,
+    rejection_settings,
+):
     """Module-specific settings for rejection (canton TEST)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=rejection_settings,
         module_name="rejection",
         canton="test",
         disable=False,
@@ -2359,11 +3310,15 @@ def test_rejection_settings(settings, request):
 
 
 @pytest.fixture
-def rulesets_settings(settings, request):
+def rulesets_settings(
+    request,
+    settings,
+):
     """Module-specific settings for rulesets (default)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=None,
         module_name="rulesets",
         canton=None,
         disable=False,
@@ -2371,11 +3326,16 @@ def rulesets_settings(settings, request):
 
 
 @pytest.fixture
-def disable_rulesets_settings(settings, request):
+def disable_rulesets_settings(
+    request,
+    settings,
+    rulesets_settings,
+):
     """Disable the rulesets module completely."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=rulesets_settings,
         module_name="rulesets",
         canton=None,
         disable=True,
@@ -2383,11 +3343,16 @@ def disable_rulesets_settings(settings, request):
 
 
 @pytest.fixture
-def ag_rulesets_settings(settings, request):
+def ag_rulesets_settings(
+    request,
+    settings,
+    rulesets_settings,
+):
     """Module-specific settings for rulesets (canton AG)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=rulesets_settings,
         module_name="rulesets",
         canton="kt_ag",
         disable=False,
@@ -2395,11 +3360,15 @@ def ag_rulesets_settings(settings, request):
 
 
 @pytest.fixture
-def sanctions_settings(settings, request):
+def sanctions_settings(
+    request,
+    settings,
+):
     """Module-specific settings for sanctions (default)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=None,
         module_name="sanctions",
         canton=None,
         disable=False,
@@ -2407,11 +3376,16 @@ def sanctions_settings(settings, request):
 
 
 @pytest.fixture
-def disable_sanctions_settings(settings, request):
+def disable_sanctions_settings(
+    request,
+    settings,
+    sanctions_settings,
+):
     """Disable the sanctions module completely."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=sanctions_settings,
         module_name="sanctions",
         canton=None,
         disable=True,
@@ -2419,11 +3393,16 @@ def disable_sanctions_settings(settings, request):
 
 
 @pytest.fixture
-def sz_sanctions_settings(settings, request):
+def sz_sanctions_settings(
+    request,
+    settings,
+    sanctions_settings,
+):
     """Module-specific settings for sanctions (canton SZ)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=sanctions_settings,
         module_name="sanctions",
         canton="kt_schwyz",
         disable=False,
@@ -2431,11 +3410,16 @@ def sz_sanctions_settings(settings, request):
 
 
 @pytest.fixture
-def ur_sanctions_settings(settings, request):
+def ur_sanctions_settings(
+    request,
+    settings,
+    sanctions_settings,
+):
     """Module-specific settings for sanctions (canton UR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=sanctions_settings,
         module_name="sanctions",
         canton="kt_uri",
         disable=False,
@@ -2443,11 +3427,15 @@ def ur_sanctions_settings(settings, request):
 
 
 @pytest.fixture
-def service_settings(settings, request):
+def service_settings(
+    request,
+    settings,
+):
     """Module-specific settings for service (default)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=None,
         module_name="service",
         canton=None,
         disable=False,
@@ -2455,11 +3443,16 @@ def service_settings(settings, request):
 
 
 @pytest.fixture
-def disable_service_settings(settings, request):
+def disable_service_settings(
+    request,
+    settings,
+    service_settings,
+):
     """Disable the service module completely."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=service_settings,
         module_name="service",
         canton=None,
         disable=True,
@@ -2467,11 +3460,16 @@ def disable_service_settings(settings, request):
 
 
 @pytest.fixture
-def so_service_settings(settings, request):
+def so_service_settings(
+    request,
+    settings,
+    service_settings,
+):
     """Module-specific settings for service (canton SO)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=service_settings,
         module_name="service",
         canton="kt_so",
         disable=False,
@@ -2479,11 +3477,16 @@ def so_service_settings(settings, request):
 
 
 @pytest.fixture
-def sg_service_settings(settings, request):
+def sg_service_settings(
+    request,
+    settings,
+    service_settings,
+):
     """Module-specific settings for service (canton SG)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=service_settings,
         module_name="service",
         canton="kt_sg",
         disable=False,
@@ -2491,11 +3494,15 @@ def sg_service_settings(settings, request):
 
 
 @pytest.fixture
-def user_settings(settings, request):
+def user_settings(
+    request,
+    settings,
+):
     """Module-specific settings for user (default)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=None,
         module_name="user",
         canton=None,
         disable=False,
@@ -2503,11 +3510,16 @@ def user_settings(settings, request):
 
 
 @pytest.fixture
-def disable_user_settings(settings, request):
+def disable_user_settings(
+    request,
+    settings,
+    user_settings,
+):
     """Disable the user module completely."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=user_settings,
         module_name="user",
         canton=None,
         disable=True,
@@ -2515,11 +3527,16 @@ def disable_user_settings(settings, request):
 
 
 @pytest.fixture
-def so_user_settings(settings, request):
+def so_user_settings(
+    request,
+    settings,
+    user_settings,
+):
     """Module-specific settings for user (canton SO)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=user_settings,
         module_name="user",
         canton="kt_so",
         disable=False,
@@ -2527,11 +3544,16 @@ def so_user_settings(settings, request):
 
 
 @pytest.fixture
-def gr_user_settings(settings, request):
+def gr_user_settings(
+    request,
+    settings,
+    user_settings,
+):
     """Module-specific settings for user (canton GR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=user_settings,
         module_name="user",
         canton="kt_gr",
         disable=False,
@@ -2539,11 +3561,16 @@ def gr_user_settings(settings, request):
 
 
 @pytest.fixture
-def ag_user_settings(settings, request):
+def ag_user_settings(
+    request,
+    settings,
+    user_settings,
+):
     """Module-specific settings for user (canton AG)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=user_settings,
         module_name="user",
         canton="kt_ag",
         disable=False,
@@ -2551,11 +3578,16 @@ def ag_user_settings(settings, request):
 
 
 @pytest.fixture
-def sg_user_settings(settings, request):
+def sg_user_settings(
+    request,
+    settings,
+    user_settings,
+):
     """Module-specific settings for user (canton SG)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=user_settings,
         module_name="user",
         canton="kt_sg",
         disable=False,
@@ -2563,11 +3595,15 @@ def sg_user_settings(settings, request):
 
 
 @pytest.fixture
-def withdrawal_settings(settings, request):
+def withdrawal_settings(
+    request,
+    settings,
+):
     """Module-specific settings for withdrawal (default)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=None,
         module_name="withdrawal",
         canton=None,
         disable=False,
@@ -2575,11 +3611,16 @@ def withdrawal_settings(settings, request):
 
 
 @pytest.fixture
-def disable_withdrawal_settings(settings, request):
+def disable_withdrawal_settings(
+    request,
+    settings,
+    withdrawal_settings,
+):
     """Disable the withdrawal module completely."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=withdrawal_settings,
         module_name="withdrawal",
         canton=None,
         disable=True,
@@ -2587,11 +3628,16 @@ def disable_withdrawal_settings(settings, request):
 
 
 @pytest.fixture
-def so_withdrawal_settings(settings, request):
+def so_withdrawal_settings(
+    request,
+    settings,
+    withdrawal_settings,
+):
     """Module-specific settings for withdrawal (canton SO)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=withdrawal_settings,
         module_name="withdrawal",
         canton="kt_so",
         disable=False,
@@ -2599,11 +3645,16 @@ def so_withdrawal_settings(settings, request):
 
 
 @pytest.fixture
-def gr_withdrawal_settings(settings, request):
+def gr_withdrawal_settings(
+    request,
+    settings,
+    withdrawal_settings,
+):
     """Module-specific settings for withdrawal (canton GR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=withdrawal_settings,
         module_name="withdrawal",
         canton="kt_gr",
         disable=False,
@@ -2611,11 +3662,16 @@ def gr_withdrawal_settings(settings, request):
 
 
 @pytest.fixture
-def ag_withdrawal_settings(settings, request):
+def ag_withdrawal_settings(
+    request,
+    settings,
+    withdrawal_settings,
+):
     """Module-specific settings for withdrawal (canton AG)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=withdrawal_settings,
         module_name="withdrawal",
         canton="kt_ag",
         disable=False,
@@ -2623,11 +3679,16 @@ def ag_withdrawal_settings(settings, request):
 
 
 @pytest.fixture
-def test_withdrawal_settings(settings, request):
+def test_withdrawal_settings(
+    request,
+    settings,
+    withdrawal_settings,
+):
     """Module-specific settings for withdrawal (canton TEST)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=withdrawal_settings,
         module_name="withdrawal",
         canton="test",
         disable=False,
@@ -2635,11 +3696,15 @@ def test_withdrawal_settings(settings, request):
 
 
 @pytest.fixture
-def work_item_list_settings(settings, request):
+def work_item_list_settings(
+    request,
+    settings,
+):
     """Module-specific settings for work item list (default)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=None,
         module_name="work_item_list",
         canton=None,
         disable=False,
@@ -2647,11 +3712,16 @@ def work_item_list_settings(settings, request):
 
 
 @pytest.fixture
-def disable_work_item_list_settings(settings, request):
+def disable_work_item_list_settings(
+    request,
+    settings,
+    work_item_list_settings,
+):
     """Disable the work item list module completely."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=work_item_list_settings,
         module_name="work_item_list",
         canton=None,
         disable=True,
@@ -2659,11 +3729,16 @@ def disable_work_item_list_settings(settings, request):
 
 
 @pytest.fixture
-def sz_work_item_list_settings(settings, request):
+def sz_work_item_list_settings(
+    request,
+    settings,
+    work_item_list_settings,
+):
     """Module-specific settings for work item list (canton SZ)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=work_item_list_settings,
         module_name="work_item_list",
         canton="kt_schwyz",
         disable=False,
@@ -2671,11 +3746,16 @@ def sz_work_item_list_settings(settings, request):
 
 
 @pytest.fixture
-def be_work_item_list_settings(settings, request):
+def be_work_item_list_settings(
+    request,
+    settings,
+    work_item_list_settings,
+):
     """Module-specific settings for work item list (canton BE)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=work_item_list_settings,
         module_name="work_item_list",
         canton="kt_bern",
         disable=False,
@@ -2683,11 +3763,16 @@ def be_work_item_list_settings(settings, request):
 
 
 @pytest.fixture
-def so_work_item_list_settings(settings, request):
+def so_work_item_list_settings(
+    request,
+    settings,
+    work_item_list_settings,
+):
     """Module-specific settings for work item list (canton SO)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=work_item_list_settings,
         module_name="work_item_list",
         canton="kt_so",
         disable=False,
@@ -2695,11 +3780,16 @@ def so_work_item_list_settings(settings, request):
 
 
 @pytest.fixture
-def ur_work_item_list_settings(settings, request):
+def ur_work_item_list_settings(
+    request,
+    settings,
+    work_item_list_settings,
+):
     """Module-specific settings for work item list (canton UR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=work_item_list_settings,
         module_name="work_item_list",
         canton="kt_uri",
         disable=False,
@@ -2707,11 +3797,16 @@ def ur_work_item_list_settings(settings, request):
 
 
 @pytest.fixture
-def gr_work_item_list_settings(settings, request):
+def gr_work_item_list_settings(
+    request,
+    settings,
+    work_item_list_settings,
+):
     """Module-specific settings for work item list (canton GR)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=work_item_list_settings,
         module_name="work_item_list",
         canton="kt_gr",
         disable=False,
@@ -2719,11 +3814,16 @@ def gr_work_item_list_settings(settings, request):
 
 
 @pytest.fixture
-def ag_work_item_list_settings(settings, request):
+def ag_work_item_list_settings(
+    request,
+    settings,
+    work_item_list_settings,
+):
     """Module-specific settings for work item list (canton AG)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=work_item_list_settings,
         module_name="work_item_list",
         canton="kt_ag",
         disable=False,
@@ -2731,11 +3831,16 @@ def ag_work_item_list_settings(settings, request):
 
 
 @pytest.fixture
-def sg_work_item_list_settings(settings, request):
+def sg_work_item_list_settings(
+    request,
+    settings,
+    work_item_list_settings,
+):
     """Module-specific settings for work item list (canton SG)."""
-    return generate_module_settings(
+    yield from generate_module_settings(
         settings=settings,
         request=request,
+        base_fixture=work_item_list_settings,
         module_name="work_item_list",
         canton="kt_sg",
         disable=False,

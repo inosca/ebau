@@ -1,4 +1,5 @@
 import copy
+import re
 from importlib import import_module
 from typing import List
 
@@ -10,7 +11,12 @@ from camac.settings.ebau_schema import ModuleApplicationConfig, ModuleConfig
 from . import modules as settings_modules
 
 
-def generate_module_settings(settings, request, module_name, canton, disable):
+class InvalidFixtureUseError(Exception): ...
+
+
+def generate_module_settings(
+    settings, request, module_name, canton, disable, base_fixture
+):
     """Generate modular settings fixtures.
 
     This function generates fixtures for the modular settings concept we use for
@@ -18,31 +24,102 @@ def generate_module_settings(settings, request, module_name, canton, disable):
     `[canton_shortname]_distribution_settings`.
     """
 
+    # Implementation details: Tests can request `module_settings` and
+    # `canton_module_settings`     at the same time. Those two settings must not
+    # shadow each other: for example:     if a test uses foo_module_settings, but
+    # uses a fixture that implies be_foo_module_settings,     then those two settings
+    # objects should be the same (but of course with the be_ config as content).
+
     settings_module = f"camac.settings.modules.{module_name.lower()}"
     original_settings = getattr(
         import_module(settings_module),
         module_name.upper(),
     )
 
-    if canton:
-        new_settings = always_merger.merge(
-            copy.deepcopy(request.getfixturevalue(f"{module_name}_settings")),
-            copy.deepcopy(original_settings[canton])
-            if isinstance(original_settings, dict)
-            else getattr(original_settings, canton),
+    # Validation: There are only ever allowed to be two module fixtures per
+    # module in use:
+    # * (optionally) the base module settings (`foo_settings`)
+    # * one derived settings fixture, like (`disable_foo_settings`,
+    #   or `be_foo_settings`)
+    # Using two conflicting settings (like `be_foo_settings` and `ag_foo_settings`
+    # in the same test is forbidden)
+
+    specialisation = (
+        # "disable" or "be"/"ag"/"gr" etc ... or None
+        "disable"
+        if disable
+        else (settings.APPLICATIONS[canton]["SHORT_NAME"] if canton else None)
+    )
+
+    if specialisation:
+        requested = (
+            f"{specialisation}_{module_name}_settings"
+            if specialisation
+            else f"{module_name}_settings"
         )
+
+        other_specialisations = [
+            f
+            for f in request.fixturenames
+            if re.match(rf"(\w\w|disable)_{module_name}_settings", f) and f != requested
+        ]
+
+        if other_specialisations:
+            existing = other_specialisations[0]
+            raise InvalidFixtureUseError(
+                f"Requested fixture `{requested}` is in conflict with `{existing}`. "
+                "Only one of these is allowed to be in use at a time"
+            )
+
+    if canton:
+        # Cantonal specialisation will *update* the base setting, but not
+        # generate a copy
+        if isinstance(base_fixture, dict):
+            canton_settings = always_merger.merge(
+                base_fixture, copy.deepcopy(original_settings[canton])
+            )
+            # we do not want a copy in the specialisation mode
+            assert canton_settings is base_fixture
+        else:
+            canton_as_defined = getattr(original_settings, canton)
+            # root object needs to be the same. However the attributess within
+            # can be merged via merger strategy (recursive, copy settings from
+            # canton over the default settings).
+            for attr, val in vars(canton_as_defined).items():
+                setattr(
+                    base_fixture,
+                    attr,
+                    always_merger.merge(
+                        getattr(base_fixture, attr, None),
+                        getattr(canton_as_defined, attr),
+                    ),
+                )
+            # in this mode, the base_fixture is now updated to contain the
+            # canton settings. These are the same thing
+            canton_settings = base_fixture
+
+        yield canton_settings
+
     elif disable:
-        new_settings = {}
+        base_fixture.clear()
+        yield base_fixture
+
     else:
-        new_settings = copy.deepcopy(
+        # Genereate "base" settings
+        canton_settings = copy.deepcopy(
             copy.deepcopy(original_settings["default"])
             if isinstance(original_settings, dict)
             else original_settings.default
         )
 
-    setattr(settings, module_name.upper(), new_settings)
+        # base settings are responsible for cleanup, so we do the whole set,
+        # yield, reset sequence here. Relying on the settings fixture may not be
+        # enough (TODO verify / validate assumption)
+        before_settings = getattr(settings, module_name.upper(), {})
+        setattr(settings, module_name.upper(), canton_settings)
 
-    return new_settings
+        yield canton_settings
+        setattr(settings, module_name.upper(), before_settings)
 
 
 def get_all_modules():

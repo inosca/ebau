@@ -20,7 +20,7 @@ def test_authenticate_no_headers(rf):
     assert JSONWebTokenKeycloakAuthentication().authenticate(request) is None
 
 
-def test_authenticate_disabled_user(rf, admin_user, mocker, clear_cache, settings):
+def test_authenticate_disabled_user(rf, admin_user, mocker, settings):
     token_dict = {
         "sub": admin_user.username,
         "email": admin_user.email,
@@ -75,7 +75,6 @@ def test_authenticate_new_user(
     token_value,
     username,
     applicant_factory,
-    clear_cache,
 ):
     token_value[settings.OIDC_USERNAME_CLAIM] = token_value["sub"]
 
@@ -131,7 +130,6 @@ def test_authenticate_email_fallback(
     mocker,
     token_value,
     applicant_factory,
-    clear_cache,
     expected,
     settings,
 ):
@@ -150,7 +148,7 @@ def test_authenticate_email_fallback(
     assert user.email == expected
 
 
-def test_authenticate_ok(rf, admin_user, mocker, clear_cache, settings):
+def test_authenticate_ok(rf, admin_user, mocker, settings):
     token_value = {
         "sub": admin_user.username,
         "email": admin_user.email,
@@ -194,7 +192,6 @@ def test_django_admin_oidc_authentication(
     is_id_token,
     requests_mock,
     settings,
-    clear_cache,
 ):
     userinfo = {"sub": "1", "preferred_username": "1"}
     requests_mock.get(settings.OIDC_OP_USER_ENDPOINT, text=json.dumps(userinfo))
@@ -220,7 +217,7 @@ def test_django_admin_oidc_authentication(
 
 
 @pytest.mark.parametrize("side_effect", [JWTExpired(), JWException()])
-def test_authenticate_side_effect(rf, mocker, side_effect, clear_cache):
+def test_authenticate_side_effect(rf, mocker, side_effect):
     decode_token = mocker.patch("keycloak.KeycloakOpenID.decode_token")
     decode_token.side_effect = side_effect
     mocker.patch("keycloak.KeycloakOpenID.certs")
@@ -244,7 +241,7 @@ def test_authenticate_header(db, rf, settings):
 
 
 def test_authenticate_applicants(
-    rf, admin_user, mocker, applicant_factory, instance_factory, clear_cache, settings
+    rf, admin_user, mocker, applicant_factory, instance_factory, settings
 ):
     new_email = "test@test.ch"
     new_username = "N12345678"
@@ -301,7 +298,7 @@ def test_authenticate_applicants(
     "user__username,expect_invitee", [("test", False), ("egov:123", True)]
 )
 def test_update_applicants_token_exchange(
-    db, applicant_factory, expect_invitee, settings, user, clear_cache
+    db, applicant_factory, expect_invitee, settings, user
 ):
     settings.ENABLE_TOKEN_EXCHANGE = True
 
@@ -333,7 +330,7 @@ def test_user_group_invitations(
     assert user.groups.count() == (2 if is_invited else 0)
 
 
-def test_authenticate_token_exchange_company_name(rf, mocker, settings, clear_cache):
+def test_authenticate_token_exchange_company_name(rf, mocker, settings):
     settings.ENABLE_TOKEN_EXCHANGE = True
 
     token_data = {

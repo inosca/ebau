@@ -1,6 +1,7 @@
 import pytest
 
 from camac.core import utils
+from camac.settings.utils import InvalidFixtureUseError
 
 
 @pytest.mark.freeze_time("2020-10-16")
@@ -81,3 +82,32 @@ def test_generate_sort_key(db, caluma_case_factory):
     assert utils.generate_sort_key("2020-999999") == 2020999999
     assert utils.generate_sort_key("KW-07-21-999999") == 721999999
     assert utils.generate_sort_key("1201-2021-13") == 12012021000013
+
+
+def test_module_settings_fixture_reject_conflicting_fixtures(request):
+
+    # First - generic fixture ("default" entry)
+    settings0 = request.getfixturevalue("permissions_settings")
+
+    # Fetch canton-specific fixture
+    settings1 = request.getfixturevalue("be_permissions_settings")
+
+    # both settings must be the same object
+    assert settings0 is settings1
+
+    # Fetch fixture from same module, different canton. Should fail
+    with pytest.raises(InvalidFixtureUseError) as exc:
+        request.getfixturevalue("ag_permissions_settings")
+    assert exc.match(
+        "Requested fixture `ag_permissions_settings` is in conflict with "
+        "`be_permissions_settings`. Only one of these is allowed to be "
+        "in use at a time"
+    )
+    with pytest.raises(InvalidFixtureUseError) as exc:
+        request.getfixturevalue("disable_permissions_settings")
+
+    assert exc.match(
+        "Requested fixture `disable_permissions_settings` is in conflict with "
+        "`be_permissions_settings`. Only one of these is allowed to be "
+        "in use at a time"
+    )

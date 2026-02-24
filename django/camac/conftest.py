@@ -28,7 +28,7 @@ from caluma.caluma_workflow import (
 )
 from caluma.caluma_workflow.api import complete_work_item, skip_work_item
 from deepmerge import always_merger
-from django.conf import settings
+from django.conf import settings as django_settings
 from django.core.cache import cache
 from django.core.management import call_command
 from django.http import FileResponse
@@ -394,8 +394,9 @@ def set_application_demo(_set_application):
     return _set_application("demo")
 
 
-@pytest.fixture(params=list(settings.APPLICATIONS.keys()))
-def any_application(request):
+# can't use settings fixture here, as we're not *inside* a fixture
+@pytest.fixture(params=list(django_settings.APPLICATIONS.keys()))
+def any_application(request, settings):
     """Return set_application_XY fixture for all possible applications."""
     # TODO either expand fixtures so all of them exist, or filter down
     # the list of accepted applications so only the ones fully supported
@@ -484,13 +485,13 @@ def mock_clamd(mocker):
     )
 
 
-@pytest.fixture
+@pytest.fixture(autouse=True, scope="function")
 def clear_cache():
     cache.clear()
 
 
 @pytest.fixture
-def unoconv_pdf_mock(requests_mock):
+def unoconv_pdf_mock(requests_mock, settings):
     requests_mock.register_uri(
         "POST",
         build_url(settings.UNOCONV_URL, "/unoconv/pdf"),
@@ -555,7 +556,7 @@ def caluma_config_ag(
 
 
 @pytest.fixture
-def use_instance_service(application_settings):
+def use_instance_service(application_settings, settings):
     application_settings["USE_INSTANCE_SERVICE"] = True
     application_settings["ACTIVE_SERVICES"] = deepcopy(
         settings.APPLICATIONS["kt_bern"]["ACTIVE_SERVICES"]
@@ -814,7 +815,7 @@ def caluma_workflow_config_ag(
 
 
 @pytest.fixture
-def caluma_audit(caluma_workflow_config_be):
+def caluma_audit(caluma_workflow_config_be, settings):
     for slug in CALUMA_FORM_TYPES_SLUGS:
         caluma_form_models.Form.objects.create(slug=slug)
 
@@ -827,7 +828,7 @@ def caluma_audit(caluma_workflow_config_be):
 
 
 @pytest.fixture
-def caluma_workflow_config_sz(db, caluma_config_sz):
+def caluma_workflow_config_sz(db, caluma_config_sz, settings):
     caluma_form_models.Form.objects.create(slug="baugesuch")
     caluma_form_models.Form.objects.create(slug="bauverwaltung")
     caluma_form_models.Form.objects.create(slug="main-form")
@@ -889,10 +890,6 @@ def caluma_forms_be(settings):
     caluma_form_models.Form.objects.create(slug="ebau-number")
     caluma_form_models.Form.objects.create(slug="decision")
     caluma_form_models.Form.objects.create(slug="geometer")
-
-    # dynamic choice options get cached, so we clear them
-    # to ensure the new "gemeinde" options will be valid
-    cache.clear()
 
     # questions
     caluma_form_models.Question.objects.create(
@@ -1055,10 +1052,6 @@ def caluma_forms_ur(settings):
         question__row_form_id="parcels",
     )
 
-    # dynamic choice options get cached, so we clear them
-    # to ensure the new "gemeinde" options will be valid
-    cache.clear()
-
     # questions
     simple_questions = [
         ("municipality", caluma_form_models.Question.TYPE_TEXT),
@@ -1131,10 +1124,6 @@ def caluma_forms_gr(settings):
     caluma_form_models.Form.objects.create(slug="personalien-tabelle")
     caluma_form_models.Form.objects.create(slug="entsorgung")
 
-    # dynamic choice options get cached, so we clear them
-    # to ensure the new "gemeinde" options will be valid
-    cache.clear()
-
     # questions
     caluma_form_models.Question.objects.create(
         slug="gemeinde",
@@ -1199,10 +1188,6 @@ def caluma_forms_so(settings):
     caluma_form_models.Form.objects.create(slug="meldung")
     caluma_form_models.Form.objects.create(slug="meldung-pv")
     caluma_form_models.Form.objects.create(slug="materielle-pruefung-bab")
-
-    # dynamic choice options get cached, so we clear them
-    # to ensure the new "gemeinde" options will be valid
-    cache.clear()
 
     # questions
     caluma_form_models.Question.objects.create(
@@ -1272,10 +1257,6 @@ def caluma_forms_ag(settings, caluma_form_factory):
         "complete-instance",
     ]:
         caluma_form_models.Form.objects.create(slug=slug)
-
-    # dynamic choice options get cached, so we clear them
-    # to ensure the new "gemeinde" options will be valid
-    cache.clear()
 
     # questions
     caluma_form_models.Question.objects.create(
@@ -2658,7 +2639,9 @@ def ur_master_data_case(
 
 
 @pytest.fixture
-def decision_factory(be_instance, caluma_document_factory, caluma_work_item_factory):
+def decision_factory(
+    be_instance, caluma_document_factory, caluma_work_item_factory, settings
+):
     call_command(
         "loaddata", settings.ROOT_DIR("kt_bern/config/caluma_decision_form.json")
     )
@@ -2705,7 +2688,7 @@ def decision_factory(be_instance, caluma_document_factory, caluma_work_item_fact
 
 
 @pytest.fixture
-def decision_factory_so(so_instance, so_decision_settings):
+def decision_factory_so(so_instance, so_decision_settings, settings):
     call_command(
         "loaddata", settings.ROOT_DIR("kt_so/config/caluma_decision_form.json")
     )
@@ -3350,7 +3333,9 @@ def setup_sql_views(django_db_setup, django_db_blocker):
     to create a VIEW, as otherwise, stuff will break
     """
 
-    for module, migration in settings.SQL_VIEW_MIGRATIONS:
+    # can't use settings fixture here, as we're session scoped and the settings
+    # fixture is function scoped, so must be initialized *after*
+    for module, migration in django_settings.SQL_VIEW_MIGRATIONS:
         migration_mod = import_module(f"camac.{module}.migrations.{migration}")
         with django_db_blocker.unblock():
             for op in migration_mod.Migration.operations:
@@ -3390,20 +3375,32 @@ def set_document_backend(application_settings):
 
 @pytest.fixture(autouse=True, scope="function")
 def ensure_no_leaks():
-    SETTINGS_TO_VALIDATE = ["APPLICATIONS"]
-    from django.conf import settings
+    # Note: We're not checking *every* module settings, just the one
+    # where leaks are most problematic and have the biggest impact on
+    # other modules
+    SETTINGS_TO_VALIDATE = [
+        "APPLICATIONS",
+        "PERMISSIONS",
+        "ALEXANDRIA",
+        "DISTRIBUTION",
+        "COMMUNICATIONS",
+    ]
 
     before_settings = {
-        s: copy.deepcopy(getattr(settings, s)) for s in SETTINGS_TO_VALIDATE
+        s: copy.deepcopy(getattr(django_settings, s)) for s in SETTINGS_TO_VALIDATE
     }
 
     yield
 
     after_settings = {
-        s: copy.deepcopy(getattr(settings, s)) for s in SETTINGS_TO_VALIDATE
+        s: copy.deepcopy(getattr(django_settings, s)) for s in SETTINGS_TO_VALIDATE
     }
 
-    assert before_settings == after_settings
+    for s in SETTINGS_TO_VALIDATE:
+        before = before_settings[s]
+        after = after_settings[s]
+
+        assert before == after, f"Module settings {s} seem to leak"
 
 
 def parse_xlsx_response(response: FileResponse) -> pyexcel.Book:

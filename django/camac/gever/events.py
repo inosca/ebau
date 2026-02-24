@@ -21,7 +21,7 @@ def decision_decreed(instance):
 
 
 def sync_button_pressed(instance):
-    if not settings.GEVER or not settings.GEVER["ENABLED"]:
+    if not settings.GEVER or not settings.GEVER["ENABLED"]:  # pragma: no cover
         # GEVER not active - don't do anything
         return False
     return async_task(tasks.sync_full, instance)

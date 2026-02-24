@@ -1,6 +1,5 @@
 import pytest
 from caluma.caluma_form.models import Question
-from django.core.cache import cache
 from django.core.management import call_command
 from django.urls import reverse
 from rest_framework import status
@@ -88,7 +87,6 @@ def test_be_client(
     settings,
 ):
     # TODO: Update testing when sync=True works for testing, django_q sync=True is still broken.
-    cache.clear()
     settings.BE_GIS_ENABLE_QUEUE = False
     settings.GIS_REQUESTS_BATCH_SIZE = 1
 
@@ -122,7 +120,6 @@ def test_be_client_error(
     settings,
 ):
     settings.BE_GIS_ENABLE_QUEUE = False
-    cache.clear()
 
     response = admin_client.get(
         reverse("gis-data"),
