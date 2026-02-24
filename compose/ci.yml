@@ -33,6 +33,8 @@ services:
 
   django: &django
     image: acr.run/camac-ng/camac-ng/django:${CI_COMMIT_REF_SLUG:-master}
+    # in CI mode, don't migrate, and don't start a dev server either
+    command: ["noop"]
     build:
       context: ../django
       cache_from:
