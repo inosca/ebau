@@ -74,8 +74,6 @@ DJANGO_ADMIN = {
             "django_q.Success",
             "django_q.Failure",
             "django_q.OrmQ",
-            "gever.CMIConstantValue",
-            "gever.CMIObjectTemplate",
             "ech0211.Message",
             "user.GeometerChangeTask",
         ],

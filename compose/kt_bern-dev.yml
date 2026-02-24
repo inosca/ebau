@@ -95,17 +95,13 @@ services:
       GWR_FERNET_KEY: GUdwT6yKxqfszrnHC7wyKDmtVZdhjSVQEPnpeJYNLf8=
       GWR_HOUSING_STAT_BASE_URI: https://www-r.housing-stat.ch/regbl/api/ech0216/2
       # Caluma
-      DATA_SOURCE_CLASSES: camac.caluma.extensions.data_sources.Landowners,camac.caluma.extensions.data_sources.Municipalities,camac.caluma.extensions.data_sources.Services,camac.caluma.extensions.data_sources.Attachments,camac.caluma.extensions.data_sources.GEVERErledigungsart
+      DATA_SOURCE_CLASSES: camac.caluma.extensions.data_sources.Landowners,camac.caluma.extensions.data_sources.Municipalities,camac.caluma.extensions.data_sources.Services,camac.caluma.extensions.data_sources.Attachments
       DYNAMIC_GROUPS_CLASSES: camac.caluma.extensions.dynamic_groups.CustomDynamicGroups
       DYNAMIC_TASKS_CLASSES: camac.caluma.extensions.dynamic_tasks.CustomDynamicTasks
       EVENT_RECEIVER_MODULES: camac.caluma.extensions.events
       PERMISSION_CLASSES: camac.caluma.extensions.permissions.CustomPermission
       VALIDATION_CLASSES: camac.caluma.extensions.validations.CustomValidation
       VISIBILITY_CLASSES: camac.caluma.extensions.visibilities.CustomVisibilityBE
-      GEVER_CLIENT_ID: ${GEVER_CLIENT_ID}
-      GEVER_CLIENT_SECRET: ${GEVER_CLIENT_SECRET}
-      GEVER_TOKEN_URL: ${GEVER_TOKEN_URL}
-      GEVER_API_BASE_URL: ${GEVER_API_BASE_URL}
       # Alexandria
       ALEXANDRIA_MANABI_DAV_URL_PATH: /webdav
       TIKA_SERVER_ENDPOINT: "http://tika:9998"

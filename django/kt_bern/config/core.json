@@ -46669,22 +46669,6 @@
   },
   {
     "model": "core.instanceresource",
-    "pk": 18000005,
-    "fields": {
-      "available_instance_resource": "taskform",
-      "resource": 20007,
-      "name": null,
-      "description": null,
-      "template": null,
-      "class_field": null,
-      "hidden": 1,
-      "sort": 10,
-      "form_group": 40000,
-      "require_permission": null
-    }
-  },
-  {
-    "model": "core.instanceresource",
     "pk": 18000006,
     "fields": {
       "available_instance_resource": "page",
@@ -48222,16 +48206,6 @@
       "instance_resource": 18000004,
       "language": "fr",
       "name": "Géomètre",
-      "description": null
-    }
-  },
-  {
-    "model": "core.instanceresourcet",
-    "pk": 18000007,
-    "fields": {
-      "instance_resource": 18000005,
-      "language": "de",
-      "name": "Gever",
       "description": null
     }
   },
@@ -58636,96 +58610,6 @@
     }
   },
   {
-    "model": "core.irserviceacl",
-    "pk": 38,
-    "fields": {
-      "instance_resource": 18000005,
-      "service": 20032,
-      "instance_state": 20003
-    }
-  },
-  {
-    "model": "core.irserviceacl",
-    "pk": 39,
-    "fields": {
-      "instance_resource": 18000005,
-      "service": 20032,
-      "instance_state": 20004
-    }
-  },
-  {
-    "model": "core.irserviceacl",
-    "pk": 40,
-    "fields": {
-      "instance_resource": 18000005,
-      "service": 20032,
-      "instance_state": 20005
-    }
-  },
-  {
-    "model": "core.irserviceacl",
-    "pk": 41,
-    "fields": {
-      "instance_resource": 18000005,
-      "service": 20032,
-      "instance_state": 20010
-    }
-  },
-  {
-    "model": "core.irserviceacl",
-    "pk": 42,
-    "fields": {
-      "instance_resource": 18000005,
-      "service": 20032,
-      "instance_state": 20011
-    }
-  },
-  {
-    "model": "core.irserviceacl",
-    "pk": 43,
-    "fields": {
-      "instance_resource": 18000005,
-      "service": 20032,
-      "instance_state": 20013
-    }
-  },
-  {
-    "model": "core.irserviceacl",
-    "pk": 44,
-    "fields": {
-      "instance_resource": 18000005,
-      "service": 20032,
-      "instance_state": 20014
-    }
-  },
-  {
-    "model": "core.irserviceacl",
-    "pk": 45,
-    "fields": {
-      "instance_resource": 18000005,
-      "service": 20032,
-      "instance_state": 10000
-    }
-  },
-  {
-    "model": "core.irserviceacl",
-    "pk": 46,
-    "fields": {
-      "instance_resource": 18000005,
-      "service": 20032,
-      "instance_state": 20007
-    }
-  },
-  {
-    "model": "core.irserviceacl",
-    "pk": 47,
-    "fields": {
-      "instance_resource": 18000005,
-      "service": 20032,
-      "instance_state": 20008
-    }
-  },
-  {
     "model": "core.irtaskform",
     "pk": 12000002,
     "fields": {
@@ -58765,13 +58649,6 @@
     "pk": 18000004,
     "fields": {
       "task": "geometer"
-    }
-  },
-  {
-    "model": "core.irtaskform",
-    "pk": 18000005,
-    "fields": {
-      "task": "gever"
     }
   },
   {

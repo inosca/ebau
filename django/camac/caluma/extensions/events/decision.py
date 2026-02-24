@@ -10,7 +10,6 @@ from django.utils.translation import gettext as _, gettext_noop
 
 from camac.core.utils import create_history_entry
 from camac.ech0211.signals import ruling
-from camac.gever import events as gever_events
 from camac.instance import domain_logic
 from camac.notification.utils import send_mail_without_request
 from camac.permissions import events as permissions_events
@@ -102,7 +101,6 @@ def post_complete_decision(sender, work_item, user, context, **kwargs):
         instance.set_instance_state("finished", camac_user)
 
     permissions_events.Trigger.decision_decreed(None, instance)
-    gever_events.decision_decreed(instance)
 
     # trigger ech message for status change
     ruling.send(

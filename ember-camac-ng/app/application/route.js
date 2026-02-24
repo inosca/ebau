@@ -22,7 +22,6 @@ import UIkit from "uikit";
 import AssignEbauNumberButtonComponent from "camac-ng/components/assign-ebau-number-button";
 import CfCollapsibleTextareaComponent from "camac-ng/components/cf-collapsible-textarea";
 import CfDownloadPdfComponent from "camac-ng/components/cf-download-pdf";
-import GeverSyncButtonComponent from "camac-ng/components/gever-sync-button";
 import SuggestEbauNumberComponent from "camac-ng/components/suggest-ebau-number";
 
 export default class ApplicationRoute extends Route {
@@ -57,12 +56,6 @@ export default class ApplicationRoute extends Route {
         cancel: this.intl.t("global.cancel"),
       };
     }
-
-    this.calumaOptions.registerComponentOverride({
-      label: "Gever Sync Button",
-      component: "gever-sync-button",
-      componentClass: GeverSyncButtonComponent,
-    });
 
     this.calumaOptions.registerComponentOverride({
       label: "Karte",

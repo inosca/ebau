@@ -113,7 +113,6 @@ INSTALLED_APPS = [
     "camac.gis.apps.GisConfig",
     "camac.billing.apps.BillingConfig",
     "camac.eeba_integration.apps.EebaIntegrationConfig",
-    "camac.gever.apps.GEVERConfig",
     "camac.alert_message.apps.AlertMessageConfig",
     "sorl.thumbnail",
     "django_clamd",
@@ -1183,7 +1182,7 @@ APPLICATIONS = {
                         "init-additional-demand",
                         "additional-demand",
                     ],
-                    "complete": ["nfd", "gever"],
+                    "complete": ["nfd"],
                 },
                 "complete": {
                     "skip": ["check-sb1", "check-sb2"],
@@ -3906,7 +3905,6 @@ USER = load_module_settings("user")
 ADDRESS_ASSIGNMENT = load_module_settings("address_assignment")
 SERVICE = load_module_settings("service")
 CHANGE_FORM = load_module_settings("change_form")
-GEVER = load_module_settings("gever")
 RULESETS = load_module_settings("rulesets")
 EEBA_INTEGRATION = load_module_settings("eeba_integration")
 DEADLINES = load_module_settings("deadlines")
