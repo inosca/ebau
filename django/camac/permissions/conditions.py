@@ -378,7 +378,7 @@ class RequireWorkItem(Check):
         return False
 
     def __eq__(self, other):  # pragma: no cover
-        return isinstance(other, RequireInstanceState) and other.task_id == self.task_id
+        return isinstance(other, RequireWorkItem) and other.task_id == self.task_id
 
     def __repr__(self):  # pragma: no cover
         if self.condition_name:
