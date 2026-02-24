@@ -33,6 +33,7 @@ if [ "$#" -lt 1 ]; then
   echo "   - celery-beat       to run the celery beat scheduler"
   echo "   - celery-beat-dev   to run the celery beat scheduler in development mode"
   echo "   - webdav            to run the webdav server via gunicorn and webdav.wsgi"
+  echo "   - noop              Just start the container. Run no migrations, no server. Only for CI"
   echo ""
   echo "Any other command will be run as-is (for example you can run bash"
   echo "or any other mgmt command)"
@@ -100,6 +101,10 @@ case "$1" in
     migrate
     loadconfig
     clear_cache
+    ;;
+  noop )
+    echo "NOOP - Sleeping now"
+    sleep inf
     ;;
   * )
     exec "$@"
