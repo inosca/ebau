@@ -1,6 +1,6 @@
 from logging import getLogger
 
-from caluma.caluma_form.models import Answer
+from caluma.caluma_form.models import Answer, Document
 from celery import shared_task
 from django.db.models import Exists, OuterRef
 
@@ -225,6 +225,130 @@ def send_notification_for_publication(self, workitem_id=None):
             except Exception as e:  # pragma: no cover
                 log.error(
                     f"Failed sending notification for {task_id} workitem {work_item.pk} on instance {instance_id}: {e}"
+                )
+
+    except Exception as e:  # pragma: no cover
+        log.error(f"Failed sending notification for {task_id} workitems: {e}")
+
+
+@shared_task(bind=True)
+def send_notification_for_publication_end_legal_submissions(self, workitem_id=None):
+    """
+    Send notifications for publication end.
+
+    Settings for publication to enable the notification:
+    - The date_question answer must match yesterday's date.
+    - The work item with id fill_work_item must match the work item's task_id.
+    - The notification is sent to the configured recipient_types with the template_slug as notificationtemplate pk.
+
+    The notifications can be confiured in django/camac/settings/django.py with the NOTIFICATIONS key:
+
+    ```
+    "NOTIFICATIONS": {
+        "PUBLICATION_END_LEGAL_SUBMISSION": {
+            "date_question": "ende-publikation-kantonsamtsblatt",
+            "notification": {
+                "template_slug": "publication-end",
+                "recipient_types": ["are_bab"],
+            },
+        }
+    },
+    ```
+    """
+
+    from caluma.caluma_workflow.models import WorkItem
+    from django.conf import settings
+    from django.utils import timezone
+    from django_celery_beat.models import PeriodicTask
+
+    from camac.notification.utils import send_mail_without_request
+
+    config = settings.APPLICATION["NOTIFICATIONS"].get(
+        "PUBLICATION_END_LEGAL_SUBMISSION"
+    )
+    if not config:
+        return
+
+    now = timezone.now()
+
+    task_id = settings.PUBLICATION["FILL_TASKS"]["PUBLIC"]
+    notification = config["notification"]
+    recipient_types = notification["recipient_types"]
+
+    task = PeriodicTask.objects.filter(task=self.name).first()
+    work_items = WorkItem.objects.filter(
+        task_id=task_id,
+        meta__publication_end_notification_sent_at__isnull=True,
+    )
+
+    if settings.PUBLICATION.get("PUBLISH_QUESTION"):
+        work_items = work_items.annotate(
+            is_published=Exists(
+                Answer.objects.filter(
+                    document_id=OuterRef("document_id"),
+                    question=settings.PUBLICATION["PUBLISH_QUESTION"],
+                    value=settings.PUBLICATION["PUBLISH_ANSWER"],
+                )
+            )
+        ).filter(is_published=True)
+
+    # filter work items where the date_question answer matches yesterday's date.
+    work_items = work_items.annotate(
+        has_matching_date=Exists(
+            Answer.objects.filter(
+                document_id=OuterRef("document_id"),
+                question=config.get("date_question"),
+                date=(now - timezone.timedelta(days=1)).date(),
+            )
+        )
+    ).filter(has_matching_date=True)
+
+    if workitem_id:
+        work_items = work_items.filter(pk=workitem_id)
+
+    log.info(
+        f"Send {work_items.count()} publication-end notifications ({task_id}/{recipient_types}). Last run at {task.last_run_at}."
+    )
+    try:
+        count = 0
+        for work_item in work_items:
+            instance = work_item.case.family.instance
+
+            # for the work items where all conditions match, check if there are any legal submissions,
+            # otherwise just skip.
+            objections = WorkItem.objects.filter(
+                case__family=instance.case.family,
+                task_id="objections",
+            )
+            legal_submissions = Document.objects.filter(
+                family__in=objections.values_list("document_id", flat=True),
+                form_id="einsprache",
+            )
+
+            if not legal_submissions.exists():
+                log.info(
+                    f"Skipping publication end notification for {task_id} workitem {work_item.pk} on instance {instance.pk} because no legal submissions were found."
+                )
+                continue
+
+            try:
+                log.info(
+                    f"Sending publication end notification for {task_id} workitem {work_item.pk} on instance {instance.pk}."
+                )
+                send_mail_without_request(
+                    notification["template_slug"],
+                    recipient_types=recipient_types,
+                    instance={"id": instance.pk, "type": "instances"},
+                    work_item={"id": work_item.pk, "type": "work-items"},
+                )
+                work_item.meta["publication_end_notification_sent_at"] = (
+                    timezone.now().isoformat()
+                )
+                work_item.save(update_fields=["meta"])
+                count += 1
+            except Exception as e:  # pragma: no cover
+                log.error(
+                    f"Failed sending notification for {task_id} workitem {work_item.pk} on instance {instance.pk}: {e}"
                 )
 
     except Exception as e:  # pragma: no cover

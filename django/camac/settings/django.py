@@ -2356,6 +2356,13 @@ APPLICATIONS = {
                     "recipient_types": ["applicant"],
                 },
             },
+            "PUBLICATION_END_LEGAL_SUBMISSION": {
+                "date_question": "ende-publikation-kantonsamtsblatt",
+                "notification": {
+                    "template_slug": "publication-end",
+                    "recipient_types": ["are_bab"],
+                },
+            },
         },
         "SUBSERVICE_ROLES": ["subservice"],
         "DOCUMENT_BACKEND": "alexandria",
