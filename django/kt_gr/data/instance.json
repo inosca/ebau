@@ -3,16 +3,35 @@
     "model": "instance.instance",
     "pk": 5,
     "fields": {
-      "instance_state": 120004,
+      "instance_state": 120011,
       "form": 1,
       "user": 1,
       "group": 3,
       "creation_date": "2023-10-27T08:54:10.508Z",
       "modification_date": "2023-10-27T08:54:10.508Z",
-      "previous_instance_state": 1,
+      "previous_instance_state": 120004,
       "identifier": null,
       "location": null,
       "case": "0387a295-76c1-492d-bbf2-a2b10a0652a5",
+      "instance_group": null,
+      "rejection_feedback": "please make corrections",
+      "copy_source": null
+    }
+  },
+  {
+    "model": "instance.instance",
+    "pk": 7,
+    "fields": {
+      "instance_state": 120004,
+      "form": 1,
+      "user": 1,
+      "group": 3,
+      "creation_date": "2026-02-25T13:13:57.097Z",
+      "modification_date": "2026-02-25T13:13:57.097Z",
+      "previous_instance_state": 1,
+      "identifier": null,
+      "location": null,
+      "case": "0699ef59-5aa8-79db-8000-e6b307d4892e",
       "instance_group": null,
       "rejection_feedback": null,
       "copy_source": null
@@ -20,18 +39,75 @@
   },
   {
     "model": "instance.instance",
-    "pk": 6,
+    "pk": 8,
     "fields": {
       "instance_state": 1,
       "form": 1,
       "user": 1,
       "group": 3,
-      "creation_date": "2024-09-23T11:46:59.985Z",
-      "modification_date": "2024-09-23T11:46:59.985Z",
+      "creation_date": "2026-02-25T13:34:04.285Z",
+      "modification_date": "2026-02-25T13:34:04.285Z",
       "previous_instance_state": 1,
       "identifier": null,
       "location": null,
-      "case": "89c46022-a9d8-43d4-b18e-fdc6bc351ba9",
+      "case": "0699efa4-c9d3-7754-8000-434728bc6f9f",
+      "instance_group": null,
+      "rejection_feedback": null,
+      "copy_source": null
+    }
+  },
+  {
+    "model": "instance.instance",
+    "pk": 9,
+    "fields": {
+      "instance_state": 1,
+      "form": 1,
+      "user": 1,
+      "group": 3,
+      "creation_date": "2026-02-25T13:46:22.783Z",
+      "modification_date": "2026-02-25T13:46:22.783Z",
+      "previous_instance_state": 1,
+      "identifier": null,
+      "location": null,
+      "case": "0699efd2-edf2-741d-8000-9cc3bde343f4",
+      "instance_group": null,
+      "rejection_feedback": null,
+      "copy_source": null
+    }
+  },
+  {
+    "model": "instance.instance",
+    "pk": 10,
+    "fields": {
+      "instance_state": 1,
+      "form": 1,
+      "user": 1,
+      "group": 3,
+      "creation_date": "2026-02-25T13:57:40.181Z",
+      "modification_date": "2026-02-25T13:57:40.181Z",
+      "previous_instance_state": 1,
+      "identifier": null,
+      "location": null,
+      "case": "0699effd-4770-79b8-8000-e2a1e35498fb",
+      "instance_group": null,
+      "rejection_feedback": null,
+      "copy_source": null
+    }
+  },
+  {
+    "model": "instance.instance",
+    "pk": 11,
+    "fields": {
+      "instance_state": 1,
+      "form": 1,
+      "user": 1,
+      "group": 3,
+      "creation_date": "2026-02-25T14:04:45.895Z",
+      "modification_date": "2026-02-25T14:04:45.895Z",
+      "previous_instance_state": 1,
+      "identifier": null,
+      "location": null,
+      "case": "0699f017-df68-7410-8000-9a8e32179ba6",
       "instance_group": null,
       "rejection_feedback": null,
       "copy_source": null
@@ -97,6 +173,71 @@
       "service": null,
       "user": 1,
       "created_at": "2024-09-23T11:41:52.132Z",
+      "title": null,
+      "body": null,
+      "history_type": "notification"
+    }
+  },
+  {
+    "model": "instance.historyentry",
+    "pk": 17,
+    "fields": {
+      "instance": 7,
+      "service": null,
+      "user": 1,
+      "created_at": "2026-02-25T13:32:30.466Z",
+      "title": null,
+      "body": null,
+      "history_type": "status-change"
+    }
+  },
+  {
+    "model": "instance.historyentry",
+    "pk": 18,
+    "fields": {
+      "instance": 7,
+      "service": null,
+      "user": 1,
+      "created_at": "2026-02-25T13:32:36.184Z",
+      "title": null,
+      "body": null,
+      "history_type": "notification"
+    }
+  },
+  {
+    "model": "instance.historyentry",
+    "pk": 19,
+    "fields": {
+      "instance": 7,
+      "service": null,
+      "user": 1,
+      "created_at": "2026-02-25T13:32:36.215Z",
+      "title": null,
+      "body": null,
+      "history_type": "notification"
+    }
+  },
+  {
+    "model": "instance.historyentry",
+    "pk": 20,
+    "fields": {
+      "instance": 5,
+      "service": null,
+      "user": 1,
+      "created_at": "2026-02-25T13:33:32.882Z",
+      "title": null,
+      "body": null,
+      "history_type": "status-change"
+    }
+  },
+  {
+    "model": "instance.historyentry",
+    "pk": 21,
+    "fields": {
+      "instance": 5,
+      "service": null,
+      "user": 1,
+      "created_at": "2026-02-25T13:33:32.904Z",
       "title": null,
       "body": null,
       "history_type": "notification"
@@ -249,6 +390,106 @@
       "title": "Notifica inviata a email@example.ch( (Autorità direttrice)) ([eBau Test]: Neu eingegangen (Baugesuch) / Nuovi moduli pervenuti (Baugesuch))",
       "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 2024-1 (Baugesuch, Gemeinde Chur).\n\nhttp://ember-ebau.localhost/cases/5\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau\n\n---\n\nBuongiorno,\n\nin eBau è arrivato un nuovo dossier con il n. 2024-1 (Domanda di costruzione, Comune di Coira).\n\nhttp://ember-ebau.localhost/cases/5\n\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\n\nCordiali saluti\neBau",
       "history_entry": 16,
+      "language": "it"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 51,
+    "fields": {
+      "title": "Dossier eingereicht",
+      "body": "",
+      "history_entry": 17,
+      "language": "de"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 52,
+    "fields": {
+      "title": "Dossier inoltrato",
+      "body": "",
+      "history_entry": 17,
+      "language": "it"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 53,
+    "fields": {
+      "title": "Notifikation gesendet an admin@example.com (Gesuchsteller/in) ([eBau Test]: Erfolgreiche Einreichung / Trasmissione avvenuta con successo)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nIhr Dossier mit der Dossier-Nr. 2026-1 (Baugesuch, Gemeinde Chur)  wurde erfolgreich übermittelt. Bitte beachten Sie, dass das Verfahren erst eingeleitet wird, wenn die Eingabequittung ausgedruckt und unterzeichnet bei der Standortgemeinde eingereicht wurde. \n\nhttp://ebau-portal.localhost/instances/7\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nGemeinde Chur\n\n---\n\nBuongiorno,\n\nil dossier n. 2026-1 (Domanda di costruzione, Comune di Coira) è stato trasmesso con successo. Si prega di osservare che la procedura viene avviata solo dopo che la ricevuta è stata stampata, firmata e trasmessa al comune di ubicazione. \n\nhttp://ebau-portal.localhost/instances/7\n\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\n\nCordiali saluti\nComune di Coira",
+      "history_entry": 18,
+      "language": "de"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 54,
+    "fields": {
+      "title": "Notifica inviata a admin@example.com( (Persona richiedente)) ([eBau Test]: Erfolgreiche Einreichung / Trasmissione avvenuta con successo)",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nIhr Dossier mit der Dossier-Nr. 2026-1 (Baugesuch, Gemeinde Chur)  wurde erfolgreich übermittelt. Bitte beachten Sie, dass das Verfahren erst eingeleitet wird, wenn die Eingabequittung ausgedruckt und unterzeichnet bei der Standortgemeinde eingereicht wurde. \n\nhttp://ebau-portal.localhost/instances/7\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\nGemeinde Chur\n\n---\n\nBuongiorno,\n\nil dossier n. 2026-1 (Domanda di costruzione, Comune di Coira) è stato trasmesso con successo. Si prega di osservare che la procedura viene avviata solo dopo che la ricevuta è stata stampata, firmata e trasmessa al comune di ubicazione. \n\nhttp://ebau-portal.localhost/instances/7\n\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\n\nCordiali saluti\nComune di Coira",
+      "history_entry": 18,
+      "language": "it"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 55,
+    "fields": {
+      "title": "Notifikation gesendet an email@example.ch (Leitbehörde) ([eBau Test]: Neu eingegangen (Baugesuch) / Nuovi moduli pervenuti (Domanda di costruzione))",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 2026-1 (Baugesuch, Gemeinde Chur).\n\nhttp://ember-ebau.localhost/cases/7\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau\n\n---\n\nBuongiorno,\n\nin eBau è arrivato un nuovo dossier con il n. 2026-1 (Domanda di costruzione, Comune di Coira).\n\nhttp://ember-ebau.localhost/cases/7\n\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\n\nCordiali saluti\neBau",
+      "history_entry": 19,
+      "language": "de"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 56,
+    "fields": {
+      "title": "Notifica inviata a email@example.ch( (Autorità direttrice)) ([eBau Test]: Neu eingegangen (Baugesuch) / Nuovi moduli pervenuti (Domanda di costruzione))",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 2026-1 (Baugesuch, Gemeinde Chur).\n\nhttp://ember-ebau.localhost/cases/7\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau\n\n---\n\nBuongiorno,\n\nin eBau è arrivato un nuovo dossier con il n. 2026-1 (Domanda di costruzione, Comune di Coira).\n\nhttp://ember-ebau.localhost/cases/7\n\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\n\nCordiali saluti\neBau",
+      "history_entry": 19,
+      "language": "it"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 57,
+    "fields": {
+      "title": "Dossier zurückgewiesen",
+      "body": "",
+      "history_entry": 20,
+      "language": "de"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 58,
+    "fields": {
+      "title": "Dossier respinto",
+      "body": "",
+      "history_entry": 20,
+      "language": "it"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 59,
+    "fields": {
+      "title": "Notifikation gesendet an admin@example.com, editor@example.com, readonly@example.com (Gesuchsteller/in) ([eBau Test]: Dossier aufgrund von Mängeln abgewiesen oder nicht darauf eingetreten (Dossier-Nr. 2024-1) / Dossier respinto a causa di lacune oppure non entrata in materia (dossier n. 2024-1))",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nDie Baubewilligungsbehörde (Gemeinde Chur) hat das Dossier mit der Dossier-Nr. 2024-1 (5, Baugesuch, Gemeinde Chur) zurückgewiesen. Das Dossier kann nun angepasst und erneut eingereicht werden.\n\nhttp://ebau-portal.localhost/instances/5\n\nMitteilung der Baubewilligungsbehörde:\n\nplease make corrections\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\n---\n\nBuongiorno,\n\nl'autorità competente per il rilascio della licenza edilizia (Comune di Coira) ha respinto il dossier n. 2024-1 (5, Domanda di costruzione, Comune di Coira). Ora è possibile adeguare il dossier e presentarlo di nuovo.\n\nhttp://ebau-portal.localhost/instances/5\n\nComunicazione dell'autorità competente per il rilascio della licenza edilizia:\n\nplease make corrections\n\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.",
+      "history_entry": 21,
+      "language": "de"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 60,
+    "fields": {
+      "title": "Notifica inviata a admin@example.com, editor@example.com, readonly@example.com( (Persona richiedente)) ([eBau Test]: Dossier aufgrund von Mängeln abgewiesen oder nicht darauf eingetreten (Dossier-Nr. 2024-1) / Dossier respinto a causa di lacune oppure non entrata in materia (dossier n. 2024-1))",
+      "body": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nSie dient nur zu Testzwecken und kann ignoriert werden.\n\nGuten Tag\n\nDie Baubewilligungsbehörde (Gemeinde Chur) hat das Dossier mit der Dossier-Nr. 2024-1 (5, Baugesuch, Gemeinde Chur) zurückgewiesen. Das Dossier kann nun angepasst und erneut eingereicht werden.\n\nhttp://ebau-portal.localhost/instances/5\n\nMitteilung der Baubewilligungsbehörde:\n\nplease make corrections\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\n---\n\nBuongiorno,\n\nl'autorità competente per il rilascio della licenza edilizia (Comune di Coira) ha respinto il dossier n. 2024-1 (5, Domanda di costruzione, Comune di Coira). Ora è possibile adeguare il dossier e presentarlo di nuovo.\n\nhttp://ebau-portal.localhost/instances/5\n\nComunicazione dell'autorità competente per il rilascio della licenza edilizia:\n\nplease make corrections\n\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.",
+      "history_entry": 21,
       "language": "it"
     }
   }
