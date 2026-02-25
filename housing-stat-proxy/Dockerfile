@@ -16,4 +16,4 @@ COPY app.py .
 
 ENV PATH="/app/.venv/bin:$PATH"
 
-CMD ["gunicorn", "--bind", "0.0.0.0:8080", "app:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "--no-control-socket", "app:app"]
