@@ -97,6 +97,13 @@ def generate_module_settings(
             # canton settings. These are the same thing
             canton_settings = base_fixture
 
+        # when creating a canton fixture, it is assumed to be enabled, even
+        # when the original setting is only enabled by an env flag.
+        if isinstance(canton_settings, ModuleApplicationConfig):
+            canton_settings.enabled = True
+        else:
+            canton_settings["ENABLED"] = True
+
         yield canton_settings
 
     elif disable:
