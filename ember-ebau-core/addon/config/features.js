@@ -19,7 +19,7 @@ function validateFeatureConfig(obj, prefix = null) {
       }
 
       throw new Error(
-        `Unexpected type "${type}" for feature flag "${fullKey}". Only boolean values or nested objects are allowed.`,
+        `Unexpected type "${type}" with value: "${v}" for feature flag "${fullKey}". Only boolean values or nested objects are allowed.`,
       );
     }
   }

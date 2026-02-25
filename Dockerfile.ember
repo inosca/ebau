@@ -65,6 +65,12 @@ ENV REPLACE_ENV_RUNTIME=$REPLACE_ENV
 ENV KEYCLOAK_REALM=ebau
 ENV KEYCLOAK_BASE_PATH=auth/
 ENV KEYCLOAK_SCOPES=openid
+
+# Environment variables that are used as feature flags **must** have a default
+# value in here
+ENV ENABLE_TOKEN_EXCHANGE=false
+ENV ENABLE_WATERMARK=false
+
 USER root
 RUN chown -R nginx:nginx /usr/share/nginx/html
 USER nginx
