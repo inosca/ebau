@@ -330,7 +330,7 @@ class WorkItemListRowManager(models.Manager["WorkItemListRow"]):
             target_deadline_date=self._annotate_target_deadline_date(service_id),
             process_deadline_date=self._annotate_process_deadline_date(service_id),
             is_suspended=Coalesce(
-                Q(suspended_services__contains=[service_id]), Value(False)
+                Q(suspended_services__contains=[str(service_id)]), Value(False)
             ),
             is_addressed_to_current_service=Coalesce(
                 Q(addressed_service=service_id), Value(False)
