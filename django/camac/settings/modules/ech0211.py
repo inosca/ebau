@@ -934,7 +934,6 @@ ECH0211 = {
                 ECH_STATUS_NOTIFICATION_IN_KOORDINATION: {
                     "desc": "Zirkulation abgeschlossen melden",
                 },
-                ECH_STATUS_NOTIFICATION_ENTSCHIEDEN: {"disabled": True},
                 ECH_CHANGE_RESPONSIBILITY: {"disabled": True},
                 ECH_FILE_SUBSEQUENTLY: {
                     "desc": "Nachforderung beantworten",
