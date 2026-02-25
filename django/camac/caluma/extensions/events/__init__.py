@@ -19,6 +19,7 @@ from . import (  # noqa: F401
     ebau_number,
     formal_exam,
     general,
+    ktso_afu_custom_task_form,
     publication,
     rejection,
     sb,

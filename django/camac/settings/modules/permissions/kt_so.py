@@ -110,6 +110,8 @@ MODULE_MATERIAL_EXAM_BAB = (
     & RequireWorkItem("material-exam-bab")
     & IsServiceGroup(["service-bab", "service-cantonal", "canton"])
 )
+MODULE_AFU_CHECK_READ = RequireWorkItem("check-afu", addressed_to_current_service=True)
+MODULE_AFU_CHECK_WRITE = MODULE_AFU_CHECK_READ & ~RequireInstanceState(["finished"])
 
 MODULE_PERMISSIONS = STATES_ALL & HasRole(["municipality-lead"])
 MODULE_PUBLICATION = NO_CORRECTION & RequireWorkItem("fill-publication")
@@ -251,6 +253,8 @@ SO_PERMISSIONS_SETTINGS = {
             ("legal-submissions-read", MODULE_LEGAL_SUBMISSIONS),
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
             ("material-exam-bab-read", MODULE_MATERIAL_EXAM_BAB),
+            ("form-check-afu-read", MODULE_AFU_CHECK_READ),
+            ("form-check-afu-write", MODULE_AFU_CHECK_WRITE),
             ("responsible-read", MODULE_RESPONSIBLE),
             ("responsible-write", MODULE_RESPONSIBLE),
             ("work-items-read", MODULE_WORK_ITEMS),

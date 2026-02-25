@@ -720,6 +720,7 @@ DUMP = {
                 "caluma_form_default_answers": {
                     "caluma_form.Answer": Q(document__isnull=True),
                 },
+                "caluma_check_afu_form": generate_form_dump_config(regex=r"^check-afu"),
                 **DISTRIBUTION_DUMP_CONFIG,
                 **ADDITIONAL_DEMAND_DUMP_CONFIG,
                 **CONSTRUCTION_MONITORING_DUMP_CONFIG,

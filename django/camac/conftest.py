@@ -1181,6 +1181,7 @@ def caluma_forms_so(settings):
     caluma_form_models.Form.objects.create(slug="meldung")
     caluma_form_models.Form.objects.create(slug="meldung-pv")
     caluma_form_models.Form.objects.create(slug="materielle-pruefung-bab")
+    caluma_form_models.Form.objects.create(slug="check-afu")
 
     # questions
     caluma_form_models.Question.objects.create(
