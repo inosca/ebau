@@ -311,11 +311,6 @@ services:
       - REDIS_PASSWORD=redis
 
   housing-stat-proxy:
-    image: acr.run/camac-ng/camac-ng/housing-stat-proxy:master
-    build:
-      context: ../housing-stat-proxy
-      cache_from:
-        - acr.run/camac-ng/camac-ng/housing-stat-proxy:master
     networks:
       - ebau.localhost
 

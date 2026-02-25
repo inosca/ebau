@@ -207,6 +207,13 @@ services:
       - OIDC_BEARER_TOKEN_REVALIDATION_TIME=300
       - EXTENSIONS_ARGUMENTS=DJANGO_API=http://django,APPLICATION=${APPLICATION}
 
+  housing-stat-proxy:
+    image: acr.run/camac-ng/camac-ng/housing-stat-proxy:${CI_COMMIT_REF_SLUG:-master}
+    build:
+      context: ../housing-stat-proxy
+      cache_from:
+        - acr.run/camac-ng/camac-ng/housing-stat-proxy:master
+
 volumes:
   pg15data:
   djangomedia:
