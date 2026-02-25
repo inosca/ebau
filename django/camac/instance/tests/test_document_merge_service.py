@@ -14,6 +14,7 @@ from django.utils.timezone import make_aware
 from django.utils.translation import gettext as _
 from rest_framework import exceptions, status
 
+from camac.tags.factories import KeywordFactory, TagFactory
 from camac.tests.form_utils import FormUtils
 from camac.utils import build_url
 
@@ -148,6 +149,7 @@ def test_document_merge_service_client(db, requests_mock):
 def test_document_merge_service_cover_sheet_with_header_values(
     db,
     be_dms_settings,
+    be_tags_settings,
     service_factory,
     tag_factory,
     be_instance,
@@ -715,3 +717,61 @@ def test_is_draft(
         be_instance, be_instance.case.document, BaseUser(), group.service
     )
     assert data["draft"] == expected_draft_output
+
+
+@pytest.mark.django_db
+def test_header_keywords_ag(
+    db,
+    ag_dms_settings,
+    service_factory,
+    ag_instance,
+    group,
+):
+
+    municipality = service_factory(
+        service_group__name="municipality",
+        trans__language="de",
+        trans__name="Gemeinde Aarau",
+    )
+    group.service = municipality
+    group.save()
+
+    # Create keywords for the instance
+    keyword = KeywordFactory(name="keyword 1", service=municipality)
+    keyword.instances.add(ag_instance)
+    keyword2 = KeywordFactory(name="keyword 2", service=municipality)
+    keyword2.instances.add(ag_instance)
+
+    meta_data = DMSHandler().get_meta_data(
+        ag_instance, ag_instance.case.document, municipality
+    )
+
+    assert meta_data["tagHeader"] == "keyword 1, keyword 2"
+
+
+@pytest.mark.django_db
+def test_header_tags_be(
+    db,
+    be_dms_settings,
+    be_tags_settings,
+    service_factory,
+    be_instance,
+    group,
+):
+
+    municipality = service_factory(
+        service_group__name="municipality",
+        trans__language="de",
+        trans__name="Gemeinde Bern",
+    )
+    group.service = municipality
+    group.save()
+
+    TagFactory(name="tag1", instance=be_instance, service=municipality)
+    TagFactory(name="tag2", instance=be_instance, service=municipality)
+
+    meta_data = DMSHandler().get_meta_data(
+        be_instance, be_instance.case.document, municipality
+    )
+
+    assert meta_data["tagHeader"] == "tag1, tag2"

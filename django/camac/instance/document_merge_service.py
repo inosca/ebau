@@ -63,9 +63,11 @@ def get_form_type_config(form_slug):
     return get_form_config().get(get_form_type_key(form_slug), {})
 
 
-def get_header_tags(instance, current_service):
-    tags = instance.tags.filter(service=current_service)
-
+def get_tag_header(instance, current_service):
+    if settings.TAGS and settings.TAGS.use_legacy_tags:
+        tags = instance.tags.filter(service=current_service)
+    else:
+        tags = instance.keywords.filter(service=current_service)
     return ", ".join(tags.values_list("name", flat=True)) if tags.exists() else None
 
 
@@ -248,7 +250,7 @@ class DMSHandler:
                     master_data, "municipality_service_content"
                 ),
                 "municipalityHeader": graceful_get(master_data, "municipality_name"),
-                "tagHeader": get_header_tags(instance, service),
+                "tagHeader": get_tag_header(instance, service),
                 "authorityHeader": get_header_authority(instance),
                 "responsibleHeader": get_header_responsible(instance, service),
                 "inputDateHeader": graceful_get(master_data, "submit_date"),
