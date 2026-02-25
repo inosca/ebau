@@ -67,7 +67,7 @@ from camac.permissions.switcher import (
 from camac.responsible.domain_logic import ResponsibleServiceDomainLogic
 from camac.responsible.models import ResponsibleService
 from camac.settings.modules.deadlines_schema import DeadlinesConfig
-from camac.tags.models import Keyword
+from camac.tags.models import Keyword, StaticKeyword
 from camac.timelines.models import FormTimeline
 from camac.user.models import Group, Location, Service
 from camac.user.permissions import permission_aware
@@ -162,7 +162,14 @@ class InstanceSerializer(
     )
 
     keywords = VisibilityResourceRelatedField(
-        queryset=Keyword.objects, required=False, many=True
+        queryset=Keyword.objects,
+        required=False,
+        many=True,
+    )
+    static_keywords = VisibilityResourceRelatedField(
+        queryset=StaticKeyword.objects,
+        required=False,
+        many=True,
     )
 
     involved_services = relations.SerializerMethodResourceRelatedField(
@@ -258,6 +265,7 @@ class InstanceSerializer(
         "linked_instances": "camac.instance.serializers.InstanceSerializer",
         "active_service": "camac.user.serializers.PublicServiceSerializer",
         "keywords": "camac.tags.serializers.KeywordSerializer",
+        "static_keywords": "camac.tags.serializers.StaticKeywordSerializer",
     }
 
     @transaction.atomic
@@ -281,12 +289,19 @@ class InstanceSerializer(
         validated_data["modification_date"] = timezone.now()
         old_location_id = instance.location_id
 
-        # preserve keywords that are not visible to the current user.
-        submitted_keywords = validated_data.get("keywords", None)
-        if submitted_keywords is not None:
-            validated_data["keywords"] = set(
-                submitted_keywords + self._get_not_visible_keywords(instance)
-            )
+        def validate_keywords(field: str):
+            # preserve keywords that are not visible to the current user.
+            submitted_keywords = validated_data.get(field, None)
+            if submitted_keywords is not None:
+                validated_data[field] = set(
+                    submitted_keywords
+                    + self._get_not_visible_keywords(
+                        instance, getattr(instance, field), field
+                    )
+                )
+
+        validate_keywords("keywords")
+        validate_keywords("static_keywords")
 
         instance = super().update(instance, validated_data)
 
@@ -295,7 +310,7 @@ class InstanceSerializer(
 
         return instance
 
-    def _get_not_visible_keywords(self, instance):
+    def _get_not_visible_keywords(self, instance, keywords, field):
         """
         Get a list of keywords that are not visible for the given instance.
 
@@ -305,12 +320,14 @@ class InstanceSerializer(
         This is used to preserve keywords that are not visible to the current user.
         """
         # use the keywords field to get the current visible keywords.
-        field = self.fields["keywords"]
-        relation_value = field.get_attribute(instance)
-        representation = field.to_representation(relation_value) or []
+        serializer_field = self.fields[field]
+
+        relation_value = serializer_field.get_attribute(instance)
+        representation = serializer_field.to_representation(relation_value) or []
+
         visible_ids = {int(item["id"]) for item in representation}
 
-        return [k for k in instance.keywords.exclude(id__in=visible_ids)]
+        return [k for k in keywords.exclude(id__in=visible_ids)]
 
     def _update_instance_location(self, instance):
         """
@@ -346,6 +363,7 @@ class InstanceSerializer(
             "active_service",
             "parent_instance",
             "keywords",
+            "static_keywords",
         )
         read_only_fields = (
             "creation_date",

@@ -76,6 +76,7 @@ export default {
   },
   instanceHeader: {
     shortIntent: true,
+    staticKeywords: true,
   },
   deadlines: {
     enabled: true,

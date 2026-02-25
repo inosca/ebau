@@ -132,6 +132,8 @@ cases:
     caseCreatedDateBefore-placeholder: ""
     keywords-placeholder: ""
     keywords: "Stichworte"
+    staticKeywords: "Sachverhalte"
+    staticKeywords-placeholder: ""
     type-placeholder: ""
     type: "Gesuchstyp"
     withCantonalParticipation: "Mit kantonaler Beteiligung"

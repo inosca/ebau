@@ -173,6 +173,18 @@ const config = {
       templateName: () => `signatures`,
     },
   },
+  servicePermissions: {
+    includeSubRoutes: [
+      "permissions",
+      "invitations",
+      "organisation",
+      "sub-services",
+      { route: "static-keywords", forServiceSlugs: ["afu"] },
+    ],
+  },
+  instanceHeader: {
+    showStaticKeywordsFor: ["afu"],
+  },
 };
 
 config.intentSlugs = [config.answerSlugs.description];

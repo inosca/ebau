@@ -43,3 +43,11 @@ class KeywordView(VisibilityViewMixin, ModelViewSet):
     search_fields = ("name",)
     ordering = ("name",)
     queryset = models.Keyword.objects.all()
+
+
+class StaticKeywordView(KeywordView):
+    serializer_class = serializers.StaticKeywordSerializer
+    filterset_class = filters.StaticKeywordFilterSet
+    search_fields = ("name",)
+    ordering = ("name",)
+    queryset = models.StaticKeyword.objects.all()

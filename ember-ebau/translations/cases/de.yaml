@@ -1,9 +1,15 @@
 cases:
   header:
     keywords: "Stichworte"
+    static-keywords: "Sachverhalte"
     printPreview: "Druckansicht"
     form: "Formular"
     searchKeyword: "Stichwort suchen"
+    loadKeywords: "Stichwort werden geladen..."
+    emptyKeywords: "Keine Stichworte gefunden"
+    searchStaticKeyword: "Sachverhalt suchen"
+    loadStaticKeywords: "Sachverhalte werden geladen..."
+    emptyStaticKeywords: "Keine Sachverhalte gefunden"
     addKeyword: '"{term}" hinzufügen'
     keywordSaveFailed: "Beim Speichern des Stichwortes ist ein Fehler aufgetreten"
     noApplicantRegisteredWarning: "Achtung: Noch keiner der Gesuchstellenden hat sich bisher auf eBau angemeldet."

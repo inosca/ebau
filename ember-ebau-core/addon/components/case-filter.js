@@ -137,6 +137,8 @@ export default class CaseFilterComponent extends Component {
     });
   });
 
+  staticKeywords = findAll(this, "static-keyword");
+
   @restartableTask
   *searchKeywords(search) {
     if (!search) return [];
@@ -153,6 +155,23 @@ export default class CaseFilterComponent extends Component {
       search,
       "page[size]": 50,
       "page[number]": 1,
+    });
+  }
+
+  @restartableTask
+  *searchStaticKeywords(search) {
+    if (!search) return [];
+
+    if (macroCondition(isTesting())) {
+      // no timeout
+    } else {
+      yield timeout(500);
+    }
+
+    yield Promise.resolve();
+
+    return yield this.store.query("static-keyword", {
+      search,
     });
   }
 

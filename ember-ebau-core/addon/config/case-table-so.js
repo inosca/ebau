@@ -55,6 +55,7 @@ export default {
         "submitDateAfter",
         "submitDateBefore",
         "keywords",
+        "staticKeywords",
         "instanceState",
         "responsibleServiceUser",
         "municipality",

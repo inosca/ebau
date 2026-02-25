@@ -20,10 +20,26 @@ class Tags(models.Model):
         db_table = "TAGS"
 
 
-class Keyword(models.Model):
+class BaseKeyword(models.Model):
     name = models.CharField(max_length=50)
     service = models.ForeignKey("user.Service", models.CASCADE, related_name="+")
+
+    class Meta:
+        abstract = True
+
+
+class Keyword(BaseKeyword):
     instances = models.ManyToManyField("instance.Instance", related_name="keywords")
+
+    class Meta:
+        managed = True
+        unique_together = (("name", "service"),)
+
+
+class StaticKeyword(BaseKeyword):
+    instances = models.ManyToManyField(
+        "instance.Instance", blank=True, related_name="static_keywords"
+    )
 
     class Meta:
         managed = True

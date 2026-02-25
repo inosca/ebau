@@ -22,3 +22,9 @@ class KeywordFilterSet(FilterSet):
     class Meta:
         model = models.Keyword
         fields = ("id", "name", "instance_id")
+
+
+class StaticKeywordFilterSet(KeywordFilterSet):
+    class Meta:
+        model = models.StaticKeyword
+        fields = ("name", "instance_id")
