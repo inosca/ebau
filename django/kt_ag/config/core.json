@@ -1742,8 +1742,8 @@
     "fields": {
       "resource": 22000005,
       "language": "de",
-      "name": "Migration",
-      "description": "Dossier Imports durch Migrations-Scripts"
+      "name": "Dossierimport",
+      "description": null
     }
   },
   {

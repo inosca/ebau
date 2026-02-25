@@ -2,7 +2,9 @@ from datetime import datetime
 
 from django.core.management.base import BaseCommand
 
-from camac.dossier_import.config.kt_ag.kt_ag_migrator import KtAargauMigrator
+from camac.dossier_import.config.kt_ag_sap_migration.kt_ag_migrator import (
+    KtAargauMigrator,
+)
 
 
 class Command(BaseCommand):

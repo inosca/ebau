@@ -1,0 +1,4 @@
+hdbcli==2.25.29
+python-dotenv==1.0.1
+codetiming==1.4.0
+httpx==0.28.1
