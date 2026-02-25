@@ -154,9 +154,10 @@ class CalumaApi:
 
     def is_imported(self, instance):
         """Return true if instance was imported using dossier import."""
-        return (
-            get_unversioned_slug(instance.case.document.form_id) == "migriertes-dossier"
-        )
+        return get_unversioned_slug(instance.case.document.form_id) in [
+            "migriertes-dossier",
+            "importiertes-dossier",
+        ]
 
     def is_submitted(self, instance, document):
         """Return true if instance got submitted by the applicant."""

@@ -4,7 +4,7 @@ from datetime import datetime
 import pytest
 from django.utils.timezone import make_aware
 
-from camac.dossier_import.config.kt_ag.dossier_import.dossier_loader import (
+from camac.dossier_import.config.kt_ag_sap_migration.dossier_import.dossier_loader import (
     KtAargauDossierLoader,
     datetime_from_long_number,
 )

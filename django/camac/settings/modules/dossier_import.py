@@ -102,50 +102,26 @@ DOSSIER_IMPORT = {
     },
     "kt_ag": {
         "ENABLED": True,
-        "USER": "Migration",
-        "GROUP": "Support",
-        "WRITER_CLASS": "camac.dossier_import.config.kt_ag.dossier_import.dossier_writer.KtAargauDossierWriter",
-        "LOADER_CLASS": "camac.dossier_import.config.kt_ag.dossier_import.dossier_loader.KtAargauDossierLoader",
-        "CALUMA_FORM": "baugesuch-migration",
+        "WRITER_CLASS": "camac.dossier_import.config.kt_ag.KtAargauDossierWriter",
+        "INSTANCE_STATE_MAPPING": {
+            "SUBMITTED": "subm",
+            "APPROVED": "decided",
+            "REJECTED": "finished",
+            "WRITTEN OFF": "finished",
+            "DONE": "finished",
+        },
+        "CALUMA_FORM": "importiertes-dossier",
         "FORM_ID": 1,
-        "MIGRATION_REPORTS_DIR": env.str(
-            "MIGRATION_REPORTS_DIR", "/app/kt_ag/migration_reports"
+        "ALEXANDRIA_CATEGORY": "dossier-import",
+        "PROD_URL": env.str(
+            "DJANGO_DOSSIER_IMPORT_PROD_URL",
+            "https://ebauintern.ag.ch/",
         ),
-        "SAP_ACCESS": {
-            "enabled": False,
-            "json_target_dir": "kt_ag_json",
-            "host": "unknown",
-            "port": -1,
-            "user": "unknown",
-            "password": "unknown",
-            "db_name": "unknown",
-            "schema": "unknown",
-            "soap_server": "unknown",
-            "soap_user": "unknown",
-            "soap_password": "unknown",
-        },
-        "DOCS_MIGRATION_ENABLED": env.bool("EBAU_DOCS_MIGRATION_ENABLED", True),
-        "EBAU_DOCUMENT_CLIENT": {
-            "connection": {
-                "base_url": env.str(
-                    "EBAU_DOCUMENT_CLIENT_BASE_URL", "EBAU_DOCUMENT_CLIENT_BASE_URL"
-                ),
-                "username": env.str("EBAU_DOCUMENT_CLIENT_USERNAME", "testuser"),
-                "password": env.str("EBAU_DOCUMENT_CLIENT_PASSWORD", "testpass"),
-            },
-            "check_replication_interval_seconds": env.int(
-                "CHECK_REPLICATION_INTERVAL_SECONDS", 60
-            ),
-        },
-        "S3": {
-            "url": env.str("ALEXANDRIA_S3_ENDPOINT_URL", "http://minio:9000"),
-            "access_key": env.str("ALEXANDRIA_S3_ACCESS_KEY", "minio"),
-            "secret_key": env.str("ALEXANDRIA_S3_SECRET_KEY", "minio123"),
-            "source_bucket": env.str(
-                "EBAU_S3_MIGRATION_BUCKET_NAME", "migration-media"
-            ),
-            "addressing_style": env.str("EBAU_S3_ADDRESSING_STYLE", "virtual"),
-        },
+        "PROD_AUTH_URL": env.str(
+            "DJANGO_DOSSIER_IMPORT_PROD_AUTH_URL",
+            "https://auth.ag.ch/realms/KTAG/protocol/openid-connect/token",
+        ),
+        "QUEUE": "celery",
     },
     "kt_gr": {
         "ENABLED": True,

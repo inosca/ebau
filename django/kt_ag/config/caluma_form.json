@@ -643,6 +643,29 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "importiertes-dossier",
+    "fields": {
+      "created_at": "2026-02-18T14:58:50.434Z",
+      "modified_at": "2026-02-18T14:58:50.434Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Importiertes Dossier\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "meta": {
+        "order": 1,
+        "category": "building-permit",
+        "is-creatable": false,
+        "is-main-form": true
+      },
+      "is_published": false,
+      "is_archived": false,
+      "source": "baugesuch-migration"
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "internes-dossier",
     "fields": {
       "created_at": "2025-04-01T11:37:57.673Z",
@@ -5781,6 +5804,141 @@
       "form": "heizungen-tabelle",
       "question": "typ-der-waermepumpe-heizung",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "importiertes-dossier.allgemeine-informationen-migration",
+    "fields": {
+      "created_at": "2026-02-18T14:58:50.455Z",
+      "modified_at": "2026-02-18T14:58:50.455Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "importiertes-dossier",
+      "question": "allgemeine-informationen-migration",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "importiertes-dossier.bauzonen-migration-form",
+    "fields": {
+      "created_at": "2026-02-18T14:58:50.485Z",
+      "modified_at": "2026-02-18T14:58:50.485Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "importiertes-dossier",
+      "question": "bauzonen-migration-form",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "importiertes-dossier.beschreibung-form-migration",
+    "fields": {
+      "created_at": "2026-02-18T14:58:50.476Z",
+      "modified_at": "2026-02-18T14:58:50.476Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "importiertes-dossier",
+      "question": "beschreibung-form-migration",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "importiertes-dossier.dokumente-ohne-pflichtdokumente",
+    "fields": {
+      "created_at": "2026-02-18T14:58:50.495Z",
+      "modified_at": "2026-02-18T14:58:50.495Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "importiertes-dossier",
+      "question": "dokumente-ohne-pflichtdokumente",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "importiertes-dossier.einreichen",
+    "fields": {
+      "created_at": "2026-02-18T14:58:50.500Z",
+      "modified_at": "2026-02-18T14:58:50.500Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "importiertes-dossier",
+      "question": "einreichen",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "importiertes-dossier.gebaeudetechnik-migration-form",
+    "fields": {
+      "created_at": "2026-02-18T14:58:50.481Z",
+      "modified_at": "2026-02-18T14:58:50.481Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "importiertes-dossier",
+      "question": "gebaeudetechnik-migration-form",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "importiertes-dossier.geschaeftstyp-import",
+    "fields": {
+      "created_at": "2026-02-18T15:06:09.117Z",
+      "modified_at": "2026-02-18T15:06:09.117Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "importiertes-dossier",
+      "question": "geschaeftstyp-import",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "importiertes-dossier.kontakte-migration",
+    "fields": {
+      "created_at": "2026-02-18T14:58:50.472Z",
+      "modified_at": "2026-02-18T14:58:50.472Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "importiertes-dossier",
+      "question": "kontakte-migration",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "importiertes-dossier.weitere-angaben-migration-form",
+    "fields": {
+      "created_at": "2026-02-18T14:58:50.489Z",
+      "modified_at": "2026-02-18T14:58:50.489Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "importiertes-dossier",
+      "question": "weitere-angaben-migration-form",
+      "sort": 4
     }
   },
   {
@@ -21999,6 +22157,40 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "gebaeudetechnik-migration",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "geschaeftstyp-import",
+    "fields": {
+      "created_at": "2026-02-18T15:06:09.057Z",
+      "modified_at": "2026-02-18T15:06:09.057Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Geschäftstyp Dossierimport\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "true",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,

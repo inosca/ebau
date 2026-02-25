@@ -1,10 +1,10 @@
 import pytest
 
-from camac.dossier_import.config.kt_ag.dossier_import.dossier_classes import (
+from camac.dossier_import.config.kt_ag_sap_migration.dossier_import.dossier_classes import (
     KtAargauDossier,
     ProceduralStatusEntry,
 )
-from camac.dossier_import.config.kt_ag.dossier_import.writer_mappings import (
+from camac.dossier_import.config.kt_ag_sap_migration.dossier_import.writer_mappings import (
     DossierState,
     map_target_state,
 )
