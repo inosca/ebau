@@ -63,6 +63,7 @@ SG_PERMISSIONS_SETTINGS = {
             ("form-read", MODULE_FORM),
         ],
         "lead-authority": [
+            ("communications-convert-to-document", MODULE_COMMUNICATIONS),
             ("communications-read", MODULE_COMMUNICATIONS),
             ("communications-write", MODULE_COMMUNICATIONS),
             ("documents-read", MODULE_DOCUMENTS),
