@@ -901,7 +901,7 @@ ECH0211 = {
             },
         },
         "CLOSE_DOSSIER": {
-            "ALLOWED_STATES": ["construction-monitoring", "to-finish"],
+            "ALLOWED_STATES": ["decided", "construction-monitoring", "to-finish"],
             "WORK_ITEM_ACTIONS": [
                 ("skip", "init-construction-monitoring"),
                 ("complete", "complete-instance"),
