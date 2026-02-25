@@ -212,6 +212,7 @@ GR_PERMISSIONS_SETTINGS = {
             ("audit-read", MODULE_AUDIT),
             ("communications-read", MODULE_COMMUNICATIONS),
             ("communications-write", MODULE_COMMUNICATIONS),
+            ("communications-convert-to-document", MODULE_COMMUNICATIONS),
             ("decision-read", MODULE_DECISION),
             ("distribution-read", MODULE_DISTRIBUTION),
             ("dms-generate-read", MODULE_DMS_GENERATE),
@@ -247,6 +248,7 @@ GR_PERMISSIONS_SETTINGS = {
             ("audit-read", MODULE_AUDIT),
             ("communications-read", MODULE_COMMUNICATIONS),
             ("communications-write", MODULE_COMMUNICATIONS),
+            ("communications-convert-to-document", MODULE_COMMUNICATIONS),
             ("construction-acceptance-read", MODULE_CONSTRUCTION_ACCEPTANCE),
             ("construction-acceptance-write", MODULE_CONSTRUCTION_ACCEPTANCE),
             ("construction-monitoring-read", MODULE_CONSTRUCTION_MONITORING),
@@ -339,6 +341,7 @@ GR_PERMISSIONS_SETTINGS = {
         "uso": [
             ("communications-read", MODULE_COMMUNICATIONS),
             ("communications-write", MODULE_COMMUNICATIONS),
+            ("communications-convert-to-document", MODULE_COMMUNICATIONS),
             ("distribution-read", MODULE_DISTRIBUTION),
             ("documents-read", MODULE_DOCUMENTS),
             ("documents-write", MODULE_DOCUMENTS),

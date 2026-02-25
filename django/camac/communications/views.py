@@ -1,3 +1,5 @@
+import json
+
 from django.conf import settings
 from django.db import transaction
 from django.db.models import Exists, Max, OuterRef, Value
@@ -23,6 +25,10 @@ from rest_framework_json_api.views import (
 )
 
 from camac.instance.mixins import InstanceQuerysetMixin
+from camac.permissions.api import PermissionManager
+from camac.permissions.switcher import (
+    permission_switching_method,
+)
 from camac.user.permissions import permission_aware
 from camac.utils import is_support
 
@@ -94,11 +100,21 @@ class TopicView(InvolvedInTopicQuerysetMixin, InstanceQuerysetMixin, ModelViewSe
         qs = self._annotate_last_message_date(qs)
         return qs
 
-    @permission_aware
+    @permission_switching_method
     def has_create_permission(self, *args, **kwargs):
+        instance_id = self.request.data.get("instance", {}).get("id")
+        if not instance_id:  # pragma: no cover
+            return False
+
+        manager = PermissionManager.from_request(self.request)
+        return manager.has_all(instance_id, "communications-write")
+
+    @has_create_permission.register_old
+    @permission_aware
+    def has_create_permission_rbac(self, *args, **kwargs):
         return True
 
-    def has_create_permission_for_support(self, *args, **kwargs):
+    def has_create_permission_rbac_for_support(self, *args, **kwargs):
         return False
 
     class Meta:
@@ -190,25 +206,50 @@ class MessageView(
 
         return qs.filter(topic__involved_entities__contains=[my_entity])
 
+    @permission_switching_method
+    def has_object_read_permission(self, obj, *args, **kwargs):
+        manager = PermissionManager.from_request(self.request)
+        return manager.has_all(obj.topic.instance.pk, "communications-write")
+
+    @has_object_read_permission.register_old
     @permission_aware
-    def has_object_read_permission(self, *args, **kwargs):
+    def has_object_read_permission_rbac(self, obj, *args, **kwargs):
         return True
 
-    def has_object_read_permission_for_support(self, *args, **kwargs):
+    def has_object_read_permission_rbac_for_support(self, obj, *args, **kwargs):
         return False
 
+    @permission_switching_method
+    def has_object_unread_permission(self, obj, *args, **kwargs):
+        manager = PermissionManager.from_request(self.request)
+        return manager.has_all(obj.topic.instance.pk, "communications-write")
+
+    @has_object_unread_permission.register_old
     @permission_aware
-    def has_object_unread_permission(self, *args, **kwargs):
+    def has_object_unread_permission_rbac(self, obj, *args, **kwargs):
         return True
 
-    def has_object_unread_permission_for_support(self, *args, **kwargs):
+    def has_object_unread_permission_rbac_for_support(self, obj, *args, **kwargs):
         return False
 
-    @permission_aware
+    @permission_switching_method
     def has_create_permission(self, *args, **kwargs):
+        request_topic = self.request.data.get("topic", "{}")
+        json_topic = json.loads(request_topic)
+        topic_id = json_topic.get("id")
+        topic = models.CommunicationsTopic.objects.filter(pk=topic_id).first()
+        if not topic:  # pragma: no cover
+            return False
+
+        manager = PermissionManager.from_request(self.request)
+        return manager.has_all(topic.instance, "communications-write")
+
+    @has_create_permission.register_old
+    @permission_aware
+    def has_create_permission_rbac(self, *args, **kwargs):
         return True
 
-    def has_create_permission_for_support(self, *args, **kwargs):
+    def has_create_permission_rbac_for_support(self, *args, **kwargs):
         return False
 
     class Meta:
@@ -249,6 +290,15 @@ class AttachmentView(
         qs = qs.filter(message__topic__involved_entities__contains=[my_entity])
         return qs
 
+    def is_involved_in_topic(self, attachment):
+        my_entity = models.entity_for_current_user(self.request)
+
+        if not my_entity:  # pragma: no cover
+            return False
+
+        involved_entities = attachment.message.topic.involved_entities
+        return my_entity in involved_entities
+
     @action(
         methods=["patch"],
         detail=True,
@@ -263,21 +313,28 @@ class AttachmentView(
         serializer.save()
         return response.Response(serializer.data)
 
-    @permission_aware
+    @permission_switching_method
     def has_object_convert_to_document_permission(self, attachment):
         """Check if user has permission to convert a given attachment to a document."""
-        my_entity = models.entity_for_current_user(self.request)
-
-        if not my_entity:  # pragma: no cover
+        instance = attachment.message.topic.instance
+        manager = PermissionManager.from_request(self.request)
+        has_permission = manager.has_all(instance, "communications-convert-to-document")
+        if not has_permission:
             return False
 
-        involved_entities = attachment.message.topic.involved_entities
-        return my_entity in involved_entities
+        return self.is_involved_in_topic(attachment)
 
-    def has_object_convert_to_document_permission_for_support(self, attachment):
+    @has_object_convert_to_document_permission.register_old
+    @permission_aware
+    def has_object_convert_to_document_permission_rbac(self, attachment):
+        """Check if user has permission to convert a given attachment to a document."""
+
+        return self.is_involved_in_topic(attachment)
+
+    def has_object_convert_to_document_permission_rbac_for_support(self, attachment):
         return False
 
-    def has_object_convert_to_document_permission_for_applicant(self, attachment):
+    def has_object_convert_to_document_permission_rbac_for_applicant(self, attachment):
         return False
 
     @action(methods=["get"], detail=True, permission_classes=[])
@@ -311,11 +368,19 @@ class AttachmentView(
             content_type=obj.content_type,
         )
 
-    @permission_aware
+    @permission_switching_method
     def has_object_destroy_permission(self, attachment):
+        instance = attachment.message.topic.instance
+
+        manager = PermissionManager.from_request(self.request)
+        return manager.has_all(instance, "communications-delete-attachment")
+
+    @has_object_destroy_permission.register_old
+    @permission_aware
+    def has_object_destroy_permission_rbac(self, attachment):
         return False
 
-    def has_object_destroy_permission_for_support(self, attachment):
+    def has_object_destroy_permission_rbac_for_support(self, attachment):
         return True
 
     class Meta:

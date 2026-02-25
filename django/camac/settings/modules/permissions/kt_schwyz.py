@@ -47,6 +47,7 @@ SZ_PERMISSIONS_SETTINGS = {
     "ACCESS_LEVELS": {
         "read": [
             ("communications-read", MODULE_COMMUNICATIONS),
+            ("communications-write", MODULE_COMMUNICATIONS),
             ("distribution-read", MODULE_DISTRIBUTION),
             ("documents-read", MODULE_DOCUMENT),
             ("form-read", MODULE_FORM),

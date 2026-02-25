@@ -39,7 +39,7 @@ export default class extends Ability {
   async canMarkAsReadOrUnread() {
     if (this.permissions.fullyEnabled) {
       return await this.permissions.hasAll(
-        (await this.model.topic)?.belongsTo("instance").id(),
+        (await this.model?.topic)?.belongsTo("instance").id(),
         "communications-write",
       );
     }
@@ -50,7 +50,14 @@ export default class extends Ability {
     return true;
   }
 
-  get canLinkAttachments() {
+  async canLinkAttachments() {
+    if (this.permissions.fullyEnabled) {
+      return await this.permissions.hasAll(
+        (await this.model?.topic)?.belongsTo("instance").id(),
+        "communications-convert-to-document",
+      );
+    }
+
     return (
       !this.ebauModules.isReadOnlyRole &&
       !this.ebauModules.isApplicant &&
@@ -58,7 +65,14 @@ export default class extends Ability {
     );
   }
 
-  get canDeleteAttachments() {
+  async canDeleteAttachments() {
+    if (this.permissions.fullyEnabled) {
+      return await this.permissions.hasAll(
+        (await this.model?.topic)?.belongsTo("instance").id(),
+        "communications-delete-attachment",
+      );
+    }
+
     if (macroCondition(getOwnConfig().application === "be")) {
       return this.ebauModules.isSupportRole;
     }

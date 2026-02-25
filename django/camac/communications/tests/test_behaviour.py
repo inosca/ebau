@@ -11,6 +11,9 @@ from rest_framework.status import (
     HTTP_403_FORBIDDEN,
 )
 
+from camac.document import permissions
+from camac.permissions.switcher import PERMISSION_MODE
+
 
 @pytest.mark.parametrize("communications_message__sent_at", ["2022-12-12T12:12:12Z"])
 @pytest.mark.parametrize(
@@ -403,7 +406,7 @@ def test_validate_topic_entities_for_applicant(
 @pytest.mark.parametrize("communications_attachment__file_type", ["text/plain"])
 @pytest.mark.parametrize(
     "role__name, expect_result",
-    [("Municipality", HTTP_200_OK), ("Applicant", HTTP_403_FORBIDDEN)],
+    [("municipality-lead", HTTP_200_OK), ("Applicant", HTTP_403_FORBIDDEN)],
 )
 def test_convert_attachment_to_document(
     db,
@@ -414,7 +417,12 @@ def test_convert_attachment_to_document(
     communications_message,
     communications_attachment,
     attachment_section,
+    permissions_settings,
+    application_settings,
+    mocker,
 ):
+    application_settings["DOCUMENT_BACKEND"] = "camac-ng"
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.OFF
     communications_message.topic.involved_entities = [
         admin_client.user.get_default_group().service_id,
         "APPLICANT",
@@ -435,6 +443,11 @@ def test_convert_attachment_to_document(
     url = reverse(
         "communications-attachment-convert-to-document",
         args=[communications_attachment.pk],
+    )
+
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS",
+        {"test": {role.name: {permissions.AdminPermission: [attachment_section.pk]}}},
     )
 
     resp = admin_client.patch(

@@ -351,8 +351,11 @@ BE_PERMISSIONS_SETTINGS = {
     "MIGRATED_ROLE_PERMISSIONS": env.list("MIGRATED_ROLE_PERMISSIONS", default=[]),
     "ACCESS_LEVELS": {
         "geometer": [
+            # TODO: Check if any logic is missing for geometers before
+            # switching entirely to permissions module
             ("communications-read", GEOMETER_RW),
             ("communications-write", GEOMETER_RW),
+            ("communications-convert-to-document", GEOMETER_RW),
             ("documents-read", MODULE_DOCUMENTS_READ),
             ("documents-write", MODULE_DOCUMENTS_WRITE),
             ("dms-generate-read", GEOMETER_RW),
@@ -375,8 +378,11 @@ BE_PERMISSIONS_SETTINGS = {
             ("history-read", MODULE_HISTORY),
         ],
         "legal-authority": [
+            # TODO: Check if any logic is missing for legal-authority before
+            # switching entirely to permissions module
             ("communications-read", MODULE_COMMUNICATIONS_READ),
             ("communications-write", MODULE_COMMUNICATIONS_WRITE),
+            ("communications-convert-to-document", MODULE_COMMUNICATIONS_WRITE),
             ("documents-read", MODULE_DOCUMENTS_READ),
             ("documents-write", MODULE_DOCUMENTS_WRITE),
             ("alexandria-write", MODULE_DOCUMENTS_WRITE),
@@ -413,6 +419,8 @@ BE_PERMISSIONS_SETTINGS = {
             ("changelog-read", SUPPORT_CONDITION),
             ("history-read", SUPPORT_CONDITION),
             ("instance-change-form", SUPPORT_CONDITION),
+            ("communications-read", SUPPORT_CONDITION),
+            ("communications-delete-attachment", SUPPORT_CONDITION),
         ],
         "distribution-service": [
             ("work-items-read", BE_SERVICE_STATES_DEFAULT),

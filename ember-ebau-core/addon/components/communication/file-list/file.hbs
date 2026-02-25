@@ -13,7 +13,7 @@
   </a>
 </span>
 
-{{#if (can "link attachments on message")}}
+{{#if (await (can "link attachments on message" @message))}}
   <span>
     {{#if (or @file.documentAttachment @file.alexandriaFile)}}
       <span class="uk-text-meta">
@@ -40,7 +40,7 @@
     {{/if}}
   </span>
 {{/if}}
-{{#if (can "delete attachments on message")}}
+{{#if (await (can "delete attachments on message" @message))}}
   <span>
     <button
       type="button"

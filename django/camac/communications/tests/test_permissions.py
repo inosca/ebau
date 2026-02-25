@@ -1,7 +1,18 @@
+import io
+import json
+
 import pytest
 from django.urls import reverse
 from pytest_lazy_fixtures import lf
 from rest_framework import status
+from rest_framework.status import (
+    HTTP_200_OK,
+    HTTP_403_FORBIDDEN,
+)
+
+from camac.document import permissions
+from camac.permissions.conditions import Always, Never
+from camac.permissions.switcher import PERMISSION_MODE
 
 _admin = lf("admin_user")
 _other = lf("some_other_user")
@@ -314,3 +325,729 @@ def test_adding_message_with_allow_replies(
         },
     )
     assert resp.status_code == expect_status
+
+
+@pytest.mark.parametrize("communications_attachment__document_attachment", [None])
+@pytest.mark.parametrize("communications_attachment__file_type", ["text/plain"])
+@pytest.mark.parametrize(
+    "role__name,has_acl_permission,has_section_permission,expect_result",
+    [
+        # Permissions module: Document conversion requires
+        # "communications-convert-to-document" permission and
+        # a write section permission in the documents module
+        ("municipality-lead", True, True, HTTP_200_OK),
+        ("municipality-lead", False, True, HTTP_403_FORBIDDEN),
+        ("municipality-lead", False, False, HTTP_403_FORBIDDEN),
+        ("municipality-lead", True, False, HTTP_403_FORBIDDEN),
+        ("Applicant", True, True, HTTP_200_OK),
+        ("Applicant", False, True, HTTP_403_FORBIDDEN),
+        ("Applicant", False, False, HTTP_403_FORBIDDEN),
+        ("Applicant", True, False, HTTP_403_FORBIDDEN),
+    ],
+)
+def test_permission_convert_attachment_to_document_acl(
+    db,
+    be_instance,
+    role,
+    admin_client,
+    communications_message,
+    communications_attachment,
+    attachment_section,
+    permissions_settings,
+    application_settings,
+    mocker,
+    instance_acl_factory,
+    access_level,
+    has_acl_permission,
+    has_section_permission,
+    expect_result,
+):
+    application_settings["DOCUMENT_BACKEND"] = "camac-ng"
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.FULL
+    permissions_settings["ACCESS_LEVELS"] = {
+        access_level.pk: [
+            (
+                "communications-convert-to-document",
+                Always() if has_acl_permission else Never(),
+            )
+        ]
+    }
+
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS_BY_ACCESSLEVEL",
+        {
+            "test": {
+                access_level.slug: {
+                    permissions.AdminPermission: (
+                        permissions._allow_always,
+                        [attachment_section.pk] if has_section_permission else [],
+                    ),
+                }
+            }
+        },
+    )
+
+    service = admin_client.user.get_default_group().service
+    communications_message.topic.involved_entities = [
+        service.pk,
+        "APPLICANT",
+    ]
+    communications_message.topic.save()
+
+    if role.name == "Applicant":
+        be_instance.involved_applicants.create(
+            invitee=admin_client.user, user=admin_client.user
+        )
+        instance_acl_factory(
+            access_level=access_level, instance=be_instance, user=admin_client.user
+        )
+    else:
+        instance_acl_factory(
+            access_level=access_level, instance=be_instance, service=service
+        )
+
+    communications_attachment.file_attachment.save("foo.txt", io.BytesIO(b"asdfasdf"))
+    communications_attachment.save()
+
+    url = reverse(
+        "communications-attachment-convert-to-document",
+        args=[communications_attachment.pk],
+    )
+
+    resp = admin_client.patch(
+        url,
+        {
+            "data": {
+                "type": "communications-attachments",
+                "id": communications_attachment.pk,
+                "attributes": {},
+                "relationships": {
+                    "section": {
+                        "data": {
+                            "id": str(attachment_section.pk),
+                            "type": "attachment-sections",
+                        }
+                    },
+                },
+            }
+        },
+    )
+
+    assert resp.status_code == expect_result
+
+
+@pytest.mark.parametrize("communications_attachment__document_attachment", [None])
+@pytest.mark.parametrize("communications_attachment__file_type", ["text/plain"])
+@pytest.mark.parametrize(
+    "role__name,has_section_permission,expect_result",
+    [
+        # RBAC: Internal roles except for support can convert to document,
+        # as long as they are involved and have the section write permission
+        # in the documents module, applicants are not allowed.
+        ("municipality-lead", True, HTTP_200_OK),
+        ("municipality-lead", False, HTTP_403_FORBIDDEN),
+        ("Applicant", True, HTTP_403_FORBIDDEN),
+        ("Applicant", False, HTTP_403_FORBIDDEN),
+        ("Support", True, HTTP_403_FORBIDDEN),
+        ("Support", False, HTTP_403_FORBIDDEN),
+    ],
+)
+def test_permission_convert_attachment_to_document_rbac(
+    db,
+    be_instance,
+    role,
+    admin_client,
+    communications_message,
+    communications_attachment,
+    attachment_section,
+    permissions_settings,
+    application_settings,
+    mocker,
+    instance_acl_factory,
+    access_level,
+    has_section_permission,
+    expect_result,
+):
+    application_settings["DOCUMENT_BACKEND"] = "camac-ng"
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.OFF
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS",
+        {
+            "test": {
+                role.name: {
+                    permissions.AdminPermission: [attachment_section.pk]
+                    if has_section_permission
+                    else []
+                }
+            }
+        },
+    )
+
+    service = admin_client.user.get_default_group().service
+    communications_message.topic.involved_entities = [service.pk, "APPLICANT"]
+    communications_message.topic.save()
+
+    if role.name == "Applicant":
+        be_instance.involved_applicants.create(
+            invitee=admin_client.user, user=admin_client.user
+        )
+
+    communications_attachment.file_attachment.save("foo.txt", io.BytesIO(b"asdfasdf"))
+    communications_attachment.save()
+
+    url = reverse(
+        "communications-attachment-convert-to-document",
+        args=[communications_attachment.pk],
+    )
+
+    resp = admin_client.patch(
+        url,
+        {
+            "data": {
+                "type": "communications-attachments",
+                "id": communications_attachment.pk,
+                "attributes": {},
+                "relationships": {
+                    "section": {
+                        "data": {
+                            "id": str(attachment_section.pk),
+                            "type": "attachment-sections",
+                        }
+                    },
+                },
+            }
+        },
+    )
+
+    assert resp.status_code == expect_result
+
+
+@pytest.mark.parametrize(
+    "role__name,has_permission, expect_status",
+    [
+        # Permissions module: Topic creation requires
+        # communications-write permission
+        ("Municipality", True, status.HTTP_201_CREATED),
+        ("Municipality", False, status.HTTP_403_FORBIDDEN),
+        ("Applicant", True, status.HTTP_201_CREATED),
+        ("Applicant", False, status.HTTP_403_FORBIDDEN),
+    ],
+)
+def test_permission_create_topic_acl(
+    db,
+    be_instance,
+    admin_client,
+    expect_status,
+    role,
+    permissions_settings,
+    instance_acl_factory,
+    access_level,
+    has_permission,
+):
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.FULL
+    permissions_settings["ACCESS_LEVELS"] = {
+        access_level.pk: [
+            (
+                "communications-write",
+                Always() if has_permission else Never(),
+            )
+        ]
+    }
+
+    if role.name == "Applicant":
+        be_instance.involved_applicants.create(
+            invitee=admin_client.user, user=admin_client.user
+        )
+        instance_acl_factory(
+            access_level=access_level, instance=be_instance, user=admin_client.user
+        )
+
+    else:
+        service = admin_client.user.get_default_group().service
+        instance_acl_factory(
+            access_level=access_level, instance=be_instance, service=service
+        )
+
+    resp = admin_client.post(
+        reverse("communications-topic-list"),
+        {
+            "data": {
+                "type": "communications-topics",
+                "id": None,
+                "attributes": {
+                    "subject": "bar",
+                    "involved-entities": [],
+                },
+                "relationships": {
+                    "instance": {
+                        "data": {"id": str(be_instance.pk), "type": "instances"}
+                    },
+                },
+            }
+        },
+    )
+
+    assert resp.status_code == expect_status
+
+
+@pytest.mark.parametrize(
+    "role__name,expect_status",
+    [
+        # RBAC: Everybody can create topic, except for the support
+        ("Municipality", status.HTTP_201_CREATED),
+        ("Applicant", status.HTTP_201_CREATED),
+        ("Support", status.HTTP_403_FORBIDDEN),
+    ],
+)
+def test_permission_create_topic_rbac(
+    db,
+    be_instance,
+    admin_client,
+    expect_status,
+    role,
+    permissions_settings,
+    instance_acl_factory,
+    access_level,
+):
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.OFF
+    if role.name == "Applicant":
+        be_instance.involved_applicants.create(
+            invitee=admin_client.user, user=admin_client.user
+        )
+
+    resp = admin_client.post(
+        reverse("communications-topic-list"),
+        {
+            "data": {
+                "type": "communications-topics",
+                "id": None,
+                "attributes": {
+                    "subject": "bar",
+                    "involved-entities": [],
+                },
+                "relationships": {
+                    "instance": {
+                        "data": {"id": str(be_instance.pk), "type": "instances"}
+                    },
+                },
+            }
+        },
+    )
+
+    assert resp.status_code == expect_status
+
+
+@pytest.mark.parametrize("communications_message__sent_at", ["2022-12-12T12:12:12Z"])
+@pytest.mark.parametrize(
+    "role__name,has_permission,expected_status",
+    [
+        # Permissions module: Marking as read requires
+        # "communications-write" permission
+        ("municipality-lead", True, status.HTTP_200_OK),
+        ("municipality-lead", False, status.HTTP_403_FORBIDDEN),
+        ("Applicant", True, status.HTTP_200_OK),
+        ("Applicant", False, status.HTTP_403_FORBIDDEN),
+        ("Support", False, status.HTTP_403_FORBIDDEN),
+        ("Support", True, status.HTTP_200_OK),
+    ],
+)
+def test_permission_mark_as_read_acl(
+    db,
+    admin_client,
+    role,
+    access_level,
+    communications_message,
+    topic_with_admin_involved,
+    be_instance,
+    instance_acl_factory,
+    permissions_settings,
+    has_permission,
+    expected_status,
+):
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.FULL
+    permissions_settings["ACCESS_LEVELS"] = {
+        access_level.pk: [
+            (
+                "communications-write",
+                Always() if has_permission else Never(),
+            )
+        ]
+    }
+
+    service = admin_client.user.get_default_group().service
+    if role.name == "Applicant":
+        be_instance.involved_applicants.create(
+            invitee=admin_client.user, user=admin_client.user
+        )
+        instance_acl_factory(
+            access_level=access_level, instance=be_instance, user=admin_client.user
+        )
+
+    else:
+        instance_acl_factory(
+            access_level=access_level, instance=be_instance, service=service
+        )
+
+    resp_mark = admin_client.patch(
+        reverse("communications-message-read", args=[communications_message.pk])
+    )
+    assert resp_mark.status_code == expected_status
+
+
+@pytest.mark.parametrize("communications_message__sent_at", ["2022-12-12T12:12:12Z"])
+@pytest.mark.parametrize(
+    "role__name,expected_status",
+    [
+        # RBAC: Everybody can mark as read, except for support
+        ("municipality-lead", status.HTTP_200_OK),
+        ("Applicant", status.HTTP_200_OK),
+        ("Support", status.HTTP_403_FORBIDDEN),
+    ],
+)
+def test_permission_mark_as_read_rbac(
+    db,
+    admin_client,
+    role,
+    communications_message,
+    topic_with_admin_involved,
+    be_instance,
+    permissions_settings,
+    expected_status,
+):
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.OFF
+
+    if role.name == "Applicant":
+        be_instance.involved_applicants.create(
+            invitee=admin_client.user, user=admin_client.user
+        )
+
+    resp_mark = admin_client.patch(
+        reverse("communications-message-read", args=[communications_message.pk])
+    )
+    assert resp_mark.status_code == expected_status
+
+
+@pytest.mark.parametrize("communications_message__sent_at", ["2022-12-12T12:12:12Z"])
+@pytest.mark.parametrize(
+    "role__name,has_permission,expected_status",
+    [
+        # Permissions module: Marking as unread requires
+        # "communications-write" permission
+        ("municipality-lead", True, status.HTTP_200_OK),
+        ("municipality-lead", False, status.HTTP_403_FORBIDDEN),
+        ("Support", True, status.HTTP_200_OK),
+        ("Support", False, status.HTTP_403_FORBIDDEN),
+        ("Applicant", True, status.HTTP_200_OK),
+        ("Applicant", False, status.HTTP_403_FORBIDDEN),
+    ],
+)
+def test_permission_mark_as_unread_acl(
+    db,
+    admin_client,
+    role,
+    communications_message,
+    topic_with_admin_involved,
+    instance_acl_factory,
+    access_level,
+    permissions_settings,
+    be_instance,
+    has_permission,
+    expected_status,
+):
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.FULL
+    permissions_settings["ACCESS_LEVELS"] = {
+        access_level.pk: [
+            (
+                "communications-write",
+                Always() if has_permission else Never(),
+            )
+        ]
+    }
+
+    service = admin_client.user.get_default_group().service
+    if role.name == "Applicant":
+        be_instance.involved_applicants.create(
+            invitee=admin_client.user, user=admin_client.user
+        )
+        instance_acl_factory(
+            access_level=access_level, instance=be_instance, user=admin_client.user
+        )
+
+    else:
+        instance_acl_factory(
+            access_level=access_level, instance=be_instance, service=service
+        )
+
+    # Mark as read directly on DB
+    communications_message.read_by.get_or_create(entity=str(service.pk))
+
+    # Mark as unread via API
+    resp = admin_client.patch(
+        reverse("communications-message-unread", args=[communications_message.pk])
+    )
+
+    assert resp.status_code == expected_status
+
+
+@pytest.mark.parametrize("communications_message__sent_at", ["2022-12-12T12:12:12Z"])
+@pytest.mark.parametrize(
+    "role__name,expected_status",
+    [
+        # RBAC: Everbody can mark as unread, except for support
+        ("municipality-lead", status.HTTP_200_OK),
+        ("Support", status.HTTP_403_FORBIDDEN),
+        ("Applicant", status.HTTP_200_OK),
+    ],
+)
+def test_permission_mark_as_unread_rbac(
+    db,
+    admin_client,
+    role,
+    communications_message,
+    topic_with_admin_involved,
+    instance_acl_factory,
+    access_level,
+    permissions_settings,
+    be_instance,
+    expected_status,
+):
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.OFF
+
+    service = admin_client.user.get_default_group().service
+    if role.name == "Applicant":
+        be_instance.involved_applicants.create(
+            invitee=admin_client.user, user=admin_client.user
+        )
+
+    # Mark as read directly on DB
+    communications_message.read_by.get_or_create(entity=str(service.pk))
+
+    # Mark as unread via API
+    resp = admin_client.patch(
+        reverse("communications-message-unread", args=[communications_message.pk])
+    )
+
+    assert resp.status_code == expected_status
+
+
+@pytest.mark.parametrize(
+    "role__name,has_permission,expected_status",
+    [
+        # Permissions module: Creating message requires
+        # "communications-write" permission
+        ("Municipality", True, status.HTTP_201_CREATED),
+        ("Municipality", False, status.HTTP_403_FORBIDDEN),
+        ("Applicant", True, status.HTTP_201_CREATED),
+        ("Applicant", False, status.HTTP_403_FORBIDDEN),
+        ("Support", True, status.HTTP_201_CREATED),
+        ("Support", False, status.HTTP_403_FORBIDDEN),
+    ],
+)
+def test_permission_create_message_acl(
+    db,
+    be_instance,
+    admin_client,
+    role,
+    communications_topic,
+    topic_with_admin_involved,
+    notification_template,
+    permissions_settings,
+    communications_settings,
+    access_level,
+    instance_acl_factory,
+    has_permission,
+    expected_status,
+):
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.FULL
+    permissions_settings["ACCESS_LEVELS"] = {
+        access_level.pk: [
+            (
+                "communications-write",
+                Always() if has_permission else Never(),
+            )
+        ]
+    }
+    communications_settings["NOTIFICATIONS"]["APPLICANT"]["template_slug"] = (
+        notification_template.slug
+    )
+    communications_settings["NOTIFICATIONS"]["INTERNAL_INVOLVED_ENTITIES"][
+        "template_slug"
+    ] = notification_template.slug
+
+    service = admin_client.user.get_default_group().service
+    if role.name == "Applicant":
+        be_instance.involved_applicants.create(
+            invitee=admin_client.user, user=admin_client.user
+        )
+        instance_acl_factory(
+            access_level=access_level, instance=be_instance, user=admin_client.user
+        )
+
+    else:
+        instance_acl_factory(
+            access_level=access_level, instance=be_instance, service=service
+        )
+
+    resp = admin_client.post(
+        reverse("communications-message-list"),
+        data={
+            "body": "hello world",
+            "topic": json.dumps(
+                {
+                    "id": str(topic_with_admin_involved.pk),
+                    "type": "communications-topics",
+                }
+            ),
+        },
+        format="multipart",
+    )
+    assert resp.status_code == expected_status
+
+
+@pytest.mark.parametrize(
+    "role__name,expected_status",
+    [
+        # RBAC: Everybody except for support can create message
+        ("Municipality", status.HTTP_201_CREATED),
+        ("Applicant", status.HTTP_201_CREATED),
+        ("Support", status.HTTP_403_FORBIDDEN),
+    ],
+)
+def test_permission_create_message_rbac(
+    db,
+    be_instance,
+    admin_client,
+    role,
+    communications_topic,
+    topic_with_admin_involved,
+    notification_template,
+    permissions_settings,
+    communications_settings,
+    access_level,
+    instance_acl_factory,
+    expected_status,
+):
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.OFF
+    communications_settings["NOTIFICATIONS"]["APPLICANT"]["template_slug"] = (
+        notification_template.slug
+    )
+    communications_settings["NOTIFICATIONS"]["INTERNAL_INVOLVED_ENTITIES"][
+        "template_slug"
+    ] = notification_template.slug
+
+    if role.name == "Applicant":
+        be_instance.involved_applicants.create(
+            invitee=admin_client.user, user=admin_client.user
+        )
+
+    resp = admin_client.post(
+        reverse("communications-message-list"),
+        data={
+            "body": "hello world",
+            "topic": json.dumps(
+                {
+                    "id": str(topic_with_admin_involved.pk),
+                    "type": "communications-topics",
+                }
+            ),
+        },
+        format="multipart",
+    )
+    assert resp.status_code == expected_status
+
+
+@pytest.mark.parametrize(
+    "role__name,has_permission,expected_status",
+    [
+        # Permissions module: Deleting attachment requires
+        # "communications-delete-attachment" permission
+        ("Support", True, status.HTTP_204_NO_CONTENT),
+        ("Support", False, status.HTTP_403_FORBIDDEN),
+        ("Municipality", True, status.HTTP_204_NO_CONTENT),
+        ("Municipality", False, status.HTTP_403_FORBIDDEN),
+        ("Applicant", True, status.HTTP_204_NO_CONTENT),
+        ("Applicant", False, status.HTTP_403_FORBIDDEN),
+    ],
+)
+def test_permission_delete_attachment_acl(
+    db,
+    admin_user,
+    admin_client,
+    role,
+    be_instance,
+    communications_message,
+    topic_with_admin_involved,
+    communications_attachment,
+    permissions_settings,
+    access_level,
+    instance_acl_factory,
+    has_permission,
+    expected_status,
+):
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.FULL
+    permissions_settings["ACCESS_LEVELS"] = {
+        access_level.pk: [
+            (
+                "communications-delete-attachment",
+                Always() if has_permission else Never(),
+            )
+        ]
+    }
+
+    if role.name == "Applicant":
+        be_instance.involved_applicants.create(
+            invitee=admin_client.user, user=admin_client.user
+        )
+        instance_acl_factory(
+            access_level=access_level, instance=be_instance, user=admin_client.user
+        )
+
+    else:
+        service = admin_client.user.get_default_group().service
+        instance_acl_factory(
+            access_level=access_level, instance=be_instance, service=service
+        )
+
+    communications_attachment.file_attachment.save("test.txt", io.BytesIO(b"foobar"))
+
+    response = admin_client.delete(
+        reverse("communications-attachment-detail", args=[communications_attachment.pk])
+    )
+
+    assert response.status_code == expected_status
+
+
+@pytest.mark.parametrize(
+    "role__name,expected_status",
+    [
+        # RBAC: Only support can delete attachments
+        ("Support", status.HTTP_204_NO_CONTENT),
+        ("Municipality", status.HTTP_403_FORBIDDEN),
+        ("Applicant", status.HTTP_403_FORBIDDEN),
+    ],
+)
+def test_permission_delete_attachment_rbac(
+    db,
+    admin_user,
+    admin_client,
+    role,
+    be_instance,
+    topic_with_admin_involved,
+    communications_attachment,
+    permissions_settings,
+    expected_status,
+):
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.OFF
+
+    if role.name == "Applicant":
+        be_instance.involved_applicants.create(
+            invitee=admin_client.user, user=admin_client.user
+        )
+
+    communications_attachment.file_attachment.save("test.txt", io.BytesIO(b"foobar"))
+
+    response = admin_client.delete(
+        reverse("communications-attachment-detail", args=[communications_attachment.pk])
+    )
+
+    assert response.status_code == expected_status
