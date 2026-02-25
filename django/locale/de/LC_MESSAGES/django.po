@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-29 10:50+0100\n"
+"POT-Creation-Date: 2026-02-23 11:07+0100\n"
 "PO-Revision-Date: 2025-10-08 13:26+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1518,6 +1518,10 @@ msgstr ""
 "Das Dossier kann nicht korrigiert werden, da bereits Stellungahmen "
 "angefordert wurden."
 
+#: camac/instance/serializers.py
+msgid "Instance has no pending additional demand with changes."
+msgstr "Das Dossier hat keine offenen Nachforderungen mit Änderungen."
+
 #: camac/instance/tests/test_document_merge_service.py
 #: camac/settings/modules/dms.py
 msgid "Form export"
@@ -1891,6 +1895,26 @@ msgid "Sorry, but it seems that you don’t have access to this page."
 msgstr ""
 "Entschuldigung, aber es scheint als hätten Sie keinen Zugriff auf diese "
 "Seite."
+
+#: camac/timelines/models.py
+msgid "Project Change"
+msgstr "Projektänderung"
+
+#: camac/timelines/models.py
+msgid "Submit After Rejection"
+msgstr "Einreichung nach Ablehnung"
+
+#: camac/timelines/models.py
+msgid "Additional Demand"
+msgstr "Nachforderung"
+
+#: camac/timelines/models.py
+msgid "Correction"
+msgstr "Korrektur"
+
+#: camac/timelines/models.py
+msgid "Additional Demands"
+msgstr "Nachforderungen"
 
 #: camac/user/admin/filters.py
 msgid "Disabled"

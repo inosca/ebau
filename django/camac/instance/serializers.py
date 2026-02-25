@@ -25,7 +25,7 @@ from rest_framework_json_api import relations, serializers
 
 from camac import request_cache
 from camac.caluma.api import CalumaApi
-from camac.caluma.models import Inquiry
+from camac.caluma.models import Inquiry, Instance
 from camac.constants import kt_uri as uri_constants
 from camac.core.models import (
     AuthorityLocation,
@@ -52,7 +52,6 @@ from camac.ech0211.signals import (
 from camac.instance.domain_logic import link_instances
 from camac.instance.master_data import MasterData
 from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
-from camac.instance.models import Instance
 from camac.instance.utils import (
     be_should_prevent_process_step_for_deactivated_municipality,
     copy_instance,
@@ -69,6 +68,7 @@ from camac.responsible.domain_logic import ResponsibleServiceDomainLogic
 from camac.responsible.models import ResponsibleService
 from camac.settings.modules.deadlines_schema import DeadlinesConfig
 from camac.tags.models import Keyword
+from camac.timelines.models import FormTimeline
 from camac.user.models import Group, Location, Service
 from camac.user.permissions import permission_aware
 from camac.user.relations import (
@@ -569,6 +569,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
     ebau_number = serializers.SerializerMethodField()
 
     is_suspended = serializers.SerializerMethodField()  # "Sistiert"
+    additional_demand_changes = serializers.SerializerMethodField()
     is_paper = serializers.SerializerMethodField()  # "Papierdossier
     is_modification = serializers.SerializerMethodField()  # "Projektänderung"
     copy_source = serializers.CharField(required=False, write_only=True)
@@ -598,6 +599,13 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             str(self.context["request"].group.service.pk)
             in instance.case.meta.get("suspended-services", [])
             if self.context["request"].group.service and instance.case
+            else False
+        )
+
+    def get_additional_demand_changes(self, instance):
+        return (
+            instance.case.meta.get("additional-demand-changes", False)
+            if settings.TIMELINES.enabled
             else False
         )
 
@@ -1208,6 +1216,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         fields = InstanceSerializer.Meta.fields + (
             "caluma_form",
             "is_suspended",
+            "additional_demand_changes",
             "is_paper",
             "is_modification",
             "copy_source",
@@ -1229,6 +1238,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
         read_only_fields = InstanceSerializer.Meta.read_only_fields + (
             "caluma_form",
             "is_suspended",
+            "additional_demand_changes",
             "is_paper",
             "is_modification",
             "public_status",
@@ -1311,6 +1321,14 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         deadlines_models.InstanceDeadline.objects.create_deadline(
             instance=instance, service=instance.responsible_service()
         )
+
+    def _close_formtimeline(self, instance):
+        """If a timeline was created for this instance, close it now.
+
+        This happens for a submit after rejection or a project modification.
+        """
+        if settings.TIMELINES.enabled:
+            FormTimeline.objects.close_open_timelines(instance=instance)
 
     def _generate_and_store_pdf(self, instance, form_slug=None):
         if not settings.APPLICATION.get("STORE_PDF", False):  # pragma: no cover
@@ -1964,6 +1982,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             self._be_copy_responsible_person(instance)
             self._ur_copy_oereb_instance_for_koor_afj(instance)
             self._init_deadline(instance)
+            self._close_formtimeline(instance)
 
             permissions_events.Trigger.instance_submitted(
                 self.context["request"], instance
@@ -3024,6 +3043,29 @@ class CalumaInstanceCorrectionSerializer(serializers.Serializer):
 
     class Meta:
         resource_name = "instance-corrections"
+
+
+class CalumaInstanceAdditionalDemandChangesSerializer(serializers.Serializer):
+    def validate(self, data):
+        if (
+            not settings.TIMELINES.enabled
+            or not settings.ADDITIONAL_DEMAND
+            or not len(self.instance.case.meta.get("additional-demand-changes", []))
+        ):
+            raise exceptions.ValidationError(
+                _("Instance has no pending additional demand with changes.")
+            )
+
+        return super().validate(data)
+
+    @transaction.atomic
+    def update(self, instance, validated_data):
+        # TODO: in this version nothing happens on submit. In the follow-up changes,
+        # depending on the configuration we will re-generate some dossier documents.
+        return instance
+
+    class Meta:
+        resource_name = "instance-additional-demand-changes"
 
 
 class CalumaInstanceRejectionSerializer(serializers.Serializer):

@@ -1,6 +1,7 @@
 from camac.constants.kt_gr import ARE_SERVICE_GROUP, BAUGESUCH_FORMS, SOLARANLAGE_FORMS
 from camac.permissions.conditions import (
     Always,
+    HasAdditionalDemandWithFormEdit,
     HasApplicantRole,
     HasRole,
     IsForm,
@@ -37,6 +38,12 @@ FORMS_ONLY_BUILDING_PERMIT = IsForm([*BAUGESUCH_FORMS, *SOLARANLAGE_FORMS])
 # Role rules
 ROLES_MUNICIPALITY = HasRole(["municipality-lead"])
 ROLES_GEOMETER = HasRole(["geometer"])
+APPLICANT_WRITE = HasApplicantRole(["ADMIN", "EDITOR"])
+
+
+ADDITIONAL_DEMAND_REQUEST_CHANGES = IsServiceGroup(
+    ["municipality", ARE_SERVICE_GROUP]
+) & HasRole(["municipality-lead", "service-lead"])
 
 # Module rules
 #
@@ -113,9 +120,9 @@ MODULE_PORTAL_COMMUNICATIONS_WRITE = (
     MODULE_PORTAL_COMMUNICATIONS_READ & HasApplicantRole(["ADMIN", "EDITOR"])
 )
 MODULE_PORTAL_FORM_READ = Always()
-MODULE_PORTAL_FORM_WRITE = RequireInstanceState(["new"]) & (
-    HasApplicantRole(["ADMIN", "EDITOR"]) | (ROLES_MUNICIPALITY & IsPaper())
-)
+MODULE_PORTAL_FORM_WRITE = (
+    RequireInstanceState(["new"]) & (APPLICANT_WRITE | (ROLES_MUNICIPALITY & IsPaper()))
+) | (HasAdditionalDemandWithFormEdit() & APPLICANT_WRITE)
 MODULE_PORTAL_DOCUMENTS_WRITE = (
     RequireInstanceState(["new"]) | RequireWorkItem("fill-additional-demand", "ready")
 ) & (HasApplicantRole(["ADMIN", "EDITOR"]) | (ROLES_MUNICIPALITY & IsPaper()))
@@ -198,6 +205,10 @@ GR_PERMISSIONS_SETTINGS = {
         "distribution-service": [
             ("additional-demands-read", MODULE_ADDITIONAL_DEMANDS),
             ("additional-demands-write", ACTION_INSTANCE_CREATE_ADDITIONAL_DEMAND),
+            (
+                "additional-demands-correction-request",
+                ADDITIONAL_DEMAND_REQUEST_CHANGES,
+            ),
             ("audit-read", MODULE_AUDIT),
             ("communications-read", MODULE_COMMUNICATIONS),
             ("communications-write", MODULE_COMMUNICATIONS),
@@ -229,6 +240,10 @@ GR_PERMISSIONS_SETTINGS = {
         "lead-authority": [
             ("additional-demands-read", MODULE_ADDITIONAL_DEMANDS),
             ("additional-demands-write", ACTION_INSTANCE_CREATE_ADDITIONAL_DEMAND),
+            (
+                "additional-demands-correction-request",
+                ADDITIONAL_DEMAND_REQUEST_CHANGES,
+            ),
             ("audit-read", MODULE_AUDIT),
             ("communications-read", MODULE_COMMUNICATIONS),
             ("communications-write", MODULE_COMMUNICATIONS),

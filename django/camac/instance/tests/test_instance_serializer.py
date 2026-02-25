@@ -167,3 +167,24 @@ def test_send_notifications_gr(
     assert set(
         [call.kwargs["template_slug"] for call in mocked_send.call_args_list]
     ) == set(expected_notifications)
+
+
+def test_close_form_timelines(
+    db,
+    instance_factory,
+    caluma_case_factory,
+    form_timeline_factory,
+    set_application_gr,
+    timelines_settings,
+):
+    timelines_settings.enabled = True
+    case = caluma_case_factory(document__form__slug="baugesuch")
+    instance_factory(case=case)
+
+    timeline = form_timeline_factory(instance=case.instance, end_date=None)
+    assert timeline.end_date is None
+    serializer = CalumaInstanceSubmitSerializer()
+    serializer._close_formtimeline(case.instance)
+
+    timeline.refresh_from_db()
+    assert timeline.end_date is not None

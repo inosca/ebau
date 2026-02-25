@@ -3494,6 +3494,39 @@ def be_tags_settings(
 
 
 @pytest.fixture
+def timelines_settings(
+    request,
+    settings,
+):
+    """Module-specific settings for timelines (default)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=None,
+        module_name="timelines",
+        canton=None,
+        disable=False,
+    )
+
+
+@pytest.fixture
+def disable_timelines_settings(
+    request,
+    settings,
+    timelines_settings,
+):
+    """Disable the timelines module completely."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=timelines_settings,
+        module_name="timelines",
+        canton=None,
+        disable=True,
+    )
+
+
+@pytest.fixture
 def user_settings(
     request,
     settings,

@@ -47,6 +47,7 @@ def public_data(
     new_sanction_factory,
     suspension_factory,
     instance_deadline_factory,
+    form_timeline_factory,
 ):
     attachment = attachment_factory(instance=be_instance, context={"isPublished": True})
     attachment_version_factory(attachment=attachment)
@@ -69,6 +70,7 @@ def public_data(
     new_sanction_factory(instance=be_instance)
     deadline = instance_deadline_factory(instance=be_instance)
     suspension_factory(deadline=deadline)
+    form_timeline_factory(instance=be_instance)
 
     create_caluma_publication(be_instance)
 

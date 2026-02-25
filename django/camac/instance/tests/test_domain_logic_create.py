@@ -6,6 +6,7 @@ from rest_framework.exceptions import ValidationError
 
 from camac.document.models import Attachment
 from camac.instance.domain_logic.create import CreateInstanceLogic
+from camac.timelines.models import FormTimeline
 
 
 @pytest.mark.parametrize(
@@ -320,3 +321,53 @@ def test_instance_generate_identifier_so_exceptions(
         str(e2.value.detail[0])
         == "Responsible service does not have an external identifier"
     )
+
+
+@pytest.mark.parametrize(
+    "has_source,is_modification,expected_count,expected_type",
+    [
+        (False, False, 0, None),
+        (False, True, 0, None),
+        (
+            True,
+            False,
+            1,
+            FormTimeline.Type.SUBMIT_AFTER_REJECTION.value,
+        ),
+        (True, True, 1, FormTimeline.Type.PROJECT_CHANGE.value),
+    ],
+)
+def test_instance_create_source_timeline(
+    db,
+    caluma_case_factory,
+    instance_factory,
+    gr_instance,
+    has_source,
+    is_modification,
+    expected_count,
+    expected_type,
+    timelines_settings,
+    set_application_gr,
+):
+    timelines_settings.enabled = True
+    assert FormTimeline.objects.count() == 0
+    source_instance = (
+        instance_factory(case=caluma_case_factory()) if has_source else None
+    )
+    CreateInstanceLogic.initialize_camac(
+        gr_instance,
+        source_instance=source_instance,
+        is_modification=is_modification,
+        is_paper=False,
+        extend_validity_for=None,
+        case=None,
+        user=None,
+        group=None,
+        skip_exported_form_attachment=False,
+        copy_attachments_from=[],
+    )
+    assert FormTimeline.objects.count() == expected_count
+    if expected_count > 0:
+        timeline = FormTimeline.objects.first()
+        assert timeline.instance_id == gr_instance.pk
+        assert timeline.timeline_type == expected_type

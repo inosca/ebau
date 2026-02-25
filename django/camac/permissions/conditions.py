@@ -388,6 +388,37 @@ class RequireWorkItem(Check):
 
 
 @dataclass
+class HasAdditionalDemandWithFormEdit(Check):
+    """Has at least one open additional demand with form changes permission enabled.
+
+    Instead of querying additional demand workitems we check the form timelines,
+    because when an applicant answers, the timeline is closed (if no other additional
+    demands are open).
+    The additional demand workitem however will stay open until a decision has
+    been made.
+    """
+
+    def apply(self, userinfo, context: PermissionContext):
+        from camac.timelines.models import FormTimeline
+
+        return FormTimeline.objects.filter(
+            instance=context.instance,
+            timeline_type=FormTimeline.Type.ADDITIONAL_DEMAND.value,
+            end_date__isnull=True,
+        ).exists()
+
+    @property
+    def allow_caching(self):  # pragma: no cover
+        return False
+
+    def __eq__(self, other):  # pragma: no cover
+        return isinstance(other, HasAdditionalDemandWithFormEdit)
+
+    def __repr__(self):  # pragma: no cover
+        return "HasAdditionalDemandWithFormEdit()"
+
+
+@dataclass
 class IsServiceGroup(Check):
     """Permission check for requiring any service group of a given list."""
 

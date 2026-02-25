@@ -79,6 +79,7 @@ from camac.tests.data import (
     so_personal_row_factory,
 )
 from camac.tests.form_utils import FormUtils
+from camac.timelines import factories as corrections_factories
 from camac.user import factories as user_factories
 from camac.user.models import Group, User
 from camac.utils import build_url
@@ -135,6 +136,7 @@ register_module(work_items_factories)
 register_module(rulesets_factories)
 register_module(deadlines_factories)
 register_module(alert_message_factories)
+register_module(corrections_factories)
 
 # do not register alexandria factories, as there are too many conflicts
 

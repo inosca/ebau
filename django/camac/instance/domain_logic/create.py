@@ -26,6 +26,7 @@ from camac.core.utils import (
 from camac.instance.master_data import MasterData
 from camac.instance.models import Instance, InstanceGroup
 from camac.permissions.events import Trigger
+from camac.timelines.models import FormTimeline
 from camac.user.models import Service
 from camac.user.permissions import permission_aware
 
@@ -618,6 +619,14 @@ class CreateInstanceLogic:
             ].get("EXTEND_VALIDITY_FORM"):
                 CreateInstanceLogic.copy_ebau_number(source_instance, instance, case)
 
+            if settings.TIMELINES.enabled:
+                FormTimeline.objects.add_instance_timeline(
+                    instance=instance,
+                    timeline_type=FormTimeline.Type.PROJECT_CHANGE.value
+                    if is_modification
+                    else FormTimeline.Type.SUBMIT_AFTER_REJECTION.value,
+                    start_date=timezone.now(),
+                )
         elif extend_validity_for:
             extend_validity_instance = models.Instance.objects.get(
                 pk=extend_validity_for

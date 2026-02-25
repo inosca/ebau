@@ -568,3 +568,31 @@ def test_grant_municipality_access(
             .filter(instance=instance, access_level=access_level, service=service)
             .exists()
         )
+
+
+@pytest.mark.parametrize("instance__user", [lf("admin_user")])
+@pytest.mark.parametrize("allows_changes", [True, False])
+def test_additional_demand_changes(
+    db,
+    admin_client,
+    gr_instance,
+    caluma_case_factory,
+    allows_changes,
+    gr_additional_demand_settings,
+    timelines_settings,
+):
+    timelines_settings.enabled = True
+    if allows_changes:
+        gr_instance.case.meta["additional-demand-changes"] = [
+            str(caluma_case_factory().pk)
+        ]
+        gr_instance.case.save()
+
+    response = admin_client.post(
+        reverse("instance-additional-demand-changes", args=[gr_instance.pk])
+    )
+
+    if allows_changes:
+        assert response.status_code == status.HTTP_204_NO_CONTENT
+    else:
+        assert response.status_code == status.HTTP_400_BAD_REQUEST
