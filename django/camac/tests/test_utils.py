@@ -208,24 +208,16 @@ def test_django_q_sync_fixture_enabled(db, django_q_sync_mode):
 
 
 def test_is_module_enabled():
-    assert not is_module_enabled({}, False)
-    assert not is_module_enabled({}, True)
+    assert not is_module_enabled({})
 
     assert not is_module_enabled({"ENABLED": None})
     assert not is_module_enabled({"ENABLED": False})
     assert is_module_enabled({"ENABLED": True})
 
-    assert is_module_enabled({"ENABLED": None}, True)
-    assert is_module_enabled({"ENABLED": False}, True)
-    assert is_module_enabled({"ENABLED": True}, True)
-
     conf_enabled: ModuleApplicationConfig = ModuleApplicationConfig(enabled=True)
     conf_not_enabled: ModuleApplicationConfig = ModuleApplicationConfig()
     assert is_module_enabled(conf_enabled)
     assert not is_module_enabled(conf_not_enabled)
-
-    assert is_module_enabled(conf_enabled, True)
-    assert not is_module_enabled(conf_not_enabled, True)
 
 
 @pytest.mark.django_db

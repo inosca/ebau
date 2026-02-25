@@ -71,7 +71,6 @@ from camac.responsible import factories as responsible_factories
 from camac.rulesets import factories as rulesets_factories
 from camac.sanctions import factories as sanction_factories
 from camac.settings.modules.construction_monitoring import CONSTRUCTION_MONITORING
-from camac.settings.modules.deadlines_schema import DeadlinesConfig
 from camac.tags import factories as tags_factories
 from camac.tests.data import (
     ag_personal_row_factory,
@@ -2807,21 +2806,6 @@ def gr_construction_monitoring_settings(settings, construction_monitoring_settin
     )
     settings.CONSTRUCTION_MONITORING = construction_monitoring_dict
     return construction_monitoring_dict
-
-
-@pytest.fixture
-def gr_deadlines_settings(settings, request):
-    """GR deadlines module is currently enabled by an env flag.
-
-    For the test fixture we always want the module to be enabled, so
-    we override the fixture here.
-
-    Remove this when the env flag is removed.
-    """
-    new_settings = DeadlinesConfig(enabled=True)
-    setattr(settings, "DEADLINES", new_settings)
-
-    return new_settings
 
 
 @pytest.fixture

@@ -150,7 +150,7 @@ def get_enabled_cantons_for_module(
         canton
         for canton, config in cantons
         if config
-        and is_module_enabled(config, ignore_enabled_value)
+        and (ignore_enabled_value or is_module_enabled(config))
         and canton != "default"
     ]
 
@@ -169,22 +169,21 @@ def get_enabled_modules_for_canton(
             getattr(config, canton) if is_pydantic else config.get(canton, {})
         )
 
-        if canton_config and is_module_enabled(canton_config, ignore_enabled_value):
+        if canton_config and (ignore_enabled_value or is_module_enabled(canton_config)):
             enabled_modules.append(module_name)
 
     return enabled_modules
 
 
-def is_module_enabled(
-    config: dict | ModuleApplicationConfig, ignore_enabled_value: bool = False
-) -> bool:
-    match config:
-        case ModuleApplicationConfig(enabled=True):
-            # Checking ignore_enabled_value makes no sense with pydantic
-            return True
-        case {"ENABLED": None | False}:
-            return ignore_enabled_value
-        case {"ENABLED": enabled}:
-            return enabled
-        case _:
-            return False
+def is_module_enabled(config: dict | ModuleApplicationConfig) -> bool:
+    """Determine if a module is enabled based on configuration.
+
+    It will use the configuration key based on the config type:
+    - For `ModuleApplicationConfig` (pydantic) it will use the `enabled` attribute.
+    - For dict-based config, it will look for the `ENABLED` key, defaulting to False
+    if not found.
+    """
+    if isinstance(config, ModuleApplicationConfig):
+        return config.enabled
+    else:
+        return config.get("ENABLED", False)

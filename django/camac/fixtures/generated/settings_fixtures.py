@@ -544,6 +544,23 @@ def sz_billing_settings(
 
 
 @pytest.fixture
+def ag_billing_settings(
+    request,
+    settings,
+    billing_settings,
+):
+    """Module-specific settings for billing (canton AG)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=billing_settings,
+        module_name="billing",
+        canton="kt_ag",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def change_form_settings(
     request,
     settings,
@@ -1095,6 +1112,23 @@ def so_deadlines_settings(
         base_fixture=deadlines_settings,
         module_name="deadlines",
         canton="kt_so",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def gr_deadlines_settings(
+    request,
+    settings,
+    deadlines_settings,
+):
+    """Module-specific settings for deadlines (canton GR)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=deadlines_settings,
+        module_name="deadlines",
+        canton="kt_gr",
         disable=False,
     )
 
