@@ -804,10 +804,11 @@ ECH0211 = {
             r"dossier-check/<int:instance_id>/": "/cases/%(instance_id)i/task-form/formal-exam",
         },
         "ALLOWED_CATEGORIES": [
+            "beilagen-zum-gesuch",
+            "unterlagenergaenzung",
+            "alle-beteiligten",
             "beteiligte-behörden",
             "intern",
-            "beilagen-zum-gesuch",
-            "alle-beteiligten",
         ],
         "NOTICE_RULING": {
             "ALLOWED_STATES": ["subm", "distribution-init", "circulation", "decision"],
