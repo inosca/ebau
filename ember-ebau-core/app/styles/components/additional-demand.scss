@@ -4,3 +4,30 @@
     margin-bottom: 0;
   }
 }
+
+@media print {
+  .additional-demand-list {
+    ul {
+      list-style: none !important;
+      margin-left: 0 !important;
+      padding-left: 0 !important;
+    }
+
+    li {
+      margin-left: 0 !important;
+      padding-left: 0 !important;
+      list-style-type: none !important;
+    }
+  }
+
+  .print-table-container {
+    display: table !important;
+    width: 100% !important;
+    border-collapse: collapse !important;
+    table-layout: auto;
+  }
+
+  .printable-row {
+    display: table-row !important;
+  }
+}
