@@ -66,6 +66,7 @@ const config = {
   publication: {
     public: {
       task: "fill-publication",
+      createTask: "create-publication",
       dateRanges: [["publikation-start", "publikation-ende"]],
     },
   },
