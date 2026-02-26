@@ -1556,23 +1556,6 @@ def test_resume_rpg_work_item_ur(
     assert rpg_work_item.status == "ready"
 
 
-def test_create_afu_work_item_instance_finished_so(
-    db,
-    set_application_so,
-    caluma_admin_user,
-    so_instance,
-    service,
-    user,
-    access_level,
-    instance_state_factory,
-):
-    service.slug = "afu"
-    service.save()
-
-    def afu_workitem():
-        return
-
-
 def test_create_afu_work_item_so(
     db,
     set_application_so,
@@ -1597,12 +1580,12 @@ def test_create_afu_work_item_so(
 
     # Check that only work_items on same case are checked
     other_case_wi = caluma_work_item_factory(
-        task_id="check-afu", case=caluma_case_factory(), status=WorkItem.STATUS_READY
+        task_id="afu-form", case=caluma_case_factory(), status=WorkItem.STATUS_READY
     )
 
     def afu_workitem(status=WorkItem.STATUS_READY):
         return WorkItem.objects.filter(
-            task_id="check-afu", case=so_instance.case, status=status
+            task_id="afu-form", case=so_instance.case, status=status
         )
 
     def _grant(service=None, user=None):

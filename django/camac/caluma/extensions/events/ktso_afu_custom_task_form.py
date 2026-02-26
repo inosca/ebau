@@ -13,10 +13,10 @@ from camac.permissions.models import InstanceACL
 from camac.user.models import Service
 
 
-def _create_afu_work_item(acl):
+def _create_afu_work_item(acl: InstanceACL) -> None:
+    """Create a work item for the AfU custom afu-form task."""
     if (
-        settings.APPLICATION_NAME == "kt_so"
-        and acl.instance.instance_state.name != "finished"
+        acl.instance.instance_state.name != "finished"
         and acl.service
         # Check if service is afu or child service of afu
         and Service.objects.filter(
@@ -25,7 +25,7 @@ def _create_afu_work_item(acl):
         ).exists()
     ):
         case = acl.instance.case
-        task = Task.objects.get(pk="check-afu")
+        task = Task.objects.get(pk="afu-form")
         existing_work_item = WorkItem.objects.filter(
             Q(
                 task=task,
@@ -53,8 +53,8 @@ def _create_afu_work_item(acl):
 @transaction.atomic
 def create_afu_work_item(
     sender: type[InstanceACL], instance: InstanceACL, raw: bool, **kwargs
-):
-    if not raw:
+) -> None:
+    if settings.APPLICATION_NAME == "kt_so" and not raw:
         _create_afu_work_item(instance)
 
 
@@ -63,13 +63,13 @@ def create_afu_work_item(
 @transaction.atomic
 def complete_afu_work_item(
     sender: type[WorkItem], work_item: WorkItem, user, context=None, **kwargs
-):
+) -> None:
     if settings.APPLICATION_NAME != "kt_so":
         return
 
     case = work_item.case
 
-    task = Task.objects.get(pk="check-afu")
+    task = Task.objects.get(pk="afu-form")
     existing_work_item = WorkItem.objects.filter(
         task=task,
         case=case,

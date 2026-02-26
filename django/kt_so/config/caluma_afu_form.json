@@ -1,7 +1,7 @@
 [
   {
     "model": "caluma_form.form",
-    "pk": "check-afu",
+    "pk": "afu-form",
     "fields": {
       "created_at": "2026-01-19T13:31:16.361Z",
       "modified_at": "2026-01-19T13:31:16.361Z",
@@ -19,7 +19,7 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "check-afu.check-afu-baugk-nummer",
+    "pk": "afu-form.afu-form-baugk-nummer",
     "fields": {
       "created_at": "2026-01-19T13:42:25.169Z",
       "modified_at": "2026-01-19T13:42:25.169Z",
@@ -27,14 +27,14 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "form": "check-afu",
-      "question": "check-afu-baugk-nummer",
+      "form": "afu-form",
+      "question": "afu-form-baugk-nummer",
       "sort": 3
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "check-afu.check-afu-registraturplannummer",
+    "pk": "afu-form.afu-form-registraturplannummer",
     "fields": {
       "created_at": "2026-01-19T13:43:51.396Z",
       "modified_at": "2026-01-19T13:43:51.396Z",
@@ -42,14 +42,14 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "form": "check-afu",
-      "question": "check-afu-registraturplannummer",
+      "form": "afu-form",
+      "question": "afu-form-registraturplannummer",
       "sort": 1
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "check-afu.check-afu-uplus-nummer",
+    "pk": "afu-form.afu-form-uplus-nummer",
     "fields": {
       "created_at": "2026-01-19T13:42:47.784Z",
       "modified_at": "2026-01-19T13:42:47.784Z",
@@ -57,14 +57,14 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "form": "check-afu",
-      "question": "check-afu-uplus-nummer",
+      "form": "afu-form",
+      "question": "afu-form-uplus-nummer",
       "sort": 2
     }
   },
   {
     "model": "caluma_form.question",
-    "pk": "check-afu-baugk-nummer",
+    "pk": "afu-form-baugk-nummer",
     "fields": {
       "created_at": "2026-01-19T13:42:25.037Z",
       "modified_at": "2026-01-19T13:42:25.037Z",
@@ -98,7 +98,7 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "check-afu-registraturplannummer",
+    "pk": "afu-form-registraturplannummer",
     "fields": {
       "created_at": "2026-01-19T13:43:51.271Z",
       "modified_at": "2026-01-19T13:43:51.271Z",
@@ -132,7 +132,7 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "check-afu-uplus-nummer",
+    "pk": "afu-form-uplus-nummer",
     "fields": {
       "created_at": "2026-01-19T13:42:47.668Z",
       "modified_at": "2026-01-19T13:42:47.669Z",
