@@ -467,6 +467,42 @@
       "fachthemen.bauabfaelle",
       "gesuchsunterlagen"
     ],
+    "baugesuch-reklamegesuch-v12": [
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "grundinformationen.kategorisierung-baugesuch-reklamegesuch-v2",
+      "grundinformationen.allgemeine-informationen-zum-vorhaben-v5",
+      "grundinformationen.baustellenabwasser",
+      "grundinformationen.ausnahmebewilligungen",
+      "grundinformationen.gwr-v2",
+      "personalien",
+      "personalien.grundeigentumerschaft-v2",
+      "personalien.bauherrschaft-v3",
+      "personalien.projektverfasser-planer-v3",
+      "personalien.vertreter-mit-vollmacht-v2",
+      "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
+      "fachthemen.wald",
+      "fachthemen.naturgefahren",
+      "fachthemen.verkehr",
+      "fachthemen.energie-v2",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz-v3",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
+      "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
+      "fachthemen.radon",
+      "fachthemen.bauabfaelle",
+      "gesuchsunterlagen"
+    ],
     "projektanderung-v3": [
       "projektanderung",
       "grundinformationen",
@@ -2373,6 +2409,19 @@
         "alarmierungseinrichtung-tangiert"
       ]
     },
+    "fachthemen.zivilschutz-v3": {
+      "title": "Zivilschutz",
+      "parent": "fachthemen",
+      "questions": [
+        "zivilschutz-schutzraum",
+        "zivilschutz-ersatzbeitraege",
+        "zivilschutz-elementarschaden",
+        "zivilschutz-dispens-schutzraumbau",
+        "zivilschutz-planung",
+        "zivilschutz-aufhebung",
+        "alarmierungseinrichtung-tangiert"
+      ]
+    },
     "fachthemen.brandschutz": {
       "title": "Brandschutz",
       "parent": "fachthemen",
@@ -2496,6 +2545,7 @@
         "info-energie",
         "info-arbeitssicherheit-sicherheitsdatenblatter",
         "info-zivilschutz-elementarschaden",
+        "info-zivilschutz-ersatzbeitraege-verfuegung",
         "info-zivilschutz-aufhebung",
         "info-brandschutz-gefahrengut",
         "info-liegenschaftsentwasserung",
@@ -7275,6 +7325,16 @@
         "options": ["Ja", "Nein"]
       }
     },
+    "zivilschutz-ersatzbeitraege": {
+      "label": "Wurden für die bestehende Wohnung/en bereits Ersatzbeiträge bezahlt?",
+      "hint": "",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'Baute(n)' in 'kategorie-des-vorhabens'|value && 'Wohnen' in 'art-der-nutzung'|value && ('Anbau / Erweiterung' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value || 'Nutzungsänderung' in 'vorhaben-mit-baute'|value)",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
     "zivilschutz-elementarschaden": {
       "label": "Handelt es sich um einen Wiederaufbau nach Elementarschaden?",
       "hint": "Feuer, Sturm und Wasser gelten als Elementarschaden und werden von der Schutzraumbaupflicht befreit. Es ist der Rapport des Schadenereignisses beizulegen.",
@@ -10322,6 +10382,15 @@
       "type": "checkbox",
       "required": false,
       "active-expression": "'liegenschaftsentwasserung-wassergefahrdende-stoffe'|value == 'Ja'",
+      "config": {
+        "options": ["Vorhanden"]
+      }
+    },
+    "info-zivilschutz-ersatzbeitraege-verfuegung": {
+      "label": "Verfügung des Zivilschutz-Ersatzbeitrages",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'zivilschutz-ersatzbeitraege'|value == 'Ja'",
       "config": {
         "options": ["Vorhanden"]
       }

@@ -7,6 +7,7 @@ SZ_DISTRIBUTION_SUGGESTIONS = {
         ("fachthemen.arbeitssicherheit-und-gesundheitsschutz", [4]),
         ("fachthemen.zivilschutz", [79]),
         ("fachthemen.zivilschutz-v2", [79]),
+        ("fachthemen.zivilschutz-v3", [79]),
         ("fachthemen.gewasserschutz", [267, 13]),
         ("fachthemen.reklamen", [18]),
         ("fachthemen.denkmalschutz-und-archaeologie", [8]),
