@@ -418,6 +418,8 @@ def any_application(request, settings):
 
 @pytest.fixture
 def application_settings(settings):
+    # This is using the TEST configuration, as it's defined
+    # in pyproject.toml -> [tool.pytest.ini_options] -> env
     application_dict = copy.deepcopy(settings.APPLICATION)
     # settings fixture only restores per attribute
     # so need to set copy of dict
