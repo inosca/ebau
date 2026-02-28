@@ -367,9 +367,9 @@ ECH0211 = {
         "CLOSE_DOSSIER": {
             "ALLOWED_STATES": ["sb1", "sb2", "conclusion", "construction-acceptance"],
             "WORK_ITEM_ACTIONS": [
-                ("skip", "sb1"),
-                ("skip", "sb2"),
-                ("complete", "complete"),
+                ("skip", "sb1", None),
+                ("skip", "sb2", None),
+                ("complete", "complete", None),
             ],
         },
         "DOCS": {
@@ -526,7 +526,12 @@ ECH0211 = {
         },
         "CLOSE_DOSSIER": {
             "ALLOWED_STATES": ["construction-acceptance"],
-            "WORK_ITEM_ACTIONS": [("skip", "init-construction-monitoring")],
+            "WORK_ITEM_ACTIONS": [
+                # old module, needed until construction monitoring is rolled out
+                ("complete", "construction-acceptance", None),
+                # set "skip" context for 'resolve_after_construction_monitoring' (see dynamic_tasks.py)
+                ("skip", "init-construction-monitoring", {"skip": True}),
+            ],
         },
         "TASK_SEND": {
             "SKIP_WORK_ITEMS": ["formal-exam"],
@@ -717,8 +722,9 @@ ECH0211 = {
         "CLOSE_DOSSIER": {
             "ALLOWED_STATES": ["construction-monitoring"],
             "WORK_ITEM_ACTIONS": [
-                ("skip", "init-construction-monitoring"),
-                ("complete", "complete-instance"),
+                # set "skip" context for 'resolve_after_construction_monitoring' (see dynamic_tasks.py)
+                ("skip", "init-construction-monitoring", {"skip": True}),
+                ("complete", "complete-instance", None),
             ],
         },
         "JUDGEMENT_MAPPING": {
@@ -904,8 +910,8 @@ ECH0211 = {
         "CLOSE_DOSSIER": {
             "ALLOWED_STATES": ["decided", "construction-monitoring", "to-finish"],
             "WORK_ITEM_ACTIONS": [
-                ("skip", "init-construction-monitoring"),
-                ("complete", "complete-instance"),
+                ("skip", "init-construction-monitoring", {"skip": True}),
+                ("complete", "complete-instance", None),
             ],
         },
         "TASK_SEND": {
