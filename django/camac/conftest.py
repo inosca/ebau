@@ -72,7 +72,6 @@ from camac.rulesets import factories as rulesets_factories
 from camac.sanctions import factories as sanction_factories
 from camac.settings.modules.construction_monitoring import CONSTRUCTION_MONITORING
 from camac.settings.modules.deadlines_schema import DeadlinesConfig
-from camac.settings.utils import get_enabled_modules_for_canton
 from camac.tags import factories as tags_factories
 from camac.tests.data import (
     ag_personal_row_factory,
@@ -401,16 +400,9 @@ def set_application_demo(_set_application):
 @pytest.fixture(params=list(django_settings.APPLICATIONS.keys()))
 def any_application(request, settings):
     """Return set_application_XY fixture for all possible applications."""
-    # TODO either expand fixtures so all of them exist, or filter down
-    # the list of accepted applications so only the ones fully supported
-    # will be present
+
     app_key = request.param
     app_short = settings.APPLICATIONS[app_key]["SHORT_NAME"]
-
-    for module_name in get_enabled_modules_for_canton(app_key):
-        # Any module config that's available for the current canton
-        # will be loaded
-        request.getfixturevalue(f"{app_short}_{module_name}_settings")
 
     # Application *must* be present and will be loaded and returned
     return request.getfixturevalue(f"set_application_{app_short}")
