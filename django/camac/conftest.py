@@ -3,7 +3,6 @@ import inspect
 import logging
 import os
 import sys
-import time
 from copy import deepcopy
 from dataclasses import dataclass, field
 from datetime import date, timedelta
@@ -3378,9 +3377,6 @@ def set_document_backend(application_settings):
     return do_it
 
 
-_ensure_no_leaks_stats = {"setup_time": 0.0, "check_time": 0.0, "invocations": 0}
-
-
 def _validateable_settings():
     """
     Return all module's settings names for modules that use module-settings.
@@ -3429,9 +3425,6 @@ def ensure_no_leaks(request):
     fixtures like `permissions_settings`, `be_application_settings`, etc).
     """
 
-    # we collect some stats for further analysis
-    started = time.time()
-
     settings_to_check = _validateable_settings()
 
     if not _before_settings:
@@ -3441,61 +3434,28 @@ def ensure_no_leaks(request):
             {s: copy.deepcopy(_get_module_settings(s)) for s in settings_to_check}
         )
 
-    _ensure_no_leaks_stats["invocations"] += 1
-    _ensure_no_leaks_stats["setup_time"] += time.time() - started
     yield
-    started_checks = time.time()
 
     after_settings = {s: _get_module_settings(s) for s in settings_to_check}
 
-    try:
-        for s in settings_to_check:
-            before = _before_settings[s]
-            after = after_settings[s]
+    for s in settings_to_check:
+        before = _before_settings[s]
+        after = after_settings[s]
 
-            if isinstance(after, dict):
-                # Canton-wise diffing for reduced output in case of error
-                for kt in set(before.keys()) | set(after.keys()):
-                    assert before[kt] == after[kt], (
-                        f"Module {s} leaks. check canton {kt}"
-                    )
-            else:
-                # pydantic settings. Again, canton-wise diffing for reduced
-                # output in case of issues
-                for canton in django_settings.APPLICATIONS.keys():
-                    before_cantonal = getattr(before, canton)
-                    after_cantonal = getattr(after, canton)
+        if isinstance(after, dict):
+            # Canton-wise diffing for reduced output in case of error
+            for kt in set(before.keys()) | set(after.keys()):
+                assert before[kt] == after[kt], f"Module {s} leaks. check canton {kt}"
+        else:
+            # pydantic settings. Again, canton-wise diffing for reduced
+            # output in case of issues
+            for canton in django_settings.APPLICATIONS.keys():
+                before_cantonal = getattr(before, canton)
+                after_cantonal = getattr(after, canton)
 
-                    assert before_cantonal == after_cantonal, (
-                        f"Module settings {s} seem to leak for {canton}"
-                    )
-
-    finally:
-        _ensure_no_leaks_stats["check_time"] += time.time() - started_checks
-
-
-@pytest.fixture(autouse=True, scope="session")
-def collect_no_leaks_stats():
-    """After the tests have run, collect and output statistics on the leaks checks.
-
-    The `ensure_no_leaks` fixture adds a bit of overhead, and we need to know exactly
-    how much. This prints out some statistics, so we can decide whether to do
-    full checking or limit it in some way.
-    """
-    yield
-    n_settings = len(_validateable_settings())
-    invocations = _ensure_no_leaks_stats["invocations"]
-    setup_time = _ensure_no_leaks_stats["setup_time"]
-    check_time = _ensure_no_leaks_stats["check_time"]
-    with open("/tmp/camac-leak-check-fixture.stats", "w") as fh_out:
-        for fh in sys.stdout, fh_out:
-            print(f"Ensure-No-Leaks: Time for setup: {setup_time:0.5}s", file=fh)
-            print(f"Ensure-No-Leaks: Time for checks: {check_time:0.5}s", file=fh)
-            print(
-                f"Ensure-No-Leaks: Total time to verify {n_settings} settings "
-                f"objects: {setup_time + check_time:0.5}s ({invocations} tests ran)",
-                file=fh,
-            )
+                assert before_cantonal == after_cantonal, (
+                    f"Module settings {s} seem to leak for {canton}"
+                )
 
 
 def parse_xlsx_response(response: FileResponse) -> pyexcel.Book:
