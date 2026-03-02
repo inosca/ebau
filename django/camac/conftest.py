@@ -8,6 +8,7 @@ from dataclasses import dataclass, field
 from datetime import date, timedelta
 from importlib import import_module, reload
 from pathlib import Path
+from typing import Callable, Optional
 
 import django.db
 import faker
@@ -71,7 +72,6 @@ from camac.rulesets import factories as rulesets_factories
 from camac.sanctions import factories as sanction_factories
 from camac.settings.modules.construction_monitoring import CONSTRUCTION_MONITORING
 from camac.settings.modules.deadlines_schema import DeadlinesConfig
-from camac.settings.utils import get_enabled_modules_for_canton
 from camac.tags import factories as tags_factories
 from camac.tests.data import (
     ag_personal_row_factory,
@@ -400,16 +400,9 @@ def set_application_demo(_set_application):
 @pytest.fixture(params=list(django_settings.APPLICATIONS.keys()))
 def any_application(request, settings):
     """Return set_application_XY fixture for all possible applications."""
-    # TODO either expand fixtures so all of them exist, or filter down
-    # the list of accepted applications so only the ones fully supported
-    # will be present
+
     app_key = request.param
     app_short = settings.APPLICATIONS[app_key]["SHORT_NAME"]
-
-    for module_name in get_enabled_modules_for_canton(app_key):
-        # Any module config that's available for the current canton
-        # will be loaded
-        request.getfixturevalue(f"{app_short}_{module_name}_settings")
 
     # Application *must* be present and will be loaded and returned
     return request.getfixturevalue(f"set_application_{app_short}")
@@ -3353,6 +3346,50 @@ def setup_sql_views(django_db_setup, django_db_blocker):
                     # or similar
                     if "already exists" not in str(exc.args):
                         raise
+
+
+@pytest.fixture
+def try_get_fixture(request) -> Callable[[str, Optional[dict]], dict | None]:
+    """Return the requested fixture, or None if it's not available.
+
+    Useful for module-specific settings that may or may not be available for
+    every canton.
+    """
+
+    def get(name, config_for_prefix=None):
+        """Get the requested fixture.
+
+        There are two operation modes:
+
+        * If you only pass in the name, the fixture will be loaded if available
+        * If you pass in a config, it's assumed to be a full APPLICATION config
+          dict, and it is used to determine the prefix for the fixture to load.
+
+
+        Examples:
+           >>> def test_something(try_get_fixture, set_application_be):
+           ...     # will load default dms settings
+           ...     dms_settings = try_get_fixture('dms_settings')
+           ...
+           ...     # will load the canton bern specific placeholder settings
+           ...     dms_settings = try_get_fixture(
+           ...         'placeholder_settings',
+           ...         set_application_be
+           ...     )
+
+
+        Returns the requested fixture if it is found, otherweise None.
+        """
+        if config_for_prefix:
+            prefix = config_for_prefix["SHORT_NAME"]
+            name = f"{prefix}_{name}"
+        try:
+            return request.getfixturevalue(name)
+        except Exception:
+            # some cantons don't have the setting
+            return None
+
+    return get
 
 
 @pytest.fixture

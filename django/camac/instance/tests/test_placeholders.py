@@ -979,7 +979,11 @@ def test_human_readable_date(language, expected):
     ],
     indirect=["any_application"],
 )
-def test_dms_placeholders_docs(admin_client, snapshot, any_application):
+def test_dms_placeholders_docs(
+    admin_client, snapshot, any_application, try_get_fixture
+):
+    try_get_fixture("placeholders_settings", any_application)
+
     response = admin_client.get(reverse("dms-placeholders-docs"))
     assert response.status_code == status.HTTP_200_OK
     snapshot.assert_match(response.json())
@@ -1247,7 +1251,11 @@ def test_dms_placeholders_sz(
     any_application,
     settings,
     snapshot,
+    try_get_fixture,
 ):
+    try_get_fixture("placeholders_settings", any_application)
+    try_get_fixture("dms_settings", any_application)
+
     response = admin_client.get(
         reverse("instance-dms-placeholders", args=[app_instance.pk])
     )

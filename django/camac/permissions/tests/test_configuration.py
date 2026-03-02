@@ -1,7 +1,6 @@
 from collections import defaultdict
 
 import pytest
-from django.conf import settings
 
 from camac.permissions.conditions import Check
 from camac.permissions.utils import IncompatibleCheck, extract_allowed_states
@@ -12,11 +11,19 @@ from camac.permissions.utils import IncompatibleCheck, extract_allowed_states
         "Complaining about all the duplicate configs, but this is not an actual problem"
     )
 )
-def test_duplicate_conditionals(db, any_application):
+def test_duplicate_conditionals(db, try_get_fixture, any_application):
     seen_checks = defaultdict(list)
     seen_perms = defaultdict(list)
 
-    access_levels = settings.PERMISSIONS.get("ACCESS_LEVELS", {})
+    permissions_settings = try_get_fixture(
+        f"{any_application['SHORT_NAME']}_permissions_settings"
+    )
+    if not permissions_settings:
+        # "test" Canton - skip
+        assert any_application["SHORT_NAME"] == "test"
+        return
+
+    access_levels = permissions_settings.get("ACCESS_LEVELS", {})
     for access_level, permissions in access_levels.items():
         for perm, check in permissions:
             try:
@@ -54,13 +61,22 @@ def test_duplicate_conditionals(db, any_application):
         assert errors == []
 
 
-def test_conditional_types(db, any_application):
+def test_conditional_types(db, try_get_fixture, any_application):
     """Ensure all permisison conditionals are of the correct type."""
 
-    access_levels = settings.PERMISSIONS.get("ACCESS_LEVELS", {})
+    permissions_settings = try_get_fixture(
+        f"{any_application['SHORT_NAME']}_permissions_settings"
+    )
+    if not permissions_settings:
+        # this is the "test" canton, and there's no config to test
+        # there. All others have permissions settings
+        assert any_application["SHORT_NAME"] == "test"
+        return
 
-    for access_level, permissions in access_levels.items():
-        for perm, check in permissions:
+    access_levels = permissions_settings.get("ACCESS_LEVELS", {})
+
+    for access_level, permissions_settings in access_levels.items():
+        for perm, check in permissions_settings:
             assert isinstance(check, Check), (
                 f"{perm} conditional {check} must be Check instance. "
                 "Callbacks and raw string permission (state) conditionals "
