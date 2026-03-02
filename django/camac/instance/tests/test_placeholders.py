@@ -89,7 +89,6 @@ def test_dms_placeholders_gr(
     form_utils: FormUtils,
     gr_master_data_settings,
 ):
-
     instance_service_factory(instance=gr_instance, service=group.service, active=1)
     gr_instance.refresh_from_db()
 
@@ -616,7 +615,6 @@ def test_dms_placeholders_be(
     be_publication_settings,
     form_utils: FormUtils,
 ):
-
     # publication
     document = DocumentFactory()
 

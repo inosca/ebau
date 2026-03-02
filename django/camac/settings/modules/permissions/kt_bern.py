@@ -5,6 +5,7 @@ from camac.permissions.conditions import (
     HasApplicantRole,
     HasRole,
     IsAppeal,
+    IsForm,
     RequireInstanceState,
     RequireWorkItem,
 )
@@ -68,6 +69,24 @@ ROLES_INTERNAL_NO_READONLY = ROLES_INTERNAL & ~HasRole(
     ]
 )
 
+BAUGESUCH_FORM_VERSIONS = [
+    "baugesuch",
+    "baugesuch-v2",
+    "baugesuch-v3",
+    "baugesuch-v5",
+    "baugesuch-v6",
+    "baugesuch-generell",
+    "baugesuch-generell-v2",
+    "baugesuch-generell-v3",
+    "baugesuch-generell-v5",
+    "baugesuch-generell-v6",
+    "baugesuch-mit-uvp",
+    "baugesuch-mit-uvp-v2",
+    "baugesuch-mit-uvp-v3",
+    "baugesuch-mit-uvp-v5",
+    "baugesuch-mit-uvp-v6",
+]
+
 MODULE_FORM = STATES_ALL_INTERNAL & ROLES_INTERNAL
 
 MODULE_DOCUMENTS_READ = STATES_ALL_INTERNAL & ROLES_INTERNAL
@@ -90,9 +109,76 @@ MODULE_RESPONSIBLE_WRITE = STATES_ALL_INTERNAL & ROLES_INTERNAL_NO_READONLY
 MODULE_HEADER_READ = STATES_ALL_INTERNAL & ROLES_INTERNAL
 MODULE_HEADER_WRITE = STATES_ALL_INTERNAL & ROLES_INTERNAL_NO_READONLY
 
+# Portal permissions - TODO: Paper instances
 MODULE_PORTAL_ADDITIONAL_DEMANDS_READ = RequireWorkItem("fill-additional-demand")
-MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE = (
-    MODULE_PORTAL_ADDITIONAL_DEMANDS_READ & HasApplicantRole(["ADMIN", "EDITOR"])
+MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE = RequireWorkItem(
+    "fill-additional-demand", "ready"
+) & HasApplicantRole(["ADMIN", "EDITOR"])
+
+MODULE_PORTAL_ALEXANDRIA_READ = Always()
+MODULE_PORTAL_ALEXANDRIA_WRITE = HasApplicantRole(["ADMIN", "EDITOR"])
+
+MODULE_PORTAL_APPLICANTS = HasApplicantRole(["ADMIN"])
+
+MODULE_PORTAL_COMMUNICATIONS_READ = ~RequireInstanceState(["new"])
+MODULE_PORTAL_COMMUNICATIONS_WRITE = (
+    MODULE_PORTAL_COMMUNICATIONS_READ & HasApplicantRole(["ADMIN", "EDITOR"])
+)
+
+MODULE_PORTAL_FORM_READ = Always()
+MODULE_PORTAL_FORM_WRITE = RequireWorkItem("submit", "ready") & (
+    HasApplicantRole(["ADMIN", "EDITOR"])
+)
+
+MODULE_PORTAL_SB1_READ = RequireWorkItem("sb1")
+MODULE_PORTAL_SB1_WRITE = RequireWorkItem("sb1", "ready") & HasApplicantRole(
+    ["ADMIN", "EDITOR"]
+)
+
+MODULE_PORTAL_SB2_READ = RequireWorkItem("sb2")
+MODULE_PORTAL_SB2_WRITE = RequireWorkItem("sb2", "ready") & HasApplicantRole(
+    ["ADMIN", "EDITOR"]
+)
+
+MODULE_PORTAL_DOCUMENTS_READ = Always()
+MODULE_PORTAL_DOCUMENTS_WRITE = (
+    MODULE_PORTAL_FORM_WRITE
+    | MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE
+    | MODULE_PORTAL_SB1_WRITE
+    | MODULE_PORTAL_SB2_WRITE
+)
+
+ACTION_PORTAL_INSTANCE_CREATE_MODIFICATION = (
+    ~RequireInstanceState(["new", "finished", "archived"])
+    & IsForm(BAUGESUCH_FORM_VERSIONS)
+    & HasApplicantRole(["ADMIN"])
+    # TODO: Support should also be allowed to create a project modification
+)
+
+ACTION_PORTAL_INSTANCE_COPY_AFTER_REJECTION = RequireInstanceState(["rejected"]) & (
+    HasApplicantRole(["ADMIN"])
+)
+
+ACTION_PORTAL_INSTANCE_DELETE = RequireInstanceState(["new"]) & (
+    HasApplicantRole(["ADMIN"])
+)
+
+ACTION_PORTAL_INSTANCE_EXTEND_VALIDITY = RequireInstanceState(["sb1", "sb2"]) & (
+    HasApplicantRole(["ADMIN"])
+)
+
+ACTION_PORTAL_INSTANCE_DOWNLOAD_AS_PDF = STATES_ALL_INTERNAL
+
+ACTION_PORTAL_INSTANCE_SUBMIT = RequireWorkItem("submit", "ready") & (
+    HasApplicantRole(["ADMIN"])
+)
+
+ACTION_PORTAL_SB1_SUBMIT = RequireWorkItem("sb1", "ready") & (
+    HasApplicantRole(["ADMIN", "EDITOR"])
+)
+
+ACTION_PORTAL_SB2_SUBMIT = RequireWorkItem("sb2", "ready") & (
+    HasApplicantRole(["ADMIN", "EDITOR"])
 )
 
 BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES = RequireInstanceState(
@@ -399,12 +485,43 @@ BE_PERMISSIONS_SETTINGS = {
         ],
         # TODO: The following access levels have not beeen released yet
         "applicant": [
-            ("applicant-remove", Always()),
-            ("applicant-add", Always()),
-            ("applicant-read", Always()),
             ("additional-demands-read", MODULE_PORTAL_ADDITIONAL_DEMANDS_READ),
             ("additional-demands-write", MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE),
-            ("alexandria-write", HasApplicantRole(["ADMIN", "EDITOR"])),
+            # TODO: alexandria-read permission
+            ("alexandria-write", MODULE_PORTAL_ALEXANDRIA_WRITE),
+            ("applicant-add", MODULE_PORTAL_APPLICANTS),
+            ("applicant-read", MODULE_PORTAL_APPLICANTS),
+            ("applicant-remove", MODULE_PORTAL_APPLICANTS),
+            ("communications-read", MODULE_PORTAL_COMMUNICATIONS_READ),
+            ("communications-write", MODULE_PORTAL_COMMUNICATIONS_WRITE),
+            ("documents-read", MODULE_PORTAL_DOCUMENTS_READ),
+            ("documents-write", MODULE_PORTAL_DOCUMENTS_WRITE),
+            ("form-read", MODULE_PORTAL_FORM_READ),
+            ("form-write", MODULE_PORTAL_FORM_WRITE),
+            ("form-sb1-read", MODULE_PORTAL_SB1_READ),
+            ("form-sb1-write", MODULE_PORTAL_SB1_WRITE),
+            ("form-sb1-submit", ACTION_PORTAL_SB1_SUBMIT),
+            ("form-sb2-read", MODULE_PORTAL_SB2_READ),
+            ("form-sb2-write", MODULE_PORTAL_SB2_WRITE),
+            ("form-sb2-submit", ACTION_PORTAL_SB2_SUBMIT),
+            (
+                "instance-create-modification",
+                ACTION_PORTAL_INSTANCE_CREATE_MODIFICATION,
+            ),
+            (
+                "instance-copy-after-rejection",
+                ACTION_PORTAL_INSTANCE_COPY_AFTER_REJECTION,
+            ),
+            ("instance-delete", ACTION_PORTAL_INSTANCE_DELETE),
+            (
+                "instance-download-form-as-pdf",
+                ACTION_PORTAL_INSTANCE_DOWNLOAD_AS_PDF,
+            ),
+            (
+                "instance-extend-validity",
+                ACTION_PORTAL_INSTANCE_EXTEND_VALIDITY,
+            ),
+            ("instance-submit", ACTION_PORTAL_INSTANCE_SUBMIT),
         ],
         "lead-authority": BE_ACTIVE_LEAD_AUTHORITY_PERMISSIONS,
         "involved-authority": BE_INVOLVED_LEAD_AUTHORITY_PERMISSIONS,
