@@ -577,6 +577,7 @@ def test_instance_submit_ur(
     ur_master_data_case,
     instance_state_factory,
     instance_service_factory,
+    service_factory,
     service,
     admin_user,
     notification_template,
@@ -599,6 +600,14 @@ def test_instance_submit_ur(
     application_settings["NOTIFICATIONS"]["SUBMIT"] = [
         {"template_slug": notification_template.slug, "recipient_types": ["applicant"]}
     ]
+
+    # patch the KOOR_GROUP_IDS to include a dummy koor group.
+    # this prevents a flaky test where a different email notification (SUBMIT_KOOR) is
+    # triggered because the responsible service matches the constant.
+    koor_service = service_factory(email="koor@example.com")
+    koor_group = group_factory(service=koor_service)
+    mocker.patch("camac.constants.kt_uri.KOOR_GROUP_IDS", [koor_group.pk])
+
     application_settings["SET_SUBMIT_DATE_CAMAC_WORKFLOW"] = True
     application_settings["PAPER"]["ALLOWED_SERVICE_GROUPS"]["DEFAULT"] = [
         ur_instance.group.service.service_group_id
