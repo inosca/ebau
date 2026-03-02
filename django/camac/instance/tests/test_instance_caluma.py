@@ -206,6 +206,98 @@ def test_create_instance_caluma_be(
             assert attachment.path.name != new_attachment.path.name
 
 
+@pytest.mark.parametrize(
+    "role__name,granted_permissions, expected_status",
+    [
+        # Permissions module: Creation of a extend validity instance
+        # requires instance-extend-validity permission on relevant
+        # instance
+        ("Municipality", ["instance-extend-validity"], status.HTTP_201_CREATED),
+        ("Applicant", ["instance-extend-validity"], status.HTTP_201_CREATED),
+        ("Municipality", [], status.HTTP_403_FORBIDDEN),
+        ("Applicant", [], status.HTTP_403_FORBIDDEN),
+    ],
+)
+def test_extend_validity_permission_acl_be(
+    db,
+    admin_client,
+    role,
+    be_instance,
+    access_level,
+    instance_acl_factory,
+    instance_state_factory,
+    mocker,
+    permissions_settings,
+    granted_permissions,
+    expected_status,
+):
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.FULL
+    instance_state_factory(name="new")
+
+    mocker.patch(
+        "camac.permissions.api.PermissionManager.get_permissions",
+        return_value=granted_permissions,
+    )
+
+    mocker.patch(
+        "camac.instance.domain_logic.CreateInstanceLogic.create",
+        return_value=be_instance,
+    )
+
+    body = {
+        "attributes": {
+            "caluma-form": "main-form",
+            "extend-validity-for": be_instance.pk,
+        },
+    }
+
+    data = {"data": {"type": "instances", **body}}
+
+    response = admin_client.post(reverse("instance-list"), data)
+
+    assert response.status_code == expected_status
+
+
+@pytest.mark.parametrize(
+    "role__name,expected_status",
+    [
+        # RBAC: Anybody can create extend validity instance
+        ("Municipality", status.HTTP_201_CREATED),
+        ("Applicant", status.HTTP_201_CREATED),
+    ],
+)
+def test_extend_validity_permission_rbac_be(
+    db,
+    admin_client,
+    role,
+    be_instance,
+    instance_state_factory,
+    mocker,
+    permissions_settings,
+    expected_status,
+):
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.OFF
+    instance_state_factory(name="new")
+
+    mocker.patch(
+        "camac.instance.domain_logic.CreateInstanceLogic.create",
+        return_value=be_instance,
+    )
+
+    body = {
+        "attributes": {
+            "caluma-form": "main-form",
+            "extend-validity-for": be_instance.pk,
+        },
+    }
+
+    data = {"data": {"type": "instances", **body}}
+
+    response = admin_client.post(reverse("instance-list"), data)
+
+    assert response.status_code == expected_status
+
+
 @pytest.mark.freeze_time("2019-05-02")
 @pytest.mark.parametrize("service_group__name", ["municipality"])
 @pytest.mark.parametrize("archive", [False, True])

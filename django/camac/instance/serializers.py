@@ -1168,6 +1168,13 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             # when making copies, the form ID remains the same
             validated_data["form"] = source_instance.form
         else:
+            if is_permission_module_fully_enabled(group):
+                extend_validity_for = validated_data.get("extend_validity_for", None)
+                if extend_validity_for:
+                    permissions_api.PermissionManager.from_request(
+                        self.context["request"]
+                    ).require_all(extend_validity_for, "instance-extend-validity")
+
             is_modification = False
             caluma_form = self.initial_data.get("caluma_form", None)
             is_paper = (
