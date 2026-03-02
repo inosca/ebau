@@ -51,13 +51,12 @@ def generate_module_settings(
         else (settings.APPLICATIONS[canton]["SHORT_NAME"] if canton else None)
     )
 
+    requested = (
+        f"{specialisation}_{module_name}_settings"
+        if specialisation
+        else f"{module_name}_settings"
+    )
     if specialisation:
-        requested = (
-            f"{specialisation}_{module_name}_settings"
-            if specialisation
-            else f"{module_name}_settings"
-        )
-
         other_specialisations = [
             f
             for f in request.fixturenames
@@ -91,7 +90,7 @@ def generate_module_settings(
                     attr,
                     always_merger.merge(
                         getattr(base_fixture, attr, None),
-                        getattr(canton_as_defined, attr),
+                        copy.deepcopy(getattr(canton_as_defined, attr)),
                     ),
                 )
             # in this mode, the base_fixture is now updated to contain the
@@ -106,19 +105,19 @@ def generate_module_settings(
 
     else:
         # Genereate "base" settings
-        canton_settings = copy.deepcopy(
+        default_settings = (
             copy.deepcopy(original_settings["default"])
             if isinstance(original_settings, dict)
-            else original_settings.default
+            else original_settings.default.model_copy(deep=True)
         )
 
         # base settings are responsible for cleanup, so we do the whole set,
         # yield, reset sequence here. Relying on the settings fixture may not be
         # enough (TODO verify / validate assumption)
         before_settings = getattr(settings, module_name.upper(), {})
-        setattr(settings, module_name.upper(), canton_settings)
+        setattr(settings, module_name.upper(), default_settings)
+        yield default_settings
 
-        yield canton_settings
         setattr(settings, module_name.upper(), before_settings)
 
 
