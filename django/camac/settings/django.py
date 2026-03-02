@@ -2185,8 +2185,8 @@ APPLICATIONS = {
                     },
                     "ech_event": "camac.ech0211.signals.file_subsequently",
                 },
-                # Old construction acceptance module (needs to be removed when)
-                # new construction monitoring is rolled out.
+                # Old construction acceptance module (needs to be removed when
+                # new construction monitoring is rolled out.)
                 "construction-acceptance": {
                     "next_instance_state": "finished",
                     "history_text": _("Construction monitoring performed"),

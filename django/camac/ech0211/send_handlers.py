@@ -575,10 +575,10 @@ class CloseArchiveDossierSendHandler(BaseSendHandler):
         return self.data.eventCloseArchiveDossier.planningPermissionApplicationIdentification.dossierIdentification
 
     def apply(self):
-        for action, task in settings.ECH0211.get("CLOSE_DOSSIER", {}).get(
+        for action, task, context in settings.ECH0211.get("CLOSE_DOSSIER", {}).get(
             "WORK_ITEM_ACTIONS", []
         ):
-            self._process_work_item(action, task, {}, {})
+            self._process_work_item(action, task, {}, context)
 
 
 class TaskSendHandler(AlexandriaDocumentMixin, BaseSendHandler):
