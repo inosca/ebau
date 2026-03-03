@@ -21,7 +21,10 @@ ALLOWED_FORMS_FOR_PRODUCT_NUMBERS = [
 
 BILLING = ModuleConfig[BillingConfig](
     default=BillingConfig(),
-    kt_ag=BillingConfig(admin=BillingDjangoAdminConfig(hidden_fields=["organization"])),
+    kt_ag=BillingConfig(
+        enabled=True,
+        admin=BillingDjangoAdminConfig(hidden_fields=["organization"]),
+    ),
     kt_schwyz=BillingConfig(
         # Keep this config in sync with ember-ebau-core/addon/config/features/sz.js
         enabled=True,
