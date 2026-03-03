@@ -28,7 +28,6 @@ from caluma.caluma_workflow import (
     models as caluma_workflow_models,
 )
 from caluma.caluma_workflow.api import complete_work_item, skip_work_item
-from deepmerge import always_merger
 from django.conf import settings as django_settings
 from django.core.cache import cache
 from django.core.management import call_command
@@ -70,7 +69,6 @@ from camac.permissions.models import AccessLevel
 from camac.responsible import factories as responsible_factories
 from camac.rulesets import factories as rulesets_factories
 from camac.sanctions import factories as sanction_factories
-from camac.settings.modules.construction_monitoring import CONSTRUCTION_MONITORING
 from camac.tags import factories as tags_factories
 from camac.tests.data import (
     ag_personal_row_factory,
@@ -2766,46 +2764,6 @@ def decision_factory_ag(
         return work_item
 
     return factory
-
-
-@pytest.fixture
-def construction_monitoring_settings(settings):
-    construction_monitoring_dict = copy.deepcopy(CONSTRUCTION_MONITORING["default"])
-    settings.CONSTRUCTION_MONITORING = construction_monitoring_dict
-    return construction_monitoring_dict
-
-
-@pytest.fixture
-def sz_construction_monitoring_settings(settings, construction_monitoring_settings):
-    construction_monitoring_dict = copy.deepcopy(
-        always_merger.merge(
-            construction_monitoring_settings, CONSTRUCTION_MONITORING["kt_schwyz"]
-        )
-    )
-    settings.CONSTRUCTION_MONITORING = construction_monitoring_dict
-    return construction_monitoring_dict
-
-
-@pytest.fixture
-def ur_construction_monitoring_settings(settings, construction_monitoring_settings):
-    construction_monitoring_dict = copy.deepcopy(
-        always_merger.merge(
-            construction_monitoring_settings, CONSTRUCTION_MONITORING["kt_uri"]
-        )
-    )
-    settings.CONSTRUCTION_MONITORING = construction_monitoring_dict
-    return construction_monitoring_dict
-
-
-@pytest.fixture
-def gr_construction_monitoring_settings(settings, construction_monitoring_settings):
-    construction_monitoring_dict = copy.deepcopy(
-        always_merger.merge(
-            construction_monitoring_settings, CONSTRUCTION_MONITORING["kt_gr"]
-        )
-    )
-    settings.CONSTRUCTION_MONITORING = construction_monitoring_dict
-    return construction_monitoring_dict
 
 
 @pytest.fixture
