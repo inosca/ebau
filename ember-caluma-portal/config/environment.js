@@ -89,8 +89,9 @@ module.exports = function (environment) {
       name: "demo",
       supportGroups: [10000],
       useConfidential: false,
-      defaultInstanceStateCategory: "pending",
+      defaultInstanceStateCategory: "all",
       instanceStateCategories: {
+        all: [],
         pending: [
           instanceStatesDemo.new,
           instanceStatesDemo.subm,
@@ -121,26 +122,9 @@ module.exports = function (environment) {
       name: "be",
       internalFrontend: "camac",
       supportGroups: [10000],
-      defaultInstanceStateCategory: "pending",
+      defaultInstanceStateCategory: "all",
       instanceStateCategories: {
-        all: [
-          instanceStatesBe.new,
-          instanceStatesBe.subm,
-          instanceStatesBe.circulationInit,
-          instanceStatesBe.circulation,
-          instanceStatesBe.coordination,
-          instanceStatesBe.rejected,
-          instanceStatesBe.inProgress,
-          instanceStatesBe.inProgressInternal,
-          instanceStatesBe.inCorrection,
-          instanceStatesBe.corrected,
-          instanceStatesBe.sb1,
-          instanceStatesBe.sb2,
-          instanceStatesBe.finished,
-          instanceStatesBe.finishedInternal,
-          instanceStatesBe.evaluated,
-          instanceStatesBe.conclusion,
-        ],
+        all: [],
         pending: [
           instanceStatesBe.new,
           instanceStatesBe.subm,
@@ -328,8 +312,9 @@ module.exports = function (environment) {
         excludeFromDocuments: [],
       },
       instanceStates: instanceStatesUr,
-      defaultInstanceStateCategory: "notSubmitted",
+      defaultInstanceStateCategory: "all",
       instanceStateCategories: {
+        all: [],
         notSubmitted: [
           1, // new_comm
           28, // new
@@ -450,8 +435,9 @@ module.exports = function (environment) {
       name: "gr",
       internalFrontend: "ebau",
       supportGroups: [10000],
-      defaultInstanceStateCategory: "pending",
+      defaultInstanceStateCategory: "all",
       instanceStateCategories: {
+        all: [],
         pending: [
           instanceStatesGr.new,
           instanceStatesGr.subm,
@@ -510,7 +496,7 @@ module.exports = function (environment) {
       supportGroups: [3],
       defaultInstanceStateCategory: "all",
       instanceStateCategories: {
-        all: Object.values(instanceStatesSo),
+        all: [],
         pending: [
           instanceStatesSo.new,
           instanceStatesSo.subm,
@@ -569,8 +555,9 @@ module.exports = function (environment) {
       name: "ag",
       internalFrontend: "ebau",
       supportGroups: [10000],
-      defaultInstanceStateCategory: "pending",
+      defaultInstanceStateCategory: "all",
       instanceStateCategories: {
+        all: [],
         pending: [
           instanceStatesAg.new,
           instanceStatesAg.subm,
@@ -622,8 +609,9 @@ module.exports = function (environment) {
       name: "sg",
       internalFrontend: "ebau",
       supportGroups: [2],
-      defaultInstanceStateCategory: "pending",
+      defaultInstanceStateCategory: "all",
       instanceStateCategories: {
+        all: [],
         pending: [instanceStatesSg.new, instanceStatesSg.subm],
         decided: [],
         done: [],
