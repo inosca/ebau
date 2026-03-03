@@ -213,7 +213,14 @@ export default class InstanceAbility extends Ability {
     );
   }
 
-  get canExtendValidity() {
+  async canExtendValidity() {
+    if (this.permissions.fullyEnabled) {
+      return await this.permissions.hasAll(
+        this.model?.id,
+        "instance-extend-validity",
+      );
+    }
+
     return [
       config.APPLICATION.instanceStates.sb1,
       config.APPLICATION.instanceStates.sb2,
