@@ -25,9 +25,10 @@
     width: 100% !important;
     border-collapse: collapse !important;
     table-layout: auto;
+    margin-left: 0 !important;
   }
 
-  .printable-row {
+  .print-table-row {
     display: table-row !important;
   }
 }
