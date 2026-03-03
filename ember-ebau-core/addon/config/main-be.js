@@ -249,8 +249,13 @@ export default {
       void: "void",
     },
   },
+  sbTaskSlugs: ["sb1", "sb2"],
   submitComponent: {
-    requiredPermissions: ["instance-submit"],
+    requiredPermissions: {
+      submit: ["instance-submit"],
+      report: ["form-sb1-submit"],
+      finalize: ["form-sb2-submit"],
+    },
     buttonHintEnabled: (session) => session.isSupport,
     export: {
       enabled: (instance) => !instance.isPaper,

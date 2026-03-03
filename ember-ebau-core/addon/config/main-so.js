@@ -163,7 +163,9 @@ const config = {
   },
   showDownloadReceiptAction: true,
   submitComponent: {
-    requiredPermissions: ["instance-submit"],
+    requiredPermissions: {
+      submit: ["instance-submit"],
+    },
     export: {
       enabled: (instance) =>
         !instance.isPaper &&

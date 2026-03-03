@@ -183,7 +183,9 @@ export default {
     disallowStates: ["new"],
   },
   submitComponent: {
-    requiredPermissions: null,
+    requiredPermissions: {
+      submit: ["instance-submit"],
+    },
     export: {
       enabled: (instance) =>
         !instance.isPaper &&

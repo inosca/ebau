@@ -234,7 +234,10 @@
         </LinkTo>
       {{/if}}
 
-      {{#each (array "sb1" "sb1-v2") as |formSlug|}}
+      {{#each
+        (intersect (array "sb1" "sb1-v2") this.editController.workItemForms)
+        as |formSlug|
+      }}
         {{#if
           (await
             (can

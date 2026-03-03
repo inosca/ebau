@@ -40,7 +40,9 @@ export default {
   },
   intentSlugs: ["beschreibung-bauvorhaben"],
   submitComponent: {
-    requiredPermissions: ["instance-submit"],
+    requiredPermissions: {
+      submit: ["instance-submit"],
+    },
     export: { enabled: () => false },
   },
   communication: {

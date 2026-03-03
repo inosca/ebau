@@ -1049,6 +1049,10 @@ APPLICATIONS = {
                 "inquiry-answer",
                 "geometer",
             ],
+            "FORM_PERMISSIONS_MAPPING": {
+                "form-sb1-v2-read": "form-sb1-read",
+                "form-sb1-v2-write": "form-sb1-write",
+            },
             "SUBMIT_TASKS": ["submit"],
             "REPORT_TASK": "sb1",
             "FINALIZE_TASK": "sb2",

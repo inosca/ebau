@@ -1,0 +1,18 @@
+query GetWorkItemForms($instanceId: GenericScalar!, $tasks: [String]!) {
+  allWorkItems(
+    filter: [
+      { rootCaseMetaValue: { key: "camac-instance-id", value: $instanceId } }
+      { tasks: $tasks }
+    ]
+  ) {
+    edges {
+      node {
+        document {
+          form {
+            slug
+          }
+        }
+      }
+    }
+  }
+}
