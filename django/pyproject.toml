@@ -125,7 +125,7 @@ omit = [
     "**/admin/*.py",
     "camac/ech0211/schema/*",
     "camac/ech0211/scripts/build_ech0211_parser.py",
-    "camac/ech0211/management/commands/fix_ech_circulation_answer.py",
+    "camac/ech0211/management/commands/debug_ech_messages.py",
     "manage.py",
     "setup.py",
     "form_json_helper.py",
