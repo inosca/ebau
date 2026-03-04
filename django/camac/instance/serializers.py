@@ -3022,6 +3022,14 @@ class CalumaInstanceCorrectionSerializer(serializers.Serializer):
             instance.set_instance_state(
                 settings.CORRECTION["INSTANCE_STATE"], camac_user
             )
+
+            if settings.TIMELINES.enabled:
+                FormTimeline.objects.add_instance_timeline(
+                    instance=instance,
+                    timeline_type=FormTimeline.Type.CORRECTION,
+                    start_date=timezone.now(),
+                )
+
         elif instance.instance_state.name == settings.CORRECTION["INSTANCE_STATE"]:
             DocumentValidator().validate(instance.case.document, caluma_user)
             instance.update_bab_status()
@@ -3030,6 +3038,11 @@ class CalumaInstanceCorrectionSerializer(serializers.Serializer):
             instance.set_instance_state(
                 instance.previous_instance_state.name, camac_user
             )
+
+            if settings.TIMELINES.enabled:
+                FormTimeline.objects.close_open_timelines(
+                    instance=instance, timeline_type=FormTimeline.Type.CORRECTION
+                )
 
             for config in settings.APPLICATION["NOTIFICATIONS"].get(
                 "DOSSIERKORREKTUR", []
