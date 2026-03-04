@@ -422,7 +422,8 @@ def application(instance: Instance, request: HttpRequest):
         constructionCost=get_cost(md.construction_costs),  # 3.1.1.11
         namedMetaData=[  # Erweiterungsfelder 3.1.1.14  TODO: verify!
             ns_objektwesen.namedMetaDataType(
-                metaDataName="status", metaDataValue=instance.instance_state.get_name()
+                metaDataName="status",
+                metaDataValue=strip_whitespace(instance.instance_state.get_name()),
             )
         ],
         locationAddress=get_location_address(md),
