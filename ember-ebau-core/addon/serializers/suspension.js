@@ -9,6 +9,10 @@ export default class SuspensionSerializer extends JSONAPISerializer {
     reasonFormatted: { serialize: false },
     // The `authorFormatted` field is a backend calculated field.
     authorFormatted: { serialize: false },
+    // The `user` field is auto-set by the backend.
+    user: { serialize: false },
+    // The `group` field is auto-set by the backend.
+    group: { serialize: false },
   };
 
   serializeAttribute(snapshot, json, key, attributes) {

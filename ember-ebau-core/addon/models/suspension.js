@@ -9,6 +9,6 @@ export default class DeadlinesSuspensionModel extends Model {
   @attr authorFormatted;
 
   @belongsTo("instance-deadline", { inverse: null, async: true }) deadline;
-  @belongsTo("group", { inverse: null, async: true }) group;
-  @belongsTo("user", { inverse: null, async: true }) user;
+  @belongsTo("group", { inverse: null, async: true, readOnly: true }) group;
+  @belongsTo("user", { inverse: null, async: true, readOnly: true }) user;
 }
