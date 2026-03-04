@@ -1,10 +1,10 @@
+from caluma.caluma_form.models import Document
+from caluma.caluma_workflow.models import Task, WorkItem
+from django.conf import settings
 from django.core.management.base import BaseCommand
 from django.db import transaction
 from tqdm import tqdm
 
-from camac.caluma.extensions.events.ktso_afu_custom_task_form import (
-    _create_afu_work_item,
-)
 from camac.permissions.models import InstanceACL
 from camac.user.models import Service
 
@@ -19,15 +19,29 @@ class Command(BaseCommand):
 
     @transaction.atomic
     def handle(self, *args, **options):
+        if settings.APPLICATION_NAME != "kt_so":
+            raise Exception("Only for Kt SO")
+
         sid = transaction.savepoint()
 
         afu = Service.objects.get(slug="afu")
-        acls = InstanceACL.objects.filter(
-            service_id__in=[afu.pk, *afu.service_children.values_list("pk", flat=True)]
+        task = Task.objects.get(pk="afu-form")
+        acls = (
+            InstanceACL.objects.filter(service_id=afu)
+            .exclude(instance__instance_state__name="finished")
+            .exclude(instance__case__work_items__task_id=task.pk)
         )
 
         for acl in tqdm(acls, desc="Creating WorkItem"):
-            _create_afu_work_item(acl)
+            case = acl.instance.case
+            WorkItem.objects.create(
+                task_id=task.pk,
+                case=case,
+                addressed_groups=[str(afu.pk)],
+                controlling_groups=[],
+                document=Document.objects.create_document_for_task(task, user=None),
+                status=WorkItem.STATUS_READY,
+            )
         if options["commit"]:
             transaction.savepoint_commit(sid)
         else:

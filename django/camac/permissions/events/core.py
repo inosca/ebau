@@ -13,9 +13,9 @@ from camac.instance.models import Instance
 from camac.notification import utils as notification_utils
 from camac.user.models import Group, Service
 
-from .api import PermissionManager
-from .exceptions import MissingEventHandler
-from .models import InstanceACL
+from ..api import PermissionManager
+from ..exceptions import MissingEventHandler
+from ..models import InstanceACL
 
 log = getLogger(__name__)
 

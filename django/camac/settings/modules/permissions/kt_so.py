@@ -110,7 +110,15 @@ MODULE_MATERIAL_EXAM_BAB = (
     & RequireWorkItem("material-exam-bab")
     & IsServiceGroup(["service-bab", "service-cantonal", "canton"])
 )
-MODULE_AFU_CHECK_READ = RequireWorkItem("afu-form", addressed_to_current_service=True)
+MODULE_AFU_CHECK_READ = RequireWorkItem("afu-form") & Callback(
+    lambda userinfo: (
+        userinfo.service.slug == "afu"
+        or userinfo.service.service_parent is not None
+        and userinfo.service.service_parent.slug == "afu"
+    ),
+    allow_caching=True,
+    name="is_afu_or_subservice",
+)
 MODULE_AFU_CHECK_WRITE = MODULE_AFU_CHECK_READ & ~RequireInstanceState(["finished"])
 
 MODULE_PERMISSIONS = STATES_ALL & HasRole(["municipality-lead"])
@@ -323,6 +331,8 @@ SO_PERMISSIONS_SETTINGS = {
             ("form-read", MODULE_FORM),
             ("instance-download-form-as-pdf", ACTION_INSTANCE_DOWNLOAD_AS_PDF),
             ("work-items-read", MODULE_WORK_ITEMS),
+            ("form-afu-form-read", MODULE_AFU_CHECK_READ),
+            ("form-afu-form-write", MODULE_AFU_CHECK_WRITE),
         ],
         "support": [
             ("applicant-add", Always()),

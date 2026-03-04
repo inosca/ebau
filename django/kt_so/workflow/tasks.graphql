@@ -168,3 +168,15 @@ mutation CreateGeometerTask {
     clientMutationId
   }
 }
+
+mutation CreateAfuFormTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "afu-form"
+      name: "AfU Prüfung"
+      meta: "{\"directLink\":{\"route\":\"cases.detail.task-form\",\"models\":[\"INSTANCE_ID\",\"TASK_SLUG\"]}}"
+    }
+  ) {
+    clientMutationId
+  }
+}
