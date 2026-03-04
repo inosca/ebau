@@ -18,6 +18,12 @@ export default class DeadlinesSuspensionListComponent extends Component {
   @tracked suspensionToEdit = undefined;
   @tracked showModal = false;
 
+  suspensionReasonsQuery = query(this, "suspension-reason", () => ({
+    filter: {
+      instance: this.ebauModules.instanceId,
+    },
+  }));
+
   suspensionsQuery = query(this, "suspension", () => ({
     filter: {
       deadline: this.args.deadline.id,
@@ -26,7 +32,13 @@ export default class DeadlinesSuspensionListComponent extends Component {
   }));
 
   get isLoading() {
-    return this.suspensionsQuery.isLoading;
+    return (
+      this.suspensionsQuery.isLoading || this.suspensionReasonsQuery.isLoading
+    );
+  }
+
+  get suspensionReasons() {
+    return this.suspensionReasonsQuery.records ?? [];
   }
 
   get suspensions() {

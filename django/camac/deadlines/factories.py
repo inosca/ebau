@@ -47,7 +47,7 @@ class SuspensionFactory(DjangoModelFactory):
             choice[0] for choice in models.Suspension.SuspensionReasonChoices.choices
         ],
     )
-    reason_text = Faker("sentence", nb_words=6)
+    remark = Faker("sentence", nb_words=6)
     created_at = Faker("past_datetime", tzinfo=pytz.UTC)
 
     class Meta:

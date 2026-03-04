@@ -46,6 +46,14 @@
         {{@workItem.instanceId}}
       {{else if (eq column "deadline")}}
         {{date-from-now @workItem.deadline startOfDay=true}}
+      {{else if (eq column "targetDeadlineDate")}}
+        {{#if @processDeadlineDate}}
+          -
+        {{else}}
+          <span class={{this.targetDeadlineClasses}}>
+            {{format-date @targetDeadlineDate format="date"}}
+          </span>
+        {{/if}}
       {{else if (eq column "responsible")}}
         {{@workItem.responsible}}
       {{else if (eq column "closedAt")}}

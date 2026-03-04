@@ -25,17 +25,19 @@
 
 <WorkItemList
   @query={{this.readyWorkItemsQuery}}
-  @columns={{array "task" "deadline" "responsible"}}
+  @columns={{this.readyColumns}}
   @baseRoute={{@baseRoute}}
   @useLinkTo={{@useLinkTo}}
   @onComplete={{this.refreshWorkItems}}
+  @processDeadlineDate={{this.processDeadlineDate}}
+  @targetDeadlineDate={{this.targetDeadlineDate}}
 />
 
 <h2>{{t "workItems.finished"}}</h2>
 
 <WorkItemList
   @query={{this.completedWorkItemsQuery}}
-  @columns={{array "task" "closedAt" "closedBy"}}
+  @columns={{this.completedColumns}}
   @highlight={{false}}
   @baseRoute={{@baseRoute}}
   @useLinkTo={{@useLinkTo}}

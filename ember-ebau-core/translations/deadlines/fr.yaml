@@ -32,6 +32,7 @@ deadlines:
       startDate:
       endDate:
       reason:
+      remark:
       author:
     saveSuccess:
     saveError:

@@ -12,6 +12,6 @@ export default Factory.extend({
   startDate: () => DateTime.fromJSDate(faker.date.past()).toISODate(),
   endDate: () => DateTime.fromJSDate(faker.date.future()).toISODate(),
   reason: () => faker.helpers.arrayElement(REASONS),
-  reasonText: () => faker.lorem.sentence(),
+  remark: () => faker.lorem.sentence(),
   createdAt: () => DateTime.fromJSDate(faker.date.past()).toISODate(),
 });

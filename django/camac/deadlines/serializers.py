@@ -68,7 +68,7 @@ class SuspensionSerializer(serializers.ModelSerializer):
             "start_date",
             "end_date",
             "reason",
-            "reason_text",
+            "remark",
         )
 
 
@@ -116,3 +116,13 @@ class InstanceDeadlineSerializer(serializers.ModelSerializer):
             "process_deadline_date",
             "process_deadline_date_override",
         )
+
+
+class SuspensionReasonSerializer(serializers.Serializer):
+    id = serializers.CharField()
+    code = serializers.CharField()
+    label = serializers.CharField()
+
+    class Meta:
+        read_only_fields = ("id", "code", "label")
+        fields = read_only_fields

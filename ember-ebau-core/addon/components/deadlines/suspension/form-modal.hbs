@@ -48,13 +48,37 @@
         </div>
       </f.input>
       <f.input
-        @errorComponent="input-error"
-        @name="reasonText"
+        @name="reason"
         @label={{t "deadlines.suspension.property.reason"}}
+        @required={{true}}
+        @errorComponent={{component "input-error"}}
+        as |fi|
+      >
+        <PowerSelect
+          @triggerId="reason"
+          data-test-suspension-reason-input
+          @selected={{fi.value}}
+          @placeholder={{t "deadlines.suspension.property.reason"}}
+          @options={{@suspensionReasons}}
+          @onChange={{fi.update}}
+          @allowClear={{true}}
+          @renderInPlace={{true}}
+          @loadingMessage={{t "global.loadingPrompt"}}
+          @searchEnabled={{false}}
+          class="uk-select"
+          as |reason|
+        >
+          {{reason.label}}
+        </PowerSelect>
+      </f.input>
+      <f.input
+        @errorComponent="input-error"
+        @name="remark"
+        @label={{t "deadlines.suspension.property.remark"}}
         @type="textarea"
         @rows="3"
         required
-        data-test-suspension-reason-input
+        data-test-suspension-remark-input
       />
     </modal.body>
     <modal.footer>

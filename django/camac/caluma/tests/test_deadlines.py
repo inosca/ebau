@@ -100,6 +100,10 @@ def test_events_deadlines_additional_demand_suspensions_gr(
             suspension.reason
             == deadlines_models.Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_ADDITIONAL_DEMAND
         )
+        assert (
+            suspension.reason_formatted
+            == deadlines_models.Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_ADDITIONAL_DEMAND.label
+        )
         assert suspension.deadline.service == service
         assert suspension.group is None
         assert suspension.user is None

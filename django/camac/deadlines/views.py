@@ -1,5 +1,6 @@
 from rest_framework import status
 from rest_framework.response import Response
+from rest_framework.viewsets import ViewSet
 from rest_framework_json_api.views import ModelViewSet, ReadOnlyModelViewSet
 
 from camac.core.utils import canton_aware
@@ -74,6 +75,29 @@ class DeadlineTypeViewSet(ReadOnlyModelViewSet, DeadlineVisibleServiceMixin):
     def get_queryset(self):
         return self.queryset.for_service(
             self.get_visible_service(self.request.group.service)
+        )
+
+
+class SuspensionReasonViewSet(ViewSet):
+    """Read-only viewset for suspension reasons.
+
+    Suspension reasons are backed by the model enum.
+    """
+
+    serializer_class = serializers.SuspensionReasonSerializer
+
+    def list(self, request):
+        reasons = [
+            {"id": c.value, "code": c.value, "label": str(c.label)}
+            for c in deadlines_models.Suspension.SuspensionReasonChoices
+        ]
+        serializer = self.serializer_class(reasons, many=True)
+
+        return Response(
+            [
+                {"type": "suspension-reason", "id": item["id"], "attributes": item}
+                for item in serializer.data
+            ]
         )
 
 

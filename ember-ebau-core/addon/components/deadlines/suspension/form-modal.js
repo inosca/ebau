@@ -16,6 +16,10 @@ export default class DeadlineSuspensionFormModalComponent extends Component {
 
   constructor(...args) {
     super(...args);
+    const reason = this.args.suspensionReasons.find(
+      (r) => r.id === this.args.suspension?.reason,
+    );
+    const reasonValue = reason ? { id: reason.id, label: reason.label } : null;
     if (this.args.suspension) {
       this.formData = {
         startDate: this.args.suspension.startDate
@@ -24,7 +28,8 @@ export default class DeadlineSuspensionFormModalComponent extends Component {
         endDate: this.args.suspension.endDate
           ? new Date(this.args.suspension.endDate.toDateString())
           : null,
-        reasonText: this.args.suspension.reasonText,
+        reason: reasonValue,
+        remark: this.args.suspension.remark,
       };
     }
   }
@@ -37,12 +42,20 @@ export default class DeadlineSuspensionFormModalComponent extends Component {
     try {
       const startDate = changeset.pendingData.startDate;
       const endDate = changeset.pendingData.endDate;
-      const reasonText = changeset.pendingData.reasonText;
+      const remark = changeset.pendingData.remark;
+
+      const reason = changeset.pendingData.reason?.id
+        ? this.store.peekRecord(
+            "suspension-reason",
+            changeset.pendingData.reason.id,
+          )?.id
+        : null;
 
       const data = {
         startDate,
         endDate,
-        reasonText,
+        reason,
+        remark,
         deadline: this.args.deadline,
       };
 

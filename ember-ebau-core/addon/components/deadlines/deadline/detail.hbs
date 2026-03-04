@@ -50,12 +50,14 @@
           count=(or @deadline.processDeadlineDays 0)
         }}
       </div>
-      {{#if @deadline.deadlineType}}
+      {{#if this.deadlineTypes.length}}
         <div class="uk-width-1-2 uk-width-1-4@m">
           <strong>{{t "deadlines.deadline.property.type"}}</strong>
         </div>
         <div class="uk-width-1-2 uk-width-3-4@m" data-test-deadline-type>
-          {{@deadline.deadlineType.name}}
+          {{#if @deadline.deadlineType}}
+            {{@deadline.deadlineType.name}}
+          {{/if}}
           {{#if (await (can "edit deadline" @deadline instance=@instance))}}
             <IconButton
               @icon="pencil"
