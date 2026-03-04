@@ -580,8 +580,8 @@
       "type": "complete_task_form",
       "meta": {
         "directLink": {
-          "route": "cases.detail.additional-demand",
-          "models": ["INSTANCE_ID"]
+          "route": "instance-resource-name=additional-demand",
+          "models": []
         }
       },
       "address_groups": "info.prev_work_item.controlling_groups",
@@ -629,12 +629,7 @@
       "name": "{\"de\": \"Neue Nachforderung\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "simple",
-      "meta": {
-        "directLink": {
-          "route": "cases.detail.additional-demand",
-          "models": ["INSTANCE_ID"]
-        }
-      },
+      "meta": {},
       "address_groups": "['create_init_additional_demand']|groups",
       "control_groups": null,
       "is_archived": false,
@@ -659,8 +654,8 @@
       "type": "complete_task_form",
       "meta": {
         "directLink": {
-          "route": "cases.detail.additional-demand",
-          "models": ["INSTANCE_ID"]
+          "route": "instance-resource-name=additional-demand",
+          "models": []
         }
       },
       "address_groups": "info.case.created_by_group",
