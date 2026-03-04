@@ -770,7 +770,12 @@
       "name": "{\"de\": \"Nachforderung\", \"fr\": \"Demande de complément\", \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "simple",
-      "meta": {},
+      "meta": {
+        "directLink": {
+          "route": "instance-resource-name=additional-demand",
+          "models": []
+        }
+      },
       "address_groups": "info.prev_work_item.addressed_groups",
       "control_groups": "info.prev_work_item.addressed_groups",
       "is_archived": false,
@@ -793,7 +798,12 @@
       "name": "{\"de\": \"Nachforderung prüfen\", \"fr\": \"Contrôler demande de complément\", \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
-      "meta": {},
+      "meta": {
+        "directLink": {
+          "route": "instance-resource-name=additional-demand&ember-hash=/additional-demand/{{ADDITIONAL_DEMAND_CASE_UUID}}",
+          "models": ["ADDITIONAL_DEMAND_CASE_UUID"]
+        }
+      },
       "address_groups": "info.prev_work_item.controlling_groups",
       "control_groups": "info.prev_work_item.controlling_groups",
       "is_archived": false,
