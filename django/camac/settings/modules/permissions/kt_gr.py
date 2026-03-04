@@ -123,6 +123,14 @@ MODULE_PORTAL_FORM_READ = Always()
 MODULE_PORTAL_FORM_WRITE = (
     RequireInstanceState(["new"]) & (APPLICANT_WRITE | (ROLES_MUNICIPALITY & IsPaper()))
 ) | (HasAdditionalDemandWithFormEdit() & APPLICANT_WRITE)
+MODULE_PORTAL_FORM_FORMAL_EXAM_WRITE = RequireInstanceState(
+    [
+        "subm",
+        "init-distribution",
+        "circulation",
+        "decision",
+    ]
+) & (APPLICANT_WRITE | (ROLES_MUNICIPALITY & IsPaper()))
 MODULE_PORTAL_DOCUMENTS_WRITE = (
     RequireInstanceState(["new"]) | RequireWorkItem("fill-additional-demand", "ready")
 ) & (HasApplicantRole(["ADMIN", "EDITOR"]) | (ROLES_MUNICIPALITY & IsPaper()))
@@ -219,6 +227,7 @@ GR_PERMISSIONS_SETTINGS = {
             ("documents-read", MODULE_DOCUMENTS),
             ("documents-write", MODULE_DOCUMENTS),
             ("form-read", MODULE_FORM),
+            ("form-formal-exam-write", MODULE_PORTAL_FORM_FORMAL_EXAM_WRITE),
             ("history-read", MODULE_HISTORY),
             (
                 "instance-download-form-as-pdf",
@@ -297,7 +306,7 @@ GR_PERMISSIONS_SETTINGS = {
             ("deadlines-suspensions-write", MODULE_DEADLINES_SUSPENSION),
             ("deadlines-deadlines-read", MODULE_DEADLINES_DEADLINE),
             ("deadlines-deadlines-write", MODULE_DEADLINES_DEADLINE),
-            ("form-formal-exam-write", MODULE_AUDIT),
+            ("form-formal-exam-write", MODULE_PORTAL_FORM_FORMAL_EXAM_WRITE),
         ],
         "read": [
             ("communications-write", MODULE_COMMUNICATIONS),
