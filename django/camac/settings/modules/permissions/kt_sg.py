@@ -98,6 +98,5 @@ SG_PERMISSIONS_SETTINGS = {
         ],
     },
     "EVENT_HANDLER": "camac.permissions.config.kt_sg.PermissionEventHandlerSG",
-    "ENABLE_CACHE": True,
     "PERMISSION_MODE": PERMISSION_MODE.FULL,
 }

@@ -11,7 +11,6 @@ from camac.permissions.conditions import (
     RequireWorkItem,
 )
 from camac.permissions.switcher import PERMISSION_MODE
-from camac.settings.env import env
 
 # Instance state rules
 STATES_ALL = RequireInstanceState(
@@ -373,6 +372,5 @@ AG_PERMISSIONS_SETTINGS = {
         "MUNICIPALITY": "lead-authority",
         "SUPPORT": "support",
     },
-    "ENABLE_CACHE": env.bool("PERMISSION_MODULE_ENABLE_CACHE", default=True),
     "PERMISSION_MODE": PERMISSION_MODE.FULL,
 }
