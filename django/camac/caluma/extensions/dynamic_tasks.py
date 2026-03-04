@@ -119,16 +119,16 @@ class CustomDynamicTasks(BaseDynamicTasks):
         return [settings.CONSTRUCTION_MONITORING["COMPLETE_INSTANCE_TASK"]]
 
     def resolve_after_decision_gr(self, case, user, prev_work_item, context):
-        construction_monitoring_task = (
-            settings.CONSTRUCTION_MONITORING["INIT_CONSTRUCTION_MONITORING_TASK"]
-            if settings.CONSTRUCTION_MONITORING.get("ENABLED")
-            else "construction-acceptance"
-        )
-
         if domain_logic.DecisionLogic.should_continue_after_decision(
             case.instance, prev_work_item
         ):
-            return [construction_monitoring_task]
+            # construction monitoring is already started on dossier submit in GR,
+            # if the module is enabled.
+            return (
+                []
+                if settings.CONSTRUCTION_MONITORING.get("ENABLED")
+                else ["construction-acceptance"]
+            )
 
         return []
 
@@ -435,6 +435,13 @@ class CustomDynamicTasks(BaseDynamicTasks):
                 raise ("Did not find valid responsible service for 'Anfrage intern'")
 
         return [*tasks, "formal-exam", "init-additional-demand"]
+
+    def resolve_after_submit_gr(self, case, user, prev_work_item, context):
+        tasks = ["create-manual-workitems", "formal-exam", "init-additional-demand"]
+        if settings.CONSTRUCTION_MONITORING["ENABLED"]:
+            tasks.append("init-construction-monitoring")
+
+        return tasks
 
     @register_dynamic_task("after-check-additional-demand")
     def resolve_after_check_additional_demand(

@@ -61,7 +61,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['create-manual-workitems', 'formal-exam', 'init-additional-demand']|tasks"
+      "next": "[\"after-submit\"]|tasks"
     }
   },
   {
