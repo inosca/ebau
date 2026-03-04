@@ -5,6 +5,7 @@ from camac.permissions.conditions import (
     RequireInstanceState,
     RequireWorkItem,
 )
+from camac.permissions.switcher import PERMISSION_MODE
 
 # Instance state rules
 STATES_ALL = RequireInstanceState(["new", "subm"])
@@ -98,5 +99,5 @@ SG_PERMISSIONS_SETTINGS = {
     },
     "EVENT_HANDLER": "camac.permissions.config.kt_sg.PermissionEventHandlerSG",
     "ENABLE_CACHE": True,
-    "PERMISSION_MODE": "FULL",
+    "PERMISSION_MODE": PERMISSION_MODE.FULL,
 }
