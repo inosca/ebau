@@ -10,13 +10,15 @@ mutation CreateSubmitTask {
   }
 }
 
-mutation CreatePlaceholderTask {
+mutation CreateFormalExamTask {
   saveSimpleTask(
     input: {
-      slug: "placeholder"
-      name: "Platzhalter Aufgabe"
+      slug: "formal-exam"
+      name: "Formelle Vorpüfung"
       addressGroups: "[\"municipality\"]|groups"
-      leadTime: 864000 # 10 days
+      controlGroups: "[\"municipality\"]|groups"
+      leadTime: 432000 # 5 days
+      meta: "{\"directLink\":{\"route\":\"cases.detail.task-form\",\"models\":[\"INSTANCE_ID\",\"TASK_SLUG\"]}}"
     }
   ) {
     clientMutationId
