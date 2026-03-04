@@ -9,6 +9,7 @@ from camac.permissions.conditions import Always, Never
 from camac.permissions.models import InstanceACL
 from camac.permissions.switcher import PERMISSION_MODE
 from camac.tests.form_utils import FormUtils
+from camac.timelines.models import FormTimeline
 
 
 @pytest.mark.freeze_time("2020-12-03")
@@ -490,11 +491,15 @@ def test_correction(
     instance_state_factory,
     has_inquiry,
     expected_status,
+    timelines_settings,
 ):
+    timelines_settings.enabled = True
     instance_state_factory(name="correction")
     instance_state = instance_state_factory(name="subm")
     be_instance.instance_state = instance_state
     be_instance.save()
+
+    assert FormTimeline.objects.count() == 0
 
     if has_inquiry:
         active_inquiry_factory(be_instance)
@@ -506,6 +511,11 @@ def test_correction(
     if expected_status == status.HTTP_200_OK:
         be_instance.refresh_from_db()
 
+        timeline = FormTimeline.objects.filter(
+            instance=be_instance, timeline_type=FormTimeline.Type.CORRECTION
+        ).first()
+        assert timeline.end_date is None
+
         assert be_instance.instance_state.name == "correction"
 
         response = admin_client.post(
@@ -515,6 +525,9 @@ def test_correction(
 
         assert response.status_code == expected_status
         assert be_instance.instance_state.name == "subm"
+
+        timeline.refresh_from_db()
+        assert timeline.end_date is not None
 
 
 @pytest.mark.freeze_time("2024-06-06 08:00")
