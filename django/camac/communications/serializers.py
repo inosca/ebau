@@ -598,9 +598,18 @@ class ConvertToDocumentSerializer(CommunicationsAttachmentSerializer):
             ):
                 raise PermissionDenied()
 
+            # the group will remain empty if the attachment is created by the
+            # applicant. For other attachments this will resolve to the service
+            # that created the message.
+            group = None
+            if instance.message.created_by != "APPLICANT":
+                group = user_models.Service.objects.filter(
+                    pk=instance.message.created_by
+                ).first()
+
             document, file = create_alexandria_document_file(
                 user=instance.message.created_by_user.pk,
-                group=self.context["request"].group.service_id,
+                group=str(group.pk) if group else None,
                 category=validated_data["category"],
                 document_title=instance.filename,
                 file_name=instance.filename,

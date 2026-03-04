@@ -128,15 +128,17 @@ def test_create_message_with_alexandria_attachment(
 
 
 @pytest.mark.parametrize(
-    "role__name,has_permission,is_converted,has_key,expected_status",
+    "role__name,has_permission,is_converted,has_key,expected_status,creator",
     [
-        ("Municipality", True, False, True, status.HTTP_200_OK),
+        ("Municipality", True, False, True, status.HTTP_200_OK, "applicant"),
+        ("Municipality", True, False, True, status.HTTP_200_OK, "service"),
         (
             "Municipality",
             False,
             False,
             True,
             status.HTTP_403_FORBIDDEN,
+            "applicant",
         ),  # no permission
         (
             "Municipality",
@@ -144,6 +146,7 @@ def test_create_message_with_alexandria_attachment(
             True,
             True,
             status.HTTP_400_BAD_REQUEST,
+            "applicant",
         ),  # already converted
         (
             "Municipality",
@@ -151,8 +154,9 @@ def test_create_message_with_alexandria_attachment(
             False,
             False,
             status.HTTP_400_BAD_REQUEST,
+            "applicant",
         ),  # missing key
-        ("Support", True, False, True, status.HTTP_403_FORBIDDEN),
+        ("Support", True, False, True, status.HTTP_403_FORBIDDEN, "applicant"),
     ],
 )
 def test_convert_to_alexandria_attachment(
@@ -163,6 +167,8 @@ def test_convert_to_alexandria_attachment(
     has_key,
     has_permission,
     is_converted,
+    service_factory,
+    creator,
     topic_with_admin_involved,
     use_alexandria_backend,
 ):
@@ -183,6 +189,8 @@ def test_convert_to_alexandria_attachment(
         }
     )
 
+    service = service_factory()
+
     if is_converted:
         communications_attachment.alexandria_file = FileFactory()
 
@@ -190,6 +198,9 @@ def test_convert_to_alexandria_attachment(
     communications_attachment.save()
 
     communications_attachment.message.created_by_user = user
+    communications_attachment.message.created_by = (
+        str(service.pk) if creator == "service" else "APPLICANT"
+    )
     communications_attachment.message.save()
 
     response = admin_client.patch(
@@ -224,4 +235,12 @@ def test_convert_to_alexandria_attachment(
         communications_attachment.refresh_from_db()
         assert communications_attachment.alexandria_file
         assert communications_attachment.alexandria_file.created_by_user == str(user.pk)
+        # converting should not change the group or service of the file
         assert communications_attachment.file_attachment
+
+        if creator == "service":
+            assert communications_attachment.alexandria_file.created_by_group == str(
+                service.pk
+            )
+        else:
+            assert communications_attachment.alexandria_file.created_by_group is None
