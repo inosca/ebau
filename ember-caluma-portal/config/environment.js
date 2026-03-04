@@ -83,6 +83,7 @@ module.exports = function (environment) {
   const instanceStatesSg = {
     new: 1,
     subm: 2,
+    rejected: 3,
   };
   const appConfig = {
     demo: {
@@ -626,7 +627,7 @@ module.exports = function (environment) {
       instanceStateCategories: {
         pending: [instanceStatesSg.new, instanceStatesSg.subm],
         decided: [],
-        done: [],
+        done: [instanceStatesSg.rejected],
       },
       completePreliminaryClarificationSlugs: [],
       selectableGroups: {

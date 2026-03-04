@@ -7,7 +7,7 @@ from camac.permissions.conditions import (
 )
 
 # Instance state rules
-STATES_ALL = RequireInstanceState(["new", "subm"])
+STATES_ALL = RequireInstanceState(["new", "subm", "rejected"])
 
 # Role rules
 APPLICANT_ADMIN = HasApplicantRole(["ADMIN", "EDITOR"])
@@ -30,6 +30,7 @@ MODULE_FORMAL_EXAM = RequireWorkItem("formal-exam") & ROLES_MUNICIPALITY
 MODULE_HISTORY = STATES_ALL
 MODULE_JOURNAL = STATES_ALL
 MODULE_PERMISSIONS = STATES_ALL & ROLES_MUNICIPALITY
+MODULE_REJECTION = RequireInstanceState(["subm", "rejected"])
 MODULE_RESPONSIBLE = STATES_ALL
 MODULE_WORK_ITEMS = STATES_ALL
 
@@ -79,6 +80,7 @@ SG_PERMISSIONS_SETTINGS = {
             ("permissions-read", MODULE_PERMISSIONS),
             ("permissions-read-any", MODULE_PERMISSIONS),
             ("permissions-revoke-read", MODULE_PERMISSIONS),
+            ("rejection-read", MODULE_REJECTION),
             ("responsible-read", MODULE_RESPONSIBLE),
             ("responsible-write", MODULE_RESPONSIBLE),
             ("work-items-read", MODULE_WORK_ITEMS),

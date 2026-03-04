@@ -3080,7 +3080,8 @@ APPLICATIONS = {
                 "USE_SLUGS": True,
                 "MAP": {
                     "new": "creation",
-                    # TODO
+                    "subm": "inProcedure",
+                    "rejected": "rejected",
                 },
                 "DEFAULT": "inProcedure",
             },

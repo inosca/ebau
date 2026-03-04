@@ -52,6 +52,15 @@
     }
   },
   {
+    "model": "instance.instancestate",
+    "pk": 3,
+    "fields": {
+      "name": "rejected",
+      "sort": 2,
+      "description": null
+    }
+  },
+  {
     "model": "instance.instancestatet",
     "pk": 1,
     "fields": {
@@ -68,6 +77,16 @@
       "instance_state": 2,
       "language": "de",
       "name": "Eingereicht",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 3,
+    "fields": {
+      "instance_state": 3,
+      "language": "de",
+      "name": "Zurückgewiesen",
       "description": null
     }
   }
