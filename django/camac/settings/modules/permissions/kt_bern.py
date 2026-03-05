@@ -471,5 +471,4 @@ BE_PERMISSIONS_SETTINGS = {
         ),
         "construction_control": Q(service__service_group__name="consruction-control"),
     },
-    "ENABLE_CACHE": True,
 }

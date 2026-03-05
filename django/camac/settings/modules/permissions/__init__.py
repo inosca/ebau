@@ -27,7 +27,7 @@ PERMISSIONS: PermissionsConfig = {
     "default": {
         "PERMISSION_MODE": PERMISSION_MODE.OFF,
         "ENABLED": False,
-        "ENABLE_CACHE": False,
+        "ENABLE_CACHE": True,
         "MIGRATION": {},
         "EVENT_HANDLER": None,
         "ACCESS_LEVELS": {},
@@ -46,7 +46,6 @@ PERMISSIONS: PermissionsConfig = {
         # ACLs.
         "EVENT_HANDLER": "camac.permissions.events.EmptyEventHandler",
         "ENABLED": True,
-        "ENABLE_CACHE": True,
         "MIGRATION": {},
         "PERMISSION_MODE": PERMISSION_MODE.OFF,
     },

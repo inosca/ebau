@@ -374,9 +374,6 @@ def test_cache_eviction(
         ]
     }
 
-    # For these tests, caching needs to be enabled-by-default
-    permissions_settings["ENABLE_CACHE"] = True
-
     if has_uncacheable_check:
         permissions_settings["ACCESS_LEVELS"][access_level.pk].append(
             ("plain-callback", conditions.Callback(lambda instance: False)),

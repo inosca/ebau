@@ -56,7 +56,7 @@ def _configure_geometer_access(
         ("Canton", lf("user"), 19),
         ("Municipality", lf("user"), 18),
         ("Service", lf("user"), 18),
-        ("Geometer", lf("user"), 19),
+        ("Geometer", lf("user"), 17),
     ],
 )
 @pytest.mark.parametrize(
