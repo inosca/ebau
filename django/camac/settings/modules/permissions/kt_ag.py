@@ -374,7 +374,5 @@ AG_PERMISSIONS_SETTINGS = {
         "SUPPORT": "support",
     },
     "ENABLE_CACHE": env.bool("PERMISSION_MODULE_ENABLE_CACHE", default=True),
-    "PERMISSION_MODE": getattr(
-        PERMISSION_MODE, env.str("PERMISSION_MODULE_MODE", default="FULL")
-    ),
+    "PERMISSION_MODE": PERMISSION_MODE.FULL,
 }
