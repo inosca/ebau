@@ -44,6 +44,7 @@ USER = ModuleConfig[UserConfig](
     kt_sg=UserConfig(
         enabled=True,
         question_user_attributes_mapping={
+            "benutzer": "pk",
             "e-mail": "email",
             "name": "surname",
             "vorname": "name",

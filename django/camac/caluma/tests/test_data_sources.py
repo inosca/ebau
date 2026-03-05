@@ -3,12 +3,14 @@ from collections import namedtuple
 import pytest
 from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_form.factories import QuestionFactory
+from django.core.cache import cache
 
 from camac.tests.data import so_personal_row_factory
 from camac.tests.form_utils import FormUtils
 
 from ..extensions.countries import COUNTRIES
 from ..extensions.data_sources import (
+    Applicants,
     Attachments,
     Authorities,
     Buildings,
@@ -699,3 +701,46 @@ def test_sanctions(
         assert len(data) == 1 and data[0][0] is None
     else:
         assert len(data) == expected_count
+
+
+def test_applicants(db, instance_factory, applicant_factory, django_assert_num_queries):
+    instance = instance_factory()
+    ds = Applicants()
+
+    # Clear all pre-existing applicants
+    instance.involved_applicants.all().delete()
+
+    a1 = applicant_factory(
+        instance=instance,
+        invitee=None,
+        email="test@example.com",
+    )
+    a2 = applicant_factory(
+        instance=instance,
+        invitee__name="John",
+        invitee__surname="Doe",
+    )
+    a3 = applicant_factory(
+        instance=instance,
+        invitee__name="Jane",
+        invitee__surname="Doe",
+    )
+
+    context = None
+    with django_assert_num_queries(0):
+        assert ds.get_data(None, None, context) == []
+
+    cache.clear()
+    context = {}
+    with django_assert_num_queries(0):
+        assert ds.get_data(None, None, context) == []
+
+    cache.clear()
+    context = {"instanceId": instance.pk}
+    with django_assert_num_queries(1):
+        assert ds.get_data(None, None, context) == [
+            # Jane comes before John because of alphabetic ordering
+            [str(a3.pk), "Jane Doe"],
+            [str(a2.pk), "John Doe"],
+            [str(a1.pk), "test@example.com"],
+        ]

@@ -831,6 +831,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "personalien-tabelle.benutzer",
+    "fields": {
+      "created_at": "2026-03-05T14:42:13.424Z",
+      "modified_at": "2026-03-05T14:42:13.424Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien-tabelle",
+      "question": "benutzer",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "personalien-tabelle.hinweis-personalien",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -856,7 +871,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "juristische-person",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -871,7 +886,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "juristische-person-kontaktperson-titel",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -886,7 +901,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "juristische-person-name",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -976,7 +991,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "profil-uebernehmen",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -2180,6 +2195,39 @@
       },
       "meta": {},
       "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "benutzer",
+    "fields": {
+      "created_at": "2026-03-05T14:42:13.373Z",
+      "modified_at": "2026-03-05T14:44:24.376Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"eBau-Benutzer\", \"fr\": null, \"it\": null}",
+      "type": "dynamic_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "cf-field/input/powerselect"
+      },
+      "data_source": "Applicants",
       "row_form": null,
       "sub_form": null,
       "source": null,

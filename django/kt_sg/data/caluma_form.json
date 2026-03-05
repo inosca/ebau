@@ -741,6 +741,40 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "069a999b-7946-75de-8000-16855a4187c7",
+    "fields": {
+      "created_at": "2026-03-05T14:56:55.579Z",
+      "modified_at": "2026-03-05T14:56:55.579Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "benutzer",
+      "value": "1",
+      "meta": {},
+      "document": "069958a6-a4f7-7b54-8000-13fb9b5575be",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "069a999d-156a-77fb-8000-97843cb60c9a",
+    "fields": {
+      "created_at": "2026-03-05T14:57:21.338Z",
+      "modified_at": "2026-03-19T14:04:14.859Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "benutzer",
+      "value": "2",
+      "meta": {},
+      "document": "069958b2-cdaf-7742-8000-b5e85849d0fe",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "069b2c0c-6503-73f4-8000-35cc4ae76db5",
     "fields": {
       "created_at": "2026-03-12T13:33:58.313Z",
@@ -1405,6 +1439,38 @@
       "label": "{\"de\": \"St. Gallen\", \"fr\": \"St. Gallen\", \"it\": \"St. Gallen\"}",
       "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
       "question": "gemeinde"
+    }
+  },
+  {
+    "model": "caluma_form.dynamicoption",
+    "pk": "069a999b-7928-7bf0-8000-cf2ef9e5d602",
+    "fields": {
+      "created_at": "2026-03-05T14:56:55.572Z",
+      "modified_at": "2026-03-05T14:56:55.572Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "slug": "1",
+      "label": "{\"de\": \"Static Administrator\", \"fr\": null, \"it\": null}",
+      "document": "069958a6-a4f7-7b54-8000-13fb9b5575be",
+      "question": "benutzer"
+    }
+  },
+  {
+    "model": "caluma_form.dynamicoption",
+    "pk": "069bc025-edb0-7028-8000-d9f66ceefd13",
+    "fields": {
+      "created_at": "2026-03-19T14:04:14.855Z",
+      "modified_at": "2026-03-19T14:04:14.855Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "slug": "2",
+      "label": "{\"de\": \"Static Administrator\", \"fr\": null, \"it\": null}",
+      "document": "069958b2-cdaf-7742-8000-b5e85849d0fe",
+      "question": "benutzer"
     }
   }
 ]
