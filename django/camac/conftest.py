@@ -3323,6 +3323,9 @@ def try_get_fixture(request) -> Callable[[str, Optional[dict]], dict | None]:
         Returns the requested fixture if it is found, otherweise None.
         """
         if config_for_prefix:
+            assert "SHORT_NAME" in config_for_prefix, (
+                "Given dict is not a proper application dict"
+            )
             prefix = config_for_prefix["SHORT_NAME"]
             name = f"{prefix}_{name}"
         try:
