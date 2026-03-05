@@ -17,5 +17,9 @@ distribution:
   revise: "Rielabora"
   closed-by: "Verificato da"
 
+  inquiry-hint:
+    open-suspensions: "Attenzione: Il fascicolo è attualmente sospeso."
+    deadline-expired: "Attenzione: Il termine di elaborazione del fascicolo è scaduto."
+
 # Override default text of @projectcaluma/ember-distribution
 "caluma.distribution.inquiry.sent-at": "Data di inizio"
