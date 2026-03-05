@@ -1,6 +1,32 @@
 [
   {
     "model": "caluma_workflow.flow",
+    "pk": "019cbe1f-63f0-7d3d-aa3e-e8e7bc5ae43f",
+    "fields": {
+      "created_at": "2024-06-17T07:05:43.122Z",
+      "modified_at": "2024-06-17T07:05:43.122Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "['construction-step-adressvergabe-confirm']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "019cd1a8-36b8-7c36-85ab-f546cd8a1e73",
+    "fields": {
+      "created_at": "2024-06-17T07:05:43.122Z",
+      "modified_at": "2024-06-17T07:05:43.122Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "['after-construction-step']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
     "pk": "053ab055-7477-4c42-a3d0-8a2050fffddc",
     "fields": {
       "created_at": "2023-10-27T15:32:57.477Z",
@@ -307,6 +333,85 @@
   },
   {
     "model": "caluma_workflow.task",
+    "pk": "construction-step-adressvergabe",
+    "fields": {
+      "created_at": "2023-10-27T15:32:17.224Z",
+      "modified_at": "2023-10-27T15:32:17.225Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Adressvergabe vorschlagen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "directLink": {
+          "route": "cases.detail.construction-monitoring.construction-stage.construction-step",
+          "models": [
+            "INSTANCE_ID",
+            "CONSTRUCTION_STAGE_UUID",
+            "CONSTRUCTION_STEP_ID"
+          ]
+        },
+        "construction-step": {
+          "next": [],
+          "index": 0,
+          "total": 2
+        },
+        "construction-step-id": "construction-step-adressvergabe",
+        "is-actionable-for-control": false
+      },
+      "address_groups": "['geometer', 'municipality']|groups",
+      "control_groups": "['municipality']|groups",
+      "is_archived": false,
+      "form": "construction-step-adressvergabe-suggestion",
+      "lead_time": 2592000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
+    "pk": "construction-step-adressvergabe-confirm",
+    "fields": {
+      "created_at": "2023-10-27T15:32:17.224Z",
+      "modified_at": "2023-10-27T15:32:17.225Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Adressvergabe bestätigen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "type": "complete_task_form",
+      "meta": {
+        "directLink": {
+          "route": "cases.detail.construction-monitoring.construction-stage.construction-step",
+          "models": [
+            "INSTANCE_ID",
+            "CONSTRUCTION_STAGE_UUID",
+            "CONSTRUCTION_STEP_ID"
+          ]
+        },
+        "construction-step": {
+          "next": [],
+          "index": 1,
+          "total": 2,
+          "needs-approval": "construction-step-adressvergabe-is-approved",
+          "is-actionable-for-control": false
+        },
+        "construction-step-id": "construction-step-adressvergabe"
+      },
+      "address_groups": "['gebaudeversicherung', 'municipality']|groups",
+      "control_groups": "['municipality']|groups",
+      "is_archived": false,
+      "form": "construction-step-adressvergabe-confirm",
+      "lead_time": 2592000,
+      "is_multiple_instance": false,
+      "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.task",
     "pk": "construction-step-baubeginn-melden",
     "fields": {
       "created_at": "2023-10-27T15:32:11.878Z",
@@ -605,7 +710,10 @@
           ]
         },
         "construction-step": {
-          "next": ["construction-step-baufreigabe"],
+          "next": [
+            "construction-step-baufreigabe",
+            "construction-step-adressvergabe"
+          ],
           "index": 0,
           "total": 1
         },
@@ -1075,6 +1183,38 @@
       "lead_time": 2592000,
       "is_multiple_instance": false,
       "continue_async": false
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "019cbe21-ffb9-7690-9b2e-4b998a64294a",
+    "fields": {
+      "created_at": "2024-06-17T07:05:43.132Z",
+      "modified_at": "2024-06-17T07:05:43.132Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "construction-stage",
+      "task": "construction-step-adressvergabe",
+      "flow": "019cbe1f-63f0-7d3d-aa3e-e8e7bc5ae43f",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "019cd1a8-36b8-7709-bcb6-2fa914b4c382",
+    "fields": {
+      "created_at": "2024-06-17T07:05:43.132Z",
+      "modified_at": "2024-06-17T07:05:43.132Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "construction-stage",
+      "task": "construction-step-adressvergabe-confirm",
+      "flow": "019cd1a8-36b8-7c36-85ab-f546cd8a1e73",
+      "redoable": null
     }
   },
   {

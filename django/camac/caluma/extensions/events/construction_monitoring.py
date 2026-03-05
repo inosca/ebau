@@ -104,6 +104,7 @@ def can_perform_construction_monitoring(instance):
 
 CONSTRUCTION_STEP_TRANSLATIONS = {
     "construction-step-plan-construction-stage": _("Baubegleitung planen"),
+    "construction-step-adressvergabe": _("Adressvergabe"),
     "construction-step-baufreigabe": _("Baufreigabe"),
     "construction-step-gebaeudeabbruch": _("Gebäudeabbruch"),
     "construction-step-baubeginn": _("Baubeginn"),

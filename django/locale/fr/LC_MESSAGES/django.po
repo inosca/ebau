@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-23 11:07+0100\n"
+"POT-Creation-Date: 2026-03-09 10:14+0100\n"
 "PO-Revision-Date: 2025-08-28 10:03+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -324,6 +324,10 @@ msgstr "Dossier examiné"
 
 #: camac/caluma/extensions/events/construction_monitoring.py
 msgid "Baubegleitung planen"
+msgstr ""
+
+#: camac/caluma/extensions/events/construction_monitoring.py
+msgid "Adressvergabe"
 msgstr ""
 
 #: camac/caluma/extensions/events/construction_monitoring.py
