@@ -12,16 +12,14 @@
               <a
                 href="/index/redirect-to-instance-resource/instance-id/{{instanceOnSamePlot.id}}"
               >
-                {{instanceOnSamePlot.name}}
-                ({{instanceOnSamePlot.dossierNumber}})
+                {{instanceOnSamePlot.displayName}}
               </a>
             {{else}}
               <LinkTo
                 @route="cases.detail.linked-instances"
                 @model={{instanceOnSamePlot.id}}
               >
-                {{instanceOnSamePlot.name}}
-                ({{instanceOnSamePlot.dossierNumber}})
+                {{instanceOnSamePlot.displayName}}
               </LinkTo>
             {{/if}}
           </div>

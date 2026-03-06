@@ -6,16 +6,14 @@
           <a
             href="/index/redirect-to-instance-resource/instance-id/{{linkedInstance.id}}"
           >
-            {{linkedInstance.name}}
-            ({{linkedInstance.dossierNumber}})
+            {{linkedInstance.displayName}}
           </a>
         {{else}}
           <LinkTo
             @route="cases.detail.linked-instances"
             @model={{linkedInstance.id}}
           >
-            {{linkedInstance.name}}
-            ({{linkedInstance.dossierNumber}})
+            {{linkedInstance.displayName}}
           </LinkTo>
         {{/if}}
       </div>

@@ -64,4 +64,8 @@ export default class InstanceModel extends Model {
     const adapter = this.store.adapterFor("instance");
     return adapter.unlink(this);
   }
+
+  get displayName() {
+    return `${this.name} (${this.dossierNumber})`;
+  }
 }
