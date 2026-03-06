@@ -27,6 +27,7 @@
 # - set $csp_external_connect_sources "space-separated-list-of-urls" (optional; defaults to empty)
 # - set $csp_external_img_sources "space-separated-list-of-urls" (optional; defaults to empty)
 # - set $csp_external_style_sources "space-separated-list-of-urls" (optional; defaults to empty)
+# - set $csp_external_frame_sources "space-separated-list-of-urls" (optional; defaults to empty)
 # - set $csp_enable_swagger "true" | "false" (optional; defaults to "false")
 # IN RETURN, you get the following variables:
 # - $csp_header_keycloak     - Keycloak
@@ -49,6 +50,7 @@ if ($csp_php_allow_localhost_scripts ~ "^$") { set $csp_php_allow_localhost_scri
 if ($csp_external_connect_sources ~ "^$")    { set $csp_external_connect_sources ""; }
 if ($csp_external_img_sources ~ "^$")        { set $csp_external_img_sources ""; }
 if ($csp_external_style_sources ~ "^$")      { set $csp_external_style_sources ""; }
+if ($csp_external_frame_sources ~ "^$")      { set $csp_external_frame_sources ""; }
 
 # Intermediates
 # =============
@@ -86,7 +88,7 @@ if ($csp_use_google_fonts = "true") {
 }
 
 # iframe
-set $csp_frame_src "frame-src 'self'";
+set $csp_frame_src "frame-src 'self' ${csp_external_frame_sources}";
 
 set $csp_portal_styles "";
 if ($csp_portal_allow_inline_style = "true") {
@@ -109,7 +111,7 @@ set $csp_php_style_src "";
 set $csp_php_frame_src "";
 if ($csp_php_allow_localhost_scripts = "true") {
   set $csp_php_style_src "http://localhost:4200 http://localhost:4300";
-  set $csp_php_frame_src "http://localhost:4200 http://ebau-keycloak.localhost";
+  set $csp_php_frame_src "http://localhost:4200 http://ebau-portal.localhost http://ebau-keycloak.localhost";
   # ebau.localhost:4300 is required for Ember live reload
   set $csp_php_script_eval "${csp_php_script_eval} http://localhost:4200 http://localhost:4300 http://ebau.localhost:4300";
   set $csp_connect_src "${csp_connect_src} ws://ebau.localhost:4300 http://localhost:4300";
@@ -155,6 +157,7 @@ set $csp_header_portal "${csp_header_portal}; ${csp_fonts_src}";
 set $csp_header_portal "${csp_header_portal}; ${csp_img_default}";
 set $csp_header_portal "${csp_header_portal}; ${csp_connect_src}";
 set $csp_header_portal "${csp_header_portal}; ${csp_object_src}";
+set $csp_header_portal "${csp_header_portal}; ${csp_frame_src}";
 
 # Internal
 set $csp_header_internal "${csp_default_self}";
@@ -164,6 +167,7 @@ set $csp_header_internal "${csp_header_internal}; ${csp_fonts_src}";
 set $csp_header_internal "${csp_header_internal}; ${csp_img_default}";
 set $csp_header_internal "${csp_header_internal}; ${csp_connect_src}";
 set $csp_header_internal "${csp_header_internal}; ${csp_object_src}";
+set $csp_header_internal "${csp_header_internal}; ${csp_frame_src}";
 
 # Django
 set $csp_header_django "${csp_default_self}";
