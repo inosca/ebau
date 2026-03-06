@@ -31,7 +31,7 @@ def test_unsubscribe_responsible_service(
 ):
     application_settings["SHORT_NAME"] = "be"
     be_permissions_settings["EVENT_HANDLER"] = (
-        "camac.permissions.config.kt_bern.GeneralPermissionEventHandlerBE"
+        "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
     )
     access_level_factory(slug="lead-authority")
     old_responsible = be_instance.instance_services.get(active=1).service

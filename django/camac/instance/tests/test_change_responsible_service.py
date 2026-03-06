@@ -189,10 +189,15 @@ def test_change_responsible_service_with_permission_module(
     be_instance.instance_state = instance_state_factory(name="subm")
     be_instance.save()
 
+    access_levels = {
+        "lead-authority": access_level_factory(pk="lead-authority"),
+        "involved-authority": access_level_factory(pk="involved-authority"),
+    }
+
     permissions_api.grant(
         be_instance,
         grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
-        access_level=access_level_factory(pk=access_level_name),
+        access_level=access_levels[access_level_name],
         service=service,
     )
     new_service = (
