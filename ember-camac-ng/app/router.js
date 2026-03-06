@@ -18,6 +18,7 @@ import registerGwrTasks from "ember-ebau-core/modules/gwr-tasks";
 import registerHistory from "ember-ebau-core/modules/history";
 import registerJournal from "ember-ebau-core/modules/journal";
 import registerLegalSubmission from "ember-ebau-core/modules/legal-submission";
+import registerLinkedInstances from "ember-ebau-core/modules/linked-instances";
 import registerPermissions from "ember-ebau-core/modules/permissions";
 import registerPublication from "ember-ebau-core/modules/publication";
 import registerRejection from "ember-ebau-core/modules/rejection";
@@ -136,4 +137,5 @@ Router.map(function () {
   registerHistory(this);
   registerJournal(this);
   registerBabStatisticsExport(this);
+  registerLinkedInstances(this);
 });

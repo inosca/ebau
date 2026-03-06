@@ -18,8 +18,13 @@ export default {
   externalServiceGroupIds: [],
   useLocation: true,
   intentSlugs: ["voranfrage-vorhaben", "are-geschaeft-vorhaben"],
+  submittedStates: [
+    16, // internal
+  ],
   answerSlugs: {
     specialId: "dossier-number",
+    parcelNumber: "are-geschaeft-grundstuecknummer",
+    municipality: "are-geschaeft-ort",
   },
   communication: {
     rolesWithApplicantContact: ["activeOrInolvedLeadAuthority"],
