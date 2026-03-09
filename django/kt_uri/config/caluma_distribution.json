@@ -1685,8 +1685,8 @@
       "type": "simple",
       "meta": {
         "directLink": {
-          "route": "cases.detail.distribution",
-          "models": ["INSTANCE_ID", "DISTRIBUTION_CASE_UUID"]
+          "route": "instance-resource-name=distribution",
+          "models": []
         }
       },
       "address_groups": "['municipality']|groups",
@@ -1713,8 +1713,8 @@
       "type": "simple",
       "meta": {
         "directLink": {
-          "route": "cases.detail.distribution",
-          "models": ["INSTANCE_ID", "DISTRIBUTION_CASE_UUID"]
+          "route": "instance-resource-name=distribution",
+          "models": []
         }
       },
       "address_groups": "info.prev_work_item.controlling_groups",
@@ -1833,8 +1833,8 @@
       "type": "simple",
       "meta": {
         "directLink": {
-          "route": "cases.detail.distribution",
-          "models": ["INSTANCE_ID", "DISTRIBUTION_CASE_UUID"]
+          "route": "instance-resource-name=distribution",
+          "models": []
         }
       },
       "address_groups": "['municipality']|groups",
@@ -1861,9 +1861,8 @@
       "type": "complete_task_form",
       "meta": {
         "directLink": {
-          "route": "cases.detail.distribution.inquiry.detail.answer",
+          "route": "instance-resource-name=distribution&ember-hash=/distribution/{{DISTRIBUTION_CASE_UUID}}/from/{{INQUIRY_CONTROLLING}}/to/{{INQUIRY_ADDRESSED}}/{{INQUIRY_UUID}}/answer",
           "models": [
-            "INSTANCE_ID",
             "DISTRIBUTION_CASE_UUID",
             "INQUIRY_CONTROLLING",
             "INQUIRY_ADDRESSED",

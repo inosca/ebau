@@ -298,7 +298,12 @@
       "name": "{\"de\": \"Baubegleitung abschliessen\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "simple",
-      "meta": {},
+      "meta": {
+        "directLink": {
+          "route": "instance-resource-name=construction-monitoring",
+          "models": []
+        }
+      },
       "address_groups": "['municipality']|groups",
       "control_groups": null,
       "is_archived": false,
@@ -322,6 +327,10 @@
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
+        "directLink": {
+          "route": "instance-resource-name=complete-instance",
+          "models": []
+        },
         "redirectToWorkItemsAfterCompletion": true
       },
       "address_groups": "['municipality']|groups",
@@ -347,6 +356,10 @@
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
+        "directLink": {
+          "route": "instance-resource-name=gwr-tasks",
+          "models": []
+        },
         "redirectToWorkItemsAfterCompletion": true
       },
       "address_groups": "['municipality']|groups",
@@ -372,6 +385,10 @@
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
+        "directLink": {
+          "route": "instance-resource-name=gwr-tasks",
+          "models": []
+        },
         "redirectToWorkItemsAfterCompletion": true
       },
       "address_groups": "['municipality']|groups",
@@ -420,6 +437,10 @@
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
+        "directLink": {
+          "route": "instance-resource-name=construction-step-av-status-project",
+          "models": []
+        },
         "construction-step": {
           "next": [],
           "index": 3,
@@ -452,6 +473,10 @@
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
+        "directLink": {
+          "route": "instance-resource-name=construction-step-av-status-building",
+          "models": []
+        },
         "construction-step": {
           "next": ["construction-step-schlussabnahme-projekt"],
           "index": 1,
@@ -484,6 +509,10 @@
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
+        "directLink": {
+          "route": "instance-resource-name=construction-step-av-status-demolition",
+          "models": []
+        },
         "construction-step": {
           "next": ["construction-step-baubeginn"],
           "index": 1,
@@ -547,6 +576,10 @@
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
+        "directLink": {
+          "route": "instance-resource-name=construction-monitoring&ember-hash=/construction-monitoring/{{CONSTRUCTION_STAGE_UUID}}/{{CONSTRUCTION_STEP_ID}}",
+          "models": ["CONSTRUCTION_STAGE_UUID", "CONSTRUCTION_STEP_ID"]
+        },
         "construction-step": {
           "next": [
             "construction-step-kanalisationsabnahme",
@@ -581,6 +614,10 @@
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
+        "directLink": {
+          "route": "instance-resource-name=construction-monitoring&ember-hash=/construction-monitoring/{{CONSTRUCTION_STAGE_UUID}}/{{CONSTRUCTION_STEP_ID}}",
+          "models": ["CONSTRUCTION_STAGE_UUID", "CONSTRUCTION_STEP_ID"]
+        },
         "construction-step": {
           "next": [
             "construction-step-gebaeudeabbruch",
@@ -615,6 +652,10 @@
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
+        "directLink": {
+          "route": "instance-resource-name=construction-monitoring&ember-hash=/construction-monitoring/{{CONSTRUCTION_STAGE_UUID}}/{{CONSTRUCTION_STEP_ID}}",
+          "models": ["CONSTRUCTION_STAGE_UUID", "CONSTRUCTION_STEP_ID"]
+        },
         "construction-step": {
           "next": ["construction-step-baubeginn"],
           "index": 0,
@@ -646,6 +687,10 @@
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
+        "directLink": {
+          "route": "instance-resource-name=construction-monitoring&ember-hash=/construction-monitoring/{{CONSTRUCTION_STAGE_UUID}}/{{CONSTRUCTION_STEP_ID}}",
+          "models": ["CONSTRUCTION_STAGE_UUID", "CONSTRUCTION_STEP_ID"]
+        },
         "construction-step": {
           "next": ["construction-step-baubeginn"],
           "index": 0,
@@ -677,6 +722,10 @@
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
+        "directLink": {
+          "route": "instance-resource-name=gwr-tasks",
+          "models": []
+        },
         "redirectToWorkItemsAfterCompletion": true
       },
       "address_groups": "['municipality']|groups",
@@ -702,6 +751,10 @@
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
+        "directLink": {
+          "route": "instance-resource-name=gwr-tasks",
+          "models": []
+        },
         "redirectToWorkItemsAfterCompletion": true
       },
       "address_groups": "['municipality']|groups",
@@ -727,6 +780,10 @@
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
+        "directLink": {
+          "route": "instance-resource-name=gwr-tasks",
+          "models": []
+        },
         "redirectToWorkItemsAfterCompletion": true
       },
       "address_groups": "['municipality']|groups",
@@ -777,6 +834,10 @@
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
+        "directLink": {
+          "route": "instance-resource-name=construction-monitoring&ember-hash=/construction-monitoring/{{CONSTRUCTION_STAGE_UUID}}/{{CONSTRUCTION_STEP_ID}}",
+          "models": ["CONSTRUCTION_STAGE_UUID", "CONSTRUCTION_STEP_ID"]
+        },
         "construction-step": {
           "next": [],
           "index": 1,
@@ -809,6 +870,10 @@
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
+        "directLink": {
+          "route": "instance-resource-name=construction-monitoring&ember-hash=/construction-monitoring/{{CONSTRUCTION_STAGE_UUID}}/{{CONSTRUCTION_STEP_ID}}",
+          "models": ["CONSTRUCTION_STAGE_UUID", "CONSTRUCTION_STEP_ID"]
+        },
         "construction-step": {
           "next": [],
           "index": 0,
@@ -840,6 +905,10 @@
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
+        "directLink": {
+          "route": "instance-resource-name=construction-monitoring&ember-hash=/construction-monitoring/{{CONSTRUCTION_STAGE_UUID}}/{{CONSTRUCTION_STEP_ID}}",
+          "models": ["CONSTRUCTION_STAGE_UUID", "CONSTRUCTION_STEP_ID"]
+        },
         "construction-step": {
           "next": ["construction-step-baufreigabe"],
           "index": 0,
@@ -870,6 +939,10 @@
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
+        "directLink": {
+          "route": "instance-resource-name=construction-monitoring&ember-hash=/construction-monitoring/{{CONSTRUCTION_STAGE_UUID}}/{{CONSTRUCTION_STEP_ID}}",
+          "models": ["CONSTRUCTION_STAGE_UUID", "CONSTRUCTION_STEP_ID"]
+        },
         "construction-step": {
           "next": ["construction-step-zwischenkontrolle"],
           "index": 0,
@@ -901,6 +974,10 @@
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
+        "directLink": {
+          "route": "instance-resource-name=construction-monitoring&ember-hash=/construction-monitoring/{{CONSTRUCTION_STAGE_UUID}}/{{CONSTRUCTION_STEP_ID}}",
+          "models": ["CONSTRUCTION_STAGE_UUID", "CONSTRUCTION_STEP_ID"]
+        },
         "construction-step": {
           "next": ["construction-step-zwischenkontrolle"],
           "index": 1,
@@ -932,6 +1009,10 @@
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
+        "directLink": {
+          "route": "instance-resource-name=construction-monitoring&ember-hash=/construction-monitoring/{{CONSTRUCTION_STAGE_UUID}}/{{CONSTRUCTION_STEP_ID}}",
+          "models": ["CONSTRUCTION_STAGE_UUID", "CONSTRUCTION_STEP_ID"]
+        },
         "construction-step": {
           "next": ["construction-step-schlussabnahme-projekt"],
           "index": 2,
@@ -963,6 +1044,10 @@
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
+        "directLink": {
+          "route": "instance-resource-name=construction-monitoring&ember-hash=/construction-monitoring/{{CONSTRUCTION_STAGE_UUID}}/{{CONSTRUCTION_STEP_ID}}",
+          "models": ["CONSTRUCTION_STAGE_UUID", "CONSTRUCTION_STEP_ID"]
+        },
         "construction-step": {
           "next": ["construction-step-schlussabnahme-projekt"],
           "index": 0,
@@ -994,6 +1079,10 @@
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
+        "directLink": {
+          "route": "instance-resource-name=construction-monitoring&ember-hash=/construction-monitoring/{{CONSTRUCTION_STAGE_UUID}}/{{CONSTRUCTION_STEP_ID}}",
+          "models": ["CONSTRUCTION_STAGE_UUID", "CONSTRUCTION_STEP_ID"]
+        },
         "construction-step": {
           "next": [],
           "index": 2,
@@ -1025,6 +1114,10 @@
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
+        "directLink": {
+          "route": "instance-resource-name=construction-monitoring&ember-hash=/construction-monitoring/{{CONSTRUCTION_STAGE_UUID}}/{{CONSTRUCTION_STEP_ID}}",
+          "models": ["CONSTRUCTION_STAGE_UUID", "CONSTRUCTION_STEP_ID"]
+        },
         "construction-step": {
           "next": [],
           "index": 0,
@@ -1056,6 +1149,10 @@
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
+        "directLink": {
+          "route": "instance-resource-name=construction-monitoring&ember-hash=/construction-monitoring/{{CONSTRUCTION_STAGE_UUID}}/{{CONSTRUCTION_STEP_ID}}",
+          "models": ["CONSTRUCTION_STAGE_UUID", "CONSTRUCTION_STEP_ID"]
+        },
         "construction-step": {
           "next": [],
           "index": 1,
@@ -1086,6 +1183,10 @@
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
+        "directLink": {
+          "route": "instance-resource-name=construction-monitoring&ember-hash=/construction-monitoring/{{CONSTRUCTION_STAGE_UUID}}/{{CONSTRUCTION_STEP_ID}}",
+          "models": ["CONSTRUCTION_STAGE_UUID", "CONSTRUCTION_STEP_ID"]
+        },
         "construction-step": {
           "next": ["construction-step-rohbauabnahme"],
           "index": 0,
@@ -1117,6 +1218,10 @@
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
+        "directLink": {
+          "route": "instance-resource-name=construction-monitoring&ember-hash=/construction-monitoring/{{CONSTRUCTION_STAGE_UUID}}/{{CONSTRUCTION_STEP_ID}}",
+          "models": ["CONSTRUCTION_STAGE_UUID", "CONSTRUCTION_STEP_ID"]
+        },
         "construction-step": {
           "next": ["construction-step-rohbauabnahme"],
           "index": 1,
@@ -1148,6 +1253,10 @@
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
+        "directLink": {
+          "route": "instance-resource-name=construction-monitoring&ember-hash=/construction-monitoring/{{CONSTRUCTION_STAGE_UUID}}/{{CONSTRUCTION_STEP_ID}}",
+          "models": ["CONSTRUCTION_STAGE_UUID", "CONSTRUCTION_STEP_ID"]
+        },
         "construction-step": {
           "next": ["construction-step-rohbauabnahme"],
           "index": 2,
@@ -1179,6 +1288,10 @@
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
+        "directLink": {
+          "route": "instance-resource-name=construction-monitoring&ember-hash=/construction-monitoring/{{CONSTRUCTION_STAGE_UUID}}/{{CONSTRUCTION_STEP_ID}}",
+          "models": ["CONSTRUCTION_STAGE_UUID", "CONSTRUCTION_STEP_ID"]
+        },
         "construction-step": {
           "next": ["construction-step-schlussabnahme-gebaeude"],
           "index": 1,
@@ -1210,6 +1323,10 @@
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {
+        "directLink": {
+          "route": "instance-resource-name=construction-monitoring&ember-hash=/construction-monitoring/{{CONSTRUCTION_STAGE_UUID}}/{{CONSTRUCTION_STEP_ID}}",
+          "models": ["CONSTRUCTION_STAGE_UUID", "CONSTRUCTION_STEP_ID"]
+        },
         "construction-step": {
           "next": ["construction-step-schlussabnahme-gebaeude"],
           "index": 0,
@@ -1240,7 +1357,12 @@
       "name": "{\"de\": \"Baubegleitung starten\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "simple",
-      "meta": {},
+      "meta": {
+        "directLink": {
+          "route": "instance-resource-name=construction-monitoring",
+          "models": []
+        }
+      },
       "address_groups": "['municipality']|groups",
       "control_groups": null,
       "is_archived": false,
