@@ -11,7 +11,7 @@
       "phone": null,
       "disabled": 0,
       "language": "de",
-      "last_login": "2025-05-22T07:47:15.424Z",
+      "last_login": "2026-03-09T13:30:38.328Z",
       "address": null,
       "city": null,
       "zip": null,
@@ -4122,6 +4122,22 @@
       "city": null,
       "address": null,
       "email": "test@example.ch",
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 10333,
+    "fields": {
+      "role": 20002,
+      "service": null,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "geometer@example.com",
       "website": null
     }
   },
@@ -9116,6 +9132,26 @@
     }
   },
   {
+    "model": "user.groupt",
+    "pk": 27479,
+    "fields": {
+      "group": 10333,
+      "language": "de",
+      "name": "Geometer",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 27480,
+    "fields": {
+      "group": 10333,
+      "language": "it",
+      "name": "Geometra",
+      "city": null
+    }
+  },
+  {
     "model": "user.usergroup",
     "pk": 1,
     "fields": {
@@ -9256,6 +9292,26 @@
       "default_group": 0,
       "created_at": "2024-03-28T11:32:23.996Z",
       "created_by": 1
+    }
+  },
+  {
+    "model": "user.usergroup",
+    "pk": 14,
+    "fields": {
+      "user": 1,
+      "group": 10333,
+      "default_group": 0,
+      "created_at": "2026-03-09T09:45:29.690Z",
+      "created_by": 1
+    }
+  },
+  {
+    "model": "user.servicerelation",
+    "pk": 1,
+    "fields": {
+      "receiver": 18,
+      "provider": 171,
+      "function": "geometer"
     }
   },
   {
@@ -12459,6 +12515,31 @@
     }
   },
   {
+    "model": "user.service",
+    "pk": 171,
+    "fields": {
+      "slug": null,
+      "service_group": 5,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 4,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "geometer@example.com",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 0,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {}
+    }
+  },
+  {
     "model": "user.servicet",
     "pk": 1,
     "fields": {
@@ -15490,6 +15571,30 @@
       "language": "it",
       "name": "Prevenzione dei danni elementari (Assicurazione stabili 1 (GVG1))",
       "description": null,
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 295,
+    "fields": {
+      "service": 171,
+      "language": "de",
+      "name": "Great GR Geometers GmbH",
+      "description": "geometer",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 296,
+    "fields": {
+      "service": 171,
+      "language": "fr",
+      "name": "Great GR Geometers GmbH",
+      "description": "geometra",
       "city": null,
       "department": null
     }
