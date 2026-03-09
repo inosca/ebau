@@ -1,4 +1,9 @@
-<nav class={{concat "main-navigation uk-navbar-container " (unless this.resources.hasRan "uk-hidden")}}>
+<nav
+  class={{concat
+    "main-navigation uk-navbar-container "
+    (unless this.resources.hasRan "uk-hidden")
+  }}
+>
   <Watermark />
   <div class="uk-padding-small uk-padding-remove-vertical">
     <div class="uk-navbar">
@@ -27,7 +32,6 @@
               {{/if}}
             </UkSubnav::Item>
           {{/each}}
-          <li><a href="http://ember-ebau.localhost/elixir/">to elixir</a></li>
         </ul>
       </div>
       <div class="uk-navbar-right">

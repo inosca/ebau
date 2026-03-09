@@ -24,8 +24,8 @@ export default class MainNavigationComponent extends Component {
 
   languages = languages;
 
-  constructor() {
-    super(...arguments);
+  constructor(...args) {
+    super(args);
     // Signal to index.html that the real navigation is ready to be shown.
     // We use a small delay to ensure Glimmer has actually painted the DOM.
     if (typeof document !== "undefined") {

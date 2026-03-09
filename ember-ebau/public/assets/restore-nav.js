@@ -1,13 +1,13 @@
-(function() {
+(function () {
   try {
-    var cache = localStorage.getItem('ebau-nav-cache');
+    const cache = localStorage.getItem("ebau-nav-cache");
     if (cache) {
-      var nav = document.getElementById('initial-loader');
+      const nav = document.getElementById("initial-loader");
       if (nav) {
         nav.innerHTML = cache;
       }
     }
   } catch (e) {
-    console.warn('Failed to restore navbar cache', e);
+    console.warn("Failed to restore navbar cache", e);
   }
 })();
