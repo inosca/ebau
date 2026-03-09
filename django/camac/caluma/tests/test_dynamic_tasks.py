@@ -1,3 +1,5 @@
+from unittest.mock import Mock
+
 import pytest
 from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.models import DynamicOption, Question
@@ -690,18 +692,23 @@ def test_dynamic_task_after_create_inquiry(
 
 
 @pytest.mark.parametrize(
-    "root_form,task_id,has_rejection_answer,expected_tasks",
+    "root_form,task_id,has_rejection_answer,geometer_required,expected_tasks",
     [
-        ("main-form", "formal-exam", True, ["reject"]),
-        ("main-form", "material-exam", True, ["reject"]),
-        ("main-form", "formal-exam", False, ["material-exam"]),
+        ("main-form", "formal-exam", True, True, ["reject"]),
+        ("main-form", "formal-exam", True, False, ["reject"]),
+        ("main-form", "material-exam", True, False, ["reject"]),
+        ("main-form", "formal-exam", False, False, ["material-exam"]),
+        ("main-form", "formal-exam", False, True, ["material-exam", "geometer"]),
         (
             "main-form",
             "material-exam",
             False,
+            False,
             ["distribution", "publication", "fill-publication", "objections"],
         ),
-        ("meldung-pv", "material-exam", False, ["distribution"]),
+        ("meldung-pv", "formal-exam", False, False, ["material-exam"]),
+        ("meldung-pv", "formal-exam", False, True, ["material-exam", "geometer"]),
+        ("meldung-pv", "material-exam", False, False, ["distribution"]),
     ],
 )
 def test_dynamic_task_after_exam(
@@ -709,11 +716,13 @@ def test_dynamic_task_after_exam(
     caluma_answer_factory,
     expected_tasks,
     has_rejection_answer,
+    geometer_required,
     root_form,
     so_instance,
     so_rejection_settings,
     task_id,
     caluma_work_item_factory,
+    mocker,
 ):
     work_item = caluma_work_item_factory(task_id=task_id, case=so_instance.case)
 
@@ -722,6 +731,14 @@ def test_dynamic_task_after_exam(
             document=work_item.document,
             question__slug=so_rejection_settings["WORK_ITEM"]["ON_ANSWER"][task_id][0],
             value=so_rejection_settings["WORK_ITEM"]["ON_ANSWER"][task_id][1],
+        )
+
+    if geometer_required:
+        master_data_mock = Mock()
+        master_data_mock.geometer_required = True
+        mocker.patch(
+            "camac.instance.master_data.MasterData.from_case_id",
+            return_value=master_data_mock,
         )
 
     work_item.case.document.form_id = root_form

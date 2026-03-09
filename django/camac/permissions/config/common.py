@@ -4,9 +4,10 @@ from caluma.caluma_workflow.models import WorkItem
 
 from camac.caluma.api import CalumaApi
 from camac.instance.models import Instance
+from camac.instance.utils import get_provider_services
 from camac.permissions import api as permissions_api
 from camac.permissions.models import AccessLevel, InstanceACL
-from camac.user.models import Service
+from camac.user.models import Service, ServiceRelation
 from camac.user.utils import get_support_role
 
 log = getLogger(__name__)
@@ -215,3 +216,20 @@ class ConstructionMonitoringHandlerMixin:
                     service=addr_service,
                     event_name="received-work-item",
                 )
+
+
+class GeometerHandlerMixin:
+    def grant_geometer_permission(self, work_item: WorkItem):
+        instance = work_item.case.instance
+        geometer_service = get_provider_services(
+            instance.responsible_service(),
+            ServiceRelation.FUNCTION_GEOMETER,
+        ).first()
+
+        self.manager.grant(
+            instance,
+            grant_type="SERVICE",
+            access_level="geometer",
+            service=geometer_service,
+            event_name="formal-exam-completed",
+        )

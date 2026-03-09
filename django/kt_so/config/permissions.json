@@ -21,6 +21,16 @@
   },
   {
     "model": "permissions.accesslevel",
+    "pk": "geometer",
+    "fields": {
+      "name": "{\"de\": \"Geometer\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Geometer\", \"fr\": \"\", \"it\": \"\"}",
+      "required_grant_type": "SERVICE",
+      "applicable_area": "INTERNAL"
+    }
+  },
+  {
+    "model": "permissions.accesslevel",
     "pk": "lead-authority",
     "fields": {
       "name": "{\"de\": \"Leitbehörde\", \"fr\": \"\", \"it\": \"\"}",

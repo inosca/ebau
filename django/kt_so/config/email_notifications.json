@@ -324,6 +324,18 @@
     }
   },
   {
+    "model": "notification.notificationtemplate",
+    "pk": 28,
+    "fields": {
+      "slug": "geometer-invited",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
     "model": "notification.notificationtemplatet",
     "pk": 1,
     "fields": {
@@ -645,6 +657,18 @@
       "purpose": "Manuelle Aufgabe Fristüberschreitung",
       "subject": "Fristüberschreitung einer Aufgabe (Dossier-Nummer {{ DOSSIER_NR }})",
       "body": "Guten Tag\r\n\r\nDie Aufgabe \"{{WORK_ITEM_NAME_DE}}\" im Dossier mit der Dossier-Nummer {{ DOSSIER_NR }} ({{ FORM_NAME_DE }}, {{ MUNICIPALITY_DE }}) wurde nicht innerhalb der Frist abgeschlossen.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nSie erhalten diese Notifikation, weil Sie beim Erstellen der Aufgabe eine Notifikation bei Fristüberschreitung ausgewählt haben.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf."
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 28,
+    "fields": {
+      "template": 28,
+      "template_slug": "geometer-invited",
+      "language": "de",
+      "purpose": "Berechtigung erhalten",
+      "subject": "Berechtigung erhalten (Dossier-Nummer {{ DOSSIER_NR }})",
+      "body": "Guten Tag\r\n\rSie wurden für das Dossier {{ DOSSIER_NR }} ({{ FORM_NAME_DE }}, {{ MUNICIPALITY_DE }}) berechtigt.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf."
     }
   }
 ]

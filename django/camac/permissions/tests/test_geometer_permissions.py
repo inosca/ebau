@@ -1,3 +1,5 @@
+from unittest.mock import Mock
+
 import pytest
 from django.urls import reverse
 
@@ -5,6 +7,7 @@ from camac.permissions import api
 from camac.permissions.conditions import Always
 from camac.permissions.events import Trigger
 from camac.permissions.models import InstanceACL
+from camac.user.models import ServiceRelation
 
 """
 Geometer permissions tests.
@@ -114,3 +117,43 @@ def test_construction_monitoring_geometer_work_item_created(
 
     Trigger.geometer_work_item_created(None, work_item)
     assert InstanceACL.objects.count() == 1
+
+
+@pytest.mark.parametrize(
+    "geometer_required",
+    [True, False],
+)
+def test_formal_exam_completed_geometer_so(
+    db,
+    mocker,
+    service_factory,
+    caluma_work_item_factory,
+    so_instance,
+    so_permissions_settings,
+    access_level_factory,
+    geometer_required,
+):
+    access_level_factory(pk="geometer")
+    master_data_mock = Mock()
+    master_data_mock.geometer_required = geometer_required
+    mocker.patch(
+        "camac.instance.master_data.MasterData.from_case_id",
+        return_value=master_data_mock,
+    )
+
+    service_factory(slug="municipality")
+    geometer = service_factory()
+
+    ServiceRelation.objects.create(
+        provider=geometer,
+        receiver=so_instance.responsible_service(),
+        function=ServiceRelation.FUNCTION_GEOMETER,
+    )
+    work_item = caluma_work_item_factory(case=so_instance.case)
+    assert InstanceACL.objects.count() == 0
+    Trigger.formal_exam_completed(None, instance=so_instance, work_item=work_item)
+    if geometer_required:
+        assert InstanceACL.objects.count() == 1
+        assert InstanceACL.objects.first().service == geometer
+    else:
+        assert InstanceACL.objects.count() == 0

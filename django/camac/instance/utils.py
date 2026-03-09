@@ -94,15 +94,22 @@ def get_municipality_provider_services(
 
     The `function` needs to be one of the supported functions from
     `user.ServiceRelation.FUNCTION_CHOICES`
-
-    Note: This returns a queryset with zero or multiple services. If you only need
-    one, use `get_municipality_provider_service()`.
     """
     if not isinstance(instance, Instance):  # Xzibit would be proud!
         instance = Instance.objects.get(pk=instance)
 
     municipality = get_municipality(instance)
-    relations = ServiceRelation.objects.filter(receiver=municipality, function=function)
+    return get_provider_services(municipality, function)
+
+
+def get_provider_services(service: Service, function: str) -> QuerySet[Service]:
+    """
+    Return services that provde `function` to `service`.
+
+    The `function` needs to be one of the supported functions from
+    `user.ServiceRelation.FUNCTION_CHOICES`
+    """
+    relations = ServiceRelation.objects.filter(receiver=service, function=function)
     return Service.objects.filter(pk__in=relations.values("provider"))
 
 
