@@ -189,6 +189,7 @@ export function getCamacFilters({
     responsible_service: filter.responsibleMunicipality,
     is_paper: filter.paper,
     [keywordFilterName]: filter.keywords,
+    ["static_keywords"]: filter.staticKeywords,
     decision: filter.decision,
     inquiry_created_before: filter.inquiryCreatedBefore,
     inquiry_created_after: filter.inquiryCreatedAfter,

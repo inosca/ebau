@@ -38,11 +38,11 @@
   UPDATE "instance_issuetemplate" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
   UPDATE "instance_issuetemplateset" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
   UPDATE "instance_journalentry" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
+  UPDATE "permissions_instanceacl" SET "revoked_by_service_id" = <<target_id>> WHERE "revoked_by_service_id" = <<source_id_1>>;
   UPDATE "permissions_instanceacl" SET "created_by_service_id" = <<target_id>> WHERE "created_by_service_id" = <<source_id_1>>;
   UPDATE "permissions_instanceacl" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
-  UPDATE "permissions_instanceacl" SET "revoked_by_service_id" = <<target_id>> WHERE "revoked_by_service_id" = <<source_id_1>>;
-  UPDATE "rulesets_distributiondeadlinerule" SET "target_service_id" = <<target_id>> WHERE "target_service_id" = <<source_id_1>>;
   UPDATE "rulesets_distributiondeadlinerule" SET "source_service_id" = <<target_id>> WHERE "source_service_id" = <<source_id_1>>;
+  UPDATE "rulesets_distributiondeadlinerule" SET "target_service_id" = <<target_id>> WHERE "target_service_id" = <<source_id_1>>;
   UPDATE "rulesets_responsibleuserrule" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
   UPDATE rulesets_responsibleuserrule_municipalities AS r
     SET service_id = <<target_id>>
@@ -56,13 +56,14 @@
   DELETE FROM rulesets_responsibleuserrule_municipalities WHERE service_id = <<source_id_1>>;
   UPDATE "sanctions_sanction" SET "created_by_service_id" = <<target_id>> WHERE "created_by_service_id" = <<source_id_1>>;
   UPDATE "sanctions_sanction" SET "assigned_service_id" = <<target_id>> WHERE "assigned_service_id" = <<source_id_1>>;
-  UPDATE "sanctions_sanctiontemplate" SET "created_by_service_id" = <<target_id>> WHERE "created_by_service_id" = <<source_id_1>>;
   UPDATE "sanctions_sanctiontemplate" SET "assigned_service_id" = <<target_id>> WHERE "assigned_service_id" = <<source_id_1>>;
+  UPDATE "sanctions_sanctiontemplate" SET "created_by_service_id" = <<target_id>> WHERE "created_by_service_id" = <<source_id_1>>;
   UPDATE "tags_keyword" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
-  UPDATE "user_geometerchangetask" SET "municipality_id" = <<target_id>> WHERE "municipality_id" = <<source_id_1>>;
+  UPDATE "tags_statickeyword" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
   UPDATE "user_geometerchangetask" SET "geometer_id" = <<target_id>> WHERE "geometer_id" = <<source_id_1>>;
-  UPDATE "user_servicerelation" SET "receiver_id" = <<target_id>> WHERE "receiver_id" = <<source_id_1>>;
+  UPDATE "user_geometerchangetask" SET "municipality_id" = <<target_id>> WHERE "municipality_id" = <<source_id_1>>;
   UPDATE "user_servicerelation" SET "provider_id" = <<target_id>> WHERE "provider_id" = <<source_id_1>>;
+  UPDATE "user_servicerelation" SET "receiver_id" = <<target_id>> WHERE "receiver_id" = <<source_id_1>>;
   UPDATE "work_items_workitemlistfilterpreset_services" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
   UPDATE "work_items_workitemtemplate_services" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
   UPDATE "caluma_workflow_workitem" SET "assigned_users" = '{}' WHERE "addressed_groups" = '{<<source_id_1>>}';
@@ -93,11 +94,11 @@
   UPDATE "instance_issuetemplate" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
   UPDATE "instance_issuetemplateset" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
   UPDATE "instance_journalentry" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
+  UPDATE "permissions_instanceacl" SET "revoked_by_service_id" = <<target_id>> WHERE "revoked_by_service_id" = <<source_id_2>>;
   UPDATE "permissions_instanceacl" SET "created_by_service_id" = <<target_id>> WHERE "created_by_service_id" = <<source_id_2>>;
   UPDATE "permissions_instanceacl" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
-  UPDATE "permissions_instanceacl" SET "revoked_by_service_id" = <<target_id>> WHERE "revoked_by_service_id" = <<source_id_2>>;
-  UPDATE "rulesets_distributiondeadlinerule" SET "target_service_id" = <<target_id>> WHERE "target_service_id" = <<source_id_2>>;
   UPDATE "rulesets_distributiondeadlinerule" SET "source_service_id" = <<target_id>> WHERE "source_service_id" = <<source_id_2>>;
+  UPDATE "rulesets_distributiondeadlinerule" SET "target_service_id" = <<target_id>> WHERE "target_service_id" = <<source_id_2>>;
   UPDATE "rulesets_responsibleuserrule" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
   UPDATE rulesets_responsibleuserrule_municipalities AS r
     SET service_id = <<target_id>>
@@ -111,13 +112,14 @@
   DELETE FROM rulesets_responsibleuserrule_municipalities WHERE service_id = <<source_id_2>>;
   UPDATE "sanctions_sanction" SET "created_by_service_id" = <<target_id>> WHERE "created_by_service_id" = <<source_id_2>>;
   UPDATE "sanctions_sanction" SET "assigned_service_id" = <<target_id>> WHERE "assigned_service_id" = <<source_id_2>>;
-  UPDATE "sanctions_sanctiontemplate" SET "created_by_service_id" = <<target_id>> WHERE "created_by_service_id" = <<source_id_2>>;
   UPDATE "sanctions_sanctiontemplate" SET "assigned_service_id" = <<target_id>> WHERE "assigned_service_id" = <<source_id_2>>;
+  UPDATE "sanctions_sanctiontemplate" SET "created_by_service_id" = <<target_id>> WHERE "created_by_service_id" = <<source_id_2>>;
   UPDATE "tags_keyword" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
-  UPDATE "user_geometerchangetask" SET "municipality_id" = <<target_id>> WHERE "municipality_id" = <<source_id_2>>;
+  UPDATE "tags_statickeyword" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
   UPDATE "user_geometerchangetask" SET "geometer_id" = <<target_id>> WHERE "geometer_id" = <<source_id_2>>;
-  UPDATE "user_servicerelation" SET "receiver_id" = <<target_id>> WHERE "receiver_id" = <<source_id_2>>;
+  UPDATE "user_geometerchangetask" SET "municipality_id" = <<target_id>> WHERE "municipality_id" = <<source_id_2>>;
   UPDATE "user_servicerelation" SET "provider_id" = <<target_id>> WHERE "provider_id" = <<source_id_2>>;
+  UPDATE "user_servicerelation" SET "receiver_id" = <<target_id>> WHERE "receiver_id" = <<source_id_2>>;
   UPDATE "work_items_workitemlistfilterpreset_services" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
   UPDATE "work_items_workitemtemplate_services" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
   UPDATE "caluma_workflow_workitem" SET "assigned_users" = '{}' WHERE "addressed_groups" = '{<<source_id_2>>}';
@@ -171,11 +173,11 @@
   UPDATE "instance_issuetemplate" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
   UPDATE "instance_issuetemplateset" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
   UPDATE "instance_journalentry" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
+  UPDATE "permissions_instanceacl" SET "revoked_by_service_id" = <<target_id>> WHERE "revoked_by_service_id" = <<source_id_1>>;
   UPDATE "permissions_instanceacl" SET "created_by_service_id" = <<target_id>> WHERE "created_by_service_id" = <<source_id_1>>;
   UPDATE "permissions_instanceacl" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
-  UPDATE "permissions_instanceacl" SET "revoked_by_service_id" = <<target_id>> WHERE "revoked_by_service_id" = <<source_id_1>>;
-  UPDATE "rulesets_distributiondeadlinerule" SET "target_service_id" = <<target_id>> WHERE "target_service_id" = <<source_id_1>>;
   UPDATE "rulesets_distributiondeadlinerule" SET "source_service_id" = <<target_id>> WHERE "source_service_id" = <<source_id_1>>;
+  UPDATE "rulesets_distributiondeadlinerule" SET "target_service_id" = <<target_id>> WHERE "target_service_id" = <<source_id_1>>;
   UPDATE "rulesets_responsibleuserrule" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
   UPDATE rulesets_responsibleuserrule_municipalities AS r
     SET service_id = <<target_id>>
@@ -189,13 +191,14 @@
   DELETE FROM rulesets_responsibleuserrule_municipalities WHERE service_id = <<source_id_1>>;
   UPDATE "sanctions_sanction" SET "created_by_service_id" = <<target_id>> WHERE "created_by_service_id" = <<source_id_1>>;
   UPDATE "sanctions_sanction" SET "assigned_service_id" = <<target_id>> WHERE "assigned_service_id" = <<source_id_1>>;
-  UPDATE "sanctions_sanctiontemplate" SET "created_by_service_id" = <<target_id>> WHERE "created_by_service_id" = <<source_id_1>>;
   UPDATE "sanctions_sanctiontemplate" SET "assigned_service_id" = <<target_id>> WHERE "assigned_service_id" = <<source_id_1>>;
+  UPDATE "sanctions_sanctiontemplate" SET "created_by_service_id" = <<target_id>> WHERE "created_by_service_id" = <<source_id_1>>;
   UPDATE "tags_keyword" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
-  UPDATE "user_geometerchangetask" SET "municipality_id" = <<target_id>> WHERE "municipality_id" = <<source_id_1>>;
+  UPDATE "tags_statickeyword" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
   UPDATE "user_geometerchangetask" SET "geometer_id" = <<target_id>> WHERE "geometer_id" = <<source_id_1>>;
-  UPDATE "user_servicerelation" SET "receiver_id" = <<target_id>> WHERE "receiver_id" = <<source_id_1>>;
+  UPDATE "user_geometerchangetask" SET "municipality_id" = <<target_id>> WHERE "municipality_id" = <<source_id_1>>;
   UPDATE "user_servicerelation" SET "provider_id" = <<target_id>> WHERE "provider_id" = <<source_id_1>>;
+  UPDATE "user_servicerelation" SET "receiver_id" = <<target_id>> WHERE "receiver_id" = <<source_id_1>>;
   UPDATE "work_items_workitemlistfilterpreset_services" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
   UPDATE "work_items_workitemtemplate_services" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_1>>;
   UPDATE "caluma_workflow_workitem" SET "assigned_users" = '{}' WHERE "addressed_groups" = '{<<source_id_1>>}';
@@ -226,11 +229,11 @@
   UPDATE "instance_issuetemplate" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
   UPDATE "instance_issuetemplateset" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
   UPDATE "instance_journalentry" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
+  UPDATE "permissions_instanceacl" SET "revoked_by_service_id" = <<target_id>> WHERE "revoked_by_service_id" = <<source_id_2>>;
   UPDATE "permissions_instanceacl" SET "created_by_service_id" = <<target_id>> WHERE "created_by_service_id" = <<source_id_2>>;
   UPDATE "permissions_instanceacl" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
-  UPDATE "permissions_instanceacl" SET "revoked_by_service_id" = <<target_id>> WHERE "revoked_by_service_id" = <<source_id_2>>;
-  UPDATE "rulesets_distributiondeadlinerule" SET "target_service_id" = <<target_id>> WHERE "target_service_id" = <<source_id_2>>;
   UPDATE "rulesets_distributiondeadlinerule" SET "source_service_id" = <<target_id>> WHERE "source_service_id" = <<source_id_2>>;
+  UPDATE "rulesets_distributiondeadlinerule" SET "target_service_id" = <<target_id>> WHERE "target_service_id" = <<source_id_2>>;
   UPDATE "rulesets_responsibleuserrule" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
   UPDATE rulesets_responsibleuserrule_municipalities AS r
     SET service_id = <<target_id>>
@@ -244,13 +247,14 @@
   DELETE FROM rulesets_responsibleuserrule_municipalities WHERE service_id = <<source_id_2>>;
   UPDATE "sanctions_sanction" SET "created_by_service_id" = <<target_id>> WHERE "created_by_service_id" = <<source_id_2>>;
   UPDATE "sanctions_sanction" SET "assigned_service_id" = <<target_id>> WHERE "assigned_service_id" = <<source_id_2>>;
-  UPDATE "sanctions_sanctiontemplate" SET "created_by_service_id" = <<target_id>> WHERE "created_by_service_id" = <<source_id_2>>;
   UPDATE "sanctions_sanctiontemplate" SET "assigned_service_id" = <<target_id>> WHERE "assigned_service_id" = <<source_id_2>>;
+  UPDATE "sanctions_sanctiontemplate" SET "created_by_service_id" = <<target_id>> WHERE "created_by_service_id" = <<source_id_2>>;
   UPDATE "tags_keyword" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
-  UPDATE "user_geometerchangetask" SET "municipality_id" = <<target_id>> WHERE "municipality_id" = <<source_id_2>>;
+  UPDATE "tags_statickeyword" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
   UPDATE "user_geometerchangetask" SET "geometer_id" = <<target_id>> WHERE "geometer_id" = <<source_id_2>>;
-  UPDATE "user_servicerelation" SET "receiver_id" = <<target_id>> WHERE "receiver_id" = <<source_id_2>>;
+  UPDATE "user_geometerchangetask" SET "municipality_id" = <<target_id>> WHERE "municipality_id" = <<source_id_2>>;
   UPDATE "user_servicerelation" SET "provider_id" = <<target_id>> WHERE "provider_id" = <<source_id_2>>;
+  UPDATE "user_servicerelation" SET "receiver_id" = <<target_id>> WHERE "receiver_id" = <<source_id_2>>;
   UPDATE "work_items_workitemlistfilterpreset_services" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
   UPDATE "work_items_workitemtemplate_services" SET "service_id" = <<target_id>> WHERE "service_id" = <<source_id_2>>;
   UPDATE "caluma_workflow_workitem" SET "assigned_users" = '{}' WHERE "addressed_groups" = '{<<source_id_2>>}';

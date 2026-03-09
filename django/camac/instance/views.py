@@ -279,10 +279,12 @@ class InstanceView(
         )
 
     def has_object_update_permission_for_municipality(self, instance):
-        return self._has_instance_update_permission({"keywords"})
+        return self._has_instance_update_permission({"keywords", "static_keywords"})
 
     def has_object_update_permission_for_service(self, instance):
-        return self._has_instance_update_permission({"keywords"})  # pragma: no cover
+        return self._has_instance_update_permission(
+            {"keywords", "static_keywords"}
+        )  # pragma: no cover
 
     def has_base_permission_for_coordination(self, instance):
         return self.has_base_permission_for_municipality(instance)

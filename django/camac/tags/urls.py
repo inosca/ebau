@@ -6,5 +6,6 @@ r = SimpleRouter(trailing_slash=False)
 
 r.register(r"tags", views.TagView)
 r.register(r"keywords", views.KeywordView)
+r.register(r"static-keywords", views.StaticKeywordView, basename="static-keyword")
 
 urlpatterns = r.urls

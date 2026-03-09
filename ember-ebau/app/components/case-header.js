@@ -3,6 +3,7 @@ import { service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { dropTask } from "ember-concurrency";
+import mainConfig from "ember-ebau-core/config/main";
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 import { trackedFunction } from "reactiveweb/function";
 
@@ -14,6 +15,7 @@ export default class CaseHeaderComponent extends Component {
   @service notification;
   @service intl;
   @service store;
+  @service session;
 
   @tracked compact =
     JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) ?? false;
@@ -70,6 +72,24 @@ export default class CaseHeaderComponent extends Component {
 
   get evenProjectnumbers() {
     return this.args?.case?.evenProjectNumber;
+  }
+
+  get showStaticKeywords() {
+    const config = new Set(
+      mainConfig.instanceHeader?.showStaticKeywordsFor ?? [],
+    );
+    if (!config.size) {
+      return false;
+    }
+
+    const slugsToCheck = new Set([this.session.service.slug]);
+    if (this.session.service.get("serviceParent.slug")) {
+      slugsToCheck.add(this.session.service.get("serviceParent.slug"));
+    }
+    return (
+      hasFeature("instanceHeader.staticKeywords") &&
+      config.intersection(slugsToCheck).size
+    );
   }
 
   @action

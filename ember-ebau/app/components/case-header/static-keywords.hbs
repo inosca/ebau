@@ -1,0 +1,17 @@
+<PowerSelectMultiple
+  @searchEnabled={{true}}
+  @searchField="name"
+  @searchMessage={{t "cases.header.searchStaticKeyword"}}
+  @loadingMessage={{t "cases.header.loadStaticKeywords"}}
+  @noMatchesMessage={{t "cases.header.emptyStaticKeywords"}}
+  @search={{perform this.updateSearch}}
+  @selected={{this.selected}}
+  @options={{this.staticKeywords.records}}
+  @onChange={{this.onChange}}
+  as |keyword|
+>
+  {{keyword.name}}
+  {{#if (and (eq keyword.id this.lastKeywordId) this.staticKeywords.hasMore)}}
+    <div {{in-viewport onEnter=this.nextPage}} />
+  {{/if}}
+</PowerSelectMultiple>

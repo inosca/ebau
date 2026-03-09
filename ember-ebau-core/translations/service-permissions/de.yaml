@@ -50,3 +50,10 @@ service-permissions:
   sub-services-add: "Unterfachstelle hinzufügen"
   sub-services-add-warning: ""
   publication-reference: 'Die erfassten Daten können veröffentlicht werden (z. Bsp. unter dem Tab "Support").'
+
+  static-keyword: "Sachverhalt"
+  static-keywords: "Sachverhalte"
+  static-keywords-save-success: "Der Sachverhalt wurde gespeichert."
+  static-keywords-save-error: "Der Sachverhalt konnte nicht gespeichert werden."
+  static-keywords-delete-confirm: "Möchten Sie den Sachverhalt wirklich löschen?"
+  static-keywords-already-exists: "Der Sachverhalt existiert bereits. Wählen Sie eine neue Bezeichnung."

@@ -14,3 +14,10 @@ class KeywordSerializer(VisibilitySerializerMixin, serializers.ModelSerializer):
     class Meta:
         model = models.Keyword
         fields = ("name", "service", "instances")
+
+
+class StaticKeywordSerializer(VisibilitySerializerMixin, serializers.ModelSerializer):
+    class Meta:
+        model = models.StaticKeyword
+        fields = ("name", "service", "instances")
+        resource_name = "static-keywords"

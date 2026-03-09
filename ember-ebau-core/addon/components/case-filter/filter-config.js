@@ -143,6 +143,14 @@ export default {
     labelField: "name",
     showWithoutOptions: true,
   },
+  staticKeywords: {
+    type: "async-select-multiple",
+    options: "staticKeywords",
+    search: "searchStaticKeywords",
+    valueField: "id",
+    labelField: "name",
+    showWithoutOptions: false,
+  },
   paper: {
     type: "select",
     options: "paperOptions",

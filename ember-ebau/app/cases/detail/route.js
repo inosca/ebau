@@ -43,6 +43,7 @@ export default class CasesDetailRoute extends Route {
         "responsible_service_users",
         "linked_instances",
         "keywords",
+        "static_keywords",
       ];
       if (hasFeature("cases.showNoApplicantRegisteredWarning")) {
         includes.push("involved_applicants", "involved_applicants.invitee");
