@@ -172,27 +172,19 @@ services:
     ports: []
 
   ember-camac-ng:
-    image: acr.run/camac-ng/camac-ng/ember-camac-ng:master
-    build:
-      args:
-        # reset those args that should fall back to defaults
-        # to avoid reduncancy and clerical footshots
-        - APP_ENV=development
-        - KEYCLOAK_HOST
-        - PORTAL_URL
+    user: nginx:nginx
+    environment:
+      KEYCLOAK_HOST: http://ebau-keycloak.localhost
+      PORTAL_URL: http://ebau-portal.localhost
     networks:
       - ebau.localhost
 
   ember-caluma-portal:
-    image: acr.run/camac-ng/camac-ng/ember-caluma-portal:master
-    build:
-      args:
-        # reset those args that should fall back to defaults
-        # to avoid reduncancy and clerical footshots
-        - KEYCLOAK_HOST
-        - INTERNAL_URL
-        # BE_GIS_URL defaults to the prod instance
-        - BE_GIS_URL=https://www.map2-test.apps.be.ch
+    user: nginx:nginx
+    environment:
+      KEYCLOAK_HOST: http://ebau-keycloak.localhost
+      INTERNAL_URL: http://ebau.localhost
+      BE_GIS_URL: https://www.map2-test.apps.be.ch
     networks:
       - ebau.localhost
 
