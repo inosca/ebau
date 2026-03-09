@@ -15,25 +15,33 @@ defmodule EbauWeb.LiveUserAuth do
     end
   end
 
-  def on_mount(:live_user_required, _params, _session, socket) do
-    if socket.assigns[:current_user] do
-      user =
-        Ash.load!(
-          socket.assigns.current_user,
-          [
-            :service,
-            :full_name,
-            group: [:localised_name, role: :resources]
-          ],
-          scope: socket.assigns.scope
-        )
+  def on_mount(:live_user_required, _params, session, socket) do
+    # Try to load user from session if not already assigned
+    socket =
+      if socket.assigns[:current_user] do
+        socket
+      else
+        case session["user"] do
+          nil ->
+            socket
 
-      scope = Map.put(socket.assigns.scope, :current_user, user)
+          subject when is_binary(subject) ->
+            case AshAuthentication.subject_to_user(subject, Ebau.User.User) do
+              {:ok, user} -> assign(socket, :current_user, user)
+              {:error, _} -> socket
+            end
+        end
+      end
+
+    if socket.assigns[:current_user] do
+      scope = %Ebau.Scope{
+        current_user: socket.assigns.current_user,
+        canton: :gr
+      }
 
       socket =
         socket
         |> assign(:scope, scope)
-        |> assign(:current_user, user)
 
       {:cont, socket}
     else

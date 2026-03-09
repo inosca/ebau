@@ -15,7 +15,7 @@ defmodule EbauWeb.InitialiseScope do
 
   def on_mount(_action, _params, _session, socket) do
     scope = %Ebau.Scope{
-      current_user: nil,
+      current_user: socket.assigns[:current_user],
       # TODO: load from env
       current_tenant: :gr,
       locale: nil

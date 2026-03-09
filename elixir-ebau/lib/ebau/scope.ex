@@ -1,6 +1,6 @@
 defmodule Ebau.Scope do
   @moduledoc false
-  defstruct [:current_user, :current_tenant, :locale]
+  defstruct [:current_user, :current_tenant, :locale, :canton]
 
   defimpl Ash.Scope.ToOpts do
     def get_actor(%{current_user: current_user}), do: {:ok, current_user}

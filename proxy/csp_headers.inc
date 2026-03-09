@@ -51,7 +51,6 @@ if ($csp_external_connect_sources ~ "^$")    { set $csp_external_connect_sources
 if ($csp_external_img_sources ~ "^$")        { set $csp_external_img_sources ""; }
 if ($csp_external_style_sources ~ "^$")      { set $csp_external_style_sources ""; }
 if ($csp_external_frame_sources ~ "^$")      { set $csp_external_frame_sources ""; }
-if ($csp_extra_script_sources ~ "^$")        { set $csp_extra_script_sources ""; }
 
 # Intermediates
 # =============
@@ -59,7 +58,7 @@ if ($csp_extra_script_sources ~ "^$")        { set $csp_extra_script_sources "";
 # mentioned "result" variables.
 
 set $csp_default_self   "default-src 'self'";
-set $csp_script_default "script-src 'self' ${csp_extra_script_sources}";
+set $csp_script_default "script-src 'self'";
 set $csp_script_inline  "script-src 'self' 'unsafe-inline'";
 set $csp_style_inline   "style-src 'self' 'unsafe-inline'";
 set $csp_img_default    "img-src 'self' data: ${csp_external_img_sources}";
