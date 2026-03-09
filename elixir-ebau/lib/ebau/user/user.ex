@@ -14,6 +14,8 @@ defmodule Ebau.User.User do
       signing_secret Ebau.Secrets
     end
 
+    session_identifier :jti
+
     strategies do
       oidc :ebau do
         client_id System.get_env("KEYCLOAK_CLIENT", "camac")
