@@ -115,6 +115,7 @@ SZ_PERMISSIONS_SETTINGS = {
             ("journal-read", IS_ARE_GESCHAEFT),
             ("journal-write", IS_ARE_GESCHAEFT),
             ("linked-instances-view-internal", IS_ARE_GESCHAEFT),
+            ("linked-instances-write", IS_ARE_GESCHAEFT),
         ],
     },
     "ENABLED": True,

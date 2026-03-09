@@ -85,9 +85,11 @@ export default class InstanceAbility extends Ability {
     );
   }
 
-  // GR, UR, AG, SO
+  // GR, UR, AG, SO, SZ
   async canLinkDossiers() {
-    if (this.permissions.fullyEnabled) {
+    // SZ doesn't have permissions fully enabled yet, but we already use the
+    // permissions module for this:
+    if (this.permissions.fullyEnabled || isApplication("sz")) {
       return await this.permissions.hasAll(
         this.model?.id,
         "linked-instances-write",

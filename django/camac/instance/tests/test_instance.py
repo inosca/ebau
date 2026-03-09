@@ -1126,6 +1126,239 @@ def test_instance_group_link_unlink(
     assert response.status_code == expected_status_unlink
 
 
+@pytest.mark.parametrize(
+    (
+        "role__name",
+        "workflow_name",
+        "form_name",
+        "is_lead_authority",
+        "has_acl_on_this_instance",
+        "sees_other_instance",
+        "expected_status_link",
+        "expected_status_unlink",
+    ),
+    [
+        # are-service ACL on internal are-geschaeft should follow permissions rules:
+        (
+            "Fachstelle",
+            "internal-document",
+            "are-geschaeft",
+            False,  # permitted through ACL even if not lead authority
+            True,
+            True,
+            status.HTTP_200_OK,
+            status.HTTP_204_NO_CONTENT,
+        ),
+        (
+            "Fachstelle",
+            "internal-document",
+            "are-geschaeft",
+            False,
+            True,
+            False,
+            status.HTTP_403_FORBIDDEN,  # denied if the other instance is not visible
+            status.HTTP_204_NO_CONTENT,
+        ),
+        (
+            "Fachstelle",
+            "internal-document",
+            "are-geschaeft",
+            True,
+            True,
+            False,
+            status.HTTP_403_FORBIDDEN,  # still denied, even if lead authority
+            status.HTTP_204_NO_CONTENT,
+        ),
+        (
+            "Fachstelle",
+            "internal-document",
+            "are-geschaeft",
+            True,
+            False,
+            True,
+            status.HTTP_403_FORBIDDEN,  # denied if no ACL (even if lead authority)
+            status.HTTP_403_FORBIDDEN,
+        ),
+        (
+            "Fachstelle",
+            "internal-document",
+            "are-geschaeft",
+            False,
+            False,
+            True,
+            status.HTTP_404_NOT_FOUND,  # not visible if neither lead authority nor ACL
+            status.HTTP_404_NOT_FOUND,
+        ),
+        # are-service ACL on anything but internal are-geschaeft has not effect, even if
+        # lead authority:
+        (
+            "Fachstelle",
+            "internal-document",
+            "voranfrage",
+            True,
+            True,
+            True,
+            status.HTTP_403_FORBIDDEN,
+            status.HTTP_403_FORBIDDEN,
+        ),
+        (
+            "Fachstelle",
+            "internal-document",
+            "voranfrage",
+            True,
+            True,
+            False,
+            status.HTTP_403_FORBIDDEN,
+            status.HTTP_403_FORBIDDEN,
+        ),
+        (
+            "Fachstelle",
+            "internal-document",
+            "voranfrage",
+            True,
+            False,
+            True,
+            status.HTTP_403_FORBIDDEN,
+            status.HTTP_403_FORBIDDEN,
+        ),
+        (
+            "Fachstelle",
+            "building-permit",
+            "are-geschaeft",
+            True,
+            True,
+            True,
+            status.HTTP_403_FORBIDDEN,
+            status.HTTP_403_FORBIDDEN,
+        ),
+        (
+            "Fachstelle",
+            "building-permit",
+            "are-geschaeft",
+            True,
+            True,
+            False,
+            status.HTTP_403_FORBIDDEN,
+            status.HTTP_403_FORBIDDEN,
+        ),
+        (
+            "Fachstelle",
+            "building-permit",
+            "are-geschaeft",
+            True,
+            False,
+            True,
+            status.HTTP_403_FORBIDDEN,
+            status.HTTP_403_FORBIDDEN,
+        ),
+        # municipalities may link/unlink on all visible instances:
+        (
+            "Gemeinde",
+            "building-permit",
+            "baugesuch",
+            True,
+            True,
+            True,
+            status.HTTP_200_OK,
+            status.HTTP_204_NO_CONTENT,
+        ),
+        (
+            "Gemeinde",
+            "internal-document",
+            "are-geschaeft",  # also for ARE-Geschäfte
+            True,
+            True,
+            True,
+            status.HTTP_200_OK,
+            status.HTTP_204_NO_CONTENT,
+        ),
+        (
+            "Gemeinde",
+            "building-permit",
+            "baugesuch",
+            False,
+            False,
+            True,
+            status.HTTP_404_NOT_FOUND,  # not visible
+            status.HTTP_404_NOT_FOUND,
+        ),
+    ],
+)
+@pytest.mark.django_db
+def test_instance_group_link_unlink_sz(
+    access_level_factory,
+    admin_client,
+    caluma_workflow_config_sz,
+    instance_acl_factory,
+    instance_factory,
+    group,
+    instance_with_case,
+    role,
+    service,
+    settings,
+    set_application_sz,
+    sz_permissions_settings,
+    # parameters:
+    workflow_name,
+    form_name,
+    is_lead_authority,
+    has_acl_on_this_instance,
+    sees_other_instance,
+    expected_status_link,
+    expected_status_unlink,
+):
+    are_access_level = access_level_factory(
+        slug="are-service",
+        name="ARE service",
+        required_grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+    )
+    read_access_level = access_level_factory(
+        slug="read",
+        name="Read-only",
+        required_grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+    )
+
+    def create_acl(instance, access_level):
+        instance_acl_factory(
+            instance=instance,
+            grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+            service=service,
+            access_level=access_level,
+        )
+
+    # This instance:
+    this_instance = instance_with_case(
+        instance_factory(**({"group": group} if is_lead_authority else {})),
+        workflow=workflow_name,
+        form=form_name,
+    )
+    if has_acl_on_this_instance:
+        create_acl(this_instance, are_access_level)
+
+    # The other instance:
+    other_instance = instance_factory()
+    if sees_other_instance:
+        create_acl(other_instance, read_access_level)
+
+    # Attempt to link the two:
+    url = reverse("instance-link", args=[this_instance.pk])
+    data = {
+        "data": {
+            "type": "instances",
+            "attributes": {"link-to": other_instance.pk},
+        }
+    }
+    response = admin_client.patch(
+        url, data=json.dumps(data), content_type="application/json"
+    )
+    assert response.status_code == expected_status_link
+
+    # Attempt to unlink this instance:
+    url = reverse("instance-unlink", args=[this_instance.pk])
+    response = admin_client.patch(url)
+    assert response.status_code == expected_status_unlink
+
+
 @pytest.mark.parametrize("main_instance_has_group", [False, True])
 @pytest.mark.parametrize("other_instance_has_group", [False, True])
 @pytest.mark.parametrize(
