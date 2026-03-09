@@ -192,7 +192,7 @@ services:
         - KEYCLOAK_HOST
         - INTERNAL_URL
         # BE_GIS_URL defaults to the prod instance
-        - BE_GIS_URL=https://map2-test.apps.be.ch
+        - BE_GIS_URL=https://www.map2-test.apps.be.ch
     networks:
       - ebau.localhost
 
