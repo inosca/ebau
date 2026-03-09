@@ -821,6 +821,10 @@ DUMP = {
                         group__role__name__in=["admin", "applicant", "support"]
                     ),
                 },
+                # Forms
+                "caluma_formal_exam_form": generate_form_dump_config(
+                    regex=r"^formelle-vorpruefung"
+                ),
             },
         },
     },

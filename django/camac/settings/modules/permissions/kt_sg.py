@@ -13,6 +13,7 @@ STATES_ALL = RequireInstanceState(["new", "subm"])
 # Role rules
 APPLICANT_ADMIN = HasApplicantRole(["ADMIN", "EDITOR"])
 APPLICANT_WRITE = HasApplicantRole(["ADMIN", "EDITOR"])
+ROLES_MUNICIPALITY = HasRole(["municipality-lead"])
 
 # Module rules
 #
@@ -26,9 +27,10 @@ APPLICANT_WRITE = HasApplicantRole(["ADMIN", "EDITOR"])
 MODULE_COMMUNICATIONS = STATES_ALL
 MODULE_DOCUMENTS = STATES_ALL
 MODULE_FORM = STATES_ALL
+MODULE_FORMAL_EXAM = RequireWorkItem("formal-exam") & ROLES_MUNICIPALITY
 MODULE_HISTORY = STATES_ALL
 MODULE_JOURNAL = STATES_ALL
-MODULE_PERMISSIONS = STATES_ALL & HasRole(["municipality-lead"])
+MODULE_PERMISSIONS = STATES_ALL & ROLES_MUNICIPALITY
 MODULE_RESPONSIBLE = STATES_ALL
 MODULE_WORK_ITEMS = STATES_ALL
 
@@ -70,6 +72,7 @@ SG_PERMISSIONS_SETTINGS = {
             ("documents-read", MODULE_DOCUMENTS),
             ("documents-write", MODULE_DOCUMENTS),
             ("form-read", MODULE_FORM),
+            ("formal-exam-read", MODULE_FORMAL_EXAM),
             ("history-read", MODULE_HISTORY),
             ("journal-read", MODULE_JOURNAL),
             ("journal-write", MODULE_JOURNAL),
