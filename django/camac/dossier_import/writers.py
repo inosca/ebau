@@ -5,7 +5,7 @@ import traceback
 import weakref
 from abc import ABC, abstractmethod
 from dataclasses import asdict, fields, is_dataclass
-from datetime import datetime
+from datetime import datetime, timezone as dt_timezone
 from pathlib import Path
 from typing import Any, Callable, List, Mapping, Optional
 
@@ -581,6 +581,9 @@ class CaseMetaWriter(FieldWriter):
 
         formatted_value = value
         if self.formatter == "datetime-to-string":
+            if not timezone.is_aware(value):
+                value = timezone.make_aware(value, dt_timezone.utc)
+
             formatted_value = datetime.strftime(value, SUBMIT_DATE_FORMAT)
         instance.case.meta[self.target] = formatted_value
         instance.case.save()
