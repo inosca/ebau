@@ -24,5 +24,9 @@ distribution:
       Die Bearbeitung der Frist ist deaktiviert, da unterschiedliche
       Standardfristen für die ausgewählten Stellen hinterlegt sind:
 
+  inquiry-hint:
+    open-suspensions: "Achtung: Das Dossier ist momentan sistiert."
+    deadline-expired: "Achtung: Die Bearbeitungsfrist für das Dossier ist überschritten."
+
 # Override default text of @projectcaluma/ember-distribution
 "caluma.distribution.inquiry.sent-at": "Startdatum"

@@ -1,0 +1,18 @@
+{{#if
+  (and (not this.isLoading) this.workItemIsReady this.openSuspensions.length)
+}}
+  <div class="uk-alert uk-alert-warning uk-margin-remove" uk-alert>
+    <strong>{{t "distribution.inquiry-hint.open-suspensions"}}</strong>
+
+    {{#each this.openSuspensions as |suspension|}}
+      <ul>
+        <li>
+          <strong>
+            {{format-date suspension.startDate}}:
+          </strong>
+          {{suspension.reasonFormatted}}
+        </li>
+      </ul>
+    {{/each}}
+  </div>
+{{/if}}

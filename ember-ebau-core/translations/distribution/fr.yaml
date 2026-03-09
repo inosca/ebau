@@ -20,6 +20,10 @@ distribution:
   revise: "Réviser"
   closed-by: "Contrôlé par"
 
+  inquiry-hint:
+    open-suspensions: ""
+    deadline-expired: ""
+
 # Override default text of @projectcaluma/ember-distribution
 "caluma.distribution.inquiry.sent-at": "Date de début"
 "caluma.distribution.inquiry.closed-at": "Contrôlé le"

@@ -24,6 +24,8 @@ import ExamResultTextareaComponent from "ember-ebau-core/components/exam-result-
 import GrGisComponent from "ember-ebau-core/components/gr-gis";
 import InquiryAnswerStatus from "ember-ebau-core/components/inquiry-answer-status";
 import InquiryDeadlineInputComponent from "ember-ebau-core/components/inquiry-deadline-input";
+import InquiryHintDeadlineExpiredComponent from "ember-ebau-core/components/inquiry-hint-deadline-expired";
+import InquiryHintOpenSuspensionsComponent from "ember-ebau-core/components/inquiry-hint-open-suspensions";
 import KeycloakProfileApplyButtonComponent from "ember-ebau-core/components/keycloak-profile-apply-button";
 import LinkAttachmentsComponent from "ember-ebau-core/components/link-attachments";
 import PublicationDateKantonsamtsblattComponent from "ember-ebau-core/components/publication-date-kantonsamtsblatt";
@@ -318,12 +320,21 @@ export default class ApplicationRoute extends Route {
       componentClass: CfSnippetsTextComponent,
       type: "TextQuestion",
     });
-
     this.calumaOptions.registerComponentOverride({
       label: "Textarea with snippets",
       component: "cf-snippets-textarea",
       componentClass: CfSnippetsTextareaComponent,
       type: "TextareaQuestion",
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Hinweis Zirkulation bei offenen Sistierungen",
+      component: "inquiry-hint-open-suspensions",
+      componentClass: InquiryHintOpenSuspensionsComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Hinweis Zirkulation bei abgelaufener Frist",
+      component: "inquiry-hint-deadline-expired",
+      componentClass: InquiryHintDeadlineExpiredComponent,
     });
   }
 }

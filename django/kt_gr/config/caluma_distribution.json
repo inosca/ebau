@@ -65,7 +65,7 @@
       "modified_by_group": null,
       "form": "inquiry-answer",
       "question": "inquiry-answer-ancillary-clauses",
-      "sort": 3
+      "sort": 5
     }
   },
   {
@@ -80,7 +80,7 @@
       "modified_by_group": null,
       "form": "inquiry-answer",
       "question": "inquiry-answer-assessment",
-      "sort": 4
+      "sort": 6
     }
   },
   {
@@ -95,7 +95,7 @@
       "modified_by_group": null,
       "form": "inquiry-answer",
       "question": "inquiry-answer-considerations",
-      "sort": 5
+      "sort": 7
     }
   },
   {
@@ -110,7 +110,7 @@
       "modified_by_group": null,
       "form": "inquiry-answer",
       "question": "inquiry-answer-situation",
-      "sort": 6
+      "sort": 8
     }
   },
   {
@@ -125,7 +125,37 @@
       "modified_by_group": null,
       "form": "inquiry-answer",
       "question": "inquiry-answer-status",
-      "sort": 7
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "inquiry-answer.inquiry-hint-deadline-expired",
+    "fields": {
+      "created_at": "2026-03-05T07:45:25.079Z",
+      "modified_at": "2026-03-05T07:45:25.079Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "inquiry-answer",
+      "question": "inquiry-hint-deadline-expired",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "inquiry-answer.inquiry-hint-open-suspensions",
+    "fields": {
+      "created_at": "2026-03-05T07:45:03.421Z",
+      "modified_at": "2026-03-05T07:45:03.421Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "inquiry-answer",
+      "question": "inquiry-hint-open-suspensions",
+      "sort": 2
     }
   },
   {
@@ -140,7 +170,7 @@
       "modified_by_group": null,
       "form": "inquiry-answer",
       "question": "stellungnahme-bemerkungen",
-      "sort": 2
+      "sort": 4
     }
   },
   {
@@ -155,7 +185,7 @@
       "modified_by_group": null,
       "form": "inquiry-answer",
       "question": "stellungnahme-in-dokumentanablage",
-      "sort": 1
+      "sort": 3
     }
   },
   {
@@ -566,6 +596,72 @@
       "configuration": {},
       "meta": {
         "widgetOverride": "inquiry-deadline-input"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "inquiry-hint-deadline-expired",
+    "fields": {
+      "created_at": "2026-03-05T07:45:25.027Z",
+      "modified_at": "2026-03-05T07:45:25.027Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Inquiry hint deadline expired\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "inquiry-hint-deadline-expired"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "inquiry-hint-open-suspensions",
+    "fields": {
+      "created_at": "2026-03-05T07:45:03.362Z",
+      "modified_at": "2026-03-05T07:45:03.362Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Inquiry hint open suspensions\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "inquiry-hint-open-suspensions"
       },
       "data_source": null,
       "row_form": null,
