@@ -120,3 +120,46 @@ def test_additonal_demand_check_notification(
     elif decision == "REJECTED":
         assert rejected_notification.subject in mailoutbox[0].subject
         assert history_entry == "Test rejected"
+
+
+def test_additional_demand_fill_notification_be(
+    db,
+    be_additional_demand_settings,
+    application_settings,
+    caluma_admin_user,
+    be_instance,
+    mailoutbox,
+    notification_template_factory,
+    caluma_work_item_factory,
+    mocker,
+):
+    mock_file_subsequently = mocker.patch(
+        "camac.ech0211.signals.file_subsequently.send"
+    )
+    caluma_fill_notification = notification_template_factory()
+
+    application_settings["CALUMA"]["SIMPLE_WORKFLOW"]["fill-additional-demand"][
+        "notification"
+    ]["template_slug"] = caluma_fill_notification.slug
+
+    application_settings["CALUMA"]["SIMPLE_WORKFLOW"]["fill-additional-demand"][
+        "history_text"
+    ] = "Test additional demand was answered"
+    work_item = caluma_work_item_factory(
+        task=Task.objects.get(slug=be_additional_demand_settings["FILL_TASK"]),
+        child_case=None,
+        case=be_instance.case,
+    )
+
+    complete_work_item(work_item=work_item, user=caluma_admin_user, context={})
+
+    history_entry = (
+        be_instance.history.filter(history_type=HistoryActionConfig.HISTORY_TYPE_STATUS)
+        .latest("created_at")
+        .get_trans_attr("title")
+    )
+
+    assert len(mailoutbox) == 1
+    assert caluma_fill_notification.subject in mailoutbox[0].subject
+    assert history_entry == "Test additional demand was answered"
+    assert mock_file_subsequently.call_count == 1
