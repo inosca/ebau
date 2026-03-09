@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 import typing
 from datetime import timedelta
 
@@ -237,6 +238,13 @@ class CustomValidation(BaseValidation):
                 # this we only do for existing cases
                 validate_metainfo(Case.objects.get(pk=data["id"]), data["meta"])
 
+            # checking paper-submit-date:
+            # Must be either empty, None, or yyyy-mm-dd
+            paper_submit_date = data["meta"].get("paper-submit-date", "")
+            if paper_submit_date and not re.match(
+                r"^\d\d\d\d-\d\d-\d\d", paper_submit_date
+            ):
+                raise exceptions.ValidationError("Invalid paper submit date")
         return data
 
     @validation_for(SaveWorkItem)
