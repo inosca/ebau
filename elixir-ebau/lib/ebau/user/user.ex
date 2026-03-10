@@ -4,7 +4,7 @@ defmodule Ebau.User.User do
     otp_app: :ebau,
     domain: Ebau.User,
     authorizers: [Ash.Policy.Authorizer],
-    extensions: [AshAuthentication],
+    extensions: [AshJsonApi.Resource, AshAuthentication],
     data_layer: AshPostgres.DataLayer
 
   authentication do
@@ -56,6 +56,11 @@ defmodule Ebau.User.User do
     bypass AshAuthentication.Checks.AshAuthenticationInteraction do
       authorize_if always()
     end
+
+    policy do
+      authorize_if actor_present()
+      # authorize_if always()
+    end
   end
 
   attributes do
@@ -75,5 +80,9 @@ defmodule Ebau.User.User do
     attribute :name, :string, public?: true, source: :NAME
     attribute :surname, :string, public?: true, source: :SURNAME
     attribute :language, :string, public?: true, source: :LANGUAGE, allow_nil?: false
+  end
+
+  json_api do
+    type "user"
   end
 end

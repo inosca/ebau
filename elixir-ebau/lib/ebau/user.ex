@@ -1,6 +1,5 @@
 defmodule Ebau.User do
-  use Ash.Domain,
-    otp_app: :ebau
+  use Ash.Domain, otp_app: :ebau, extensions: [AshJsonApi.Domain]
 
   resources do
     resource Ebau.User.User do
@@ -9,5 +8,14 @@ defmodule Ebau.User do
     end
 
     resource Ebau.User.Token
+  end
+
+  json_api do
+    routes do
+      base_route "/users", Ebau.User.User do
+        get :read
+        index :read
+      end
+    end
   end
 end
