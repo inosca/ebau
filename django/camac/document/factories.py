@@ -13,8 +13,8 @@ class AttachmentSectionFactory(DjangoModelFactory):
     name = Faker("name")
     sort = Faker("pyint")
     notification_template = SubFactory(NotificationTemplateFactory)
-    recipient_types = ["municipality"]
-    allowed_mime_types = models._get_default_mime_types()
+    recipient_types = LazyFunction(lambda: ["municipality"])
+    allowed_mime_types = LazyFunction(lambda: models._get_default_mime_types())
 
     class Meta:
         model = models.AttachmentSection

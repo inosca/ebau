@@ -21,7 +21,7 @@ class AccessLevelFactory(DjangoModelFactory):
 
 class InstanceACLFactory(DjangoModelFactory):
     instance = SubFactory(InstanceFactory)
-    metainfo = {}
+    metainfo = LazyAttribute(lambda _: {})
 
     grant_type = fuzzy.FuzzyChoice([c for c, _l in models.GRANT_CHOICES.choices])
     user = Maybe(

@@ -1,4 +1,4 @@
-from factory import Faker, fuzzy
+from factory import Faker, LazyFunction, fuzzy
 from factory.django import DjangoModelFactory
 
 from camac.utils import choice_keys
@@ -19,7 +19,7 @@ class WorkItemTemplateFactory(DjangoModelFactory):
 
 class WorkItemListFilterPresetFactory(DjangoModelFactory):
     name = Faker("word")
-    query_params = {}
+    query_params = LazyFunction(lambda: {})
     prefilter_work_item_templates = True
     prefilter_tasks = False
 

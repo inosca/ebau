@@ -1,4 +1,4 @@
-from factory import Faker, fuzzy
+from factory import Faker, LazyFunction, fuzzy
 from factory.django import DjangoModelFactory
 
 from camac.gis import models
@@ -7,7 +7,7 @@ from camac.gis import models
 class GISDataSourceFactory(DjangoModelFactory):
     description = Faker("text")
     client = fuzzy.FuzzyChoice(dict(models.GISDataSource.CLIENT_CHOICES).keys())
-    config = {}
+    config = LazyFunction(lambda: {})
     disabled = False
 
     class Meta:
