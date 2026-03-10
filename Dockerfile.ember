@@ -23,6 +23,15 @@ COPY . /myapp/
 # are fetched into the pnpm store beforehand
 RUN pnpm install --recursive --frozen-lockfile
 
+# Assign build time environment variables to set a definitive or a placeholder
+# value depending on target:
+#   * "prod": ARGS are used directly (env vars limited to container build time)
+#   * "prod-env": set placeholder value in ARGS and replace with actual ENVs
+#     at runtime.
+# USAGE:
+#   * compose.yml: set actual or placeholder value as ARG
+#   * compose-dev.yml: set actual value as ENV
+#   * production-env: set actual value as ENV
 ARG APP_ENV=production
 ARG APPLICATION
 ARG BE_GIS_URL
@@ -62,6 +71,7 @@ FROM nginxinc/nginx-unprivileged:1.29-alpine AS prod-env
 ARG WORKSPACE
 ARG REPLACE_ENV
 ENV REPLACE_ENV_RUNTIME=$REPLACE_ENV
+# Fallback values
 ENV KEYCLOAK_REALM=ebau
 ENV KEYCLOAK_BASE_PATH=auth/
 ENV KEYCLOAK_SCOPES=openid
