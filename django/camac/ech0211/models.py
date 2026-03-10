@@ -14,20 +14,54 @@ from camac.document import models as document_models
 log = getLogger(__name__)
 
 
+def tag_value(dom, tag_name):
+    try:
+        return dom.getElementsByTagNameNS("*", tag_name)[0].firstChild.nodeValue
+    except Exception:  # pragma: no cover
+        return None
+
+
 class Message(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     body = models.TextField(help_text="XML body")
     created_at = models.DateTimeField(auto_now_add=True)
     receiver = models.ForeignKey("user.Service", on_delete=models.PROTECT)
 
+    @cached_property
+    def dom(self):
+        return xml.dom.minidom.parseString(self.body)
+
     def pretty_print(self):  # pragma: no cover
         """
         Pretty print the XML body.
 
-        This is a convenience method for testing.
+        This is a convenience method for testing / debugging.
         """
-        dom = xml.dom.minidom.parseString(self.body)
-        print(dom.toprettyxml())
+        print(self.dom.toprettyxml())
+
+    def get_event_type(self):
+        """
+        Return the event type of the message.
+
+        This is a convenience method for testing / debugging.
+        """
+        return tag_value(self.dom, "eventType")
+
+    def get_documents(self):
+        """
+        Return metadata about the documents that are part of the message.
+
+        This is a convenience method for testing / debugging.
+        """
+        documents = self.dom.getElementsByTagNameNS("*", "document")
+        return [
+            {
+                "uuid": tag_value(document, "uuid"),
+                "title": tag_value(document, "title"),
+                "category": tag_value(document, "documentKind"),
+            }
+            for document in documents
+        ]
 
     class Meta:
         managed = True

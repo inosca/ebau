@@ -1,0 +1,15 @@
+# serializer version: 1
+# name: test_message_model
+  list([
+    dict({
+      'category': 'Weitere Dokumente',
+      'title': 'existing.pdf',
+      'uuid': '12345678-1234-1234-1234-000000000000',
+    }),
+    dict({
+      'category': 'Weitere Dokumente',
+      'title': 'new.pdf',
+      'uuid': '00000000-0000-0000-0000-000000000000',
+    }),
+  ])
+# ---
