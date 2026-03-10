@@ -7,14 +7,14 @@ defmodule Ebau.Application do
 
   @impl true
   def start(_type, _args) do
+    Ebau.Keycloak.CachingHTTPAdapter.create_table()
+
     children = [
       EbauWeb.Telemetry,
       Ebau.Repo,
       {DNSCluster, query: Application.get_env(:ebau, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: Ebau.PubSub},
       {AshAuthentication.Supervisor, otp_app: :ebau},
-      # Start a worker by calling: Ebau.Worker.start_link(arg)
-      # {Ebau.Worker, arg},
       # Start to serve requests, typically the last entry
       EbauWeb.Endpoint
     ]

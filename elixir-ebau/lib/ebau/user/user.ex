@@ -57,9 +57,9 @@ defmodule Ebau.User.User do
       authorize_if always()
     end
 
-    policy do
-      authorize_if actor_present()
-      # authorize_if always()
+    policy action(:read) do
+      # Example on how to only allow reading your own user
+      authorize_if expr(id == ^actor(:id))
     end
   end
 
@@ -84,5 +84,9 @@ defmodule Ebau.User.User do
 
   json_api do
     type "user"
+  end
+
+  identities do
+    identity :unique_email, [:email]
   end
 end

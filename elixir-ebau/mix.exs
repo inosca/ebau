@@ -73,7 +73,8 @@ defmodule Ebau.MixProject do
       {:req, "~> 0.5"},
       {:swoosh, "~> 1.16"},
       {:telemetry_metrics, "~> 1.0"},
-      {:telemetry_poller, "~> 1.0"}
+      {:telemetry_poller, "~> 1.0"},
+      {:usage_rules, "~> 1.0", only: [:dev]}
     ]
   end
 

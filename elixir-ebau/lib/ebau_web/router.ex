@@ -1,7 +1,6 @@
 defmodule EbauWeb.Router do
   use EbauWeb, :router
   use AshAuthentication.Phoenix.Router
-  # use AshAuthentication.Plug, otp_app: :ebau
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -17,19 +16,7 @@ defmodule EbauWeb.Router do
   pipeline :api do
     plug :accepts, ["json"]
     plug :load_from_bearer
-    plug :get_actor_from_token
-  end
-
-  def get_actor_from_token(conn, _opts) do
-    dbg(conn)
-    #  with ["" <> token] <- get_req_header(conn, "authorization"),
-    #      {:ok, user, _claims} <- MyApp.Guardian.resource_from_token(token) do
-    #   conn
-    #   |> Ash.PlugHelpers.set_actor(user)
-    # else
-    # _ -> conn
-    # end
-    conn
+    plug EbauWeb.Plugs.KeycloakBearerAuth
   end
 
   scope "/api/json" do
