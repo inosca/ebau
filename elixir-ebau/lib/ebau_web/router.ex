@@ -18,6 +18,16 @@ defmodule EbauWeb.Router do
     plug :load_from_bearer
   end
 
+  scope "/api/json" do
+    pipe_through [:api]
+
+    forward "/swaggerui", OpenApiSpex.Plug.SwaggerUI,
+      path: "/api/json/open_api",
+      default_model_expand_depth: 4
+
+    forward "/", EbauWeb.AshJsonApiRouter
+  end
+
   scope "/", EbauWeb do
     pipe_through :browser
 

@@ -60,6 +60,7 @@ defmodule Ebau.MixProject do
       {:live_debugger, "~> 0.5", only: [:dev]},
       {:nvir, "~> 0.15.0"},
       {:oban_web, "~> 2.0"},
+      {:open_api_spex, "~> 3.0"},
       {:phoenix, "~> 1.8.3"},
       {:phoenix_ecto, "~> 4.5"},
       {:phoenix_html, "~> 4.1"},

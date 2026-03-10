@@ -7,6 +7,10 @@
 # General application configuration
 import Config
 
+config :ash_json_api,
+  show_public_calculations_when_loaded?: false,
+  authorize_update_destroy_with_error?: true
+
 # Configure the mailer
 #
 # By default it uses the "Local" adapter which stores the emails
@@ -47,7 +51,17 @@ config :logger, :default_formatter,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
+config :mime,
+  extensions: %{"json" => "application/vnd.api+json"},
+  types: %{"application/vnd.api+json" => ["json"]}
+
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
+
+config :spark,
+  formatter: [
+    "Ash.Resource": [section_order: [:json_api]],
+    "Ash.Domain": [section_order: [:json_api]]
+  ]
 
 import_config "#{config_env()}.exs"
