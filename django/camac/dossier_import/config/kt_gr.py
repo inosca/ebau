@@ -271,7 +271,12 @@ class KtGraubundenDossierWriter(DossierWriter):
         messages = []
         target_state = dossier._meta.target_state
 
-        SUBMITTED = ["submit"]
+        SUBMITTED = ["submit"] + (
+            ["init-construction-monitoring"]
+            if settings.CONSTRUCTION_MONITORING
+            and settings.CONSTRUCTION_MONITORING.get("ENABLED", False)
+            else []
+        )
         DECIDED = SUBMITTED + [
             "formal-exam",
             "distribution",
@@ -282,8 +287,9 @@ class KtGraubundenDossierWriter(DossierWriter):
             DECIDED
             + ["create-manual-workitems"]
             + (
-                ["init-construction-monitoring"]
-                if settings.CONSTRUCTION_MONITORING["ENABLED"]
+                []
+                if settings.CONSTRUCTION_MONITORING
+                and settings.CONSTRUCTION_MONITORING.get("ENABLED", False)
                 else ["construction-acceptance"]
             )
         )

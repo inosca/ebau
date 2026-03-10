@@ -1,34 +1,6 @@
 from caluma.caluma_form.models import Question
 
 from camac.instance.domain_logic import AddressAssignmentLogic
-from camac.permissions.config.kt_gr import PermissionEventHandlerGR
-from camac.user.models import ServiceRelation
-
-
-def test_requires_address_assignment(
-    db,
-    gr_instance,
-    caluma_work_item_factory,
-    caluma_answer_factory,
-    gr_address_assignment_settings,
-    caluma_document_factory,
-    set_application_gr,
-):
-    gr_address_assignment_settings["ENABLED"] = True
-    exam_work_item = caluma_work_item_factory(
-        case=gr_instance.case,
-        task_id=gr_address_assignment_settings["EXAM_TASK"],
-        document=caluma_document_factory(),
-    )
-    caluma_answer_factory(
-        question__slug=gr_address_assignment_settings[
-            "REQUIRES_NEW_ADDRESS_QUESTION_SLUG"
-        ],
-        value=gr_address_assignment_settings["REQUIRES_NEW_ADDRESS_QUESTION_TRUE"],
-        document=exam_work_item.document,
-    )
-
-    assert AddressAssignmentLogic.requires_address_assignment(gr_instance.case)
 
 
 def test_address_check_was_positive(
@@ -149,27 +121,3 @@ def test_create_history_entry_for_address_change(
     )
 
     create_history_entry_mock.assert_called_once()
-
-
-def test_formal_exam_completed_signal(
-    db, mocker, service_factory, caluma_work_item_factory, gr_instance
-):
-    mocker.patch(
-        "camac.instance.domain_logic.AddressAssignmentLogic.requires_address_assignment",
-        return_value=True,
-    )
-
-    service_factory(slug="gvg")
-    geometer = service_factory()
-
-    ServiceRelation.objects.create(
-        provider=geometer,
-        receiver=gr_instance.responsible_service(),
-        function=ServiceRelation.FUNCTION_GEOMETER,
-    )
-    work_item = caluma_work_item_factory(case=gr_instance.case)
-
-    handler = PermissionEventHandlerGR(None)
-    mock_manager = mocker.MagicMock()
-    mocker.patch.object(handler, "manager", new=mock_manager)
-    handler.formal_exam_completed(gr_instance, work_item)

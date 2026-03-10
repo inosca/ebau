@@ -11,7 +11,6 @@ export default {
     "construction-step-schlussabnahme-gebaeude",
     "construction-step-schlussabnahme-projekt",
   ],
-  // todo: do we need custom reportingSteps for adressvergabe, post and weitere?
   reportingSteps: [
     "construction-step-baufreigabe-beantragen",
     "construction-step-adressvergabe-suggestion",

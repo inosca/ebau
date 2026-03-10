@@ -273,7 +273,10 @@ def test_decision_event_handler_gr(
     caluma_admin_user,
     access_level_factory,
     gr_ech0211_settings,
+    set_application_gr,
+    mocker,
 ):
+    mocker.patch("camac.notification.utils.send_mail")
     settings.APPLICATION_NAME = "kt_gr"
     gvg_service = service_factory(name=gr_constants.GVG_SERVICE_SLUG)
 

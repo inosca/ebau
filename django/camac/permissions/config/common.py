@@ -208,14 +208,21 @@ class ConstructionMonitoringHandlerMixin:
     def geometer_work_item_created(self, work_item: WorkItem):
         if "geometer" in work_item.task.address_groups:
             for addr in work_item.addressed_groups:
-                addr_service = Service.objects.get(pk=addr)
-                self.manager.grant(
-                    work_item.case.family.instance,
-                    grant_type="SERVICE",
-                    access_level="geometer",
-                    service=addr_service,
-                    event_name="received-work-item",
-                )
+                if (
+                    not InstanceACL.currently_active()
+                    .filter(
+                        instance=work_item.case.family.instance,
+                        service=addr,
+                    )
+                    .exists()
+                ):
+                    self.manager.grant(
+                        work_item.case.family.instance,
+                        grant_type="SERVICE",
+                        access_level="geometer",
+                        service=Service.objects.get(pk=addr),
+                        event_name="received-work-item",
+                    )
 
 
 class GeometerHandlerMixin:

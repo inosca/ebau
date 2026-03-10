@@ -115,6 +115,9 @@ class Trigger:
     geometer_work_item_created = EventTrigger(
         "Whenever a work item, addressed to the geometer dynamic group, is created"
     )
+    gvg_work_item_created = EventTrigger(
+        "Whenever a work item, addressed to the Gebäudeversicherung dynamic group, is created"
+    )
 
 
 class PermissionEventHandler(metaclass=ABCMeta):
@@ -224,6 +227,9 @@ class EmptyEventHandler(PermissionEventHandler):
         return  # pragma: no cover
 
     def geometer_work_item_created(self, work_item: WorkItem):
+        return  # pragma: no cover
+
+    def gvg_work_item_created(self, work_item: WorkItem):
         return  # pragma: no cover
 
     def geometer_changed(

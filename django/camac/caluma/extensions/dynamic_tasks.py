@@ -126,7 +126,8 @@ class CustomDynamicTasks(BaseDynamicTasks):
             # if the module is enabled.
             return (
                 []
-                if settings.CONSTRUCTION_MONITORING.get("ENABLED")
+                if settings.CONSTRUCTION_MONITORING
+                and settings.CONSTRUCTION_MONITORING.get("ENABLED", False)
                 else ["construction-acceptance"]
             )
 
@@ -438,7 +439,9 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
     def resolve_after_submit_gr(self, case, user, prev_work_item, context):
         tasks = ["create-manual-workitems", "formal-exam", "init-additional-demand"]
-        if settings.CONSTRUCTION_MONITORING["ENABLED"]:
+        if settings.CONSTRUCTION_MONITORING and settings.CONSTRUCTION_MONITORING.get(
+            "ENABLED", False
+        ):
             tasks.append("init-construction-monitoring")
 
         return tasks
@@ -668,10 +671,6 @@ class CustomDynamicTasks(BaseDynamicTasks):
         ):
             tasks += settings.PUBLICATION["AFTER_FORMAL_EXAM_PUBLICATION_TASKS"]
 
-        if settings.ADDRESS_ASSIGNMENT:
-            if domain_logic.AddressAssignmentLogic.requires_address_assignment(case):
-                tasks += [settings.ADDRESS_ASSIGNMENT["SUGGESTION_TASK"]]
-
         return tasks
 
     @register_dynamic_task("after-complete-instance")
@@ -761,14 +760,3 @@ class CustomDynamicTasks(BaseDynamicTasks):
             tasks.extend(["information-of-neighbors", "fill-information-of-neighbors"])
 
         return tasks
-
-    @register_dynamic_task("after-address-assignment-confirm-suggestion")
-    def resolve_after_address_assignment_confirm_suggestion(
-        self, case, user, prev_work_item, context
-    ):
-        if domain_logic.AddressAssignmentLogic.address_check_was_positive(
-            prev_work_item
-        ):
-            return []
-        else:
-            return [settings.ADDRESS_ASSIGNMENT.get("SUGGESTION_TASK")]

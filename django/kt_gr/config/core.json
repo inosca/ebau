@@ -1775,26 +1775,6 @@
   },
   {
     "model": "core.instanceresourcet",
-    "pk": 22000000,
-    "fields": {
-      "instance_resource": 22000000,
-      "language": "de",
-      "name": "Addressvergabe",
-      "description": null
-    }
-  },
-  {
-    "model": "core.instanceresourcet",
-    "pk": 22000001,
-    "fields": {
-      "instance_resource": 22000000,
-      "language": "it",
-      "name": "Attribuzione dell'indirizzo",
-      "description": null
-    }
-  },
-  {
-    "model": "core.instanceresourcet",
     "pk": 23000000,
     "fields": {
       "instance_resource": 23000000,

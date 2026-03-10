@@ -1,18 +1,21 @@
 import json
 
 import pytest
+from caluma.caluma_core.relay import extract_global_id
 from caluma.caluma_workflow.api import complete_work_item
-from caluma.caluma_workflow.models import Case, WorkItem
+from caluma.caluma_workflow.models import Case, Task, WorkItem
 from django.core import mail
 
 from camac.caluma.extensions.events.construction_monitoring import (
     can_perform_construction_monitoring,
     post_complete_construction_control,
     post_create_construction_control,
+    post_create_gvg_work_item,
     post_create_plan_construction_stage_ur,
 )
 from camac.caluma.extensions.visibilities import CustomVisibility
 from camac.instance.models import InstanceState
+from camac.permissions.models import InstanceACL
 from camac.tests.form_utils import FormUtils
 
 
@@ -424,6 +427,103 @@ def test_construction_monitoring_work_item_visibility_coordination(mocker):
     assert custom_visibility.visible_construction_step_work_items_expression_for_municipality.called
 
 
+@pytest.mark.parametrize("role__name", ["service-lead"])
+@pytest.mark.parametrize(
+    "construction_task,service_slug,is_addressed,expected_visible",
+    [
+        [False, "other-service", True, True],
+        [False, "other-service", False, True],
+        [False, "gvg", True, True],
+        [False, "gvg", False, True],
+        [True, "other-service", True, False],
+        [True, "other-service", False, False],
+        [True, "gvg", False, False],
+        # gvg service can see construction monitoring when addressed.
+        [True, "gvg", True, True],
+    ],
+)
+def test_construction_monitoring_work_item_visibility_service_gvg_gr(
+    db,
+    role,
+    group,
+    service,
+    caluma_work_item_factory,
+    caluma_task_factory,
+    caluma_admin_request,
+    service_factory,
+    gr_instance,
+    construction_task,
+    is_addressed,
+    service_slug,
+    expected_visible,
+    admin_user,
+    caluma_admin_schema_executor,
+    construction_monitoring_settings,
+    gr_permissions_settings,
+    set_application_gr,
+    mocker,
+):
+    """Test workitem visibility for kt. GR for construction monitoring."""
+    construction_monitoring_settings["ENABLED"] = True
+
+    group = admin_user.groups.first()
+    group.service.slug = service_slug
+    group.service.save()
+
+    # reload the request to apply the new service slug for the group
+    request = caluma_admin_request()
+
+    mocker.patch(
+        "camac.caluma.extensions.visibilities.CustomVisibility._all_visible_instances",
+        return_value=[gr_instance.pk],
+    )
+
+    # decide the task to use in the test.
+    task = (
+        Task.objects.get(
+            pk=construction_monitoring_settings["INIT_CONSTRUCTION_MONITORING_TASK"]
+        )
+        if construction_task
+        else caluma_task_factory()
+    )
+
+    wi = caluma_work_item_factory(
+        case=gr_instance.case,
+        addressed_groups=(
+            [str(service.pk)] if is_addressed else [str(service_factory().pk)]
+        ),
+        task=task,
+    )
+
+    result = caluma_admin_schema_executor(
+        """
+        query {
+            allWorkItems {
+                edges {
+                    node {
+                        id
+                    }
+                }
+            }
+        }
+    """,
+        context_value=request,
+    )
+
+    assert not result.errors
+    workitems_id = set(
+        [
+            extract_global_id(edge["node"]["id"])
+            for edge in result.data["allWorkItems"]["edges"]
+        ]
+    )
+
+    if expected_visible:
+        assert str(wi.pk) in workitems_id
+    else:
+        assert str(wi.pk) not in workitems_id
+
+
 @pytest.mark.parametrize(
     "allow_forms_setting,should_be_allowed",
     [
@@ -619,3 +719,44 @@ def test_post_create_plan_construction_stage_ur(
             question_id="construction-steps"
         ).value
     )
+
+
+def test_construction_monitoring_task_gvg_gr(
+    db,
+    gr_instance,
+    construction_monitoring_settings,
+    service_factory,
+    caluma_task_factory,
+    access_level_factory,
+    gr_permissions_settings,
+    set_application_gr,
+):
+    """In kt. GR the gvg should be granted when a workitem is addressed."""
+    construction_monitoring_settings["ENABLED"] = True
+    access_level = access_level_factory(pk="distribution-service")
+    task = caluma_task_factory(address_groups=["gebaudeversicherung"])
+    gvg_service = service_factory(slug="gvg")
+    case = gr_instance.case
+
+    assert not (
+        InstanceACL.objects.filter(
+            instance=case.family.instance,
+            service=gvg_service,
+            access_level=access_level,
+        ).exists()
+    )
+
+    work_item = WorkItem.objects.create(
+        case=case,
+        task_id=task.pk,
+        name="Resolve after submit GR",
+        addressed_groups=[str(gvg_service.pk)],
+    )
+
+    post_create_gvg_work_item(None, work_item, None, None)
+
+    assert InstanceACL.objects.filter(
+        instance=case.family.instance,
+        service=gvg_service,
+        access_level=access_level,
+    ).exists()
