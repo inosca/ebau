@@ -4,7 +4,7 @@ defmodule EbauWeb.LiveTest do
   @impl true
   def render(assigns) do
     ~H"""
-    <h1>asdfasdf</h1>
+    <h1>asdfasdf 123</h1>
     """
   end
 
