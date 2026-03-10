@@ -51,5 +51,6 @@ defmodule EbauWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
+  plug EbauWeb.Plugs.CORS
   plug EbauWeb.Router
 end
