@@ -269,6 +269,7 @@ omit = [
     "camac/core/management/commands/fix_oereb_forms_ur.py",
     "camac/core/management/commands/so_fix_migrated_form.py",
     "camac/tags/management/commands/copy_keywords_for_cantonal_services.py",
+    "camac/core/management/commands/fix_construction_monitoring_controlling.py",
     # Audit migration"
     "camac/core/management/commands/config/",
     "camac/core/management/commands/migrate_audit.py",

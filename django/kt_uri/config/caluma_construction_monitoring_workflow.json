@@ -305,7 +305,7 @@
         }
       },
       "address_groups": "['municipality']|groups",
-      "control_groups": null,
+      "control_groups": "['municipality']|groups",
       "is_archived": false,
       "form": null,
       "lead_time": null,
@@ -1364,7 +1364,7 @@
         }
       },
       "address_groups": "['municipality']|groups",
-      "control_groups": null,
+      "control_groups": "['municipality']|groups",
       "is_archived": false,
       "form": null,
       "lead_time": 2592000,
