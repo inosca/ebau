@@ -226,6 +226,22 @@ class IsAppeal(Check):
         return isinstance(other, IsAppeal)
 
 
+class IsModification(Check):
+    """Permission check: Instance (case) is a modification."""
+
+    def apply(self, userinfo, context: PermissionContext):
+        from camac.caluma.api import CalumaApi
+
+        return CalumaApi().is_modification(context.instance)
+
+    @property
+    def allow_caching(self):  # pragma: no cover
+        return False
+
+    def __eq__(self, other):  # pragma: no cover
+        return isinstance(other, IsModification)
+
+
 class Always(Check):
     """Always grant the permission."""
 
@@ -300,6 +316,28 @@ class IsUnversionedForm(IsForm):
         return (
             get_unversioned_slug(context.instance.case.document.form_id) in self.forms
         )
+
+
+@dataclass
+class IsWorkflow(Check):
+    """Permission check for requiring any workflow of a given list."""
+
+    workflows: List[str]
+
+    def apply(self, userinfo, context: PermissionContext):
+        return context.instance.case.workflow_id in self.workflows
+
+    @property
+    def allow_caching(self):  # pragma: no cover
+        return True
+
+    def __eq__(self, other):  # pragma: no cover
+        return isinstance(other, IsWorkflow) and set(other.workflows) == set(
+            self.workflows
+        )
+
+    def __repr__(self):
+        return f"IsWorkflow({', '.join(sorted(self.workflows))})"
 
 
 @dataclass
@@ -489,3 +527,17 @@ class HasApplicantConfirmationRound(Check):
 
     def __repr__(self):
         return f"HasApplicantConfirmationRound({', '.join(sorted(self.status))})"
+
+
+class IsCreatedByService(Check):
+    """Permission check for requiring an instance to be created by request service."""
+
+    def apply(self, userinfo, context: PermissionContext):
+        return context.instance.group.service == userinfo.service
+
+    @property
+    def allow_caching(self):  # pragma: no cover
+        return True
+
+    def __eq__(self, other):  # pragma: no cover
+        return isinstance(other, IsCreatedByService)

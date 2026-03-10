@@ -1,5 +1,5 @@
 import pytest
-from caluma.caluma_workflow.models import WorkItem
+from caluma.caluma_workflow.models import Workflow, WorkItem
 from django.utils import timezone
 
 from camac.applicants.models import ROLE_CHOICES, ApplicantConfirmationRound
@@ -7,8 +7,11 @@ from camac.permissions.conditions import (
     HasAdditionalDemandWithFormEdit,
     HasApplicantConfirmationRound,
     HasApplicantRole,
+    IsCreatedByService,
+    IsModification,
     IsPaper,
     IsServiceGroup,
+    IsWorkflow,
     PermissionContext,
     RequireWorkItem,
 )
@@ -229,3 +232,58 @@ def test_has_applicant_confirmation_round(
     assert invalidated.apply(userinfo, PermissionContext(other_instance))
     assert active.apply(userinfo, PermissionContext(main_instance))
     assert not active.apply(userinfo, PermissionContext(other_instance))
+
+
+@pytest.mark.parametrize("is_modification", [True, False])
+def test_condition_is_modification(
+    db, is_modification, be_instance, userinfo, form_utils: FormUtils
+):
+    if is_modification:
+        form_utils.add_answer(
+            be_instance.case.document, "projektaenderung", "projektaenderung-ja"
+        )
+
+    assert (
+        IsModification().apply(userinfo, PermissionContext(be_instance))
+        == is_modification
+    )
+
+
+@pytest.mark.parametrize(
+    "workflow,expected_result",
+    [
+        ("building-permit", True),
+        ("preliminary-clarification", True),
+        ("internal", False),
+        ("migrated", False),
+    ],
+)
+def test_condition_is_workflow(db, workflow, expected_result, be_instance, userinfo):
+    be_instance.case.workflow = Workflow.objects.get(pk=workflow)
+    be_instance.case.save()
+
+    assert (
+        IsWorkflow(["building-permit", "preliminary-clarification"]).apply(
+            userinfo, PermissionContext(be_instance)
+        )
+        == expected_result
+    )
+
+
+@pytest.mark.parametrize("is_created_by_service", [True, False])
+def test_condition_is_created_by_service(
+    db,
+    is_created_by_service,
+    be_instance,
+    userinfo,
+    form_utils: FormUtils,
+    group_factory,
+):
+    if not is_created_by_service:
+        be_instance.group = group_factory()
+        be_instance.save()
+
+    assert (
+        IsCreatedByService().apply(userinfo, PermissionContext(be_instance))
+        == is_created_by_service
+    )

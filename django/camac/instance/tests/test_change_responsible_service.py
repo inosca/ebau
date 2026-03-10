@@ -162,7 +162,7 @@ def test_change_responsible_service(
         )
 
 
-@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize("role__name", ["municipality-lead"])
 @pytest.mark.parametrize(
     "access_level_name,change_to_municipality,expected_status",
     [
