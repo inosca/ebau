@@ -96,10 +96,6 @@ MODULE_REJECTION = STATES_ALL
 MODULE_RELATED_GWR_PROJECTS = STATES_ALL & FORMS_ONLY_BUILDING_PERMIT
 MODULE_RESPONSIBLE = STATES_ALL
 MODULE_WORK_ITEMS = STATES_ALL
-MODULE_ADDRESS_ASSIGNMENT = STATES_ALL & (
-    RequireWorkItem("address-assignment-make-suggestion")
-    | RequireWorkItem("address-assignment-confirm-suggestion")
-)
 MODULE_DEADLINES_SUSPENSION = (
     STATES_ALL
     & IsServiceGroup(["municipality", ARE_SERVICE_GROUP])
@@ -240,7 +236,6 @@ GR_PERMISSIONS_SETTINGS = {
             ("responsible-read", MODULE_RESPONSIBLE),
             ("responsible-write", MODULE_RESPONSIBLE),
             ("work-items-read", MODULE_WORK_ITEMS),
-            ("address-assignment-read", MODULE_ADDRESS_ASSIGNMENT),
             ("deadlines-suspensions-read", MODULE_DEADLINES_SUSPENSION),
             ("deadlines-suspensions-write", MODULE_DEADLINES_SUSPENSION),
             ("deadlines-deadlines-read", MODULE_DEADLINES_DEADLINE),
@@ -300,7 +295,6 @@ GR_PERMISSIONS_SETTINGS = {
             ("responsible-read", MODULE_RESPONSIBLE),
             ("responsible-write", MODULE_RESPONSIBLE),
             ("work-items-read", MODULE_WORK_ITEMS),
-            ("address-assignment-read", MODULE_ADDRESS_ASSIGNMENT),
             ("deadlines-suspensions-read", MODULE_DEADLINES_SUSPENSION),
             ("deadlines-suspensions-write", MODULE_DEADLINES_SUSPENSION),
             ("deadlines-deadlines-read", MODULE_DEADLINES_DEADLINE),
@@ -343,8 +337,6 @@ GR_PERMISSIONS_SETTINGS = {
             ("related-gwr-projects-read", MODULE_RELATED_GWR_PROJECTS),
             ("responsible-read", Always()),
             ("work-items-read", Always()),
-            ("address-assignment-read", Always()),
-            ("address-assignment-write", Always()),
         ],
         "uso": [
             ("communications-read", MODULE_COMMUNICATIONS),
@@ -372,8 +364,6 @@ GR_PERMISSIONS_SETTINGS = {
             ),
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
             ("work-items-read", MODULE_WORK_ITEMS),
-            ("address-assignment-read", MODULE_ADDRESS_ASSIGNMENT),
-            ("address-assignment-write", MODULE_ADDRESS_ASSIGNMENT),
             ("construction-monitoring-read", MODULE_CONSTRUCTION_MONITORING),
             ("construction-monitoring-write", MODULE_CONSTRUCTION_MONITORING),
         ],
