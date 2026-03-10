@@ -47,6 +47,7 @@ const canton = await select({
     { value: "sz", name: "Schwyz" },
     { value: "ur", name: "Uri (branches)", disabled: true },
     { value: "ag", name: "Aargau" },
+    { value: "sg", name: "St.Gallen" },
   ],
 });
 
