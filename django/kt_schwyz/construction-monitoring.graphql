@@ -4,6 +4,7 @@ mutation InitConstructionMonitoringTask {
       slug: "init-construction-monitoring"
       name: "Baubegleitung starten"
       addressGroups: "['municipality']|groups"
+      controlGroups: "['municipality']|groups"
       leadTime: 2592000 # 30 days
     }
   ) {
