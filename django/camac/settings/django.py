@@ -1085,7 +1085,6 @@ APPLICATIONS = {
                         "template_slug": "03-nachforderung-beantwortet-leitbehorde",
                         "recipient_types": ["leitbehoerde", "inactive_municipality"],
                     },
-                    "ech_event": "camac.ech0211.signals.file_subsequently",
                 },
                 "complete": {
                     "next_instance_state": "finished",
