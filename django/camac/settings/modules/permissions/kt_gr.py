@@ -122,14 +122,10 @@ MODULE_PORTAL_FORM_READ = Always()
 MODULE_PORTAL_FORM_WRITE = (
     RequireInstanceState(["new"]) & (APPLICANT_WRITE | (ROLES_MUNICIPALITY & IsPaper()))
 ) | (HasAdditionalDemandWithFormEdit() & APPLICANT_WRITE)
-MODULE_PORTAL_FORM_FORMAL_EXAM_WRITE = RequireInstanceState(
-    [
-        "subm",
-        "init-distribution",
-        "circulation",
-        "decision",
-    ]
-) & (APPLICANT_WRITE | (ROLES_MUNICIPALITY & IsPaper()))
+MODULE_PORTAL_FORM_FORMAL_EXAM_WRITE = ROLES_MUNICIPALITY & (
+    RequireInstanceState(["subm", "init-distribution", "circulation", "decision"])
+    | IsPaper()
+)
 MODULE_PORTAL_DOCUMENTS_WRITE = (
     RequireInstanceState(["new"]) | RequireWorkItem("fill-additional-demand", "ready")
 ) & (HasApplicantRole(["ADMIN", "EDITOR"]) | (ROLES_MUNICIPALITY & IsPaper()))
