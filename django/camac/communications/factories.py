@@ -1,4 +1,4 @@
-from factory import Faker, SubFactory
+from factory import Faker, LazyFunction, SubFactory
 from factory.django import DjangoModelFactory, FileField
 
 from camac.document import factories as document_factories
@@ -16,7 +16,7 @@ class CommunicationsTopicFactory(DjangoModelFactory):
     subject = Faker("text")
     allow_replies = True
 
-    involved_entities = []
+    involved_entities = LazyFunction(lambda: [])
 
     class Meta:
         model = models.CommunicationsTopic
