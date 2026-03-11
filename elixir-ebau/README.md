@@ -4,7 +4,7 @@
 
 There are two ways to work on the elixir application:
 
-### Development setups
+### Development and setups
 #### a) using a local installation of elixir (highly recommended)
 
 In this case you have to install a suitable version of erlang and elixir. Ideally you use similar version
@@ -32,8 +32,16 @@ access the live dashboard at [http://ember-ebau.localhost/elixir/dev/dashboard](
 
 ### Language server
 
+#### Expert (official LSP)
+
 [`Expert`](https://expert-lsp.org) is the official language server. The docs have instructions on how to setup
 [different editors](https://expert-lsp.org/docs/editors/).
+
+#### Elixir-LS
+
+[`Elixir-LS`](https://github.com/elixir-lsp/elixir-ls) is an alternative language server that can be used. It is slightly slower but it provides very good Ash integration.
+In the past there were 3 different language server projects which have all been united now under the official LSP which is `Expert`.
+If you find that you are struggling with `Expert` you might want to give `Elixir-LS` a shot.
 
 ### REPL
 
@@ -45,7 +53,7 @@ cd elixir-ebau
 iex -S mix phx.server
 ```
 
-This is slightly different to Django since you are effectively starting the entire system with an active REPL.
+This is slightly different to most(?) languages that might be used to since you are effectively starting the entire **system** with an active REPL.
 As an example you can then open a LiveView in the browser and inspect its process in the iex shell:
 
 ```ex
@@ -61,6 +69,11 @@ Process.info(pid, :memory)
 Process.exit(pid, :kill)
 # You will see that there is a refresh and in your console you get the message that the liveview has reconnected
 ```
+
+### `mix.exs`
+
+The `mix.exs` file is the `package.json` or `pyproject.toml` equivalent of an Elixir project. The `aliases` function defines a bunch of aliases that you can use
+to make your life slightly easier. One that you might find particularly useful is `mix precommit`.
 
 ## Cantonal theming of uikit
 
