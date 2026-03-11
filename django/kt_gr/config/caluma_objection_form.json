@@ -217,7 +217,7 @@
     "pk": "einsprache-files",
     "fields": {
       "created_at": "2025-11-03T10:02:57.094Z",
-      "modified_at": "2025-11-03T10:03:30.319Z",
+      "modified_at": "2026-03-11T10:11:31.164Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -228,8 +228,8 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"x\", \"fr\": null, \"it\": \"x\"}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": \"\"}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
