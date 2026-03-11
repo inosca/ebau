@@ -27,6 +27,8 @@ mutation CreatePreliminaryClarificationWorkflow {
         "vorabklaerung-vollstaendig-v5"
         "vorabklaerung-vollstaendig-v6"
         "solareignung-meldung"
+        "baupolizeiliches-verfahren-v3"
+        "zutrittsermaechtigung-v3"
       ]
       isPublished: true
     }

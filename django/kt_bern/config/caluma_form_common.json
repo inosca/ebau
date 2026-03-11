@@ -4770,7 +4770,7 @@
       "label": "{\"de\": \"Sachverhalt\", \"fr\": \"Situation\", \"it\": null}",
       "type": "textarea",
       "is_required": "false",
-      "is_hidden": "!(form in ['baupolizeiliches-verfahren','baupolizeiliches-verfahren-v2', 'klaerung-baubewilligungspflicht', 'klaerung-baubewilligungspflicht-v2'])",
+      "is_hidden": "!(form in ['baupolizeiliches-verfahren','baupolizeiliches-verfahren-v2','baupolizeiliches-verfahren-v3', 'klaerung-baubewilligungspflicht', 'klaerung-baubewilligungspflicht-v2'])",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",

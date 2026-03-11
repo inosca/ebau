@@ -705,15 +705,17 @@ def test_recipient_geometer_uri(
     ["Service"],
 )
 @pytest.mark.parametrize(
-    "form_slug",
+    "form_slug,workflow",
     [
-        "baupolizeiliches-verfahren",
-        "baupolizeiliches-verfahren-v2",
-        "hecken-feldgehoelze-baeume",
-        "klaerung-baubewilligungspflicht",
-        "klaerung-baubewilligungspflicht-v2",
-        "zutrittsermaechtigung",
-        "zutrittsermaechtigung-v2",
+        ("baupolizeiliches-verfahren", "internal"),
+        ("baupolizeiliches-verfahren-v2", "internal"),
+        ("baupolizeiliches-verfahren-v3", "preliminary-clarification"),
+        ("hecken-feldgehoelze-baeume", "internal"),
+        ("klaerung-baubewilligungspflicht", "internal"),
+        ("klaerung-baubewilligungspflicht-v2", "internal"),
+        ("zutrittsermaechtigung", "internal"),
+        ("zutrittsermaechtigung-v2", "internal"),
+        ("zutrittsermaechtigung-v3", "preliminary-clarification"),
     ],
 )
 def test_notification_template_sendmail_rsta_forms(
@@ -726,13 +728,14 @@ def test_notification_template_sendmail_rsta_forms(
     settings,
     caluma_workflow_config_be,
     form_slug,
+    workflow,
 ):
     url = reverse("notificationtemplate-sendmail")
 
     for slug in CALUMA_FORM_TYPES_SLUGS:
         caluma_form_models.Form.objects.create(slug=slug)
 
-    instance_with_case(instance_service.instance, workflow="internal", form=form_slug)
+    instance_with_case(instance_service.instance, workflow=workflow, form=form_slug)
 
     instance_service.instance.case.document.answers.create(
         question_id="gemeinde", value=str(instance_service.service.pk)
