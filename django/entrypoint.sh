@@ -14,6 +14,19 @@ migrate() {
   wait-for-it "$DATABASE_HOST:$DATABASE_PORT" -- ./manage.py migrate
 }
 
+run_gunicorn() {
+  exec gunicorn \
+    --workers "${DJANGO_GUNICORN_WORKERS:-10}" \
+    --threads "${DJANGO_GUNICORN_THREADS:-1}" \
+    --timeout "${DJANGO_GUNICORN_TIMEOUT:-90}" \
+    --access-logfile - \
+    --limit-request-line "${DJANGO_LIMIT_REQUEST_LINE:-8190}" \
+    --bind :"${DJANGO_SERVER_PORT:-80}" \
+    --max-requests "${DJANGO_GUNICORN_MAX_REQUESTS:-0}" \
+    --max-requests-jitter "${DJANGO_GUNICORN_MAX_REQUESTS_JITTER:-0}" \
+    camac.wsgi_gunicorn
+}
+
 # Default command (from Dockerfile) is "uwsgi". This implies production mode
 # and we only load config in prod mode.
 if [ "$#" -lt 1 ]; then
@@ -67,12 +80,12 @@ case "$1" in
     if [ "$do_loadconfig" = "true" ]; then
       loadconfig
     fi
-    exec gunicorn --workers "${DJANGO_GUNICORN_WORKERS:-10}" --threads "${DJANGO_GUNICORN_THREADS:-1}" --access-logfile - --limit-request-line "${DJANGO_LIMIT_REQUEST_LINE:-8190}" --bind :"${DJANGO_SERVER_PORT:-80}" camac.wsgi_gunicorn
+    run_gunicorn
     ;;
   gunicorn_k8s )
     # K8s mode: All setup (loadconfig, migrate) must be done explicitly
     # in an init task or similar
-    exec gunicorn --workers "${DJANGO_GUNICORN_WORKERS:-10}" --threads "${DJANGO_GUNICORN_THREADS:-1}" --timeout "${DJANGO_GUNICORN_TIMEOUT:-90}" --access-logfile - --limit-request-line "${DJANGO_LIMIT_REQUEST_LINE:-8190}" --bind :"${DJANGO_SERVER_PORT:-80}" --max-requests "${DJANGO_GUNICORN_MAX_REQUESTS:-0}" --max-requests-jitter "${DJANGO_GUNICORN_MAX_REQUESTS_JITTER:-0}" camac.wsgi_gunicorn
+    run_gunicorn
     ;;
   qcluster )
     exec python manage.py qcluster --pythonpath /app/$APPLICATION
