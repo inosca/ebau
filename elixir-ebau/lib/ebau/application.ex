@@ -7,8 +7,6 @@ defmodule Ebau.Application do
 
   @impl true
   def start(_type, _args) do
-    Ebau.Keycloak.CachingHTTPAdapter.create_table()
-
     children = [
       EbauWeb.Telemetry,
       Ebau.Repo,
