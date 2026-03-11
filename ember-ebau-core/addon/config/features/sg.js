@@ -14,4 +14,7 @@ export default {
   communications: {
     enabled: true,
   },
+  rejection: {
+    revert: true,
+  },
 };

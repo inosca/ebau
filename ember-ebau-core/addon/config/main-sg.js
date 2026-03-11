@@ -8,6 +8,8 @@ export default {
   showIdInInternalArea: false,
   instanceStates: {
     new: 1,
+    subm: 2,
+    rejected: 3,
   },
   gwr: {
     cantonAbbreviation: "SG",
@@ -47,5 +49,9 @@ export default {
   },
   communication: {
     rolesWithApplicantContact: ["activeOrInolvedLeadAuthority", "service"],
+  },
+  rejection: {
+    instanceState: "rejected",
+    allowedInstanceStates: ["subm"],
   },
 };

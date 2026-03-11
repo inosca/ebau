@@ -145,7 +145,7 @@
       "template": "/ember-camac-ng/journal.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 7,
+      "sort": 8,
       "form_group": 1,
       "require_permission": "journal-read"
     }
@@ -161,7 +161,7 @@
       "template": null,
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 8,
+      "sort": 9,
       "form_group": 1,
       "require_permission": "history-read"
     }
@@ -177,7 +177,7 @@
       "template": "/ember-camac-ng/permissions.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 9,
+      "sort": 10,
       "form_group": 1,
       "require_permission": "permissions-read"
     }
@@ -212,6 +212,22 @@
       "sort": 2,
       "form_group": 1,
       "require_permission": "communications-read"
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 10,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 2,
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/rejection.phtml",
+      "class_field": "menu-category-extraordinary",
+      "hidden": 0,
+      "sort": 7,
+      "form_group": 1,
+      "require_permission": "rejection-read"
     }
   },
   {
@@ -301,6 +317,16 @@
       "instance_resource": 9,
       "language": "de",
       "name": "Kommunikation",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 10,
+    "fields": {
+      "instance_resource": 10,
+      "language": "de",
+      "name": "Dossier zurückweisen",
       "description": null
     }
   },

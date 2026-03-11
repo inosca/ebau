@@ -3277,6 +3277,23 @@ def ur_rejection_settings(
 
 
 @pytest.fixture
+def sg_rejection_settings(
+    request,
+    settings,
+    rejection_settings,
+):
+    """Module-specific settings for rejection (canton SG)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=rejection_settings,
+        module_name="rejection",
+        canton="kt_sg",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def test_rejection_settings(
     request,
     settings,
