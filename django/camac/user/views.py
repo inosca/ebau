@@ -61,6 +61,7 @@ class UserView(ReadOnlyModelViewSet):
     filterset_class = filters.UserFilterSet
     serializer_class = serializers.UserSerializer
     queryset = models.User.objects.filter(disabled=False)
+    ordering = ["name"]
     ordering_fields = ("name", "surname")
 
     @permission_aware
