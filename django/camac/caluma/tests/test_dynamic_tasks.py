@@ -262,7 +262,7 @@ def test_dynamic_task_after_decision_with_check_prevent_submit(
 @pytest.mark.parametrize(
     "construction_monitoring_enabled,positive_decision,form_id,expected_tasks",
     [
-        (True, True, "baugesuch-v3", ["init-construction-monitoring"]),
+        (True, True, "baugesuch-v3", []),
         (True, True, "vorlaeufige-beurteilung-v3", []),
         (True, False, "baugesuch-v3", []),
         (True, False, "vorlaeufige-beurteilung-v3", []),
@@ -1149,16 +1149,14 @@ def test_dynamic_task_after_construction_step(
     assert tasks == expected_tasks
 
 
+@pytest.mark.parametrize("construction_monitoring_enabled", [True, False])
 @pytest.mark.parametrize(
     "form_slug,expected_tasks",
     [
         ("bauanzeige", ["distribution"]),
         ("solaranlage", ["distribution"]),
         ("vorlaeufige-beurteilung", ["distribution"]),
-        (
-            "baugesuch",
-            ["distribution", "fill-publication", "publication"],
-        ),
+        ("baugesuch", ["distribution", "fill-publication", "publication"]),
     ],
 )
 def test_dynamic_task_after_formal_exam(
@@ -1168,11 +1166,15 @@ def test_dynamic_task_after_formal_exam(
     gr_publication_settings,
     gr_distribution_settings,
     gr_address_assignment_settings,
+    gr_construction_monitoring_settings,
+    construction_monitoring_enabled,
     caluma_admin_user,
     form_slug,
     expected_tasks,
-    mocker,
 ):
+    gr_construction_monitoring_settings["ENABLED"] = construction_monitoring_enabled
+    gr_address_assignment_settings["ENABLED"] = construction_monitoring_enabled
+
     gr_instance.case.document.form.slug = form_slug
     gr_instance.case.document.form.save()
 
@@ -1181,20 +1183,12 @@ def test_dynamic_task_after_formal_exam(
         task_id="formal-exam",
     )
 
-    address_assignment_logic_mock = mocker.patch.object(
-        domain_logic.AddressAssignmentLogic,
-        "requires_address_assignment",
-        return_value=True,
-    )
-
     result = CustomDynamicTasks().resolve_after_formal_exam(
         gr_instance.case, caluma_admin_user, work_item, None
     )
 
     if len(result) > 1:
         result.sort()
-
-    address_assignment_logic_mock.assert_called_with(gr_instance.case)
 
     assert all([task in result for task in expected_tasks])
 
@@ -1581,25 +1575,3 @@ def test_dynamic_task_after_submit_ag(
     )
 
     assert tasks == expected_tasks
-
-
-@pytest.mark.parametrize("was_positive", [True, False])
-def test_after_address_assignment_confirm_suggestion(
-    db, mocker, was_positive, gr_address_assignment_settings
-):
-    address_assignment_logic_mock = mocker.patch.object(
-        domain_logic.AddressAssignmentLogic,
-        "address_check_was_positive",
-        return_value=was_positive,
-    )
-
-    result = CustomDynamicTasks().resolve_after_address_assignment_confirm_suggestion(
-        None, None, None, None
-    )
-
-    address_assignment_logic_mock.assert_called_once()
-
-    if was_positive:
-        assert result == []
-    else:
-        assert result == [gr_address_assignment_settings.get("SUGGESTION_TASK")]

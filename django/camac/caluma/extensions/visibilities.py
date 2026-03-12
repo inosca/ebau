@@ -392,6 +392,19 @@ class CustomVisibility(Authenticated, InstanceQuerysetMixin):
             Q(addressed_groups__contains=[str(group.service_id)])
         )
 
+    def visible_construction_step_work_items_expression_for_service(self, group):
+        if settings.APPLICATION_NAME == "kt_gr" and group.service.slug == "gvg":
+            return (Q(is_construction_monitoring_control=False)) | (
+                # Construction-monitoring work-item addressed to current service
+                Q(addressed_groups__contains=[str(group.service_id)])
+            )
+        else:
+            return (
+                Q(is_construction_step=False)
+                & Q(is_construction_stage=False)
+                & Q(is_construction_monitoring_control=False)
+            )
+
     def visible_construction_step_work_items_expression_for_trusted_service(
         self, group
     ):

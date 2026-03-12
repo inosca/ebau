@@ -1,13 +1,25 @@
 export default {
   constructionSteps: [
     "construction-step-plan-construction-stage",
+    "construction-step-adressvergabe",
     "construction-step-baufreigabe",
     "construction-step-baubeginn",
+    "construction-step-schnurgeruestabnahme",
     "construction-step-kanalisationsabnahme",
     "construction-step-einmessung",
-    "construction-step-schnurgeruestabnahme",
     "construction-step-rohbauabnahme",
     "construction-step-schlussabnahme-gebaeude",
     "construction-step-schlussabnahme-projekt",
+  ],
+  reportingSteps: [
+    "construction-step-baufreigabe-beantragen",
+    "construction-step-adressvergabe-suggestion",
+    "construction-step-baubeginn-melden",
+    "construction-step-kanalisationsabnahme-melden",
+    "construction-step-schnurgeruestabnahme-melden",
+    "construction-step-rohbauabnahme-melden",
+    "construction-step-zwischenkontrolle-melden",
+    "construction-step-schlussabnahme-gebaeude-melden",
+    "construction-step-schlussabnahme-projekt-melden",
   ],
 };

@@ -61,6 +61,7 @@ construction-monitoring:
     construction-step-zwischenkontrolle: "Zwischenkontrolle"
     construction-step-schlussabnahme-gebaeude: "Schlussabnahme (Gebäude)"
     construction-step-schlussabnahme-projekt: "Schlussabnahme (Teil-/Gesamtprojekt)"
+    construction-step-adressvergabe: "Adressvergabe"
 
     work-item:
       edit-deadline: "(editieren)"

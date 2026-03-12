@@ -6,7 +6,6 @@ from django.conf import settings
 from django.utils import timezone
 
 from camac.constants import kt_gr as gr_constants
-from camac.instance import domain_logic
 from camac.instance.models import Instance
 from camac.permissions import api as permissions_api, models as permissions_models
 from camac.permissions.events import EmptyEventHandler
@@ -150,19 +149,24 @@ class PermissionEventHandlerGR(
                 ends_at=deadline,
             )
 
-    def formal_exam_completed(self, instance: Instance, work_item: WorkItem):
-        if domain_logic.AddressAssignmentLogic.requires_address_assignment(
-            work_item.case
+    def gvg_work_item_created(self, work_item: WorkItem):
+        if (
+            work_item.task.address_groups
+            and "gebaudeversicherung" in work_item.task.address_groups
         ):
-            self.grant_geometer_permission(work_item)
-
-            # The GVG also gets access to the dossier as they will
-            # have to get involved in the address assignment process.
-            gvg_service = Service.objects.get(slug="gvg")
-            self.manager.grant(
-                instance,
-                grant_type="SERVICE",
-                access_level="distribution-service",
-                service=gvg_service,
-                event_name="formal-exam-completed",
-            )
+            for addr in work_item.addressed_groups:
+                if (
+                    not InstanceACL.currently_active()
+                    .filter(
+                        instance=work_item.case.family.instance,
+                        service=addr,
+                    )
+                    .exists()
+                ):
+                    self.manager.grant(
+                        work_item.case.family.instance,
+                        grant_type="SERVICE",
+                        access_level="distribution-service",
+                        service=Service.objects.get(pk=addr),
+                        event_name="received-work-item",
+                    )

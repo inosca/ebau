@@ -36,6 +36,42 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "construction-step-adressvergabe-confirm",
+    "fields": {
+      "created_at": "2026-03-05T11:53:26.853Z",
+      "modified_at": "2026-03-05T11:53:26.853Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"construction-step-adressvergabe-confirm\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "construction-step-adressvergabe-suggestion",
+    "fields": {
+      "created_at": "2026-03-05T11:52:50.206Z",
+      "modified_at": "2026-03-05T11:52:50.206Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"construction-step-adressvergabe-suggestion\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "construction-step-baubeginn-melden",
     "fields": {
       "created_at": "2023-10-27T12:54:22.468Z",
@@ -524,6 +560,66 @@
       "form": "construction-monitoring",
       "question": "nicht-abgenommen-maengel",
       "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-adressvergabe-confirm.construction-step-adressvergabe-is-approved",
+    "fields": {
+      "created_at": "2026-03-05T11:53:26.856Z",
+      "modified_at": "2026-03-05T11:53:26.856Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "construction-step-adressvergabe-confirm",
+      "question": "construction-step-adressvergabe-is-approved",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-adressvergabe-confirm.construction-step-adressvergabe-remark",
+    "fields": {
+      "created_at": "2026-03-05T11:53:26.857Z",
+      "modified_at": "2026-03-05T11:53:26.857Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "construction-step-adressvergabe-confirm",
+      "question": "construction-step-adressvergabe-remark",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-adressvergabe-suggestion.construction-step-adressvergabe-remark",
+    "fields": {
+      "created_at": "2026-03-05T11:52:50.212Z",
+      "modified_at": "2026-03-05T11:52:50.212Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "construction-step-adressvergabe-suggestion",
+      "question": "construction-step-adressvergabe-remark",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-adressvergabe-suggestion.construction-step-adressvergabe-street",
+    "fields": {
+      "created_at": "2026-03-05T11:52:50.210Z",
+      "modified_at": "2026-03-05T11:52:50.210Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "construction-step-adressvergabe-suggestion",
+      "question": "construction-step-adressvergabe-street",
+      "sort": 3
     }
   },
   {
@@ -1199,6 +1295,57 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": \"No\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-adressvergabe",
+    "fields": {
+      "created_at": "2026-03-05T11:56:14.856Z",
+      "modified_at": "2026-03-05T11:56:47.537Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Adressvergabe\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-adressvergabe-is-approved-no",
+    "fields": {
+      "created_at": "2025-01-08T12:33:07.681Z",
+      "modified_at": "2025-06-03T06:54:20.707Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": \"No\"}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "construction-step-adressvergabe-is-approved-yes",
+    "fields": {
+      "created_at": "2025-01-08T12:33:07.683Z",
+      "modified_at": "2025-06-03T06:54:20.707Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": \"Sì\"}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -2053,6 +2200,105 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "construction-step-adressvergabe-is-approved",
+    "fields": {
+      "created_at": "2025-01-08T12:08:59.733Z",
+      "modified_at": "2025-06-06T13:44:00.154Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist die vorgeschlagene Adresse gültig?\", \"fr\": null, \"it\": \"L'indirizzo proposto è valido?\"}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-adressvergabe-remark",
+    "fields": {
+      "created_at": "2025-01-08T12:32:33.932Z",
+      "modified_at": "2025-06-06T13:24:21.113Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkung\", \"fr\": null, \"it\": \"Osservazione\"}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-adressvergabe-street",
+    "fields": {
+      "created_at": "2025-01-07T12:03:42.813Z",
+      "modified_at": "2025-06-06T13:25:35.081Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Strasse/Flurname, Nr.\", \"fr\": null, \"it\": \"Via/toponimo, n.\"}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "construction-step-baubeginn-melden-bemerkungen",
     "fields": {
       "created_at": "2024-01-16T20:55:18.357Z",
@@ -2646,7 +2892,7 @@
     "pk": "construction-steps",
     "fields": {
       "created_at": "2025-01-16T12:34:14.807Z",
-      "modified_at": "2025-01-20T15:38:52.102Z",
+      "modified_at": "2026-03-05T11:57:03.483Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -3614,6 +3860,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "construction-step-adressvergabe-is-approved.construction-step-adressvergabe-is-approved-no",
+    "fields": {
+      "created_at": "2025-06-06T13:44:00.157Z",
+      "modified_at": "2025-06-06T13:44:00.157Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-step-adressvergabe-is-approved",
+      "option": "construction-step-adressvergabe-is-approved-no",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "construction-step-adressvergabe-is-approved.construction-step-adressvergabe-is-approved-yes",
+    "fields": {
+      "created_at": "2025-06-06T13:44:00.159Z",
+      "modified_at": "2025-06-06T13:44:00.159Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-step-adressvergabe-is-approved",
+      "option": "construction-step-adressvergabe-is-approved-yes",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "construction-step-baubeginn-melden-bestaetigung.construction-step-baubeginn-melden-bestaetigung-text",
     "fields": {
       "created_at": "2024-01-16T20:53:32.675Z",
@@ -3944,137 +4220,152 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "construction-steps.construction-step-adressvergabe",
+    "fields": {
+      "created_at": "2026-03-05T11:57:03.497Z",
+      "modified_at": "2026-03-05T11:57:03.497Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "construction-steps",
+      "option": "construction-step-adressvergabe",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-baubeginn",
     "fields": {
-      "created_at": "2025-01-20T15:38:52.180Z",
-      "modified_at": "2025-01-20T15:38:52.180Z",
+      "created_at": "2026-03-05T11:57:03.493Z",
+      "modified_at": "2026-03-05T11:57:03.493Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-baubeginn",
-      "sort": 8
+      "sort": 9
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-baufreigabe",
     "fields": {
-      "created_at": "2025-01-20T15:38:52.188Z",
-      "modified_at": "2025-01-20T15:38:52.188Z",
+      "created_at": "2026-03-05T11:57:03.494Z",
+      "modified_at": "2026-03-05T11:57:03.494Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-baufreigabe",
-      "sort": 9
+      "sort": 10
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-einmessung",
     "fields": {
-      "created_at": "2025-01-20T15:38:52.161Z",
-      "modified_at": "2025-01-20T15:38:52.161Z",
+      "created_at": "2026-03-05T11:57:03.490Z",
+      "modified_at": "2026-03-05T11:57:03.490Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-einmessung",
-      "sort": 6
+      "sort": 7
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-kanalisationsabnahme",
     "fields": {
-      "created_at": "2025-01-20T15:38:52.170Z",
-      "modified_at": "2025-01-20T15:38:52.170Z",
+      "created_at": "2026-03-05T11:57:03.491Z",
+      "modified_at": "2026-03-05T11:57:03.491Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-kanalisationsabnahme",
-      "sort": 7
+      "sort": 8
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-rohbauabnahme",
     "fields": {
-      "created_at": "2025-01-20T15:38:52.144Z",
-      "modified_at": "2025-01-20T15:38:52.144Z",
+      "created_at": "2026-03-05T11:57:03.489Z",
+      "modified_at": "2026-03-05T11:57:03.489Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-rohbauabnahme",
-      "sort": 4
+      "sort": 5
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-schlussabnahme-gebaeude",
     "fields": {
-      "created_at": "2025-01-20T15:38:52.127Z",
-      "modified_at": "2025-01-20T15:38:52.127Z",
+      "created_at": "2026-03-05T11:57:03.487Z",
+      "modified_at": "2026-03-05T11:57:03.487Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-schlussabnahme-gebaeude",
-      "sort": 2
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-schlussabnahme-projekt",
     "fields": {
-      "created_at": "2025-01-20T15:38:52.119Z",
-      "modified_at": "2025-01-20T15:38:52.119Z",
+      "created_at": "2026-03-05T11:57:03.486Z",
+      "modified_at": "2026-03-05T11:57:03.486Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-schlussabnahme-projekt",
-      "sort": 1
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-schnurgeruestabnahme",
     "fields": {
-      "created_at": "2025-01-20T15:38:52.152Z",
-      "modified_at": "2025-01-20T15:38:52.153Z",
+      "created_at": "2026-03-05T11:57:03.489Z",
+      "modified_at": "2026-03-05T11:57:03.489Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-schnurgeruestabnahme",
-      "sort": 5
+      "sort": 6
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-zwischenkontrolle",
     "fields": {
-      "created_at": "2025-01-20T15:38:52.136Z",
-      "modified_at": "2025-01-20T15:38:52.136Z",
+      "created_at": "2026-03-05T11:57:03.488Z",
+      "modified_at": "2026-03-05T11:57:03.488Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-zwischenkontrolle",
-      "sort": 3
+      "sort": 4
     }
   },
   {

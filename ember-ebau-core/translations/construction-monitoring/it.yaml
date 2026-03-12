@@ -59,6 +59,7 @@ construction-monitoring:
     construction-step-zwischenkontrolle: "Controllo intermedio"
     construction-step-schlussabnahme-gebaeude: "Collaudo finale (edificio)"
     construction-step-schlussabnahme-projekt: "Collaudo finale (progetto parziale/globale)"
+    construction-step-adressvergabe: "Attribuzione dell'indirizzo"
 
     work-item:
       edit-deadline: "(elaborare)"

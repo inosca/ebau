@@ -105,6 +105,7 @@ WORK_ITEM_LIST = ModuleConfig[WorkItemListConfig](
                 "check-inquiries",
                 "decision",
                 "construction-acceptance",
+                "init-construction-monitoring",
             ],
             "service": ["inquiry", "check-inquiries", "check-additional-demand"],
             "subservice": ["inquiry"],

@@ -90,6 +90,10 @@ def distribution_case_gr(
     caluma_admin_user,
     instance_state_factory,
     gr_distribution_settings,
+    set_application_gr,
+    service,
+    service_factory,
+    mocker,
     notification_template_factory,
 ):
     # this is needed so that simple workflow works
@@ -104,6 +108,11 @@ def distribution_case_gr(
     instance_state_factory(
         instance_state_id=bern_constants.INSTANCE_STATE_CORRECTION_IN_PROGRESS,
         name="correction",
+    )
+
+    mocker.patch(
+        "camac.instance.models.Instance.responsible_service",
+        return_value=service,
     )
 
     case = gr_instance.case
@@ -221,11 +230,11 @@ def inquiry_factory_be(
 
 @pytest.fixture
 def inquiry_factory_gr(
+    gr_distribution_settings,
     caluma_admin_user,
     distribution_child_case_gr,
-    gr_distribution_settings,
-    service,
     service_factory,
+    service,
 ):
     def factory(to_service=service_factory(), from_service=service, sent=False):
         return _inquiry_factory(
