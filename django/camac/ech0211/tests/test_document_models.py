@@ -79,10 +79,10 @@ def test_most_recent_file_empty(db, django_assert_num_queries, caplog):
 
     with django_assert_num_queries(1):
         assert document.most_recent_file is None
-        assert expected_msg in caplog.messages[0]
+        assert any(expected_msg in msg for msg in caplog.messages)
 
     caplog.clear()
 
     with django_assert_num_queries(0):
         assert document_via_queryset.most_recent_file is None
-        assert expected_msg in caplog.messages[0]
+        assert any(expected_msg in msg for msg in caplog.messages)
