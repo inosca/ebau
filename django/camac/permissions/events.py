@@ -263,11 +263,6 @@ def acl_created(sender, instance, created, **kwargs):
     if not created:
         return
 
-    if not acl.is_active():
-        # The ACL is inactive - we do not notify the affected users
-        # as they don't "profit" from the new ACL yet
-        return
-
     for notification_config in settings.APPLICATION["NOTIFICATIONS"].get(
         "PERMISSION_ACL_GRANTED", []
     ):
