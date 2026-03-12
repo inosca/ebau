@@ -1,11 +1,15 @@
 from contextlib import nullcontext as no_exception
+from copy import deepcopy
 from datetime import date
+from io import BytesIO
 
+import pyexcel
 import pytest
 from django.db.utils import OperationalError
 from django.urls import reverse
 from django_q.tasks import async_task, result
 
+from camac.response import make_xlsx_response
 from camac.settings.ebau_schema import ModuleApplicationConfig
 from camac.settings.utils import is_module_enabled
 
@@ -296,3 +300,40 @@ def test_is_support(
     else:
         request.group = None
     assert utils.is_support(request) == expected_return_value
+
+
+@pytest.fixture
+def base_table():
+    return [
+        ["header0", "header1"],
+        ["row0-val0", "row0-val1"],
+        ["row1-val0", "row1-val1"],
+    ]
+
+
+@pytest.mark.parametrize(
+    "value, expected_output",
+    [
+        (None, ""),
+        ("multiple\fpages", "multiplepages"),
+        ("bell\b", "bell"),
+        ("nul\000byte", "nulbyte"),
+        ("multiple\000illegal\bcharacters\fhere", "multipleillegalcharactershere"),
+    ],
+)
+def test_excel_response(base_table, value, expected_output):
+    """Ensure our excel response generator sanitizes invalid values."""
+
+    base_table[1][1] = value
+
+    expected_result = deepcopy(base_table)
+    expected_result[1][1] = expected_output
+
+    resp = make_xlsx_response(base_table, filename="export.xlsx")
+
+    content = BytesIO()
+    for chunk in resp.streaming_content:
+        content.write(chunk)
+    result_sheet = pyexcel.get_sheet(file_content=content, file_type="xlsx")
+
+    assert result_sheet.array == expected_result
