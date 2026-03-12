@@ -711,6 +711,9 @@ def test_copy_be(
     permission_mode,
     caluma_admin_user,
     role_factory,
+    user_factory,
+    applicant_factory,
+    service_factory,
     new_meta_flag,
     be_permissions_settings,
 ):
@@ -720,24 +723,61 @@ def test_copy_be(
     )
 
     # support role will get access to the new instance
-    role_factory(name="Support")
+    support_role = role_factory(name="Support")
+    support_acl = instance_acl_factory(
+        instance=be_instance,
+        access_level_id="support",
+        role=support_role,
+        grant_type="ROLE",
+    )
 
-    instance_acl_factory(
+    lead_authority_acl = instance_acl_factory(
         instance=be_instance,
         access_level_id="lead-authority",
         service=admin_user.groups.first().service,
         grant_type="SERVICE",
     )
+    applicant_acl = instance_acl_factory(
+        instance=be_instance,
+        access_level_id="applicant",
+        user=be_instance.user,
+        grant_type="USER",
+    )
 
     # We expect these ones to be only copied conditionally
-    instance_acl_factory(
+    geometer_acl = instance_acl_factory(
         instance=be_instance,
         access_level_id="geometer",
+        service=service_factory(),
+        grant_type="SERVICE",
     )
-    instance_acl_factory(
+    construction_control_acl = instance_acl_factory(
         instance=be_instance,
         access_level_id="construction-control",
+        service=service_factory(),
+        grant_type="SERVICE",
     )
+
+    initial_acls = InstanceACL.currently_active().filter(instance=be_instance)
+    expected_initial_acls = [
+        lead_authority_acl,
+        geometer_acl,
+        construction_control_acl,
+        applicant_acl,
+        support_acl,
+    ]
+
+    assert len(expected_initial_acls) == initial_acls.count()
+
+    for expected_acl in expected_initial_acls:
+        assert initial_acls.filter(
+            user=expected_acl.user,
+            access_level=expected_acl.access_level,
+            service=expected_acl.service,
+            role=expected_acl.role,
+            token=expected_acl.token,
+            grant_type=expected_acl.grant_type,
+        ).exists(), f"Missing expected initial {expected_acl}"
 
     InstanceState.objects.get_or_create(name="new")
     InstanceState.objects.get_or_create(name="subm")
@@ -753,15 +793,30 @@ def test_copy_be(
 
     expected_acl_copies = InstanceACL.currently_active().filter(instance=be_instance)
     if new_meta_flag in ["is-appeal", "is-rejected-appeal"]:
-        expected_acl_copies = expected_acl_copies.filter(
-            access_level__in=["lead-authority", "applicant"]
-        )
-    else:
-        # commandline copy - no restriction
-        pass
+        expected_acl_copies = [
+            lead_authority_acl,
+            applicant_acl,
+            support_acl,
+        ]
 
-    # regular copy - needs all active acls to be copied over
+    else:
+        # commandline copy - needs all active acls to be copied over
+        # TODO: ACL duplication (support & applicant) due to copy after
+        # creation might need to be cleaned up in the future
+        expected_acl_copies = [
+            lead_authority_acl,
+            geometer_acl,
+            construction_control_acl,
+            applicant_acl,
+            applicant_acl,
+            support_acl,
+            support_acl,
+        ]
+
     new_active = InstanceACL.currently_active().filter(instance=new_instance)
+
+    assert len(expected_acl_copies) == new_active.count()
+
     for old_acl in expected_acl_copies:
         assert new_active.filter(
             user=old_acl.user,

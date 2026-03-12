@@ -184,20 +184,41 @@ class InstanceCreationHandlerMixin:
 
 
 class InstanceCopyHandlerMixin:
-    def instance_copied(self, instance: Instance, from_instance: Instance):
+    def instance_copied(
+        self,
+        instance: Instance,
+        from_instance: Instance,
+    ):
         current_acls = InstanceACL.currently_active().filter(
             instance=from_instance,
         )
-
         if instance.case.meta.get("is-appeal") or instance.case.meta.get(
             "is-rejected-appeal"
         ):
+            # Handle (involved) lead authority acls (matches logic in copy
+            # instance) - applicant and support acls are handled by instance
+            # creation
             current_acls = current_acls.filter(
-                access_level_id__in=["lead-authority", "applicant"]
+                access_level_id__in=[
+                    "lead-authority",
+                ]
             )
+
+            # Grant new acls to reflect creation date of copied instance
+            for acl in current_acls:
+                self.manager.grant(
+                    instance=instance,
+                    grant_type=acl.grant_type,
+                    access_level=acl.access_level,
+                    service=acl.service,
+                    user=acl.user,
+                    event_name="instance-copied",
+                )
+
+            return
+
         # else: if we don't have any appeal flag, copy everything. This is a
         # commandline copy, not a "part-of-the-process-process" copy
-
         for acl in current_acls:
             acl.pk = None
             acl.instance = instance
