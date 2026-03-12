@@ -1,6 +1,6 @@
 import zipfile
 from enum import Enum
-from typing import List, Set
+from typing import Any, List, Set
 
 from django.conf import settings
 from django.utils import timezone
@@ -17,6 +17,7 @@ from camac.dossier_import.utils import (
 )
 
 from ..instance.models import Instance
+from ..tags.models import Keyword
 from .config.common import mimetypes
 from .loaders import XlsxFileDossierLoader
 from .messages import MessageCodes
@@ -179,7 +180,9 @@ def _validate_date_field(field, value, message_defaults: dict) -> bool:
         return False
 
 
-def _validate_existing_dossier(dossier_id, dossier_msgs, headings, rows):
+def _validate_existing_dossier(
+    dossier_id, dossier_msgs, headings, rows, dossier_states
+):
     messages.append_or_update_dossier_message(
         dossier_id=dossier_id,
         field_name="ID",
@@ -189,17 +192,39 @@ def _validate_existing_dossier(dossier_id, dossier_msgs, headings, rows):
         level=messages.Severity.WARNING.value,
     )
     # reimporting does not require the "STATUS" column to be present, therefore
-    # we ignore that column
+    # we ignore that column, reporting any diff in status
     if status := get_dossier_cell_by_column(dossier_id, "status", rows):
-        messages.append_or_update_dossier_message(
-            dossier_id=dossier_id,
-            field_name="STATUS",
-            detail=_("The value %(value)s will be ignored when updating the dossier.")
-            % {"value": status},
-            code=MessageCodes.UPDATE_DOSSIER.value,
-            messages=dossier_msgs,
-            level=messages.Severity.INFO.value,
-        )
+        excel_status = _map_status(status)
+        if (
+            excel_status and dossier_states.get(dossier_id) != excel_status
+        ):  # pragma: no cover
+            messages.append_or_update_dossier_message(
+                dossier_id=dossier_id,
+                field_name="STATUS",
+                detail=_(
+                    "The value %(value)s will be ignored when updating the dossier. Note, that the status of the dossier is '%(actual_status)s' and not '%(excel_status)s'."
+                )
+                % {
+                    "value": status,
+                    "actual_status": dossier_states.get(dossier_id),
+                    "excel_status": excel_status,
+                },
+                code=MessageCodes.UPDATE_DOSSIER.value,
+                messages=dossier_msgs,
+                level=messages.Severity.WARNING.value,
+            )
+        else:
+            messages.append_or_update_dossier_message(
+                dossier_id=dossier_id,
+                field_name="STATUS",
+                detail=_(
+                    "The value %(value)s will be ignored when updating the dossier."
+                )
+                % {"value": status},
+                code=MessageCodes.UPDATE_DOSSIER.value,
+                messages=dossier_msgs,
+                level=messages.Severity.INFO.value,
+            )
     validations = []
     for field, value, default_message in iter_dossier_fields(
         dossier_id, dossier_msgs, headings, rows
@@ -207,6 +232,13 @@ def _validate_existing_dossier(dossier_id, dossier_msgs, headings, rows):
         _handle_delete_keyword(field, value, default_message, allow_delete=True)
         validations.append(_validate_date_field(field, value, default_message))
     return all(validations)
+
+
+def _map_status(status: Any | None) -> Any:
+    if settings.DOSSIER_IMPORT.get("INSTANCE_STATE_MAPPING"):
+        return settings.DOSSIER_IMPORT["INSTANCE_STATE_MAPPING"].get(status)
+    else:
+        return None
 
 
 def _validate_new_dossier(dossier_id, dossier_msgs, headings, rows):
@@ -369,9 +401,16 @@ def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierIm
         if valid:
             valid_dossier_ids.append(dossier_id)
 
-    Instance.objects.filter(group__service=dossier_import.group.service).delete()
+    dossier_states = _get_dossier_states(dossier_import, mapped_existing)
+
     for dossier_id in existing_dossier_ids:
-        valid = _validate_existing_dossier(dossier_id, dossier_msgs, headings, rows)
+        valid = _validate_existing_dossier(
+            dossier_id,
+            dossier_msgs,
+            headings,
+            rows,
+            dossier_states,
+        )
         if valid:
             valid_dossier_ids.append(dossier_id)
 
@@ -406,3 +445,29 @@ def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierIm
     dossier_import.save()
 
     return dossier_import
+
+
+def _get_dossier_states(
+    dossier_import: DossierImport, mapped_existing
+) -> dict[Any, Any]:
+    dossier_states = {
+        k["name"]: k["instances__instance_state__name"]
+        for k in Keyword.objects.filter(service=dossier_import.group.service).values(
+            "name", "instances__instance_state__name"
+        )
+    }
+
+    dossier_states.update(
+        {
+            mapped_existing[inst["case__meta__dossier-number"]]: inst[
+                "instance_state__name"
+            ]
+            for inst in (
+                Instance.objects.filter(
+                    **{"case__meta__dossier-number__in": mapped_existing.keys()}
+                ).values("case__meta__dossier-number", "instance_state__name")
+            )
+        }
+    )
+
+    return dossier_states
