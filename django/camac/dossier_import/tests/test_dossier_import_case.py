@@ -130,7 +130,7 @@ def test_create_instance_dossier_import_case(
         assert first_instance.case.meta == {
             "import-id": str(dossier_import.pk),
             "camac-instance-id": first_instance.pk,
-            "submit-date": "2017-04-12T00:00:00",
+            "submit-date": "2017-04-12T00:00:00+0000",
             "dossier-number": "4022-2017-1",
             "dossier-number-sort": 40222017000001,
         }
@@ -138,7 +138,7 @@ def test_create_instance_dossier_import_case(
         assert first_instance.case.meta == {
             "import-id": str(dossier_import.pk),
             "camac-instance-id": first_instance.pk,
-            "submit-date": "2017-04-12T00:00:00",
+            "submit-date": "2017-04-12T00:00:00+0000",
             "dossier-number": "2017-1",
             "dossier-number-sort": 2017000001,
         }
