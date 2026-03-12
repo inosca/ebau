@@ -392,7 +392,6 @@ def test_submit_create_acl_be(
     # We currently expect certain discrepancies as the applicant permissions for
     # Kt. BE are not fully configured yet.
     expected_discrepancies = {
-        "InstanceView.has_object_submit_permission",
         "CalumaInstanceSerializer.get_permissions",
     }
 

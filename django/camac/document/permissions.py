@@ -472,6 +472,13 @@ PERMISSIONS_BY_ACCESSLEVEL = {
             ReadInternalPermission: (_allow_always, [4]),
             AdminInternalPermission: (_has_documents_write_permission, [4]),
         },
+        "applicant": {
+            # TODO: In theory, certain attachment sections should only be
+            # editable at a certain time (e.g. Nachforderungen only if additional-demands
+            # are writeable)
+            AdminPermission: (_has_documents_write_permission, [1, 5, 6, 7]),
+            ReadPermission: (_allow_always, [3, 14]),
+        },
     },
     "kt_schwyz": {
         "read": {
