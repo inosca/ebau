@@ -27,6 +27,10 @@
     "kt_ag": {
       "compose": "compose/kt_ag.yml:compose/kt_ag-dev.yml",
       "loadconfig": "make loadconfig"
+    },
+    "kt_sg": {
+      "compose": "compose/kt_sg.yml:compose/kt_sg-dev.yml",
+      "loadconfig": "make loadconfig"
     }
   },
   "profiles": {
