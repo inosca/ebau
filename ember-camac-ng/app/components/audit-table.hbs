@@ -23,7 +23,7 @@
   </tbody>
 </table>
 
-{{#if (can "edit work item of audit" @workItem)}}
+{{#if (await (can "edit work item of audit" @workItem))}}
   <div class="uk-text-center">
     <button
       type="button"
