@@ -314,6 +314,14 @@ def test_caluma_export_be(
         closed_at=make_aware(datetime.datetime(2025, 1, 30)),
     )
 
+    # Fill some interesting stuff in the form (BE:EBAU-1240)
+    be_instance.case.document.answers.update_or_create(
+        question_id="beschreibung-bauvorhaben",
+        defaults={
+            "value": "first page\fsecond page",
+        },
+    )
+
     url = reverse("instance-export")
 
     with django_assert_num_queries(expected_num_queries):

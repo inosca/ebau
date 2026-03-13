@@ -1,7 +1,25 @@
 from typing import Any
 
 from django.http import FileResponse
+from openpyxl.cell import cell
 from pyexcel import Sheet
+
+
+def _sanitize_data(data):
+    """
+    Sanitize data for excel export.
+
+    There are some characters that cannot be put into Excel files, such
+    as page breaks etc. We remove them from the text before sending it
+    to pyexcel
+    """
+    return [
+        [
+            cell.ILLEGAL_CHARACTERS_RE.sub("", val) if isinstance(val, str) else val
+            for val in row
+        ]
+        for row in data
+    ]
 
 
 def make_xlsx_response(data: list[list[Any]], filename: str) -> FileResponse:
@@ -34,8 +52,10 @@ def make_xlsx_response(data: list[list[Any]], filename: str) -> FileResponse:
         ... )
     """
 
+    clean_data = _sanitize_data(data)
+
     return FileResponse(
-        Sheet(data).save_to_memory("xlsx", None),
+        Sheet(clean_data).save_to_memory("xlsx", None),
         as_attachment=True,
         filename=filename,
     )
