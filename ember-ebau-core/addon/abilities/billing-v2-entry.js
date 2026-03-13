@@ -25,7 +25,7 @@ export default class BillingV2EntryAbility extends Ability {
 
     return (
       hasFeature("billing.charge") &&
-      this.canEdit &&
+      (await this.canEdit()) &&
       isAuthority(this.instance, this.ebauModules.serviceId)
     );
   }
@@ -39,7 +39,7 @@ export default class BillingV2EntryAbility extends Ability {
   */
   async canReleaseForClearing() {
     const form = await this.instance.form;
-    const settings = mainConfig.billing.releaseForClearing;
+    const settings = mainConfig.billing?.releaseForClearing;
     const billingEntries =
       this.model ??
       this.store
@@ -77,23 +77,35 @@ export default class BillingV2EntryAbility extends Ability {
 
     const allowedForServiceGroups = settings.allowedForServiceGroups;
     if (!allowedForServiceGroups) {
-      return this.canEdit;
+      return await this.canEdit();
     }
 
     const isCantonal = allowedForServiceGroups.includes(
       service.serviceGroup.get("slug"),
     );
-    return this.canEdit && isCantonal;
+    return (await this.canEdit()) && isCantonal;
   }
 
-  get canEdit() {
+  async canEdit() {
+    if (this.permissions.fullyEnabled) {
+      return await this.permissions.hasAll(this.instance?.id, "billing-write");
+    }
+
     return !hasInstanceState(
       this.instance,
       mainConfig.billing?.readOnlyInstanceStates ?? [],
     );
   }
 
-  get canDelete() {
+  async canDelete() {
+    if (this.permissions.fullyEnabled) {
+      if (
+        !(await this.permissions.hasAll(this.instance?.id, "billing-write"))
+      ) {
+        return false;
+      }
+    }
+
     return (
       parseInt(this.model.get("group.service.id")) ===
         parseInt(this.ebauModules.serviceId) && !this.model.dateCharged

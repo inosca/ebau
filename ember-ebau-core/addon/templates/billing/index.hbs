@@ -10,7 +10,7 @@
   @onRefresh={{this.refresh}}
 />
 
-{{#if (can "edit billing-v2-entries")}}
+{{#if (await (can "edit billing-v2-entries"))}}
   <div class="uk-margin">
     <LinkTo
       @route={{module-route "billing" "new"}}

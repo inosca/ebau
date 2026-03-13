@@ -15,6 +15,7 @@ from camac.billing.utils import (
 )
 from camac.billing.views import BillingV2EntryViewset
 from camac.instance.models import Instance
+from camac.permissions.switcher import PERMISSION_MODE
 from camac.settings.modules.billing_schema import BillingConfig, ProductNumberConfig
 from camac.tests.form_utils import FormUtils
 from camac.utils import get_unversioned_slug
@@ -182,8 +183,13 @@ def test_billing_entry_list(
         assert len(response.json()["data"]) == expected_count
 
 
-@pytest.mark.parametrize("role__name", [("Municipality")])
-def test_billing_entry_create(db, admin_client, instance) -> None:
+# RBAC: Anybody with access to the instance can create billing entries
+@pytest.mark.parametrize("role__name", [("Municipality"), ("Applicant")])
+def test_billing_entry_create_rbac(
+    db, admin_client, instance, permissions_settings
+) -> None:
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.OFF
+
     url = reverse("billing-v2-entry-list")
     response = admin_client.post(
         url,
@@ -208,6 +214,62 @@ def test_billing_entry_create(db, admin_client, instance) -> None:
     result = response.json()
 
     assert result["data"]["attributes"]["final-rate"] == "1130.85"
+
+
+# Permissions module: Creating billing entries requires
+# billing-write permission
+@pytest.mark.parametrize(
+    "role__name,has_permission,expected_status",
+    [
+        ("Municipality", True, status.HTTP_201_CREATED),
+        ("Municipality", False, status.HTTP_403_FORBIDDEN),
+        ("Applicant", True, status.HTTP_201_CREATED),
+        ("Applicant", False, status.HTTP_403_FORBIDDEN),
+    ],
+)
+def test_billing_entry_create_acl(
+    db,
+    admin_client,
+    instance,
+    permissions_settings,
+    mocker,
+    has_permission,
+    expected_status,
+) -> None:
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.FULL
+    mocker.patch(
+        "camac.permissions.api.PermissionManager.get_permissions",
+        return_value=["billing-write"] if has_permission else [],
+    )
+
+    url = reverse("billing-v2-entry-list")
+    response = admin_client.post(
+        url,
+        data={
+            "data": {
+                "type": "billing-v2-entries",
+                "attributes": {
+                    "calculation": BillingV2Entry.CalculationModes.CALCULATION_FLAT,
+                    "total-cost": 1050,
+                    "tax-mode": BillingV2Entry.TaxModes.TAX_MODE_EXCLUSIVE,
+                    "tax-rate": 7.7,
+                    "text": "Test",
+                },
+                "relationships": {
+                    "instance": {"data": {"id": instance.pk, "type": "instances"}}
+                },
+            }
+        },
+    )
+
+    assert response.status_code == expected_status
+
+    if expected_status == status.HTTP_201_CREATED:
+        result = response.json()
+
+        assert result["data"]["attributes"]["final-rate"] == "1130.85"
+    else:
+        assert not BillingV2Entry.objects.filter(text="Test").exists()
 
 
 @pytest.mark.parametrize(
@@ -253,11 +315,19 @@ def test_billing_entry_visibilities(
         assert instance in view.get_queryset()
 
 
+# RBAC: Requires specific service group
 @pytest.mark.freeze_time("2023-11-06")
 @pytest.mark.parametrize("role__name", [("Municipality")])
-def test_billing_entry_release_for_clearing(
-    db, admin_client, billing_v2_entry, sz_billing_settings, group
+def test_billing_entry_release_for_clearing_rbac(
+    db,
+    admin_client,
+    billing_v2_entry,
+    sz_billing_settings,
+    group,
+    permissions_settings,
 ) -> None:
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.OFF
+
     service_group = group.service.service_group
     service_group.slug = sz_billing_settings.cantonal_service_group_slugs[0]
     service_group.save()
@@ -271,6 +341,56 @@ def test_billing_entry_release_for_clearing(
     assert billing_v2_entry.released_for_clearing == timezone.now().date()
 
 
+# Permissions module: Requires specific service group and permission "billing-write"
+@pytest.mark.freeze_time("2023-11-06")
+@pytest.mark.parametrize(
+    "role__name,has_service_group,has_permission,expected_status",
+    [
+        ("Municipality", True, True, status.HTTP_204_NO_CONTENT),
+        ("Municipality", False, True, status.HTTP_403_FORBIDDEN),
+        ("Municipality", True, False, status.HTTP_403_FORBIDDEN),
+        ("Municipality", True, True, status.HTTP_204_NO_CONTENT),
+    ],
+)
+def test_billing_entry_release_for_clearing_acl(
+    db,
+    admin_client,
+    billing_v2_entry,
+    sz_billing_settings,
+    group,
+    has_service_group,
+    has_permission,
+    expected_status,
+    permissions_settings,
+    instance_acl_factory,
+    mocker,
+) -> None:
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.FULL
+    mocker.patch(
+        "camac.permissions.api.PermissionManager.get_permissions",
+        return_value=["billing-write"] if has_permission else [],
+    )
+    instance_acl_factory(
+        instance=billing_v2_entry.instance,
+        service=admin_client.user.groups.first().service,
+    )
+
+    if has_service_group:
+        service_group = group.service.service_group
+        service_group.slug = sz_billing_settings.cantonal_service_group_slugs[0]
+        service_group.save()
+
+    url = reverse("billing-v2-entry-release-for-clearing", args=[billing_v2_entry.pk])
+    response = admin_client.patch(url)
+
+    assert response.status_code == expected_status
+
+    if expected_status == status.HTTP_204_NO_CONTENT:
+        billing_v2_entry.refresh_from_db()
+        assert billing_v2_entry.released_for_clearing == timezone.now().date()
+
+
+# RBAC: Can only delete own uncharged billing entries
 @pytest.mark.freeze_time("2023-11-06")
 @pytest.mark.parametrize(
     "role__name,is_charged,is_other_group,expect_forbidden",
@@ -280,7 +400,7 @@ def test_billing_entry_release_for_clearing(
         ("Municipality", False, True, True),
     ],
 )
-def test_billing_entry_delete(
+def test_billing_entry_delete_rbac(
     db,
     admin_client,
     billing_v2_entry,
@@ -288,7 +408,10 @@ def test_billing_entry_delete(
     is_other_group,
     expect_forbidden,
     group_factory,
+    permissions_settings,
 ) -> None:
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.OFF
+
     if is_charged:
         billing_v2_entry.date_charged = timezone.now().date()
 
@@ -307,6 +430,93 @@ def test_billing_entry_delete(
         BillingV2Entry.objects.filter(pk=billing_v2_entry.pk).exists()
         == expect_forbidden
     )
+
+
+# Permissions module: Can only delete own uncharged billing entries and
+# requires permission "billing-write"
+@pytest.mark.freeze_time("2023-11-06")
+@pytest.mark.parametrize(
+    "role__name,is_charged,is_other_group,has_permission,expect_forbidden",
+    [
+        ("Municipality", True, False, True, True),
+        ("Municipality", False, False, True, False),
+        ("Municipality", False, True, True, True),
+        ("Municipality", False, False, False, True),
+    ],
+)
+def test_billing_entry_delete_acl(
+    db,
+    admin_client,
+    billing_v2_entry,
+    is_charged,
+    is_other_group,
+    has_permission,
+    expect_forbidden,
+    group_factory,
+    permissions_settings,
+    instance_acl_factory,
+    mocker,
+) -> None:
+    permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.FULL
+    mocker.patch(
+        "camac.permissions.api.PermissionManager.get_permissions",
+        return_value=["billing-write"] if has_permission else [],
+    )
+    instance_acl_factory(
+        instance=billing_v2_entry.instance,
+        service=admin_client.user.groups.first().service,
+    )
+
+    if is_charged:
+        billing_v2_entry.date_charged = timezone.now().date()
+
+    if is_other_group:
+        billing_v2_entry.group = group_factory()
+
+    billing_v2_entry.save()
+
+    url = reverse("billing-v2-entry-detail", args=[billing_v2_entry.pk])
+    response = admin_client.delete(url)
+
+    assert response.status_code == (
+        status.HTTP_403_FORBIDDEN if expect_forbidden else status.HTTP_204_NO_CONTENT
+    )
+    assert (
+        BillingV2Entry.objects.filter(pk=billing_v2_entry.pk).exists()
+        == expect_forbidden
+    )
+
+
+# Updating billing entries is forbidden
+@pytest.mark.parametrize("role__name", [("Municipality"), ("Service")])
+def test_billing_entry_update(
+    db,
+    admin_client,
+    instance,
+    billing_v2_entry,
+    group_factory,
+) -> None:
+    text_before = billing_v2_entry.text
+
+    data = {
+        "data": {
+            "id": billing_v2_entry.pk,
+            "type": "billing-v2-entries",
+            "attributes": {
+                "calculation": BillingV2Entry.CalculationModes.CALCULATION_FLAT,
+                "tax-mode": BillingV2Entry.TaxModes.TAX_MODE_EXEMPT,
+                "tax-rate": 0,
+                "text": "Test update",
+            },
+        }
+    }
+    url = reverse("billing-v2-entry-detail", args=[billing_v2_entry.pk])
+    response = admin_client.patch(url, data=data)
+
+    assert response.status_code == status.HTTP_403_FORBIDDEN
+
+    billing_v2_entry.refresh_from_db()
+    assert billing_v2_entry.text == text_before
 
 
 @pytest.mark.parametrize("role__name", [("Municipality")])

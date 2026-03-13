@@ -69,7 +69,7 @@
             "billing.product-number"
           }}</th>
       {{/if}}
-      {{#if (can "edit billing-v2-entries")}}
+      {{#if (await (can "edit billing-v2-entries"))}}
         <th data-test-delete></th>
       {{/if}}
     </tr>

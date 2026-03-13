@@ -247,6 +247,7 @@ AG_PERMISSIONS_SETTINGS = {
         ],
         "distribution-service": [
             ("billing-read", MODULE_BILLING),
+            ("billing-write", MODULE_BILLING),
             (
                 "billing-charge",
                 MODULE_BILLING
@@ -288,6 +289,7 @@ AG_PERMISSIONS_SETTINGS = {
             ("additional-demands-write", MODULE_ADDITIONAL_DEMANDS),
             ("audit-read", MODULE_AUDIT),
             ("billing-read", MODULE_BILLING),
+            ("billing-write", MODULE_BILLING),
             ("billing-charge", MODULE_BILLING),
             ("cantonal-exam-read", MODULE_CANTONAL_EXAM),
             ("communications-read", MODULE_COMMUNICATIONS),

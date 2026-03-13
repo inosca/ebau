@@ -15,10 +15,10 @@ export default class BillingTableComponent extends Component {
   });
 
   get colspanTotalLabel() {
-    return this.#colspanTotalLabel.value;
+    return this.#colspanTotalLabel.value ?? 0;
   }
 
-  get colspanTotalFill() {
+  #colspanTotalFill = trackedFunction(this, async () => {
     let colspan = 1;
 
     if (hasFeature("billing.charge")) {
@@ -45,11 +45,15 @@ export default class BillingTableComponent extends Component {
       colspan += 1;
     }
 
-    if (this.abilities.can("edit billing-v2-entries")) {
+    if (await this.abilities.can("edit billing-v2-entries")) {
       colspan += 1;
     }
 
     return colspan;
+  });
+
+  get colspanTotalFill() {
+    return this.#colspanTotalFill.value ?? 0;
   }
 
   get fullColspan() {
