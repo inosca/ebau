@@ -1,6 +1,7 @@
 import re
 import xml.dom.minidom as minidom
 from collections import namedtuple
+from copy import deepcopy
 from datetime import date, datetime
 
 import pytest
@@ -580,7 +581,7 @@ def file_setup(
 
 
 @pytest.fixture
-def category_setup(db, application_settings, attachment_section_factory):
+def category_setup(db, application_settings, attachment_section_factory, mocker):
     def fn_alexandria():
         visible_category = CategoryFactory(
             metainfo={"access": {"Municipality": {"visibility": "all"}}}
@@ -602,7 +603,10 @@ def category_setup(db, application_settings, attachment_section_factory):
         return visible_category, uploadable_category, invisible_category
 
     def fn_camac():
-        perms = document_permissions.PERMISSIONS[application_settings["SHORT_NAME"]]
+        perm_config = deepcopy(document_permissions.PERMISSIONS)
+
+        perms = perm_config[application_settings["SHORT_NAME"]]
+
         perms.setdefault("municipality", {})
 
         visible_category = attachment_section_factory()
@@ -616,6 +620,8 @@ def category_setup(db, application_settings, attachment_section_factory):
         perms["municipality"][document_permissions.AdminPermission].append(
             uploadable_category.pk
         )
+
+        mocker.patch("camac.document.permissions.PERMISSIONS", perm_config)
 
         invisible_category = attachment_section_factory()
 
