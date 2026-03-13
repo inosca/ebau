@@ -1,4 +1,4 @@
-{{#if (can "add journal-entry")}}
+{{#if (await (can "add journal-entry"))}}
   {{#if this.newEntry.edit}}
     <JournalTextarea
       @journalEntry={{this.newEntry}}

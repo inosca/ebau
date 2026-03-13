@@ -3,14 +3,22 @@ import { Ability } from "ember-can";
 
 export default class JournalEntryAbility extends Ability {
   @service ebauModules;
+  @service permissions;
 
-  get canAdd() {
+  async canAdd() {
+    if (this.permissions.fullyEnabled) {
+      return await this.permissions.hasAll(
+        this.ebauModules.instanceId,
+        "journal-write",
+      );
+    }
+
     return !this.ebauModules.isReadOnlyRole;
   }
 
-  get canEdit() {
+  async canEdit() {
     return (
-      this.canAdd &&
+      (await this.canAdd()) &&
       parseInt(this.ebauModules.userId) ===
         parseInt(this.model?.belongsTo("user").id()) &&
       parseInt(this.ebauModules.serviceId) ===

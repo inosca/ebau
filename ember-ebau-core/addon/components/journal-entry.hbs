@@ -32,7 +32,10 @@
         </div>
       </div>
       {{#if
-        (and (can "edit journal-entry" @journalEntry) (not @journalEntry.edit))
+        (and
+          (await (can "edit journal-entry" @journalEntry))
+          (not @journalEntry.edit)
+        )
       }}
         <div>
           <UkButton

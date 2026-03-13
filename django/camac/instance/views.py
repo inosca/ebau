@@ -1321,6 +1321,9 @@ class JournalEntryView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
     def has_object_update_permission_rbac_for_legal_authority(self, obj):
         return self._matching_user_and_service(obj)
 
+    def has_object_destroy_permission(self, obj):
+        return False
+
 
 class HistoryEntryView(
     mixins.InstanceQuerysetMixin, mixins.InstanceEditableMixin, views.ModelViewSet
