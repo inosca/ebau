@@ -3360,33 +3360,42 @@ def set_document_backend(application_settings):
 
 def _validateable_settings():
     """
-    Return all module's settings names for modules that use module-settings.
+    Return all settings to be used for leak analysis.
 
-    In other words return all settings that can reasonably be checked for
-    leaks (see `ensure_no_leaks` fixture below). Additionally, the APPLICATIONS
-    object is added to the list as well, as this is the most likely to cause
-    leaks.
+    This contains all module settings, as well as some other, module-local config
+    dicts/lists etc.
+
+    The returned list contains strings representing fully-qualified names of
+    the settings objects.
     """
     from camac.settings.utils import get_all_modules
 
-    return [m.upper() for m in get_all_modules()] + ["APPLICATIONS"]
+    settings_modules = [
+        f"camac.settings.modules.{mod}.{mod.upper()}" for mod in get_all_modules()
+    ]
+
+    return settings_modules + [
+        "camac.settings.django.APPLICATIONS",
+        "camac.caluma.extensions.countries.COUNTRIES",
+        "camac.caluma.extensions.data_sources.LANGUAGES",
+        "camac.document.permissions.PERMISSIONS",
+        "camac.core.management.commands.config.bab.MAPPING",
+        "camac.core.management.commands.config.bab.VALUE_MAPPING",
+        "camac.core.management.commands.kt_uri_statistic.CATEGORIES",
+        "camac.core.management.commands.kt_uri_statistic.BUILDING_TYPES",
+        "camac.core.management.commands.kt_uri_statistic.PROPOSALS",
+        "camac.core.management.commands.kt_uri_statistic.RECONSTRUCTION",
+        "camac.core.management.commands.kt_uri_statistic.BAB_TYPE_OF_MEASURE",
+        "camac.core.management.commands.kt_uri_statistic.BAB_TYPE_OF_OBJECT",
+        "camac.core.management.commands.kt_uri_statistic.BAB_LEGAL_BASIS",
+        "camac.core.management.commands.kt_uri_statistic.BAB_TYPE_OF_CLIENT",
+    ]
 
 
 def _get_module_settings(setting_name):
-    """Return the settings module as imported for the given module.
-
-    the `setting_name` parameter is expected to be an uppercase name of the
-    module, as it's settings object is named in the settings module.
-    """
-    # try using the original module settings object
-    origin = f"camac.settings.modules.{setting_name.lower()}"
-    try:
-        return getattr(import_module(origin), setting_name)
-    except ImportError:
-        # fallback: use the (generated) setting from the main settings module.
-        # This should only happen for APPLICATIONS
-        assert setting_name == "APPLICATIONS"
-        return getattr(django_settings, setting_name)
+    """Return the settings module as imported for the given module."""
+    origin, name = setting_name.rsplit(".", 1)
+    return getattr(import_module(origin), name)
 
 
 _before_settings = {}
@@ -3427,6 +3436,9 @@ def ensure_no_leaks(request):
             # Canton-wise diffing for reduced output in case of error
             for kt in set(before.keys()) | set(after.keys()):
                 assert before[kt] == after[kt], f"Module {s} leaks. check canton {kt}"
+        elif isinstance(after, list | tuple):
+            # List setting, most likely some module-local thingy
+            assert before == after, f"Settings object {s} leaks"
         else:
             # pydantic settings. Again, canton-wise diffing for reduced
             # output in case of issues
