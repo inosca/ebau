@@ -1,10 +1,4 @@
-{{#if
-  (or
-    this.publications.isRunning
-    this.createPublicationWorkItem.isRunning
-    this.refetchPublications.isRunning
-  )
-}}
+{{#if (or this.publications.isRunning this.refetchPublications.isRunning)}}
   <div class="uk-text-center"><UkSpinner @ratio={{2}} /></div>
 {{else if this.publications.value.length}}
   <UkTab @right={{true}} as |Tab|>
@@ -45,21 +39,16 @@
   </UkTab>
 
   {{outlet}}
-{{else if this.createPublicationWorkItem.value.id}}
+{{else}}
   <TaskButton
     class="uk-margin-right"
     @color="primary"
-    @task={{if
-      (eq @model.type "neighbors")
-      "create-information-of-neighbors"
-      "create-publication"
-    }}
+    @task={{this.createTask}}
     @mutation="complete"
     @filters={{this.filters}}
     @onSuccess={{this.refreshNavigation}}
     @label={{t (concat "publication.new." @model.type)}}
   />
-{{else}}
   <p class="uk-text-italic uk-text-center">
     {{t (concat "publication.empty." @model.type)}}
   </p>

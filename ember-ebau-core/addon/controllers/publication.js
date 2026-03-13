@@ -6,11 +6,9 @@ import { queryManager, getObservable } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
 import { DateTime, Interval } from "luxon";
 import { trackedTask } from "reactiveweb/ember-concurrency";
-import { cached } from "tracked-toolbox";
 
 import mainConfig from "ember-ebau-core/config/main";
 import getPublications from "ember-ebau-core/gql/queries/get-publications.graphql";
-import getWorkItemOfTask from "ember-ebau-core/gql/queries/get-work-item-of-task.graphql";
 import { getAnswer } from "ember-ebau-core/utils/get-answer";
 
 export default class PublicationController extends Controller {
@@ -25,21 +23,22 @@ export default class PublicationController extends Controller {
     this.variables,
   ]);
 
-  createPublicationWorkItem = trackedTask(
-    this,
-    this.fetchCreatePublicationWorkItem,
-    () => [this.variables],
-  );
-
   get #config() {
     return mainConfig.publication[this.model.type];
+  }
+
+  get createTask() {
+    assert(
+      `A 'createTask' must be defined for type "${this.model.type}".`,
+      this.#config.createTask,
+    );
+    return this.#config.createTask;
   }
 
   get instanceId() {
     return this.ebauModules.instanceId;
   }
 
-  @cached
   get variables() {
     const { task, dateRanges } = this.#config;
     assert(`A 'task' must be defined for type "${this.model.type}".`, task);
@@ -71,7 +70,6 @@ export default class PublicationController extends Controller {
   @dropTask
   *refetchPublications() {
     yield getObservable(this.publications.value).refetch();
-    yield getObservable(this.createPublicationWorkItem.value)?.refetch();
   }
 
   @dropTask
@@ -82,32 +80,6 @@ export default class PublicationController extends Controller {
         "allWorkItems.edges",
       );
     } catch {
-      this.notification.danger(this.intl.t("publication.loadingError"));
-    }
-  }
-
-  @dropTask
-  *fetchCreatePublicationWorkItem() {
-    assert(
-      `A 'createTask' must be defined for type "${this.model.type}".`,
-      this.#config.createTask,
-    );
-
-    try {
-      return yield this.apollo.watchQuery(
-        {
-          query: getWorkItemOfTask,
-          variables: {
-            ...this.variables,
-            task: this.#config.createTask,
-            status: "READY",
-            invert: false,
-          },
-        },
-        "allWorkItems.edges.0.node",
-      );
-    } catch (err) {
-      console.error(err);
       this.notification.danger(this.intl.t("publication.loadingError"));
     }
   }
