@@ -108,8 +108,23 @@ class ServiceView(MultilangMixin, ModelViewSet):
     filterset_class = filters.ServiceFilterSet
     serializer_class = serializers.ServiceSerializer
     queryset = models.Service.objects.all()
-    ordering = ["name"]
+
     search_fields = ["email", "trans__name"]
+
+    @property
+    def ordering(self):
+        """Define default sorting for services (only sorting in fact).
+
+        Multilingual applications should sort the services
+        by translated name, non-multilingual ones by the "main" name.
+
+        Note that the model defines a default sort order, but that one
+        is not intuitive for users (and the service admin view re-sorts
+        the services by name, and we don't want to have "flickering")
+        """
+        if settings.APPLICATION.get("IS_MULTILINGUAL"):
+            return "trans__name"
+        return "name"
 
     def has_destroy_permission(self):
         return False

@@ -813,3 +813,29 @@ def test_service_merge_municipality(
         )
         assert service_4.get_name() == f"To service 4 ({municipality_2.name})"
         assert service_5.get_name() == f"To service 5 ({municipality_2.name})"
+
+
+@pytest.mark.parametrize("multilingual", [True, False])
+@pytest.mark.parametrize("role__name", ["Municipality"])
+def test_service_list_sorted(
+    service_factory, admin_client, multilingual, application_settings
+):
+    """Ensure the returned list of services is sorted by (translated) name."""
+
+    application_settings["IS_MULTILINGUAL"] = multilingual
+    service_factory.create_batch(20)
+
+    url = reverse("service-list")
+    displayed_names = []
+
+    for page in range(1, 6):
+        response = admin_client.get(url, {"page[size]": 5, "page[number]": page})
+        assert response.status_code == status.HTTP_200_OK
+        data = response.json()
+
+        for rec in data["data"]:
+            displayed_names.append(rec["attributes"]["name"])
+
+        assert sorted(displayed_names) == displayed_names, (
+            f"After loading page {page}, ordering is inconsistent"
+        )
