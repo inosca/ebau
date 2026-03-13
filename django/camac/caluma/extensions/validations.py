@@ -1,3 +1,7 @@
+from __future__ import annotations
+
+import re
+import typing
 from datetime import timedelta
 
 from caluma.caluma_core.events import send_event
@@ -9,8 +13,12 @@ from caluma.caluma_form.schema import (
     SaveDocumentTableAnswer,
 )
 from caluma.caluma_workflow.events import post_create_work_item
-from caluma.caluma_workflow.models import WorkItem
-from caluma.caluma_workflow.schema import CompleteWorkItem
+from caluma.caluma_workflow.models import Case, WorkItem
+from caluma.caluma_workflow.schema import (
+    CompleteWorkItem,
+    SaveCase,
+    SaveWorkItem,
+)
 from django.conf import settings
 from django.db.models import Q
 from django.utils.translation import gettext_noop
@@ -21,6 +29,52 @@ from camac.caluma.utils import (
     sync_inquiry_deadline,
 )
 from camac.core.translations import get_translations
+
+if typing.TYPE_CHECKING:  # pragma: no cover
+    from django.db.model import Model
+
+RESETTABLE_META_VALUES: dict[typing.Type[Model], list[str]] = {
+    Case: [
+        # Users can reset paper-submit-date in dossier header
+        "paper-submit-date",
+    ],
+    WorkItem: [
+        # Some deadline & notification handling happens in the validation
+        # layer automatically and therefore must be allowed to be reset
+        "not-viewed",
+        "notify-deadline",
+        "notify-completed",
+    ],
+}
+
+
+def validate_metainfo(model_obj: Model, value: dict):
+    """Validate the metainfo for "lost" values.
+
+    If an update comes from a client with expired data, we don't want to lose
+    possibly already-entered data.
+
+    Note: Expects a freshly-loaded model object as parameter, as it will use that
+    for comparison to ensure the meta value is not lost
+    """
+
+    model_cls = type(model_obj)
+    original_value = getattr(model_obj, "meta")
+
+    resettable = RESETTABLE_META_VALUES.get(model_cls, [])
+
+    # Check for fields being removed, or set to None
+    for field, orig_value in original_value.items():
+        if field in resettable:
+            # resettable, we don't care
+            continue
+        if value.get(field, None) is None and orig_value is not None:
+            # We had a value before, but now we don't; and the
+            # field is not configured as being resettable
+            raise exceptions.ValidationError(
+                f"Cannot reset {field} from {model_cls.__name__}.meta"
+            )
+    return value
 
 
 class CustomValidation(BaseValidation):
@@ -174,4 +228,28 @@ class CustomValidation(BaseValidation):
                 }
             ).exclude(pk__in=existing_work_items).delete()
 
+        return data
+
+    @validation_for(SaveCase)
+    def validate_meta_case(self, mutation, data, info):
+        # checking for metainfo key deletion
+        if "meta" in data:
+            if "id" in data:
+                # this we only do for existing cases
+                validate_metainfo(Case.objects.get(pk=data["id"]), data["meta"])
+
+            # checking paper-submit-date:
+            # Must be either empty, None, or yyyy-mm-dd
+            paper_submit_date = data["meta"].get("paper-submit-date", "")
+            if paper_submit_date and not re.match(
+                r"^\d\d\d\d-\d\d-\d\d", paper_submit_date
+            ):
+                raise exceptions.ValidationError("Invalid paper submit date")
+        return data
+
+    @validation_for(SaveWorkItem)
+    def validate_meta_workitem(self, mutation, data, info):
+        if "meta" in data and "id" in data:
+            # Only check for existing work items
+            validate_metainfo(WorkItem.objects.get(pk=data["id"]), data["meta"])
         return data
