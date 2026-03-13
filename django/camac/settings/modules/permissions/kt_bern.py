@@ -451,7 +451,7 @@ BE_PERMISSIONS_SETTINGS = {
             ("journal-read", BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES),
             ("journal-write", GEOMETER_RW),
             ("responsible-read", BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES),
-            ("responsible-write", BE_GEOMETER_DEFAULT_ACCESSIBLE_STATES),
+            ("responsible-write", GEOMETER_RW),
             ("tags-read", MODULE_HEADER_READ),
             ("tags-write", MODULE_HEADER_WRITE),
             ("work-items-read", GEOMETER_RW),

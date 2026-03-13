@@ -26,7 +26,7 @@
     </tbody>
   </table>
 
-  {{#if (can "edit responsible-service")}}
+  {{#if (await (can "edit responsible-service"))}}
     <form
       {{on "submit" this.saveResponsibility.perform}}
       class="uk-form-stacked"
