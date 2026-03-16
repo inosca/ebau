@@ -83,7 +83,7 @@ def test_resolve_send_handler(xml_file, expected_send_handler):
 @pytest.mark.freeze_time("2022-06-03")
 @pytest.mark.parametrize("service_group__name", ["municipality"])
 @pytest.mark.parametrize(
-    "judgement,instance_state_name,has_permission,is_vorabklaerung,active,expected_state_name,document_backend",
+    "judgement,instance_state_name,has_permission,is_vorabklaerung,active,expected_state_name,document_backend,has_alexandria_move_permission",
     [
         (
             ECH_JUDGEMENT_DECLINED,
@@ -93,6 +93,7 @@ def test_resolve_send_handler(xml_file, expected_send_handler):
             "leitbehoerde",
             "rejected",
             "camac-ng",
+            False,
         ),
         (
             ECH_JUDGEMENT_WRITTEN_OFF,
@@ -102,6 +103,7 @@ def test_resolve_send_handler(xml_file, expected_send_handler):
             "leitbehoerde",
             None,
             "camac-ng",
+            False,
         ),
         (
             ECH_JUDGEMENT_APPROVED,
@@ -111,6 +113,7 @@ def test_resolve_send_handler(xml_file, expected_send_handler):
             "leitbehoerde",
             "sb1",
             "camac-ng",
+            False,
         ),
         (
             ECH_JUDGEMENT_APPROVED,
@@ -120,8 +123,18 @@ def test_resolve_send_handler(xml_file, expected_send_handler):
             "leitbehoerde",
             "sb1",
             "camac-ng",
+            False,
         ),
-        (ECH_JUDGEMENT_APPROVED, "circulation", True, False, "rsta", "sb1", "camac-ng"),
+        (
+            ECH_JUDGEMENT_APPROVED,
+            "circulation",
+            True,
+            False,
+            "rsta",
+            "sb1",
+            "camac-ng",
+            False,
+        ),
         (
             ECH_JUDGEMENT_APPROVED,
             "circulation",
@@ -130,6 +143,7 @@ def test_resolve_send_handler(xml_file, expected_send_handler):
             "leitbehoerde",
             "evaluated",
             "camac-ng",
+            False,
         ),
         (
             ECH_JUDGEMENT_APPROVED,
@@ -139,6 +153,17 @@ def test_resolve_send_handler(xml_file, expected_send_handler):
             "leitbehoerde",
             "evaluated",
             "alexandria",
+            False,
+        ),
+        (
+            ECH_JUDGEMENT_APPROVED,
+            "circulation",
+            True,
+            True,
+            "leitbehoerde",
+            "evaluated",
+            "alexandria",
+            True,
         ),
         (
             ECH_JUDGEMENT_DECLINED,
@@ -148,6 +173,7 @@ def test_resolve_send_handler(xml_file, expected_send_handler):
             "leitbehoerde",
             None,
             "camac-ng",
+            False,
         ),
     ],
 )
@@ -155,6 +181,7 @@ def test_notice_ruling_send_handler(
     judgement,
     instance_state_name,
     has_permission,
+    has_alexandria_move_permission,
     is_vorabklaerung,
     active,
     expected_state_name,
@@ -239,6 +266,10 @@ def test_notice_ruling_send_handler(
         "camac.ech0211.send_handlers.has_alexandria_create_permission",
         return_value=True,
     )
+    mocker.patch(
+        "camac.ech0211.send_handlers.has_alexandria_move_permission",
+        return_value=has_alexandria_move_permission,
+    )
     existing_alexandria_file = alexandria_factories.FileFactory(
         document=alexandria_factories.DocumentFactory(
             id="e39500fd-3eb1-48a5-afe4-0e3b03c4f13a",
@@ -319,6 +350,13 @@ def test_notice_ruling_send_handler(
 
     if has_permission:
         expected_state = instance_state_factory(name=expected_state_name)
+
+        if document_backend == "alexandria" and not has_alexandria_move_permission:
+            with pytest.raises(SendHandlerException):
+                handler.apply()
+
+            return
+
         handler.apply()
         ech_instance_be.refresh_from_db()
         assert ech_instance_be.previous_instance_state == state

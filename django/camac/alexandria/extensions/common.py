@@ -164,3 +164,100 @@ def has_alexandria_delete_permission(request: Request, document: Document) -> bo
             f"{category.pk}:delete",
         ),
     )
+
+
+def has_alexandria_move_permission(
+    request: Request,
+    instance: Instance,
+    document: Document,
+    new_category: Category,
+) -> bool:
+    """Check move permission for a request on an instance and the categories.
+
+    This will either use v2 or v1 permissions depending on the configuration of
+    the canton.
+    """
+    old_category = document.category
+
+    from camac.alexandria.extensions.permissions.extension import (
+        MODE_CREATE,
+        MODE_UPDATE,
+    )
+
+    if not settings.ALEXANDRIA["USE_V2_PERMISSIONS"]:
+        from camac.alexandria.extensions.permissions.extension import CustomPermission
+
+        custom_permission = CustomPermission()
+        service_id = request.group.service_id if request.group else None
+
+        available_permissions_old = custom_permission.get_available_permissions(
+            request,
+            instance,
+            old_category,
+            document,
+            service_id,
+        )
+        if f"{MODE_UPDATE}-category" not in available_permissions_old:
+            return False
+
+        available_permissions_new_category = (
+            custom_permission.get_available_permissions(
+                request,
+                instance,
+                new_category,
+                document,
+                service_id,
+            )
+        )
+        needed_permissions_new_category = {MODE_CREATE}
+
+        # if the document already has marks, we need to make sure that the
+        # new category allows the applied marks
+        if document.marks.exists():
+            for mark in document.marks.all():
+                needed_permissions_new_category.add(f"{MODE_UPDATE}-marks-{mark.pk}")
+
+        return needed_permissions_new_category.issubset(
+            available_permissions_new_category
+        )
+
+    return (
+        AlexandriaPermissionManager.from_request(request)
+        .scoped_for(document)
+        .has(
+            P.any(f"{old_category.pk}:all", f"{old_category.pk}:move")
+            & P.any(f"{new_category.pk}:all", f"{new_category.pk}:create")
+        )
+    )
+
+
+def has_alexandria_mark_permission(
+    request: Request,
+    document: Document,
+    mark_pk: str,
+) -> bool:
+    """Check mark permission for a request on a document.
+
+    This will either use v2 or v1 permissions depending on the configuration of
+    the canton.
+    """
+
+    from camac.alexandria.extensions.permissions.extension import (
+        MODE_UPDATE,
+    )
+
+    instance = document.instance_document.instance
+    category = document.category
+
+    return has_alexandria_permission(
+        request,
+        instance,
+        category,
+        document,
+        f"{MODE_UPDATE}-marks-{mark_pk}",
+        P.any(
+            f"{category.pk}:all",
+            f"{category.pk}:mark:all",
+            f"{category.pk}:mark:{mark_pk}",
+        ),
+    )

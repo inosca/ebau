@@ -17,7 +17,10 @@ from django.core.files.base import ContentFile
 from django.utils.translation import gettext as _
 from lxml import etree
 
-from camac.alexandria.extensions.common import has_alexandria_create_permission
+from camac.alexandria.extensions.common import (
+    has_alexandria_create_permission,
+    has_alexandria_move_permission,
+)
 from camac.alexandria.extensions.visibilities import (
     CustomVisibility as CustomAlexandriaVisibility,
 )
@@ -109,6 +112,22 @@ class AlexandriaDocumentMixin:
         self, category: alexandria_models.Category
     ):
         if not has_alexandria_create_permission(self.request, self.instance, category):
+            raise SendHandlerException(
+                "Document category permission denied.",
+                status=400,
+            )
+
+    def check_alexandria_category_move_permission(
+        self,
+        document: alexandria_models.Document,
+        new_category: alexandria_models.Category,
+    ):
+        if not has_alexandria_move_permission(
+            self.request,
+            self.instance,
+            document=document,
+            new_category=new_category,
+        ):
             raise SendHandlerException(
                 "Document category permission denied.",
                 status=400,
@@ -322,7 +341,9 @@ class NoticeRulingSendHandler(
             )
             for doc in alexandria_documents:
                 if doc.category != alexandria_category:
-                    self.check_alexandria_category_permission(alexandria_category)
+                    self.check_alexandria_category_move_permission(
+                        document=doc, new_category=alexandria_category
+                    )
 
                     doc.category = alexandria_category
                     doc.save(update_fields=["category"])

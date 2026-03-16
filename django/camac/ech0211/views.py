@@ -3,6 +3,7 @@ import urllib.parse
 import zipfile
 from io import BytesIO
 
+from alexandria.core import models as alexandria_models
 from alexandria.core.models import File as AlexandriaFile
 from django.conf import settings
 from django.core.exceptions import ValidationError
@@ -41,7 +42,10 @@ from rest_framework_json_api.renderers import JSONRenderer as JSONAPIRenderer
 from rest_framework_json_api.views import ReadOnlyModelViewSet
 from rest_framework_xml.renderers import XMLRenderer
 
-from camac.alexandria.extensions.common import has_alexandria_delete_permission
+from camac.alexandria.extensions.common import (
+    has_alexandria_delete_permission,
+    has_alexandria_mark_permission,
+)
 from camac.communications.models import CommunicationsAttachment
 from camac.constants.kt_bern import ECH_BASE_DELIVERY
 from camac.core.views import EnforcePaginationMixin
@@ -138,6 +142,44 @@ def conditional_factory(when_ok, check_callback):
             return NoOperationAutoSchema(*args, **kwargs)
 
     return the_actual_factory
+
+
+def _check_alexandria_delete_document(
+    request, document: ECH0211AlexandriaDocument
+) -> None:
+    if not has_alexandria_delete_permission(request, document):
+        raise PermissionDenied()
+
+    # do not allow deletion of files that are linked to a communication attachment
+    if CommunicationsAttachment.objects.filter(
+        alexandria_file__document=document
+    ).exists():
+        raise PermissionDenied()
+
+
+def _check_camac_delete_document(document: ECH0211Document) -> Response | None:
+    # We deal with a "document-in-one-category" here, so
+    # correct semantics is to delete a document in the "current" category,
+    # and only delete it if it's removed from all categories.
+    has_other_sections = document.attachment.attachment_sections.exclude(
+        pk=document.category.pk
+    ).exists()
+
+    if has_other_sections:
+        # Therefore, here, we only "delete" it from the category. This also means any
+        # communications attachments are not "in danger" yet.
+        document.attachment.attachment_sections.remove(
+            AttachmentSection.objects.get(pk=document.category.pk)
+        )
+
+        # We return here - we're not checking for comms attachments here,
+        # as there's still at least one "copy" of our attachment around
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+    if CommunicationsAttachment.objects.filter(
+        document_attachment=document.attachment
+    ).exists():
+        raise PermissionDenied()
 
 
 class FileSwaggerAutoSchema(SwaggerAutoSchema):
@@ -469,9 +511,7 @@ class ECHFileView(
 
     @swagger_auto_schema(
         tags=["Documents and files for eCH-0211 clients"],
-        manual_parameters=[
-            group_param,
-        ],
+        manual_parameters=[group_param],
         operation_summary="Download file",
         operation_description=get_operation_description(
             # This was here for alexandria cantons already, but for camac-ng it's "preview mode"
@@ -570,9 +610,7 @@ class ECHFileView(
 
     @swagger_auto_schema(
         tags=["Documents and files for eCH-0211 clients"],
-        manual_parameters=[
-            group_param,
-        ],
+        manual_parameters=[group_param],
         operation_summary="Delete a file",
         operation_description=get_operation_description(
             # This was here for alexandria cantons already, but for camac-ng it's "preview mode"
@@ -593,16 +631,9 @@ class ECHFileView(
 
     def _destroy_alexandria(self, request, *args, **kwargs):
         file = self.get_object()
-
-        if not has_alexandria_delete_permission(request, file.document):
-            raise PermissionDenied()
-
-        # do not allow deletion of files that are linked to a communication attachment
-        if CommunicationsAttachment.objects.filter(alexandria_file=file).exists():
-            raise PermissionDenied()
-
-        # execute the file deletion
         document = file.document
+
+        _check_alexandria_delete_document(request, document)
         response = super().destroy(request, *args, **kwargs)
 
         # also delete the document if it has no remaining files
@@ -612,31 +643,9 @@ class ECHFileView(
         return response
 
     def _destroy_camac(self, request, *args, **kwargs):
-        # We deal with a "document-in-one-category" here, so
-        # correct semantics is to delete a document in the "current" category,
-        # and only delete it if it's removed from all categories.
-
         ech_doc = self.get_object()
-
-        has_other_sections = ech_doc.attachment.attachment_sections.exclude(
-            pk=ech_doc.category.pk
-        ).exists()
-
-        if has_other_sections:
-            # Therefore, here, we only "delete" it from the category. This also means any
-            # communications attachments are not "in danger" yet.
-            ech_doc.attachment.attachment_sections.remove(
-                AttachmentSection.objects.get(pk=ech_doc.category.pk)
-            )
-
-            # We return here - we're not checking for comms attachments here,
-            # as there's still at least one "copy" of our attachment around
-            return Response(status=status.HTTP_204_NO_CONTENT)
-
-        if CommunicationsAttachment.objects.filter(
-            document_attachment=ech_doc.attachment
-        ).exists():
-            raise PermissionDenied()
+        if response := _check_camac_delete_document(ech_doc):
+            return response
 
         return super().destroy(request, *args, **kwargs)
 
@@ -688,7 +697,11 @@ class ECHCategoryView(
 
 
 class ECHDocumentView(
-    ECHGeofenceMixin, VisibilityViewMixin, EnforcePaginationMixin, ReadOnlyModelViewSet
+    ECHGeofenceMixin,
+    VisibilityViewMixin,
+    EnforcePaginationMixin,
+    DestroyModelMixin,
+    ReadOnlyModelViewSet,
 ):
     renderer_classes = (JSONAPIRenderer,)
     allow_external_clients = True
@@ -791,3 +804,107 @@ class ECHDocumentView(
     )
     def retrieve(self, request, *args, **kwargs):
         return super().retrieve(request, *args, **kwargs)
+
+    @swagger_auto_schema(
+        tags=["Documents and files for eCH-0211 clients"],
+        manual_parameters=[group_param],
+        operation_summary="Mark a document as void",
+        operation_description=get_operation_description(is_preview=True),
+        responses={
+            status.HTTP_204_NO_CONTENT: openapi.Response("File was updated"),
+            status.HTTP_400_BAD_REQUEST: openapi.Response("Invalid request"),
+            status.HTTP_403_FORBIDDEN: openapi.Response("Permission denied"),
+        },
+        auto_schema=conditional_factory(
+            SwaggerAutoSchema,
+            lambda: (
+                not is_camac_backend()
+                and DocumentAPIFeature.can(DocumentAPIFeature.DOCUMENTS_VOID)
+            ),
+        ),
+    )
+    @action(detail=True, methods=["post"], url_path="void")
+    def void(self, request, pk=None):
+        if is_camac_backend() or not DocumentAPIFeature.can(
+            DocumentAPIFeature.DOCUMENTS_VOID
+        ):
+            raise NotFound()
+
+        return self._update_mark(document=self.get_object(), mark_pk="void", add=True)
+
+    @swagger_auto_schema(
+        tags=["Documents and files for eCH-0211 clients"],
+        manual_parameters=[group_param],
+        operation_summary="Unmark a document as void",
+        operation_description=get_operation_description(is_preview=True),
+        responses={
+            status.HTTP_204_NO_CONTENT: openapi.Response("File was updated"),
+            status.HTTP_400_BAD_REQUEST: openapi.Response("Invalid request"),
+            status.HTTP_403_FORBIDDEN: openapi.Response("Permission denied"),
+        },
+        auto_schema=conditional_factory(
+            SwaggerAutoSchema,
+            lambda: (
+                not is_camac_backend()
+                and DocumentAPIFeature.can(DocumentAPIFeature.DOCUMENTS_UNVOID)
+            ),
+        ),
+    )
+    @action(detail=True, methods=["post"], url_path="unvoid")
+    def unvoid(self, request, pk=None):
+        if is_camac_backend() or not DocumentAPIFeature.can(
+            DocumentAPIFeature.DOCUMENTS_UNVOID
+        ):
+            raise NotFound()
+
+        return self._update_mark(document=self.get_object(), mark_pk="void", add=False)
+
+    @swagger_auto_schema(
+        tags=["Documents and files for eCH-0211 clients"],
+        manual_parameters=[group_param],
+        operation_summary="Delete a document",
+        operation_description=get_operation_description(is_preview=True),
+        auto_schema=conditional_factory(
+            SwaggerAutoSchema,
+            lambda: DocumentAPIFeature.can(DocumentAPIFeature.DOCUMENTS_DELETE),
+        ),
+    )
+    def destroy(self, *args, **kwargs):
+        if not DocumentAPIFeature.can(DocumentAPIFeature.DOCUMENTS_DELETE):
+            raise NotFound()
+
+        if is_camac_backend():
+            return self._destroy_camac(*args, **kwargs)
+
+        return self._destroy_alexandria(*args, **kwargs)
+
+    def _update_mark(self, document, mark_pk: str, add: bool) -> Response:
+        if not has_alexandria_mark_permission(self.request, document, mark_pk):
+            raise PermissionDenied()
+
+        mark = alexandria_models.Mark.objects.filter(pk=mark_pk).first()
+        if add:
+            if document.marks.filter(pk=mark_pk).exists():
+                raise RestValidationError(f"Document already has the {mark_pk} mark.")
+
+            document.marks.add(mark)
+        else:
+            if not document.marks.filter(pk=mark_pk).exists():
+                raise RestValidationError(f"Document does not have the {mark_pk} mark.")
+
+            document.marks.remove(mark)
+
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+    def _destroy_alexandria(self, request, *args, **kwargs):
+        document = self.get_object()
+        _check_alexandria_delete_document(request, document)
+
+        return super().destroy(request, *args, **kwargs)
+
+    def _destroy_camac(self, request, *args, **kwargs):
+        ech_doc = self.get_object()
+        if response := _check_camac_delete_document(ech_doc):
+            return response
+
+        return super().destroy(request, *args, **kwargs)
