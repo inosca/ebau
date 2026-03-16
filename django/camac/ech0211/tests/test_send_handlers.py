@@ -1,3 +1,4 @@
+import copy
 import re
 from datetime import datetime
 from unittest.mock import Mock
@@ -238,6 +239,21 @@ def test_notice_ruling_send_handler(
         "camac.ech0211.send_handlers.has_alexandria_create_permission",
         return_value=True,
     )
+    existing_alexandria_file = alexandria_factories.FileFactory(
+        document=alexandria_factories.DocumentFactory(
+            id="e39500fd-3eb1-48a5-afe4-0e3b03c4f13a",
+            metainfo={"camac-instance-id": ech_instance_be.pk},
+            title="test.pdf",
+            # assign to a random category at first.
+            category=alexandria_factories.CategoryFactory(),
+        ),
+        name="existing.pdf",
+    )
+    mocker.patch(
+        "camac.alexandria.extensions.visibilities.CustomVisibility.filter_queryset_for_document",
+        side_effect=lambda queryset, request: queryset,
+    )
+    assert category.documents.count() == 0
 
     attachment_section_beteiligte_behoerden = attachment_section_factory(
         pk=ATTACHMENT_SECTION_BETEILIGTE_BEHOERDEN
@@ -255,6 +271,14 @@ def test_notice_ruling_send_handler(
     data = CreateFromDocument(xml_data("notice_ruling"))
 
     data.eventNotice.decisionRuling.judgement = judgement
+
+    # append an existing alexandria document, to check that it is moved
+    # to the configured category via the notice ruling event.
+    if document_backend == "alexandria":
+        new_doc = data.eventNotice.document[0]
+        existing_doc = copy.deepcopy(new_doc)
+        existing_doc.uuid = str(existing_alexandria_file.document.pk)
+        data.eventNotice.document.append(existing_doc)
 
     state = instance_state_factory(name=instance_state_name)
     ech_instance_be.instance_state = state
@@ -304,8 +328,9 @@ def test_notice_ruling_send_handler(
         assert message.receiver == ech_instance_be.responsible_service()
         ech_snapshot(message.body)
         if document_backend == "alexandria":
-            assert category.documents.count() == 1
-            assert category.documents.first().marks.first().pk == mark.pk
+            # both the new and the existing file must be assigned to
+            # the configured category and have the mark.
+            assert category.documents.filter(marks=mark).count() == 2
         else:
             attachment.refresh_from_db()
             assert attachment.attachment_sections.get(

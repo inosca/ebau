@@ -314,11 +314,19 @@ class NoticeRulingSendHandler(
             decision_mark = alexandria_models.Mark.objects.get(
                 pk=settings.ECH0211["NOTICE_RULING"]["ALEXANDRIA_MARK"]
             )
+            alexandria_category = alexandria_models.Category.objects.get(
+                slug=settings.ECH0211["NOTICE_RULING"]["ALEXANDRIA_CATEGORY"]
+            )
             alexandria_documents = self.convert_xml_to_alexandria_documents(
-                self.data.eventNotice.document,
-                settings.ECH0211["NOTICE_RULING"]["ALEXANDRIA_CATEGORY"],
+                self.data.eventNotice.document, alexandria_category.slug
             )
             for doc in alexandria_documents:
+                if doc.category != alexandria_category:
+                    self.check_alexandria_category_permission(alexandria_category)
+
+                    doc.category = alexandria_category
+                    doc.save(update_fields=["category"])
+
                 doc.marks.add(decision_mark)
         else:
             attachments = self.get_attachments(self.data.eventNotice.document)
