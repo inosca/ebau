@@ -36,6 +36,9 @@ class DocumentAPIFeature(enum.Enum):
     FILES_DOWNLOAD = "file-download"
     FILES_MULTI_DOWNLOAD = "file-multi-download"
     DOCUMENTS_READ = "documents-read"
+    DOCUMENTS_VOID = "documents-void"
+    DOCUMENTS_UNVOID = "documents-unvoid"
+    DOCUMENTS_DELETE = "documents-delete"
     CATEGORIES_READ = "categories-read"
 
     @classmethod
@@ -446,6 +449,10 @@ ECH0211 = {
             DocumentAPIFeature.FILES_UPLOAD,
             DocumentAPIFeature.FILES_DELETE,
             DocumentAPIFeature.FILES_DOWNLOAD,
+            DocumentAPIFeature.DOCUMENTS_READ,
+            DocumentAPIFeature.DOCUMENTS_DELETE,
+            DocumentAPIFeature.DOCUMENTS_VOID,
+            DocumentAPIFeature.DOCUMENTS_UNVOID,
         ],
         "ALLOW_SUBMIT_BY_MUNICIPALITY": True,
         "STATUS_NOTIFICATION_TYPES": [
