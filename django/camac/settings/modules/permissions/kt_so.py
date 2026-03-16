@@ -137,26 +137,33 @@ MODULE_RELATED_GWR_PROJECTS = (
 MODULE_RESPONSIBLE = STATES_ALL & ROLES_NO_READONLY
 MODULE_WORK_ITEMS = STATES_ALL & ROLES_NO_READONLY
 
-MODULE_PORTAL_APPLICANTS = HasApplicantRole(["ADMIN"])
+MODULE_PORTAL_APPLICANTS = HasApplicantRole(["ADMIN", "PROJECT_OWNER"])
 MODULE_PORTAL_COMMUNICATIONS_READ = ~RequireInstanceState(["new"])
 MODULE_PORTAL_COMMUNICATIONS_WRITE = (
-    MODULE_PORTAL_COMMUNICATIONS_READ & HasApplicantRole(["ADMIN", "EDITOR"])
+    MODULE_PORTAL_COMMUNICATIONS_READ
+    & HasApplicantRole(["ADMIN", "EDITOR", "PROJECT_OWNER"])
 )
 MODULE_PORTAL_FORM_READ = Always()
 MODULE_PORTAL_FORM_WRITE = RequireWorkItem("submit", "ready") & (
-    HasApplicantRole(["ADMIN", "EDITOR"]) | (ROLES_MUNICIPALITY & IsPaper())
+    HasApplicantRole(["ADMIN", "EDITOR", "PROJECT_OWNER"])
+    | (ROLES_MUNICIPALITY & IsPaper())
 )
 MODULE_PORTAL_DOCUMENTS_WRITE = (
     RequireWorkItem("submit", "ready")
     | RequireWorkItem("fill-additional-demand", "ready")
-) & (HasApplicantRole(["ADMIN", "EDITOR"]) | (ROLES_MUNICIPALITY & IsPaper()))
+) & (
+    HasApplicantRole(["ADMIN", "EDITOR", "PROJECT_OWNER"])
+    | (ROLES_MUNICIPALITY & IsPaper())
+)
 MODULE_PORTAL_ADDITIONAL_DEMANDS_READ = RequireWorkItem("fill-additional-demand")
 MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE = (
-    MODULE_PORTAL_ADDITIONAL_DEMANDS_READ & HasApplicantRole(["ADMIN", "EDITOR"])
+    MODULE_PORTAL_ADDITIONAL_DEMANDS_READ
+    & HasApplicantRole(["ADMIN", "EDITOR", "PROJECT_OWNER"])
 )
 MODULE_PORTAL_CONSTRUCTION_MONITORING_READ = RequireWorkItem("construction-stage")
 MODULE_PORTAL_CONSTRUCTION_MONITORING_WRITE = (
-    MODULE_PORTAL_CONSTRUCTION_MONITORING_READ & HasApplicantRole(["ADMIN", "EDITOR"])
+    MODULE_PORTAL_CONSTRUCTION_MONITORING_READ
+    & HasApplicantRole(["ADMIN", "EDITOR", "PROJECT_OWNER"])
 )
 
 MODULE_DEADLINES_SUSPENSION = (
@@ -171,13 +178,13 @@ MODULE_DEADLINES_DEADLINE = (
 )
 
 ACTION_INSTANCE_COPY_AFTER_REJECTION = RequireInstanceState(["rejected"]) & (
-    HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper())
+    HasApplicantRole(["ADMIN", "PROJECT_OWNER"]) | (ROLES_MUNICIPALITY & IsPaper())
 )
 ACTION_INSTANCE_DELETE = RequireInstanceState(["new"]) & (
-    HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper())
+    HasApplicantRole(["ADMIN", "PROJECT_OWNER"]) | (ROLES_MUNICIPALITY & IsPaper())
 )
 ACTION_INSTANCE_SUBMIT = RequireWorkItem("submit", "ready") & (
-    HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper())
+    HasApplicantRole(["ADMIN", "PROJECT_OWNER"]) | (ROLES_MUNICIPALITY & IsPaper())
 )
 ACTION_INSTANCE_WITHDRAW = (
     RequireInstanceState(
@@ -189,11 +196,11 @@ ACTION_INSTANCE_WITHDRAW = (
             "decision",
         ]
     )
-    & (HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper()))
+    & (HasApplicantRole(["ADMIN", "PROJECT_OWNER"]) | (ROLES_MUNICIPALITY & IsPaper()))
     & ~IsAppeal()
 )
 ACTION_INSTANCE_CREATE_MODIFICATION = RequireWorkItem("construction-stage", "ready") & (
-    HasApplicantRole(["ADMIN"]) | (ROLES_MUNICIPALITY & IsPaper())
+    HasApplicantRole(["ADMIN", "PROJECT_OWNER"]) | (ROLES_MUNICIPALITY & IsPaper())
 )
 ACTION_INSTANCE_DOWNLOAD_AS_PDF = STATES_ALL | RequireInstanceState(
     ["correction", "new"]

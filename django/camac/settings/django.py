@@ -2657,6 +2657,7 @@ APPLICATIONS = {
                 "MAIN": "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
             },
         },
+        "SYSTEM_USER": "service-account-camac-admin",
     },
     "kt_ag": {
         "SHORT_NAME": "ag",

@@ -16,6 +16,11 @@ permissions:
     public-anonymous: Öffentlicher Zugriff (nicht registriert)
     token: Via Zugriffscode
     role: Rolle
+    applicant-roles:
+      project-owner: "Bauherrschaft"
+      admin: "Administrator/in"
+      editor: "Mitbearbeiter/in"
+      read-only: "Einsichtsberechtigt"
 
   placeholder:
     name: "-"

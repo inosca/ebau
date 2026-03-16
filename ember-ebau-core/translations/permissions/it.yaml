@@ -15,6 +15,11 @@ permissions:
     public-anonymous: Accesso pubblico (non registrato)
     token: Attraverso codice di accesso
     role: Ruolo
+    applicant-roles:
+      project-owner: "Committente"
+      admin: "Amministratrice/tore"
+      editor: "Collaboratrice/tore"
+      read-only: "Persona autorizzata a prendere visione"
 
   placeholder:
     name: "-"
