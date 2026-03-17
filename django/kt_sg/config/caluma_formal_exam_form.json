@@ -861,7 +861,7 @@
         "color": "primary",
         "action": "complete",
         "show_validation": true,
-        "validate_on_enter": false
+        "validate_on_enter": true
       },
       "meta": {},
       "data_source": null,
