@@ -620,6 +620,10 @@ class ECHFileView(
             SwaggerAutoSchema,
             lambda: DocumentAPIFeature.can(DocumentAPIFeature.FILES_DELETE),
         ),
+        # use the documents delete endpoint instead of files delete.
+        # if the documents delete endpoint is enabled, show the files
+        # endpoint as deprecated.
+        deprecated=DocumentAPIFeature.can(DocumentAPIFeature.DOCUMENTS_DELETE),
     )
     def destroy(self, *args, **kwargs):
         if not DocumentAPIFeature.can(DocumentAPIFeature.FILES_DELETE):
