@@ -42,6 +42,42 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "durchgefuehrte-voranfragen",
+    "fields": {
+      "created_at": "2026-03-17T12:32:52.499Z",
+      "modified_at": "2026-03-17T12:32:52.499Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Durchgeführte Voranfragen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Baugesuch > Allgemeine Informationen > Durchgeführte Voranfragen\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "durchgefuehrte-voranfragen-tabelle",
+    "fields": {
+      "created_at": "2026-03-17T12:31:47.496Z",
+      "modified_at": "2026-03-17T12:31:47.496Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Durchgeführte Voranfragen Tabelle\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "einreichen",
     "fields": {
       "created_at": "2026-02-13T11:33:23.913Z",
@@ -150,6 +186,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "allgemeine-informationen.durchgefuehrte-voranfragen",
+    "fields": {
+      "created_at": "2026-03-17T12:33:23.970Z",
+      "modified_at": "2026-03-17T12:33:23.970Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "allgemeine-informationen",
+      "question": "durchgefuehrte-voranfragen",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "allgemeine-informationen.lage-des-vorhabens",
     "fields": {
       "created_at": "2026-02-11T08:55:25.115Z",
@@ -221,6 +272,156 @@
       "form": "baugesuch",
       "question": "einreichen",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "durchgefuehrte-voranfragen.durchgefuehrte-voranfragen-tabelle",
+    "fields": {
+      "created_at": "2026-03-17T12:35:06.289Z",
+      "modified_at": "2026-03-17T12:35:06.289Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "durchgefuehrte-voranfragen",
+      "question": "durchgefuehrte-voranfragen-tabelle",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "durchgefuehrte-voranfragen.durchgefuehrte-voranfragen-titel",
+    "fields": {
+      "created_at": "2026-03-17T12:33:40.195Z",
+      "modified_at": "2026-03-17T12:33:40.195Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "durchgefuehrte-voranfragen",
+      "question": "durchgefuehrte-voranfragen-titel",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "durchgefuehrte-voranfragen-tabelle.amts-fachstelle",
+    "fields": {
+      "created_at": "2026-03-17T12:36:47.601Z",
+      "modified_at": "2026-03-17T12:36:47.601Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "durchgefuehrte-voranfragen-tabelle",
+      "question": "amts-fachstelle",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "durchgefuehrte-voranfragen-tabelle.andere-fachstelle",
+    "fields": {
+      "created_at": "2026-03-17T12:37:38.965Z",
+      "modified_at": "2026-03-17T12:37:38.965Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "durchgefuehrte-voranfragen-tabelle",
+      "question": "andere-fachstelle",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "durchgefuehrte-voranfragen-tabelle.bemerkungen-durchgefuehrte-voranfragen",
+    "fields": {
+      "created_at": "2026-03-17T12:40:11.225Z",
+      "modified_at": "2026-03-17T12:40:11.225Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "durchgefuehrte-voranfragen-tabelle",
+      "question": "bemerkungen-durchgefuehrte-voranfragen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "durchgefuehrte-voranfragen-tabelle.datum",
+    "fields": {
+      "created_at": "2026-03-17T12:38:42.031Z",
+      "modified_at": "2026-03-17T12:38:42.031Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "durchgefuehrte-voranfragen-tabelle",
+      "question": "datum",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "durchgefuehrte-voranfragen-tabelle.kontaktperson",
+    "fields": {
+      "created_at": "2026-03-17T12:38:06.660Z",
+      "modified_at": "2026-03-17T12:38:06.660Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "durchgefuehrte-voranfragen-tabelle",
+      "question": "kontaktperson",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "durchgefuehrte-voranfragen-tabelle.referenz",
+    "fields": {
+      "created_at": "2026-03-17T12:37:57.007Z",
+      "modified_at": "2026-03-17T12:37:57.007Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "durchgefuehrte-voranfragen-tabelle",
+      "question": "referenz",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "durchgefuehrte-voranfragen-tabelle.telefon-optional",
+    "fields": {
+      "created_at": "2026-03-17T12:39:42.496Z",
+      "modified_at": "2026-03-17T12:39:42.496Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "durchgefuehrte-voranfragen-tabelle",
+      "question": "telefon-optional",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "durchgefuehrte-voranfragen.wurden-voranfragen-durchgefuehrt",
+    "fields": {
+      "created_at": "2026-03-17T12:34:13.718Z",
+      "modified_at": "2026-03-17T12:34:13.718Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "durchgefuehrte-voranfragen",
+      "question": "wurden-voranfragen-durchgefuehrt",
+      "sort": 2
     }
   },
   {
@@ -1082,6 +1283,23 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "art-des-vorhabens-abbruch-anlagen",
+    "fields": {
+      "created_at": "2026-03-17T11:54:27.857Z",
+      "modified_at": "2026-03-17T11:54:27.857Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anlagen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "art-des-vorhabens-abbruch-gastronomiebetrieb",
     "fields": {
       "created_at": "2026-03-12T13:03:14.004Z",
@@ -1167,6 +1385,23 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "art-des-vorhabens-neubau-anlagen",
+    "fields": {
+      "created_at": "2026-03-17T11:54:14.985Z",
+      "modified_at": "2026-03-17T11:54:14.985Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anlagen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "art-des-vorhabens-neubau-gastronomiebetrieb",
     "fields": {
       "created_at": "2026-03-12T12:59:50.241Z",
@@ -1244,6 +1479,23 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Umbau / Erweiterung / Innere Aufstockung / Sanierung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-des-vorhabens-umbau-anlagen",
+    "fields": {
+      "created_at": "2026-03-17T11:54:21.441Z",
+      "modified_at": "2026-03-17T11:54:21.441Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anlagen\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -1523,6 +1775,40 @@
     }
   },
   {
+    "model": "caluma_form.option",
+    "pk": "wurden-voranfragen-durchgefuehrt-ja",
+    "fields": {
+      "created_at": "2026-03-17T12:34:13.627Z",
+      "modified_at": "2026-03-17T12:34:13.627Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wurden-voranfragen-durchgefuehrt-nein",
+    "fields": {
+      "created_at": "2026-03-17T12:34:13.628Z",
+      "modified_at": "2026-03-17T12:34:13.628Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
     "model": "caluma_form.question",
     "pk": "allgemeine-informationen",
     "fields": {
@@ -1546,6 +1832,71 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "allgemeine-informationen",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "amts-fachstelle",
+    "fields": {
+      "created_at": "2026-03-17T12:36:47.562Z",
+      "modified_at": "2026-03-17T12:46:56.106Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Amts- / Fachstelle\", \"fr\": null, \"it\": null}",
+      "type": "dynamic_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": "PreliminaryClarificationTargets",
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "andere-fachstelle",
+    "fields": {
+      "created_at": "2026-03-17T12:37:38.932Z",
+      "modified_at": "2026-03-17T12:37:38.932Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere Fachstelle\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "\"amts-fachstelle\"|answer != \"-1\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -1589,7 +1940,7 @@
     "pk": "art-des-vorhabens-abbruch",
     "fields": {
       "created_at": "2026-03-12T13:03:14.045Z",
-      "modified_at": "2026-03-12T13:03:44.121Z",
+      "modified_at": "2026-03-17T11:54:27.901Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -1620,7 +1971,7 @@
     "pk": "art-des-vorhabens-neubau",
     "fields": {
       "created_at": "2026-03-12T12:59:50.300Z",
-      "modified_at": "2026-03-12T13:00:05.840Z",
+      "modified_at": "2026-03-17T11:54:15.026Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -1651,7 +2002,7 @@
     "pk": "art-des-vorhabens-umbau",
     "fields": {
       "created_at": "2026-03-12T13:02:35.434Z",
-      "modified_at": "2026-03-12T13:04:50.346Z",
+      "modified_at": "2026-03-17T11:54:21.482Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -1806,6 +2157,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "bemerkungen-durchgefuehrte-voranfragen",
+    "fields": {
+      "created_at": "2026-03-17T12:40:11.191Z",
+      "modified_at": "2026-03-17T12:40:11.191Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "beschreibung-bauvorhaben",
     "fields": {
       "created_at": "2026-02-10T15:59:09.860Z",
@@ -1827,6 +2212,137 @@
         "max_length": null,
         "min_length": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "datum",
+    "fields": {
+      "created_at": "2026-03-17T12:38:41.993Z",
+      "modified_at": "2026-03-17T12:38:41.993Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Datum\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "durchgefuehrte-voranfragen",
+    "fields": {
+      "created_at": "2026-03-17T12:33:23.932Z",
+      "modified_at": "2026-03-17T12:33:23.932Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Durchgeführte Voranfragen\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "durchgefuehrte-voranfragen",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "durchgefuehrte-voranfragen-tabelle",
+    "fields": {
+      "created_at": "2026-03-17T12:35:06.250Z",
+      "modified_at": "2026-03-17T12:40:40.120Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Durchgeführte Voranfragen\", \"fr\": null, \"it\": null}",
+      "type": "table",
+      "is_required": "true",
+      "is_hidden": "!(\"wurden-voranfragen-durchgefuehrt\"|answer == \"wurden-voranfragen-durchgefuehrt-ja\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "columnsToDisplay": [
+          "amts-fachstelle",
+          "kontaktperson",
+          "telefon-optional",
+          "datum"
+        ]
+      },
+      "data_source": null,
+      "row_form": "durchgefuehrte-voranfragen-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "durchgefuehrte-voranfragen-titel",
+    "fields": {
+      "created_at": "2026-03-17T12:33:40.160Z",
+      "modified_at": "2026-03-17T12:33:40.160Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Durchgeführte Voranfragen Titel\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"### Durchgeführte Voranfragen\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -2431,6 +2947,40 @@
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "kontaktperson",
+    "fields": {
+      "created_at": "2026-03-17T12:38:06.621Z",
+      "modified_at": "2026-03-17T12:38:06.621Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kontaktperson\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -3057,6 +3607,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "referenz",
+    "fields": {
+      "created_at": "2026-03-17T12:37:56.971Z",
+      "modified_at": "2026-03-17T12:37:56.971Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Referenz\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Haben Sie von der Amts- / Fachstelle eine Referenz zu dieser Voranfrage erhalten?\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "sondernutzungsplan",
     "fields": {
       "created_at": "2026-03-12T13:07:09.024Z",
@@ -3175,6 +3759,74 @@
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[\"phone-number\"]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "telefon-handy-optional",
+    "fields": {
+      "created_at": "2026-03-17T12:39:18.107Z",
+      "modified_at": "2026-03-17T12:39:18.107Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Telefon / Handy\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[\"phone-number\"]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "telefon-optional",
+    "fields": {
+      "created_at": "2026-03-17T12:39:42.459Z",
+      "modified_at": "2026-03-17T12:39:42.459Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Telefon\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -3419,6 +4071,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "wurden-voranfragen-durchgefuehrt",
+    "fields": {
+      "created_at": "2026-03-17T12:34:13.678Z",
+      "modified_at": "2026-03-17T12:34:13.678Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wurden Voranfragen durchgeführt?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "zonenplan",
     "fields": {
       "created_at": "2026-03-12T13:06:53.636Z",
@@ -3487,62 +4170,77 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "art-des-vorhabens-abbruch.art-des-vorhabens-abbruch-anlagen",
+    "fields": {
+      "created_at": "2026-03-17T11:54:27.904Z",
+      "modified_at": "2026-03-17T11:54:27.904Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-des-vorhabens-abbruch",
+      "option": "art-des-vorhabens-abbruch-anlagen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "art-des-vorhabens-abbruch.art-des-vorhabens-abbruch-gastronomiebetrieb",
     "fields": {
-      "created_at": "2026-03-12T13:03:44.127Z",
-      "modified_at": "2026-03-12T13:03:44.127Z",
+      "created_at": "2026-03-17T11:54:27.907Z",
+      "modified_at": "2026-03-17T11:54:27.907Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "art-des-vorhabens-abbruch",
       "option": "art-des-vorhabens-abbruch-gastronomiebetrieb",
-      "sort": 2
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-des-vorhabens-abbruch.art-des-vorhabens-abbruch-industrie-gewerbe",
     "fields": {
-      "created_at": "2026-03-12T13:03:44.129Z",
-      "modified_at": "2026-03-12T13:03:44.129Z",
+      "created_at": "2026-03-17T11:54:27.909Z",
+      "modified_at": "2026-03-17T11:54:27.909Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "art-des-vorhabens-abbruch",
       "option": "art-des-vorhabens-abbruch-industrie-gewerbe",
-      "sort": 3
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-des-vorhabens-abbruch.art-des-vorhabens-abbruch-kleinbaute",
     "fields": {
-      "created_at": "2026-03-12T13:03:44.125Z",
-      "modified_at": "2026-03-12T13:03:44.125Z",
+      "created_at": "2026-03-17T11:54:27.906Z",
+      "modified_at": "2026-03-17T11:54:27.906Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "art-des-vorhabens-abbruch",
       "option": "art-des-vorhabens-abbruch-kleinbaute",
-      "sort": 1
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-des-vorhabens-abbruch.art-des-vorhabens-abbruch-wohnhaus",
     "fields": {
-      "created_at": "2026-03-12T13:03:44.131Z",
-      "modified_at": "2026-03-12T13:03:44.131Z",
+      "created_at": "2026-03-17T11:54:27.909Z",
+      "modified_at": "2026-03-17T11:54:27.910Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "art-des-vorhabens-abbruch",
       "option": "art-des-vorhabens-abbruch-wohnhaus",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -3592,122 +4290,152 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "art-des-vorhabens-neubau.art-des-vorhabens-neubau-anlagen",
+    "fields": {
+      "created_at": "2026-03-17T11:54:15.030Z",
+      "modified_at": "2026-03-17T11:54:15.030Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-des-vorhabens-neubau",
+      "option": "art-des-vorhabens-neubau-anlagen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "art-des-vorhabens-neubau.art-des-vorhabens-neubau-gastronomiebetrieb",
     "fields": {
-      "created_at": "2026-03-12T13:00:05.844Z",
-      "modified_at": "2026-03-12T13:00:05.844Z",
+      "created_at": "2026-03-17T11:54:15.033Z",
+      "modified_at": "2026-03-17T11:54:15.033Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "art-des-vorhabens-neubau",
       "option": "art-des-vorhabens-neubau-gastronomiebetrieb",
-      "sort": 2
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-des-vorhabens-neubau.art-des-vorhabens-neubau-industrie-gewerbe",
     "fields": {
-      "created_at": "2026-03-12T13:00:05.845Z",
-      "modified_at": "2026-03-12T13:00:05.845Z",
+      "created_at": "2026-03-17T11:54:15.035Z",
+      "modified_at": "2026-03-17T11:54:15.035Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "art-des-vorhabens-neubau",
       "option": "art-des-vorhabens-neubau-industrie-gewerbe",
-      "sort": 3
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-des-vorhabens-neubau.art-des-vorhabens-neubau-kleinbaute",
     "fields": {
-      "created_at": "2026-03-12T13:00:05.843Z",
-      "modified_at": "2026-03-12T13:00:05.843Z",
+      "created_at": "2026-03-17T11:54:15.031Z",
+      "modified_at": "2026-03-17T11:54:15.031Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "art-des-vorhabens-neubau",
       "option": "art-des-vorhabens-neubau-kleinbaute",
-      "sort": 1
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-des-vorhabens-neubau.art-des-vorhabens-neubau-wohnhaus",
     "fields": {
-      "created_at": "2026-03-12T13:00:05.846Z",
-      "modified_at": "2026-03-12T13:00:05.846Z",
+      "created_at": "2026-03-17T11:54:15.037Z",
+      "modified_at": "2026-03-17T11:54:15.037Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "art-des-vorhabens-neubau",
       "option": "art-des-vorhabens-neubau-wohnhaus",
-      "sort": 4
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-des-vorhabens-umbau.art-des-vorhabens-umbau-anlagen",
+    "fields": {
+      "created_at": "2026-03-17T11:54:21.484Z",
+      "modified_at": "2026-03-17T11:54:21.484Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-des-vorhabens-umbau",
+      "option": "art-des-vorhabens-umbau-anlagen",
+      "sort": 1
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-des-vorhabens-umbau.art-des-vorhabens-umbau-gastronomiebetrieb",
     "fields": {
-      "created_at": "2026-03-12T13:04:50.350Z",
-      "modified_at": "2026-03-12T13:04:50.350Z",
+      "created_at": "2026-03-17T11:54:21.486Z",
+      "modified_at": "2026-03-17T11:54:21.486Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "art-des-vorhabens-umbau",
       "option": "art-des-vorhabens-umbau-gastronomiebetrieb",
-      "sort": 2
+      "sort": 3
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-des-vorhabens-umbau.art-des-vorhabens-umbau-industrie-gewerbe",
     "fields": {
-      "created_at": "2026-03-12T13:04:50.351Z",
-      "modified_at": "2026-03-12T13:04:50.351Z",
+      "created_at": "2026-03-17T11:54:21.487Z",
+      "modified_at": "2026-03-17T11:54:21.487Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "art-des-vorhabens-umbau",
       "option": "art-des-vorhabens-umbau-industrie-gewerbe",
-      "sort": 3
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-des-vorhabens-umbau.art-des-vorhabens-umbau-kleinbaute",
     "fields": {
-      "created_at": "2026-03-12T13:04:50.349Z",
-      "modified_at": "2026-03-12T13:04:50.349Z",
+      "created_at": "2026-03-17T11:54:21.485Z",
+      "modified_at": "2026-03-17T11:54:21.485Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "art-des-vorhabens-umbau",
       "option": "art-des-vorhabens-umbau-kleinbaute",
-      "sort": 1
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "art-des-vorhabens-umbau.art-des-vorhabens-umbau-wohnhaus",
     "fields": {
-      "created_at": "2026-03-12T13:04:50.353Z",
-      "modified_at": "2026-03-12T13:04:50.353Z",
+      "created_at": "2026-03-17T11:54:21.488Z",
+      "modified_at": "2026-03-17T11:54:21.488Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "art-des-vorhabens-umbau",
       "option": "art-des-vorhabens-umbau-wohnhaus",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -3888,6 +4616,36 @@
       "question": "weitere-personen",
       "option": "weitere-personen-rechnungsempfaengerin",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wurden-voranfragen-durchgefuehrt.wurden-voranfragen-durchgefuehrt-ja",
+    "fields": {
+      "created_at": "2026-03-17T12:34:13.683Z",
+      "modified_at": "2026-03-17T12:34:13.683Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "wurden-voranfragen-durchgefuehrt",
+      "option": "wurden-voranfragen-durchgefuehrt-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wurden-voranfragen-durchgefuehrt.wurden-voranfragen-durchgefuehrt-nein",
+    "fields": {
+      "created_at": "2026-03-17T12:34:13.681Z",
+      "modified_at": "2026-03-17T12:34:13.681Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "wurden-voranfragen-durchgefuehrt",
+      "option": "wurden-voranfragen-durchgefuehrt-nein",
+      "sort": 1
     }
   }
 ]

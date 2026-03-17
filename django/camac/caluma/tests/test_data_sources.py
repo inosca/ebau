@@ -462,21 +462,25 @@ def test_municipalities_with_instance_ag(
     assert set([r[1]["de"] for r in data]) == set(expected)
 
 
-def test_preliminary_clarfication_targets(db, caluma_admin_user, service_factory):
+def test_preliminary_clarfication_targets_so(
+    db, caluma_admin_user, service_factory, application_settings
+):
+    application_settings["SHORT_NAME"] = "so"
+
     service_factory(
         trans__name="AfU",
         trans__language="de",
-        service_group__name="service-cantonal",
+        service_group__slug="service-cantonal",
     )
     service_factory(
         trans__name="Procap",
         trans__language="de",
-        service_group__name="service-extra-cantonal",
+        service_group__slug="service-extra-cantonal",
     )
     service_factory(
         trans__name="ARP",
         trans__language="de",
-        service_group__name="service-bab",
+        service_group__slug="service-bab",
     )
 
     data = PreliminaryClarificationTargets().get_data(caluma_admin_user, None, None)
@@ -486,6 +490,30 @@ def test_preliminary_clarfication_targets(db, caluma_admin_user, service_factory
     assert data[2][1]["de"] == "AfU"
     assert data[3][1]["de"] == "ARP"
     assert data[4][1]["de"] == "Procap"
+
+
+def test_preliminary_clarfication_targets_sg(
+    db, caluma_admin_user, service_factory, application_settings
+):
+    application_settings["SHORT_NAME"] = "sg"
+
+    service_factory(
+        trans__name="AfU",
+        trans__language="de",
+        service_group__slug="service",
+    )
+    service_factory(
+        trans__name="Koordinationsstelle Bau",
+        trans__language="de",
+        service_group__slug="coordination",
+    )
+
+    data = PreliminaryClarificationTargets().get_data(caluma_admin_user, None, None)
+
+    assert data[0][1]["de"] == "Andere"
+    assert data[1][1]["de"] == "Örtliche Baubehörde"
+    assert data[2][1]["de"] == "AfU"
+    assert data[3][1]["de"] == "Koordinationsstelle Bau"
 
 
 def test_buildings(
