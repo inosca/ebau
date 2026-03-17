@@ -12,7 +12,7 @@ from camac.core.utils import create_history_entry
 from camac.ech0211.signals import ruling
 from camac.instance import domain_logic
 from camac.notification.utils import send_mail_without_request
-from camac.permissions.config.kt_gr import gr_include_gvg
+from camac.permissions.config.kt_gr import should_include_gvg as gr_should_include_gvg
 from camac.permissions.events import core as permissions_events
 from camac.stats.cycle_time import compute_cycle_time
 from camac.user.models import User
@@ -26,7 +26,7 @@ def send_notifications(instance, context, user, work_item):
         instance, work_item
     )
 
-    if not gr_include_gvg(instance):
+    if not gr_should_include_gvg(instance):
         notification_config = [
             config
             for config in notification_config
