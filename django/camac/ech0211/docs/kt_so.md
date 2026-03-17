@@ -60,7 +60,10 @@ Verschiedene Aufgaben werden gemäss Spezifikation direkt in eBau erledigt. Unte
   - `keywords` enthält alle Tags (zB: `vollmacht-dokument`)
 - In einer `application` wird immer der Status `6701` gesetzt. Der korrekte Status aus dem eBau findet sich unter `namedMetaData.status`. Bei einer `statusNotification` wird immer der Status `in progress` gesetzt. Der korrekte Status findet sich im `remark`.
 - `buildingCategory` wird immer auf `1040` gesetzt.
-- `documentStatusType` wird immer auf `undefined` gesetzt.
+- `documentStatusType` wird wie folgt gemappt:
+  - Standard: `created`
+  - Ungültig: `invalidated`
+  - Entscheid: `approved`
 - `realestateType` wird immer auf `8` gesetzt.
 - Properties, die in eCH zwingend sind, in eBau jedoch nicht, werden bei nichtvorhandensein mit `unknown` befüllt.
 - In eBau ist es möglich, auch ausländische Adressen zu erfassen. Bei solchen wird die Postleitzahl auf `9999` gesetzt, falls sie nicht vierstellig sein sollte.

@@ -64,7 +64,6 @@ Verschiedene Aufgaben werden gemäss Spezifikation direkt in eBau erledigt. Unte
 - Der eCH-Standard forciert, dass bei den meisten Meldungen ein `document` mitgeschickt wird. Dieses `document` wird (mit Ausnahme von `accompanyingReport`) von eBau ignoriert. Dokumente werden über unsere API hoch- und heruntergeladen. Beim Hochladen werden sie bereits einer `Instance`, sowie einer oder mehreren `AttachmentSection` zugewiesen. Somit sind Dokumente in eCH Meldungen, die von eBau erhalten werden, redundant und werden ignoriert.
 
   Bei ausgehenden Meldungen werden die Dokumente jedoch korrekt abgefüllt. Dabei gilt zu beachten:
-
   - `documentKind` enthält den Namen der `Category`
   - `keywords` enthält alle Tags (zB: `vollmacht-dokument`)
 
@@ -72,7 +71,10 @@ Verschiedene Aufgaben werden gemäss Spezifikation direkt in eBau erledigt. Unte
 
 - `buildingCategory` wird immer auf `1040` gesetzt.
 
-- `documentStatusType` wird immer auf `undefined` gesetzt.
+- `documentStatusType` wird wie folgt gemappt:
+  - Standard: `created`
+  - Ungültig: `invalidated`
+  - Entscheid: `approved`
 
 - `realestateType` wird immer auf `8` gesetzt.
 
