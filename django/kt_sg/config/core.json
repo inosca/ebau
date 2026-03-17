@@ -81,7 +81,7 @@
       "template": null,
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 6,
+      "sort": 7,
       "form_group": 1,
       "require_permission": "formal-exam-read"
     }
@@ -113,7 +113,7 @@
       "template": "/ember/instance.phtml",
       "class_field": "menu-category-primary",
       "hidden": 0,
-      "sort": 3,
+      "sort": 4,
       "form_group": 1,
       "require_permission": "form-read"
     }
@@ -129,7 +129,7 @@
       "template": "/ember-camac-ng/responsible.phtml",
       "class_field": "menu-category-primary",
       "hidden": 0,
-      "sort": 5,
+      "sort": 6,
       "form_group": 1,
       "require_permission": "responsible-read"
     }
@@ -145,7 +145,7 @@
       "template": "/ember-camac-ng/journal.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 8,
+      "sort": 9,
       "form_group": 1,
       "require_permission": "journal-read"
     }
@@ -161,7 +161,7 @@
       "template": null,
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 9,
+      "sort": 10,
       "form_group": 1,
       "require_permission": "history-read"
     }
@@ -177,7 +177,7 @@
       "template": "/ember-camac-ng/permissions.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 10,
+      "sort": 11,
       "form_group": 1,
       "require_permission": "permissions-read"
     }
@@ -193,7 +193,7 @@
       "template": "/ember-camac-ng/alexandria.phtml",
       "class_field": "menu-category-primary",
       "hidden": 0,
-      "sort": 4,
+      "sort": 5,
       "form_group": 1,
       "require_permission": "documents-read"
     }
@@ -209,7 +209,7 @@
       "template": "/ember-camac-ng/communications.phtml",
       "class_field": "menu-category-meta",
       "hidden": 0,
-      "sort": 2,
+      "sort": 3,
       "form_group": 1,
       "require_permission": "communications-read"
     }
@@ -225,9 +225,25 @@
       "template": "/ember-camac-ng/rejection.phtml",
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
-      "sort": 7,
+      "sort": 8,
       "form_group": 1,
       "require_permission": "rejection-read"
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 11,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 2,
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/linked-instances.phtml",
+      "class_field": "menu-category-meta",
+      "hidden": 0,
+      "sort": 2,
+      "form_group": 1,
+      "require_permission": "linked-instances-read"
     }
   },
   {
@@ -327,6 +343,16 @@
       "instance_resource": 10,
       "language": "de",
       "name": "Dossier zurückweisen",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 11,
+    "fields": {
+      "instance_resource": 11,
+      "language": "de",
+      "name": "Verknüpfte Dossiers",
       "description": null
     }
   },
