@@ -24,6 +24,30 @@
     }
   },
   {
+    "model": "notification.notificationtemplate",
+    "pk": 3,
+    "fields": {
+      "slug": "gesuchsbearbeitungs-einladung-bestehend",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 4,
+    "fields": {
+      "slug": "gesuchsbearbeitungs-einladung-neu",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
     "model": "notification.notificationtemplatet",
     "pk": 1,
     "fields": {
@@ -45,6 +69,30 @@
       "purpose": "Neue Nachricht (Behörden)",
       "subject": "Neue Nachricht (Dossier-Nr. {{ DOSSIER_NR }})",
       "body": "Guten Tag\n\nSie haben eine neue Nachricht im Dossier Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) erhalten.\n\n{{ INTERNAL_DOSSIER_LINK }}/communications\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 3,
+    "fields": {
+      "template": 3,
+      "template_slug": "gesuchsbearbeitungs-einladung-bestehend",
+      "language": "de",
+      "purpose": "Gesuchsbearbeitungs Einladung, Bestehend",
+      "subject": "Einsicht respektive Mitarbeit in Dossier (Nr. {{ DOSSIER_NR }})",
+      "body": "Guten Tag\n\nSie haben von {{GESUCHSTELLER}} den Zugriff auf das Dossier-Nr. {{ DOSSIER_NR }} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}, {{ PUBLIC_DOSSIER_LINK }}) erhalten. Damit können Sie dieses einsehen und mitbearbeiten.\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 4,
+    "fields": {
+      "template": 4,
+      "template_slug": "gesuchsbearbeitungs-einladung-neu",
+      "language": "de",
+      "purpose": "Gesuchsbearbeitungs Einladung, Neu",
+      "subject": "Einsicht respektive Mitarbeit in Dossier (Nr. {{ DOSSIER_NR }})",
+      "body": "Guten Tag\n\nSie haben von {{GESUCHSTELLER}} den Zugriff auf das Dossier-Nr. {{ DOSSIER_NR }} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}, {{ PUBLIC_DOSSIER_LINK }}) erhalten. Damit können Sie dieses einsehen und mitbearbeiten.\n\nUm das Dossier einsehen zu können, ist eine Registrierung auf dem eBau-Portal des Kantons Argau erforderlich.\n\nUnter folgendem Link können Sie sich registrieren: {{ REGISTRATION_LINK }}\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau"
     }
   }
 ]

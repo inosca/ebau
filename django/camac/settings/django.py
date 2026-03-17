@@ -3094,7 +3094,10 @@ APPLICATIONS = {
         },
         "USE_INSTANCE_SERVICE": True,
         "NOTIFICATIONS": {
-            # TODO
+            "APPLICANT": {
+                "NEW": "gesuchsbearbeitungs-einladung-neu",
+                "EXISTING": "gesuchsbearbeitungs-einladung-bestehend",
+            },
         },
         "SUBSERVICE_ROLES": ["subservice"],
         "ACTIVE_SERVICES": {
