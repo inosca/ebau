@@ -12,6 +12,7 @@ export default class InstanceModel extends Model {
   @attr calumaForm;
   @attr meta;
   @attr("boolean") isSuspended;
+  @attr additionalDemandChanges;
   @attr isModification;
   @attr isPaper;
   @attr dossierNumber;

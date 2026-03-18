@@ -22,6 +22,7 @@ documents:
     nachforderung: Nachforderung
 
   confidential: (vertraulich)
+  additional-demand-changes-not-allowed: "Im Rahmen von Nachforderungen sind keine Änderungen an bereits eingereichten Dokumenten erlaubt."
   confirm-reduced: "Hiermit bestätige ich, dass ich die benötigten Pflichtinhalte hochgeladen habe:"
   confirm: "Hiermit bestätige ich, dass ich {count, plural, =1 {den folgenden Pflichtinhalt} other {die folgenden # Pflichtinhalte}} hochgeladen habe. Bitte beachten Sie, dass die Liste der angegebenen Pflichtdokumente nicht abschliessend ist. Bitte konsultieren Sie das kommunale Baugesetz."
   date: Hochgeladen am {date} um {time}

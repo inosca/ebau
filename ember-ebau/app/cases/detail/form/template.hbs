@@ -1,8 +1,28 @@
-<CfContent
-  @documentId={{decode-id this.document.value.id}}
-  @useAsHeading={{true}}
-  @headingBaseLevel={{2}}
-  @loading={{this.document.isLoading}}
-  @disabled={{await (cannot "write form of instance" this.model)}}
-  @context={{hash instanceId=this.model.id}}
-/>
+{{#unless this.formTimelines.isLoading}}
+  {{#let this.formTimelines.value as |formTimelines|}}
+    <CfContent
+      @documentId={{decode-id this.document.value.id}}
+      @useAsHeading={{true}}
+      @headingBaseLevel={{2}}
+      @loading={{this.document.isLoading}}
+      @disabled={{or
+        (not this.isCurrentTimeline)
+        (await (cannot "write form of instance" this.model))
+      }}
+      @compare={{this.compareContext}}
+      @context={{hash instanceId=this.model.id}}
+    >
+      <:formHeader>
+        {{#if (gt formTimelines.length 1)}}
+          <div class="form-timelines">
+            <TimelineSelect
+              @selected={{this.timeline}}
+              @options={{formTimelines}}
+              @onChange={{this.changeTimeline}}
+            />
+          </div>
+        {{/if}}
+      </:formHeader>
+    </CfContent>
+  {{/let}}
+{{/unless}}

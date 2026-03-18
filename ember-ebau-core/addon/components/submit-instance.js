@@ -33,6 +33,12 @@ export default class SubmitInstanceComponent extends Component {
     }
   }
 
+  get isAdditionalDemandChanges() {
+    return (
+      this.ebauModules.isPortal && this.args.context?.additionalDemandChanges
+    );
+  }
+
   get requiredPermissions() {
     const action = this.args.field.question.raw.meta.action;
     assert("Field must have a meta property `action`", action);
@@ -43,6 +49,10 @@ export default class SubmitInstanceComponent extends Component {
   }
 
   get buttonLabel() {
+    if (this.isAdditionalDemandChanges) {
+      return this.intl.t("cases.submit.additional-demand-changes.label");
+    }
+
     return this.ebauModules.isPortal
       ? this.args.field.question.raw.label
       : this.intl.t("cases.submit.internal.label");
@@ -50,7 +60,9 @@ export default class SubmitInstanceComponent extends Component {
 
   @dropTask
   *afterValidate() {
-    const action = this.args.field.question.raw.meta.action;
+    const action = this.isAdditionalDemandChanges
+      ? "additional-demand-changes"
+      : this.args.field.question.raw.meta.action;
     assert("Field must have a meta property `action`", action);
 
     // BE only: Show confirm if the translation exists.
@@ -105,7 +117,19 @@ export default class SubmitInstanceComponent extends Component {
         yield this.export.perform();
       }
 
-      if (this.ebauModules.isPortal) {
+      if (this.isAdditionalDemandChanges) {
+        this.notification.success(
+          this.intl.t("cases.submit.additional-demand-changes.success"),
+        );
+        if (instance.additionalDemandChanges.length) {
+          yield this.router.transitionTo(
+            "instances.edit.additional-demand.detail",
+            instance.additionalDemandChanges[0],
+          );
+        } else {
+          yield this.router.transitionTo("instances.edit.additional-demand");
+        }
+      } else if (this.ebauModules.isPortal) {
         this.notification.success(this.intl.t("cases.submit.success"));
         yield this.router.transitionTo("instances.index");
       } else {

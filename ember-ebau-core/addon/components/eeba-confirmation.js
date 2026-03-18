@@ -65,6 +65,8 @@ export default class EebaConfirmationComponent extends Component {
 
   get canCheckIntegration() {
     return (
+      !this.args.disabled &&
+      !this.args.context?.additionalDemandChanges &&
       !this.session.isInternal &&
       (this.eebaIsDirtyAnswer ||
         [EEBA_STATE.NONE, EEBA_STATE.RERUN, EEBA_STATE.RETRY].includes(

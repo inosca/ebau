@@ -205,6 +205,9 @@ cases:
     failed-camac: "Errore nel tentativo di scrivere sull'interfaccia."
     failed-message: "Ops! Qualcosa è andato storto. Verifica nuovamente i dati inseriti. {reasons}"
     hint-text: "<strong>Nota:</strong> in modalità esercizio del sistema non è possibile inoltrare delle domande."
+    additional-demand-changes:
+      label: "Termina le modifiche della domanda supplementare"
+      success: "Le modifiche della domanda supplementare sono state completate con successo."
     internal:
       label: "Completare l'iscrizione"
       success: "La domanda è stata creata con successo."

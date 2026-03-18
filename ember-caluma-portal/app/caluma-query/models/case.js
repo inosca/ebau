@@ -49,6 +49,10 @@ export default class CustomCaseModel extends CaseModel {
     return this.instance.isModification;
   }
 
+  get additionalDemandChanges() {
+    return this.instance.additionalDemandChanges;
+  }
+
   get municipality() {
     return this._getAnswerDisplayValue(answerSlugs.municipality);
   }

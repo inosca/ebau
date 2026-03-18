@@ -1,6 +1,8 @@
 import { service } from "@ember/service";
 import { Ability } from "ember-can";
 
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
+
 export default class AdditionalDemandAbility extends Ability {
   @service ebauModules;
   @service session;
@@ -58,5 +60,24 @@ export default class AdditionalDemandAbility extends Ability {
       this.model.isAddressedToCurrentService &&
       !checkWorkItem
     );
+  }
+
+  async canRequestApplicantCorrection() {
+    if (!hasFeature("corrections.applicantCorrection")) {
+      return false;
+    }
+
+    if (this.ebauModules.isPortal) {
+      return false;
+    }
+
+    if (this.permissions.fullyEnabled) {
+      return await this.permissions.hasAll(
+        this.ebauModules.instanceId,
+        "additional-demands-correction-request",
+      );
+    }
+
+    return false;
   }
 }

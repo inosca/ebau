@@ -46,5 +46,10 @@
     {{#if @case.meta.is-appeal}}
       <span class="uk-label subnav-header__label">{{t "nav.appeal"}}</span>
     {{/if}}
+    {{#if @case.instance.additionalDemandChanges}}
+      <span class="uk-label subnav-header__label">
+        {{t "nav.additionalDemandChanges"}}
+      </span>
+    {{/if}}
   </div>
 </div>

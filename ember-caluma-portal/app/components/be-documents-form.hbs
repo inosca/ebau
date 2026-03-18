@@ -7,6 +7,12 @@
   <hr />
 {{/if}}
 
+{{#if (and this.disabled this.isAdditionalDemandChanges)}}
+  <p class="uk-text-bold">
+    {{t "documents.additional-demand-changes-not-allowed"}}
+  </p>
+{{/if}}
+
 {{#if this.allRequiredTags.length}}
   <p class="uk-text-bold">
     {{this.documentConfirmText}}
@@ -16,7 +22,7 @@
     <p class="uk-margin">{{t (concat "documents.tags." title)}}</p>
     <div class="uk-margin-left">
       {{#each fields as |field|}}
-        <CfField input @field={{field}} @disabled={{@disabled}} />
+        <CfField input @field={{field}} @disabled={{this.disabled}} />
       {{/each}}
     </div>
   {{/each-in}}
@@ -26,7 +32,7 @@
 
 {{#if this.allOtherFields.length}}
   {{#each this.allOtherFields as |field|}}
-    <CfField input @field={{field}} @disabled={{@disabled}} />
+    <CfField input @field={{field}} @disabled={{this.disabled}} />
   {{/each}}
   <hr />
 {{/if}}
@@ -39,7 +45,7 @@
   {{#each this.buckets as |bucket|}}
     <BeDocumentBucket
       @slug={{bucket}}
-      @disabled={{@disabled}}
+      @disabled={{this.disabled}}
       @deletable={{this.deletable}}
       @loading={{this.fetchAttachments.isRunning}}
       @attachments={{get this.attachments bucket}}

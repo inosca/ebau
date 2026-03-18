@@ -17,7 +17,7 @@ export default class InstancesEditFormController extends Controller {
 
   @tracked displayedForm = "";
 
-  document = apolloQuery(
+  case = apolloQuery(
     this,
     () => ({
       query: getInstanceCaseQuery,
@@ -30,16 +30,33 @@ export default class InstancesEditFormController extends Controller {
       },
     }),
     "allCases.edges.0.node",
-    (raw) => {
-      if (this.editController.instance.calumaForm === this.model) {
-        return raw.document;
-      }
-
-      const workItemEdge = raw.workItems.edges.find(
-        ({ node }) => node.document && node.document.form.slug === this.model,
-      );
-
-      return workItemEdge?.node.document;
-    },
   );
+
+  get document() {
+    const raw = this.case.value;
+    if (!raw) {
+      return null;
+    }
+
+    if (this.editController.instance.calumaForm === this.model) {
+      return raw.document;
+    }
+
+    const workItemEdge = raw.workItems.edges.find(
+      ({ node }) => node.document && node.document.form.slug === this.model,
+    );
+
+    return workItemEdge?.node.document;
+  }
+
+  get additionalDemandChanges() {
+    const raw = this.case.value;
+    if (!raw) {
+      return null;
+    }
+
+    const changes = raw?.meta["additional-demand-changes"] ?? [];
+
+    return changes.length > 0;
+  }
 }

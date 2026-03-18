@@ -11,8 +11,8 @@ additional-demand:
     send-additional-demand: "Inviata in data {date}"
     closed-by: ""
   empty: "Nessuna richiesta di precisazioni disponibile."
-  empty-create: 'Clicca su «+» per avviare una richiesta di precisazioni.'
-  no-create: 'Allo stato attuale non è possibile generare una richiesta di precisazioni.'
+  empty-create: "Clicca su «+» per avviare una richiesta di precisazioni."
+  no-create: "Allo stato attuale non è possibile generare una richiesta di precisazioni."
   paper: "In caso di dossier cartacei le richieste di precisazioni devono avvenire per posta / via e-mail. Le risposte ricevute possono essere classificate nel menu «Documenti» e «Registro»."
   documents: "Documenti"
   status:
@@ -27,3 +27,6 @@ additional-demand:
       needs-interaction: "In corso"
       completed: "Conclusa"
       canceled: "Terminata prima del tempo"
+  formtimeline-link:
+    case-timeline-label: "Mostra modifiche al formulario"
+    instance-edit-label: "Modifica formulario di richiesta"

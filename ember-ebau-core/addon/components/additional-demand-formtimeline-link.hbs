@@ -1,0 +1,22 @@
+{{#if (has-feature "corrections.applicantCorrection")}}
+  {{#if (and (not this.ebauModules.isPortal) this.timelineId)}}
+    <LinkTo
+      @route="cases.detail.form"
+      @model={{this.ebauModules.instanceId}}
+      @query={{hash timelineId=this.timelineId}}
+      class="uk-button uk-button-default uk-float-left"
+    >
+      {{t "additional-demand.formtimeline-link.case-timeline-label"}}
+    </LinkTo>
+  {{/if}}
+
+  {{#if (and (not @disabled) this.ebauModules.isPortal this.timelineId)}}
+    <LinkTo
+      @route="instances.edit.form"
+      @model={{this.calumaForm}}
+      class="uk-button uk-button-default uk-float-left"
+    >
+      {{t "additional-demand.formtimeline-link.instance-edit-label"}}
+    </LinkTo>
+  {{/if}}
+{{/if}}

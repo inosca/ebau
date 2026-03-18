@@ -3,7 +3,7 @@ import { htmlSafe } from "@ember/template";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { decodeId } from "@projectcaluma/ember-core/helpers/decode-id";
-import { task, dropTask } from "ember-concurrency";
+import { dropTask, task } from "ember-concurrency";
 import { query } from "ember-data-resources";
 import { trackedFunction } from "reactiveweb/function";
 
@@ -12,6 +12,7 @@ import mainConfig from "ember-ebau-core/config/main";
 const DEFAULT_CATEGORY = "weitere-unterlagen";
 
 export default class AlexandriaDocumentsFormComponent extends Component {
+  @service ebauModules;
   @service intl;
   @service fetch;
   @service notification;
@@ -26,6 +27,16 @@ export default class AlexandriaDocumentsFormComponent extends Component {
   categories = query(this, "category", () => ({
     slugs: String(this.categorySlugs),
   }));
+
+  get isAdditionalDemandChanges() {
+    return (
+      this.ebauModules.isPortal && this.args.context?.additionalDemandChanges
+    );
+  }
+
+  get disabled() {
+    return this.args.disabled || this.isAdditionalDemandChanges;
+  }
 
   get categorySlugs() {
     return this.field.question.raw.meta["alexandria-categories"];
@@ -54,9 +65,7 @@ export default class AlexandriaDocumentsFormComponent extends Component {
     );
     const state = parseInt(instance?.belongsTo("instanceState").id());
 
-    return (
-      !this.args.disabled && state !== mainConfig.instanceStates.correction
-    );
+    return !this.disabled && state !== mainConfig.instanceStates.correction;
   }
 
   get allRequiredTags() {

@@ -1,7 +1,7 @@
 import { service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
-import { task, dropTask, restartableTask } from "ember-concurrency";
+import { dropTask, restartableTask, task } from "ember-concurrency";
 import attachmentsConfig from "ember-ebau-core/config/attachments";
 
 import config from "caluma-portal/config/environment";
@@ -17,6 +17,16 @@ export default class BeDocumentsFormComponent extends Component {
   @tracked uploadedAttachmentIds = [];
 
   requiredQuestionTypes = ["MultipleChoiceQuestion", "TextareaQuestion"];
+
+  get isAdditionalDemandChanges() {
+    return (
+      this.ebauModules.isPortal && this.args.context?.additionalDemandChanges
+    );
+  }
+
+  get disabled() {
+    return this.args.disabled || this.isAdditionalDemandChanges;
+  }
 
   get buckets() {
     return (

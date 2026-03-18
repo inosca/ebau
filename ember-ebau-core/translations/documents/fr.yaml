@@ -21,6 +21,7 @@ documents:
 
   confidential:
   confirm-reduced: "Je confirme par la présente que j'ai téléchargé les contenus obligatoires nécessaires :"
+  additional-demand-changes-not-allowed: "Pendant les demandes complémentaires, aucune modification des documents déjà soumis n'est autorisée."
   confirm: "Je confirme par la présente que j'ai téléchargé {count, plural, =1 {le contenu obligatoire} other {les # contenus obligatoires}} suivants."
   date: Téléchargé le {date} à {time}
   deleteError:
