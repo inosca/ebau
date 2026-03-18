@@ -31,7 +31,7 @@ from camac.instance.domain_logic import SUBMIT_DATE_FORMAT, CreateInstanceLogic
 from camac.instance.domain_logic.decision import DecisionLogic
 from camac.instance.models import Form, Instance, InstanceState
 from camac.instance.utils import get_construction_control, set_construction_control
-from camac.permissions import events as permissions_events
+from camac.permissions.events import core as permissions_events
 from camac.tags.models import Tags
 
 APPLICANT_MAPPING = {

@@ -1,6 +1,6 @@
 # pragma: exclude file
 
-from camac.permissions.events import EmptyEventHandler
+from camac.permissions.events.core import EmptyEventHandler
 
 from .common import (
     ApplicantsEventHandlerMixin,

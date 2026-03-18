@@ -5,7 +5,7 @@ from camac.applicants import permissions as applicant_permissions
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.notification.utils import send_mail
 from camac.permissions.api import PermissionManager
-from camac.permissions.events import Trigger
+from camac.permissions.events.core import Trigger
 from camac.permissions.switcher import permission_switching_method
 from camac.user.permissions import permission_aware
 

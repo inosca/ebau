@@ -32,7 +32,7 @@ from camac.dossier_import.writers import (
 )
 from camac.instance.domain_logic import CreateInstanceLogic
 from camac.instance.models import Form, FormField, Instance, InstanceState
-from camac.permissions import events as permissions_events
+from camac.permissions.events import core as permissions_events
 from camac.user.models import Location
 
 PERSON_MAPPING = {

@@ -2,7 +2,7 @@ from caluma.caluma_core.events import filter_events, on
 from caluma.caluma_workflow.events import post_complete_work_item
 from django.db import transaction
 
-from camac.permissions.events import Trigger
+from camac.permissions.events.core import Trigger
 
 
 @on(post_complete_work_item, raise_exception=True)

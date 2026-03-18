@@ -59,7 +59,8 @@ from camac.instance.utils import (
     get_changeable_forms,
 )
 from camac.notification.utils import send_mail, send_mail_without_request
-from camac.permissions import api as permissions_api, events as permissions_events
+from camac.permissions import api as permissions_api
+from camac.permissions.events import core as permissions_events
 from camac.permissions.switcher import (
     is_permission_module_fully_enabled,
     permission_switching_method,

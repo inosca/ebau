@@ -1,5 +1,5 @@
 from camac.permissions import api as permissions_api
-from camac.permissions.events import Trigger
+from camac.permissions.events.core import Trigger
 
 
 def test_assign_responsible_user_on_acl_creation(

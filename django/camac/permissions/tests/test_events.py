@@ -21,12 +21,12 @@ from camac.user.models import ServiceRelation
 
 @pytest.mark.parametrize("instance_state__name", ["submitted"])
 def test_event_handler(db, instance, instance_state, instance_state_factory, rf, user):
-    class CustomEventHandler(events.EmptyEventHandler):
+    class CustomEventHandler(events.core.EmptyEventHandler):
         def __init__(self, *args, **kwargs):
             self.call_count = 0
             super().__init__(*args, **kwargs)
 
-        @events.decision_dispatch_method
+        @events.core.decision_dispatch_method
         def instance_post_state_transition(self, instance):
             return instance.instance_state.get_name().lower()
 
@@ -51,12 +51,12 @@ def test_event_handler(db, instance, instance_state, instance_state_factory, rf,
     assert exc.match("No implementation registered for 'rejected'")
 
 
-class SubmitCreatePermissions(events.EmptyEventHandler):
+class SubmitCreatePermissions(events.core.EmptyEventHandler):
     def __init__(self, *args, **kwargs):
         self.call_count = 0
         super().__init__(*args, **kwargs)
 
-    @events.decision_dispatch_method
+    @events.core.decision_dispatch_method
     def instance_post_state_transition(self, instance):
         return instance.instance_state.get_name().lower()
 
@@ -74,9 +74,9 @@ class SubmitCreatePermissions(events.EmptyEventHandler):
         )
 
 
-class CustomTrigger(events.Trigger):
-    instance_post_state_transition = events.EventTrigger()
-    geometer_changed = events.EventTrigger()
+class CustomTrigger(events.core.Trigger):
+    instance_post_state_transition = events.core.EventTrigger()
+    geometer_changed = events.core.EventTrigger()
 
 
 @pytest.mark.parametrize("instance_state__name", ["subm"])
@@ -598,7 +598,7 @@ def test_submitted_so(so_access_levels, so_instance, instance_acl_factory):
     )
 
     assert the_acl.is_active()
-    events.Trigger.instance_submitted(None, so_instance)
+    events.core.Trigger.instance_submitted(None, so_instance)
     the_acl.refresh_from_db()
     assert not the_acl.is_active()
 
@@ -616,7 +616,7 @@ def test_completed_involve_tax_administration_sz(
         slug=set_application_sz["TAX_ADMINISTRATION"]
     )
 
-    events.Trigger.instance_completed(None, sz_instance)
+    events.core.Trigger.instance_completed(None, sz_instance)
 
     acls = InstanceACL.objects.filter(
         instance=sz_instance,

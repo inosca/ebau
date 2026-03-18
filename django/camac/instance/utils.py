@@ -195,7 +195,7 @@ def copy_instance(
 
         new_instance.set_instance_state("subm", user)
 
-    from camac.permissions.events import Trigger
+    from camac.permissions.events.core import Trigger
 
     Trigger.instance_copied(None, new_instance, instance)
 

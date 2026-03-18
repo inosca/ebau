@@ -1,7 +1,7 @@
 from camac.instance.models import Instance
 from camac.instance.utils import get_geometer_service
 from camac.permissions import api as permissions_api
-from camac.permissions.events import EmptyEventHandler
+from camac.permissions.events.core import EmptyEventHandler
 from camac.user.utils import get_tax_administration
 
 

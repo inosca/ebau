@@ -44,7 +44,7 @@ from camac.ech0211.signals import (
     task_send,
 )
 from camac.notification.utils import send_mail_without_request
-from camac.permissions.events import Trigger
+from camac.permissions.events.core import Trigger
 from camac.rulesets.models import DistributionDeadlineRule
 from camac.user.models import Service, User
 from camac.utils import delay_next_workingday

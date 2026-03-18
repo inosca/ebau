@@ -25,7 +25,7 @@ from camac.core.utils import (
 )
 from camac.instance.master_data import MasterData
 from camac.instance.models import Instance, InstanceGroup
-from camac.permissions.events import Trigger
+from camac.permissions.events.core import Trigger
 from camac.timelines.models import FormTimeline
 from camac.user.models import Service
 from camac.user.permissions import permission_aware

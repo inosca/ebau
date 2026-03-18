@@ -19,7 +19,7 @@ from django.db import transaction
 from camac.caluma.api import CalumaApi
 from camac.instance.models import Instance
 from camac.notification.utils import send_mail_without_request
-from camac.permissions import events as permissions_events
+from camac.permissions.events import core as permissions_events
 from camac.responsible.models import ResponsibleService
 
 log = getLogger()

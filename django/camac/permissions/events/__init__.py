@@ -3,6 +3,6 @@
 # module
 
 from . import (  # noqa: F401
-    ktso_afu_custom_task_form,
+    core,
+    so_afu_custom_task_form,
 )
-from .core import *  # noqa: F401 F403

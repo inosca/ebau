@@ -9,7 +9,7 @@ from django.utils import timezone
 from camac.caluma.api import CalumaApi
 from camac.constants import kt_bern as be_constants
 from camac.instance import models as instance_models
-from camac.permissions import events as permissions_events
+from camac.permissions.events import core as permissions_events
 from camac.permissions.models import InstanceACL
 from camac.user.models import ServiceRelation
 

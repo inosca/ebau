@@ -5,7 +5,7 @@ from django.urls import reverse
 
 from camac.permissions import api
 from camac.permissions.conditions import Always
-from camac.permissions.events import Trigger
+from camac.permissions.events.core import Trigger
 from camac.permissions.models import InstanceACL
 from camac.user.models import ServiceRelation
 

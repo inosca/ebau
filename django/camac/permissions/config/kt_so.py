@@ -3,7 +3,7 @@ from caluma.caluma_workflow.models import WorkItem
 from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
 from camac.permissions import models as permissions_models
-from camac.permissions.events import EmptyEventHandler
+from camac.permissions.events.core import EmptyEventHandler
 
 from .common import (
     ApplicantsEventHandlerMixin,

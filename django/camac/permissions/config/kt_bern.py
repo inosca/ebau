@@ -6,7 +6,7 @@ from camac.instance.utils import (
     be_should_prevent_process_step_for_deactivated_municipality,
 )
 from camac.permissions import api as permissions_api
-from camac.permissions.events import EmptyEventHandler
+from camac.permissions.events.core import EmptyEventHandler
 from camac.permissions.models import InstanceACL
 from camac.user.models import Service, ServiceRelation
 

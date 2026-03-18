@@ -22,7 +22,7 @@ from rest_framework.exceptions import AuthenticationFailed
 from camac.applicants.models import Applicant
 from camac.core.models import InstancePortal
 from camac.instance.models import Instance
-from camac.permissions.events import Trigger
+from camac.permissions.events.core import Trigger
 from camac.user.models import Group, UserGroup, UserGroupInvitation
 from camac.utils import clean_join
 
