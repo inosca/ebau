@@ -530,6 +530,7 @@ class UserGroupInvitationSerializer(serializers.ModelSerializer):
 
         return validated_data
 
+    @transaction.atomic
     def create(self, validated_data):
         invitation = super().create(validated_data)
 
