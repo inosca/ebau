@@ -821,6 +821,8 @@ DUMP = {
                 "caluma_material_exam_form": generate_form_dump_config(
                     regex=r"^materielle-pruefung"
                 ),
+                # Standard modules
+                **ADDITIONAL_DEMAND_DUMP_CONFIG,
             },
         },
     },

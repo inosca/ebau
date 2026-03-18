@@ -124,4 +124,7 @@ ADDITIONAL_DEMAND = {
             ],
         },
     },
+    "kt_sg": {
+        "ENABLED": True,
+    },
 }

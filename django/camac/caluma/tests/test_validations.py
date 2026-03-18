@@ -48,7 +48,11 @@ def test_validate_create_inquiry_context(
     caluma_admin_schema_executor,
     distribution_settings,
 ):
-    work_item = caluma_work_item_factory(case=be_instance.case, child_case=None)
+    work_item = caluma_work_item_factory(
+        case=be_instance.case,
+        child_case=None,
+        addressed_groups=[str(service.pk)],
+    )
 
     distribution_settings["INQUIRY_CREATE_TASK"] = work_item.task_id
 

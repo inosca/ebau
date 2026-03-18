@@ -2,7 +2,6 @@ import pytest
 from caluma.caluma_workflow.models import WorkItem
 
 from camac.applicants.models import ROLE_CHOICES
-from camac.permissions.api import ACLUserInfo
 from camac.permissions.conditions import (
     HasApplicantRole,
     IsPaper,
@@ -11,11 +10,6 @@ from camac.permissions.conditions import (
     RequireWorkItem,
 )
 from camac.tests.form_utils import FormUtils
-
-
-@pytest.fixture
-def userinfo(user, service, role):
-    return ACLUserInfo(user=user, service=service, token=None, role=role)
 
 
 @pytest.mark.parametrize("is_paper", [True, False])

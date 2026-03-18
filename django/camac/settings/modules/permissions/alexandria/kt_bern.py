@@ -3,10 +3,9 @@ from camac.permissions.conditions import (
     HasInquiry,
     IsPaper,
     RequireInstanceState,
-    RequireWorkItem,
 )
 
-from .conditions import OwnDocument
+from .conditions import HasAdditionalDemand, OwnDocument
 
 BEFORE_DECISION = ~RequireInstanceState(
     [
@@ -22,11 +21,6 @@ BEFORE_DECISION = ~RequireInstanceState(
     condition_name="AfterDecision",
 )
 
-ADDITIONAL_DEMAND = RequireWorkItem(
-    "fill-additional-demand",
-    status="ready",
-    condition_name="HasAdditionalDemand",
-)
 
 SB1 = RequireInstanceState(["sb1"])
 SB2 = RequireInstanceState(["sb2"])
@@ -50,8 +44,8 @@ BE_PERMISSIONS_ALEXANDRIA = {
             ("beilagen-zum-gesuch:delete", RequireInstanceState(["new"])),
             # Nachforderungen: Create and delete allowed while we have an active
             # additional demand
-            ("nachforderungen:create", ADDITIONAL_DEMAND),
-            ("nachforderungen:delete", ADDITIONAL_DEMAND),
+            ("nachforderungen:create", HasAdditionalDemand()),
+            ("nachforderungen:delete", HasAdditionalDemand()),
             # Beilagen SB1: Create and delete allowed while instance is in
             # status sb1
             ("beilagen-sb1:create", SB1),
