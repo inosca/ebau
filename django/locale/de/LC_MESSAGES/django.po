@@ -967,6 +967,16 @@ msgstr ""
 msgid "No location assigned."
 msgstr "Kein Standort gesetzt."
 
+#: camac/dossier_import/utils.py
+msgid ""
+"The dossiers.xlsx file was likely written in 'Strict Open XML' mode, which "
+"is not yet supported. Please save the dossiers.xlsx file in the normal Excel "
+"file format"
+msgstr ""
+"Die Datei dossiers.xlsx wurde vermutlich im \"Strict Open XML\"-Format "
+"gespeichert. Dies kann zur Zeit nicht verarbeitet werden. Bitte speichern "
+"Sie Die Excel-Liste als normale Excel-Arbeitsmappe (*.xlsx)"
+
 #: camac/dossier_import/validation.py
 msgid "To start an import please upload a file."
 msgstr "Bitte eine Datei mitreichen, um einen Import zu starten."

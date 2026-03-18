@@ -3,7 +3,10 @@ from typing import Any, List, Tuple, Union
 
 import pyexcel_xlsx
 from caluma.caluma_workflow.models import WorkItem
+from django.utils.translation import gettext
 from rapidfuzz import fuzz
+
+from .exceptions import InvalidImportDataError
 
 
 def get_similar_value(
@@ -46,6 +49,23 @@ def get_worksheet_headings_and_rows(file) -> Tuple[List[str], List[dict]]:
     """Get headings and rows of an XLSX file."""
 
     workbook = pyexcel_xlsx.get_data(file)
+
+    if not workbook:
+        # If a "strict Open XML" Excel file is uploaded, openpyxl just
+        # drops all the sheets, resulting in an empty workbook:
+        # https://foss.heptapod.net/openpyxl/openpyxl/-/issues/2170
+
+        # There is no useful way to deal with this, apart from using
+        # another excel parser that knows about this format, for example,
+        # or waiting for openpyxl to implement support for it.
+        raise InvalidImportDataError(
+            gettext(
+                "The dossiers.xlsx file was likely written in "
+                "'Strict Open XML' mode, which is not yet supported. Please "
+                "save the dossiers.xlsx file in the normal Excel file format"
+            )
+        )
+
     worksheet = workbook[list(workbook.keys())[0]]
 
     headings = [clean_heading(heading) for heading in worksheet[0]]
