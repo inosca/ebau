@@ -11,14 +11,15 @@ mutation CreateSubmitTask {
 }
 
 mutation CreateFormalExamTask {
-  saveSimpleTask(
+  saveCompleteTaskFormTask(
     input: {
       slug: "formal-exam"
+      form: "formelle-vorpruefung"
       name: "Formelle Vorpüfung"
       addressGroups: "[\"municipality\"]|groups"
       controlGroups: "[\"municipality\"]|groups"
       leadTime: 432000 # 5 days
-      meta: "{\"directLink\":{\"route\":\"cases.detail.task-form\",\"models\":[\"INSTANCE_ID\",\"TASK_SLUG\"]}}"
+      meta: "{\"directLink\":{\"route\":\"cases.detail.task-form\",\"models\":[\"INSTANCE_ID\",\"TASK_SLUG\"]},\"redirectToWorkItemsAfterCompletion\":true}"
     }
   ) {
     clientMutationId
