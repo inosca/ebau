@@ -1,63 +1,26 @@
 publicInstances:
   applicant: "Gesuchsteller/in (Bauherrschaft)"
   info: |-
-      <strong>
-        Bitte beachten Sie, dass die digitale öffentliche Planauflage zunächst nur für die folgenden Gemeinden möglich ist:
-      </strong>
-      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));">
-        <span style="min-width: 200px;">
-          <ul>
-            <li>Aedermannsdorf</li>
-            <li>Aeschi (SO)</li>
-            <li>Balsthal</li>
-            <li>Biberist</li>
-            <li>Biezwil</li>
-            <li>Bolken</li>
-            <li>Breitenbach</li>
-            <li>Deitingen</li>
-            <li>Derendingen</li>
-            <li>Erlinsbach (SO)</li>
-          </ul>
-        </span>
-        <span style="min-width: 200px;">
-          <ul>
-            <li>Erschwil</li>
-            <li>Etziken</li>
-            <li>Gerlafingen</li>
-            <li>Gunzgen</li>
-            <li>Günsberg</li>
-            <li>Hauenstein-Ifenthal</li>
-            <li>Herbetswil</li>
-            <li>Laupersdorf</li>
-            <li>Lostorf</li>
-            <li>Lüsslingen-Nennigkofen</li>
-          </ul>
-        </span>
-        <span style="min-width: 200px;">
-          <ul>
-            <li>Luterbach</li>
-            <li>Lüterkofen-Ichertswil</li>
-            <li>Messen</li>
-            <li>Metzerlen-Mariastein</li>
-            <li>Mümliswil-Ramiswil</li>
-            <li>Niederbuchsiten</li>
-            <li>Obergösgen</li>
-            <li>Olten</li>
-            <li>Seewen</li>
-            <li>Selzach</li>
-          </ul>
-        </span>
-        <span style="min-width: 200px;">
-          <ul>
-            <li>Solothurn</li>
-            <li>Stüsslingen</li>
-            <li>Trimbach</li>
-            <li>Walterswil (SO)</li>
-            <li>Wolfwil</li>
-            <li>Zuchwil</li>
-          </ul>
-        </span>
-      </div>
+    <div style="
+      padding: 10px 10px 10px 0;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    ">
+      <span style="
+        color: #cc0000;
+        font-size: 1.6em;
+        line-height: 1;
+      ">
+        ➔
+      </span>
+      <span>
+        Das digitale Baugesuchsverfahren über eBau ist derzeit für
+        <a href="https://so.ch/fileadmin/internet/bjd/bjd-agi/pdf/eBau/eBau_Aktivierte_Gemeinden.pdf" target="_blank" rel="noopener noreferrer" style="color:#cc0000; text-decoration: underline;">
+          folgende Gemeinden</a> verfügbar.
+      </span>
+    </div>
 
 publicInstancesDetail:
   copyrightText: "Die hier aufgelegten Dokumente können urheberrechtlich
