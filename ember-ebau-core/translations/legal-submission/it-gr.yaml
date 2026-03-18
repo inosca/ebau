@@ -1,4 +1,8 @@
 legal-submission:
-  header: "Rivendicazione"
-  hint: Lo scritto dell'opposizione può essere archiviato nella cartella «opposizioni». Si prega di notare che il registro «Opposizioni/Ricorso» rappresenta solamente un aiuto, la procedura di opposizione non può essere svolta sulla piattaforma eBau.
-  hint-appeal: La lettera di ricorso può essere archiviata nella cartella «ricorso». Vi preghiamo di tenere presente che il registro «Opposizioni/Ricorso» rappresenta solamente un aiuto e che la procedura di ricorso non può essere svolta tramite eBau.
+  header: "Opposizioni"
+  hint: |
+    <p>La preghiamo di osservare che il registrot «Opposizioni/Ricorsi» rappresenta solamente un aiuto per la gestione completa del dossier e che la procedura di opposizione non può essere svolta in modo digitale tramite eBau.</p>
+    <p>Per ogni opposizione (con una o più persone firmatarie) occorre creare un'iscrizione separata (tramite il segno più).</p>
+  hint-appeal: |
+    <p>La preghiamo di osservare che il registrot «Opposizioni/Ricorsi» rappresenta solamente un aiuto per la gestione completa del dossier e che la procedura di opposizione non può essere svolta in modo digitale tramite eBau.</p>
+    <p>Per ogni ricorso (con una o più persone firmatarie) occorre creare un'iscrizione separata (tramite il segno più).</p>

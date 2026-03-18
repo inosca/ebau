@@ -82,6 +82,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "beschwerde.beschwerde-file-upload-hinweis",
+    "fields": {
+      "created_at": "2026-03-18T13:09:32.641Z",
+      "modified_at": "2026-03-18T13:09:32.641Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "beschwerde",
+      "question": "beschwerde-file-upload-hinweis",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "beschwerde.beschwerde-zurueckgezogen",
     "fields": {
       "created_at": "2025-06-30T09:12:46.672Z",
@@ -218,11 +233,42 @@
       "static_content": "{\"de\": \"x\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
+        "hideLabel": true,
         "widgetOverride": "alexandria-documents-form",
         "alexandria-categories": ["beschwerden"],
-        "alexandriaEnableDocumentFilter": true,
-        "hideLabel": true
+        "alexandriaEnableDocumentFilter": true
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beschwerde-file-upload-hinweis",
+    "fields": {
+      "created_at": "2026-03-18T13:09:32.590Z",
+      "modified_at": "2026-03-23T11:05:02.602Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"beschwerde-file-upload-hinweis\", \"fr\": null, \"it\": \"beschwerde-file-upload-hinweis\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<div\\n    class=\\\"uk-alert-warning uk-width-1-1 uk-padding-small\\\"\\n  >\\nHier können Sie die Dokumente zum Schriftenwechsel der Beschwerde hochladen. Die Unterlagen werden im Dokumentenordner «Beschwerden» abgelegt.\\n</div>\", \"fr\": \"\", \"it\": \"<div\\n    class=\\\"uk-alert-warning uk-width-1-1 uk-padding-small\\\"\\n  >\\nQui può caricare i documenti relativi allo scambio di scritti del ricorso. La documentazione viene salvata nella cartella dei documenti «Ricorsi».\\n</div>\"}",
+      "configuration": {},
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,

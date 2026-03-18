@@ -717,21 +717,21 @@
                 "permission": "create"
               },
               {
+                "scope": "All",
                 "fields": ["metainfo", "title", "category", "files"],
                 "condition": {
                   "AdditionalDemandChanges": true
                 },
-                "permission": "create",
-                "scope": "All"
+                "permission": "create"
               },
               {
                 "marks": ["void"],
+                "scope": "All",
                 "fields": ["marks"],
                 "condition": {
                   "AdditionalDemandChanges": true
                 },
-                "permission": "update",
-                "scope": "All"
+                "permission": "update"
               },
               {
                 "scope": "All",
@@ -1092,8 +1092,8 @@
           }
         }
       },
-      "name": "{\"de\": \"Beschwerden\", \"fr\": \"\", \"it\": \"Ricorso\"}",
-      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"La lettera di ricorso può essere archiviata nella cartella «ricorso». Vi preghiamo di tenere presente che il registro «Opposizioni/Ricorso» rappresenta solamente un aiuto e che la procedura di ricorso non può essere svolta tramite eBau.\"}",
+      "name": "{\"de\": \"Beschwerden\", \"fr\": \"\", \"it\": \"Ricorsi\"}",
+      "description": "{\"de\": \"Hier werden Dokumente abgelegt, die beim Erfassen einer Beschwerde hochgeladen wurden. Weiterer Schriftenverkehr zur Beschwerde können Sie auch hier ablegen. Keine andere Organisation hat Zugriff auf diesen Ordner (Ausnahme: ARE im BAB-Verfahren im Lesemodus).\", \"fr\": \"\", \"it\": \"Qui vengono salvati i documenti che sono stati caricati al momento della registrazione di un ricorso. Può archiviare anche qui ulteriore scambio di scritti in merito al ricorso. Nessun'altra organizzazione ha accesso a questa cartella (eccezione: UST-GR in procedura EFZ in modalità di lettura).\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#E1B422",
       "parent": "einsprachen-beschwerden",
@@ -1488,7 +1488,7 @@
         }
       },
       "name": "{\"de\": \"Einsprachen\", \"fr\": \"\", \"it\": \"Opposizioni\"}",
-      "description": "{\"de\": \"Hier können Sie die Einsprachen und den Schriftenverkehr zur Einsprache ablegen. Keine andere Organisation hat Zugriff auf diesen Ordner (Ausnahme: ARE im BAB-Verfahren im Lesemodus)\", \"fr\": \"\", \"it\": \"Lo scritto dell'opposizione può essere archiviato nella cartella «opposizioni». Si prega di notare che il registro «Opposizioni/Ricorso» rappresenta solamente un aiuto, la procedura di opposizione non può essere svolta sulla piattaforma eBau.\"}",
+      "description": "{\"de\": \"Hier werden Dokumente abgelegt, die beim Erfassen einer Einsprache hochgeladen wurden. Weiterer Schriftenverkehr zur Einsprache können Sie auch hier ablegen. Keine andere Organisation hat Zugriff auf diesen Ordner (Ausnahme: ARE im BAB-Verfahren im Lesemodus).\", \"fr\": \"\", \"it\": \"Qui vengono salvati i documenti che sono stati caricati al momento della registrazione di un'opposizione. Può salvare anche qui ulteriore scambio di scritti relativi all'opposizione. Nessun'altra organizzazione ha accesso a questa cartella (eccezione: UST-GR in procedura EFZ in modalità di lettura).\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#E1B422",
       "parent": "einsprachen-beschwerden",
@@ -1571,7 +1571,7 @@
           }
         }
       },
-      "name": "{\"de\": \"Einsprachen / Beschwerden\", \"fr\": \"\", \"it\": \"Opposizioni / Ricorso\"}",
+      "name": "{\"de\": \"Einsprachen / Beschwerden\", \"fr\": \"\", \"it\": \"Opposizioni / Ricorsi\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#E1B422",

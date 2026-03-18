@@ -4,7 +4,7 @@
 
 {{#if (t "legal-submission.hint")}}
   <div class="uk-alert uk-alert-default uk-margin-remove">
-    {{t "legal-submission.hint"}}
+    {{t "legal-submission.hint" htmlSafe=true}}
   </div>
 {{/if}}
 
@@ -21,7 +21,7 @@
   {{/if}}
   {{#if (t "legal-submission.hint-appeal")}}
     <div class="uk-alert uk-alert-default uk-margin-remove">
-      {{t "legal-submission.hint-appeal"}}
+      {{t "legal-submission.hint-appeal" htmlSafe=true}}
     </div>
   {{/if}}
   <LegalAppealTable />

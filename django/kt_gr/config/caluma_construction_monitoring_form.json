@@ -3429,10 +3429,10 @@
       "static_content": "{\"de\": \"rwar\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
+        "hideLabel": true,
         "widgetOverride": "alexandria-documents-form",
         "alexandria-categories": ["bauabnahme"],
-        "alexandriaEnableDocumentFilter": true,
-        "hideLabel": true
+        "alexandriaEnableDocumentFilter": true
       },
       "data_source": null,
       "row_form": null,
