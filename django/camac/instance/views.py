@@ -1630,6 +1630,7 @@ class PublicCalumaInstanceView(
         queryset = MasterData.prefetch_entities_for_queryset(queryset)
 
         if settings.PUBLICATION.get("BACKEND") == "camac-ng":
+            # SZ & UR use an older legacy publication backend
             queryset = queryset.annotate(
                 dossier_nr=Cast(
                     KeyTextTransform("dossier-number", "meta"), CharField()
@@ -1646,18 +1647,13 @@ class PublicCalumaInstanceView(
                 ),
             ).order_by("instance__location__name", "publication_end_date", "dossier_nr")
         elif settings.PUBLICATION.get("BACKEND") == "caluma":
-            if settings.APPLICATION_NAME in ["kt_gr", "kt_so"]:
-                queryset = queryset.order_by("meta__dossier-number-sort")
-            else:
-                special_id = (
-                    "ebau-number"
-                    if settings.APPLICATION_NAME == "kt_bern"
-                    else "dossier-number"
-                )
+            if settings.APPLICATION_NAME == "kt_bern":
+                # BE sorts by "ebau-number" which first needs to be split into
+                # the year and index apart to be able to sort numerically.
                 queryset = queryset.annotate(
                     dossier_nr=Cast(
                         KeyTextTransform(
-                            special_id,
+                            "ebau-number",
                             "meta",
                         ),
                         CharField(),
@@ -1681,6 +1677,11 @@ class PublicCalumaInstanceView(
                         IntegerField(),
                     ),
                 ).order_by("year", "nr")
+            else:
+                # All the other cantons using the caluma publication backend
+                # (GR, SO, AG and the ones to come) have a separate sort
+                # property which they sort by
+                queryset = queryset.order_by("meta__dossier-number-sort")
 
         return queryset
 
