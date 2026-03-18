@@ -24,8 +24,9 @@ $global-muted-color: rgb(100 100 100);
 $global-link-color: $global-primary-background;
 $global-link-hover-color: $global-link-color;
 
-// Watermark
+// Other colors
 $watermark-background-color: $global-danger-background;
+$mandatory-asterisk-color: $global-danger-background;
 
 // Button default
 $button-default-color: $global-primary-background;
@@ -61,7 +62,23 @@ $alert-success-color: $global-inverse-color;
 $alert-warning-background: $global-warning-background;
 $alert-warning-color: $global-inverse-color;
 
+// Alert customization
+.uk-alert-primary,
+.uk-alert-danger,
+.uk-alert-success,
+.uk-alert-warning {
+  a {
+    color: inherit;
+    text-decoration: underline;
+
+    &:hover {
+      color: inherit;
+    }
+  }
+}
+
 // Ember-power-select
 $ember-power-select-trigger-icon-color: $global-muted-color;
 $ember-power-select-selected-background: $global-primary-background;
 $ember-power-select-highlighted-background: $global-secondary-background;
+$ember-power-select-disabled-background-color: $global-muted-background;
