@@ -16,7 +16,10 @@ export default class BillingTableRowComponent extends Component {
 
   delete = dropTask(this, async () => {
     if (
-      this.abilities.cannot("delete billing-v2-entry", this.args.entry) ||
+      (await this.abilities.cannot(
+        "delete billing-v2-entry",
+        this.args.entry,
+      )) ||
       !(await confirm(this.intl.t("billing.confirm-delete")))
     ) {
       return;

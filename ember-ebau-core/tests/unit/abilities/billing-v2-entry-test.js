@@ -29,13 +29,13 @@ module("Unit | Ability | billing-v2-entry", function (hooks) {
     ability.model = model;
 
     this.owner.lookup("service:ebau-modules").serviceId = service.id + 1;
-    assert.notOk(ability.canDelete);
+    assert.notOk(await ability.canDelete());
 
     this.owner.lookup("service:ebau-modules").serviceId = service.id;
-    assert.ok(ability.canDelete);
+    assert.ok(await ability.canDelete());
 
     model.dateCharged = "2024-04-17";
-    assert.notOk(ability.canDelete);
+    assert.notOk(await ability.canDelete());
   });
 
   test.each(
@@ -63,7 +63,7 @@ module("Unit | Ability | billing-v2-entry", function (hooks) {
         .findRecord("instance", instance.id);
 
       const ability = this.owner.lookup("ability:billing-v2-entry");
-      assert.strictEqual(ability.canEdit, expected);
+      assert.strictEqual(await ability.canEdit(), expected);
 
       mainConfig.billing = originalBillingConfig;
       mainConfig.instanceStates = originalInstanceStateConfig;
@@ -97,7 +97,9 @@ module("Unit | Ability | billing-v2-entry", function (hooks) {
       ebauModules.serviceId = isAutority ? service.id : service.id + 1;
 
       this.features.set("billing.charge", enableChargeFeature);
-      stub(BillingV2EntryAbility.prototype, "canEdit").get(() => canEdit);
+      stub(BillingV2EntryAbility.prototype, "canEdit").get(
+        () => async () => canEdit,
+      );
 
       const ability = this.owner.lookup("ability:billing-v2-entry");
       assert.strictEqual(await ability.canCharge(), expected);

@@ -27,7 +27,10 @@ from camac.billing.utils import (
 from camac.billing.wilken.domain_logic import generate_invoices
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.permissions.api import PermissionManager
-from camac.permissions.switcher import is_permission_module_fully_enabled
+from camac.permissions.switcher import (
+    is_permission_module_fully_enabled,
+    permission_switching_method,
+)
 from camac.user.models import Group
 from camac.user.permissions import (
     IsAllowedClientToken,
@@ -71,16 +74,55 @@ class BillingV2EntryViewset(InstanceQuerysetMixin, ModelViewSet):
     def get_queryset_for_public(self):
         return self.queryset.none()
 
-    def has_release_for_clearing_permission(self):
+    @permission_switching_method
+    def has_object_release_for_clearing_permission(self, obj):
+        manager = PermissionManager.from_request(self.request)
+        if not manager.has_all(obj.instance, "billing-write"):
+            return False
+
         return (
             self.request.group.service.service_group.slug
             in settings.BILLING.cantonal_service_group_slugs
         )
 
+    @has_object_release_for_clearing_permission.register_old
+    def has_object_release_for_clearing_permission_rbac(self, obj):
+        return (
+            self.request.group.service.service_group.slug
+            in settings.BILLING.cantonal_service_group_slugs
+        )
+
+    @permission_switching_method
+    def has_create_permission(self, *args, **kwargs):
+        instance_id = self.request.data.get("instance", {}).get("id")
+        if not instance_id:  # pragma: no cover
+            return False
+
+        manager = PermissionManager.from_request(self.request)
+        return manager.has_all(instance_id, "billing-write")
+
+    @has_create_permission.register_old
+    def has_create_permission_rbac(self, *args, **kwargs):
+        return True
+
+    @permission_switching_method
     def has_object_destroy_permission(self, obj):
+        manager = PermissionManager.from_request(self.request)
+        if not manager.has_all(obj.instance, "billing-write"):
+            return False
+
         return not obj.date_charged and (
             obj.group.service == self.request.group.service
         )
+
+    @has_object_destroy_permission.register_old
+    def has_object_destroy_permission_rbac(self, obj):
+        return not obj.date_charged and (
+            obj.group.service == self.request.group.service
+        )
+
+    def has_object_update_permission(self, obj):
+        return False
 
     @action(
         methods=["POST"], detail=False, url_path="charge-bulk", url_name="charge-bulk"

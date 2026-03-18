@@ -77,9 +77,9 @@
       {{/if}}
     </td>
   {{/if}}
-  {{#if (can "edit billing-v2-entries")}}
+  {{#if (await (can "edit billing-v2-entries"))}}
     <td data-test-entry-delete>
-      {{#if (can "delete billing-v2-entry" @entry)}}
+      {{#if (await (can "delete billing-v2-entry" @entry))}}
         <button
           type="button"
           class="uk-button uk-button-link"
