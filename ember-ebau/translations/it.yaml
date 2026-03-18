@@ -9,6 +9,7 @@ nav:
   bib: "BIB"
   modification: "Modifica del progetto"
   hasOnlyReadPermission: "Diritto di lettura"
+  additionalDemandChanges: "In correzione da parte dei richiedenti"
   suspended: "Sospeso"
   masterData:
     label: "Dati anagrafici estesi"

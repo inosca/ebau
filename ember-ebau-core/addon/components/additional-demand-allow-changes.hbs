@@ -1,0 +1,8 @@
+{{#if (await (can "request applicant correction on additional-demand"))}}
+  <CfField::Input::Checkbox
+    @field={{@field}}
+    @disabled={{@disabled}}
+    @context={{@context}}
+    @onSave={{@onSave}}
+  />
+{{/if}}

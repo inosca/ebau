@@ -1,27 +1,30 @@
 {{#unless this.editController.isLoading}}
   <LoadingOrNotfound
-    @loading={{this.document.isLoading}}
+    @loading={{this.case.isLoading}}
     @hasPermission={{await
       (can
         "read form of instance"
         this.editController.instance
-        form=this.document.value.form
+        form=this.document.form
       )
     }}
   >
     {{#if (is-embedded)}}
       <CfContent
-        @documentId={{decode-id this.document.value.id}}
+        @documentId={{decode-id this.document.id}}
         @disabled={{await
           (cannot
             "write form of instance"
             this.editController.instance
-            form=this.document.value.form
+            form=this.document.form
           )
         }}
         @useAsHeading={{true}}
         @headingBaseLevel={{2}}
-        @context={{hash instanceId=this.editController.model}}
+        @context={{hash
+          instanceId=this.editController.model
+          additionalDemandChanges=this.additionalDemandChanges
+        }}
         as |content|
       >
         {{#if (gt content.document.fieldsets.length 1)}}
@@ -40,17 +43,20 @@
       </CfContent>
     {{else}}
       <CfContent
-        @documentId={{decode-id this.document.value.id}}
+        @documentId={{decode-id this.document.id}}
         @disabled={{await
           (cannot
             "write form of instance"
             this.editController.instance
-            form=this.document.value.form
+            form=this.document.form
           )
         }}
         @useAsHeading={{true}}
         @headingBaseLevel={{2}}
-        @context={{hash instanceId=this.editController.model}}
+        @context={{hash
+          instanceId=this.editController.model
+          additionalDemandChanges=this.additionalDemandChanges
+        }}
       />
     {{/if}}
   </LoadingOrNotfound>

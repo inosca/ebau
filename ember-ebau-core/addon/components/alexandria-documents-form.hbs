@@ -21,6 +21,12 @@
   </modal.footer>
 </UkModal>
 
+{{#if (and this.disabled this.isAdditionalDemandChanges)}}
+  <p class="uk-text-bold">
+    {{t "documents.additional-demand-changes-not-allowed"}}
+  </p>
+{{/if}}
+
 {{#if this.allRequiredTags.length}}
   <p class="uk-text-bold">
     {{t "documents.confirm" count=this.allRequiredTags.length}}
@@ -44,7 +50,7 @@
         <CfField
           input
           @field={{field}}
-          @disabled={{@disabled}}
+          @disabled={{this.disabled}}
           @context={{@context}}
         />
       {{/each}}
@@ -59,7 +65,7 @@
     <CfField
       input
       @field={{field}}
-      @disabled={{@disabled}}
+      @disabled={{this.disabled}}
       @context={{@context}}
     />
   {{/each}}
@@ -76,7 +82,7 @@
     {{#each this.categories.records as |category|}}
       <AlexandriaDocumentBucket
         @category={{category}}
-        @disabled={{@disabled}}
+        @disabled={{this.disabled}}
         @deletable={{this.deletable}}
         @loading={{or
           this.fetchAttachments.isPending

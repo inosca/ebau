@@ -197,6 +197,9 @@ cases:
     failed-camac: "Erreur d'écriture sur le serveur."
     failed-message: "Oups, quelque chose s'est mal passé. Veuillez vérifier vos données d'entrée à nouveau. {reasons}"
     hint-text: '<strong>Remarque :</strong> aucune demande ne peut être soumise en tant que "Systembetrieb".'
+    additional-demand-changes:
+      label: "Terminer les modifications de la demande supplémentaire"
+      success: "Les modifications de la demande supplémentaire ont été terminées avec succès."
     internal:
       label: "Terminer la saisie"
       success: "Le dossier a été créé avec succès."

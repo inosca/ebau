@@ -10,6 +10,7 @@ nav:
   modification: "Projektänderung"
   suspended: "Sistiert"
   hasOnlyReadPermission: "Leseberechtigung"
+  additionalDemandChanges: "In Korrektur durch die Gesuchstellenden"
   masterData:
     label: "Erweiterte Stammdaten"
     hide: "Erweiterte Stammdaten verstecken"

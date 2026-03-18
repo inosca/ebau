@@ -1,5 +1,7 @@
 import Route from "@ember/routing/route";
 import { service } from "@ember/service";
+import AdditionalDemandAllowChangesComponent from "ember-ebau-core/components/additional-demand-allow-changes";
+import AdditionalDemandFormTimelineLinkComponent from "ember-ebau-core/components/additional-demand-formtimeline-link";
 import AgGisComponent from "ember-ebau-core/components/ag-gis";
 import AGInquiryServiceGroupWarningComponent from "ember-ebau-core/components/ag-inquiry-service-group-warning";
 import AlexandriaDocumentsFormComponent from "ember-ebau-core/components/alexandria-documents-form";
@@ -42,6 +44,7 @@ export default class ApplicationRoute extends Route {
     // eslint-disable-next-line no-self-assign
     this.session.language = this.session.language;
 
+    // component overrides.
     this.calumaOptions.registerComponentOverride({
       label: "Stellungnahme Status",
       component: "inquiry-answer-status",
@@ -175,6 +178,18 @@ export default class ApplicationRoute extends Route {
       label: "Hinweis Zirkulation bei abgelaufener Frist",
       component: "inquiry-hint-deadline-expired",
       componentClass: InquiryHintDeadlineExpiredComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Nachforderung Anpassungen erlauben",
+      component: "additional-demand-allow-changes",
+      componentClass: AdditionalDemandAllowChangesComponent,
+      type: "MultipleChoiceQuestion",
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Nachforderung Anpassungen Link",
+      component: "additional-demand-formtimeline-link",
+      componentClass: AdditionalDemandFormTimelineLinkComponent,
+      type: "TextQuestion",
     });
   }
 }

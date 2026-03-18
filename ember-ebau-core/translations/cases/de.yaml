@@ -215,6 +215,9 @@ cases:
     failed-camac: "Fehler beim Schreiben auf Schnittstelle."
     failed-message: "Hoppla, etwas ist schief gelaufen. Bitte überprüfen Sie Ihre Eingabedaten nochmals. {reasons}"
     hint-text: "<strong>Hinweis:</strong> Als Systembetrieb können keine Gesuche eingereicht werden."
+    additional-demand-changes:
+      label: "Nachforderung Änderungen abschliessen"
+      success: "Die Nachforderung Änderungen wurde erfolgreich abgeschlossen."
     internal:
       label: "Erfassung abschliessen"
       success: "Das Gesuch wurde erfolgreich angelegt."

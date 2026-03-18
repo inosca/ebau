@@ -1,5 +1,5 @@
 import { service } from "@ember/service";
-import { macroCondition, getOwnConfig } from "@embroider/macros";
+import { getOwnConfig, macroCondition } from "@embroider/macros";
 import { Ability } from "ember-can";
 
 import mainConfig from "ember-ebau-core/config/main";
@@ -109,7 +109,10 @@ export default class InstanceAbility extends Ability {
         !this.hasActiveDistribution
       );
     }
+
     return (
+      // don't allow corrections during additional demand changes.
+      !this.model.additionalDemandChanges?.length &&
       // disabled until isMunicipalityLeadRole works in ember-ebau
       // (this.ebauModules.isSupportRole ||
       //   this.ebauModules.isMunicipalityLeadRole) &&
