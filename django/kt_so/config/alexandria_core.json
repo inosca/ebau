@@ -1516,7 +1516,7 @@
       },
       "name": "{\"de\": \"Migrierte Dokumente\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\", \"video/mp4\", \"video/quicktime\", \"video/x-msvideo\", \"video/webm\"]",
+      "allowed_mime_types": null,
       "color": "#000000",
       "parent": null,
       "sort": 9
