@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-09 10:14+0100\n"
+"POT-Creation-Date: 2026-03-19 08:27+0100\n"
 "PO-Revision-Date: 2025-10-08 13:26+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -64,12 +64,12 @@ msgstr "Warnmeldung"
 msgid "Alert Messages"
 msgstr "Warnmeldungen"
 
-#: camac/alexandria/extensions/events.py
+#: camac/alexandria/extensions/events.py camac/alexandria/tests/test_events.py
 #, python-format
 msgid "Document %(doc)s was marked as %(mark)s."
 msgstr "Dokument %(doc)s wurde als %(mark)s markiert."
 
-#: camac/alexandria/extensions/events.py
+#: camac/alexandria/extensions/events.py camac/alexandria/tests/test_events.py
 #, python-format
 msgid "Mark %(mark)s was removed from document %(doc)s."
 msgstr "Markierung %(mark)s wurde vom Dokument %(doc)s entfernt."

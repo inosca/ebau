@@ -1,5 +1,6 @@
 from alexandria.core.models import Document, Mark
 from django.conf import settings
+from django.core.exceptions import ObjectDoesNotExist
 from django.db.models.signals import m2m_changed, post_save
 from django.dispatch import receiver
 from django.utils.translation import gettext as _
@@ -38,7 +39,10 @@ def log_document_mark_mutations(
 
     doc_label = instance.title or str(instance.pk)
 
-    checksum = instance.get_latest_original().checksum
+    try:
+        checksum = instance.get_latest_original().checksum
+    except ObjectDoesNotExist:
+        checksum = None
 
     doc_ref = f"{doc_label} {checksum or ''}"
 
