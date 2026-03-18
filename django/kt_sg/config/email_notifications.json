@@ -48,6 +48,18 @@
     }
   },
   {
+    "model": "notification.notificationtemplate",
+    "pk": 5,
+    "fields": {
+      "slug": "user-invited",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
     "model": "notification.notificationtemplatet",
     "pk": 1,
     "fields": {
@@ -93,6 +105,18 @@
       "purpose": "Gesuchsbearbeitungs Einladung, Neu",
       "subject": "Einsicht respektive Mitarbeit in Dossier (Nr. {{ DOSSIER_NR }})",
       "body": "Guten Tag\n\nSie haben von {{GESUCHSTELLER}} den Zugriff auf das Dossier-Nr. {{ DOSSIER_NR }} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}, {{ PUBLIC_DOSSIER_LINK }}) erhalten. Damit können Sie dieses einsehen und mitbearbeiten.\n\nUm das Dossier einsehen zu können, ist eine Registrierung auf dem eBau-Portal des Kantons Argau erforderlich.\n\nUnter folgendem Link können Sie sich registrieren: {{ REGISTRATION_LINK }}\n\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\n\nFreundliche Grüsse\neBau"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 5,
+    "fields": {
+      "template": 5,
+      "template_slug": "user-invited",
+      "language": "de",
+      "purpose": "Benutzer eingeladen",
+      "subject": "Einladung zu eBau",
+      "body": "Guten Tag\r\n\r\nSie haben eine Berechtigung im internen Bereich von eBau für die Organisation \"{{ INVITED_TO_SERVICE }}\" erhalten. Um die Berechtigung zu aktivieren, ist eine Registrierung auf dem eBau-Portal des Kantons St.Gallen erforderlich.\r\n\r\nUnter folgendem Link können Sie sich registrieren: {{ INTERNAL_BASE_URL }}\r\n\r\nDiese Einladung ist 14 Tage lang gültig. Falls die Frist abgelaufen ist, melden Sie sich beim Administrator in ihrer Organisation oder beim Support von eBau.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau"
     }
   }
 ]
