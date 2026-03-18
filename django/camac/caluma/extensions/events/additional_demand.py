@@ -121,6 +121,11 @@ def post_complete_check_additional_demand(
     )
 
     for config in settings.ADDITIONAL_DEMAND["NOTIFICATIONS"].get(decision_key, []):
+        condition = config["condition"] if callable(config.get("condition")) else None
+
+        if condition and not condition(work_item):
+            continue
+
         send_mail_without_request(
             config["template_slug"],
             user.username,

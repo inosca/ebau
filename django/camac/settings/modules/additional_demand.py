@@ -1,5 +1,7 @@
 from django.utils.translation import gettext_lazy as _
 
+from camac.timelines.utils import is_additional_demand_with_changes
+
 """
 WARNING: Any key that is either "TASK or ends with "_TASK" will be picked up by the visibilty filter for work items (see django/camac/extensions/visibilities.py).
 """
@@ -39,7 +41,20 @@ ADDITIONAL_DEMAND = {
                 {
                     "recipient_types": ["additional_demand_inviter"],
                     "template_slug": "additional-demand-decision-accept",
-                }
+                    "condition": lambda work_item: (
+                        not is_additional_demand_with_changes(work_item)
+                    ),
+                },
+                {
+                    "recipient_types": [
+                        "additional_demand_inviter",
+                        "involved_in_distribution",
+                    ],
+                    "template_slug": "additional-demand-decision-accept-with-changes",
+                    "condition": lambda work_item: is_additional_demand_with_changes(
+                        work_item
+                    ),
+                },
             ],
             "REJECTED": [
                 {
