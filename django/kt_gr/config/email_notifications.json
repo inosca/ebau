@@ -408,6 +408,18 @@
     }
   },
   {
+    "model": "notification.notificationtemplate",
+    "pk": 35,
+    "fields": {
+      "slug": "publication-end",
+      "purpose": null,
+      "subject": null,
+      "body": null,
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
     "model": "notification.notificationtemplatet",
     "pk": 1,
     "fields": {
@@ -813,6 +825,18 @@
       "purpose": "Manuelle Aufgabe Fristüberschreitung",
       "subject": "Fristüberschreitung einer Aufgabe (Dossier-Nummer {{ DOSSIER_NR }})",
       "body": "Guten Tag\r\n\r\nDie Aufgabe \"{{WORK_ITEM_NAME_DE}}\" im Dossier mit der Dossier-Nummer {{ DOSSIER_NR }} ({{ FORM_NAME_DE }}, {{ MUNICIPALITY_DE }}) wurde nicht innerhalb der Frist abgeschlossen.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nSie erhalten diese Notifikation, weil Sie beim Erstellen der Aufgabe eine Notifikation bei Fristüberschreitung ausgewählt haben.\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau\r\n\r\n---\r\n\r\nBuongiorno,\r\n\r\nl'attività \"{{WORK_ITEM_NAME_IT}}\" nel dossier con il numero {{ DOSSIER_NR }} ({{ FORM_NAME_IT }}, {{ MUNICIPALITY_IT }}) non è stata completata entro il termine.\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nRiceve questa notifica perché ha selezionato una notifica in caso di superamento del termine durante la creazione dell'attività.\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\r\n\r\nCordiali saluti\r\neBau"
+    }
+  },
+  {
+    "model": "notification.notificationtemplatet",
+    "pk": 255,
+    "fields": {
+      "template": 35,
+      "template_slug": "publication-end",
+      "language": "de",
+      "purpose": "Einsprachen nach öffentlicher Auflage",
+      "subject": "Information über Einsprachen (Dossier-Nr. {{DOSSIER_NR}}) / Informazioni sulle opposizioni (dossier n. {{DOSSIER_NR}})",
+      "body": "Guten Tag\r\n\r\nIm eBau sind Einsprachen erfasst worden im Dossier-Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\neBau\r\n\r\n---\r\n\r\nBuongiorno,\r\n\r\nin eBau sono state registrate delle opposizioni al dossier n. {{DOSSIER_NR}} ({{FORM_NAME_IT}}, {{MUNICIPALITY_IT}}).\r\n\r\n{{INTERNAL_DOSSIER_LINK}}\r\n\r\nQuesta e-mail è stata generata automaticamente, si prega di non rispondere.\r\n\r\nCordiali saluti\r\neBau"
     }
   }
 ]
