@@ -36,10 +36,8 @@
 
 <CfContent
   @documentId={{this.model}}
-  @disabled={{cannot
-    "edit audit"
-    this.auditController.auditWorkItem
-    audit=this.audit
+  @disabled={{await
+    (cannot "edit audit" this.auditController.auditWorkItem audit=this.audit)
   }}
   as |content|
 >

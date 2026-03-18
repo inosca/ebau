@@ -25,7 +25,9 @@
       </label>
     </div>
 
-    {{#if (can "edit work item of audit" this.auditController.auditWorkItem)}}
+    {{#if
+      (await (can "edit work item of audit" this.auditController.auditWorkItem))
+    }}
       <div>
         <button
           class="uk-button uk-button-default"

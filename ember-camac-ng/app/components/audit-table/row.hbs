@@ -26,7 +26,7 @@
       @onClick={{perform this.pdf}}
       title={{t "audit.createPdf"}}
     />
-    {{#if (can "edit work item of audit" @workItem)}}
+    {{#if (await (can "edit work item of audit" @workItem))}}
       <IconButton
         @icon="copy"
         @loading={{this.copy.isRunning}}
@@ -34,7 +34,7 @@
         title={{t "audit.copy"}}
       />
     {{/if}}
-    {{#if (can "edit audit" @workItem audit=@audit)}}
+    {{#if (await (can "edit audit" @workItem audit=@audit))}}
       <IconButton
         @icon="trash"
         @loading={{this.delete.isRunning}}
