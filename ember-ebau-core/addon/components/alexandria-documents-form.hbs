@@ -72,6 +72,10 @@
   <hr />
 {{/if}}
 
+{{#if this.labelVisible}}
+  <CfField::Label @field={{@field}} />
+{{/if}}
+
 {{#if (and (not this.categories.isLoading) this.categories.records)}}
   <div
     uk-grid
