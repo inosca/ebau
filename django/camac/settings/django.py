@@ -2387,6 +2387,7 @@ APPLICATIONS = {
             "service-admin": "service",
             "service-lead": "service",
             "subservice": "service",
+            "geometer": "geometer",
             "support": "support",
         },
         "DEMO_MODE_GROUPS": env.list(
