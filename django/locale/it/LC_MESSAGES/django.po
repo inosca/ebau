@@ -954,6 +954,13 @@ msgstr "Non è possibile cancellare"
 
 #: camac/dossier_import/validation.py
 #, python-format
+msgid ""
+"The value %(value)s will be ignored when updating the dossier. Note, that "
+"the status of the dossier is '%(actual_status)s' and not '%(excel_status)s'."
+msgstr ""
+
+#: camac/dossier_import/validation.py
+#, python-format
 msgid "The value %(value)s will be ignored when updating the dossier."
 msgstr ""
 

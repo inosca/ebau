@@ -973,6 +973,16 @@ msgstr "Löschen nicht erlaubt"
 
 #: camac/dossier_import/validation.py
 #, python-format
+msgid ""
+"The value %(value)s will be ignored when updating the dossier. Note, that "
+"the status of the dossier is '%(actual_status)s' and not '%(excel_status)s'."
+msgstr ""
+"Der Wert %(value)s wird beim Re-Import des Dossiers ignoriert. Beachten Sie, "
+"dass der Status des Dossiers '%(actual_status)s' ist und nicht "
+"'%(excel_status)s‘."
+
+#: camac/dossier_import/validation.py
+#, python-format
 msgid "The value %(value)s will be ignored when updating the dossier."
 msgstr "Der Wert %(value)s wird beim Re-Import des Dossiers ignoriert."
 

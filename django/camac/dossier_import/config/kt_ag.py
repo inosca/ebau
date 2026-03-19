@@ -697,7 +697,7 @@ class KtAargauDossierWriter(DossierWriter):
                 and cantonal_id in all_keywords_from_db
             ):
                 new_ids.discard(dossier_id)
-                mapped_excel_ids[dossier_id] = keyword_to_dossier_number[cantonal_id]
+                mapped_excel_ids[keyword_to_dossier_number[cantonal_id]] = dossier_id
 
         # 3. remove ids from Excel where the cantonal_id already is in the database, as an dossier_id
         all_existing_dossier_numbers_from_db = set(
@@ -713,6 +713,6 @@ class KtAargauDossierWriter(DossierWriter):
                 and cantonal_id in all_existing_dossier_numbers_from_db
             ):
                 new_ids.discard(dossier_id)
-                mapped_excel_ids[dossier_id] = cantonal_id
+                mapped_excel_ids[cantonal_id] = dossier_id
 
         return ids_excel - new_ids, new_ids, mapped_excel_ids
