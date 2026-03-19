@@ -235,10 +235,10 @@ def _validate_existing_dossier(
 
 
 def _map_status(status: Any | None) -> Any:
-    if settings.DOSSIER_IMPORT.get("INSTANCE_STATE_MAPPING"):
-        return settings.DOSSIER_IMPORT["INSTANCE_STATE_MAPPING"].get(status)
-    else:
-        return None
+    if instance_state_mapping := settings.DOSSIER_IMPORT.get("INSTANCE_STATE_MAPPING"):
+        return instance_state_mapping.get(status)
+
+    return None
 
 
 def _validate_new_dossier(dossier_id, dossier_msgs, headings, rows):
@@ -457,17 +457,13 @@ def _get_dossier_states(
         )
     }
 
-    dossier_states.update(
-        {
-            mapped_existing[inst["case__meta__dossier-number"]]: inst[
-                "instance_state__name"
-            ]
-            for inst in (
-                Instance.objects.filter(
-                    **{"case__meta__dossier-number__in": mapped_existing.keys()}
-                ).values("case__meta__dossier-number", "instance_state__name")
-            )
-        }
-    )
+    dossier_numbers_and_instance_states = Instance.objects.filter(
+        **{"case__meta__dossier-number__in": mapped_existing.keys()}
+    ).values("case__meta__dossier-number", "instance_state__name")
+
+    for state_for_dossier in dossier_numbers_and_instance_states:  # pragma: no cover
+        dossier_states[
+            mapped_existing[state_for_dossier["case__meta__dossier-number"]]
+        ] = state_for_dossier["instance_state__name"]
 
     return dossier_states
