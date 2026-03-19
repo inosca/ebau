@@ -223,7 +223,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Dateien\", \"fr\": null, \"it\": \"File\"}",
-      "type": "files",
+      "type": "static",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
