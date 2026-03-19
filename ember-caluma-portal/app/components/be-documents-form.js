@@ -13,6 +13,7 @@ export default class BeDocumentsFormComponent extends Component {
   @service fetch;
   @service notification;
   @service store;
+  @service ebauModules;
 
   @tracked uploadedAttachmentIds = [];
 
