@@ -3,6 +3,7 @@ from .alexandria_config.kt_ag import CONFIG as AG_CONFIG
 ALEXANDRIA = {
     "default": {
         "ENABLED": False,
+        "LOG_MARKS_IN_HISTORY": False,
         "EXCLUSIVE_MARKS": ["void"],
         "MARK_VISIBILITY": {
             "APPLICANT": ["decision"],
@@ -58,6 +59,7 @@ ALEXANDRIA = {
     },
     "kt_so": {
         "ENABLED": True,
+        "LOG_MARKS_IN_HISTORY": True,
         "TAG_VISIBILITY": "service-subservice",
         "MARK_VISIBILITY": {
             "APPLICANT": ["objection"],
