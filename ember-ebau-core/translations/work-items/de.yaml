@@ -83,3 +83,6 @@ workItems:
     service: "Filter {serviceName}"
     serviceGroup: "Filter {serviceGroupName}"
     reset: "Filter zurücksetzen"
+
+  formal-exam:
+    new-address-needed: "TEXT TEXT TEXT"

@@ -17540,7 +17540,7 @@
       "modified_by_group": null,
       "form": "vollstaendigkeitspruefung",
       "question": "bemerkung-eingabequittung",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -17555,7 +17555,7 @@
       "modified_by_group": null,
       "form": "vollstaendigkeitspruefung",
       "question": "eingabequittung-korrekt",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -17570,7 +17570,7 @@
       "modified_by_group": null,
       "form": "vollstaendigkeitspruefung",
       "question": "einverstaendnis-grundeigentuemerin-vorhanden",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -17585,7 +17585,7 @@
       "modified_by_group": null,
       "form": "vollstaendigkeitspruefung",
       "question": "entspricht-voraussetzungen-einer-bauanzeige",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -17600,7 +17600,7 @@
       "modified_by_group": null,
       "form": "vollstaendigkeitspruefung",
       "question": "gesuchsunterlagen-vollstaendig",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -17615,7 +17615,7 @@
       "modified_by_group": null,
       "form": "vollstaendigkeitspruefung",
       "question": "hinweis-auflistung",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -17630,7 +17630,7 @@
       "modified_by_group": null,
       "form": "vollstaendigkeitspruefung",
       "question": "hinweis-baugesuch",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -17645,7 +17645,22 @@
       "modified_by_group": null,
       "form": "vollstaendigkeitspruefung",
       "question": "hinweis-eingabequittung",
-      "sort": 10
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vollstaendigkeitspruefung.hinweis-neue-adresse-notwendig",
+    "fields": {
+      "created_at": "2026-03-19T10:00:00.796Z",
+      "modified_at": "2026-03-19T10:00:00.796Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vollstaendigkeitspruefung",
+      "question": "hinweis-neue-adresse-notwendig",
+      "sort": 3
     }
   },
   {
@@ -17660,7 +17675,7 @@
       "modified_by_group": null,
       "form": "vollstaendigkeitspruefung",
       "question": "lage-des-vorhabens-korrekt",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -17675,7 +17690,7 @@
       "modified_by_group": null,
       "form": "vollstaendigkeitspruefung",
       "question": "neue-adresse-notwendig",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -17690,7 +17705,7 @@
       "modified_by_group": null,
       "form": "vollstaendigkeitspruefung",
       "question": "verfahrensart",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -32625,12 +32640,12 @@
     "pk": "neue-adresse-notwendig-ja",
     "fields": {
       "created_at": "2025-06-02T14:31:51.723Z",
-      "modified_at": "2025-06-02T14:31:51.723Z",
+      "modified_at": "2026-03-19T14:05:05.492Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": \"Sì\"}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -32642,12 +32657,12 @@
     "pk": "neue-adresse-notwendig-nein",
     "fields": {
       "created_at": "2025-06-02T14:31:51.726Z",
-      "modified_at": "2025-06-02T14:31:51.726Z",
+      "modified_at": "2026-03-19T14:05:05.493Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": \"No\"}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -64868,6 +64883,39 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "hinweis-neue-adresse-notwendig",
+    "fields": {
+      "created_at": "2026-03-19T10:00:00.755Z",
+      "modified_at": "2026-03-19T11:58:07.616Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"hinweis-neue-adresse-notwendig\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\"neue-adresse-notwendig\"|answer == \"neue-adresse-notwendig-ja\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"x\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "check-hint-new-address-needed"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "hinweis-oekonomiebauten",
     "fields": {
       "created_at": "2023-07-05T08:16:24.471Z",
@@ -71364,19 +71412,19 @@
     "pk": "neue-adresse-notwendig",
     "fields": {
       "created_at": "2025-01-07T12:10:27.336Z",
-      "modified_at": "2025-11-11T13:49:31.363Z",
+      "modified_at": "2026-03-19T14:05:05.558Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Ist eine neue Adresse notwendig?\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Ist eine neue Adresse notwendig?\", \"fr\": null, \"it\": \"È necessario un nuovo indirizzo?\"}",
       "type": "choice",
       "is_required": "false",
-      "is_hidden": "true",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -94714,8 +94762,8 @@
     "model": "caluma_form.questionoption",
     "pk": "neue-adresse-notwendig.neue-adresse-notwendig-ja",
     "fields": {
-      "created_at": "2025-11-11T13:49:31.385Z",
-      "modified_at": "2025-11-11T13:49:31.385Z",
+      "created_at": "2026-03-19T14:05:05.561Z",
+      "modified_at": "2026-03-19T14:05:05.561Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -94729,8 +94777,8 @@
     "model": "caluma_form.questionoption",
     "pk": "neue-adresse-notwendig.neue-adresse-notwendig-nein",
     "fields": {
-      "created_at": "2025-11-11T13:49:31.372Z",
-      "modified_at": "2025-11-11T13:49:31.372Z",
+      "created_at": "2026-03-19T14:05:05.560Z",
+      "modified_at": "2026-03-19T14:05:05.560Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
