@@ -1238,6 +1238,7 @@ def caluma_forms_ag(settings, caluma_form_factory):
         "vorentscheid",
         "vorentscheid-migration",
         "baugesuch-migration",
+        "importiertes-dossier",
         "uvp-migration",
         "pgv-migration",
         "internes-dossier",

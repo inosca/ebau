@@ -1,4 +1,134 @@
 # serializer version: 1
+# name: test_record_loading_ag[False]
+  OrderedDict({
+    'plot_data': list([
+      dict({
+        'egrid_number': 'CH123456789123',
+        'plot_number': '1',
+      }),
+    ]),
+    'gis_coordinates': '{"markers": [{"x": 2710662.123, "y": 1225997.123}], "geometry": "POINT"}',
+    'application_type': 'Importiertes Dossier',
+    'street': 'MeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreet 3a',
+    'submit_date': datetime.datetime(2021, 12, 12, 0, 0, tzinfo=tzutc()),
+    'publication_date': None,
+    'construction_start_date': None,
+    'profile_approval_date': None,
+    'decision_date': None,
+    'final_approval_date': None,
+    'completion_date': None,
+    'applicants': list([
+      dict({
+        'email': 'candy@example.com',
+        'first_name': 'Willy',
+        'is_juristic_person': True,
+        'juristic_name': 'Chocolate Factory',
+        'last_name': 'Wonka',
+        'reference_number': None,
+        'street': 'Candy Lane',
+        'street_number': '13',
+        'tel': '+1 101 10 01 101',
+        'town': 'Wonderland',
+        'zip': 1234,
+      }),
+    ]),
+    'landowners': list([
+      dict({
+        'email': 'candy@example.com',
+        'first_name': 'Willy',
+        'is_juristic_person': True,
+        'juristic_name': 'Chocolate Factory',
+        'last_name': 'Wonka',
+        'reference_number': None,
+        'street': 'Candy Lane',
+        'street_number': '13',
+        'tel': '+1 101 10 01 101',
+        'town': 'Wonderland',
+        'zip': None,
+      }),
+    ]),
+    'project_authors': list([
+      dict({
+        'email': 'candy@example.com',
+        'first_name': 'Willy',
+        'is_juristic_person': False,
+        'juristic_name': None,
+        'last_name': 'Wonka',
+        'reference_number': None,
+        'street': 'Candy Lane',
+        'street_number': None,
+        'tel': '+1 101 10 01 101',
+        'town': 'Wonderland',
+        'zip': None,
+      }),
+    ]),
+  })
+# ---
+# name: test_record_loading_ag[True]
+  OrderedDict({
+    'plot_data': list([
+      dict({
+        'egrid_number': 'CH123456789123',
+        'plot_number': '1',
+      }),
+    ]),
+    'gis_coordinates': '{"markers": [{"x": 2710662.123, "y": 1225997.123}], "geometry": "POINT"}',
+    'application_type': 'Importiertes Dossier',
+    'street': 'MeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreetMeanstreet 3a',
+    'submit_date': datetime.datetime(2021, 12, 12, 0, 0, tzinfo=tzutc()),
+    'publication_date': None,
+    'construction_start_date': None,
+    'profile_approval_date': None,
+    'decision_date': None,
+    'final_approval_date': None,
+    'completion_date': None,
+    'applicants': list([
+      dict({
+        'email': 'candy@example.com',
+        'first_name': 'Willy',
+        'is_juristic_person': True,
+        'juristic_name': 'Chocolate Factory',
+        'last_name': 'Wonka',
+        'reference_number': None,
+        'street': 'Candy Lane',
+        'street_number': '13',
+        'tel': '+1 101 10 01 101',
+        'town': 'Wonderland',
+        'zip': 1234,
+      }),
+    ]),
+    'landowners': list([
+      dict({
+        'email': 'candy@example.com',
+        'first_name': 'Willy',
+        'is_juristic_person': True,
+        'juristic_name': 'Chocolate Factory',
+        'last_name': 'Wonka',
+        'reference_number': None,
+        'street': 'Candy Lane',
+        'street_number': '13',
+        'tel': '+1 101 10 01 101',
+        'town': 'Wonderland',
+        'zip': None,
+      }),
+    ]),
+    'project_authors': list([
+      dict({
+        'email': 'candy@example.com',
+        'first_name': 'Willy',
+        'is_juristic_person': False,
+        'juristic_name': None,
+        'last_name': 'Wonka',
+        'reference_number': None,
+        'street': 'Candy Lane',
+        'street_number': None,
+        'tel': '+1 101 10 01 101',
+        'town': 'Wonderland',
+        'zip': None,
+      }),
+    ]),
+  })
+# ---
 # name: test_record_loading_be[False]
   OrderedDict({
     'dossier_number': '2017-1',

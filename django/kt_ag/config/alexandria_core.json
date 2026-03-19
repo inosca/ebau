@@ -2212,7 +2212,7 @@
       "created_at": "2026-02-18T16:32:29.881Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2026-02-18T15:34:10.201Z",
+      "modified_at": "2026-03-03T13:31:48.240Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -2315,7 +2315,7 @@
         }
       },
       "name": "{\"de\": \"Dossierimport\", \"fr\": \"\", \"it\": \"\"}",
-      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Hier werden Dokumente vom Dossierimport hochgeladen.\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\", \"video/mp4\", \"video/quicktime\", \"video/x-msvideo\", \"video/webm\"]",
       "color": "#000000",
       "parent": null,

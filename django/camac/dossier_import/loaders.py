@@ -87,6 +87,7 @@ class XlsxFileDossierLoader(DossierLoader):
         "cantonal_id",
         "street",
         "street_number",
+        "zip",
         "city",
         "usage",
         "application_type",
@@ -123,6 +124,7 @@ class XlsxFileDossierLoader(DossierLoader):
         proposal = "PROPOSAL"
         street = "ADDRESS-STREET"
         street_number = "ADDRESS-STREET-NR"
+        zip = "ADDRESS-ZIP"
         city = "ADDRESS-CITY"
         usage = "USAGE"
         application_type = "TYPE"

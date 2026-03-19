@@ -13,7 +13,6 @@ from camac.caluma.extensions.events.general import get_caluma_setting
 from camac.core.models import InstanceService
 from camac.core.utils import generate_sort_key
 from camac.dossier_import.dossier_classes import Dossier
-from camac.dossier_import.loaders import safe_join
 from camac.dossier_import.messages import (
     Message,
     MessageCodes,
@@ -23,6 +22,7 @@ from camac.dossier_import.utils import mark_work_items_as_imported
 from camac.dossier_import.validation import TargetStatus
 from camac.dossier_import.writers import (
     CalumaAnswerWriter,
+    CalumaCombinedStreetAndNumberWriter,
     CalumaListAnswerWriter,
     CalumaPlotDataWriter,
     CaseMetaWriter,
@@ -59,35 +59,6 @@ PLOT_DATA_MAPPING = {
     "coord_east": "lagekoordinaten-ost",
     "coord_north": "lagekoordinaten-nord",
 }
-
-
-class CalumaCombinedStreetAndNumberWriter(CalumaAnswerWriter):
-    """Combine street and street number into one field."""
-
-    def __init__(
-        self,
-        fields: list[str] = [],
-        *args,
-        **kwargs,
-    ):
-        self.fields = fields
-        super().__init__(*args, **kwargs)
-
-    def write(self, instance, values):
-        dossier = self.context.get("dossier")
-        if dossier.street == settings.DOSSIER_IMPORT["DELETE_KEYWORD"]:
-            combined_value = dossier.street
-        else:
-            combined_value = safe_join(
-                (
-                    getattr(dossier, field, "")
-                    for field in self.fields
-                    if getattr(dossier, field, None)
-                ),
-                separator=" ",
-            )
-
-        super().write(instance, combined_value)
 
 
 class KtGraubundenDossierWriter(DossierWriter):

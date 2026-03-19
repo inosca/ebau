@@ -12,7 +12,7 @@ from django.core.management import call_command
 from django.utils.module_loading import import_string
 
 from camac.dossier_import.loaders import XlsxFileDossierLoader
-from camac.user.models import Group
+from camac.user.models import Group, Service, ServiceGroup, User
 
 TEST_IMPORT_FILE_PATH = str(
     Path(settings.ROOT_DIR) / "camac/dossier_import/tests/data/"
@@ -59,6 +59,7 @@ def dossier_row_full(dossier_row_sparse):
         ("PROPOSAL", "Neubau,Einfamilienhaus"),
         ("ADDRESS-STREET", "Unterfeld"),
         ("ADDRESS-STREET-NR", "4"),
+        ("ADDRESS-ZIP", "6416"),
         ("ADDRESS-CITY", "Steinerberg"),
         ("USAGE", "W2"),
         ("TYPE", "Baugesuch"),
@@ -204,24 +205,24 @@ def load_fixtures_ag(
     ag_construction_monitoring_settings,
 ):  # pragma: no cover
     extra_fixtures = [
-        settings.ROOT_DIR("kt_ag/config/caluma_audit_form.json"),
-        settings.ROOT_DIR("kt_ag/config/caluma_decision_form.json"),
+        settings.ROOT_DIR("kt_ag/config/permissions.json"),
         settings.ROOT_DIR("kt_ag/config/caluma_form.json"),
         settings.ROOT_DIR("kt_ag/config/caluma_form_common.json"),
-        settings.ROOT_DIR("kt_ag/config/permissions.json"),
+        settings.ROOT_DIR("kt_ag/config/caluma_decision_form.json"),
         settings.ROOT_DIR("kt_ag/config/user.json"),
-        settings.ROOT_DIR("kt_ag/config/user_core_groups.json"),
-        settings.ROOT_DIR("kt_ag/data/user.json"),
     ]
 
+    caluma_workflow_config_ag.allow_forms.add("importiertes-dossier")
     service = service_factory(service_group__name="municipality")
     caluma_dynamic_option_factory(
         slug=str(service.pk), question_id="gemeinde", document=caluma_document_factory()
     )
 
     ag_dossier_import_settings["ALEXANDRIA_CATEGORY"] = CategoryFactory(
-        allowed_mime_types=["application/pdf"]
+        allowed_mime_types=["application/pdf", "text/plain"]
     ).pk
+
+    User.objects.create_user("aduncan", "aduncan@example.org", "pwd")
 
     yield service, extra_fixtures
 
@@ -322,14 +323,14 @@ def setup_dossier_writer(
             location_id=location.pk,
         )
 
-        if config in ["kt_bern", "kt_so", "kt_gr"]:
+        if config in ["kt_bern", "kt_so", "kt_gr", "kt_ag"]:
             this_group.service = service
             this_group.save()
             dossier_writer._group.refresh_from_db()
         elif config == "kt_schwyz":
             application_settings["SHORT_DOSSIER_NUMBER"] = True
 
-        if config in ["kt_so", "kt_gr"]:
+        if config in ["kt_so", "kt_gr", "kt_ag"]:
             application_settings["DOCUMENT_BACKEND"] = "alexandria"
         else:
             application_settings["DOCUMENT_BACKEND"] = "camac-ng"
@@ -340,6 +341,12 @@ def setup_dossier_writer(
         fixture_paths = common_fixtures_paths + config_fixtures
         if len(fixture_paths):
             call_command("loaddata", *fixture_paths)
+
+        if config == "kt_ag":
+            Service.objects.create(
+                slug="afb", service_group=ServiceGroup.objects.get(slug="service-afb")
+            )
+
         return dossier_writer
 
     return wrapper

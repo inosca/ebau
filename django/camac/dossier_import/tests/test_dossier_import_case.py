@@ -70,6 +70,7 @@ def test_bad_file_format_dossier_xlsx(
         # expected_warnings: SO doesn't accept plain text files.
         ("kt_so", lf("so_instance"), None, 1),
         ("kt_gr", lf("gr_instance"), None, 0),
+        ("kt_ag", lf("ag_instance"), None, 0),
     ],
 )
 def test_create_instance_dossier_import_case(
@@ -134,7 +135,7 @@ def test_create_instance_dossier_import_case(
             "dossier-number": "4022-2017-1",
             "dossier-number-sort": 40222017000001,
         }
-    elif config == "kt_gr":
+    if config in ["kt_gr", "kt_ag"]:
         assert first_instance.case.meta == {
             "import-id": str(dossier_import.pk),
             "camac-instance-id": first_instance.pk,
@@ -587,6 +588,78 @@ def test_record_loading_gr(
         dossier = dossier_loader._load_dossier(dossier_row_sparse | dossier_row_patch)
         writer.write_fields(gr_instance, dossier)
         md = MasterData(gr_instance.case)
+        data[expected_target] = getattr(md, expected_target)
+
+    assert data == snapshot(
+        exclude=paths(
+            "applicants.0.row_id",
+            "project_authors.0.row_id",
+            "landowners.0.row_id",
+        )
+    )
+
+
+IMPORT_ROWS_AG = [
+    (
+        {
+            "PARCEL": "1",
+            "EGRID": "CH123456789123",
+            "MUNICIPALITY": "Möhlin",
+        },
+        "plot_data",
+    ),
+    (
+        {
+            "COORDINATE-E": 2710662.123,
+            "COORDINATE-N": 1225997.123,
+        },
+        "gis_coordinates",
+    ),
+    ({"TYPE": "baubewilligung"}, "application_type"),
+] + COMMON_IMPORT_ROWS
+
+
+@pytest.mark.parametrize("is_empty", [True, False])
+def test_record_loading_ag(
+    caluma_work_item_factory,
+    dossier,
+    setup_dossier_writer,
+    master_data_is_visible_mock,
+    dossier_row_sparse,
+    dossier_loader,
+    mocker,
+    instance_service_factory,
+    ag_instance,
+    is_empty,
+    snapshot,
+    settings,
+    caluma_form_factory,
+):
+    writer = setup_dossier_writer("kt_ag")
+
+    ag_instance.case.document.form_id = settings.DOSSIER_IMPORT["CALUMA_FORM"]
+    ag_instance.case.document.save()
+
+    caluma_form_factory(pk="decision")
+    # Setup needed work items
+    caluma_work_item_factory(
+        task_id="decision",
+        case=ag_instance.case,
+        document__form_id="decision",
+    )
+
+    # Test overwriting values
+    if not is_empty:
+        writer.write_fields(ag_instance, dossier)
+        mocker.patch.object(writer, "find_existing_instance", ag_instance)
+        instance_service_factory(instance=ag_instance, service=writer._group.service)
+
+    data = OrderedDict()
+    for dossier_row_patch, expected_target in IMPORT_ROWS_AG:
+        dossier = dossier_loader._load_dossier(dossier_row_sparse | dossier_row_patch)
+        writer.write_fields(ag_instance, dossier)
+        md = MasterData(ag_instance.case)
+        print(f"expected_target: {expected_target}")
         data[expected_target] = getattr(md, expected_target)
 
     assert data == snapshot(
@@ -1434,12 +1507,123 @@ def test_set_workflow_state_gr(
 
 
 @pytest.mark.parametrize(
+    "target_state,expected_work_items_states,expected_case_status",
+    [
+        (
+            "SUBMITTED",
+            [
+                ("submit", "skipped"),
+                ("create-manual-workitems", "ready"),
+                ("formal-exam", "ready"),
+                ("init-additional-demand", "ready"),
+                ("init-construction-monitoring", False),
+                ("complete-construction-monitoring", False),
+            ],
+            "running",
+        ),
+        (
+            "APPROVED",
+            [
+                ("submit", "skipped"),
+                ("create-manual-workitems", "ready"),
+                ("formal-exam", "skipped"),
+                ("init-additional-demand", "canceled"),
+                ("distribution", "skipped"),
+                ("decision", "skipped"),
+                ("init-construction-monitoring", "ready"),
+            ],
+            "running",
+        ),
+        (
+            "WRITTEN OFF",
+            [
+                ("submit", "skipped"),
+                ("create-manual-workitems", "ready"),
+                ("formal-exam", "skipped"),
+                ("init-additional-demand", "canceled"),
+                ("distribution", "skipped"),
+                ("decision", "skipped"),
+                ("init-construction-monitoring", False),
+            ],
+            "running",
+        ),
+        (
+            "DONE",
+            [
+                ("submit", "skipped"),
+                ("formal-exam", "skipped"),
+                ("init-additional-demand", "canceled"),
+                ("distribution", "skipped"),
+                ("decision", "skipped"),
+                ("init-construction-monitoring", "skipped"),
+            ],
+            "completed",
+        ),
+        (
+            "REJECTED",
+            [
+                ("submit", "skipped"),
+                ("create-manual-workitems", "skipped"),
+                ("formal-exam", "skipped"),
+                ("init-additional-demand", "canceled"),
+                ("distribution", "skipped"),
+                ("decision", "skipped"),
+                ("init-construction-monitoring", False),
+            ],
+            "completed",
+        ),
+    ],
+)
+def test_set_workflow_state_ag(
+    db,
+    ag_instance,
+    setup_dossier_writer,
+    dossier,
+    target_state,
+    expected_work_items_states,
+    expected_case_status,
+    ag_construction_monitoring_settings,
+    address_assignment_settings,
+):
+
+    writer = setup_dossier_writer("kt_ag")
+    dossier._meta.target_state = target_state
+    messages = writer._set_workflow_state(ag_instance, dossier)
+    assert any(msg.level == Severity.ERROR.value for msg in messages) is False, (
+        f"Errors occurred while setting workflow state to {target_state}: {messages}"
+    )
+
+    for task_id, expected_status in expected_work_items_states:
+        work_item = ag_instance.case.work_items.filter(task_id=task_id).first()
+        if expected_status is False:
+            assert work_item is None, (
+                f"Work item {task_id} should not exist for target state {target_state}"
+            )
+            continue
+
+        assert work_item is not None, (
+            f"Work item {task_id} does not exist for target state {target_state}"
+        )
+        assert work_item.status == expected_status, (
+            f"Expected status {expected_status} for work item {task_id} but got {work_item.status} in target state {target_state}"
+        )
+
+        current_workitems = [
+            (wi.task_id, wi.status) for wi in ag_instance.case.work_items.all()
+        ]
+        assert ag_instance.case.status == expected_case_status, (
+            f"Expected case status {expected_case_status} but got {ag_instance.case.status}. Current work items: {current_workitems}"
+        )
+
+
+@pytest.mark.parametrize(
     "config,camac_instance",
     [
         ("kt_bern", lf("be_instance")),
         ("kt_schwyz", lf("sz_instance")),
         ("kt_so", lf("so_instance")),
         ("kt_gr", lf("gr_instance")),
+        ("kt_ag", lf("ag_instance")),
     ],
 )
 def test_import_documents(dossier, setup_dossier_writer, camac_instance, config):
@@ -1458,7 +1642,7 @@ def test_import_documents(dossier, setup_dossier_writer, camac_instance, config)
     ]
     writer._create_dossier_attachments(dossier, camac_instance)
 
-    if config == "kt_so":
+    if config in ["kt_so"]:
         camac_instance.alexandria_instance_documents.count() == len(dossier.attachments)
         for attachment in dossier.attachments:
             alexandria_doc = camac_instance.alexandria_instance_documents.filter(
@@ -1474,7 +1658,7 @@ def test_import_documents(dossier, setup_dossier_writer, camac_instance, config)
                     attachment.file_accessor.read()
                     == alexandria_doc.document.get_latest_original().content.file.file.read()
                 )
-    elif config == "kt_gr":
+    elif config in ["kt_gr", "kt_ag"]:
         camac_instance.alexandria_instance_documents.count() == len(dossier.attachments)
         for attachment in dossier.attachments:
             alexandria_doc = camac_instance.alexandria_instance_documents.filter(

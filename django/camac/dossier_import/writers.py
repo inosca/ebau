@@ -7,7 +7,7 @@ from abc import ABC, abstractmethod
 from dataclasses import asdict, fields, is_dataclass
 from datetime import datetime, timezone as dt_timezone
 from pathlib import Path
-from typing import Any, Callable, List, Mapping, Optional
+from typing import Any, Callable, List, Mapping, Optional, Set, Tuple
 
 import magic
 from alexandria.core.tasks import make_checksum
@@ -672,6 +672,35 @@ class ResponsibleUserWriter(FieldWriter):
             pass
 
 
+class CalumaCombinedStreetAndNumberWriter(CalumaAnswerWriter):
+    """Combine street and street number into one field."""
+
+    def __init__(
+        self,
+        fields: list[str] = [],
+        *args,
+        **kwargs,
+    ):
+        self.fields = fields
+        super().__init__(*args, **kwargs)
+
+    def write(self, instance, values):
+        dossier = self.context.get("dossier")
+        if dossier.street == settings.DOSSIER_IMPORT["DELETE_KEYWORD"]:
+            combined_value = dossier.street
+        else:
+            combined_value = safe_join(
+                (
+                    getattr(dossier, field, "")
+                    for field in self.fields
+                    if getattr(dossier, field, None)
+                ),
+                separator=" ",
+            )
+
+        super().write(instance, combined_value)
+
+
 class DossierWriter:
     delete_keyword = settings.DOSSIER_IMPORT["DELETE_KEYWORD"]
 
@@ -839,6 +868,19 @@ class DossierWriter:
         """Return all dossier IDs that already exist."""
         raise DossierWriter.ConfigurationError  # pragma: no cover
 
+    def get_existing_and_new_dossier_ids(
+        self, dossier_and_cantonal_ids: List[Tuple[str, str]]
+    ) -> Tuple[Set[str], Set[str], Mapping[str, str]]:
+        # Each dossier ID may be discarded for various reasons and based on
+        # different criteria depending on the import status as a new or reimported
+        # dossier.
+        dossier_ids = [
+            dossier_id for dossier_id, _ in dossier_and_cantonal_ids if dossier_id
+        ]
+        existing_dossier_ids = set(self.get_existing_dossier_ids(dossier_ids))
+        new_dossier_ids = set(dossier_ids) - existing_dossier_ids
+        return existing_dossier_ids, new_dossier_ids, {}
+
     def find_existing_instance(
         self, dossier: Dossier, user: BaseUser
     ) -> Optional[Instance]:
@@ -946,31 +988,33 @@ class DossierWriter:
 
             return messages
 
-        if document := AlexandriaDocument.objects.filter(
-            title=filename, **{"metainfo__camac-instance-id": str(instance.pk)}
-        ).first():
-            original = document.get_latest_original()
-            if original.checksum == make_checksum(content.read()):
-                return messages
-            content.seek(0)
-            create_file(
-                document,
-                user=self._user.pk,
-                group=self._group.pk,
-                name=filename,
-                content=content,
-                mime_type=mime_type,
-                size=content.size,
-            )
-
-            messages.append(
-                Message(
-                    level=Severity.INFO.value,
-                    code=MessageCodes.ATTACHMENT_UPDATED.value,
-                    detail=filename,
+        if settings.DOSSIER_IMPORT["ALEXANDRIA_UPDATE_EXISTING_DOCUMENTS"]:
+            if document := AlexandriaDocument.objects.filter(
+                title=filename, **{"metainfo__camac-instance-id": str(instance.pk)}
+            ).first():
+                original = document.get_latest_original()
+                if original.checksum == make_checksum(content.read()):
+                    return messages
+                content.seek(0)
+                create_file(
+                    document,
+                    user=self._user.pk,
+                    group=self._group.pk,
+                    name=filename,
+                    content=content,
+                    mime_type=mime_type,
+                    size=content.size,
                 )
-            )
-            return messages
+
+                messages.append(
+                    Message(
+                        level=Severity.INFO.value,
+                        code=MessageCodes.ATTACHMENT_UPDATED.value,
+                        detail=filename,
+                    )
+                )
+                return messages
+
         doc, _file = create_document_file(
             user=self._user.pk,
             group=self._group.service.pk,
