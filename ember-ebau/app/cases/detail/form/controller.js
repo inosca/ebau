@@ -31,7 +31,7 @@ export default class CasesDetailFormController extends Controller {
   }
 
   get isCurrentTimeline() {
-    return this.timeline.id === "current";
+    return this.timelineId === "current";
   }
 
   formTimelines = trackedFunction(this, async () => {
