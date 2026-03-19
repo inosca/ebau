@@ -26,6 +26,7 @@ class Message(models.Model):
     body = models.TextField(help_text="XML body")
     created_at = models.DateTimeField(auto_now_add=True)
     receiver = models.ForeignKey("user.Service", on_delete=models.PROTECT)
+    instance = models.ForeignKey("instance.Instance", on_delete=models.CASCADE)
 
     @cached_property
     def dom(self):
