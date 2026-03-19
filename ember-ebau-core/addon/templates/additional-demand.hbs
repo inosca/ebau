@@ -16,7 +16,12 @@
     )
   }}
     <div uk-grid class="additional-demand-list">
-      {{#if this.session.isInternal}}
+      {{#if
+        (and
+          this.session.isInternal
+          (not (eq this.session.serviceGroup.slug "municipality"))
+        )
+      }}
         <div class="uk-width-1-1">
           {{maybe-translate "additional-demand.hint" htmlSafe=true}}
         </div>
