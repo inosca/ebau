@@ -581,6 +581,8 @@ class CloseArchiveDossierSendHandler(BaseSendHandler):
         ):
             self._process_work_item(action, task, {}, context)
 
+        permissions_events.Trigger.instance_completed(None, self.instance)
+
 
 class TaskSendHandler(AlexandriaDocumentMixin, BaseSendHandler):
     def _is_event_type_claim(self) -> bool:

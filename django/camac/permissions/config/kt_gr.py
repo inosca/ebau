@@ -21,7 +21,7 @@ from .common import (
 )
 
 
-def _gr_include_special_service(instance, service_name):
+def _include_special_service(instance, service_name):
     """
     Check if a 'special' service should be included in the given instance.
 
@@ -37,7 +37,7 @@ def _gr_include_special_service(instance, service_name):
     if settings.APPLICATION_NAME != "kt_gr":
         return False
 
-    if service_name == "gvg":
+    if service_name == gr_constants.GVG_SERVICE_SLUG:
         # GVG can only be included in "building permit"-type decisions
         # TODO(GR): replace this once preliminary clarification workflow
         # has been introduced
@@ -47,10 +47,17 @@ def _gr_include_special_service(instance, service_name):
             return False
         task_id = settings.DECISION["TASK"]
         question_id = "fuer-gvg-freigeben"
+    elif service_name == gr_constants.AIB_SERVICE_SLUG:
+        task_id = "construction-acceptance"
+        question_id = "fuer-aib-freigeben"
     else:  # pragma: no cover
         raise RuntimeError(
-            f"unknown special service {service_name}, expected 'gvg' or 'aib'."
+            f"unknown special service {service_name}, expected '{gr_constants.GVG_SERVICE_SLUG}' or '{gr_constants.AIB_SERVICE_SLUG}'"
         )
+
+    # eCH instance should always include GVG / AIB.
+    if instance.case.meta.get("ech0211-submitted", False):
+        return True
 
     work_item = instance.case.work_items.filter(
         task_id=task_id,
@@ -66,8 +73,12 @@ def _gr_include_special_service(instance, service_name):
     return f"{question_id}-ja" in answer.value
 
 
-def gr_include_gvg(instance):
-    return _gr_include_special_service(instance, "gvg")
+def should_include_gvg(instance):
+    return _include_special_service(instance, gr_constants.GVG_SERVICE_SLUG)
+
+
+def should_include_aib(instance):
+    return _include_special_service(instance, gr_constants.AIB_SERVICE_SLUG)
 
 
 class PermissionEventHandlerGR(
@@ -79,12 +90,12 @@ class PermissionEventHandlerGR(
     EmptyEventHandler,
 ):
     def decision_decreed(self, instance: Instance):
-        if gr_include_gvg(instance):
+        if should_include_gvg(instance):
             self.manager.grant(
                 instance,
                 grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
                 access_level=permissions_models.AccessLevel.objects.get(pk="read"),
-                service=Service.objects.get(name=gr_constants.GVG_SERVICE_SLUG),
+                service=Service.objects.get(slug=gr_constants.GVG_SERVICE_SLUG),
             )
 
     def inquiry_sent(self, instance: Instance, work_item: WorkItem):
@@ -170,3 +181,12 @@ class PermissionEventHandlerGR(
                         service=Service.objects.get(pk=addr),
                         event_name="received-work-item",
                     )
+
+    def instance_completed(self, instance: Instance):
+        if should_include_aib(instance):
+            self.manager.grant(
+                instance,
+                grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+                access_level=permissions_models.AccessLevel.objects.get(pk="read"),
+                service=Service.objects.get(slug=gr_constants.AIB_SERVICE_SLUG),
+            )

@@ -3,6 +3,7 @@ import re
 from datetime import timedelta
 
 import pytest
+from caluma.caluma_form.models import Question
 from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.models import WorkItem
 from django.urls import reverse
@@ -278,7 +279,7 @@ def test_decision_event_handler_gr(
 ):
     mocker.patch("camac.notification.utils.send_mail")
     settings.APPLICATION_NAME = "kt_gr"
-    gvg_service = service_factory(name=gr_constants.GVG_SERVICE_SLUG)
+    gvg_service = service_factory(slug=gr_constants.GVG_SERVICE_SLUG)
 
     for task_id in [
         "submit",
@@ -625,6 +626,77 @@ def test_completed_involve_tax_administration_sz(
         service=tax_administration,
     )
     assert acls.exists()
+
+
+@pytest.mark.parametrize(
+    ("is_ech", "gvg_answer", "aib_answer", "expected"),
+    [
+        (False, False, False, []),
+        (False, True, False, ["gvg"]),
+        (False, False, True, ["aib"]),
+        (False, True, True, ["aib", "gvg"]),
+        (True, False, False, ["aib", "gvg"]),
+    ],
+)
+def test_involve_gvg_aib_gr(
+    db,
+    service_factory,
+    caluma_answer_factory,
+    caluma_work_item_factory,
+    access_level_factory,
+    is_ech,
+    gvg_answer,
+    aib_answer,
+    expected,
+    gr_instance,
+    gr_decision_settings,
+    gr_permissions_settings,
+    set_application_gr,
+):
+    access_level_factory(slug="read")
+    if is_ech:
+        gr_instance.case.meta["ech0211-submitted"] = True
+        gr_instance.case.save()
+
+    gvg_service = service_factory.create(slug=gr_constants.GVG_SERVICE_SLUG)
+    aib_service = service_factory.create(slug=gr_constants.AIB_SERVICE_SLUG)
+
+    work_item_decision = caluma_work_item_factory(
+        task_id=gr_decision_settings["TASK"],
+        case=gr_instance.case,
+        status=WorkItem.STATUS_COMPLETED,
+    )
+    work_item_construction = caluma_work_item_factory(
+        task_id="construction-acceptance",
+        case=gr_instance.case,
+        status=WorkItem.STATUS_COMPLETED,
+    )
+
+    if gvg_answer:
+        caluma_answer_factory(
+            document=work_item_decision.document,
+            question__slug="fuer-gvg-freigeben",
+            value=["fuer-gvg-freigeben-ja"],
+        )
+
+    if aib_answer:
+        caluma_answer_factory(
+            document=work_item_construction.document,
+            question=Question.objects.get(slug="fuer-aib-freigeben"),
+            value=["fuer-aib-freigeben-ja"],
+        )
+
+    events.core.Trigger.decision_decreed(None, gr_instance)
+    events.core.Trigger.instance_completed(None, gr_instance)
+
+    assert set(
+        InstanceACL.objects.filter(
+            instance=gr_instance,
+            grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+            access_level="read",
+            service__in=[gvg_service, aib_service],
+        ).values_list("service__slug", flat=True)
+    ) == set(expected)
 
 
 @pytest.mark.parametrize("have_geometer,expect_acl", [(True, True), (False, False)])
