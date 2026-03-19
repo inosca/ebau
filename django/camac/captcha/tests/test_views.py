@@ -9,10 +9,7 @@ from rest_framework import status
 from rest_framework.test import APIClient
 
 
-def test_generate_and_render(db, application_settings):
-    application_settings["ENABLE_PUBLIC_CALUMA"] = True
-    application_settings["ENABLE_PUBLIC_CALUMA_CAPTCHA"] = True
-
+def test_generate_and_render(db):
     client = APIClient()
     url = reverse("captcha-generate")
 
@@ -40,12 +37,7 @@ def test_generate_and_render(db, application_settings):
         (True, True, status.HTTP_200_OK),
     ],
 )
-def test_validate(
-    db, application_settings, correct_key, correct_challenge, expected_response
-):
-    application_settings["ENABLE_PUBLIC_CALUMA"] = True
-    application_settings["ENABLE_PUBLIC_CALUMA_CAPTCHA"] = True
-
+def test_validate(db, correct_key, correct_challenge, expected_response):
     # generate a new captcha challenge.
     client = APIClient()
     url = reverse("captcha-generate")
