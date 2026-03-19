@@ -1,6 +1,6 @@
 import zipfile
 from enum import Enum
-from typing import List
+from typing import List, Set
 
 from django.conf import settings
 from django.utils import timezone
@@ -16,6 +16,7 @@ from camac.dossier_import.utils import (
     get_worksheet_headings_and_rows,
 )
 
+from ..instance.models import Instance
 from .config.common import mimetypes
 from .loaders import XlsxFileDossierLoader
 from .messages import MessageCodes
@@ -94,7 +95,7 @@ def validate_attachments(archive: zipfile.ZipFile, dossier_ids: List[str]):
     return result
 
 
-def get_attachment_validation_stats(archive: zipfile.ZipFile, dossier_ids: List[str]):
+def get_attachment_validation_stats(archive: zipfile.ZipFile, dossier_ids: Set[str]):
     return sum(
         [
             1
@@ -337,40 +338,40 @@ def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierIm
     _raise_for_missing_columns(headings, "ID")
 
     # get the list of IDs in the file
-    dossier_ids = [row["ID"] for row in rows if row.get("ID")]
+    dossier_and_cantonal_ids = [
+        (row.get("ID"), row.get("CANTONAL-ID"))
+        for row in rows
+        if row.get("ID") or row.get("CANTONAL-ID")
+    ]
 
     # exclude and report duplicate IDs
+    dossier_ids = [d for d, _ in dossier_and_cantonal_ids if d]
     dupes = set([d for d in dossier_ids if dossier_ids.count(d) > 1])
     for dupe in dupes:
         messages.append_or_update_dossier_message(
-            dossier_id=dupe,
+            dossier_id=dupe[0],
             field_name="ID",
             detail=_("%(count)d rows with this ID will be ignored.")
             % {"count": dossier_ids.count(dupe)},
             code=MessageCodes.DUPLICATE_IDENTFIER_ERROR.value,
             messages=dossier_msgs,
         )
-        dossier_ids.remove(dupe)
+        dossier_and_cantonal_ids = [d for d in dossier_and_cantonal_ids if d[0] != dupe]
 
-    # Each dossier ID may be discarded for various reasons and based on
-    # different criteria depending on the import status as a new or reimported
-    # dossier.
+    existing_dossier_ids, new_dossier_ids, mapped_existing = (
+        writer.get_existing_and_new_dossier_ids(dossier_and_cantonal_ids)
+    )
+
     valid_dossier_ids = []
-    existing_dossier_ids = set(writer.get_existing_dossier_ids(dossier_ids))
-    new_dossier_ids = set(dossier_ids) - existing_dossier_ids
 
     for dossier_id in new_dossier_ids:
         valid = _validate_new_dossier(dossier_id, dossier_msgs, headings, rows)
         if valid:
             valid_dossier_ids.append(dossier_id)
 
+    Instance.objects.filter(group__service=dossier_import.group.service).delete()
     for dossier_id in existing_dossier_ids:
-        valid = _validate_existing_dossier(
-            dossier_id,
-            dossier_msgs,
-            headings,
-            rows,
-        )
+        valid = _validate_existing_dossier(dossier_id, dossier_msgs, headings, rows)
         if valid:
             valid_dossier_ids.append(dossier_id)
 
@@ -386,7 +387,9 @@ def validate_zip_archive_structure(instance_pk, clean_on_fail=True) -> DossierIm
         archive, valid_dossier_ids
     )
     dossier_import.messages["validation"]["summary"]["stats"] = {
-        "attachments": get_attachment_validation_stats(archive, dossier_ids),
+        "attachments": get_attachment_validation_stats(
+            archive, existing_dossier_ids.union(new_dossier_ids)
+        ),
         "dossiers": len(valid_dossier_ids),
     }
 

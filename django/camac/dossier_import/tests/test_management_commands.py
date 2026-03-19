@@ -47,6 +47,7 @@ def test_import_dossiers_exceptions(
         ("kt_bern", False, lf("be_instance")),
         ("kt_so", False, lf("so_instance")),
         ("kt_gr", False, lf("gr_instance")),
+        ("kt_ag", False, lf("ag_instance")),
     ],
 )
 @pytest.mark.order(1)  # Slow tests should run first

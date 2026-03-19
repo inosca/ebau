@@ -14,6 +14,7 @@ DOSSIER_IMPORT = {
         "DELETE_KEYWORD": "<LÖSCHEN>",
         "QUEUE": "django-q",
         "CELERY_QUEUE": "celery",
+        "ALEXANDRIA_UPDATE_EXISTING_DOCUMENTS": True,
     },
     "kt_schwyz": {
         "ENABLED": True,
@@ -113,6 +114,7 @@ DOSSIER_IMPORT = {
         "CALUMA_FORM": "importiertes-dossier",
         "FORM_ID": 1,
         "ALEXANDRIA_CATEGORY": "dossier-import",
+        "ALEXANDRIA_UPDATE_EXISTING_DOCUMENTS": False,
         "PROD_URL": env.str(
             "DJANGO_DOSSIER_IMPORT_PROD_URL",
             "https://ebauintern.ag.ch/",
