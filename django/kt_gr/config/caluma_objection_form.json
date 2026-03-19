@@ -235,7 +235,8 @@
       "meta": {
         "widgetOverride": "alexandria-documents-form",
         "alexandria-categories": ["einsprachen"],
-        "alexandriaEnableDocumentFilter": true
+        "alexandriaEnableDocumentFilter": true,
+        "hideLabel": true
       },
       "data_source": null,
       "row_form": null,

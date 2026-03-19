@@ -492,7 +492,8 @@
       "meta": {
         "widgetOverride": "alexandria-documents-form",
         "alexandria-categories": ["nachforderung"],
-        "alexandriaEnableDocumentFilter": true
+        "alexandriaEnableDocumentFilter": true,
+        "hideLabel": true
       },
       "data_source": null,
       "row_form": null,

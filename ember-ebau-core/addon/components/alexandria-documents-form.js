@@ -38,6 +38,16 @@ export default class AlexandriaDocumentsFormComponent extends Component {
     return this.args.disabled || this.isAdditionalDemandChanges;
   }
 
+  get labelVisible() {
+    if (!this.args.field || this.args.field.questionType !== "StaticQuestion") {
+      // Don't ever show the label if we're in a form widget override context -
+      // only for static questions
+      return false;
+    }
+
+    return !this.args.field?.question.raw.meta.hideLabel;
+  }
+
   get categorySlugs() {
     return this.field.question.raw.meta["alexandria-categories"];
   }
