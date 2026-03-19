@@ -818,6 +818,9 @@ DUMP = {
                 "caluma_formal_exam_form": generate_form_dump_config(
                     regex=r"^formelle-vorpruefung"
                 ),
+                "caluma_material_exam_form": generate_form_dump_config(
+                    regex=r"^materielle-pruefung"
+                ),
             },
         },
     },

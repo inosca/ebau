@@ -1,0 +1,2008 @@
+[
+  {
+    "model": "caluma_form.form",
+    "pk": "materielle-pruefung",
+    "fields": {
+      "created_at": "2026-03-12T15:34:34.851Z",
+      "modified_at": "2026-03-19T11:44:36.276Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Materielle Prüfung\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "materielle-pruefung-artikel-31",
+    "fields": {
+      "created_at": "2026-03-18T15:39:44.201Z",
+      "modified_at": "2026-03-18T15:39:44.201Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Art. 31 Abs. 2 LSV\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": "materielle-pruefung-strassenabstand"
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "materielle-pruefung-ausnahmebewilligungen",
+    "fields": {
+      "created_at": "2026-03-18T13:47:22.399Z",
+      "modified_at": "2026-03-18T13:57:05.715Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Ausnahmebewilligungen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "materielle-pruefung-form",
+    "fields": {
+      "created_at": "2026-03-19T09:57:56.048Z",
+      "modified_at": "2026-03-19T11:07:32.774Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Materielle Prüfung Form\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": "materielle-pruefung"
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "materielle-pruefung-gewaesserraum",
+    "fields": {
+      "created_at": "2026-03-18T15:32:09.140Z",
+      "modified_at": "2026-03-18T15:32:09.140Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Gewässerraum\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "materielle-pruefung-stellungnahme-bau-zivilschutz",
+    "fields": {
+      "created_at": "2026-03-18T14:54:41.827Z",
+      "modified_at": "2026-03-18T16:21:22.559Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Stellungnahme Gemeinde für baulichen Zivilschutz\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "materielle-pruefung-strassenabstand",
+    "fields": {
+      "created_at": "2026-03-18T15:38:31.670Z",
+      "modified_at": "2026-03-18T15:39:21.471Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Strassenabstand Kantonsstrasse\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": "materielle-pruefung-zonenkonformitaet"
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "materielle-pruefung-waldabstand",
+    "fields": {
+      "created_at": "2026-03-18T15:35:38.009Z",
+      "modified_at": "2026-03-18T15:36:42.908Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Waldabstand\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": "materielle-pruefung-gewaesserraum"
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "materielle-pruefung-zonenkonformitaet",
+    "fields": {
+      "created_at": "2026-03-18T15:36:59.300Z",
+      "modified_at": "2026-03-18T15:36:59.300Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Zonenkonformität\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": "materielle-pruefung-waldabstand"
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-artikel-31.materielle-pruefung-artikel-31-antrag",
+    "fields": {
+      "created_at": "2026-03-18T15:39:55.727Z",
+      "modified_at": "2026-03-18T15:39:55.727Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-artikel-31",
+      "question": "materielle-pruefung-artikel-31-antrag",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-artikel-31.materielle-pruefung-artikel-31-begruendung",
+    "fields": {
+      "created_at": "2026-03-18T15:40:07.011Z",
+      "modified_at": "2026-03-18T15:40:07.011Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-artikel-31",
+      "question": "materielle-pruefung-artikel-31-begruendung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-ausnahmebewilligungen.materielle-pruefung-art-31",
+    "fields": {
+      "created_at": "2026-03-18T15:42:24.125Z",
+      "modified_at": "2026-03-18T15:42:24.125Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-ausnahmebewilligungen",
+      "question": "materielle-pruefung-art-31",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-ausnahmebewilligungen.materielle-pruefung-gewaesserraum",
+    "fields": {
+      "created_at": "2026-03-18T15:34:37.585Z",
+      "modified_at": "2026-03-18T15:34:37.585Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-ausnahmebewilligungen",
+      "question": "materielle-pruefung-gewaesserraum",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-ausnahmebewilligungen.materielle-pruefung-strassenabstand",
+    "fields": {
+      "created_at": "2026-03-18T15:42:00.234Z",
+      "modified_at": "2026-03-18T15:42:00.234Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-ausnahmebewilligungen",
+      "question": "materielle-pruefung-strassenabstand",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-ausnahmebewilligungen.materielle-pruefung-waldabstand",
+    "fields": {
+      "created_at": "2026-03-18T15:41:14.173Z",
+      "modified_at": "2026-03-18T15:41:14.173Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-ausnahmebewilligungen",
+      "question": "materielle-pruefung-waldabstand",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-ausnahmebewilligungen.materielle-pruefung-zonenkonformitaet",
+    "fields": {
+      "created_at": "2026-03-18T15:41:36.369Z",
+      "modified_at": "2026-03-18T15:41:36.369Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-ausnahmebewilligungen",
+      "question": "materielle-pruefung-zonenkonformitaet",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-form.materielle-pruefung-abschliessen",
+    "fields": {
+      "created_at": "2026-03-19T09:57:56.090Z",
+      "modified_at": "2026-03-19T09:57:56.090Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "materielle-pruefung-form",
+      "question": "materielle-pruefung-abschliessen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-form.materielle-pruefung-ausnahmebewilligungen-notwendig",
+    "fields": {
+      "created_at": "2026-03-19T09:57:56.076Z",
+      "modified_at": "2026-03-19T09:57:56.076Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "materielle-pruefung-form",
+      "question": "materielle-pruefung-ausnahmebewilligungen-notwendig",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-form.materielle-pruefung-baulicher-zivilschutz-betroffen",
+    "fields": {
+      "created_at": "2026-03-19T09:57:56.072Z",
+      "modified_at": "2026-03-19T09:57:56.072Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "materielle-pruefung-form",
+      "question": "materielle-pruefung-baulicher-zivilschutz-betroffen",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-form.materielle-pruefung-bemerkungen",
+    "fields": {
+      "created_at": "2026-03-19T09:57:56.080Z",
+      "modified_at": "2026-03-19T09:57:56.080Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "materielle-pruefung-form",
+      "question": "materielle-pruefung-bemerkungen",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-form.materielle-pruefung-brandschutz-in-kantonaler-zustaendigkeit",
+    "fields": {
+      "created_at": "2026-03-19T09:57:56.070Z",
+      "modified_at": "2026-03-19T09:57:56.070Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "materielle-pruefung-form",
+      "question": "materielle-pruefung-brandschutz-in-kantonaler-zustaendigkeit",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-form.materielle-pruefung-erschliessung-vorhanden-und-ausreichend",
+    "fields": {
+      "created_at": "2026-03-19T09:57:56.063Z",
+      "modified_at": "2026-03-19T09:57:56.063Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "materielle-pruefung-form",
+      "question": "materielle-pruefung-erschliessung-vorhanden-und-ausreichend",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-form.materielle-pruefung-regelbauweise-eingehalten",
+    "fields": {
+      "created_at": "2026-03-19T09:57:56.058Z",
+      "modified_at": "2026-03-19T09:57:56.058Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "materielle-pruefung-form",
+      "question": "materielle-pruefung-regelbauweise-eingehalten",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-form.materielle-pruefung-umweltrelevante-themen-in-kantonaler-zustaendigkeit",
+    "fields": {
+      "created_at": "2026-03-19T09:57:56.067Z",
+      "modified_at": "2026-03-19T09:57:56.067Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "materielle-pruefung-form",
+      "question": "materielle-pruefung-umweltrelevante-themen-in-kantonaler-zustaendigkeit",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-gewaesserraum.materielle-pruefung-gewaesserraum-antrag",
+    "fields": {
+      "created_at": "2026-03-18T15:32:09.146Z",
+      "modified_at": "2026-03-18T15:32:09.146Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "materielle-pruefung-gewaesserraum",
+      "question": "materielle-pruefung-gewaesserraum-antrag",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-gewaesserraum.materielle-pruefung-gewaesserraum-begruendung",
+    "fields": {
+      "created_at": "2026-03-18T15:32:09.152Z",
+      "modified_at": "2026-03-18T15:32:09.152Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "form": "materielle-pruefung-gewaesserraum",
+      "question": "materielle-pruefung-gewaesserraum-begruendung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung.materielle-pruefung-ausnahmebewilligungen",
+    "fields": {
+      "created_at": "2026-03-18T13:49:14.036Z",
+      "modified_at": "2026-03-18T13:49:14.036Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung",
+      "question": "materielle-pruefung-ausnahmebewilligungen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung.materielle-pruefung-form",
+    "fields": {
+      "created_at": "2026-03-19T11:09:30.136Z",
+      "modified_at": "2026-03-19T11:09:30.136Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung",
+      "question": "materielle-pruefung-form",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung.materielle-pruefung-form-stellungnahme-zivilschutz",
+    "fields": {
+      "created_at": "2026-03-18T15:00:57.406Z",
+      "modified_at": "2026-03-18T15:00:57.406Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung",
+      "question": "materielle-pruefung-form-stellungnahme-zivilschutz",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-stellungnahme-bau-zivilschutz.materielle-pruefung-stellungnahme-bau-zivilschutz-antrag",
+    "fields": {
+      "created_at": "2026-03-18T15:45:35.913Z",
+      "modified_at": "2026-03-18T15:45:35.913Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-stellungnahme-bau-zivilschutz",
+      "question": "materielle-pruefung-stellungnahme-bau-zivilschutz-antrag",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-stellungnahme-bau-zivilschutz.materielle-pruefung-stellungnahme-bau-zivilschutz-begruendung",
+    "fields": {
+      "created_at": "2026-03-18T15:44:58.080Z",
+      "modified_at": "2026-03-18T15:44:58.080Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-stellungnahme-bau-zivilschutz",
+      "question": "materielle-pruefung-stellungnahme-bau-zivilschutz-begruendung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-strassenabstand.materielle-pruefung-strassenabstand-antrag",
+    "fields": {
+      "created_at": "2026-03-18T15:38:55Z",
+      "modified_at": "2026-03-18T15:38:55Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-strassenabstand",
+      "question": "materielle-pruefung-strassenabstand-antrag",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-strassenabstand.materielle-pruefung-strassenabstand-begruendung",
+    "fields": {
+      "created_at": "2026-03-18T15:39:13.667Z",
+      "modified_at": "2026-03-18T15:39:13.668Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-strassenabstand",
+      "question": "materielle-pruefung-strassenabstand-begruendung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-waldabstand.materielle-pruefung-waldabstand-antrag",
+    "fields": {
+      "created_at": "2026-03-18T15:36:09.853Z",
+      "modified_at": "2026-03-18T15:36:09.853Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-waldabstand",
+      "question": "materielle-pruefung-waldabstand-antrag",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-waldabstand.materielle-pruefung-waldabstand-begruendung",
+    "fields": {
+      "created_at": "2026-03-18T15:36:31.775Z",
+      "modified_at": "2026-03-18T15:36:31.775Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-waldabstand",
+      "question": "materielle-pruefung-waldabstand-begruendung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-zonenkonformitaet.materielle-pruefung-zonenkonformitaet-antrag",
+    "fields": {
+      "created_at": "2026-03-18T15:37:26.697Z",
+      "modified_at": "2026-03-18T15:37:26.697Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-zonenkonformitaet",
+      "question": "materielle-pruefung-zonenkonformitaet-antrag",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-zonenkonformitaet.materielle-pruefung-zonenkonformitaet-begruendung",
+    "fields": {
+      "created_at": "2026-03-18T15:38:02.035Z",
+      "modified_at": "2026-03-18T15:38:02.035Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-zonenkonformitaet",
+      "question": "materielle-pruefung-zonenkonformitaet-begruendung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materielle-pruefung-ausnahmebewilligungen-notwendig-art-31-abs-2-lsv",
+    "fields": {
+      "created_at": "2026-03-18T15:11:00.112Z",
+      "modified_at": "2026-03-18T15:11:00.112Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Art. 31 Abs. 2 LSV\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materielle-pruefung-ausnahmebewilligungen-notwendig-gewaesserraum",
+    "fields": {
+      "created_at": "2026-03-18T15:11:00.095Z",
+      "modified_at": "2026-03-18T15:11:00.095Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gewässerraum\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materielle-pruefung-ausnahmebewilligungen-notwendig-keine",
+    "fields": {
+      "created_at": "2026-03-18T15:11:00.052Z",
+      "modified_at": "2026-03-18T15:11:00.052Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"keine\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materielle-pruefung-ausnahmebewilligungen-notwendig-strassenabstand",
+    "fields": {
+      "created_at": "2026-03-18T15:11:00.114Z",
+      "modified_at": "2026-03-18T15:11:00.114Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Strassenabstand\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materielle-pruefung-ausnahmebewilligungen-notwendig-waldabstand",
+    "fields": {
+      "created_at": "2026-03-18T15:11:00.079Z",
+      "modified_at": "2026-03-18T15:11:00.079Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Waldabstand\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materielle-pruefung-ausnahmebewilligungen-notwendig-zonenkonformitaet",
+    "fields": {
+      "created_at": "2026-03-18T15:11:00.097Z",
+      "modified_at": "2026-03-18T15:11:00.097Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zonenkonformität\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materielle-pruefung-baulicher-zivilschutz-betroffen-ja",
+    "fields": {
+      "created_at": "2026-03-18T15:07:46.867Z",
+      "modified_at": "2026-03-18T15:07:46.867Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materielle-pruefung-baulicher-zivilschutz-betroffen-nein",
+    "fields": {
+      "created_at": "2026-03-18T15:07:46.871Z",
+      "modified_at": "2026-03-18T15:07:46.871Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materielle-pruefung-brandschutz-in-kantonaler-zustaendigkeit-ja",
+    "fields": {
+      "created_at": "2026-03-18T15:07:20.494Z",
+      "modified_at": "2026-03-18T15:07:20.494Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materielle-pruefung-brandschutz-in-kantonaler-zustaendigkeit-nein",
+    "fields": {
+      "created_at": "2026-03-18T15:07:20.497Z",
+      "modified_at": "2026-03-18T15:07:20.497Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materielle-pruefung-erschliessung-vorhanden-und-ausreichend-ja",
+    "fields": {
+      "created_at": "2026-03-18T15:05:44.226Z",
+      "modified_at": "2026-03-18T15:05:44.227Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materielle-pruefung-erschliessung-vorhanden-und-ausreichend-nein",
+    "fields": {
+      "created_at": "2026-03-18T15:05:44.230Z",
+      "modified_at": "2026-03-18T15:05:44.230Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materielle-pruefung-regelbauweise-eingehalten-ja",
+    "fields": {
+      "created_at": "2026-03-18T15:04:19.759Z",
+      "modified_at": "2026-03-18T15:04:19.759Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materielle-pruefung-regelbauweise-eingehalten-nein",
+    "fields": {
+      "created_at": "2026-03-18T15:04:19.763Z",
+      "modified_at": "2026-03-18T15:04:19.763Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materielle-pruefung-umweltrelevante-themen-in-kantonaler-zustaendigkeit-ja",
+    "fields": {
+      "created_at": "2026-03-18T15:06:28.881Z",
+      "modified_at": "2026-03-18T15:06:28.881Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materielle-pruefung-umweltrelevante-themen-in-kantonaler-zustaendigkeit-nein",
+    "fields": {
+      "created_at": "2026-03-18T15:06:28.874Z",
+      "modified_at": "2026-03-18T15:06:28.874Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-abschliessen",
+    "fields": {
+      "created_at": "2026-03-18T16:29:26.708Z",
+      "modified_at": "2026-03-18T16:29:26.708Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Materielle Prüfung abschliessen\", \"fr\": null, \"it\": null}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "color": "primary",
+        "action": "complete",
+        "show_validation": true,
+        "validate_on_enter": true
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-art-31",
+    "fields": {
+      "created_at": "2026-03-18T15:42:24.043Z",
+      "modified_at": "2026-03-18T16:00:53.867Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Art. 31 Abs. 2 LSV\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!(\"materielle-pruefung-ausnahmebewilligungen-notwendig-art-31-abs-2-lsv\" in \"materielle-pruefung-ausnahmebewilligungen-notwendig\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "materielle-pruefung-artikel-31",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-artikel-31-antrag",
+    "fields": {
+      "created_at": "2026-03-18T15:39:55.546Z",
+      "modified_at": "2026-03-18T15:39:55.546Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Antrag\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-artikel-31-begruendung",
+    "fields": {
+      "created_at": "2026-03-18T15:40:06.915Z",
+      "modified_at": "2026-03-18T15:40:06.915Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Begründung\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-ausnahmebewilligungen",
+    "fields": {
+      "created_at": "2026-03-18T13:49:13.944Z",
+      "modified_at": "2026-03-18T13:49:13.944Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ausnahmebewilligungen\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "materielle-pruefung-ausnahmebewilligungen",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-ausnahmebewilligungen-notwendig",
+    "fields": {
+      "created_at": "2026-03-18T15:11:00.194Z",
+      "modified_at": "2026-03-18T15:11:00.194Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ausnahmebewilligungen notwendig?\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-baulicher-zivilschutz-betroffen",
+    "fields": {
+      "created_at": "2026-03-18T15:07:46.968Z",
+      "modified_at": "2026-03-18T15:07:46.968Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baulicher Zivilschutz betroffen?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-bemerkungen",
+    "fields": {
+      "created_at": "2026-03-18T15:12:45.019Z",
+      "modified_at": "2026-03-18T15:12:45.019Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-brandschutz-in-kantonaler-zustaendigkeit",
+    "fields": {
+      "created_at": "2026-03-18T15:07:20.575Z",
+      "modified_at": "2026-03-18T16:15:48.034Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Brandschutz in kantonaler Zuständigkeit?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-erschliessung-vorhanden-und-ausreichend",
+    "fields": {
+      "created_at": "2026-03-18T15:05:44.312Z",
+      "modified_at": "2026-03-18T15:05:44.312Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Erschliessung vorhanden und ausreichend?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-form",
+    "fields": {
+      "created_at": "2026-03-19T11:09:30.065Z",
+      "modified_at": "2026-03-19T11:09:30.065Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Materielle Prüfung\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "materielle-pruefung-form",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-form-stellungnahme-zivilschutz",
+    "fields": {
+      "created_at": "2026-03-18T15:00:57.332Z",
+      "modified_at": "2026-03-18T15:22:15.593Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Stellungnahme Gemeinde für baulichen Zivilschutz\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "materielle-pruefung-stellungnahme-bau-zivilschutz",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-gewaesserraum",
+    "fields": {
+      "created_at": "2026-03-18T15:34:37.498Z",
+      "modified_at": "2026-03-18T15:59:12.242Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gewässerraum\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!(\"materielle-pruefung-ausnahmebewilligungen-notwendig-gewaesserraum\" in \"materielle-pruefung-ausnahmebewilligungen-notwendig\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "materielle-pruefung-gewaesserraum",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-gewaesserraum-antrag",
+    "fields": {
+      "created_at": "2026-03-18T15:27:54.250Z",
+      "modified_at": "2026-03-18T15:27:54.250Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Antrag\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-gewaesserraum-begruendung",
+    "fields": {
+      "created_at": "2026-03-18T15:31:32.040Z",
+      "modified_at": "2026-03-18T15:31:32.040Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Begründung\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-regelbauweise-eingehalten",
+    "fields": {
+      "created_at": "2026-03-18T15:04:19.861Z",
+      "modified_at": "2026-03-18T15:04:19.861Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Regelbauweise eingehalten?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-stellungnahme-bau-zivilschutz-antrag",
+    "fields": {
+      "created_at": "2026-03-18T15:45:35.834Z",
+      "modified_at": "2026-03-18T15:45:35.834Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Antrag\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-stellungnahme-bau-zivilschutz-begruendung",
+    "fields": {
+      "created_at": "2026-03-18T15:44:57.993Z",
+      "modified_at": "2026-03-18T15:44:57.993Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Begründung\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-strassenabstand",
+    "fields": {
+      "created_at": "2026-03-18T15:42:00.158Z",
+      "modified_at": "2026-03-18T16:00:41.499Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Strassenabstand Kantonsstrasse\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!(\"materielle-pruefung-ausnahmebewilligungen-notwendig-strassenabstand\" in \"materielle-pruefung-ausnahmebewilligungen-notwendig\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "materielle-pruefung-strassenabstand",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-strassenabstand-antrag",
+    "fields": {
+      "created_at": "2026-03-18T15:38:54.821Z",
+      "modified_at": "2026-03-18T15:38:54.821Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Antrag\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-strassenabstand-begruendung",
+    "fields": {
+      "created_at": "2026-03-18T15:39:13.487Z",
+      "modified_at": "2026-03-18T15:39:13.487Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Begründung\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-umweltrelevante-themen-in-kantonaler-zustaendigkeit",
+    "fields": {
+      "created_at": "2026-03-18T15:06:28.962Z",
+      "modified_at": "2026-03-18T15:06:28.962Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Umweltrelevante Themen in kantonaler Zuständigkeit?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-waldabstand",
+    "fields": {
+      "created_at": "2026-03-18T15:41:14.104Z",
+      "modified_at": "2026-03-18T16:00:08.710Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Waldabstand\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!(\"materielle-pruefung-ausnahmebewilligungen-notwendig-waldabstand\" in \"materielle-pruefung-ausnahmebewilligungen-notwendig\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "materielle-pruefung-waldabstand",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-waldabstand-antrag",
+    "fields": {
+      "created_at": "2026-03-18T15:36:09.756Z",
+      "modified_at": "2026-03-18T15:36:09.756Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Antrag\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-waldabstand-begruendung",
+    "fields": {
+      "created_at": "2026-03-18T15:36:31.691Z",
+      "modified_at": "2026-03-18T15:36:31.691Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Begründung\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-zonenkonformitaet",
+    "fields": {
+      "created_at": "2026-03-18T15:41:36.292Z",
+      "modified_at": "2026-03-18T16:00:24.375Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zonenkonformität\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!(\"materielle-pruefung-ausnahmebewilligungen-notwendig-zonenkonformitaet\" in \"materielle-pruefung-ausnahmebewilligungen-notwendig\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "materielle-pruefung-zonenkonformitaet",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-zonenkonformitaet-antrag",
+    "fields": {
+      "created_at": "2026-03-18T15:37:26.611Z",
+      "modified_at": "2026-03-18T15:37:26.611Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Antrag\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-zonenkonformitaet-begruendung",
+    "fields": {
+      "created_at": "2026-03-18T15:38:01.866Z",
+      "modified_at": "2026-03-18T15:38:01.866Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Begründung\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materielle-pruefung-ausnahmebewilligungen-notwendig.materielle-pruefung-ausnahmebewilligungen-notwendig-art-31-abs-2-lsv",
+    "fields": {
+      "created_at": "2026-03-18T15:11:00.202Z",
+      "modified_at": "2026-03-18T15:11:00.202Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materielle-pruefung-ausnahmebewilligungen-notwendig",
+      "option": "materielle-pruefung-ausnahmebewilligungen-notwendig-art-31-abs-2-lsv",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materielle-pruefung-ausnahmebewilligungen-notwendig.materielle-pruefung-ausnahmebewilligungen-notwendig-gewaesserraum",
+    "fields": {
+      "created_at": "2026-03-18T15:11:00.198Z",
+      "modified_at": "2026-03-18T15:11:00.199Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materielle-pruefung-ausnahmebewilligungen-notwendig",
+      "option": "materielle-pruefung-ausnahmebewilligungen-notwendig-gewaesserraum",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materielle-pruefung-ausnahmebewilligungen-notwendig.materielle-pruefung-ausnahmebewilligungen-notwendig-keine",
+    "fields": {
+      "created_at": "2026-03-18T15:11:00.211Z",
+      "modified_at": "2026-03-18T15:11:00.211Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materielle-pruefung-ausnahmebewilligungen-notwendig",
+      "option": "materielle-pruefung-ausnahmebewilligungen-notwendig-keine",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materielle-pruefung-ausnahmebewilligungen-notwendig.materielle-pruefung-ausnahmebewilligungen-notwendig-strassenabstand",
+    "fields": {
+      "created_at": "2026-03-18T15:11:00.204Z",
+      "modified_at": "2026-03-18T15:11:00.204Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materielle-pruefung-ausnahmebewilligungen-notwendig",
+      "option": "materielle-pruefung-ausnahmebewilligungen-notwendig-strassenabstand",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materielle-pruefung-ausnahmebewilligungen-notwendig.materielle-pruefung-ausnahmebewilligungen-notwendig-waldabstand",
+    "fields": {
+      "created_at": "2026-03-18T15:11:00.208Z",
+      "modified_at": "2026-03-18T15:11:00.208Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materielle-pruefung-ausnahmebewilligungen-notwendig",
+      "option": "materielle-pruefung-ausnahmebewilligungen-notwendig-waldabstand",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materielle-pruefung-ausnahmebewilligungen-notwendig.materielle-pruefung-ausnahmebewilligungen-notwendig-zonenkonformitaet",
+    "fields": {
+      "created_at": "2026-03-18T15:11:00.206Z",
+      "modified_at": "2026-03-18T15:11:00.206Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materielle-pruefung-ausnahmebewilligungen-notwendig",
+      "option": "materielle-pruefung-ausnahmebewilligungen-notwendig-zonenkonformitaet",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materielle-pruefung-baulicher-zivilschutz-betroffen.materielle-pruefung-baulicher-zivilschutz-betroffen-ja",
+    "fields": {
+      "created_at": "2026-03-18T15:07:46.987Z",
+      "modified_at": "2026-03-18T15:07:46.987Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materielle-pruefung-baulicher-zivilschutz-betroffen",
+      "option": "materielle-pruefung-baulicher-zivilschutz-betroffen-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materielle-pruefung-baulicher-zivilschutz-betroffen.materielle-pruefung-baulicher-zivilschutz-betroffen-nein",
+    "fields": {
+      "created_at": "2026-03-18T15:07:46.978Z",
+      "modified_at": "2026-03-18T15:07:46.979Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materielle-pruefung-baulicher-zivilschutz-betroffen",
+      "option": "materielle-pruefung-baulicher-zivilschutz-betroffen-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materielle-pruefung-brandschutz-in-kantonaler-zustaendigkeit.materielle-pruefung-brandschutz-in-kantonaler-zustaendigkeit-ja",
+    "fields": {
+      "created_at": "2026-03-18T16:15:48.045Z",
+      "modified_at": "2026-03-18T16:15:48.045Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materielle-pruefung-brandschutz-in-kantonaler-zustaendigkeit",
+      "option": "materielle-pruefung-brandschutz-in-kantonaler-zustaendigkeit-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materielle-pruefung-brandschutz-in-kantonaler-zustaendigkeit.materielle-pruefung-brandschutz-in-kantonaler-zustaendigkeit-nein",
+    "fields": {
+      "created_at": "2026-03-18T16:15:48.040Z",
+      "modified_at": "2026-03-18T16:15:48.040Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materielle-pruefung-brandschutz-in-kantonaler-zustaendigkeit",
+      "option": "materielle-pruefung-brandschutz-in-kantonaler-zustaendigkeit-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materielle-pruefung-erschliessung-vorhanden-und-ausreichend.materielle-pruefung-erschliessung-vorhanden-und-ausreichend-ja",
+    "fields": {
+      "created_at": "2026-03-18T15:05:44.325Z",
+      "modified_at": "2026-03-18T15:05:44.325Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materielle-pruefung-erschliessung-vorhanden-und-ausreichend",
+      "option": "materielle-pruefung-erschliessung-vorhanden-und-ausreichend-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materielle-pruefung-erschliessung-vorhanden-und-ausreichend.materielle-pruefung-erschliessung-vorhanden-und-ausreichend-nein",
+    "fields": {
+      "created_at": "2026-03-18T15:05:44.320Z",
+      "modified_at": "2026-03-18T15:05:44.320Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materielle-pruefung-erschliessung-vorhanden-und-ausreichend",
+      "option": "materielle-pruefung-erschliessung-vorhanden-und-ausreichend-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materielle-pruefung-regelbauweise-eingehalten.materielle-pruefung-regelbauweise-eingehalten-ja",
+    "fields": {
+      "created_at": "2026-03-18T15:04:19.876Z",
+      "modified_at": "2026-03-18T15:04:19.876Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materielle-pruefung-regelbauweise-eingehalten",
+      "option": "materielle-pruefung-regelbauweise-eingehalten-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materielle-pruefung-regelbauweise-eingehalten.materielle-pruefung-regelbauweise-eingehalten-nein",
+    "fields": {
+      "created_at": "2026-03-18T15:04:19.868Z",
+      "modified_at": "2026-03-18T15:04:19.868Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materielle-pruefung-regelbauweise-eingehalten",
+      "option": "materielle-pruefung-regelbauweise-eingehalten-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materielle-pruefung-umweltrelevante-themen-in-kantonaler-zustaendigkeit.materielle-pruefung-umweltrelevante-themen-in-kantonaler-zustaendigkeit-ja",
+    "fields": {
+      "created_at": "2026-03-18T15:06:28.973Z",
+      "modified_at": "2026-03-18T15:06:28.973Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materielle-pruefung-umweltrelevante-themen-in-kantonaler-zustaendigkeit",
+      "option": "materielle-pruefung-umweltrelevante-themen-in-kantonaler-zustaendigkeit-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materielle-pruefung-umweltrelevante-themen-in-kantonaler-zustaendigkeit.materielle-pruefung-umweltrelevante-themen-in-kantonaler-zustaendigkeit-nein",
+    "fields": {
+      "created_at": "2026-03-18T15:06:28.969Z",
+      "modified_at": "2026-03-18T15:06:28.969Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materielle-pruefung-umweltrelevante-themen-in-kantonaler-zustaendigkeit",
+      "option": "materielle-pruefung-umweltrelevante-themen-in-kantonaler-zustaendigkeit-nein",
+      "sort": 1
+    }
+  }
+]

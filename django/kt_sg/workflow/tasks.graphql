@@ -26,6 +26,22 @@ mutation CreateFormalExamTask {
   }
 }
 
+mutation CreateMaterialExamTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "material-exam"
+      form: "materielle-pruefung"
+      name: "Materielle Prüfung"
+      addressGroups: "[\"municipality\"]|groups"
+      controlGroups: "[\"municipality\"]|groups"
+      leadTime: 432000 # 5 days
+      meta: "{\"directLink\":{\"route\":\"cases.detail.task-form\",\"models\":[\"INSTANCE_ID\",\"TASK_SLUG\"]},\"redirectToWorkItemsAfterCompletion\":true}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
 mutation CreateManualWorkItemTask {
   saveSimpleTask(
     input: {

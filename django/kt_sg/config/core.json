@@ -145,7 +145,7 @@
       "template": "/ember-camac-ng/journal.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 9,
+      "sort": 10,
       "form_group": 1,
       "require_permission": "journal-read"
     }
@@ -161,7 +161,7 @@
       "template": null,
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 10,
+      "sort": 11,
       "form_group": 1,
       "require_permission": "history-read"
     }
@@ -177,7 +177,7 @@
       "template": "/ember-camac-ng/permissions.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 11,
+      "sort": 12,
       "form_group": 1,
       "require_permission": "permissions-read"
     }
@@ -225,7 +225,7 @@
       "template": "/ember-camac-ng/rejection.phtml",
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
-      "sort": 8,
+      "sort": 9,
       "form_group": 1,
       "require_permission": "rejection-read"
     }
@@ -244,6 +244,22 @@
       "sort": 2,
       "form_group": 1,
       "require_permission": "linked-instances-read"
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 12,
+    "fields": {
+      "available_instance_resource": "taskform",
+      "resource": 2,
+      "name": null,
+      "description": null,
+      "template": null,
+      "class_field": "menu-category-process",
+      "hidden": 0,
+      "sort": 8,
+      "form_group": 1,
+      "require_permission": "material-exam-read"
     }
   },
   {
@@ -357,10 +373,27 @@
     }
   },
   {
+    "model": "core.instanceresourcet",
+    "pk": 12,
+    "fields": {
+      "instance_resource": 12,
+      "language": "de",
+      "name": "Materielle Prüfung",
+      "description": null
+    }
+  },
+  {
     "model": "core.irtaskform",
     "pk": 1,
     "fields": {
       "task": "formal-exam"
+    }
+  },
+  {
+    "model": "core.irtaskform",
+    "pk": 12,
+    "fields": {
+      "task": "material-exam"
     }
   },
   {

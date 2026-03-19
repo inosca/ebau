@@ -17,7 +17,7 @@ mutation CreateFlow1 {
     input: {
       workflow: "building-permit"
       tasks: ["submit"]
-      next: "['formal-exam', 'create-manual-workitems']|tasks"
+      next: "['formal-exam', 'material-exam', 'create-manual-workitems']|tasks"
     }
   ) {
     clientMutationId

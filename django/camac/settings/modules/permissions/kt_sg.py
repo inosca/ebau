@@ -28,6 +28,7 @@ MODULE_COMMUNICATIONS = STATES_ALL
 MODULE_DOCUMENTS = STATES_ALL
 MODULE_FORM = STATES_ALL
 MODULE_FORMAL_EXAM = RequireWorkItem("formal-exam") & ROLES_MUNICIPALITY
+MODULE_MATERIAL_EXAM = RequireWorkItem("material-exam") & ROLES_MUNICIPALITY
 MODULE_HISTORY = STATES_ALL
 MODULE_JOURNAL = STATES_ALL
 MODULE_LINKED_INSTANCES = STATES_ALL
@@ -75,6 +76,7 @@ SG_PERMISSIONS_SETTINGS = {
             ("documents-write", MODULE_DOCUMENTS),
             ("form-read", MODULE_FORM),
             ("formal-exam-read", MODULE_FORMAL_EXAM),
+            ("material-exam-read", MODULE_MATERIAL_EXAM),
             ("history-read", MODULE_HISTORY),
             ("journal-read", MODULE_JOURNAL),
             ("journal-write", MODULE_JOURNAL),
