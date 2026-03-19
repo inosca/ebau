@@ -71,7 +71,10 @@ Verschiedene Aufgaben werden gemäss Spezifikation direkt in eBau erledigt. Unte
 
 - `buildingCategory` wird immer auf `1040` gesetzt.
 
-- `documentStatusType` wird immer auf `undefined` gesetzt.
+- `documentStatusType` wird wie folgt gemappt:
+  - Standard: `created`
+  - Ungültig: `invalidated`
+  - Entscheid: `approved`
 
 - `realestateType` wird immer auf `8` gesetzt.
 

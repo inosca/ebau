@@ -2,13 +2,16 @@ from functools import singledispatch
 from io import StringIO
 
 import pytest
-from alexandria.core.models import File
+from alexandria.core.factories import FileFactory
+from alexandria.core.models import Document, File
 from django.urls import reverse
 from rest_framework import status
 from syrupy.filters import paths
 
 from camac.document import permissions
+from camac.document.models import AttachmentSection
 from camac.ech0211.models import ECH0211Document
+from camac.settings.modules.ech0211 import DocumentAPIFeature
 from camac.utils import get_dict_item
 
 
@@ -329,3 +332,322 @@ def test_document_create_forbidden(
             }
         ]
     }
+
+
+@pytest.mark.freeze_time("2025-11-22")
+@pytest.mark.parametrize("mark_action", ["void", "unvoid"])
+@pytest.mark.parametrize("has_feature", [True, False])
+@pytest.mark.parametrize("role__name", ["municipality-lead"])
+def test_document_mark_void_unvoid_has_feature(
+    db,
+    settings,
+    admin_client,
+    mark_action,
+    has_feature,
+    alexandria_document_factory,
+    alexandria_mark_factory,
+    alexandria_category_factory,
+    be_instance,
+    admin_user,
+    be_ech0211_settings,
+    set_document_backend,
+    be_permissions_settings,
+    be_access_levels,
+    be_alexandria_settings,
+    role,
+):
+    set_document_backend("alexandria")
+    void_mark = alexandria_mark_factory(pk="void")
+    be_ech0211_settings["DOCUMENT_API_FEATURES"] = (
+        [
+            DocumentAPIFeature.DOCUMENTS_VOID,
+            DocumentAPIFeature.DOCUMENTS_UNVOID,
+        ]
+        if has_feature
+        else []
+    )
+
+    user_service = admin_user.get_default_group().service
+    alexandria_category_factory(
+        slug="intern",
+        metainfo={
+            "access": {
+                "service": {"visibility": "service"},
+                "municipality": {"visibility": "service"},
+            }
+        },
+    )
+    alexandria_doc = alexandria_document_factory(
+        category_id="intern",
+        metainfo={"camac-instance-id": be_instance.pk},
+        created_by_user=admin_client.user.pk,
+        created_by_group=user_service.pk,
+    )
+    if mark_action == "void":
+        alexandria_doc.marks.add(void_mark)
+
+    url = reverse(f"ech-document-{mark_action}", args=[alexandria_doc.pk])
+    ech_resp = admin_client.post(url)
+
+    if has_feature:
+        assert ech_resp.status_code != status.HTTP_204_NO_CONTENT
+    else:
+        assert ech_resp.status_code == status.HTTP_404_NOT_FOUND, ech_resp.json()
+
+
+@pytest.mark.freeze_time("2025-11-22")
+@pytest.mark.parametrize("mark_action", ["void", "unvoid"])
+@pytest.mark.parametrize("role__name", ["municipality-lead"])
+def test_document_mark_void_unvoid_camac(
+    db,
+    settings,
+    admin_client,
+    mark_action,
+    be_instance,
+    attachment_factory,
+    admin_user,
+    instance_acl_factory,
+    be_permissions_settings,
+    be_access_levels,
+    attachment_section_factory,
+    set_document_backend,
+    be_ech0211_settings,
+    role,
+    mocker,
+):
+    be_ech0211_settings["DOCUMENT_API_FEATURES"] = [
+        DocumentAPIFeature.DOCUMENTS_VOID,
+        DocumentAPIFeature.DOCUMENTS_UNVOID,
+    ]
+    set_document_backend("camac-ng")
+
+    camac_cat = attachment_section_factory(description="foo")
+
+    mocker.patch(
+        "camac.document.permissions.PERMISSIONS",
+        {"test": {role.name.lower(): {permissions.AdminPermission: [camac_cat.pk]}}},
+    )
+
+    user_service = admin_user.get_default_group().service
+    instance_acl_factory(
+        instance=be_instance,
+        service=user_service,
+        access_level_id="lead-authority",
+        grant_type="SERVICE",
+    )
+    camac_attachment = attachment_factory(
+        instance=be_instance,
+        user=admin_client.user,
+        group=admin_client.user.get_default_group(),
+        size=5,
+    )
+
+    camac_attachment.path.save("test.txt", StringIO("hello"), save=True)
+    camac_attachment.attachment_sections.set([camac_cat])
+
+    doc = ECH0211Document.from_attachment(camac_attachment)
+    expected_pk = doc.pk
+
+    url = reverse(f"ech-document-{mark_action}", args=[expected_pk])
+    ech_resp = admin_client.post(url)
+
+    # always 404, feature has no use with camac backend.
+    assert ech_resp.status_code == status.HTTP_404_NOT_FOUND
+
+
+@pytest.mark.freeze_time("2025-11-22")
+@pytest.mark.parametrize("mark_action", ["void", "unvoid"])
+@pytest.mark.parametrize("has_void_mark", [True, False])
+@pytest.mark.parametrize("has_permission", [True, False])
+@pytest.mark.parametrize("role__name", ["municipality-lead"])
+def test_document_mark_void_unvoid_alexandria(
+    db,
+    settings,
+    role,
+    set_document_backend,
+    admin_client,
+    mark_action,
+    has_void_mark,
+    has_permission,
+    alexandria_document_factory,
+    alexandria_mark_factory,
+    alexandria_category_factory,
+    be_instance,
+    admin_user,
+    instance_acl_factory,
+    be_ech0211_settings,
+    be_permissions_settings,
+    be_access_levels,
+    be_alexandria_settings,
+    mocker,
+):
+    set_document_backend("alexandria")
+    be_ech0211_settings["DOCUMENT_API_FEATURES"] = [
+        DocumentAPIFeature.DOCUMENTS_VOID,
+        DocumentAPIFeature.DOCUMENTS_UNVOID,
+    ]
+    mocker.patch(
+        "camac.ech0211.views.has_alexandria_mark_permission",
+        return_value=has_permission,
+    )
+
+    void_mark = alexandria_mark_factory(pk="void")
+
+    alexandria_category_factory(
+        slug="intern",
+        metainfo={
+            "access": {
+                "service": {"visibility": "service"},
+                "municipality": {"visibility": "service"},
+            }
+        },
+    )
+
+    user_service = admin_user.get_default_group().service
+    instance_acl_factory(
+        instance=be_instance,
+        service=user_service,
+        access_level_id="lead-authority",
+        grant_type="SERVICE",
+    )
+
+    alexandria_doc = alexandria_document_factory(
+        category_id="intern",
+        metainfo={"camac-instance-id": be_instance.pk},
+        created_by_user=admin_client.user.pk,
+        created_by_group=user_service.pk,
+    )
+    if has_void_mark:
+        alexandria_doc.marks.add(void_mark)
+
+    url = reverse(f"ech-document-{mark_action}", args=[alexandria_doc.pk])
+    ech_resp = admin_client.post(url)
+
+    if not has_permission:
+        assert ech_resp.status_code == status.HTTP_403_FORBIDDEN, ech_resp.json()
+    elif (has_void_mark and mark_action == "void") or (
+        not has_void_mark and mark_action == "unvoid"
+    ):
+        assert ech_resp.status_code == status.HTTP_400_BAD_REQUEST, ech_resp.json()
+    else:
+        assert ech_resp.status_code == status.HTTP_204_NO_CONTENT
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize(
+    ("has_feature", "has_permission", "has_attachment", "expected_status"),
+    [
+        (False, False, True, status.HTTP_404_NOT_FOUND),
+        (False, False, False, status.HTTP_404_NOT_FOUND),
+        (False, True, True, status.HTTP_404_NOT_FOUND),
+        (False, True, False, status.HTTP_404_NOT_FOUND),
+        (True, False, True, status.HTTP_403_FORBIDDEN),
+        (True, False, False, status.HTTP_403_FORBIDDEN),
+        (True, True, True, status.HTTP_403_FORBIDDEN),
+        (True, True, False, status.HTTP_204_NO_CONTENT),
+    ],
+)
+def test_delete(
+    db,
+    admin_client,
+    category_setup,
+    communications_attachment_factory,
+    has_attachment,
+    has_feature,
+    has_permission,
+    expected_status,
+    instance,
+    ech0211_settings,
+    mocker,
+    set_document_backend,
+    reload_ech0211_urls,
+):
+    ech0211_settings["DOCUMENT_API_FEATURES"] = (
+        [DocumentAPIFeature.DOCUMENTS_DELETE] if has_feature else []
+    )
+    set_document_backend("alexandria")
+
+    mocker.patch(
+        "camac.ech0211.views.has_alexandria_delete_permission",
+        return_value=has_permission,
+    )
+
+    file = FileFactory(
+        document__metainfo={"camac-instance-id": str(instance.pk)},
+        document__category=category_setup()[1],
+    )
+    communications_attachment = (
+        communications_attachment_factory(alexandria_file=file)
+        if has_attachment
+        else None
+    )
+
+    document = file.document
+    response = admin_client.delete(
+        reverse("ech-document-detail", args=[file.document.pk])
+    )
+    assert response.status_code == expected_status
+
+    if expected_status == status.HTTP_204_NO_CONTENT:
+        assert not Document.objects.filter(pk=document.pk).exists()
+    else:
+        assert Document.objects.filter(pk=document.pk).exists()
+
+    if communications_attachment:
+        communications_attachment.delete()
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize(
+    ("has_feature", "has_attachment", "has_other_category", "expected_status"),
+    [
+        (False, False, True, status.HTTP_404_NOT_FOUND),
+        (False, False, False, status.HTTP_404_NOT_FOUND),
+        (False, True, True, status.HTTP_404_NOT_FOUND),
+        (False, True, False, status.HTTP_404_NOT_FOUND),
+        (True, False, True, status.HTTP_204_NO_CONTENT),
+        (True, False, False, status.HTTP_204_NO_CONTENT),
+        (True, True, True, status.HTTP_204_NO_CONTENT),
+        (True, True, False, status.HTTP_403_FORBIDDEN),
+    ],
+)
+def test_delete_camac(
+    db,
+    admin_client,
+    communications_attachment_factory,
+    has_other_category,
+    has_attachment,
+    has_feature,
+    expected_status,
+    ech0211_settings,
+    file_setup,
+    set_document_backend,
+    reload_ech0211_urls,
+):
+    ech0211_settings["DOCUMENT_API_FEATURES"] = (
+        [DocumentAPIFeature.DOCUMENTS_DELETE] if has_feature else []
+    )
+    set_document_backend("camac-ng")
+
+    file, invisible_by_category, __ = file_setup()
+
+    communications_attachment = (
+        communications_attachment_factory(document_attachment=file.attachment)
+        if has_attachment
+        else None
+    )
+    if has_other_category:
+        file.attachment.attachment_sections.add(
+            AttachmentSection.objects.get(pk=invisible_by_category.category.pk)
+        )
+
+    response = admin_client.delete(reverse("ech-document-detail", args=[file.pk]))
+    assert response.status_code == expected_status
+
+    if expected_status == status.HTTP_204_NO_CONTENT:
+        assert not ECH0211Document.objects.filter(pk=file.pk).exists()
+    else:
+        assert ECH0211Document.objects.filter(pk=file.pk).exists()
+
+    if communications_attachment:
+        communications_attachment.delete()
