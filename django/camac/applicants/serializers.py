@@ -7,7 +7,7 @@ from rest_framework_json_api import relations, serializers
 
 from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import Instance
-from camac.permissions.events import Trigger
+from camac.permissions.events.core import Trigger
 from camac.user.relations import CurrentUserResourceRelatedField
 from camac.user.serializers import UserSerializer
 

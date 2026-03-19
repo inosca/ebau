@@ -5,7 +5,7 @@ from rest_framework import status
 
 from camac.applicants.models import ROLE_CHOICES
 from camac.permissions.conditions import Always
-from camac.permissions.events import Trigger
+from camac.permissions.events.core import Trigger
 from camac.permissions.models import AccessLevel
 from camac.permissions.switcher import PERMISSION_MODE
 

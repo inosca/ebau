@@ -12,8 +12,8 @@ from camac.core.utils import create_history_entry
 from camac.ech0211.signals import ruling
 from camac.instance import domain_logic
 from camac.notification.utils import send_mail_without_request
-from camac.permissions import events as permissions_events
 from camac.permissions.config.kt_gr import gr_include_gvg
+from camac.permissions.events import core as permissions_events
 from camac.stats.cycle_time import compute_cycle_time
 from camac.user.models import User
 from camac.utils import get_unversioned_slug

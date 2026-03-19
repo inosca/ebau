@@ -2431,7 +2431,7 @@ APPLICATIONS = {
         "CALUMA": {
             "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
             "SUBMIT_TASKS": ["submit"],
-            "FORM_PERMISSIONS": ["main", "einsprachen"],
+            "FORM_PERMISSIONS": ["main", "einsprachen", "afu-form"],
             "FORM_PERMISSIONS_MAPPING": {
                 "form-einsprachen-write": "legal-submissions-write",
             },
@@ -2498,6 +2498,7 @@ APPLICATIONS = {
                 "complete-instance": {
                     "skip": ["material-exam-bab"],
                     "cancel": ["create-manual-workitems"],
+                    "complete": ["afu-form"],
                 },
             },
             "PUBLIC_STATUS": {

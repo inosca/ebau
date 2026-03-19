@@ -14,7 +14,7 @@ from camac.dossier_import.writers import (
 )
 from camac.instance.domain_logic import CreateInstanceLogic
 from camac.instance.models import Form, Instance, InstanceState
-from camac.permissions import events as permissions_events
+from camac.permissions.events import core as permissions_events
 from camac.tags.models import Keyword
 
 

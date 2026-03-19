@@ -1,6 +1,6 @@
 # pragma: exclude file
 
-from camac.permissions.events import EmptyEventHandler
+from camac.permissions.events.core import EmptyEventHandler
 from camac.user.models import Service, ServiceGroup
 
 from .common import (

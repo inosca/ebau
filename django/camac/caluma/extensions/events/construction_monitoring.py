@@ -23,8 +23,8 @@ from camac.caluma.utils import (
 from camac.core.utils import create_history_entry
 from camac.ech0211.signals import construction_monitoring_started
 from camac.notification.utils import send_mail_without_request
-from camac.permissions import events as permissions_events
-from camac.permissions.events import Trigger
+from camac.permissions.events import core as permissions_events
+from camac.permissions.events.core import Trigger
 from camac.user.models import User
 
 from .general import get_instance

@@ -32,7 +32,8 @@ from camac.instance.serializers import (
     CalumaInstanceChangeResponsibleServiceSerializer,
     CalumaInstanceSubmitSerializer,
 )
-from camac.permissions import api as permissions_api, events as permissions_events
+from camac.permissions import api as permissions_api
+from camac.permissions.events import core as permissions_events
 from camac.user.models import Service
 
 from .constants import ECH0211_NAMESPACES, ECH_JUDGEMENT_DECLINED

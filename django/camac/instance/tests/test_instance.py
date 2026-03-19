@@ -21,7 +21,7 @@ from camac.instance import domain_logic, serializers
 from camac.instance.filters import CaseBabFilter, CaseSuspendedFilter
 from camac.instance.models import FormField, Instance, InstanceGroup, InstanceState
 from camac.permissions import api as permissions_api
-from camac.permissions.events import Trigger
+from camac.permissions.events.core import Trigger
 from camac.permissions.models import InstanceACL
 from camac.tests.form_utils import FormUtils
 

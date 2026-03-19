@@ -52,7 +52,7 @@ from camac.instance.models import FormField
 from camac.instance.utils import get_changeable_forms
 from camac.notification.utils import send_mail
 from camac.permissions import api as permissions_api
-from camac.permissions.events import Trigger
+from camac.permissions.events.core import Trigger
 from camac.permissions.models import InstanceACL
 from camac.permissions.switcher import permission_switching_method
 from camac.response import make_xlsx_response

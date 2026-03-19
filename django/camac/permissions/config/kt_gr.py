@@ -8,7 +8,7 @@ from django.utils import timezone
 from camac.constants import kt_gr as gr_constants
 from camac.instance.models import Instance
 from camac.permissions import api as permissions_api, models as permissions_models
-from camac.permissions.events import EmptyEventHandler
+from camac.permissions.events.core import EmptyEventHandler
 from camac.permissions.models import InstanceACL
 from camac.user.models import Group, Service
 

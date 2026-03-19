@@ -224,6 +224,7 @@ omit = [
     "camac/core/management/commands/migrate_workflow_dates_ur.py",
     "camac/core/management/commands/migrate_legal_submissions.py",
     "camac/core/management/commands/migrate_value_of_question_ausnahmen_sz.py",
+    "camac/core/management/commands/so_afu_custom_task_form.py",
     "camac/core/management/commands/migrate_oereb_question_values.py",
     "camac/core/management/commands/migrate_oereb_form_splitting.py",
     "camac/deadlines/management/commands/migrate_deadlines.py",
