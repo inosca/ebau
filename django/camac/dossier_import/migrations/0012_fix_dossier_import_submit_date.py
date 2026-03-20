@@ -20,6 +20,9 @@ def migrate_dossier_import_submit_dates(apps, schema_editor):
 
     for instance in instances.iterator():
         meta = instance.case.meta
+        if not meta.get("submit-date"):
+            continue
+
         submit_date = parse_datetime(meta.get("submit-date"))
 
         if is_aware(submit_date):
