@@ -26,6 +26,7 @@ export default class AlexandriaDocumentBucketComponent extends Component {
   @requiredArgument category;
   @requiredArgument onUpload;
   @requiredArgument onDelete;
+  @requiredArgument onVoid;
 
   @tracked attachmentLoading = [];
 
@@ -69,6 +70,20 @@ export default class AlexandriaDocumentBucketComponent extends Component {
     }
 
     return yield this.onDelete({ attachment, bucket: this.category.get("id") });
+  }
+
+  @dropTask
+  *void(attachment) {
+    if (
+      !this.args.voidable ||
+      !(yield confirm(
+        this.intl.t("documents.voidInfo", { filename: attachment.title }),
+      ))
+    ) {
+      return;
+    }
+
+    return yield this.onVoid({ attachment, bucket: this.category.get("id") });
   }
 
   @task

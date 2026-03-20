@@ -14,6 +14,7 @@ from camac.constants import kt_bern as be_constants
 from camac.constants.kt_uri import KOOR_SERVICE_IDS as URI_KOOR_SERVICE_IDS
 from camac.settings.ebau_schema import ModuleApplicationConfig, ModuleConfig
 from camac.settings.env import ROOT_DIR, env
+from camac.timelines.utils import is_additional_demand_with_changes
 from camac.utils import build_url, should_notify_on_manual_workitems
 
 # We need to import the caluma settings after we merge os.environ with our
@@ -2233,6 +2234,24 @@ APPLICATIONS = {
                                 "additional_demand_are_bab",
                             ],
                         },
+                        "condition": lambda work_item: (
+                            not is_additional_demand_with_changes(work_item)
+                        ),
+                    },
+                    {
+                        "event": "completed",
+                        "notification": {
+                            "template_slug": "send-additional-demand-internal-with-changes",
+                            "recipient_types": [
+                                "additional_demand_leitbehoerde",
+                                "additional_demand_sender",
+                                "additional_demand_are_bab",
+                                "involved_in_distribution",
+                            ],
+                        },
+                        "condition": lambda work_item: (
+                            is_additional_demand_with_changes(work_item)
+                        ),
                     },
                 ],
             },

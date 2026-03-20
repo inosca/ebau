@@ -47,6 +47,9 @@ feedback:
 documents:
   deleteSuccess: "Die Datei wurde erfolgreich gelöscht"
   deleteError: "Beim Löschen der Datei ist etwas schief gelaufen"
+  voidSuccess: "Das Dokument wurde erfolgreich als ungültig markiert"
+  voidError: "Beim Markieren des Dokuments ist etwas schief gelaufen"
+  void: "Dokument als ungültig markieren"
 
   tags:
     beilagen-vorabklaerung: "Beilagen Vorabklärung"
@@ -77,7 +80,7 @@ documents:
     weitere-unterlagen: "Weitere Unterlagen"
     brandschutzdokumente: "Brandschutzdokumente"
     solareignung-dachflaechen: "Solarpotentialanalyse gemäss Solarrechner"
-    
+
 
 dms:
   downloadError: "Beim Export ist ein Problem aufgetreten. Bitte versuchen Sie es erneut."

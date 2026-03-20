@@ -62,6 +62,21 @@
     </DocumentValidity>
   {{/if}}
 {{else}}
+  {{#if (has-feature "corrections.applicantCorrection")}}
+    <div class="uk-alert uk-alert-warning uk-margin-bottom" uk-alert>
+      <p>{{t "corrections.document.description-applicant-correction"}}</p>
+
+      <div>
+        <LinkTo
+          @route="cases.detail.additional-demand"
+          @model={{@instance}}
+          class="uk-link"
+        >
+          {{t "corrections.document.link-applicant-correction"}}
+        </LinkTo>
+      </div>
+    </div>
+  {{/if}}
   <p>{{t "corrections.document.description" htmlSafe=true}}</p>
   <UkButton
     @color="primary"

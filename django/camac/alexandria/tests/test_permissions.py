@@ -25,6 +25,7 @@ from rest_framework.test import APIClient
 
 from camac.permissions import api as permissions_api
 from camac.tests.form_utils import FormUtils
+from camac.timelines.models import FormTimeline
 
 
 def document_post_data(category_id, instance_id, metainfo={}):
@@ -2523,3 +2524,97 @@ def test_base_permission(
 
     response = admin_client.patch(reverse("document-detail", args=[document.pk]), data)
     assert response.status_code == expected_status
+
+
+@pytest.mark.parametrize("role__name", ["applicant"])
+@pytest.mark.parametrize(
+    "has_additional_demand,action,status_code",
+    [
+        (True, "upload", HTTP_201_CREATED),
+        (False, "upload", HTTP_403_FORBIDDEN),
+        (True, "void", HTTP_200_OK),
+        (False, "void", HTTP_403_FORBIDDEN),
+    ],
+)
+def test_condition_additional_demand_changes(
+    db,
+    admin_client,
+    gr_instance,
+    has_additional_demand,
+    action,
+    status_code,
+    alexandria_mark_factory,
+    form_timeline_factory,
+    mocker,
+):
+    alexandria_mark_factory(pk="void")
+
+    mocker.patch(
+        "camac.alexandria.extensions.visibilities.CustomVisibility._all_visible_instances",
+        return_value=[gr_instance.pk],
+    )
+
+    if has_additional_demand:
+        form_timeline_factory(
+            instance=gr_instance,
+            timeline_type=FormTimeline.Type.ADDITIONAL_DEMAND.value,
+            end_date=None,
+        )
+
+    category = CategoryFactory(
+        metainfo={
+            "access": {
+                "applicant": {
+                    "visibility": "all",
+                    "permissions": [
+                        {
+                            "fields": ["metainfo", "title", "category", "files"],
+                            "condition": {"AdditionalDemandChanges": True},
+                            "permission": "create",
+                            "scope": "All",
+                        },
+                        {
+                            "marks": ["void"],
+                            "fields": ["marks"],
+                            "condition": {"AdditionalDemandChanges": True},
+                            "permission": "update",
+                            "scope": "All",
+                        },
+                    ],
+                },
+            },
+        }
+    )
+
+    metainfo = {"camac-instance-id": gr_instance.pk}
+
+    if action == "upload":
+        url = reverse("document-list")
+        data = document_post_data(category.pk, gr_instance.pk, metainfo=metainfo)
+        method = "post"
+        data_format = "multipart"
+    else:
+        document = DocumentFactory(
+            title="Foo",
+            category=category,
+            metainfo=metainfo,
+        )
+        url = reverse("document-detail", args=[document.pk])
+        data = {
+            "data": {
+                "id": document.pk,
+                "type": "documents",
+                "attributes": {},
+                "relationships": {
+                    "marks": {
+                        "data": [{"id": "void", "type": "marks"}],
+                    }
+                },
+            },
+        }
+        method = "patch"
+        data_format = None
+
+    response = getattr(admin_client, method)(url, data, format=data_format)
+
+    assert response.status_code == status_code

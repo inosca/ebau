@@ -1,9 +1,10 @@
 from datetime import datetime, timedelta
 
 import pytest
-from caluma.caluma_form.models import Form, Question
+from caluma.caluma_form.models import Form
 from caluma.caluma_workflow.models import WorkItem
 
+from camac.caluma.extensions.events import additional_demand
 from camac.tests.form_utils import FormUtils
 from camac.timelines import events
 from camac.timelines.models import FormTimeline
@@ -41,26 +42,7 @@ def test_additional_demand_event_formtimelines(
 
     # add extra questions and options to additional demand forms.
     fill_form = Form.objects.get(slug="fill-additional-demand")
-    caluma_form_question_factory(
-        form=fill_form,
-        question=caluma_question_factory(
-            slug="additional-demand-formtimeline",
-            type=Question.TYPE_TEXT,
-        ),
-    )
     send_form = Form.objects.get(slug="send-additional-demand")
-    allow_question = caluma_question_factory(
-        slug="additional-demand-allow-changes",
-        type=Question.TYPE_MULTIPLE_CHOICE,
-    )
-    caluma_form_question_factory(
-        form=send_form,
-        question=allow_question,
-    )
-    caluma_question_option_factory(
-        question=allow_question,
-        option=caluma_option_factory(slug="additional-demand-allow-changes"),
-    )
 
     # prepare additional demand work items.
     work_item_send = caluma_work_item_factory(
@@ -133,3 +115,82 @@ def test_additional_demand_event_formtimelines(
     assert FormTimeline.objects.count() == 1
     timeline.refresh_from_db()
     assert timeline.end_date is not None
+
+
+@pytest.mark.parametrize("allow_changes", [True, False])
+@pytest.mark.parametrize("decision_is_positive", [True, False])
+def test_post_complete_check_additional_demand_with_changes_gr(
+    db,
+    caluma_work_item_factory,
+    caluma_admin_user,
+    gr_additional_demand_settings,
+    gr_instance,
+    caluma_answer_factory,
+    notification_template_factory,
+    active_inquiry_factory,
+    service_factory,
+    mailoutbox,
+    form_utils: FormUtils,
+    allow_changes,
+    decision_is_positive,
+    set_application_gr,
+):
+    service_a = service_factory()
+    service_b = service_factory()
+
+    active_inquiry_factory(controlling_service=service_a, addressed_service=service_b)
+    tpl_accept_changes = notification_template_factory(
+        slug="additional-demand-decision-accept-with-changes"
+    )
+    tpl_accept = notification_template_factory(slug="additional-demand-decision-accept")
+    tpl_rejected = notification_template_factory(
+        slug="additional-demand-decision-reject"
+    )
+    work_item_send = caluma_work_item_factory(
+        case=gr_instance.case,
+        task_id=gr_additional_demand_settings["SEND_TASK"],
+        status=WorkItem.STATUS_COMPLETED,
+    )
+    if allow_changes:
+        form_utils.add_answer(
+            work_item_send.document,
+            "additional-demand-allow-changes",
+            ["additional-demand-allow-changes"],
+        )
+    work_item = caluma_work_item_factory(
+        case=gr_instance.case,
+        child_case=gr_instance.case,
+        task_id=gr_additional_demand_settings["CHECK_TASK"],
+        status=WorkItem.STATUS_COMPLETED,
+    )
+    caluma_answer_factory(
+        document=work_item.document,
+        question_id=gr_additional_demand_settings["QUESTIONS"]["DECISION"],
+        value=gr_additional_demand_settings["ANSWERS"]["DECISION"]["ACCEPTED"]
+        if decision_is_positive
+        else gr_additional_demand_settings["ANSWERS"]["DECISION"]["REJECTED"],
+    )
+    additional_demand.post_complete_check_additional_demand(
+        sender=None, work_item=work_item, user=caluma_admin_user
+    )
+
+    if decision_is_positive:
+        if not allow_changes:
+            assert len(mailoutbox) == 1
+            assert tpl_accept.subject in mailoutbox[0].subject
+            assert mailoutbox[0].recipients() == [service_a.email]
+        else:
+            assert len(mailoutbox) == 2
+            assert tpl_accept_changes.subject in mailoutbox[0].subject
+            assert tpl_accept_changes.subject in mailoutbox[1].subject
+            assert set([m.recipients()[0] for m in mailoutbox]) == set(
+                [service_a.email, service_b.email]
+            )
+    else:
+        assert len(mailoutbox) == 1
+        assert tpl_rejected.subject in mailoutbox[0].subject
+        assert mailoutbox[0].recipients() == [
+            applicant.invitee.email
+            for applicant in gr_instance.involved_applicants.all()
+            if applicant.invitee
+        ]

@@ -2,6 +2,7 @@ from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 
 from camac.caluma.api import CalumaApi
+from camac.timelines.models import FormTimeline
 from camac.user.permissions import is_allowed_client
 
 
@@ -111,3 +112,12 @@ class IsExternalClient(Condition):
 
     def evaluate(self) -> bool:
         return not is_allowed_client(self.request)
+
+
+class AdditionalDemandChanges(Condition):
+    def evaluate(self) -> bool:
+        return FormTimeline.objects.filter(
+            instance=self.instance,
+            timeline_type=FormTimeline.Type.ADDITIONAL_DEMAND.value,
+            end_date__isnull=True,
+        ).exists()

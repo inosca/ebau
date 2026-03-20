@@ -8,12 +8,15 @@ import mainConfig from "ember-ebau-core/config/main";
 
 export default class CustomDocumentModel extends DocumentModel {
   @service notification;
+  @service store;
+
+  #voidMark = trackedFunction(this, async () => {
+    const marks = await this.marks;
+    return marks.find((mark) => mark.id === mainConfig.alexandria.marks.void);
+  });
 
   #displayName = trackedFunction(this, async () => {
-    const marks = await this.marks;
-    const voidMark = marks.find(
-      (mark) => mark.id === mainConfig.alexandria.marks.void,
-    );
+    const voidMark = await this.#voidMark.value;
 
     if (voidMark) {
       return htmlSafe(
@@ -44,6 +47,10 @@ export default class CustomDocumentModel extends DocumentModel {
     return this.#originalDisplayName.value;
   }
 
+  get isVoid() {
+    return Boolean(this.#voidMark.value);
+  }
+
   @dropTask
   *download(event) {
     yield this._download(event);
@@ -66,5 +73,14 @@ export default class CustomDocumentModel extends DocumentModel {
       console.error(e);
       this.notification.danger(this.intl.t("documents.downloadError"));
     }
+  }
+
+  async void() {
+    const voidMark = await this.store.findRecord("mark", "void");
+    const marks = (await this.marks).slice();
+
+    this.marks = [...marks, voidMark];
+
+    await this.save();
   }
 }

@@ -40,8 +40,12 @@ export default class SubmitInstanceComponent extends Component {
   }
 
   get requiredPermissions() {
-    const action = this.args.field.question.raw.meta.action;
+    let action = this.args.field.question.raw.meta.action;
     assert("Field must have a meta property `action`", action);
+
+    if (this.isAdditionalDemandChanges) {
+      action = "additional-demand-changes-submit";
+    }
 
     return this.permissions.fullyEnabled
       ? this.config?.requiredPermissions?.[action]
