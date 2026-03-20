@@ -2,6 +2,7 @@ import { service } from "@ember/service";
 import Component from "@glimmer/component";
 import { didCancel, task } from "ember-concurrency";
 
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 import parseError from "ember-ebau-core/utils/parse-error";
 import DeadlinesSuspensionValidations from "ember-ebau-core/validations/suspension-form";
 
@@ -16,10 +17,6 @@ export default class DeadlineSuspensionFormModalComponent extends Component {
 
   constructor(...args) {
     super(...args);
-    const reason = this.args.suspensionReasons.find(
-      (r) => r.id === this.args.suspension?.reason,
-    );
-    const reasonValue = reason ? { id: reason.id, label: reason.label } : null;
     if (this.args.suspension) {
       this.formData = {
         startDate: this.args.suspension.startDate
@@ -28,9 +25,17 @@ export default class DeadlineSuspensionFormModalComponent extends Component {
         endDate: this.args.suspension.endDate
           ? new Date(this.args.suspension.endDate.toDateString())
           : null,
-        reason: reasonValue,
         remark: this.args.suspension.remark,
       };
+
+      if (hasFeature("deadlines.manualSuspensionReason")) {
+        const reason = this.args.suspensionReasons.find(
+          (r) => r.id === this.args.suspension?.reason,
+        );
+        this.formData.reason = reason
+          ? { id: reason.id, label: reason.label }
+          : null;
+      }
     }
   }
 
@@ -44,20 +49,21 @@ export default class DeadlineSuspensionFormModalComponent extends Component {
       const endDate = changeset.pendingData.endDate;
       const remark = changeset.pendingData.remark;
 
-      const reason = changeset.pendingData.reason?.id
-        ? this.store.peekRecord(
-            "suspension-reason",
-            changeset.pendingData.reason.id,
-          )?.id
-        : null;
-
       const data = {
         startDate,
         endDate,
-        reason,
         remark,
         deadline: this.args.deadline,
       };
+
+      if (hasFeature("deadlines.manualSuspensionReason")) {
+        data.reason = changeset.pendingData.reason?.id
+          ? this.store.peekRecord(
+              "suspension-reason",
+              changeset.pendingData.reason.id,
+            )?.id
+          : null;
+      }
 
       if (this.args.suspension) {
         this.args.suspension.setProperties(data);
