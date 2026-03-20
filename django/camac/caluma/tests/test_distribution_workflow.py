@@ -1459,7 +1459,7 @@ def test_set_trigger_billing_deadline(
         user=caluma_admin_user,
     )
 
-    trigger_work_item = inquiry.case.work_items.filter(
+    trigger_work_item = ag_instance.case.work_items.filter(
         task_id="trigger-billing"
     ).first()
 

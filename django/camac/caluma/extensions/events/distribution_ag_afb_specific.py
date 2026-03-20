@@ -97,17 +97,3 @@ def set_document_supplement_deadline(sender, work_item, user, context=None, **kw
         # If the AfB is not addressed or it's the first inquiry for them, we
         # don't need the work item at all and cancel it therefore
         cancel_work_item(check_work_item, user, context)
-
-
-@on(post_create_work_item, raise_exception=True)
-@transaction.atomic
-def set_trigger_billing_deadline(sender, work_item, user, context=None, **kwargs):
-    if (
-        settings.APPLICATION_NAME != "kt_ag"
-        or work_item.task_id != "trigger-billing"
-        or work_item.case.family.document.form_id != "anfrage"
-    ):
-        return
-
-    work_item.deadline = date_to_deadline(now().date() + timedelta(days=30))
-    work_item.save(update_fields=["deadline"])
