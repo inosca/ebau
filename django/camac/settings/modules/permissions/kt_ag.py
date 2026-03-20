@@ -170,8 +170,10 @@ MODULE_PORTAL_FORM_WRITE = RequireWorkItem("submit", "ready") & (
     | ((ROLES_MUNICIPALITY | ROLES_AFB) & IsPaper())
 )
 
-MODULE_RELATED_GWR_PROJECTS = STATES_ALL & IsForm(
-    ["baugesuch", "baugesuch-mit-uvp", "baugesuch-migration"]
+MODULE_RELATED_GWR_PROJECTS = (
+    STATES_ALL
+    & IsForm(["baugesuch", "baugesuch-mit-uvp", "baugesuch-migration"])
+    & ~IsServiceGroup(["municipality-light"])
 )
 
 ACTION_INSTANCE_CREATE_MODIFICATION = (
