@@ -396,10 +396,10 @@
           "next": [],
           "index": 1,
           "total": 2,
-          "needs-approval": "construction-step-adressvergabe-is-approved",
-          "is-actionable-for-control": false
+          "needs-approval": "construction-step-adressvergabe-is-approved"
         },
-        "construction-step-id": "construction-step-adressvergabe"
+        "construction-step-id": "construction-step-adressvergabe",
+        "is-actionable-for-control": false
       },
       "address_groups": "['gebaudeversicherung', 'municipality']|groups",
       "control_groups": "['municipality']|groups",

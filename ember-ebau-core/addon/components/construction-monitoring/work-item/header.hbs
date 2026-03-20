@@ -47,6 +47,11 @@
         </LinkTo>
       {{/if}}
     {{/if}}
+
+    {{#if (and (not (is-legacy-app)) (eq @workItem.status "READY"))}}
+      <ConstructionMonitoring::WorkItem::Addressed @workItem={{@workItem}} />
+    {{/if}}
+
   </div>
 </div>
 <hr class="uk-margin-bottom" />

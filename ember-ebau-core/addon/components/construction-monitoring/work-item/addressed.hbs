@@ -1,0 +1,23 @@
+{{#if this.addressedGroups.length}}
+  {{#if (gt this.addressedGroups.length 1)}}
+    <div>
+      {{t
+        "construction-monitoring.construction-stage.addressed-to-groups"
+        count=this.addressedGroups.length
+        htmlSafe=true
+      }}
+      <div class="uk-card uk-card-default uk-padding-small" uk-drop>
+        {{#each this.addressedGroups as |group|}}
+          {{group-name group}}<br />
+        {{/each}}
+      </div>
+    </div>
+  {{else}}
+    <div>
+      {{t
+        "construction-monitoring.construction-stage.addressed-to-group"
+        groupName=(group-name this.addressedGroups)
+      }}
+    </div>
+  {{/if}}
+{{/if}}
