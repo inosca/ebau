@@ -45,6 +45,9 @@ construction-monitoring:
     running-applicant-info: "Die Bauetappe <b>{constructionStageName}</b> befindet sich in Bearbeitung."
     running-service-info: "Falls Sie die Bauetappe nicht wie geplant zu Ende führen möchten, können Sie diese hier abbrechen."
 
+    addressed-to-group: "Aktuell in Bearbeitung bei: {groupName}"
+    addressed-to-groups: "Aktuell in Bearbeitung bei <em>{count} Organisationen</em>"
+
   construction-step:
     title: "Prozessschritt"
 

@@ -44,6 +44,9 @@ construction-monitoring:
     running-applicant-info: "La tappa edilizia <b>{constructionStageName}</b> è in corso."
     running-service-info: "Se non intende completare la tappa edilizia come previsto, qui la può annullare."
 
+    addressed-to-group: "Attualmente in lavorazione presso: {groupName}"
+    addressed-to-groups: "Attualmente in lavorazione presso <em>{count} organizzazioni</em>"
+
   construction-step:
     title: "Fase della procedura"
 
