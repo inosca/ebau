@@ -62,7 +62,6 @@ services:
       DJANGO_EMAIL_HOST: mailpit
       DJANGO_EMAIL_PORT: 1025
       DJANGO_MEDIA_ROOT: /var/lib/camac/media
-      DJANGO_Q_ENABLE_SYNC: ${DJANGO_Q_ENABLE_SYNC:-false}
       DJANGO_UNOCONV_URL: http://unoconv:3000
       DOCUMENT_MERGE_SERVICE_URL: http://document-merge-service:8000/api/v1/
       DYNAMIC_GROUPS_CLASSES: camac.caluma.extensions.dynamic_groups.CustomDynamicGroups
@@ -86,12 +85,20 @@ services:
       - ebau.localhost
     command: devserver
 
-  # repeat definition here because otherwise prod settings are applied
-  django-q:
+  celery:
     <<: *django
     image: acr.run/camac-ng/camac-ng/django:master
-    command: qclusterdev
+    depends_on:
+      - redis
+    command: celerydev
     ports: []
+
+  redis:
+    image: redis:8.4
+    volumes:
+      - redis_data:/redis/data
+    networks:
+      - ebau.localhost
 
   ember:
     environment:
@@ -276,3 +283,4 @@ volumes:
   pg16data:
   phpsessions:
   templatefiles:
+  redis_data:

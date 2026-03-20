@@ -295,12 +295,13 @@ def test_ag_client(
     admin_client,
     gis_snapshot,
     vcr_config,
+    celery_fake_worker,
     ag_config,
     scenario,
     ag_data_sources,
 ):
     x, y = scenario["coords"]
-    response = admin_client.get(
+    response_0 = admin_client.get(
         reverse("gis-data"),
         data={
             "query": json.dumps(
@@ -313,10 +314,27 @@ def test_ag_client(
         },
     )
 
-    assert response.status_code == status.HTTP_200_OK
+    task_id = response_0.json()["task_id"]
+
+    celery_fake_worker.run_tasks()
+
+    response_1 = admin_client.get(
+        reverse("gis-data", args=[task_id]),
+        data={
+            "query": json.dumps(
+                {
+                    "markers": [{"x": x, "y": y}],
+                    "geometry": "POINT",
+                }
+            ),
+            "form": "baugesuch",
+        },
+    )
+
+    assert response_1.status_code == status.HTTP_200_OK
     checked_data = {
         k: v
-        for k, v in response.json()["data"].items()
+        for k, v in response_1.json()["data"].items()
         if k in scenario["checked_questions"]
     }
 

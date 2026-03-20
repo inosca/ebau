@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-07 11:45+0200\n"
+"POT-Creation-Date: 2026-04-09 10:50+0200\n"
 "PO-Revision-Date: 2024-09-12 16:24+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -934,14 +934,6 @@ msgid ""
 "%(entries)s"
 msgstr ""
 
-#: camac/dossier_import/models.py
-#, python-format
-msgid ""
-"The import took more than %(timeout)i seconds to complete and timed out."
-msgstr ""
-"Il processo di importazione ha richiesto più di %(timeout)i secondi ed è "
-"stato interrotto."
-
 #: camac/dossier_import/serializers.py camac/instance/serializers.py
 msgid "No location assigned."
 msgstr "Nessun luogo indicato."
@@ -1198,14 +1190,14 @@ msgstr "Geoportale della Confederazione"
 msgid "Cache for key %(key)s does not exist"
 msgstr "Cache per la chiave %(key)s non esiste"
 
-#: camac/gis/utils.py
-msgid "Coordinates must be floats"
-msgstr "Le coordinate devono essere dei numeri in virgola mobile"
-
-#: camac/gis/views.py
+#: camac/gis/tasks.py
 #, python-format
 msgid "Required parameter %(parameter)s was not passed"
 msgstr "Il parametro richiesto %(parameter)s non è stato trasmesso"
+
+#: camac/gis/utils.py
+msgid "Coordinates must be floats"
+msgstr "Le coordinate devono essere dei numeri in virgola mobile"
 
 #: camac/instance/document_merge_service.py
 msgid "Plots"

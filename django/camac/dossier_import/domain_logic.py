@@ -10,7 +10,7 @@ from typing import Callable
 import requests
 from alexandria.core.models import Document
 from caluma.caluma_workflow.models import Case
-from celery import shared_task
+from celery import chain, shared_task
 from django.conf import settings
 from django.db.models import Count
 from django.db.models.fields.json import KeyTextTransform
@@ -48,6 +48,65 @@ def perform_import(
     ),
 ):
     return _do_perform_import(dossier_import, skip_existing, notify_dossier_imported)
+
+
+def schedule_import(dossier_import: DossierImport):
+    """Schedule the execution of the given dossier import.
+
+    Note that we do this in two steps, so that setting the status
+    is separeted from the transactional import.
+    """
+
+    dossier_import.status = DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS
+
+    queue = settings.DOSSIER_IMPORT.get("CELERY_QUEUE")
+    chained_tasks = chain(
+        perform_import_celery.s(dossier_import_id=str(dossier_import.pk)).set(
+            queue=queue
+        ),
+        set_status_callback_celery.s(dossier_import_id=str(dossier_import.pk)).set(
+            queue=queue
+        ),
+    )
+    async_result = chained_tasks.apply_async()
+    task_id = async_result.id
+
+    dossier_import.task_id = task_id
+    dossier_import.save()
+    return task_id
+
+
+def schedule_undo_import(dossier_import: DossierImport):
+    """Schedule the removal of dossiers from given import.
+
+    This is run when the dossier import had failures in the data
+    rather than the procedure, and can be run by the user after
+    the import was already run.
+    """
+    queue = settings.DOSSIER_IMPORT.get("CELERY_QUEUE")
+    chained_tasks = chain(
+        undo_import_celery.s(dossier_import_id=str(dossier_import.pk)).set(queue=queue),
+        set_status_callback_celery.s(dossier_import_id=str(dossier_import.pk)).set(
+            queue=queue
+        ),
+    )
+    async_result = chained_tasks.apply_async()
+    task_id = async_result.id
+
+    dossier_import.task_id = task_id
+    dossier_import.save()
+
+
+def schedule_transmission(dossier_import):
+    """Schedule transmission of the import to the production system."""
+    dossier_import.status = DossierImport.IMPORT_STATUS_TRANSMITTING
+
+    async_result = transmit_import_celery.apply_async((str(dossier_import.pk),))
+    task_id = async_result.id
+
+    dossier_import.task_id = task_id
+    dossier_import.save()
+    return task_id
 
 
 @shared_task()

@@ -2,6 +2,7 @@ from logging import getLogger
 
 from caluma.caluma_user.models import AnonymousUser
 from caluma.caluma_workflow.models import WorkItem
+from celery import shared_task
 from django.db import transaction
 from django.db.models import Exists, OuterRef
 from django.utils import timezone
@@ -46,6 +47,7 @@ def _should_perform_geometer_change_for_instance(instance, selected_municipality
     return perform_change
 
 
+@shared_task
 def change_geometer_task(task):
     """
     Task to change the geometer.

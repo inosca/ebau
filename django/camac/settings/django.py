@@ -117,7 +117,6 @@ INSTALLED_APPS = [
     "camac.alert_message.apps.AlertMessageConfig",
     "sorl.thumbnail",
     "django_clamd",
-    "django_q",
     "django_celery_beat",
     "reversion",
     "rest_framework_xml",
@@ -3822,25 +3821,6 @@ GWR_HOUSING_STAT_BASE_URI = env.str(
     default="https://www.housing-stat.ch/regbl/api/ech0216/2",
 )
 
-
-# Until running tasks can be manually canceled we want a timeout
-DJANGO_Q_TASK_TIMEOUT_HOURS = env.int("DJANGO_Q_TASK_TIMEOUT_HOURS", default=6)
-
-# We use q-cluster for importing.
-# - no retry of failed imports
-# - timeout required because we cannot abort running imports (except killing the worker but that seems excessive)
-# - ack_failures option keeps a clean queue and allows to identify timed out imports
-Q_CLUSTER = {
-    "name": "DjangORM",
-    "workers": 4,
-    "queue_limit": 50,
-    "timeout": DJANGO_Q_TASK_TIMEOUT_HOURS * 60 * 60,
-    "retry": DJANGO_Q_TASK_TIMEOUT_HOURS * 60 * 60 * 2,
-    "ack_failures": True,  # discards failed tasks after timeout
-    "orm": "default",
-    "poll": 1,
-    "sync": env.bool("DJANGO_Q_ENABLE_SYNC", False),
-}
 
 DOSSIER_IMPORT_CLIENT_ID = env.str(
     "DJANGO_DOSSIER_IMPORT_CLIENT_ID", default="dossier-import"

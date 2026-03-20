@@ -50,7 +50,3 @@ class GISDataSource(models.Model):
         if hasattr(client, "required_params"):
             return client.required_params
         return client.get_required_params(self)
-
-    def get_is_queue_enabled(self):
-        client_cls = self.get_client_cls()
-        return client_cls.is_queue_enabled()

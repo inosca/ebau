@@ -77,7 +77,6 @@ env = [
     "APPLICATION=test",
     "APPLICATION_ENV=ci",
     "TEST_SUITE_RUNNING=true",
-    "DJANGO_Q_ENABLE_SYNC=false",
 ]
 filterwarnings = [
     "error::DeprecationWarning",

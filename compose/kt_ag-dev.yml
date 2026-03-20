@@ -81,7 +81,6 @@ services:
       DJANGO_INTERNAL_BASE_URL: http://ember-ebau.localhost
       DJANGO_MEDIA_ROOT: /var/lib/camac/media
       DJANGO_TEMPFILE_DOWNLOAD_URL: /tmp
-      DJANGO_Q_ENABLE_SYNC: ${DJANGO_Q_ENABLE_SYNC:-false}
       DOCUMENT_MERGE_SERVICE_URL: http://document-merge-service:8000/document-merge-service/api/v1/
       ENABLE_HISTORICAL_API: true
       ENV: dev # needed for manabi dev mode
@@ -115,18 +114,6 @@ services:
     tty: true
     stdin_open: true
     command: devserver
-
-  django-q:
-    <<: *django
-    image: acr.run/camac-ng/camac-ng/django:master
-    build:
-      context: ../django
-      cache_from:
-        - acr.run/camac-ng/camac-ng/django:master
-      args:
-        REQUIREMENTS: requirements-dev.txt
-    command: qclusterdev
-    ports: []
 
   celery:
     <<: *django

@@ -7,7 +7,6 @@ import pyexcel
 import pytest
 from django.db.utils import OperationalError
 from django.urls import reverse
-from django_q.tasks import async_task, result
 
 from camac.response import make_xlsx_response
 from camac.settings.ebau_schema import ModuleApplicationConfig
@@ -191,24 +190,6 @@ def test_retry_utility(fail_forever, expectation):
 
     with expectation:
         assert utils.retry(do_the_thing) == 5
-
-
-def _example_task(n1, n2):
-    return n1 + n2
-
-
-def test_django_q_sync_fixture_disabled(db):
-    """Demo: Django-Q Background task without sync mode."""
-    task_id = async_task(_example_task, 1, 3)
-    assert task_id
-    assert result(task_id, wait=10) is None
-
-
-def test_django_q_sync_fixture_enabled(db, django_q_sync_mode):
-    """Demo: Django-Q Background task with sync mode fixture."""
-    task_id = async_task(_example_task, 1, 3)
-    assert task_id
-    assert result(task_id, wait=10) == 4
 
 
 def test_is_module_enabled():

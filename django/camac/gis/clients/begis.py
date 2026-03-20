@@ -18,10 +18,6 @@ logger = logging.getLogger(__name__)
 class BeGisClient(GISBaseClient):
     required_params = ["egrids"]
 
-    @classmethod
-    def is_queue_enabled(cls):
-        return settings.BE_GIS_ENABLE_QUEUE
-
     @property
     def batch_size(self):
         return settings.GIS_REQUESTS_BATCH_SIZE

@@ -4,12 +4,9 @@ import zipfile
 from pathlib import Path
 from tempfile import NamedTemporaryFile
 
+import celery.result
 import uuid_extensions
-from django.conf import settings
 from django.db import models
-from django.utils.translation import gettext as _
-from django_q.brokers import get_broker
-from django_q.tasks import fetch
 
 from camac.dossier_import.messages import default_messages_object
 
@@ -138,57 +135,27 @@ class DossierImport(models.Model):
 
     def update_async_status(self):
         # check whether task is finished or queued
-        # Note: the ack_failures option removes the task from the queue, while
-        # not adding it to the task list aka it's gone.
-        # Since it's not necessary to keep timed out tasks in the queue, this option
-        # is preferable. There's no direct way of telling whether a queued task
-        # has timed out other than comparing lock time to now while failing to find it
-        # in the task list.
         if not self.task_id:
             # if the status is progressing but no task id available assume failure:
             self.status = self.set_progressing_to_failed()
             self.save()
             return self.status
 
-        if settings.DOSSIER_IMPORT.get("QUEUE") == "celery":  # pragma: no cover
-            from celery.result import AsyncResult
+        result = celery.result.AsyncResult(self.task_id)
+        if result.state in ["PENDING", "STARTED"]:
+            return "in-progress"
+        elif result.state in ["FAILED", "REVOKED", "FAILURE"]:
+            try:
+                self.status = self.set_progressing_to_failed()
+                self.messages["import"]["summary"]["error"].append(str(result.result))
+            finally:
+                self.save()
+        elif result.state in ["SUCCESS"]:
+            # celery task is completed
+            self.status = self.set_progressing_to_success()
+            self.save()
 
-            result = AsyncResult(self.task_id)
-            if result.state == "PENDING":
-                return "in-progress"
-            elif result.state == "FAILURE":
-                try:
-                    self.status = self.set_progressing_to_failed()
-                    self.messages["import"]["summary"]["error"].append(
-                        str(result.result)
-                    )
-                finally:
-                    self.save()
-                return "failed"
-            else:
-                return self.status
-        else:
-            broker = get_broker()
-            the_queue = broker.get_connection()
-            # if the task can be found among the queued or running tasks:
-            if any(list(filter(lambda x: x.task_id() == self.task_id, the_queue))):
-                return "in-progress"
-            the_task = fetch(self.task_id)
-            # if a task id exists and the task is neither queued nor finished by the broker
-            # it has probably timed out.
-            if not the_task:
-                try:
-                    self.status = self.set_progressing_to_failed()
-                    self.messages["import"]["summary"]["error"].append(
-                        _(
-                            "The import took more than %(timeout)i seconds to complete and timed out."
-                            % dict(timeout=settings.Q_CLUSTER["timeout"])
-                        )
-                    )
-                finally:
-                    self.save()
-                return "timed-out"
-            return self.status
+        return self.status
 
     def set_progressing_to_failed(self):
         # the import has a failed status for every async progressing status
@@ -196,6 +163,14 @@ class DossierImport(models.Model):
             DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS: DossierImport.IMPORT_STATUS_IMPORT_FAILED,
             DossierImport.IMPORT_STATUS_UNDO_IN_PROGRESS: DossierImport.IMPORT_STATUS_UNDO_FAILED,
             DossierImport.IMPORT_STATUS_TRANSMITTING: DossierImport.IMPORT_STATUS_TRANSMISSION_FAILED,
+        }.get(self.status, self.status)
+
+    def set_progressing_to_success(self):
+        # the import has a failed status for every async progressing status
+        return {
+            DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS: DossierImport.IMPORT_STATUS_IMPORTED,
+            DossierImport.IMPORT_STATUS_UNDO_IN_PROGRESS: DossierImport.IMPORT_STATUS_UNDONE,
+            DossierImport.IMPORT_STATUS_TRANSMITTING: DossierImport.IMPORT_STATUS_TRANSMITTED,
         }.get(self.status, self.status)
 
     def get_archive(self):

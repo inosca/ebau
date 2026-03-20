@@ -576,18 +576,18 @@
     }),
   })
 # ---
-# name: test_be_client_error[doesntexist]
-  list([
-    'No polygon found',
-  ])
+# name: test_be_client_error[True-400-doesntexist]
+  dict({
+    'detail': 'No polygon found',
+  })
 # ---
-# name: test_be_client_error[emptygis]
-  list([
-    'No polygon found',
-  ])
+# name: test_be_client_error[True-400-emptygis]
+  dict({
+    'detail': 'No polygon found',
+  })
 # ---
-# name: test_be_client_error[emptypolygon]
-  list([
-    'No polygon found',
-  ])
+# name: test_be_client_error[True-400-emptypolygon]
+  dict({
+    'detail': 'No polygon found',
+  })
 # ---

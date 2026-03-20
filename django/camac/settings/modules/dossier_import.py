@@ -12,8 +12,6 @@ DOSSIER_IMPORT = {
         "USER": "service-account-camac-admin",
         "RESOURCE_ID_PATH": "/dossier-import",
         "DELETE_KEYWORD": "<LÖSCHEN>",
-        "QUEUE": "django-q",
-        "CELERY_QUEUE": "celery",
         "ALEXANDRIA_UPDATE_EXISTING_DOCUMENTS": True,
     },
     "kt_schwyz": {
@@ -98,7 +96,6 @@ DOSSIER_IMPORT = {
             "DJANGO_DOSSIER_IMPORT_PROD_AUTH_URL",
             "https://ebau.so.ch/auth/realms/ebau/protocol/openid-connect/token",
         ),
-        "QUEUE": "celery",
         "CELERY_QUEUE": "import",
     },
     "kt_ag": {
@@ -123,7 +120,6 @@ DOSSIER_IMPORT = {
             "DJANGO_DOSSIER_IMPORT_PROD_AUTH_URL",
             "https://auth.ag.ch/realms/KTAG/protocol/openid-connect/token",
         ),
-        "QUEUE": "celery",
     },
     "kt_gr": {
         "ENABLED": True,
@@ -147,6 +143,5 @@ DOSSIER_IMPORT = {
         #     "DJANGO_DOSSIER_IMPORT_PROD_AUTH_URL",
         #     "https://ebau.gr.ch/auth/realms/ebau/protocol/openid-connect/token",
         # ),
-        "QUEUE": "celery",
     },
 }
