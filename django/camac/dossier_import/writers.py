@@ -1140,13 +1140,13 @@ class DossierWriter:
         if not dossier.attachments:
             return messages
 
-        instance_files_path = Path(
-            f"{settings.MEDIA_ROOT}/attachments/files/{instance.pk}"
-        )
+        if settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng":
+            instance_files_path = Path(
+                f"{settings.MEDIA_ROOT}/attachments/files/{instance.pk}"
+            )
+            attachments_path = instance_files_path / str(dossier.id)
+            attachments_path.mkdir(parents=True, exist_ok=True)
 
-        attachments_path = instance_files_path / str(dossier.id)
-
-        attachments_path.mkdir(parents=True, exist_ok=True)
         for document in dossier.attachments:
             content = File(document.file_accessor)
 
