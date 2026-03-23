@@ -40,7 +40,7 @@
     "pk": "bab-versiegelte-entsiegelte-flaechen-form",
     "fields": {
       "created_at": "2024-06-26T08:06:19.066Z",
-      "modified_at": "2025-11-14T11:08:46.036Z",
+      "modified_at": "2026-02-25T13:06:19.519Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
@@ -65,7 +65,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "anzahl-gebaeude-unter-schutz",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -95,7 +95,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-art-der-massnahme",
-      "sort": 19
+      "sort": 20
     }
   },
   {
@@ -110,7 +110,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-art-grundlage-verfahren-titel",
-      "sort": 20
+      "sort": 21
     }
   },
   {
@@ -125,7 +125,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-bewilligungsgrund",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -140,7 +140,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-entscheid",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -155,7 +155,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-flaechenbedarf-fruchtfolgeflaechen",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -170,7 +170,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-gebaeude-abbruch",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -185,7 +185,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-kompensation-fruchtfolgeflaechen",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -200,7 +200,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-lage-flaechenbedarf-tabelle",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -215,7 +215,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-lage-flaechenbedarf-titel",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -230,7 +230,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-neue-gebaeude",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -245,7 +245,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-nutzung-nach-rpg",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -260,7 +260,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-objektart",
-      "sort": 17
+      "sort": 18
     }
   },
   {
@@ -275,7 +275,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-stabilisierung-gebaeude-titel",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -290,7 +290,22 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "bab-typ-der-auftraggeber",
-      "sort": 12
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab.bemerkungen-betreffend-die-definition-von-gebaeuden",
+    "fields": {
+      "created_at": "2026-02-25T13:03:14.581Z",
+      "modified_at": "2026-02-25T13:03:14.581Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab",
+      "question": "bemerkungen-betreffend-die-definition-von-gebaeuden",
+      "sort": 4
     }
   },
   {
@@ -305,7 +320,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "beschrieb-der-massnahme",
-      "sort": 18
+      "sort": 19
     }
   },
   {
@@ -350,7 +365,7 @@
       "modified_by_group": null,
       "form": "bab",
       "question": "objektbeschrieb",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -380,7 +395,7 @@
       "modified_by_group": null,
       "form": "bab-versiegelte-entsiegelte-flaechen-form",
       "question": "bab-art-versiegelung",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -395,7 +410,7 @@
       "modified_by_group": null,
       "form": "bab-versiegelte-entsiegelte-flaechen-form",
       "question": "bab-beschreibung-nutzung-versiegelte-flaeche-andere",
-      "sort": 2
+      "sort": 4
     }
   },
   {
@@ -410,7 +425,7 @@
       "modified_by_group": null,
       "form": "bab-versiegelte-entsiegelte-flaechen-form",
       "question": "bab-nutzung-versiegelte-flaeche",
-      "sort": 3
+      "sort": 5
     }
   },
   {
@@ -425,7 +440,22 @@
       "modified_by_group": null,
       "form": "bab-versiegelte-entsiegelte-flaechen-form",
       "question": "bab-versiegelung-flaeche",
-      "sort": 4
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bab-versiegelte-entsiegelte-flaechen-form.hinweis-zur-erfassung-der-flaechen",
+    "fields": {
+      "created_at": "2026-02-20T16:00:49.334Z",
+      "modified_at": "2026-02-20T16:00:49.334Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bab-versiegelte-entsiegelte-flaechen-form",
+      "question": "hinweis-zur-erfassung-der-flaechen",
+      "sort": 7
     }
   },
   {
@@ -440,7 +470,7 @@
       "modified_by_group": null,
       "form": "bab-versiegelte-entsiegelte-flaechen-form",
       "question": "soemmerungsgebiet",
-      "sort": 3
+      "sort": 1
     }
   },
   {
@@ -1449,12 +1479,12 @@
     "pk": "bab-nutzung-versiegelte-flaeche-ausnahmebewilligung-artikel-24c-rpg",
     "fields": {
       "created_at": "2025-11-17T12:59:14.710Z",
-      "modified_at": "2025-11-17T12:59:14.710Z",
+      "modified_at": "2026-02-20T16:15:53.261Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Ausnahmebewilligung Artikel 24c RPG\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Ausnahmebewilligung Artikel 24ff RPG\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -1483,12 +1513,12 @@
     "pk": "bab-nutzung-versiegelte-flaeche-erschliessung-verkehr-kommunale-und-private-projekte",
     "fields": {
       "created_at": "2025-11-05T07:51:15.045Z",
-      "modified_at": "2025-11-05T07:52:28.588Z",
+      "modified_at": "2026-02-20T16:15:53.260Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Erschliessung , Verkehr (kommunale und private Projekte)\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Erschliessung, Verkehr (kommunale und private Projekte)\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -2282,12 +2312,12 @@
     "pk": "soemmerungsgebiet-nicht-alpwirtschaftlich-begruendet",
     "fields": {
       "created_at": "2026-01-21T08:04:05.856Z",
-      "modified_at": "2026-01-21T08:04:05.856Z",
+      "modified_at": "2026-02-25T13:07:15.784Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Nicht Alpwirtschaftlich begründet\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Das Vorhaben ist nicht alp- landwirtschaftlich begründet\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -2469,10 +2499,10 @@
     "pk": "bab-art-versiegelung",
     "fields": {
       "created_at": "2024-06-26T08:09:50.715Z",
-      "modified_at": "2024-06-26T08:09:50.715Z",
+      "modified_at": "2026-02-23T12:22:29.498Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Art der Ver- bzw. Entsiegelung\", \"fr\": null, \"it\": null}",
       "type": "choice",
@@ -2480,8 +2510,8 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"####Versiegelte Flächen, die nicht gemäss RPV zählen\\n\\nGemäss den Erläuterungen zur revidierten RPV müssen gewisse versiegelte Flächen bei der Berechnung des Stabilisierungsziels nicht angerechnet werden:\\n\\nVersiegelte Flächen in landwirtschaftlicher Nutzung\\n– z. B. befestigte Flächen, die der wirtschaftlichen landwirtschaftlichen Nutzung dienen (z. B. Zugangspätze von Betrieben), sind nicht anrechenbar.\\n\\nVersiegelte Flächen in touristischer Nutzung\\n– Flächen, die im Rahmen einer touristischen Nutzung ausserhalb Bauzonen versiegelt werden (z. B. Parkplätze zu touristischen Anlagen), zählen nicht zum anrechenbaren Versiegelungsbestand.\\n\\nNationale und kantonale Verkehrsanlagen & Energieanlagen\\n– Versiegelungen, die durch übergeordnete Verkehrsprojekte (nationaler oder kantonaler Strassenbau, Schienen, etc.) oder Energieinfrastruktur entstehen, werden nicht als versiegelte Fläche im Sinn des RPV-Ziels angerechnet.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -2904,10 +2934,10 @@
     "pk": "bab-nutzung-versiegelte-flaeche",
     "fields": {
       "created_at": "2024-06-26T08:18:20.194Z",
-      "modified_at": "2025-11-17T13:45:05.522Z",
+      "modified_at": "2026-02-20T16:15:53.370Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Nutzung der versiegelten Flächen\", \"fr\": null, \"it\": null}",
       "type": "choice",
@@ -3065,6 +3095,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "bemerkungen-betreffend-die-definition-von-gebaeuden",
+    "fields": {
+      "created_at": "2026-02-25T13:03:14.166Z",
+      "modified_at": "2026-02-26T07:17:53.091Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen (z.B. betreffend die Praxis zur Beurteilung von Gebäuden)\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "beschrieb-der-massnahme",
     "fields": {
       "created_at": "2025-08-20T06:32:21.596Z",
@@ -3086,6 +3150,37 @@
         "max_length": null,
         "min_length": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-zur-erfassung-der-flaechen",
+    "fields": {
+      "created_at": "2026-02-20T16:00:49.055Z",
+      "modified_at": "2026-02-20T16:28:33.322Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis zur erfassung der Flächen\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"####Hinweis zu den Angaben in diesem Formular!\\n\\nWir weisen Sie darauf hin, dass Ihre  Angaben betreffend die ver- bzw. entsiegelten Flächen von der zuständigen Behörde überprüft und, allenfalls auch erst nach Abschluss der amtlichen Vermessung, bei Bedarf angepasst werden.  Wir bitten Sie, diese Flächen trotzdem möglichst genau zu erfassen und in den Planunterlagen entsprechend darzustellen.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -3136,10 +3231,10 @@
     "pk": "soemmerungsgebiet",
     "fields": {
       "created_at": "2025-11-26T15:21:32.159Z",
-      "modified_at": "2026-01-21T08:04:05.968Z",
+      "modified_at": "2026-02-25T13:07:15.877Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Liegt das Vorhaben in einem Sömmerungsgebiet\", \"fr\": null, \"it\": null}",
       "type": "choice",
@@ -3148,7 +3243,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"(diese Frage wird im Rahmen der Dossierprüfung von der zuständigen Behörde beantwortet)\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -3355,11 +3450,11 @@
     "model": "caluma_form.questionoption",
     "pk": "bab-art-versiegelung.bab-art-versiegelung-entsiegelt-erschliessung",
     "fields": {
-      "created_at": "2024-06-26T08:09:50.770Z",
-      "modified_at": "2024-06-26T08:09:50.770Z",
-      "created_by_user": "admin",
+      "created_at": "2026-02-23T12:22:29.550Z",
+      "modified_at": "2026-02-23T12:22:29.550Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "bab-art-versiegelung",
       "option": "bab-art-versiegelung-entsiegelt-erschliessung",
@@ -3370,11 +3465,11 @@
     "model": "caluma_form.questionoption",
     "pk": "bab-art-versiegelung.bab-art-versiegelung-entsiegelt-gebaeude",
     "fields": {
-      "created_at": "2024-06-26T08:09:50.828Z",
-      "modified_at": "2024-06-26T08:09:50.828Z",
-      "created_by_user": "admin",
+      "created_at": "2026-02-23T12:22:29.580Z",
+      "modified_at": "2026-02-23T12:22:29.580Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "bab-art-versiegelung",
       "option": "bab-art-versiegelung-entsiegelt-gebaeude",
@@ -3385,11 +3480,11 @@
     "model": "caluma_form.questionoption",
     "pk": "bab-art-versiegelung.bab-art-versiegelung-entsiegelt-umgebung",
     "fields": {
-      "created_at": "2024-06-26T08:09:50.800Z",
-      "modified_at": "2024-06-26T08:09:50.800Z",
-      "created_by_user": "admin",
+      "created_at": "2026-02-23T12:22:29.576Z",
+      "modified_at": "2026-02-23T12:22:29.576Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "bab-art-versiegelung",
       "option": "bab-art-versiegelung-entsiegelt-umgebung",
@@ -3400,11 +3495,11 @@
     "model": "caluma_form.questionoption",
     "pk": "bab-art-versiegelung.bab-art-versiegelung-neu-versiegelt-erschliessung",
     "fields": {
-      "created_at": "2024-06-26T08:09:50.864Z",
-      "modified_at": "2024-06-26T08:09:50.864Z",
-      "created_by_user": "admin",
+      "created_at": "2026-02-23T12:22:29.583Z",
+      "modified_at": "2026-02-23T12:22:29.583Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "bab-art-versiegelung",
       "option": "bab-art-versiegelung-neu-versiegelt-erschliessung",
@@ -3415,11 +3510,11 @@
     "model": "caluma_form.questionoption",
     "pk": "bab-art-versiegelung.bab-art-versiegelung-neu-versiegelt-gebaeude",
     "fields": {
-      "created_at": "2024-06-26T08:09:50.917Z",
-      "modified_at": "2024-06-26T08:09:50.917Z",
-      "created_by_user": "admin",
+      "created_at": "2026-02-23T12:22:29.591Z",
+      "modified_at": "2026-02-23T12:22:29.591Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "bab-art-versiegelung",
       "option": "bab-art-versiegelung-neu-versiegelt-gebaeude",
@@ -3430,11 +3525,11 @@
     "model": "caluma_form.questionoption",
     "pk": "bab-art-versiegelung.bab-art-versiegelung-neu-versiegelt-umgebung",
     "fields": {
-      "created_at": "2024-06-26T08:09:50.893Z",
-      "modified_at": "2024-06-26T08:09:50.894Z",
-      "created_by_user": "admin",
+      "created_at": "2026-02-23T12:22:29.587Z",
+      "modified_at": "2026-02-23T12:22:29.587Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "bab-art-versiegelung",
       "option": "bab-art-versiegelung-neu-versiegelt-umgebung",
@@ -4090,11 +4185,11 @@
     "model": "caluma_form.questionoption",
     "pk": "bab-nutzung-versiegelte-flaeche.bab-nutzung-versiegelte-flaeche-andere",
     "fields": {
-      "created_at": "2025-11-17T13:45:05.527Z",
-      "modified_at": "2025-11-17T13:45:05.527Z",
-      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_at": "2026-02-20T16:15:53.376Z",
+      "modified_at": "2026-02-20T16:15:53.376Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "bab-nutzung-versiegelte-flaeche",
       "option": "bab-nutzung-versiegelte-flaeche-andere",
@@ -4105,11 +4200,11 @@
     "model": "caluma_form.questionoption",
     "pk": "bab-nutzung-versiegelte-flaeche.bab-nutzung-versiegelte-flaeche-ausnahmebewilligung-artikel-24c-rpg",
     "fields": {
-      "created_at": "2025-11-17T13:45:05.533Z",
-      "modified_at": "2025-11-17T13:45:05.533Z",
-      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_at": "2026-02-20T16:15:53.379Z",
+      "modified_at": "2026-02-20T16:15:53.379Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "bab-nutzung-versiegelte-flaeche",
       "option": "bab-nutzung-versiegelte-flaeche-ausnahmebewilligung-artikel-24c-rpg",
@@ -4120,11 +4215,11 @@
     "model": "caluma_form.questionoption",
     "pk": "bab-nutzung-versiegelte-flaeche.bab-nutzung-versiegelte-flaeche-energie",
     "fields": {
-      "created_at": "2025-11-17T13:45:05.547Z",
-      "modified_at": "2025-11-17T13:45:05.547Z",
-      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_at": "2026-02-20T16:15:53.393Z",
+      "modified_at": "2026-02-20T16:15:53.393Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "bab-nutzung-versiegelte-flaeche",
       "option": "bab-nutzung-versiegelte-flaeche-energie",
@@ -4135,11 +4230,11 @@
     "model": "caluma_form.questionoption",
     "pk": "bab-nutzung-versiegelte-flaeche.bab-nutzung-versiegelte-flaeche-erschliessung-verkehr-kommunale-und-private-projekte",
     "fields": {
-      "created_at": "2025-11-17T13:45:05.540Z",
-      "modified_at": "2025-11-17T13:45:05.540Z",
-      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_at": "2026-02-20T16:15:53.386Z",
+      "modified_at": "2026-02-20T16:15:53.386Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "bab-nutzung-versiegelte-flaeche",
       "option": "bab-nutzung-versiegelte-flaeche-erschliessung-verkehr-kommunale-und-private-projekte",
@@ -4150,11 +4245,11 @@
     "model": "caluma_form.questionoption",
     "pk": "bab-nutzung-versiegelte-flaeche.bab-nutzung-versiegelte-flaeche-landwirtschaft",
     "fields": {
-      "created_at": "2025-11-17T13:45:05.553Z",
-      "modified_at": "2025-11-17T13:45:05.553Z",
-      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_at": "2026-02-20T16:15:53.399Z",
+      "modified_at": "2026-02-20T16:15:53.399Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "bab-nutzung-versiegelte-flaeche",
       "option": "bab-nutzung-versiegelte-flaeche-landwirtschaft",
@@ -4165,11 +4260,11 @@
     "model": "caluma_form.questionoption",
     "pk": "bab-nutzung-versiegelte-flaeche.bab-nutzung-versiegelte-flaeche-tourismus",
     "fields": {
-      "created_at": "2025-11-17T13:45:05.550Z",
-      "modified_at": "2025-11-17T13:45:05.550Z",
-      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_at": "2026-02-20T16:15:53.396Z",
+      "modified_at": "2026-02-20T16:15:53.396Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "bab-nutzung-versiegelte-flaeche",
       "option": "bab-nutzung-versiegelte-flaeche-tourismus",
@@ -4180,11 +4275,11 @@
     "model": "caluma_form.questionoption",
     "pk": "bab-nutzung-versiegelte-flaeche.bab-nutzung-versiegelte-flaeche-verkehr",
     "fields": {
-      "created_at": "2025-11-17T13:45:05.536Z",
-      "modified_at": "2025-11-17T13:45:05.536Z",
-      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_at": "2026-02-20T16:15:53.382Z",
+      "modified_at": "2026-02-20T16:15:53.382Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "bab-nutzung-versiegelte-flaeche",
       "option": "bab-nutzung-versiegelte-flaeche-verkehr",
@@ -4195,11 +4290,11 @@
     "model": "caluma_form.questionoption",
     "pk": "bab-nutzung-versiegelte-flaeche.bab-nutzung-versiegelte-flaeche-wald",
     "fields": {
-      "created_at": "2025-11-17T13:45:05.544Z",
-      "modified_at": "2025-11-17T13:45:05.544Z",
-      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_at": "2026-02-20T16:15:53.389Z",
+      "modified_at": "2026-02-20T16:15:53.389Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "jonas.lehmann@adfinis.com",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "bab-nutzung-versiegelte-flaeche",
       "option": "bab-nutzung-versiegelte-flaeche-wald",
@@ -4810,11 +4905,11 @@
     "model": "caluma_form.questionoption",
     "pk": "soemmerungsgebiet.soemmerungsgebiet-ja",
     "fields": {
-      "created_at": "2026-01-21T08:04:05.986Z",
-      "modified_at": "2026-01-21T08:04:05.986Z",
-      "created_by_user": "admin",
+      "created_at": "2026-02-25T13:07:15.895Z",
+      "modified_at": "2026-02-25T13:07:15.895Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "soemmerungsgebiet",
       "option": "soemmerungsgebiet-ja",
@@ -4825,11 +4920,11 @@
     "model": "caluma_form.questionoption",
     "pk": "soemmerungsgebiet.soemmerungsgebiet-nein",
     "fields": {
-      "created_at": "2026-01-21T08:04:05.982Z",
-      "modified_at": "2026-01-21T08:04:05.982Z",
-      "created_by_user": "admin",
+      "created_at": "2026-02-25T13:07:15.892Z",
+      "modified_at": "2026-02-25T13:07:15.892Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "soemmerungsgebiet",
       "option": "soemmerungsgebiet-nein",
@@ -4840,11 +4935,11 @@
     "model": "caluma_form.questionoption",
     "pk": "soemmerungsgebiet.soemmerungsgebiet-nicht-alpwirtschaftlich-begruendet",
     "fields": {
-      "created_at": "2026-01-21T08:04:05.978Z",
-      "modified_at": "2026-01-21T08:04:05.978Z",
-      "created_by_user": "admin",
+      "created_at": "2026-02-25T13:07:15.888Z",
+      "modified_at": "2026-02-25T13:07:15.888Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "soemmerungsgebiet",
       "option": "soemmerungsgebiet-nicht-alpwirtschaftlich-begruendet",
