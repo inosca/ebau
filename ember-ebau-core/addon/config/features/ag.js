@@ -15,6 +15,7 @@ export default {
   deadlines: {
     enabled: true,
     useEndDate: false,
+    manualSuspensionReason: false,
   },
   permissions: {
     applicantRoles: true,

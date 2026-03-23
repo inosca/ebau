@@ -30,6 +30,7 @@ export default {
   deadlines: {
     enabled: true,
     useEndDate: true,
+    manualSuspensionReason: true,
   },
   additionalDemands: {
     enabled: true,

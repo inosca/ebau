@@ -16,9 +16,11 @@ import { stub } from "sinon";
 import { setupApplicationTest } from "dummy/tests/helpers";
 import DeadlinesDeadlineAbility from "ember-ebau-core/abilities/deadline";
 import DeadlinesSuspensionAbility from "ember-ebau-core/abilities/suspension";
+import { setupFeatures } from "ember-ebau-core/test-support";
 
 module("Acceptance | deadline", function (hooks) {
   setupApplicationTest(hooks);
+  setupFeatures(hooks);
   setupMirage(hooks);
 
   hooks.beforeEach(function () {
@@ -63,6 +65,7 @@ module("Acceptance | deadline", function (hooks) {
     test(`it can add a suspension ${
       withEndDate ? "with" : "without"
     } end date`, async function (assert) {
+      this.features.enable("deadlines.manualSuspensionReason");
       await visit(`/deadlines`);
       assert.dom("[data-test-deadlines-overview]").exists();
       assert.dom("[data-test-suspension-list-item]").exists({ count: 10 });
