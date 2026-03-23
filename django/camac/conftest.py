@@ -33,6 +33,7 @@ from django.core.cache import cache
 from django.core.management import call_command
 from django.http import FileResponse
 from django.urls import clear_url_caches
+from django.utils.module_loading import import_string
 from django.utils.timezone import make_aware, now
 from factory import Faker
 from factory.base import FactoryMetaClass
@@ -3375,12 +3376,6 @@ def _validateable_settings():
     ]
 
 
-def _get_module_settings(setting_name):
-    """Return the settings module as imported for the given module."""
-    origin, name = setting_name.rsplit(".", 1)
-    return getattr(import_module(origin), name)
-
-
 _before_settings = {}
 
 
@@ -3404,12 +3399,12 @@ def ensure_no_leaks(request):
         # we only do the before settings copy once. This is the expensive
         # part of the operation
         _before_settings.update(
-            {s: copy.deepcopy(_get_module_settings(s)) for s in settings_to_check}
+            {s: copy.deepcopy(import_string(s)) for s in settings_to_check}
         )
 
     yield
 
-    after_settings = {s: _get_module_settings(s) for s in settings_to_check}
+    after_settings = {s: import_string(s) for s in settings_to_check}
 
     for s in settings_to_check:
         before = _before_settings[s]

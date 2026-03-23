@@ -1,11 +1,11 @@
 import itertools
 import logging
-from importlib import import_module
 from uuid import uuid4
 
 from caluma.caluma_data_source.data_source_handlers import get_data_sources
 from caluma.caluma_form.models import Question
 from django.core.cache import cache
+from django.utils.module_loading import import_string
 from django.utils.translation import get_language, gettext as _
 from django_q.tasks import async_task, fetch, result
 from rest_framework import status
@@ -20,13 +20,6 @@ from camac.gis.serializers import GISApplySerializer
 from camac.gis.utils import merge_data
 
 logger = logging.getLogger(__name__)
-
-
-def get_client(identifier):
-    parts = identifier.split(".")
-    class_name = parts.pop()
-
-    return getattr(import_module(".".join(parts)), class_name)
 
 
 class GISDataView(ListAPIView):
@@ -132,7 +125,7 @@ class GISDataView(ListAPIView):
                             _("Required parameter %(parameter)s was not passed")
                             % {"parameter": required_param}
                         )
-                client = get_client(gis_data.client)(query_params)
+                client = import_string(gis_data.client)(query_params)
                 new_data = client.process_data_source(gis_data.config, data)
 
                 merge_data(data, new_data, client.merge_strategy)

@@ -4,10 +4,10 @@ import logging
 import os
 import re
 from datetime import timedelta
-from importlib import import_module
 
 import environ
 from deepmerge import always_merger
+from django.utils.module_loading import import_string
 from django.utils.translation import gettext_lazy as _
 
 from camac.constants import kt_bern as be_constants
@@ -3893,9 +3893,8 @@ STATICFILES_DIRS += APPLICATIONS[APPLICATION_NAME].get("INCLUDE_STATIC_FILES", [
 def load_module_settings(module_name, application_name=APPLICATION_NAME):
     settings_name = module_name.upper().replace(".", "_")
 
-    module: ModuleConfig | dict = getattr(
-        import_module(f"camac.settings.modules.{module_name.lower()}"),
-        settings_name,
+    module: ModuleConfig | dict = import_string(
+        f"camac.settings.modules.{module_name.lower()}.{settings_name}"
     )
     is_pydantic = isinstance(module, ModuleConfig)
     if is_pydantic:
