@@ -2239,6 +2239,7 @@ class CalumaInstanceUnsubscribeResponsibleServiceSerializer(serializers.Serializ
     @permission_aware
     def update(self, instance, validated_data):
         service = self.context["request"].group.service
+        filter_type = validated_data["service_type"]
 
         instance.instance_services.filter(
             service_id=service.pk,
@@ -2246,7 +2247,7 @@ class CalumaInstanceUnsubscribeResponsibleServiceSerializer(serializers.Serializ
         ).delete()
 
         permissions_events.Trigger.unsubscribed_responsible_service(
-            self.context["request"], instance, service
+            self.context["request"], instance, service, filter_type
         )
 
         return instance
@@ -2264,7 +2265,7 @@ class CalumaInstanceUnsubscribeResponsibleServiceSerializer(serializers.Serializ
 
         for instance_service in instance_services:
             permissions_events.Trigger.unsubscribed_responsible_service(
-                self.context["request"], instance, instance_service.service
+                self.context["request"], instance, instance_service.service, filter_type
             )
 
         instance_services.delete()
@@ -2381,7 +2382,7 @@ class CalumaInstanceChangeResponsibleServiceSerializer(serializers.Serializer):
 
         # Side effects
         permissions_events.Trigger.changed_responsible_service(
-            self.context["request"], instance, from_service, to_service
+            self.context["request"], instance, from_service, to_service, filter_type
         )
         self._sync_with_caluma(from_service, to_service)
         self._send_notification()

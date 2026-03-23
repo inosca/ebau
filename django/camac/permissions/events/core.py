@@ -1,7 +1,7 @@
 from abc import ABCMeta, abstractmethod
 from functools import wraps
 from logging import getLogger
-from typing import Callable, Type
+from typing import Callable, Literal, Type
 
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
@@ -198,11 +198,20 @@ class EmptyEventHandler(PermissionEventHandler):
         return  # pragma: no cover
 
     def changed_responsible_service(
-        self, instance: Instance, from_service: Service, to_service: Service
+        self,
+        instance: Instance,
+        from_service: Service,
+        to_service: Service,
+        service_type: Literal["municipality", "construction_control"],
     ):
         return  # pragma: no cover
 
-    def unsubscribed_responsible_service(self, instance: Instance, service: Service):
+    def unsubscribed_responsible_service(
+        self,
+        instance: Instance,
+        service: Service,
+        service_type: Literal["municipality", "construction_control"],
+    ):
         return  # pragma: no cover
 
     def applicant_added(self, instance: Instance, applicant):

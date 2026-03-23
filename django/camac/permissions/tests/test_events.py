@@ -415,7 +415,8 @@ def test_submit_create_acl_be(
         assert acl.get().is_active()
 
 
-@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize("role__name", ["Municipality", "Support"])
+@pytest.mark.parametrize("service_type", ["municipality", "construction_control"])
 def test_change_responsible_service(
     db,
     be_instance,
@@ -426,6 +427,9 @@ def test_change_responsible_service(
     be_access_levels,
     instance_acl_factory,
     be_permissions_settings,
+    instance_service_factory,
+    service_type,
+    mocker,
 ):
     be_permissions_settings["EVENT_HANDLER"] = (
         "camac.permissions.config.kt_bern.GeneralPermissionEventHandlerBE"
@@ -433,16 +437,26 @@ def test_change_responsible_service(
     new_responsible = service_factory()
 
     old_responsible = be_instance.instance_services.get(active=1).service
-    old_responsible.service_group.name = "lead-authority"
-    old_responsible.service_group.save()
 
+    lead_access_level = (
+        "construction-control"
+        if service_type == "construction_control"
+        else "lead-authority"
+    )
+    involved_access_level = (
+        "involved-construction-control"
+        if service_type == "construction_control"
+        else "involved-authority"
+    )
     instance_acl_factory(
-        instance=be_instance, access_level_id="lead-authority", service=old_responsible
+        instance=be_instance,
+        access_level_id=lead_access_level,
+        service=old_responsible,
     )
 
     active_acls = InstanceACL.currently_active().filter(instance=be_instance)
-    involved = active_acls.filter(access_level="involved-authority")
-    lead = active_acls.filter(access_level="lead-authority")
+    involved = active_acls.filter(access_level=involved_access_level)
+    lead = active_acls.filter(access_level=lead_access_level)
 
     # Check before-change situation: Old responsible must have lead,
     # new service is not assigned at all yet
@@ -459,7 +473,7 @@ def test_change_responsible_service(
                 "relationships": {
                     "to": {"data": {"type": "services", "id": str(new_responsible.pk)}}
                 },
-                "attributes": {"service-type": "municipality"},
+                "attributes": {"service-type": service_type},
                 "id": str(be_instance.pk),
                 "type": "instance-change-responsible-services",
             },
@@ -471,8 +485,8 @@ def test_change_responsible_service(
     # need to rebuild our QSes, as otherwise revoked ACLs will still appear as
     # active
     active_acls = InstanceACL.currently_active().filter(instance=be_instance)
-    involved = active_acls.filter(access_level="involved-authority")
-    lead = active_acls.filter(access_level="lead-authority")
+    involved = active_acls.filter(access_level=involved_access_level)
+    lead = active_acls.filter(access_level=lead_access_level)
 
     # Check after-change situation: Old responsible must not have lead, but must
     # have involved ACL, new service must have active lead acl
@@ -480,6 +494,109 @@ def test_change_responsible_service(
     assert lead.filter(service=new_responsible).exists()
     assert not involved.filter(service=new_responsible).exists()
     assert involved.filter(service=old_responsible).exists()
+
+    # Change usually only allowed by lead responsible service
+    mocker.patch(
+        "camac.instance.views.InstanceView.has_object_change_responsible_service_permission",
+        return_value=True,
+    )
+
+    # Change back to original responsible service
+    resp = admin_client.post(
+        url,
+        data={
+            "data": {
+                "relationships": {
+                    "to": {"data": {"type": "services", "id": str(old_responsible.pk)}}
+                },
+                "attributes": {"service-type": service_type},
+                "id": str(be_instance.pk),
+                "type": "instance-change-responsible-services",
+            },
+        },
+    )
+    assert resp.status_code == status.HTTP_204_NO_CONTENT
+
+    active_acls = InstanceACL.currently_active().filter(instance=be_instance)
+    involved = active_acls.filter(access_level=involved_access_level)
+    lead = active_acls.filter(access_level=lead_access_level)
+
+    # Check after-change (changed again) situation:
+    # Old responsible must have lead again, but must not have involved ACL,
+    # new service must have involved ACL and not active ACL
+    assert not lead.filter(service=new_responsible).exists()
+    assert lead.filter(service=old_responsible).exists()
+    assert not involved.filter(service=old_responsible).exists()
+    assert involved.filter(service=new_responsible).exists()
+
+
+@pytest.mark.parametrize("role__name", ["Municipality", "Support"])
+@pytest.mark.parametrize("service_type", ["municipality", "construction_control"])
+def test_unsubscribe_responsible_service(
+    db,
+    be_instance,
+    admin_client,
+    service,
+    role,
+    service_factory,
+    disable_ech0211_settings,
+    be_access_levels,
+    instance_acl_factory,
+    be_permissions_settings,
+    instance_service_factory,
+    service_type,
+    mocker,
+):
+    be_permissions_settings["EVENT_HANDLER"] = (
+        "camac.permissions.config.kt_bern.GeneralPermissionEventHandlerBE"
+    )
+
+    mocker.patch(
+        "camac.instance.views.InstanceView.has_object_unsubscribe_responsible_service_permission",
+        return_value=True,
+    )
+
+    # Support unsubscribes another service, responsible services themselves
+    involved_service = service_factory() if role.name == "Support" else service
+    instance_service_factory(instance=be_instance, service=involved_service, active=0)
+
+    involved_access_level = (
+        "involved-construction-control"
+        if service_type == "construction_control"
+        else "involved-authority"
+    )
+    instance_acl_factory(
+        instance=be_instance,
+        access_level_id=involved_access_level,
+        service=involved_service,
+    )
+
+    active_acls = InstanceACL.currently_active().filter(instance=be_instance)
+    involved = active_acls.filter(access_level=involved_access_level)
+
+    # Check before-unsubscribe situation:
+    # Involved service should have involved responsible service ACL
+    assert involved.filter(service=involved_service).exists()
+
+    url = reverse("instance-unsubscribe-responsible-service", args=[be_instance.pk])
+    resp = admin_client.post(
+        url,
+        data={
+            "data": {
+                "attributes": {"service-type": service_type},
+                "id": str(be_instance.pk),
+                "type": "instance-unsubscribe-responsible-services",
+            },
+        },
+    )
+    assert resp.status_code == status.HTTP_204_NO_CONTENT
+
+    active_acls = InstanceACL.currently_active().filter(instance=be_instance)
+    involved = active_acls.filter(access_level=involved_access_level)
+
+    # Check after-unsubscribe situation:
+    # Involved responsible service ACL should be revoked
+    assert not involved.filter(service=involved_service).exists()
 
 
 @pytest.mark.parametrize("instance_state__name", ["new"])
