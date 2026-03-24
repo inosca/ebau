@@ -225,7 +225,7 @@ class KtGraubundenDossierWriter(DossierWriter):
         )
 
     def _write_gis_coordinates(self, instance: Instance, dossier: Dossier):
-        coordinates = getattr(dossier, "coordinates", [])
+        coordinates = getattr(dossier, "coordinates", []) or []
         form_api.save_answer(
             document=instance.case.document,
             question=Question.objects.get(slug="gis-map"),
