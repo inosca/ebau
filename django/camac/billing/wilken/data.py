@@ -31,7 +31,6 @@ class WilkenRow:
             "EII_CHAR57",
             "EII_CHAR59",
             "EII_CHAR20_01",
-            "EII_CHAR03",
             "EII_CHAR04",
             "EII_CHAR05",
             "EII_CHAR06",
@@ -244,7 +243,6 @@ class PositionLine(WilkenRow):
     EII_KEY1: str  #  Schluessel
     EII_CHAR59: str = "RPOSI"  # Satzkennung
     EII_CHAR20_01: str  #  Belegnummer
-    EII_CHAR03: str  #  V35_Bezeichnung
     EII_CHAR10_03: str  # V35_Positionsnummer
     EII_CHAR10_04: str = "500"  # V35_Sortierung Fix 500 an jeder Position
     EII_CHAR10_05: str  # V35_Erstelldatum
@@ -296,7 +294,6 @@ class PositionLine(WilkenRow):
         self.EII_CHAR10_03 = f"{line_item_index:05}"
         self.EII_CHAR10_24 = f"{line_item_index:03}"
         self.EII_CHAR10_26 = today
-        self.EII_CHAR03 = line_item.designation
         self.EII_CHAR20_17 = stringify_price(line_item.amount)
         self.EII_CHAR40_01 = line_item.product_number
         self.EII_CHAR36 = stringify_price(line_item.amount)
