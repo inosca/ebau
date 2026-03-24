@@ -3,7 +3,6 @@ from caluma.caluma_workflow.models import WorkItem
 from django.utils import timezone
 
 from camac.applicants.models import ROLE_CHOICES
-from camac.permissions.api import ACLUserInfo
 from camac.permissions.conditions import (
     HasAdditionalDemandWithFormEdit,
     HasApplicantRole,
@@ -14,11 +13,6 @@ from camac.permissions.conditions import (
 )
 from camac.tests.form_utils import FormUtils
 from camac.timelines.models import FormTimeline
-
-
-@pytest.fixture
-def userinfo(user, service, role):
-    return ACLUserInfo(user=user, service=service, token=None, role=role)
 
 
 @pytest.mark.parametrize("is_paper", [True, False])

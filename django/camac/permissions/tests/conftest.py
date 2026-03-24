@@ -1,5 +1,6 @@
 import pytest
 
+from camac.permissions.api import ACLUserInfo
 from camac.permissions.models import AccessLevel
 
 
@@ -8,3 +9,8 @@ def be_access_levels(be_permissions_settings, db, access_level_factory):
     for access_level in be_permissions_settings["ACCESS_LEVELS"]:
         if not AccessLevel.objects.filter(slug=access_level).exists():
             access_level_factory(slug=access_level)
+
+
+@pytest.fixture
+def userinfo(user, service, role):
+    return ACLUserInfo(user=user, service=service, token=None, role=role)

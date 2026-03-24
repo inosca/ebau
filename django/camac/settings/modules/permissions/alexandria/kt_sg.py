@@ -1,5 +1,7 @@
 from camac.permissions.conditions import Always, RequireInstanceState
 
+from .conditions import HasAdditionalDemand
+
 INTERNAL_PERMISSIONS = [
     ("intern:create", Always()),
     ("intern:update", Always()),
@@ -15,6 +17,8 @@ SG_PERMISSIONS_ALEXANDRIA = {
         "applicant": [
             ("beilagen-zum-gesuch:create", RequireInstanceState(["new"])),
             ("beilagen-zum-gesuch:delete", RequireInstanceState(["new"])),
+            ("nachforderung:create", HasAdditionalDemand()),
+            ("nachforderung:delete", HasAdditionalDemand()),
         ],
         "lead-authority": [
             ("beilagen-zum-gesuch:all", Always()),

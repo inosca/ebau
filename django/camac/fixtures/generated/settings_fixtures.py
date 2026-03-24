@@ -125,6 +125,23 @@ def be_additional_demand_settings(
 
 
 @pytest.fixture
+def sg_additional_demand_settings(
+    request,
+    settings,
+    additional_demand_settings,
+):
+    """Module-specific settings for additional demand (canton SG)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=additional_demand_settings,
+        module_name="additional_demand",
+        canton="kt_sg",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def address_assignment_settings(
     request,
     settings,

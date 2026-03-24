@@ -3,13 +3,8 @@ from django.conf import ImproperlyConfigured
 from django.db.models import Q
 
 from camac.document.models import Attachment
-from camac.permissions.api import ACLUserInfo, PermissionManager
+from camac.permissions.api import PermissionManager
 from camac.permissions.conditions import IsAppeal, Never, Static
-
-
-@pytest.fixture
-def userinfo(user, service, role):
-    return ACLUserInfo(user=user, service=service, token=None, role=role)
 
 
 @pytest.mark.django_db

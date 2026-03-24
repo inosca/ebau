@@ -24,6 +24,7 @@ ROLES_MUNICIPALITY = HasRole(["municipality-lead"])
 # 2. Form rules
 # 3. Role rules
 # 4. Other
+MODULE_ADDITIONAL_DEMANDS = RequireWorkItem("init-additional-demand")
 MODULE_COMMUNICATIONS = STATES_ALL
 MODULE_DOCUMENTS = STATES_ALL
 MODULE_FORM = STATES_ALL
@@ -37,12 +38,16 @@ MODULE_REJECTION = RequireInstanceState(["subm", "rejected"])
 MODULE_RESPONSIBLE = STATES_ALL
 MODULE_WORK_ITEMS = STATES_ALL
 
+MODULE_PORTAL_ADDITIONAL_DEMANDS_READ = RequireWorkItem("fill-additional-demand")
+MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE = (
+    MODULE_PORTAL_ADDITIONAL_DEMANDS_READ & APPLICANT_WRITE
+)
 MODULE_PORTAL_APPLICANTS = APPLICANT_ADMIN
 MODULE_PORTAL_COMMUNICATIONS_READ = ~RequireInstanceState(["new"])
-MODULE_PORTAL_COMMUNICATIONS_WRITE = (
-    MODULE_PORTAL_COMMUNICATIONS_READ & HasApplicantRole(["ADMIN", "EDITOR"])
-)
-MODULE_PORTAL_DOCUMENTS_WRITE = RequireWorkItem("submit", "ready") & APPLICANT_WRITE
+MODULE_PORTAL_COMMUNICATIONS_WRITE = MODULE_PORTAL_COMMUNICATIONS_READ & APPLICANT_WRITE
+MODULE_PORTAL_DOCUMENTS_WRITE = (
+    RequireWorkItem("submit", "ready") & APPLICANT_WRITE
+) | MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE
 MODULE_PORTAL_FORM_READ = Always()
 MODULE_PORTAL_FORM_WRITE = RequireWorkItem("submit", "ready") & APPLICANT_WRITE
 
@@ -54,6 +59,8 @@ SG_PERMISSIONS_SETTINGS = {
     "ENABLED": True,
     "ACCESS_LEVELS": {
         "applicant": [
+            ("additional-demands-read", MODULE_PORTAL_ADDITIONAL_DEMANDS_READ),
+            ("additional-demands-write", MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE),
             ("applicant-add", MODULE_PORTAL_APPLICANTS),
             ("applicant-read", MODULE_PORTAL_APPLICANTS),
             ("applicant-remove", MODULE_PORTAL_APPLICANTS),
@@ -69,6 +76,8 @@ SG_PERMISSIONS_SETTINGS = {
             ("form-read", MODULE_FORM),
         ],
         "lead-authority": [
+            ("additional-demands-read", MODULE_ADDITIONAL_DEMANDS),
+            ("additional-demands-write", MODULE_ADDITIONAL_DEMANDS),
             ("communications-convert-to-document", MODULE_COMMUNICATIONS),
             ("communications-read", MODULE_COMMUNICATIONS),
             ("communications-write", MODULE_COMMUNICATIONS),
