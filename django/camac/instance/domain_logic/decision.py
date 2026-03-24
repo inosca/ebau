@@ -111,8 +111,12 @@ class DecisionLogic:
     def should_continue_after_decision_gr(
         cls, instance: Instance, work_item: workflow_models.WorkItem
     ) -> bool:
-        # for vorlaeufige-beurteilung dossier, we do not continue the workflow.
-        if instance.case.document.form_id.startswith("vorlaeufige-beurteilung"):
+        # for vorlaeufige-beurteilung dossier and solaranlage forms,
+        # we do not continue the workflow.
+        if instance.case.document.form_id in chain(
+            gr_constants.VORLAEUFIGE_BEURTEILUNG_FORMS,
+            gr_constants.SOLARANLAGE_FORMS,
+        ):
             return []
 
         decision = cls.get_decision_answer(
