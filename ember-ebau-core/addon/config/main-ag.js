@@ -20,7 +20,7 @@ export default {
   },
   gwr: {
     cantonAbbreviation: "AG",
-    importModels: ["project", "building", "dwelling"],
+    importModels: ["project"],
     modalContainer: "body",
   },
   submittedStates: [
