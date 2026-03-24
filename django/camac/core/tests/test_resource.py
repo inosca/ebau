@@ -51,3 +51,35 @@ def test_resource_links(
         assert unquote(link) == expected_link
     else:
         assert link is None
+
+
+@pytest.mark.parametrize(
+    "service_group__name,expect_gwr_global",
+    [
+        ("municipality", True),
+        ("municipality-light", False),
+    ],
+)
+def test_resource_get_queryset_ag(
+    admin_client,
+    r_role_acl_factory,
+    resource_factory,
+    role,
+    set_application_ag,
+    expect_gwr_global,
+):
+    resource_regular = resource_factory(template="/some/regular.phtml")
+    resource_gwr = resource_factory(template="/some/gwr-global.phtml")
+
+    r_role_acl_factory(resource=resource_regular, role=role)
+    r_role_acl_factory(resource=resource_gwr, role=role)
+
+    response = admin_client.get(reverse("resource-list"))
+
+    returned_ids = {int(r["id"]) for r in response.json()["data"]}
+
+    assert resource_regular.pk in returned_ids
+    if expect_gwr_global:
+        assert resource_gwr.pk in returned_ids
+    else:
+        assert resource_gwr.pk not in returned_ids
