@@ -2762,6 +2762,7 @@ APPLICATIONS = {
                         "create-information-of-neighbors",
                         "withdrawal-request",
                         "withdrawal-check",
+                        "trigger-billing",
                     ],
                 },
                 # Cancel manual work items after complete instance and skip AfB

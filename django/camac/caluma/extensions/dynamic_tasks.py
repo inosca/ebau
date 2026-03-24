@@ -1,4 +1,5 @@
 from copy import copy
+from datetime import timedelta
 from itertools import chain
 from typing import List
 
@@ -6,7 +7,9 @@ from caluma.caluma_form.models import Document
 from caluma.caluma_workflow.api import resume_work_item
 from caluma.caluma_workflow.dynamic_tasks import BaseDynamicTasks, register_dynamic_task
 from caluma.caluma_workflow.models import Task, WorkItem
+from caluma.caluma_workflow.utils import create_work_items
 from django.conf import settings
+from django.utils.timezone import now
 from django.utils.translation import gettext as _
 
 from camac.caluma.extensions.events.construction_monitoring import (
@@ -16,6 +19,7 @@ from camac.caluma.extensions.events.construction_monitoring import (
 )
 from camac.caluma.extensions.events.general import get_instance
 from camac.caluma.models import Inquiry
+from camac.caluma.utils import date_to_deadline
 from camac.constants import kt_gr as gr_constants
 from camac.core.utils import canton_aware, create_history_entry
 from camac.instance import domain_logic
@@ -357,13 +361,32 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
     @register_dynamic_task("maybe-trigger-billing")
     def resolve_maybe_trigger_billing(self, case, user, prev_work_item, context):
-        if (
-            str(Service.objects.get(slug="afb").pk)
-            not in prev_work_item.addressed_groups
-        ):
+        """Create "trigger billing" work item after AfB responded (Kt. AG)."""
+
+        addressed_groups = prev_work_item.addressed_groups
+        if str(Service.objects.get(slug="afb").pk) not in addressed_groups:
             return []
 
-        return ["trigger-billing"]
+        existing_work_item = case.work_items.filter(
+            task_id="trigger-billing",
+            status=WorkItem.STATUS_READY,
+            addressed_groups=addressed_groups,
+        )
+        if not existing_work_item.exists():
+            [work_item] = create_work_items(
+                tasks=[Task.objects.get(pk="trigger-billing")],
+                # the "trigger-billing" work item should be created in the main case
+                # instead of the distribution child case, so that is not cancelled when
+                # the distribution is finished. That's why we need to create the work
+                # item manually.
+                case=case.family,
+                user=user,
+                context=context,
+            )
+            if case.family.document.form_id == "anfrage":
+                work_item.deadline = date_to_deadline(now().date() + timedelta(days=30))
+                work_item.save(update_fields=["deadline"])
+        return []
 
     @register_dynamic_task("after-ebau-number")
     def resolve_after_ebau_number(self, case, user, prev_work_item, context):
