@@ -167,7 +167,32 @@ CONSTRUCTION_MONITORING = {
         "ENABLED": env.bool("CONSTRUCTION_MONITORING_ENABLED", default=False),
         "PREVIOUS_INSTANCE_STATE": "decision",
         "CONSTRUCTION_MONITORING_INSTANCE_STATE": "construction-acceptance",
-        "NOTIFICATIONS": {},
+        "NOTIFICATIONS": {
+            "construction-step-baufreigabe": [
+                {"template_slug": "baubegleitung", "recipient_types": ["applicant"]}
+            ],
+            "construction-step-kanalisationsabnahme-kontrollieren": [
+                {"template_slug": "baubegleitung", "recipient_types": ["applicant"]}
+            ],
+            "construction-step-schnurgeruestabnahme-kontrollieren": [
+                {"template_slug": "baubegleitung", "recipient_types": ["applicant"]}
+            ],
+            "construction-step-rohbauabnahme-kontrollieren": [
+                {"template_slug": "baubegleitung", "recipient_types": ["applicant"]}
+            ],
+            "construction-step-zwischenkontrolle": [
+                {"template_slug": "baubegleitung", "recipient_types": ["applicant"]}
+            ],
+            "construction-step-schlussabnahme-gebaeude": [
+                {"template_slug": "baubegleitung", "recipient_types": ["applicant"]}
+            ],
+            "construction-step-schlussabnahme-projekt-planen": [
+                {"template_slug": "baubegleitung", "recipient_types": ["applicant"]}
+            ],
+            "construction-step-schlussabnahme-projekt": [
+                {"template_slug": "baubegleitung", "recipient_types": ["applicant"]}
+            ],
+        },
         "NOTIFICATION_RECIPIENTS": {},
     },
     "kt_so": {
