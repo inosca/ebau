@@ -98,7 +98,8 @@ MODULE_FORMAL_EXAM = NO_CORRECTION & (
     | RequireWorkItem("formal-exam", "completed")
 )
 MODULE_HISTORY = STATES_ALL
-MODULE_JOURNAL = STATES_ALL
+MODULE_JOURNAL_READ = STATES_ALL
+MODULE_JOURNAL_WRITE = MODULE_JOURNAL_READ & ROLES_NO_READONLY
 MODULE_LEGAL_SUBMISSIONS = NO_CORRECTION & RequireWorkItem("objections")
 MODULE_LINKED_INSTANCES = STATES_ALL
 MODULE_MATERIAL_EXAM = NO_CORRECTION & (
@@ -257,8 +258,8 @@ SO_PERMISSIONS_SETTINGS = {
             ("form-read", MODULE_FORM),
             ("history-read", MODULE_HISTORY),
             ("instance-download-form-as-pdf", ACTION_INSTANCE_DOWNLOAD_AS_PDF),
-            ("journal-read", MODULE_JOURNAL),
-            ("journal-write", MODULE_JOURNAL),
+            ("journal-read", MODULE_JOURNAL_READ),
+            ("journal-write", MODULE_JOURNAL_WRITE),
             ("legal-submissions-read", MODULE_LEGAL_SUBMISSIONS),
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
             ("material-exam-bab-read", MODULE_MATERIAL_EXAM_BAB),
@@ -303,8 +304,8 @@ SO_PERMISSIONS_SETTINGS = {
             ("instance-download-form-as-pdf", ACTION_INSTANCE_DOWNLOAD_AS_PDF),
             ("instance-submit", ACTION_INSTANCE_SUBMIT),
             ("instance-withdraw", ACTION_INSTANCE_WITHDRAW),
-            ("journal-read", MODULE_JOURNAL),
-            ("journal-write", MODULE_JOURNAL),
+            ("journal-read", MODULE_JOURNAL_READ),
+            ("journal-write", MODULE_JOURNAL_WRITE),
             ("legal-submissions-read", MODULE_LEGAL_SUBMISSIONS),
             ("legal-submissions-write", MODULE_LEGAL_SUBMISSIONS),
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
@@ -363,7 +364,7 @@ SO_PERMISSIONS_SETTINGS = {
                 "instance-download-form-as-pdf",
                 ACTION_INSTANCE_DOWNLOAD_AS_PDF,
             ),
-            ("journal-read", MODULE_JOURNAL),
+            ("journal-read", MODULE_JOURNAL_READ),
             ("responsible-read", MODULE_RESPONSIBLE),
             ("responsible-write", MODULE_RESPONSIBLE),
             ("work-items-read", MODULE_WORK_ITEMS),

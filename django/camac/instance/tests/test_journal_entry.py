@@ -339,3 +339,25 @@ def test_journal_entry_duration(
 
         json = response.json()
         assert json["data"]["attributes"]["duration"] == response_duration
+
+
+@pytest.mark.parametrize(
+    "role__name,expected_status",
+    [
+        ("Municipality", status.HTTP_403_FORBIDDEN),
+        ("Service", status.HTTP_403_FORBIDDEN),
+        ("Applicant", status.HTTP_404_NOT_FOUND),
+    ],
+)
+def test_journal_entry_destroy(
+    admin_client,
+    journal_entry,
+    expected_status,
+):
+    journal_entry.user = admin_client.user
+    journal_entry.save()
+
+    url = reverse("journal-entry-detail", args=[journal_entry.pk])
+
+    response = admin_client.delete(url)
+    assert response.status_code == expected_status

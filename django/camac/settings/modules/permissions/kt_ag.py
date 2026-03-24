@@ -113,7 +113,8 @@ MODULE_HISTORY = STATES_ALL & ~IsServiceGroup(["municipality-light"])
 MODULE_INFORMATION_OF_NEIGHBORS = NO_CORRECTION & RequireWorkItem(
     "fill-information-of-neighbors"
 )
-MODULE_JOURNAL = STATES_ALL & ~IsServiceGroup(["municipality-light"])
+MODULE_JOURNAL_READ = STATES_ALL & ~IsServiceGroup(["municipality-light"])
+MODULE_JOURNAL_WRITE = MODULE_JOURNAL_READ & ROLES_NO_READONLY
 MODULE_LINKED_INSTANCES = STATES_ALL
 MODULE_LEGAL_SUBMISSIONS = NO_CORRECTION & RequireWorkItem("objections")
 MODULE_PERMISSIONS = (
@@ -268,8 +269,8 @@ AG_PERMISSIONS_SETTINGS = {
             ("form-kantonale-pruefung-write", MODULE_CANTONAL_EXAM),
             ("form-read", MODULE_FORM),
             ("history-read", MODULE_HISTORY),
-            ("journal-read", MODULE_JOURNAL),
-            ("journal-write", MODULE_JOURNAL),
+            ("journal-read", MODULE_JOURNAL_READ),
+            ("journal-write", MODULE_JOURNAL_WRITE),
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
             ("responsible-read", MODULE_RESPONSIBLE),
             ("responsible-write", MODULE_RESPONSIBLE),
@@ -317,8 +318,8 @@ AG_PERMISSIONS_SETTINGS = {
             ("history-read", MODULE_HISTORY),
             ("instance-submit", ACTION_INSTANCE_SUBMIT),
             ("information-of-neighbors-read", MODULE_INFORMATION_OF_NEIGHBORS),
-            ("journal-read", MODULE_JOURNAL),
-            ("journal-write", MODULE_JOURNAL),
+            ("journal-read", MODULE_JOURNAL_READ),
+            ("journal-write", MODULE_JOURNAL_WRITE),
             ("legal-submissions-read", MODULE_LEGAL_SUBMISSIONS),
             ("legal-submissions-write", MODULE_LEGAL_SUBMISSIONS),
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
