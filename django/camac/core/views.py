@@ -11,6 +11,7 @@ from rest_framework_json_api.views import ModelViewSet, ReadOnlyModelViewSet
 
 from camac.caluma.api import CalumaApi
 from camac.caluma.models import Inquiry
+from camac.core.utils import canton_aware
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.instance.models import FormField, Instance
 from camac.user.permissions import (
@@ -410,8 +411,20 @@ class ResourceView(ReadOnlyModelViewSet):
 
     prefetch_for_includes = {"__all__": ["trans"]}
 
-    def get_queryset(self):
+    def _get_queryset(self):
         return super().get_queryset().filter(role_acls__role=self.request.group.role)
+
+    @canton_aware
+    def get_queryset(self):
+        return self._get_queryset()
+
+    def get_queryset_ag(self):
+        # In Kt. AG, "light" municipalities should not see the global GWR resource
+        # If we have more use cases for dynamic resource visibility, extract this
+        # into something more generic.
+        if self.request.group.service.service_group.name == "municipality-light":
+            return self._get_queryset().exclude(template__contains="gwr-global")
+        return self._get_queryset()
 
 
 class InstanceResourceView(ReadOnlyModelViewSet):
