@@ -6,6 +6,7 @@ from alexandria.core.models import BaseModel, Category, Document, File, Mark, Ta
 from django.conf import settings
 from django.core.validators import EMPTY_VALUES
 from generic_permissions.permissions import object_permission_for, permission_for
+from rest_framework.request import Request
 
 from camac.alexandria.extensions.common import get_permission_key
 from camac.alexandria.extensions.permissions import conditions, scopes
@@ -229,28 +230,19 @@ class CustomPermission:
             new_category = Category.objects.get(pk=new_category_id)
 
             # set created_by_group for document, when request path ends with /copy
+            is_copy = request.method == "POST" and request.path.endswith("/copy")
             created_by_group = (
-                request.group.service_id
-                if request.method == "POST" and request.path.endswith("/copy")
-                else document.created_by_group
+                request.group.service_id if is_copy else document.created_by_group
             )
 
-            available_permissions_new_category = self.get_available_permissions(
-                request,
-                instance,
-                new_category,
-                document,
-                created_by_group,
-            )
-            needed_permissions_new_category = {MODE_CREATE}
-
-            # if the document already has marks, we need to make sure that the
-            # new category allows marks
-            if document.marks.exists():
-                needed_permissions_new_category.add(f"{MODE_UPDATE}-marks")
-
-            if not needed_permissions_new_category.issubset(
-                available_permissions_new_category
+            if not self.check_move_copy_permission(
+                is_copy=is_copy,
+                request=request,
+                instance=instance,
+                document=document,
+                old_category=category,
+                new_category=new_category,
+                created_by_group=created_by_group,
             ):
                 return False
 
@@ -300,3 +292,43 @@ class CustomPermission:
             return tag.created_by_group == str(request.group.service_id)
 
         return False
+
+    def check_move_copy_permission(
+        self,
+        is_copy: bool,
+        request: Request,
+        instance: Instance,
+        document: Document,
+        old_category: Category,
+        new_category: Category,
+        created_by_group: Union[str, None],
+    ) -> bool:
+        if not is_copy:
+            available_permissions_old = self.get_available_permissions(
+                request,
+                instance,
+                old_category,
+                document,
+                created_by_group,
+            )
+            if f"{MODE_UPDATE}-category" not in available_permissions_old:
+                return False
+
+        available_permissions_new_category = self.get_available_permissions(
+            request,
+            instance,
+            new_category,
+            document,
+            created_by_group,
+        )
+        needed_permissions_new_category = {MODE_CREATE}
+
+        # if the document already has marks, we need to make sure that the
+        # new category allows the applied marks
+        if document.marks.exists():
+            for mark in document.marks.all():
+                needed_permissions_new_category.add(f"{MODE_UPDATE}-marks-{mark.pk}")
+
+        return needed_permissions_new_category.issubset(
+            available_permissions_new_category
+        )
