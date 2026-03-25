@@ -262,6 +262,7 @@ SO_PERMISSIONS_SETTINGS = {
             ("journal-write", MODULE_JOURNAL_WRITE),
             ("legal-submissions-read", MODULE_LEGAL_SUBMISSIONS),
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
+            ("publication-read", MODULE_PUBLICATION),
             ("material-exam-bab-read", MODULE_MATERIAL_EXAM_BAB),
             ("form-afu-form-read", MODULE_AFU_CHECK_READ),
             ("form-afu-form-write", MODULE_AFU_CHECK_WRITE),
