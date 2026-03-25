@@ -35,6 +35,7 @@ WORK_ITEM_LIST = ModuleConfig[WorkItemListConfig](
                 "construction-step-schnurgeruestabnahme-planen",
                 "construction-step-schnurgeruest-kontrollieren",
                 "construction-step-zwischenkontrolle",
+                "complete-construction-monitoring",
                 "complete-instance",
             ],
             "service": ["inquiry", "check-inquiries"],
