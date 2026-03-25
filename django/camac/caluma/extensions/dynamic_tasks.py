@@ -462,8 +462,11 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
     def resolve_after_submit_gr(self, case, user, prev_work_item, context):
         tasks = ["create-manual-workitems", "formal-exam", "init-additional-demand"]
-        if settings.CONSTRUCTION_MONITORING and settings.CONSTRUCTION_MONITORING.get(
-            "ENABLED", False
+        form_id = case.document.form_id
+        if (
+            settings.CONSTRUCTION_MONITORING
+            and settings.CONSTRUCTION_MONITORING.get("ENABLED", False)
+            and form_id not in gr_constants.SOLARANLAGE_FORMS
         ):
             tasks.append("init-construction-monitoring")
 

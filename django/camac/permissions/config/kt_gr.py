@@ -42,7 +42,9 @@ def _include_special_service(instance, service_name):
         # TODO(GR): replace this once preliminary clarification workflow
         # has been introduced
         if instance.case.document.form.slug in chain(
-            gr_constants.BAUANZEIGE_FORMS, gr_constants.VORLAEUFIGE_BEURTEILUNG_FORMS
+            gr_constants.BAUANZEIGE_FORMS,
+            gr_constants.VORLAEUFIGE_BEURTEILUNG_FORMS,
+            gr_constants.SOLARANLAGE_FORMS,
         ):  # pragma: no cover
             return False
         task_id = settings.DECISION["TASK"]
