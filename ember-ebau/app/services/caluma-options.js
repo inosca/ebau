@@ -247,6 +247,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
   @cantonAware
   static distributionDefaultLeadTime = 30;
   static distributionDefaultLeadTimeAG = 14;
+  static distributionDefaultLeadTimeGR = 14;
 
   @cached
   get distribution() {

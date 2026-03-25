@@ -182,6 +182,7 @@ DISTRIBUTION = {
     },
     "kt_gr": {
         "ENABLED": True,
+        "DEFAULT_DEADLINE_LEAD_TIME": 14,
         "INSTANCE_STATE_DISTRIBUTION": "circulation",
         "HISTORY": {
             "COMPLETE_DISTRIBUTION": _("Circulation completed"),
