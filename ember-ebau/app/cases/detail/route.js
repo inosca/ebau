@@ -45,6 +45,9 @@ export default class CasesDetailRoute extends Route {
         "keywords",
         "static_keywords",
       ];
+      if (hasFeature("instanceMarks")) {
+        includes.push("instance_marks");
+      }
       if (hasFeature("cases.showNoApplicantRegisteredWarning")) {
         includes.push("involved_applicants", "involved_applicants.invitee");
       }

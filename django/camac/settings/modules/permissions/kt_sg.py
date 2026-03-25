@@ -3,6 +3,7 @@ from camac.permissions.conditions import (
     HasApplicantConfirmationRound,
     HasApplicantRole,
     HasRole,
+    IsServiceGroup,
     RequireInstanceState,
     RequireWorkItem,
     Static,
@@ -84,6 +85,7 @@ ACTION_INSTANCE_SUBMIT = (
     & APPLICANT_ADMIN
     & HasApplicantConfirmationRound(["completed"])
 )
+ACTION_INSTANCE_MARK = IsServiceGroup(["coordination"])
 
 # Actual config
 SG_PERMISSIONS_SETTINGS = {
@@ -118,6 +120,7 @@ SG_PERMISSIONS_SETTINGS = {
             ("formal-exam-read", MODULE_FORMAL_EXAM),
             ("material-exam-read", MODULE_MATERIAL_EXAM),
             ("history-read", MODULE_HISTORY),
+            ("instance-mark-write", ACTION_INSTANCE_MARK),
             ("journal-read", MODULE_JOURNAL),
             ("journal-write", MODULE_JOURNAL),
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
@@ -141,6 +144,7 @@ SG_PERMISSIONS_SETTINGS = {
             ("material-exam-read", MODULE_MATERIAL_EXAM),
             ("material-exam-write", MODULE_MATERIAL_EXAM),
             ("history-read", MODULE_HISTORY),
+            ("instance-mark-write", ACTION_INSTANCE_MARK),
             ("journal-read", MODULE_JOURNAL),
             ("journal-write", MODULE_JOURNAL),
             ("linked-instances-read", MODULE_LINKED_INSTANCES),

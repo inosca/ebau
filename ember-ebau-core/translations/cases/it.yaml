@@ -217,3 +217,11 @@ cases:
   copy:
     title: “Copia il link negli appunti”.
     success: “Il link è stato copiato negli appunti”.
+
+  instanceMarks:
+    save:
+      success: ""
+      error: ""
+    editor:
+      edit: ""
+      save: ""

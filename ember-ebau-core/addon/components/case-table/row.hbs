@@ -39,6 +39,12 @@
         {{else}}
           <LinkTo @route="cases.detail" @model={{@node.instanceId}}>
             {{get @node tColumn.name}}</LinkTo>
+          {{#if (eq tColumn.name "dossierNumber")}}
+            <InstanceMarks::Icons
+              @instanceMarks={{@node.instance.instanceMarks}}
+              class="uk-margin-small-left"
+            />
+          {{/if}}
         {{/if}}
       {{else}}
         {{get @node tColumn.name}}

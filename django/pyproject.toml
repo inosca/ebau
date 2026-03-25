@@ -122,6 +122,7 @@ omit = [
     "*/apps.py",
     "*/admin.py",
     "**/admin/*.py",
+    "camac/django_admin/utils.py",
     "camac/ech0211/schema/*",
     "camac/ech0211/scripts/build_ech0211_parser.py",
     "camac/ech0211/management/commands/debug_ech_messages.py",

@@ -21,6 +21,10 @@ module.exports = function () {
       "clock",
       "clock-rotate-left",
       "triangle-exclamation",
+      "star",
+      "globe",
+      "bell",
+      "pen",
     ],
   };
 };

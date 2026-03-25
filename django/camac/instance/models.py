@@ -183,6 +183,9 @@ class Instance(models.Model):
     copy_source = models.ForeignKey(
         "Instance", models.SET_NULL, related_name="copies", null=True
     )
+    instance_marks = models.ManyToManyField(
+        "tags.InstanceMark", related_name="instances"
+    )
 
     def _get_queryset_for_linked_instances(self, queryset):
         return queryset if queryset else Instance.objects.all()

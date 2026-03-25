@@ -1,0 +1,9 @@
+<span ...attributes>
+  {{#each @instanceMarks as |mark|}}
+    <FaIcon
+      @icon="{{mark.icon}}"
+      style={{mark.iconStyle}}
+      {{uk-tooltip mark.name}}
+    />
+  {{/each}}
+</span>

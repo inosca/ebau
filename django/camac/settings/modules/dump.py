@@ -280,6 +280,7 @@ DUMP = {
                 "django_celery_beat.PeriodicTask",
                 "django_celery_beat.IntervalSchedule",
                 "django_celery_beat.CrontabSchedule",
+                "tags.InstanceMark",
             ],
             # List of models that have foreign keys referencing non-config
             # tables (directly or indirectly). All models which are not in this
