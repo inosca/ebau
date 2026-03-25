@@ -164,6 +164,10 @@ export default {
     "authority-bab", // Ausserhalb Bauzone
     "uso", // Umweltschutzorganisationen
   ],
+  customDeadlineServiceGroupDefaultDeadline: {
+    "authority-bab": 90, // Ausserhalb Bauzone
+    uso: 20, // Umweltschutzorganisationen
+  },
   communication: {
     rolesWithApplicantContact: ["activeOrInolvedLeadAuthority", "service"],
   },
