@@ -20,7 +20,7 @@ export default class CasesIndexController extends Controller {
   ];
 
   get parsedInstanceStates() {
-    return this.instanceStates.split(",");
+    return this.instanceStates?.split(",") ?? [];
   }
 
   // @moduleConfig("cases", "displaySearch", false) displaySearch;
