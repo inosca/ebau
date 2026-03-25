@@ -1,4 +1,5 @@
 from logging import getLogger
+from typing import Literal
 
 from caluma.caluma_workflow.models import WorkItem
 
@@ -75,64 +76,115 @@ class InstanceSubmissionHandlerMixin:
 
 class ChangeResponsibleServiceHandlerMixin:
     def changed_responsible_service(
-        self, instance: Instance, from_service: Service, to_service: Service
+        self,
+        instance: Instance,
+        from_service: Service,
+        to_service: Service,
+        service_type: Literal["municipality", "construction_control"],
     ):
-        involved_accesslevel = {
-            "lead-authority": "involved-authority",
-            "construction-control": "involved-construction-control",
-            "municipality": "involved-authority",
-        }
-        new_accesslevel_from_servicegroup = {
-            "municipality": "lead-authority",
-            "lead-authority": "lead-authority",
-            "construction-control": "construction-control",
-        }
+        if service_type not in [
+            "municipality",
+            "construction_control",
+        ]:  # pragma: no cover
+            log.warning(
+                f"Changing responsible service with service type"
+                f"{service_type} on instance {instance.pk} is not supported."
+            )
+            return
 
-        new_involved = involved_accesslevel[from_service.service_group.name]
-        new_active = new_accesslevel_from_servicegroup[from_service.service_group.name]
+        active_access_level = (
+            "construction-control"
+            if service_type == "construction_control"
+            else "lead-authority"
+        )
 
-        # First: Degrade old lead authority to involved authority
-        old_acl = (
+        involved_access_level = (
+            "involved-construction-control"
+            if service_type == "construction_control"
+            else "involved-authority"
+        )
+
+        # Degrade old active responsible service to involved
+        # responsible service
+        old_active_acl = (
             InstanceACL.currently_active()
             .filter(
                 service=from_service,
-                access_level__in=["lead-authority", "construction-control"],
+                access_level=active_access_level,
                 instance=instance,
             )
             .first()
         )
-
-        if old_acl:
-            self.manager.revoke(old_acl, event_name="changed-responsible-service")
+        if old_active_acl:
+            self.manager.revoke(
+                old_active_acl, event_name="changed-responsible-service"
+            )
         else:  # pragma: no cover
             log.warning(
-                f"Old lead authority service {from_service.pk} on instance "
-                f"{instance.pk} had no lead-authority ACL!"
+                f"Old responsible service {from_service.pk} on instance "
+                f"{instance.pk} had no responsible service ACL!"
             )
 
         self.manager.grant(
             instance,
             grant_type="SERVICE",
-            access_level=new_involved,
+            access_level=involved_access_level,
             service=from_service,
             event_name="changed-responsible-service",
         )
 
-        # Second: Grant new authority the lead
+        # Revoke involved responsible service acl, if the new active
+        # responsible service was previously already involved
+        old_involved_acl = (
+            InstanceACL.currently_active()
+            .filter(
+                service=to_service,
+                access_level=involved_access_level,
+                instance=instance,
+            )
+            .first()
+        )
+        if old_involved_acl:
+            self.manager.revoke(
+                old_involved_acl, event_name="changed-responsible-service"
+            )
+
+        # Grant new responsible service the lead
         self.manager.grant(
             instance,
             grant_type="SERVICE",
-            access_level=new_active,
+            access_level=active_access_level,
             service=to_service,
             event_name="changed-responsible-service",
         )
 
-    def unsubscribed_responsible_service(self, instance: Instance, service: Service):
+    def unsubscribed_responsible_service(
+        self,
+        instance: Instance,
+        service: Service,
+        service_type: Literal["municipality", "construction_control"],
+    ):
+        if service_type not in [
+            "municipality",
+            "construction_control",
+        ]:  # pragma: no cover
+            log.warning(
+                f"Unsubscribing involved responsible service with service type"
+                f"{service_type} on instance {instance.pk} is not supported."
+            )
+            return
+
+        involved_access_level = (
+            "involved-construction-control"
+            if service_type == "construction_control"
+            else "involved-authority"
+        )
+
         acl = (
             InstanceACL.currently_active()
             .filter(
                 service=service,
-                access_level__in=["lead-authority", "construction-control"],
+                access_level=involved_access_level,
                 instance=instance,
             )
             .first()
@@ -142,8 +194,8 @@ class ChangeResponsibleServiceHandlerMixin:
             self.manager.revoke(acl, event_name="unsubscribed-responsible-service")
         else:  # pragma: no cover
             log.warning(
-                f"Old lead authority service {service.pk} on instance "
-                f"{instance.pk} had no lead-authority ACL!"
+                f"Old involved responsible service {service.pk} on instance "
+                f"{instance.pk} had no involved responsible service ACL!"
             )
 
 

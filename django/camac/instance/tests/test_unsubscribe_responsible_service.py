@@ -160,6 +160,7 @@ def test_unsubscribe_responsible_service_with_permission_module(
         {
             "data": {
                 "type": "instance-unsubscribe-responsible-services",
+                "attributes": {"service-type": "municipality"},
             }
         },
     )
