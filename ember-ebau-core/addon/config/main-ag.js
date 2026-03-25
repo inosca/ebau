@@ -36,6 +36,7 @@ export default {
   answerSlugs: {
     objectStreet: "street-and-housenumber",
     objectLocation: "ort-grundstueck",
+    objectZIP: "plz",
     description: "beschreibung-bauvorhaben",
     municipality: "gemeinde",
     specialId: "dossier-number",
