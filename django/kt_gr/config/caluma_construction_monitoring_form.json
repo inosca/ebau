@@ -834,6 +834,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "construction-step-plan-construction-stage.adressvergabe-hint",
+    "fields": {
+      "created_at": "2026-03-25T16:21:35.988Z",
+      "modified_at": "2026-03-25T16:21:35.988Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-plan-construction-stage",
+      "question": "adressvergabe-hint",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "construction-step-plan-construction-stage.construction-stage-name",
     "fields": {
       "created_at": "2025-01-16T12:34:14.807Z",
@@ -844,7 +859,7 @@
       "modified_by_group": null,
       "form": "construction-step-plan-construction-stage",
       "question": "construction-stage-name",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -859,7 +874,7 @@
       "modified_by_group": null,
       "form": "construction-step-plan-construction-stage",
       "question": "construction-steps",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -2021,6 +2036,37 @@
         "max_length": null,
         "min_length": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "adressvergabe-hint",
+    "fields": {
+      "created_at": "2026-03-25T16:21:35.933Z",
+      "modified_at": "2026-03-25T16:21:35.933Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Adressvergabe hint\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\"construction-step-adressvergabe\" in \"construction-steps\"|answer([]))",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert\\\">\\n    <strong>Hinweis:</strong> Mit dem Auslösen der Adressvergabe startet der Workflow zur Prüfung und Festlegung einer neuen Adresse. Zuerst wird der Gemeindegeometer, danach die Gebäudeversicherung (GVG) einbezogen.\\n    </div>\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,

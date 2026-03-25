@@ -85,4 +85,4 @@ workItems:
     reset: "Filter zurücksetzen"
 
   formal-exam:
-    new-address-needed: "TEXT TEXT TEXT"
+    new-address-needed: "Die Adressvergabe kann im Baubegleitungsmodul gestartet werden."
