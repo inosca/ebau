@@ -4,6 +4,7 @@ import pytest
 from caluma.caluma_core.events import send_event
 from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_form.factories import AnswerFactory
+from caluma.caluma_form.models import Question
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 from caluma.caluma_workflow.events import (
     post_complete_work_item,
@@ -13,6 +14,7 @@ from caluma.caluma_workflow.events import (
 from caluma.caluma_workflow.models import Task, WorkItem
 from django.conf import settings
 from django.utils import timezone
+from django.utils.translation import gettext as _
 from pytest_lazy_fixtures import lf
 
 from camac.caluma.extensions.events import bab
@@ -28,7 +30,8 @@ from camac.caluma.extensions.events.complete_check import (
     send_notification_after_complete_check,
 )
 from camac.caluma.extensions.events.general import post_decision_ur
-from camac.instance.models import HistoryEntryT
+from camac.caluma.utils import save_answer
+from camac.instance.models import HistoryActionConfig, HistoryEntry, HistoryEntryT
 from camac.tests.form_utils import FormUtils
 
 
@@ -636,6 +639,90 @@ def test_set_is_published(
     workflow_api.complete_work_item(work_item, user=caluma_admin_user)
 
     assert work_item.meta["is-published"]
+
+
+def test_so_set_is_published_creates_history_entry(
+    db,
+    settings,
+    application_settings,
+    set_application_so,
+    so_instance,
+    caluma_question_factory,
+    caluma_work_item_factory,
+    caluma_case_factory,
+    caluma_task_factory,
+    user_factory,
+):
+    case_family = caluma_case_factory()
+    so_instance.case = case_family
+    work_item = caluma_work_item_factory(
+        case=caluma_case_factory(family=case_family),
+        task=Task.objects.get(slug="fill-publication"),
+        status="ready",
+        modified_by_user=user_factory().username,
+    )
+    caluma_question_factory(
+        slug="publikation-start",
+        label="",
+        type=Question.TYPE_TEXT,
+    )
+    caluma_question_factory(
+        slug="publikation-ende",
+        label="",
+        type=Question.TYPE_TEXT,
+    )
+    caluma_question_factory(
+        slug="publikation-organ",
+        label="",
+        type=Question.TYPE_TEXT,
+    )
+    caluma_question_factory(
+        slug="publikation-anzeiger",
+        label="",
+        type=Question.TYPE_TEXT,
+    )
+    mock_data = {
+        "start": "start",
+        "end": "end",
+        "newspaper": "newspaper",
+        "newspaper_date": "publication-date",
+    }
+    save_answer(work_item.document, "publikation-start", mock_data["start"])
+    save_answer(work_item.document, "publikation-ende", mock_data["end"])
+    save_answer(work_item.document, "publikation-organ", mock_data["newspaper"])
+    save_answer(work_item.document, "publikation-anzeiger", mock_data["newspaper_date"])
+
+    assert not HistoryEntry.objects.exists()
+
+    work_item.meta["is-published"] = True
+    work_item.save()
+    assert HistoryEntry.objects.count() == 1
+    he = HistoryEntry.objects.first()
+    text = (
+        _(
+            "Publication created for %(start)s to %(end)s. Published in %(newspaper)s on %(newspaper_date)s."
+        )
+        % mock_data
+    )
+    assert he.trans.first().title == text
+
+    work_item.meta["is-published"] = False
+    work_item.save()
+    assert HistoryEntry.objects.count() == 2
+    assert (
+        HistoryEntry.objects.filter(
+            history_type=HistoryActionConfig.HISTORY_TYPE_PUBLICATION
+        ).count()
+        == 2
+    )
+    he = HistoryEntry.objects.order_by("-created_at").first()
+    text = (
+        _(
+            "Publication from %(start)s to %(end)s cancelled. Published in %(newspaper)s on %(newspaper_date)s."
+        )
+        % mock_data
+    )
+    assert he.trans.first().title == text
 
 
 @pytest.mark.parametrize(

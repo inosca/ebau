@@ -4,6 +4,8 @@ history:
   types:
     notification: "Notification"
     status-change: "Changement d'état"
+    document-mark : "Marquage"
+    publication : "Publication"
 
   expand: "Ouvrir les détails"
   collapse: "Fermer les détails"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-19 08:27+0100\n"
+"POT-Creation-Date: 2026-03-26 15:24+0100\n"
 "PO-Revision-Date: 2024-09-12 16:24+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -415,6 +415,26 @@ msgstr "Valuta %(form_name)s"
 #: camac/caluma/extensions/events/ebau_number.py
 msgid "Assigned ebau number"
 msgstr "N. eBau assegnato"
+
+#: camac/caluma/extensions/events/publication.py
+#: camac/caluma/tests/test_events.py
+#, python-format
+msgid ""
+"Publication created for %(start)s to %(end)s. Published in %(newspaper)s on "
+"%(newspaper_date)s."
+msgstr ""
+"Pubblicazione creata da %(start)s a %(end)s. Pubblicata su %(newspaper)s il "
+"%(newspaper_date)s."
+
+#: camac/caluma/extensions/events/publication.py
+#: camac/caluma/tests/test_events.py
+#, python-format
+msgid ""
+"Publication from %(start)s to %(end)s cancelled. Published in %(newspaper)s "
+"on %(newspaper_date)s."
+msgstr ""
+"Pubblicazione da %(start)s a %(end)s interrotta. Pubblicata su %(newspaper)s "
+"il %(newspaper_date)s."
 
 #: camac/caluma/extensions/events/sb.py
 msgid "Send registration form to AWA"
