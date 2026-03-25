@@ -247,12 +247,14 @@ class InstanceCopyHandlerMixin:
         if instance.case.meta.get("is-appeal") or instance.case.meta.get(
             "is-rejected-appeal"
         ):
-            # Handle (involved) lead authority acls (matches logic in copy
-            # instance) - applicant and support acls are handled by instance
-            # creation
+            # Handle lead authority and involved lead authority acls (matches
+            # logic in copy instance, which adds all instance services from
+            # previous instance, excluding construction controls) - applicant
+            # and support acls are handled by instance creation
             current_acls = current_acls.filter(
                 access_level_id__in=[
                     "lead-authority",
+                    "involved-authority",
                 ]
             )
 

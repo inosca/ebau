@@ -928,6 +928,12 @@ def test_copy_be(
         service=admin_user.groups.first().service,
         grant_type="SERVICE",
     )
+    involved_lead_authority_acl = instance_acl_factory(
+        instance=be_instance,
+        access_level_id="involved-authority",
+        service=service_factory(),
+        grant_type="SERVICE",
+    )
     applicant_acl = instance_acl_factory(
         instance=be_instance,
         access_level_id="applicant",
@@ -952,6 +958,7 @@ def test_copy_be(
     initial_acls = InstanceACL.currently_active().filter(instance=be_instance)
     expected_initial_acls = [
         lead_authority_acl,
+        involved_lead_authority_acl,
         geometer_acl,
         construction_control_acl,
         applicant_acl,
@@ -986,6 +993,7 @@ def test_copy_be(
     if new_meta_flag in ["is-appeal", "is-rejected-appeal"]:
         expected_acl_copies = [
             lead_authority_acl,
+            involved_lead_authority_acl,
             applicant_acl,
             support_acl,
         ]
@@ -996,6 +1004,7 @@ def test_copy_be(
         # creation might need to be cleaned up in the future
         expected_acl_copies = [
             lead_authority_acl,
+            involved_lead_authority_acl,
             geometer_acl,
             construction_control_acl,
             applicant_acl,
