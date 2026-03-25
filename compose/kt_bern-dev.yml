@@ -28,6 +28,8 @@ services:
           - ebau-portal.localhost
           - ebau-rest-portal.localhost
           - ebau-keycloak.localhost
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   db:
     image: postgres:15-bullseye
