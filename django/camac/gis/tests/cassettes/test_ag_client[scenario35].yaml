@@ -40,8 +40,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1201'
       Content-Type:
@@ -137,8 +135,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '2038'
       Content-Type:
@@ -207,8 +203,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1201'
       Content-Type:
@@ -304,8 +298,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '2038'
       Content-Type:
@@ -374,8 +366,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1201'
       Content-Type:
@@ -471,8 +461,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '2038'
       Content-Type:
@@ -541,8 +529,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1201'
       Content-Type:
@@ -638,8 +624,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '2038'
       Content-Type:
@@ -657,6 +641,498 @@ interactions:
       - 'TS014419e9=0100bce5101f13efe5f32295bdfc48419bf3e15c177c7c41254d9512d546cbb4af41de1be4d67eb86d9ff5f6ae77aa602f5a061549f0c90f4821012a34126b34a19a01d0e2;
         Path=/; Domain=.www.ag.ch; '
       - TS01975bae=0100bce510a99d3ee8751f72fa8659e47deb716d157c7c41254d9512d546cbb4af41de1be468ddb8b8d1f446bd6bd107643f7701bd70cd99b646a170cc90b8c673ca6c25d5;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2636624%2C1239425%2C2636626%2C1239427&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Oftringen\",\"attributes\":{\"OBJECTID\":\"54\",\"GDENR\":\"4280\",\"GEMEINDE\":\"Oftringen\",\"GEMEINDEZ\":\"Oftringen\",\"GEMEINDEU\":\"Oftringen\",\"BZNR\":\"1910\",\"BEZIRK\":\"Zofingen\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Zofingen\",\"Geometer\":\"Oliver Flury\",\"Strasse\":\"Forstackerstrasse
+        2b\",\"PLZOrt\":\"4800 Zofingen\",\"ID\":\"4280\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"12852391.28334\",\"SHAPE.STLength()\":\"20470.353585\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"3926\",\"attributes\":{\"OBJECTID\":\"77708069\",\"FILEID\":\"203\",\"GDENR\":\"4280\",\"GDENRPARZ\":\"428003926\",\"NUMMER\":\"3926\",\"EGRID\":\"CH308906854551\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"13213\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"13213.289391\",\"SHAPE.STLength()\":\"675.304026\"}},{\"layerId\":81,\"layerName\":\"Kantons-
+        und Nationalstrassennetz\",\"displayFieldName\":\"AxisLabel\",\"value\":\"A1\",\"attributes\":{\"OBJECTID\":\"1431\",\"Netz\":\"Nationalstrassennetz\",\"StrTyp\":\"HLS\",\"AxisLabel\":\"A1\",\"StrFuehr\":\"offen\",\"SHAPE\":\"Polyline\",\"SHAPE.STLength()\":\"33205.836447\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID1\":\"60\",\"OBJECTID\":\"75\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"21324645.167261\",\"Shape.STLength()\":\"43090.421232\"}},{\"layerId\":11938,\"layerName\":\"Strassen\",\"displayFieldName\":\"Verursacher\",\"value\":\"Strassen\",\"attributes\":{\"OBJECTID\":\"5\",\"Verursacher\":\"Strassen\",\"Trennkriterium\":\"\\u003e
+        20'000 DTV\",\"Ausdehnung der Belastungsfl\xE4che\":\"Die Darstellung ist
+        nicht lagegenau. Massgebend ist der Pr\xFCfperimeter von je 15m seitlich ab
+        Fahrbahnrand.\",\"Belastungsursache\":\"Treibstoffverbrennung, Abgasemission,
+        Abrieb von Strassenbelag, Bremsbelag und Pneu\",\"Prim\xE4re Schadstoffe\":\"Pb,
+        PAK\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"6478772.509283\",\"Shape.STLength()\":\"259756.596835\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"mittlere Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"275\",\"ID\":\"30413\",\"FARBE\":\"mittlere
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Unteres Wiggertal\",\"BEARBEITER\":\"Hunziker,
+        Zarn & Partner, Aarau\",\"DATUM\":\"10.03.2011\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2495.318407\",\"SHAPE.STLength()\":\"282.752247\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1110'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:16:33 GMT
+      ETag:
+      - '"a3788c57"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|7rMSqLIb7reWn0VC4lTuFg==|WNuOnCoGtwYs_PuHad8UN21sp1YDLB9ccnsYBcAq1czX-x4dmtn_Q8Z8EwiJwedOG7Yqc70=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:17:33 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce51033c443cd5d327a338eb5fa7ecc0185cb31db04a2400d01ffe37c34cf7bf1335ecafb1f8169871e1e5a10ccfce45325dc;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce51033c443cd5d327a338eb5fa7ecc0185cb31db04a2400d01ffe37c34cf7bf1335ecafb1f8169871e1e5a10ccfce45325dc;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2636605%2C1239406%2C2636645%2C1239446&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="sym-gcm|1|7rMSqLIb7reWn0VC4lTuFg==|WNuOnCoGtwYs_PuHad8UN21sp1YDLB9ccnsYBcAq1czX-x4dmtn_Q8Z8EwiJwedOG7Yqc70=";
+        TS01975bae=0100bce51033c443cd5d327a338eb5fa7ecc0185cb31db04a2400d01ffe37c34cf7bf1335ecafb1f8169871e1e5a10ccfce45325dc;
+        XWAF=1791920065.47873.0000; TS014419e9=0100bce51033c443cd5d327a338eb5fa7ecc0185cb31db04a2400d01ffe37c34cf7bf1335ecafb1f8169871e1e5a10ccfce45325dc
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Oftringen\",\"attributes\":{\"OBJECTID\":\"54\",\"GDENR\":\"4280\",\"GEMEINDE\":\"Oftringen\",\"GEMEINDEZ\":\"Oftringen\",\"GEMEINDEU\":\"Oftringen\",\"BZNR\":\"1910\",\"BEZIRK\":\"Zofingen\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Zofingen\",\"Geometer\":\"Oliver Flury\",\"Strasse\":\"Forstackerstrasse
+        2b\",\"PLZOrt\":\"4800 Zofingen\",\"ID\":\"4280\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"12852391.28334\",\"SHAPE.STLength()\":\"20470.353585\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"3926\",\"attributes\":{\"OBJECTID\":\"77708069\",\"FILEID\":\"203\",\"GDENR\":\"4280\",\"GDENRPARZ\":\"428003926\",\"NUMMER\":\"3926\",\"EGRID\":\"CH308906854551\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"13213\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"13213.289391\",\"SHAPE.STLength()\":\"675.304026\"}},{\"layerId\":26,\"layerName\":\"AV:
+        Strassenachsen\",\"displayFieldName\":\"STRNAME\",\"value\":\"A1\",\"attributes\":{\"FILEID\":\"203\",\"GDENR\":\"4280\",\"ART\":\"Strasse\",\"NUMPRINZIP\":\"keineNummern\",\"ISTOFF\":\"ja\",\"STRNAME\":\"A1\",\"OBJECTID\":\"15829244\",\"SHAPE\":\"Polyline\",\"SHAPE.STLength()\":\"324.815972\"}},{\"layerId\":26,\"layerName\":\"AV:
+        Strassenachsen\",\"displayFieldName\":\"STRNAME\",\"value\":\"A1\",\"attributes\":{\"FILEID\":\"203\",\"GDENR\":\"4280\",\"ART\":\"Strasse\",\"NUMPRINZIP\":\"keineNummern\",\"ISTOFF\":\"ja\",\"STRNAME\":\"A1\",\"OBJECTID\":\"15829191\",\"SHAPE\":\"Polyline\",\"SHAPE.STLength()\":\"449.814248\"}},{\"layerId\":27,\"layerName\":\"AV:
+        Strassennamen\",\"displayFieldName\":\"STRNAME\",\"value\":\"A1\",\"attributes\":{\"OBJECTID\":\"11146056\",\"FILEID\":\"203\",\"GDENR\":\"4280\",\"ART\":\"Strasse\",\"STRNAME\":\"A1\",\"ORI\":\"12.3\",\"Shape\":\"Point\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Oberstr.
+        Pritschenwuhr-Bach\",\"attributes\":{\"OBJECTID\":\"29717\",\"NAME\":\"Oberstr.
+        Pritschenwuhr-Bach\",\"SBREITE\":\"Null\",\"BNUM\":\"2.16.005\",\"KLASSE\":\"Null\",\"BUFF_DIST\":\"6\",\"ART\":\"Kanal\",\"FAKTOR\":\"Null\",\"NAT_GSB\":\"Null\",\"GEWR_BREITE\":\"Null\",\"GEWR_RADIUS\":\"Null\",\"Bauzone\":\"Null\",\"GEWR_TYP\":\"Null\",\"RECHT\":\"BauG\",\"KEY\":\"Null\",\"AbschLength\":\"Null\",\"GDENR\":\"4280\",\"GEMEINDEZ\":\"Oftringen\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"15491.937145\",\"Shape.STLength()\":\"2718.368945\"}},{\"layerId\":81,\"layerName\":\"Kantons-
+        und Nationalstrassennetz\",\"displayFieldName\":\"AxisLabel\",\"value\":\"A1\",\"attributes\":{\"OBJECTID\":\"1520\",\"Netz\":\"Nationalstrassennetz\",\"StrTyp\":\"HLS\",\"AxisLabel\":\"A1\",\"StrFuehr\":\"offen\",\"SHAPE\":\"Polyline\",\"SHAPE.STLength()\":\"33208.552186\"}},{\"layerId\":81,\"layerName\":\"Kantons-
+        und Nationalstrassennetz\",\"displayFieldName\":\"AxisLabel\",\"value\":\"1494\",\"attributes\":{\"OBJECTID\":\"1494\",\"Netz\":\"Nationalstrassennetz\",\"StrTyp\":\"HLS\",\"AxisLabel\":\"Null\",\"StrFuehr\":\"offen\",\"SHAPE\":\"Polyline\",\"SHAPE.STLength()\":\"1636.996232\"}},{\"layerId\":81,\"layerName\":\"Kantons-
+        und Nationalstrassennetz\",\"displayFieldName\":\"AxisLabel\",\"value\":\"A1\",\"attributes\":{\"OBJECTID\":\"1431\",\"Netz\":\"Nationalstrassennetz\",\"StrTyp\":\"HLS\",\"AxisLabel\":\"A1\",\"StrFuehr\":\"offen\",\"SHAPE\":\"Polyline\",\"SHAPE.STLength()\":\"33205.836447\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID1\":\"60\",\"OBJECTID\":\"75\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"21324645.167261\",\"Shape.STLength()\":\"43090.421232\"}},{\"layerId\":499,\"layerName\":\"Risikokataster:
+        Konsultationsbereich Nationalstrassen\",\"displayFieldName\":\"NAME\",\"value\":\"Genf
+        - St. Margrethen\",\"attributes\":{\"OBJECTID\":\"10\",\"NAME\":\"Genf - St.
+        Margrethen\",\"Shape\":\"Polyline\",\"KSNR\":\"Null\",\"BESCHRIFTUNG\":\"Null\",\"STRTYP\":\"3\",\"STRLINIENFUEHR\":\"1\",\"ACHSRICHTUNG\":\"+\",\"EROEFFNUNG\":\"Null\",\"SHAPE.STLength()\":\"38179.964039\"}},{\"layerId\":499,\"layerName\":\"Risikokataster:
+        Konsultationsbereich Nationalstrassen\",\"displayFieldName\":\"NAME\",\"value\":\"72\",\"attributes\":{\"OBJECTID\":\"72\",\"NAME\":\"Null\",\"Shape\":\"Polyline\",\"KSNR\":\"Null\",\"BESCHRIFTUNG\":\"Null\",\"STRTYP\":\"3\",\"STRLINIENFUEHR\":\"1\",\"ACHSRICHTUNG\":\"-\",\"EROEFFNUNG\":\"Null\",\"SHAPE.STLength()\":\"37989.927752\"}},{\"layerId\":11938,\"layerName\":\"Strassen\",\"displayFieldName\":\"Verursacher\",\"value\":\"Strassen\",\"attributes\":{\"OBJECTID\":\"5\",\"Verursacher\":\"Strassen\",\"Trennkriterium\":\"\\u003e
+        20'000 DTV\",\"Ausdehnung der Belastungsfl\xE4che\":\"Die Darstellung ist
+        nicht lagegenau. Massgebend ist der Pr\xFCfperimeter von je 15m seitlich ab
+        Fahrbahnrand.\",\"Belastungsursache\":\"Treibstoffverbrennung, Abgasemission,
+        Abrieb von Strassenbelag, Bremsbelag und Pneu\",\"Prim\xE4re Schadstoffe\":\"Pb,
+        PAK\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"6478772.509283\",\"Shape.STLength()\":\"259756.596835\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"mittlere Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"275\",\"ID\":\"30413\",\"FARBE\":\"mittlere
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Unteres Wiggertal\",\"BEARBEITER\":\"Hunziker,
+        Zarn & Partner, Aarau\",\"DATUM\":\"10.03.2011\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2495.318407\",\"SHAPE.STLength()\":\"282.752247\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"mittlere Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"350\",\"ID\":\"45468\",\"FARBE\":\"mittlere
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Unteres Wiggertal\",\"BEARBEITER\":\"Hunziker,
+        Zarn & Partner, Aarau\",\"DATUM\":\"10.03.2011\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2313.253237\",\"SHAPE.STLength()\":\"272.950498\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"393\",\"ID\":\"49039\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Unteres Wiggertal\",\"BEARBEITER\":\"Hunziker,
+        Zarn & Partner, Aarau\",\"DATUM\":\"10.03.2011\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"38565.126069\",\"SHAPE.STLength()\":\"1729.496048\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"mittlere Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"71\",\"ID\":\"17711\",\"FARBE\":\"mittlere
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Unteres Wiggertal\",\"BEARBEITER\":\"Hunziker,
+        Zarn & Partner, Aarau\",\"DATUM\":\"10.03.2011\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"571.965886\",\"SHAPE.STLength()\":\"143.276304\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1751'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:16:33 GMT
+      ETag:
+      - '"1f5c777e"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|_rbpJqfczONFMDiUUsWE5w==|tpu7SLiViq_aUfXpo9Y9pONaxizLX7R9teNJw58eDeGFi9p6djh95l3xnzY_gK80XyTSfrE=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:17:33 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce51033c443cd5d327a338eb5fa7ecc0185cb31db04a2400d01ffe37c34cf7bf1335ecafb1f8169871e1e5a10ccfce45325dc;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce51033c443cd5d327a338eb5fa7ecc0185cb31db04a2400d01ffe37c34cf7bf1335ecafb1f8169871e1e5a10ccfce45325dc;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2636624%2C1239425%2C2636626%2C1239427&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Oftringen\",\"attributes\":{\"OBJECTID\":\"54\",\"GDENR\":\"4280\",\"GEMEINDE\":\"Oftringen\",\"GEMEINDEZ\":\"Oftringen\",\"GEMEINDEU\":\"Oftringen\",\"BZNR\":\"1910\",\"BEZIRK\":\"Zofingen\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Zofingen\",\"Geometer\":\"Oliver Flury\",\"Strasse\":\"Forstackerstrasse
+        2b\",\"PLZOrt\":\"4800 Zofingen\",\"ID\":\"4280\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"12852391.28334\",\"SHAPE.STLength()\":\"20470.353585\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"3926\",\"attributes\":{\"OBJECTID\":\"77708069\",\"FILEID\":\"203\",\"GDENR\":\"4280\",\"GDENRPARZ\":\"428003926\",\"NUMMER\":\"3926\",\"EGRID\":\"CH308906854551\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"13213\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"13213.289391\",\"SHAPE.STLength()\":\"675.304026\"}},{\"layerId\":81,\"layerName\":\"Kantons-
+        und Nationalstrassennetz\",\"displayFieldName\":\"AxisLabel\",\"value\":\"A1\",\"attributes\":{\"OBJECTID\":\"1431\",\"Netz\":\"Nationalstrassennetz\",\"StrTyp\":\"HLS\",\"AxisLabel\":\"A1\",\"StrFuehr\":\"offen\",\"SHAPE\":\"Polyline\",\"SHAPE.STLength()\":\"33205.836447\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID1\":\"60\",\"OBJECTID\":\"75\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"21324645.167261\",\"Shape.STLength()\":\"43090.421232\"}},{\"layerId\":11938,\"layerName\":\"Strassen\",\"displayFieldName\":\"Verursacher\",\"value\":\"Strassen\",\"attributes\":{\"OBJECTID\":\"5\",\"Verursacher\":\"Strassen\",\"Trennkriterium\":\"\\u003e
+        20'000 DTV\",\"Ausdehnung der Belastungsfl\xE4che\":\"Die Darstellung ist
+        nicht lagegenau. Massgebend ist der Pr\xFCfperimeter von je 15m seitlich ab
+        Fahrbahnrand.\",\"Belastungsursache\":\"Treibstoffverbrennung, Abgasemission,
+        Abrieb von Strassenbelag, Bremsbelag und Pneu\",\"Prim\xE4re Schadstoffe\":\"Pb,
+        PAK\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"6478772.509283\",\"Shape.STLength()\":\"259756.596835\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"mittlere Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"275\",\"ID\":\"30413\",\"FARBE\":\"mittlere
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Unteres Wiggertal\",\"BEARBEITER\":\"Hunziker,
+        Zarn & Partner, Aarau\",\"DATUM\":\"10.03.2011\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2495.318407\",\"SHAPE.STLength()\":\"282.752247\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1110'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:17:46 GMT
+      ETag:
+      - '"a3788c57"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|75D6K-ilMKE-aFSMNu_-Aw==|eJXvRLaYfaBjkLxtEr2gkp1dEVdw-bYT6XD-AqDtWi27mNqWE4XhTGWOaAicx-F8pQgIqJE=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:18:46 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce51071569b8a32a11b969aa6b5ace5d8b89783515d06cb10d17d395d16149740e0b2a04aeb53d2b515ee26e0bdc10b4e3852;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce51071569b8a32a11b969aa6b5ace5d8b89783515d06cb10d17d395d16149740e0b2a04aeb53d2b515ee26e0bdc10b4e3852;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2636605%2C1239406%2C2636645%2C1239446&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="sym-gcm|1|75D6K-ilMKE-aFSMNu_-Aw==|eJXvRLaYfaBjkLxtEr2gkp1dEVdw-bYT6XD-AqDtWi27mNqWE4XhTGWOaAicx-F8pQgIqJE=";
+        TS01975bae=0100bce51071569b8a32a11b969aa6b5ace5d8b89783515d06cb10d17d395d16149740e0b2a04aeb53d2b515ee26e0bdc10b4e3852;
+        XWAF=1791920065.47873.0000; TS014419e9=0100bce51071569b8a32a11b969aa6b5ace5d8b89783515d06cb10d17d395d16149740e0b2a04aeb53d2b515ee26e0bdc10b4e3852
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Oftringen\",\"attributes\":{\"OBJECTID\":\"54\",\"GDENR\":\"4280\",\"GEMEINDE\":\"Oftringen\",\"GEMEINDEZ\":\"Oftringen\",\"GEMEINDEU\":\"Oftringen\",\"BZNR\":\"1910\",\"BEZIRK\":\"Zofingen\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Zofingen\",\"Geometer\":\"Oliver Flury\",\"Strasse\":\"Forstackerstrasse
+        2b\",\"PLZOrt\":\"4800 Zofingen\",\"ID\":\"4280\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"12852391.28334\",\"SHAPE.STLength()\":\"20470.353585\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"3926\",\"attributes\":{\"OBJECTID\":\"77708069\",\"FILEID\":\"203\",\"GDENR\":\"4280\",\"GDENRPARZ\":\"428003926\",\"NUMMER\":\"3926\",\"EGRID\":\"CH308906854551\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"13213\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"13213.289391\",\"SHAPE.STLength()\":\"675.304026\"}},{\"layerId\":26,\"layerName\":\"AV:
+        Strassenachsen\",\"displayFieldName\":\"STRNAME\",\"value\":\"A1\",\"attributes\":{\"FILEID\":\"203\",\"GDENR\":\"4280\",\"ART\":\"Strasse\",\"NUMPRINZIP\":\"keineNummern\",\"ISTOFF\":\"ja\",\"STRNAME\":\"A1\",\"OBJECTID\":\"15829244\",\"SHAPE\":\"Polyline\",\"SHAPE.STLength()\":\"324.815972\"}},{\"layerId\":26,\"layerName\":\"AV:
+        Strassenachsen\",\"displayFieldName\":\"STRNAME\",\"value\":\"A1\",\"attributes\":{\"FILEID\":\"203\",\"GDENR\":\"4280\",\"ART\":\"Strasse\",\"NUMPRINZIP\":\"keineNummern\",\"ISTOFF\":\"ja\",\"STRNAME\":\"A1\",\"OBJECTID\":\"15829191\",\"SHAPE\":\"Polyline\",\"SHAPE.STLength()\":\"449.814248\"}},{\"layerId\":27,\"layerName\":\"AV:
+        Strassennamen\",\"displayFieldName\":\"STRNAME\",\"value\":\"A1\",\"attributes\":{\"OBJECTID\":\"11146056\",\"FILEID\":\"203\",\"GDENR\":\"4280\",\"ART\":\"Strasse\",\"STRNAME\":\"A1\",\"ORI\":\"12.3\",\"Shape\":\"Point\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Oberstr.
+        Pritschenwuhr-Bach\",\"attributes\":{\"OBJECTID\":\"29717\",\"NAME\":\"Oberstr.
+        Pritschenwuhr-Bach\",\"SBREITE\":\"Null\",\"BNUM\":\"2.16.005\",\"KLASSE\":\"Null\",\"BUFF_DIST\":\"6\",\"ART\":\"Kanal\",\"FAKTOR\":\"Null\",\"NAT_GSB\":\"Null\",\"GEWR_BREITE\":\"Null\",\"GEWR_RADIUS\":\"Null\",\"Bauzone\":\"Null\",\"GEWR_TYP\":\"Null\",\"RECHT\":\"BauG\",\"KEY\":\"Null\",\"AbschLength\":\"Null\",\"GDENR\":\"4280\",\"GEMEINDEZ\":\"Oftringen\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"15491.937145\",\"Shape.STLength()\":\"2718.368945\"}},{\"layerId\":81,\"layerName\":\"Kantons-
+        und Nationalstrassennetz\",\"displayFieldName\":\"AxisLabel\",\"value\":\"A1\",\"attributes\":{\"OBJECTID\":\"1520\",\"Netz\":\"Nationalstrassennetz\",\"StrTyp\":\"HLS\",\"AxisLabel\":\"A1\",\"StrFuehr\":\"offen\",\"SHAPE\":\"Polyline\",\"SHAPE.STLength()\":\"33208.552186\"}},{\"layerId\":81,\"layerName\":\"Kantons-
+        und Nationalstrassennetz\",\"displayFieldName\":\"AxisLabel\",\"value\":\"1494\",\"attributes\":{\"OBJECTID\":\"1494\",\"Netz\":\"Nationalstrassennetz\",\"StrTyp\":\"HLS\",\"AxisLabel\":\"Null\",\"StrFuehr\":\"offen\",\"SHAPE\":\"Polyline\",\"SHAPE.STLength()\":\"1636.996232\"}},{\"layerId\":81,\"layerName\":\"Kantons-
+        und Nationalstrassennetz\",\"displayFieldName\":\"AxisLabel\",\"value\":\"A1\",\"attributes\":{\"OBJECTID\":\"1431\",\"Netz\":\"Nationalstrassennetz\",\"StrTyp\":\"HLS\",\"AxisLabel\":\"A1\",\"StrFuehr\":\"offen\",\"SHAPE\":\"Polyline\",\"SHAPE.STLength()\":\"33205.836447\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID1\":\"60\",\"OBJECTID\":\"75\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"21324645.167261\",\"Shape.STLength()\":\"43090.421232\"}},{\"layerId\":499,\"layerName\":\"Risikokataster:
+        Konsultationsbereich Nationalstrassen\",\"displayFieldName\":\"NAME\",\"value\":\"Genf
+        - St. Margrethen\",\"attributes\":{\"OBJECTID\":\"10\",\"NAME\":\"Genf - St.
+        Margrethen\",\"Shape\":\"Polyline\",\"KSNR\":\"Null\",\"BESCHRIFTUNG\":\"Null\",\"STRTYP\":\"3\",\"STRLINIENFUEHR\":\"1\",\"ACHSRICHTUNG\":\"+\",\"EROEFFNUNG\":\"Null\",\"SHAPE.STLength()\":\"38179.964039\"}},{\"layerId\":499,\"layerName\":\"Risikokataster:
+        Konsultationsbereich Nationalstrassen\",\"displayFieldName\":\"NAME\",\"value\":\"72\",\"attributes\":{\"OBJECTID\":\"72\",\"NAME\":\"Null\",\"Shape\":\"Polyline\",\"KSNR\":\"Null\",\"BESCHRIFTUNG\":\"Null\",\"STRTYP\":\"3\",\"STRLINIENFUEHR\":\"1\",\"ACHSRICHTUNG\":\"-\",\"EROEFFNUNG\":\"Null\",\"SHAPE.STLength()\":\"37989.927752\"}},{\"layerId\":11938,\"layerName\":\"Strassen\",\"displayFieldName\":\"Verursacher\",\"value\":\"Strassen\",\"attributes\":{\"OBJECTID\":\"5\",\"Verursacher\":\"Strassen\",\"Trennkriterium\":\"\\u003e
+        20'000 DTV\",\"Ausdehnung der Belastungsfl\xE4che\":\"Die Darstellung ist
+        nicht lagegenau. Massgebend ist der Pr\xFCfperimeter von je 15m seitlich ab
+        Fahrbahnrand.\",\"Belastungsursache\":\"Treibstoffverbrennung, Abgasemission,
+        Abrieb von Strassenbelag, Bremsbelag und Pneu\",\"Prim\xE4re Schadstoffe\":\"Pb,
+        PAK\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"6478772.509283\",\"Shape.STLength()\":\"259756.596835\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"mittlere Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"275\",\"ID\":\"30413\",\"FARBE\":\"mittlere
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Unteres Wiggertal\",\"BEARBEITER\":\"Hunziker,
+        Zarn & Partner, Aarau\",\"DATUM\":\"10.03.2011\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2495.318407\",\"SHAPE.STLength()\":\"282.752247\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"mittlere Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"350\",\"ID\":\"45468\",\"FARBE\":\"mittlere
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Unteres Wiggertal\",\"BEARBEITER\":\"Hunziker,
+        Zarn & Partner, Aarau\",\"DATUM\":\"10.03.2011\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2313.253237\",\"SHAPE.STLength()\":\"272.950498\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"393\",\"ID\":\"49039\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Unteres Wiggertal\",\"BEARBEITER\":\"Hunziker,
+        Zarn & Partner, Aarau\",\"DATUM\":\"10.03.2011\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"38565.126069\",\"SHAPE.STLength()\":\"1729.496048\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"mittlere Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"71\",\"ID\":\"17711\",\"FARBE\":\"mittlere
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Unteres Wiggertal\",\"BEARBEITER\":\"Hunziker,
+        Zarn & Partner, Aarau\",\"DATUM\":\"10.03.2011\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"571.965886\",\"SHAPE.STLength()\":\"143.276304\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1751'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:17:47 GMT
+      ETag:
+      - '"1f5c777e"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|gHKyy3i9bctSV8_HEsT8Vg==|K_kpg5p5T9vbuSnJ2ws1RnLyjjDiWnMBxyjd50i_VGXnm6sit9pbzn2yTSR7GCIMGXwsvZc=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:18:46 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce51071569b8a32a11b969aa6b5ace5d8b89783515d06cb10d17d395d16149740e0b2a04aeb53d2b515ee26e0bdc10b4e3852;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce51071569b8a32a11b969aa6b5ace5d8b89783515d06cb10d17d395d16149740e0b2a04aeb53d2b515ee26e0bdc10b4e3852;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2636624%2C1239425%2C2636626%2C1239427&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Oftringen\",\"attributes\":{\"OBJECTID\":\"54\",\"GDENR\":\"4280\",\"GEMEINDE\":\"Oftringen\",\"GEMEINDEZ\":\"Oftringen\",\"GEMEINDEU\":\"Oftringen\",\"BZNR\":\"1910\",\"BEZIRK\":\"Zofingen\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Zofingen\",\"Geometer\":\"Oliver Flury\",\"Strasse\":\"Forstackerstrasse
+        2b\",\"PLZOrt\":\"4800 Zofingen\",\"ID\":\"4280\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"12852391.28334\",\"SHAPE.STLength()\":\"20470.353585\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"3926\",\"attributes\":{\"OBJECTID\":\"77708069\",\"FILEID\":\"203\",\"GDENR\":\"4280\",\"GDENRPARZ\":\"428003926\",\"NUMMER\":\"3926\",\"EGRID\":\"CH308906854551\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"13213\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"13213.289391\",\"SHAPE.STLength()\":\"675.304026\"}},{\"layerId\":81,\"layerName\":\"Kantons-
+        und Nationalstrassennetz\",\"displayFieldName\":\"AxisLabel\",\"value\":\"A1\",\"attributes\":{\"OBJECTID\":\"1431\",\"Netz\":\"Nationalstrassennetz\",\"StrTyp\":\"HLS\",\"AxisLabel\":\"A1\",\"StrFuehr\":\"offen\",\"SHAPE\":\"Polyline\",\"SHAPE.STLength()\":\"33205.836447\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID1\":\"60\",\"OBJECTID\":\"75\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"21324645.167261\",\"Shape.STLength()\":\"43090.421232\"}},{\"layerId\":11938,\"layerName\":\"Strassen\",\"displayFieldName\":\"Verursacher\",\"value\":\"Strassen\",\"attributes\":{\"OBJECTID\":\"5\",\"Verursacher\":\"Strassen\",\"Trennkriterium\":\"\\u003e
+        20'000 DTV\",\"Ausdehnung der Belastungsfl\xE4che\":\"Die Darstellung ist
+        nicht lagegenau. Massgebend ist der Pr\xFCfperimeter von je 15m seitlich ab
+        Fahrbahnrand.\",\"Belastungsursache\":\"Treibstoffverbrennung, Abgasemission,
+        Abrieb von Strassenbelag, Bremsbelag und Pneu\",\"Prim\xE4re Schadstoffe\":\"Pb,
+        PAK\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"6478772.509283\",\"Shape.STLength()\":\"259756.596835\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"mittlere Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"275\",\"ID\":\"30413\",\"FARBE\":\"mittlere
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Unteres Wiggertal\",\"BEARBEITER\":\"Hunziker,
+        Zarn & Partner, Aarau\",\"DATUM\":\"10.03.2011\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2495.318407\",\"SHAPE.STLength()\":\"282.752247\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1110'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:22:29 GMT
+      ETag:
+      - '"a3788c57"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|rJ11ulHqz-JP7fu1W4bQGw==|Sl6t54GtSe1Td4nuD2TlczqLLHc3CLazhcrUQJy4BBsawQveNdyO1pNB6GfW2MYEfoPLQ2c=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:23:28 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce51021477c3d5d9cf37f4ab009b9c77c01724826276db0b4703f3701d921b3859009c42282ab878866c8059f7c7e2fb56852;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce51021477c3d5d9cf37f4ab009b9c77c01724826276db0b4703f3701d921b3859009c42282ab878866c8059f7c7e2fb56852;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2636605%2C1239406%2C2636645%2C1239446&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="sym-gcm|1|rJ11ulHqz-JP7fu1W4bQGw==|Sl6t54GtSe1Td4nuD2TlczqLLHc3CLazhcrUQJy4BBsawQveNdyO1pNB6GfW2MYEfoPLQ2c=";
+        TS01975bae=0100bce51021477c3d5d9cf37f4ab009b9c77c01724826276db0b4703f3701d921b3859009c42282ab878866c8059f7c7e2fb56852;
+        XWAF=1791920065.47873.0000; TS014419e9=0100bce51021477c3d5d9cf37f4ab009b9c77c01724826276db0b4703f3701d921b3859009c42282ab878866c8059f7c7e2fb56852
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Oftringen\",\"attributes\":{\"OBJECTID\":\"54\",\"GDENR\":\"4280\",\"GEMEINDE\":\"Oftringen\",\"GEMEINDEZ\":\"Oftringen\",\"GEMEINDEU\":\"Oftringen\",\"BZNR\":\"1910\",\"BEZIRK\":\"Zofingen\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Zofingen\",\"Geometer\":\"Oliver Flury\",\"Strasse\":\"Forstackerstrasse
+        2b\",\"PLZOrt\":\"4800 Zofingen\",\"ID\":\"4280\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"12852391.28334\",\"SHAPE.STLength()\":\"20470.353585\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"3926\",\"attributes\":{\"OBJECTID\":\"77708069\",\"FILEID\":\"203\",\"GDENR\":\"4280\",\"GDENRPARZ\":\"428003926\",\"NUMMER\":\"3926\",\"EGRID\":\"CH308906854551\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"13213\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"13213.289391\",\"SHAPE.STLength()\":\"675.304026\"}},{\"layerId\":26,\"layerName\":\"AV:
+        Strassenachsen\",\"displayFieldName\":\"STRNAME\",\"value\":\"A1\",\"attributes\":{\"FILEID\":\"203\",\"GDENR\":\"4280\",\"ART\":\"Strasse\",\"NUMPRINZIP\":\"keineNummern\",\"ISTOFF\":\"ja\",\"STRNAME\":\"A1\",\"OBJECTID\":\"15829244\",\"SHAPE\":\"Polyline\",\"SHAPE.STLength()\":\"324.815972\"}},{\"layerId\":26,\"layerName\":\"AV:
+        Strassenachsen\",\"displayFieldName\":\"STRNAME\",\"value\":\"A1\",\"attributes\":{\"FILEID\":\"203\",\"GDENR\":\"4280\",\"ART\":\"Strasse\",\"NUMPRINZIP\":\"keineNummern\",\"ISTOFF\":\"ja\",\"STRNAME\":\"A1\",\"OBJECTID\":\"15829191\",\"SHAPE\":\"Polyline\",\"SHAPE.STLength()\":\"449.814248\"}},{\"layerId\":27,\"layerName\":\"AV:
+        Strassennamen\",\"displayFieldName\":\"STRNAME\",\"value\":\"A1\",\"attributes\":{\"OBJECTID\":\"11146056\",\"FILEID\":\"203\",\"GDENR\":\"4280\",\"ART\":\"Strasse\",\"STRNAME\":\"A1\",\"ORI\":\"12.3\",\"Shape\":\"Point\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Oberstr.
+        Pritschenwuhr-Bach\",\"attributes\":{\"OBJECTID\":\"29717\",\"NAME\":\"Oberstr.
+        Pritschenwuhr-Bach\",\"SBREITE\":\"Null\",\"BNUM\":\"2.16.005\",\"KLASSE\":\"Null\",\"BUFF_DIST\":\"6\",\"ART\":\"Kanal\",\"FAKTOR\":\"Null\",\"NAT_GSB\":\"Null\",\"GEWR_BREITE\":\"Null\",\"GEWR_RADIUS\":\"Null\",\"Bauzone\":\"Null\",\"GEWR_TYP\":\"Null\",\"RECHT\":\"BauG\",\"KEY\":\"Null\",\"AbschLength\":\"Null\",\"GDENR\":\"4280\",\"GEMEINDEZ\":\"Oftringen\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"15491.937145\",\"Shape.STLength()\":\"2718.368945\"}},{\"layerId\":81,\"layerName\":\"Kantons-
+        und Nationalstrassennetz\",\"displayFieldName\":\"AxisLabel\",\"value\":\"A1\",\"attributes\":{\"OBJECTID\":\"1520\",\"Netz\":\"Nationalstrassennetz\",\"StrTyp\":\"HLS\",\"AxisLabel\":\"A1\",\"StrFuehr\":\"offen\",\"SHAPE\":\"Polyline\",\"SHAPE.STLength()\":\"33208.552186\"}},{\"layerId\":81,\"layerName\":\"Kantons-
+        und Nationalstrassennetz\",\"displayFieldName\":\"AxisLabel\",\"value\":\"1494\",\"attributes\":{\"OBJECTID\":\"1494\",\"Netz\":\"Nationalstrassennetz\",\"StrTyp\":\"HLS\",\"AxisLabel\":\"Null\",\"StrFuehr\":\"offen\",\"SHAPE\":\"Polyline\",\"SHAPE.STLength()\":\"1636.996232\"}},{\"layerId\":81,\"layerName\":\"Kantons-
+        und Nationalstrassennetz\",\"displayFieldName\":\"AxisLabel\",\"value\":\"A1\",\"attributes\":{\"OBJECTID\":\"1431\",\"Netz\":\"Nationalstrassennetz\",\"StrTyp\":\"HLS\",\"AxisLabel\":\"A1\",\"StrFuehr\":\"offen\",\"SHAPE\":\"Polyline\",\"SHAPE.STLength()\":\"33205.836447\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID1\":\"60\",\"OBJECTID\":\"75\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"21324645.167261\",\"Shape.STLength()\":\"43090.421232\"}},{\"layerId\":499,\"layerName\":\"Risikokataster:
+        Konsultationsbereich Nationalstrassen\",\"displayFieldName\":\"NAME\",\"value\":\"Genf
+        - St. Margrethen\",\"attributes\":{\"OBJECTID\":\"10\",\"NAME\":\"Genf - St.
+        Margrethen\",\"Shape\":\"Polyline\",\"KSNR\":\"Null\",\"BESCHRIFTUNG\":\"Null\",\"STRTYP\":\"3\",\"STRLINIENFUEHR\":\"1\",\"ACHSRICHTUNG\":\"+\",\"EROEFFNUNG\":\"Null\",\"SHAPE.STLength()\":\"38179.964039\"}},{\"layerId\":499,\"layerName\":\"Risikokataster:
+        Konsultationsbereich Nationalstrassen\",\"displayFieldName\":\"NAME\",\"value\":\"72\",\"attributes\":{\"OBJECTID\":\"72\",\"NAME\":\"Null\",\"Shape\":\"Polyline\",\"KSNR\":\"Null\",\"BESCHRIFTUNG\":\"Null\",\"STRTYP\":\"3\",\"STRLINIENFUEHR\":\"1\",\"ACHSRICHTUNG\":\"-\",\"EROEFFNUNG\":\"Null\",\"SHAPE.STLength()\":\"37989.927752\"}},{\"layerId\":11938,\"layerName\":\"Strassen\",\"displayFieldName\":\"Verursacher\",\"value\":\"Strassen\",\"attributes\":{\"OBJECTID\":\"5\",\"Verursacher\":\"Strassen\",\"Trennkriterium\":\"\\u003e
+        20'000 DTV\",\"Ausdehnung der Belastungsfl\xE4che\":\"Die Darstellung ist
+        nicht lagegenau. Massgebend ist der Pr\xFCfperimeter von je 15m seitlich ab
+        Fahrbahnrand.\",\"Belastungsursache\":\"Treibstoffverbrennung, Abgasemission,
+        Abrieb von Strassenbelag, Bremsbelag und Pneu\",\"Prim\xE4re Schadstoffe\":\"Pb,
+        PAK\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"6478772.509283\",\"Shape.STLength()\":\"259756.596835\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"mittlere Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"275\",\"ID\":\"30413\",\"FARBE\":\"mittlere
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Unteres Wiggertal\",\"BEARBEITER\":\"Hunziker,
+        Zarn & Partner, Aarau\",\"DATUM\":\"10.03.2011\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2495.318407\",\"SHAPE.STLength()\":\"282.752247\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"mittlere Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"350\",\"ID\":\"45468\",\"FARBE\":\"mittlere
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Unteres Wiggertal\",\"BEARBEITER\":\"Hunziker,
+        Zarn & Partner, Aarau\",\"DATUM\":\"10.03.2011\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"2313.253237\",\"SHAPE.STLength()\":\"272.950498\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"393\",\"ID\":\"49039\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Unteres Wiggertal\",\"BEARBEITER\":\"Hunziker,
+        Zarn & Partner, Aarau\",\"DATUM\":\"10.03.2011\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"38565.126069\",\"SHAPE.STLength()\":\"1729.496048\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"mittlere Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"71\",\"ID\":\"17711\",\"FARBE\":\"mittlere
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Unteres Wiggertal\",\"BEARBEITER\":\"Hunziker,
+        Zarn & Partner, Aarau\",\"DATUM\":\"10.03.2011\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"571.965886\",\"SHAPE.STLength()\":\"143.276304\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1751'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:22:29 GMT
+      ETag:
+      - '"1f5c777e"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|oBrL_EimJskw-fjrba7MQg==|cUlUZ_B7L1KaEkH-QHgnsNs9IW3jS-X67ZncYwP9JkrUIuNI4h3lb8NKwdTDczS0pJSYO3M=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:23:29 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce51021477c3d5d9cf37f4ab009b9c77c01724826276db0b4703f3701d921b3859009c42282ab878866c8059f7c7e2fb56852;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce51021477c3d5d9cf37f4ab009b9c77c01724826276db0b4703f3701d921b3859009c42282ab878866c8059f7c7e2fb56852;
         path=/geoportal/rest
       Strict-Transport-Security:
       - max-age=16070400; includeSubDomains

@@ -39,8 +39,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1184'
       Content-Type:
@@ -142,8 +140,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '2490'
       Content-Type:
@@ -211,8 +207,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1184'
       Content-Type:
@@ -314,8 +308,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '2490'
       Content-Type:
@@ -383,8 +375,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1184'
       Content-Type:
@@ -486,8 +476,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '2490'
       Content-Type:
@@ -555,8 +543,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1184'
       Content-Type:
@@ -658,8 +644,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '2490'
       Content-Type:
@@ -727,8 +711,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1184'
       Content-Type:
@@ -830,8 +812,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '2490'
       Content-Type:
@@ -899,8 +879,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1184'
       Content-Type:
@@ -1002,8 +980,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '2490'
       Content-Type:
@@ -1021,6 +997,564 @@ interactions:
       - 'TS014419e9=0100bce510541ab621e01f16c7777fe7d0a254e14a72b8fd1af9c0e7df064160c64d436f01b741f506cb866772c07bb024f85fdbc4162c96a7c5f9168a0a543c637e6f2cd3;
         Path=/; Domain=.www.ag.ch; '
       - TS01975bae=0100bce5106ca0184720f9fad46810a74b9dca7b2e72b8fd1af9c0e7df064160c64d436f0129f485c8797f5ae38fa8898ce101a46e12ee37014c263b742b2b27ba863dff1a;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2655776%2C1242132%2C2655778%2C1242134&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Hallwil\",\"attributes\":{\"OBJECTID\":\"58\",\"GDENR\":\"4197\",\"GEMEINDE\":\"Hallwil\",\"GEMEINDEZ\":\"Hallwil\",\"GEMEINDEU\":\"Hallwil\",\"BZNR\":\"1907\",\"BEZIRK\":\"Lenzburg\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Lenzburg\",\"Geometer\":\"Oliver Flury\",\"Strasse\":\"Dammweg 21\",\"PLZOrt\":\"5600
+        Lenzburg\",\"ID\":\"4197\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"2180067.073073\",\"SHAPE.STLength()\":\"7014.497176\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"726\",\"attributes\":{\"OBJECTID\":\"77922904\",\"FILEID\":\"192\",\"GDENR\":\"4197\",\"GDENRPARZ\":\"419700726\",\"NUMMER\":\"726\",\"EGRID\":\"CH707611700515\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1482\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1482.010921\",\"SHAPE.STLength()\":\"164.698231\"}},{\"layerId\":24,\"layerName\":\"AV:
+        Assekuranznummern\",\"displayFieldName\":\"ART\",\"value\":\"Gebaeude\",\"attributes\":{\"OBJECTID\":\"65647210\",\"FILEID\":\"192\",\"GDENR\":\"4197\",\"ART\":\"Gebaeude\",\"ASSNR\":\"55\",\"ORI\":\"19.8\",\"Shape\":\"Point\",\"EGID\":\"589311\"}},{\"layerId\":35,\"layerName\":\"Kurzinventar
+        Denkmalpflege\",\"displayFieldName\":\"Signatur\",\"value\":\"KI-HAW904\",\"attributes\":{\"OBJECTID\":\"145\",\"Signatur\":\"KI-HAW904\",\"Titel\":\"Alte
+        Post\",\"E_Koord\":\"2655777\",\"N_Koord\":\"1242133\",\"Adresse\":\"Bahnhofstrasse
+        55\",\"Gemeinde\":\"Hallwil\",\"Nutzungstyp\":\"Wohnhaus Nr. 55 (\xF6stl.
+        Geb\xE4udeh\xE4lfte)\",\"Shape\":\"Point\"}},{\"layerId\":141,\"layerName\":\"Bereiche
+        rechtsg\xFCltiger Sondernutzungspl\xE4ne\",\"displayFieldName\":\"NameNummer\",\"value\":\"22708\",\"attributes\":{\"OBJECTID\":\"22708\",\"GDENR\":\"Hallwil
+        4197\",\"HNCode\":\"61\",\"HNBez\":\"Bereiche rechtsg\xFCltiger Sondernutzungspl\xE4ne\",\"KTCode\":\"6111\",\"KTAbk\":\"EP\",\"KTBez\":\"Bereich
+        rechtsg\xFCltiger Erschliessungspl\xE4ne\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"611101\",\"GDEBez\":\"Erschliessungsplan
+        R\xFCchlig\",\"GDEAbk\":\"EP\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2007-000581\",\"GeschNr\":\"BVUARE.06.10\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"SNP\",\"Geolink\":\"3631\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3631.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"20898.225429\",\"SHAPE.STLength()\":\"835.28862\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"170700\",\"attributes\":{\"OBJECTID\":\"170700\",\"GDENR\":\"Hallwil
+        4197\",\"HNCode\":\"14\",\"HNBez\":\"Zentrumszonen\",\"KTAAbk\":\"Wohn- und
+        Arbeitszonen\",\"KTCode\":\"1411\",\"KTAbk\":\"D\",\"KTBez\":\"Dorfkernzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"141101\",\"GDEBez\":\"Dorfkernzone\",\"GDEAbk\":\"D\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"0.65\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_III\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2024-000476\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.10.91\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"5185\",\"Geolink_ES\":\"3633\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/5185.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        ES\":\"ja\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"7288.137634\",\"Shape.STLength()\":\"538.771527\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1300'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:16:11 GMT
+      ETag:
+      - '"d52f0a3d"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|9QVMSW8-NnmND3b4CUdQeA==|Cl6xr_iLdWBcNTUNVHBAMHs2_7m0PQWghljd1AKkh6bnMdGojPXvolhI45c0pIenpwHIbYc=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:17:11 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce510f66767949f7105844dbe339c34ef453909089df90a174c527b936f2cf7c87f82df914430a4b0dad1fb2916619807ee53;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce510f66767949f7105844dbe339c34ef453909089df90a174c527b936f2cf7c87f82df914430a4b0dad1fb2916619807ee53;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2655757%2C1242113%2C2655797%2C1242153&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="sym-gcm|1|9QVMSW8-NnmND3b4CUdQeA==|Cl6xr_iLdWBcNTUNVHBAMHs2_7m0PQWghljd1AKkh6bnMdGojPXvolhI45c0pIenpwHIbYc=";
+        TS01975bae=0100bce510f66767949f7105844dbe339c34ef453909089df90a174c527b936f2cf7c87f82df914430a4b0dad1fb2916619807ee53;
+        XWAF=1791920065.47873.0000; TS014419e9=0100bce510f66767949f7105844dbe339c34ef453909089df90a174c527b936f2cf7c87f82df914430a4b0dad1fb2916619807ee53
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Hallwil\",\"attributes\":{\"OBJECTID\":\"58\",\"GDENR\":\"4197\",\"GEMEINDE\":\"Hallwil\",\"GEMEINDEZ\":\"Hallwil\",\"GEMEINDEU\":\"Hallwil\",\"BZNR\":\"1907\",\"BEZIRK\":\"Lenzburg\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Lenzburg\",\"Geometer\":\"Oliver Flury\",\"Strasse\":\"Dammweg 21\",\"PLZOrt\":\"5600
+        Lenzburg\",\"ID\":\"4197\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"2180067.073073\",\"SHAPE.STLength()\":\"7014.497176\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"723\",\"attributes\":{\"OBJECTID\":\"80715268\",\"FILEID\":\"192\",\"GDENR\":\"4197\",\"NUMMER\":\"723\",\"ART\":\"Liegenschaft\",\"ORI\":\"31.3\",\"Shape\":\"Point\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"957\",\"attributes\":{\"OBJECTID\":\"80715103\",\"FILEID\":\"192\",\"GDENR\":\"4197\",\"NUMMER\":\"957\",\"ART\":\"Liegenschaft\",\"ORI\":\"0\",\"Shape\":\"Point\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"1332\",\"attributes\":{\"OBJECTID\":\"77923600\",\"FILEID\":\"192\",\"GDENR\":\"4197\",\"GDENRPARZ\":\"419701332\",\"NUMMER\":\"1332\",\"EGRID\":\"CH171176740534\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"500\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"500.373003\",\"SHAPE.STLength()\":\"90.150945\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"726\",\"attributes\":{\"OBJECTID\":\"77922904\",\"FILEID\":\"192\",\"GDENR\":\"4197\",\"GDENRPARZ\":\"419700726\",\"NUMMER\":\"726\",\"EGRID\":\"CH707611700515\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1482\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1482.010921\",\"SHAPE.STLength()\":\"164.698231\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"957\",\"attributes\":{\"OBJECTID\":\"77922861\",\"FILEID\":\"192\",\"GDENR\":\"4197\",\"GDENRPARZ\":\"419700957\",\"NUMMER\":\"957\",\"EGRID\":\"CH341105767197\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"542\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"541.601905\",\"SHAPE.STLength()\":\"98.025421\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"804\",\"attributes\":{\"OBJECTID\":\"77922860\",\"FILEID\":\"192\",\"GDENR\":\"4197\",\"GDENRPARZ\":\"419700804\",\"NUMMER\":\"804\",\"EGRID\":\"CH127670051106\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"33523\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"33524.391489\",\"SHAPE.STLength()\":\"3941.143795\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"716\",\"attributes\":{\"OBJECTID\":\"77923418\",\"FILEID\":\"192\",\"GDENR\":\"4197\",\"GDENRPARZ\":\"419700716\",\"NUMMER\":\"716\",\"EGRID\":\"CH630576117977\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1114\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1114.330454\",\"SHAPE.STLength()\":\"141.143235\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"723\",\"attributes\":{\"OBJECTID\":\"77923144\",\"FILEID\":\"192\",\"GDENR\":\"4197\",\"GDENRPARZ\":\"419700723\",\"NUMMER\":\"723\",\"EGRID\":\"CH790576701130\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"413\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"412.948601\",\"SHAPE.STLength()\":\"189.247103\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"717\",\"attributes\":{\"OBJECTID\":\"77923536\",\"FILEID\":\"192\",\"GDENR\":\"4197\",\"GDENRPARZ\":\"419700717\",\"NUMMER\":\"717\",\"EGRID\":\"CH641105767984\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"416\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"416.210758\",\"SHAPE.STLength()\":\"246.688733\"}},{\"layerId\":24,\"layerName\":\"AV:
+        Assekuranznummern\",\"displayFieldName\":\"ART\",\"value\":\"Gebaeude\",\"attributes\":{\"OBJECTID\":\"65647210\",\"FILEID\":\"192\",\"GDENR\":\"4197\",\"ART\":\"Gebaeude\",\"ASSNR\":\"55\",\"ORI\":\"19.8\",\"Shape\":\"Point\",\"EGID\":\"589311\"}},{\"layerId\":26,\"layerName\":\"AV:
+        Strassenachsen\",\"displayFieldName\":\"STRNAME\",\"value\":\"Bahnhofstrasse\",\"attributes\":{\"FILEID\":\"192\",\"GDENR\":\"4197\",\"ART\":\"Strasse\",\"NUMPRINZIP\":\"beliebig\",\"ISTOFF\":\"ja\",\"STRNAME\":\"Bahnhofstrasse\",\"OBJECTID\":\"15881856\",\"SHAPE\":\"Polyline\",\"SHAPE.STLength()\":\"113.772792\"}},{\"layerId\":26,\"layerName\":\"AV:
+        Strassenachsen\",\"displayFieldName\":\"STRNAME\",\"value\":\"H\xFCbel\",\"attributes\":{\"FILEID\":\"192\",\"GDENR\":\"4197\",\"ART\":\"Strasse\",\"NUMPRINZIP\":\"beliebig\",\"ISTOFF\":\"ja\",\"STRNAME\":\"H\xFCbel\",\"OBJECTID\":\"15881865\",\"SHAPE\":\"Polyline\",\"SHAPE.STLength()\":\"57.072663\"}},{\"layerId\":26,\"layerName\":\"AV:
+        Strassenachsen\",\"displayFieldName\":\"STRNAME\",\"value\":\"Langjucharten\",\"attributes\":{\"FILEID\":\"192\",\"GDENR\":\"4197\",\"ART\":\"Strasse\",\"NUMPRINZIP\":\"beliebig\",\"ISTOFF\":\"ja\",\"STRNAME\":\"Langjucharten\",\"OBJECTID\":\"15881860\",\"SHAPE\":\"Polyline\",\"SHAPE.STLength()\":\"26.345267\"}},{\"layerId\":26,\"layerName\":\"AV:
+        Strassenachsen\",\"displayFieldName\":\"STRNAME\",\"value\":\"Langjucharten\",\"attributes\":{\"FILEID\":\"192\",\"GDENR\":\"4197\",\"ART\":\"Strasse\",\"NUMPRINZIP\":\"beliebig\",\"ISTOFF\":\"ja\",\"STRNAME\":\"Langjucharten\",\"OBJECTID\":\"15881863\",\"SHAPE\":\"Polyline\",\"SHAPE.STLength()\":\"33.317511\"}},{\"layerId\":27,\"layerName\":\"AV:
+        Strassennamen\",\"displayFieldName\":\"STRNAME\",\"value\":\"Langjucharten\",\"attributes\":{\"OBJECTID\":\"11193898\",\"FILEID\":\"192\",\"GDENR\":\"4197\",\"ART\":\"Strasse\",\"STRNAME\":\"Langjucharten\",\"ORI\":\"22.9\",\"Shape\":\"Point\"}},{\"layerId\":35,\"layerName\":\"Kurzinventar
+        Denkmalpflege\",\"displayFieldName\":\"Signatur\",\"value\":\"KI-HAW904\",\"attributes\":{\"OBJECTID\":\"145\",\"Signatur\":\"KI-HAW904\",\"Titel\":\"Alte
+        Post\",\"E_Koord\":\"2655777\",\"N_Koord\":\"1242133\",\"Adresse\":\"Bahnhofstrasse
+        55\",\"Gemeinde\":\"Hallwil\",\"Nutzungstyp\":\"Wohnhaus Nr. 55 (\xF6stl.
+        Geb\xE4udeh\xE4lfte)\",\"Shape\":\"Point\"}},{\"layerId\":86,\"layerName\":\"Zuglinien\",\"displayFieldName\":\"NR\",\"value\":\"S9\",\"attributes\":{\"SHAPE.STLength()\":\"47329.339364\",\"OBJECTID\":\"344\",\"VM_NAME\":\"Zug\",\"NR\":\"S9\",\"RICHTUNG\":\"Null\",\"STRECKE\":\"Lenzburg
+        - Luzern\",\"FAHRPLANNR\":\"651\",\"GO_NR\":\"11\",\"GO_ABK\":\"SBB\",\"GO_NAME\":\"Schweizerische
+        Bundesbahnen SBB\",\"FAHRPLANFELDER\":\"https://widgets.oev-info.ch/publikation/jahresfpl/651.pdf\",\"SHAPE\":\"Polyline\"}},{\"layerId\":11938,\"layerName\":\"Strassen\",\"displayFieldName\":\"Verursacher\",\"value\":\"Strassen\",\"attributes\":{\"OBJECTID\":\"4\",\"Verursacher\":\"Strassen\",\"Trennkriterium\":\"3'001
+        \u2013 20'000 DTV\",\"Ausdehnung der Belastungsfl\xE4che\":\"Die Darstellung
+        ist nicht lagegenau. Massgebend ist der Pr\xFCfperimeter von je 10m seitlich
+        ab Fahrbahnrand.\",\"Belastungsursache\":\"Treibstoffverbrennung, Abgasemission,
+        Abrieb von Strassenbelag, Bremsbelag und Pneu\",\"Prim\xE4re Schadstoffe\":\"Pb,
+        PAK\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"22365578.6883\",\"Shape.STLength()\":\"1493739.41405\"}},{\"layerId\":141,\"layerName\":\"Bereiche
+        rechtsg\xFCltiger Sondernutzungspl\xE4ne\",\"displayFieldName\":\"NameNummer\",\"value\":\"22708\",\"attributes\":{\"OBJECTID\":\"22708\",\"GDENR\":\"Hallwil
+        4197\",\"HNCode\":\"61\",\"HNBez\":\"Bereiche rechtsg\xFCltiger Sondernutzungspl\xE4ne\",\"KTCode\":\"6111\",\"KTAbk\":\"EP\",\"KTBez\":\"Bereich
+        rechtsg\xFCltiger Erschliessungspl\xE4ne\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"611101\",\"GDEBez\":\"Erschliessungsplan
+        R\xFCchlig\",\"GDEAbk\":\"EP\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2007-000581\",\"GeschNr\":\"BVUARE.06.10\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"SNP\",\"Geolink\":\"3631\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3631.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"20898.225429\",\"SHAPE.STLength()\":\"835.28862\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"170700\",\"attributes\":{\"OBJECTID\":\"170700\",\"GDENR\":\"Hallwil
+        4197\",\"HNCode\":\"14\",\"HNBez\":\"Zentrumszonen\",\"KTAAbk\":\"Wohn- und
+        Arbeitszonen\",\"KTCode\":\"1411\",\"KTAbk\":\"D\",\"KTBez\":\"Dorfkernzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"141101\",\"GDEBez\":\"Dorfkernzone\",\"GDEAbk\":\"D\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"0.65\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_III\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2024-000476\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.10.91\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"5185\",\"Geolink_ES\":\"3633\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/5185.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        ES\":\"ja\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"7288.137634\",\"Shape.STLength()\":\"538.771527\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"170693\",\"attributes\":{\"OBJECTID\":\"170693\",\"GDENR\":\"Hallwil
+        4197\",\"HNCode\":\"14\",\"HNBez\":\"Zentrumszonen\",\"KTAAbk\":\"Wohn- und
+        Arbeitszonen\",\"KTCode\":\"1411\",\"KTAbk\":\"D\",\"KTBez\":\"Dorfkernzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"141101\",\"GDEBez\":\"Dorfkernzone\",\"GDEAbk\":\"D\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"0.65\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_III\",\"ES_aufgest\":\"nein\",\"Strasse\":\"ja\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2024-000476\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.10.91\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"5185\",\"Geolink_ES\":\"3633\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/5185.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        ES\":\"ja\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1263.54135\",\"Shape.STLength()\":\"648.792216\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"170665\",\"attributes\":{\"OBJECTID\":\"170665\",\"GDENR\":\"Hallwil
+        4197\",\"HNCode\":\"18\",\"HNBez\":\"Verkehrszonen innerhalb der Bauzonen\",\"KTAAbk\":\"Verkehrszonen
+        (sofern in der Nutzungsplanung abgebildet)\",\"KTCode\":\"1811\",\"KTAbk\":\"VN\",\"KTBez\":\"Kantons-
+        und Nationalstrasse\",\"KTVerb\":\"Orientierungsinhalt\",\"GDECode\":\"181101\",\"GDEBez\":\"Verkehrsfl\xE4che\",\"GDEAbk\":\"VN\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"orientierend\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"ja\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2024-000476\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.10.91\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"5185\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/5185.html\",\"OEREBexport\":\"nein\",\"OEREBexport
+        ES\":\"nein\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"14188.369575\",\"Shape.STLength()\":\"2774.041922\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"170768\",\"attributes\":{\"OBJECTID\":\"170768\",\"GDENR\":\"Hallwil
+        4197\",\"HNCode\":\"18\",\"HNBez\":\"Verkehrszonen innerhalb der Bauzonen\",\"KTAAbk\":\"Verkehrszonen
+        (sofern in der Nutzungsplanung abgebildet)\",\"KTCode\":\"1812\",\"KTAbk\":\"VB\",\"KTBez\":\"Bahnfl\xE4che\",\"KTVerb\":\"Orientierungsinhalt\",\"GDECode\":\"181201\",\"GDEBez\":\"Verkehrsfl\xE4che
+        Bahn\",\"GDEAbk\":\"VNB\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"orientierend\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"ja\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2024-000476\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.10.91\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"5185\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/5185.html\",\"OEREBexport\":\"nein\",\"OEREBexport
+        ES\":\"nein\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"3532.594878\",\"Shape.STLength()\":\"603.567455\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '2599'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:16:11 GMT
+      ETag:
+      - '"b07da39e"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|o3mWUrLjKnPgfWUxLrC-PA==|XT27sYpeaAnGZQpGFxIll3Wx8l3g_h1SrReYcmXcpCcOzcUmdz_1iccePOrzsmN24C0ibNI=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:17:11 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce510f66767949f7105844dbe339c34ef453909089df90a174c527b936f2cf7c87f82df914430a4b0dad1fb2916619807ee53;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce510f66767949f7105844dbe339c34ef453909089df90a174c527b936f2cf7c87f82df914430a4b0dad1fb2916619807ee53;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2655776%2C1242132%2C2655778%2C1242134&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Hallwil\",\"attributes\":{\"OBJECTID\":\"58\",\"GDENR\":\"4197\",\"GEMEINDE\":\"Hallwil\",\"GEMEINDEZ\":\"Hallwil\",\"GEMEINDEU\":\"Hallwil\",\"BZNR\":\"1907\",\"BEZIRK\":\"Lenzburg\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Lenzburg\",\"Geometer\":\"Oliver Flury\",\"Strasse\":\"Dammweg 21\",\"PLZOrt\":\"5600
+        Lenzburg\",\"ID\":\"4197\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"2180067.073073\",\"SHAPE.STLength()\":\"7014.497176\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"726\",\"attributes\":{\"OBJECTID\":\"77922904\",\"FILEID\":\"192\",\"GDENR\":\"4197\",\"GDENRPARZ\":\"419700726\",\"NUMMER\":\"726\",\"EGRID\":\"CH707611700515\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1482\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1482.010921\",\"SHAPE.STLength()\":\"164.698231\"}},{\"layerId\":24,\"layerName\":\"AV:
+        Assekuranznummern\",\"displayFieldName\":\"ART\",\"value\":\"Gebaeude\",\"attributes\":{\"OBJECTID\":\"65647210\",\"FILEID\":\"192\",\"GDENR\":\"4197\",\"ART\":\"Gebaeude\",\"ASSNR\":\"55\",\"ORI\":\"19.8\",\"Shape\":\"Point\",\"EGID\":\"589311\"}},{\"layerId\":35,\"layerName\":\"Kurzinventar
+        Denkmalpflege\",\"displayFieldName\":\"Signatur\",\"value\":\"KI-HAW904\",\"attributes\":{\"OBJECTID\":\"145\",\"Signatur\":\"KI-HAW904\",\"Titel\":\"Alte
+        Post\",\"E_Koord\":\"2655777\",\"N_Koord\":\"1242133\",\"Adresse\":\"Bahnhofstrasse
+        55\",\"Gemeinde\":\"Hallwil\",\"Nutzungstyp\":\"Wohnhaus Nr. 55 (\xF6stl.
+        Geb\xE4udeh\xE4lfte)\",\"Shape\":\"Point\"}},{\"layerId\":141,\"layerName\":\"Bereiche
+        rechtsg\xFCltiger Sondernutzungspl\xE4ne\",\"displayFieldName\":\"NameNummer\",\"value\":\"22708\",\"attributes\":{\"OBJECTID\":\"22708\",\"GDENR\":\"Hallwil
+        4197\",\"HNCode\":\"61\",\"HNBez\":\"Bereiche rechtsg\xFCltiger Sondernutzungspl\xE4ne\",\"KTCode\":\"6111\",\"KTAbk\":\"EP\",\"KTBez\":\"Bereich
+        rechtsg\xFCltiger Erschliessungspl\xE4ne\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"611101\",\"GDEBez\":\"Erschliessungsplan
+        R\xFCchlig\",\"GDEAbk\":\"EP\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2007-000581\",\"GeschNr\":\"BVUARE.06.10\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"SNP\",\"Geolink\":\"3631\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3631.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"20898.225429\",\"SHAPE.STLength()\":\"835.28862\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"170700\",\"attributes\":{\"OBJECTID\":\"170700\",\"GDENR\":\"Hallwil
+        4197\",\"HNCode\":\"14\",\"HNBez\":\"Zentrumszonen\",\"KTAAbk\":\"Wohn- und
+        Arbeitszonen\",\"KTCode\":\"1411\",\"KTAbk\":\"D\",\"KTBez\":\"Dorfkernzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"141101\",\"GDEBez\":\"Dorfkernzone\",\"GDEAbk\":\"D\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"0.65\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_III\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2024-000476\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.10.91\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"5185\",\"Geolink_ES\":\"3633\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/5185.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        ES\":\"ja\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"7288.137634\",\"Shape.STLength()\":\"538.771527\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1300'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:17:22 GMT
+      ETag:
+      - '"d52f0a3d"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|5oH_aI1E4TQ3AAi1Iq0s0A==|Y8X_9yjcFkt_SaCNmpteBgq2_7l-s5jGMHD2vEQy-aqs9tbSeBZIMT-odlSZbZxbPajOqsc=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:18:22 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce510c907a00b2e1255c3ca36dd864ef506908416a8b7121be3461154f54fdac54effbb00efbe1a844086353028c2d2e94e8d;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce510c907a00b2e1255c3ca36dd864ef506908416a8b7121be3461154f54fdac54effbb00efbe1a844086353028c2d2e94e8d;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2655757%2C1242113%2C2655797%2C1242153&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="sym-gcm|1|5oH_aI1E4TQ3AAi1Iq0s0A==|Y8X_9yjcFkt_SaCNmpteBgq2_7l-s5jGMHD2vEQy-aqs9tbSeBZIMT-odlSZbZxbPajOqsc=";
+        TS01975bae=0100bce510c907a00b2e1255c3ca36dd864ef506908416a8b7121be3461154f54fdac54effbb00efbe1a844086353028c2d2e94e8d;
+        XWAF=1791920065.47873.0000; TS014419e9=0100bce510c907a00b2e1255c3ca36dd864ef506908416a8b7121be3461154f54fdac54effbb00efbe1a844086353028c2d2e94e8d
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Hallwil\",\"attributes\":{\"OBJECTID\":\"58\",\"GDENR\":\"4197\",\"GEMEINDE\":\"Hallwil\",\"GEMEINDEZ\":\"Hallwil\",\"GEMEINDEU\":\"Hallwil\",\"BZNR\":\"1907\",\"BEZIRK\":\"Lenzburg\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Lenzburg\",\"Geometer\":\"Oliver Flury\",\"Strasse\":\"Dammweg 21\",\"PLZOrt\":\"5600
+        Lenzburg\",\"ID\":\"4197\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"2180067.073073\",\"SHAPE.STLength()\":\"7014.497176\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"723\",\"attributes\":{\"OBJECTID\":\"80715268\",\"FILEID\":\"192\",\"GDENR\":\"4197\",\"NUMMER\":\"723\",\"ART\":\"Liegenschaft\",\"ORI\":\"31.3\",\"Shape\":\"Point\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"957\",\"attributes\":{\"OBJECTID\":\"80715103\",\"FILEID\":\"192\",\"GDENR\":\"4197\",\"NUMMER\":\"957\",\"ART\":\"Liegenschaft\",\"ORI\":\"0\",\"Shape\":\"Point\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"1332\",\"attributes\":{\"OBJECTID\":\"77923600\",\"FILEID\":\"192\",\"GDENR\":\"4197\",\"GDENRPARZ\":\"419701332\",\"NUMMER\":\"1332\",\"EGRID\":\"CH171176740534\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"500\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"500.373003\",\"SHAPE.STLength()\":\"90.150945\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"726\",\"attributes\":{\"OBJECTID\":\"77922904\",\"FILEID\":\"192\",\"GDENR\":\"4197\",\"GDENRPARZ\":\"419700726\",\"NUMMER\":\"726\",\"EGRID\":\"CH707611700515\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1482\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1482.010921\",\"SHAPE.STLength()\":\"164.698231\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"957\",\"attributes\":{\"OBJECTID\":\"77922861\",\"FILEID\":\"192\",\"GDENR\":\"4197\",\"GDENRPARZ\":\"419700957\",\"NUMMER\":\"957\",\"EGRID\":\"CH341105767197\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"542\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"541.601905\",\"SHAPE.STLength()\":\"98.025421\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"804\",\"attributes\":{\"OBJECTID\":\"77922860\",\"FILEID\":\"192\",\"GDENR\":\"4197\",\"GDENRPARZ\":\"419700804\",\"NUMMER\":\"804\",\"EGRID\":\"CH127670051106\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"33523\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"33524.391489\",\"SHAPE.STLength()\":\"3941.143795\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"716\",\"attributes\":{\"OBJECTID\":\"77923418\",\"FILEID\":\"192\",\"GDENR\":\"4197\",\"GDENRPARZ\":\"419700716\",\"NUMMER\":\"716\",\"EGRID\":\"CH630576117977\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1114\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1114.330454\",\"SHAPE.STLength()\":\"141.143235\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"723\",\"attributes\":{\"OBJECTID\":\"77923144\",\"FILEID\":\"192\",\"GDENR\":\"4197\",\"GDENRPARZ\":\"419700723\",\"NUMMER\":\"723\",\"EGRID\":\"CH790576701130\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"413\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"412.948601\",\"SHAPE.STLength()\":\"189.247103\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"717\",\"attributes\":{\"OBJECTID\":\"77923536\",\"FILEID\":\"192\",\"GDENR\":\"4197\",\"GDENRPARZ\":\"419700717\",\"NUMMER\":\"717\",\"EGRID\":\"CH641105767984\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"416\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"416.210758\",\"SHAPE.STLength()\":\"246.688733\"}},{\"layerId\":24,\"layerName\":\"AV:
+        Assekuranznummern\",\"displayFieldName\":\"ART\",\"value\":\"Gebaeude\",\"attributes\":{\"OBJECTID\":\"65647210\",\"FILEID\":\"192\",\"GDENR\":\"4197\",\"ART\":\"Gebaeude\",\"ASSNR\":\"55\",\"ORI\":\"19.8\",\"Shape\":\"Point\",\"EGID\":\"589311\"}},{\"layerId\":26,\"layerName\":\"AV:
+        Strassenachsen\",\"displayFieldName\":\"STRNAME\",\"value\":\"Bahnhofstrasse\",\"attributes\":{\"FILEID\":\"192\",\"GDENR\":\"4197\",\"ART\":\"Strasse\",\"NUMPRINZIP\":\"beliebig\",\"ISTOFF\":\"ja\",\"STRNAME\":\"Bahnhofstrasse\",\"OBJECTID\":\"15881856\",\"SHAPE\":\"Polyline\",\"SHAPE.STLength()\":\"113.772792\"}},{\"layerId\":26,\"layerName\":\"AV:
+        Strassenachsen\",\"displayFieldName\":\"STRNAME\",\"value\":\"H\xFCbel\",\"attributes\":{\"FILEID\":\"192\",\"GDENR\":\"4197\",\"ART\":\"Strasse\",\"NUMPRINZIP\":\"beliebig\",\"ISTOFF\":\"ja\",\"STRNAME\":\"H\xFCbel\",\"OBJECTID\":\"15881865\",\"SHAPE\":\"Polyline\",\"SHAPE.STLength()\":\"57.072663\"}},{\"layerId\":26,\"layerName\":\"AV:
+        Strassenachsen\",\"displayFieldName\":\"STRNAME\",\"value\":\"Langjucharten\",\"attributes\":{\"FILEID\":\"192\",\"GDENR\":\"4197\",\"ART\":\"Strasse\",\"NUMPRINZIP\":\"beliebig\",\"ISTOFF\":\"ja\",\"STRNAME\":\"Langjucharten\",\"OBJECTID\":\"15881860\",\"SHAPE\":\"Polyline\",\"SHAPE.STLength()\":\"26.345267\"}},{\"layerId\":26,\"layerName\":\"AV:
+        Strassenachsen\",\"displayFieldName\":\"STRNAME\",\"value\":\"Langjucharten\",\"attributes\":{\"FILEID\":\"192\",\"GDENR\":\"4197\",\"ART\":\"Strasse\",\"NUMPRINZIP\":\"beliebig\",\"ISTOFF\":\"ja\",\"STRNAME\":\"Langjucharten\",\"OBJECTID\":\"15881863\",\"SHAPE\":\"Polyline\",\"SHAPE.STLength()\":\"33.317511\"}},{\"layerId\":27,\"layerName\":\"AV:
+        Strassennamen\",\"displayFieldName\":\"STRNAME\",\"value\":\"Langjucharten\",\"attributes\":{\"OBJECTID\":\"11193898\",\"FILEID\":\"192\",\"GDENR\":\"4197\",\"ART\":\"Strasse\",\"STRNAME\":\"Langjucharten\",\"ORI\":\"22.9\",\"Shape\":\"Point\"}},{\"layerId\":35,\"layerName\":\"Kurzinventar
+        Denkmalpflege\",\"displayFieldName\":\"Signatur\",\"value\":\"KI-HAW904\",\"attributes\":{\"OBJECTID\":\"145\",\"Signatur\":\"KI-HAW904\",\"Titel\":\"Alte
+        Post\",\"E_Koord\":\"2655777\",\"N_Koord\":\"1242133\",\"Adresse\":\"Bahnhofstrasse
+        55\",\"Gemeinde\":\"Hallwil\",\"Nutzungstyp\":\"Wohnhaus Nr. 55 (\xF6stl.
+        Geb\xE4udeh\xE4lfte)\",\"Shape\":\"Point\"}},{\"layerId\":86,\"layerName\":\"Zuglinien\",\"displayFieldName\":\"NR\",\"value\":\"S9\",\"attributes\":{\"SHAPE.STLength()\":\"47329.339364\",\"OBJECTID\":\"344\",\"VM_NAME\":\"Zug\",\"NR\":\"S9\",\"RICHTUNG\":\"Null\",\"STRECKE\":\"Lenzburg
+        - Luzern\",\"FAHRPLANNR\":\"651\",\"GO_NR\":\"11\",\"GO_ABK\":\"SBB\",\"GO_NAME\":\"Schweizerische
+        Bundesbahnen SBB\",\"FAHRPLANFELDER\":\"https://widgets.oev-info.ch/publikation/jahresfpl/651.pdf\",\"SHAPE\":\"Polyline\"}},{\"layerId\":11938,\"layerName\":\"Strassen\",\"displayFieldName\":\"Verursacher\",\"value\":\"Strassen\",\"attributes\":{\"OBJECTID\":\"4\",\"Verursacher\":\"Strassen\",\"Trennkriterium\":\"3'001
+        \u2013 20'000 DTV\",\"Ausdehnung der Belastungsfl\xE4che\":\"Die Darstellung
+        ist nicht lagegenau. Massgebend ist der Pr\xFCfperimeter von je 10m seitlich
+        ab Fahrbahnrand.\",\"Belastungsursache\":\"Treibstoffverbrennung, Abgasemission,
+        Abrieb von Strassenbelag, Bremsbelag und Pneu\",\"Prim\xE4re Schadstoffe\":\"Pb,
+        PAK\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"22365578.6883\",\"Shape.STLength()\":\"1493739.41405\"}},{\"layerId\":141,\"layerName\":\"Bereiche
+        rechtsg\xFCltiger Sondernutzungspl\xE4ne\",\"displayFieldName\":\"NameNummer\",\"value\":\"22708\",\"attributes\":{\"OBJECTID\":\"22708\",\"GDENR\":\"Hallwil
+        4197\",\"HNCode\":\"61\",\"HNBez\":\"Bereiche rechtsg\xFCltiger Sondernutzungspl\xE4ne\",\"KTCode\":\"6111\",\"KTAbk\":\"EP\",\"KTBez\":\"Bereich
+        rechtsg\xFCltiger Erschliessungspl\xE4ne\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"611101\",\"GDEBez\":\"Erschliessungsplan
+        R\xFCchlig\",\"GDEAbk\":\"EP\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2007-000581\",\"GeschNr\":\"BVUARE.06.10\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"SNP\",\"Geolink\":\"3631\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3631.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"20898.225429\",\"SHAPE.STLength()\":\"835.28862\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"170700\",\"attributes\":{\"OBJECTID\":\"170700\",\"GDENR\":\"Hallwil
+        4197\",\"HNCode\":\"14\",\"HNBez\":\"Zentrumszonen\",\"KTAAbk\":\"Wohn- und
+        Arbeitszonen\",\"KTCode\":\"1411\",\"KTAbk\":\"D\",\"KTBez\":\"Dorfkernzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"141101\",\"GDEBez\":\"Dorfkernzone\",\"GDEAbk\":\"D\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"0.65\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_III\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2024-000476\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.10.91\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"5185\",\"Geolink_ES\":\"3633\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/5185.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        ES\":\"ja\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"7288.137634\",\"Shape.STLength()\":\"538.771527\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"170693\",\"attributes\":{\"OBJECTID\":\"170693\",\"GDENR\":\"Hallwil
+        4197\",\"HNCode\":\"14\",\"HNBez\":\"Zentrumszonen\",\"KTAAbk\":\"Wohn- und
+        Arbeitszonen\",\"KTCode\":\"1411\",\"KTAbk\":\"D\",\"KTBez\":\"Dorfkernzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"141101\",\"GDEBez\":\"Dorfkernzone\",\"GDEAbk\":\"D\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"0.65\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_III\",\"ES_aufgest\":\"nein\",\"Strasse\":\"ja\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2024-000476\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.10.91\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"5185\",\"Geolink_ES\":\"3633\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/5185.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        ES\":\"ja\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1263.54135\",\"Shape.STLength()\":\"648.792216\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"170665\",\"attributes\":{\"OBJECTID\":\"170665\",\"GDENR\":\"Hallwil
+        4197\",\"HNCode\":\"18\",\"HNBez\":\"Verkehrszonen innerhalb der Bauzonen\",\"KTAAbk\":\"Verkehrszonen
+        (sofern in der Nutzungsplanung abgebildet)\",\"KTCode\":\"1811\",\"KTAbk\":\"VN\",\"KTBez\":\"Kantons-
+        und Nationalstrasse\",\"KTVerb\":\"Orientierungsinhalt\",\"GDECode\":\"181101\",\"GDEBez\":\"Verkehrsfl\xE4che\",\"GDEAbk\":\"VN\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"orientierend\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"ja\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2024-000476\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.10.91\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"5185\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/5185.html\",\"OEREBexport\":\"nein\",\"OEREBexport
+        ES\":\"nein\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"14188.369575\",\"Shape.STLength()\":\"2774.041922\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"170768\",\"attributes\":{\"OBJECTID\":\"170768\",\"GDENR\":\"Hallwil
+        4197\",\"HNCode\":\"18\",\"HNBez\":\"Verkehrszonen innerhalb der Bauzonen\",\"KTAAbk\":\"Verkehrszonen
+        (sofern in der Nutzungsplanung abgebildet)\",\"KTCode\":\"1812\",\"KTAbk\":\"VB\",\"KTBez\":\"Bahnfl\xE4che\",\"KTVerb\":\"Orientierungsinhalt\",\"GDECode\":\"181201\",\"GDEBez\":\"Verkehrsfl\xE4che
+        Bahn\",\"GDEAbk\":\"VNB\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"orientierend\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"ja\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2024-000476\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.10.91\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"5185\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/5185.html\",\"OEREBexport\":\"nein\",\"OEREBexport
+        ES\":\"nein\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"3532.594878\",\"Shape.STLength()\":\"603.567455\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '2599'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:17:23 GMT
+      ETag:
+      - '"b07da39e"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|0NpjA36Z7i-L-npDDHdPmQ==|VNOMI0xKzxRNcUO2WLR1elBKDmYZO5ezhpW10R__JDyNWPvl3JBHQZAch4asXecn_myfbPM=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:18:23 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce510c907a00b2e1255c3ca36dd864ef506908416a8b7121be3461154f54fdac54effbb00efbe1a844086353028c2d2e94e8d;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce510c907a00b2e1255c3ca36dd864ef506908416a8b7121be3461154f54fdac54effbb00efbe1a844086353028c2d2e94e8d;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2655776%2C1242132%2C2655778%2C1242134&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Hallwil\",\"attributes\":{\"OBJECTID\":\"58\",\"GDENR\":\"4197\",\"GEMEINDE\":\"Hallwil\",\"GEMEINDEZ\":\"Hallwil\",\"GEMEINDEU\":\"Hallwil\",\"BZNR\":\"1907\",\"BEZIRK\":\"Lenzburg\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Lenzburg\",\"Geometer\":\"Oliver Flury\",\"Strasse\":\"Dammweg 21\",\"PLZOrt\":\"5600
+        Lenzburg\",\"ID\":\"4197\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"2180067.073073\",\"SHAPE.STLength()\":\"7014.497176\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"726\",\"attributes\":{\"OBJECTID\":\"77922904\",\"FILEID\":\"192\",\"GDENR\":\"4197\",\"GDENRPARZ\":\"419700726\",\"NUMMER\":\"726\",\"EGRID\":\"CH707611700515\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1482\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1482.010921\",\"SHAPE.STLength()\":\"164.698231\"}},{\"layerId\":24,\"layerName\":\"AV:
+        Assekuranznummern\",\"displayFieldName\":\"ART\",\"value\":\"Gebaeude\",\"attributes\":{\"OBJECTID\":\"65647210\",\"FILEID\":\"192\",\"GDENR\":\"4197\",\"ART\":\"Gebaeude\",\"ASSNR\":\"55\",\"ORI\":\"19.8\",\"Shape\":\"Point\",\"EGID\":\"589311\"}},{\"layerId\":35,\"layerName\":\"Kurzinventar
+        Denkmalpflege\",\"displayFieldName\":\"Signatur\",\"value\":\"KI-HAW904\",\"attributes\":{\"OBJECTID\":\"145\",\"Signatur\":\"KI-HAW904\",\"Titel\":\"Alte
+        Post\",\"E_Koord\":\"2655777\",\"N_Koord\":\"1242133\",\"Adresse\":\"Bahnhofstrasse
+        55\",\"Gemeinde\":\"Hallwil\",\"Nutzungstyp\":\"Wohnhaus Nr. 55 (\xF6stl.
+        Geb\xE4udeh\xE4lfte)\",\"Shape\":\"Point\"}},{\"layerId\":141,\"layerName\":\"Bereiche
+        rechtsg\xFCltiger Sondernutzungspl\xE4ne\",\"displayFieldName\":\"NameNummer\",\"value\":\"22708\",\"attributes\":{\"OBJECTID\":\"22708\",\"GDENR\":\"Hallwil
+        4197\",\"HNCode\":\"61\",\"HNBez\":\"Bereiche rechtsg\xFCltiger Sondernutzungspl\xE4ne\",\"KTCode\":\"6111\",\"KTAbk\":\"EP\",\"KTBez\":\"Bereich
+        rechtsg\xFCltiger Erschliessungspl\xE4ne\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"611101\",\"GDEBez\":\"Erschliessungsplan
+        R\xFCchlig\",\"GDEAbk\":\"EP\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2007-000581\",\"GeschNr\":\"BVUARE.06.10\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"SNP\",\"Geolink\":\"3631\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3631.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"20898.225429\",\"SHAPE.STLength()\":\"835.28862\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"170700\",\"attributes\":{\"OBJECTID\":\"170700\",\"GDENR\":\"Hallwil
+        4197\",\"HNCode\":\"14\",\"HNBez\":\"Zentrumszonen\",\"KTAAbk\":\"Wohn- und
+        Arbeitszonen\",\"KTCode\":\"1411\",\"KTAbk\":\"D\",\"KTBez\":\"Dorfkernzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"141101\",\"GDEBez\":\"Dorfkernzone\",\"GDEAbk\":\"D\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"0.65\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_III\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2024-000476\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.10.91\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"5185\",\"Geolink_ES\":\"3633\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/5185.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        ES\":\"ja\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"7288.137634\",\"Shape.STLength()\":\"538.771527\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1300'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:22:07 GMT
+      ETag:
+      - '"d52f0a3d"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|C8OqMqZpyjX8VSRGNykZOg==|TYYz_dp9c-f-IBlHP6lwTt0C8TeVNfslOshk8l9Gv-uaeDXQKZdRwPltc768NenjDqjskxM=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:23:07 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce51073bfe4dd1685b087061b2ffcd4f275546b0a6572a92b9453a882a430f7df2e23bed990e986eebee4c2d749ba169c6cb9;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce51073bfe4dd1685b087061b2ffcd4f275546b0a6572a92b9453a882a430f7df2e23bed990e986eebee4c2d749ba169c6cb9;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2655757%2C1242113%2C2655797%2C1242153&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="sym-gcm|1|C8OqMqZpyjX8VSRGNykZOg==|TYYz_dp9c-f-IBlHP6lwTt0C8TeVNfslOshk8l9Gv-uaeDXQKZdRwPltc768NenjDqjskxM=";
+        TS01975bae=0100bce51073bfe4dd1685b087061b2ffcd4f275546b0a6572a92b9453a882a430f7df2e23bed990e986eebee4c2d749ba169c6cb9;
+        XWAF=1791920065.47873.0000; TS014419e9=0100bce51073bfe4dd1685b087061b2ffcd4f275546b0a6572a92b9453a882a430f7df2e23bed990e986eebee4c2d749ba169c6cb9
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Hallwil\",\"attributes\":{\"OBJECTID\":\"58\",\"GDENR\":\"4197\",\"GEMEINDE\":\"Hallwil\",\"GEMEINDEZ\":\"Hallwil\",\"GEMEINDEU\":\"Hallwil\",\"BZNR\":\"1907\",\"BEZIRK\":\"Lenzburg\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Lenzburg\",\"Geometer\":\"Oliver Flury\",\"Strasse\":\"Dammweg 21\",\"PLZOrt\":\"5600
+        Lenzburg\",\"ID\":\"4197\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"2180067.073073\",\"SHAPE.STLength()\":\"7014.497176\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"723\",\"attributes\":{\"OBJECTID\":\"80715268\",\"FILEID\":\"192\",\"GDENR\":\"4197\",\"NUMMER\":\"723\",\"ART\":\"Liegenschaft\",\"ORI\":\"31.3\",\"Shape\":\"Point\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"957\",\"attributes\":{\"OBJECTID\":\"80715103\",\"FILEID\":\"192\",\"GDENR\":\"4197\",\"NUMMER\":\"957\",\"ART\":\"Liegenschaft\",\"ORI\":\"0\",\"Shape\":\"Point\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"1332\",\"attributes\":{\"OBJECTID\":\"77923600\",\"FILEID\":\"192\",\"GDENR\":\"4197\",\"GDENRPARZ\":\"419701332\",\"NUMMER\":\"1332\",\"EGRID\":\"CH171176740534\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"500\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"500.373003\",\"SHAPE.STLength()\":\"90.150945\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"726\",\"attributes\":{\"OBJECTID\":\"77922904\",\"FILEID\":\"192\",\"GDENR\":\"4197\",\"GDENRPARZ\":\"419700726\",\"NUMMER\":\"726\",\"EGRID\":\"CH707611700515\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1482\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1482.010921\",\"SHAPE.STLength()\":\"164.698231\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"957\",\"attributes\":{\"OBJECTID\":\"77922861\",\"FILEID\":\"192\",\"GDENR\":\"4197\",\"GDENRPARZ\":\"419700957\",\"NUMMER\":\"957\",\"EGRID\":\"CH341105767197\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"542\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"541.601905\",\"SHAPE.STLength()\":\"98.025421\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"804\",\"attributes\":{\"OBJECTID\":\"77922860\",\"FILEID\":\"192\",\"GDENR\":\"4197\",\"GDENRPARZ\":\"419700804\",\"NUMMER\":\"804\",\"EGRID\":\"CH127670051106\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"33523\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"33524.391489\",\"SHAPE.STLength()\":\"3941.143795\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"716\",\"attributes\":{\"OBJECTID\":\"77923418\",\"FILEID\":\"192\",\"GDENR\":\"4197\",\"GDENRPARZ\":\"419700716\",\"NUMMER\":\"716\",\"EGRID\":\"CH630576117977\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"1114\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1114.330454\",\"SHAPE.STLength()\":\"141.143235\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"723\",\"attributes\":{\"OBJECTID\":\"77923144\",\"FILEID\":\"192\",\"GDENR\":\"4197\",\"GDENRPARZ\":\"419700723\",\"NUMMER\":\"723\",\"EGRID\":\"CH790576701130\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"413\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"412.948601\",\"SHAPE.STLength()\":\"189.247103\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"717\",\"attributes\":{\"OBJECTID\":\"77923536\",\"FILEID\":\"192\",\"GDENR\":\"4197\",\"GDENRPARZ\":\"419700717\",\"NUMMER\":\"717\",\"EGRID\":\"CH641105767984\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"416\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"416.210758\",\"SHAPE.STLength()\":\"246.688733\"}},{\"layerId\":24,\"layerName\":\"AV:
+        Assekuranznummern\",\"displayFieldName\":\"ART\",\"value\":\"Gebaeude\",\"attributes\":{\"OBJECTID\":\"65647210\",\"FILEID\":\"192\",\"GDENR\":\"4197\",\"ART\":\"Gebaeude\",\"ASSNR\":\"55\",\"ORI\":\"19.8\",\"Shape\":\"Point\",\"EGID\":\"589311\"}},{\"layerId\":26,\"layerName\":\"AV:
+        Strassenachsen\",\"displayFieldName\":\"STRNAME\",\"value\":\"Bahnhofstrasse\",\"attributes\":{\"FILEID\":\"192\",\"GDENR\":\"4197\",\"ART\":\"Strasse\",\"NUMPRINZIP\":\"beliebig\",\"ISTOFF\":\"ja\",\"STRNAME\":\"Bahnhofstrasse\",\"OBJECTID\":\"15881856\",\"SHAPE\":\"Polyline\",\"SHAPE.STLength()\":\"113.772792\"}},{\"layerId\":26,\"layerName\":\"AV:
+        Strassenachsen\",\"displayFieldName\":\"STRNAME\",\"value\":\"H\xFCbel\",\"attributes\":{\"FILEID\":\"192\",\"GDENR\":\"4197\",\"ART\":\"Strasse\",\"NUMPRINZIP\":\"beliebig\",\"ISTOFF\":\"ja\",\"STRNAME\":\"H\xFCbel\",\"OBJECTID\":\"15881865\",\"SHAPE\":\"Polyline\",\"SHAPE.STLength()\":\"57.072663\"}},{\"layerId\":26,\"layerName\":\"AV:
+        Strassenachsen\",\"displayFieldName\":\"STRNAME\",\"value\":\"Langjucharten\",\"attributes\":{\"FILEID\":\"192\",\"GDENR\":\"4197\",\"ART\":\"Strasse\",\"NUMPRINZIP\":\"beliebig\",\"ISTOFF\":\"ja\",\"STRNAME\":\"Langjucharten\",\"OBJECTID\":\"15881860\",\"SHAPE\":\"Polyline\",\"SHAPE.STLength()\":\"26.345267\"}},{\"layerId\":26,\"layerName\":\"AV:
+        Strassenachsen\",\"displayFieldName\":\"STRNAME\",\"value\":\"Langjucharten\",\"attributes\":{\"FILEID\":\"192\",\"GDENR\":\"4197\",\"ART\":\"Strasse\",\"NUMPRINZIP\":\"beliebig\",\"ISTOFF\":\"ja\",\"STRNAME\":\"Langjucharten\",\"OBJECTID\":\"15881863\",\"SHAPE\":\"Polyline\",\"SHAPE.STLength()\":\"33.317511\"}},{\"layerId\":27,\"layerName\":\"AV:
+        Strassennamen\",\"displayFieldName\":\"STRNAME\",\"value\":\"Langjucharten\",\"attributes\":{\"OBJECTID\":\"11193898\",\"FILEID\":\"192\",\"GDENR\":\"4197\",\"ART\":\"Strasse\",\"STRNAME\":\"Langjucharten\",\"ORI\":\"22.9\",\"Shape\":\"Point\"}},{\"layerId\":35,\"layerName\":\"Kurzinventar
+        Denkmalpflege\",\"displayFieldName\":\"Signatur\",\"value\":\"KI-HAW904\",\"attributes\":{\"OBJECTID\":\"145\",\"Signatur\":\"KI-HAW904\",\"Titel\":\"Alte
+        Post\",\"E_Koord\":\"2655777\",\"N_Koord\":\"1242133\",\"Adresse\":\"Bahnhofstrasse
+        55\",\"Gemeinde\":\"Hallwil\",\"Nutzungstyp\":\"Wohnhaus Nr. 55 (\xF6stl.
+        Geb\xE4udeh\xE4lfte)\",\"Shape\":\"Point\"}},{\"layerId\":86,\"layerName\":\"Zuglinien\",\"displayFieldName\":\"NR\",\"value\":\"S9\",\"attributes\":{\"SHAPE.STLength()\":\"47329.339364\",\"OBJECTID\":\"344\",\"VM_NAME\":\"Zug\",\"NR\":\"S9\",\"RICHTUNG\":\"Null\",\"STRECKE\":\"Lenzburg
+        - Luzern\",\"FAHRPLANNR\":\"651\",\"GO_NR\":\"11\",\"GO_ABK\":\"SBB\",\"GO_NAME\":\"Schweizerische
+        Bundesbahnen SBB\",\"FAHRPLANFELDER\":\"https://widgets.oev-info.ch/publikation/jahresfpl/651.pdf\",\"SHAPE\":\"Polyline\"}},{\"layerId\":11938,\"layerName\":\"Strassen\",\"displayFieldName\":\"Verursacher\",\"value\":\"Strassen\",\"attributes\":{\"OBJECTID\":\"4\",\"Verursacher\":\"Strassen\",\"Trennkriterium\":\"3'001
+        \u2013 20'000 DTV\",\"Ausdehnung der Belastungsfl\xE4che\":\"Die Darstellung
+        ist nicht lagegenau. Massgebend ist der Pr\xFCfperimeter von je 10m seitlich
+        ab Fahrbahnrand.\",\"Belastungsursache\":\"Treibstoffverbrennung, Abgasemission,
+        Abrieb von Strassenbelag, Bremsbelag und Pneu\",\"Prim\xE4re Schadstoffe\":\"Pb,
+        PAK\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"22365578.6883\",\"Shape.STLength()\":\"1493739.41405\"}},{\"layerId\":141,\"layerName\":\"Bereiche
+        rechtsg\xFCltiger Sondernutzungspl\xE4ne\",\"displayFieldName\":\"NameNummer\",\"value\":\"22708\",\"attributes\":{\"OBJECTID\":\"22708\",\"GDENR\":\"Hallwil
+        4197\",\"HNCode\":\"61\",\"HNBez\":\"Bereiche rechtsg\xFCltiger Sondernutzungspl\xE4ne\",\"KTCode\":\"6111\",\"KTAbk\":\"EP\",\"KTBez\":\"Bereich
+        rechtsg\xFCltiger Erschliessungspl\xE4ne\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"611101\",\"GDEBez\":\"Erschliessungsplan
+        R\xFCchlig\",\"GDEAbk\":\"EP\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2007-000581\",\"GeschNr\":\"BVUARE.06.10\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"SNP\",\"Geolink\":\"3631\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3631.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"20898.225429\",\"SHAPE.STLength()\":\"835.28862\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"170700\",\"attributes\":{\"OBJECTID\":\"170700\",\"GDENR\":\"Hallwil
+        4197\",\"HNCode\":\"14\",\"HNBez\":\"Zentrumszonen\",\"KTAAbk\":\"Wohn- und
+        Arbeitszonen\",\"KTCode\":\"1411\",\"KTAbk\":\"D\",\"KTBez\":\"Dorfkernzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"141101\",\"GDEBez\":\"Dorfkernzone\",\"GDEAbk\":\"D\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"0.65\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_III\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2024-000476\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.10.91\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"5185\",\"Geolink_ES\":\"3633\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/5185.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        ES\":\"ja\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"7288.137634\",\"Shape.STLength()\":\"538.771527\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"170693\",\"attributes\":{\"OBJECTID\":\"170693\",\"GDENR\":\"Hallwil
+        4197\",\"HNCode\":\"14\",\"HNBez\":\"Zentrumszonen\",\"KTAAbk\":\"Wohn- und
+        Arbeitszonen\",\"KTCode\":\"1411\",\"KTAbk\":\"D\",\"KTBez\":\"Dorfkernzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"141101\",\"GDEBez\":\"Dorfkernzone\",\"GDEAbk\":\"D\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"0.65\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_III\",\"ES_aufgest\":\"nein\",\"Strasse\":\"ja\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2024-000476\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.10.91\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"5185\",\"Geolink_ES\":\"3633\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/5185.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        ES\":\"ja\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1263.54135\",\"Shape.STLength()\":\"648.792216\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"170665\",\"attributes\":{\"OBJECTID\":\"170665\",\"GDENR\":\"Hallwil
+        4197\",\"HNCode\":\"18\",\"HNBez\":\"Verkehrszonen innerhalb der Bauzonen\",\"KTAAbk\":\"Verkehrszonen
+        (sofern in der Nutzungsplanung abgebildet)\",\"KTCode\":\"1811\",\"KTAbk\":\"VN\",\"KTBez\":\"Kantons-
+        und Nationalstrasse\",\"KTVerb\":\"Orientierungsinhalt\",\"GDECode\":\"181101\",\"GDEBez\":\"Verkehrsfl\xE4che\",\"GDEAbk\":\"VN\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"orientierend\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"ja\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2024-000476\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.10.91\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"5185\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/5185.html\",\"OEREBexport\":\"nein\",\"OEREBexport
+        ES\":\"nein\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"14188.369575\",\"Shape.STLength()\":\"2774.041922\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"170768\",\"attributes\":{\"OBJECTID\":\"170768\",\"GDENR\":\"Hallwil
+        4197\",\"HNCode\":\"18\",\"HNBez\":\"Verkehrszonen innerhalb der Bauzonen\",\"KTAAbk\":\"Verkehrszonen
+        (sofern in der Nutzungsplanung abgebildet)\",\"KTCode\":\"1812\",\"KTAbk\":\"VB\",\"KTBez\":\"Bahnfl\xE4che\",\"KTVerb\":\"Orientierungsinhalt\",\"GDECode\":\"181201\",\"GDEBez\":\"Verkehrsfl\xE4che
+        Bahn\",\"GDEAbk\":\"VNB\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"orientierend\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"ja\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2024-000476\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.10.91\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"5185\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/5185.html\",\"OEREBexport\":\"nein\",\"OEREBexport
+        ES\":\"nein\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"3532.594878\",\"Shape.STLength()\":\"603.567455\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '2599'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:22:08 GMT
+      ETag:
+      - '"b07da39e"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|RH-ySpjqCrp6ndmZPfGKTg==|nq-KaWPmJ6pQupyFk0LTE80Lz_dfrCAHAEVm2qmZkhagwekUyIp0P0YzoX2C7UdJfyTLzes=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:23:07 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce51073bfe4dd1685b087061b2ffcd4f275546b0a6572a92b9453a882a430f7df2e23bed990e986eebee4c2d749ba169c6cb9;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce51073bfe4dd1685b087061b2ffcd4f275546b0a6572a92b9453a882a430f7df2e23bed990e986eebee4c2d749ba169c6cb9;
         path=/geoportal/rest
       Strict-Transport-Security:
       - max-age=16070400; includeSubDomains
