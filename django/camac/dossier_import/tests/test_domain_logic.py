@@ -164,7 +164,6 @@ def test_perform_reimport(  # noqa: C901
 
     # get the imported values from the secondary archive that should have
     # been written to the dossier
-    reimport.source_file.file.seek(0)
     dossier = next(dossier_loader.load_dossiers(reimport), None)
     dossier_dict = dict(
         (field.name, getattr(dossier, field.name))

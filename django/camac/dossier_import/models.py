@@ -199,12 +199,19 @@ class DossierImport(models.Model):
         }.get(self.status, self.status)
 
     def get_archive(self):
-        tmp = NamedTemporaryFile()
+        tmp = NamedTemporaryFile(suffix="zip")
         tmp_file = Path(tmp.name)
-        file = tmp_file.open("w+b")
-        file.write(self.source_file.file.file.read())
+        tmp_fh = tmp_file.open("w+b")
 
-        return zipfile.ZipFile(file, "r")
+        # Ensure regardless of storage API, and what happened to the model/file
+        # beforehand, we properly read the source file every time
+        with self.source_file.file.open() as source_file:
+            source_file.seek(0)
+            tmp_fh.write(source_file.read())
+
+        tmp_fh.seek(0)
+
+        return zipfile.ZipFile(tmp_fh, "r")
 
 
 class MigrationDocumentStatus(models.Model):
