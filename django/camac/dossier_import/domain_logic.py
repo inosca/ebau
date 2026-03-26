@@ -4,7 +4,6 @@ import sys
 import time
 import traceback
 from dataclasses import asdict
-from functools import wraps
 from logging import getLogger
 from typing import Callable
 
@@ -41,22 +40,6 @@ from camac.utils import build_url
 log = getLogger(__name__)
 
 
-def delay_and_refresh(func):
-    @wraps(func)
-    def wrapper(dossier_import, *args, **kwargs):
-        # django-q is using pickle to transmit arguments. We need to refresh from db, otherwise
-        # the task id (which we set immediately after the task is started) is lost when we save the
-        # pickled object.
-        # We also need to make sure that the view has finished processing (i.e. saved the task id),
-        # so we wait shortly.
-        time.sleep(0.1)
-        dossier_import.refresh_from_db()
-        return func(dossier_import, *args, **kwargs)
-
-    return wrapper
-
-
-@delay_and_refresh
 def perform_import(
     dossier_import: DossierImport,
     skip_existing=False,
@@ -163,7 +146,6 @@ def get_token():
     return r.json()["access_token"]
 
 
-@delay_and_refresh
 def transmit_import(dossier_import):
     return _do_transmit_import(dossier_import)
 
@@ -213,7 +195,6 @@ def _do_transmit_import(dossier_import):
     return dossier_import.status
 
 
-@delay_and_refresh
 def undo_import(dossier_import):
     return _do_undo_import(dossier_import)
 
