@@ -1,0 +1,10 @@
+{{#unless this.ebauModules.isPortal}}
+  <div class="uk-alert border-highlight uk-margin-remove">
+    <LinkTo
+      @route="cases.detail.construction-monitoring"
+      @model={{this.ebauModules.instanceId}}
+    >
+      {{t "workItems.formal-exam.new-address-needed"}}
+    </LinkTo>
+  </div>
+{{/unless}}
