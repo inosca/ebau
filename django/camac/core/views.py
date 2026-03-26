@@ -422,7 +422,8 @@ class ResourceView(ReadOnlyModelViewSet):
         # In Kt. AG, "light" municipalities should not see the global GWR resource
         # If we have more use cases for dynamic resource visibility, extract this
         # into something more generic.
-        if self.request.group.service.service_group.name == "municipality-light":
+        service = self.request.group.service
+        if service and service.service_group.name == "municipality-light":
             return self._get_queryset().exclude(template__contains="gwr-global")
         return self._get_queryset()
 
