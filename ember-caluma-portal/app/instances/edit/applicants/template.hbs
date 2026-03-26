@@ -55,13 +55,35 @@
             )
           }}
             <td class="uk-text-right">
-              <button
-                type="button"
-                class="uk-icon-button"
-                uk-icon="trash"
-                title={{t "global.delete"}}
-                {{on "click" (perform this.delete applicant)}}
-              ></button>
+              {{#if (not-eq applicant.role "PROJECT_OWNER")}}
+                <button
+                  type="button"
+                  class="uk-icon-button"
+                  uk-icon="trash"
+                  title={{t "global.delete"}}
+                  {{on "click" (perform this.delete applicant)}}
+                ></button>
+              {{else}}
+                <button
+                  uk-toggle="target: #project-owner-info"
+                  class="uk-icon-button"
+                  uk-icon="question"
+                  type="button"
+                ></button>
+
+                <div id="project-owner-info" uk-modal>
+                  <div class="uk-modal-dialog uk-modal-body">
+                    <span>{{t
+                        "instances.applicants.role-project-owner-info"
+                      }}</span>
+                    <button
+                      class="uk-modal-close-default"
+                      type="button"
+                      uk-close
+                    ></button>
+                  </div>
+                </div>
+              {{/if}}
             </td>
           {{/if}}
         </tr>
@@ -112,13 +134,13 @@
             {{on "change" this.setRole}}
           >
             <option value="ADMIN">
-              {{t "instances.applicants.roles.admin"}}
+              {{t "permissions.entities.applicant-roles.admin"}}
             </option>
             <option value="EDITOR">
-              {{t "instances.applicants.roles.editor"}}
+              {{t "permissions.entities.applicant-roles.editor"}}
             </option>
             <option value="READ_ONLY">
-              {{t "instances.applicants.roles.read-only"}}
+              {{t "permissions.entities.applicant-roles.read-only"}}
             </option>
           </select>
         </div>

@@ -99,7 +99,7 @@ export default class CustomSession extends Session {
   }
 
   get isReadOnlyRole() {
-    return this.role?.slug.endsWith("-read");
+    return this.role?.slug?.endsWith("-read");
   }
 
   get service() {

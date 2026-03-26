@@ -366,10 +366,7 @@ instances:
     deleteError: "Beim Löschen des Benutzers ist etwas schief gelaufen"
 
     role: "Rolle"
-    roles:
-      admin: "Administrator/in"
-      editor: "Mitbearbeiter/in"
-      read-only: "Einsichtsberechtigt"
+    role-project-owner-info: "Die Rolle Bauherrschaft wird nach dem Einreichen den erfassten Gesuchsteller/innen sowie deren Vertretungen vergeben. Diese Rolle wird nur vom System vergeben und kann nicht manuell erfasst werden."
 
 claims:
   deadline: "Fällig"

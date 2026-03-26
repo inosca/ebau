@@ -15,6 +15,11 @@ permissions:
     public-anonymous: Accès public (non enregistré)
     token: Via le code d'accès
     role: Rôle
+    applicant-roles:
+      project-owner: "Maître d'ouvrage"
+      admin: "Administrateur/trice"
+      editor: "Collaborateur/trice"
+      read-only: "Lecture seule"
 
   placeholder:
     name: "-"

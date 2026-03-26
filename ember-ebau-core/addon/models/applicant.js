@@ -16,12 +16,16 @@ export default class Applicant extends Model {
 
   get roleName() {
     switch (this.role) {
+      case "PROJECT_OWNER":
+        return this.intl.t(
+          "permissions.entities.applicant-roles.project-owner",
+        );
       case "ADMIN":
-        return this.intl.t("instances.applicants.roles.admin");
+        return this.intl.t("permissions.entities.applicant-roles.admin");
       case "EDITOR":
-        return this.intl.t("instances.applicants.roles.editor");
+        return this.intl.t("permissions.entities.applicant-roles.editor");
       case "READ_ONLY":
-        return this.intl.t("instances.applicants.roles.read-only");
+        return this.intl.t("permissions.entities.applicant-roles.read-only");
       default:
         return "-";
     }

@@ -24,6 +24,7 @@ from rest_framework import exceptions, response, status
 from rest_framework_json_api import relations, serializers
 
 from camac import request_cache
+from camac.applicants.models import Applicant
 from camac.caluma.api import CalumaApi
 from camac.caluma.models import Inquiry, Instance
 from camac.constants import kt_uri as uri_constants
@@ -1914,9 +1915,6 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             )
 
     def _so_handle_special_forms(self, instance):
-        if settings.APPLICATION_NAME != "kt_so":
-            return
-
         user = self.context["request"].user
 
         if get_unversioned_slug(instance.case.document.form_id) in [
@@ -1924,6 +1922,15 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             "meldung",
         ]:
             instance.set_instance_state("init-distribution", user)
+
+    def _so_submit(self, instance: Instance) -> None:
+        if settings.APPLICATION_NAME != "kt_so":
+            return
+
+        self._so_handle_special_forms(instance)
+        Applicant.objects.create_or_update_project_owners_for_instance(
+            instance, self.get_master_data(instance.case).applicants
+        )
 
     def _ag_handle_pgv(self, instance):
         if (
@@ -1991,7 +1998,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             self._handle_extend_validity_form(case, instance)
             self._ur_internal_submission(instance, group)
             self._ur_prepare_cantonal_instances(instance)
-            self._so_handle_special_forms(instance)
+            self._so_submit(instance)
             instance.update_bab_status()
             self._ag_handle_pgv(instance)
             self._ag_handle_special_forms(instance)

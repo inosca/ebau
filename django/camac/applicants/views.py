@@ -81,6 +81,10 @@ class ApplicantsView(InstanceQuerysetMixin, ModelViewSet):
         if not manager.has_all(obj.instance, applicant_permissions.APPLICANT_REMOVE):
             return False
 
+        # Project owner cannot be removed
+        if obj.role == models.ROLE_CHOICES.PROJECT_OWNER.value:
+            return False
+
         admins = obj.instance.involved_applicants.filter(
             role=models.ROLE_CHOICES.ADMIN.value,
             invitee__isnull=False,
@@ -98,11 +102,16 @@ class ApplicantsView(InstanceQuerysetMixin, ModelViewSet):
 
     def has_object_destroy_permission_for_support(self, obj):
         # Support override ¯\_(ツ)_/¯
+        # Project owner cannot be removed
+        if obj.role == models.ROLE_CHOICES.PROJECT_OWNER.value:
+            return False
         return True
 
     @has_object_destroy_permission.register_old
     @permission_aware
     def _has_object_destroy_permission(self, obj):
+        if obj.role == models.ROLE_CHOICES.PROJECT_OWNER.value:
+            return False
         # it should not be possible to delete the last involved applicant to
         # prevent having an instance without a user having access to it
         return obj.instance.involved_applicants.count() > 1
@@ -117,4 +126,6 @@ class ApplicantsView(InstanceQuerysetMixin, ModelViewSet):
         return False
 
     def _has_object_destroy_permission_for_support(self, obj):
+        if obj.role == models.ROLE_CHOICES.PROJECT_OWNER.value:
+            return False
         return True

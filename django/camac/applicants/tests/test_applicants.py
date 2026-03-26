@@ -3,7 +3,7 @@ from django.urls import reverse
 from pytest_lazy_fixtures import lf
 from rest_framework import status
 
-from camac.applicants.models import ROLE_CHOICES
+from camac.applicants.models import ROLE_CHOICES, Applicant
 from camac.permissions.conditions import Always
 from camac.permissions.events.core import Trigger
 from camac.permissions.models import AccessLevel
@@ -84,21 +84,43 @@ def _sync_applicants(instance):
 
 
 @pytest.mark.parametrize("use_permission_mod", [True, False])
+@pytest.mark.parametrize("project_owner", [True, False])
 @pytest.mark.parametrize(
     "role__name,instance__user,extra_applicants,expected_status",
     [
-        ("Applicant", lf("admin_user"), 0, status.HTTP_403_FORBIDDEN),
-        ("Applicant", lf("admin_user"), 1, status.HTTP_204_NO_CONTENT),
-        ("Municipality", lf("admin_user"), 1, status.HTTP_403_FORBIDDEN),
+        (
+            "Applicant",
+            lf("admin_user"),
+            0,
+            status.HTTP_403_FORBIDDEN,
+        ),
+        (
+            "Applicant",
+            lf("admin_user"),
+            1,
+            status.HTTP_204_NO_CONTENT,
+        ),
+        (
+            "Municipality",
+            lf("admin_user"),
+            1,
+            status.HTTP_403_FORBIDDEN,
+        ),
         ("Service", lf("admin_user"), 1, status.HTTP_403_FORBIDDEN),
         ("Canton", lf("admin_user"), 1, status.HTTP_403_FORBIDDEN),
-        ("Support", lf("admin_user"), 1, status.HTTP_204_NO_CONTENT),
+        (
+            "Support",
+            lf("admin_user"),
+            1,
+            status.HTTP_403_FORBIDDEN,
+        ),
     ],
 )
 def test_applicant_delete(
     admin_client,
     be_instance,
     applicant_factory,
+    project_owner,
     extra_applicants,
     expected_status,
     active_inquiry_factory,
@@ -108,9 +130,14 @@ def test_applicant_delete(
     instance_acl_factory,
 ):
     active_inquiry_factory(be_instance)
+    applicant = be_instance.involved_applicants.first()
+    applicant.role = (
+        ROLE_CHOICES.PROJECT_OWNER.value if project_owner else ROLE_CHOICES.ADMIN.value
+    )
+    applicant.save()
+
     if extra_applicants:
         applicant_factory.create_batch(extra_applicants, instance=be_instance)
-
     if use_permission_mod:
         # TODO can we lazyfixture this?
         request.getfixturevalue("applicant_permissions_module")
@@ -130,36 +157,127 @@ def test_applicant_delete(
                 instance=be_instance,
             )
 
-    url = reverse("applicant-detail", args=[be_instance.involved_applicants.first().pk])
+    url = reverse("applicant-detail", args=[applicant.pk])
 
     response = admin_client.delete(url)
 
-    assert response.status_code == expected_status
+    assert (
+        response.status_code == status.HTTP_403_FORBIDDEN
+        if project_owner
+        else expected_status
+    )
 
 
 @pytest.mark.parametrize("use_permission_mod", [True, False])
 @pytest.mark.parametrize("instance__user", [lf("admin_user")])
 @pytest.mark.parametrize(
-    "role__name,passed_email,existing_user,expected_status",
+    "role__name,applicant_role,passed_email,existing_user,expected_status",
     [
-        ("Applicant", "test@example.com", False, status.HTTP_201_CREATED),
-        ("Applicant", "user@example.com", True, status.HTTP_201_CREATED),
-        ("Applicant", "Test@example.com", False, status.HTTP_201_CREATED),
-        ("Applicant", "User@example.com", True, status.HTTP_201_CREATED),
-        ("Applicant", "exists@example.com", None, status.HTTP_400_BAD_REQUEST),
-        ("Applicant", "Exists@example.com", None, status.HTTP_400_BAD_REQUEST),
-        ("Applicant", "old@example.com", None, status.HTTP_201_CREATED),
-        ("Applicant", "new@example.com", None, status.HTTP_400_BAD_REQUEST),
-        ("Municipality", "test@example.com", None, status.HTTP_403_FORBIDDEN),
-        ("Service", "test@example.com", None, status.HTTP_403_FORBIDDEN),
-        ("Canton", "test@example.com", None, status.HTTP_403_FORBIDDEN),
-        ("Support", "user@example.com", True, status.HTTP_201_CREATED),
+        (
+            "Applicant",
+            ROLE_CHOICES.ADMIN,
+            "test@example.com",
+            False,
+            status.HTTP_201_CREATED,
+        ),
+        (
+            "Applicant",
+            ROLE_CHOICES.EDITOR,
+            "user@example.com",
+            True,
+            status.HTTP_201_CREATED,
+        ),
+        (
+            "Applicant",
+            ROLE_CHOICES.READ_ONLY,
+            "Test@example.com",
+            False,
+            status.HTTP_201_CREATED,
+        ),
+        (
+            "Applicant",
+            ROLE_CHOICES.ADMIN,
+            "User@example.com",
+            True,
+            status.HTTP_201_CREATED,
+        ),
+        (
+            "Applicant",
+            ROLE_CHOICES.ADMIN,
+            "exists@example.com",
+            None,
+            status.HTTP_400_BAD_REQUEST,
+        ),
+        (
+            "Applicant",
+            ROLE_CHOICES.ADMIN,
+            "Exists@example.com",
+            None,
+            status.HTTP_400_BAD_REQUEST,
+        ),
+        (
+            "Applicant",
+            ROLE_CHOICES.ADMIN,
+            "old@example.com",
+            None,
+            status.HTTP_201_CREATED,
+        ),
+        (
+            "Applicant",
+            ROLE_CHOICES.ADMIN,
+            "new@example.com",
+            None,
+            status.HTTP_400_BAD_REQUEST,
+        ),
+        (
+            "Applicant",
+            ROLE_CHOICES.PROJECT_OWNER,
+            "user@example.com",
+            True,
+            status.HTTP_400_BAD_REQUEST,
+        ),
+        (
+            "Applicant",
+            ROLE_CHOICES.PROJECT_OWNER,
+            "new@example.com",
+            None,
+            status.HTTP_400_BAD_REQUEST,
+        ),
+        (
+            "Municipality",
+            ROLE_CHOICES.ADMIN,
+            "test@example.com",
+            None,
+            status.HTTP_403_FORBIDDEN,
+        ),
+        (
+            "Service",
+            ROLE_CHOICES.ADMIN,
+            "test@example.com",
+            None,
+            status.HTTP_403_FORBIDDEN,
+        ),
+        (
+            "Canton",
+            ROLE_CHOICES.ADMIN,
+            "test@example.com",
+            None,
+            status.HTTP_403_FORBIDDEN,
+        ),
+        (
+            "Support",
+            ROLE_CHOICES.ADMIN,
+            "user@example.com",
+            True,
+            status.HTTP_201_CREATED,
+        ),
     ],
 )
 def test_applicant_create(
     admin_client,
     user_factory,
     role,
+    applicant_role,
     be_instance,
     applicant_factory,
     passed_email,
@@ -199,7 +317,7 @@ def test_applicant_create(
         data={
             "data": {
                 "type": "applicants",
-                "attributes": {"email": passed_email},
+                "attributes": {"email": passed_email, "role": applicant_role},
                 "relationships": {
                     "instance": {"data": {"id": be_instance.pk, "type": "instances"}}
                 },
@@ -215,8 +333,8 @@ def test_applicant_create(
         )
         assert response.json()["data"]["attributes"]["email"] == passed_email.lower()
 
-    if existing_user:
-        assert response.json()["data"]["relationships"]["invitee"]["data"]
+        if existing_user:
+            assert response.json()["data"]["relationships"]["invitee"]["data"]
 
 
 @pytest.mark.parametrize("instance__user", [lf("admin_user")])
@@ -319,6 +437,7 @@ def test_applicant_delete_validation(
     admin_client,
     instance,
     applicant_factory,
+    user_factory,
     admin_user,
     request,
     permissions_settings,
@@ -331,6 +450,15 @@ def test_applicant_delete_validation(
     )
     unconfirmed_admin = applicant_factory(
         instance=instance, role=ROLE_CHOICES.ADMIN.value, invitee=None
+    )
+    project_owner_user = user_factory()
+    confirmed_project_owner = applicant_factory(
+        instance=instance,
+        role=ROLE_CHOICES.PROJECT_OWNER.value,
+        invitee=project_owner_user,
+    )
+    unconfirmed_project_owner = applicant_factory(
+        instance=instance, role=ROLE_CHOICES.PROJECT_OWNER.value, invitee=None
     )
 
     instance_acl_factory(
@@ -351,3 +479,59 @@ def test_applicant_delete_validation(
     url2 = reverse("applicant-detail", args=[unconfirmed_admin.pk])
     response2 = admin_client.delete(url2)
     assert response2.status_code == status.HTTP_204_NO_CONTENT
+
+    url1 = reverse("applicant-detail", args=[confirmed_project_owner.pk])
+    response1 = admin_client.delete(url1)
+    assert response1.status_code == status.HTTP_403_FORBIDDEN
+
+    url2 = reverse("applicant-detail", args=[unconfirmed_project_owner.pk])
+    response2 = admin_client.delete(url2)
+    assert response1.status_code == status.HTTP_403_FORBIDDEN
+
+
+def test_create_or_update_project_owners_for_instance(
+    admin_client,
+    so_instance,
+    applicant_factory,
+    user_factory,
+    application_settings,
+    app_settings_with_notif_templates,
+):
+    system_user = user_factory()
+    application_settings["SYSTEM_USER"] = system_user.username
+    existing_applicant = Applicant.objects.get(instance=so_instance)
+    applicant_factory(
+        instance=so_instance,
+        email="existing-po@test.ch",
+        invitee=user_factory(),
+        role=ROLE_CHOICES.PROJECT_OWNER,
+    )
+    applicant_factory(
+        instance=so_instance,
+        email="admin@test.ch",
+        invitee=user_factory(),
+        role=ROLE_CHOICES.ADMIN,
+    )
+
+    Applicant.objects.create_or_update_project_owners_for_instance(
+        so_instance,
+        [
+            {},
+            {
+                "email": "non-existing1@test.ch",
+            },
+            {
+                "email": "non-existing1@test.ch",
+            },
+            {
+                "email": "non-existing2@test.ch",
+                "representative_email": "non-existing3@test.ch",
+            },
+            {
+                "email": existing_applicant.email,
+                "representative_email": "existing-po@test.ch",
+            },
+        ],
+    )
+    assert Applicant.objects.count() == 6
+    assert Applicant.objects.filter(role=ROLE_CHOICES.PROJECT_OWNER).count() == 5

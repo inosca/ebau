@@ -302,10 +302,7 @@ instances:
     deleteError: "Nel tentativo di eliminare l'utente qualcosa è andato storto."
 
     role: "Ruolo"
-    roles:
-      admin: "Amministratrice/tore"
-      editor: "Collaboratrice/tore"
-      read-only: "Persona autorizzata a prendere visione"
+    role-project-owner-info: "Il ruolo di committente viene assegnato ai richiedenti registrati e ai loro rappresentanti dopo l'invio della domanda. Questo ruolo viene assegnato esclusivamente dal sistema e non può essere inserito manualmente."
 
 claims:
   deadline: "Scadenza"

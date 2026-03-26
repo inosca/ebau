@@ -36,7 +36,10 @@ export default class AclTable extends Component {
     this.args.instanceId,
   ]);
 
-  instance = findRecord(this, "instance", () => [this.args.instanceId]);
+  instance = findRecord(this, "instance", () => [
+    this.args.instanceId,
+    { include: "involved_applicants,involved_applicants.invitee" },
+  ]);
 
   acls = paginatedQuery(this, "instance-acl", () => ({
     instance: this.args.instanceId,

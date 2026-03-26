@@ -29,6 +29,12 @@ class ApplicantSerializer(serializers.ModelSerializer, InstanceEditableMixin):
 
     def validate(self, data):
         User = get_user_model()
+
+        if data.get("role") == models.ROLE_CHOICES.PROJECT_OWNER.value:
+            raise ValidationError(
+                "Role Project owner can only be granted by the system."
+            )
+
         data["email"] = data["email"].lower()
 
         email_filter = Q(email=data["email"])
