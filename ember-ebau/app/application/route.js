@@ -6,6 +6,7 @@ import AgGisComponent from "ember-ebau-core/components/ag-gis";
 import AGInquiryServiceGroupWarningComponent from "ember-ebau-core/components/ag-inquiry-service-group-warning";
 import AlexandriaDocumentsFormComponent from "ember-ebau-core/components/alexandria-documents-form";
 import CalculatedPublicationDateComponent from "ember-ebau-core/components/calculated-publication-date";
+import CheckHintNewAddressNeededComponent from "ember-ebau-core/components/check-hint-new-address-needed";
 import CoordinatesPlaceholderComponent from "ember-ebau-core/components/coordinates-placeholder";
 import DecisionAppealButtonComponent from "ember-ebau-core/components/decision/appeal-button";
 import DecisionInfoAppealComponent from "ember-ebau-core/components/decision/info-appeal";
@@ -190,6 +191,11 @@ export default class ApplicationRoute extends Route {
       component: "additional-demand-formtimeline-link",
       componentClass: AdditionalDemandFormTimelineLinkComponent,
       type: "TextQuestion",
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Hinweis neue Adresse notwendig",
+      component: "check-hint-new-address-needed",
+      componentClass: CheckHintNewAddressNeededComponent,
     });
   }
 }
