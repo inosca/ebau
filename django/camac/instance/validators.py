@@ -63,6 +63,7 @@ class FormDataValidator:
             "in", 20, lambda value, arr: value in arr if arr else False
         )
         self.active_question_cache = {}
+        self.relevant_questions = None
 
     def _get_field_value(self, name):
         return self.fields.get(name) if self._check_questions_active([name]) else None
@@ -157,6 +158,17 @@ class FormDataValidator:
                         module,
                     )
 
+    def _check_question_relevant(self, question):
+        if self.relevant_questions is None:
+            form_def = self.get_form_def(self.instance.form.name)
+            self.relevant_questions = [
+                question
+                for module in form_def
+                for question in self.forms_def["modules"][module]["questions"]
+            ]
+
+        return question in self.relevant_questions
+
     def _check_questions_active(self, questions):
         for question in questions:
             if self._check_question_active(
@@ -171,6 +183,10 @@ class FormDataValidator:
 
         if question in self.active_question_cache:
             return self.active_question_cache[question]
+
+        if not self._check_question_relevant(question):
+            self.active_question_cache[question] = False
+            return False
 
         expression = question_def.get("active-expression")
         if expression is None:
