@@ -111,12 +111,15 @@ class DecisionLogic:
     def should_continue_after_decision_gr(
         cls, instance: Instance, work_item: workflow_models.WorkItem
     ) -> bool:
-        # for vorlaeufige-beurteilung dossier and solaranlage forms,
-        # we do not continue the workflow.
-        if instance.case.document.form_id in chain(
-            gr_constants.VORLAEUFIGE_BEURTEILUNG_FORMS,
-            gr_constants.SOLARANLAGE_FORMS,
-        ):
+        # for vorlaeufige-beurteilung, bauanzeige and solaranlage forms
+        # there is no construction monitoring process, so we do not
+        # continue the workflow after decision.
+        forms_no_construction_monitoring = [
+            *gr_constants.BAUANZEIGE_FORMS,
+            *gr_constants.SOLARANLAGE_FORMS,
+            *gr_constants.VORLAEUFIGE_BEURTEILUNG_FORMS,
+        ]
+        if instance.case.document.form_id in forms_no_construction_monitoring:
             return []
 
         decision = cls.get_decision_answer(
