@@ -2065,7 +2065,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"<div class=\\\"uk-alert\\\">\\n    <strong>Hinweis:</strong> Mit dem Auslösen der Adressvergabe startet der Workflow zur Prüfung und Festlegung einer neuen Adresse. Zuerst wird der Gemeindegeometer, danach die Gebäudeversicherung (GVG) einbezogen.\\n    </div>\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert border-highlight uk-margin-remove-bottom\\\">\\n    <strong>Hinweis:</strong> Mit dem Auslösen der Adressvergabe startet der Workflow zur Prüfung und Festlegung einer neuen Adresse. Zuerst wird der Gemeindegeometer, danach die Gebäudeversicherung (GVG) einbezogen.\\n    </div>\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
