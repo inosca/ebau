@@ -947,13 +947,13 @@ class DossierWriter:
             "alexandria": self._handle_alexandria_document,
         }
         try:
-            return document_backends[settings.APPLICATION["DOCUMENT_BACKEND"]](
-                content, filename, mime_type, instance
-            )
+            impl = document_backends[settings.APPLICATION["DOCUMENT_BACKEND"]]
         except KeyError:  # pragma: no cover
             raise DossierWriter.ConfigurationError(
-                f"Set DOCUMENT_BACKEND APPLICATION setting to a valid document backend {document_backends.keys()}"
+                "Set DOCUMENT_BACKEND APPLICATION setting to a valid document "
+                f"backend: {list(document_backends)}"
             )
+        return impl(content, filename, mime_type, instance)
 
     def _handle_alexandria_document(
         self, content: File, filename: str, mime_type: str, instance: Instance
@@ -988,7 +988,7 @@ class DossierWriter:
 
             return messages
 
-        if settings.DOSSIER_IMPORT["ALEXANDRIA_UPDATE_EXISTING_DOCUMENTS"]:
+        if settings.DOSSIER_IMPORT.get("ALEXANDRIA_UPDATE_EXISTING_DOCUMENTS", False):
             if document := AlexandriaDocument.objects.filter(
                 title=filename, **{"metainfo__camac-instance-id": str(instance.pk)}
             ).first():
