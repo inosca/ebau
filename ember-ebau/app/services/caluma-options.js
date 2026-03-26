@@ -2,11 +2,12 @@ import { service } from "@ember/service";
 import { getOwnConfig } from "@embroider/macros";
 import CalumaOptionsService from "@projectcaluma/ember-core/services/caluma-options";
 import { INQUIRY_STATUS } from "@projectcaluma/ember-distribution/config";
+import mainConfig from "ember-ebau-core/config/main";
 import { cantonAware } from "ember-ebau-core/decorators";
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 import fetchIfNotCached from "ember-ebau-core/utils/fetch-if-not-cached";
+import { DateTime } from "luxon";
 import { cached } from "tracked-toolbox";
-
 export default class CustomCalumaOptionsService extends CalumaOptionsService {
   @service ebauModules;
   @service session;
@@ -246,6 +247,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
   @cantonAware
   static distributionDefaultLeadTime = 30;
   static distributionDefaultLeadTimeAG = 14;
+  static distributionDefaultLeadTimeGR = 14;
 
   @cached
   get distribution() {
@@ -346,6 +348,41 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     );
 
     if (!hasFeature("distribution.deadlineRules")) {
+      const customServiceGroupDeadline =
+        mainConfig.customDeadlineServiceGroupDefaultDeadline ?? null;
+
+      // if there is a config to override the default deadline for specific service groups,
+      // check if any of the selected groups is included and return the corresponding deadline.
+      if (customServiceGroupDeadline) {
+        const customServiceGroupSlugs =
+          mainConfig.customDeadlineServiceGroupSlugs ?? [];
+        const selectedServiceGroups = await Promise.all(
+          selectedGroups
+            .map(async (serviceGroup) => {
+              return await this.store.peekRecord("public-service", serviceGroup)
+                ?.serviceGroup;
+            })
+            .filter(Boolean),
+        );
+
+        // find any selected group included in the deadline overrides.
+        const includedSpecialService = selectedServiceGroups.find(
+          (sg) => sg && customServiceGroupSlugs.includes(sg.slug),
+        );
+
+        // when found, recalculate the deadline with the override.
+        if (
+          includedSpecialService &&
+          customServiceGroupDeadline[includedSpecialService.slug]
+        ) {
+          return DateTime.now()
+            .plus({
+              days: customServiceGroupDeadline[includedSpecialService.slug],
+            })
+            .toISODate();
+        }
+      }
+
       return defaultDeadline;
     }
 
