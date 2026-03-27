@@ -3,9 +3,11 @@ from datetime import timedelta
 from itertools import chain
 from typing import List
 
+from caluma.caluma_core.events import send_event
 from caluma.caluma_form.models import Document
 from caluma.caluma_workflow.api import resume_work_item
 from caluma.caluma_workflow.dynamic_tasks import BaseDynamicTasks, register_dynamic_task
+from caluma.caluma_workflow.events import post_create_work_item
 from caluma.caluma_workflow.models import Task, WorkItem
 from caluma.caluma_workflow.utils import create_work_items
 from django.conf import settings
@@ -386,6 +388,14 @@ class CustomDynamicTasks(BaseDynamicTasks):
             if case.family.document.form_id == "anfrage":
                 work_item.deadline = date_to_deadline(now().date() + timedelta(days=30))
                 work_item.save(update_fields=["deadline"])
+
+            send_event(
+                post_create_work_item,
+                sender="post_complete_work_item",
+                work_item=work_item,
+                user=user,
+                context=context,
+            )
         return []
 
     @register_dynamic_task("after-ebau-number")
