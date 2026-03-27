@@ -1,7 +1,11 @@
 import { service } from "@ember/service";
+import { getOwnConfig, macroCondition } from "@embroider/macros";
 import { Ability } from "ember-can";
 
+import mainConfig from "ember-ebau-core/config/main";
+
 export default class ConstructionMonitoringAbility extends Ability {
+  @service store;
   @service ebauModules;
   @service constructionMonitoring;
   @service permissions;
@@ -25,6 +29,29 @@ export default class ConstructionMonitoringAbility extends Ability {
     }
 
     return !this.ebauModules.isReadOnlyRole && isReady && isAddressed;
+  }
+
+  async canSkip() {
+    if (macroCondition(getOwnConfig().application === "gr")) {
+      const instance = this.store.peekRecord(
+        "instance",
+        this.ebauModules.instanceId,
+      );
+      const instanceState = await instance.instanceState;
+
+      if (
+        [
+          mainConfig.instanceStates.subm,
+          mainConfig.instanceStates["init-distribution"],
+          mainConfig.instanceStates.circulation,
+          mainConfig.instanceStates.decision,
+        ].includes(parseInt(instanceState.id))
+      ) {
+        return false;
+      }
+    }
+
+    return this.canInitialize();
   }
 
   async canComplete() {

@@ -39,7 +39,7 @@
       @onClick={{perform this.completeConstructionMonitoring}}
     />
   </div>
-{{else if (await (can "initialize construction-monitoring"))}}
+{{else if (await (can "skip construction-monitoring"))}}
   <div
     class="uk-margin uk-margin-large-top uk-text-center uk-margin-small-right"
   >
