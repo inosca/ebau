@@ -1174,13 +1174,14 @@
         "directLink": {
           "route": "cases.detail.construction-monitoring",
           "models": ["INSTANCE_ID"]
-        }
+        },
+        "lead-time-after-decision": 2592000
       },
       "address_groups": "['municipality']|groups",
       "control_groups": "['municipality']|groups",
       "is_archived": false,
       "form": null,
-      "lead_time": 2592000,
+      "lead_time": null,
       "is_multiple_instance": false,
       "continue_async": false
     }

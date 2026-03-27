@@ -9,6 +9,7 @@ from django.core import mail
 from camac.caluma.extensions.events.construction_monitoring import (
     can_perform_construction_monitoring,
     post_complete_construction_control,
+    post_complete_decision_start_init_monitoring_gr,
     post_create_construction_control,
     post_create_gvg_work_item,
     post_create_plan_construction_stage_ur,
@@ -760,3 +761,38 @@ def test_construction_monitoring_task_gvg_gr(
         service=gvg_service,
         access_level=access_level,
     ).exists()
+
+
+@pytest.mark.freeze_time("2026-01-01")
+def test_init_construction_monitoring_deadline_gr(
+    db,
+    caluma_work_item_factory,
+    caluma_case_factory,
+    caluma_task_factory,
+    service,
+    gr_decision_settings,
+    gr_construction_monitoring_settings,
+    set_application_gr,
+):
+    case = caluma_case_factory()
+    init_work_item = caluma_work_item_factory(
+        case=case,
+        task=caluma_task_factory(
+            pk=gr_construction_monitoring_settings["INIT_CONSTRUCTION_MONITORING_TASK"],
+            meta={"lead-time-after-decision": 30 * 24 * 3600},  # 30 days
+        ),
+        addressed_groups=[str(service.pk)],
+        deadline=None,  # deadline is not set initially
+    )
+    decision_work_item = caluma_work_item_factory(
+        case=case,
+        task=caluma_task_factory(pk=gr_decision_settings["TASK"]),
+    )
+
+    assert init_work_item.deadline is None
+
+    post_complete_decision_start_init_monitoring_gr(
+        None, work_item=decision_work_item, user=None, context={}
+    )
+    init_work_item.refresh_from_db()
+    assert init_work_item.deadline.isoformat() == "2026-01-31T00:00:00+00:00"

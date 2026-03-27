@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta
 
-from caluma.caluma_core.events import on
+from caluma.caluma_core.events import filter_events, on
 from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.models import Question
 from caluma.caluma_workflow.api import skip_work_item, start_case
@@ -425,3 +425,34 @@ def post_create_gvg_work_item(sender, work_item, user, context, **kwargs):
         and "gebaudeversicherung" in work_item.task.address_groups
     ):
         Trigger.gvg_work_item_created(None, work_item)
+
+
+@on(post_complete_work_item, raise_exception=True)
+@filter_events(
+    lambda work_item: (
+        work_item.task.slug == settings.DECISION["TASK"]
+        and settings.APPLICATION_NAME == "kt_gr"
+    )
+)
+@transaction.atomic
+def post_complete_decision_start_init_monitoring_gr(
+    sender, work_item, user, context, **kwargs
+):
+    """Set the deadline for the init task after completing the decision."""
+    case_family = work_item.case.family
+    init_construction_monitoring = case_family.work_items.filter(
+        task_id="init-construction-monitoring"
+    ).first()
+
+    if init_construction_monitoring and init_construction_monitoring.task.meta.get(
+        "lead-time-after-decision"
+    ):
+        init_construction_monitoring.deadline = date_to_deadline(
+            datetime.now().date()
+            + timedelta(
+                seconds=init_construction_monitoring.task.meta.get(
+                    "lead-time-after-decision"
+                )
+            )
+        )
+        init_construction_monitoring.save(update_fields=["deadline"])
