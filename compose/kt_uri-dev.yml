@@ -21,6 +21,8 @@ services:
           - ebau-portal.localhost
           - ebau-rest-portal.localhost
           - ebau-keycloak.localhost
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   ember-camac-ng:
     image: acr.run/camac-ng/camac-ng/ember-camac-ng:master
