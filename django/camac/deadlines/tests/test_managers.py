@@ -234,28 +234,31 @@ def test_update_deadline_instance_meta(
 )
 @pytest.mark.parametrize("has_start_date", [True, False])
 @pytest.mark.parametrize(
-    "responsible,has_publication,publication_date,inquiry_date,simplified,formal_completed,expected_date",
+    "form_id,responsible,has_publication,publication_date,inquiry_date,simplified,formal_completed,expected_date",
     [
         # responsible, formal exam not completed, no date
-        (True, True, "2025-05-01", None, False, False, None),
+        ("baugesuch", True, True, "2025-05-01", None, False, False, None),
         # responsible, not simplified, date set to publication date
-        (True, True, "2025-05-01", None, False, True, "2025-05-01"),
+        ("baugesuch", True, True, "2025-05-01", None, False, True, "2025-05-01"),
         # responsible, simplified, date set to submit date
-        (True, True, "2025-05-01", None, True, True, "2025-12-31"),
+        ("baugesuch", True, True, "2025-05-01", None, True, True, "2025-12-31"),
         # responsible, date empty as no publication date is known
-        (True, True, None, "2025-05-01", False, True, None),
+        ("baugesuch", True, True, None, "2025-05-01", False, True, None),
+        # responsible, bauanzeige/solaranlage always starts at submit date
+        ("solaranlage", True, True, None, "2025-05-01", False, True, "2025-12-31"),
+        ("bauanzeige", True, True, None, "2025-05-01", False, True, "2025-12-31"),
         # responsible, date submit date as no publication workitem exists
-        (True, False, None, "2025-05-01", False, True, "2025-12-31"),
+        ("baugesuch", True, False, None, "2025-05-01", False, True, "2025-12-31"),
         # responsible, simplified, date set to submit date
-        (True, True, None, "2025-05-01", True, True, "2025-12-31"),
+        ("baugesuch", True, True, None, "2025-05-01", True, True, "2025-12-31"),
         # inquired, no date as no inquiry date is known
-        (False, True, "2025-05-01", None, False, True, None),
+        ("baugesuch", False, True, "2025-05-01", None, False, True, None),
         # inquired, date set to inquiry date
-        (False, True, "2025-05-01", None, True, True, None),
+        ("baugesuch", False, True, "2025-05-01", None, True, True, None),
         # inquired, date set to inquiry date
-        (False, True, None, "2025-05-01", False, True, "2025-05-01"),
+        ("baugesuch", False, True, None, "2025-05-01", False, True, "2025-05-01"),
         # inquired, simplified, date set to inquiry date even when simplified
-        (False, True, None, "2025-05-01", True, True, "2025-05-01"),
+        ("baugesuch", False, True, None, "2025-05-01", True, True, "2025-05-01"),
     ],
 )
 def test_update_deadline_startdate_gr(
@@ -266,6 +269,7 @@ def test_update_deadline_startdate_gr(
     service_factory,
     caluma_work_item_factory,
     has_start_date,
+    form_id,
     responsible,
     has_publication,
     publication_date,
@@ -284,6 +288,8 @@ def test_update_deadline_startdate_gr(
     """Test the api to update the start date of a deadline for a GR instance."""
     gr_instance.case.meta["submit-date"] = "2025-12-31"
     gr_instance.case.save()
+    gr_instance.case.family.document.form.pk = form_id
+    gr_instance.case.family.document.form.save()
 
     mocker.patch(
         "camac.instance.models.Instance.responsible_service",
