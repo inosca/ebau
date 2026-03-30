@@ -2938,7 +2938,7 @@
     "pk": "construction-steps",
     "fields": {
       "created_at": "2025-01-16T12:34:14.807Z",
-      "modified_at": "2026-03-05T11:57:03.483Z",
+      "modified_at": "2026-03-30T12:33:29.897Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -2949,7 +2949,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"**Hinweis:** Mit dem Auslösen der Adressvergabe startet der Workflow zur Prüfung und Festlegung einer neuen Adresse. Zuerst wird der Gemeindegeometer, danach die Gebäudeversicherung (GVG) einbezogen.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -4269,150 +4269,150 @@
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-adressvergabe",
     "fields": {
-      "created_at": "2026-03-05T11:57:03.497Z",
-      "modified_at": "2026-03-05T11:57:03.497Z",
+      "created_at": "2026-03-30T12:33:29.916Z",
+      "modified_at": "2026-03-30T12:33:29.916Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-adressvergabe",
-      "sort": 12
+      "sort": 10
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-baubeginn",
     "fields": {
-      "created_at": "2026-03-05T11:57:03.493Z",
-      "modified_at": "2026-03-05T11:57:03.493Z",
+      "created_at": "2026-03-30T12:33:29.913Z",
+      "modified_at": "2026-03-30T12:33:29.913Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-baubeginn",
-      "sort": 9
+      "sort": 8
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-baufreigabe",
     "fields": {
-      "created_at": "2026-03-05T11:57:03.494Z",
-      "modified_at": "2026-03-05T11:57:03.494Z",
+      "created_at": "2026-03-30T12:33:29.915Z",
+      "modified_at": "2026-03-30T12:33:29.915Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-baufreigabe",
-      "sort": 10
+      "sort": 9
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-einmessung",
     "fields": {
-      "created_at": "2026-03-05T11:57:03.490Z",
-      "modified_at": "2026-03-05T11:57:03.490Z",
+      "created_at": "2026-03-30T12:33:29.910Z",
+      "modified_at": "2026-03-30T12:33:29.910Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-einmessung",
-      "sort": 7
+      "sort": 6
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-kanalisationsabnahme",
     "fields": {
-      "created_at": "2026-03-05T11:57:03.491Z",
-      "modified_at": "2026-03-05T11:57:03.491Z",
+      "created_at": "2026-03-30T12:33:29.912Z",
+      "modified_at": "2026-03-30T12:33:29.912Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-kanalisationsabnahme",
-      "sort": 8
+      "sort": 7
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-rohbauabnahme",
     "fields": {
-      "created_at": "2026-03-05T11:57:03.489Z",
-      "modified_at": "2026-03-05T11:57:03.489Z",
+      "created_at": "2026-03-30T12:33:29.906Z",
+      "modified_at": "2026-03-30T12:33:29.906Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-rohbauabnahme",
-      "sort": 5
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-schlussabnahme-gebaeude",
     "fields": {
-      "created_at": "2026-03-05T11:57:03.487Z",
-      "modified_at": "2026-03-05T11:57:03.487Z",
+      "created_at": "2026-03-30T12:33:29.903Z",
+      "modified_at": "2026-03-30T12:33:29.903Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-schlussabnahme-gebaeude",
-      "sort": 3
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-schlussabnahme-projekt",
     "fields": {
-      "created_at": "2026-03-05T11:57:03.486Z",
-      "modified_at": "2026-03-05T11:57:03.486Z",
+      "created_at": "2026-03-30T12:33:29.901Z",
+      "modified_at": "2026-03-30T12:33:29.901Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-schlussabnahme-projekt",
-      "sort": 2
+      "sort": 1
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-schnurgeruestabnahme",
     "fields": {
-      "created_at": "2026-03-05T11:57:03.489Z",
-      "modified_at": "2026-03-05T11:57:03.489Z",
+      "created_at": "2026-03-30T12:33:29.908Z",
+      "modified_at": "2026-03-30T12:33:29.908Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-schnurgeruestabnahme",
-      "sort": 6
+      "sort": 5
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-zwischenkontrolle",
     "fields": {
-      "created_at": "2026-03-05T11:57:03.488Z",
-      "modified_at": "2026-03-05T11:57:03.488Z",
+      "created_at": "2026-03-30T12:33:29.905Z",
+      "modified_at": "2026-03-30T12:33:29.905Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "construction-steps",
       "option": "construction-step-zwischenkontrolle",
-      "sort": 4
+      "sort": 3
     }
   },
   {
