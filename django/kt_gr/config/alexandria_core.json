@@ -490,7 +490,7 @@
       "created_at": "2020-08-04T13:24:00.704Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2024-08-28T12:24:54.796Z",
+      "modified_at": "2026-03-30T12:07:22.462Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -529,14 +529,14 @@
             "permissions": [
               {
                 "condition": {
-                  "InstanceState": ["construction-acceptance"]
+                  "~InstanceState": ["finished", "new", "rejected"]
                 },
                 "permission": "create"
               },
               {
                 "scope": "All",
                 "condition": {
-                  "InstanceState": ["construction-acceptance"]
+                  "~InstanceState": ["finished", "new", "rejected"]
                 },
                 "permission": "update"
               },
@@ -544,14 +544,14 @@
                 "scope": "ServiceAndSubservice",
                 "fields": ["files"],
                 "condition": {
-                  "InstanceState": ["construction-acceptance"]
+                  "~InstanceState": ["finished", "new", "rejected"]
                 },
                 "permission": "update"
               },
               {
                 "scope": "Service",
                 "condition": {
-                  "InstanceState": ["construction-acceptance"]
+                  "~InstanceState": ["finished", "new", "rejected"]
                 },
                 "permission": "delete"
               }
@@ -839,7 +839,7 @@
                 "scope": "All",
                 "fields": ["tags"],
                 "condition": {
-                  "~InstanceState": ["rejected", "finished"]
+                  "~InstanceState": ["finished", "new", "rejected"]
                 },
                 "permission": "update"
               },
@@ -2221,7 +2221,7 @@
                 "scope": "All",
                 "fields": ["tags"],
                 "condition": {
-                  "~InstanceState": ["rejected", "finished"]
+                  "~InstanceState": ["finished", "new", "rejected"]
                 },
                 "permission": "update"
               },

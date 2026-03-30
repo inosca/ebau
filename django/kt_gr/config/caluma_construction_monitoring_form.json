@@ -1009,6 +1009,21 @@
       "modified_by_group": null,
       "form": "construction-step-schlussabnahme-gebaeude",
       "question": "construction-step-schlussabnahme-gebaeude-bemerkungen",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-schlussabnahme-gebaeude.construction-step-schlussabnahme-gebaeude-dateien",
+    "fields": {
+      "created_at": "2026-03-30T11:59:07.490Z",
+      "modified_at": "2026-03-30T11:59:07.490Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-schlussabnahme-gebaeude",
+      "question": "construction-step-schlussabnahme-gebaeude-dateien",
       "sort": 1
     }
   },
@@ -1024,7 +1039,7 @@
       "modified_by_group": null,
       "form": "construction-step-schlussabnahme-gebaeude",
       "question": "construction-step-schlussabnahme-gebaeude-datum-der-abnahme",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -1039,7 +1054,7 @@
       "modified_by_group": null,
       "form": "construction-step-schlussabnahme-gebaeude",
       "question": "construction-step-schlussabnahme-gebaeude-is-approved",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -1084,6 +1099,21 @@
       "modified_by_group": null,
       "form": "construction-step-schlussabnahme-projekt",
       "question": "construction-step-schlussabnahme-projekt-bemerkungen",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "construction-step-schlussabnahme-projekt.construction-step-schlussabnahme-projekt-dateien",
+    "fields": {
+      "created_at": "2026-03-30T12:00:18.753Z",
+      "modified_at": "2026-03-30T12:00:18.753Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "construction-step-schlussabnahme-projekt",
+      "question": "construction-step-schlussabnahme-projekt-dateien",
       "sort": 1
     }
   },
@@ -1114,7 +1144,7 @@
       "modified_by_group": null,
       "form": "construction-step-schlussabnahme-projekt",
       "question": "construction-step-schlussabnahme-projekt-is-approved",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -3034,6 +3064,45 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "construction-step-schlussabnahme-gebaeude-dateien",
+    "fields": {
+      "created_at": "2026-03-30T11:59:07.438Z",
+      "modified_at": "2026-03-30T11:59:07.438Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"construction-step-schlussabnahme-gebaeude-dateien\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": "alexandria-documents-form",
+        "alexandria-categories": ["bauabnahme"],
+        "alexandriaEnableDocumentFilter": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "construction-step-schlussabnahme-gebaeude-datum-der-abnahme",
     "fields": {
       "created_at": "2024-01-17T09:50:37.439Z",
@@ -3185,6 +3254,45 @@
         "min_length": null
       },
       "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "construction-step-schlussabnahme-projekt-dateien",
+    "fields": {
+      "created_at": "2026-03-30T12:00:18.711Z",
+      "modified_at": "2026-03-30T12:00:18.711Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"construction-step-schlussabnahme-projekt-dateien\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": "alexandria-documents-form",
+        "alexandria-categories": ["bauabnahme"],
+        "alexandriaEnableDocumentFilter": true
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -3472,7 +3580,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"rwar\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
         "hideLabel": true,
