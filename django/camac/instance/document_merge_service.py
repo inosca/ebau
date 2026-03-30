@@ -98,6 +98,7 @@ def get_header_labels():
         "addressHeaderLabel": _("Address"),
         "plotsHeaderLabel": _("Plots"),
         "applicantHeaderLabel": _("Applicant"),
+        "applicantProjectOwnerHeaderLabel": _("Applicant (Project owner)"),
         "landownerHeaderLabel": _("Landowner"),
         "projectAuthorHeaderLabel": _("Project Author"),
         "tagHeaderLabel": _("Keywords"),

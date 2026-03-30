@@ -5,6 +5,7 @@
     'addressHeaderLabel': 'Adresse',
     'applicantHeader': 'Test AG, Foo Bar',
     'applicantHeaderLabel': 'Gesuchsteller/in',
+    'applicantProjectOwnerHeaderLabel': 'Gesuchsteller/in (Bauherrschaft)',
     'applicants': list([
       dict({
         'address_1': '',
@@ -68,6 +69,7 @@
     'addressHeaderLabel': 'Adresse',
     'applicantHeader': '',
     'applicantHeaderLabel': 'Gesuchsteller/in',
+    'applicantProjectOwnerHeaderLabel': 'Gesuchsteller/in (Bauherrschaft)',
     'applicants': list([
     ]),
     'authorityHeader': None,
@@ -117,6 +119,7 @@
     'addressHeaderLabel': 'Adresse',
     'applicantHeader': 'Hans Meier',
     'applicantHeaderLabel': 'Gesuchsteller/in',
+    'applicantProjectOwnerHeaderLabel': 'Gesuchsteller/in (Bauherrschaft)',
     'applicants': list([
       dict({
         'address_1': 'Strasse 33',
@@ -1759,6 +1762,7 @@
     'addressHeaderLabel': 'Adresse',
     'applicantHeader': 'Max Muster',
     'applicantHeaderLabel': 'Gesuchsteller/in',
+    'applicantProjectOwnerHeaderLabel': 'Gesuchsteller/in (Bauherrschaft)',
     'applicants': list([
       dict({
         'address_1': 'Wiesenweg 33',
@@ -2064,6 +2068,7 @@
     'addressHeaderLabel': 'Adresse',
     'applicantHeader': 'Max Muster',
     'applicantHeaderLabel': 'Gesuchsteller/in',
+    'applicantProjectOwnerHeaderLabel': 'Gesuchsteller/in (Bauherrschaft)',
     'applicants': list([
       dict({
         'address_1': 'Wiesenweg 33',
@@ -2428,6 +2433,7 @@
     'addressHeaderLabel': 'Adresse',
     'applicantHeader': 'Max Muster',
     'applicantHeaderLabel': 'Gesuchsteller/in',
+    'applicantProjectOwnerHeaderLabel': 'Gesuchsteller/in (Bauherrschaft)',
     'applicants': list([
       dict({
         'address_1': 'Wiesenweg 33',
@@ -2570,6 +2576,7 @@
     'addressHeaderLabel': 'Adresse',
     'applicantHeader': 'Test AG, Foo Bar',
     'applicantHeaderLabel': 'Gesuchsteller/in',
+    'applicantProjectOwnerHeaderLabel': 'Gesuchsteller/in (Bauherrschaft)',
     'applicants': list([
       dict({
         'address_1': '',
