@@ -114,8 +114,10 @@ MODULE_MATERIAL_EXAM_BAB = (
 MODULE_AFU_CHECK_READ = RequireWorkItem("afu-form") & Callback(
     lambda userinfo: (
         userinfo.service.slug == "afu"
-        or userinfo.service.service_parent is not None
-        and userinfo.service.service_parent.slug == "afu"
+        or (
+            userinfo.service.service_parent is not None
+            and userinfo.service.service_parent.slug == "afu"
+        )
     ),
     allow_caching=True,
     name="is_afu_or_subservice",
