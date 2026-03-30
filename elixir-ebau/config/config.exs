@@ -34,7 +34,14 @@ config :ebau, EbauWeb.Endpoint,
 config :ebau,
   ecto_repos: [Ebau.Repo],
   generators: [timestamp_type: :utc_datetime],
-  ash_domains: [Ebau.User]
+  ash_domains: [
+    Caluma.Workflow,
+    Caluma.Form,
+    Ebau.Users,
+    Ebau.Instances,
+    Ebau.MasterData,
+    Ebau.User
+  ]
 
 # Configure esbuild (the version is required)
 config :esbuild,

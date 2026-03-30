@@ -1,0 +1,21 @@
+defmodule Ebau.MasterData.EnergyDevice do
+  use Ash.Resource,
+    otp_app: :ebau,
+    domain: Ebau.MasterData,
+    data_layer: AshPostgres.DataLayer,
+    extensions: [Caluma.Form.Extensions.Document]
+
+  alias Ebau.Caluma.Calculations.DocumentAnswer
+
+  calculations do
+    calculate :type, Caluma.Form.Types.AnswerValue,
+              {DocumentAnswer, question_ids: %{default: "anlagetyp"}}
+
+    # TODO: Fields requiring value_parser (not yet supported):
+    # - name_of_building (dazugehoeriges-gebaeude-auswahl, dynamic_option)
+    # - information_source (static default 869)
+    # - is_heating, is_warm_water, is_heating_and_warm_water (anlagetyp, value_mapping to boolean)
+    # - is_main_heating (heizsystem-art, value_mapping to boolean)
+    # - energy_source (hauptheizungsanlage, value_mapping to integer codes)
+  end
+end
