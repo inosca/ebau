@@ -1084,6 +1084,16 @@
     }
   },
   {
+    "model": "core.instanceresourcet",
+    "pk": 27,
+    "fields": {
+      "instance_resource": 27,
+      "language": "de",
+      "name": "AfU Prüfung",
+      "description": null
+    }
+  },
+  {
     "model": "core.irtaskform",
     "pk": 4,
     "fields": {
