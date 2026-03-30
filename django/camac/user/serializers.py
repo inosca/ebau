@@ -182,6 +182,7 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
     )
     notification = CamacBooleanField(default=True)
     disabled = CamacBooleanField(default=False)
+    uses_ech_api = CamacBooleanField(default=False)
     responsibility_construction_control = BooleanField(default=False)
 
     def get_users(self, obj):
@@ -423,6 +424,7 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
             "logo",
             "slug",
             "department",
+            "uses_ech_api",
         )
         read_only_fields = (
             "users",

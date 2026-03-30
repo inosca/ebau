@@ -42,6 +42,7 @@ class UserGroupForm(ModelForm):
 class ServiceForm(ModelForm):
     disabled = CamacBooleanField(label=_("Disabled?"))
     notification = CamacBooleanField(label=_("Receive notifications?"))
+    uses_ech_api = CamacBooleanField(label=_("Using the ECH API?"))
 
     class Meta:
         model = Service

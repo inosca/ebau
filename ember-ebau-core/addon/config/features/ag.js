@@ -11,6 +11,7 @@ export default {
   communications: {
     enabled: true,
     snippets: true,
+    creationActivatedForEchApiUsers: false,
   },
   deadlines: {
     enabled: true,

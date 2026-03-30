@@ -9784,7 +9784,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2601",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -9809,7 +9810,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2421",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -9834,7 +9836,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2511",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -9859,7 +9862,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2541",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -9884,7 +9888,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2422",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -9909,7 +9914,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2611",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -9934,7 +9940,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2471",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -9959,7 +9966,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2612",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -9984,7 +9992,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2542",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10009,7 +10018,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2543",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10034,7 +10044,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2513",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10059,7 +10070,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2445",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10084,7 +10096,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2514",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10109,7 +10122,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2571",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10134,7 +10148,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2613",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10159,7 +10174,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2465",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10184,7 +10200,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2472",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10209,7 +10226,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2614",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10234,7 +10252,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2572",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10259,7 +10278,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2516",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10284,7 +10304,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2517",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10309,7 +10330,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2473",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10334,7 +10356,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2535",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10359,7 +10382,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2573",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10384,7 +10408,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2401",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10409,7 +10434,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2574",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10434,7 +10460,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2503",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10459,7 +10486,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2615",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10484,7 +10512,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2518",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10509,7 +10538,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2616",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10534,7 +10564,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2544",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10559,7 +10590,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2545",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10584,7 +10616,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2575",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10609,7 +10642,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2474",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10634,7 +10668,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2519",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10659,7 +10694,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2546",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10684,7 +10720,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2576",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10709,7 +10746,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2617",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10734,7 +10772,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2547",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10759,7 +10798,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2578",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10784,7 +10824,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2579",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10809,7 +10850,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2520",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10834,7 +10876,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2402",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10859,7 +10902,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2491",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10884,7 +10928,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2424",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10909,7 +10954,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2618",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10934,7 +10980,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2475",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10959,7 +11006,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2476",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -10984,7 +11032,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2425",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11009,7 +11058,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2523",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11034,7 +11084,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2548",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11059,7 +11110,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2524",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11084,7 +11136,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2549",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11109,7 +11162,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2580",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11134,7 +11188,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2403",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11159,7 +11214,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2492",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11184,7 +11240,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2619",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11209,7 +11266,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2525",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11234,7 +11292,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2550",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11259,7 +11318,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2426",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11284,7 +11344,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2526",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11309,7 +11370,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2551",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11334,7 +11396,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2493",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11359,7 +11422,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2464",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11384,7 +11448,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2527",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11409,7 +11474,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2455",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11434,7 +11500,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2427",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11459,7 +11526,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2620",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11484,7 +11552,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2457",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11509,7 +11578,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2477",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11534,7 +11604,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2428",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11559,7 +11630,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2404",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11584,7 +11656,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2405",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11609,7 +11682,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2495",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11634,7 +11708,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2478",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11659,7 +11734,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2621",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11684,7 +11760,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2406",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11709,7 +11786,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2553",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11734,7 +11812,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2528",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11759,7 +11838,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2497",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11784,7 +11864,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2529",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11809,7 +11890,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2407",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11834,7 +11916,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2581",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11859,7 +11942,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2530",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11884,7 +11968,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2582",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11909,7 +11994,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2554",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11934,7 +12020,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2479",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11959,7 +12046,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2555",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -11984,7 +12072,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2461",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12009,7 +12098,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2583",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12034,7 +12124,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2480",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12059,7 +12150,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2556",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12084,7 +12176,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2584",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12109,7 +12202,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2499",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12134,7 +12228,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2532",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12159,7 +12254,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2500",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12184,7 +12280,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2463",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12209,7 +12306,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2585",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12234,7 +12332,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2586",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12259,7 +12358,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2430",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12284,7 +12384,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2501",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12309,7 +12410,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2502",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12334,7 +12436,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2481",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12359,7 +12462,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2408",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12384,7 +12488,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2534",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12409,7 +12514,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": "2622",
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12434,7 +12540,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": null,
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12459,7 +12566,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": null,
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12484,7 +12592,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": null,
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12509,7 +12618,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": null,
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12534,7 +12644,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": null,
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12559,7 +12670,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": null,
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12584,7 +12696,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": null,
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12609,7 +12722,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": null,
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12634,7 +12748,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": null,
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12659,7 +12774,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": null,
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12684,7 +12800,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": null,
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12709,7 +12826,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": null,
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12734,7 +12852,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": null,
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12759,7 +12878,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": null,
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12784,7 +12904,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": null,
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12809,7 +12930,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": null,
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12834,7 +12956,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": null,
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12859,7 +12982,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": null,
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12884,7 +13008,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": null,
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12909,7 +13034,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": null,
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12934,7 +13060,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": null,
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12959,7 +13086,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": null,
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -12984,7 +13112,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": null,
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -13009,7 +13138,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": null,
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -13034,7 +13164,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": null,
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
@@ -13059,7 +13190,8 @@
       "responsibility_construction_control": false,
       "department": null,
       "external_identifier": null,
-      "meta": {}
+      "meta": {},
+      "uses_ech_api": 0
     }
   },
   {
