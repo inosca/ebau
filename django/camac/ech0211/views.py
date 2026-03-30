@@ -810,6 +810,7 @@ class ECHDocumentView(
         return super().retrieve(request, *args, **kwargs)
 
     @swagger_auto_schema(
+        method="post",
         tags=["Documents and files for eCH-0211 clients"],
         manual_parameters=[group_param],
         operation_summary="Mark a document as void",
@@ -827,16 +828,8 @@ class ECHDocumentView(
             ),
         ),
     )
-    @action(detail=True, methods=["post"], url_path="void")
-    def void(self, request, pk=None):
-        if is_camac_backend() or not DocumentAPIFeature.can(
-            DocumentAPIFeature.DOCUMENTS_VOID
-        ):
-            raise NotFound()
-
-        return self._update_mark(document=self.get_object(), mark_pk="void", add=True)
-
     @swagger_auto_schema(
+        method="delete",
         tags=["Documents and files for eCH-0211 clients"],
         manual_parameters=[group_param],
         operation_summary="Unmark a document as void",
@@ -854,14 +847,22 @@ class ECHDocumentView(
             ),
         ),
     )
-    @action(detail=True, methods=["post"], url_path="unvoid")
-    def unvoid(self, request, pk=None):
-        if is_camac_backend() or not DocumentAPIFeature.can(
-            DocumentAPIFeature.DOCUMENTS_UNVOID
+    @action(detail=True, methods=["post", "delete"], url_path="void")
+    def void(self, request, pk=None):
+        is_add = request.method == "POST"
+        if (
+            is_camac_backend()
+            or (
+                is_add and not DocumentAPIFeature.can(DocumentAPIFeature.DOCUMENTS_VOID)
+            )
+            or (
+                not is_add
+                and not DocumentAPIFeature.can(DocumentAPIFeature.DOCUMENTS_UNVOID)
+            )
         ):
             raise NotFound()
 
-        return self._update_mark(document=self.get_object(), mark_pk="void", add=False)
+        return self._update_mark(document=self.get_object(), mark_pk="void", add=is_add)
 
     @swagger_auto_schema(
         tags=["Documents and files for eCH-0211 clients"],
