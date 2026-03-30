@@ -319,7 +319,9 @@ class KtAargauDossierWriter(DossierWriter):
 
     application_type = Transform(
         transform=lambda value, _, __, instance: (
-            value if instance.form.pk == "importiertes-dossier" else None
+            value
+            if instance.case.document.form.slug == "importiertes-dossier"
+            else None
         ),
         writer=CalumaAnswerWriter(target="geschaeftstyp-import"),
     )
