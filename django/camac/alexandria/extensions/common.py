@@ -179,46 +179,17 @@ def has_alexandria_move_permission(
     """
     old_category = document.category
 
-    from camac.alexandria.extensions.permissions.extension import (
-        MODE_CREATE,
-        MODE_UPDATE,
-    )
-
     if not settings.ALEXANDRIA["USE_V2_PERMISSIONS"]:
         from camac.alexandria.extensions.permissions.extension import CustomPermission
 
-        custom_permission = CustomPermission()
-        service_id = request.group.service_id if request.group else None
-
-        available_permissions_old = custom_permission.get_available_permissions(
-            request,
-            instance,
-            old_category,
-            document,
-            service_id,
-        )
-        if f"{MODE_UPDATE}-category" not in available_permissions_old:
-            return False
-
-        available_permissions_new_category = (
-            custom_permission.get_available_permissions(
-                request,
-                instance,
-                new_category,
-                document,
-                service_id,
-            )
-        )
-        needed_permissions_new_category = {MODE_CREATE}
-
-        # if the document already has marks, we need to make sure that the
-        # new category allows the applied marks
-        if document.marks.exists():
-            for mark in document.marks.all():
-                needed_permissions_new_category.add(f"{MODE_UPDATE}-marks-{mark.pk}")
-
-        return needed_permissions_new_category.issubset(
-            available_permissions_new_category
+        return CustomPermission().check_move_copy_permission(
+            is_copy=False,
+            request=request,
+            instance=instance,
+            document=document,
+            old_category=old_category,
+            new_category=new_category,
+            created_by_group=document.created_by_group,
         )
 
     return (
