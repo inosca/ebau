@@ -16,6 +16,10 @@ export default class HistoryEntryModel extends Model {
         return "envelope";
       case "status-change":
         return "circle-check";
+      case "document-mark":
+        return "stamp";
+      case "publication":
+        return "newspaper";
       default:
         return null;
     }

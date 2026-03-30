@@ -4123,10 +4123,12 @@ class HistoryActionConfig(models.Model):
     HISTORY_TYPE_NOTIFICATION = "notification"
     HISTORY_TYPE_STATUS = "status-change"
     HISTORY_TYPE_DOCUMENT_MARK = "document-mark"
+    HISTORY_TYPE_PUBLICATION = "publication"
     HISTORY_TYPES = (
         HISTORY_TYPE_NOTIFICATION,
         HISTORY_TYPE_STATUS,
         HISTORY_TYPE_DOCUMENT_MARK,
+        HISTORY_TYPE_PUBLICATION,
     )
     HISTORY_TYPES_TUPLE = ((t, t) for t in HISTORY_TYPES)
 

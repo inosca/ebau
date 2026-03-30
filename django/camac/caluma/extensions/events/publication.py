@@ -1,8 +1,16 @@
 from caluma.caluma_core.events import filter_events, on
 from caluma.caluma_workflow.events import post_complete_work_item
+from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
+from django.contrib.auth import get_user_model
 from django.db import transaction
+from django.db.models.signals import post_save, pre_save
+from django.dispatch import receiver
+from django.utils.translation import gettext as _
 
+from camac.caluma.utils import find_answer
+from camac.core.models import HistoryActionConfig
+from camac.core.utils import create_history_entry
 from camac.notification.tasks import send_notification_for_publication
 
 
@@ -16,3 +24,67 @@ from camac.notification.tasks import send_notification_for_publication
 @transaction.atomic
 def post_complete_publication(sender, work_item, user, context=None, **kwargs):
     send_notification_for_publication.delay(str(work_item.pk))
+
+
+def _is_not_so_and_publication(work_item: WorkItem) -> bool:
+    return not settings.APPLICATION.get(
+        "SHORT_NAME"
+    ) == "so" or not work_item.task_id == settings.PUBLICATION.get(
+        "FILL_TASKS", {}
+    ).get("PUBLIC")
+
+
+@receiver(pre_save, sender=WorkItem)
+def so_pre_save_unpublished_publication_history(
+    sender, instance: WorkItem, **kwargs
+) -> None:
+    if _is_not_so_and_publication(instance) or instance.pk is None:
+        return
+
+    if old_wi := WorkItem.objects.filter(pk=instance.pk).first():
+        instance._pre_save_meta = old_wi.meta
+
+
+@receiver(post_save, sender=WorkItem)
+@transaction.atomic
+def so_post_save_publication_create_history_entry(
+    sender, instance: WorkItem, created: bool, **kwargs
+) -> None:
+    if (
+        _is_not_so_and_publication(instance)
+        # Only run if work item is not newly created, meta is updated and is-published is set
+        or created
+        or instance.meta.get("is-published") is None
+        or instance.meta.get("is-published")
+        == instance._pre_save_meta.get("is-published")
+    ):
+        return
+
+    user = get_user_model().objects.filter(username=instance.modified_by_user).first()
+
+    publication_start = find_answer(instance.document, "publikation-start")
+    publication_ende = find_answer(instance.document, "publikation-ende")
+    publication_newspaper = find_answer(instance.document, "publikation-organ")
+    publication_newspaper_date = find_answer(instance.document, "publikation-anzeiger")
+
+    text = (
+        _(
+            "Publication created for %(start)s to %(end)s. Published in %(newspaper)s on %(newspaper_date)s."
+        )
+        if instance.meta.get("is-published")
+        else _(
+            "Publication from %(start)s to %(end)s cancelled. Published in %(newspaper)s on %(newspaper_date)s."
+        )
+    ) % {
+        "start": publication_start,
+        "end": publication_ende,
+        "newspaper": publication_newspaper,
+        "newspaper_date": publication_newspaper_date,
+    }
+
+    create_history_entry(
+        instance.case.family.instance,
+        user=user,
+        text=text,
+        history_type=HistoryActionConfig.HISTORY_TYPE_PUBLICATION,
+    )

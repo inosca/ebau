@@ -10,6 +10,8 @@ module.exports = function () {
       "minus",
       "rotate-left",
       "house-circle-check",
+      "newspaper",
+      "stamp",
     ],
   };
 };
