@@ -154,6 +154,7 @@ class BeGisClient(GISBaseClient):
                 for egrid in egrids
             }
 
+            results = {}
             for future in concurrent.futures.as_completed(futures):
                 egrid = futures[future]
                 try:
@@ -167,10 +168,16 @@ class BeGisClient(GISBaseClient):
                         xml_data=xml_data,
                         et=et,
                     )
-                    self.merge_data_dict(data, new_data, special_layers)
+                    results[egrid] = new_data
 
                 except RuntimeError as e:  # pragma: no cover
                     exception_messages.add(f"Error for {egrid}: {str(e)}")
+
+            # Threads may return out-of-order, but we need to process the data
+            # in specified order to avoid races
+            for egrid in egrids:
+                new_data = results[egrid]
+                self.merge_data_dict(data, new_data, special_layers)
 
         if exception_messages:  # pragma: no cover
             # We raise a single RuntimeError per GIS datasource;
