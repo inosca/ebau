@@ -375,7 +375,7 @@ class CustomDynamicTasks(BaseDynamicTasks):
             addressed_groups=addressed_groups,
         )
         if not existing_work_item.exists():
-            [work_item] = create_work_items(
+            created_work_items = create_work_items(
                 tasks=[Task.objects.get(pk="trigger-billing")],
                 # the "trigger-billing" work item should be created in the main case
                 # instead of the distribution child case, so that is not cancelled when
@@ -385,17 +385,21 @@ class CustomDynamicTasks(BaseDynamicTasks):
                 user=user,
                 context=context,
             )
-            if case.family.document.form_id == "anfrage":
-                work_item.deadline = date_to_deadline(now().date() + timedelta(days=30))
-                work_item.save(update_fields=["deadline"])
+            if len(created_work_items) > 0:
+                work_item = created_work_items[0]
+                if case.family.document.form_id == "anfrage":
+                    work_item.deadline = date_to_deadline(
+                        now().date() + timedelta(days=30)
+                    )
+                    work_item.save(update_fields=["deadline"])
 
-            send_event(
-                post_create_work_item,
-                sender="post_complete_work_item",
-                work_item=work_item,
-                user=user,
-                context=context,
-            )
+                send_event(
+                    post_create_work_item,
+                    sender="post_complete_work_item",
+                    work_item=work_item,
+                    user=user,
+                    context=context,
+                )
         return []
 
     @register_dynamic_task("after-ebau-number")
