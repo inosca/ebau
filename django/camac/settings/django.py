@@ -3958,6 +3958,7 @@ SANCTIONS = load_module_settings("sanctions")
 TIMELINES = load_module_settings("timelines")
 STATISTICS = load_module_settings("statistics")
 SUBMIT = load_module_settings("submit")
+APPLICANTS = load_module_settings("applicants")
 
 # Permissions incl. module specific integrations
 PERMISSIONS = load_module_settings("permissions")

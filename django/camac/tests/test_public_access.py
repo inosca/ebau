@@ -48,6 +48,7 @@ def public_data(
     suspension_factory,
     instance_deadline_factory,
     form_timeline_factory,
+    applicant_confirmation_round_factory,
 ):
     attachment = attachment_factory(instance=be_instance, context={"isPublished": True})
     attachment_version_factory(attachment=attachment)
@@ -71,6 +72,7 @@ def public_data(
     deadline = instance_deadline_factory(instance=be_instance)
     suspension_factory(deadline=deadline)
     form_timeline_factory(instance=be_instance)
+    applicant_confirmation_round_factory(instance=be_instance, confirmations__count=1)
 
     create_caluma_publication(be_instance)
 
@@ -80,6 +82,7 @@ def test_public_urls(
     public_urls,
     public_data,
     admin_client,
+    mocker,
 ):
     """Test public URLs to see that no data is leaked unintentionally.
 
@@ -108,6 +111,8 @@ def test_public_urls(
         "/api/v1/files",
         "/api/v1/marks",
     ]
+
+    mocker.patch("camac.document.views.get_thumbnail")
 
     for model, url_config in public_urls:
         # Background information: If you run into the below assertion, we
