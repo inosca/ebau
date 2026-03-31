@@ -81,7 +81,12 @@
                 </td>
                 <td>
                   {{acl.accessLevel.name}}
-                  {{#if (eq acl.accessLevel.slug "applicant")}}
+                  {{#if
+                    (and
+                      (eq acl.accessLevel.slug "applicant")
+                      (not this.instance.isRunning)
+                    )
+                  }}
                     ({{get-applicant-role-from-acl acl this.instance.record}})
                   {{/if}}
                 </td>
