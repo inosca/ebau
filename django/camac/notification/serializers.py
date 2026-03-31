@@ -385,11 +385,15 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         for publication in instance.publication_entries.filter(is_published=1).order_by(
             "publication_date"
         ):
+            if publication.publication_journal_number is None:
+                amtsblattnummer = publication.publication_date.isocalendar()[1]
+            else:
+                amtsblattnummer = publication.publication_journal_number
             publications.append(
                 {
                     "date": self.format_date(publication.publication_date),
                     "end_date": self.format_date(publication.publication_end_date),
-                    "calendar_week": publication.publication_date.isocalendar()[1],
+                    "calendar_week": amtsblattnummer,
                 }
             )
 

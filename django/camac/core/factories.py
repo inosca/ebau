@@ -264,6 +264,7 @@ class PublicationEntryFactory(DjangoModelFactory):
     note = 1
     publication_date = Faker("past_datetime", tzinfo=pytz.UTC)
     publication_end_date = Faker("past_datetime", tzinfo=pytz.UTC)
+    publication_journal_number = None
     is_published = 0
     text = Faker("text")
 

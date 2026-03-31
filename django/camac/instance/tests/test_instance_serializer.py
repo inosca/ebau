@@ -1,4 +1,8 @@
+from datetime import datetime, timezone
+
 import pytest
+from django.urls import reverse
+from rest_framework import status
 
 from camac.constants import kt_uri as uri_constants
 from camac.instance.serializers import (
@@ -16,6 +20,38 @@ def test_rejection_feedback(db, instance_factory):
         serializer.Meta.model.rejection_feedback.field.value_from_object(instance)
         == instance.rejection_feedback
     )
+
+
+@pytest.mark.parametrize(
+    "publication_entry__publication_date", [datetime(2026, 1, 30, tzinfo=timezone.utc)]
+)
+@pytest.mark.parametrize("role__name", ["Canton"])
+@pytest.mark.parametrize(
+    "publication_entry__publication_journal_number, expected_output",
+    [
+        (3, 3),
+        (None, 5),
+    ],
+)
+def test_amtsblattnummer_placeholder_sz(
+    db,
+    notification_template,
+    publication_entry,
+    admin_client,
+    sz_instance,
+    expected_output,
+):
+    notification_template.body = (
+        "{% for p in publications %}W{{p.calendar_week}}{% endfor %}"
+    )
+    notification_template.save()
+    publication_entry.is_published = 1
+    publication_entry.save()
+    url = reverse("notificationtemplate-merge", args=[notification_template.pk])
+
+    response = admin_client.get(url, data={"instance": sz_instance.pk})
+    assert response.status_code == status.HTTP_200_OK
+    assert f"W{expected_output}" == response.json()["data"]["attributes"]["body"]
 
 
 @pytest.mark.parametrize(
