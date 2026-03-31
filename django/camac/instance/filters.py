@@ -175,12 +175,18 @@ class FormFieldListValueFilter(Filter):
         Instance 3 (form field 3, due to "color": "blue")
 
     The filter considers all keys if multiple keys are given.
+
+    By default, search values are substring-matched case-insensitively against
+    the JSON field values. This behaviour can be changed by initialising the
+    filter with match="exact"; this will cause the fields to be searched for
+    values that exactly match one of the given search terms, case-sensitively.
     """
 
-    def __init__(self, form_field_names, keys, *args, **kwargs):
+    def __init__(self, form_field_names, keys, match="substring", *args, **kwargs):
         super().__init__(*args, **kwargs)
         self._form_field_names = form_field_names
         self._keys = keys
+        self._match = match
 
     def filter(self, qs, value, *args, **kwargs):
         if value in EMPTY_VALUES:
@@ -188,23 +194,31 @@ class FormFieldListValueFilter(Filter):
 
         form_fields = models.FormField.objects.all()
 
-        # Use alias() instead of annotate() to only calculate expression if
-        # the form field has to be checked for the instance query.
-        # In addition, the form field name doesn't have to be prefiltered,
-        # since the expression is only evaluated in the instance query where
-        # the form field name is checked.
-        #
-        # Because the search term is split on spaces (see below), we can simply
-        # aggregate the list of values into a space-separated string,
-        # and then substring-match the individual search terms against the
-        # whole aggregated string without accidentally matching any of the
-        # separators.
         for key in self._keys:
+            if self._match == "exact":
+                # For exact matching, we aggregate the list of values
+                # into an array and match the individual search terms against
+                # this array with a `contains` filter.
+                agg_sql = f"array_agg({key})"
+            else:
+                # For substring matching, we aggregate the list of values
+                # into a space-separated string. Because the search
+                # term is split on spaces as well (see below), we can then
+                # simply substring-match the individual search terms against
+                # the whole aggregated string without accidentally matching any
+                # of the separators.
+                agg_sql = f"string_agg({key}, ' ')"
+
+            # Use alias() instead of annotate() to only calculate expression
+            # if the form field has to be checked for the instance query.
+            # In addition, the form field name doesn't have to be prefiltered,
+            # since the expression is only evaluated in the instance query
+            # where the form field name is checked.
             form_fields = form_fields.alias(
                 **{
                     f"values_{key}": RawSQL(
                         f"""
-                            select string_agg({key}, ' ')
+                            select {agg_sql}
                             from jsonb_to_recordset(value) as ({key} text)
                         """,
                         (),
@@ -216,7 +230,14 @@ class FormFieldListValueFilter(Filter):
         filters = []
         search_values = filter(None, value.strip().split(" "))
         for v in search_values:
-            subfilters = [Q(**{f"values_{key}__icontains": v}) for key in self._keys]
+            if self._match == "exact":
+                subfilters = [
+                    Q(**{f"values_{key}__contains": [v]}) for key in self._keys
+                ]
+            else:
+                subfilters = [
+                    Q(**{f"values_{key}__icontains": v}) for key in self._keys
+                ]
             filters.append(reduce(lambda a, b: a | b, subfilters))
 
         return qs.filter(
@@ -748,7 +769,7 @@ class InstanceFilterSet(FilterSet):
         form_field_names=["parzellen"], keys=["egrid"]
     )
     plot_number_sz = FormFieldListValueFilter(
-        form_field_names=["parzellen"], keys=["number"]
+        form_field_names=["parzellen"], keys=["number"], match="exact"
     )
     builder_sz = FormFieldListValueFilter(
         form_field_names=[
