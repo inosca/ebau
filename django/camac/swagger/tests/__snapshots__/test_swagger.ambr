@@ -50,6 +50,7 @@
 # name: test_swagger_paths[kt_gr]
   list([
     'delete:/ech/v1/documents/{id}',
+    'delete:/ech/v1/documents/{id}/void',
     'delete:/ech/v1/files/{id}',
     'get:/api/v1/groups',
     'get:/api/v1/groups/{group_id}',
@@ -62,7 +63,6 @@
     'get:/ech/v1/documents/{id}',
     'get:/ech/v1/files/{id}',
     'get:/ech/v1/message/',
-    'post:/ech/v1/documents/{id}/unvoid',
     'post:/ech/v1/documents/{id}/void',
     'post:/ech/v1/files',
     'post:/ech/v1/send/',

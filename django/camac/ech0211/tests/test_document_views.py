@@ -383,14 +383,16 @@ def test_document_mark_void_unvoid_has_feature(
         created_by_user=admin_client.user.pk,
         created_by_group=user_service.pk,
     )
-    if mark_action == "void":
+    if mark_action == "unvoid":
         alexandria_doc.marks.add(void_mark)
 
-    url = reverse(f"ech-document-{mark_action}", args=[alexandria_doc.pk])
-    ech_resp = admin_client.post(url)
+    url = reverse("ech-document-void", args=[alexandria_doc.pk])
+    ech_resp = (
+        admin_client.post(url) if mark_action == "void" else admin_client.delete(url)
+    )
 
     if has_feature:
-        assert ech_resp.status_code != status.HTTP_204_NO_CONTENT
+        assert ech_resp.status_code == status.HTTP_204_NO_CONTENT
     else:
         assert ech_resp.status_code == status.HTTP_404_NOT_FOUND, ech_resp.json()
 
@@ -448,8 +450,10 @@ def test_document_mark_void_unvoid_camac(
     doc = ECH0211Document.from_attachment(camac_attachment)
     expected_pk = doc.pk
 
-    url = reverse(f"ech-document-{mark_action}", args=[expected_pk])
-    ech_resp = admin_client.post(url)
+    url = reverse("ech-document-void", args=[expected_pk])
+    ech_resp = (
+        admin_client.post(url) if mark_action == "void" else admin_client.delete(url)
+    )
 
     # always 404, feature has no use with camac backend.
     assert ech_resp.status_code == status.HTTP_404_NOT_FOUND
@@ -520,8 +524,10 @@ def test_document_mark_void_unvoid_alexandria(
     if has_void_mark:
         alexandria_doc.marks.add(void_mark)
 
-    url = reverse(f"ech-document-{mark_action}", args=[alexandria_doc.pk])
-    ech_resp = admin_client.post(url)
+    url = reverse("ech-document-void", args=[alexandria_doc.pk])
+    ech_resp = (
+        admin_client.post(url) if mark_action == "void" else admin_client.delete(url)
+    )
 
     if not has_permission:
         assert ech_resp.status_code == status.HTTP_403_FORBIDDEN, ech_resp.json()
@@ -531,6 +537,12 @@ def test_document_mark_void_unvoid_alexandria(
         assert ech_resp.status_code == status.HTTP_400_BAD_REQUEST, ech_resp.json()
     else:
         assert ech_resp.status_code == status.HTTP_204_NO_CONTENT
+
+        alexandria_doc.refresh_from_db()
+        if mark_action == "void":
+            assert alexandria_doc.marks.filter(pk=void_mark.pk).exists()
+        else:
+            assert not alexandria_doc.marks.filter(pk=void_mark.pk).exists()
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
