@@ -193,12 +193,18 @@ class FormFieldListValueFilter(Filter):
         # In addition, the form field name doesn't have to be prefiltered,
         # since the expression is only evaluated in the instance query where
         # the form field name is checked.
+        #
+        # Because the search term is split on spaces (see below), we can simply
+        # aggregate the list of values into a space-separated string,
+        # and then substring-match the individual search terms against the
+        # whole aggregated string without accidentally matching any of the
+        # separators.
         for key in self._keys:
             form_fields = form_fields.alias(
                 **{
                     f"values_{key}": RawSQL(
                         f"""
-                            select array_agg({key})
+                            select string_agg({key}, ' ')
                             from jsonb_to_recordset(value) as ({key} text)
                         """,
                         (),
