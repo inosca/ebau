@@ -199,6 +199,11 @@ export default function makeServer(config) {
         return new Response(200, {}, { adopt, merge });
       });
 
+      this.resource("applicant-confirmations", { only: ["index", "show"] });
+      this.resource("applicant-confirmation-rounds", {
+        only: ["index", "show", "create"],
+      });
+
       this.namespace = ""; // reset namespace
 
       this.post("/graphql", graphqlHandler(this), 200);

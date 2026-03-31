@@ -452,6 +452,23 @@
   },
   {
     "model": "caluma_form.answer",
+    "pk": "069958b2-7b7a-736b-86f2-618e8686f94c",
+    "fields": {
+      "created_at": "2026-02-18T09:48:58.205Z",
+      "modified_at": "2026-02-18T09:48:58.205Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "bestaetigung-komplett",
+      "value": ["bestaetigung-komplett-ja"],
+      "meta": {},
+      "document": "069958a6-7204-712c-8000-71d5f39de78c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
     "pk": "069958b2-a510-705b-8000-da3afbb3f7c2",
     "fields": {
       "created_at": "2026-02-18T09:49:30.316Z",

@@ -6,6 +6,7 @@ import AdditionalDemandFormTimelineLinkComponent from "ember-ebau-core/component
 import AgGisComponent from "ember-ebau-core/components/ag-gis";
 import AGInquiryServiceGroupWarningComponent from "ember-ebau-core/components/ag-inquiry-service-group-warning";
 import AlexandriaDocumentsFormComponent from "ember-ebau-core/components/alexandria-documents-form";
+import ApplicantConfirmationsWidgetComponent from "ember-ebau-core/components/applicant-confirmations/widget";
 import CalculatedPublicationDateComponent from "ember-ebau-core/components/calculated-publication-date";
 import CamacAdditionalDemandFilesComponent from "ember-ebau-core/components/camac-additional-demand-files";
 import CamacSchnurgeruestabnahmeFilesComponent from "ember-ebau-core/components/camac-schnurgeruestabnahme-files";
@@ -363,6 +364,12 @@ export default class ApplicationRoute extends Route {
       component: "construction-monitoring-geometer-choice",
       componentClass: ConstructionMonitoringGeometerChoiceComponent,
       type: "ChoiceQuestion",
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Bestätigung Gesuchsteller",
+      component: "applicant-confirmations/widget",
+      componentClass: ApplicantConfirmationsWidgetComponent,
+      type: "MultipleChoiceQuestion",
     });
   }
 }

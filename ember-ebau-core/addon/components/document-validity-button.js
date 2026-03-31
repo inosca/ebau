@@ -22,6 +22,7 @@ export default class DocumentValidityButtonComponent extends Component {
   get showSuccess() {
     return (
       !this.showError &&
+      (this.args.showSuccessAlert ?? true) &&
       this.validate.performCount > 0 &&
       !this.validate.isRunning
     );

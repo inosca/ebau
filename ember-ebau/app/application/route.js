@@ -5,6 +5,7 @@ import AdditionalDemandFormTimelineLinkComponent from "ember-ebau-core/component
 import AgGisComponent from "ember-ebau-core/components/ag-gis";
 import AGInquiryServiceGroupWarningComponent from "ember-ebau-core/components/ag-inquiry-service-group-warning";
 import AlexandriaDocumentsFormComponent from "ember-ebau-core/components/alexandria-documents-form";
+import ApplicantConfirmationsWidgetComponent from "ember-ebau-core/components/applicant-confirmations/widget";
 import CalculatedPublicationDateComponent from "ember-ebau-core/components/calculated-publication-date";
 import CfSnippetsTextareaComponent from "ember-ebau-core/components/cf-snippets-textarea";
 import CheckHintNewAddressNeededComponent from "ember-ebau-core/components/check-hint-new-address-needed";
@@ -210,6 +211,12 @@ export default class ApplicationRoute extends Route {
       component: "cf-snippets-textarea",
       componentClass: CfSnippetsTextareaComponent,
       type: "TextareaQuestion",
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Bestätigung Gesuchsteller",
+      component: "applicant-confirmations/widget",
+      componentClass: ApplicantConfirmationsWidgetComponent,
+      type: "MultipleChoiceQuestion",
     });
   }
 }
