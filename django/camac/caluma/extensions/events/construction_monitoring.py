@@ -430,7 +430,7 @@ def post_create_gvg_work_item(sender, work_item, user, context, **kwargs):
 @on(post_complete_work_item, raise_exception=True)
 @filter_events(
     lambda work_item: (
-        work_item.task.slug == settings.DECISION["TASK"]
+        work_item.task.slug == settings.DECISION.get("TASK")
         and settings.APPLICATION_NAME == "kt_gr"
     )
 )
