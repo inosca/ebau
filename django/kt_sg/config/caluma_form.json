@@ -3777,40 +3777,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "telefon-handy-optional",
-    "fields": {
-      "created_at": "2026-03-17T12:39:18.107Z",
-      "modified_at": "2026-03-17T12:39:18.107Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Telefon / Handy\", \"fr\": null, \"it\": null}",
-      "type": "text",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[\"phone-number\"]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "telefon-optional",
     "fields": {
       "created_at": "2026-03-17T12:39:42.459Z",
