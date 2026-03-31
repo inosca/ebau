@@ -175,3 +175,9 @@ set $csp_header_django "${csp_default_self}";
 set $csp_header_django "${csp_header_django}; ${csp_script_default} 'unsafe-inline'";
 set $csp_header_django "${csp_header_django}; ${csp_style_src} 'unsafe-inline'";
 set $csp_header_django "${csp_header_django}; ${csp_img_default}";
+
+# Silk
+set $csp_header_silk "${csp_default_self}";
+set $csp_header_silk "${csp_header_silk}; ${csp_script_default} 'unsafe-inline' 'unsafe-eval'";
+set $csp_header_silk "${csp_header_silk}; ${csp_style_src} 'unsafe-inline'";
+set $csp_header_silk "${csp_header_silk}; ${csp_img_default}";
