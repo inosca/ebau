@@ -11,6 +11,8 @@ from django.utils.translation import gettext_lazy as _
 from localized_fields.fields import LocalizedCharField
 
 from camac.caluma.models import Inquiry
+from camac.core.models import HistoryActionConfig
+from camac.core.translations import get_translations
 from camac.core.utils import canton_aware
 from camac.deadlines.mixins import DeadlinePermissionMixin
 from camac.instance.master_data import MasterData
@@ -596,6 +598,19 @@ class InstanceDeadline(models.Model):
         return total_days
 
     def _get_enddate_responsible(self) -> Optional[datetime]:
+        if self.instance.instance_state.name == settings.REJECTION["INSTANCE_STATE"]:
+            rejected_translations = set(get_translations("Instance rejected").values())
+            rejected_entry = (
+                self.instance.history.filter(
+                    trans__title__in=rejected_translations,
+                    history_type=HistoryActionConfig.HISTORY_TYPE_STATUS,
+                )
+                .order_by("-created_at")
+                .distinct()
+            ).first()
+
+            return rejected_entry.created_at.date() if rejected_entry else None
+
         decision_date = MasterData(self.instance.case).decision_date
 
         return (

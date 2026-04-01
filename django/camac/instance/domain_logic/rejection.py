@@ -119,6 +119,13 @@ class RejectionLogic:
             settings.REJECTION["HISTORY_ENTRIES"]["REJECTED"],
         )
 
+        # instance in rejected state will set the municipality deadline end date to
+        # the rejection date. Because the date is fetched from the history entry, we
+        # have to trigger the update after creating the history entry.
+        if settings.DEADLINES:
+            for deadline in instance.deadlines.all():
+                deadline.update_progression()
+
         # send notifications to applicant and municipality
         for notification in settings.REJECTION["NOTIFICATIONS"]["REJECTED"]:
             send_mail_without_request(
@@ -145,6 +152,13 @@ class RejectionLogic:
 
         # reset state to previous
         instance.set_instance_state(instance.previous_instance_state.name, camac_user)
+
+        # instance no longer in rejected state will set the municipality
+        # deadline end date back to decision date or None if the decision
+        # date is not yet set.
+        if settings.DEADLINES:
+            for deadline in instance.deadlines.all():
+                deadline.update_progression()
 
         # trigger ech0211 event
         rejection_reverted.send(

@@ -6,6 +6,8 @@ from caluma.caluma_workflow.models import Task, WorkItem
 from django.utils.timezone import make_aware
 
 from camac.constants.kt_gr import ARE_SERVICE_GROUP
+from camac.core.models import HistoryActionConfig
+from camac.core.utils import create_history_entry
 from camac.deadlines import models as deadlines_models
 from camac.tests.form_utils import FormUtils
 
@@ -776,11 +778,12 @@ def test_update_deadline_progression_days_gr(
 
 @pytest.mark.freeze_time("2025-05-29")
 @pytest.mark.parametrize(
-    "service_group__name,role__name,has_open_suspension",
+    "service_group__name,role__name,has_open_suspension,is_rejected",
     [
-        ("municipality", "municipality-lead", False),
-        ("service-afb", "service-lead", True),
-        ("service-afb", "service-lead", False),
+        ("municipality", "municipality-lead", False, False),
+        ("municipality", "municipality-lead", False, True),
+        ("service-afb", "service-lead", True, False),
+        ("service-afb", "service-lead", False, False),
     ],
 )
 def test_update_deadline_enddate_ag(
@@ -791,6 +794,7 @@ def test_update_deadline_enddate_ag(
     deadline_type_factory,
     caluma_work_item_factory,
     caluma_document_factory,
+    instance_state_factory,
     service_factory,
     suspension_factory,
     ag_deadlines_settings,
@@ -798,6 +802,7 @@ def test_update_deadline_enddate_ag(
     ag_distribution_settings,
     set_application_ag,
     has_open_suspension,
+    is_rejected,
     application_settings,
     disable_deadline_side_effects,
     mocker,
@@ -808,6 +813,21 @@ def test_update_deadline_enddate_ag(
 
     now = datetime.now().date()
     decision_date = date(2025, 2, 2)
+    rejection_date = None
+    if is_rejected:
+        rejected_state = instance_state_factory(name="rejected")
+        ag_instance.instance_state = rejected_state
+        ag_instance.save(update_fields=["instance_state"])
+
+        create_history_entry(
+            instance=ag_instance,
+            text="Dossier zurückgewiesen",
+            history_type=HistoryActionConfig.HISTORY_TYPE_STATUS,
+            user=None,
+        )
+        entry = ag_instance.history.latest("created_at")
+        rejection_date = entry.created_at.date()
+
     mocker.patch(
         "camac.instance.models.Instance.responsible_service",
         return_value=service
@@ -855,9 +875,14 @@ def test_update_deadline_enddate_ag(
         )
 
     if service.service_group.name == "municipality":
-        assert deadline._get_enddate_responsible() == decision_date, (
-            "End date should be the decision date for responsible service"
-        )
+        if is_rejected:
+            assert deadline._get_enddate_responsible() == rejection_date, (
+                "End date should be the rejection date for responsible service if rejected"
+            )
+        else:
+            assert deadline._get_enddate_responsible() == decision_date, (
+                "End date should be the decision date for responsible service"
+            )
     elif has_open_suspension:
         assert deadline._get_enddate_inquired() is None, (
             "End date should be None for inquired service with open suspension"
