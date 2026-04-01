@@ -16,7 +16,7 @@ from django.utils.translation import gettext as _
 from drf_yasg import openapi
 from drf_yasg.errors import SwaggerGenerationError
 from drf_yasg.inspectors import SwaggerAutoSchema
-from drf_yasg.utils import param_list_to_odict, swagger_auto_schema
+from drf_yasg.utils import param_list_to_dict, swagger_auto_schema
 from rest_framework import exceptions, generics, status
 from rest_framework.decorators import action
 from rest_framework.exceptions import NotFound, ValidationError
@@ -67,8 +67,8 @@ class FileUploadSwaggerAutoSchema(SwaggerAutoSchema):
 
             if (
                 len(
-                    set(param_list_to_odict(natural_parameters))
-                    & set(param_list_to_odict(serializer_parameters))
+                    set(param_list_to_dict(natural_parameters))
+                    & set(param_list_to_dict(serializer_parameters))
                 )
                 != 0
             ):  # pragma: no cover
