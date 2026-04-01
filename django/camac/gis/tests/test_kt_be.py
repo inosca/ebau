@@ -8,6 +8,14 @@ from camac.gis.models import GISDataSource
 
 
 @pytest.fixture
+def vcr_config():
+    # also match on body to avoid egrid response mismatch due to the out of order threaded handling
+    return {
+        "match_on": ["method", "scheme", "host", "port", "path", "query", "body"],
+    }
+
+
+@pytest.fixture
 def be_data_sources(
     caluma_question_factory,
     caluma_question_option_factory,
@@ -88,7 +96,7 @@ def test_be_client(
 ):
     # TODO: Update testing when sync=True works for testing, django_q sync=True is still broken.
     settings.BE_GIS_ENABLE_QUEUE = False
-    settings.GIS_REQUESTS_BATCH_SIZE = 1
+    settings.GIS_REQUESTS_BATCH_SIZE = 4
 
     response = admin_client.get(
         reverse("gis-data"),
