@@ -36,8 +36,12 @@ class DocumentAPIFeature(enum.Enum):
     FILES_DOWNLOAD = "file-download"
     FILES_MULTI_DOWNLOAD = "file-multi-download"
     DOCUMENTS_READ = "documents-read"
-    DOCUMENTS_VOID = "documents-void"
-    DOCUMENTS_UNVOID = "documents-unvoid"
+    DOCUMENTS_VOID_ADD = "documents-void-add"
+    DOCUMENTS_VOID_REMOVE = "documents-void-remove"
+    DOCUMENTS_DECISION_ADD = "documents-decision-add"
+    DOCUMENTS_DECISION_REMOVE = "documents-decision-remove"
+    DOCUMENTS_PUBLICATION_ADD = "documents-publication-add"
+    DOCUMENTS_PUBLICATION_REMOVE = "documents-publication-remove"
     DOCUMENTS_DELETE = "documents-delete"
     CATEGORIES_READ = "categories-read"
 
@@ -451,8 +455,12 @@ ECH0211 = {
             DocumentAPIFeature.FILES_DOWNLOAD,
             DocumentAPIFeature.DOCUMENTS_READ,
             DocumentAPIFeature.DOCUMENTS_DELETE,
-            DocumentAPIFeature.DOCUMENTS_VOID,
-            DocumentAPIFeature.DOCUMENTS_UNVOID,
+            DocumentAPIFeature.DOCUMENTS_VOID_ADD,
+            DocumentAPIFeature.DOCUMENTS_VOID_REMOVE,
+            DocumentAPIFeature.DOCUMENTS_DECISION_ADD,
+            DocumentAPIFeature.DOCUMENTS_DECISION_REMOVE,
+            DocumentAPIFeature.DOCUMENTS_PUBLICATION_ADD,
+            DocumentAPIFeature.DOCUMENTS_PUBLICATION_REMOVE,
         ],
         "ALLOW_SUBMIT_BY_MUNICIPALITY": True,
         "STATUS_NOTIFICATION_TYPES": [

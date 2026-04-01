@@ -335,13 +335,15 @@ def test_document_create_forbidden(
 
 
 @pytest.mark.freeze_time("2025-11-22")
-@pytest.mark.parametrize("mark_action", ["void", "unvoid"])
+@pytest.mark.parametrize("mark_name", ["void", "decision", "publication"])
+@pytest.mark.parametrize("mark_action", ["add", "remove"])
 @pytest.mark.parametrize("has_feature", [True, False])
 @pytest.mark.parametrize("role__name", ["municipality-lead"])
-def test_document_mark_void_unvoid_has_feature(
+def test_document_mark_has_feature(
     db,
     settings,
     admin_client,
+    mark_name,
     mark_action,
     has_feature,
     alexandria_document_factory,
@@ -357,15 +359,25 @@ def test_document_mark_void_unvoid_has_feature(
     role,
 ):
     set_document_backend("alexandria")
-    void_mark = alexandria_mark_factory(pk="void")
-    be_ech0211_settings["DOCUMENT_API_FEATURES"] = (
-        [
-            DocumentAPIFeature.DOCUMENTS_VOID,
-            DocumentAPIFeature.DOCUMENTS_UNVOID,
-        ]
-        if has_feature
-        else []
-    )
+    mark = alexandria_mark_factory(pk=mark_name)
+    if has_feature:
+        if mark_name == "void":
+            be_ech0211_settings["DOCUMENT_API_FEATURES"] = [
+                DocumentAPIFeature.DOCUMENTS_VOID_ADD,
+                DocumentAPIFeature.DOCUMENTS_VOID_REMOVE,
+            ]
+        elif mark_name == "publication":
+            be_ech0211_settings["DOCUMENT_API_FEATURES"] = [
+                DocumentAPIFeature.DOCUMENTS_PUBLICATION_ADD,
+                DocumentAPIFeature.DOCUMENTS_PUBLICATION_REMOVE,
+            ]
+        elif mark_name == "decision":
+            be_ech0211_settings["DOCUMENT_API_FEATURES"] = [
+                DocumentAPIFeature.DOCUMENTS_DECISION_ADD,
+                DocumentAPIFeature.DOCUMENTS_DECISION_REMOVE,
+            ]
+    else:
+        be_ech0211_settings["DOCUMENT_API_FEATURES"] = []
 
     user_service = admin_user.get_default_group().service
     alexandria_category_factory(
@@ -383,12 +395,12 @@ def test_document_mark_void_unvoid_has_feature(
         created_by_user=admin_client.user.pk,
         created_by_group=user_service.pk,
     )
-    if mark_action == "unvoid":
-        alexandria_doc.marks.add(void_mark)
+    if mark_action == "remove":
+        alexandria_doc.marks.add(mark)
 
-    url = reverse("ech-document-void", args=[alexandria_doc.pk])
+    url = reverse(f"ech-document-{mark_name}", args=[alexandria_doc.pk])
     ech_resp = (
-        admin_client.post(url) if mark_action == "void" else admin_client.delete(url)
+        admin_client.post(url) if mark_action == "add" else admin_client.delete(url)
     )
 
     if has_feature:
@@ -398,12 +410,14 @@ def test_document_mark_void_unvoid_has_feature(
 
 
 @pytest.mark.freeze_time("2025-11-22")
-@pytest.mark.parametrize("mark_action", ["void", "unvoid"])
+@pytest.mark.parametrize("mark_name", ["void", "decision", "publication"])
+@pytest.mark.parametrize("mark_action", ["add", "remove"])
 @pytest.mark.parametrize("role__name", ["municipality-lead"])
-def test_document_mark_void_unvoid_camac(
+def test_document_mark_camac(
     db,
     settings,
     admin_client,
+    mark_name,
     mark_action,
     be_instance,
     attachment_factory,
@@ -417,10 +431,21 @@ def test_document_mark_void_unvoid_camac(
     role,
     mocker,
 ):
-    be_ech0211_settings["DOCUMENT_API_FEATURES"] = [
-        DocumentAPIFeature.DOCUMENTS_VOID,
-        DocumentAPIFeature.DOCUMENTS_UNVOID,
-    ]
+    if mark_name == "void":
+        be_ech0211_settings["DOCUMENT_API_FEATURES"] = [
+            DocumentAPIFeature.DOCUMENTS_VOID_ADD,
+            DocumentAPIFeature.DOCUMENTS_VOID_REMOVE,
+        ]
+    elif mark_name == "publication":
+        be_ech0211_settings["DOCUMENT_API_FEATURES"] = [
+            DocumentAPIFeature.DOCUMENTS_PUBLICATION_ADD,
+            DocumentAPIFeature.DOCUMENTS_PUBLICATION_REMOVE,
+        ]
+    elif mark_name == "decision":
+        be_ech0211_settings["DOCUMENT_API_FEATURES"] = [
+            DocumentAPIFeature.DOCUMENTS_DECISION_ADD,
+            DocumentAPIFeature.DOCUMENTS_DECISION_REMOVE,
+        ]
     set_document_backend("camac-ng")
 
     camac_cat = attachment_section_factory(description="foo")
@@ -450,9 +475,9 @@ def test_document_mark_void_unvoid_camac(
     doc = ECH0211Document.from_attachment(camac_attachment)
     expected_pk = doc.pk
 
-    url = reverse("ech-document-void", args=[expected_pk])
+    url = reverse(f"ech-document-{mark_name}", args=[expected_pk])
     ech_resp = (
-        admin_client.post(url) if mark_action == "void" else admin_client.delete(url)
+        admin_client.post(url) if mark_action == "add" else admin_client.delete(url)
     )
 
     # always 404, feature has no use with camac backend.
@@ -460,16 +485,18 @@ def test_document_mark_void_unvoid_camac(
 
 
 @pytest.mark.freeze_time("2025-11-22")
-@pytest.mark.parametrize("mark_action", ["void", "unvoid"])
+@pytest.mark.parametrize("mark_name", ["void", "decision", "publication"])
+@pytest.mark.parametrize("mark_action", ["add", "remove"])
 @pytest.mark.parametrize("has_void_mark", [True, False])
 @pytest.mark.parametrize("has_permission", [True, False])
 @pytest.mark.parametrize("role__name", ["municipality-lead"])
-def test_document_mark_void_unvoid_alexandria(
+def test_document_mark_alexandria(
     db,
     settings,
     role,
     set_document_backend,
     admin_client,
+    mark_name,
     mark_action,
     has_void_mark,
     has_permission,
@@ -486,16 +513,29 @@ def test_document_mark_void_unvoid_alexandria(
     mocker,
 ):
     set_document_backend("alexandria")
-    be_ech0211_settings["DOCUMENT_API_FEATURES"] = [
-        DocumentAPIFeature.DOCUMENTS_VOID,
-        DocumentAPIFeature.DOCUMENTS_UNVOID,
-    ]
+
+    if mark_name == "void":
+        be_ech0211_settings["DOCUMENT_API_FEATURES"] = [
+            DocumentAPIFeature.DOCUMENTS_VOID_ADD,
+            DocumentAPIFeature.DOCUMENTS_VOID_REMOVE,
+        ]
+    elif mark_name == "publication":
+        be_ech0211_settings["DOCUMENT_API_FEATURES"] = [
+            DocumentAPIFeature.DOCUMENTS_PUBLICATION_ADD,
+            DocumentAPIFeature.DOCUMENTS_PUBLICATION_REMOVE,
+        ]
+    elif mark_name == "decision":
+        be_ech0211_settings["DOCUMENT_API_FEATURES"] = [
+            DocumentAPIFeature.DOCUMENTS_DECISION_ADD,
+            DocumentAPIFeature.DOCUMENTS_DECISION_REMOVE,
+        ]
+
     mocker.patch(
         "camac.ech0211.views.has_alexandria_mark_permission",
         return_value=has_permission,
     )
 
-    void_mark = alexandria_mark_factory(pk="void")
+    mark = alexandria_mark_factory(pk=mark_name)
 
     alexandria_category_factory(
         slug="intern",
@@ -522,27 +562,27 @@ def test_document_mark_void_unvoid_alexandria(
         created_by_group=user_service.pk,
     )
     if has_void_mark:
-        alexandria_doc.marks.add(void_mark)
+        alexandria_doc.marks.add(mark)
 
-    url = reverse("ech-document-void", args=[alexandria_doc.pk])
+    url = reverse(f"ech-document-{mark_name}", args=[alexandria_doc.pk])
     ech_resp = (
-        admin_client.post(url) if mark_action == "void" else admin_client.delete(url)
+        admin_client.post(url) if mark_action == "add" else admin_client.delete(url)
     )
 
     if not has_permission:
         assert ech_resp.status_code == status.HTTP_403_FORBIDDEN, ech_resp.json()
-    elif (has_void_mark and mark_action == "void") or (
-        not has_void_mark and mark_action == "unvoid"
+    elif (has_void_mark and mark_action == "add") or (
+        not has_void_mark and mark_action == "remove"
     ):
         assert ech_resp.status_code == status.HTTP_400_BAD_REQUEST, ech_resp.json()
     else:
         assert ech_resp.status_code == status.HTTP_204_NO_CONTENT
 
         alexandria_doc.refresh_from_db()
-        if mark_action == "void":
-            assert alexandria_doc.marks.filter(pk=void_mark.pk).exists()
+        if mark_action == "add":
+            assert alexandria_doc.marks.filter(pk=mark.pk).exists()
         else:
-            assert not alexandria_doc.marks.filter(pk=void_mark.pk).exists()
+            assert not alexandria_doc.marks.filter(pk=mark.pk).exists()
 
 
 @pytest.mark.parametrize("role__name", ["Municipality"])
