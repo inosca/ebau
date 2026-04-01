@@ -1,0 +1,37 @@
+{{#each @field.options as |option i|}}
+  {{#if (and (gt i 0) (not @field.raw.question.meta.vertical))}}<br />{{/if}}
+  <label
+    class="{{if @field.isInvalid 'uk-form-danger'}}
+      {{if @field.raw.question.meta.vertical 'uk-margin-large-right'}}
+      {{if (this.isAnswerRemoved option) 'diff-from-version'}}
+      {{if (this.isAnswerAdded option) 'diff-to-version'}}"
+  >
+    <input
+      class="uk-radio uk-margin-small-right"
+      type="radio"
+      name={{@field.pk}}
+      value={{option.slug}}
+      checked={{eq option.slug @field.answer.value}}
+      disabled={{or option.disabled @disabled}}
+      {{on "change" (fn @onSave option.slug)}}
+    />
+    {{#if (and option.disabled (not @disabled))}}
+      <del
+        class="uk-text-muted"
+        title={{t "caluma.form.optionNotAvailable"}}
+      >{{option.label}}</del>
+    {{else}}
+      {{option.label}}
+
+      {{#if (and (this.isGeometerOption option) this.geometerName)}}
+        ({{this.geometerName}})
+      {{/if}}
+    {{/if}}
+  </label>
+{{/each}}
+{{#if (and @field.optional @field.answer.value (not @disabled))}}
+  <br />
+  <a href="" data-test-radio-reset {{on "click" this.reset}}>
+    {{t "caluma.form.power-select.reset"}}
+  </a>
+{{/if}}
