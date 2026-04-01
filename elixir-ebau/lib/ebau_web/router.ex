@@ -18,23 +18,23 @@ defmodule EbauWeb.Router do
     plug :load_from_bearer
   end
 
-  # scope "/", EbauWeb do
-  #   pipe_through :browser
+  scope "/", EbauWeb do
+    pipe_through :browser
 
-  #   ash_authentication_live_session :authentication_required,
-  #     on_mount: [
-  #       EbauWeb.InitialiseScope,
-  #       EbauWeb.InitialiseLocale,
-  #       {EbauWeb.LiveUserAuth, :live_user_required}
-  #     ] do
-  #     live "/test", LiveTest
-  #   end
+    ash_authentication_live_session :authentication_required,
+      on_mount: [
+        EbauWeb.InitialiseScope,
+        EbauWeb.InitialiseLocale,
+        {EbauWeb.LiveUserAuth, :live_user_required}
+      ] do
+      live "/test", LiveTest
+    end
 
-  #   auth_routes AuthController, Ebau.User.User, path: "/auth"
-  #   sign_out_route AuthController
+    auth_routes AuthController, Ebau.User.User, path: "/auth"
+    sign_out_route AuthController
 
-  #   get "/sign-in", AuthController, :sign_in
-  # end
+    get "/sign-in", AuthController, :sign_in
+  end
 
   # Other scopes may use custom stacks.
   # scope "/api", EbauWeb do
