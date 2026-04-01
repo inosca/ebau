@@ -24,6 +24,18 @@
     }
   },
   {
+    "model": "django_celery_beat.crontabschedule",
+    "pk": 5,
+    "fields": {
+      "minute": "0",
+      "hour": "23",
+      "day_of_month": "*",
+      "month_of_year": "*",
+      "day_of_week": "*",
+      "timezone": "Europe/Zurich"
+    }
+  },
+  {
     "model": "django_celery_beat.periodictask",
     "pk": 3,
     "fields": {
@@ -58,7 +70,7 @@
       "name": "Send notifications for overdue work items",
       "task": "camac.notification.tasks.send_notification_for_overdue_workitems",
       "interval": null,
-      "crontab": 4,
+      "crontab": 5,
       "solar": null,
       "clocked": null,
       "args": "[]",

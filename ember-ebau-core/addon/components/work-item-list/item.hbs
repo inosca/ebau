@@ -45,7 +45,7 @@
       {{else if (eq column "instanceId")}}
         {{@workItem.instanceId}}
       {{else if (eq column "deadline")}}
-        {{date-from-now @workItem.deadline startOfDay=true}}
+        {{date-from-now @workItem.deadline}}
       {{else if (eq column "targetDeadlineDate")}}
         {{#if @processDeadlineDate}}
           -
