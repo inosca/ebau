@@ -38,41 +38,40 @@ def construction_control(instance_service_factory, be_instance, service_factory)
     )
 
 
-@pytest.mark.parametrize(
-    "construction_monitoring_enabled,decision,expected_instance_state,expected_text",
-    [
-        # with construction monitoring, positive decision leads to decided state,
-        # after starting the construction monitoring, instance goes to construction acceptance state.
-        (True, "APPROVED", "decided", "Bauentscheid verfügt"),
-        (True, "REJECTED", "finished", "Bauentscheid verfügt"),
-        # without construction monitoring, positive decision directly leads to
-        # construction acceptance state.
-        (False, "APPROVED", "construction-acceptance", "Bauentscheid verfügt"),
-        (False, "REJECTED", "finished", "Bauentscheid verfügt"),
-    ],
-)
+@pytest.mark.parametrize("construction_monitoring_enabled", [True, False])
+@pytest.mark.parametrize("decision", ["APPROVED", "REJECTED"])
+@pytest.mark.parametrize("has_are_inquiry", [True, False])
 def test_complete_decision_gr(
     db,
     gr_instance,
     caluma_admin_user,
-    mailoutbox,
-    notification_template,
     caluma_work_item_factory,
+    active_inquiry_factory,
     caluma_document_factory,
-    caluma_question_factory,
     instance_state_factory,
+    service_factory,
     decision,
+    has_are_inquiry,
     decision_settings,
     construction_monitoring_enabled,
-    expected_instance_state,
-    expected_text,
     gr_construction_monitoring_settings,
-    settings,
+    service,
     application_settings,
     gr_decision_settings,
     gr_ech0211_settings,
     set_application_gr,
+    mocker,
 ):
+    are_service = service_factory(name="are", slug="are")
+    mocker.patch(
+        "camac.instance.models.Instance.responsible_service",
+        return_value=service,
+    )
+
+    expected_are_message = (
+        construction_monitoring_enabled and has_are_inquiry and decision == "APPROVED"
+    )
+
     gr_construction_monitoring_settings["ENABLED"] = construction_monitoring_enabled
     instance_state_factory(name="construction-acceptance")
     instance_state_factory(name="decided")
@@ -82,6 +81,8 @@ def test_complete_decision_gr(
 
     gr_instance.case.workflow = Workflow.objects.get(pk="building-permit")
     gr_instance.case.save()
+    if has_are_inquiry:
+        active_inquiry_factory(gr_instance, are_service)
 
     work_item = caluma_work_item_factory(
         case=gr_instance.case,
@@ -102,12 +103,41 @@ def test_complete_decision_gr(
         context={},
     )
 
-    gr_instance.refresh_from_db()
+    if construction_monitoring_enabled and decision == "APPROVED":
+        init_construction_monitoring = caluma_work_item_factory(
+            case=gr_instance.case,
+            task_id=gr_construction_monitoring_settings[
+                "CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_TASK"
+            ],
+        )
+        send_event(
+            post_complete_work_item,
+            sender="post_complete_work_item",
+            work_item=init_construction_monitoring,
+            user=caluma_admin_user,
+            context={},
+        )
 
-    assert gr_instance.instance_state.name == expected_instance_state
+    gr_instance.refresh_from_db()
+    assert (
+        gr_instance.instance_state.name == "construction-acceptance"
+        if decision == "APPROVED"
+        else "finished"
+    )
+
     assert HistoryEntryT.objects.filter(
-        history_entry__instance=gr_instance, title=expected_text, language="de"
+        history_entry__instance=gr_instance, title="Bauentscheid verfügt", language="de"
     ).exists()
+
+    assert Message.objects.filter(
+        instance=gr_instance, receiver=str(service.pk)
+    ).exists()
+
+    # construction monitoring state change should also be sent to the ARE
+    # if ARE was inquired.
+    assert Message.objects.filter(
+        instance=gr_instance, receiver=str(are_service.pk)
+    ).count() == (1 if expected_are_message else 0)
 
 
 @pytest.mark.parametrize(
