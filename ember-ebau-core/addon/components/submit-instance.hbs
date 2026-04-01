@@ -2,10 +2,9 @@
   @field={{@field}}
   @context={{@context}}
   @buttonHintText={{this.buttonHintText}}
-  @validateOnEnter={{this.validateOnEnter}}
-  @showLoadingHint={{this.showLoadingHint}}
-  @requiredPermissions={{this.requiredPermissions}}
+  @validateOnEnter={{true}}
+  @showLoadingHint={{true}}
   @buttonLabel={{this.buttonLabel}}
-  @afterValidate={{this.afterValidate}}
-  @disabled={{@disabled}}
+  @afterValidate={{this.submit.perform}}
+  @disabled={{or this.disabled.isLoading this.disabled.value}}
 />
