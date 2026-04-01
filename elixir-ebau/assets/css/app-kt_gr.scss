@@ -1,0 +1,23 @@
+/* This file is for your main application CSS */
+$global-font-family: "Arial", sans-serif;
+$global-font-size: 15px;
+
+// Base colors
+$global-primary-background: #0069b4;
+$global-secondary-background: black;
+
+// Font colors
+$global-color: #222;
+$global-emphasis-color: $global-color;
+$base-em-color: #222;
+$global-muted-color: rgb(100 100 100);
+$global-link-color: #3387c3;
+$global-link-hover-color: $global-primary-background;
+$watermark-background-color: #f0506e;
+
+// increase specificity to override uk-text-muted
+span.cf-label__mandatory-asterisk.uk-text-muted {
+  color: #f0506e !important;
+}
+
+@import "base.scss";
