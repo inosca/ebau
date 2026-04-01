@@ -206,8 +206,6 @@ kt_bern: ## Set APPLICATION to kt_bern
 .PHONY: kt_gr
 kt_gr: ## Set APPLICATION to kt_gr
 	$(call set_app,kt_gr)
-	@echo "Rebuilding elixir container to apply kt_gr settings..."
-	@docker compose up -d --force-recreate elixir
 
 .PHONY: kt_ag
 kt_ag: ## Set APPLICATION to kt_ag

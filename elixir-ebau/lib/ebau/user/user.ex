@@ -19,10 +19,10 @@ defmodule Ebau.User.User do
     strategies do
       oidc :ebau do
         client_id System.get_env("KEYCLOAK_CLIENT", "camac")
-        base_url "http://ebau-keycloak.localhost/auth/realms/ebau"
-        redirect_uri "http://ember-ebau.localhost/elixir/auth/"
+        base_url System.get_env("KEYCLOAK_URL", "http://ebau-keycloak.localhost/auth/realms/ebau")
+        redirect_uri "#{System.get_env("HOSTNAME", "http://ebau.localhost")}/elixir/auth/"
         registration_enabled? false
-        client_secret "not_needed"
+        # client_secret "not_needed"
       end
     end
   end

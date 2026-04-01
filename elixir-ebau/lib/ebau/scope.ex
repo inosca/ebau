@@ -5,8 +5,8 @@ defmodule Ebau.Scope do
   defimpl Ash.Scope.ToOpts do
     def get_actor(%{current_user: current_user}), do: {:ok, current_user}
     def get_tenant(%{current_tenant: current_tenant}), do: {:ok, current_tenant}
-    # TODO Canton
-    def get_context(%{locale: locale}), do: {:ok, %{shared: %{locale: locale, canton: :so}}}
+    def get_context(context), do: {:ok, shared: context}
+
     # You typically configure tracers in config files
     # so this will typically return :error
     def get_tracer(_), do: :error

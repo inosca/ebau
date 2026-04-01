@@ -34,15 +34,6 @@ defmodule EbauWeb.LiveUserAuth do
       end
 
     if socket.assigns[:current_user] do
-      scope = %Ebau.Scope{
-        current_user: socket.assigns.current_user,
-        canton: :gr
-      }
-
-      socket =
-        socket
-        |> assign(:scope, scope)
-
       {:cont, socket}
     else
       {:halt, Phoenix.LiveView.redirect(socket, to: ~p"/sign-in")}

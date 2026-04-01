@@ -16,11 +16,18 @@ defmodule EbauWeb.InitialiseScope do
   def on_mount(_action, _params, _session, socket) do
     scope = %Ebau.Scope{
       current_user: socket.assigns[:current_user],
-      # TODO: load from env
-      current_tenant: :gr,
+      # TODO: add group
+      canton: get_canton_short_name(),
       locale: nil
     }
 
     {:cont, assign(socket, :scope, scope)}
+  end
+
+  defp get_canton_short_name do
+    case System.fetch_env!("APPLICATION") do
+      "kt_bern" -> :be
+      "kt_so" -> :so
+    end
   end
 end

@@ -38,6 +38,8 @@ services:
       - POSTGRES_USER=camac
       - POSTGRES_PASSWORD=camac
       - POSTGRES_DATABASE=${APPLICATION}
+    ports:
+      - "5432:5432"
     volumes:
       - ../db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
       - pg15data:/var/lib/postgresql/data
@@ -246,7 +248,6 @@ services:
       context: ../elixir-ebau
       args:
         APPLICATION: ${APPLICATION}
-    entrypoint: /entrypoint.sh
     # We cache _build, deps and language server folders to prevent having to recompile
     # the entire project everytime. However, if you use the container to develop
     # you don't have formatting (run `mix format` in the container for that) and you don't
