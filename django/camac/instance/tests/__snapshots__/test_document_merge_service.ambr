@@ -2867,7 +2867,7 @@
             'label': 'Nein',
           }),
         ]),
-        'label': '',
+        'label': 'Patricia Gieß',
         'slug': 'projektaenderung',
         'type': 'ChoiceQuestion',
       }),

@@ -3,10 +3,12 @@ import json
 import re
 from functools import singledispatchmethod
 from logging import getLogger
+from typing import Literal
 
 from alexandria.core import models as alexandria_models
 from alexandria.core.api import create_document_file as create_alexandria_document_file
 from caluma.caluma_form import models as form_models
+from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.validators import CustomValidationError, DocumentValidator
 from caluma.caluma_workflow import api as workflow_api, models as workflow_models
 from dateutil.parser import ParserError, parse
@@ -1950,6 +1952,33 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         if instance.case.document.form_id == "internes-dossier":
             instance.set_instance_state("to-finish", self.context["request"].user)
 
+    def _answer_submit_button_question(
+        self,
+        document: form_models.Document,
+        action: Literal["submit", "report", "finalize"],
+    ) -> None:
+        """Answer the submit button question in a given document.
+
+        The submit button in our main (and SB1 / SB2) forms is a multiple choice
+        question with one option. This question needs to be answered on submit
+        in order to show the submit subform as completed in the form navigation.
+        """
+
+        question_slug = getattr(settings.SUBMIT.button, f"question_{action}", None)
+
+        if not question_slug:  # pragma: no cover
+            return
+
+        question = form_models.Question.objects.get(pk=question_slug)
+        value = list(question.options.values_list("pk", flat=True))
+
+        save_answer(
+            question=question,
+            document=document,
+            user=self.context["request"].caluma_info.context.user,
+            value=value,
+        )
+
     def validate(self, data):
         data = super().validate(data)
 
@@ -2020,6 +2049,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             self._ur_copy_oereb_instance_for_koor_afj(instance)
             self._init_deadline(instance)
             self._close_formtimeline(instance)
+            self._answer_submit_button_question(case.document, "submit")
 
             permissions_events.Trigger.instance_submitted(
                 self.context["request"], instance
@@ -2058,6 +2088,8 @@ class CalumaInstanceReportSerializer(CalumaInstanceSubmitSerializer):
                 work_item=work_item,
                 user=self.context["request"].caluma_info.context.user,
             )
+
+            self._answer_submit_button_question(work_item.document, "report")
 
         # generate and submit pdf
         form_slug = "sb1"
@@ -2421,6 +2453,8 @@ class CalumaInstanceFinalizeSerializer(CalumaInstanceSubmitSerializer):
         ).first()
 
         workflow_api.complete_work_item(work_item=work_item, user=user)
+
+        self._answer_submit_button_question(work_item.document, "finalize")
 
         # generate and submit pdf
         self._generate_and_store_pdf(instance, "sb2")

@@ -120,12 +120,6 @@ export default class SubmitInstanceComponent extends Component {
         return this.router.transitionTo("cases.detail.corrections");
       }
 
-      // Mark instance as submitted (optimistic) because after submitting,
-      // answer cannot be saved anymore
-      this.args.field.answer.value =
-        this.args.field.question.raw.multipleChoiceOptions?.edges[0]?.node.slug;
-      await this.args.field.save.perform();
-
       // POST to submit endpoint
       const camacResponse = await this.fetch.fetch(
         `/api/v1/instances/${this.instanceId}/${this.action}`,
@@ -148,6 +142,10 @@ export default class SubmitInstanceComponent extends Component {
           ],
         };
       }
+
+      // Refresh the answer value that was saved in the submit API call in order
+      // to show the subform as completed in the navigation
+      await this.args.field.refreshAnswer.perform();
 
       if (this.config.export?.enabled(instance)) {
         // Export the form / signature PDF if enabled
@@ -198,10 +196,6 @@ export default class SubmitInstanceComponent extends Component {
       this.notification.danger(
         this.intl.t("cases.submit.failed-message", { reasons }),
       );
-
-      // Un-mark as submitted
-      this.args.field.answer.value = null;
-      await this.args.field.save.perform();
     }
   });
 
