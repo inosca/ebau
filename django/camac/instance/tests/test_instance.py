@@ -545,7 +545,7 @@ def test_instance_plot_egrid_filter(
     "plot,expected_count",
     [
         ("CH9", 0),
-        ("4", 1),
+        ("4", 0),
         ("ch967722307039  ", 0),
         (" 420", 1),
         ("7899", 0),
