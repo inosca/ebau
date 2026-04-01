@@ -1,5 +1,13 @@
 defmodule Ebau.Instances.GisLinks do
-  use Ash.Resource, otp_app: :ebau, domain: Ebau.Instances, data_layer: AshPostgres.DataLayer
+  use Ash.Resource, otp_app: :ebau, domain: Ebau.Instances, data_layer: AshPostgres.DataLayer, authorizers: Ash.Policy.Authorizer
+
+  policies do
+    policy action_type(:read) do
+      authorize_if relates_to_actor_via([:service, :groups], field: :group)
+      # authorize_if expr(service_id == ^actor(:current_group_service_id))
+    end
+  end
+
 
   attributes do
     uuid_primary_key :id
@@ -24,6 +32,11 @@ defmodule Ebau.Instances.GisLinks do
 
   actions do
     defaults [:read]
+
+    read :list_gis_links_for_instance do
+      argument :instance_id, :integer, allow_nil?: false
+      prepare build(load: [gis_link_for_instance: %{instance_id: arg(:instance_id)}])
+    end
 
     create :create_gis_link do
       # todo remove service_id here and do proper handling

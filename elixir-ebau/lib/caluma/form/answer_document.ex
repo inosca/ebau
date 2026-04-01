@@ -10,10 +10,11 @@ defmodule Caluma.Form.AnswerDocument do
   postgres do
     table "caluma_form_answerdocument"
     repo Ebau.Repo
+    migrate? false
   end
 
   actions do
-    defaults [:read, :destroy, create: []]
+    defaults [:read]
   end
 
   attributes do
@@ -21,16 +22,7 @@ defmodule Caluma.Form.AnswerDocument do
   end
 
   relationships do
-    belongs_to :answer, Answer do
-      # source_attribute :answer_id
-      # destination_attribute :id
-      # primary_key? false
-    end
-
-    belongs_to :document, Document do
-      # source_attribute :document_id
-      # destination_attribute :id
-      # primary_key? false
-    end
+    belongs_to :answer, Answer
+    belongs_to :document, Document
   end
 end

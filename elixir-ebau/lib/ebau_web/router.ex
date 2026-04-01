@@ -17,6 +17,7 @@ defmodule EbauWeb.Router do
     plug :accepts, ["json"]
     plug :load_from_bearer
     plug EbauWeb.Plugs.KeycloakBearerAuth
+    plug EbauWeb.Plugs.LoadGroupFromHeader
   end
 
   scope "/api/json" do

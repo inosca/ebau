@@ -3,13 +3,10 @@ defmodule Ebau.MasterData.EnergyDevice do
     otp_app: :ebau,
     domain: Ebau.MasterData,
     data_layer: AshPostgres.DataLayer,
-    extensions: [Caluma.Form.Extensions.Document]
+    extensions: [Caluma.Form.Extensions.Document, Ebau.Caluma.Extensions.DocumentBacked]
 
-  alias Ebau.Caluma.Calculations.DocumentAnswer
-
-  calculations do
-    calculate :type, Caluma.Form.Types.AnswerValue,
-              {DocumentAnswer, question_ids: %{default: "anlagetyp"}}
+  caluma_document do
+    field :type, :string, question_ids: %{default: "anlagetyp"}
 
     # TODO: Fields requiring value_parser (not yet supported):
     # - name_of_building (dazugehoeriges-gebaeude-auswahl, dynamic_option)

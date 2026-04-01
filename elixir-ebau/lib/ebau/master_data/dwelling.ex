@@ -3,25 +3,14 @@ defmodule Ebau.MasterData.Dwelling do
     otp_app: :ebau,
     domain: Ebau.MasterData,
     data_layer: AshPostgres.DataLayer,
-    extensions: [Caluma.Form.Extensions.Document]
+    extensions: [Caluma.Form.Extensions.Document, Ebau.Caluma.Extensions.DocumentBacked]
 
-  alias Ebau.Caluma.Calculations.DocumentAnswer
-
-  calculations do
-    calculate :floor_number, Caluma.Form.Types.AnswerValue,
-              {DocumentAnswer, question_ids: %{default: "stockwerknummer"}}
-
-    calculate :location_on_floor, Caluma.Form.Types.AnswerValue,
-              {DocumentAnswer, question_ids: %{default: "lage"}}
-
-    calculate :number_of_rooms, Caluma.Form.Types.AnswerValue,
-              {DocumentAnswer, question_ids: %{default: "anzahl-zimmer"}}
-
-    calculate :kitchen_facilities, Caluma.Form.Types.AnswerValue,
-              {DocumentAnswer, question_ids: %{default: "kocheinrichtung"}}
-
-    calculate :area, Caluma.Form.Types.AnswerValue,
-              {DocumentAnswer, question_ids: %{default: "flaeche"}}
+  caluma_document do
+    field :floor_number, :string, question_ids: %{default: "stockwerknummer"}
+    field :location_on_floor, :string, question_ids: %{default: "lage"}
+    field :number_of_rooms, :string, question_ids: %{default: "anzahl-zimmer"}
+    field :kitchen_facilities, :string, question_ids: %{default: "kocheinrichtung"}
+    field :area, :string, question_ids: %{default: "flaeche"}
 
     # TODO: Fields requiring value_parser (not yet supported):
     # - name_of_building (dazugehoeriges-gebaeude-auswahl, dynamic_option)

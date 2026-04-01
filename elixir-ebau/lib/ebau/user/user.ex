@@ -27,6 +27,29 @@ defmodule Ebau.User.User do
     end
   end
 
+  relationships do
+    many_to_many :groups, Ebau.User.Group do
+      through Ebau.User.UserGroup
+    end
+
+    has_one :current_group, Ebau.User.Group do
+      no_attributes? true
+      # filter expr(id == ^context(:current_group_id))
+      filter expr(id == 1)
+    end
+  end
+
+  calculations do
+    calculate :current_group_id, :integer, expr(
+      first(groups, field: :id, filter: expr(id == ^context(:current_group_id)))
+    )
+
+    calculate :current_group_service_id, :integer, expr(
+      first(groups, field: :service_id, filter: expr(id == ^context(:current_group_id)))
+    )
+  end
+
+
   postgres do
     table "USER"
     repo Ebau.Repo

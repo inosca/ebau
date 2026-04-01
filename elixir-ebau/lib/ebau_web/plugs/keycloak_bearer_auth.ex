@@ -13,7 +13,10 @@ defmodule EbauWeb.Plugs.KeycloakBearerAuth do
   def call(conn, _opts) do
     with ["Bearer " <> token] <- Plug.Conn.get_req_header(conn, "authorization"),
          {:ok, user} <- EbauWeb.OAuth2.fetch_user(token) do
-      Ash.PlugHelpers.set_actor(conn, user)
+      # todo: properly
+      group = Ash.read!(Ebau.User.Group, authorize?: false) |> List.first()
+      actor = %{user: user, group: group}
+      Ash.PlugHelpers.set_actor(conn, actor)
     else
       _ ->
         conn

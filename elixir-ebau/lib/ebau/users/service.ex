@@ -36,5 +36,6 @@ defmodule Ebau.Users.Service do
 
   relationships do
     has_many :gis_links, Ebau.Instances.GisLinks
+    has_many :groups, Ebau.User.Group
   end
 end

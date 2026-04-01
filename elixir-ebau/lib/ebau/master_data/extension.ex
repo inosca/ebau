@@ -9,16 +9,31 @@ defmodule Ebau.MasterData.Extension do
         extensions: [Ebau.MasterData.Extension]
 
       master_data do
-        table :plot_data, Ebau.MasterData.PlotDataRow
+        table :plot_data, Ebau.MasterData.PlotDataRow, question_ids: ["parzellen"]
         answer :proposal, :string, question_ids: %{default: "umschreibung-bauprojekt"}
         case_meta :dossier_number, :string, keys: %{default: "dossier-number"}
       end
   """
 
+  defmodule Table do
+    @moduledoc false
+    defstruct [:name, :resource, :question_ids, __spark_metadata__: nil]
+  end
+
+  defmodule Answer do
+    @moduledoc false
+    defstruct [:name, :type, :question_ids, __spark_metadata__: nil]
+  end
+
+  defmodule CaseMeta do
+    @moduledoc false
+    defstruct [:name, :type, :keys, __spark_metadata__: nil]
+  end
+
   @table %Spark.Dsl.Entity{
     name: :table,
-    describe: "Declares a has_many to a Caluma document table resource.",
-    target: Ebau.MasterData.Extension.Table,
+    describe: "Maps caluma table row documents for the given question slug to an Ash Resource.",
+    target: Table,
     schema: [
       name: [
         type: :atom,
@@ -42,7 +57,7 @@ defmodule Ebau.MasterData.Extension do
   @answer %Spark.Dsl.Entity{
     name: :answer,
     describe: "Declares a calculation that reads a Caluma document answer.",
-    target: Ebau.MasterData.Extension.Answer,
+    target: Answer,
     schema: [
       name: [
         type: :atom,
@@ -55,9 +70,9 @@ defmodule Ebau.MasterData.Extension do
         doc: "The Ash type (reserved for documentation; AnswerValue is used)."
       ],
       question_ids: [
-        type: {:map, :atom, :string},
+        type: {:map, :atom, {:or, [:string, {:list, :string}]}},
         required: true,
-        doc: "Map of canton atom to question ID. Must include :default."
+        doc: "Map of canton atom to question ID(s). Must include :default."
       ]
     ],
     args: [:name, :type]
@@ -66,7 +81,7 @@ defmodule Ebau.MasterData.Extension do
   @case_meta %Spark.Dsl.Entity{
     name: :case_meta,
     describe: "Declares a calculation that reads from case meta JSON.",
-    target: Ebau.MasterData.Extension.CaseMeta,
+    target: CaseMeta,
     schema: [
       name: [
         type: :atom,
@@ -98,18 +113,6 @@ defmodule Ebau.MasterData.Extension do
     transformers: [Ebau.MasterData.Extension.Transformer]
 end
 
-defmodule Ebau.MasterData.Extension.Table do
-  defstruct [:name, :resource, :question_ids, __spark_metadata__: nil]
-end
-
-defmodule Ebau.MasterData.Extension.Answer do
-  defstruct [:name, :type, :question_ids, __spark_metadata__: nil]
-end
-
-defmodule Ebau.MasterData.Extension.CaseMeta do
-  defstruct [:name, :type, :keys, __spark_metadata__: nil]
-end
-
 defmodule Ebau.MasterData.Extension.DocumentAnswer do
   @moduledoc """
   Calculation that looks up an answer on the instance's case document.
@@ -125,14 +128,9 @@ defmodule Ebau.MasterData.Extension.DocumentAnswer do
 
   @impl true
   def expression(opts, context) do
-    question_id =
-      if context.actor && context.actor.canton do
-        opts[:question_ids][context.actor.canton] || opts[:question_ids][:default]
-      else
-        opts[:question_ids][:default]
-      end
+    question_ids = Ebau.Caluma.Helpers.get_question_slugs(opts, context)
 
-    expr(first(case.document.answers, field: :value, filter: expr(question_id == ^question_id)))
+    expr(first(case.document.answers, field: :value, filter: expr(question_id in ^question_ids)))
   end
 end
 

@@ -67,6 +67,11 @@ defmodule Ebau.Instances.Instance do
     belongs_to :case, Caluma.Workflow.Case
   end
 
+  # calculations do
+  #   calculate :gis_links, {:array, :struct}, Ebau.Instances.Calculations.GisLinkForInstance
+  # end
+
+
   master_data do
     # Tables
     table :plot_data, Ebau.MasterData.PlotDataRow, question_ids: ["parzellen"]

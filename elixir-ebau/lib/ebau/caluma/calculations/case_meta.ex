@@ -13,7 +13,7 @@ defmodule Ebau.Caluma.Calculations.CaseMeta do
                 {Ebau.Caluma.Calculations.CaseMeta,
                  keys: %{default: "dossier-number"}}
 
-  The canton is read from `context.actor.canton` at query time. If the
+  The canton is read from `context.canton` at query time. If the
   canton has no specific mapping, the `:default` entry is used.
   """
 
@@ -37,12 +37,7 @@ defmodule Ebau.Caluma.Calculations.CaseMeta do
 
   @impl true
   def expression(opts, context) do
-    key =
-      if context.actor && context.actor.canton do
-        opts[:keys][context.actor.canton] || opts[:keys][:default]
-      else
-        opts[:keys][:default]
-      end
+    key = Ebau.Caluma.Helpers.get_canton_value(opts[:keys], context)
 
     expr(case.meta[^key])
   end
