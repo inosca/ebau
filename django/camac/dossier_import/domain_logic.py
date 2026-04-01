@@ -9,10 +9,12 @@ from logging import getLogger
 from typing import Callable
 
 import requests
+from alexandria.core.models import Document
 from caluma.caluma_workflow.models import Case
 from celery import shared_task
 from django.conf import settings
 from django.db.models import Count
+from django.db.models.fields.json import KeyTextTransform
 from django.utils import timezone
 from django.utils.module_loading import import_string
 from requests_toolbelt.multipart.encoder import MultipartEncoder
@@ -233,6 +235,19 @@ def _do_undo_import(dossier_import):
             Keyword.objects.annotate(instance_count=Count("instances")).filter(
                 instance_count=1, instances=instance
             ).delete()
+
+            try:
+                documents = Document.objects.annotate(
+                    camac_id_text=KeyTextTransform("camac-instance-id", "metainfo")
+                ).filter(camac_id_text=str(instance.pk))
+                # We split this up as deleting a file will also delete the minio object
+                # which is very slow.
+                while documents.count() > 0:
+                    Document.objects.filter(
+                        pk__in=documents[:100].values("pk")
+                    ).delete()
+            except Exception as e:  # pragma: no cover
+                log.exception(e)
 
         instances.delete()
         Case.objects.filter(**{"meta__import-id": str(dossier_import.pk)}).delete()
