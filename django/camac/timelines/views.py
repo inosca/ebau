@@ -8,7 +8,7 @@ from . import filters, serializers
 
 class FormTimelineView(InstanceQuerysetMixin, views.ReadOnlyModelViewSet):
     serializer_class = serializers.FormTimelineSerializer
-    queryset = FormTimeline.objects.order_by("start_date", "end_date")
+    queryset = FormTimeline.objects.order_by("-start_date", "-end_date")
     filterset_class = filters.FormTimelineFilterSet
 
     # Queryset for internal role permissions are handled
