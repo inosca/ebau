@@ -1575,3 +1575,71 @@ def test_dynamic_task_after_submit_ag(
     )
 
     assert tasks == expected_tasks
+
+
+@pytest.mark.parametrize(
+    "inquiry_answer, afb_in_addressed_groups, existing_work_item, should_create_work_item",
+    [
+        ("inquiry-answer-status-not-involved", True, False, False),
+        ("inquiry-answer-status-positive", True, False, True),
+        ("inquiry-answer-status-positive", True, True, False),
+        ("inquiry-answer-status-positive", False, False, False),
+    ],
+)
+def test_resolve_maybe_trigger_billing(
+    db,
+    ag_instance,
+    service_factory,
+    caluma_work_item_factory,
+    caluma_answer_factory,
+    caluma_admin_user,
+    inquiry_answer,
+    afb_in_addressed_groups,
+    existing_work_item,
+    should_create_work_item,
+    mocker,
+):
+    afb = service_factory(slug="afb")
+    addressed_groups = [str(afb.pk)] if afb_in_addressed_groups else []
+
+    parent_work_item = caluma_work_item_factory(
+        case=ag_instance.case,
+        addressed_groups=addressed_groups,
+    )
+
+    caluma_answer_factory(
+        document=parent_work_item.document,
+        question_id="inquiry-answer-status",
+        value=inquiry_answer,
+    )
+
+    if existing_work_item:
+        caluma_work_item_factory(
+            case=ag_instance.case.family,
+            task_id="trigger-billing",
+            status="ready",
+            addressed_groups=addressed_groups,
+        )
+
+    mock_send_event = mocker.patch("camac.caluma.extensions.dynamic_tasks.send_event")
+
+    result = CustomDynamicTasks().resolve_maybe_trigger_billing(
+        ag_instance.case, caluma_admin_user, parent_work_item, None
+    )
+
+    assert result == []
+
+    trigger_billing_items = ag_instance.case.family.work_items.filter(
+        task_id="trigger-billing",
+        status="ready",
+        addressed_groups=addressed_groups,
+    )
+
+    if should_create_work_item:
+        assert trigger_billing_items.exists()
+        assert mock_send_event.called
+    else:
+        if existing_work_item:
+            assert trigger_billing_items.exists()
+        else:
+            assert not trigger_billing_items.exists()
