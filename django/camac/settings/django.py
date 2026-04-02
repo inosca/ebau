@@ -3956,6 +3956,7 @@ WORK_ITEM_LIST = load_module_settings("work_item_list")
 LINKED_INSTANCES = load_module_settings("linked_instances")
 SANCTIONS = load_module_settings("sanctions")
 TIMELINES = load_module_settings("timelines")
+STATISTICS = load_module_settings("statistics")
 
 # Permissions incl. module specific integrations
 PERMISSIONS = load_module_settings("permissions")

@@ -1422,6 +1422,30 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 22000049,
+    "fields": {
+      "resource": 22000008,
+      "role": 12
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 22000050,
+    "fields": {
+      "resource": 22000008,
+      "role": 3
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 22000051,
+    "fields": {
+      "resource": 22000008,
+      "role": 4
+    }
+  },
+  {
     "model": "core.resource",
     "pk": 2000000,
     "fields": {
@@ -1617,6 +1641,19 @@
     }
   },
   {
+    "model": "core.resource",
+    "pk": 22000008,
+    "fields": {
+      "available_resource": "page",
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/statistics-export.phtml",
+      "class_field": null,
+      "hidden": 0,
+      "sort": 16
+    }
+  },
+  {
     "model": "core.resourcet",
     "pk": 2000000,
     "fields": {
@@ -1763,6 +1800,16 @@
       "resource": 22000007,
       "language": "de",
       "name": "GWR",
+      "description": null
+    }
+  },
+  {
+    "model": "core.resourcet",
+    "pk": 22000007,
+    "fields": {
+      "resource": 22000008,
+      "language": "de",
+      "name": "Statistiken",
       "description": null
     }
   }

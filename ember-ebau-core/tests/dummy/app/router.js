@@ -14,6 +14,7 @@ import registerRulesets from "ember-ebau-core/modules/rulesets";
 import registerServicePermissions from "ember-ebau-core/modules/service-permissions";
 import registerSnippets from "ember-ebau-core/modules/snippets";
 import registerSnippetsAdmin from "ember-ebau-core/modules/snippets-admin";
+import registerStatisticsExport from "ember-ebau-core/modules/statistics-export";
 
 export default class Router extends EmberRouter {
   @service ebauModules;
@@ -49,6 +50,7 @@ Router.map(function () {
   registerProfile(this);
   registerServicePermissions(this);
   registerRulesets(this);
+  registerStatisticsExport(this);
   registerDeadlines(this);
   registerResponsible(this);
   registerHistory(this);
