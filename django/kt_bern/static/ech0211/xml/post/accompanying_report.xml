@@ -66,6 +66,7 @@
       <ns11:status>created</ns11:status>
       <ns11:files>
         <ns11:file>
+          <!-- Die URL im pathFileName muss gültig und ohne Authentifizierung für das eBau System erreichbar sein -->
           <ns11:pathFileName>https://dev.ebpzh.ch/this/is/a/temporary/download/link/myFile.pdf</ns11:pathFileName>
           <ns11:mimeType>application/pdf</ns11:mimeType>
           <ns11:version>1.0.0</ns11:version>

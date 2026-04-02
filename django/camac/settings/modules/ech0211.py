@@ -74,7 +74,7 @@ ECH0211 = {
             "GET_TABLE_DATA_FULL": {
                 ECH_SUBMIT: {
                     "type": "Submit",
-                    "desc": "Baugesuch zustellen",
+                    "desc": "Baugesuch zugestellt",
                     "spec": "3.1",
                     "example": (
                         "submit",
@@ -83,13 +83,13 @@ ECH0211 = {
                 },
                 ECH_FILE_SUBSEQUENTLY: {
                     "type": "FileSubsequently",
-                    "desc": "Nachforderung beantworten",
+                    "desc": "Nachforderung beantwortet",
                     "spec": "3.1",
                     "example": ("file_subsequently", "xml/get/file_subsequently.xml"),
                 },
                 ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION: {
                     "type": "WithdrawPlanningPermissionApplication",
-                    "desc": "Rückzug des Baugesuchs melden",
+                    "desc": "Baugesuch zurückgezogen",
                     "spec": "3.3.7",
                     "example": (
                         "withdraw_planning_permission_application",
@@ -98,13 +98,13 @@ ECH0211 = {
                 },
                 ECH_CLAIM: {
                     "type": "Claim",
-                    "desc": "Nachforderungen durch Fachstelle",
+                    "desc": "Nachforderung",
                     "spec": "3.3.2",
                     "example": ("claim", "xml/get/claim.xml"),
                 },
                 ECH_ACCOMPANYING_REPORT: {
                     "type": "AccompanyingReport",
-                    "desc": "Stellungnahme abgeben",
+                    "desc": "Stellungnahme abgegeben",
                     "spec": "3.2",
                     "example": (
                         "accompanying_report",
@@ -122,13 +122,13 @@ ECH0211 = {
                 },
                 ECH_TASK_STELLUNGNAHME: {
                     "type": "Task",
-                    "desc": "Baugesuch zustellen",
+                    "desc": "Stellungnahme angefordert",
                     "spec": "5.1",
                     "example": ("task_stellungnahme", "xml/get/task_stellungnahme.xml"),
                 },
                 ECH_STATUS_NOTIFICATION_ZIRKULATION_GESTARTET: {
                     "type": "StatusNotification",
-                    "desc": "Zirkulation gestartet melden",
+                    "desc": "Zirkulation gestartet",
                     "spec": "3.2",
                     "example": (
                         "status_notification",
@@ -137,7 +137,7 @@ ECH0211 = {
                 },
                 ECH_STATUS_NOTIFICATION_ABGESCHLOSSEN: {
                     "type": "StatusNotification",
-                    "desc": "Abgeschlossen melden",
+                    "desc": "Baugesuch abgeschlossen",
                     "spec": "4.2",
                     "example": (
                         "status_notification",
@@ -146,7 +146,7 @@ ECH0211 = {
                 },
                 ECH_STATUS_NOTIFICATION_ZURUECKGEWIESEN: {
                     "type": "StatusNotification",
-                    "desc": "Zurückgewiesen melden",
+                    "desc": "Baugesuch zurückgewiesen",
                     "spec": "3.1",
                     "example": (
                         "status_notification",
@@ -155,7 +155,7 @@ ECH0211 = {
                 },
                 ECH_STATUS_NOTIFICATION_IN_KOORDINATION: {
                     "type": "StatusNotification",
-                    "desc": "In Koordination melden",
+                    "desc": "In Koordination",
                     "spec": "3.1",
                     "example": (
                         "status_notification",
@@ -164,7 +164,7 @@ ECH0211 = {
                 },
                 ECH_STATUS_NOTIFICATION_ENTSCHIEDEN: {
                     "type": "StatusNotification",
-                    "desc": "Entschieden melden",
+                    "desc": "Entschieden",
                     "spec": "",
                     "example": (
                         "status_notification",
@@ -173,7 +173,7 @@ ECH0211 = {
                 },
                 ECH_STATUS_NOTIFICATION_BAUBEGLEITUNG: {
                     "type": "StatusNotification",
-                    "desc": "Baubegleitung gestartet melden",
+                    "desc": "Baubegleitung gestartet",
                     "spec": "",
                     "example": (
                         "status_notification",
@@ -182,7 +182,7 @@ ECH0211 = {
                 },
                 ECH_STATUS_NOTIFICATION_PRUEFUNG_ABGESCHLOSSEN: {
                     "type": "StatusNotification",
-                    "desc": "Prüfung abgeschlossen melden",
+                    "desc": "Prüfung abgeschlossen",
                     "spec": "",
                     "example": (
                         "status_notification",
@@ -642,16 +642,16 @@ ECH0211 = {
         "DOCS": {
             "GET_TABLE_DATA_FULL": {
                 ECH_STATUS_NOTIFICATION_IN_KOORDINATION: {
-                    "desc": "Entscheid ausstehend melden",
+                    "desc": "Entscheid ausstehend",
                 },
                 ECH_STATUS_NOTIFICATION_ENTSCHIEDEN: {"disabled": True},
                 ECH_FILE_SUBSEQUENTLY: {
-                    "desc": "Nachforderung beantworten",
+                    "desc": "Nachforderung beantwortet",
                 },
                 ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION: {
-                    "desc": "Rückzug des Baugesuchs melden (⏳ noch in Entwicklung)",
+                    "desc": "Baugesuch zurückgezogen (⏳ noch in Entwicklung)",
                 },
-                ECH_CLAIM: {"desc": "Nachforderungen durch Fachstelle"},
+                ECH_CLAIM: {"desc": "Nachforderung"},
                 ECH_CHANGE_RESPONSIBILITY: {"disabled": True},
             },
             "POST_TABLE_DATA": {
@@ -747,7 +747,7 @@ ECH0211 = {
         "DOCS": {
             "GET_TABLE_DATA_FULL": {
                 ECH_STATUS_NOTIFICATION_IN_KOORDINATION: {
-                    "desc": "Zirkulation abgeschlossen melden",
+                    "desc": "Zirkulation abgeschlossen",
                 },
                 ECH_CHANGE_RESPONSIBILITY: {"disabled": True},
             },
@@ -946,14 +946,14 @@ ECH0211 = {
         "DOCS": {
             "GET_TABLE_DATA_FULL": {
                 ECH_STATUS_NOTIFICATION_IN_KOORDINATION: {
-                    "desc": "Zirkulation abgeschlossen melden",
+                    "desc": "Zirkulation abgeschlossen",
                 },
                 ECH_CHANGE_RESPONSIBILITY: {"disabled": True},
                 ECH_FILE_SUBSEQUENTLY: {
-                    "desc": "Nachforderung beantworten",
+                    "desc": "Nachforderung beantwortet",
                 },
                 ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION: {
-                    "desc": "Rückzug des Baugesuchs melden",
+                    "desc": "Baugesuch zurückgezogen",
                 },
                 ECH_CLAIM: {"disabled": True},
             },
