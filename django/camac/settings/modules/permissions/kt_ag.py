@@ -81,10 +81,8 @@ MODULE_CONSTRUCTION_MONITORING = (
     RequireWorkItem("init-construction-monitoring") & ROLES_NO_READONLY
 )
 MODULE_CORRECTIONS = (
-    (STATES_ALL | RequireInstanceState(["correction"]))
-    & ROLES_NO_READONLY
-    & ~IsServiceGroup(["municipality-light"])
-)
+    STATES_ALL | RequireInstanceState(["correction"])
+) & ROLES_NO_READONLY
 MODULE_DECISION = NO_CORRECTION & (
     (RequireWorkItem("decision") & ROLES_MUNICIPALITY)
     | RequireWorkItem("decision", "completed")
@@ -191,7 +189,13 @@ ACTION_INSTANCE_DELETE = RequireInstanceState(["new"]) & (
     HasApplicantRole(["ADMIN"])
     | (
         IsServiceGroup(
-            ["municipality", "service-cantonal", "service-afb", "authority-pgv"]
+            [
+                "municipality",
+                "municipality-light",
+                "service-cantonal",
+                "service-afb",
+                "authority-pgv",
+            ]
         )
         & IsPaper()
     )

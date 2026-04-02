@@ -1,4 +1,5 @@
 import Controller from "@ember/controller";
+import { service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
 import { findRecord } from "ember-data-resources";
 
@@ -7,6 +8,8 @@ import apolloQuery from "ember-ebau-core/resources/apollo";
 
 export default class CorrectionsController extends Controller {
   @queryManager apollo;
+
+  @service session;
 
   instance = findRecord(this, "instance", () => this.model);
 
@@ -19,4 +22,8 @@ export default class CorrectionsController extends Controller {
     }),
     "allCases.edges.0.node.meta.is-appeal",
   );
+
+  get isMunicipalityLight() {
+    return this.session.serviceGroup.slug === "municipality-light";
+  }
 }
