@@ -1,0 +1,21 @@
+<p class="uk-text-muted uk-margin-small-bottom">
+  {{t "statistics-export.generate.subtitle"}}
+</p>
+
+<StatisticsExport::Filter
+  @filter={{this.filter}}
+  @onChange={{this.setFilter}}
+/>
+<hr />
+<div class="uk-margin-medium-top">
+  <div class="uk-flex uk-flex-wrap uk-flex-middle">
+    <UkButton
+      @color="primary"
+      @onClick={{this.triggerExport}}
+      @loading={{this.exportDossiers.isRunning}}
+      disabled={{not this.filter.exportType}}
+    >
+      {{t "statistics-export.generate.button"}}
+    </UkButton>
+  </div>
+</div>

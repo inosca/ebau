@@ -28,6 +28,7 @@ import registerServicePermissions from "ember-ebau-core/modules/service-permissi
 import registerSnippetsAdmin from "ember-ebau-core/modules/snippets-admin";
 import registerStaticContent from "ember-ebau-core/modules/static-content";
 import registerStatistics from "ember-ebau-core/modules/statistics";
+import registerStatisticsExport from "ember-ebau-core/modules/statistics-export";
 import registerTaskForm from "ember-ebau-core/modules/task-form";
 import registerWorkItemsGlobal from "ember-ebau-core/modules/work-items-global";
 
@@ -113,6 +114,7 @@ Router.map(function () {
   registerCommunicationsGlobal(this);
   registerCommunications(this);
   registerStatistics(this);
+  registerStatisticsExport(this);
   registerPublication(this);
   registerAdditionalDemand(this);
   registerGwrTasks(this);

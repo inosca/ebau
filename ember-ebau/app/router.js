@@ -25,6 +25,7 @@ import registerServicePermissions from "ember-ebau-core/modules/service-permissi
 import registerSnippets from "ember-ebau-core/modules/snippets";
 import registerSnippetsAdmin from "ember-ebau-core/modules/snippets-admin";
 import registerStaticContent from "ember-ebau-core/modules/static-content";
+import registerStatisticsExport from "ember-ebau-core/modules/statistics-export";
 import registerTaskForm from "ember-ebau-core/modules/task-form";
 import registerWorkItemsGlobal from "ember-ebau-core/modules/work-items-global";
 
@@ -111,6 +112,7 @@ Router.map(function () {
     registerProfile(this, { resetNamespace });
     registerRulesets(this, { resetNamespace });
     registerMergeMunicipality(this, { resetNamespace });
+    registerStatisticsExport(this, { resetNamespace });
     this.route("documents", { resetNamespace }, function () {
       this.mount("ember-alexandria", {
         as: "alexandria",

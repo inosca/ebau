@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-30 12:58+0200\n"
+"POT-Creation-Date: 2026-03-31 09:30+0200\n"
 "PO-Revision-Date: 2025-10-08 13:26+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -32,7 +32,7 @@ msgstr "Administration"
 msgid "Title / Message Preview"
 msgstr "Titel / Nachrichtenvorschau"
 
-#: camac/alert_message/models.py
+#: camac/alert_message/models.py camac/settings/modules/statistics.py
 msgid "Created at"
 msgstr "Erstellt am"
 
@@ -259,6 +259,7 @@ msgid "eBau number"
 msgstr "eBau-Nr."
 
 #: camac/billing/serializers.py camac/instance/export/serializers.py
+#: camac/settings/modules/statistics.py
 msgid "Instance number"
 msgstr "Dossier-Nr."
 
@@ -268,6 +269,7 @@ msgid "Address"
 msgstr "Adresse"
 
 #: camac/billing/serializers.py camac/instance/export/serializers.py
+#: camac/settings/modules/statistics.py
 msgid "Parcels"
 msgstr "Parzellen"
 
@@ -310,6 +312,7 @@ msgstr "Leitbehörde"
 #: camac/caluma/extensions/data_sources.py
 #: camac/instance/document_merge_service.py
 #: camac/instance/export/serializers.py camac/notification/serializers.py
+#: camac/settings/modules/statistics.py
 msgid "Municipality"
 msgstr "Gemeinde"
 
@@ -1228,7 +1231,7 @@ msgid "Keywords"
 msgstr "Stichworte"
 
 #: camac/instance/document_merge_service.py
-#: camac/instance/export/serializers.py
+#: camac/instance/export/serializers.py camac/settings/modules/statistics.py
 msgid "Responsible"
 msgstr "Zuständig"
 
@@ -1329,15 +1332,15 @@ msgstr "Beurteilung"
 msgid "Involved Departments"
 msgstr "Involvierte Fachstellen"
 
-#: camac/instance/export/serializers.py
+#: camac/instance/export/serializers.py camac/settings/modules/statistics.py
 msgid "Application Type"
 msgstr "Gesuchstyp"
 
-#: camac/instance/export/serializers.py
+#: camac/instance/export/serializers.py camac/settings/modules/statistics.py
 msgid "Submission Date"
 msgstr "Eingabedatum"
 
-#: camac/instance/export/serializers.py
+#: camac/instance/export/serializers.py camac/settings/modules/statistics.py
 msgid "Status"
 msgstr "Status"
 
@@ -1914,6 +1917,43 @@ msgstr "Dossier neu eingereicht (Dossier Nr. %(dossier_number)s)"
 msgid "Instance completed by resubmission"
 msgstr "Dossier durch Neueinreichung abgeschlossen"
 
+#: camac/settings/modules/statistics.py
+msgid "Task name"
+msgstr "Aufgabe"
+
+#: camac/settings/modules/statistics.py
+msgid "Deadline"
+msgstr "Frist"
+
+#: camac/settings/modules/statistics.py
+msgid "Closed at"
+msgstr "Abgeschlossen am"
+
+#: camac/settings/modules/statistics.py camac/work_items/admin.py
+#: camac/work_items/models.py
+msgid "Assigned user"
+msgstr "Zuständiger Benutzer"
+
+#: camac/settings/modules/statistics.py
+msgid "Addressed group"
+msgstr "Zuständige Rolle"
+
+#: camac/settings/modules/statistics.py
+msgid "Processing time"
+msgstr "Durchlaufzeit"
+
+#: camac/settings/modules/statistics.py
+msgid "On time"
+msgstr "Fristgerecht"
+
+#: camac/settings/modules/statistics.py
+msgid "First inquiry date"
+msgstr "Eingegangen"
+
+#: camac/settings/modules/statistics.py
+msgid "Completing date"
+msgstr "Abgeschlossen"
+
 #: camac/settings/modules/withdrawal.py
 msgid "Instance withdrawn"
 msgstr "Dossier zurückgezogen"
@@ -1925,6 +1965,10 @@ msgstr "Rückzug bestätigt"
 #: camac/settings/modules/withdrawal.py
 msgid "Withdrawal requested"
 msgstr "Rückzug beantragt"
+
+#: camac/statistics/apps.py
+msgid "Statistics"
+msgstr ""
 
 #: camac/templates/admin/base.html
 msgid "Back to CAMAC admin"
@@ -2209,10 +2253,6 @@ msgstr "Es existieren mehrere Benutzer mit dieser E-Mail-Adresse"
 #: camac/user/serializers.py
 msgid "User is already in group"
 msgstr "Der Benutzer ist bereits in dieser Gruppe"
-
-#: camac/work_items/admin.py camac/work_items/models.py
-msgid "Assigned user"
-msgstr "Zuständiger Benutzer"
 
 #: camac/work_items/apps.py
 msgid "Work items"

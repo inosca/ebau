@@ -3512,6 +3512,56 @@ def sg_service_settings(
 
 
 @pytest.fixture
+def statistics_settings(
+    request,
+    settings,
+):
+    """Module-specific settings for statistics (default)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=None,
+        module_name="statistics",
+        canton=None,
+        disable=False,
+    )
+
+
+@pytest.fixture
+def disable_statistics_settings(
+    request,
+    settings,
+    statistics_settings,
+):
+    """Disable the statistics module completely."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=statistics_settings,
+        module_name="statistics",
+        canton=None,
+        disable=True,
+    )
+
+
+@pytest.fixture
+def ag_statistics_settings(
+    request,
+    settings,
+    statistics_settings,
+):
+    """Module-specific settings for statistics (canton AG)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=statistics_settings,
+        module_name="statistics",
+        canton="kt_ag",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def tags_settings(
     request,
     settings,
