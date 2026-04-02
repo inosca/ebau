@@ -24,7 +24,12 @@ from camac.tags.models import Keyword
 
 
 def test_undo_import(
-    db, dossier_import, caluma_case_factory, instance_factory, keyword_factory
+    db,
+    dossier_import,
+    caluma_case_factory,
+    instance_factory,
+    keyword_factory,
+    alexandria_document_factory,
 ):
     cases = caluma_case_factory.create_batch(
         2, meta={"import-id": str(dossier_import.pk)}
@@ -33,11 +38,17 @@ def test_undo_import(
         instance = instance_factory.create(case=case)
         keyword = keyword_factory.create()
         keyword.instances.set([instance])
+        alexandria_document_factory(
+            metainfo={"camac-instance-id": instance.pk},
+        )
 
     unrelated_case = caluma_case_factory()
     unrelated_instance = instance_factory(case=unrelated_case)
     keyword = keyword_factory.create()
     keyword.instances.set([unrelated_instance])
+    non_imported_doc = alexandria_document_factory(
+        metainfo={"camac-instance-id": unrelated_instance.pk},
+    )
 
     undo_import(dossier_import)
     assert not Case.objects.filter(
@@ -48,6 +59,8 @@ def test_undo_import(
     ).exists()
     assert Keyword.objects.count() == 1
     assert Keyword.objects.first().pk == keyword.pk
+    assert Document.objects.count() == 1
+    assert Document.objects.first().pk == non_imported_doc.pk
 
 
 @pytest.mark.freeze_time("2023-4-1")

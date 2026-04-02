@@ -27,9 +27,13 @@ MAPPINGS = [
     },
 ]
 
+#
+# IMPORTANT: This will clean out ALL non Communication related files from ebau-media.
+#
+
 
 class Command(BaseCommand):
-    help = "Clean up unreferenced files and warn about unencrypted files in the storage bucket"
+    help = "Clean up unreferenced files and warn about unencrypted files in the storage bucket."
 
     def add_arguments(self, parser):
         parser.add_argument(
