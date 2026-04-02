@@ -11,6 +11,7 @@ from django.utils.translation import gettext_lazy as _
 from localized_fields.fields import LocalizedCharField
 
 from camac.caluma.models import Inquiry
+from camac.constants import kt_gr as gr_constants
 from camac.core.models import HistoryActionConfig
 from camac.core.translations import get_translations
 from camac.core.utils import canton_aware
@@ -669,33 +670,41 @@ class InstanceDeadline(models.Model):
         If the formal exam is simplified, the start date is set to the submission date.
         Otherwise, it is set to the publication date.
         """
-        work_item = (
-            WorkItem.objects.filter(
-                case__family__instance=self.instance,
-                task__slug="formal-exam",
-            )
-            .order_by("-created_at")
-            .first()
-        )
-        if work_item:
-            if work_item.status != WorkItem.STATUS_COMPLETED:
-                # If the formal exam work item is not yet completed, do not set a start date
-                return None
-
-            verfahrensart_answer = (
-                work_item.document.answers.filter(question="verfahrensart").first()
-                if work_item
-                else None
-            )
-            is_simplified = (
-                verfahrensart_answer
-                and verfahrensart_answer.value
-                == "verfahrensart-vereinfachtes-baubewilligungsverfahren"
-            )
-        else:
-            # If no formal exam work item exists for the case, assume simplified,
-            # using the submit date as start date.
+        if self.instance.case.family.document.form.pk in [
+            *gr_constants.BAUANZEIGE_FORMS,
+            *gr_constants.SOLARANLAGE_FORMS,
+        ]:
+            # Bauanzeige and solaranlage have a formal exam, but the start
+            # date should always be set to the submission date anyway.
             is_simplified = True
+        else:
+            work_item = (
+                WorkItem.objects.filter(
+                    case__family__instance=self.instance,
+                    task__slug="formal-exam",
+                )
+                .order_by("-created_at")
+                .first()
+            )
+            if work_item:
+                if work_item.status != WorkItem.STATUS_COMPLETED:
+                    # If the formal exam work item is not yet completed, do not set a start date
+                    return None
+
+                verfahrensart_answer = (
+                    work_item.document.answers.filter(question="verfahrensart").first()
+                    if work_item
+                    else None
+                )
+                is_simplified = (
+                    verfahrensart_answer
+                    and verfahrensart_answer.value
+                    == "verfahrensart-vereinfachtes-baubewilligungsverfahren"
+                )
+            else:
+                # If no formal exam work item exists for the case, assume simplified,
+                # using the submit date as start date.
+                is_simplified = True
 
         if is_simplified:
             return self._get_submit_date()
