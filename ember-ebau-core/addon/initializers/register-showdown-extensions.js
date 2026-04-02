@@ -7,7 +7,10 @@ export function initialize() {
       {
         type: "output",
         filter(dirty) {
-          return DOMPurify.sanitize(dirty, { USE_PROFILES: { html: true } });
+          return DOMPurify.sanitize(dirty, {
+            USE_PROFILES: { html: true },
+            ADD_ATTR: ["target"],
+          });
         },
       },
     ];
