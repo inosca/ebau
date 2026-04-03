@@ -3,7 +3,7 @@ defmodule Ebau.Instances.Instance do
     otp_app: :ebau,
     domain: Ebau.Instances,
     data_layer: AshPostgres.DataLayer,
-    extensions: [Ebau.MasterData.Extension]
+    extensions: [Ebau.MasterData.Extensions.MasterData]
 
   postgres do
     table "INSTANCE"
@@ -84,6 +84,7 @@ defmodule Ebau.Instances.Instance do
     table :energy_devices, Ebau.MasterData.EnergyDevice, question_ids: ["gebaeudetechnik"]
 
     # Answers
+    mapped_answer :is_paper, :boolean, question_ids: %{default: "is-paper"}, mapping: %{"is-paper-yes" => true, "is-paper-no" => false}
     answer :proposal, :string, question_ids: %{default: "umschreibung-bauprojekt"}
     answer :short_proposal, :string, question_ids: %{default: "kurzbeschreibung-bauprojekt"}
     answer :street, :string, question_ids: %{default: "strasse-flurname"}
