@@ -40,16 +40,20 @@
 
   {{outlet}}
 {{else}}
-  <TaskButton
-    class="uk-margin-right"
-    @color="primary"
-    @task={{this.createTask}}
-    @mutation="complete"
-    @filters={{this.filters}}
-    @onSuccess={{this.refreshNavigation}}
-    @label={{t (concat "publication.new." @model.type)}}
-  />
-  <p class="uk-text-italic uk-text-center">
-    {{t (concat "publication.empty." @model.type)}}
-  </p>
+  <div class="uk-text-center uk-text-muted">
+    <p
+      class="uk-margin-medium uk-margin-medium-top uk-margin-remove-horizontal"
+    >
+      {{t (concat "publication.empty." @model.type)}}
+    </p>
+    <TaskButton
+      class="uk-margin-right"
+      @color="primary"
+      @task={{this.createTask}}
+      @mutation="complete"
+      @filters={{this.filters}}
+      @onSuccess={{this.refreshNavigation}}
+      @label={{t (concat "publication.new." @model.type)}}
+    />
+  </div>
 {{/if}}
