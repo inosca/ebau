@@ -4,7 +4,7 @@
     "pk": "nachbarschaftsorientierung",
     "fields": {
       "created_at": "2025-02-25T08:43:55.377Z",
-      "modified_at": "2025-02-26T11:46:47.447Z",
+      "modified_at": "2026-03-20T13:19:16.827Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -60,21 +60,6 @@
       "form": "nachbarschaftsorientierung",
       "question": "nachbarschaftsorientierung-ende",
       "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "nachbarschaftsorientierung.nachbarschaftsorientierung-freigeben",
-    "fields": {
-      "created_at": "2025-02-25T08:58:27.413Z",
-      "modified_at": "2025-02-25T08:58:27.413Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "nachbarschaftsorientierung",
-      "question": "nachbarschaftsorientierung-freigeben",
-      "sort": 1
     }
   },
   {
@@ -188,42 +173,6 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "nachbarschaftsorientierung-freigeben",
-    "fields": {
-      "created_at": "2025-02-25T08:58:27.357Z",
-      "modified_at": "2025-02-25T08:58:27.357Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Freigeben\", \"fr\": null, \"it\": null}",
-      "type": "action_button",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "color": "primary",
-        "action": "complete",
-        "show_validation": false,
-        "validate_on_enter": false
-      },
       "meta": {},
       "data_source": null,
       "row_form": null,

@@ -1476,16 +1476,16 @@ def test_after_check_gwr_relevancy(
     "publication_required,information_of_neighbors_required,expected_tasks",
     [
         (False, False, []),
-        (True, False, ["publication", "fill-publication"]),
-        (False, True, ["information-of-neighbors", "fill-information-of-neighbors"]),
+        (True, False, ["publication", "create-publication"]),
+        (False, True, ["information-of-neighbors", "create-information-of-neighbors"]),
         (
             True,
             True,
             [
                 "publication",
-                "fill-publication",
+                "create-publication",
                 "information-of-neighbors",
-                "fill-information-of-neighbors",
+                "create-information-of-neighbors",
             ],
         ),
     ],
