@@ -18,7 +18,8 @@ deadlines:
     saveSuccess: "Verfahren erfolgreich gespeichert"
     saveError: "Fehler beim Speichern des Verfahrens"
     processDurationText: "{count} {count, plural, one {Tag} other {Tage}}"
-    noEndDate: "noch keine Frist"
+    noProcessDeadlineDate: "ausstehend"
+    noTargetDeadlineDate: "noch keine Frist"
     detail:
       noResult: "Keine Ergebnisse gefunden"
       startDate: "Start Frist"
