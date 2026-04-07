@@ -1,0 +1,7 @@
+cases:
+  tableHeaders:
+    form: Gesuchstyp
+
+  filters:
+    submitDateAfter: "Eingereicht (von)"
+    submitDateBefore: "Eingereicht (bis)"
