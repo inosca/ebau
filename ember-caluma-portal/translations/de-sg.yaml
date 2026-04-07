@@ -3,7 +3,7 @@ global:
   page-title: "eBauSG | Bürgerportal"
 
 index:
-  welcome: "Willkommen im E-Baubewilligung-Portal des Kantons St.Gallen"
+  welcome: "Willkommen auf der Plattform eBauSG des Kantons St.Gallen"
 
 instances:
   instance-id: "ID"
