@@ -82,57 +82,26 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
   }
 
   get documentListColumns() {
-    let columns = {
-      type: {
-        label: "type",
-        labelHidden: true,
-      },
-      title: {
-        label: "document-title",
-        sort: true,
-      },
-      marks: {
-        label: "marks",
-        labelHidden: true,
-      },
-      date: {
-        label: "date",
-        sort: true,
-      },
-      modifiedAt: {
-        label: "modified-at",
-        sort: true,
-        sortKey: "modified_at",
-      },
-      createdByUser: {
-        label: "created-by-user",
-        sort: true,
-        sortKey: "created_by_username",
-      },
-      createdByGroup: {
-        label: "created-by-group",
-        sort: true,
-        sortKey: "group_name",
-      },
-    };
+    const columns = super.documentListColumns;
 
-    if (macroCondition(getOwnConfig().application === "gr")) {
-      columns = {
-        ...columns,
-        ...{
-          category: {
-            label: "category",
-            sort: true,
-            sortKey: [
-              { key: "category__name" },
-              {
-                key: "category__sort",
-                icons: ["folder-tree"],
-                directions: [""],
-              },
-            ],
+    // Customize sort keys for user and group (i.e service) as they are specific
+    // to our annotations in the backend
+    columns.createdByUser.sortKey = "created_by_username";
+    columns.createdByGroup.sortKey = "group_name";
+
+    if (hasFeature("alexandria.showCategoryColumn")) {
+      // GR only: add category as custom column
+      columns.category = {
+        label: "category",
+        sort: true,
+        sortKey: [
+          { key: "category__name" },
+          {
+            key: "category__sort",
+            icons: ["folder-tree"],
+            directions: [""],
           },
-        },
+        ],
       };
     }
 
