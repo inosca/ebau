@@ -108,6 +108,16 @@ export default class CustomAlexandriaConfigService extends AlexandriaConfigServi
     return columns;
   }
 
+  get searchListColumns() {
+    const columns = super.searchListColumns;
+
+    if (hasFeature("alexandria.showSearchLinkLabel")) {
+      columns.link.labelHidden = false;
+    }
+
+    return columns;
+  }
+
   @action
   async resolveUser(id) {
     if (!id) return "-";
