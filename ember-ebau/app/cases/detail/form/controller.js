@@ -40,6 +40,9 @@ export default class CasesDetailFormController extends Controller {
     }
 
     const timelines = [
+      ...(await this.store.query("form-timeline", {
+        instance: this.ebauModules.instanceId,
+      })),
       {
         id: "current",
         timelineType: "current",
@@ -47,9 +50,6 @@ export default class CasesDetailFormController extends Controller {
         startDate: null,
         endDate: null,
       },
-      ...(await this.store.query("form-timeline", {
-        instance: this.ebauModules.instanceId,
-      })),
     ];
 
     return timelines;
