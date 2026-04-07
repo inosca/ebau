@@ -2103,7 +2103,7 @@
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Bauvisiere\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Bauvisiere erstellt/vorgesehen\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "!(\"art-des-vorhabens-neubau\" in \"art-des-vorhabens\"|answer)",
@@ -2508,12 +2508,14 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "date-after-question": "baubeginn"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
       "source": null,
-      "format_validators": "[]",
+      "format_validators": "[\"date-after\"]",
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"

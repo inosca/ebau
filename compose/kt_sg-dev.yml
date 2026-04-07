@@ -99,6 +99,7 @@ services:
       DATA_SOURCE_CLASSES: camac.caluma.extensions.data_sources.Municipalities,camac.caluma.extensions.data_sources.Countries,camac.caluma.extensions.data_sources.PreliminaryClarificationTargets
       DYNAMIC_GROUPS_CLASSES: camac.caluma.extensions.dynamic_groups.CustomDynamicGroups
       DYNAMIC_TASKS_CLASSES: camac.caluma.extensions.dynamic_tasks.CustomDynamicTasks
+      FORMAT_VALIDATOR_CLASSES: camac.caluma.extensions.format_validators.DateAfterValidator
       # Alexandria
       TIKA_SERVER_ENDPOINT: "http://tika:9998"
       # celery
