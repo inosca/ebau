@@ -633,7 +633,7 @@ def test_additional_demand_changes(
         gr_instance.case.save()
 
     response = admin_client.post(
-        reverse("instance-additional-demand-changes", args=[gr_instance.pk])
+        reverse("instance-additional-demand-changes-submit", args=[gr_instance.pk])
     )
 
     if allows_changes:

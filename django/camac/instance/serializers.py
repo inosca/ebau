@@ -3130,7 +3130,9 @@ class CalumaInstanceCorrectionSerializer(serializers.Serializer):
         resource_name = "instance-corrections"
 
 
-class CalumaInstanceAdditionalDemandChangesSerializer(CalumaInstanceSubmitSerializer):
+class CalumaInstanceAdditionalDemandChangesSubmitSerializer(
+    CalumaInstanceSubmitSerializer
+):
     def validate(self, data):
         if (
             not settings.TIMELINES.enabled
