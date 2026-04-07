@@ -96,7 +96,9 @@ def test_be_client(
 ):
     # TODO: Update testing when sync=True works for testing, django_q sync=True is still broken.
     settings.BE_GIS_ENABLE_QUEUE = False
-    settings.GIS_REQUESTS_BATCH_SIZE = 4
+    # Without this, threads may run out-of-order and cause VCRpy to return
+    # the wrong data (or fail)
+    settings.GIS_REQUESTS_BATCH_SIZE = 1
 
     response = admin_client.get(
         reverse("gis-data"),
@@ -127,6 +129,10 @@ def test_be_client_error(
     be_data_sources,
     settings,
 ):
+    # Without this, threads may run out-of-order and cause VCRpy to return
+    # the wrong data (or fail)
+    settings.GIS_REQUESTS_BATCH_SIZE = 1
+
     settings.BE_GIS_ENABLE_QUEUE = False
 
     response = admin_client.get(
