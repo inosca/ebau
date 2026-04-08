@@ -24,6 +24,7 @@ module.exports = {
       theme: "uikit",
       defaults: {
         error: "ember-ebau-core/components/validated-form/custom-error",
+        label: "ember-ebau-core/components/validated-form/custom-label",
       },
     };
 

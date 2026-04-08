@@ -1,6 +1,6 @@
 @use "sass:color";
 
-$mandatory-asterisk-color: $global-muted-color !default;
+$mandatory-asterisk-color: $text-danger-color !default;
 $custom-muted-color-dark: color.adjust(
   $global-muted-background,
   $lightness: -15%
@@ -60,7 +60,7 @@ tr[role="link"] {
   border-left: 4px solid $global-danger-background;
 }
 
-// increase specificity to override uk-text-muted
-span.cf-label__mandatory-asterisk.uk-text-muted {
+.mandatory-asterisk,
+.cf-label__mandatory-asterisk {
   color: $mandatory-asterisk-color !important;
 }
