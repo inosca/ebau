@@ -37,16 +37,20 @@ export default class ConstructionMonitoringWorkItemAddressedComponent extends Co
       .filter((group) => {
         const serviceGroupSlug = group.get("serviceGroup.slug");
 
-        // if the active service group has taken over control,
-        // only show that group as addressed.
-        if (this.isActionableForControl) {
-          return serviceGroupSlug === activeServiceGroup.slug;
+        if (resolvedGroups.length > 1) {
+          // if the active service group has taken over control,
+          // only show that group as addressed.
+          if (this.isActionableForControl) {
+            return serviceGroupSlug === activeServiceGroup.slug;
+          }
+
+          // otherwise show all, except the active service group,
+          // since they are not actually addressed unless they would
+          // take over control.
+          return serviceGroupSlug !== activeServiceGroup.slug;
         }
 
-        // otherwise show all, except the active service group,
-        // since they are not actually addressed unless they would
-        // take over control.
-        return serviceGroupSlug !== activeServiceGroup.slug;
+        return true;
       })
       .map((group) => group.id);
   });
