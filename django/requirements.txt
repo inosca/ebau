@@ -33,7 +33,7 @@ djangorestframework-jsonapi==8.0.0
 djangorestframework-xml==2.0.0
 docxtpl==0.20.2
 drf-extra-fields==3.7.0
-drf-yasg==1.21.14
+drf-yasg==1.21.15
 ebau-gwr==0.8.3
 gunicorn==23.0.0
 hdbcli==2.25.31
