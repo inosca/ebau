@@ -438,6 +438,16 @@ def post_resume_inquiry(sender, work_item, user, context=None, **kwargs):
             inquiry=work_item,
         )
 
+    if settings.APPLICATION_NAME == "kt_uri":
+        instance = get_instance(work_item)
+        camac_user = User.objects.get(username=user.username)
+
+        if (
+            instance.previous_instance_state.name == "nfd"
+            and instance.instance_state.name == "circ"
+        ):
+            instance.set_instance_state("nfd", camac_user)
+
 
 def _get_inquiry_sent_notification_key(work_item):
     if settings.APPLICATION_NAME == "kt_gr":

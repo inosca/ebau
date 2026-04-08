@@ -17,7 +17,7 @@ from django.utils import timezone
 from django.utils.translation import gettext as _
 from pytest_lazy_fixtures import lf
 
-from camac.caluma.extensions.events import bab
+from camac.caluma.extensions.events import bab, distribution
 from camac.caluma.extensions.events.caluma_workflow_notifications import (
     post_complete_caluma_workflow_notifications,
     post_create_caluma_workflow_notifications,
@@ -1640,3 +1640,38 @@ def test_resume_rpg_work_item_ur(
 
     rpg_work_item.refresh_from_db()
     assert rpg_work_item.status == "ready"
+
+
+def test_post_resume_inquiry_ur(
+    db,
+    set_application_ur,
+    ur_distribution_settings,
+    disable_ech0211_settings,
+    service,
+    ur_instance,
+    caluma_admin_user,
+    caluma_work_item_factory,
+    notification_template_factory,
+    instance_state_factory,
+):
+    work_item = caluma_work_item_factory(
+        task_id="inquiry",
+        case=ur_instance.case,
+        addressed_groups=[service.pk],
+        controlling_groups=[service.pk],
+    )
+    work_item.document.answers.create(
+        question_id="inquiry-deadline", date=date(2026, 4, 8)
+    )
+    notification_template_factory(slug="4-1-zirkulation-gemeinde-gestartet")
+
+    ur_instance.previous_instance_state = instance_state_factory(name="nfd")
+    ur_instance.instance_state = instance_state_factory(name="circ")
+    ur_instance.save()
+
+    distribution.post_resume_inquiry(
+        sender=None, work_item=work_item, user=caluma_admin_user
+    )
+    ur_instance.refresh_from_db()
+
+    assert ur_instance.instance_state.name == "nfd"
