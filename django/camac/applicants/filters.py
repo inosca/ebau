@@ -7,3 +7,9 @@ class ApplicantFilterSet(FilterSet):
     class Meta:
         model = models.Applicant
         fields = ("instance",)
+
+
+class ApplicantConfirmationRoundFilterSet(FilterSet):
+    class Meta:
+        model = models.ApplicantConfirmationRound
+        fields = ("document",)

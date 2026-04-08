@@ -444,6 +444,56 @@ def so_appeal_settings(
 
 
 @pytest.fixture
+def applicants_settings(
+    request,
+    settings,
+):
+    """Module-specific settings for applicants (default)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=None,
+        module_name="applicants",
+        canton=None,
+        disable=False,
+    )
+
+
+@pytest.fixture
+def disable_applicants_settings(
+    request,
+    settings,
+    applicants_settings,
+):
+    """Disable the applicants module completely."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=applicants_settings,
+        module_name="applicants",
+        canton=None,
+        disable=True,
+    )
+
+
+@pytest.fixture
+def sg_applicants_settings(
+    request,
+    settings,
+    applicants_settings,
+):
+    """Module-specific settings for applicants (canton SG)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=applicants_settings,
+        module_name="applicants",
+        canton="kt_sg",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def bab_settings(
     request,
     settings,

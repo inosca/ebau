@@ -3233,7 +3233,7 @@ def django_q_sync_mode(settings):
 
 
 @pytest.fixture
-def fake_request(rf, admin_user, group):
+def fake_request(rf, admin_user, group, request_mock):
     request = rf.request()
     request.user = admin_user
     request.group = group

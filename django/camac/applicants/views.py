@@ -1,5 +1,16 @@
 from django.conf import settings
-from rest_framework_json_api.views import ModelViewSet
+from rest_framework import status
+from rest_framework.decorators import action
+from rest_framework.mixins import CreateModelMixin, ListModelMixin, RetrieveModelMixin
+from rest_framework.response import Response
+from rest_framework.viewsets import GenericViewSet
+from rest_framework_json_api.views import (
+    AutoPrefetchMixin,
+    ModelViewSet,
+    PreloadIncludesMixin,
+    ReadOnlyModelViewSet,
+    RelatedMixin,
+)
 
 from camac.applicants import permissions as applicant_permissions
 from camac.instance.mixins import InstanceQuerysetMixin
@@ -129,3 +140,72 @@ class ApplicantsView(InstanceQuerysetMixin, ModelViewSet):
         if obj.role == models.ROLE_CHOICES.PROJECT_OWNER.value:
             return False
         return True
+
+
+class ApplicantConfirmationViewSet(InstanceQuerysetMixin, ReadOnlyModelViewSet):
+    instance_field = "round__instance"
+    queryset = models.ApplicantConfirmation.objects
+    serializer_class = serializers.ApplicantConfirmationSerializer
+
+    select_for_includes = {
+        "__all__": ["applicant", "applicant__invitee"],
+    }
+    prefetch_for_includes = {
+        "__all__": ["source_questions"],
+    }
+
+    def get_base_queryset(self):
+        return super().get_base_queryset().for_request(self.request)
+
+    @action(methods=["POST"], detail=True)
+    def confirm(self, request, pk):
+        confirmation = self.get_object().confirm(request)
+        confirmation.refresh_from_db()
+        serializer = self.get_serializer(confirmation)
+
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class ApplicantConfirmationRoundViewSet(
+    InstanceQuerysetMixin,
+    # DRF JSON-API
+    AutoPrefetchMixin,
+    PreloadIncludesMixin,
+    RelatedMixin,
+    # DRF ModelViewSet without destroy & update
+    CreateModelMixin,
+    RetrieveModelMixin,
+    ListModelMixin,
+    GenericViewSet,
+):
+    queryset = models.ApplicantConfirmationRound.objects
+    serializer_class = serializers.ApplicantConfirmationRoundSerializer
+    filterset_class = filters.ApplicantConfirmationRoundFilterSet
+
+    prefetch_for_includes = {
+        "__all__": ["confirmations"],
+        "confirmations": [
+            "confirmations__applicant",
+            "confirmations__applicant__invitee",
+            "confirmations__source_questions",
+        ],
+    }
+
+    def get_base_queryset(self):
+        return super().get_base_queryset().for_request(self.request)
+
+    @action(methods=["POST"], detail=True)
+    def invalidate(self, request, pk):
+        round = self.get_object().invalidate(request)
+        round.refresh_from_db()
+        serializer = self.get_serializer(round)
+
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    @action(methods=["POST"], detail=True)
+    def cancel(self, request, pk):
+        round = self.get_object().cancel(request)
+        round.refresh_from_db()
+        serializer = self.get_serializer(round)
+
+        return Response(serializer.data, status=status.HTTP_200_OK)

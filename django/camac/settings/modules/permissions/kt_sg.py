@@ -4,6 +4,7 @@ from camac.permissions.conditions import (
     HasRole,
     RequireInstanceState,
     RequireWorkItem,
+    Static,
 )
 from camac.permissions.switcher import PERMISSION_MODE
 
@@ -51,6 +52,11 @@ MODULE_PORTAL_DOCUMENTS_WRITE = (
 MODULE_PORTAL_FORM_READ = Always()
 MODULE_PORTAL_FORM_WRITE = RequireWorkItem("submit", "ready") & APPLICANT_WRITE
 
+ACTION_APPLICANT_CONFIRMATION_ADMIN = RequireWorkItem(
+    "submit", "ready"
+) & HasApplicantRole(["ADMIN"])
+ACTION_APPLICANT_CONFIRMATION_CONFIRM = RequireWorkItem("submit", "ready")
+
 ACTION_INSTANCE_DELETE = RequireInstanceState(["new"]) & APPLICANT_ADMIN
 ACTION_INSTANCE_SUBMIT = RequireWorkItem("submit", "ready") & APPLICANT_ADMIN
 
@@ -61,6 +67,11 @@ SG_PERMISSIONS_SETTINGS = {
         "applicant": [
             ("additional-demands-read", MODULE_PORTAL_ADDITIONAL_DEMANDS_READ),
             ("additional-demands-write", MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE),
+            ("applicant-confirmation-cancel", ACTION_APPLICANT_CONFIRMATION_ADMIN),
+            ("applicant-confirmation-confirm", ACTION_APPLICANT_CONFIRMATION_CONFIRM),
+            ("applicant-confirmation-invalidate", ACTION_APPLICANT_CONFIRMATION_ADMIN),
+            ("applicant-confirmation-read", Static()),
+            ("applicant-confirmation-start", ACTION_APPLICANT_CONFIRMATION_ADMIN),
             ("applicant-add", MODULE_PORTAL_APPLICANTS),
             ("applicant-read", MODULE_PORTAL_APPLICANTS),
             ("applicant-remove", MODULE_PORTAL_APPLICANTS),
@@ -78,6 +89,7 @@ SG_PERMISSIONS_SETTINGS = {
         "lead-authority": [
             ("additional-demands-read", MODULE_ADDITIONAL_DEMANDS),
             ("additional-demands-write", MODULE_ADDITIONAL_DEMANDS),
+            ("applicant-confirmation-read", Static()),
             ("communications-convert-to-document", MODULE_COMMUNICATIONS),
             ("communications-read", MODULE_COMMUNICATIONS),
             ("communications-write", MODULE_COMMUNICATIONS),
@@ -106,6 +118,7 @@ SG_PERMISSIONS_SETTINGS = {
             ("form-read", MODULE_FORM),
         ],
         "support": [
+            ("applicant-confirmation-read", Static()),
             ("applicant-add", Always()),
             ("applicant-read", Always()),
             ("applicant-remove", Always()),
