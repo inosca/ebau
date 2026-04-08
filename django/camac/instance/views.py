@@ -222,7 +222,7 @@ class InstanceView(
                 "appeal": serializers.CalumaInstanceAppealSerializer,
                 "default": serializers.CalumaInstanceSerializer,
                 "correction": serializers.CalumaInstanceCorrectionSerializer,
-                "additional_demand_changes": serializers.CalumaInstanceAdditionalDemandChangesSerializer,
+                "additional_demand_changes_submit": serializers.CalumaInstanceAdditionalDemandChangesSubmitSerializer,
                 "rejection": serializers.CalumaInstanceRejectionSerializer,
             },
             "camac-ng": {
@@ -1013,8 +1013,8 @@ class InstanceView(
         return self._custom_serializer_action(request, pk, status.HTTP_204_NO_CONTENT)
 
     @swagger_auto_schema(auto_schema=None)
-    @action(methods=["post"], detail=True, url_path="additional-demand-changes")
-    def additional_demand_changes(self, request, pk=None):
+    @action(methods=["post"], detail=True, url_path="additional-demand-changes-submit")
+    def additional_demand_changes_submit(self, request, pk=None):
         return self._custom_serializer_action(request, pk, status.HTTP_204_NO_CONTENT)
 
     @swagger_auto_schema(auto_schema=None)

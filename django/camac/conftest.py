@@ -8,7 +8,7 @@ from dataclasses import dataclass, field
 from datetime import date, timedelta
 from importlib import import_module, reload
 from pathlib import Path
-from typing import Callable, Optional
+from typing import Callable, Literal, Optional
 
 import django.db
 import faker
@@ -863,7 +863,64 @@ def yes_no(boolean, lang):
 
 
 @pytest.fixture
-def caluma_forms_be(settings):
+def add_yes_no_question(caluma_form_question_factory, caluma_question_option_factory):
+    def fn(
+        form_slug: str,
+        question_slug: str,
+        question_type: str,
+        options: list[bool],
+        option_lang: Literal["de", "en"],
+    ):
+        form_question = caluma_form_question_factory(
+            form_id=form_slug,
+            question__pk=question_slug,
+            question__type=question_type,
+            question__is_required="false",
+        )
+
+        for i, option_bool in enumerate(reversed(options)):
+            caluma_question_option_factory(
+                question_id=question_slug,
+                option__pk=f"{question_slug}-{yes_no(option_bool, option_lang)}",
+                option__label="Ja" if option_bool else "Nein",
+                sort=i,
+            )
+
+        return form_question.question
+
+    return fn
+
+
+@pytest.fixture
+def add_general_questions(add_yes_no_question):
+    def fn(form_slug: str) -> None:
+        add_yes_no_question(
+            form_slug,
+            "is-paper",
+            caluma_form_models.Question.TYPE_CHOICE,
+            [True, False],
+            "en",
+        )
+        add_yes_no_question(
+            form_slug,
+            "projektaenderung",
+            caluma_form_models.Question.TYPE_CHOICE,
+            [True, False],
+            "de",
+        )
+        add_yes_no_question(
+            form_slug,
+            "einreichen-button",
+            caluma_form_models.Question.TYPE_MULTIPLE_CHOICE,
+            [True],
+            "de",
+        )
+
+    return fn
+
+
+@pytest.fixture
+def caluma_forms_be(settings, add_general_questions, add_yes_no_question):
     # forms
     caluma_form_models.Form.objects.create(
         slug="main-form",
@@ -903,25 +960,21 @@ def caluma_forms_be(settings):
         type=caluma_form_models.Question.TYPE_FORM,
     )
 
-    for slug, lang in [("is-paper", "en"), ("projektaenderung", "de")]:
-        question = caluma_form_models.Question.objects.create(
-            slug=slug, type=caluma_form_models.Question.TYPE_CHOICE
-        )
-        caluma_form_models.FormQuestion.objects.create(
-            form_id="main-form", question_id=slug
-        )
-        options = [
-            caluma_form_models.Option.objects.create(
-                slug=f"{slug}-{yes(lang)}", label="Ja"
-            ),
-            caluma_form_models.Option.objects.create(
-                slug=f"{slug}-{no(lang)}", label="Nein"
-            ),
-        ]
-        for option in options:
-            caluma_form_models.QuestionOption.objects.create(
-                question=question, option=option
-            )
+    add_general_questions("main-form")
+    add_yes_no_question(
+        "sb1",
+        "einreichen-button-sb1",
+        caluma_form_models.Question.TYPE_MULTIPLE_CHOICE,
+        [True],
+        "de",
+    )
+    add_yes_no_question(
+        "sb2",
+        "einreichen-button-sb2",
+        caluma_form_models.Question.TYPE_MULTIPLE_CHOICE,
+        [True],
+        "de",
+    )
 
     # some question for suggestions
     question = caluma_form_models.Question.objects.create(
@@ -1003,7 +1056,7 @@ def caluma_forms_be(settings):
 
 
 @pytest.fixture
-def caluma_forms_ur(settings):
+def caluma_forms_ur(settings, add_general_questions):
     # forms
     for counter, form in enumerate(["main-form", "oereb", "oereb-verfahren-gemeinde"]):
         caluma_form_models.Form.objects.create(
@@ -1075,25 +1128,7 @@ def caluma_forms_ur(settings):
         "camac.caluma.extensions.data_sources.Municipalities",
     ]
 
-    for slug, lang in [("is-paper", "en"), ("projektaenderung", "de")]:
-        question = caluma_form_models.Question.objects.create(
-            slug=slug, type=caluma_form_models.Question.TYPE_CHOICE
-        )
-        caluma_form_models.FormQuestion.objects.create(
-            form_id="main-form", question_id=slug
-        )
-        options = [
-            caluma_form_models.Option.objects.create(
-                slug=f"{slug}-{yes(lang)}", label="Ja"
-            ),
-            caluma_form_models.Option.objects.create(
-                slug=f"{slug}-{no(lang)}", label="Nein"
-            ),
-        ]
-        for option in options:
-            caluma_form_models.QuestionOption.objects.create(
-                question=question, option=option
-            )
+    add_general_questions("main-form")
 
     # link questions with forms
     for form_id, question_id in FORM_QUESTION_MAP_UR:
@@ -1103,7 +1138,7 @@ def caluma_forms_ur(settings):
 
 
 @pytest.fixture
-def caluma_forms_gr(settings):
+def caluma_forms_gr(settings, add_general_questions):
     # forms
     caluma_form_models.Form.objects.create(
         slug="main-form", meta={"is-main-form": True}, name="Baugesuch"
@@ -1135,25 +1170,7 @@ def caluma_forms_gr(settings):
             form_id="entsorgung", question_id=slug
         )
 
-    for slug, lang in [("is-paper", "en"), ("projektaenderung", "de")]:
-        question = caluma_form_models.Question.objects.create(
-            slug=slug, type=caluma_form_models.Question.TYPE_CHOICE
-        )
-        caluma_form_models.FormQuestion.objects.create(
-            form_id="main-form", question_id=slug
-        )
-        options = [
-            caluma_form_models.Option.objects.create(
-                slug=f"{slug}-{yes(lang)}", label="Ja"
-            ),
-            caluma_form_models.Option.objects.create(
-                slug=f"{slug}-{no(lang)}", label="Nein"
-            ),
-        ]
-        for option in options:
-            caluma_form_models.QuestionOption.objects.create(
-                question=question, option=option
-            )
+    add_general_questions("main-form")
 
     # main form
     caluma_form_models.Question.objects.create(
@@ -1165,7 +1182,7 @@ def caluma_forms_gr(settings):
 
 
 @pytest.fixture
-def caluma_forms_so(settings):
+def caluma_forms_so(settings, add_general_questions):
     # forms
     caluma_form_models.Form.objects.create(
         slug="main-form", meta={"is-main-form": True}, name="Baugesuch"
@@ -1193,25 +1210,7 @@ def caluma_forms_so(settings):
         "camac.caluma.extensions.data_sources.Municipalities"
     ]
 
-    for slug, lang in [("is-paper", "en"), ("projektaenderung", "de")]:
-        question = caluma_form_models.Question.objects.create(
-            slug=slug, type=caluma_form_models.Question.TYPE_CHOICE
-        )
-        caluma_form_models.FormQuestion.objects.create(
-            form_id="main-form", question_id=slug
-        )
-        options = [
-            caluma_form_models.Option.objects.create(
-                slug=f"{slug}-{yes(lang)}", label="Ja"
-            ),
-            caluma_form_models.Option.objects.create(
-                slug=f"{slug}-{no(lang)}", label="Nein"
-            ),
-        ]
-        for option in options:
-            caluma_form_models.QuestionOption.objects.create(
-                question=question, option=option
-            )
+    add_general_questions("main-form")
 
     caluma_form_models.Question.objects.create(
         slug="beschreibung-bauvorhaben", type=caluma_form_models.Question.TYPE_TEXT
@@ -1219,7 +1218,7 @@ def caluma_forms_so(settings):
 
 
 @pytest.fixture
-def caluma_forms_ag(settings, caluma_form_factory):
+def caluma_forms_ag(settings, add_general_questions):
     caluma_form_models.Form.objects.create(
         slug="main-form", meta={"is-main-form": True}, name="Baugesuch"
     )
@@ -1269,25 +1268,7 @@ def caluma_forms_ag(settings, caluma_form_factory):
         "camac.caluma.extensions.data_sources.Municipalities"
     ]
 
-    for slug, lang in [("is-paper", "en"), ("projektaenderung", "de")]:
-        question = caluma_form_models.Question.objects.create(
-            slug=slug, type=caluma_form_models.Question.TYPE_CHOICE
-        )
-        caluma_form_models.FormQuestion.objects.create(
-            form_id="main-form", question_id=slug
-        )
-        options = [
-            caluma_form_models.Option.objects.create(
-                slug=f"{slug}-{yes(lang)}", label="Ja"
-            ),
-            caluma_form_models.Option.objects.create(
-                slug=f"{slug}-{no(lang)}", label="Nein"
-            ),
-        ]
-        for option in options:
-            caluma_form_models.QuestionOption.objects.create(
-                question=question, option=option
-            )
+    add_general_questions("main-form")
 
     caluma_form_models.Question.objects.create(
         slug="beschreibung-bauvorhaben", type=caluma_form_models.Question.TYPE_TEXT
