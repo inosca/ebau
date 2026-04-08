@@ -651,23 +651,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "formelle-vorpruefung-notwendige-publikationen-nicht-notwendig",
-    "fields": {
-      "created_at": "2026-03-12T10:45:18.855Z",
-      "modified_at": "2026-03-12T10:45:18.855Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"nicht notwendig\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "formelle-vorpruefung-privatrechtliche-zustimmung-vorhanden-ja",
     "fields": {
       "created_at": "2026-03-04T15:08:10.365Z",
@@ -1312,7 +1295,7 @@
       "label": "{\"de\": \"Notwendige Publikationen\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "\"formelle-vorpruefung-publikation-notwendig\"|answer != \"formelle-vorpruefung-publikation-notwendig-ja\"",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -1374,7 +1357,7 @@
       "label": "{\"de\": \"Publikation notwendig\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "false",
-      "is_hidden": "!(\"formelle-vorpruefung-verfahrensart\"|answer in [\"formelle-vorpruefung-verfahrensart-ordentlich\", \"formelle-vorpruefung-verfahrensart-vereinfacht\"])",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -1847,21 +1830,6 @@
       "question": "formelle-vorpruefung-notwendige-publikationen",
       "option": "formelle-vorpruefung-notwendige-publikationen-kommunal",
       "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "formelle-vorpruefung-notwendige-publikationen.formelle-vorpruefung-notwendige-publikationen-nicht-notwendig",
-    "fields": {
-      "created_at": "2026-03-12T13:24:16.236Z",
-      "modified_at": "2026-03-12T13:24:16.236Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "formelle-vorpruefung-notwendige-publikationen",
-      "option": "formelle-vorpruefung-notwendige-publikationen-nicht-notwendig",
-      "sort": 1
     }
   },
   {
