@@ -167,12 +167,7 @@
           {{t "global.save"}}
         </button>
 
-        {{#if
-          (and
-            (has-feature "workItems.cancel")
-            (can "cancel work-item" this.workItem)
-          )
-        }}
+        {{#if (can "cancel work-item" this.workItem)}}
           <button
             class="uk-button uk-button-danger uk-float-right"
             type="button"

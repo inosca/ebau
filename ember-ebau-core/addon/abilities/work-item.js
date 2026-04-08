@@ -1,5 +1,7 @@
 import { Ability } from "ember-can";
 
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
+
 export default class WorkItemAbility extends Ability {
   get canEdit() {
     return (
@@ -46,6 +48,7 @@ export default class WorkItemAbility extends Ability {
 
   get canCancel() {
     return (
+      hasFeature("workItems.cancel") &&
       this.model.isReady &&
       this.model.isCreatedByCurrentService &&
       this.model.raw.task.meta["is-manually-completable"]
