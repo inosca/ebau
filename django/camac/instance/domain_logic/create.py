@@ -620,10 +620,15 @@ class CreateInstanceLogic:
                 CreateInstanceLogic.copy_ebau_number(source_instance, instance, case)
 
             if settings.TIMELINES.enabled:
+                was_rejected = (
+                    settings.REJECTION
+                    and source_instance.instance_state.name
+                    == settings.REJECTION["INSTANCE_STATE"]
+                )
                 FormTimeline.objects.add_instance_timeline(
                     instance=instance,
                     timeline_type=FormTimeline.Type.PROJECT_CHANGE.value
-                    if is_modification
+                    if not was_rejected
                     else FormTimeline.Type.SUBMIT_AFTER_REJECTION.value,
                     start_date=timezone.now(),
                 )
