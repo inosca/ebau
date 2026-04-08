@@ -3,46 +3,41 @@
   @on-submit={{this.save.perform}}
   as |f|
 >
-  {{#let
-    (component f.input errorComponent=(component "input-error"))
-    as |FormInput|
-  }}
-    <FormInput
-      @name="name"
-      @label={{t "sanction.property.name"}}
-      @required={{true}}
-    />
-    <FormInput
-      @name="description"
-      @label={{t "sanction.property.description"}}
-      @type="textarea"
-      {{autoresize mode="height"}}
-    />
-    <FormInput
-      @name="assignedService"
-      @label={{t "sanction.property.assignedService"}}
-      @required={{true}}
+  <f.input
+    @name="name"
+    @label={{t "sanction.property.name"}}
+    @required={{true}}
+  />
+  <f.input
+    @name="description"
+    @label={{t "sanction.property.description"}}
+    @type="textarea"
+    {{autoresize mode="height"}}
+  />
+  <f.input
+    @name="assignedService"
+    @label={{t "sanction.property.assignedService"}}
+    @required={{true}}
+  >
+    <PowerSelect
+      @selected={{f.model.assignedService}}
+      @searchEnabled={{true}}
+      @searchField="name"
+      @onChange={{fn (mut f.model.assignedService)}}
+      @options={{this.options}}
+      class="uk-select"
+      as |service|
     >
-      <PowerSelect
-        @selected={{f.model.assignedService}}
-        @searchEnabled={{true}}
-        @searchField="name"
-        @onChange={{fn (mut f.model.assignedService)}}
-        @options={{this.options}}
-        class="uk-select"
-        as |service|
-      >
-        {{service.name}}
-      </PowerSelect>
-    </FormInput>
-    <FormInput
-      @name="controlStep"
-      @label={{t "sanction.property.controlStep"}}
-      @required={{true}}
-      @type="radioGroup"
-      @options={{this.controlSteps}}
-    />
-  {{/let}}
+      {{service.name}}
+    </PowerSelect>
+  </f.input>
+  <f.input
+    @name="controlStep"
+    @label={{t "sanction.property.controlStep"}}
+    @required={{true}}
+    @type="radioGroup"
+    @options={{this.controlSteps}}
+  />
 
   <f.submit
     @disabled={{or f.model.isInvalid this.save.isRunning}}

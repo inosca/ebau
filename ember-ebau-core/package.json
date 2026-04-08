@@ -149,7 +149,9 @@
     "after": [
       "ember-can",
       "ember-uikit",
-      "ember-alexandria"
+      "ember-alexandria",
+      "ember-ebau-gwr",
+      "ember-caluma"
     ]
   }
 }

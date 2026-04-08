@@ -16,7 +16,6 @@
       @name="targetService"
       @label={{t "rulesets.distribution-deadline.target-service"}}
       @required={{true}}
-      @errorComponent={{this.errorComponent}}
       as |fi|
     >
       <PowerSelect
@@ -42,7 +41,6 @@
     @type="number"
     @label={{t "rulesets.distribution-deadline.lead-time"}}
     @required={{true}}
-    @errorComponent={{this.errorComponent}}
     min="0"
     step="1"
   />

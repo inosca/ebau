@@ -3,8 +3,6 @@ import { service } from "@ember/service";
 import { validateFormat } from "ember-changeset-validations/validators";
 import { task } from "ember-concurrency";
 
-import InputErrorComponent from "ember-ebau-core/components/input-error";
-
 const validatePhone = validateFormat({
   type: "phone",
   // This regex is copied from caluma to make sure we use the same validation as
@@ -14,7 +12,6 @@ const validatePhone = validateFormat({
 });
 
 export default class ProfileController extends Controller {
-  errorComponent = InputErrorComponent;
   validations = {
     phone: validatePhone,
     mobile: validatePhone,
