@@ -237,6 +237,7 @@ omit = [
     "camac/core/management/commands/migrate_caluma_default_answers.py",
     "camac/core/management/commands/migrate_camac_and_caluma_forms_ur.py",
     "camac/core/management/commands/migrate_alexandria_tag_to_mark.py",
+    "camac/document/management/commands/copy_document_categories_to_alexandria.py",
     "camac/alexandria/management/commands/fix_alexandria_instance_document_links.py",
     "camac/alexandria/management/commands/fix_alexandria_created_by.py",
     "camac/alexandria/management/commands/generate_alexandria_documents.py",
