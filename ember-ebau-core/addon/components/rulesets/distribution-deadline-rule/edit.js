@@ -7,11 +7,9 @@ import {
 import { task } from "ember-concurrency";
 import { query } from "ember-data-resources";
 
-import InputErrorComponent from "ember-ebau-core/components/input-error";
 import parseError from "ember-ebau-core/utils/parse-error";
 
 export default class RulesetsDistributionDeadlineRuleEdit extends Component {
-  errorComponent = InputErrorComponent;
   validations = {
     leadTime: [
       validatePresence(true),
