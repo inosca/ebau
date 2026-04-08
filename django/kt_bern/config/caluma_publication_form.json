@@ -109,21 +109,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "publikation.publikation-freigeben",
-    "fields": {
-      "created_at": "2022-01-31T08:26:19.113Z",
-      "modified_at": "2022-01-31T08:26:19.113Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "publikation",
-      "question": "publikation-freigeben",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "publikation.publikation-startdatum",
     "fields": {
       "created_at": "2020-11-20T13:16:51.530Z",
@@ -348,42 +333,6 @@
       "configuration": {
         "max_length": null,
         "min_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "publikation-freigeben",
-    "fields": {
-      "created_at": "2022-01-31T08:26:18.857Z",
-      "modified_at": "2022-02-02T08:43:43.465Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Freigeben\", \"fr\": \"Autoriser\", \"it\": null}",
-      "type": "action_button",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"<strong>Achtung:</strong> Während der Publikationsdauer ist das Dossier öffentlich aufgelegt und kann eingesehen werden.<br><br>Wollen Sie die Publikation wirklich freigeben?\", \"fr\": \"<strong>Attention:</strong> Pendant la publication, le dossier est accessible au public et peut être consulté.<br><br>Voulez-vous vraiment autoriser la publication ?\", \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "color": "primary",
-        "action": "complete",
-        "show_validation": false,
-        "validate_on_enter": false
       },
       "meta": {},
       "data_source": null,

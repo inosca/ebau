@@ -23,6 +23,10 @@ export default class PublicationEditController extends Controller {
 
   @dedupeTracked documentId;
 
+  get confirmTextKey() {
+    return `publication.submitConfirm.${this.model.type}`;
+  }
+
   get filters() {
     return [
       { addressedGroups: [String(this.ebauModules.serviceId)] },
@@ -32,6 +36,18 @@ export default class PublicationEditController extends Controller {
         ],
       },
     ];
+  }
+
+  get #config() {
+    return mainConfig.publication[this.model.type];
+  }
+
+  get createTask() {
+    return this.#config.createTask;
+  }
+
+  get fillTask() {
+    return this.#config.task;
   }
 
   publication = trackedTask(this, this.fetchPublication, () => [
@@ -84,8 +100,9 @@ export default class PublicationEditController extends Controller {
     }
   }
 
-  @action async refreshNavigation(transitionToIndex = false) {
-    const { task, dateRanges } = mainConfig.publication[this.model.type];
+  @action
+  async refreshNavigation(transitionToIndex = false) {
+    const { task, dateRanges } = this.#config;
 
     await this.apollo.query({
       query: getPublications,
@@ -102,5 +119,18 @@ export default class PublicationEditController extends Controller {
         this.ebauModules.resolveModuleRoute("publication", "index"),
       );
     }
+  }
+
+  @action
+  async confirm(message, validateFn) {
+    if (!(await confirm(message))) {
+      return false;
+    }
+
+    if (!validateFn) {
+      return true;
+    }
+
+    return await validateFn();
   }
 }

@@ -96,6 +96,7 @@ export default {
   publication: {
     neighbors: {
       task: "information-of-neighbors",
+      createTask: "create-information-of-neighbors",
       dateRanges: [
         [
           "information-of-neighbors-start-date",
@@ -105,6 +106,7 @@ export default {
     },
     public: {
       task: "fill-publication",
+      createTask: "create-publication",
       dateRanges: [["publikation-startdatum", "publikation-ablaufdatum"]],
     },
   },

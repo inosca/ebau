@@ -21,10 +21,10 @@
     "pk": "publikation",
     "fields": {
       "created_at": "2023-06-26T07:50:59.210Z",
-      "modified_at": "2024-08-28T12:24:54.700Z",
+      "modified_at": "2026-03-20T13:18:53.467Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "name": "{\"de\": \"Publikation\", \"fr\": null, \"it\": \"Pubblicazione\"}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -122,21 +122,6 @@
       "form": "publikation",
       "question": "oeffentliche-auflage",
       "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "publikation.publikation-freigeben",
-    "fields": {
-      "created_at": "2023-06-26T08:04:12.353Z",
-      "modified_at": "2023-06-26T08:04:12.353Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "publikation",
-      "question": "publikation-freigeben",
-      "sort": 1
     }
   },
   {
@@ -418,42 +403,6 @@
       "source": null,
       "format_validators": "[]",
       "default_answer": "3a9d3dc8-f770-4115-8be8-92ef8cbcecfa",
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "publikation-freigeben",
-    "fields": {
-      "created_at": "2023-06-26T08:04:12.162Z",
-      "modified_at": "2024-08-28T12:24:50.557Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Freigeben\", \"fr\": null, \"it\": \"Rilascia\"}",
-      "type": "action_button",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "color": "primary",
-        "action": "complete",
-        "show_validation": false,
-        "validate_on_enter": false
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
     }

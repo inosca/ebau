@@ -2,6 +2,12 @@ publication:
   new:
     neighbors: "Neue Information auswärtige Anstösser"
 
+  submitConfirm:
+    neighbors: "Wollen Sie die Information auswärtige Anstösser wirklich freigeben?"
+
+  delete:
+    neighbors: "Information auswärtige Anstösser löschen"
+
   cancelConfirm:
     neighbors: "Wollen Sie die Information auswärtige Anstösser wirklich abbrechen?"
 

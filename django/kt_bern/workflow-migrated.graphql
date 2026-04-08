@@ -4,8 +4,8 @@ mutation CreateMigratedWorkflow {
       slug: "migrated"
       name: "Migriertes Dossier"
       startTasks: [
-        "fill-publication"
-        "information-of-neighbors"
+        "create-publication"
+        "create-information-of-neighbors"
         "decision"
         "create-manual-workitems"
         "ebau-number"

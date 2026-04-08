@@ -1,9 +1,14 @@
-query GetWorkItemOfTask($instanceId: GenericScalar!, $task: ID!) {
+query GetWorkItemOfTask(
+  $instanceId: GenericScalar!
+  $task: ID!
+  $status: Status = CANCELED
+  $invert: Boolean = true
+) {
   allWorkItems(
     filter: [
       { rootCaseMetaValue: { key: "camac-instance-id", value: $instanceId } }
       { task: $task }
-      { status: CANCELED, invert: true }
+      { status: $status, invert: $invert }
     ]
     first: 1
   ) {

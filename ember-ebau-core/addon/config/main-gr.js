@@ -84,6 +84,7 @@ export default {
   publication: {
     public: {
       task: "fill-publication",
+      createTask: "create-publication",
       dateRanges: [
         [
           "beginn-publikationsorgan-gemeinde",

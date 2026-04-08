@@ -408,8 +408,8 @@ class CustomDynamicTasks(BaseDynamicTasks):
             "distribution",
             "audit",
             "publication",
-            "fill-publication",
-            "information-of-neighbors",
+            "create-publication",
+            "create-information-of-neighbors",
             "legal-submission",
         ]
 
@@ -803,9 +803,11 @@ class CustomDynamicTasks(BaseDynamicTasks):
         md = MasterData(case)
 
         if md.publication_required:
-            tasks.extend(["publication", "fill-publication"])
+            tasks.extend(["publication", "create-publication"])
 
         if md.information_of_neighbors_required:
-            tasks.extend(["information-of-neighbors", "fill-information-of-neighbors"])
+            tasks.extend(
+                ["information-of-neighbors", "create-information-of-neighbors"]
+            )
 
         return tasks

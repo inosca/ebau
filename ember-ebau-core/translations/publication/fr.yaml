@@ -13,6 +13,22 @@ publication:
     public: "Nouvelle publication"
     neighbors: "Novelle communication aux voisin(e)s"
 
+  submit:
+    public: "Partager"
+    neighbors: "Partager"
+
+  submitConfirm:
+    public: "Voulez-vous vraiment partager la publication ?"
+    neighbors: "Voulez-vous vraiment partager l'orientation du voisinage ?"
+
+  deleteConfirm:
+    public: "Voulez-vous vraiment supprimer le brouillon ?"
+    neighbors: "Voulez-vous vraiment supprimer le brouillon ?"
+
+  delete:
+    public: "Supprimer la publication"
+    neighbors: "Supprimer l'orientation de voisinage"
+
   cancelConfirm:
     public: "Voulez-vous vraiment annuler la publication ?"
     neighbors: "Voulez-vous vraiment annuler la communication aux voisin(e)s ?"
