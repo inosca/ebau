@@ -6,6 +6,7 @@ import AgGisComponent from "ember-ebau-core/components/ag-gis";
 import AGInquiryServiceGroupWarningComponent from "ember-ebau-core/components/ag-inquiry-service-group-warning";
 import AlexandriaDocumentsFormComponent from "ember-ebau-core/components/alexandria-documents-form";
 import CalculatedPublicationDateComponent from "ember-ebau-core/components/calculated-publication-date";
+import CfSnippetsTextareaComponent from "ember-ebau-core/components/cf-snippets-textarea";
 import CheckHintNewAddressNeededComponent from "ember-ebau-core/components/check-hint-new-address-needed";
 import ConstructionMonitoringGeometerChoiceComponent from "ember-ebau-core/components/construction-monitoring-geometer-choice";
 import CoordinatesPlaceholderComponent from "ember-ebau-core/components/coordinates-placeholder";
@@ -203,6 +204,12 @@ export default class ApplicationRoute extends Route {
       component: "construction-monitoring-geometer-choice",
       componentClass: ConstructionMonitoringGeometerChoiceComponent,
       type: "ChoiceQuestion",
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Textarea with snippets",
+      component: "cf-snippets-textarea",
+      componentClass: CfSnippetsTextareaComponent,
+      type: "TextareaQuestion",
     });
   }
 }

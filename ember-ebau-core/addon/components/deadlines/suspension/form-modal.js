@@ -1,3 +1,4 @@
+import { action } from "@ember/object";
 import { service } from "@ember/service";
 import Component from "@glimmer/component";
 import { didCancel, task } from "ember-concurrency";
@@ -37,6 +38,11 @@ export default class DeadlineSuspensionFormModalComponent extends Component {
           : null;
       }
     }
+  }
+
+  @action
+  updateRemark(fi, event) {
+    fi.update(event.target.value);
   }
 
   get isCreate() {
