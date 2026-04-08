@@ -494,30 +494,6 @@ def test_preliminary_clarfication_targets_so(
     assert data[4][1]["de"] == "Procap"
 
 
-def test_preliminary_clarfication_targets_sg(
-    db, caluma_admin_user, service_factory, application_settings
-):
-    application_settings["SHORT_NAME"] = "sg"
-
-    service_factory(
-        trans__name="AfU",
-        trans__language="de",
-        service_group__slug="service",
-    )
-    service_factory(
-        trans__name="Koordinationsstelle Bau",
-        trans__language="de",
-        service_group__slug="coordination",
-    )
-
-    data = PreliminaryClarificationTargets().get_data(caluma_admin_user, None, None)
-
-    assert data[0][1]["de"] == "Andere"
-    assert data[1][1]["de"] == "Örtliche Baubehörde"
-    assert data[2][1]["de"] == "AfU"
-    assert data[3][1]["de"] == "Koordinationsstelle Bau"
-
-
 def test_buildings(
     db, caluma_admin_user, caluma_question_factory, so_instance, form_utils: FormUtils
 ):

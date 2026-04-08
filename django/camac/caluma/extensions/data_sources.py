@@ -384,13 +384,11 @@ class Landowners(BaseDataSource):
 
 
 class PreliminaryClarificationTargets(BaseDataSource):
-    info = "List of services that can be selected for preliminary clarifications in Kt. SO & SG"
+    info = (
+        "List of services that can be selected for preliminary clarifications in Kt. SO"
+    )
 
-    @canton_aware
-    def filter_services(self, services):  # pragma: no cover
-        raise NotImplementedError()
-
-    def filter_services_so(self, services):
+    def filter_services(self, services):
         return services.filter(
             service_group__slug__in=[
                 "service-cantonal",
@@ -398,9 +396,6 @@ class PreliminaryClarificationTargets(BaseDataSource):
                 "service-bab",
             ],
         )
-
-    def filter_services_sg(self, services):
-        return services.filter(service_group__slug__in=["coordination", "service"])
 
     @data_source_cache(timeout=3600)
     def get_data(self, user, question, context):

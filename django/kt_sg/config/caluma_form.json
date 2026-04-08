@@ -50,8 +50,8 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Durchgeführte Voranfragen\", \"fr\": null, \"it\": null}",
-      "description": "{\"de\": \"Baugesuch > Allgemeine Informationen > Durchgeführte Voranfragen\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Durchgeführte Vorbesprechungen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Baugesuch > Allgemeine Informationen > Durchgeführte Vorbesprechungen\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": false,
       "is_archived": false,
@@ -68,7 +68,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Durchgeführte Voranfragen Tabelle\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Durchgeführte Vorbesprechungen Tabelle\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": false,
@@ -321,21 +321,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "durchgefuehrte-voranfragen-tabelle.andere-fachstelle",
-    "fields": {
-      "created_at": "2026-03-17T12:37:38.965Z",
-      "modified_at": "2026-03-17T12:37:38.965Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "durchgefuehrte-voranfragen-tabelle",
-      "question": "andere-fachstelle",
-      "sort": 6
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "durchgefuehrte-voranfragen-tabelle.bemerkungen-durchgefuehrte-voranfragen",
     "fields": {
       "created_at": "2026-03-17T12:40:11.225Z",
@@ -376,22 +361,22 @@
       "modified_by_group": null,
       "form": "durchgefuehrte-voranfragen-tabelle",
       "question": "kontaktperson",
-      "sort": 4
+      "sort": 5
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "durchgefuehrte-voranfragen-tabelle.referenz",
+    "pk": "durchgefuehrte-voranfragen-tabelle.name-der-stelle",
     "fields": {
-      "created_at": "2026-03-17T12:37:57.007Z",
-      "modified_at": "2026-03-17T12:37:57.007Z",
+      "created_at": "2026-04-07T10:15:11.470Z",
+      "modified_at": "2026-04-07T10:15:11.470Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "durchgefuehrte-voranfragen-tabelle",
-      "question": "referenz",
-      "sort": 5
+      "question": "name-der-stelle",
+      "sort": 6
     }
   },
   {
@@ -406,7 +391,7 @@
       "modified_by_group": null,
       "form": "durchgefuehrte-voranfragen-tabelle",
       "question": "telefon-optional",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -1281,6 +1266,57 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "amts-fachstelle-andere",
+    "fields": {
+      "created_at": "2026-04-07T10:18:33.290Z",
+      "modified_at": "2026-04-07T10:18:33.290Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "amts-fachstelle-gemeinde-kommunale-fachstelle",
+    "fields": {
+      "created_at": "2026-04-07T10:18:33.288Z",
+      "modified_at": "2026-04-07T10:18:33.288Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gemeinde / kommunale Fachstelle\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "amts-fachstelle-kanton-kantonale-fachstelle",
+    "fields": {
+      "created_at": "2026-04-07T10:18:33.289Z",
+      "modified_at": "2026-04-07T10:18:33.289Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kanton / kantonale Fachstelle\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "art-des-vorhabens-abbruch",
     "fields": {
       "created_at": "2026-03-12T12:52:01.833Z",
@@ -1865,7 +1901,7 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Amts- / Fachstelle\", \"fr\": null, \"it\": null}",
-      "type": "dynamic_choice",
+      "type": "choice",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
@@ -1874,40 +1910,6 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
-      "data_source": "PreliminaryClarificationTargets",
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "andere-fachstelle",
-    "fields": {
-      "created_at": "2026-03-17T12:37:38.932Z",
-      "modified_at": "2026-03-17T12:37:38.932Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Andere Fachstelle\", \"fr\": null, \"it\": null}",
-      "type": "text",
-      "is_required": "true",
-      "is_hidden": "\"amts-fachstelle\"|answer != \"-1\"",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -2312,7 +2314,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Durchgeführte Voranfragen\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Durchgeführte Vorbesprechungen\", \"fr\": null, \"it\": null}",
       "type": "form",
       "is_required": "false",
       "is_hidden": "false",
@@ -2343,7 +2345,7 @@
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Durchgeführte Voranfragen\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Durchgeführte Vorbesprechungen\", \"fr\": null, \"it\": null}",
       "type": "table",
       "is_required": "true",
       "is_hidden": "!(\"wurden-voranfragen-durchgefuehrt\"|answer == \"wurden-voranfragen-durchgefuehrt-ja\")",
@@ -2358,7 +2360,8 @@
           "amts-fachstelle",
           "kontaktperson",
           "telefon-optional",
-          "datum"
+          "datum",
+          "bemerkungen-durchgefuehrte-voranfragen"
         ]
       },
       "data_source": null,
@@ -2381,7 +2384,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Durchgeführte Voranfragen Titel\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Durchgeführte Vorbesprechungen Titel\", \"fr\": null, \"it\": null}",
       "type": "static",
       "is_required": "false",
       "is_hidden": "false",
@@ -2389,7 +2392,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"### Durchgeführte Voranfragen\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"### Durchgeführte Vorbesprechungen\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -3282,6 +3285,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "name-der-stelle",
+    "fields": {
+      "created_at": "2026-04-07T10:15:11.387Z",
+      "modified_at": "2026-04-07T10:15:11.387Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Name der Stelle\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "ort",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -3647,40 +3684,6 @@
       },
       "data_source": null,
       "row_form": "personalien-tabelle",
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "referenz",
-    "fields": {
-      "created_at": "2026-03-17T12:37:56.971Z",
-      "modified_at": "2026-03-17T12:37:56.971Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Referenz\", \"fr\": null, \"it\": null}",
-      "type": "text",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"Haben Sie von der Amts- / Fachstelle eine Referenz zu dieser Voranfrage erhalten?\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
@@ -4061,7 +4064,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Wurden Voranfragen durchgeführt?\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Wurden Vorbesprechungen durchgeführt?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "false",
@@ -4148,6 +4151,51 @@
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "amts-fachstelle.amts-fachstelle-andere",
+    "fields": {
+      "created_at": "2026-04-07T10:18:33.418Z",
+      "modified_at": "2026-04-07T10:18:33.418Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "amts-fachstelle",
+      "option": "amts-fachstelle-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "amts-fachstelle.amts-fachstelle-gemeinde-kommunale-fachstelle",
+    "fields": {
+      "created_at": "2026-04-07T10:18:33.425Z",
+      "modified_at": "2026-04-07T10:18:33.425Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "amts-fachstelle",
+      "option": "amts-fachstelle-gemeinde-kommunale-fachstelle",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "amts-fachstelle.amts-fachstelle-kanton-kantonale-fachstelle",
+    "fields": {
+      "created_at": "2026-04-07T10:18:33.422Z",
+      "modified_at": "2026-04-07T10:18:33.422Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "amts-fachstelle",
+      "option": "amts-fachstelle-kanton-kantonale-fachstelle",
+      "sort": 2
     }
   },
   {
