@@ -656,7 +656,7 @@ class KeycloakApplySerializer(RestSerializer):
             question=question,
             document=document,
             user=self.context["request"].caluma_info.context.user,
-            value=int(value) if question.type == Question.TYPE_INTEGER else value,
+            value=int(value) if question.type == Question.TYPE_INTEGER else str(value),
         )
 
         return True

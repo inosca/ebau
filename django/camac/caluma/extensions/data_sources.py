@@ -10,6 +10,7 @@ from django.conf import settings
 from django.core.cache import cache
 from django.utils.translation import gettext as _, gettext_noop, override
 
+from camac.applicants.models import Applicant
 from camac.caluma.models import Inquiry
 from camac.caluma.utils import find_answer
 from camac.core.models import Authority
@@ -508,3 +509,28 @@ class Sanctions(BaseDataSource):
             return [generic_sanction]
 
         return sanctions
+
+
+class Applicants(BaseDataSource):
+    info = "All involved applicants"
+
+    @data_source_cache(timeout=5)
+    def get_data(self, user, question, context: dict) -> list[list[str, str]]:
+        if not context or "instanceId" not in context:
+            return []
+
+        applicants = (
+            Applicant.objects.filter(instance_id=context["instanceId"])
+            .select_related("invitee")
+            .order_by("invitee__name", "invitee__surname", "email")
+        )
+
+        return [
+            [
+                str(applicant.pk),
+                applicant.invitee.get_full_name()
+                if applicant.invitee
+                else applicant.email,
+            ]
+            for applicant in applicants
+        ]
