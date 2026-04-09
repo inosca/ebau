@@ -12,10 +12,8 @@ defmodule Ebau.Instances.GisLink do
     end
 
     policy action_type(:destroy) do
-      authorize_if expr(
-                     relates_to_actor_via(:service, field: :service) and
-                       actor_attribute_equals(:role, "municipality-admin")
-                   )
+      forbid_unless actor_attribute_equals(:role, "municipality-admin")
+      authorize_if relates_to_actor_via(:service, field: :service)
     end
 
     policy action_type(:create) do
@@ -46,6 +44,10 @@ defmodule Ebau.Instances.GisLink do
 
   actions do
     defaults [:read]
+
+    read :read_gis_links do
+      pagination offset?: true, countable: true, required?: true
+    end
 
     read :list_gis_links_for_instance do
       argument :instance_id, :integer, allow_nil?: false

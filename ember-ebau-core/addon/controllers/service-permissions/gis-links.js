@@ -16,6 +16,7 @@ export default class ServicePermissionsStaticKeywordsController extends Controll
 
   @tracked page = 1;
   @tracked gisLinkName;
+  @tracked gisLinkPlaceholder;
   @tracked search = "";
 
   @action
@@ -28,8 +29,9 @@ export default class ServicePermissionsStaticKeywordsController extends Controll
   gisLinks = paginatedQuery(this, "gis-link", () => ({
     ...(this.search ? {"filter[name]": this.search} : {}),
     page: {
-      number: this.page,
-      size: 20,
+      offset: this.page,
+      limit: 2,
+      count: true
     },
   }));
 
@@ -46,7 +48,7 @@ export default class ServicePermissionsStaticKeywordsController extends Controll
 
     const gisLink = this.store.createRecord("gis-link", {
       name: this.gisLinkName,
-      placeholder: "test",
+      placeholder: this.gisLinkPlaceholder,
       service: this.session.service,
     });
 
@@ -54,6 +56,7 @@ export default class ServicePermissionsStaticKeywordsController extends Controll
       await gisLink.save();
       this.page = 1;
       this.gisLinkName = "";
+      this.gisLinkPlaceholder = "";
       this.search = "";
 
       this.notification.success(

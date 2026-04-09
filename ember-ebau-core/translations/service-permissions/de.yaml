@@ -66,6 +66,9 @@ service-permissions:
   static-keywords-all: "Alle"
 
   gis-link: "GIS Link"
+  gis-link-name: "Beschreibung"
+  gis-link-placeholder: "Link"
+
   gis-links: "GIS Links"
   gis-links-save-success: "Der GIS Link wurde gespeichert."
   gis-links-save-error: "Der GIS Link  konnte nicht gespeichert werden."

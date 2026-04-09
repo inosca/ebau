@@ -1,16 +1,31 @@
 <form class="uk-form-stacked" {{on "submit" (perform this.save)}}>
   <div class="uk-margin">
-    <label class="uk-form-label uk-text-bold" for="gis-link">
-      {{t "service-permissions.gis-link"}}
+    <label class="uk-form-label uk-text-bold" for="placeholder">
+      {{t "service-permissions.gis-link-name"}}
       <span class="mandatory-asterisk">*</span>
     </label>
     <div class="uk-form-controls">
       <Input
-        id="gis-link"
+        id="name"
         class="uk-input"
         required
         @type="text"
         @value={{this.gisLinkName}}
+      />
+    </div>
+  </div>
+  <div class="uk-margin">
+    <label class="uk-form-label uk-text-bold" for="name">
+      {{t "service-permissions.gis-link-placeholder"}}
+      <span class="mandatory-asterisk">*</span>
+    </label>
+    <div class="uk-form-controls">
+      <Input
+        id="placeholder"
+        class="uk-input"
+        required
+        @type="text"
+        @value={{this.gisLinkPlaceholder}}
       />
     </div>
   </div>
@@ -41,14 +56,23 @@
 <table class="uk-table uk-table-striped uk-table-middle">
   <thead>
     <tr>
-      <th>{{t "service-permissions.gis-link"}}</th>
+      <th>{{t "service-permissions.gis-link-name"}}</th>
+      <th>{{t "service-permissions.gis-link-placeholder"}}</th>
     </tr>
   </thead>
   <tbody>
     {{#each this.gisLinks.records as |row|}}
       <tr>
         <td>{{row.name}}</td>
+        <td>{{row.placeholder}}</td>
         <td class="uk-text-right">
+          <button
+            type="button"
+            class="uk-button uk-button-link"
+            {{on "click" (perform this.edit row)}}
+          >
+            <UkIcon @icon="pencil" />
+          </button>
           <button
             type="button"
             class="uk-button uk-button-link"

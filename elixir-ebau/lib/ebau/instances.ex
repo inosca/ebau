@@ -9,15 +9,14 @@ defmodule Ebau.Instances do
     resource Ebau.Instances.GisLink do
       define :list_gis_links_for_instance, args: [:instance_id]
       define :create_gis_link
-      define :read_gis_links, action: :read
+      define :read_gis_links
     end
   end
 
   json_api do
     routes do
       base_route "/gis-links", Ebau.Instances.GisLink do
-        get :read
-        index :read
+        index :read_gis_links
         delete :destroy_gis_link
         post :create_gis_link, relationship_arguments: [:service]
       end
