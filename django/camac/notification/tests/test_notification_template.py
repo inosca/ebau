@@ -696,6 +696,26 @@ def test_recipient_geometer_uri(
     ]
 
 
+def test_recipient_amtsblatt_uri(
+    db, ur_instance, service_factory, notification_template
+):
+    serializer = serializers.PermissionlessNotificationTemplateSendmailSerializer(
+        data={
+            "instance": {"type": "instances", "id": ur_instance.pk},
+            "notification_template": {
+                "type": "notification-templates",
+                "id": notification_template.pk,
+            },
+            "recipient_types": ["amtsblatt_uri"],
+            "subject": "test",
+        }
+    )
+    serializer.is_valid()
+    assert serializer._get_recipients_amtsblatt_uri(ur_instance) == [
+        {"to": "amtsblatt@ur.ch"}
+    ]
+
+
 @pytest.mark.parametrize(
     "user__email,service__email",
     [("user@example.com", "service@example.com, service2@example.com")],

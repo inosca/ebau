@@ -62,7 +62,7 @@ export default class ApplicationRoute extends Route {
       componentClass: CalculatedPublicationDateComponent,
     });
     this.calumaOptions.registerComponentOverride({
-      label: "Publikationsbeginn Kanton (jeweils Donnerstag)",
+      label: "Publikationsbeginn Kanton",
       component: "publication-date-kantonsamtsblatt",
       componentClass: PublicationDateKantonsamtsblattComponent,
     });

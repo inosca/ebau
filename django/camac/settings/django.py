@@ -1390,6 +1390,7 @@ APPLICATIONS = {
             "invited_to_schlussabnahme_projekt",
             "fgs_uri",
             "liegenschaftsschaetzung_uri",
+            "amtsblatt_uri",
         ],
         "DOCUMENTS_SKIP_CONTEXT_VALIDATION": True,
         "CALUMA": {
@@ -1750,6 +1751,15 @@ APPLICATIONS = {
                             "recipient_types": [
                                 "koor_np_users",
                             ],
+                        },
+                    },
+                ],
+                "fill-publication": [
+                    {
+                        "event": "completed",
+                        "notification": {
+                            "template_slug": "9-nachricht-an-amtsblatt",
+                            "recipient_types": ["amtsblatt_uri"],
                         },
                     },
                 ],

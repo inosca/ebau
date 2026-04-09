@@ -6,6 +6,7 @@ export default {
     endDate: true,
     related: false,
     disableAuthentication: true,
+    showPrintButton: true,
   },
   rejection: {
     revert: true,

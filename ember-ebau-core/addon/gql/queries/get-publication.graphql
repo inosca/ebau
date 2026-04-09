@@ -8,6 +8,33 @@ query GetPublication($id: ID!) {
       document {
         id
       }
+      case {
+        id
+        meta
+        family {
+          id
+          meta
+          document {
+            id
+            form {
+              name
+            }
+            answers {
+              edges {
+                node {
+                  ... on StringAnswer {
+                    value
+                  }
+                  question {
+                    id
+                    slug
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

@@ -1659,6 +1659,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "publikation",
+    "fields": {
+      "created_at": "2026-04-10T08:54:43.330Z",
+      "modified_at": "2026-04-10T08:54:43.330Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Publikation\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "realisierung-baukontrolle",
     "fields": {
       "created_at": "2021-11-26T12:28:53.505Z",
@@ -13479,6 +13497,81 @@
       "form": "proposal-declaration",
       "question": "vorhaben",
       "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "publikation.publikation-bemerkungen",
+    "fields": {
+      "created_at": "2026-04-10T09:01:35.771Z",
+      "modified_at": "2026-04-10T09:01:35.771Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "publikation",
+      "question": "publikation-bemerkungen",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "publikation.publikation-bemerkungen-ans-amtsblatt",
+    "fields": {
+      "created_at": "2026-04-10T09:03:40.787Z",
+      "modified_at": "2026-04-10T09:03:40.787Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "publikation",
+      "question": "publikation-bemerkungen-ans-amtsblatt",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "publikation.publikation-mailvorschau",
+    "fields": {
+      "created_at": "2026-04-10T09:05:49.924Z",
+      "modified_at": "2026-04-10T09:05:49.924Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "publikation",
+      "question": "publikation-mailvorschau",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "publikation.publikation-publikationsbeginn",
+    "fields": {
+      "created_at": "2026-04-10T09:02:22.433Z",
+      "modified_at": "2026-04-10T09:02:22.433Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "publikation",
+      "question": "publikation-publikationsbeginn",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "publikation.publikation-publikationsende",
+    "fields": {
+      "created_at": "2026-04-10T09:03:14.260Z",
+      "modified_at": "2026-04-10T09:03:14.260Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "publikation",
+      "question": "publikation-publikationsende",
+      "sort": 3
     }
   },
   {
@@ -30957,6 +31050,74 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Umbau\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "publikation-bemerkungen-keine-profilierung",
+    "fields": {
+      "created_at": "2026-04-10T09:01:35.675Z",
+      "modified_at": "2026-04-10T09:01:35.675Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Keine Profilierung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "publikation-bemerkungen-profiliert",
+    "fields": {
+      "created_at": "2026-04-10T09:01:35.684Z",
+      "modified_at": "2026-04-10T09:01:35.684Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Profiliert\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "publikation-bemerkungen-profilierung-auf-verlangen",
+    "fields": {
+      "created_at": "2026-04-10T09:01:35.672Z",
+      "modified_at": "2026-04-10T09:01:35.672Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Profilierung auf Verlangen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "publikation-bemerkungen-verpflockt",
+    "fields": {
+      "created_at": "2026-04-10T09:01:35.666Z",
+      "modified_at": "2026-04-10T09:01:35.666Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verpflockt\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -63029,6 +63190,171 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "publikation-bemerkungen",
+    "fields": {
+      "created_at": "2026-04-10T09:01:35.721Z",
+      "modified_at": "2026-04-10T09:01:35.721Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "publikation-bemerkungen-ans-amtsblatt",
+    "fields": {
+      "created_at": "2026-04-10T09:03:40.749Z",
+      "modified_at": "2026-04-10T09:03:40.749Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen ans Amtsblatt\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "publikation-mailvorschau",
+    "fields": {
+      "created_at": "2026-04-10T09:05:49.885Z",
+      "modified_at": "2026-04-15T15:25:24.792Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Mailvorschau\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {
+        "widgetOverride": "publication-preview"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "publikation-publikationsbeginn",
+    "fields": {
+      "created_at": "2026-04-10T09:02:22.393Z",
+      "modified_at": "2026-05-01T09:38:55.687Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Publikationsbeginn (Freitag)\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Der Eingabeschluss für Publikationen ist am Mittwoch um 12.00 Uhr\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "publication-date-kantonsamtsblatt"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "publikation-publikationsende",
+    "fields": {
+      "created_at": "2026-04-10T09:03:14.220Z",
+      "modified_at": "2026-04-10T09:03:14.220Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Publikationsende\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "pulverbeschichten",
     "fields": {
       "created_at": "2020-10-26T10:37:03.747Z",
@@ -83201,6 +83527,66 @@
       "question": "proposal",
       "option": "proposal-umbau-erneuerung-sanierung",
       "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "publikation-bemerkungen.publikation-bemerkungen-keine-profilierung",
+    "fields": {
+      "created_at": "2026-04-10T09:01:35.727Z",
+      "modified_at": "2026-04-10T09:01:35.727Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "publikation-bemerkungen",
+      "option": "publikation-bemerkungen-keine-profilierung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "publikation-bemerkungen.publikation-bemerkungen-profiliert",
+    "fields": {
+      "created_at": "2026-04-10T09:01:35.730Z",
+      "modified_at": "2026-04-10T09:01:35.730Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "publikation-bemerkungen",
+      "option": "publikation-bemerkungen-profiliert",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "publikation-bemerkungen.publikation-bemerkungen-profilierung-auf-verlangen",
+    "fields": {
+      "created_at": "2026-04-10T09:01:35.731Z",
+      "modified_at": "2026-04-10T09:01:35.731Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "publikation-bemerkungen",
+      "option": "publikation-bemerkungen-profilierung-auf-verlangen",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "publikation-bemerkungen.publikation-bemerkungen-verpflockt",
+    "fields": {
+      "created_at": "2026-04-10T09:01:35.729Z",
+      "modified_at": "2026-04-10T09:01:35.729Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "publikation-bemerkungen",
+      "option": "publikation-bemerkungen-verpflockt",
+      "sort": 2
     }
   },
   {

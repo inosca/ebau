@@ -96,6 +96,15 @@ export default {
       ],
     },
   },
+  publication: {
+    public: {
+      task: "fill-publication",
+      createTask: "create-publication",
+      dateRanges: [
+        ["publikation-publikationsbeginn", "publikation-publikationsende"],
+      ],
+    },
+  },
   instanceResourceRedirects: {
     journal: 14000014,
     form: 14000012,
@@ -135,5 +144,37 @@ export default {
     requiredPermissions: {
       submit: ["instance-submit"],
     },
+  },
+  oerebPublicationMapping: {
+    "oereb-thema-bausperre": "bausperre",
+    "oereb-thema-schutzmassnahmen": "schutzmassnahmen",
+    "oereb-thema-grundwasserschutz": "planerischerGewaesserschutz",
+    "oereb-thema-kpz": "kantonalePlanungszone",
+    "oereb-thema-knp": "kantonaleNutzungsplanung",
+    "oereb-thema-kantonale-baulinien": "kantonaleBaulinie",
+    "oereb-thema-gpz": "gemeindlichePlanungszone",
+    "oereb-thema-snp-bl-gemeinde": "gemeindlicheBaulinie",
+    "oereb-thema-snp-qgp-qp": "sondernutzungsplanung",
+    "oereb-thema-war": "schutzmassnahmen",
+    "oereb-thema-gnp": "gemeindlicheNutzungsplanung",
+  },
+  publicationTemplateMapping: {
+    baubewilligung: "publish-print-bg",
+    bausperre: "publish-print-bausperre",
+    schutzmassnahmen: "publish-print-sm",
+    gewaesserschutzbereich: "publish-print-pg",
+    kantonalePlanungszone: "publish-print-kpz",
+    kantonaleNutzungsplanung: "publish-print-knp",
+    kantonaleBaulinie: "publish-print-kbl",
+    gemeindlichePlanungszone: "publish-print-gnp",
+    gemeindlicheBaulinie: "publish-print-gbl",
+    sondernutzungsplanung: "publish-print-snp",
+  },
+  remarkMapping: {
+    "publikation-bemerkungen-profilierung-auf-verlangen":
+      "Profilierung auf Verlangen",
+    "publikation-bemerkungen-profiliert": "Profiliert",
+    "publikation-bemerkungen-verpflockt": "Verpflockt",
+    "publikation-bemerkungen-keine-profilierung": "Keine Profilierung",
   },
 };

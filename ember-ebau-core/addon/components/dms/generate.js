@@ -3,14 +3,9 @@ import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { dropTask } from "ember-concurrency";
 import { findAll } from "ember-data-resources";
-import { saveAs } from "file-saver";
 import { trackedFunction } from "reactiveweb/function";
 
-import mainConfig from "ember-ebau-core/config/main";
-import {
-  MIME_TYPE_TO_EXTENSION,
-  sortByDescription,
-} from "ember-ebau-core/utils/dms";
+import { sortByDescription } from "ember-ebau-core/utils/dms";
 
 function extractCategories(templates) {
   return [...new Set(templates.map((t) => t.meta.category?.trim()))]
@@ -132,77 +127,13 @@ export default class DmsGenerateComponent extends Component {
   *merge(saveToDocuments, event) {
     event.preventDefault();
 
-    const body = new FormData();
-
-    // Make a deep copy of the placeholders in order to make it mutable
-    const data = JSON.parse(JSON.stringify(this.placeholders.value));
-
-    yield Promise.all(
-      Object.entries(data)
-        .filter((entry) => String(entry[1]).startsWith("data:"))
-        .map(async ([key, value]) => {
-          const res = await fetch(value);
-          const blob = await res.blob();
-
-          body.append("files", blob, key);
-
-          // Remove base64 string from JSON data to reduce payload size
-          delete data[key];
-        }),
-    );
-
-    body.append("data", JSON.stringify(data));
-
-    try {
-      const response = yield this.fetch.fetch(
-        `/document-merge-service/api/v1/template/${this.template.slug}/merge/`,
-        {
-          method: "POST",
-          headers: { "content-type": undefined, accept: "*/*" },
-          body,
-        },
-      );
-
-      const blob = yield response.blob();
-
-      const extension = MIME_TYPE_TO_EXTENSION[blob.type];
-      const filename = `${this.template.description}${extension}`;
-
-      if (saveToDocuments) {
-        if (mainConfig.documentBackend === "camac") {
-          yield this.saveToDocumentsCamac(blob, filename);
-        } else {
-          yield this.saveToDocumentsAlexandria(blob, filename);
-        }
-
-        this.notification.success(this.intl.t("dms.merge-and-save-success"));
-      } else {
-        saveAs(blob, `${this.args.instanceId} - ${filename}`);
-      }
-    } catch {
-      this.notification.danger(this.intl.t("dms.merge-error"));
-    }
-  }
-
-  async saveToDocumentsCamac(blob, filename) {
-    const attachmentBody = new FormData();
-
-    const attachmentSection = mainConfig.attachmentSections.internal;
-
-    attachmentBody.append("attachment_sections", attachmentSection);
-    attachmentBody.append("instance", this.args.instanceId);
-    attachmentBody.append("path", blob, filename);
-
-    await this.fetch.fetch(`/api/v1/attachments`, {
-      method: "POST",
-      headers: { "content-type": undefined },
-      body: attachmentBody,
+    yield this.dms.processMerge({
+      placeholders: this.placeholders.value,
+      templateSlug: this.template.slug,
+      filenameBase: this.template.description,
+      instanceId: this.args.instanceId,
+      saveToDocuments,
+      downloadPrefix: `${this.args.instanceId} - `,
     });
-  }
-
-  async saveToDocumentsAlexandria(blob, filename) {
-    const file = new File([blob], filename, { type: blob.type });
-
-    await this.alexandriaDocuments.upload("intern", [file]);
   }
 }

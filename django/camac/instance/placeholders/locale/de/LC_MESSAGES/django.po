@@ -2952,6 +2952,22 @@ msgid "Review building commission"
 msgstr "Datum der Prüfung durch die Gemeinde"
 
 #: camac/instance/placeholders/serializers.py
+msgid "PUBLICATION_DOCUMENTS_WITH_OBLIGATION"
+msgstr "VERBINDLICHE_PUBLIKATIONSDOKUMENTE"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Publication documents with obligation"
+msgstr "Verbindliche Publikationsdokumente"
+
+#: camac/instance/placeholders/serializers.py
+msgid "PUBLICATION_DOCUMENTS_WITHOUT_OBLIGATION"
+msgstr "UNVERBINDLICHE_PUBLIKATIONSDOKUMENTE"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Publication documents without obligation"
+msgstr "Unverbindliche Publikationsdokumente"
+
+#: camac/instance/placeholders/serializers.py
 msgid "Feedback of the invited services"
 msgstr "Rückmeldungen der eingeladenen Fachstellen"
 

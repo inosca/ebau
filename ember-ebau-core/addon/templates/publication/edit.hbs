@@ -81,6 +81,19 @@
             @label={{t (concat "publication.delete." @model.type)}}
           />
         {{/if}}
+        {{#if (has-feature "publication.showPrintButton")}}
+          <UkButton
+            class="uk-margin-left"
+            disabled={{this.placeholders.isRunning}}
+            @loading={{and
+              this.merge.isRunning
+              (eq (get this.merge.lastRunning.args 0) true)
+            }}
+            @onClick={{perform this.merge true}}
+          >
+            {{t "dms.merge-and-save"}}
+          </UkButton>
+        {{/if}}
       </div>
     {{/if}}
   </DocumentValidity>

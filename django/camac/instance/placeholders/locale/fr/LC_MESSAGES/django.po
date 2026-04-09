@@ -2948,6 +2948,22 @@ msgid "Review building commission"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
+msgid "PUBLICATION_DOCUMENTS_WITH_OBLIGATION"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Publication documents with obligation"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "PUBLICATION_DOCUMENTS_WITHOUT_OBLIGATION"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Publication documents without obligation"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
 msgid "Feedback of the invited services"
 msgstr ""
 

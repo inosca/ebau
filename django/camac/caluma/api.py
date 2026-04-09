@@ -11,6 +11,7 @@ from django.conf import settings
 from django.db.models import Q, QuerySet
 
 from camac.caluma.models import Inquiry
+from camac.instance.master_data import MasterData
 from camac.instance.models import Instance
 from camac.user.models import Service
 from camac.utils import get_unversioned_slug
@@ -64,6 +65,9 @@ class CalumaApi:
         return instance.case.meta.get("dossier-number", "-")
 
     def get_municipality(self, instance):
+        if settings.APPLICATION_NAME == "kt_uri":  # pragma: no cover
+            master_data = MasterData(instance.case)
+            return master_data.municipality_name
         return self.get_answer_value("gemeinde", instance)
 
     def get_answer_value(self, question_slug, instance):

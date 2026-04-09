@@ -570,7 +570,31 @@
       "slug": "8-1-neue-aufgabe-rpg",
       "purpose": "8.1 Neue Aufgabe für KOOR NP (RPG)",
       "subject": "URec Dossier ID {{INSTANCE_ID}} - Sie haben eine neue Aufgabe erhalten",
-      "body": " URec System Info 8.1 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nNACHFÜHRUNG STABILISIERUNGSZIEL RPG\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nIm URec wurde Ihnen eine neue Aufgabe zugewiesen. Bitte prüfen Sie das Dossier mit Blick auf eine allenfalls notwendige Datenerfassung betreffend Stabilisierungsziel RPG.\r\n\r\nFreundliche Grüsse",
+      "body": "URec System Info 8.1 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nNACHFÜHRUNG STABILISIERUNGSZIEL RPG\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nIm URec wurde Ihnen eine neue Aufgabe zugewiesen. Bitte prüfen Sie das Dossier mit Blick auf eine allenfalls notwendige Datenerfassung betreffend Stabilisierungsziel RPG.\r\n\r\nFreundliche Grüsse",
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 1506,
+    "fields": {
+      "slug": "9-nachricht-an-amtsblatt",
+      "purpose": "9 Nachricht an das Amtsblatt",
+      "subject": "Meldung einer Bauplanauflage zur Publikation im Amtsblatt unter der Rubrik \"Bau und Planungsrecht\"",
+      "body": "{{EMAIL_TO_OFFICIAL_GAZETTE}}",
+      "service": null,
+      "type": "email"
+    }
+  },
+  {
+    "model": "notification.notificationtemplate",
+    "pk": 1507,
+    "fields": {
+      "slug": "9-1-stopp-publikation-an-amtsblatt",
+      "purpose": "9.1 Stopp Publikation an das Amtsblatt",
+      "subject": "Stopp einer Bauplanauflage",
+      "body": "URec System Info 9.1 (dies ist eine automatisch generierte Nachricht von URec, bitte antworten Sie nicht darauf. Bei Fragen wenden Sie sich bitte an urec@ur.ch)\r\n\r\nSTOPP - PUBLIKATION\r\n\r\nSehr geehrte Damen und Herren\r\n\r\nWir bitten Sie die folgende Publikation zu stoppen:\r\n\r\n{{MUNICIPALITY_DE}}\r\n\r\nBauherrschaft: {{GESUCHSTELLER}}\r\nBauvorhaben: {{VORHABEN}}\r\nBauplatz: {{STREET}} {{STREET_NUMBER}}, {{LOCATION}}\r\nParzelle(n): {{PARZELLE}}\r\n\r\nPublikationsdatum: {{PUBLICATION_DATE}}\r\n\r\nWir bitten Sie, die Bauplanauflage zu STOPPEN. Sofern das Vorhaben weiterverfolgt wird, erhalten Sie zu gegebener Zeit eine neue Publikationsmeldung.\r\n\r\nWir danken Ihnen für Ihre Bemühungen und stehen bei Fragen gerne zur Verfügung\r\n\r\nFreundliche Grüsse",
       "service": null,
       "type": "email"
     }
