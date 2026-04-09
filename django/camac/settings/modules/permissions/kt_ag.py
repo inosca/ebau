@@ -110,8 +110,10 @@ MODULE_FORMAL_EXAM = (
     & ROLES_MUNICIPALITY
 )
 MODULE_HISTORY = STATES_ALL & ~IsServiceGroup(["municipality-light"])
-MODULE_INFORMATION_OF_NEIGHBORS = NO_CORRECTION & RequireWorkItem(
-    "fill-information-of-neighbors"
+MODULE_INFORMATION_OF_NEIGHBORS = (
+    NO_CORRECTION
+    & RequireWorkItem("create-information-of-neighbors")
+    & ~IsServiceGroup(["municipality-light"])
 )
 MODULE_JOURNAL_READ = STATES_ALL & ~IsServiceGroup(["municipality-light"])
 MODULE_JOURNAL_WRITE = MODULE_JOURNAL_READ & ROLES_NO_READONLY
@@ -122,7 +124,11 @@ MODULE_PERMISSIONS = (
     & HasRole(["municipality-lead"])
     & ~IsServiceGroup(["municipality-light"])
 )
-MODULE_PUBLICATION = NO_CORRECTION & RequireWorkItem("fill-publication")
+MODULE_PUBLICATION = (
+    NO_CORRECTION
+    & RequireWorkItem("create-publication")
+    & ~IsServiceGroup(["municipality-light"])
+)
 MODULE_REJECTION = RequireInstanceState(["subm", "rejected"]) & ~IsServiceGroup(
     ["municipality-light"]
 )

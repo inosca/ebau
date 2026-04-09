@@ -1475,16 +1475,28 @@ def test_after_check_gwr_relevancy(
 @pytest.mark.parametrize(
     "publication_required,information_of_neighbors_required,expected_tasks",
     [
-        (False, False, []),
-        (True, False, ["publication", "create-publication"]),
-        (False, True, ["information-of-neighbors", "create-information-of-neighbors"]),
+        (False, False, ["create-publication", "create-information-of-neighbors"]),
+        (
+            True,
+            False,
+            ["create-publication", "publication", "create-information-of-neighbors"],
+        ),
+        (
+            False,
+            True,
+            [
+                "create-information-of-neighbors",
+                "information-of-neighbors",
+                "create-publication",
+            ],
+        ),
         (
             True,
             True,
             [
                 "publication",
-                "create-publication",
                 "information-of-neighbors",
+                "create-publication",
                 "create-information-of-neighbors",
             ],
         ),
