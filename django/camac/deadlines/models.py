@@ -616,7 +616,7 @@ class InstanceDeadline(models.Model):
             total_days += 1
             tmp_date += timedelta(days=1)
 
-        return total_days
+        return total_days + 1
 
     def _get_enddate_responsible(self) -> Optional[datetime]:
         if self.instance.instance_state.name == settings.REJECTION["INSTANCE_STATE"]:
