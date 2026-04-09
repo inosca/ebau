@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-31 09:30+0200\n"
+"POT-Creation-Date: 2026-04-07 11:45+0200\n"
 "PO-Revision-Date: 2025-08-28 10:03+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -689,6 +689,14 @@ msgid "Inquiry claim suspension"
 msgstr ""
 
 #: camac/deadlines/models.py
+msgid "Incomplete suspension"
+msgstr ""
+
+#: camac/deadlines/models.py
+msgid "Request project change suspension"
+msgstr ""
+
+#: camac/deadlines/models.py
 msgid "Manual suspension"
 msgstr ""
 
@@ -719,6 +727,11 @@ msgstr ""
 #: camac/deadlines/serializers.py
 #: camac/deadlines/tests/test_model_suspensions.py
 msgid "End date can not be before start date."
+msgstr ""
+
+#: camac/deadlines/serializers.py
+#: camac/deadlines/tests/test_model_suspensions.py
+msgid "Suspension reason is not valid."
 msgstr ""
 
 #: camac/document/filters.py
@@ -1253,7 +1266,7 @@ msgstr ""
 msgid "Draft"
 msgstr "Brouillon"
 
-#: camac/instance/document_merge_service.py
+#: camac/instance/document_merge_service.py camac/settings/modules/deadlines.py
 msgid "Additional demand"
 msgstr ""
 
@@ -1846,6 +1859,14 @@ msgstr "Demande de complément incomplète"
 #: camac/settings/modules/correction.py
 msgid "Dossier corrected"
 msgstr "Dossier corrigé"
+
+#: camac/settings/modules/deadlines.py
+msgid "Negative inquiry claim suspension"
+msgstr ""
+
+#: camac/settings/modules/deadlines.py
+msgid "Other suspension"
+msgstr ""
 
 #: camac/settings/modules/distribution.py
 msgid "Circulation completed"

@@ -1,6 +1,7 @@
 from django.utils.translation import gettext as _
 from rest_framework_json_api import serializers
 
+from camac import settings
 from camac.deadlines import models
 from camac.permissions.api import PermissionManager
 from camac.user.relations import (
@@ -50,6 +51,12 @@ class SuspensionSerializer(serializers.ModelSerializer):
                 raise serializers.ValidationError(
                     _("End date can not be before start date.")
                 )
+
+        if (
+            data.get("reason")
+            and data.get("reason") not in settings.DEADLINES.allowed_suspension_reasons
+        ):
+            raise serializers.ValidationError(_("Suspension reason is not valid."))
 
         return data
 
