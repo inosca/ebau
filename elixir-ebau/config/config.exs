@@ -37,7 +37,6 @@ config :ebau,
   ash_domains: [
     Caluma.Workflow,
     Caluma.Form,
-    Ebau.Users,
     Ebau.Instances,
     Ebau.MasterData,
     Ebau.User

@@ -226,17 +226,20 @@ defmodule Ebau.MasterData.Extensions.MasterData.MappedDocumentAnswer do
     mapping = opts[:mapping]
 
     answer_expr =
-      expr(first(case.document.answers, field: :value, filter: expr(question_id in ^question_ids)))
+      expr(
+        first(case.document.answers, field: :value, filter: expr(question_id in ^question_ids))
+      )
 
     Enum.reduce(mapping, expr(nil), fn {answer_value, mapped_value}, acc ->
-      expr(if ^answer_expr == ^answer_value do
-        ^mapped_value
-      else
-        ^acc
-      end)
+      expr(
+        if ^answer_expr == ^answer_value do
+          ^mapped_value
+        else
+          ^acc
+        end
+      )
     end)
   end
-
 end
 
 defmodule Ebau.MasterData.Extensions.MasterData.MappedListDocumentAnswer do

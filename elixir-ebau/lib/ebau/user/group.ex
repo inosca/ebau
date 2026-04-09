@@ -14,12 +14,11 @@ defmodule Ebau.User.Group do
 
   policies do
     policy action(:read) do
-      # TODO
-      authorize_if never()
+      authorize_if relates_to_actor_via(:users, field: :user)
     end
 
     policy action(:get_group_for_actor) do
-      authorize_if relates_to_actor_via([:users])
+      authorize_if relates_to_actor_via(:users, field: :user)
     end
   end
 
@@ -43,10 +42,19 @@ defmodule Ebau.User.Group do
       allow_nil? true
       source :SERVICE_ID
     end
+
+    attribute :role_id, :integer do
+      allow_nil? true
+      source :ROLE_ID
+    end
   end
 
   relationships do
     belongs_to :service, Ebau.User.Service do
+      define_attribute? false
+    end
+
+    belongs_to :role, Ebau.User.Role do
       define_attribute? false
     end
 

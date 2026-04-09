@@ -61,7 +61,12 @@ service-permissions:
   static-keywords-unarchive-confirm: "Möchten Sie den Sachverhalt wirklich wiederherstellen?"
   static-keywords-unarchive: "Wiederherstellen"
   static-keywords-already-exists: "Der Sachverhalt existiert bereits. Wählen Sie eine neue Bezeichnung."
-
   static-keywords-active: "Aktiv"
   static-keywords-archived: "Archiviert"
   static-keywords-all: "Alle"
+
+  gis-link: "GIS Link"
+  gis-links: "GIS Links"
+  gis-links-save-success: "Der GIS Link wurde gespeichert."
+  gis-links-save-error: "Der GIS Link  konnte nicht gespeichert werden."
+  gis-links-delete-confirm: "Möchten Sie den GIS Link  wirklich löschen?"

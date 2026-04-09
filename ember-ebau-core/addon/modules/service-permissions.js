@@ -15,6 +15,10 @@ import ServicePermissionsPermissionsRoute from "ember-ebau-core/routes/service-p
 import ServicePermissionsPermissionsAddRoute from "ember-ebau-core/routes/service-permissions/permissions/add";
 import ServicePermissionsPermissionsIndexRoute from "ember-ebau-core/routes/service-permissions/permissions/index";
 import ServicePermissionsStaticKeywordsRoute from "ember-ebau-core/routes/service-permissions/static-keywords";
+import ServicePermissionsStaticKeywordsTemplate from "ember-ebau-core/templates/service-permissions/static-keywords";
+import ServicePermissionsGISLinksRoute from "ember-ebau-core/routes/service-permissions/gis-links";
+import ServicePermissionsGISLinksController from "ember-ebau-core/controllers/service-permissions/gis-links";
+import ServicePermissionsGISLinksTemplate from "ember-ebau-core/templates/service-permissions/gis-links";
 import ServicePermissionsSubServicesRoute from "ember-ebau-core/routes/service-permissions/sub-services";
 import ServicePermissionsSubServicesAddRoute from "ember-ebau-core/routes/service-permissions/sub-services/add";
 import ServicePermissionsSubServicesEditRoute from "ember-ebau-core/routes/service-permissions/sub-services/edit";
@@ -25,7 +29,6 @@ import ServicePermissionsOrganisationTemplate from "ember-ebau-core/templates/se
 import ServicePermissionsPermissionsTemplate from "ember-ebau-core/templates/service-permissions/permissions";
 import ServicePermissionsPermissionsAddTemplate from "ember-ebau-core/templates/service-permissions/permissions/add";
 import ServicePermissionsPermissionsIndexTemplate from "ember-ebau-core/templates/service-permissions/permissions/index";
-import ServicePermissionsStaticKeywordsTemplate from "ember-ebau-core/templates/service-permissions/static-keywords";
 import ServicePermissionsSubServicesTemplate from "ember-ebau-core/templates/service-permissions/sub-services";
 import ServicePermissionsSubServicesAddTemplate from "ember-ebau-core/templates/service-permissions/sub-services/add";
 import ServicePermissionsSubServicesEditTemplate from "ember-ebau-core/templates/service-permissions/sub-services/edit";
@@ -39,6 +42,7 @@ export default function register(router, options = {}) {
     this.route("invitations");
     this.route("organisation");
     this.route("static-keywords");
+    this.route("gis-links");
     this.route("sub-services", function () {
       this.route("add");
       this.route("edit", { path: "/:id" });
@@ -65,6 +69,8 @@ export default function register(router, options = {}) {
         ServicePermissionsSubServicesIndexRoute,
       "service-permissions/static-keywords":
         ServicePermissionsStaticKeywordsRoute,
+      "service-permissions/gis-links":
+        ServicePermissionsGISLinksRoute,
     },
     controllers: {
       "service-permissions": ServicePermissionsController,
@@ -82,6 +88,8 @@ export default function register(router, options = {}) {
         ServicePermissionsSubServicesIndexController,
       "service-permissions/static-keywords":
         ServicePermissionsStaticKeywordsController,
+      "service-permissions/gis-links":
+        ServicePermissionsGISLinksController,
     },
     templates: {
       "service-permissions": ServicePermissionsTemplate,
@@ -102,6 +110,8 @@ export default function register(router, options = {}) {
         ServicePermissionsSubServicesIndexTemplate,
       "service-permissions/static-keywords":
         ServicePermissionsStaticKeywordsTemplate,
+      "service-permissions/gis-links":
+        ServicePermissionsGISLinksTemplate,
     },
   });
 }

@@ -1,5 +1,9 @@
 defmodule Ebau.User.Service do
-  use Ash.Resource, otp_app: :ebau, domain: Ebau.User, data_layer: AshPostgres.DataLayer
+  use Ash.Resource,
+    otp_app: :ebau,
+    domain: Ebau.User,
+    data_layer: AshPostgres.DataLayer,
+    extensions: [AshJsonApi.Resource]
 
   postgres do
     table "SERVICE"
@@ -35,7 +39,11 @@ defmodule Ebau.User.Service do
   end
 
   relationships do
-    has_many :gis_links, Ebau.Instances.GisLinks
+    has_many :gis_links, Ebau.Instances.GisLink
     has_many :groups, Ebau.User.Group
+  end
+
+  json_api do
+    type "services"
   end
 end

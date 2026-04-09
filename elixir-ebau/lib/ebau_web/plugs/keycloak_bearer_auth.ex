@@ -12,11 +12,16 @@ defmodule EbauWeb.Plugs.KeycloakBearerAuth do
   @impl true
   def call(conn, _opts) do
     with ["Bearer " <> token] <- Plug.Conn.get_req_header(conn, "authorization"),
-         {:ok, user} <- EbauWeb.OAuth2.fetch_user(token) do
-      # todo: properly
-      group = Ash.read!(Ebau.User.Group, authorize?: false) |> List.first()
-      actor = %{user: user, group: group}
-      Ash.PlugHelpers.set_actor(conn, actor)
+         [group_id | _] <- Plug.Conn.get_req_header(conn, "x-camac-group"),
+         {:ok, user} <- EbauWeb.OAuth2.fetch_user(token),
+         {:ok, group} <-
+           Ebau.User.get_group_for_actor(group_id, load: [:service, :role], actor: %{user: user}) do
+      Ash.PlugHelpers.set_actor(conn, %{
+        user: user,
+        group: group,
+        service: group.service,
+        role: group.role.slug
+      })
     else
       _ ->
         conn

@@ -1,14 +1,25 @@
-defmodule Ebau.Instances.GisLinks do
+defmodule Ebau.Instances.GisLink do
   use Ash.Resource,
     otp_app: :ebau,
     domain: Ebau.Instances,
     data_layer: AshPostgres.DataLayer,
-    authorizers: Ash.Policy.Authorizer
+    authorizers: Ash.Policy.Authorizer,
+    extensions: [AshJsonApi.Resource]
 
   policies do
     policy action_type(:read) do
-      authorize_if relates_to_actor_via([:service, :groups], field: :group)
-      # authorize_if expr(service_id == ^actor(:current_group_service_id))
+      authorize_if relates_to_actor_via(:service, field: :service)
+    end
+
+    policy action_type(:destroy) do
+      authorize_if expr(
+                     relates_to_actor_via(:service, field: :service) and
+                       actor_attribute_equals(:role, "municipality-admin")
+                   )
+    end
+
+    policy action_type(:create) do
+      authorize_if actor_attribute_equals(:role, "municipality-admin")
     end
   end
 
@@ -42,9 +53,13 @@ defmodule Ebau.Instances.GisLinks do
     end
 
     create :create_gis_link do
-      # todo remove service_id here and do proper handling
-      accept [:name, :placeholder, :service_id]
+      # Needed since ember always passes relationship
+      argument :service, :map
+      accept [:name, :placeholder]
+      change relate_actor(:service, field: :service)
     end
+
+    destroy :destroy_gis_link
   end
 
   postgres do
@@ -56,5 +71,9 @@ defmodule Ebau.Instances.GisLinks do
     calculate :gis_link_for_instance, :string, Ebau.Instances.Calculations.GisLinkForInstance do
       argument :instance_id, :integer, allow_nil?: false
     end
+  end
+
+  json_api do
+    type "gis-links"
   end
 end

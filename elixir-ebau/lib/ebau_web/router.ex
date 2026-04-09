@@ -17,10 +17,9 @@ defmodule EbauWeb.Router do
     plug :accepts, ["json"]
     plug :load_from_bearer
     plug EbauWeb.Plugs.KeycloakBearerAuth
-    plug EbauWeb.Plugs.LoadGroupFromHeader
   end
 
-  scope "/api/json" do
+  scope "/api/v2" do
     pipe_through [:api]
 
     forward "/swaggerui", OpenApiSpex.Plug.SwaggerUI,
