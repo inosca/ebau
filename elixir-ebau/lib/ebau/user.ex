@@ -9,9 +9,12 @@ defmodule Ebau.User do
     end
 
     resource Ebau.User.Token
+
     resource Ebau.User.Group do
       define :get_group_for_actor, get_by: [:id]
     end
+
+    resource Ebau.User.Service
   end
 
   json_api do

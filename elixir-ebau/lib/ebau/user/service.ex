@@ -1,5 +1,5 @@
-defmodule Ebau.Users.Service do
-  use Ash.Resource, otp_app: :ebau, domain: Ebau.Users, data_layer: AshPostgres.DataLayer
+defmodule Ebau.User.Service do
+  use Ash.Resource, otp_app: :ebau, domain: Ebau.User, data_layer: AshPostgres.DataLayer
 
   postgres do
     table "SERVICE"

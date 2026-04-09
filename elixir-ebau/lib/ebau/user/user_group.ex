@@ -16,8 +16,9 @@ defmodule Ebau.User.UserGroup do
     integer_primary_key :id do
       source :ID
     end
-    attribute :user_id, :integer, source: :USER_ID
-    attribute :group_id, :integer, source: :GROUP_ID
+
+    attribute :user_id, :integer, allow_nil?: false, source: :USER_ID
+    attribute :group_id, :integer, allow_nil?: false, source: :GROUP_ID
   end
 
   relationships do

@@ -34,21 +34,21 @@ defmodule Ebau.User.User do
 
     has_one :current_group, Ebau.User.Group do
       no_attributes? true
-      # filter expr(id == ^context(:current_group_id))
-      filter expr(id == 1)
+      filter expr(id == ^context(:group_id))
     end
   end
 
   calculations do
-    calculate :current_group_id, :integer, expr(
-      first(groups, field: :id, filter: expr(id == ^context(:current_group_id)))
-    )
+    calculate :current_group_id,
+              :integer,
+              expr(first(groups, field: :id, filter: expr(id == ^context(:current_group_id))))
 
-    calculate :current_group_service_id, :integer, expr(
-      first(groups, field: :service_id, filter: expr(id == ^context(:current_group_id)))
-    )
+    calculate :current_group_service_id,
+              :integer,
+              expr(
+                first(groups, field: :service_id, filter: expr(id == ^context(:current_group_id)))
+              )
   end
-
 
   postgres do
     table "USER"
@@ -97,12 +97,13 @@ defmodule Ebau.User.User do
     attribute :username, :string,
       public?: true,
       allow_nil?: false,
+      constraints: [max_length: 250],
       source: :USERNAME
 
-    attribute :email, :string, source: :EMAIL
-    attribute :name, :string, public?: true, source: :NAME
-    attribute :surname, :string, public?: true, source: :SURNAME
-    attribute :language, :string, public?: true, source: :LANGUAGE, allow_nil?: false
+    attribute :email, :string, constraints: [max_length: 100], source: :EMAIL
+    attribute :name, :string, public?: true, allow_nil?: false, constraints: [max_length: 100], source: :NAME
+    attribute :surname, :string, public?: true, allow_nil?: false, constraints: [max_length: 100], source: :SURNAME
+    attribute :language, :string, public?: true, allow_nil?: false, constraints: [max_length: 2], source: :LANGUAGE
   end
 
   json_api do

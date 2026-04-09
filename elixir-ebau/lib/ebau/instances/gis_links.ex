@@ -1,5 +1,9 @@
 defmodule Ebau.Instances.GisLinks do
-  use Ash.Resource, otp_app: :ebau, domain: Ebau.Instances, data_layer: AshPostgres.DataLayer, authorizers: Ash.Policy.Authorizer
+  use Ash.Resource,
+    otp_app: :ebau,
+    domain: Ebau.Instances,
+    data_layer: AshPostgres.DataLayer,
+    authorizers: Ash.Policy.Authorizer
 
   policies do
     policy action_type(:read) do
@@ -7,7 +11,6 @@ defmodule Ebau.Instances.GisLinks do
       # authorize_if expr(service_id == ^actor(:current_group_service_id))
     end
   end
-
 
   attributes do
     uuid_primary_key :id
@@ -24,7 +27,7 @@ defmodule Ebau.Instances.GisLinks do
   end
 
   relationships do
-    belongs_to :service, Ebau.Users.Service do
+    belongs_to :service, Ebau.User.Service do
       allow_nil? false
       attribute_type :integer
     end

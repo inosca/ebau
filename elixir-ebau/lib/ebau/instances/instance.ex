@@ -11,10 +11,58 @@ defmodule Ebau.Instances.Instance do
     migrate? false
   end
 
-  actions do
-    defaults [:read]
+  master_data do
+    # Tables
+    table :plot_data, Ebau.MasterData.PlotDataRow, question_ids: %{default: "parzellen"}
+    table :applicants, Ebau.MasterData.Applicant, question_ids: %{default: "bauherrin"}
+    table :landowners, Ebau.MasterData.Landowner, question_ids: %{default: "grundeigentuemerin"}
 
-    read :list_instances
+    table :project_authors, Ebau.MasterData.ProjectAuthor,
+      question_ids: %{default: "projektverfasserin"}
+
+    table :invoice_recipients, Ebau.MasterData.InvoiceRecipient,
+      question_ids: %{default: "rechnungsempfaengerin"}
+
+    table :type_of_construction, Ebau.MasterData.TypeOfConstruction,
+      question_ids: %{default: "gebaeude"}
+
+    table :dwellings, Ebau.MasterData.Dwelling,
+      question_ids: %{default: ["wohnungen", "wohnungen-v2"]}
+
+    table :energy_devices, Ebau.MasterData.EnergyDevice,
+      question_ids: %{default: "gebaeudetechnik"}
+
+    # Answers
+    mapped_answer :is_paper, :boolean,
+      question_ids: %{default: "is-paper"},
+      mapping: %{"is-paper-yes" => true, "is-paper-no" => false}
+
+    answer :proposal, :string, question_ids: %{default: "umschreibung-bauprojekt"}
+    answer :short_proposal, :string, question_ids: %{default: "kurzbeschreibung-bauprojekt"}
+    answer :street, :string, question_ids: %{default: "strasse-flurname"}
+    answer :street_number, :string, question_ids: %{default: "strasse-nummer"}
+    answer :city, :string, question_ids: %{default: "ort"}
+    answer :bfs_number, :string, question_ids: %{default: "gemeindenummer-bfs"}
+    answer :construction_costs, :string, question_ids: %{default: "gesamtkosten"}
+
+    answer :land_use_planning_land_use, :string,
+      question_ids: %{default: "nutzungsplanung-grundnutzung"}
+
+    answer :land_use_additional_determinations, :string,
+      question_ids: %{default: "nutzungsplanung-weitere-festlegungen"}
+
+    answer :land_use_planning_land_use_canton, :string,
+      question_ids: %{default: "nutzungsplanung-grundnutzung-kanton"}
+
+    answer :national_inventory, :string, question_ids: %{default: "bundesinventare"}
+
+    # Case meta
+    case_meta :dossier_number, :string, keys: %{default: "dossier-number"}
+    case_meta :submit_date, :string, keys: %{default: "submit-date"}
+
+    # TODO: Not yet supported by the DSL:
+    # - static values (joined_street_and_number)
+    # - document_from_work_item (decision_date)
   end
 
   attributes do
@@ -67,43 +115,9 @@ defmodule Ebau.Instances.Instance do
     belongs_to :case, Caluma.Workflow.Case
   end
 
-  # calculations do
-  #   calculate :gis_links, {:array, :struct}, Ebau.Instances.Calculations.GisLinkForInstance
-  # end
+  actions do
+    defaults [:read]
 
-
-  master_data do
-    # Tables
-    table :plot_data, Ebau.MasterData.PlotDataRow, question_ids: ["parzellen"]
-    table :applicants, Ebau.MasterData.Applicant, question_ids: ["bauherrin"]
-    table :landowners, Ebau.MasterData.Landowner, question_ids: ["grundeigentuemerin"]
-    table :project_authors, Ebau.MasterData.ProjectAuthor, question_ids: ["projektverfasserin"]
-    table :invoice_recipients, Ebau.MasterData.InvoiceRecipient, question_ids: ["rechnungsempfaengerin"]
-    table :type_of_construction, Ebau.MasterData.TypeOfConstruction, question_ids: ["gebaeude"]
-    table :dwellings, Ebau.MasterData.Dwelling, question_ids: ["wohnungen", "wohnungen-v2"]
-    table :energy_devices, Ebau.MasterData.EnergyDevice, question_ids: ["gebaeudetechnik"]
-
-    # Answers
-    mapped_answer :is_paper, :boolean, question_ids: %{default: "is-paper"}, mapping: %{"is-paper-yes" => true, "is-paper-no" => false}
-    answer :proposal, :string, question_ids: %{default: "umschreibung-bauprojekt"}
-    answer :short_proposal, :string, question_ids: %{default: "kurzbeschreibung-bauprojekt"}
-    answer :street, :string, question_ids: %{default: "strasse-flurname"}
-    answer :street_number, :string, question_ids: %{default: "strasse-nummer"}
-    answer :city, :string, question_ids: %{default: "ort"}
-    answer :bfs_number, :string, question_ids: %{default: "gemeindenummer-bfs"}
-    answer :construction_costs, :string, question_ids: %{default: "gesamtkosten"}
-    answer :land_use_planning_land_use, :string, question_ids: %{default: "nutzungsplanung-grundnutzung"}
-    answer :land_use_additional_determinations, :string, question_ids: %{default: "nutzungsplanung-weitere-festlegungen"}
-    answer :land_use_planning_land_use_canton, :string, question_ids: %{default: "nutzungsplanung-grundnutzung-kanton"}
-    answer :national_inventory, :string, question_ids: %{default: "bundesinventare"}
-
-    # Case meta
-    case_meta :dossier_number, :string, keys: %{default: "dossier-number"}
-    case_meta :submit_date, :string, keys: %{default: "submit-date"}
-
-    # TODO: Not yet supported by the DSL:
-    # - static values (joined_street_and_number)
-    # - value_parser/value_mapping (is_paper, category, municipality_name, municipality_slug)
-    # - document_from_work_item (decision_date)
+    read :list_instances
   end
 end

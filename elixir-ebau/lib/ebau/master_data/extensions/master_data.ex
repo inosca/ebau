@@ -9,7 +9,7 @@ defmodule Ebau.MasterData.Extensions.MasterData do
         extensions: [Ebau.MasterData.Extensions.MasterData]
 
       master_data do
-        table :plot_data, Ebau.MasterData.PlotDataRow, question_ids: ["parzellen"]
+        table :plot_data, Ebau.MasterData.PlotDataRow, question_ids: %{default: "parzellen"}
         answer :proposal, :string, question_ids: %{default: "umschreibung-bauprojekt"}
         mapped_answer :is_paper, :boolean, question_ids: %{default: "is-paper"}, mapping: %{"is-paper-yes" => true, "is-paper-no" => false}
         mapped_list_answer :tags, :string, question_ids: %{default: "tags"}, mapping: %{"tag-a" => "A", "tag-b" => "B"}
@@ -58,7 +58,7 @@ defmodule Ebau.MasterData.Extensions.MasterData do
         doc: "The target Ash resource module."
       ],
       question_ids: [
-        type: {:list, :string},
+        type: {:map, :atom, {:or, [:string, {:list, :string}]}},
         required: true,
         doc: "Caluma question IDs for this table (supports versioned questions)."
       ]
