@@ -216,7 +216,18 @@ class Suspension(models.Model):
             "inquiry_claim_suspension",
             _("Inquiry claim suspension"),
         )
-        SUSPENSION_TYPE_MANUAL = "manual_suspension", _("Manual suspension")
+        SUSPENSION_TYPE_INCOMPLETE = (
+            "incomplete_suspension",
+            _("Incomplete suspension"),
+        )
+        SUSPENSION_TYPE_REQUEST_PROJECT_CHANGE = (
+            "request_project_change_suspension",
+            _("Request project change suspension"),
+        )
+        SUSPENSION_TYPE_MANUAL = (
+            "manual_suspension",
+            _("Manual suspension"),
+        )
 
     id = models.UUIDField(
         primary_key=True, default=uuid_extensions.uuid7, editable=False
@@ -269,13 +280,22 @@ class Suspension(models.Model):
         if _fields_have_changed(old, self, ["start_date", "end_date"]):
             self.deadline.trigger_side_effect()
 
+    @staticmethod
+    def get_reason_label(reason: str) -> str:
+        """Get the translated label for a given suspension reason."""
+
+        return settings.DEADLINES.suspension_translation_overrides.get(
+            reason,
+            Suspension.SuspensionReasonChoices(reason).label,
+        )
+
     @property
     def reason_formatted(self) -> str:
         """Format the reason for the suspension.
 
         Return the translated label of the suspension reason choice.
         """
-        return Suspension.SuspensionReasonChoices(self.reason).label
+        return Suspension.get_reason_label(self.reason)
 
     @property
     def author_formatted(self) -> str:
