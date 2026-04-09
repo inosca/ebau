@@ -452,7 +452,7 @@ def _has_documents_write_permission(level_slug, manager, instance):
     if not instance:
         return False
 
-    return manager.has_all(instance, "documents-write")
+    return manager.has_all(instance, "documents-write", check_only_required=True)
 
 
 PERMISSIONS_BY_ACCESSLEVEL = {
