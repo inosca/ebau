@@ -4,6 +4,7 @@ from caluma.caluma_workflow.models import WorkItem
 
 from camac.caluma.extensions.dynamic_groups import CustomDynamicGroups
 from camac.constants import kt_uri as uri_constants
+from camac.tests.form_utils import FormUtils
 from camac.user.models import ServiceRelation
 
 
@@ -465,3 +466,91 @@ def test_dynamic_group_koor_np_ur(db, service_factory, instance):
     assert CustomDynamicGroups().resolve("koor-np")(
         None, instance.case, None, None, None
     ) == [str(service.pk)]
+
+
+@pytest.mark.parametrize(
+    ("prev_work_item_task", "test_scenario", "expected_service"),
+    [
+        ("create-manual-workitems", "default", "geometer"),
+        ("create-manual-workitems", "answer_geometer", "geometer"),
+        ("create-manual-workitems", "answer_gemeinde", "geometer"),
+        ("construction-step-plan-construction-stage", "default", "geometer"),
+        ("construction-step-plan-construction-stage", "answer_geometer", "geometer"),
+        # only for a construction monitoring work item, answered
+        # with gemeinde answer should resolve to the municipality.
+        (
+            "construction-step-plan-construction-stage",
+            "answer_gemeinde",
+            "municipality",
+        ),
+    ],
+)
+def test_dynamic_group_geometer_gr(
+    db,
+    gr_instance,
+    service_factory,
+    instance_service_factory,
+    caluma_work_item_factory,
+    caluma_case_factory,
+    use_instance_service,
+    application_settings,
+    prev_work_item_task,
+    test_scenario,
+    expected_service,
+    construction_monitoring_settings,
+    form_utils: FormUtils,
+    mocker,
+):
+    application_settings["ACTIVE_SERVICES"]["MUNICIPALITY"]["FILTERS"] = {
+        "service__service_group__name__in": [
+            "municipality",
+        ]
+    }
+
+    # construction monitoring config for testing geometer.
+    construction_monitoring_settings["ENABLED"] = True
+    construction_monitoring_settings["GEOMETER_MUNICIPALITY"] = {
+        "QUESTION": "choose-geometer",
+        "ANSWER": "gemeinde",
+    }
+
+    # setup services and access.
+    geometer_service = service_factory(service_group__name="geometer")
+    municipality_service = service_factory(service_group__name="municipality")
+    instance_service_factory(
+        instance=gr_instance, service=municipality_service, active=1
+    )
+    ServiceRelation.objects.create(
+        function=ServiceRelation.FUNCTION_GEOMETER,
+        receiver=gr_instance.responsible_service(filter_type="municipality"),
+        provider=geometer_service,
+    )
+
+    # setup example work item to resolve the geometer for.
+    construction_case = caluma_case_factory(family=gr_instance.case.family)
+    work_item = caluma_work_item_factory(
+        case=construction_case,
+        child_case=gr_instance.case,
+        task_id=prev_work_item_task,
+        meta={"construction-step": "test"}
+        if prev_work_item_task == "construction-step-plan-construction-stage"
+        else {},
+    )
+    if test_scenario == "answer_geometer" or test_scenario == "answer_gemeinde":
+        form_utils.add_answer(
+            work_item.document,
+            "choose-geometer",
+            "gemeinde" if test_scenario == "answer_gemeinde" else "geometer",
+            question_type=Question.TYPE_CHOICE,
+        )
+
+    expected_pks = (
+        [str(geometer_service.pk)]
+        if expected_service == "geometer"
+        else [str(municipality_service.pk)]
+    )
+    resolved = CustomDynamicGroups().resolve("geometer")(
+        None, gr_instance.case, None, work_item, None
+    )
+
+    assert set(resolved) == set(expected_pks)
