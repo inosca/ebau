@@ -66,14 +66,20 @@ class AlexandriaPermissionManager(PermissionManager):
                 raise NotImplementedError(f"not implemented for {obj!r}")
 
     @permission_switching_method
-    def has_permission(self, *args) -> bool:
-        return super().has_permission(*args)
+    def has_permission(
+        self,
+        context: AlexandriaPermissionContext,
+        require_expr: P,
+        check_only_required: bool = False,
+    ) -> bool:
+        return super().has_permission(context, require_expr, check_only_required)
 
     @has_permission.register_old
     def _has_permission_rbac(
         self,
         context: AlexandriaPermissionContext,
         require_expr: P,
+        check_only_required: bool = False,
     ) -> Literal[True]:
         """Temporary overwrite of `has_permission` to allow all alexandria actions.
 

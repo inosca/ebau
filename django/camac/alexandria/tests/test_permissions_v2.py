@@ -65,7 +65,9 @@ def alexandria_data(
     return wrapper
 
 
-def assert_permissions(mock, expected_instance, expected_permissions):
+def assert_permissions(
+    mock, expected_instance, expected_permissions, expected_check_only_required=None
+):
     """Ensure permissions were called as expected.
 
     In multiple tests, we expect the core permissions to be checked as well as
@@ -77,7 +79,9 @@ def assert_permissions(mock, expected_instance, expected_permissions):
     base_call, module_specific_call = mock.call_args_list
 
     base_context, base_permissions = base_call[0]
-    module_specific_context, module_specific_permissions = module_specific_call[0]
+    module_specific_context, module_specific_permissions, check_only_required = (
+        module_specific_call[0]
+    )
 
     assert isinstance(base_context, Instance)
     assert isinstance(module_specific_context, AlexandriaPermissionContext)
@@ -86,6 +90,9 @@ def assert_permissions(mock, expected_instance, expected_permissions):
 
     assert base_permissions == P("documents-write")
     assert module_specific_permissions == expected_permissions
+
+    if expected_check_only_required is not None:
+        assert check_only_required == expected_check_only_required
 
 
 @pytest.mark.parametrize("in_child_category", [False, True])
@@ -117,6 +124,7 @@ def test_alexandria_permissions_create_document(
         permission_mock,
         instance,
         P.any("test:all", "test:create"),
+        expected_check_only_required=False,
     )
 
 

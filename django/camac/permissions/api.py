@@ -100,6 +100,13 @@ class P:
 
         return reduce(self._op, (_check(p, has_perms) for p in self._perms))
 
+    def _collect_referenced_permissions(self):
+        for perm in self._perms:
+            if isinstance(perm, str):
+                yield perm
+            else:
+                yield from perm._collect_referenced_permissions()
+
     def __and__(self, other):
         return P(self, other, op=operator.and_)
 
@@ -310,7 +317,22 @@ class PermissionManager:
             raise ImproperlyConfigured(f"Static permission '{perm}' is not configured")
         return the_map[perm]
 
-    def get_permissions(self, context: PermissionContext | Instance) -> List[str]:
+    def get_permissions(
+        self,
+        context: PermissionContext | Instance,
+        check_only: Optional[List[str]] = None,
+    ) -> List[str]:
+        """
+        Return permissions of the user in the current context.
+
+        The permission conditions of the granted acls' access levels are
+        evaluated, and all applicable permissions are returned.
+
+        If you pass a list of permissions (as a list of strings) to check_only,
+        then only those permissions are queried.
+        This can be much faster, but should only be used if you know that no
+        (or very few) other permissions will be checked in the same request.
+        """
         # We can globally disable the cache. By default, caching is enabled,
         # but during development, it can be disabled so any stale permissions
         # won't be kept around
@@ -338,6 +360,9 @@ class PermissionManager:
                 expiry = min(expiry, acl.end_time)
 
             for perm, condition in self._access_level_config(access_level.slug):
+                if (check_only is not None) and perm not in check_only:
+                    continue
+
                 # Cache gets disabled on the first condition that doesn't
                 # allow caching
                 enable_cache = enable_cache and condition.allow_caching
@@ -360,29 +385,81 @@ class PermissionManager:
         self,
         context: Instance | PermissionContext,
         required_permissions: Union[str, List[str]],
+        check_only_required: bool = False,
     ):
-        """Return True if user has at least one of the required permissions."""
+        """Return True if user has at least one of the required permissions.
+
+        The required_permissions can be either a single permission as a string,
+        or a list of permissions (as a list of strings).
+
+        If you pass `check_only_required=True`, then only the required
+        permissions are queried.
+        This can be much faster, but should only be used if you know that no
+        (or very few) other permissions will be checked in the same request.
+        """
         if isinstance(required_permissions, str):
             required_permissions = [required_permissions]
-        return self.has_permission(context, P.any(*required_permissions))
+        return self.has_permission(
+            context, P.any(*required_permissions), check_only_required
+        )
+
+    def _referenced_permissions(self, require_expr, check_only_required: bool):
+        if check_only_required:
+            return list(require_expr._collect_referenced_permissions())
+
+        return None
 
     def has_permission(
-        self, context: Instance | PermissionContext, require_expr: str | P
+        self,
+        context: Instance | PermissionContext,
+        require_expr: str | P,
+        check_only_required: bool = False,
     ):
+        """
+        Return True if the user in the current context has the required permissions.
+
+        The require_expr can be either a single permission as a string, or a
+        P expression for more complex checks.
+
+        If you pass `check_only_required=True`, then only the required
+        permissions are queried.
+        This can be much faster, but should only be used if you know that no
+        (or very few) other permissions will be checked in the same request.
+        """
         if isinstance(require_expr, str):
             require_expr = P(require_expr)
-        return require_expr.apply(self.get_permissions(context))
+
+        return require_expr.apply(
+            self.get_permissions(
+                context,
+                check_only=self._referenced_permissions(
+                    require_expr, check_only_required
+                ),
+            )
+        )
 
     def has_all(
         self,
         context: Instance | PermissionContext,
         required_permissions: Union[str, List[str]],
+        check_only_required: bool = False,
     ):
-        """Return True if user has all required permissions."""
+        """Return True if user has all required permissions.
+
+        The required_permissions can be either a single permission as a string,
+        or a list of permissions (as a list of strings).
+
+        If you pass `check_only_required=True`, then only the required
+        permissions are queried.
+        This can be much faster, but should only be used if you know that no
+        (or very few) other permissions will be checked in the same request.
+        """
         if isinstance(required_permissions, str):
             required_permissions = [required_permissions]
 
-        return self.has_permission(context, P.all(*required_permissions))
+        return self.has_permission(
+            context, P.all(*required_permissions), check_only_required
+        )
 
     def require_any(
         self,

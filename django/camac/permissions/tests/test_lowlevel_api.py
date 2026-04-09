@@ -351,6 +351,94 @@ def test_extending_acl(db, instance_acl, end_time, expect_error):
         assert True
 
 
+@pytest.mark.parametrize(
+    "method, require, check_only_required, expect_call_count, expect_result",
+    [
+        ("has_any", ["foo"], False, 1, True),
+        ("has_any", ["foo"], True, 0, True),
+        ("has_all", ["foo"], False, 1, True),
+        ("has_all", ["foo"], True, 0, True),
+        ("has_permission", api.P("foo"), False, 1, True),
+        ("has_permission", api.P("foo"), True, 0, True),
+        ("has_any", ["foo", "bar"], False, 1, True),
+        ("has_any", ["foo", "bar"], True, 0, True),
+        ("has_all", ["foo", "bar"], False, 1, True),
+        ("has_all", ["foo", "bar"], True, 0, True),
+        ("has_permission", api.P("foo") & api.P("bar"), False, 1, True),
+        ("has_permission", api.P("foo") & api.P("bar"), True, 0, True),
+        ("has_any", ["other"], False, 1, False),
+        ("has_any", ["other"], True, 0, False),
+        ("has_all", ["other"], False, 1, False),
+        ("has_all", ["other"], True, 0, False),
+        ("has_permission", api.P("other"), False, 1, False),
+        ("has_permission", api.P("other"), True, 0, False),
+    ],
+)
+def test_evaluation_permissions_check_only_required(
+    db,
+    user,
+    permissions_settings,
+    access_level,
+    instance,
+    method,
+    require,
+    check_only_required,
+    expect_call_count,
+    expect_result,
+):
+    perm_check_call_counts = {"": 0}
+
+    def funkytown():
+        perm_check_call_counts[""] += 1
+        return True
+
+    permissions_settings["ENABLE_CACHE"] = False
+    permissions_settings["ACCESS_LEVELS"] = {
+        access_level.pk: [
+            ("foo", conditions.Always()),
+            ("bar", conditions.Always()),
+            ("func", conditions.Callback(funkytown, allow_caching=False)),
+        ]
+    }
+
+    api.grant(
+        user=user,
+        service=None,
+        token=None,
+        instance=instance,
+        access_level=access_level,
+        grant_type="USER",
+    )
+
+    manager = api.PermissionManager(api.ACLUserInfo(user=user))
+
+    assert (
+        getattr(manager, method)(instance, require, check_only_required)
+        == expect_result
+    )
+    assert perm_check_call_counts[""] == expect_call_count
+
+
+@pytest.mark.parametrize(
+    "require_expr, check_only_required, expect_result",
+    [
+        (api.P("other"), False, None),
+        (api.P("other") & api.P("some"), False, None),
+        (api.P("other"), True, ["other"]),
+        (api.P("other") & api.P("some"), True, ["other", "some"]),
+    ],
+)
+def test_referenced_permissions(
+    db, user, require_expr, check_only_required, expect_result
+):
+    manager = api.PermissionManager(api.ACLUserInfo(user=user))
+
+    assert (
+        manager._referenced_permissions(require_expr, check_only_required)
+        == expect_result
+    )
+
+
 @pytest.mark.parametrize("has_uncacheable_check", [True, False])
 def test_cache_eviction(
     db,
