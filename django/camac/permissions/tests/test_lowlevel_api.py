@@ -440,7 +440,7 @@ def test_referenced_permissions(
 
 
 @pytest.mark.parametrize("has_uncacheable_check", [True, False])
-def test_cache_eviction(
+def test_longterm_cache_eviction(
     db,
     user,
     permissions_settings,
@@ -483,6 +483,7 @@ def test_cache_eviction(
     # Assume one call to the permissions call
     assert perm_check_call_counts[""] == 1
 
+    manager.cached_permissions = {}  # don't use short-term cache
     permissions = manager.get_permissions(instance)
 
     # Second call should be cached unless we have an un-cacheable check.
@@ -495,19 +496,176 @@ def test_cache_eviction(
     # Revoke some time in the future. This should still trigger cache eviction
     # and with it, recalculation
     api.revoke(the_acl, ends_at=timezone.now() + timedelta(seconds=30))
-
+    manager.cached_permissions = {}  # don't use short-term cache
     permissions = manager.get_permissions(instance)
     assert permissions == ["bar", "foo", "func"]
     assert perm_check_call_counts[""] == addded_expected_call + 2
 
     # Calling again should not increase the permissions check call count
+    manager.cached_permissions = {}  # don't use short-term cache
     permissions = manager.get_permissions(instance)
     assert perm_check_call_counts[""] == addded_expected_call * 2 + 2
 
     # Immediate revocation must drop all permissions immediately
     api.revoke(the_acl)
+    manager.cached_permissions = {}  # don't use short-term cache
     permissions = manager.get_permissions(instance)
     assert permissions == []
+
+
+@pytest.mark.parametrize("has_uncacheable_check", [True, False])
+def test_request_caching(
+    db,
+    user,
+    permissions_settings,
+    access_level,
+    instance,
+    has_uncacheable_check,
+):
+    perm_check_call_counts = {"": 0}
+
+    def funkytown():
+        perm_check_call_counts[""] += 1
+        return True
+
+    permissions_settings["ACCESS_LEVELS"] = {
+        access_level.pk: [
+            ("foo", conditions.Always()),
+            ("bar", conditions.Always()),
+            ("func", conditions.Callback(funkytown, allow_caching=True)),
+        ]
+    }
+
+    if has_uncacheable_check:
+        permissions_settings["ACCESS_LEVELS"][access_level.pk].append(
+            ("plain-callback", conditions.Callback(lambda instance: False)),
+        )
+
+    manager = api.PermissionManager(api.ACLUserInfo(user=user))
+
+    the_acl = manager.grant(
+        user=user,
+        service=None,
+        token=None,
+        instance=instance,
+        access_level=access_level,
+        grant_type="USER",
+    )
+
+    permissions = manager.get_permissions(instance)
+    assert permissions == ["bar", "foo", "func"]
+    # Assume one call to the permissions call
+    assert perm_check_call_counts[""] == 1
+
+    permissions = manager.get_permissions(instance)
+    assert permissions == ["bar", "foo", "func"]
+    # Second call should be cached in short-term request cache, regardless of
+    # whether there is an un-cacheable check
+    assert perm_check_call_counts[""] == 1
+
+    # Revoke some time in the future. This should still trigger cache eviction
+    # and with it, recalculation
+    manager.revoke(the_acl, ends_at=timezone.now() + timedelta(seconds=30))
+
+    permissions = manager.get_permissions(instance)
+    assert permissions == ["bar", "foo", "func"]
+    assert perm_check_call_counts[""] == 2
+
+    # Calling again should not increase the permissions check call count
+    permissions = manager.get_permissions(instance)
+    assert perm_check_call_counts[""] == 2
+
+    # Immediate revocation must drop all permissions immediately
+    manager.revoke(the_acl)
+    permissions = manager.get_permissions(instance)
+    assert permissions == []
+    # Call count does not increase because there are no active acls to evaluate
+    assert perm_check_call_counts[""] == 2
+
+
+def test_request_caching_check_only(
+    db, user, permissions_settings, access_level, instance
+):
+    perm_check_call_counts = {"": 0}
+    perm_other_check_call_counts = {"": 0}
+
+    def funkytown():
+        perm_check_call_counts[""] += 1
+        return True
+
+    def funkytown_other():
+        perm_other_check_call_counts[""] += 1
+        return True
+
+    permissions_settings["ACCESS_LEVELS"] = {
+        access_level.pk: [
+            ("foo", conditions.Always()),
+            ("bar", conditions.Always()),
+            ("func", conditions.Callback(funkytown, allow_caching=False)),
+            ("func-other", conditions.Callback(funkytown_other, allow_caching=False)),
+        ]
+    }
+
+    manager = api.PermissionManager(api.ACLUserInfo(user=user))
+
+    manager.grant(
+        user=user,
+        service=None,
+        token=None,
+        instance=instance,
+        access_level=access_level,
+        grant_type="USER",
+    )
+
+    permissions = manager.get_permissions(instance, check_only=["func"])
+    assert permissions == ["func"]
+    # Should only evaluate permission in check_only
+    assert perm_check_call_counts[""] == 1
+    assert perm_other_check_call_counts[""] == 0
+
+    permissions = manager.get_permissions(instance, check_only=["func"])
+    assert permissions == ["func"]
+    # Second call should be cached in short-term request cache
+    assert perm_check_call_counts[""] == 1
+    assert perm_other_check_call_counts[""] == 0
+
+    manager.cached_permissions = {}
+
+    permissions = manager.get_permissions(instance)
+    assert permissions == ["bar", "foo", "func", "func-other"]
+    # Should evaluate all permissions
+    assert perm_check_call_counts[""] == 2
+    assert perm_other_check_call_counts[""] == 1
+
+    permissions = manager.get_permissions(instance, check_only=["func"])
+    assert permissions == ["bar", "foo", "func", "func-other"]
+    # Second call should fall back to short-term cached permissions (all),
+    # even though only one permission is requested
+    assert perm_check_call_counts[""] == 2
+    assert perm_other_check_call_counts[""] == 1
+
+    manager.cached_permissions = {}
+
+    permissions = manager.get_permissions(instance, check_only=["func"])
+    assert permissions == ["func"]
+    # Should only evaluate permission in check_only
+    assert perm_check_call_counts[""] == 3
+    assert perm_other_check_call_counts[""] == 1
+
+    permissions = manager.get_permissions(instance, check_only=["func-other"])
+    assert permissions == ["func-other"]
+
+    # Should evaluate permission in check_only, since it isn't present
+    # in the short-term cache
+    assert perm_check_call_counts[""] == 3
+    assert perm_other_check_call_counts[""] == 2
+
+    permissions = manager.get_permissions(instance)
+    assert permissions == ["bar", "foo", "func", "func-other"]
+    # Should evaluate all permission since they aren't present
+    # in the short-term cache
+    assert perm_check_call_counts[""] == 4
+    assert perm_other_check_call_counts[""] == 3
 
 
 MSG_USER = "Grant type USER must have only the `user` value set"

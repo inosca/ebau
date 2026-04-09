@@ -227,6 +227,7 @@ class PermissionManager:
     def __init__(self, userinfo: ACLUserInfo, permission_settings=None):
         self.permission_settings = permission_settings or settings.PERMISSIONS
         self.userinfo = userinfo
+        self.cached_permissions = {}
 
     def scoped_for(self, context: PermissionContext) -> PermissionScope:
         """Scope manager to an given context."""
@@ -317,6 +318,28 @@ class PermissionManager:
             raise ImproperlyConfigured(f"Static permission '{perm}' is not configured")
         return the_map[perm]
 
+    def _get_local_cache_key(self, context, check_only=None):
+        userinfo_key = self.userinfo.to_cache_key(context)
+        permissions_key = str(check_only) if (check_only is not None) else "all"
+
+        return f"{userinfo_key},p={permissions_key}"
+
+    def _get_local_cached_permissions(self, context, check_only):
+        if check_only is not None:
+            # check for check_only cached permisssions, if none are found,
+            # fall back to check whether all permissions were previously cached
+            local_cache_key = self._get_local_cache_key(context, check_only)
+            cached = self.cached_permissions.get(local_cache_key)
+            if cached is not None:
+                return cached
+
+        local_cache_key = self._get_local_cache_key(context)
+        return self.cached_permissions.get(local_cache_key)
+
+    def _set_local_cached_permissions(self, context, check_only, permissions):
+        local_cache_key = self._get_local_cache_key(context, check_only)
+        self.cached_permissions[local_cache_key] = permissions
+
     def get_permissions(
         self,
         context: PermissionContext | Instance,
@@ -332,19 +355,34 @@ class PermissionManager:
         then only those permissions are queried.
         This can be much faster, but should only be used if you know that no
         (or very few) other permissions will be checked in the same request.
+
+        Long-term caching is used if the cache is enabled globally for the
+        permissions module and no evaluated permission contains a condition
+        that doesn't allow caching. Long-term caching isn't used if check_only
+        permissions are passed in.
+        The permissions are always cached locally on the permissions manager,
+        regardless of the evaluated conditions and provided check_only
+        permissions.
         """
         # We can globally disable the cache. By default, caching is enabled,
         # but during development, it can be disabled so any stale permissions
         # won't be kept around
-        enable_cache = self.permission_settings.get("ENABLE_CACHE", True)
+        enable_longterm_cache = self.permission_settings.get("ENABLE_CACHE", True) and (
+            check_only is None
+        )
 
         if not isinstance(context, PermissionContext):
             context = self.context_from(context)
 
+        cached = self._get_local_cached_permissions(context, check_only)
+        if cached is not None:
+            # called already (with or without check_only), so no need to re-evaluate
+            return cached
+
         cache_key = self.userinfo.to_cache_key(context)
 
         cached_result = cache.get(cache_key)
-        if enable_cache and cached_result:
+        if enable_longterm_cache and cached_result:
             return cached_result
 
         acls = self.get_relevant_acls(context)
@@ -365,7 +403,9 @@ class PermissionManager:
 
                 # Cache gets disabled on the first condition that doesn't
                 # allow caching
-                enable_cache = enable_cache and condition.allow_caching
+                enable_longterm_cache = (
+                    enable_longterm_cache and condition.allow_caching
+                )
 
                 try:
                     if condition.apply(userinfo=self.userinfo, context=context):
@@ -376,9 +416,14 @@ class PermissionManager:
                     ) from e
 
         permissions_sorted = sorted(granted_permissions)
-        if enable_cache:
+
+        if enable_longterm_cache:
             cache_duration = expiry - timezone.now()
             cache.set(cache_key, permissions_sorted, cache_duration.total_seconds())
+
+        # set short-term cache
+        self._set_local_cached_permissions(context, check_only, permissions_sorted)
+
         return permissions_sorted
 
     def has_any(
@@ -585,6 +630,7 @@ class PermissionManager:
         # race condition (ACL gets re-cached before it's in the DB, thus it's
         # expiration date is not yet known)
         _clear_cache_for_acl(acl)
+        self.cached_permissions = {}
 
     def filter_queryset(self, queryset, instance_prefix):
         """Filter a given queryset to only show the entries with active ACL.
