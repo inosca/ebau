@@ -14,7 +14,7 @@ export default class ServicePermissionsStaticKeywordsController extends Controll
   @service session;
   @service notification;
 
-  @tracked page = 1;
+  @tracked page = 0;
   @tracked gisLinkName;
   @tracked gisLinkPlaceholder;
   @tracked search = "";
@@ -27,7 +27,7 @@ export default class ServicePermissionsStaticKeywordsController extends Controll
   }
 
   gisLinks = paginatedQuery(this, "gis-link", () => ({
-    ...(this.search ? {"filter[name]": this.search} : {}),
+    ...(this.search ? {"filter[name]": { ilike: `%${this.search}%`} } : {}),
     page: {
       offset: this.page,
       limit: 50,
@@ -39,7 +39,7 @@ export default class ServicePermissionsStaticKeywordsController extends Controll
     await timeout(500);
 
     this.search = event.target.value;
-    this.page = 1;
+    this.page = 0;
   });
 
   save = task({ drop: true }, async (event) => {
@@ -54,7 +54,7 @@ export default class ServicePermissionsStaticKeywordsController extends Controll
 
     try {
       await gisLink.save();
-      this.page = 1;
+      this.page = 0;
       this.gisLinkName = "";
       this.gisLinkPlaceholder = "";
       this.search = "";
