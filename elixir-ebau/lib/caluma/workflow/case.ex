@@ -13,16 +13,35 @@ defmodule Caluma.Workflow.Case do
   attributes do
     uuid_primary_key :id
 
+    attribute :status, :atom do
+      constraints one_of: [:running, :canceled, :completed]
+      allow_nil? false
+      default :running
+    end
+
     attribute :meta, :map do
       default %{}
     end
   end
 
   actions do
-    defaults [:read]
+    defaults [:read, :destroy, create: :*, update: :*]
+
+    create :create_case do
+      argument :workflow, :map, allow_nil?: false
+
+      change manage_relationship(:workflow, type: :append_and_remove)
+    end
   end
 
   relationships do
     belongs_to :document, Caluma.Form.Document
+
+    belongs_to :workflow, Caluma.Workflow.Workflow do
+      allow_nil? false
+      public? true
+      attribute_type :string
+      destination_attribute :slug
+    end
   end
 end

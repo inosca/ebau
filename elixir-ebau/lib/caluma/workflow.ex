@@ -3,6 +3,10 @@ defmodule Caluma.Workflow do
     otp_app: :ebau
 
   resources do
-    resource Caluma.Workflow.Case
+    resource Caluma.Workflow.Case do
+      define :create_case
+    end
+
+    resource Caluma.Workflow.Workflow
   end
 end
