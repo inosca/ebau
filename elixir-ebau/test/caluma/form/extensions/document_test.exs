@@ -5,7 +5,8 @@ defmodule Caluma.Form.Extensions.DocumentTest do
     use Ash.Resource,
       otp_app: :ebau,
       data_layer: AshPostgres.DataLayer,
-      extensions: [Caluma.Form.Extensions.Document]
+      extensions: [Caluma.Form.Extensions.Document],
+      domain: nil
   end
 
   describe "transformer" do

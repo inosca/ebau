@@ -27,6 +27,20 @@ defmodule Caluma.Form.Extensions.Document do
     transformers: [Caluma.Form.Extensions.Document.Transformer]
 end
 
+defmodule Caluma.Form.Extensions.Document.RowSort do
+  use Ash.Resource.Calculation
+
+  @impl true
+  def expression(_opts, _context) do
+    expr(
+      fragment(
+        "(SELECT min(ad.sort) FROM caluma_form_answerdocument ad WHERE ad.document_id = ?)",
+        id
+      )
+    )
+  end
+end
+
 defmodule Caluma.Form.Extensions.Document.Transformer do
   use Spark.Dsl.Transformer
 
@@ -34,6 +48,7 @@ defmodule Caluma.Form.Extensions.Document.Transformer do
     {:ok, dsl_state} = add_postgres(dsl_state)
     {:ok, dsl_state} = add_action(dsl_state)
     {:ok, dsl_state} = add_attribute(dsl_state)
+    {:ok, dsl_state} = add_calculations(dsl_state)
     {:ok, dsl_state} = add_relationships(dsl_state)
 
     {:ok, dsl_state}
@@ -66,6 +81,17 @@ defmodule Caluma.Form.Extensions.Document.Transformer do
       )
 
     {:ok, Spark.Dsl.Transformer.add_entity(dsl_state, [:attributes], attr)}
+  end
+
+  defp add_calculations(dsl_state) do
+    {:ok, calc} =
+      Ash.Resource.Builder.build_calculation(
+        :row_sort,
+        :integer,
+        Caluma.Form.Extensions.Document.RowSort
+      )
+
+    {:ok, Spark.Dsl.Transformer.add_entity(dsl_state, [:calculations], calc)}
   end
 
   defp add_relationships(dsl_state) do

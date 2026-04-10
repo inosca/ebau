@@ -14,15 +14,24 @@ defmodule Caluma.Form.AnswerDocument do
   end
 
   actions do
-    defaults [:read]
+    defaults [:read, :destroy, create: :*, update: :*]
   end
 
   attributes do
     uuid_primary_key :id
+
+    attribute :sort, :integer do
+      default 0
+    end
   end
 
   relationships do
-    belongs_to :answer, Answer
-    belongs_to :document, Document
+    belongs_to :answer, Answer do
+      allow_nil? false
+    end
+
+    belongs_to :document, Document do
+      allow_nil? false
+    end
   end
 end

@@ -1,8 +1,8 @@
 defmodule Ebau.MasterData.Extensions.MasterDataTest do
   use ExUnit.Case, async: true
 
-  alias Ebau.MasterData.Extensions.MasterData, as: Ext
-  alias Ebau.MasterData.Extensions.MasterData.MappedListDocumentAnswer
+  alias Ebau.MasterData.Calculations
+  alias Ebau.MasterData.Calculations.MappedListDocumentAnswer
 
   defmodule TestResource do
     use Ash.Resource,
@@ -22,9 +22,17 @@ defmodule Ebau.MasterData.Extensions.MasterDataTest do
         question_ids: %{default: "is-paper-q"},
         mapping: %{"is-paper-yes" => true, "is-paper-no" => false}
 
+      mapped_answer :category_code, :integer,
+        question_ids: %{default: "category-q"},
+        mapping: %{"choice-a" => 10, "choice-b" => 20}
+
       mapped_list_answer :tags, :string,
         question_ids: %{default: "tags-q"},
         mapping: %{"tag-a" => "A", "tag-b" => "B"}
+
+      mapped_list_answer :code_tags, :integer,
+        question_ids: %{default: "code-tags-q"},
+        mapping: %{"tag-a" => 1, "tag-b" => 2}
 
       case_meta :dossier_number, :string, keys: %{default: "dossier-number", gr: "gr-dossier"}
 
@@ -41,13 +49,18 @@ defmodule Ebau.MasterData.Extensions.MasterDataTest do
 
     test "uses MasterData.DocumentAnswer as the calculation module" do
       calc = Enum.find(Ash.Resource.Info.calculations(TestResource), &(&1.name == :proposal))
-      assert {Ext.DocumentAnswer, _opts} = calc.calculation
+      assert {Calculations.DocumentAnswer, _opts} = calc.calculation
     end
 
     test "passes question_ids to the calculation" do
       calc = Enum.find(Ash.Resource.Info.calculations(TestResource), &(&1.name == :proposal))
       {_mod, opts} = calc.calculation
       assert opts[:question_ids] == %{default: "proposal-q", gr: "gr-proposal-q"}
+    end
+
+    test "uses the declared Ash type" do
+      calc = Enum.find(Ash.Resource.Info.calculations(TestResource), &(&1.name == :proposal))
+      assert calc.type == Ash.Type.String
     end
   end
 
@@ -59,7 +72,7 @@ defmodule Ebau.MasterData.Extensions.MasterDataTest do
 
     test "uses MappedDocumentAnswer as the calculation module" do
       calc = Enum.find(Ash.Resource.Info.calculations(TestResource), &(&1.name == :is_paper))
-      assert {Ext.MappedDocumentAnswer, _opts} = calc.calculation
+      assert {Calculations.MappedDocumentAnswer, _opts} = calc.calculation
     end
 
     test "passes question_ids and mapping to the calculation" do
@@ -67,6 +80,21 @@ defmodule Ebau.MasterData.Extensions.MasterDataTest do
       {_mod, opts} = calc.calculation
       assert opts[:question_ids] == %{default: "is-paper-q"}
       assert opts[:mapping] == %{"is-paper-yes" => true, "is-paper-no" => false}
+    end
+
+    test "uses the declared Ash type" do
+      calc = Enum.find(Ash.Resource.Info.calculations(TestResource), &(&1.name == :is_paper))
+      assert calc.type == Ash.Type.Boolean
+    end
+
+    test "supports integer mapped values" do
+      calc =
+        Enum.find(Ash.Resource.Info.calculations(TestResource), &(&1.name == :category_code))
+
+      {_mod, opts} = calc.calculation
+
+      assert calc.type == Ash.Type.Integer
+      assert opts[:mapping] == %{"choice-a" => 10, "choice-b" => 20}
     end
   end
 
@@ -78,7 +106,7 @@ defmodule Ebau.MasterData.Extensions.MasterDataTest do
 
     test "uses MappedListDocumentAnswer as the calculation module" do
       calc = Enum.find(Ash.Resource.Info.calculations(TestResource), &(&1.name == :tags))
-      assert {Ext.MappedListDocumentAnswer, _opts} = calc.calculation
+      assert {Calculations.MappedListDocumentAnswer, _opts} = calc.calculation
     end
 
     test "passes question_ids and mapping to the calculation" do
@@ -86,6 +114,19 @@ defmodule Ebau.MasterData.Extensions.MasterDataTest do
       {_mod, opts} = calc.calculation
       assert opts[:question_ids] == %{default: "tags-q"}
       assert opts[:mapping] == %{"tag-a" => "A", "tag-b" => "B"}
+    end
+
+    test "uses an array of the declared element type" do
+      calc = Enum.find(Ash.Resource.Info.calculations(TestResource), &(&1.name == :tags))
+      assert calc.type == {:array, Ash.Type.String}
+    end
+
+    test "supports integer mapped values" do
+      calc = Enum.find(Ash.Resource.Info.calculations(TestResource), &(&1.name == :code_tags))
+      {_mod, opts} = calc.calculation
+
+      assert calc.type == {:array, Ash.Type.Integer}
+      assert opts[:mapping] == %{"tag-a" => 1, "tag-b" => 2}
     end
   end
 
@@ -126,6 +167,14 @@ defmodule Ebau.MasterData.Extensions.MasterDataTest do
     test "attaches a filter expression to the relationship" do
       rel = Ash.Resource.Info.relationship(TestResource, :plot_data)
       assert rel.filter != nil
+    end
+
+    test "matches all configured question_ids, not just the default" do
+      rel = Ash.Resource.Info.relationship(TestResource, :plot_data)
+      filter = inspect(rel.filter)
+
+      assert filter =~ "\"parzellen\""
+      assert filter =~ "\"gr-parzellen\""
     end
   end
 
@@ -183,6 +232,10 @@ defmodule Ebau.MasterData.Extensions.MasterDataTest do
       ]
 
       assert MappedListDocumentAnswer.calculate(records, opts, %{canton: :gr}) == [["A"]]
+    end
+
+    test "declares the required relationship loads" do
+      assert MappedListDocumentAnswer.load(%Ash.Query{}, [], %{}) == [case: [document: :answers]]
     end
   end
 end

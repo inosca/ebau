@@ -79,7 +79,7 @@ defmodule Ebau.MasterData.Extensions.MasterData do
       type: [
         type: :atom,
         required: true,
-        doc: "The Ash type (reserved for documentation; AnswerValue is used)."
+        doc: "The Ash type returned by the calculation."
       ],
       question_ids: [
         type: {:map, :atom, {:or, [:string, {:list, :string}]}},
@@ -104,7 +104,7 @@ defmodule Ebau.MasterData.Extensions.MasterData do
       type: [
         type: :atom,
         required: true,
-        doc: "The Ash type (reserved for documentation; AnswerValue is used)."
+        doc: "The Ash type returned by the calculation."
       ],
       question_ids: [
         type: {:map, :atom, {:or, [:string, {:list, :string}]}},
@@ -112,7 +112,7 @@ defmodule Ebau.MasterData.Extensions.MasterData do
         doc: "Map of canton atom to question ID(s). Must include :default."
       ],
       mapping: [
-        type: {:map, :string, {:or, [:string, :boolean]}},
+        type: {:map, :string, {:or, [:string, :boolean, :integer, :float]}},
         required: true,
         doc: "Map of scalar answer values to mapped values."
       ]
@@ -134,7 +134,7 @@ defmodule Ebau.MasterData.Extensions.MasterData do
       type: [
         type: :atom,
         required: true,
-        doc: "The Ash type (reserved for documentation; AnswerValue is used)."
+        doc: "The Ash element type returned by the calculation."
       ],
       question_ids: [
         type: {:map, :atom, {:or, [:string, {:list, :string}]}},
@@ -142,7 +142,7 @@ defmodule Ebau.MasterData.Extensions.MasterData do
         doc: "Map of canton atom to question ID(s). Must include :default."
       ],
       mapping: [
-        type: {:map, :string, {:or, [:string, :boolean]}},
+        type: {:map, :string, {:or, [:string, :boolean, :integer, :float]}},
         required: true,
         doc: "Map of list answer values to mapped values."
       ]
@@ -185,98 +185,14 @@ defmodule Ebau.MasterData.Extensions.MasterData do
     transformers: [Ebau.MasterData.Extensions.MasterData.Transformer]
 end
 
-defmodule Ebau.MasterData.Extensions.MasterData.DocumentAnswer do
-  @moduledoc """
-  Calculation that looks up an answer on the instance's case document.
-
-  Same as `Ebau.Caluma.Calculations.DocumentAnswer` but traverses
-  `case.document.answers` instead of `answers`, since this runs on Instance.
-  """
-
-  use Ash.Resource.Calculation
-
-  @impl true
-  defdelegate init(opts), to: Ebau.Caluma.Calculations.DocumentAnswer
-
-  @impl true
-  def expression(opts, context) do
-    question_ids = Ebau.Caluma.Helpers.get_question_slugs(opts, context)
-
-    expr(first(case.document.answers, field: :value, filter: expr(question_id in ^question_ids)))
-  end
-end
-
-defmodule Ebau.MasterData.Extensions.MasterData.MappedDocumentAnswer do
-  @moduledoc """
-  Calculation that looks up an answer on the instance's case document and maps it to given value.
-
-  Same as `Ebau.MasterData.Extensions.MasterData.DocumentAnswer` but allows mapping of question values.
-  """
-
-  use Ash.Resource.Calculation
-
-  @impl true
-  defdelegate init(opts), to: Ebau.MasterData.Extensions.MasterData.DocumentAnswer
-
-  @impl true
-  def expression(opts, context) do
-    question_ids = Ebau.Caluma.Helpers.get_question_slugs(opts, context)
-    mapping = opts[:mapping]
-
-    answer_expr =
-      expr(
-        first(case.document.answers, field: :value, filter: expr(question_id in ^question_ids))
-      )
-
-    Enum.reduce(mapping, expr(nil), fn {answer_value, mapped_value}, acc ->
-      expr(
-        if ^answer_expr == ^answer_value do
-          ^mapped_value
-        else
-          ^acc
-        end
-      )
-    end)
-  end
-end
-
-defmodule Ebau.MasterData.Extensions.MasterData.MappedListDocumentAnswer do
-  @moduledoc """
-  In-memory calculation that reads a list-valued Caluma answer and maps each element.
-
-  Use `mapped_list_answer` in the `master_data` DSL for multi-select questions.
-  Does not support DB-level filtering or sorting.
-  """
-
-  use Ash.Resource.Calculation
-
-  @impl true
-  defdelegate init(opts), to: Ebau.MasterData.Extensions.MasterData.DocumentAnswer
-
-  @impl true
-  def calculate(records, opts, context) do
-    question_ids = Ebau.Caluma.Helpers.get_question_slugs(opts, context)
-    mapping = opts[:mapping]
-
-    Enum.map(records, fn record ->
-      answer =
-        Enum.find(record.case.document.answers, fn a -> a.question_id in question_ids end)
-
-      case answer do
-        nil -> nil
-        %{value: value} when is_list(value) -> Enum.map(value, &mapping[&1])
-        %{value: value} -> [mapping[value]]
-      end
-    end)
-  end
-end
-
 defmodule Ebau.MasterData.Extensions.MasterData.Transformer do
   use Spark.Dsl.Transformer
 
   require Ash.Expr
 
   def transform(dsl_state) do
+    validate_default_keys!(dsl_state)
+
     dsl_state =
       dsl_state
       |> add_tables()
@@ -288,16 +204,39 @@ defmodule Ebau.MasterData.Extensions.MasterData.Transformer do
     {:ok, dsl_state}
   end
 
+  defp validate_default_keys!(dsl_state) do
+    dsl_state
+    |> Spark.Dsl.Transformer.get_entities([:master_data])
+    |> Enum.each(fn
+      %{question_ids: question_ids, name: name} when is_map(question_ids) ->
+        if !Map.has_key?(question_ids, :default) do
+          raise Spark.Error.DslError,
+            message:
+              "master_data entity :#{name} is missing the required :default key in :question_ids"
+        end
+
+      %{keys: keys, name: name} when is_map(keys) ->
+        if !Map.has_key?(keys, :default) do
+          raise Spark.Error.DslError,
+            message: "master_data entity :#{name} is missing the required :default key in :keys"
+        end
+
+      _ ->
+        :ok
+    end)
+  end
+
   defp add_tables(dsl_state) do
     dsl_state
     |> Spark.Dsl.Transformer.get_entities([:master_data])
     |> Enum.filter(&is_struct(&1, Ebau.MasterData.Extensions.MasterData.Table))
     |> Enum.reduce(dsl_state, fn table, dsl ->
-      question_ids = table.question_ids
+      question_ids = all_question_slugs(table.question_ids)
 
       {:ok, rel} =
         Ash.Resource.Builder.build_relationship(:has_many, table.name, table.resource,
-          no_attributes?: true
+          no_attributes?: true,
+          sort: [row_sort: :asc]
         )
 
       rel_with_filter = %{
@@ -321,9 +260,8 @@ defmodule Ebau.MasterData.Extensions.MasterData.Transformer do
       {:ok, calc} =
         Ash.Resource.Builder.build_calculation(
           answer.name,
-          Caluma.Form.Types.AnswerValue,
-          {Ebau.MasterData.Extensions.MasterData.DocumentAnswer,
-           question_ids: answer.question_ids}
+          answer.type,
+          {Ebau.MasterData.Calculations.DocumentAnswer, question_ids: answer.question_ids}
         )
 
       Spark.Dsl.Transformer.add_entity(dsl, [:calculations], calc)
@@ -338,8 +276,8 @@ defmodule Ebau.MasterData.Extensions.MasterData.Transformer do
       {:ok, calc} =
         Ash.Resource.Builder.build_calculation(
           mapped_answer.name,
-          Caluma.Form.Types.AnswerValue,
-          {Ebau.MasterData.Extensions.MasterData.MappedDocumentAnswer,
+          mapped_answer.type,
+          {Ebau.MasterData.Calculations.MappedDocumentAnswer,
            question_ids: mapped_answer.question_ids, mapping: mapped_answer.mapping}
         )
 
@@ -355,8 +293,8 @@ defmodule Ebau.MasterData.Extensions.MasterData.Transformer do
       {:ok, calc} =
         Ash.Resource.Builder.build_calculation(
           mapped_list_answer.name,
-          Caluma.Form.Types.AnswerValue,
-          {Ebau.MasterData.Extensions.MasterData.MappedListDocumentAnswer,
+          {:array, mapped_list_answer.type},
+          {Ebau.MasterData.Calculations.MappedListDocumentAnswer,
            question_ids: mapped_list_answer.question_ids, mapping: mapped_list_answer.mapping}
         )
 
@@ -378,5 +316,12 @@ defmodule Ebau.MasterData.Extensions.MasterData.Transformer do
 
       Spark.Dsl.Transformer.add_entity(dsl, [:calculations], calc)
     end)
+  end
+
+  defp all_question_slugs(question_ids) do
+    question_ids
+    |> Enum.sort_by(fn {canton, _value} -> Atom.to_string(canton) end)
+    |> Enum.flat_map(fn {_canton, ids} -> List.wrap(ids) end)
+    |> Enum.uniq()
   end
 end
