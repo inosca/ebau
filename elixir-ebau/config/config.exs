@@ -35,6 +35,7 @@ config :ebau,
   ecto_repos: [Ebau.Repo],
   generators: [timestamp_type: :utc_datetime],
   ash_domains: [
+    Ebau.Permissions,
     Caluma.Workflow,
     Caluma.Form,
     Ebau.Instances,
