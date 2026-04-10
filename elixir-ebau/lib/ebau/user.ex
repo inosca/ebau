@@ -15,6 +15,8 @@ defmodule Ebau.User do
       define :get_group_for_actor, get_by: [:id]
     end
 
+    resource Ebau.User.UserGroup
+
     resource Ebau.User.Service
   end
 

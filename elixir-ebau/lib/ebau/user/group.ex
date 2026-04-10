@@ -4,8 +4,6 @@ defmodule Ebau.User.Group do
     data_layer: AshPostgres.DataLayer,
     authorizers: Ash.Policy.Authorizer
 
-  alias Ebau.User.UserGroup
-
   postgres do
     table "GROUP"
     repo Ebau.Repo

@@ -38,7 +38,6 @@ defmodule EbauWeb.Router do
         EbauWeb.InitialiseLocale,
         {EbauWeb.LiveUserAuth, :live_user_required}
       ] do
-      live "/test", LiveTest
     end
 
     auth_routes AuthController, Ebau.User.User, path: "/auth"
