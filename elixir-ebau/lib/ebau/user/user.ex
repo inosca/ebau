@@ -40,7 +40,7 @@ defmodule Ebau.User.User do
   end
 
   actions do
-    defaults [:read]
+    defaults [:read, create: :*]
 
     read :get_by_subject do
       description "Get a user by the subject claim in a JWT"
@@ -67,15 +67,17 @@ defmodule Ebau.User.User do
       # Example on how to only allow reading your own user
       authorize_if expr(id == ^actor(:id))
     end
+
+    policy action_type([:create, :update, :destroy]) do
+      # We don't allow creating users. This is only for testing at the moment
+      forbid_if always()
+    end
   end
 
   attributes do
-    attribute :id, :integer,
-      primary_key?: true,
-      allow_nil?: false,
-      sortable?: true,
-      public?: true,
-      source: :USER_ID
+    integer_primary_key :id do
+      source :USER_ID
+    end
 
     attribute :username, :string,
       public?: true,

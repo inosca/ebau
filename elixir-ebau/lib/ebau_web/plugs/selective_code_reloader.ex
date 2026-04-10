@@ -8,6 +8,8 @@ defmodule EbauWeb.Plugs.SelectiveCodeReloader do
   `priv/gettext/` is newer than the Elixir compiler manifest. If nothing
   is stale the plug is a no-op (microseconds). If something changed it
   delegates to `Phoenix.CodeReloader` as normal.
+
+  Only used in dev/test (guarded by `code_reloading?` in the endpoint).
   """
 
   @behaviour Plug

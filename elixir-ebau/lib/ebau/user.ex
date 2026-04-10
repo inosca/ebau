@@ -3,6 +3,7 @@ defmodule Ebau.User do
 
   resources do
     resource Ebau.User.User do
+      define :create_user, action: :create
       define :read_users, action: :read
       define :get_user, get_by: :id, action: :read
       define :get_user_by_email, get_by: :email, action: :read
@@ -12,12 +13,17 @@ defmodule Ebau.User do
     resource Ebau.User.Role
 
     resource Ebau.User.Group do
+      define :create_group
       define :get_group_for_actor, get_by: [:id]
     end
 
     resource Ebau.User.UserGroup
 
-    resource Ebau.User.Service
+    resource Ebau.User.Service do
+      define :create_service
+    end
+
+    resource Ebau.User.ServiceGroup
   end
 
   json_api do

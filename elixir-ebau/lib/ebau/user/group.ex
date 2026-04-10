@@ -18,12 +18,25 @@ defmodule Ebau.User.Group do
     policy action(:get_group_for_actor) do
       authorize_if relates_to_actor_via(:users, field: :user)
     end
+
+    policy action_type([:create, :update, :destroy]) do
+      # We don't allow creating users. This is only for testing at the moment
+      forbid_if always()
+    end
   end
 
   actions do
-    defaults [:read]
+    defaults [:read, :destroy, create: :*, update: :*]
 
     read :get_group_for_actor
+
+    create :create_group do
+      argument :users, {:array, :map}
+      argument :role, :map
+      accept :*
+      change manage_relationship(:users, type: :append)
+      change manage_relationship(:role, type: :append, use_identities: [:unique_slug])
+    end
   end
 
   attributes do

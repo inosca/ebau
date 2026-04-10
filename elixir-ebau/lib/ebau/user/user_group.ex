@@ -9,12 +9,17 @@ defmodule Ebau.User.UserGroup do
   end
 
   actions do
-    defaults [:read]
+    defaults [:read, :destroy, create: :*, update: :*]
   end
 
   attributes do
     integer_primary_key :id do
       source :ID
+    end
+
+    attribute :default_group, :integer do
+      default 0
+      source :DEFAULT_GROUP
     end
 
     attribute :user_id, :integer, allow_nil?: false, source: :USER_ID

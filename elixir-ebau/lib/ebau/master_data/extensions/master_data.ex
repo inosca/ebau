@@ -112,9 +112,15 @@ defmodule Ebau.MasterData.Extensions.MasterData do
         doc: "Map of canton atom to question ID(s). Must include :default."
       ],
       mapping: [
-        type: {:map, :string, {:or, [:string, :boolean, :integer, :float]}},
+        type:
+          {:or,
+           [
+             {:map, :string, {:or, [:string, :boolean, :integer, :float]}},
+             {:map, :atom, {:map, :string, {:or, [:string, :boolean, :integer, :float]}}}
+           ]},
         required: true,
-        doc: "Map of scalar answer values to mapped values."
+        doc:
+          "Map of scalar answer values to mapped values, optionally scoped by canton with a required :default key."
       ]
     ],
     args: [:name, :type]
@@ -142,9 +148,15 @@ defmodule Ebau.MasterData.Extensions.MasterData do
         doc: "Map of canton atom to question ID(s). Must include :default."
       ],
       mapping: [
-        type: {:map, :string, {:or, [:string, :boolean, :integer, :float]}},
+        type:
+          {:or,
+           [
+             {:map, :string, {:or, [:string, :boolean, :integer, :float]}},
+             {:map, :atom, {:map, :string, {:or, [:string, :boolean, :integer, :float]}}}
+           ]},
         required: true,
-        doc: "Map of list answer values to mapped values."
+        doc:
+          "Map of list answer values to mapped values, optionally scoped by canton with a required :default key."
       ]
     ],
     args: [:name, :type]
@@ -219,6 +231,13 @@ defmodule Ebau.MasterData.Extensions.MasterData.Transformer do
         if !Map.has_key?(keys, :default) do
           raise Spark.Error.DslError,
             message: "master_data entity :#{name} is missing the required :default key in :keys"
+        end
+
+      %{mapping: mapping, name: name} when is_map(mapping) ->
+        if canton_mapping?(mapping) and !Map.has_key?(mapping, :default) do
+          raise Spark.Error.DslError,
+            message:
+              "master_data entity :#{name} is missing the required :default key in :mapping"
         end
 
       _ ->
@@ -323,5 +342,9 @@ defmodule Ebau.MasterData.Extensions.MasterData.Transformer do
     |> Enum.sort_by(fn {canton, _value} -> Atom.to_string(canton) end)
     |> Enum.flat_map(fn {_canton, ids} -> List.wrap(ids) end)
     |> Enum.uniq()
+  end
+
+  defp canton_mapping?(mapping) do
+    Enum.all?(Map.keys(mapping), &is_atom/1)
   end
 end

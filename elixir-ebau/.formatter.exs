@@ -19,6 +19,11 @@
     # hoisted, the Section is evaluated at top level before @entity exists.
     exclude: [:module_directives]
   ],
+  excludes: [
+    # Quokka rewrites `!is_nil(...)` inside this Ash expression into `not is_nil(...)`,
+    # which changes semantics because `!` is supported in Ash expressions but `not` is not.
+    "lib/ebau/master_data/calculations/mapped_list_document_answer.ex"
+  ],
   inputs: ["*.{heex,ex,exs}", "{config,lib,test}/**/*.{heex,ex,exs}", "priv/*/seeds.exs"],
   locals_without_parens: [
     master_data: 1,

@@ -13,7 +13,7 @@ defmodule Ebau.MasterData.Calculations.MappedDocumentAnswer do
   @impl true
   def expression(opts, context) do
     question_ids = Ebau.Caluma.Helpers.get_question_slugs(opts, context)
-    mapping = opts[:mapping]
+    mapping = Ebau.Caluma.Helpers.get_answer_mapping(opts[:mapping], context)
 
     answer_expr =
       expr(

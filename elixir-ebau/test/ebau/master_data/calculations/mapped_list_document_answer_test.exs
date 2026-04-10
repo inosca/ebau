@@ -30,9 +30,12 @@ defmodule Ebau.MasterData.Calculations.MappedListDocumentAnswerTest do
         question_ids: %{default: "category"},
         mapping: %{"choice-a" => 10, "choice-b" => 20}
 
-      mapped_list_answer :tags, :integer,
-        question_ids: %{default: "is-paper"},
-        mapping: %{"is-paper-yes" => 1, "is-paper-no" => 2}
+      mapped_list_answer :is_paper?, :boolean,
+        question_ids: %{default: "is-paper", so: "ist-papier"},
+        mapping: %{
+          default: %{"is-paper-yes" => true, "is-paper-no" => false},
+          so: %{"ist-papier-ja" => true, "ist-papier-nein" => false}
+        }
     end
 
     attributes do
@@ -66,7 +69,9 @@ defmodule Ebau.MasterData.Calculations.MappedListDocumentAnswerTest do
     %{
       matching: matching,
       non_matching: non_matching,
-      without_answer: without_answer
+      without_answer: without_answer,
+      so_matching:
+        create_instance_with_answers(%{"ist-papier" => ["ist-papier-ja", "ist-papier-nein"]}).instance
     }
   end
 
@@ -74,10 +79,10 @@ defmodule Ebau.MasterData.Calculations.MappedListDocumentAnswerTest do
     instance = Ash.get!(TestInstance, matching.id)
     assert %Ash.NotLoaded{} = instance.case
 
-    loaded = Ash.load!(instance, [:category_code, :tags])
+    loaded = Ash.load!(instance, [:category_code, :is_paper?])
 
     assert loaded.category_code == 10
-    assert loaded.tags == [1, 2]
+    assert loaded.is_paper? == [true, false]
     assert %Ash.NotLoaded{} = loaded.case
   end
 
@@ -104,13 +109,33 @@ defmodule Ebau.MasterData.Calculations.MappedListDocumentAnswerTest do
   } do
     matching_ids =
       TestInstance
-      |> Ash.Query.filter(Ash.Expr.expr(tags == ^[1, 2]))
+      |> Ash.Query.filter(Ash.Expr.expr(is_paper? == ^[true, false]))
       |> Ash.read!()
       |> Enum.map(& &1.id)
 
     assert matching.id in matching_ids
     refute non_matching.id in matching_ids
     refute without_answer.id in matching_ids
+  end
+
+  test "uses canton-specific question_ids and answer mappings in SQL", %{so_matching: so_matching} do
+    loaded =
+      TestInstance
+      |> Ash.Query.set_context(%{canton: :so})
+      |> Ash.Query.filter(Ash.Expr.expr(id == ^so_matching.id))
+      |> Ash.Query.load([:is_paper?])
+      |> Ash.read_one!()
+
+    assert loaded.is_paper? == [true, false]
+
+    matching_ids =
+      TestInstance
+      |> Ash.Query.set_context(%{canton: :so})
+      |> Ash.Query.filter(Ash.Expr.expr(is_paper? == ^[true, false]))
+      |> Ash.read!()
+      |> Enum.map(& &1.id)
+
+    assert so_matching.id in matching_ids
   end
 
   defp create_instance_with_answers(answers) do

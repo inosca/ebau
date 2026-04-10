@@ -12,12 +12,12 @@ defmodule Ebau.Instances.GisLink do
     end
 
     policy action_type(:destroy) do
-      forbid_unless actor_attribute_equals(:role, "municipality-admin")
+      forbid_unless Ebau.User.Policies.IsAdminRole
       authorize_if relates_to_actor_via(:service, field: :service)
     end
 
     policy action_type(:create) do
-      authorize_if actor_attribute_equals(:role, "municipality-admin")
+      authorize_if Ebau.User.Policies.IsAdminRole
     end
   end
 

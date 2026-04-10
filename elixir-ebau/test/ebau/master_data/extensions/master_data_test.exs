@@ -34,6 +34,10 @@ defmodule Ebau.MasterData.Extensions.MasterDataTest do
         question_ids: %{default: "code-tags-q"},
         mapping: %{"tag-a" => 1, "tag-b" => 2}
 
+      mapped_list_answer :canton_tags, :boolean,
+        question_ids: %{default: "tags-q", gr: "gr-tags-q"},
+        mapping: %{default: %{"tag-a" => true}, gr: %{"gr-tag-a" => true}}
+
       case_meta :dossier_number, :string, keys: %{default: "dossier-number", gr: "gr-dossier"}
 
       table :plot_data, Ebau.MasterData.PlotDataRow,
@@ -127,6 +131,14 @@ defmodule Ebau.MasterData.Extensions.MasterDataTest do
 
       assert calc.type == {:array, Ash.Type.Integer}
       assert opts[:mapping] == %{"tag-a" => 1, "tag-b" => 2}
+    end
+
+    test "supports canton-specific mappings" do
+      calc = Enum.find(Ash.Resource.Info.calculations(TestResource), &(&1.name == :canton_tags))
+      {_mod, opts} = calc.calculation
+
+      assert calc.type == {:array, Ash.Type.Boolean}
+      assert opts[:mapping] == %{default: %{"tag-a" => true}, gr: %{"gr-tag-a" => true}}
     end
   end
 
@@ -232,6 +244,20 @@ defmodule Ebau.MasterData.Extensions.MasterDataTest do
       ]
 
       assert MappedListDocumentAnswer.calculate(records, opts, %{canton: :gr}) == [["A"]]
+    end
+
+    test "uses canton-specific answer mappings from context" do
+      {:ok, opts} =
+        MappedListDocumentAnswer.init(
+          question_ids: %{default: "tags-q", gr: "gr-tags-q"},
+          mapping: %{default: %{"tag-a" => true}, gr: %{"gr-tag-a" => true}}
+        )
+
+      records = [
+        %{case: %{document: %{answers: [%{question_id: "gr-tags-q", value: ["gr-tag-a"]}]}}}
+      ]
+
+      assert MappedListDocumentAnswer.calculate(records, opts, %{canton: :gr}) == [[true]]
     end
 
     test "declares the required relationship loads" do

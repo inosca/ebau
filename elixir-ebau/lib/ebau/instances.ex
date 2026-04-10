@@ -4,7 +4,10 @@ defmodule Ebau.Instances do
     extensions: [AshJsonApi.Domain]
 
   resources do
-    resource Ebau.Instances.Instance
+    resource Ebau.Instances.Instance do
+      define :get_instance_by_id, action: :read, get_by: [:id]
+      define :create_instance
+    end
 
     resource Ebau.Instances.GisLink do
       define :list_gis_links_for_instance, args: [:instance_id]

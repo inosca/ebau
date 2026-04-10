@@ -3,7 +3,8 @@ defmodule Ebau.Instances.Instance do
     otp_app: :ebau,
     domain: Ebau.Instances,
     data_layer: AshPostgres.DataLayer,
-    extensions: [Ebau.MasterData.Extensions.MasterData]
+    extensions: [Ebau.MasterData.Extensions.MasterData],
+    authorizers: Ash.Policy.Authorizer
 
   postgres do
     table "INSTANCE"
@@ -113,11 +114,33 @@ defmodule Ebau.Instances.Instance do
 
   relationships do
     belongs_to :case, Caluma.Workflow.Case
+    has_many :instance_acls, Ebau.Permissions.InstanceACL
+
+    has_many :active_instance_acls, Ebau.Permissions.InstanceACL do
+      read_action :active
+    end
   end
 
   actions do
-    defaults [:read]
+    defaults [:read, :destroy, create: :*, update: :*]
 
     read :list_instances
+
+    create :create_instance do
+      argument :case, :map
+
+      change manage_relationship(:case, type: :append)
+    end
+  end
+
+  policies do
+    policy action_type(:read) do
+      authorize_if expr(exists(active_instance_acls, user_id == ^actor([:user, :id])))
+    end
+
+    policy action_type([:create, :update, :destroy]) do
+      # Only used for testing for now
+      forbid_if always()
+    end
   end
 end

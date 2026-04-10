@@ -17,7 +17,7 @@ defmodule Ebau.MasterData.Calculations.MappedListDocumentAnswer do
   @impl true
   def expression(opts, context) do
     question_ids = Ebau.Caluma.Helpers.get_question_slugs(opts, context)
-    mapping = opts[:mapping]
+    mapping = Ebau.Caluma.Helpers.get_answer_mapping(opts[:mapping], context)
     answer_expr = answer_expr(question_ids)
 
     case array_item_type(context.type) do
@@ -38,7 +38,7 @@ defmodule Ebau.MasterData.Calculations.MappedListDocumentAnswer do
   @impl true
   def calculate(records, opts, context) do
     question_ids = Ebau.Caluma.Helpers.get_question_slugs(opts, context)
-    mapping = opts[:mapping]
+    mapping = Ebau.Caluma.Helpers.get_answer_mapping(opts[:mapping], context)
 
     Enum.map(records, fn record ->
       answer =
@@ -61,7 +61,9 @@ defmodule Ebau.MasterData.Calculations.MappedListDocumentAnswer do
 
   defp string_array_expr(answer_expr, mapping) do
     expr(
-      if !is_nil(^answer_expr) do
+      if is_nil(^answer_expr) do
+        nil
+      else
         fragment(
           """
           (
@@ -88,7 +90,9 @@ defmodule Ebau.MasterData.Calculations.MappedListDocumentAnswer do
 
   defp boolean_array_expr(answer_expr, mapping) do
     expr(
-      if !is_nil(^answer_expr) do
+      if is_nil(^answer_expr) do
+        nil
+      else
         fragment(
           """
           (
@@ -122,7 +126,9 @@ defmodule Ebau.MasterData.Calculations.MappedListDocumentAnswer do
 
   defp integer_array_expr(answer_expr, mapping) do
     expr(
-      if !is_nil(^answer_expr) do
+      if is_nil(^answer_expr) do
+        nil
+      else
         fragment(
           """
           (
@@ -149,7 +155,9 @@ defmodule Ebau.MasterData.Calculations.MappedListDocumentAnswer do
 
   defp float_array_expr(answer_expr, mapping) do
     expr(
-      if !is_nil(^answer_expr) do
+      if is_nil(^answer_expr) do
+        nil
+      else
         fragment(
           """
           (
