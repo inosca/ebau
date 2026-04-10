@@ -30,7 +30,7 @@ export default class ServicePermissionsStaticKeywordsController extends Controll
     ...(this.search ? {"filter[name]": this.search} : {}),
     page: {
       offset: this.page,
-      limit: 2,
+      limit: 50,
       count: true
     },
   }));

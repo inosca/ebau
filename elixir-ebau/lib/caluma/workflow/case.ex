@@ -12,6 +12,7 @@ defmodule Caluma.Workflow.Case do
 
   attributes do
     uuid_primary_key :id
+
     attribute :meta, :map do
       default %{}
     end

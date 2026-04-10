@@ -16,15 +16,14 @@ defmodule EbauWeb.OAuth2 do
 
   @spec fetch_user(binary()) :: {:ok, Ebau.User.User.t()} | nil
   def fetch_user(token) do
-    case OAuth2.fetch_user(config(), %{"access_token" => token}) do
-      {:ok, %{"email" => email}} ->
-        # Here it is safe to use authorize? false since what is in the token is validated
-        # by keycloak. If we managed to get a valid, certified token with a claims["email"]
-        # of another user we have other problems.
-        Ebau.User.get_user_by_email(email, authorize?: false)
+    EbauWeb.TokenCache.fetch(token, fn ->
+      case OAuth2.fetch_user(config(), %{"access_token" => token}) do
+        {:ok, %{"email" => email}} ->
+          Ebau.User.get_user_by_email(email, authorize?: false)
 
-      _ ->
-        nil
-    end
+        _ ->
+          nil
+      end
+    end)
   end
 end

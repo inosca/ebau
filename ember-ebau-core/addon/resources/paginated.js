@@ -4,8 +4,11 @@ import { tracked } from "@glimmer/tracking";
 import { task, lastValue } from "ember-concurrency";
 import { Resource } from "ember-modify-based-class-resource";
 
+const isFirstPage = (page) =>
+  "number" in page ? parseInt(page.number) === 1 : parseInt(page.offset) === 0;
+
 const shouldResetPage = ([oldModel, oldQuery] = [], [newModel, newQuery]) =>
-  parseInt(newQuery.page.number) === 1 ||
+  isFirstPage(newQuery.page) ||
   oldModel !== newModel ||
   // Compare all keys in the old and new query to see if we have changes which would require a fresh data array.
   Array.from(new Set([...Object.keys(newQuery), ...Object.keys(oldQuery)]))
@@ -44,7 +47,7 @@ export class PaginatedQuery extends Resource {
   }
 
   get pagination() {
-    return this.meta?.pagination;
+    return this.meta?.pagination ?? this.meta?.page;
   }
 
   constructor(owner) {
@@ -82,9 +85,17 @@ export class PaginatedQuery extends Resource {
 
       this.meta = data.meta;
 
+      // Pagination is not defined in the JSON API spec so DRF and AshJsonAPI
+      // don't provide the exact same pagination semantics.
+      const pagination = data.meta?.pagination ?? data.meta?.page;
+      const hasMore = pagination?.pages
+        ? query.page.number < pagination.pages
+        : (parseInt(query.page.offset) + parseInt(query.page.limit)) <
+          pagination?.total;
+
       return {
         records: isResetting ? data : [...this.data.records, ...data],
-        hasMore: query.page.number < data.meta?.pagination?.pages,
+        hasMore,
       };
     } catch (error) {
       onError ? onError(error) : console.error(error);

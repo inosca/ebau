@@ -180,11 +180,9 @@ defmodule Ebau.MasterData.Extensions.MasterData do
     entities: [@table, @answer, @mapped_answer, @mapped_list_answer, @case_meta]
   }
 
-
   use Spark.Dsl.Extension,
     sections: [@master_data],
     transformers: [Ebau.MasterData.Extensions.MasterData.Transformer]
-
 end
 
 defmodule Ebau.MasterData.Extensions.MasterData.DocumentAnswer do

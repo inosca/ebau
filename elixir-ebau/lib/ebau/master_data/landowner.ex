@@ -18,7 +18,10 @@ defmodule Ebau.MasterData.Landowner do
     field :tel, :string, question_ids: %{default: "telefon"}
     field :po_box, :string, question_ids: %{default: "postfach"}
     field :juristic_name, :string, question_ids: %{default: "juristische-person-name"}
-    field :representative_juristic_name, :string, question_ids: %{default: "vertretung-juristische-person-name"}
+
+    field :representative_juristic_name, :string,
+      question_ids: %{default: "vertretung-juristische-person-name"}
+
     field :representative_title, :string, question_ids: %{default: "vertretung-titel"}
     field :representative_last_name, :string, question_ids: %{default: "vertretung-nachname"}
     field :representative_first_name, :string, question_ids: %{default: "vertretung-vorname"}
