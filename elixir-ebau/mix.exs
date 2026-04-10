@@ -40,7 +40,7 @@ defmodule Ebau.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:ash, "~> 3.0"},
+      {:ash, "~> 3.23"},
       {:ash_admin, "~> 0.13"},
       {:ash_authentication, "~> 4.0"},
       {:ash_authentication_phoenix, "~> 2.0"},
@@ -58,6 +58,7 @@ defmodule Ebau.MixProject do
       {:jason, "~> 1.2"},
       {:lazy_html, ">= 0.1.0", only: :test},
       {:live_debugger, "~> 0.5", only: [:dev]},
+      {:mix_test_interactive, "~> 5.0", only: [:dev, :test], runtime: false},
       {:nvir, "~> 0.15.0"},
       {:oban_web, "~> 2.0"},
       {:open_api_spex, "~> 3.0"},
