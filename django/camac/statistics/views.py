@@ -3,17 +3,43 @@ import os
 from datetime import date, datetime, time, timedelta
 
 import openpyxl
+from caluma.caluma_form.models import Option
 from django.conf import settings
 from django.http import FileResponse
+from django.utils import timezone
+from django.utils.translation import get_language, gettext_lazy as _
 from openpyxl.styles import Font
 from openpyxl.utils import get_column_letter
 from rest_framework.exceptions import PermissionDenied
 from rest_framework.generics import ListAPIView
 
 from camac.instance.mixins import InstanceQuerysetMixin
-from camac.instance.models import Instance
+from camac.instance.models import Instance, InstanceStateT
 
 from .filters import InstanceFilterBackend, WorkItemFilterBackend
+
+# Translatable strings used in the filter sheet.
+_FILTER_OVERVIEW_TITLE = _("Filter overview")
+_EXPORTED_ON_LABEL = _("Exported on")
+
+# Maps query parameter names to translatable labels for the filter sheet.
+FILTER_LABELS = [
+    ("submit_date_after", _("Submission date from")),
+    ("submit_date_before", _("Submission date to")),
+    ("form", _("Application Type")),
+    ("instance_state", _("Instance state")),
+    ("decision", _("Decision")),
+    ("first_inquiry_date_after", _("First inquiry date from")),
+    ("first_inquiry_date_before", _("First inquiry date to")),
+    ("completing_date_after", _("Completing date from")),
+    ("completing_date_before", _("Completing date to")),
+    ("involved", _("Involved")),
+    ("task", _("Task")),
+    ("wi_created_at_after", _("Work item created from")),
+    ("wi_created_at_before", _("Work item created to")),
+    ("wi_closed_at_after", _("Work item closed from")),
+    ("wi_closed_at_before", _("Work item closed to")),
+]
 
 
 def _resolve_template_path(export_type, role_slug=None, service_group_slug=None):
@@ -140,7 +166,64 @@ class _StatisticsExportBaseView(InstanceQuerysetMixin, ListAPIView):
         for cache in getattr(workbook, "_pivot_caches", []):
             cache.refreshOnLoad = True
 
-    def _build_workbook(self, header, rows, template_path):
+    @staticmethod
+    def _resolve_filter_value(param, raw_value):
+        """Resolve raw filter values to human-readable labels where possible."""
+        lang = get_language()
+        values = [v.strip() for v in raw_value.split(",") if v.strip()]
+
+        if param == "instance_state":
+            names = list(
+                InstanceStateT.objects.filter(
+                    instance_state_id__in=values,
+                    language=lang,
+                ).values_list("name", flat=True)
+            )
+            return ", ".join(names) if names else raw_value
+
+        if param == "decision":
+            options = Option.objects.filter(slug__in=values)
+            labels = [str(opt.label) for opt in options]
+            return ", ".join(labels) if labels else raw_value
+
+        return raw_value
+
+    @staticmethod
+    def _collect_applied_filters(request):
+        """Return a list of (label, value) for every set query parameter."""
+        filters = []
+        for param, label in FILTER_LABELS:
+            value = request.query_params.get(param, "").strip()
+            if value:
+                resolved = _StatisticsExportBaseView._resolve_filter_value(param, value)
+                filters.append((str(label), resolved))
+        return filters
+
+    def _write_filter_sheet(self, workbook, filters):
+        """Create a "Filter" sheet at position 0 listing applied filters."""
+        if "Filter" in workbook.sheetnames:
+            del workbook["Filter"]
+        sheet = workbook.create_sheet("Filter", 0)
+
+        bold = Font(bold=True)
+        sheet.cell(row=1, column=1, value=str(_FILTER_OVERVIEW_TITLE)).font = bold
+
+        row = 4  # two blank rows after the title
+        for label, value in filters:
+            sheet.cell(row=row, column=1, value=label)
+            sheet.cell(row=row, column=2, value=value)
+            row += 1
+
+        row += 1  # one blank row before "Exported on"
+        sheet.cell(row=row, column=1, value=str(_EXPORTED_ON_LABEL))
+        today = timezone.now().date()
+        cell = sheet.cell(row=row, column=2, value=today)
+        cell.number_format = "DD.MM.YYYY"
+
+        sheet.column_dimensions["A"].width = 30
+        sheet.column_dimensions["B"].width = 30
+
+    def _build_workbook(self, header, rows, template_path, filters=None):
         """Return a BytesIO buffer with the finished XLSX workbook."""
         if template_path and os.path.isfile(template_path):
             workbook = openpyxl.load_workbook(template_path)
@@ -148,6 +231,7 @@ class _StatisticsExportBaseView(InstanceQuerysetMixin, ListAPIView):
             workbook = openpyxl.Workbook()
 
         self._write_data_sheet(workbook, header, rows)
+        self._write_filter_sheet(workbook, filters or [])
         self._set_pivot_refresh(workbook)
 
         buf = io.BytesIO()
@@ -168,8 +252,9 @@ class _StatisticsExportBaseView(InstanceQuerysetMixin, ListAPIView):
 
         rows = list(queryset.values_list(*annotation_names))
 
+        filters = self._collect_applied_filters(request)
         template_path = self._get_template(request)
-        buf = self._build_workbook(header, rows, template_path)
+        buf = self._build_workbook(header, rows, template_path, filters)
 
         return FileResponse(
             buf,

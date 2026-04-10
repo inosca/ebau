@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-09 10:50+0200\n"
+"POT-Creation-Date: 2026-04-10 15:37+0200\n"
 "PO-Revision-Date: 2025-10-08 13:26+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1348,6 +1348,7 @@ msgid "Involved Departments"
 msgstr "Involvierte Fachstellen"
 
 #: camac/instance/export/serializers.py camac/settings/modules/statistics.py
+#: camac/statistics/views.py
 msgid "Application Type"
 msgstr "Gesuchstyp"
 
@@ -1363,7 +1364,7 @@ msgstr "Status"
 msgid "Applicants emails"
 msgstr "Email Gesuchsteller/in"
 
-#: camac/instance/export/serializers.py
+#: camac/instance/export/serializers.py camac/statistics/views.py
 msgid "Decision"
 msgstr "Bauentscheid"
 
@@ -1992,6 +1993,66 @@ msgstr "Rückzug beantragt"
 #: camac/statistics/apps.py
 msgid "Statistics"
 msgstr ""
+
+#: camac/statistics/views.py
+msgid "Filter overview"
+msgstr "Übersicht der Filter"
+
+#: camac/statistics/views.py
+msgid "Exported on"
+msgstr "Exportiert am"
+
+#: camac/statistics/views.py
+msgid "Submission date from"
+msgstr "Eingabedatum von"
+
+#: camac/statistics/views.py
+msgid "Submission date to"
+msgstr "Eingabedatum bis"
+
+#: camac/statistics/views.py
+msgid "Instance state"
+msgstr "Dossier-Status"
+
+#: camac/statistics/views.py
+msgid "First inquiry date from"
+msgstr "Eingegangen von"
+
+#: camac/statistics/views.py
+msgid "First inquiry date to"
+msgstr "Eingegangen bis"
+
+#: camac/statistics/views.py
+msgid "Completing date from"
+msgstr "Abgeschlossen von"
+
+#: camac/statistics/views.py
+msgid "Completing date to"
+msgstr "Abgeschlossen bis"
+
+#: camac/statistics/views.py
+msgid "Involved"
+msgstr "Beteiligt"
+
+#: camac/statistics/views.py
+msgid "Task"
+msgstr "Aufgabe"
+
+#: camac/statistics/views.py
+msgid "Work item created from"
+msgstr "Aufgabe erstellt von"
+
+#: camac/statistics/views.py
+msgid "Work item created to"
+msgstr "Aufgabe erstellt bis"
+
+#: camac/statistics/views.py
+msgid "Work item closed from"
+msgstr "Aufgabe abgeschlossen von"
+
+#: camac/statistics/views.py
+msgid "Work item closed to"
+msgstr "Aufgabe abgeschlossen bis"
 
 #: camac/templates/admin/base.html
 msgid "Back to CAMAC admin"

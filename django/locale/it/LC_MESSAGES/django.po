@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-09 10:50+0200\n"
+"POT-Creation-Date: 2026-04-10 16:39+0200\n"
 "PO-Revision-Date: 2024-09-12 16:24+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1324,6 +1324,7 @@ msgid "Involved Departments"
 msgstr "Servizi interessati"
 
 #: camac/instance/export/serializers.py camac/settings/modules/statistics.py
+#: camac/statistics/views.py
 msgid "Application Type"
 msgstr "Tipo di domanda"
 
@@ -1339,7 +1340,7 @@ msgstr "Stato"
 msgid "Applicants emails"
 msgstr ""
 
-#: camac/instance/export/serializers.py
+#: camac/instance/export/serializers.py camac/statistics/views.py
 msgid "Decision"
 msgstr "Decisione edilizia"
 
@@ -1972,6 +1973,66 @@ msgstr "Richiesta di ritiro del dossier"
 
 #: camac/statistics/apps.py
 msgid "Statistics"
+msgstr ""
+
+#: camac/statistics/views.py
+msgid "Filter overview"
+msgstr ""
+
+#: camac/statistics/views.py
+msgid "Exported on"
+msgstr ""
+
+#: camac/statistics/views.py
+msgid "Submission date from"
+msgstr ""
+
+#: camac/statistics/views.py
+msgid "Submission date to"
+msgstr ""
+
+#: camac/statistics/views.py
+msgid "Instance state"
+msgstr ""
+
+#: camac/statistics/views.py
+msgid "First inquiry date from"
+msgstr ""
+
+#: camac/statistics/views.py
+msgid "First inquiry date to"
+msgstr ""
+
+#: camac/statistics/views.py
+msgid "Completing date from"
+msgstr ""
+
+#: camac/statistics/views.py
+msgid "Completing date to"
+msgstr ""
+
+#: camac/statistics/views.py
+msgid "Involved"
+msgstr ""
+
+#: camac/statistics/views.py
+msgid "Task"
+msgstr ""
+
+#: camac/statistics/views.py
+msgid "Work item created from"
+msgstr ""
+
+#: camac/statistics/views.py
+msgid "Work item created to"
+msgstr ""
+
+#: camac/statistics/views.py
+msgid "Work item closed from"
+msgstr ""
+
+#: camac/statistics/views.py
+msgid "Work item closed to"
 msgstr ""
 
 #: camac/templates/admin/base.html
