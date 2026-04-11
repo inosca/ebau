@@ -27,6 +27,8 @@ defmodule Mix.Tasks.Ebau.BootstrapLegacySchema do
       Mix.raise("legacy schema file not found: #{sql_path}")
     end
 
+    ensure_case_insensitive_collation!()
+
     if legacy_schema_present?() do
       Mix.shell().info("Legacy schema already present, reconciling compatibility patches")
       reconcile_legacy_schema!()
@@ -104,8 +106,21 @@ defmodule Mix.Tasks.Ebau.BootstrapLegacySchema do
   end
 
   defp reconcile_legacy_schema! do
+    ensure_case_insensitive_collation!()
     ensure_role_slug_column!()
     ensure_role_slug_unique_constraint!()
+  end
+
+  defp ensure_case_insensitive_collation! do
+    sql = """
+    CREATE COLLATION IF NOT EXISTS public.case_insensitive (
+      provider = icu,
+      locale = 'und-u-ks-level2',
+      deterministic = false
+    )
+    """
+
+    Ecto.Adapters.SQL.query!(Ebau.Repo, sql, [])
   end
 
   defp ensure_role_slug_column! do
