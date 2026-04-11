@@ -10,7 +10,10 @@ defmodule Ebau.User do
     end
 
     resource Ebau.User.Token
-    resource Ebau.User.Role
+
+    resource Ebau.User.Role do
+      define :create_role, action: :create
+    end
 
     resource Ebau.User.Group do
       define :create_group

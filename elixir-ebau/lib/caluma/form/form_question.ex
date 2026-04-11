@@ -1,6 +1,14 @@
 defmodule Caluma.Form.FormQuestion do
-  @moduledoc false
+  @moduledoc """
+  Join resource between a Caluma form and a Caluma question.
+
+  This resource stores the question order inside a form and follows upstream
+  Caluma's natural key behavior for the primary key.
+  """
   use Ash.Resource, domain: Caluma.Form, data_layer: AshPostgres.DataLayer
+
+  alias Caluma.Form.Changes.SetFormQuestionNaturalKey
+  alias Caluma.Form.Validations.EnsureFixtureFormQuestionMatches
 
   postgres do
     table "caluma_form_formquestion"
@@ -17,8 +25,38 @@ defmodule Caluma.Form.FormQuestion do
     defaults [:read, :destroy, create: :*, update: :*]
 
     create :create_form_question do
+      description """
+      Creates the join row between a form and a question.
+
+      The natural primary key is derived as `\#{form_id}.\#{question_id}` to match
+      upstream Caluma's `FormQuestion` behavior.
+      """
+
       accept [:form_id, :question_id, :sort]
-      change Caluma.Form.Changes.SetFormQuestionNaturalKey
+      change SetFormQuestionNaturalKey
+    end
+
+    action :assert_form_question_compatible do
+      description """
+      Asserts that an existing form-question join is compatible with a form-tree occurrence.
+      """
+
+      argument :form_question, :struct do
+        description "Existing persisted form-question join to check."
+        allow_nil? false
+        constraints instance_of: __MODULE__
+      end
+
+      argument :sort, :integer do
+        allow_nil? false
+      end
+
+      validate present([:form_question, :sort])
+      validate EnsureFixtureFormQuestionMatches
+
+      run fn _input, _context ->
+        :ok
+      end
     end
   end
 

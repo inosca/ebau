@@ -1,14 +1,44 @@
 defmodule Ebau.Instances.Calculations.GisLinksForInstanceTest do
   use Ebau.DataCase, async: true
 
-  alias Ebau.Test.CantonFixtures
-
   setup do
-    CantonFixtures.load_canton_config!(:so)
+    Ebau.User.create_role!(%{slug: "municipality-admin"})
+    Caluma.Workflow.create_workflow!(%{slug: "building-permit", name: %{"de" => "workflow"}})
 
     actor = Ebau.Test.UserHelper.create_actor!(%{role: %{slug: "municipality-admin"}})
     case_record = Caluma.Workflow.create_case!(%{workflow: %{slug: "building-permit"}})
     instance = Ebau.Instances.create_instance!(%{case: %{id: case_record.id}}, authorize?: false)
+
+    Caluma.Form.create_form_tree!(
+      %{
+        slug: "baugesuch",
+        name: "Baugesuch",
+        questions: [
+          %{
+            slug: "parzellen",
+            label: "Parzellen",
+            type: :table,
+            form: %{name: "Parzellen"},
+            questions: [
+              %{slug: "lagekoordinaten-nord", label: "Lagekoordinaten Nord", type: :float},
+              %{slug: "lagekoordinaten-ost", label: "Lagekoordinaten Ost", type: :float}
+            ]
+          },
+          %{
+            slug: "parzellen-2",
+            label: "Parzellen 2",
+            type: :table,
+            form: %{name: "Parzellen 2"},
+            questions: [
+              %{slug: "lagekoordinaten-nord"},
+              %{slug: "lagekoordinaten-ost"}
+            ]
+          }
+        ]
+      },
+      authorize?: false
+    )
+
     doc = Caluma.Form.create_document!(%{form: %{slug: "baugesuch"}, case: %{id: case_record.id}})
 
     Caluma.Form.create_row_document!(doc, %{slug: "parzellen"}, [

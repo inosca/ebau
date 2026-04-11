@@ -1,0 +1,155 @@
+defmodule Caluma.Form.Changes.BuildFixtureFormTree do
+  use Ash.Resource.Change
+
+  alias Ash.Changeset
+
+  @impl true
+  def change(changeset, _opts, context) do
+    questions =
+      Changeset.get_argument(changeset, :questions) ||
+        Map.get(Changeset.get_argument(changeset, :form_spec) || %{}, :questions, [])
+
+    Changeset.after_action(changeset, fn _changeset, form ->
+      action_opts = [actor: context.actor, authorize?: false]
+
+      form.slug
+      |> create_questions!(questions, action_opts)
+
+      {:ok, form}
+    end)
+  end
+
+  defp create_questions!(form_slug, questions, action_opts) do
+    questions
+    |> Enum.with_index(1)
+    |> Enum.each(fn {question_spec, sort} ->
+      create_question!(form_slug, question_spec, sort, action_opts)
+    end)
+  end
+
+  defp create_question!(form_slug, question_spec, sort, action_opts) do
+    slug = Map.fetch!(question_spec, :slug)
+
+    existing_question =
+      Caluma.Form.get_question_by_slug!(
+        slug,
+        Keyword.put(action_opts, :not_found_error?, false)
+      )
+
+    type = Map.get(question_spec, :type) || existing_question_type!(existing_question, slug)
+    nested_form_attrs = nested_form_attrs(type, slug, question_spec)
+    nested_form_slug = nested_form_attrs && nested_form_attrs.slug
+
+    if nested_form_attrs do
+      create_or_apply_nested_form!(nested_form_attrs, action_opts)
+    end
+
+    if existing_question do
+      Caluma.Form.assert_question_compatible!(
+        assert_question_input(existing_question, question_spec, type, nested_form_slug),
+        action_opts
+      )
+    else
+      Caluma.Form.create_question!(
+        create_question_input(question_spec, type, nested_form_slug),
+        action_opts
+      )
+    end
+
+    create_or_assert_form_question!(form_slug, slug, sort, action_opts)
+  end
+
+  defp nested_form_attrs(type, slug, question_spec) when type in [:form, :table] do
+    form_attrs = Map.get(question_spec, :form, %{})
+
+    %{
+      slug: Map.get(form_attrs, :slug, slug),
+      name: Map.get(form_attrs, :name),
+      meta: Map.get(form_attrs, :meta, %{}),
+      questions: Map.get(question_spec, :questions, [])
+    }
+  end
+
+  defp nested_form_attrs(_type, _slug, _question_spec), do: nil
+
+  defp create_or_apply_nested_form!(nested_form_attrs, action_opts) do
+    existing_form =
+      Caluma.Form.get_form_by_slug!(
+        nested_form_attrs.slug,
+        Keyword.put(action_opts, :not_found_error?, false)
+      )
+
+    if existing_form do
+      Caluma.Form.apply_form_tree!(
+        existing_form,
+        %{form_spec: nested_form_attrs},
+        action_opts
+      )
+    else
+      Caluma.Form.create_form_tree!(nested_form_attrs, action_opts)
+    end
+  end
+
+  defp create_or_assert_form_question!(form_slug, question_slug, sort, action_opts) do
+    existing_form_question =
+      Caluma.Form.get_form_question_by_form_and_question!(
+        form_slug,
+        question_slug,
+        Keyword.put(action_opts, :not_found_error?, false)
+      )
+
+    if existing_form_question do
+      Caluma.Form.assert_form_question_compatible!(
+        %{form_question: existing_form_question, sort: sort},
+        action_opts
+      )
+    else
+      Caluma.Form.create_form_question!(
+        %{
+          form_id: form_slug,
+          question_id: question_slug,
+          sort: sort
+        },
+        action_opts
+      )
+    end
+  end
+
+  defp existing_question_type!(nil, slug) do
+    raise ArgumentError,
+          "question #{inspect(slug)} does not exist yet; type must be provided on first definition"
+  end
+
+  defp existing_question_type!(question, _slug), do: question.type
+
+  defp create_question_input(question_spec, type, nested_form_slug) do
+    question_spec
+    |> Map.take([:slug, :label, :is_hidden, :configuration, :meta])
+    |> Map.put(:type, type)
+    |> put_nested_form_relationship(type, nested_form_slug)
+  end
+
+  defp assert_question_input(question, question_spec, type, nested_form_slug) do
+    question_spec
+    |> Map.take([:label, :is_hidden, :configuration, :meta])
+    |> Map.put(:question, question)
+    |> Map.put(:type, type)
+    |> put_nested_form_id(type, nested_form_slug)
+  end
+
+  defp put_nested_form_relationship(input, :table, nested_form_slug)
+       when is_binary(nested_form_slug), do: Map.put(input, :row_form, %{slug: nested_form_slug})
+
+  defp put_nested_form_relationship(input, :form, nested_form_slug)
+       when is_binary(nested_form_slug), do: Map.put(input, :sub_form, %{slug: nested_form_slug})
+
+  defp put_nested_form_relationship(input, _type, _nested_form_slug), do: input
+
+  defp put_nested_form_id(input, :table, nested_form_slug) when is_binary(nested_form_slug),
+    do: Map.put(input, :row_form_id, nested_form_slug)
+
+  defp put_nested_form_id(input, :form, nested_form_slug) when is_binary(nested_form_slug),
+    do: Map.put(input, :sub_form_id, nested_form_slug)
+
+  defp put_nested_form_id(input, _type, _nested_form_slug), do: input
+end

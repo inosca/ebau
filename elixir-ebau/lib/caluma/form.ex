@@ -16,10 +16,14 @@ defmodule Caluma.Form do
 
     resource Caluma.Form.Form do
       define :create_form
+      define :create_form_tree
+      define :apply_form_tree
+      define :get_form_by_slug, action: :read, get_by: [:slug]
     end
 
     resource Caluma.Form.FormQuestion do
       define :create_form_question
+      define :assert_form_question_compatible
 
       define :get_form_question_by_form_and_question,
         action: :read,
@@ -28,6 +32,7 @@ defmodule Caluma.Form do
 
     resource Caluma.Form.Question do
       define :create_question
+      define :assert_question_compatible
       define :get_question_by_slug, action: :read, get_by: [:slug]
     end
   end

@@ -7,6 +7,8 @@ defmodule Caluma.Workflow do
       define :create_case
     end
 
-    resource Caluma.Workflow.Workflow
+    resource Caluma.Workflow.Workflow do
+      define :create_workflow, action: :create
+    end
   end
 end
