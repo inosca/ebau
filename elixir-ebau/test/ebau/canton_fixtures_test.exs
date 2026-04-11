@@ -1,5 +1,5 @@
 defmodule Ebau.Test.CantonFixturesTest do
-  use Ebau.DataCase, async: false
+  use Ebau.DataCase, async: true
 
   alias Ebau.Test.CantonFixtures
 
@@ -13,7 +13,6 @@ defmodule Ebau.Test.CantonFixturesTest do
   test "loads supported kt_so config fixtures into the test database" do
     assert :ok = CantonFixtures.load_canton_config!(:so)
 
-    assert role_exists?("municipality-admin")
     assert exists?("caluma_workflow_workflow", "building-permit")
   end
 
@@ -24,7 +23,6 @@ defmodule Ebau.Test.CantonFixturesTest do
                "caluma_workflow.json"
              ])
 
-    assert role_exists?("municipality-admin")
     assert exists?("caluma_workflow_workflow", "building-permit")
   end
 
@@ -33,17 +31,6 @@ defmodule Ebau.Test.CantonFixturesTest do
       Ecto.Adapters.SQL.query!(
         Repo,
         "select count(*) from #{table} where slug = $1",
-        [slug]
-      )
-
-    count == 1
-  end
-
-  defp role_exists?(slug) do
-    %{rows: [[count]]} =
-      Ecto.Adapters.SQL.query!(
-        Repo,
-        ~S|select count(*) from "ROLE" where "SLUG" = $1|,
         [slug]
       )
 

@@ -84,14 +84,14 @@
       </tr>
     {{else}}
       <tr>
-        <td colspan="6" class="uk-text-center uk-text-italic">
+        <td colspan="3" class="uk-text-center uk-text-italic">
           {{t "global.empty"}}
         </td>
       </tr>
     {{/each}}
     {{#if this.gisLinks.isLoading}}
       <tr>
-        <td colspan="6" class="uk-text-center">
+        <td colspan="3" class="uk-text-center">
           <UkSpinner @ratio="0.7" />
         </td>
       </tr>

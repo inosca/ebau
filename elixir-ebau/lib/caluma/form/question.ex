@@ -9,7 +9,7 @@ defmodule Caluma.Form.Question do
   use Ash.Resource, domain: Caluma.Form, data_layer: AshPostgres.DataLayer
 
   alias Caluma.Form.Form
-  alias Caluma.Form.Validations.EnsureFixtureQuestionMatches
+  alias Caluma.Form.Validations.ExistingQuestionMatchesSpec
 
   postgres do
     table "caluma_form_question"
@@ -97,7 +97,7 @@ defmodule Caluma.Form.Question do
       end
 
       validate present([:question, :type])
-      validate EnsureFixtureQuestionMatches
+      validate ExistingQuestionMatchesSpec
 
       run fn _input, _context ->
         :ok

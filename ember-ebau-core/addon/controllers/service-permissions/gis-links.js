@@ -9,12 +9,14 @@ import paginatedQuery from "ember-ebau-core/resources/paginated";
 import parseError from "ember-ebau-core/utils/parse-error";
 
 export default class ServicePermissionsStaticKeywordsController extends Controller {
+  pageSize = 50;
+
   @service store;
   @service intl;
   @service session;
   @service notification;
 
-  @tracked page = 0;
+  @tracked offset = 0;
   @tracked gisLinkName;
   @tracked gisLinkPlaceholder;
   @tracked search = "";
@@ -22,15 +24,15 @@ export default class ServicePermissionsStaticKeywordsController extends Controll
   @action
   updatePage() {
     if (this.gisLinks.hasMore && !this.gisLinks.isLoading) {
-      this.page += 1;
+      this.offset += this.pageSize;
     }
   }
 
   gisLinks = paginatedQuery(this, "gis-link", () => ({
     ...(this.search ? { "filter[name]": { ilike: `%${this.search}%` } } : {}),
     page: {
-      offset: this.page,
-      limit: 50,
+      offset: this.offset,
+      limit: this.pageSize,
       count: true,
     },
   }));
@@ -39,7 +41,7 @@ export default class ServicePermissionsStaticKeywordsController extends Controll
     await timeout(500);
 
     this.search = event.target.value;
-    this.page = 0;
+    this.offset = 0;
   });
 
   save = task({ drop: true }, async (event) => {
@@ -53,7 +55,7 @@ export default class ServicePermissionsStaticKeywordsController extends Controll
 
     try {
       await gisLink.save();
-      this.page = 0;
+      this.offset = 0;
       this.gisLinkName = "";
       this.gisLinkPlaceholder = "";
       this.search = "";

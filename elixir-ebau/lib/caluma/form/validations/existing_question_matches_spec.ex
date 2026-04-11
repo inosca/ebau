@@ -1,4 +1,12 @@
-defmodule Caluma.Form.Validations.EnsureFixtureQuestionMatches do
+defmodule Caluma.Form.Validations.ExistingQuestionMatchesSpec do
+  @moduledoc """
+  Validates that an already persisted question matches a provided form-tree spec.
+
+  Used by `Caluma.Form.Question.assert_question_compatible`. Only arguments
+  explicitly present on action input are checked. For localized fields like
+  `label`, comparison only checks locales present in provided input.
+  """
+
   use Ash.Resource.Validation
 
   alias Ash.ActionInput
@@ -32,7 +40,7 @@ defmodule Caluma.Form.Validations.EnsureFixtureQuestionMatches do
     actual = question.label
     expected = normalize_localized_field(value)
 
-    if actual == expected do
+    if localized_field_matches?(actual, expected) do
       :ok
     else
       {:error,
@@ -68,4 +76,10 @@ defmodule Caluma.Form.Validations.EnsureFixtureQuestionMatches do
       :error -> value
     end
   end
+
+  defp localized_field_matches?(actual, expected) when is_map(actual) and is_map(expected) do
+    Enum.all?(expected, fn {locale, value} -> Map.get(actual, locale) == value end)
+  end
+
+  defp localized_field_matches?(actual, expected), do: actual == expected
 end

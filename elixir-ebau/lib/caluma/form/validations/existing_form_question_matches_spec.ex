@@ -1,4 +1,12 @@
-defmodule Caluma.Form.Validations.EnsureFixtureFormQuestionMatches do
+defmodule Caluma.Form.Validations.ExistingFormQuestionMatchesSpec do
+  @moduledoc """
+  Validates that an already persisted form-question join matches requested spec.
+
+  Used by `Caluma.Form.FormQuestion.assert_form_question_compatible` when
+  form tree references question already attached to form. Right now only `sort`
+  is checked because that is only mutable field managed by form-tree sync.
+  """
+
   use Ash.Resource.Validation
 
   alias Ash.ActionInput

@@ -1,4 +1,12 @@
-defmodule Caluma.Form.Changes.BuildFixtureFormTree do
+defmodule Caluma.Form.Changes.SyncFormTree do
+  @moduledoc """
+  Synchronizes persisted Caluma form tree with declarative form-tree input.
+
+  Used by `Caluma.Form.create_form_tree` and `Caluma.Form.apply_form_tree`.
+  It walks ordered question specs, creates missing nested forms/questions/join rows,
+  and asserts compatibility when matching records already exist.
+  """
+
   use Ash.Resource.Change
 
   alias Ash.Changeset
@@ -12,8 +20,7 @@ defmodule Caluma.Form.Changes.BuildFixtureFormTree do
     Changeset.after_action(changeset, fn _changeset, form ->
       action_opts = [actor: context.actor, authorize?: false]
 
-      form.slug
-      |> create_questions!(questions, action_opts)
+      create_questions!(form.slug, questions, action_opts)
 
       {:ok, form}
     end)
@@ -41,7 +48,21 @@ defmodule Caluma.Form.Changes.BuildFixtureFormTree do
     nested_form_slug = nested_form_attrs && nested_form_attrs.slug
 
     if nested_form_attrs do
-      create_or_apply_nested_form!(nested_form_attrs, action_opts)
+      existing_form =
+        Caluma.Form.get_form_by_slug!(
+          nested_form_attrs.slug,
+          Keyword.put(action_opts, :not_found_error?, false)
+        )
+
+      if existing_form do
+        Caluma.Form.apply_form_tree!(
+          existing_form,
+          %{form_spec: nested_form_attrs},
+          action_opts
+        )
+      else
+        Caluma.Form.create_form_tree!(nested_form_attrs, action_opts)
+      end
     end
 
     if existing_question do
@@ -72,24 +93,6 @@ defmodule Caluma.Form.Changes.BuildFixtureFormTree do
 
   defp nested_form_attrs(_type, _slug, _question_spec), do: nil
 
-  defp create_or_apply_nested_form!(nested_form_attrs, action_opts) do
-    existing_form =
-      Caluma.Form.get_form_by_slug!(
-        nested_form_attrs.slug,
-        Keyword.put(action_opts, :not_found_error?, false)
-      )
-
-    if existing_form do
-      Caluma.Form.apply_form_tree!(
-        existing_form,
-        %{form_spec: nested_form_attrs},
-        action_opts
-      )
-    else
-      Caluma.Form.create_form_tree!(nested_form_attrs, action_opts)
-    end
-  end
-
   defp create_or_assert_form_question!(form_slug, question_slug, sort, action_opts) do
     existing_form_question =
       Caluma.Form.get_form_question_by_form_and_question!(
@@ -105,11 +108,7 @@ defmodule Caluma.Form.Changes.BuildFixtureFormTree do
       )
     else
       Caluma.Form.create_form_question!(
-        %{
-          form_id: form_slug,
-          question_id: question_slug,
-          sort: sort
-        },
+        %{form_id: form_slug, question_id: question_slug, sort: sort},
         action_opts
       )
     end

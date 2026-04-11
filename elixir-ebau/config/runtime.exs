@@ -36,14 +36,16 @@ if config_env() in [:dev, :prod] do
     ]
 end
 
-config :ebau, Ebau.Repo,
-  username: System.get_env("DATABASE_USER", "camac"),
-  password: System.get_env("DATABASE_PASSWORD", "camac"),
-  hostname: System.get_env("DATABASE_HOST", "localhost"),
-  database: System.get_env("DATABASE_NAME", System.fetch_env!("APPLICATION")),
-  stacktrace: true,
-  show_sensitive_data_on_connection_error: true,
-  pool_size: 10
+if config_env() != :test do
+  config :ebau, Ebau.Repo,
+    username: System.get_env("DATABASE_USER", "camac"),
+    password: System.get_env("DATABASE_PASSWORD", "camac"),
+    hostname: System.get_env("DATABASE_HOST", "localhost"),
+    database: System.get_env("DATABASE_NAME", System.fetch_env!("APPLICATION")),
+    stacktrace: true,
+    show_sensitive_data_on_connection_error: true,
+    pool_size: 10
+end
 
 config :ebau, EbauWeb.Endpoint,
   http: [port: String.to_integer(System.get_env("PORT", "4000"))],

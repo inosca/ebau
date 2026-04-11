@@ -16,22 +16,23 @@ defmodule Ebau.Instances.Calculations.GisLinksForInstanceTest do
         questions: [
           %{
             slug: "parzellen",
-            label: "Parzellen",
+            label: "Grundstücke",
             type: :table,
-            form: %{name: "Parzellen"},
+            form: %{
+              slug: "parzelle-tabelle",
+              name: "Grundstück Tabelle"
+            },
             questions: [
-              %{slug: "lagekoordinaten-nord", label: "Lagekoordinaten Nord", type: :float},
-              %{slug: "lagekoordinaten-ost", label: "Lagekoordinaten Ost", type: :float}
-            ]
-          },
-          %{
-            slug: "parzellen-2",
-            label: "Parzellen 2",
-            type: :table,
-            form: %{name: "Parzellen 2"},
-            questions: [
-              %{slug: "lagekoordinaten-nord"},
-              %{slug: "lagekoordinaten-ost"}
+              %{
+                slug: "lagekoordinaten-nord",
+                label: "Lagekoordinaten - Nord",
+                type: :float
+              },
+              %{
+                slug: "lagekoordinaten-ost",
+                label: "Lagekoordinaten - Ost",
+                type: :float
+              }
             ]
           }
         ]
@@ -52,7 +53,12 @@ defmodule Ebau.Instances.Calculations.GisLinksForInstanceTest do
         actor: actor
       )
 
-    %{actor: actor, instance: instance, gis_link: gis_link, doc: doc}
+    %{
+      actor: actor,
+      instance: instance,
+      gis_link: gis_link,
+      doc: doc
+    }
   end
 
   test "replaces coordinate placeholders with first plot's coordinates", %{

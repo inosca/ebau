@@ -283,7 +283,7 @@ defmodule Ebau.Legacy.ConfigLoader do
       ROLE_ID: id,
       NAME: fields["name"],
       GROUP_PREFIX: fields["group_prefix"],
-      SLUG: fields["slug"],
+      slug: fields["slug"],
       ROLE_PARENT_ID: fields["role_parent"]
     }
   end

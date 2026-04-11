@@ -1,4 +1,13 @@
-defmodule Caluma.Form.Validations.EnsureFixtureFormMatches do
+defmodule Caluma.Form.Validations.ExistingFormMatchesSpec do
+  @moduledoc """
+  Validates that an already persisted form matches a provided form-tree spec.
+
+  Used by `Caluma.Form.apply_form_tree` before attaching or checking nested
+  questions. Only fields present in incoming spec are compared. For localized
+  fields like `name`, caller may provide either plain string or localization map;
+  comparison only checks locales present in provided input.
+  """
+
   use Ash.Resource.Validation
 
   alias Ash.Changeset
@@ -21,7 +30,7 @@ defmodule Caluma.Form.Validations.EnsureFixtureFormMatches do
     actual = form.name
     expected = normalize_localized_field(value)
 
-    if actual == expected do
+    if localized_field_matches?(actual, expected) do
       :ok
     else
       {:error,
@@ -57,4 +66,10 @@ defmodule Caluma.Form.Validations.EnsureFixtureFormMatches do
       :error -> value
     end
   end
+
+  defp localized_field_matches?(actual, expected) when is_map(actual) and is_map(expected) do
+    Enum.all?(expected, fn {locale, value} -> Map.get(actual, locale) == value end)
+  end
+
+  defp localized_field_matches?(actual, expected), do: actual == expected
 end

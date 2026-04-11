@@ -102,7 +102,7 @@ defmodule Mix.Tasks.Ebau.BootstrapLegacySchema do
   end
 
   defp ensure_role_slug_column! do
-    sql = ~S|ALTER TABLE public."ROLE" ADD COLUMN IF NOT EXISTS "SLUG" character varying(50)|
+    sql = ~S|ALTER TABLE public."ROLE" ADD COLUMN IF NOT EXISTS slug character varying(50)|
     Ecto.Adapters.SQL.query!(Ebau.Repo, sql, [])
   end
 
@@ -116,7 +116,7 @@ defmodule Mix.Tasks.Ebau.BootstrapLegacySchema do
         WHERE conname = 'ROLE_slug_key'
           AND conrelid = 'public."ROLE"'::regclass
       ) THEN
-        ALTER TABLE public."ROLE" ADD CONSTRAINT "ROLE_slug_key" UNIQUE ("SLUG");
+        ALTER TABLE public."ROLE" ADD CONSTRAINT "ROLE_slug_key" UNIQUE (slug);
       END IF;
     END
     $$;

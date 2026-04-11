@@ -241,7 +241,7 @@ CREATE TABLE public."ROLE" (
     "NAME" character varying(100),
     "ROLE_PARENT_ID" integer,
     "GROUP_PREFIX" character varying(100),
-    "SLUG" character varying(50)
+    slug character varying(50)
 );
 
 
@@ -1461,7 +1461,7 @@ ALTER TABLE ONLY public."ROLE"
 --
 
 ALTER TABLE ONLY public."ROLE"
-    ADD CONSTRAINT "ROLE_slug_key" UNIQUE ("SLUG");
+    ADD CONSTRAINT "ROLE_slug_key" UNIQUE (slug);
 
 
 --
@@ -6560,5 +6560,4 @@ ALTER TABLE ONLY public.permissions_instanceacl
 
 ALTER TABLE ONLY public.permissions_instanceacl
     ADD CONSTRAINT "permissions_instanceacl_user_id_b8e833ec_fk_USER_USER_ID" FOREIGN KEY (user_id) REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
-
 

@@ -7,8 +7,8 @@ defmodule Caluma.Form.Form do
   """
   use Ash.Resource, domain: Caluma.Form, data_layer: AshPostgres.DataLayer
 
-  alias Caluma.Form.Changes.BuildFixtureFormTree
-  alias Caluma.Form.Validations.EnsureFixtureFormMatches
+  alias Caluma.Form.Changes.SyncFormTree
+  alias Caluma.Form.Validations.ExistingFormMatchesSpec
 
   postgres do
     table "caluma_form_form"
@@ -71,7 +71,7 @@ defmodule Caluma.Form.Form do
         default []
       end
 
-      change BuildFixtureFormTree
+      change SyncFormTree
     end
 
     update :apply_form_tree do
@@ -91,8 +91,8 @@ defmodule Caluma.Form.Form do
         allow_nil? false
       end
 
-      validate EnsureFixtureFormMatches
-      change BuildFixtureFormTree
+      validate ExistingFormMatchesSpec
+      change SyncFormTree
     end
   end
 

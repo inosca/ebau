@@ -8,7 +8,7 @@ defmodule Caluma.Form.FormQuestion do
   use Ash.Resource, domain: Caluma.Form, data_layer: AshPostgres.DataLayer
 
   alias Caluma.Form.Changes.SetFormQuestionNaturalKey
-  alias Caluma.Form.Validations.EnsureFixtureFormQuestionMatches
+  alias Caluma.Form.Validations.ExistingFormQuestionMatchesSpec
 
   postgres do
     table "caluma_form_formquestion"
@@ -52,7 +52,7 @@ defmodule Caluma.Form.FormQuestion do
       end
 
       validate present([:form_question, :sort])
-      validate EnsureFixtureFormQuestionMatches
+      validate ExistingFormQuestionMatchesSpec
 
       run fn _input, _context ->
         :ok
