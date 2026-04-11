@@ -16,6 +16,10 @@ defmodule Caluma.Form.Question do
 
   actions do
     defaults [:read]
+
+    create :create_question do
+      accept [:slug, :label, :type, :is_hidden, :configuration, :meta, :row_form_id, :sub_form_id]
+    end
   end
 
   attributes do
@@ -49,6 +53,10 @@ defmodule Caluma.Form.Question do
           :calculated_float
         ]
       ]
+
+    attribute :label, :map do
+      allow_nil? false
+    end
 
     attribute :is_hidden, :string, default: "false", allow_nil?: false
 

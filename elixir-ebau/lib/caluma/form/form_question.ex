@@ -15,19 +15,42 @@ defmodule Caluma.Form.FormQuestion do
 
   actions do
     defaults [:read, :destroy, create: :*, update: :*]
+
+    create :create_form_question do
+      accept [:form_id, :question_id, :sort]
+      change Caluma.Form.Changes.SetFormQuestionNaturalKey
+    end
+  end
+
+  attributes do
+    attribute :id, :string do
+      allow_nil? false
+      writable? true
+      primary_key? true
+      public? true
+    end
+
+    attribute :sort, :integer do
+      allow_nil? false
+      public? true
+    end
   end
 
   relationships do
-    belongs_to :form, Caluma.Form.Form,
-      primary_key?: true,
-      allow_nil?: false,
-      destination_attribute: :slug,
-      attribute_type: :string
+    belongs_to :form, Caluma.Form.Form do
+      allow_nil? false
+      destination_attribute :slug
+      attribute_type :string
+    end
 
-    belongs_to :question, Caluma.Form.Question,
-      primary_key?: true,
-      allow_nil?: false,
-      destination_attribute: :slug,
-      attribute_type: :string
+    belongs_to :question, Caluma.Form.Question do
+      allow_nil? false
+      destination_attribute :slug
+      attribute_type :string
+    end
+  end
+
+  identities do
+    identity :form_question, [:form_id, :question_id]
   end
 end
