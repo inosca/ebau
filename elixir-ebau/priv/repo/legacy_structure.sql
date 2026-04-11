@@ -1,0 +1,29202 @@
+--
+-- PostgreSQL database dump
+--
+
+\restrict 4lOR0ds63qMmq3bYAERdaqQsm7WknTvutTh4Bz6iOWOkedT6bsMseZbTbBIVKdw
+
+-- Dumped from database version 15.13 (Debian 15.13-1.pgdg110+1)
+-- Dumped by pg_dump version 16.10 (Ubuntu 16.10-0ubuntu0.24.04.1)
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: keycloak; Type: SCHEMA; Schema: -; Owner: -
+--
+
+CREATE SCHEMA keycloak;
+
+
+--
+-- Name: citext; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS citext WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION citext; Type: COMMENT; Schema: -; Owner: -
+--
+
+COMMENT ON EXTENSION citext IS 'data type for case-insensitive character strings';
+
+
+--
+-- Name: hstore; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS hstore WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION hstore; Type: COMMENT; Schema: -; Owner: -
+--
+
+COMMENT ON EXTENSION hstore IS 'data type for storing sets of (key, value) pairs';
+
+
+--
+-- Name: uuid-ossp; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp" WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION "uuid-ossp"; Type: COMMENT; Schema: -; Owner: -
+--
+
+COMMENT ON EXTENSION "uuid-ossp" IS 'generate universally unique identifiers (UUIDs)';
+
+
+--
+-- Name: GET_INST_STATE_DESCRIPTION(character varying); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public."GET_INST_STATE_DESCRIPTION"(state_name character varying) RETURNS character varying
+    LANGUAGE plpgsql
+    AS $$
+DECLARE
+DESCRIPTION varchar;
+BEGIN
+  SELECT
+  "DESCRIPTION" into DESCRIPTION
+  FROM
+  "INSTANCE_STATE_DESCRIPTION"
+  WHERE
+  "INSTANCE_STATE_ID" = "GET_INST_STATE_ID_BY_NAME"(STATE_NAME);
+  RETURN DESCRIPTION;
+END;
+$$;
+
+
+--
+-- Name: GET_INST_STATE_ID_BY_NAME(character varying); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public."GET_INST_STATE_ID_BY_NAME"(state_name character varying) RETURNS integer
+    LANGUAGE plpgsql
+    AS $$
+DECLARE
+ID integer;
+BEGIN
+  SELECT
+  "INSTANCE_STATE_ID" into ID
+  FROM
+  "INSTANCE_STATE"
+  WHERE
+  LOWER("NAME") = LOWER(STATE_NAME);
+  RETURN ID;
+END;
+$$;
+
+
+--
+-- Name: GET_INST_STATE_NAME_BY_ID(integer); Type: FUNCTION; Schema: public; Owner: -
+--
+
+CREATE FUNCTION public."GET_INST_STATE_NAME_BY_ID"(state_id integer) RETURNS character varying
+    LANGUAGE plpgsql
+    AS $$
+DECLARE
+STATE_NAME varchar;
+BEGIN
+  SELECT
+  "NAME" into STATE_NAME
+  FROM
+  "INSTANCE_STATE"
+  WHERE
+  "INSTANCE_STATE_ID" = STATE_ID;
+  RETURN STATE_NAME;
+END;
+$$;
+
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- Name: admin_event_entity; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.admin_event_entity (
+    id character varying(36) NOT NULL,
+    admin_event_time bigint,
+    realm_id character varying(255),
+    operation_type character varying(255),
+    auth_realm_id character varying(255),
+    auth_client_id character varying(255),
+    auth_user_id character varying(255),
+    ip_address character varying(255),
+    resource_path character varying(2550),
+    representation text,
+    error character varying(255),
+    resource_type character varying(64),
+    details_json text
+);
+
+
+--
+-- Name: associated_policy; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.associated_policy (
+    policy_id character varying(36) NOT NULL,
+    associated_policy_id character varying(36) NOT NULL
+);
+
+
+--
+-- Name: authentication_execution; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.authentication_execution (
+    id character varying(36) NOT NULL,
+    alias character varying(255),
+    authenticator character varying(36),
+    realm_id character varying(36),
+    flow_id character varying(36),
+    requirement integer,
+    priority integer,
+    authenticator_flow boolean DEFAULT false NOT NULL,
+    auth_flow_id character varying(36),
+    auth_config character varying(36)
+);
+
+
+--
+-- Name: authentication_flow; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.authentication_flow (
+    id character varying(36) NOT NULL,
+    alias character varying(255),
+    description character varying(255),
+    realm_id character varying(36),
+    provider_id character varying(36) DEFAULT 'basic-flow'::character varying NOT NULL,
+    top_level boolean DEFAULT false NOT NULL,
+    built_in boolean DEFAULT false NOT NULL
+);
+
+
+--
+-- Name: authenticator_config; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.authenticator_config (
+    id character varying(36) NOT NULL,
+    alias character varying(255),
+    realm_id character varying(36)
+);
+
+
+--
+-- Name: authenticator_config_entry; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.authenticator_config_entry (
+    authenticator_id character varying(36) NOT NULL,
+    value text,
+    name character varying(255) NOT NULL
+);
+
+
+--
+-- Name: broker_link; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.broker_link (
+    identity_provider character varying(255) NOT NULL,
+    storage_provider_id character varying(255),
+    realm_id character varying(36) NOT NULL,
+    broker_user_id character varying(255),
+    broker_username character varying(255),
+    token text,
+    user_id character varying(255) NOT NULL
+);
+
+
+--
+-- Name: client; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.client (
+    id character varying(36) NOT NULL,
+    enabled boolean DEFAULT false NOT NULL,
+    full_scope_allowed boolean DEFAULT false NOT NULL,
+    client_id character varying(255),
+    not_before integer,
+    public_client boolean DEFAULT false NOT NULL,
+    secret character varying(255),
+    base_url character varying(255),
+    bearer_only boolean DEFAULT false NOT NULL,
+    management_url character varying(255),
+    surrogate_auth_required boolean DEFAULT false NOT NULL,
+    realm_id character varying(36),
+    protocol character varying(255),
+    node_rereg_timeout integer DEFAULT 0,
+    frontchannel_logout boolean DEFAULT false NOT NULL,
+    consent_required boolean DEFAULT false NOT NULL,
+    name character varying(255),
+    service_accounts_enabled boolean DEFAULT false NOT NULL,
+    client_authenticator_type character varying(255),
+    root_url character varying(255),
+    description character varying(255),
+    registration_token character varying(255),
+    standard_flow_enabled boolean DEFAULT true NOT NULL,
+    implicit_flow_enabled boolean DEFAULT false NOT NULL,
+    direct_access_grants_enabled boolean DEFAULT false NOT NULL,
+    always_display_in_console boolean DEFAULT false NOT NULL
+);
+
+
+--
+-- Name: client_attributes; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.client_attributes (
+    client_id character varying(36) NOT NULL,
+    name character varying(255) NOT NULL,
+    value text
+);
+
+
+--
+-- Name: client_auth_flow_bindings; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.client_auth_flow_bindings (
+    client_id character varying(36) NOT NULL,
+    flow_id character varying(36),
+    binding_name character varying(255) NOT NULL
+);
+
+
+--
+-- Name: client_initial_access; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.client_initial_access (
+    id character varying(36) NOT NULL,
+    realm_id character varying(36) NOT NULL,
+    "timestamp" integer,
+    expiration integer,
+    count integer,
+    remaining_count integer
+);
+
+
+--
+-- Name: client_node_registrations; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.client_node_registrations (
+    client_id character varying(36) NOT NULL,
+    value integer,
+    name character varying(255) NOT NULL
+);
+
+
+--
+-- Name: client_scope; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.client_scope (
+    id character varying(36) NOT NULL,
+    name character varying(255),
+    realm_id character varying(36),
+    description character varying(255),
+    protocol character varying(255)
+);
+
+
+--
+-- Name: client_scope_attributes; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.client_scope_attributes (
+    scope_id character varying(36) NOT NULL,
+    value character varying(2048),
+    name character varying(255) NOT NULL
+);
+
+
+--
+-- Name: client_scope_client; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.client_scope_client (
+    client_id character varying(255) NOT NULL,
+    scope_id character varying(255) NOT NULL,
+    default_scope boolean DEFAULT false NOT NULL
+);
+
+
+--
+-- Name: client_scope_role_mapping; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.client_scope_role_mapping (
+    scope_id character varying(36) NOT NULL,
+    role_id character varying(36) NOT NULL
+);
+
+
+--
+-- Name: component; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.component (
+    id character varying(36) NOT NULL,
+    name character varying(255),
+    parent_id character varying(36),
+    provider_id character varying(36),
+    provider_type character varying(255),
+    realm_id character varying(36),
+    sub_type character varying(255)
+);
+
+
+--
+-- Name: component_config; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.component_config (
+    id character varying(36) NOT NULL,
+    component_id character varying(36) NOT NULL,
+    name character varying(255) NOT NULL,
+    value text
+);
+
+
+--
+-- Name: composite_role; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.composite_role (
+    composite character varying(36) NOT NULL,
+    child_role character varying(36) NOT NULL
+);
+
+
+--
+-- Name: credential; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.credential (
+    id character varying(36) NOT NULL,
+    salt bytea,
+    type character varying(255),
+    user_id character varying(36),
+    created_date bigint,
+    user_label character varying(255),
+    secret_data text,
+    credential_data text,
+    priority integer,
+    version integer DEFAULT 0
+);
+
+
+--
+-- Name: databasechangelog; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.databasechangelog (
+    id character varying(255) NOT NULL,
+    author character varying(255) NOT NULL,
+    filename character varying(255) NOT NULL,
+    dateexecuted timestamp without time zone NOT NULL,
+    orderexecuted integer NOT NULL,
+    exectype character varying(10) NOT NULL,
+    md5sum character varying(35),
+    description character varying(255),
+    comments character varying(255),
+    tag character varying(255),
+    liquibase character varying(20),
+    contexts character varying(255),
+    labels character varying(255),
+    deployment_id character varying(10)
+);
+
+
+--
+-- Name: databasechangeloglock; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.databasechangeloglock (
+    id integer NOT NULL,
+    locked boolean NOT NULL,
+    lockgranted timestamp without time zone,
+    lockedby character varying(255)
+);
+
+
+--
+-- Name: default_client_scope; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.default_client_scope (
+    realm_id character varying(36) NOT NULL,
+    scope_id character varying(36) NOT NULL,
+    default_scope boolean DEFAULT false NOT NULL
+);
+
+
+--
+-- Name: event_entity; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.event_entity (
+    id character varying(36) NOT NULL,
+    client_id character varying(255),
+    details_json character varying(2550),
+    error character varying(255),
+    ip_address character varying(255),
+    realm_id character varying(255),
+    session_id character varying(255),
+    event_time bigint,
+    type character varying(255),
+    user_id character varying(255),
+    details_json_long_value text
+);
+
+
+--
+-- Name: fed_user_attribute; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.fed_user_attribute (
+    id character varying(36) NOT NULL,
+    name character varying(255) NOT NULL,
+    user_id character varying(255) NOT NULL,
+    realm_id character varying(36) NOT NULL,
+    storage_provider_id character varying(36),
+    value character varying(2024),
+    long_value_hash bytea,
+    long_value_hash_lower_case bytea,
+    long_value text
+);
+
+
+--
+-- Name: fed_user_consent; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.fed_user_consent (
+    id character varying(36) NOT NULL,
+    client_id character varying(255),
+    user_id character varying(255) NOT NULL,
+    realm_id character varying(36) NOT NULL,
+    storage_provider_id character varying(36),
+    created_date bigint,
+    last_updated_date bigint,
+    client_storage_provider character varying(36),
+    external_client_id character varying(255)
+);
+
+
+--
+-- Name: fed_user_consent_cl_scope; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.fed_user_consent_cl_scope (
+    user_consent_id character varying(36) NOT NULL,
+    scope_id character varying(36) NOT NULL
+);
+
+
+--
+-- Name: fed_user_credential; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.fed_user_credential (
+    id character varying(36) NOT NULL,
+    salt bytea,
+    type character varying(255),
+    created_date bigint,
+    user_id character varying(255) NOT NULL,
+    realm_id character varying(36) NOT NULL,
+    storage_provider_id character varying(36),
+    user_label character varying(255),
+    secret_data text,
+    credential_data text,
+    priority integer
+);
+
+
+--
+-- Name: fed_user_group_membership; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.fed_user_group_membership (
+    group_id character varying(36) NOT NULL,
+    user_id character varying(255) NOT NULL,
+    realm_id character varying(36) NOT NULL,
+    storage_provider_id character varying(36)
+);
+
+
+--
+-- Name: fed_user_required_action; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.fed_user_required_action (
+    required_action character varying(255) DEFAULT ' '::character varying NOT NULL,
+    user_id character varying(255) NOT NULL,
+    realm_id character varying(36) NOT NULL,
+    storage_provider_id character varying(36)
+);
+
+
+--
+-- Name: fed_user_role_mapping; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.fed_user_role_mapping (
+    role_id character varying(36) NOT NULL,
+    user_id character varying(255) NOT NULL,
+    realm_id character varying(36) NOT NULL,
+    storage_provider_id character varying(36)
+);
+
+
+--
+-- Name: federated_identity; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.federated_identity (
+    identity_provider character varying(255) NOT NULL,
+    realm_id character varying(36),
+    federated_user_id character varying(255),
+    federated_username character varying(255),
+    token text,
+    user_id character varying(36) NOT NULL
+);
+
+
+--
+-- Name: federated_user; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.federated_user (
+    id character varying(255) NOT NULL,
+    storage_provider_id character varying(255),
+    realm_id character varying(36) NOT NULL
+);
+
+
+--
+-- Name: group_attribute; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.group_attribute (
+    id character varying(36) DEFAULT 'sybase-needs-something-here'::character varying NOT NULL,
+    name character varying(255) NOT NULL,
+    value character varying(255),
+    group_id character varying(36) NOT NULL
+);
+
+
+--
+-- Name: group_role_mapping; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.group_role_mapping (
+    role_id character varying(36) NOT NULL,
+    group_id character varying(36) NOT NULL
+);
+
+
+--
+-- Name: identity_provider; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.identity_provider (
+    internal_id character varying(36) NOT NULL,
+    enabled boolean DEFAULT false NOT NULL,
+    provider_alias character varying(255),
+    provider_id character varying(255),
+    store_token boolean DEFAULT false NOT NULL,
+    authenticate_by_default boolean DEFAULT false NOT NULL,
+    realm_id character varying(36),
+    add_token_role boolean DEFAULT true NOT NULL,
+    trust_email boolean DEFAULT false NOT NULL,
+    first_broker_login_flow_id character varying(36),
+    post_broker_login_flow_id character varying(36),
+    provider_display_name character varying(255),
+    link_only boolean DEFAULT false NOT NULL,
+    organization_id character varying(255),
+    hide_on_login boolean DEFAULT false
+);
+
+
+--
+-- Name: identity_provider_config; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.identity_provider_config (
+    identity_provider_id character varying(36) NOT NULL,
+    value text,
+    name character varying(255) NOT NULL
+);
+
+
+--
+-- Name: identity_provider_mapper; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.identity_provider_mapper (
+    id character varying(36) NOT NULL,
+    name character varying(255) NOT NULL,
+    idp_alias character varying(255) NOT NULL,
+    idp_mapper_name character varying(255) NOT NULL,
+    realm_id character varying(36) NOT NULL
+);
+
+
+--
+-- Name: idp_mapper_config; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.idp_mapper_config (
+    idp_mapper_id character varying(36) NOT NULL,
+    value text,
+    name character varying(255) NOT NULL
+);
+
+
+--
+-- Name: jgroups_ping; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.jgroups_ping (
+    address character varying(200) NOT NULL,
+    name character varying(200),
+    cluster_name character varying(200) NOT NULL,
+    ip character varying(200) NOT NULL,
+    coord boolean
+);
+
+
+--
+-- Name: keycloak_group; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.keycloak_group (
+    id character varying(36) NOT NULL,
+    name character varying(255),
+    parent_group character varying(36) NOT NULL,
+    realm_id character varying(36),
+    type integer DEFAULT 0 NOT NULL
+);
+
+
+--
+-- Name: keycloak_role; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.keycloak_role (
+    id character varying(36) NOT NULL,
+    client_realm_constraint character varying(255),
+    client_role boolean DEFAULT false NOT NULL,
+    description character varying(255),
+    name character varying(255),
+    realm_id character varying(255),
+    client character varying(36),
+    realm character varying(36)
+);
+
+
+--
+-- Name: migration_model; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.migration_model (
+    id character varying(36) NOT NULL,
+    version character varying(36),
+    update_time bigint DEFAULT 0 NOT NULL
+);
+
+
+--
+-- Name: offline_client_session; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.offline_client_session (
+    user_session_id character varying(36) NOT NULL,
+    client_id character varying(255) NOT NULL,
+    offline_flag character varying(4) NOT NULL,
+    "timestamp" integer,
+    data text,
+    client_storage_provider character varying(36) DEFAULT 'local'::character varying NOT NULL,
+    external_client_id character varying(255) DEFAULT 'local'::character varying NOT NULL,
+    version integer DEFAULT 0
+);
+
+
+--
+-- Name: offline_user_session; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.offline_user_session (
+    user_session_id character varying(36) NOT NULL,
+    user_id character varying(255) NOT NULL,
+    realm_id character varying(36) NOT NULL,
+    created_on integer NOT NULL,
+    offline_flag character varying(4) NOT NULL,
+    data text,
+    last_session_refresh integer DEFAULT 0 NOT NULL,
+    broker_session_id character varying(1024),
+    version integer DEFAULT 0
+);
+
+
+--
+-- Name: org; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.org (
+    id character varying(255) NOT NULL,
+    enabled boolean NOT NULL,
+    realm_id character varying(255) NOT NULL,
+    group_id character varying(255) NOT NULL,
+    name character varying(255) NOT NULL,
+    description character varying(4000),
+    alias character varying(255) NOT NULL,
+    redirect_url character varying(2048)
+);
+
+
+--
+-- Name: org_domain; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.org_domain (
+    id character varying(36) NOT NULL,
+    name character varying(255) NOT NULL,
+    verified boolean NOT NULL,
+    org_id character varying(255) NOT NULL
+);
+
+
+--
+-- Name: policy_config; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.policy_config (
+    policy_id character varying(36) NOT NULL,
+    name character varying(255) NOT NULL,
+    value text
+);
+
+
+--
+-- Name: protocol_mapper; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.protocol_mapper (
+    id character varying(36) NOT NULL,
+    name character varying(255) NOT NULL,
+    protocol character varying(255) NOT NULL,
+    protocol_mapper_name character varying(255) NOT NULL,
+    client_id character varying(36),
+    client_scope_id character varying(36)
+);
+
+
+--
+-- Name: protocol_mapper_config; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.protocol_mapper_config (
+    protocol_mapper_id character varying(36) NOT NULL,
+    value text,
+    name character varying(255) NOT NULL
+);
+
+
+--
+-- Name: realm; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.realm (
+    id character varying(36) NOT NULL,
+    access_code_lifespan integer,
+    user_action_lifespan integer,
+    access_token_lifespan integer,
+    account_theme character varying(255),
+    admin_theme character varying(255),
+    email_theme character varying(255),
+    enabled boolean DEFAULT false NOT NULL,
+    events_enabled boolean DEFAULT false NOT NULL,
+    events_expiration bigint,
+    login_theme character varying(255),
+    name character varying(255),
+    not_before integer,
+    password_policy character varying(2550),
+    registration_allowed boolean DEFAULT false NOT NULL,
+    remember_me boolean DEFAULT false NOT NULL,
+    reset_password_allowed boolean DEFAULT false NOT NULL,
+    social boolean DEFAULT false NOT NULL,
+    ssl_required character varying(255),
+    sso_idle_timeout integer,
+    sso_max_lifespan integer,
+    update_profile_on_soc_login boolean DEFAULT false NOT NULL,
+    verify_email boolean DEFAULT false NOT NULL,
+    master_admin_client character varying(36),
+    login_lifespan integer,
+    internationalization_enabled boolean DEFAULT false NOT NULL,
+    default_locale character varying(255),
+    reg_email_as_username boolean DEFAULT false NOT NULL,
+    admin_events_enabled boolean DEFAULT false NOT NULL,
+    admin_events_details_enabled boolean DEFAULT false NOT NULL,
+    edit_username_allowed boolean DEFAULT false NOT NULL,
+    otp_policy_counter integer DEFAULT 0,
+    otp_policy_window integer DEFAULT 1,
+    otp_policy_period integer DEFAULT 30,
+    otp_policy_digits integer DEFAULT 6,
+    otp_policy_alg character varying(36) DEFAULT 'HmacSHA1'::character varying,
+    otp_policy_type character varying(36) DEFAULT 'totp'::character varying,
+    browser_flow character varying(36),
+    registration_flow character varying(36),
+    direct_grant_flow character varying(36),
+    reset_credentials_flow character varying(36),
+    client_auth_flow character varying(36),
+    offline_session_idle_timeout integer DEFAULT 0,
+    revoke_refresh_token boolean DEFAULT false NOT NULL,
+    access_token_life_implicit integer DEFAULT 0,
+    login_with_email_allowed boolean DEFAULT true NOT NULL,
+    duplicate_emails_allowed boolean DEFAULT false NOT NULL,
+    docker_auth_flow character varying(36),
+    refresh_token_max_reuse integer DEFAULT 0,
+    allow_user_managed_access boolean DEFAULT false NOT NULL,
+    sso_max_lifespan_remember_me integer DEFAULT 0 NOT NULL,
+    sso_idle_timeout_remember_me integer DEFAULT 0 NOT NULL,
+    default_role character varying(255)
+);
+
+
+--
+-- Name: realm_attribute; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.realm_attribute (
+    name character varying(255) NOT NULL,
+    realm_id character varying(36) NOT NULL,
+    value text
+);
+
+
+--
+-- Name: realm_default_groups; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.realm_default_groups (
+    realm_id character varying(36) NOT NULL,
+    group_id character varying(36) NOT NULL
+);
+
+
+--
+-- Name: realm_enabled_event_types; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.realm_enabled_event_types (
+    realm_id character varying(36) NOT NULL,
+    value character varying(255) NOT NULL
+);
+
+
+--
+-- Name: realm_events_listeners; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.realm_events_listeners (
+    realm_id character varying(36) NOT NULL,
+    value character varying(255) NOT NULL
+);
+
+
+--
+-- Name: realm_localizations; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.realm_localizations (
+    realm_id character varying(255) NOT NULL,
+    locale character varying(255) NOT NULL,
+    texts text NOT NULL
+);
+
+
+--
+-- Name: realm_required_credential; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.realm_required_credential (
+    type character varying(255) NOT NULL,
+    form_label character varying(255),
+    input boolean DEFAULT false NOT NULL,
+    secret boolean DEFAULT false NOT NULL,
+    realm_id character varying(36) NOT NULL
+);
+
+
+--
+-- Name: realm_smtp_config; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.realm_smtp_config (
+    realm_id character varying(36) NOT NULL,
+    value character varying(255),
+    name character varying(255) NOT NULL
+);
+
+
+--
+-- Name: realm_supported_locales; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.realm_supported_locales (
+    realm_id character varying(36) NOT NULL,
+    value character varying(255) NOT NULL
+);
+
+
+--
+-- Name: redirect_uris; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.redirect_uris (
+    client_id character varying(36) NOT NULL,
+    value character varying(255) NOT NULL
+);
+
+
+--
+-- Name: required_action_config; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.required_action_config (
+    required_action_id character varying(36) NOT NULL,
+    value text,
+    name character varying(255) NOT NULL
+);
+
+
+--
+-- Name: required_action_provider; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.required_action_provider (
+    id character varying(36) NOT NULL,
+    alias character varying(255),
+    name character varying(255),
+    realm_id character varying(36),
+    enabled boolean DEFAULT false NOT NULL,
+    default_action boolean DEFAULT false NOT NULL,
+    provider_id character varying(255),
+    priority integer
+);
+
+
+--
+-- Name: resource_attribute; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.resource_attribute (
+    id character varying(36) DEFAULT 'sybase-needs-something-here'::character varying NOT NULL,
+    name character varying(255) NOT NULL,
+    value character varying(255),
+    resource_id character varying(36) NOT NULL
+);
+
+
+--
+-- Name: resource_policy; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.resource_policy (
+    resource_id character varying(36) NOT NULL,
+    policy_id character varying(36) NOT NULL
+);
+
+
+--
+-- Name: resource_scope; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.resource_scope (
+    resource_id character varying(36) NOT NULL,
+    scope_id character varying(36) NOT NULL
+);
+
+
+--
+-- Name: resource_server; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.resource_server (
+    id character varying(36) NOT NULL,
+    allow_rs_remote_mgmt boolean DEFAULT false NOT NULL,
+    policy_enforce_mode smallint NOT NULL,
+    decision_strategy smallint DEFAULT 1 NOT NULL
+);
+
+
+--
+-- Name: resource_server_perm_ticket; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.resource_server_perm_ticket (
+    id character varying(36) NOT NULL,
+    owner character varying(255) NOT NULL,
+    requester character varying(255) NOT NULL,
+    created_timestamp bigint NOT NULL,
+    granted_timestamp bigint,
+    resource_id character varying(36) NOT NULL,
+    scope_id character varying(36),
+    resource_server_id character varying(36) NOT NULL,
+    policy_id character varying(36)
+);
+
+
+--
+-- Name: resource_server_policy; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.resource_server_policy (
+    id character varying(36) NOT NULL,
+    name character varying(255) NOT NULL,
+    description character varying(255),
+    type character varying(255) NOT NULL,
+    decision_strategy smallint,
+    logic smallint,
+    resource_server_id character varying(36) NOT NULL,
+    owner character varying(255)
+);
+
+
+--
+-- Name: resource_server_resource; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.resource_server_resource (
+    id character varying(36) NOT NULL,
+    name character varying(255) NOT NULL,
+    type character varying(255),
+    icon_uri character varying(255),
+    owner character varying(255) NOT NULL,
+    resource_server_id character varying(36) NOT NULL,
+    owner_managed_access boolean DEFAULT false NOT NULL,
+    display_name character varying(255)
+);
+
+
+--
+-- Name: resource_server_scope; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.resource_server_scope (
+    id character varying(36) NOT NULL,
+    name character varying(255) NOT NULL,
+    icon_uri character varying(255),
+    resource_server_id character varying(36) NOT NULL,
+    display_name character varying(255)
+);
+
+
+--
+-- Name: resource_uris; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.resource_uris (
+    resource_id character varying(36) NOT NULL,
+    value character varying(255) NOT NULL
+);
+
+
+--
+-- Name: revoked_token; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.revoked_token (
+    id character varying(255) NOT NULL,
+    expire bigint NOT NULL
+);
+
+
+--
+-- Name: role_attribute; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.role_attribute (
+    id character varying(36) NOT NULL,
+    role_id character varying(36) NOT NULL,
+    name character varying(255) NOT NULL,
+    value character varying(255)
+);
+
+
+--
+-- Name: scope_mapping; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.scope_mapping (
+    client_id character varying(36) NOT NULL,
+    role_id character varying(36) NOT NULL
+);
+
+
+--
+-- Name: scope_policy; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.scope_policy (
+    scope_id character varying(36) NOT NULL,
+    policy_id character varying(36) NOT NULL
+);
+
+
+--
+-- Name: server_config; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.server_config (
+    server_config_key character varying(255) NOT NULL,
+    value text NOT NULL,
+    version integer DEFAULT 0
+);
+
+
+--
+-- Name: user_attribute; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.user_attribute (
+    name character varying(255) NOT NULL,
+    value character varying(255),
+    user_id character varying(36) NOT NULL,
+    id character varying(36) DEFAULT 'sybase-needs-something-here'::character varying NOT NULL,
+    long_value_hash bytea,
+    long_value_hash_lower_case bytea,
+    long_value text
+);
+
+
+--
+-- Name: user_consent; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.user_consent (
+    id character varying(36) NOT NULL,
+    client_id character varying(255),
+    user_id character varying(36) NOT NULL,
+    created_date bigint,
+    last_updated_date bigint,
+    client_storage_provider character varying(36),
+    external_client_id character varying(255)
+);
+
+
+--
+-- Name: user_consent_client_scope; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.user_consent_client_scope (
+    user_consent_id character varying(36) NOT NULL,
+    scope_id character varying(36) NOT NULL
+);
+
+
+--
+-- Name: user_entity; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.user_entity (
+    id character varying(36) NOT NULL,
+    email character varying(255),
+    email_constraint character varying(255),
+    email_verified boolean DEFAULT false NOT NULL,
+    enabled boolean DEFAULT false NOT NULL,
+    federation_link character varying(255),
+    first_name character varying(255),
+    last_name character varying(255),
+    realm_id character varying(255),
+    username character varying(255),
+    created_timestamp bigint,
+    service_account_client_link character varying(255),
+    not_before integer DEFAULT 0 NOT NULL
+);
+
+
+--
+-- Name: user_federation_config; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.user_federation_config (
+    user_federation_provider_id character varying(36) NOT NULL,
+    value character varying(255),
+    name character varying(255) NOT NULL
+);
+
+
+--
+-- Name: user_federation_mapper; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.user_federation_mapper (
+    id character varying(36) NOT NULL,
+    name character varying(255) NOT NULL,
+    federation_provider_id character varying(36) NOT NULL,
+    federation_mapper_type character varying(255) NOT NULL,
+    realm_id character varying(36) NOT NULL
+);
+
+
+--
+-- Name: user_federation_mapper_config; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.user_federation_mapper_config (
+    user_federation_mapper_id character varying(36) NOT NULL,
+    value character varying(255),
+    name character varying(255) NOT NULL
+);
+
+
+--
+-- Name: user_federation_provider; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.user_federation_provider (
+    id character varying(36) NOT NULL,
+    changed_sync_period integer,
+    display_name character varying(255),
+    full_sync_period integer,
+    last_sync integer,
+    priority integer,
+    provider_name character varying(255),
+    realm_id character varying(36)
+);
+
+
+--
+-- Name: user_group_membership; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.user_group_membership (
+    group_id character varying(36) NOT NULL,
+    user_id character varying(36) NOT NULL,
+    membership_type character varying(255) NOT NULL
+);
+
+
+--
+-- Name: user_required_action; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.user_required_action (
+    user_id character varying(36) NOT NULL,
+    required_action character varying(255) DEFAULT ' '::character varying NOT NULL
+);
+
+
+--
+-- Name: user_role_mapping; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.user_role_mapping (
+    role_id character varying(255) NOT NULL,
+    user_id character varying(36) NOT NULL
+);
+
+
+--
+-- Name: web_origins; Type: TABLE; Schema: keycloak; Owner: -
+--
+
+CREATE TABLE keycloak.web_origins (
+    client_id character varying(36) NOT NULL,
+    value character varying(255) NOT NULL
+);
+
+
+--
+-- Name: ACTION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."ACTION" (
+    "ACTION_ID" integer NOT NULL,
+    "NAME" character varying(50),
+    "DESCRIPTION" character varying(1000),
+    "SUCCESS_MESSAGE" character varying(1000),
+    "ERROR_MESSAGE" character varying(1000),
+    "EXECUTE_ALWAYS" smallint NOT NULL,
+    "SORT" integer NOT NULL,
+    "AVAILABLE_ACTION_ID" character varying(25) NOT NULL,
+    "BUTTON_ID" integer NOT NULL,
+    CONSTRAINT "ACTION_EXECUTE_ALWAYS_check" CHECK (("EXECUTE_ALWAYS" >= 0))
+);
+
+
+--
+-- Name: ACTION_ACTION_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."ACTION" ALTER COLUMN "ACTION_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."ACTION_ACTION_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: ACTION_CASE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."ACTION_CASE" (
+    "ACTION_ID" integer NOT NULL,
+    "PROCESS_TYPE" character varying(10) NOT NULL
+);
+
+
+--
+-- Name: ACTION_NOTIFICATION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."ACTION_NOTIFICATION" (
+    "ACTION_ID" integer NOT NULL,
+    "RECIPIENT_TYPE" character varying(160) NOT NULL,
+    "PROCESSOR" character varying(160) NOT NULL,
+    "TEMPLATE_ID" character varying(100) NOT NULL
+);
+
+
+--
+-- Name: ACTION_T; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."ACTION_T" (
+    id integer NOT NULL,
+    "LANGUAGE" character varying(2) NOT NULL,
+    "NAME" character varying(50),
+    "DESCRIPTION" character varying(1000),
+    "SUCCESS_MESSAGE" character varying(1000),
+    "ERROR_MESSAGE" character varying(1000),
+    "ACTION_ID" integer NOT NULL
+);
+
+
+--
+-- Name: ACTION_T_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."ACTION_T" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."ACTION_T_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: ACTION_WORKITEM; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."ACTION_WORKITEM" (
+    "ACTION_ID" integer NOT NULL,
+    "PROCESS_TYPE" character varying(10) NOT NULL,
+    "PROCESS_ALL" boolean DEFAULT false NOT NULL,
+    "TASKS" character varying(255)[] DEFAULT '{}'::character varying[] NOT NULL,
+    "FAIL_ON_EMPTY" boolean DEFAULT false NOT NULL
+);
+
+
+--
+-- Name: ACTIVATION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."ACTIVATION" (
+    "ACTIVATION_ID" integer NOT NULL,
+    "START_DATE" timestamp with time zone NOT NULL,
+    "DEADLINE_DATE" timestamp with time zone NOT NULL,
+    "SUSPENSION_DATE" timestamp with time zone,
+    "END_DATE" timestamp with time zone,
+    "VERSION" integer NOT NULL,
+    "REASON" character varying(4000),
+    "EMAIL_SENT" smallint DEFAULT 1 NOT NULL,
+    "ACTIVATION_PARENT_ID" integer,
+    "CIRCULATION_ID" integer NOT NULL,
+    "CIRCULATION_ANSWER_ID" integer,
+    "CIRCULATION_STATE_ID" integer NOT NULL,
+    "SERVICE_ID" integer NOT NULL,
+    "SERVICE_PARENT_ID" integer NOT NULL,
+    "USER_ID" integer,
+    ech_msg_created boolean DEFAULT false NOT NULL,
+    CONSTRAINT "ACTIVATION_EMAIL_SENT_check" CHECK (("EMAIL_SENT" >= 0))
+);
+
+
+--
+-- Name: ACTIVATION_ACTIVATION_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."ACTIVATION" ALTER COLUMN "ACTIVATION_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."ACTIVATION_ACTIVATION_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: ACTIVATION_ANSWER; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."ACTIVATION_ANSWER" (
+    id integer NOT NULL,
+    "ITEM" integer NOT NULL,
+    "ANSWER" character varying(4000) NOT NULL,
+    "ACTIVATION_ID" integer NOT NULL,
+    "CHAPTER_ID" integer NOT NULL,
+    "QUESTION_ID" integer NOT NULL
+);
+
+
+--
+-- Name: ACTIVATION_ANSWER_LOG; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."ACTIVATION_ANSWER_LOG" (
+    "ACTIVATION_ANSWER_LOG_ID" integer NOT NULL,
+    "MODIFICATION_DATE" timestamp with time zone NOT NULL,
+    "USER_ID" integer NOT NULL,
+    "ACTION" character varying(500) NOT NULL,
+    "DATA" text NOT NULL,
+    "ID1" integer NOT NULL,
+    "FIELD1" character varying(30) NOT NULL,
+    "ID2" integer NOT NULL,
+    "FIELD2" character varying(30) NOT NULL,
+    "ID3" integer NOT NULL,
+    "FIELD3" character varying(30) NOT NULL,
+    "ID4" integer NOT NULL,
+    "FIELD4" character varying(30) NOT NULL
+);
+
+
+--
+-- Name: ACTIVATION_ANSWER_LOG_ACTIVATION_ANSWER_LOG_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."ACTIVATION_ANSWER_LOG" ALTER COLUMN "ACTIVATION_ANSWER_LOG_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."ACTIVATION_ANSWER_LOG_ACTIVATION_ANSWER_LOG_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: ACTIVATION_ANSWER_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."ACTIVATION_ANSWER" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."ACTIVATION_ANSWER_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: ACTIVATION_CALLBACK_EXCLUDE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."ACTIVATION_CALLBACK_EXCLUDE" (
+    "ACTIVATION_CALLBACK_EXCLUDE_ID" integer NOT NULL,
+    "SERVICE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: ACTIVATION_CALLBACK_EXCLUDE_ACTIVATION_CALLBACK_EXCLUDE_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."ACTIVATION_CALLBACK_EXCLUDE" ALTER COLUMN "ACTIVATION_CALLBACK_EXCLUDE_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."ACTIVATION_CALLBACK_EXCLUDE_ACTIVATION_CALLBACK_EXCLUDE_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: ACTIVATION_CALLBACK_NOTICE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."ACTIVATION_CALLBACK_NOTICE" (
+    "ACTIVATION_CALLBACK_NOTICE_ID" integer NOT NULL,
+    "ACTIVATION_ID" integer NOT NULL,
+    "CIRCULATION_ID" integer NOT NULL,
+    "SEND_DATE" timestamp with time zone NOT NULL,
+    "REASON" text NOT NULL
+);
+
+
+--
+-- Name: ACTIVATION_CALLBACK_NOTICE_ACTIVATION_CALLBACK_NOTICE_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."ACTIVATION_CALLBACK_NOTICE" ALTER COLUMN "ACTIVATION_CALLBACK_NOTICE_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."ACTIVATION_CALLBACK_NOTICE_ACTIVATION_CALLBACK_NOTICE_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: ACTIVATION_LOG; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."ACTIVATION_LOG" (
+    "ACTIVATION_LOG_ID" integer NOT NULL,
+    "ID" integer NOT NULL,
+    "USER_ID" integer NOT NULL,
+    "ACTION" character varying(500) NOT NULL,
+    "DATA" text,
+    "MODIFICATION_DATE" timestamp with time zone NOT NULL
+);
+
+
+--
+-- Name: ACTIVATION_LOG_ACTIVATION_LOG_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."ACTIVATION_LOG" ALTER COLUMN "ACTIVATION_LOG_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."ACTIVATION_LOG_ACTIVATION_LOG_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: AIR_ACTION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."AIR_ACTION" (
+    "ID" integer NOT NULL,
+    "ACTION_NAME" character varying(50) NOT NULL,
+    "HIDDEN" smallint NOT NULL,
+    "AVAILABLE_INSTANCE_RESOURCE_ID" character varying(25) NOT NULL,
+    CONSTRAINT "AIR_ACTION_HIDDEN_check" CHECK (("HIDDEN" >= 0))
+);
+
+
+--
+-- Name: AIR_ACTION_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."AIR_ACTION" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."AIR_ACTION_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: ANSWER; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."ANSWER" (
+    "ID" integer NOT NULL,
+    "ITEM" integer NOT NULL,
+    "ANSWER" text NOT NULL,
+    "CHAPTER_ID" integer NOT NULL,
+    "INSTANCE_ID" integer NOT NULL,
+    "QUESTION_ID" integer NOT NULL
+);
+
+
+--
+-- Name: ANSWER_DOK_NR; Type: VIEW; Schema: public; Owner: -
+--
+
+CREATE VIEW public."ANSWER_DOK_NR" AS
+ SELECT "ANSWER"."ANSWER",
+    "ANSWER"."INSTANCE_ID"
+   FROM public."ANSWER"
+  WHERE (("ANSWER"."QUESTION_ID" = 6) AND ("ANSWER"."CHAPTER_ID" = 2) AND ("ANSWER"."ITEM" = 1));
+
+
+--
+-- Name: ANSWER_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."ANSWER" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."ANSWER_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: ANSWER_LIST; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."ANSWER_LIST" (
+    "ANSWER_LIST_ID" integer NOT NULL,
+    "VALUE" character varying(20) NOT NULL,
+    "NAME" character varying(1000),
+    "SORT" integer NOT NULL,
+    "QUESTION_ID" integer NOT NULL
+);
+
+
+--
+-- Name: ANSWER_LIST_ANSWER_LIST_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."ANSWER_LIST" ALTER COLUMN "ANSWER_LIST_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."ANSWER_LIST_ANSWER_LIST_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: ANSWER_LIST_T; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."ANSWER_LIST_T" (
+    id integer NOT NULL,
+    "LANGUAGE" character varying(2) NOT NULL,
+    "NAME" character varying(1000),
+    "ANSWER_LIST_ID" integer NOT NULL
+);
+
+
+--
+-- Name: ANSWER_LIST_T_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."ANSWER_LIST_T" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."ANSWER_LIST_T_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: ANSWER_LOG; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."ANSWER_LOG" (
+    "ANSWER_LOG_ID" integer NOT NULL,
+    "MODIFICATION_DATE" timestamp with time zone NOT NULL,
+    "USER_ID" integer NOT NULL,
+    "ACTION" character varying(500) NOT NULL,
+    "DATA" text,
+    "ID1" integer NOT NULL,
+    "FIELD1" character varying(30) NOT NULL,
+    "ID2" integer NOT NULL,
+    "FIELD2" character varying(30) NOT NULL,
+    "ID3" integer NOT NULL,
+    "FIELD3" character varying(30) NOT NULL,
+    "ID4" integer NOT NULL,
+    "FIELD4" character varying(30) NOT NULL
+);
+
+
+--
+-- Name: ANSWER_LOG_ANSWER_LOG_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."ANSWER_LOG" ALTER COLUMN "ANSWER_LOG_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."ANSWER_LOG_ANSWER_LOG_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: ANSWER_QUERY; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."ANSWER_QUERY" (
+    "ANSWER_QUERY_ID" integer NOT NULL,
+    "NAME" character varying(50) NOT NULL,
+    "QUERY" character varying(4000) NOT NULL
+);
+
+
+--
+-- Name: ANSWER_QUERY_ANSWER_QUERY_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."ANSWER_QUERY" ALTER COLUMN "ANSWER_QUERY_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."ANSWER_QUERY_ANSWER_QUERY_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: ANSWER_STREET_247; Type: VIEW; Schema: public; Owner: -
+--
+
+CREATE VIEW public."ANSWER_STREET_247" AS
+ SELECT "ANSWER"."ANSWER",
+    "ANSWER"."INSTANCE_ID"
+   FROM public."ANSWER"
+  WHERE (("ANSWER"."QUESTION_ID" = 93) AND ("ANSWER"."CHAPTER_ID" = 102) AND ("ANSWER"."ITEM" = 1));
+
+
+--
+-- Name: ANSWER_STREET_BG; Type: VIEW; Schema: public; Owner: -
+--
+
+CREATE VIEW public."ANSWER_STREET_BG" AS
+ SELECT "ANSWER"."ANSWER",
+    "ANSWER"."INSTANCE_ID"
+   FROM public."ANSWER"
+  WHERE (("ANSWER"."QUESTION_ID" = 93) AND ("ANSWER"."CHAPTER_ID" = 21) AND ("ANSWER"."ITEM" = 1));
+
+
+--
+-- Name: ANSWER_STREET_NP; Type: VIEW; Schema: public; Owner: -
+--
+
+CREATE VIEW public."ANSWER_STREET_NP" AS
+ SELECT "ANSWER"."ANSWER",
+    "ANSWER"."INSTANCE_ID"
+   FROM public."ANSWER"
+  WHERE (("ANSWER"."QUESTION_ID" = 93) AND ("ANSWER"."CHAPTER_ID" = 101) AND ("ANSWER"."ITEM" = 1));
+
+
+--
+-- Name: APPLICANTS; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."APPLICANTS" (
+    id integer NOT NULL,
+    "CREATED" timestamp with time zone NOT NULL,
+    "INSTANCE_ID" integer NOT NULL,
+    "APPLICANT_USER_ID" integer,
+    "USER_ID" integer NOT NULL,
+    email character varying(254) NOT NULL COLLATE public.case_insensitive,
+    role character varying(50) DEFAULT 'ADMIN'::character varying NOT NULL,
+    username character varying DEFAULT ''::character varying NOT NULL COLLATE public.case_insensitive
+);
+
+
+--
+-- Name: APPLICANTS_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."APPLICANTS" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."APPLICANTS_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: APPLICANT_DATA_VIEW; Type: VIEW; Schema: public; Owner: -
+--
+
+CREATE VIEW public."APPLICANT_DATA_VIEW" AS
+ SELECT "NAME_TBL"."ANSWER" AS "NAME",
+    "EMAIL_TBL"."ANSWER" AS "EMAIL",
+    "NAME_TBL"."INSTANCE_ID"
+   FROM (public."ANSWER" "NAME_TBL"
+     JOIN public."ANSWER" "EMAIL_TBL" ON ((("EMAIL_TBL"."CHAPTER_ID" = 1) AND ("EMAIL_TBL"."QUESTION_ID" = 66) AND ("EMAIL_TBL"."ITEM" = 1))))
+  WHERE (("NAME_TBL"."CHAPTER_ID" = 1) AND ("NAME_TBL"."QUESTION_ID" = 23) AND ("NAME_TBL"."ITEM" = 1) AND ("NAME_TBL"."INSTANCE_ID" = "EMAIL_TBL"."INSTANCE_ID"));
+
+
+--
+-- Name: INSTANCE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."INSTANCE" (
+    "INSTANCE_ID" integer NOT NULL,
+    "CREATION_DATE" timestamp with time zone NOT NULL,
+    "MODIFICATION_DATE" timestamp with time zone NOT NULL,
+    "IDENTIFIER" character varying(50),
+    "FORM_ID" integer NOT NULL,
+    "GROUP_ID" integer NOT NULL,
+    "INSTANCE_STATE_ID" integer NOT NULL,
+    "LOCATION_ID" integer,
+    "PREVIOUS_INSTANCE_STATE_ID" integer NOT NULL,
+    "USER_ID" integer NOT NULL,
+    case_id uuid,
+    instance_group_id integer,
+    rejection_feedback text,
+    copy_source_id integer
+);
+
+
+--
+-- Name: APPLICANT_VIEW; Type: VIEW; Schema: public; Owner: -
+--
+
+CREATE VIEW public."APPLICANT_VIEW" AS
+ SELECT "INSTANCE"."INSTANCE_ID",
+    ( SELECT string_agg("ANSWER"."ANSWER", ', '::text ORDER BY "ANSWER"."QUESTION_ID" DESC) AS string_agg
+           FROM public."ANSWER"
+          WHERE (("INSTANCE"."INSTANCE_ID" = "ANSWER"."INSTANCE_ID") AND (("ANSWER"."QUESTION_ID" = 23) OR ("ANSWER"."QUESTION_ID" = 221)) AND ("ANSWER"."CHAPTER_ID" = 1) AND ("ANSWER"."ITEM" = 1))) AS "APPLICANT"
+   FROM public."INSTANCE";
+
+
+--
+-- Name: ARCHIVE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."ARCHIVE" (
+    "ARCHIVE_ID" integer NOT NULL,
+    "IDENTIFIER" text NOT NULL,
+    "PATH" text NOT NULL,
+    "FIRST_DOWNLOAD" timestamp with time zone,
+    "CREATED" timestamp with time zone NOT NULL,
+    "ATTACHMENT_SECTION_ID" integer NOT NULL,
+    "INSTANCE_ID" integer NOT NULL,
+    "WORKFLOW_ITEM_ID" integer DEFAULT 87 NOT NULL
+);
+
+
+--
+-- Name: ARCHIVE_ARCHIVE_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."ARCHIVE" ALTER COLUMN "ARCHIVE_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."ARCHIVE_ARCHIVE_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: AR_ACTION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."AR_ACTION" (
+    "ID" integer NOT NULL,
+    "ACTION_NAME" character varying(50) NOT NULL,
+    "HIDDEN" smallint NOT NULL,
+    "AVAILABLE_RESOURCE_ID" character varying(25) NOT NULL,
+    CONSTRAINT "AR_ACTION_HIDDEN_check" CHECK (("HIDDEN" >= 0))
+);
+
+
+--
+-- Name: AR_ACTION_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."AR_ACTION" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."AR_ACTION_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: ATTACHMENT; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."ATTACHMENT" (
+    "ATTACHMENT_ID" integer NOT NULL,
+    "NAME" character varying(255) NOT NULL,
+    "PATH" character varying(1024) NOT NULL,
+    "SIZE" integer NOT NULL,
+    "DATE" timestamp with time zone DEFAULT '2025-11-19 07:40:01.182217+00'::timestamp with time zone NOT NULL,
+    "MIME_TYPE" character varying(255) NOT NULL,
+    "IS_PARCEL_PICTURE" integer DEFAULT 0 NOT NULL,
+    "DIGITAL_SIGNATURE" smallint DEFAULT 0 NOT NULL,
+    "IS_CONFIDENTIAL" smallint DEFAULT 0 NOT NULL,
+    "IDENTIFIER" character varying(255),
+    group_id integer,
+    "INSTANCE_ID" integer NOT NULL,
+    "SERVICE_ID" integer,
+    "USER_ID" integer NOT NULL,
+    "QUESTION" character varying(255),
+    context jsonb DEFAULT '{}'::jsonb NOT NULL,
+    uuid uuid DEFAULT public.uuid_generate_v4() NOT NULL,
+    CONSTRAINT "ATTACHMENT_DIGITAL_SIGNATURE_check" CHECK (("DIGITAL_SIGNATURE" >= 0)),
+    CONSTRAINT "ATTACHMENT_IS_CONFIDENTIAL_check" CHECK (("IS_CONFIDENTIAL" >= 0)),
+    CONSTRAINT "ATTACHMENT_IS_PARCEL_PICTURE_check" CHECK (("IS_PARCEL_PICTURE" >= 0))
+);
+
+
+--
+-- Name: ATTACHMENT_ATTACHMENT_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."ATTACHMENT" ALTER COLUMN "ATTACHMENT_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."ATTACHMENT_ATTACHMENT_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: ATTACHMENT_EXTENSION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."ATTACHMENT_EXTENSION" (
+    "ATTACHMENT_EXTENSION_ID" integer NOT NULL,
+    "NAME" character varying(10) NOT NULL
+);
+
+
+--
+-- Name: ATTACHMENT_EXTENSION_ATTACHMENT_EXTENSION_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."ATTACHMENT_EXTENSION" ALTER COLUMN "ATTACHMENT_EXTENSION_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."ATTACHMENT_EXTENSION_ATTACHMENT_EXTENSION_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: ATTACHMENT_EXTENSION_ROLE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."ATTACHMENT_EXTENSION_ROLE" (
+    "ID" integer NOT NULL,
+    "MODE" character varying(10),
+    "ATTACHMENT_EXTENSION_ID" integer NOT NULL,
+    "ROLE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: ATTACHMENT_EXTENSION_ROLE_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."ATTACHMENT_EXTENSION_ROLE" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."ATTACHMENT_EXTENSION_ROLE_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: ATTACHMENT_EXTENSION_SERVICE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."ATTACHMENT_EXTENSION_SERVICE" (
+    "ID" integer NOT NULL,
+    "MODE" character varying(10),
+    "ATTACHMENT_EXTENSION_ID" integer NOT NULL,
+    "SERVICE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: ATTACHMENT_EXTENSION_SERVICE_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."ATTACHMENT_EXTENSION_SERVICE" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."ATTACHMENT_EXTENSION_SERVICE_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: ATTACHMENT_SECTION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."ATTACHMENT_SECTION" (
+    "ATTACHMENT_SECTION_ID" integer NOT NULL,
+    "NAME" character varying(100) NOT NULL,
+    "SORT" integer DEFAULT 0 NOT NULL,
+    "NOTIFICATION_TEMPLATE_ID" integer,
+    recipient_types character varying(12)[],
+    allowed_mime_types character varying(255)[] DEFAULT '{image/png,image/jpeg,application/pdf}'::character varying[] NOT NULL,
+    "DESCRIPTION" character varying(2000)
+);
+
+
+--
+-- Name: ATTACHMENT_SECTION_ATTACHMENT_SECTION_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."ATTACHMENT_SECTION" ALTER COLUMN "ATTACHMENT_SECTION_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."ATTACHMENT_SECTION_ATTACHMENT_SECTION_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: ATTACHMENT_SECTION_T; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."ATTACHMENT_SECTION_T" (
+    id integer NOT NULL,
+    "LANGUAGE" character varying(2) NOT NULL,
+    "NAME" character varying(100),
+    "ATTACHMENT_SECTION_ID" integer NOT NULL,
+    "DESCRIPTION" character varying(2000)
+);
+
+
+--
+-- Name: ATTACHMENT_SECTION_T_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."ATTACHMENT_SECTION_T" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."ATTACHMENT_SECTION_T_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: ATTACHMENT_attachment_sections; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."ATTACHMENT_attachment_sections" (
+    id integer NOT NULL,
+    attachment_id integer NOT NULL,
+    attachmentsection_id integer NOT NULL
+);
+
+
+--
+-- Name: ATTACHMENT_attachment_sections_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."ATTACHMENT_attachment_sections" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."ATTACHMENT_attachment_sections_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: AUDIT_LOG; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."AUDIT_LOG" (
+    id integer NOT NULL,
+    "URL" text NOT NULL,
+    "METHOD" character varying(20) NOT NULL,
+    "DESCRIPTION" text NOT NULL,
+    "SYSTEM_INFO" jsonb NOT NULL,
+    "TIMESTAMP" timestamp with time zone DEFAULT '2025-11-19 07:41:30.276083+00'::timestamp with time zone NOT NULL,
+    "INSTANCE_ID" integer,
+    "USER_ID" integer NOT NULL
+);
+
+
+--
+-- Name: AUDIT_LOG_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."AUDIT_LOG" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."AUDIT_LOG_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: AUTHORITY; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."AUTHORITY" (
+    "AUTHORITY_ID" integer NOT NULL,
+    "NAME" character varying(128)
+);
+
+
+--
+-- Name: AUTHORITY_AUTHORITY_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."AUTHORITY" ALTER COLUMN "AUTHORITY_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."AUTHORITY_AUTHORITY_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: AUTHORITY_AUTHORITY_TYPE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."AUTHORITY_AUTHORITY_TYPE" (
+    "ID" integer NOT NULL,
+    "AUTHORITY_ID" integer NOT NULL,
+    "AUTHORITY_TYPE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: AUTHORITY_AUTHORITY_TYPE_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."AUTHORITY_AUTHORITY_TYPE" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."AUTHORITY_AUTHORITY_TYPE_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: AUTHORITY_LOCATION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."AUTHORITY_LOCATION" (
+    "ID" integer NOT NULL,
+    "AUTHORITY_ID" integer NOT NULL,
+    "LOCATION_ID" integer NOT NULL
+);
+
+
+--
+-- Name: AUTHORITY_LOCATION_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."AUTHORITY_LOCATION" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."AUTHORITY_LOCATION_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: AUTHORITY_TYPE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."AUTHORITY_TYPE" (
+    "AUTHORITY_TYPE_ID" integer NOT NULL,
+    "TAG" character varying(8) NOT NULL,
+    "NAME" character varying(128) NOT NULL
+);
+
+
+--
+-- Name: AUTHORITY_TYPE_AUTHORITY_TYPE_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."AUTHORITY_TYPE" ALTER COLUMN "AUTHORITY_TYPE_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."AUTHORITY_TYPE_AUTHORITY_TYPE_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: AVAILABLE_ACTION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."AVAILABLE_ACTION" (
+    "AVAILABLE_ACTION_ID" character varying(25) NOT NULL,
+    "MODULE_NAME" character varying(50) NOT NULL,
+    "DESCRIPTION" character varying(1000)
+);
+
+
+--
+-- Name: AVAILABLE_INSTANCE_RESOURCE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."AVAILABLE_INSTANCE_RESOURCE" (
+    "AVAILABLE_INSTANCE_RESOURCE_ID" character varying(25) NOT NULL,
+    "MODULE_NAME" character varying(50) NOT NULL,
+    "CONTROLLER_NAME" character varying(50) NOT NULL,
+    "DESCRIPTION" character varying(1000)
+);
+
+
+--
+-- Name: AVAILABLE_RESOURCE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."AVAILABLE_RESOURCE" (
+    "AVAILABLE_RESOURCE_ID" character varying(25) NOT NULL,
+    "MODULE_NAME" character varying(50) NOT NULL,
+    "CONTROLLER_NAME" character varying(50) NOT NULL,
+    "DESCRIPTION" character varying(1000)
+);
+
+
+--
+-- Name: A_CHECKQUERY; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."A_CHECKQUERY" (
+    "ACTION_ID" integer NOT NULL,
+    "QUERY" character varying(4000) NOT NULL
+);
+
+
+--
+-- Name: A_CIRCULATIONTRANSITION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."A_CIRCULATIONTRANSITION" (
+    "ACTION_ID" integer NOT NULL,
+    "CURRENT_CIRCULATION_STATE_ID" integer,
+    "NEXT_CIRCULATION_STATE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: A_CIRCULATION_EMAIL; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."A_CIRCULATION_EMAIL" (
+    "ACTION_ID" integer NOT NULL,
+    "SENDER_NAME" character varying(50) NOT NULL,
+    "SENDER_EMAIL" character varying(50) NOT NULL,
+    "TITLE" character varying(200) NOT NULL,
+    "TEXT" character varying(2000) NOT NULL
+);
+
+
+--
+-- Name: A_CIRCULATION_EMAIL_T; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."A_CIRCULATION_EMAIL_T" (
+    id integer NOT NULL,
+    "LANGUAGE" character varying(2) NOT NULL,
+    "TITLE" character varying(200),
+    "TEXT" character varying(2000),
+    "ACTION_ID" integer NOT NULL
+);
+
+
+--
+-- Name: A_CIRCULATION_EMAIL_T_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."A_CIRCULATION_EMAIL_T" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."A_CIRCULATION_EMAIL_T_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: A_COPYANSWER; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."A_COPYANSWER" (
+    "ACTION_ID" integer NOT NULL
+);
+
+
+--
+-- Name: A_COPYANSWER_MAPPING; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."A_COPYANSWER_MAPPING" (
+    "A_COPYANSWER_MAPPING_ID" integer NOT NULL,
+    "GET_NAME" smallint NOT NULL,
+    "DESTINATION_CHAPTER_ID" integer NOT NULL,
+    "DESTINATION_QUESTION_ID" integer NOT NULL,
+    "SOURCE_CHAPTER_ID" integer,
+    "SOURCE_QUESTION_ID" integer,
+    "ACTION_ID" integer NOT NULL,
+    CONSTRAINT "A_COPYANSWER_MAPPING_GET_NAME_check" CHECK (("GET_NAME" >= 0))
+);
+
+
+--
+-- Name: A_COPYANSWER_MAPPING_A_COPYANSWER_MAPPING_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."A_COPYANSWER_MAPPING" ALTER COLUMN "A_COPYANSWER_MAPPING_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."A_COPYANSWER_MAPPING_A_COPYANSWER_MAPPING_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: A_COPYDATA; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."A_COPYDATA" (
+    "ACTION_ID" integer NOT NULL
+);
+
+
+--
+-- Name: A_COPYDATA_MAPPING; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."A_COPYDATA_MAPPING" (
+    "A_COPYDATA_MAPPING_ID" integer NOT NULL,
+    "TABLE_NAME" character varying(30) NOT NULL,
+    "COLUMN_NAME" character varying(30) NOT NULL,
+    "GET_NAME" smallint NOT NULL,
+    "CHAPTER_ID" integer,
+    "QUESTION_ID" integer,
+    "ACTION_ID" integer NOT NULL,
+    CONSTRAINT "A_COPYDATA_MAPPING_GET_NAME_check" CHECK (("GET_NAME" >= 0))
+);
+
+
+--
+-- Name: A_COPYDATA_MAPPING_A_COPYDATA_MAPPING_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."A_COPYDATA_MAPPING" ALTER COLUMN "A_COPYDATA_MAPPING_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."A_COPYDATA_MAPPING_A_COPYDATA_MAPPING_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: A_DELETE_CIRCULATION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."A_DELETE_CIRCULATION" (
+    "ACTION_ID" integer NOT NULL,
+    "DELETE_LEVEL" integer NOT NULL,
+    "CIRCULATION_TO_BE_INTERPRETED" character varying(100),
+    "IS_SINGLE_DELETE" boolean
+);
+
+
+--
+-- Name: A_EMAIL; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."A_EMAIL" (
+    "ACTION_ID" integer NOT NULL,
+    "SENDER_NAME" character varying(50) NOT NULL,
+    "SENDER_EMAIL" character varying(50) NOT NULL,
+    "QUERY" character varying(4000) NOT NULL,
+    "TITLE" character varying(200),
+    "TEXT" character varying(2000)
+);
+
+
+--
+-- Name: A_EMAIL_T; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."A_EMAIL_T" (
+    id integer NOT NULL,
+    "LANGUAGE" character varying(2) NOT NULL,
+    "TITLE" character varying(200),
+    "TEXT" character varying(2000),
+    "ACTION_ID" integer NOT NULL
+);
+
+
+--
+-- Name: A_EMAIL_T_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."A_EMAIL_T" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."A_EMAIL_T_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: A_FORMTRANSITION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."A_FORMTRANSITION" (
+    "ACTION_ID" integer NOT NULL,
+    "CURRENT_INSTANCE_STATE_ID" integer,
+    "NEXT_INSTANCE_STATE_ID" integer
+);
+
+
+--
+-- Name: A_LOCATION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."A_LOCATION" (
+    "ACTION_ID" integer NOT NULL
+);
+
+
+--
+-- Name: A_LOCATION_QC; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."A_LOCATION_QC" (
+    "A_LOCATION_QC_ID" integer NOT NULL,
+    "CHAPTER_ID" integer NOT NULL,
+    "QUESTION_ID" integer NOT NULL,
+    "ACTION_ID" integer NOT NULL
+);
+
+
+--
+-- Name: A_LOCATION_QC_A_LOCATION_QC_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."A_LOCATION_QC" ALTER COLUMN "A_LOCATION_QC_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."A_LOCATION_QC_A_LOCATION_QC_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: A_NOTICE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."A_NOTICE" (
+    "ACTION_ID" integer NOT NULL,
+    "QUERY" character varying(4000) NOT NULL,
+    "NOTICE_TYPE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: A_PAGEREDIRECT; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."A_PAGEREDIRECT" (
+    "ACTION_ID" integer NOT NULL,
+    "AIR_ACTION_NAME" character varying(25),
+    "INSTANCE_RESOURCE_ID" integer,
+    "RESOURCE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: A_PHP; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."A_PHP" (
+    "ACTION_ID" integer NOT NULL,
+    "PHP_CLASS" character varying(500) NOT NULL
+);
+
+
+--
+-- Name: A_PROPOSAL; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."A_PROPOSAL" (
+    "ACTION_ID" integer NOT NULL,
+    "DEADLINE_DAYS" integer NOT NULL,
+    "REASON" character varying(50),
+    "IS_WORKING_DAYS" smallint NOT NULL,
+    "CIRCULATION_STATE_ID" integer NOT NULL,
+    "CIRCULATION_TYPE_ID" integer NOT NULL,
+    CONSTRAINT "A_PROPOSAL_IS_WORKING_DAYS_check" CHECK (("IS_WORKING_DAYS" >= 0))
+);
+
+
+--
+-- Name: A_PROPOSAL_HOLIDAY; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."A_PROPOSAL_HOLIDAY" (
+    "A_PROPOSAL_HOLIDAY_ID" integer NOT NULL,
+    "HOLIDAY_DATE" timestamp with time zone NOT NULL
+);
+
+
+--
+-- Name: A_PROPOSAL_HOLIDAY_A_PROPOSAL_HOLIDAY_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."A_PROPOSAL_HOLIDAY" ALTER COLUMN "A_PROPOSAL_HOLIDAY_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."A_PROPOSAL_HOLIDAY_A_PROPOSAL_HOLIDAY_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: A_PROPOSAL_T; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."A_PROPOSAL_T" (
+    id integer NOT NULL,
+    "LANGUAGE" character varying(2) NOT NULL,
+    "REASON" character varying(50),
+    "ACTION_ID" integer NOT NULL
+);
+
+
+--
+-- Name: A_PROPOSAL_T_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."A_PROPOSAL_T" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."A_PROPOSAL_T_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: A_SAVEPDF; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."A_SAVEPDF" (
+    "ACTION_ID" integer NOT NULL,
+    "SHOW_ALL_PAGE_FORM_MODE" smallint NOT NULL,
+    "TEMPLATE" character varying(500) NOT NULL,
+    "PDF_CLASS" character varying(500) NOT NULL,
+    "FORM_ID" integer NOT NULL,
+    "PAGE_FORM_GROUP_ID" integer,
+    CONSTRAINT "A_SAVEPDF_SHOW_ALL_PAGE_FORM_MODE_check" CHECK (("SHOW_ALL_PAGE_FORM_MODE" >= 0))
+);
+
+
+--
+-- Name: A_SETRESPONSIBLEGROUP; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."A_SETRESPONSIBLEGROUP" (
+    "ACTION_ID" integer NOT NULL,
+    "TABLE_NAME" character varying(30) NOT NULL,
+    "COLUMN_NAME" character varying(30) NOT NULL,
+    "IS_SERVICE_RESPONSIBLE" boolean,
+    "IS_REQUIRED" boolean
+);
+
+
+--
+-- Name: A_VALIDATE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."A_VALIDATE" (
+    "ACTION_ID" integer NOT NULL,
+    "PAGE_FORM_GROUP_ID" integer
+);
+
+
+--
+-- Name: BAB_USAGE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."BAB_USAGE" (
+    id integer NOT NULL,
+    "USAGE_TYPE" integer NOT NULL,
+    "USAGE" double precision NOT NULL,
+    "INSTANCE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: BAB_USAGE_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."BAB_USAGE" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."BAB_USAGE_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: BILLING_ACCOUNT; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."BILLING_ACCOUNT" (
+    "BILLING_ACCOUNT_ID" integer NOT NULL,
+    "NAME" character varying(500) NOT NULL,
+    "ACCOUNT_NUMBER" character varying(50),
+    "DEPARTMENT" character varying(255),
+    "PREDEFINED" smallint DEFAULT 0 NOT NULL,
+    "SERVICE_GROUP_ID" integer,
+    CONSTRAINT "BILLING_ACCOUNT_PREDEFINED_c3fa7812_check" CHECK (("PREDEFINED" >= 0))
+);
+
+
+--
+-- Name: BILLING_ACCOUNT_BILLING_ACCOUNT_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."BILLING_ACCOUNT" ALTER COLUMN "BILLING_ACCOUNT_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."BILLING_ACCOUNT_BILLING_ACCOUNT_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: BILLING_ACCOUNT_STATE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."BILLING_ACCOUNT_STATE" (
+    "BILLING_ACCOUNT_STATE_ID" integer NOT NULL,
+    "BILLING_ACCOUNT_ID" integer NOT NULL,
+    "INSTANCE_STATE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: BILLING_ACCOUNT_STATE_BILLING_ACCOUNT_STATE_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."BILLING_ACCOUNT_STATE" ALTER COLUMN "BILLING_ACCOUNT_STATE_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."BILLING_ACCOUNT_STATE_BILLING_ACCOUNT_STATE_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: BILLING_CONFIG; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."BILLING_CONFIG" (
+    "BILLING_CONFIG_ID" integer NOT NULL,
+    "NAME" character varying(100) NOT NULL,
+    "VALUE" character varying(300) NOT NULL
+);
+
+
+--
+-- Name: BILLING_CONFIG_BILLING_CONFIG_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."BILLING_CONFIG" ALTER COLUMN "BILLING_CONFIG_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."BILLING_CONFIG_BILLING_CONFIG_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: BILLING_ENTRY; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."BILLING_ENTRY" (
+    "BILLING_ENTRY_ID" integer NOT NULL,
+    "AMOUNT" double precision NOT NULL,
+    "CREATED" timestamp with time zone,
+    "AMOUNT_TYPE" smallint NOT NULL,
+    "TYPE" smallint NOT NULL,
+    "REASON" character varying(300),
+    "INVOICED" smallint NOT NULL,
+    "BILLING_ACCOUNT_ID" integer NOT NULL,
+    "INSTANCE_ID" integer NOT NULL,
+    "SERVICE_ID" integer,
+    "USER_ID" integer DEFAULT 1 NOT NULL,
+    "INVOICE_ID" integer,
+    CONSTRAINT "BILLING_ENTRY_AMOUNT_TYPE_check" CHECK (("AMOUNT_TYPE" >= 0)),
+    CONSTRAINT "BILLING_ENTRY_INVOICED_check" CHECK (("INVOICED" >= 0)),
+    CONSTRAINT "BILLING_ENTRY_TYPE_check" CHECK (("TYPE" >= 0))
+);
+
+
+--
+-- Name: BILLING_ENTRY_ACTUAL_AMOUNT; Type: VIEW; Schema: public; Owner: -
+--
+
+CREATE VIEW public."BILLING_ENTRY_ACTUAL_AMOUNT" AS
+ SELECT
+        CASE "BILLING_ENTRY"."AMOUNT_TYPE"
+            WHEN 0 THEN "BILLING_ENTRY"."AMOUNT"
+            WHEN 1 THEN ("BILLING_ENTRY"."AMOUNT" * (
+            CASE
+                WHEN ("BILLING_ENTRY"."CREATED" < '2024-09-01 00:00:00+00'::timestamp with time zone) THEN 100
+                ELSE 110
+            END)::double precision)
+            WHEN 2 THEN (("BILLING_ENTRY"."AMOUNT" * (
+            CASE
+                WHEN ("BILLING_ENTRY"."CREATED" < '2024-09-01 00:00:00+00'::timestamp with time zone) THEN 100
+                ELSE 110
+            END)::double precision) / (2)::double precision)
+            ELSE NULL::double precision
+        END AS "ACTUAL_AMOUNT",
+    "BILLING_ENTRY"."BILLING_ENTRY_ID"
+   FROM public."BILLING_ENTRY";
+
+
+--
+-- Name: BILLING_ENTRY_BILLING_ENTRY_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."BILLING_ENTRY" ALTER COLUMN "BILLING_ENTRY_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."BILLING_ENTRY_BILLING_ENTRY_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: BILLING_ENTRY_TYPE; Type: VIEW; Schema: public; Owner: -
+--
+
+CREATE VIEW public."BILLING_ENTRY_TYPE" AS
+ SELECT
+        CASE "BILLING_ENTRY"."TYPE"
+            WHEN 0 THEN 'BEW'::text
+            WHEN 1 THEN 'BGL'::text
+            ELSE NULL::text
+        END AS "TYPE",
+    "BILLING_ENTRY"."BILLING_ENTRY_ID"
+   FROM public."BILLING_ENTRY";
+
+
+--
+-- Name: BILLING_INVOICE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."BILLING_INVOICE" (
+    "BILLING_INVOICE_ID" integer NOT NULL,
+    "CREATED" timestamp with time zone NOT NULL,
+    "TYPE" text NOT NULL,
+    "ATTACHMENT_ID" integer NOT NULL
+);
+
+
+--
+-- Name: BILLING_INVOICE_BILLING_INVOICE_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."BILLING_INVOICE" ALTER COLUMN "BILLING_INVOICE_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."BILLING_INVOICE_BILLING_INVOICE_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: billing_billingv2entry; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.billing_billingv2entry (
+    id integer NOT NULL,
+    text text NOT NULL,
+    date_added date NOT NULL,
+    tax_mode character varying(20),
+    calculation character varying(20),
+    tax_rate numeric(10,2),
+    hours numeric(10,2),
+    hourly_rate numeric(10,2),
+    percentage numeric(10,2),
+    total_cost numeric(10,2),
+    final_rate numeric(10,2),
+    group_id integer NOT NULL,
+    instance_id integer NOT NULL,
+    user_id integer NOT NULL,
+    organization character varying(20),
+    date_charged date,
+    billing_type character varying(36),
+    cost_center text,
+    legal_basis text,
+    product_number character varying,
+    released_for_clearing date,
+    remark text
+);
+
+
+--
+-- Name: BILLING_V2_ENTRY_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.billing_billingv2entry ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."BILLING_V2_ENTRY_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: BUILDING_AUTHORITY_BUTTON; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."BUILDING_AUTHORITY_BUTTON" (
+    "BUILDING_AUTHORITY_BUTTON_ID" integer NOT NULL,
+    "LABEL" character varying(512) NOT NULL
+);
+
+
+--
+-- Name: BUILDING_AUTHORITY_BUTTONSTATE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."BUILDING_AUTHORITY_BUTTONSTATE" (
+    "BA_BUTTON_STATE_ID" integer NOT NULL,
+    "IS_CLICKED" smallint NOT NULL,
+    "IS_DISABLED" smallint NOT NULL,
+    "BUILDING_AUTHORITY_BUTTON_ID" integer NOT NULL,
+    "INSTANCE_ID" integer NOT NULL,
+    CONSTRAINT "BUILDING_AUTHORITY_BUTTONSTATE_IS_CLICKED_check" CHECK (("IS_CLICKED" >= 0)),
+    CONSTRAINT "BUILDING_AUTHORITY_BUTTONSTATE_IS_DISABLED_check" CHECK (("IS_DISABLED" >= 0))
+);
+
+
+--
+-- Name: BUILDING_AUTHORITY_BUTTONSTATE_BA_BUTTON_STATE_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."BUILDING_AUTHORITY_BUTTONSTATE" ALTER COLUMN "BA_BUTTON_STATE_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."BUILDING_AUTHORITY_BUTTONSTATE_BA_BUTTON_STATE_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: BUILDING_AUTHORITY_BUTTON_BUILDING_AUTHORITY_BUTTON_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."BUILDING_AUTHORITY_BUTTON" ALTER COLUMN "BUILDING_AUTHORITY_BUTTON_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."BUILDING_AUTHORITY_BUTTON_BUILDING_AUTHORITY_BUTTON_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: BUILDING_AUTHORITY_COMMENT; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."BUILDING_AUTHORITY_COMMENT" (
+    "BUILDING_AUTHORITY_COMMENT_ID" integer NOT NULL,
+    "TEXT" character varying(4000),
+    "GROUP" double precision NOT NULL,
+    "BUILDING_AUTHORITY_SECTION_ID" integer NOT NULL,
+    "INSTANCE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: BUILDING_AUTHORITY_COMMENT_BUILDING_AUTHORITY_COMMENT_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."BUILDING_AUTHORITY_COMMENT" ALTER COLUMN "BUILDING_AUTHORITY_COMMENT_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."BUILDING_AUTHORITY_COMMENT_BUILDING_AUTHORITY_COMMENT_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: BUILDING_AUTHORITY_DOC; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."BUILDING_AUTHORITY_DOC" (
+    "BUILDING_AUTHORITY_DOC_ID" integer NOT NULL,
+    "BUILDING_AUTHORITY_BUTTON_ID" integer NOT NULL,
+    "TEMPLATE_ID" integer NOT NULL,
+    "TEMPLATE_CLASS_ID" integer NOT NULL
+);
+
+
+--
+-- Name: BUILDING_AUTHORITY_DOC_BUILDING_AUTHORITY_DOC_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."BUILDING_AUTHORITY_DOC" ALTER COLUMN "BUILDING_AUTHORITY_DOC_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."BUILDING_AUTHORITY_DOC_BUILDING_AUTHORITY_DOC_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: BUILDING_AUTHORITY_EMAIL; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."BUILDING_AUTHORITY_EMAIL" (
+    "BUILDING_AUTHORITY_EMAIL_ID" integer NOT NULL,
+    "EMAIL_TEXT" character varying(4000),
+    "RECEIVER_QUERY" character varying(4000),
+    "EMAIL_SUBJECT" character varying(400),
+    "FROM_EMAIL" character varying(400),
+    "FROM_NAME" character varying(400),
+    "BUILDING_AUTHORITY_BUTTON_ID" integer NOT NULL,
+    "ATTACHMENT_SECTION_ID" integer,
+    "WORKFLOW_ITEM_ID" integer
+);
+
+
+--
+-- Name: BUILDING_AUTHORITY_EMAIL_BUILDING_AUTHORITY_EMAIL_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."BUILDING_AUTHORITY_EMAIL" ALTER COLUMN "BUILDING_AUTHORITY_EMAIL_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."BUILDING_AUTHORITY_EMAIL_BUILDING_AUTHORITY_EMAIL_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: BUILDING_AUTHORITY_ITEM_DIS; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."BUILDING_AUTHORITY_ITEM_DIS" (
+    "BA_ITEM_DIS_ID" integer NOT NULL,
+    "GROUP" double precision NOT NULL,
+    "INSTANCE_ID" integer NOT NULL,
+    "WORKFLOW_ITEM_ID" integer NOT NULL
+);
+
+
+--
+-- Name: BUILDING_AUTHORITY_ITEM_DIS_BA_ITEM_DIS_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."BUILDING_AUTHORITY_ITEM_DIS" ALTER COLUMN "BA_ITEM_DIS_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."BUILDING_AUTHORITY_ITEM_DIS_BA_ITEM_DIS_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: BUILDING_AUTHORITY_SECTION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."BUILDING_AUTHORITY_SECTION" (
+    "BUILDING_AUTHORITY_SECTION_ID" integer NOT NULL,
+    "NAME" character varying(128) NOT NULL
+);
+
+
+--
+-- Name: BUILDING_AUTHORITY_SECTION_BUILDING_AUTHORITY_SECTION_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."BUILDING_AUTHORITY_SECTION" ALTER COLUMN "BUILDING_AUTHORITY_SECTION_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."BUILDING_AUTHORITY_SECTION_BUILDING_AUTHORITY_SECTION_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: BUILDING_AUTHORITY_SECTION_DIS; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."BUILDING_AUTHORITY_SECTION_DIS" (
+    "BA_SECTION_DIS_ID" integer NOT NULL,
+    "BA_SECTION_ID" integer NOT NULL,
+    "INSTANCE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: BUILDING_AUTHORITY_SECTION_DIS_BA_SECTION_DIS_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."BUILDING_AUTHORITY_SECTION_DIS" ALTER COLUMN "BA_SECTION_DIS_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."BUILDING_AUTHORITY_SECTION_DIS_BA_SECTION_DIS_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: BUTTON; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."BUTTON" (
+    "BUTTON_ID" integer NOT NULL,
+    "NAME" character varying(50),
+    "DESCRIPTION" character varying(1000),
+    "CLASS" character varying(250),
+    "HIDDEN" smallint NOT NULL,
+    "SORT" integer NOT NULL,
+    "INSTANCE_RESOURCE_ID" integer NOT NULL,
+    CONSTRAINT "BUTTON_HIDDEN_check" CHECK (("HIDDEN" >= 0))
+);
+
+
+--
+-- Name: BUTTON_BUTTON_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."BUTTON" ALTER COLUMN "BUTTON_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."BUTTON_BUTTON_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: BUTTON_T; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."BUTTON_T" (
+    id integer NOT NULL,
+    "LANGUAGE" character varying(2) NOT NULL,
+    "NAME" character varying(50),
+    "DESCRIPTION" character varying(1000),
+    "BUTTON_ID" integer NOT NULL
+);
+
+
+--
+-- Name: BUTTON_T_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."BUTTON_T" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."BUTTON_T_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: B_GROUP_ACL; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."B_GROUP_ACL" (
+    "ID" integer NOT NULL,
+    "BUTTON_ID" integer NOT NULL,
+    "GROUP_ID" integer NOT NULL,
+    "INSTANCE_STATE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: B_GROUP_ACL_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."B_GROUP_ACL" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."B_GROUP_ACL_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: B_ROLE_ACL; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."B_ROLE_ACL" (
+    "ID" integer NOT NULL,
+    "BUTTON_ID" integer NOT NULL,
+    "INSTANCE_STATE_ID" integer NOT NULL,
+    "ROLE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: B_ROLE_ACL_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."B_ROLE_ACL" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."B_ROLE_ACL_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: B_SERVICE_ACL; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."B_SERVICE_ACL" (
+    "ID" integer NOT NULL,
+    "BUTTON_ID" integer NOT NULL,
+    "INSTANCE_STATE_ID" integer NOT NULL,
+    "SERVICE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: B_SERVICE_ACL_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."B_SERVICE_ACL" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."B_SERVICE_ACL_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: B_USER_ACL; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."B_USER_ACL" (
+    "ID" integer NOT NULL,
+    "BUTTON_ID" integer NOT NULL,
+    "INSTANCE_STATE_ID" integer NOT NULL,
+    "USER_ID" integer NOT NULL
+);
+
+
+--
+-- Name: B_USER_ACL_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."B_USER_ACL" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."B_USER_ACL_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: CHAPTER; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."CHAPTER" (
+    "CHAPTER_ID" integer NOT NULL,
+    "NAME" character varying(500),
+    "DESCRIPTION" character varying(1000),
+    "JAVASCRIPT" character varying(4000)
+);
+
+
+--
+-- Name: CHAPTER_CHAPTER_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."CHAPTER" ALTER COLUMN "CHAPTER_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."CHAPTER_CHAPTER_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: CHAPTER_PAGE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."CHAPTER_PAGE" (
+    "ID" integer NOT NULL,
+    "SORT" integer NOT NULL,
+    "CHAPTER_ID" integer NOT NULL,
+    "PAGE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: CHAPTER_PAGE_GROUP_ACL; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."CHAPTER_PAGE_GROUP_ACL" (
+    "ID" integer NOT NULL,
+    "CHAPTER_ID" integer NOT NULL,
+    "GROUP_ID" integer NOT NULL,
+    "INSTANCE_STATE_ID" integer NOT NULL,
+    "PAGE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: CHAPTER_PAGE_GROUP_ACL_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."CHAPTER_PAGE_GROUP_ACL" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."CHAPTER_PAGE_GROUP_ACL_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: CHAPTER_PAGE_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."CHAPTER_PAGE" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."CHAPTER_PAGE_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: CHAPTER_PAGE_ROLE_ACL; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."CHAPTER_PAGE_ROLE_ACL" (
+    "ID" integer NOT NULL,
+    "CHAPTER_ID" integer NOT NULL,
+    "INSTANCE_STATE_ID" integer NOT NULL,
+    "PAGE_ID" integer NOT NULL,
+    "ROLE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: CHAPTER_PAGE_ROLE_ACL_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."CHAPTER_PAGE_ROLE_ACL" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."CHAPTER_PAGE_ROLE_ACL_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: CHAPTER_PAGE_SERVICE_ACL; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."CHAPTER_PAGE_SERVICE_ACL" (
+    "ID" integer NOT NULL,
+    "CHAPTER_ID" integer NOT NULL,
+    "INSTANCE_STATE_ID" integer NOT NULL,
+    "PAGE_ID" integer NOT NULL,
+    "SERVICE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: CHAPTER_PAGE_SERVICE_ACL_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."CHAPTER_PAGE_SERVICE_ACL" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."CHAPTER_PAGE_SERVICE_ACL_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: CHAPTER_PAGE_USER_ACL; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."CHAPTER_PAGE_USER_ACL" (
+    "ID" integer NOT NULL,
+    "CHAPTER_ID" integer NOT NULL,
+    "INSTANCE_STATE_ID" integer NOT NULL,
+    "PAGE_ID" integer NOT NULL,
+    "USER_ID" integer NOT NULL
+);
+
+
+--
+-- Name: CHAPTER_PAGE_USER_ACL_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."CHAPTER_PAGE_USER_ACL" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."CHAPTER_PAGE_USER_ACL_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: CHAPTER_T; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."CHAPTER_T" (
+    id integer NOT NULL,
+    "LANGUAGE" character varying(2) NOT NULL,
+    "NAME" character varying(500),
+    "DESCRIPTION" character varying(1000),
+    "CHAPTER_ID" integer NOT NULL
+);
+
+
+--
+-- Name: CHAPTER_T_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."CHAPTER_T" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."CHAPTER_T_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: CIRCULATION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."CIRCULATION" (
+    "CIRCULATION_ID" integer NOT NULL,
+    "INSTANCE_RESOURCE_ID" integer NOT NULL,
+    "NAME" character varying(50) NOT NULL,
+    "INSTANCE_ID" integer NOT NULL,
+    "SERVICE_ID" integer
+);
+
+
+--
+-- Name: CIRCULATION_ANSWER; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."CIRCULATION_ANSWER" (
+    "CIRCULATION_ANSWER_ID" integer NOT NULL,
+    "NAME" character varying(50),
+    "SORT" integer NOT NULL,
+    "CIRCULATION_ANSWER_TYPE_ID" integer NOT NULL,
+    "CIRCULATION_TYPE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: CIRCULATION_ANSWER_CIRCULATION_ANSWER_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."CIRCULATION_ANSWER" ALTER COLUMN "CIRCULATION_ANSWER_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."CIRCULATION_ANSWER_CIRCULATION_ANSWER_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: CIRCULATION_ANSWER_T; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."CIRCULATION_ANSWER_T" (
+    id integer NOT NULL,
+    "LANGUAGE" character varying(2) NOT NULL,
+    "NAME" character varying(50),
+    "CIRCULATION_ANSWER_ID" integer NOT NULL
+);
+
+
+--
+-- Name: CIRCULATION_ANSWER_TYPE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."CIRCULATION_ANSWER_TYPE" (
+    "CIRCULATION_ANSWER_TYPE_ID" integer NOT NULL,
+    "NAME" character varying(50)
+);
+
+
+--
+-- Name: CIRCULATION_ANSWER_TYPE_CIRCULATION_ANSWER_TYPE_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."CIRCULATION_ANSWER_TYPE" ALTER COLUMN "CIRCULATION_ANSWER_TYPE_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."CIRCULATION_ANSWER_TYPE_CIRCULATION_ANSWER_TYPE_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: CIRCULATION_ANSWER_TYPE_T; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."CIRCULATION_ANSWER_TYPE_T" (
+    id integer NOT NULL,
+    "LANGUAGE" character varying(2) NOT NULL,
+    "NAME" character varying(50),
+    "CIRCULATION_ANSWER_TYPE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: CIRCULATION_ANSWER_TYPE_T_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."CIRCULATION_ANSWER_TYPE_T" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."CIRCULATION_ANSWER_TYPE_T_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: CIRCULATION_ANSWER_T_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."CIRCULATION_ANSWER_T" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."CIRCULATION_ANSWER_T_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: CIRCULATION_CIRCULATION_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."CIRCULATION" ALTER COLUMN "CIRCULATION_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."CIRCULATION_CIRCULATION_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: CIRCULATION_LOG; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."CIRCULATION_LOG" (
+    "CIRCULATION_LOG_ID" integer NOT NULL,
+    "ID" integer NOT NULL,
+    "USER_ID" integer NOT NULL,
+    "ACTION" character varying(500) NOT NULL,
+    "DATA" text,
+    "MODIFICATION_DATE" timestamp with time zone NOT NULL
+);
+
+
+--
+-- Name: CIRCULATION_LOG_CIRCULATION_LOG_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."CIRCULATION_LOG" ALTER COLUMN "CIRCULATION_LOG_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."CIRCULATION_LOG_CIRCULATION_LOG_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: CIRCULATION_REASON; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."CIRCULATION_REASON" (
+    "CIRCULATION_REASON_ID" integer NOT NULL,
+    "NAME" character varying(50),
+    "SORT" integer NOT NULL,
+    "CIRCULATION_TYPE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: CIRCULATION_REASON_CIRCULATION_REASON_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."CIRCULATION_REASON" ALTER COLUMN "CIRCULATION_REASON_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."CIRCULATION_REASON_CIRCULATION_REASON_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: CIRCULATION_REASON_T; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."CIRCULATION_REASON_T" (
+    id integer NOT NULL,
+    "LANGUAGE" character varying(2) NOT NULL,
+    "NAME" character varying(50),
+    "CIRCULATION_REASON_ID" integer NOT NULL
+);
+
+
+--
+-- Name: CIRCULATION_REASON_T_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."CIRCULATION_REASON_T" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."CIRCULATION_REASON_T_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: CIRCULATION_STATE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."CIRCULATION_STATE" (
+    "CIRCULATION_STATE_ID" integer NOT NULL,
+    "NAME" character varying(100),
+    "SORT" integer NOT NULL
+);
+
+
+--
+-- Name: CIRCULATION_STATE_CIRCULATION_STATE_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."CIRCULATION_STATE" ALTER COLUMN "CIRCULATION_STATE_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."CIRCULATION_STATE_CIRCULATION_STATE_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: CIRCULATION_STATE_T; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."CIRCULATION_STATE_T" (
+    id integer NOT NULL,
+    "LANGUAGE" character varying(2) NOT NULL,
+    "NAME" character varying(100),
+    "CIRCULATION_STATE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: CIRCULATION_STATE_T_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."CIRCULATION_STATE_T" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."CIRCULATION_STATE_T_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: CIRCULATION_TYPE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."CIRCULATION_TYPE" (
+    "CIRCULATION_TYPE_ID" integer NOT NULL,
+    "NAME" character varying(50),
+    "PARENT_SPECIFIC_ACTIVATIONS" smallint NOT NULL,
+    "PAGE_ID" integer,
+    CONSTRAINT "CIRCULATION_TYPE_PARENT_SPECIFIC_ACTIVATIONS_check" CHECK (("PARENT_SPECIFIC_ACTIVATIONS" >= 0))
+);
+
+
+--
+-- Name: CIRCULATION_TYPE_CIRCULATION_TYPE_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."CIRCULATION_TYPE" ALTER COLUMN "CIRCULATION_TYPE_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."CIRCULATION_TYPE_CIRCULATION_TYPE_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: CIRCULATION_TYPE_T; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."CIRCULATION_TYPE_T" (
+    id integer NOT NULL,
+    "LANGUAGE" character varying(2) NOT NULL,
+    "NAME" character varying(50),
+    "CIRCULATION_TYPE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: CIRCULATION_TYPE_T_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."CIRCULATION_TYPE_T" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."CIRCULATION_TYPE_T_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: COMMISSION_ASSIGNMENT; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."COMMISSION_ASSIGNMENT" (
+    "COMMISSION_ASSIGNMENT_ID" integer NOT NULL,
+    "CREATOR_USER_ID" double precision NOT NULL,
+    "DATE" timestamp with time zone NOT NULL,
+    "GROUP_ID" integer NOT NULL,
+    "INSTANCE_ID" integer NOT NULL,
+    "CREATOR_GROUP_ID" integer
+);
+
+
+--
+-- Name: COMMISSION_ASSIGNMENT_COMMISSION_ASSIGNMENT_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."COMMISSION_ASSIGNMENT" ALTER COLUMN "COMMISSION_ASSIGNMENT_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."COMMISSION_ASSIGNMENT_COMMISSION_ASSIGNMENT_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: DOCGEN_ACTIVATIONACTION_ACTION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."DOCGEN_ACTIVATIONACTION_ACTION" (
+    "ID" integer NOT NULL,
+    "ACTION_ID" integer NOT NULL,
+    "DOCGEN_ACTIVATION_ACTION_ID" integer NOT NULL
+);
+
+
+--
+-- Name: DOCGEN_ACTIVATIONACTION_ACTION_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."DOCGEN_ACTIVATIONACTION_ACTION" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."DOCGEN_ACTIVATIONACTION_ACTION_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: DOCGEN_ACTIVATION_ACTION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."DOCGEN_ACTIVATION_ACTION" (
+    "DOCGEN_ACTIVATION_ACTION_ID" integer NOT NULL,
+    "NAME" character varying(255) NOT NULL
+);
+
+
+--
+-- Name: DOCGEN_ACTIVATION_ACTION_DOCGEN_ACTIVATION_ACTION_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."DOCGEN_ACTIVATION_ACTION" ALTER COLUMN "DOCGEN_ACTIVATION_ACTION_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."DOCGEN_ACTIVATION_ACTION_DOCGEN_ACTIVATION_ACTION_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: DOCGEN_ACTIVATION_DOCKET; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."DOCGEN_ACTIVATION_DOCKET" (
+    "DOCGEN_ACTIVATION_DOCKET_ID" integer NOT NULL,
+    "TEXT" text NOT NULL,
+    "ACTIVATION_ID" integer,
+    "INSTANCE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: DOCGEN_ACTIVATION_DOCKET_DOCGEN_ACTIVATION_DOCKET_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."DOCGEN_ACTIVATION_DOCKET" ALTER COLUMN "DOCGEN_ACTIVATION_DOCKET_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."DOCGEN_ACTIVATION_DOCKET_DOCGEN_ACTIVATION_DOCKET_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: DOCGEN_DOCX_ACTION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."DOCGEN_DOCX_ACTION" (
+    "ID" integer NOT NULL,
+    "ACTION_ID" integer NOT NULL,
+    "DOCGEN_TEMPLATE_ID" integer NOT NULL,
+    "DOCGEN_TEMPLATE_CLASS_ID" integer NOT NULL
+);
+
+
+--
+-- Name: DOCGEN_DOCX_ACTION_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."DOCGEN_DOCX_ACTION" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."DOCGEN_DOCX_ACTION_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: DOCGEN_PDF_ACTION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."DOCGEN_PDF_ACTION" (
+    "ID" integer NOT NULL,
+    "ACTION_ID" integer NOT NULL,
+    "DOCGEN_TEMPLATE_ID" integer NOT NULL,
+    "DOCGEN_TEMPLATE_CLASS_ID" integer NOT NULL
+);
+
+
+--
+-- Name: DOCGEN_PDF_ACTION_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."DOCGEN_PDF_ACTION" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."DOCGEN_PDF_ACTION_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: DOCGEN_TEMPLATE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."DOCGEN_TEMPLATE" (
+    "DOCGEN_TEMPLATE_ID" integer NOT NULL,
+    "NAME" character varying(255) NOT NULL,
+    "PATH" character varying(255) NOT NULL,
+    "TYPE" double precision NOT NULL
+);
+
+
+--
+-- Name: DOCGEN_TEMPLATE_CLASS; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."DOCGEN_TEMPLATE_CLASS" (
+    "DOCGEN_TEMPLATE_CLASS_ID" integer NOT NULL,
+    "NAME" character varying(255) NOT NULL,
+    "PATH" character varying(255) NOT NULL,
+    "TYPE" double precision NOT NULL
+);
+
+
+--
+-- Name: DOCGEN_TEMPLATE_CLASS_DOCGEN_TEMPLATE_CLASS_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."DOCGEN_TEMPLATE_CLASS" ALTER COLUMN "DOCGEN_TEMPLATE_CLASS_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."DOCGEN_TEMPLATE_CLASS_DOCGEN_TEMPLATE_CLASS_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: DOCGEN_TEMPLATE_DOCGEN_TEMPLATE_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."DOCGEN_TEMPLATE" ALTER COLUMN "DOCGEN_TEMPLATE_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."DOCGEN_TEMPLATE_DOCGEN_TEMPLATE_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: DOCX_DECISION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."DOCX_DECISION" (
+    "INSTANCE_ID" integer NOT NULL,
+    "DECISION" character varying(30) NOT NULL,
+    "DECISION_TYPE" character varying(90),
+    "DECISION_DATE" date NOT NULL
+);
+
+
+--
+-- Name: FORM; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."FORM" (
+    "FORM_ID" integer NOT NULL,
+    "NAME" character varying(500),
+    "DESCRIPTION" character varying(1000),
+    "FORM_STATE_ID" integer NOT NULL,
+    "FAMILY" integer
+);
+
+
+--
+-- Name: FORM_FORM_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."FORM" ALTER COLUMN "FORM_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."FORM_FORM_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: FORM_GROUP; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."FORM_GROUP" (
+    "FORM_GROUP_ID" integer NOT NULL,
+    "NAME" character varying(500),
+    "DESCRIPTION" character varying(1000)
+);
+
+
+--
+-- Name: FORM_GROUP_FORM; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."FORM_GROUP_FORM" (
+    "ID" integer NOT NULL,
+    "FORM_ID" integer NOT NULL,
+    "FORM_GROUP_ID" integer NOT NULL
+);
+
+
+--
+-- Name: FORM_GROUP_FORM_GROUP_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."FORM_GROUP" ALTER COLUMN "FORM_GROUP_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."FORM_GROUP_FORM_GROUP_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: FORM_GROUP_FORM_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."FORM_GROUP_FORM" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."FORM_GROUP_FORM_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: FORM_GROUP_T; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."FORM_GROUP_T" (
+    id integer NOT NULL,
+    "LANGUAGE" character varying(2) NOT NULL,
+    "NAME" character varying(500),
+    "DESCRIPTION" character varying(1000),
+    "FORM_GROUP_ID" integer NOT NULL
+);
+
+
+--
+-- Name: FORM_GROUP_T_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."FORM_GROUP_T" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."FORM_GROUP_T_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: FORM_STATE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."FORM_STATE" (
+    "FORM_STATE_ID" integer NOT NULL,
+    "NAME" character varying(50) NOT NULL
+);
+
+
+--
+-- Name: FORM_STATE_FORM_STATE_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."FORM_STATE" ALTER COLUMN "FORM_STATE_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."FORM_STATE_FORM_STATE_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: FORM_T; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."FORM_T" (
+    id integer NOT NULL,
+    "LANGUAGE" character varying(2) NOT NULL,
+    "NAME" character varying(500),
+    "DESCRIPTION" character varying(1000),
+    "FORM_ID" integer NOT NULL
+);
+
+
+--
+-- Name: FORM_T_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."FORM_T" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."FORM_T_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: GROUP; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."GROUP" (
+    "GROUP_ID" integer NOT NULL,
+    "NAME" character varying(100),
+    "PHONE" character varying(100),
+    "ZIP" character varying(10),
+    "CITY" character varying(100),
+    "ADDRESS" character varying(100),
+    "EMAIL" character varying(100),
+    "WEBSITE" character varying(1000),
+    "ROLE_ID" integer NOT NULL,
+    "SERVICE_ID" integer,
+    "DISABLED" smallint DEFAULT 0 NOT NULL,
+    CONSTRAINT "GROUP_DISABLED_check" CHECK (("DISABLED" >= 0))
+);
+
+
+--
+-- Name: GROUP_GROUP_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."GROUP" ALTER COLUMN "GROUP_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."GROUP_GROUP_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: GROUP_LOCATION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."GROUP_LOCATION" (
+    "ID" integer NOT NULL,
+    "GROUP_ID" integer NOT NULL,
+    "LOCATION_ID" integer NOT NULL
+);
+
+
+--
+-- Name: GROUP_LOCATION_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."GROUP_LOCATION" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."GROUP_LOCATION_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: GROUP_PERMISSION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."GROUP_PERMISSION" (
+    "ID" integer NOT NULL,
+    "PERMISSION_ID" character varying(100) NOT NULL,
+    "GROUP_ID" integer NOT NULL
+);
+
+
+--
+-- Name: GROUP_PERMISSION_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."GROUP_PERMISSION" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."GROUP_PERMISSION_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: GROUP_T; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."GROUP_T" (
+    id integer NOT NULL,
+    "LANGUAGE" character varying(2) NOT NULL,
+    "NAME" character varying(200),
+    "CITY" character varying(100),
+    "GROUP_ID" integer NOT NULL
+);
+
+
+--
+-- Name: GROUP_T_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."GROUP_T" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."GROUP_T_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: HISTORY_ACTION_CONFIG; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."HISTORY_ACTION_CONFIG" (
+    "ACTION_ID" integer NOT NULL,
+    "TITLE" text,
+    "BODY" text,
+    "HISTORY_TYPE" character varying(20) NOT NULL
+);
+
+
+--
+-- Name: HISTORY_ACTION_CONFIG_T; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."HISTORY_ACTION_CONFIG_T" (
+    id integer NOT NULL,
+    "TITLE" text NOT NULL,
+    "BODY" text,
+    "LANGUAGE" character varying(2) NOT NULL,
+    "ACTION_ID" integer NOT NULL
+);
+
+
+--
+-- Name: HISTORY_ACTION_CONFIG_T_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."HISTORY_ACTION_CONFIG_T" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."HISTORY_ACTION_CONFIG_T_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: INSTANCE_DEMO; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."INSTANCE_DEMO" (
+    "INSTANCE_DEMO_ID" integer NOT NULL,
+    "VALUE" character varying(1000),
+    "AUTOMATIC_DATE" timestamp with time zone,
+    "FORM_DATE" timestamp with time zone
+);
+
+
+--
+-- Name: INSTANCE_DEMO_LOG; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."INSTANCE_DEMO_LOG" (
+    "INSTANCE_DEMO_LOG_ID" integer NOT NULL,
+    "MODIFICATION_DATE" timestamp with time zone NOT NULL,
+    "USER_ID" integer NOT NULL,
+    "ACTION" character varying(500) NOT NULL,
+    "DATA" text NOT NULL,
+    "ID" integer NOT NULL
+);
+
+
+--
+-- Name: INSTANCE_DEMO_LOG_INSTANCE_DEMO_LOG_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."INSTANCE_DEMO_LOG" ALTER COLUMN "INSTANCE_DEMO_LOG_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."INSTANCE_DEMO_LOG_INSTANCE_DEMO_LOG_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: INSTANCE_FORMWIZARD; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."INSTANCE_FORMWIZARD" (
+    "INSTANCE_ID" integer NOT NULL,
+    "PAGES" character varying(500) NOT NULL
+);
+
+
+--
+-- Name: INSTANCE_FORMWIZARD_LOG; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."INSTANCE_FORMWIZARD_LOG" (
+    "INSTANCE_FORMWIZARD_LOG_ID" integer NOT NULL,
+    "MODIFICATION_DATE" timestamp with time zone NOT NULL,
+    "USER_ID" integer NOT NULL,
+    "ACTION" character varying(500) NOT NULL,
+    "DATA" text NOT NULL,
+    "ID" integer NOT NULL
+);
+
+
+--
+-- Name: INSTANCE_FORMWIZARD_LOG_INSTANCE_FORMWIZARD_LOG_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."INSTANCE_FORMWIZARD_LOG" ALTER COLUMN "INSTANCE_FORMWIZARD_LOG_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."INSTANCE_FORMWIZARD_LOG_INSTANCE_FORMWIZARD_LOG_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: INSTANCE_FORM_PDF; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."INSTANCE_FORM_PDF" (
+    "INSTANCE_FORM_PDF_ID" integer NOT NULL,
+    "MODIFICATION_DATE" timestamp with time zone NOT NULL,
+    "NAME" character varying(50) NOT NULL,
+    "FILENAME" character varying(50) NOT NULL,
+    "ACTION_ID" integer NOT NULL,
+    "INSTANCE_ID" integer NOT NULL,
+    "USER_ID" integer NOT NULL
+);
+
+
+--
+-- Name: INSTANCE_FORM_PDF_INSTANCE_FORM_PDF_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."INSTANCE_FORM_PDF" ALTER COLUMN "INSTANCE_FORM_PDF_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."INSTANCE_FORM_PDF_INSTANCE_FORM_PDF_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: INSTANCE_GUEST; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."INSTANCE_GUEST" (
+    "INSTANCE_ID" integer NOT NULL,
+    "SESSION_ID" character varying(128) NOT NULL,
+    "MODIFICATION_DATE" timestamp with time zone NOT NULL
+);
+
+
+--
+-- Name: INSTANCE_INSTANCE_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."INSTANCE" ALTER COLUMN "INSTANCE_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."INSTANCE_INSTANCE_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: INSTANCE_LOCATION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."INSTANCE_LOCATION" (
+    "ID" integer NOT NULL,
+    "INSTANCE_ID" integer NOT NULL,
+    "LOCATION_ID" integer NOT NULL
+);
+
+
+--
+-- Name: INSTANCE_LOCATION_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."INSTANCE_LOCATION" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."INSTANCE_LOCATION_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: INSTANCE_LOCATION_LOG; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."INSTANCE_LOCATION_LOG" (
+    "INSTANCE_LOCATION_LOG_ID" integer NOT NULL,
+    "MODIFICATION_DATE" timestamp with time zone NOT NULL,
+    "USER_ID" integer NOT NULL,
+    "ACTION" character varying(500) NOT NULL,
+    "DATA" text,
+    "ID1" integer NOT NULL,
+    "FIELD1" character varying(30) NOT NULL,
+    "ID2" integer NOT NULL,
+    "FIELD2" character varying(30) NOT NULL
+);
+
+
+--
+-- Name: INSTANCE_LOCATION_LOG_INSTANCE_LOCATION_LOG_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."INSTANCE_LOCATION_LOG" ALTER COLUMN "INSTANCE_LOCATION_LOG_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."INSTANCE_LOCATION_LOG_INSTANCE_LOCATION_LOG_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: INSTANCE_LOG; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."INSTANCE_LOG" (
+    "INSTANCE_LOG_ID" integer NOT NULL,
+    "MODIFICATION_DATE" timestamp with time zone NOT NULL,
+    "USER_ID" integer NOT NULL,
+    "ACTION" character varying(500) NOT NULL,
+    "DATA" text,
+    "ID" integer NOT NULL
+);
+
+
+--
+-- Name: INSTANCE_LOG_INSTANCE_LOG_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."INSTANCE_LOG" ALTER COLUMN "INSTANCE_LOG_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."INSTANCE_LOG_INSTANCE_LOG_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: INSTANCE_PARENT; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."INSTANCE_PARENT" (
+    "INSTANCE_ID" integer NOT NULL,
+    "CREATED" timestamp with time zone NOT NULL,
+    "PARENT_INSTANCE_ID" integer NOT NULL,
+    "SERVICE_ID" integer,
+    "USER_ID" integer NOT NULL
+);
+
+
+--
+-- Name: INSTANCE_PARENT_INSTANCE_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."INSTANCE_PARENT" ALTER COLUMN "INSTANCE_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."INSTANCE_PARENT_INSTANCE_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: INSTANCE_PORTAL; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."INSTANCE_PORTAL" (
+    "INSTANCE_ID" integer NOT NULL,
+    "PORTAL_IDENTIFIER" character varying(256) NOT NULL,
+    migrated boolean DEFAULT false NOT NULL
+);
+
+
+--
+-- Name: INSTANCE_PORTAL_INSTANCE_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."INSTANCE_PORTAL" ALTER COLUMN "INSTANCE_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."INSTANCE_PORTAL_INSTANCE_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: INSTANCE_RESOURCE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."INSTANCE_RESOURCE" (
+    "INSTANCE_RESOURCE_ID" integer NOT NULL,
+    "NAME" character varying(50),
+    "DESCRIPTION" character varying(1000),
+    "TEMPLATE" character varying(500),
+    "CLASS" character varying(250),
+    "HIDDEN" smallint NOT NULL,
+    "SORT" integer NOT NULL,
+    "AVAILABLE_INSTANCE_RESOURCE_ID" character varying(25) NOT NULL,
+    "FORM_GROUP_ID" integer NOT NULL,
+    "RESOURCE_ID" integer NOT NULL,
+    require_permission character varying(100),
+    CONSTRAINT "INSTANCE_RESOURCE_HIDDEN_check" CHECK (("HIDDEN" >= 0))
+);
+
+
+--
+-- Name: INSTANCE_RESOURCE_ACTION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."INSTANCE_RESOURCE_ACTION" (
+    "ID" integer NOT NULL,
+    "AVAILABLE_ACTION_ID" character varying(25) NOT NULL,
+    "AVAILABLE_INSTANCE_RESOURCE_ID" character varying(25) NOT NULL
+);
+
+
+--
+-- Name: INSTANCE_RESOURCE_ACTION_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."INSTANCE_RESOURCE_ACTION" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."INSTANCE_RESOURCE_ACTION_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: INSTANCE_RESOURCE_INSTANCE_RESOURCE_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."INSTANCE_RESOURCE" ALTER COLUMN "INSTANCE_RESOURCE_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."INSTANCE_RESOURCE_INSTANCE_RESOURCE_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: INSTANCE_RESOURCE_T; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."INSTANCE_RESOURCE_T" (
+    id integer NOT NULL,
+    "LANGUAGE" character varying(2) NOT NULL,
+    "NAME" character varying(50),
+    "DESCRIPTION" character varying(1000),
+    "INSTANCE_RESOURCE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: INSTANCE_RESOURCE_T_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."INSTANCE_RESOURCE_T" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."INSTANCE_RESOURCE_T_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: INSTANCE_SERVICE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."INSTANCE_SERVICE" (
+    id integer NOT NULL,
+    "ACTIVE" smallint DEFAULT 0 NOT NULL,
+    "ACTIVATION_DATE" timestamp with time zone,
+    "INSTANCE_ID" integer NOT NULL,
+    "SERVICE_ID" integer NOT NULL,
+    CONSTRAINT "INSTANCE_SERVICE_ACTIVE_check" CHECK (("ACTIVE" >= 0))
+);
+
+
+--
+-- Name: INSTANCE_SERVICE_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."INSTANCE_SERVICE" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."INSTANCE_SERVICE_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: INSTANCE_STATE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."INSTANCE_STATE" (
+    "INSTANCE_STATE_ID" integer NOT NULL,
+    "NAME" character varying(100),
+    "SORT" integer DEFAULT 0 NOT NULL,
+    "DESCRIPTION" character varying(1000)
+);
+
+
+--
+-- Name: INSTANCE_STATE_DESCRIPTION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."INSTANCE_STATE_DESCRIPTION" (
+    "INSTANCE_STATE_ID" integer NOT NULL,
+    "DESCRIPTION" character varying(255) NOT NULL
+);
+
+
+--
+-- Name: INSTANCE_STATE_INSTANCE_STATE_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."INSTANCE_STATE" ALTER COLUMN "INSTANCE_STATE_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."INSTANCE_STATE_INSTANCE_STATE_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: INSTANCE_STATE_T; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."INSTANCE_STATE_T" (
+    id integer NOT NULL,
+    "LANGUAGE" character varying(2) NOT NULL,
+    "NAME" character varying(100),
+    "DESCRIPTION" character varying(1000),
+    "INSTANCE_STATE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: INSTANCE_STATE_T_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."INSTANCE_STATE_T" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."INSTANCE_STATE_T_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: OTHER_INTENTIONS; Type: VIEW; Schema: public; Owner: -
+--
+
+CREATE VIEW public."OTHER_INTENTIONS" AS
+ SELECT "ANSWER"."ANSWER",
+    "ANSWER"."INSTANCE_ID"
+   FROM public."ANSWER"
+  WHERE ((("ANSWER"."QUESTION_ID" = 98) AND (("ANSWER"."CHAPTER_ID" = 21) OR ("ANSWER"."CHAPTER_ID" = 101)) AND ("ANSWER"."ITEM" = 1)) OR (("ANSWER"."QUESTION_ID" = 244) AND ("ANSWER"."CHAPTER_ID" = 102)));
+
+
+--
+-- Name: PRESET_INTENTIONS; Type: VIEW; Schema: public; Owner: -
+--
+
+CREATE VIEW public."PRESET_INTENTIONS" AS
+ SELECT "ANSWER_LIST"."NAME",
+    "ANSWER_LIST"."VALUE",
+    "ANSWER"."INSTANCE_ID"
+   FROM (public."ANSWER_LIST"
+     JOIN public."ANSWER" ON ((("ANSWER"."QUESTION_ID" = 97) AND ("ANSWER"."CHAPTER_ID" = 21) AND ("ANSWER"."ITEM" = 1))))
+  WHERE (("ANSWER_LIST"."QUESTION_ID" = 97) AND (("ANSWER"."ANSWER")::jsonb ? ("ANSWER_LIST"."VALUE")::text));
+
+
+--
+-- Name: INTENTIONS; Type: VIEW; Schema: public; Owner: -
+--
+
+CREATE VIEW public."INTENTIONS" AS
+ SELECT "PRESET_INTENTIONS"."NAME",
+    "PRESET_INTENTIONS"."INSTANCE_ID"
+   FROM public."PRESET_INTENTIONS"
+UNION
+ SELECT "OTHER_INTENTIONS"."ANSWER" AS "NAME",
+    "OTHER_INTENTIONS"."INSTANCE_ID"
+   FROM public."OTHER_INTENTIONS";
+
+
+--
+-- Name: IR_ALLFORMPAGES; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."IR_ALLFORMPAGES" (
+    "INSTANCE_RESOURCE_ID" integer NOT NULL,
+    "PDF_CLASS" character varying(500),
+    "SHOW_ALL_PAGE_FORM_MODE" smallint NOT NULL,
+    "PAGE_FORM_GROUP_ID" integer,
+    CONSTRAINT "IR_ALLFORMPAGES_SHOW_ALL_PAGE_FORM_MODE_check" CHECK (("SHOW_ALL_PAGE_FORM_MODE" >= 0))
+);
+
+
+--
+-- Name: IR_CIRCULATION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."IR_CIRCULATION" (
+    "INSTANCE_RESOURCE_ID" integer NOT NULL,
+    "SHOW_NOTICE" smallint NOT NULL,
+    "SHOW_HISTORY" smallint NOT NULL,
+    "SHOW_ALL_CHILDREN" smallint NOT NULL,
+    "READ_NOTICE_TEMPLATE" character varying(500),
+    "PDF_CLASS" character varying(500),
+    "SERVICE_TO_BE_INTERPRETED" character varying(50),
+    "CIRCULATION_TYPE_ID" integer NOT NULL,
+    "DRAFT_CIRCULATION_ANSWER_ID" integer,
+    "SERVICE_ID" integer,
+    CONSTRAINT "IR_CIRCULATION_SHOW_ALL_CHILDREN_check" CHECK (("SHOW_ALL_CHILDREN" >= 0)),
+    CONSTRAINT "IR_CIRCULATION_SHOW_HISTORY_check" CHECK (("SHOW_HISTORY" >= 0)),
+    CONSTRAINT "IR_CIRCULATION_SHOW_NOTICE_check" CHECK (("SHOW_NOTICE" >= 0))
+);
+
+
+--
+-- Name: IR_EDITCIRCULATION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."IR_EDITCIRCULATION" (
+    "INSTANCE_RESOURCE_ID" integer NOT NULL,
+    "SHOW_NOTICE" smallint NOT NULL,
+    "ADD_TEMPLATE" character varying(500),
+    "ADD_ACTIVATION_TEMPLATE" character varying(500),
+    "READ_NOTICE_TEMPLATE" character varying(500),
+    "PDF_CLASS" character varying(500),
+    "DEFAULT_CIRCULATION_NAME" character varying(500),
+    "SINGLE_CIRCULATION" smallint NOT NULL,
+    "INHERIT_NOTICES" smallint NOT NULL,
+    "DISPLAY_FIRST_CIRCULATION" smallint NOT NULL,
+    "CIRCULATION_EMAIL_ACTION_ID" integer,
+    "CIRCULATION_TYPE_ID" integer NOT NULL,
+    "DRAFT_CIRCULATION_ANSWER_ID" integer,
+    CONSTRAINT "IR_EDITCIRCULATION_DISPLAY_FIRST_CIRCULATION_check" CHECK (("DISPLAY_FIRST_CIRCULATION" >= 0)),
+    CONSTRAINT "IR_EDITCIRCULATION_INHERIT_NOTICES_check" CHECK (("INHERIT_NOTICES" >= 0)),
+    CONSTRAINT "IR_EDITCIRCULATION_SHOW_NOTICE_check" CHECK (("SHOW_NOTICE" >= 0)),
+    CONSTRAINT "IR_EDITCIRCULATION_SINGLE_CIRCULATION_check" CHECK (("SINGLE_CIRCULATION" >= 0))
+);
+
+
+--
+-- Name: IR_EDITCIRCULATION_SG; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."IR_EDITCIRCULATION_SG" (
+    "IR_EDITCIRCULATION_SG_ID" integer NOT NULL,
+    "LOCALIZED" smallint NOT NULL,
+    "SERVICE_GROUP_ID" integer NOT NULL,
+    "INSTANCE_RESOURCE_ID" integer NOT NULL,
+    CONSTRAINT "IR_EDITCIRCULATION_SG_LOCALIZED_check" CHECK (("LOCALIZED" >= 0))
+);
+
+
+--
+-- Name: IR_EDITCIRCULATION_SG_IR_EDITCIRCULATION_SG_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."IR_EDITCIRCULATION_SG" ALTER COLUMN "IR_EDITCIRCULATION_SG_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."IR_EDITCIRCULATION_SG_IR_EDITCIRCULATION_SG_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: IR_EDITCIRCULATION_T; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."IR_EDITCIRCULATION_T" (
+    id integer NOT NULL,
+    "LANGUAGE" character varying(2) NOT NULL,
+    "DEFAULT_CIRCULATION_NAME" character varying(500),
+    "INSTANCE_RESOURCE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: IR_EDITCIRCULATION_T_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."IR_EDITCIRCULATION_T" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."IR_EDITCIRCULATION_T_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: IR_EDITFORMPAGE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."IR_EDITFORMPAGE" (
+    "INSTANCE_RESOURCE_ID" integer NOT NULL,
+    "PDF_CLASS" character varying(500),
+    "PAGE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: IR_EDITFORMPAGES; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."IR_EDITFORMPAGES" (
+    "INSTANCE_RESOURCE_ID" integer NOT NULL,
+    "PDF_CLASS" character varying(500),
+    "PAGE_FORM_GROUP_ID" integer
+);
+
+
+--
+-- Name: IR_EDITLETTER; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."IR_EDITLETTER" (
+    "INSTANCE_RESOURCE_ID" integer NOT NULL,
+    "PDF_CLASS" character varying(500)
+);
+
+
+--
+-- Name: IR_EDITLETTER_ANSWER; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."IR_EDITLETTER_ANSWER" (
+    "IR_EDITLETTER_ANSWER_ID" integer NOT NULL,
+    "NAME" character varying(50),
+    "INSTANCE_RESOURCE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: IR_EDITLETTER_ANSWER_IR_EDITLETTER_ANSWER_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."IR_EDITLETTER_ANSWER" ALTER COLUMN "IR_EDITLETTER_ANSWER_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."IR_EDITLETTER_ANSWER_IR_EDITLETTER_ANSWER_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: IR_EDITLETTER_ANSWER_T; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."IR_EDITLETTER_ANSWER_T" (
+    id integer NOT NULL,
+    "LANGUAGE" character varying(2) NOT NULL,
+    "NAME" character varying(50),
+    "IR_EDITLETTER_ANSWER_ID" integer NOT NULL
+);
+
+
+--
+-- Name: IR_EDITLETTER_ANSWER_T_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."IR_EDITLETTER_ANSWER_T" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."IR_EDITLETTER_ANSWER_T_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: IR_EDITNOTICE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."IR_EDITNOTICE" (
+    "INSTANCE_RESOURCE_ID" integer NOT NULL,
+    "EDITABLE_AFTER_DEADLINE" smallint NOT NULL,
+    "PDF_CLASS" character varying(500),
+    "EDIT_NOTICE_TEMPLATE" character varying(500),
+    "HIDE_ANSWERED_NOTICES" smallint NOT NULL,
+    "IS_ALWAYS_EDITABLE" smallint NOT NULL,
+    "CIRCULATION_TYPE_ID" integer NOT NULL,
+    CONSTRAINT "IR_EDITNOTICE_EDITABLE_AFTER_DEADLINE_check" CHECK (("EDITABLE_AFTER_DEADLINE" >= 0)),
+    CONSTRAINT "IR_EDITNOTICE_HIDE_ANSWERED_NOTICES_check" CHECK (("HIDE_ANSWERED_NOTICES" >= 0)),
+    CONSTRAINT "IR_EDITNOTICE_IS_ALWAYS_EDITABLE_check" CHECK (("IS_ALWAYS_EDITABLE" >= 0))
+);
+
+
+--
+-- Name: IR_EDITRESPONSIBLEGROUP; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."IR_EDITRESPONSIBLEGROUP" (
+    "INSTANCE_RESOURCE_ID" integer NOT NULL,
+    "TABLE_NAME" character varying(30) NOT NULL,
+    "COLUMN_NAME" character varying(30) NOT NULL,
+    "RESPONSIBLE_ROLE_ID" integer
+);
+
+
+--
+-- Name: IR_EDITRESPONSIBLEUSER; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."IR_EDITRESPONSIBLEUSER" (
+    "INSTANCE_RESOURCE_ID" integer NOT NULL,
+    "TABLE_NAME" character varying(30),
+    "COLUMN_NAME" character varying(30),
+    "IS_SERVICE_RESPONSIBLE" boolean,
+    "IS_REQUIRED" boolean
+);
+
+
+--
+-- Name: IR_FORMERROR; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."IR_FORMERROR" (
+    "INSTANCE_RESOURCE_ID" integer NOT NULL,
+    "IR_EDITFORMPAGES_ID" integer NOT NULL
+);
+
+
+--
+-- Name: IR_FORMPAGE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."IR_FORMPAGE" (
+    "INSTANCE_RESOURCE_ID" integer NOT NULL,
+    "PDF_CLASS" character varying(500),
+    "PAGE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: IR_FORMPAGES; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."IR_FORMPAGES" (
+    "INSTANCE_RESOURCE_ID" integer NOT NULL,
+    "PDF_CLASS" character varying(500),
+    "PAGE_FORM_GROUP_ID" integer
+);
+
+
+--
+-- Name: IR_FORMWIZARD; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."IR_FORMWIZARD" (
+    "INSTANCE_RESOURCE_ID" integer NOT NULL,
+    "SHOW_CAPTCHA" smallint NOT NULL,
+    "SUMMARY" character varying(4000),
+    "INSTANCE_STATE_ID" integer NOT NULL,
+    "PAGE_FORM_GROUP_ID" integer NOT NULL,
+    "GOTO_SECOND_PAGE" smallint DEFAULT 0 NOT NULL,
+    "HIDE_SUMMARY_PAGE" smallint DEFAULT 0 NOT NULL,
+    "HIDE_SUMMARY_QUESTIONS" smallint DEFAULT 0 NOT NULL,
+    "PHP_CLASS" character varying(500),
+    CONSTRAINT "IR_FORMWIZARD_GOTO_SECOND_PAGE_check" CHECK (("GOTO_SECOND_PAGE" >= 0)),
+    CONSTRAINT "IR_FORMWIZARD_HIDE_SUMMARY_PAGE_check" CHECK (("HIDE_SUMMARY_PAGE" >= 0)),
+    CONSTRAINT "IR_FORMWIZARD_HIDE_SUMMARY_QUESTIONS_check" CHECK (("HIDE_SUMMARY_QUESTIONS" >= 0)),
+    CONSTRAINT "IR_FORMWIZARD_SHOW_CAPTCHA_check" CHECK (("SHOW_CAPTCHA" >= 0))
+);
+
+
+--
+-- Name: IR_FORMWIZARD_T; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."IR_FORMWIZARD_T" (
+    id integer NOT NULL,
+    "LANGUAGE" character varying(2) NOT NULL,
+    "SUMMARY" character varying(4000),
+    "INSTANCE_RESOURCE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: IR_FORMWIZARD_T_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."IR_FORMWIZARD_T" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."IR_FORMWIZARD_T_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: IR_GROUP_ACL; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."IR_GROUP_ACL" (
+    "ID" integer NOT NULL,
+    "GROUP_ID" integer NOT NULL,
+    "INSTANCE_RESOURCE_ID" integer NOT NULL,
+    "INSTANCE_STATE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: IR_GROUP_ACL_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."IR_GROUP_ACL" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."IR_GROUP_ACL_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: IR_LETTER; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."IR_LETTER" (
+    "INSTANCE_RESOURCE_ID" integer NOT NULL,
+    "IR_EDITLETTER_ID" integer
+);
+
+
+--
+-- Name: IR_NEWFORM; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."IR_NEWFORM" (
+    "INSTANCE_RESOURCE_ID" integer NOT NULL,
+    "INSTANCE_STATE_ID" integer NOT NULL,
+    "PAGE_FORM_GROUP_ID" integer
+);
+
+
+--
+-- Name: IR_PAGE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."IR_PAGE" (
+    "INSTANCE_RESOURCE_ID" integer NOT NULL,
+    "PDF_CLASS" character varying(500)
+);
+
+
+--
+-- Name: IR_ROLE_ACL; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."IR_ROLE_ACL" (
+    "ID" integer NOT NULL,
+    "INSTANCE_RESOURCE_ID" integer NOT NULL,
+    "INSTANCE_STATE_ID" integer NOT NULL,
+    "ROLE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: IR_ROLE_ACL_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."IR_ROLE_ACL" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."IR_ROLE_ACL_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: IR_SERVICE_ACL; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."IR_SERVICE_ACL" (
+    "ID" integer NOT NULL,
+    "INSTANCE_RESOURCE_ID" integer NOT NULL,
+    "INSTANCE_STATE_ID" integer NOT NULL,
+    "SERVICE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: IR_SERVICE_ACL_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."IR_SERVICE_ACL" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."IR_SERVICE_ACL_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: IR_TASKFORM; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."IR_TASKFORM" (
+    "INSTANCE_RESOURCE_ID" integer NOT NULL,
+    "TASK" character varying(127) NOT NULL
+);
+
+
+--
+-- Name: IR_USER_ACL; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."IR_USER_ACL" (
+    "ID" integer NOT NULL,
+    "INSTANCE_RESOURCE_ID" integer NOT NULL,
+    "INSTANCE_STATE_ID" integer NOT NULL,
+    "USER_ID" integer NOT NULL
+);
+
+
+--
+-- Name: IR_USER_ACL_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."IR_USER_ACL" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."IR_USER_ACL_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: LETTER; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."LETTER" (
+    id integer NOT NULL,
+    "DATE" timestamp with time zone NOT NULL,
+    "NAME" character varying(50) NOT NULL,
+    "CONTENT" text NOT NULL,
+    "MODIFICATION_DATE" timestamp with time zone NOT NULL,
+    "INSTANCE_ID" integer NOT NULL,
+    "IR_EDITLETTER_ANSWER_ID" integer,
+    "USER_ID" integer NOT NULL,
+    "INSTANCE_RESOURCE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: LETTER_IMAGE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."LETTER_IMAGE" (
+    "LETTER_IMAGE_ID" integer NOT NULL,
+    "MODIFICATION_DATE" timestamp with time zone NOT NULL,
+    "NAME" character varying(50) NOT NULL,
+    "FILENAME" character varying(50) NOT NULL,
+    "INSTANCE_ID" integer NOT NULL,
+    "INSTANCE_RESOURCE_ID" integer NOT NULL,
+    "USER_ID" integer NOT NULL
+);
+
+
+--
+-- Name: LETTER_IMAGE_LETTER_IMAGE_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."LETTER_IMAGE" ALTER COLUMN "LETTER_IMAGE_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."LETTER_IMAGE_LETTER_IMAGE_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: LETTER_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."LETTER" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."LETTER_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: LOCATION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."LOCATION" (
+    "LOCATION_ID" integer NOT NULL,
+    "COMMUNAL_CANTONAL_NUMBER" integer,
+    "COMMUNAL_FEDERAL_NUMBER" character varying(255),
+    "DISTRICT_NUMBER" integer,
+    "SECTION_NUMBER" integer,
+    "NAME" character varying(100),
+    "COMMUNE_NAME" character varying(100),
+    "DISTRICT_NAME" character varying(100),
+    "SECTION_NAME" character varying(100),
+    "ZIP" character varying(10)
+);
+
+
+--
+-- Name: LOCATION_LOCATION_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."LOCATION" ALTER COLUMN "LOCATION_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."LOCATION_LOCATION_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: LOCATION_T; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."LOCATION_T" (
+    id integer NOT NULL,
+    "LANGUAGE" character varying(2) NOT NULL,
+    "NAME" character varying(100),
+    "COMMUNE_NAME" character varying(100),
+    "DISTRICT_NAME" character varying(100),
+    "SECTION_NAME" character varying(100),
+    "LOCATION_ID" integer NOT NULL
+);
+
+
+--
+-- Name: LOCATION_T_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."LOCATION_T" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."LOCATION_T_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: LOGIN_ATTEMPT; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."LOGIN_ATTEMPT" (
+    "LOGIN_ATTEMPT_ID" integer NOT NULL,
+    "IP" character varying(45) NOT NULL,
+    "ATTEMPT_DATE" timestamp with time zone NOT NULL,
+    "USERNAME" character varying(250)
+);
+
+
+--
+-- Name: LOGIN_ATTEMPT_LOGIN_ATTEMPT_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."LOGIN_ATTEMPT" ALTER COLUMN "LOGIN_ATTEMPT_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."LOGIN_ATTEMPT_LOGIN_ATTEMPT_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: MAPPING; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."MAPPING" (
+    "MAPPING_ID" integer NOT NULL,
+    "TABLE_NAME" character varying(30) NOT NULL,
+    "COLUMN_NAME" character varying(30) NOT NULL
+);
+
+
+--
+-- Name: MAPPING_MAPPING_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."MAPPING" ALTER COLUMN "MAPPING_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."MAPPING_MAPPING_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: MUNICIPALITY; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."MUNICIPALITY" (
+    "BFS_NR" integer NOT NULL,
+    "NAME" character varying(100) NOT NULL,
+    "DISTRICT_NR" smallint NOT NULL,
+    CONSTRAINT "MUNICIPALITY_DISTRICT_NR_check" CHECK (("DISTRICT_NR" >= 0))
+);
+
+
+--
+-- Name: NOTICE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."NOTICE" (
+    id integer NOT NULL,
+    "CONTENT" text,
+    "ACTIVATION_ID" integer NOT NULL,
+    "NOTICE_TYPE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: NOTICE_IMAGE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."NOTICE_IMAGE" (
+    "NOTICE_IMAGE_ID" integer NOT NULL,
+    "MODIFICATION_DATE" timestamp with time zone NOT NULL,
+    "NAME" character varying(50) NOT NULL,
+    "FILENAME" character varying(50) NOT NULL,
+    "ACTIVATION_ID" integer NOT NULL,
+    "INSTANCE_ID" integer NOT NULL,
+    "USER_ID" integer NOT NULL,
+    "INSTANCE_RESOURCE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: NOTICE_IMAGE_NOTICE_IMAGE_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."NOTICE_IMAGE" ALTER COLUMN "NOTICE_IMAGE_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."NOTICE_IMAGE_NOTICE_IMAGE_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: NOTICE_LOG; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."NOTICE_LOG" (
+    "NOTICE_LOG_ID" integer NOT NULL,
+    "MODIFICATION_DATE" timestamp with time zone NOT NULL,
+    "USER_ID" integer NOT NULL,
+    "ACTION" character varying(500) NOT NULL,
+    "DATA" text,
+    "ID1" integer NOT NULL,
+    "FIELD1" character varying(30) NOT NULL,
+    "ID2" integer NOT NULL,
+    "FIELD2" character varying(30) NOT NULL
+);
+
+
+--
+-- Name: NOTICE_LOG_NOTICE_LOG_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."NOTICE_LOG" ALTER COLUMN "NOTICE_LOG_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."NOTICE_LOG_NOTICE_LOG_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: NOTICE_TYPE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."NOTICE_TYPE" (
+    "NOTICE_TYPE_ID" integer NOT NULL,
+    "NAME" character varying(50),
+    "CIRCULATION_TYPE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: NOTICE_TYPE_NOTICE_TYPE_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."NOTICE_TYPE" ALTER COLUMN "NOTICE_TYPE_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."NOTICE_TYPE_NOTICE_TYPE_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: NOTICE_TYPE_T; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."NOTICE_TYPE_T" (
+    id integer NOT NULL,
+    "LANGUAGE" character varying(2) NOT NULL,
+    "NAME" character varying(50),
+    "NOTICE_TYPE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: NOTICE_TYPE_T_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."NOTICE_TYPE_T" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."NOTICE_TYPE_T_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: NOTICE_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."NOTICE" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."NOTICE_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: NOTIFICATION_TEMPLATE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."NOTIFICATION_TEMPLATE" (
+    id integer NOT NULL,
+    "PURPOSE" character varying(100),
+    "SUBJECT" text,
+    "BODY" text,
+    service_id integer,
+    type character varying(20),
+    slug character varying(100) NOT NULL
+);
+
+
+--
+-- Name: NOTIFICATION_TEMPLATE_T; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."NOTIFICATION_TEMPLATE_T" (
+    id integer NOT NULL,
+    "LANGUAGE" character varying(2) NOT NULL,
+    "PURPOSE" character varying(100) NOT NULL,
+    "SUBJECT" text NOT NULL,
+    "BODY" text NOT NULL,
+    "TEMPLATE_ID" integer NOT NULL,
+    template_slug_id character varying(100) NOT NULL
+);
+
+
+--
+-- Name: NOTIFICATION_TEMPLATE_T_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."NOTIFICATION_TEMPLATE_T" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."NOTIFICATION_TEMPLATE_T_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: NOTIFICATION_TEMPLATE_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."NOTIFICATION_TEMPLATE" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."NOTIFICATION_TEMPLATE_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: PAGE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."PAGE" (
+    "PAGE_ID" integer NOT NULL,
+    "NAME" character varying(500),
+    "DESCRIPTION" character varying(1000),
+    "JAVASCRIPT" character varying(4000)
+);
+
+
+--
+-- Name: PAGE_ANSWER_ACTIVATION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."PAGE_ANSWER_ACTIVATION" (
+    "PAGE_ANSWER_ACTIVATION_ID" integer NOT NULL,
+    "ANSWER" character varying(4000) NOT NULL,
+    "CHAPTER_ID" integer NOT NULL,
+    "FORM_ID" integer NOT NULL,
+    "PAGE_ID" integer NOT NULL,
+    "QUESTION_ID" integer NOT NULL
+);
+
+
+--
+-- Name: PAGE_ANSWER_ACTIVATION_PAGE_ANSWER_ACTIVATION_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."PAGE_ANSWER_ACTIVATION" ALTER COLUMN "PAGE_ANSWER_ACTIVATION_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."PAGE_ANSWER_ACTIVATION_PAGE_ANSWER_ACTIVATION_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: PAGE_FORM; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."PAGE_FORM" (
+    "ID" integer NOT NULL,
+    "SORT" integer NOT NULL,
+    "FORM_ID" integer NOT NULL,
+    "PAGE_ID" integer NOT NULL,
+    "PAGE_FORM_GROUP_ID" integer,
+    "PAGE_FORM_MODE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: PAGE_FORM_GROUP; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."PAGE_FORM_GROUP" (
+    "PAGE_FORM_GROUP_ID" integer NOT NULL,
+    "NAME" character varying(50)
+);
+
+
+--
+-- Name: PAGE_FORM_GROUP_ACL; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."PAGE_FORM_GROUP_ACL" (
+    "ID" integer NOT NULL,
+    "FORM_ID" integer NOT NULL,
+    "GROUP_ID" integer NOT NULL,
+    "INSTANCE_STATE_ID" integer NOT NULL,
+    "PAGE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: PAGE_FORM_GROUP_ACL_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."PAGE_FORM_GROUP_ACL" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."PAGE_FORM_GROUP_ACL_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: PAGE_FORM_GROUP_PAGE_FORM_GROUP_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."PAGE_FORM_GROUP" ALTER COLUMN "PAGE_FORM_GROUP_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."PAGE_FORM_GROUP_PAGE_FORM_GROUP_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: PAGE_FORM_GROUP_T; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."PAGE_FORM_GROUP_T" (
+    id integer NOT NULL,
+    "LANGUAGE" character varying(2) NOT NULL,
+    "NAME" character varying(50),
+    "PAGE_FORM_GROUP_ID" integer NOT NULL
+);
+
+
+--
+-- Name: PAGE_FORM_GROUP_T_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."PAGE_FORM_GROUP_T" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."PAGE_FORM_GROUP_T_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: PAGE_FORM_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."PAGE_FORM" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."PAGE_FORM_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: PAGE_FORM_MODE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."PAGE_FORM_MODE" (
+    "PAGE_FORM_MODE_ID" integer NOT NULL,
+    "NAME" character varying(50) NOT NULL
+);
+
+
+--
+-- Name: PAGE_FORM_MODE_PAGE_FORM_MODE_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."PAGE_FORM_MODE" ALTER COLUMN "PAGE_FORM_MODE_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."PAGE_FORM_MODE_PAGE_FORM_MODE_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: PAGE_FORM_ROLE_ACL; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."PAGE_FORM_ROLE_ACL" (
+    "ID" integer NOT NULL,
+    "FORM_ID" integer NOT NULL,
+    "INSTANCE_STATE_ID" integer NOT NULL,
+    "PAGE_ID" integer NOT NULL,
+    "ROLE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: PAGE_FORM_ROLE_ACL_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."PAGE_FORM_ROLE_ACL" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."PAGE_FORM_ROLE_ACL_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: PAGE_FORM_SERVICE_ACL; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."PAGE_FORM_SERVICE_ACL" (
+    "ID" integer NOT NULL,
+    "FORM_ID" integer NOT NULL,
+    "INSTANCE_STATE_ID" integer NOT NULL,
+    "PAGE_ID" integer NOT NULL,
+    "SERVICE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: PAGE_FORM_SERVICE_ACL_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."PAGE_FORM_SERVICE_ACL" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."PAGE_FORM_SERVICE_ACL_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: PAGE_FORM_USER_ACL; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."PAGE_FORM_USER_ACL" (
+    "ID" integer NOT NULL,
+    "FORM_ID" integer NOT NULL,
+    "INSTANCE_STATE_ID" integer NOT NULL,
+    "PAGE_ID" integer NOT NULL,
+    "USER_ID" integer NOT NULL
+);
+
+
+--
+-- Name: PAGE_FORM_USER_ACL_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."PAGE_FORM_USER_ACL" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."PAGE_FORM_USER_ACL_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: PAGE_PAGE_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."PAGE" ALTER COLUMN "PAGE_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."PAGE_PAGE_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: PAGE_T; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."PAGE_T" (
+    id integer NOT NULL,
+    "LANGUAGE" character varying(2) NOT NULL,
+    "NAME" character varying(500),
+    "DESCRIPTION" character varying(1000),
+    "PAGE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: PAGE_T_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."PAGE_T" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."PAGE_T_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: PORTAL_SESSION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."PORTAL_SESSION" (
+    "PORTAL_SESSION_ID" character varying(256) NOT NULL,
+    "PORTAL_IDENTIFIER" character varying(256) NOT NULL,
+    "LAST_ACTIVE" timestamp with time zone NOT NULL
+);
+
+
+--
+-- Name: PROJECT_AUTHOR_DATA_VIEW; Type: VIEW; Schema: public; Owner: -
+--
+
+CREATE VIEW public."PROJECT_AUTHOR_DATA_VIEW" AS
+ SELECT "NAME_TBL"."ANSWER" AS "NAME",
+    "EMAIL_TBL"."ANSWER" AS "EMAIL",
+    "NAME_TBL"."INSTANCE_ID"
+   FROM (public."ANSWER" "NAME_TBL"
+     JOIN public."ANSWER" "EMAIL_TBL" ON ((("EMAIL_TBL"."CHAPTER_ID" = 1) AND ("EMAIL_TBL"."QUESTION_ID" = 77) AND ("EMAIL_TBL"."ITEM" = 1))))
+  WHERE (("NAME_TBL"."CHAPTER_ID" = 1) AND ("NAME_TBL"."QUESTION_ID" = 71) AND ("NAME_TBL"."ITEM" = 1) AND ("NAME_TBL"."INSTANCE_ID" = "EMAIL_TBL"."INSTANCE_ID"));
+
+
+--
+-- Name: PROJECT_SUBMITTER_VIEW; Type: VIEW; Schema: public; Owner: -
+--
+
+CREATE VIEW public."PROJECT_SUBMITTER_VIEW" AS
+ SELECT "INSTANCE"."INSTANCE_ID",
+    COALESCE("NAME_TBL"."ANSWER", ('0'::character varying)::text) AS "ANSWER"
+   FROM (public."INSTANCE"
+     LEFT JOIN public."ANSWER" "NAME_TBL" ON ((("NAME_TBL"."CHAPTER_ID" = 103) AND ("NAME_TBL"."QUESTION_ID" = 257) AND ("NAME_TBL"."ITEM" = 1) AND ("INSTANCE"."INSTANCE_ID" = "NAME_TBL"."INSTANCE_ID"))));
+
+
+--
+-- Name: PROJECT_SUBMITTER_DATA; Type: VIEW; Schema: public; Owner: -
+--
+
+CREATE VIEW public."PROJECT_SUBMITTER_DATA" AS
+ SELECT
+        CASE "PROJECT_SUBMITTER_VIEW"."ANSWER"
+            WHEN '0'::text THEN ("APPLICANT_DATA_VIEW"."NAME")::character varying
+            WHEN '1'::text THEN ("PROJECT_AUTHOR_DATA_VIEW"."NAME")::character varying
+            ELSE NULL::character varying
+        END AS "NAME",
+        CASE "PROJECT_SUBMITTER_VIEW"."ANSWER"
+            WHEN '0'::text THEN ("APPLICANT_DATA_VIEW"."EMAIL")::character varying
+            WHEN '1'::text THEN ("PROJECT_AUTHOR_DATA_VIEW"."EMAIL")::character varying
+            ELSE NULL::character varying
+        END AS "EMAIL",
+    "PROJECT_SUBMITTER_VIEW"."INSTANCE_ID",
+    "PROJECT_SUBMITTER_VIEW"."ANSWER"
+   FROM ((public."PROJECT_SUBMITTER_VIEW"
+     LEFT JOIN public."APPLICANT_DATA_VIEW" ON (("PROJECT_SUBMITTER_VIEW"."INSTANCE_ID" = "APPLICANT_DATA_VIEW"."INSTANCE_ID")))
+     LEFT JOIN public."PROJECT_AUTHOR_DATA_VIEW" ON (("PROJECT_SUBMITTER_VIEW"."INSTANCE_ID" = "PROJECT_AUTHOR_DATA_VIEW"."INSTANCE_ID")));
+
+
+--
+-- Name: PROPOSAL_ACTIVATION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."PROPOSAL_ACTIVATION" (
+    "PROPOSAL_ACTIVATION_ID" integer NOT NULL,
+    "DEADLINE_DATE" timestamp with time zone NOT NULL,
+    "REASON" character varying(50),
+    "CIRCULATION_STATE_ID" integer NOT NULL,
+    "CIRCULATION_TYPE_ID" integer NOT NULL,
+    "INSTANCE_ID" integer NOT NULL,
+    "SERVICE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: PROPOSAL_ACTIVATION_PROPOSAL_ACTIVATION_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."PROPOSAL_ACTIVATION" ALTER COLUMN "PROPOSAL_ACTIVATION_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."PROPOSAL_ACTIVATION_PROPOSAL_ACTIVATION_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: PUBLICATION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."PUBLICATION" (
+    "INSTANCE_ID" integer NOT NULL,
+    "START_DATE" date NOT NULL,
+    "END_DATE" date NOT NULL,
+    "TEXT" text,
+    "PUBLICATION_DATE_AMTSBLATT" date,
+    "PUBLICATION_DATE_1_ANZEIGER" date,
+    "PUBLICATION_DATE_2_ANZEIGER" date,
+    "ANZEIGER" character varying(255)
+);
+
+
+--
+-- Name: PUBLICATION_ENTRY; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."PUBLICATION_ENTRY" (
+    "PUBLICATION_ENTRY_ID" integer NOT NULL,
+    "NOTE" double precision,
+    "PUBLICATION_DATE" timestamp with time zone NOT NULL,
+    "IS_PUBLISHED" smallint NOT NULL,
+    "TEXT" text,
+    "INSTANCE_ID" integer NOT NULL,
+    "PUBLICATION_TYPE_ID" integer,
+    publication_views integer DEFAULT 0 NOT NULL,
+    publication_end_date timestamp with time zone NOT NULL,
+    CONSTRAINT "PUBLICATION_ENTRY_IS_PUBLISHED_check" CHECK (("IS_PUBLISHED" >= 0))
+);
+
+
+--
+-- Name: PUBLICATION_ENTRY_PUBLICATION_ENTRY_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."PUBLICATION_ENTRY" ALTER COLUMN "PUBLICATION_ENTRY_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."PUBLICATION_ENTRY_PUBLICATION_ENTRY_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: PUBLICATION_INSTANCE_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."PUBLICATION" ALTER COLUMN "INSTANCE_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."PUBLICATION_INSTANCE_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: PUBLICATION_SETTING; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."PUBLICATION_SETTING" (
+    "PUBLICATION_SETTING_ID" integer NOT NULL,
+    "KEY" character varying(64) NOT NULL,
+    "VALUE" character varying(4000),
+    "PUBLICATION_TYPE_ID" integer
+);
+
+
+--
+-- Name: PUBLICATION_SETTING_PUBLICATION_SETTING_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."PUBLICATION_SETTING" ALTER COLUMN "PUBLICATION_SETTING_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."PUBLICATION_SETTING_PUBLICATION_SETTING_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: PUBLICATION_TYPE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."PUBLICATION_TYPE" (
+    id integer NOT NULL,
+    "NAME" text NOT NULL
+);
+
+
+--
+-- Name: PUBLICATION_TYPE_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."PUBLICATION_TYPE" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."PUBLICATION_TYPE_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: QUESTION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."QUESTION" (
+    "QUESTION_ID" integer NOT NULL,
+    "NAME" character varying(500),
+    "DESCRIPTION" character varying(1000),
+    "JAVASCRIPT" character varying(4000),
+    "REGEX" character varying(1000),
+    "DEFAULT_ANSWER" character varying(4000),
+    "CLASS" character varying(25),
+    "VALIDATION" character varying(50),
+    "ANSWER_QUERY_ID" integer,
+    "MAPPING_ID" integer,
+    "QUESTION_TYPE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: QUESTION_CHAPTER; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."QUESTION_CHAPTER" (
+    "ID" integer NOT NULL,
+    "REQUIRED" smallint NOT NULL,
+    "ITEM" integer NOT NULL,
+    "SORT" integer NOT NULL,
+    "CHAPTER_ID" integer NOT NULL,
+    "QUESTION_ID" integer NOT NULL,
+    CONSTRAINT "QUESTION_CHAPTER_REQUIRED_check" CHECK (("REQUIRED" >= 0))
+);
+
+
+--
+-- Name: QUESTION_CHAPTER_GROUP_ACL; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."QUESTION_CHAPTER_GROUP_ACL" (
+    "ID" integer NOT NULL,
+    "CHAPTER_ID" integer NOT NULL,
+    "GROUP_ID" integer NOT NULL,
+    "INSTANCE_STATE_ID" integer NOT NULL,
+    "QUESTION_ID" integer NOT NULL
+);
+
+
+--
+-- Name: QUESTION_CHAPTER_GROUP_ACL_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."QUESTION_CHAPTER_GROUP_ACL" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."QUESTION_CHAPTER_GROUP_ACL_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: QUESTION_CHAPTER_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."QUESTION_CHAPTER" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."QUESTION_CHAPTER_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: QUESTION_CHAPTER_ROLE_ACL; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."QUESTION_CHAPTER_ROLE_ACL" (
+    "ID" integer NOT NULL,
+    "CHAPTER_ID" integer NOT NULL,
+    "INSTANCE_STATE_ID" integer NOT NULL,
+    "QUESTION_ID" integer NOT NULL,
+    "ROLE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: QUESTION_CHAPTER_ROLE_ACL_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."QUESTION_CHAPTER_ROLE_ACL" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."QUESTION_CHAPTER_ROLE_ACL_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: QUESTION_CHAPTER_SERVICE_ACL; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."QUESTION_CHAPTER_SERVICE_ACL" (
+    "ID" integer NOT NULL,
+    "CHAPTER_ID" integer NOT NULL,
+    "INSTANCE_STATE_ID" integer NOT NULL,
+    "QUESTION_ID" integer NOT NULL,
+    "SERVICE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: QUESTION_CHAPTER_SERVICE_ACL_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."QUESTION_CHAPTER_SERVICE_ACL" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."QUESTION_CHAPTER_SERVICE_ACL_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: QUESTION_CHAPTER_USER_ACL; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."QUESTION_CHAPTER_USER_ACL" (
+    "ID" integer NOT NULL,
+    "CHAPTER_ID" integer NOT NULL,
+    "INSTANCE_STATE_ID" integer NOT NULL,
+    "QUESTION_ID" integer NOT NULL,
+    "USER_ID" integer NOT NULL
+);
+
+
+--
+-- Name: QUESTION_CHAPTER_USER_ACL_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."QUESTION_CHAPTER_USER_ACL" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."QUESTION_CHAPTER_USER_ACL_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: QUESTION_QUESTION_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."QUESTION" ALTER COLUMN "QUESTION_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."QUESTION_QUESTION_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: QUESTION_T; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."QUESTION_T" (
+    id integer NOT NULL,
+    "LANGUAGE" character varying(2) NOT NULL,
+    "NAME" character varying(500),
+    "DESCRIPTION" character varying(1000),
+    "DEFAULT_ANSWER" character varying(4000),
+    "QUESTION_ID" integer NOT NULL
+);
+
+
+--
+-- Name: QUESTION_TYPE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."QUESTION_TYPE" (
+    "QUESTION_TYPE_ID" integer NOT NULL,
+    "NAME" character varying(20) NOT NULL,
+    "SORT" integer
+);
+
+
+--
+-- Name: QUESTION_TYPE_QUESTION_TYPE_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."QUESTION_TYPE" ALTER COLUMN "QUESTION_TYPE_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."QUESTION_TYPE_QUESTION_TYPE_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: QUESTION_T_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."QUESTION_T" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."QUESTION_T_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: RESOURCE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."RESOURCE" (
+    "RESOURCE_ID" integer NOT NULL,
+    "NAME" character varying(100),
+    "DESCRIPTION" character varying(1000),
+    "TEMPLATE" character varying(500),
+    "CLASS" character varying(250),
+    "HIDDEN" smallint NOT NULL,
+    "SORT" integer NOT NULL,
+    "AVAILABLE_RESOURCE_ID" character varying(25) NOT NULL,
+    CONSTRAINT "RESOURCE_HIDDEN_check" CHECK (("HIDDEN" >= 0))
+);
+
+
+--
+-- Name: RESOURCE_RESOURCE_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."RESOURCE" ALTER COLUMN "RESOURCE_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."RESOURCE_RESOURCE_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: RESOURCE_T; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."RESOURCE_T" (
+    id integer NOT NULL,
+    "LANGUAGE" character varying(2) NOT NULL,
+    "NAME" character varying(100),
+    "DESCRIPTION" character varying(1000),
+    "RESOURCE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: RESOURCE_T_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."RESOURCE_T" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."RESOURCE_T_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: RESPONSIBLE_ALLOCATION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."RESPONSIBLE_ALLOCATION" (
+    "ALLOCATION_ID" integer NOT NULL,
+    "GROUP_ID" integer NOT NULL,
+    "LOCATION_ID" integer NOT NULL
+);
+
+
+--
+-- Name: RESPONSIBLE_ALLOCATION_ALLOCATION_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."RESPONSIBLE_ALLOCATION" ALTER COLUMN "ALLOCATION_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."RESPONSIBLE_ALLOCATION_ALLOCATION_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: RESPONSIBLE_SERVICE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."RESPONSIBLE_SERVICE" (
+    id integer NOT NULL,
+    "INSTANCE_ID" integer NOT NULL,
+    "RESPONSIBLE_USER_ID" integer NOT NULL,
+    "SERVICE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: RESPONSIBLE_SERVICE_ALLOCATION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."RESPONSIBLE_SERVICE_ALLOCATION" (
+    "SERVICE_ALLOCATION_ID" integer NOT NULL,
+    "LOCATION_ID" integer NOT NULL,
+    "SERVICE_ID" integer NOT NULL,
+    "USER_ID" integer NOT NULL
+);
+
+
+--
+-- Name: RESPONSIBLE_SERVICE_ALLOCATION_SERVICE_ALLOCATION_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."RESPONSIBLE_SERVICE_ALLOCATION" ALTER COLUMN "SERVICE_ALLOCATION_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."RESPONSIBLE_SERVICE_ALLOCATION_SERVICE_ALLOCATION_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: RESPONSIBLE_SERVICE_LOG; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."RESPONSIBLE_SERVICE_LOG" (
+    "RESPONSIBLE_SERVICE_LOG_ID" integer NOT NULL,
+    "MODIFICATION_DATE" timestamp with time zone NOT NULL,
+    "USER_ID" integer,
+    "ACTION" character varying(5),
+    "DATA" text,
+    "ID1" integer,
+    "FIELD1" character varying(30),
+    "ID2" integer,
+    "FIELD2" character varying(30)
+);
+
+
+--
+-- Name: RESPONSIBLE_SERVICE_LOG_RESPONSIBLE_SERVICE_LOG_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."RESPONSIBLE_SERVICE_LOG" ALTER COLUMN "RESPONSIBLE_SERVICE_LOG_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."RESPONSIBLE_SERVICE_LOG_RESPONSIBLE_SERVICE_LOG_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: RESPONSIBLE_SERVICE_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."RESPONSIBLE_SERVICE" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."RESPONSIBLE_SERVICE_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: ROLE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."ROLE" (
+    "ROLE_ID" integer NOT NULL,
+    "NAME" character varying(100),
+    "ROLE_PARENT_ID" integer,
+    "GROUP_PREFIX" character varying(100),
+    "SLUG" character varying(50)
+);
+
+
+--
+-- Name: ROLE_ROLE_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."ROLE" ALTER COLUMN "ROLE_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."ROLE_ROLE_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: ROLE_T; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."ROLE_T" (
+    id integer NOT NULL,
+    "LANGUAGE" character varying(2) NOT NULL,
+    "NAME" character varying(100),
+    "ROLE_ID" integer NOT NULL,
+    "GROUP_PREFIX" character varying(100)
+);
+
+
+--
+-- Name: ROLE_T_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."ROLE_T" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."ROLE_T_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: R_EMBER_LIST; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."R_EMBER_LIST" (
+    "RESOURCE_ID" integer NOT NULL,
+    "INSTANCE_STATES" character varying(400) NOT NULL
+);
+
+
+--
+-- Name: R_EMBER_LIST_RESOURCE_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."R_EMBER_LIST" ALTER COLUMN "RESOURCE_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."R_EMBER_LIST_RESOURCE_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: R_FORMLIST; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."R_FORMLIST" (
+    "RESOURCE_ID" integer NOT NULL,
+    "FORM_ID" integer NOT NULL
+);
+
+
+--
+-- Name: R_GROUP_ACL; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."R_GROUP_ACL" (
+    "ID" integer NOT NULL,
+    "GROUP_ID" integer NOT NULL,
+    "RESOURCE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: R_GROUP_ACL_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."R_GROUP_ACL" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."R_GROUP_ACL_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: R_LIST; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."R_LIST" (
+    "RESOURCE_ID" integer NOT NULL,
+    "QUERY" character varying(4000) NOT NULL
+);
+
+
+--
+-- Name: R_LIST_COLUMN; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."R_LIST_COLUMN" (
+    "R_LIST_COLUMN_ID" integer NOT NULL,
+    "COLUMN_NAME" character varying(30) NOT NULL,
+    "ALIAS" character varying(50),
+    "SORT" integer NOT NULL,
+    "RESOURCE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: R_LIST_COLUMN_R_LIST_COLUMN_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."R_LIST_COLUMN" ALTER COLUMN "R_LIST_COLUMN_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."R_LIST_COLUMN_R_LIST_COLUMN_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: R_LIST_COLUMN_T; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."R_LIST_COLUMN_T" (
+    id integer NOT NULL,
+    "LANGUAGE" character varying(2) NOT NULL,
+    "ALIAS" character varying(50),
+    "R_LIST_COLUMN_ID" integer NOT NULL
+);
+
+
+--
+-- Name: R_LIST_COLUMN_T_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."R_LIST_COLUMN_T" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."R_LIST_COLUMN_T_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: R_PAGE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."R_PAGE" (
+    "RESOURCE_ID" integer NOT NULL,
+    "PDF_CLASS" character varying(500)
+);
+
+
+--
+-- Name: R_ROLE_ACL; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."R_ROLE_ACL" (
+    "ID" integer NOT NULL,
+    "RESOURCE_ID" integer NOT NULL,
+    "ROLE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: R_ROLE_ACL_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."R_ROLE_ACL" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."R_ROLE_ACL_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: R_SEARCH; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."R_SEARCH" (
+    "RESOURCE_ID" integer NOT NULL,
+    "RESULT_TEMPLATE" character varying(500),
+    "QUERY" text NOT NULL,
+    "PDF_CLASS" character varying(500),
+    "PRESERVE_RESULT" smallint NOT NULL,
+    CONSTRAINT "R_SEARCH_PRESERVE_RESULT_check" CHECK (("PRESERVE_RESULT" >= 0))
+);
+
+
+--
+-- Name: R_SEARCH_COLUMN; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."R_SEARCH_COLUMN" (
+    "R_SEARCH_COLUMN_ID" integer NOT NULL,
+    "COLUMN_NAME" character varying(30) NOT NULL,
+    "ALIAS" character varying(30),
+    "SORT" integer NOT NULL,
+    "RESOURCE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: R_SEARCH_COLUMN_R_SEARCH_COLUMN_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."R_SEARCH_COLUMN" ALTER COLUMN "R_SEARCH_COLUMN_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."R_SEARCH_COLUMN_R_SEARCH_COLUMN_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: R_SEARCH_COLUMN_T; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."R_SEARCH_COLUMN_T" (
+    id integer NOT NULL,
+    "LANGUAGE" character varying(2) NOT NULL,
+    "ALIAS" character varying(30),
+    "R_SEARCH_COLUMN_ID" integer NOT NULL
+);
+
+
+--
+-- Name: R_SEARCH_COLUMN_T_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."R_SEARCH_COLUMN_T" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."R_SEARCH_COLUMN_T_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: R_SEARCH_FILTER; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."R_SEARCH_FILTER" (
+    "R_SEARCH_FILTER_ID" integer NOT NULL,
+    "FIELD_NAME" character varying(50) NOT NULL,
+    "LABEL" character varying(1000),
+    "QUERY" character varying(4000) NOT NULL,
+    "WILDCARD" smallint NOT NULL,
+    "CLASS" character varying(25),
+    "QUESTION_ID" integer,
+    "RESOURCE_ID" integer NOT NULL,
+    CONSTRAINT "R_SEARCH_FILTER_WILDCARD_check" CHECK (("WILDCARD" >= 0))
+);
+
+
+--
+-- Name: R_SEARCH_FILTER_R_SEARCH_FILTER_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."R_SEARCH_FILTER" ALTER COLUMN "R_SEARCH_FILTER_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."R_SEARCH_FILTER_R_SEARCH_FILTER_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: R_SEARCH_FILTER_T; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."R_SEARCH_FILTER_T" (
+    id integer NOT NULL,
+    "LANGUAGE" character varying(2) NOT NULL,
+    "LABEL" character varying(1000),
+    "R_SEARCH_FILTER_ID" integer NOT NULL
+);
+
+
+--
+-- Name: R_SEARCH_FILTER_T_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."R_SEARCH_FILTER_T" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."R_SEARCH_FILTER_T_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: R_SERVICE_ACL; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."R_SERVICE_ACL" (
+    "ID" integer NOT NULL,
+    "RESOURCE_ID" integer NOT NULL,
+    "SERVICE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: R_SERVICE_ACL_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."R_SERVICE_ACL" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."R_SERVICE_ACL_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: R_USER_ACL; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."R_USER_ACL" (
+    "ID" integer NOT NULL,
+    "RESOURCE_ID" integer NOT NULL,
+    "USER_ID" integer NOT NULL
+);
+
+
+--
+-- Name: R_USER_ACL_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."R_USER_ACL" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."R_USER_ACL_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: SANCTION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."SANCTION" (
+    "SANCTION_ID" integer NOT NULL,
+    "TEXT" character varying(4000) NOT NULL,
+    "START_DATE" timestamp with time zone NOT NULL,
+    "DEADLINE_DATE" timestamp with time zone,
+    "END_DATE" timestamp with time zone,
+    "NOTICE" character varying(500),
+    "IS_FINISHED" smallint NOT NULL,
+    "FINISHED_BY_USER_ID" integer,
+    "INSTANCE_ID" integer NOT NULL,
+    "SERVICE_ID" integer NOT NULL,
+    "USER_ID" integer NOT NULL,
+    "CONTROL_INSTANCE_ID" integer,
+    CONSTRAINT "SANCTION_IS_FINISHED_check" CHECK (("IS_FINISHED" >= 0))
+);
+
+
+--
+-- Name: SANCTION_SANCTION_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."SANCTION" ALTER COLUMN "SANCTION_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."SANCTION_SANCTION_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: SERVICE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."SERVICE" (
+    "SERVICE_ID" integer NOT NULL,
+    "NAME" character varying(100),
+    "DESCRIPTION" character varying(255),
+    "SORT" integer NOT NULL,
+    "PHONE" character varying(100),
+    "ZIP" character varying(10),
+    "CITY" character varying(100),
+    "ADDRESS" character varying(100),
+    "EMAIL" character varying(1000),
+    "WEBSITE" character varying(1000),
+    "SERVICE_GROUP_ID" integer NOT NULL,
+    "SERVICE_PARENT_ID" integer,
+    "DISABLED" smallint DEFAULT 0 NOT NULL,
+    notification smallint DEFAULT 1 NOT NULL,
+    responsibility_construction_control boolean DEFAULT false NOT NULL,
+    logo character varying(100),
+    external_identifier character varying(100),
+    slug character varying(50),
+    department character varying(100),
+    meta jsonb DEFAULT '{}'::jsonb NOT NULL,
+    CONSTRAINT "SERVICE_DISABLED_check" CHECK (("DISABLED" >= 0)),
+    CONSTRAINT "SERVICE_notification_check" CHECK ((notification >= 0))
+);
+
+
+--
+-- Name: SERVICE_ANSWER_ACTIVATION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."SERVICE_ANSWER_ACTIVATION" (
+    "SERVICE_ANSWER_ACTIVATION_ID" integer NOT NULL,
+    "ANSWER" character varying(4000) NOT NULL,
+    "CHAPTER_ID" integer NOT NULL,
+    "FORM_ID" integer NOT NULL,
+    "QUESTION_ID" integer NOT NULL,
+    "SERVICE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: SERVICE_ANSWER_ACTIVATION_SERVICE_ANSWER_ACTIVATION_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."SERVICE_ANSWER_ACTIVATION" ALTER COLUMN "SERVICE_ANSWER_ACTIVATION_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."SERVICE_ANSWER_ACTIVATION_SERVICE_ANSWER_ACTIVATION_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: SERVICE_GROUP; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."SERVICE_GROUP" (
+    "SERVICE_GROUP_ID" integer NOT NULL,
+    "NAME" character varying(100),
+    sort integer,
+    slug character varying(100)
+);
+
+
+--
+-- Name: SERVICE_GROUP_SERVICE_GROUP_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."SERVICE_GROUP" ALTER COLUMN "SERVICE_GROUP_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."SERVICE_GROUP_SERVICE_GROUP_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: SERVICE_GROUP_T; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."SERVICE_GROUP_T" (
+    id integer NOT NULL,
+    "LANGUAGE" character varying(2) NOT NULL,
+    "NAME" character varying(100),
+    "SERVICE_GROUP_ID" integer NOT NULL
+);
+
+
+--
+-- Name: SERVICE_GROUP_T_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."SERVICE_GROUP_T" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."SERVICE_GROUP_T_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: SERVICE_SERVICE_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."SERVICE" ALTER COLUMN "SERVICE_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."SERVICE_SERVICE_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: SERVICE_T; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."SERVICE_T" (
+    id integer NOT NULL,
+    "LANGUAGE" character varying(2) NOT NULL,
+    "NAME" character varying(200),
+    "DESCRIPTION" character varying(255),
+    "CITY" character varying(100),
+    "SERVICE_ID" integer NOT NULL,
+    department character varying(100)
+);
+
+
+--
+-- Name: SERVICE_T_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."SERVICE_T" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."SERVICE_T_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: TAGS; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."TAGS" (
+    id integer NOT NULL,
+    "NAME" character varying(50) NOT NULL,
+    "INSTANCE_ID" integer NOT NULL,
+    "SERVICE_ID" integer NOT NULL
+);
+
+
+--
+-- Name: TAGS_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."TAGS" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."TAGS_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: TEMPLATE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."TEMPLATE" (
+    "TEMPLATE_ID" integer NOT NULL,
+    "NAME" character varying(255) NOT NULL,
+    "PATH" character varying(1024) NOT NULL,
+    group_id integer,
+    service_id integer
+);
+
+
+--
+-- Name: TEMPLATE_GENERATE_ACTION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."TEMPLATE_GENERATE_ACTION" (
+    "ID" integer NOT NULL,
+    "AS_PDF" smallint DEFAULT 0 NOT NULL,
+    "ACTION_ID" integer NOT NULL,
+    "TEMPLATE_ID" integer NOT NULL,
+    CONSTRAINT "TEMPLATE_GENERATE_ACTION_AS_PDF_check" CHECK (("AS_PDF" >= 0))
+);
+
+
+--
+-- Name: TEMPLATE_GENERATE_ACTION_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."TEMPLATE_GENERATE_ACTION" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."TEMPLATE_GENERATE_ACTION_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: TEMPLATE_TEMPLATE_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."TEMPLATE" ALTER COLUMN "TEMPLATE_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."TEMPLATE_TEMPLATE_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: USER; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."USER" (
+    "USER_ID" integer NOT NULL,
+    "USERNAME" character varying(250) NOT NULL,
+    "PASSWORD" character varying(50),
+    "NAME" character varying(100) NOT NULL,
+    "SURNAME" character varying(100) NOT NULL,
+    "EMAIL" character varying(100) COLLATE public.case_insensitive,
+    "PHONE" character varying(100),
+    "DISABLED" smallint DEFAULT 0 NOT NULL,
+    "LANGUAGE" character varying(2) NOT NULL,
+    "LAST_REQUEST_DATE" timestamp with time zone,
+    "ADDRESS" character varying(100),
+    "CITY" character varying(100),
+    "ZIP" character varying(10),
+    mobile character varying(100),
+    "position" character varying(255),
+    title character varying(255),
+    division character varying(255),
+    CONSTRAINT "USER_DISABLED_check" CHECK (("DISABLED" >= 0))
+);
+
+
+--
+-- Name: USER_GROUP; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."USER_GROUP" (
+    "ID" integer NOT NULL,
+    "DEFAULT_GROUP" smallint NOT NULL,
+    "GROUP_ID" integer NOT NULL,
+    "USER_ID" integer NOT NULL,
+    created_at timestamp with time zone,
+    created_by_id integer,
+    CONSTRAINT "USER_GROUP_DEFAULT_GROUP_check" CHECK (("DEFAULT_GROUP" >= 0))
+);
+
+
+--
+-- Name: USER_GROUP_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."USER_GROUP" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."USER_GROUP_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: USER_GROUP_LOG; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."USER_GROUP_LOG" (
+    "USER_GROUP_LOG_ID" integer NOT NULL,
+    "MODIFICATION_DATE" timestamp with time zone NOT NULL,
+    "USER_ID" integer NOT NULL,
+    "ACTION" character varying(500) NOT NULL,
+    "DATA" text,
+    "ID1" integer NOT NULL,
+    "FIELD1" character varying(30) NOT NULL,
+    "ID2" integer NOT NULL,
+    "FIELD2" character varying(30) NOT NULL
+);
+
+
+--
+-- Name: USER_GROUP_LOG_USER_GROUP_LOG_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."USER_GROUP_LOG" ALTER COLUMN "USER_GROUP_LOG_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."USER_GROUP_LOG_USER_GROUP_LOG_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: USER_T; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."USER_T" (
+    id integer NOT NULL,
+    "LANGUAGE" character varying(2) NOT NULL,
+    "CITY" character varying(100),
+    "USER_ID" integer NOT NULL
+);
+
+
+--
+-- Name: USER_T_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."USER_T" ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."USER_T_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: USER_USER_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."USER" ALTER COLUMN "USER_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."USER_USER_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: WORKFLOW_ACTION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."WORKFLOW_ACTION" (
+    "ACTION_ID" integer NOT NULL,
+    "MULTI_VALUE" smallint NOT NULL,
+    "WORKFLOW_ITEM_ID" integer NOT NULL,
+    CONSTRAINT "WORKFLOW_ACTION_MULTI_VALUE_check" CHECK (("MULTI_VALUE" >= 0))
+);
+
+
+--
+-- Name: WORKFLOW_ENTRY; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."WORKFLOW_ENTRY" (
+    "WORKFLOW_ENTRY_ID" integer NOT NULL,
+    "WORKFLOW_DATE" timestamp with time zone NOT NULL,
+    "GROUP" integer NOT NULL,
+    "INSTANCE_ID" integer NOT NULL,
+    "WORKFLOW_ITEM_ID" integer NOT NULL
+);
+
+
+--
+-- Name: WORKFLOW_ENTRY_WORKFLOW_ENTRY_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."WORKFLOW_ENTRY" ALTER COLUMN "WORKFLOW_ENTRY_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."WORKFLOW_ENTRY_WORKFLOW_ENTRY_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: WORKFLOW_ITEM; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."WORKFLOW_ITEM" (
+    "WORKFLOW_ITEM_ID" integer NOT NULL,
+    "POSITION" integer NOT NULL,
+    "NAME" character varying(255) NOT NULL,
+    "AUTOMATICAL" smallint NOT NULL,
+    "DIFFERENT_COLOR" smallint NOT NULL,
+    "IS_WORKFLOW" smallint NOT NULL,
+    "IS_BUILDING_AUTHORITY" smallint NOT NULL,
+    "WORKFLOW_SECTION_ID" integer,
+    caluma_question_id character varying(127),
+    caluma_task_id character varying(127),
+    CONSTRAINT "WORKFLOW_ITEM_AUTOMATICAL_check" CHECK (("AUTOMATICAL" >= 0)),
+    CONSTRAINT "WORKFLOW_ITEM_DIFFERENT_COLOR_check" CHECK (("DIFFERENT_COLOR" >= 0)),
+    CONSTRAINT "WORKFLOW_ITEM_IS_BUILDING_AUTHORITY_check" CHECK (("IS_BUILDING_AUTHORITY" >= 0)),
+    CONSTRAINT "WORKFLOW_ITEM_IS_WORKFLOW_check" CHECK (("IS_WORKFLOW" >= 0))
+);
+
+
+--
+-- Name: WORKFLOW_ITEM_WORKFLOW_ITEM_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."WORKFLOW_ITEM" ALTER COLUMN "WORKFLOW_ITEM_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."WORKFLOW_ITEM_WORKFLOW_ITEM_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: WORKFLOW_ROLE; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."WORKFLOW_ROLE" (
+    "ID" integer NOT NULL,
+    "ROLE_ID" integer NOT NULL,
+    "WORKFLOW_ITEM_ID" integer NOT NULL
+);
+
+
+--
+-- Name: WORKFLOW_ROLE_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."WORKFLOW_ROLE" ALTER COLUMN "ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."WORKFLOW_ROLE_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: WORKFLOW_SECTION; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public."WORKFLOW_SECTION" (
+    "WORKFLOW_SECTION_ID" integer NOT NULL,
+    "NAME" character varying(60) NOT NULL,
+    "SORT" integer
+);
+
+
+--
+-- Name: WORKFLOW_SECTION_WORKFLOW_SECTION_ID_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public."WORKFLOW_SECTION" ALTER COLUMN "WORKFLOW_SECTION_ID" ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public."WORKFLOW_SECTION_WORKFLOW_SECTION_ID_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: alert_message_alertmessage; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.alert_message_alertmessage (
+    id integer NOT NULL,
+    created_at timestamp with time zone DEFAULT '2025-11-19 07:39:57.435164+00'::timestamp with time zone NOT NULL,
+    updated_at timestamp with time zone DEFAULT '2025-11-19 07:39:57.435198+00'::timestamp with time zone NOT NULL,
+    active boolean DEFAULT true NOT NULL,
+    start_date timestamp with time zone,
+    end_date timestamp with time zone,
+    message text NOT NULL,
+    title character varying(200)
+);
+
+
+--
+-- Name: alert_message_alertmessage_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.alert_message_alertmessage ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.alert_message_alertmessage_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: alexandria_core_category; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.alexandria_core_category (
+    created_at timestamp with time zone DEFAULT '2025-11-19 07:39:57.467108+00'::timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(255),
+    modified_at timestamp with time zone DEFAULT '2025-11-19 07:39:57.467195+00'::timestamp with time zone NOT NULL,
+    modified_by_user character varying(150),
+    modified_by_group character varying(255),
+    metainfo jsonb DEFAULT '{}'::jsonb NOT NULL,
+    slug character varying(255) NOT NULL,
+    name public.hstore NOT NULL,
+    description public.hstore,
+    color character varying(18) DEFAULT '#FFFFFF'::character varying NOT NULL,
+    parent_id character varying(255),
+    allowed_mime_types character varying(255)[],
+    sort integer,
+    CONSTRAINT alexandria_core_category_sort_check CHECK ((sort >= 0))
+);
+
+
+--
+-- Name: alexandria_core_document; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.alexandria_core_document (
+    created_at timestamp with time zone DEFAULT '2025-11-19 07:39:57.487035+00'::timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(255),
+    modified_at timestamp with time zone DEFAULT '2025-11-19 07:39:57.48713+00'::timestamp with time zone NOT NULL,
+    modified_by_user character varying(150),
+    modified_by_group character varying(255),
+    metainfo jsonb DEFAULT '{}'::jsonb NOT NULL,
+    id uuid DEFAULT 'eb5535bc-a8e4-454e-ac6b-68cb2bdec359'::uuid NOT NULL,
+    title character varying,
+    description text,
+    category_id character varying(255),
+    date date
+);
+
+
+--
+-- Name: alexandria_core_document_marks; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.alexandria_core_document_marks (
+    id integer NOT NULL,
+    document_id uuid NOT NULL,
+    mark_id character varying(255) NOT NULL
+);
+
+
+--
+-- Name: alexandria_core_document_marks_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.alexandria_core_document_marks ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.alexandria_core_document_marks_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: alexandria_core_document_tags; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.alexandria_core_document_tags (
+    id integer NOT NULL,
+    document_id uuid NOT NULL,
+    tag_id uuid NOT NULL
+);
+
+
+--
+-- Name: alexandria_core_document_tags_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.alexandria_core_document_tags ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.alexandria_core_document_tags_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: alexandria_core_file; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.alexandria_core_file (
+    created_at timestamp with time zone DEFAULT '2025-11-19 07:39:57.524797+00'::timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(255),
+    modified_at timestamp with time zone DEFAULT '2025-11-19 07:39:57.524888+00'::timestamp with time zone NOT NULL,
+    modified_by_user character varying(150),
+    modified_by_group character varying(255),
+    metainfo jsonb DEFAULT '{}'::jsonb NOT NULL,
+    id uuid DEFAULT '902e55f6-b99d-467b-af31-b2fe47a8fb15'::uuid NOT NULL,
+    variant character varying(23) DEFAULT 'original'::character varying NOT NULL,
+    name character varying(255) NOT NULL,
+    document_id uuid NOT NULL,
+    original_id uuid,
+    checksum character varying(255),
+    content character varying(300) DEFAULT ''::character varying NOT NULL,
+    encryption_status character varying(12),
+    mime_type character varying(255) DEFAULT 'application/octet-stream'::character varying NOT NULL,
+    size integer DEFAULT 0 NOT NULL,
+    content_vector tsvector,
+    language character varying(10),
+    content_text text
+);
+
+
+--
+-- Name: alexandria_core_mark; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.alexandria_core_mark (
+    created_at timestamp with time zone DEFAULT '2025-11-19 07:39:58.03001+00'::timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(255),
+    modified_at timestamp with time zone DEFAULT '2025-11-19 07:39:58.030114+00'::timestamp with time zone NOT NULL,
+    modified_by_user character varying(150),
+    modified_by_group character varying(255),
+    metainfo jsonb DEFAULT '{}'::jsonb NOT NULL,
+    slug character varying(255) NOT NULL,
+    name public.hstore NOT NULL,
+    description public.hstore
+);
+
+
+--
+-- Name: alexandria_core_tag; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.alexandria_core_tag (
+    created_at timestamp with time zone DEFAULT '2025-11-19 07:39:57.504983+00'::timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(255),
+    modified_at timestamp with time zone DEFAULT '2025-11-19 07:39:57.505089+00'::timestamp with time zone NOT NULL,
+    modified_by_user character varying(150),
+    modified_by_group character varying(255),
+    metainfo jsonb DEFAULT '{}'::jsonb NOT NULL,
+    id uuid NOT NULL,
+    name character varying(100) NOT NULL,
+    description public.hstore,
+    tag_synonym_group_id integer
+);
+
+
+--
+-- Name: alexandria_core_tagsynonymgroup; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.alexandria_core_tagsynonymgroup (
+    id integer NOT NULL,
+    created_at timestamp with time zone DEFAULT '2025-11-19 07:39:57.848906+00'::timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(255),
+    modified_at timestamp with time zone DEFAULT '2025-11-19 07:39:57.848991+00'::timestamp with time zone NOT NULL,
+    modified_by_user character varying(150),
+    modified_by_group character varying(255),
+    metainfo jsonb DEFAULT '{}'::jsonb NOT NULL
+);
+
+
+--
+-- Name: alexandria_core_tagsynonymgroup_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.alexandria_core_tagsynonymgroup ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.alexandria_core_tagsynonymgroup_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: api_template; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.api_template (
+    slug character varying(50) NOT NULL,
+    description text NOT NULL,
+    template character varying(1024) NOT NULL,
+    engine character varying(20) NOT NULL,
+    meta jsonb NOT NULL,
+    created_at timestamp with time zone,
+    created_by_group character varying(255),
+    created_by_user character varying(150),
+    modified_at timestamp with time zone,
+    modified_by_group character varying(255),
+    modified_by_user character varying(150)
+);
+
+
+--
+-- Name: auth_group; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.auth_group (
+    id integer NOT NULL,
+    name character varying(150) NOT NULL
+);
+
+
+--
+-- Name: auth_group_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.auth_group ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.auth_group_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: auth_group_permissions; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.auth_group_permissions (
+    id integer NOT NULL,
+    group_id integer NOT NULL,
+    permission_id integer NOT NULL
+);
+
+
+--
+-- Name: auth_group_permissions_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.auth_group_permissions ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.auth_group_permissions_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: auth_permission; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.auth_permission (
+    id integer NOT NULL,
+    name character varying(255) NOT NULL,
+    content_type_id integer NOT NULL,
+    codename character varying(100) NOT NULL
+);
+
+
+--
+-- Name: auth_permission_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.auth_permission ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.auth_permission_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: billing_billingv2entrytemplate; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.billing_billingv2entrytemplate (
+    text text NOT NULL,
+    cost_center text,
+    legal_basis text,
+    tax_mode character varying(20),
+    calculation character varying(20),
+    tax_rate numeric(10,2),
+    hours numeric(10,2),
+    hourly_rate numeric(10,2),
+    percentage numeric(10,2),
+    total_cost numeric(10,2),
+    organization character varying(20),
+    billing_type character varying(36),
+    name text NOT NULL,
+    hint text,
+    id uuid DEFAULT 'b2e25bd5-dcfb-43c0-acb4-d15d263eaa15'::uuid NOT NULL,
+    product_number character varying,
+    remark text
+);
+
+
+--
+-- Name: billing_billingv2entrytemplate_service_groups; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.billing_billingv2entrytemplate_service_groups (
+    id integer NOT NULL,
+    billingv2entrytemplate_id uuid NOT NULL,
+    servicegroup_id integer NOT NULL
+);
+
+
+--
+-- Name: billing_billingv2entrytemplate_service_groups_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.billing_billingv2entrytemplate_service_groups ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.billing_billingv2entrytemplate_service_groups_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: billing_billingv2entrytemplate_services; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.billing_billingv2entrytemplate_services (
+    id integer NOT NULL,
+    billingv2entrytemplate_id uuid NOT NULL,
+    service_id integer NOT NULL
+);
+
+
+--
+-- Name: billing_billingv2entrytemplate_services_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.billing_billingv2entrytemplate_services ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.billing_billingv2entrytemplate_services_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: billing_invoice; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.billing_invoice (
+    id integer NOT NULL,
+    customer_number character varying NOT NULL,
+    clerk character varying NOT NULL,
+    user_id character varying NOT NULL,
+    invoice_text character varying NOT NULL,
+    payment_purpose character varying NOT NULL,
+    date_added date DEFAULT '2025-11-19'::date NOT NULL,
+    date_completed date,
+    date_sent date,
+    instance_id integer
+);
+
+
+--
+-- Name: billing_invoice_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.billing_invoice ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.billing_invoice_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: billing_lineitem; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.billing_lineitem (
+    id integer NOT NULL,
+    date_added date DEFAULT '2025-11-19'::date NOT NULL,
+    designation character varying NOT NULL,
+    product_number character varying NOT NULL,
+    created_on date NOT NULL,
+    amount numeric(10,2),
+    billing_v2_entry_id integer,
+    invoice_id integer NOT NULL
+);
+
+
+--
+-- Name: billing_lineitem_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.billing_lineitem ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.billing_lineitem_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: caluma_analytics_analyticsfield; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.caluma_analytics_analyticsfield (
+    created_at timestamp with time zone DEFAULT '2025-11-19 07:42:07.07257+00'::timestamp with time zone NOT NULL,
+    modified_at timestamp with time zone DEFAULT '2025-11-19 07:42:07.072617+00'::timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(150),
+    modified_by_user character varying(150),
+    modified_by_group character varying(150),
+    id uuid DEFAULT '73de02df-8e11-43b8-b1da-135851fa5113'::uuid NOT NULL,
+    alias character varying(100) NOT NULL,
+    meta jsonb DEFAULT '{}'::jsonb NOT NULL,
+    data_source text NOT NULL,
+    filters text[] DEFAULT '{}'::text[],
+    table_id character varying(127) NOT NULL,
+    function character varying(20) DEFAULT 'value'::character varying NOT NULL,
+    show_output boolean DEFAULT true NOT NULL,
+    sort integer DEFAULT 0 NOT NULL,
+    CONSTRAINT caluma_analytics_analyticsfield_sort_check CHECK ((sort >= 0))
+);
+
+
+--
+-- Name: caluma_analytics_analyticstable; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.caluma_analytics_analyticstable (
+    created_at timestamp with time zone DEFAULT '2025-11-19 07:42:07.009617+00'::timestamp with time zone NOT NULL,
+    modified_at timestamp with time zone DEFAULT '2025-11-19 07:42:07.009666+00'::timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(150),
+    modified_by_user character varying(150),
+    modified_by_group character varying(150),
+    slug character varying(127) NOT NULL,
+    meta jsonb DEFAULT '{}'::jsonb NOT NULL,
+    disable_visibilities boolean DEFAULT false NOT NULL,
+    name public.hstore NOT NULL,
+    starting_object character varying(250) NOT NULL,
+    description public.hstore
+);
+
+
+--
+-- Name: caluma_analytics_historicalanalyticsfield; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.caluma_analytics_historicalanalyticsfield (
+    history_user_id character varying(150),
+    created_at timestamp with time zone NOT NULL,
+    modified_at timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(150),
+    modified_by_user character varying(150),
+    modified_by_group character varying(150),
+    id uuid DEFAULT 'e62ec7b9-0fc1-4e08-8920-0926d21d2203'::uuid NOT NULL,
+    alias character varying(100) NOT NULL,
+    meta jsonb DEFAULT '{}'::jsonb NOT NULL,
+    data_source text NOT NULL,
+    filters text[] DEFAULT '{}'::text[],
+    history_id uuid DEFAULT '078196a7-1dd2-415b-80b8-2d2ee3c64507'::uuid NOT NULL,
+    history_date timestamp with time zone NOT NULL,
+    history_change_reason character varying(100),
+    history_type character varying(1) NOT NULL,
+    table_id character varying(127),
+    function character varying(20) DEFAULT 'value'::character varying NOT NULL,
+    show_output boolean DEFAULT true NOT NULL,
+    sort integer DEFAULT 0 NOT NULL,
+    CONSTRAINT caluma_analytics_historicalanalyticsfield_sort_check CHECK ((sort >= 0))
+);
+
+
+--
+-- Name: caluma_analytics_historicalanalyticstable; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.caluma_analytics_historicalanalyticstable (
+    history_user_id character varying(150),
+    created_at timestamp with time zone NOT NULL,
+    modified_at timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(150),
+    modified_by_user character varying(150),
+    modified_by_group character varying(150),
+    slug character varying(127) NOT NULL,
+    meta jsonb DEFAULT '{}'::jsonb NOT NULL,
+    disable_visibilities boolean DEFAULT false NOT NULL,
+    name public.hstore NOT NULL,
+    starting_object character varying(250) NOT NULL,
+    history_id uuid DEFAULT '8016dc0f-f0e7-444c-959a-4a8b5446eba7'::uuid NOT NULL,
+    history_date timestamp with time zone NOT NULL,
+    history_change_reason character varying(100),
+    history_type character varying(1) NOT NULL,
+    description public.hstore
+);
+
+
+--
+-- Name: caluma_form_answer; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.caluma_form_answer (
+    created_at timestamp with time zone DEFAULT '2025-11-19 07:40:46.455518+00'::timestamp with time zone NOT NULL,
+    modified_at timestamp with time zone DEFAULT '2025-11-19 07:40:46.455557+00'::timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(150),
+    id uuid DEFAULT '10a3e036-861c-4699-a370-520a04b7cebf'::uuid NOT NULL,
+    value jsonb,
+    meta jsonb DEFAULT '{}'::jsonb NOT NULL,
+    document_id uuid,
+    question_id character varying(127) NOT NULL,
+    date date,
+    modified_by_group character varying(150),
+    modified_by_user character varying(150)
+);
+
+
+--
+-- Name: caluma_form_answerdocument; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.caluma_form_answerdocument (
+    created_at timestamp with time zone DEFAULT '2025-11-19 07:40:47.006017+00'::timestamp with time zone NOT NULL,
+    modified_at timestamp with time zone DEFAULT '2025-11-19 07:40:47.006057+00'::timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(150),
+    id uuid DEFAULT '0410e0aa-00d3-45f5-baab-5bd1a29aaa3d'::uuid NOT NULL,
+    sort integer DEFAULT 0 NOT NULL,
+    answer_id uuid NOT NULL,
+    document_id uuid NOT NULL,
+    modified_by_group character varying(150),
+    modified_by_user character varying(150),
+    CONSTRAINT caluma_form_answerdocument_sort_check CHECK ((sort >= 0))
+);
+
+
+--
+-- Name: caluma_form_document; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.caluma_form_document (
+    created_at timestamp with time zone DEFAULT '2025-11-19 07:40:46.469878+00'::timestamp with time zone NOT NULL,
+    modified_at timestamp with time zone DEFAULT '2025-11-19 07:40:46.469916+00'::timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(150),
+    id uuid DEFAULT 'bb04e5d4-19b1-4579-a873-a377bdc8565c'::uuid NOT NULL,
+    meta jsonb DEFAULT '{}'::jsonb NOT NULL,
+    form_id character varying(127) NOT NULL,
+    family_id uuid DEFAULT 'f3989030-8f66-4e76-aca9-3d2f756fd314'::uuid,
+    source_id uuid,
+    modified_by_group character varying(150),
+    modified_by_user character varying(150)
+);
+
+
+--
+-- Name: caluma_form_dynamicoption; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.caluma_form_dynamicoption (
+    created_at timestamp with time zone DEFAULT '2025-11-19 07:41:01.009003+00'::timestamp with time zone NOT NULL,
+    modified_at timestamp with time zone DEFAULT '2025-11-19 07:41:01.009036+00'::timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(150),
+    id uuid DEFAULT 'fc925a82-f43a-49c9-8d2a-c7540ba0e30d'::uuid NOT NULL,
+    label public.hstore NOT NULL,
+    document_id uuid NOT NULL,
+    question_id character varying(127) NOT NULL,
+    slug character varying(255) DEFAULT 'unset'::character varying NOT NULL,
+    modified_by_group character varying(150),
+    modified_by_user character varying(150)
+);
+
+
+--
+-- Name: caluma_form_file; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.caluma_form_file (
+    created_at timestamp with time zone DEFAULT '2025-11-19 07:40:47.678689+00'::timestamp with time zone NOT NULL,
+    modified_at timestamp with time zone DEFAULT '2025-11-19 07:40:47.678727+00'::timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(150),
+    id uuid DEFAULT '42e5a11b-b6fa-4a18-aaea-7bc18ad83a80'::uuid NOT NULL,
+    name character varying(255) NOT NULL,
+    modified_by_group character varying(150),
+    modified_by_user character varying(150),
+    answer_id uuid
+);
+
+
+--
+-- Name: caluma_form_form; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.caluma_form_form (
+    created_at timestamp with time zone DEFAULT '2025-11-19 07:40:46.484027+00'::timestamp with time zone NOT NULL,
+    modified_at timestamp with time zone DEFAULT '2025-11-19 07:40:46.484054+00'::timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(150),
+    slug character varying(127) NOT NULL,
+    name public.hstore NOT NULL,
+    description public.hstore,
+    meta jsonb DEFAULT '{}'::jsonb NOT NULL,
+    is_published boolean DEFAULT false NOT NULL,
+    is_archived boolean DEFAULT false NOT NULL,
+    source_id character varying(127),
+    modified_by_group character varying(150),
+    modified_by_user character varying(150)
+);
+
+
+--
+-- Name: caluma_form_formquestion; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.caluma_form_formquestion (
+    created_at timestamp with time zone DEFAULT '2025-11-19 07:40:46.503297+00'::timestamp with time zone NOT NULL,
+    modified_at timestamp with time zone DEFAULT '2025-11-19 07:40:46.503337+00'::timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(150),
+    id character varying(255) DEFAULT '332ec6c9-345f-406d-b177-dc344f273c78'::uuid NOT NULL,
+    sort integer DEFAULT 0 NOT NULL,
+    form_id character varying(127) NOT NULL,
+    question_id character varying(127) NOT NULL,
+    modified_by_group character varying(150),
+    modified_by_user character varying(150),
+    CONSTRAINT caluma_form_formquestion_sort_check CHECK ((sort >= 0))
+);
+
+
+--
+-- Name: caluma_form_historicalanswer; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.caluma_form_historicalanswer (
+    created_at timestamp with time zone NOT NULL,
+    modified_at timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(150),
+    history_user_id character varying(150),
+    id uuid DEFAULT '0ce56425-307c-4b9a-918d-c154a17ae2f6'::uuid NOT NULL,
+    value jsonb,
+    meta jsonb DEFAULT '{}'::jsonb NOT NULL,
+    date date,
+    history_id uuid DEFAULT '1ffd60a4-e095-4a0b-9e47-81e7978e7e75'::uuid NOT NULL,
+    history_date timestamp with time zone NOT NULL,
+    history_change_reason character varying(100),
+    history_type character varying(1) NOT NULL,
+    document_id uuid,
+    question_id character varying(127),
+    history_question_type character varying(23) DEFAULT ''::character varying NOT NULL,
+    modified_by_group character varying(150),
+    modified_by_user character varying(150)
+);
+
+
+--
+-- Name: caluma_form_historicalanswerdocument; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.caluma_form_historicalanswerdocument (
+    created_at timestamp with time zone NOT NULL,
+    modified_at timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(150),
+    history_user_id character varying(150),
+    id uuid DEFAULT 'b5f9900d-441d-4bb0-a7c8-8ed4a98356cd'::uuid NOT NULL,
+    sort integer DEFAULT 0 NOT NULL,
+    history_id uuid DEFAULT 'e0e9f014-60ea-4fc5-a488-a6d7c1857200'::uuid NOT NULL,
+    history_date timestamp with time zone NOT NULL,
+    history_change_reason character varying(100),
+    history_type character varying(1) NOT NULL,
+    answer_id uuid,
+    document_id uuid,
+    modified_by_group character varying(150),
+    modified_by_user character varying(150),
+    CONSTRAINT caluma_form_historicalanswerdocument_sort_check CHECK ((sort >= 0))
+);
+
+
+--
+-- Name: caluma_form_historicaldocument; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.caluma_form_historicaldocument (
+    created_at timestamp with time zone NOT NULL,
+    modified_at timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(150),
+    history_user_id character varying(150),
+    id uuid DEFAULT '9db0a217-d1d9-43d7-9b69-7f4fd6e8fb52'::uuid NOT NULL,
+    family_id uuid,
+    meta jsonb DEFAULT '{}'::jsonb NOT NULL,
+    history_id uuid DEFAULT 'c57a710b-060e-4446-bf85-06b569ab6b4e'::uuid NOT NULL,
+    history_date timestamp with time zone NOT NULL,
+    history_change_reason character varying(100),
+    history_type character varying(1) NOT NULL,
+    form_id character varying(127),
+    source_id uuid,
+    modified_by_group character varying(150),
+    modified_by_user character varying(150)
+);
+
+
+--
+-- Name: caluma_form_historicaldynamicoption; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.caluma_form_historicaldynamicoption (
+    created_at timestamp with time zone NOT NULL,
+    modified_at timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(150),
+    history_user_id character varying(150),
+    id uuid DEFAULT 'f8fe3667-c213-4054-aac0-291f1d3c1280'::uuid NOT NULL,
+    label public.hstore NOT NULL,
+    history_id uuid DEFAULT 'c3633865-7f22-4efc-8374-635a9d698ed1'::uuid NOT NULL,
+    history_date timestamp with time zone NOT NULL,
+    history_change_reason character varying(100),
+    history_type character varying(1) NOT NULL,
+    document_id uuid,
+    question_id character varying(127),
+    slug character varying(255) DEFAULT 'unset'::character varying NOT NULL,
+    modified_by_group character varying(150),
+    modified_by_user character varying(150)
+);
+
+
+--
+-- Name: caluma_form_historicalfile; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.caluma_form_historicalfile (
+    created_at timestamp with time zone NOT NULL,
+    modified_at timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(150),
+    history_user_id character varying(150),
+    id uuid DEFAULT '8560acfc-7e01-4aac-8f34-aa50b84888e3'::uuid NOT NULL,
+    name character varying(255) NOT NULL,
+    history_id uuid DEFAULT 'f2cd3c7e-c7e8-4227-9756-f1b381e8c361'::uuid NOT NULL,
+    history_date timestamp with time zone NOT NULL,
+    history_change_reason character varying(100),
+    history_type character varying(1) NOT NULL,
+    modified_by_group character varying(150),
+    modified_by_user character varying(150),
+    answer_id uuid
+);
+
+
+--
+-- Name: caluma_form_historicalform; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.caluma_form_historicalform (
+    created_at timestamp with time zone NOT NULL,
+    modified_at timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(150),
+    history_user_id character varying(150),
+    slug character varying(127) NOT NULL,
+    name public.hstore NOT NULL,
+    description public.hstore,
+    meta jsonb DEFAULT '{}'::jsonb NOT NULL,
+    is_published boolean DEFAULT false NOT NULL,
+    is_archived boolean DEFAULT false NOT NULL,
+    history_id uuid DEFAULT '088bba6e-a452-4014-bd42-1a60a6526a8c'::uuid NOT NULL,
+    history_date timestamp with time zone NOT NULL,
+    history_change_reason character varying(100),
+    history_type character varying(1) NOT NULL,
+    source_id character varying(127),
+    modified_by_group character varying(150),
+    modified_by_user character varying(150)
+);
+
+
+--
+-- Name: caluma_form_historicalformquestion; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.caluma_form_historicalformquestion (
+    created_at timestamp with time zone NOT NULL,
+    modified_at timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(150),
+    history_user_id character varying(150),
+    id character varying(255) DEFAULT '0afac559-b5f5-497a-80ff-af44b5a4fe27'::uuid NOT NULL,
+    sort integer DEFAULT 0 NOT NULL,
+    history_id uuid DEFAULT 'e81e6c91-b08b-498b-80bb-22112b8b8b73'::uuid NOT NULL,
+    history_date timestamp with time zone NOT NULL,
+    history_change_reason character varying(100),
+    history_type character varying(1) NOT NULL,
+    form_id character varying(127),
+    question_id character varying(127),
+    modified_by_group character varying(150),
+    modified_by_user character varying(150),
+    CONSTRAINT caluma_form_historicalformquestion_sort_check CHECK ((sort >= 0))
+);
+
+
+--
+-- Name: caluma_form_historicaloption; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.caluma_form_historicaloption (
+    created_at timestamp with time zone NOT NULL,
+    modified_at timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(150),
+    history_user_id character varying(150),
+    slug character varying(127) NOT NULL,
+    label public.hstore NOT NULL,
+    meta jsonb DEFAULT '{}'::jsonb NOT NULL,
+    history_id uuid DEFAULT 'e25a97c4-26eb-4e86-9fc4-e67b4eff900a'::uuid NOT NULL,
+    history_date timestamp with time zone NOT NULL,
+    history_change_reason character varying(100),
+    history_type character varying(1) NOT NULL,
+    source_id character varying(127),
+    is_archived boolean DEFAULT false NOT NULL,
+    modified_by_group character varying(150),
+    modified_by_user character varying(150),
+    is_hidden text DEFAULT 'false'::text NOT NULL
+);
+
+
+--
+-- Name: caluma_form_historicalquestion; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.caluma_form_historicalquestion (
+    created_at timestamp with time zone NOT NULL,
+    modified_at timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(150),
+    history_user_id character varying(150),
+    slug character varying(127) NOT NULL,
+    label public.hstore NOT NULL,
+    type character varying(23) NOT NULL,
+    is_required text DEFAULT 'false'::text NOT NULL,
+    is_hidden text DEFAULT 'false'::text NOT NULL,
+    is_archived boolean DEFAULT false NOT NULL,
+    placeholder public.hstore,
+    info_text public.hstore,
+    static_content public.hstore,
+    configuration jsonb DEFAULT '{}'::jsonb NOT NULL,
+    meta jsonb DEFAULT '{}'::jsonb NOT NULL,
+    data_source character varying(255),
+    format_validators character varying(255)[] DEFAULT '{}'::character varying[] NOT NULL,
+    history_id uuid DEFAULT 'da042fdf-5eea-4693-ad98-3d6380653f35'::uuid NOT NULL,
+    history_date timestamp with time zone NOT NULL,
+    history_change_reason character varying(100),
+    history_type character varying(1) NOT NULL,
+    row_form_id character varying(127),
+    source_id character varying(127),
+    sub_form_id character varying(127),
+    default_answer_id uuid,
+    calc_dependents character varying(255)[] DEFAULT '{}'::character varying[] NOT NULL,
+    calc_expression text,
+    modified_by_group character varying(150),
+    modified_by_user character varying(150),
+    hint_text public.hstore
+);
+
+
+--
+-- Name: caluma_form_historicalquestionoption; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.caluma_form_historicalquestionoption (
+    created_at timestamp with time zone NOT NULL,
+    modified_at timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(150),
+    history_user_id character varying(150),
+    id character varying(255) NOT NULL,
+    sort integer DEFAULT 0 NOT NULL,
+    history_id uuid DEFAULT '2a2f66ef-8f22-4302-b33d-4fe2c38010d3'::uuid NOT NULL,
+    history_date timestamp with time zone NOT NULL,
+    history_change_reason character varying(100),
+    history_type character varying(1) NOT NULL,
+    option_id character varying(127),
+    question_id character varying(127),
+    modified_by_group character varying(150),
+    modified_by_user character varying(150),
+    CONSTRAINT caluma_form_historicalquestionoption_sort_check CHECK ((sort >= 0))
+);
+
+
+--
+-- Name: caluma_form_option; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.caluma_form_option (
+    created_at timestamp with time zone DEFAULT '2025-11-19 07:40:46.513221+00'::timestamp with time zone NOT NULL,
+    modified_at timestamp with time zone DEFAULT '2025-11-19 07:40:46.513258+00'::timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(150),
+    slug character varying(127) NOT NULL,
+    label public.hstore NOT NULL,
+    meta jsonb DEFAULT '{}'::jsonb NOT NULL,
+    source_id character varying(127),
+    is_archived boolean DEFAULT false NOT NULL,
+    modified_by_group character varying(150),
+    modified_by_user character varying(150),
+    is_hidden text DEFAULT 'false'::text NOT NULL
+);
+
+
+--
+-- Name: caluma_form_question; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.caluma_form_question (
+    created_at timestamp with time zone DEFAULT '2025-11-19 07:40:46.53253+00'::timestamp with time zone NOT NULL,
+    modified_at timestamp with time zone DEFAULT '2025-11-19 07:40:46.532567+00'::timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(150),
+    slug character varying(127) NOT NULL,
+    label public.hstore NOT NULL,
+    type character varying(23) NOT NULL,
+    is_required text DEFAULT 'false'::text NOT NULL,
+    is_hidden text DEFAULT 'false'::text NOT NULL,
+    is_archived boolean DEFAULT false NOT NULL,
+    configuration jsonb DEFAULT '{}'::jsonb NOT NULL,
+    meta jsonb DEFAULT '{}'::jsonb NOT NULL,
+    row_form_id character varying(127),
+    source_id character varying(127),
+    sub_form_id character varying(127),
+    info_text public.hstore,
+    placeholder public.hstore,
+    data_source character varying(255),
+    static_content public.hstore,
+    format_validators character varying(255)[] DEFAULT '{}'::character varying[] NOT NULL,
+    default_answer_id uuid,
+    calc_dependents character varying(255)[] DEFAULT '{}'::character varying[] NOT NULL,
+    calc_expression text,
+    modified_by_group character varying(150),
+    modified_by_user character varying(150),
+    hint_text public.hstore
+);
+
+
+--
+-- Name: caluma_form_questionoption; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.caluma_form_questionoption (
+    created_at timestamp with time zone DEFAULT '2025-11-19 07:40:46.551631+00'::timestamp with time zone NOT NULL,
+    modified_at timestamp with time zone DEFAULT '2025-11-19 07:40:46.551667+00'::timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(150),
+    id character varying(255) DEFAULT '65870871-76f2-4e54-ac87-15fb747e63c8'::uuid NOT NULL,
+    sort integer DEFAULT 0 NOT NULL,
+    option_id character varying(127) NOT NULL,
+    question_id character varying(127) NOT NULL,
+    modified_by_group character varying(150),
+    modified_by_user character varying(150),
+    CONSTRAINT caluma_form_questionoption_sort_check CHECK ((sort >= 0))
+);
+
+
+--
+-- Name: caluma_workflow_case; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.caluma_workflow_case (
+    created_at timestamp with time zone DEFAULT '2025-11-19 07:40:49.034158+00'::timestamp with time zone NOT NULL,
+    modified_at timestamp with time zone DEFAULT '2025-11-19 07:40:49.034181+00'::timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(150),
+    id uuid DEFAULT '79af4a6c-190f-4d74-8df2-c92870386328'::uuid NOT NULL,
+    status character varying(50) NOT NULL,
+    meta jsonb DEFAULT '{}'::jsonb NOT NULL,
+    document_id uuid,
+    workflow_id character varying(127) NOT NULL,
+    closed_at timestamp with time zone,
+    closed_by_group character varying(150),
+    closed_by_user character varying(150),
+    family_id uuid,
+    modified_by_group character varying(150),
+    modified_by_user character varying(150)
+);
+
+
+--
+-- Name: caluma_workflow_flow; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.caluma_workflow_flow (
+    created_at timestamp with time zone DEFAULT '2025-11-19 07:40:49.048934+00'::timestamp with time zone NOT NULL,
+    modified_at timestamp with time zone DEFAULT '2025-11-19 07:40:49.048957+00'::timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(150),
+    id uuid DEFAULT '4d0748b0-f4da-4b18-986c-541971a337c2'::uuid NOT NULL,
+    next text NOT NULL,
+    modified_by_group character varying(150),
+    modified_by_user character varying(150)
+);
+
+
+--
+-- Name: caluma_workflow_historicalcase; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.caluma_workflow_historicalcase (
+    created_at timestamp with time zone NOT NULL,
+    modified_at timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(150),
+    history_user_id character varying(150),
+    id uuid DEFAULT 'f293e6cd-25e5-4f13-950c-52c1f6ea028d'::uuid NOT NULL,
+    closed_at timestamp with time zone,
+    closed_by_user character varying(150),
+    closed_by_group character varying(150),
+    status character varying(50) NOT NULL,
+    meta jsonb DEFAULT '{}'::jsonb NOT NULL,
+    history_id uuid DEFAULT 'c77c5d5e-36ff-4a2c-85ca-e50296ae939b'::uuid NOT NULL,
+    history_date timestamp with time zone NOT NULL,
+    history_change_reason character varying(100),
+    history_type character varying(1) NOT NULL,
+    document_id uuid,
+    workflow_id character varying(127),
+    family_id uuid,
+    modified_by_group character varying(150),
+    modified_by_user character varying(150)
+);
+
+
+--
+-- Name: caluma_workflow_historicalflow; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.caluma_workflow_historicalflow (
+    created_at timestamp with time zone NOT NULL,
+    modified_at timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(150),
+    history_user_id character varying(150),
+    id uuid DEFAULT 'ba50126a-8b26-4968-bfa9-3db875602ccd'::uuid NOT NULL,
+    next text NOT NULL,
+    history_id uuid DEFAULT '5e82b732-66aa-4515-953a-44cd5f89f642'::uuid NOT NULL,
+    history_date timestamp with time zone NOT NULL,
+    history_change_reason character varying(100),
+    history_type character varying(1) NOT NULL,
+    modified_by_group character varying(150),
+    modified_by_user character varying(150)
+);
+
+
+--
+-- Name: caluma_workflow_historicaltask; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.caluma_workflow_historicaltask (
+    created_at timestamp with time zone NOT NULL,
+    modified_at timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(150),
+    history_user_id character varying(150),
+    slug character varying(127) NOT NULL,
+    name public.hstore NOT NULL,
+    description public.hstore,
+    type character varying(50) NOT NULL,
+    meta jsonb DEFAULT '{}'::jsonb NOT NULL,
+    address_groups text,
+    is_archived boolean DEFAULT false NOT NULL,
+    lead_time integer,
+    is_multiple_instance boolean DEFAULT false NOT NULL,
+    history_id uuid DEFAULT 'f2af1415-c9b9-4d4e-9b0e-545fa3f81470'::uuid NOT NULL,
+    history_date timestamp with time zone NOT NULL,
+    history_change_reason character varying(100),
+    history_type character varying(1) NOT NULL,
+    form_id character varying(127),
+    control_groups text,
+    modified_by_group character varying(150),
+    modified_by_user character varying(150),
+    continue_async boolean DEFAULT false NOT NULL,
+    CONSTRAINT caluma_workflow_historicaltask_lead_time_check CHECK ((lead_time >= 0))
+);
+
+
+--
+-- Name: caluma_workflow_historicaltaskflow; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.caluma_workflow_historicaltaskflow (
+    created_at timestamp with time zone NOT NULL,
+    modified_at timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(150),
+    history_user_id character varying(150),
+    id uuid DEFAULT 'b1a0dc61-8ebd-4bb4-b6aa-0032f0dd4241'::uuid NOT NULL,
+    history_id uuid DEFAULT '772c311d-e4dd-40f8-afe4-3d300be841be'::uuid NOT NULL,
+    history_date timestamp with time zone NOT NULL,
+    history_change_reason character varying(100),
+    history_type character varying(1) NOT NULL,
+    flow_id uuid,
+    task_id character varying(127),
+    workflow_id character varying(127),
+    modified_by_group character varying(150),
+    modified_by_user character varying(150),
+    redoable text
+);
+
+
+--
+-- Name: caluma_workflow_historicalworkflow; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.caluma_workflow_historicalworkflow (
+    created_at timestamp with time zone NOT NULL,
+    modified_at timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(150),
+    history_user_id character varying(150),
+    slug character varying(127) NOT NULL,
+    name public.hstore NOT NULL,
+    description public.hstore,
+    meta jsonb DEFAULT '{}'::jsonb NOT NULL,
+    is_published boolean DEFAULT false NOT NULL,
+    is_archived boolean DEFAULT false NOT NULL,
+    allow_all_forms boolean DEFAULT false NOT NULL,
+    history_id uuid DEFAULT '78fc00f6-beb1-43b8-bde5-f4b8e10bf029'::uuid NOT NULL,
+    history_date timestamp with time zone NOT NULL,
+    history_change_reason character varying(100),
+    history_type character varying(1) NOT NULL,
+    modified_by_group character varying(150),
+    modified_by_user character varying(150)
+);
+
+
+--
+-- Name: caluma_workflow_historicalworkitem; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.caluma_workflow_historicalworkitem (
+    created_at timestamp with time zone NOT NULL,
+    modified_at timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(150),
+    history_user_id character varying(150),
+    id uuid DEFAULT '11cb406b-b790-4338-b448-08ed25621b16'::uuid NOT NULL,
+    closed_at timestamp with time zone,
+    closed_by_user character varying(150),
+    closed_by_group character varying(150),
+    deadline timestamp with time zone,
+    status character varying(50) NOT NULL,
+    meta jsonb DEFAULT '{}'::jsonb NOT NULL,
+    addressed_groups character varying(150)[] DEFAULT '{}'::character varying[] NOT NULL,
+    assigned_users character varying(150)[] DEFAULT '{}'::character varying[] NOT NULL,
+    history_id uuid DEFAULT 'dbde2c53-3b9c-4383-a72e-15f6058503fc'::uuid NOT NULL,
+    history_date timestamp with time zone NOT NULL,
+    history_change_reason character varying(100),
+    history_type character varying(1) NOT NULL,
+    case_id uuid,
+    child_case_id uuid,
+    document_id uuid,
+    task_id character varying(127),
+    controlling_groups character varying(150)[] DEFAULT '{}'::character varying[] NOT NULL,
+    description public.hstore,
+    name public.hstore DEFAULT '"de"=>"temp_placeholder", "fr"=>NULL, "it"=>NULL'::public.hstore NOT NULL,
+    previous_work_item_id uuid,
+    modified_by_group character varying(150),
+    modified_by_user character varying(150)
+);
+
+
+--
+-- Name: caluma_workflow_task; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.caluma_workflow_task (
+    created_at timestamp with time zone DEFAULT '2025-11-19 07:40:49.065208+00'::timestamp with time zone NOT NULL,
+    modified_at timestamp with time zone DEFAULT '2025-11-19 07:40:49.065242+00'::timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(150),
+    slug character varying(127) NOT NULL,
+    name public.hstore NOT NULL,
+    description public.hstore,
+    type character varying(50) NOT NULL,
+    meta jsonb DEFAULT '{}'::jsonb NOT NULL,
+    is_archived boolean DEFAULT false NOT NULL,
+    form_id character varying(127),
+    address_groups text,
+    lead_time integer,
+    is_multiple_instance boolean DEFAULT false NOT NULL,
+    control_groups text,
+    modified_by_group character varying(150),
+    modified_by_user character varying(150),
+    continue_async boolean DEFAULT false NOT NULL,
+    CONSTRAINT caluma_workflow_task_lead_time_check CHECK ((lead_time >= 0))
+);
+
+
+--
+-- Name: caluma_workflow_taskflow; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.caluma_workflow_taskflow (
+    created_at timestamp with time zone DEFAULT '2025-11-19 07:40:49.083809+00'::timestamp with time zone NOT NULL,
+    modified_at timestamp with time zone DEFAULT '2025-11-19 07:40:49.08385+00'::timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(150),
+    id uuid DEFAULT 'bd7f6f78-db38-4051-80fd-26ceba54a166'::uuid NOT NULL,
+    flow_id uuid,
+    task_id character varying(127) NOT NULL,
+    workflow_id character varying(127) NOT NULL,
+    modified_by_group character varying(150),
+    modified_by_user character varying(150),
+    redoable text
+);
+
+
+--
+-- Name: caluma_workflow_workflow; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.caluma_workflow_workflow (
+    created_at timestamp with time zone DEFAULT '2025-11-19 07:40:49.116644+00'::timestamp with time zone NOT NULL,
+    modified_at timestamp with time zone DEFAULT '2025-11-19 07:40:49.116684+00'::timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(150),
+    slug character varying(127) NOT NULL,
+    name public.hstore NOT NULL,
+    description public.hstore,
+    meta jsonb DEFAULT '{}'::jsonb NOT NULL,
+    is_published boolean DEFAULT false NOT NULL,
+    is_archived boolean DEFAULT false NOT NULL,
+    allow_all_forms boolean DEFAULT false NOT NULL,
+    modified_by_group character varying(150),
+    modified_by_user character varying(150)
+);
+
+
+--
+-- Name: caluma_workflow_workflow_allow_forms; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.caluma_workflow_workflow_allow_forms (
+    id integer NOT NULL,
+    workflow_id character varying(127) NOT NULL,
+    form_id character varying(127) NOT NULL
+);
+
+
+--
+-- Name: caluma_workflow_workflow_allow_forms_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.caluma_workflow_workflow_allow_forms ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.caluma_workflow_workflow_allow_forms_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: caluma_workflow_workflow_start_tasks; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.caluma_workflow_workflow_start_tasks (
+    id integer NOT NULL,
+    workflow_id character varying(127) NOT NULL,
+    task_id character varying(127) NOT NULL
+);
+
+
+--
+-- Name: caluma_workflow_workflow_start_tasks_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.caluma_workflow_workflow_start_tasks ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.caluma_workflow_workflow_start_tasks_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: caluma_workflow_workitem; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.caluma_workflow_workitem (
+    created_at timestamp with time zone DEFAULT '2025-11-19 07:40:49.156261+00'::timestamp with time zone NOT NULL,
+    modified_at timestamp with time zone DEFAULT '2025-11-19 07:40:49.156301+00'::timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(150),
+    id uuid DEFAULT '6f40816d-8191-4e25-a8c2-06be7ea16b3e'::uuid NOT NULL,
+    status character varying(50) NOT NULL,
+    meta jsonb DEFAULT '{}'::jsonb NOT NULL,
+    case_id uuid NOT NULL,
+    child_case_id uuid,
+    task_id character varying(127) NOT NULL,
+    document_id uuid,
+    addressed_groups character varying(150)[] DEFAULT '{}'::character varying[] NOT NULL,
+    assigned_users character varying(150)[] DEFAULT '{}'::character varying[] NOT NULL,
+    closed_at timestamp with time zone,
+    closed_by_group character varying(150),
+    closed_by_user character varying(150),
+    deadline timestamp with time zone,
+    controlling_groups character varying(150)[] DEFAULT '{}'::character varying[] NOT NULL,
+    description public.hstore,
+    name public.hstore DEFAULT '"de"=>"temp_placeholder", "fr"=>NULL, "it"=>NULL'::public.hstore NOT NULL,
+    previous_work_item_id uuid,
+    modified_by_group character varying(150),
+    modified_by_user character varying(150)
+);
+
+
+--
+-- Name: captcha_captchastore; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.captcha_captchastore (
+    id integer NOT NULL,
+    challenge character varying(32) NOT NULL,
+    response character varying(32) NOT NULL,
+    hashkey character varying(40) NOT NULL,
+    expiration timestamp with time zone NOT NULL
+);
+
+
+--
+-- Name: captcha_captchastore_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.captcha_captchastore ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.captcha_captchastore_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: communications_communicationsattachment; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.communications_communicationsattachment (
+    id integer NOT NULL,
+    file_attachment character varying(250),
+    file_type character varying(250),
+    document_attachment_id integer,
+    message_id integer NOT NULL,
+    alexandria_file_id uuid
+);
+
+
+--
+-- Name: communications_communicationsattachment_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.communications_communicationsattachment ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.communications_communicationsattachment_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: communications_communicationsmessage; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.communications_communicationsmessage (
+    id integer NOT NULL,
+    body text NOT NULL,
+    created_by character varying(50) NOT NULL,
+    created_at timestamp with time zone DEFAULT '2025-11-19 07:42:12.781034+00'::timestamp with time zone NOT NULL,
+    sent_at timestamp with time zone,
+    created_by_user_id integer,
+    topic_id integer NOT NULL
+);
+
+
+--
+-- Name: communications_communicationsmessage_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.communications_communicationsmessage ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.communications_communicationsmessage_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: communications_communicationsreadmarker; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.communications_communicationsreadmarker (
+    id integer NOT NULL,
+    read_at timestamp with time zone DEFAULT '2025-11-19 07:42:13.362859+00'::timestamp with time zone NOT NULL,
+    entity character varying(50) NOT NULL,
+    message_id integer NOT NULL
+);
+
+
+--
+-- Name: communications_communicationsreadmarker_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.communications_communicationsreadmarker ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.communications_communicationsreadmarker_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: communications_communicationstopic; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.communications_communicationstopic (
+    id integer NOT NULL,
+    subject text NOT NULL,
+    created timestamp with time zone DEFAULT '2025-11-19 07:42:12.999217+00'::timestamp with time zone NOT NULL,
+    allow_replies boolean DEFAULT true NOT NULL,
+    involved_entities character varying(50)[] NOT NULL,
+    initiated_by_entity character varying(50) NOT NULL,
+    initiated_by_id integer NOT NULL,
+    instance_id integer NOT NULL
+);
+
+
+--
+-- Name: communications_communicationstopic_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.communications_communicationstopic ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.communications_communicationstopic_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: core_servicecontent; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.core_servicecontent (
+    id uuid DEFAULT 'dd4ffcb3-ab6e-471b-b9ae-9a4ff5d90987'::uuid NOT NULL,
+    content public.hstore NOT NULL,
+    service_id integer NOT NULL
+);
+
+
+--
+-- Name: core_servicecontent_forms; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.core_servicecontent_forms (
+    id integer NOT NULL,
+    servicecontent_id uuid NOT NULL,
+    form_id character varying(127) NOT NULL
+);
+
+
+--
+-- Name: core_servicecontent_forms_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.core_servicecontent_forms ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.core_servicecontent_forms_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: core_staticcontent; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.core_staticcontent (
+    slug character varying(50) NOT NULL,
+    content public.hstore NOT NULL,
+    disable_xss_protection boolean DEFAULT false NOT NULL
+);
+
+
+--
+-- Name: deadlines_deadlinetype; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.deadlines_deadlinetype (
+    id uuid DEFAULT '0691d74d-8eed-707f-8000-21b1f63e8f27'::uuid NOT NULL,
+    name public.hstore NOT NULL,
+    lead_time integer NOT NULL,
+    created_at timestamp with time zone DEFAULT '2025-11-19 07:42:16.932951+00'::timestamp with time zone NOT NULL,
+    is_default boolean DEFAULT false NOT NULL,
+    CONSTRAINT deadlines_deadlinetype_lead_time_check CHECK ((lead_time >= 0))
+);
+
+
+--
+-- Name: deadlines_deadlinetype_service_groups; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.deadlines_deadlinetype_service_groups (
+    id integer NOT NULL,
+    deadlinetype_id uuid NOT NULL,
+    servicegroup_id integer NOT NULL
+);
+
+
+--
+-- Name: deadlines_deadlinetype_service_groups_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.deadlines_deadlinetype_service_groups ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.deadlines_deadlinetype_service_groups_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: deadlines_deadlinetype_services; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.deadlines_deadlinetype_services (
+    id integer NOT NULL,
+    deadlinetype_id uuid NOT NULL,
+    service_id integer NOT NULL
+);
+
+
+--
+-- Name: deadlines_deadlinetype_services_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.deadlines_deadlinetype_services ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.deadlines_deadlinetype_services_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: deadlines_instancedeadline; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.deadlines_instancedeadline (
+    id uuid DEFAULT '0691d74d-94d2-7f37-8000-e6408e406e16'::uuid NOT NULL,
+    start_date date,
+    total_days_of_suspension integer,
+    process_deadline_date date,
+    process_deadline_days integer,
+    created_at timestamp with time zone DEFAULT '2025-11-19 07:42:17.301605+00'::timestamp with time zone NOT NULL,
+    deadline_type_id uuid,
+    instance_id integer NOT NULL,
+    service_id integer NOT NULL,
+    process_deadline_date_override boolean DEFAULT false NOT NULL,
+    target_deadline_date date,
+    CONSTRAINT deadlines_instancedeadline_process_deadline_days_check CHECK ((process_deadline_days >= 0)),
+    CONSTRAINT deadlines_instancedeadline_total_days_of_suspension_check CHECK ((total_days_of_suspension >= 0))
+);
+
+
+--
+-- Name: deadlines_suspension; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.deadlines_suspension (
+    id uuid DEFAULT '0691d74d-97b6-7ae0-8000-3230709149dd'::uuid NOT NULL,
+    start_date date NOT NULL,
+    end_date date,
+    reason character varying DEFAULT 'manual_suspension'::character varying NOT NULL,
+    reason_text text,
+    created_at timestamp with time zone DEFAULT '2025-11-19 07:42:17.482204+00'::timestamp with time zone NOT NULL,
+    deadline_id uuid NOT NULL,
+    group_id integer,
+    user_id integer,
+    work_item_id uuid
+);
+
+
+--
+-- Name: django_admin_log; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.django_admin_log (
+    id integer NOT NULL,
+    action_time timestamp with time zone DEFAULT '2025-11-19 07:39:57.355889+00'::timestamp with time zone NOT NULL,
+    object_id text,
+    object_repr character varying(200) NOT NULL,
+    action_flag smallint NOT NULL,
+    change_message text DEFAULT ''::text NOT NULL,
+    content_type_id integer,
+    user_id integer NOT NULL,
+    CONSTRAINT django_admin_log_action_flag_check CHECK ((action_flag >= 0))
+);
+
+
+--
+-- Name: django_admin_log_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.django_admin_log ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.django_admin_log_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: django_celery_beat_clockedschedule; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.django_celery_beat_clockedschedule (
+    id integer NOT NULL,
+    clocked_time timestamp with time zone NOT NULL
+);
+
+
+--
+-- Name: django_celery_beat_clockedschedule_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.django_celery_beat_clockedschedule ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.django_celery_beat_clockedschedule_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: django_celery_beat_crontabschedule; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.django_celery_beat_crontabschedule (
+    id integer NOT NULL,
+    minute character varying(240) DEFAULT '*'::character varying NOT NULL,
+    hour character varying(96) DEFAULT '*'::character varying NOT NULL,
+    day_of_week character varying(64) DEFAULT '*'::character varying NOT NULL,
+    day_of_month character varying(124) DEFAULT '*'::character varying NOT NULL,
+    month_of_year character varying(64) DEFAULT '*'::character varying NOT NULL,
+    timezone character varying(63) DEFAULT 'UTC'::character varying NOT NULL
+);
+
+
+--
+-- Name: django_celery_beat_crontabschedule_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.django_celery_beat_crontabschedule ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.django_celery_beat_crontabschedule_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: django_celery_beat_intervalschedule; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.django_celery_beat_intervalschedule (
+    id integer NOT NULL,
+    every integer NOT NULL,
+    period character varying(24) NOT NULL
+);
+
+
+--
+-- Name: django_celery_beat_intervalschedule_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.django_celery_beat_intervalschedule ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.django_celery_beat_intervalschedule_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: django_celery_beat_periodictask; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.django_celery_beat_periodictask (
+    id integer NOT NULL,
+    name character varying(200) NOT NULL,
+    task character varying(200) NOT NULL,
+    args text DEFAULT '[]'::text NOT NULL,
+    kwargs text DEFAULT '{}'::text NOT NULL,
+    queue character varying(200),
+    exchange character varying(200),
+    routing_key character varying(200),
+    expires timestamp with time zone,
+    enabled boolean DEFAULT true NOT NULL,
+    last_run_at timestamp with time zone,
+    total_run_count integer DEFAULT 0 NOT NULL,
+    date_changed timestamp with time zone DEFAULT '2025-11-19 07:42:17.779008+00'::timestamp with time zone NOT NULL,
+    description text DEFAULT ''::text NOT NULL,
+    crontab_id integer,
+    interval_id integer,
+    solar_id integer,
+    one_off boolean DEFAULT false NOT NULL,
+    start_time timestamp with time zone,
+    priority integer,
+    headers text DEFAULT '{}'::text NOT NULL,
+    clocked_id integer,
+    expire_seconds integer,
+    CONSTRAINT django_celery_beat_periodictask_expire_seconds_check CHECK ((expire_seconds >= 0)),
+    CONSTRAINT django_celery_beat_periodictask_priority_check CHECK ((priority >= 0)),
+    CONSTRAINT django_celery_beat_periodictask_total_run_count_check CHECK ((total_run_count >= 0))
+);
+
+
+--
+-- Name: django_celery_beat_periodictask_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.django_celery_beat_periodictask ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.django_celery_beat_periodictask_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: django_celery_beat_periodictasks; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.django_celery_beat_periodictasks (
+    ident smallint DEFAULT 1 NOT NULL,
+    last_update timestamp with time zone NOT NULL
+);
+
+
+--
+-- Name: django_celery_beat_solarschedule; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.django_celery_beat_solarschedule (
+    id integer NOT NULL,
+    event character varying(24) NOT NULL,
+    latitude numeric(9,6) NOT NULL,
+    longitude numeric(9,6) NOT NULL
+);
+
+
+--
+-- Name: django_celery_beat_solarschedule_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.django_celery_beat_solarschedule ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.django_celery_beat_solarschedule_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: django_content_type; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.django_content_type (
+    id integer NOT NULL,
+    app_label character varying(100) NOT NULL,
+    model character varying(100) NOT NULL
+);
+
+
+--
+-- Name: django_content_type_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.django_content_type ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.django_content_type_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: django_migrations; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.django_migrations (
+    id integer NOT NULL,
+    app character varying(255) NOT NULL,
+    name character varying(255) NOT NULL,
+    applied timestamp with time zone NOT NULL
+);
+
+
+--
+-- Name: django_migrations_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.django_migrations ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.django_migrations_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: django_q_ormq; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.django_q_ormq (
+    id integer NOT NULL,
+    key character varying(100) NOT NULL,
+    payload text NOT NULL,
+    lock timestamp with time zone
+);
+
+
+--
+-- Name: django_q_ormq_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.django_q_ormq ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.django_q_ormq_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: django_q_schedule; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.django_q_schedule (
+    id integer NOT NULL,
+    func character varying(256) NOT NULL,
+    hook character varying(256),
+    args text,
+    kwargs text,
+    schedule_type character varying(2) DEFAULT 'O'::character varying NOT NULL,
+    repeats integer DEFAULT '-1'::integer NOT NULL,
+    next_run timestamp with time zone DEFAULT '2025-11-19 07:42:18.735466+00'::timestamp with time zone,
+    task character varying(100),
+    name character varying(100),
+    minutes smallint,
+    cron character varying(100),
+    cluster character varying(100),
+    intended_date_kwarg character varying(100),
+    CONSTRAINT django_q_schedule_minutes_check CHECK ((minutes >= 0))
+);
+
+
+--
+-- Name: django_q_schedule_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.django_q_schedule ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.django_q_schedule_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: django_q_task; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.django_q_task (
+    name character varying(100) NOT NULL,
+    func character varying(256) NOT NULL,
+    hook character varying(256),
+    args text,
+    kwargs text,
+    result text,
+    started timestamp with time zone NOT NULL,
+    stopped timestamp with time zone NOT NULL,
+    success boolean DEFAULT true NOT NULL,
+    id character varying(32) NOT NULL,
+    "group" character varying(100),
+    attempt_count integer DEFAULT 0 NOT NULL,
+    cluster character varying(100)
+);
+
+
+--
+-- Name: django_session; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.django_session (
+    session_key character varying(40) NOT NULL,
+    session_data text NOT NULL,
+    expire_date timestamp with time zone NOT NULL
+);
+
+
+--
+-- Name: document_attachmentdownloadhistory; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.document_attachmentdownloadhistory (
+    id integer NOT NULL,
+    date_time timestamp with time zone DEFAULT '2025-11-19 07:40:02.589656+00'::timestamp with time zone NOT NULL,
+    attachment_id integer NOT NULL,
+    group_id integer,
+    user_id integer
+);
+
+
+--
+-- Name: document_attachmentdownloadhistory_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.document_attachmentdownloadhistory ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.document_attachmentdownloadhistory_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: document_attachmentversion; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.document_attachmentversion (
+    id integer NOT NULL,
+    version integer NOT NULL,
+    name character varying(255) NOT NULL,
+    path character varying(1024) NOT NULL,
+    size integer NOT NULL,
+    created_at timestamp with time zone DEFAULT '2025-11-19 07:42:12.532926+00'::timestamp with time zone NOT NULL,
+    attachment_id integer NOT NULL,
+    created_by_user_id integer NOT NULL
+);
+
+
+--
+-- Name: document_attachmentversion_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.document_attachmentversion ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.document_attachmentversion_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: dossier_import_dossierimport; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.dossier_import_dossierimport (
+    created_at timestamp with time zone DEFAULT '2025-11-19 07:42:19.509691+00'::timestamp with time zone NOT NULL,
+    modified_at timestamp with time zone DEFAULT '2025-11-19 07:42:19.509719+00'::timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(150),
+    modified_by_user character varying(150),
+    modified_by_group character varying(150),
+    id uuid DEFAULT '6de377f7-a4ab-464b-94df-9915700fe9bf'::uuid NOT NULL,
+    status character varying(32) DEFAULT 'new'::character varying NOT NULL,
+    messages jsonb DEFAULT '[]'::jsonb NOT NULL,
+    dossier_loader_type character varying(255) DEFAULT 'zip-archive-xlsx'::character varying NOT NULL,
+    group_id integer,
+    location_id integer,
+    mime_type character varying(255),
+    source_file character varying(255),
+    user_id integer,
+    task_id character varying(64)
+);
+
+
+--
+-- Name: dossier_import_historicaldossierimport; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.dossier_import_historicaldossierimport (
+    history_user_id character varying(150),
+    created_at timestamp with time zone NOT NULL,
+    modified_at timestamp with time zone NOT NULL,
+    created_by_user character varying(150),
+    created_by_group character varying(150),
+    modified_by_user character varying(150),
+    modified_by_group character varying(150),
+    id uuid DEFAULT 'f057bc5a-ccd9-4a97-9fed-f17f4321d56f'::uuid NOT NULL,
+    status character varying(32) DEFAULT 'new'::character varying NOT NULL,
+    messages jsonb DEFAULT '[]'::jsonb NOT NULL,
+    history_id uuid DEFAULT '76c9123b-63cf-4f48-9fde-9737aefa7c74'::uuid NOT NULL,
+    history_date timestamp with time zone NOT NULL,
+    history_change_reason character varying(100),
+    history_type character varying(1) NOT NULL,
+    dossier_loader_type character varying(255) DEFAULT 'zip-archive-xlsx'::character varying NOT NULL,
+    group_id integer,
+    location_id integer,
+    mime_type character varying(255),
+    source_file text,
+    user_id integer,
+    task_id character varying(64)
+);
+
+
+--
+-- Name: ech0211_message; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.ech0211_message (
+    id uuid DEFAULT '851917e5-c769-43ed-97cc-3a1603360c0b'::uuid NOT NULL,
+    body text NOT NULL,
+    created_at timestamp with time zone DEFAULT '2025-11-19 07:42:22.826581+00'::timestamp with time zone NOT NULL,
+    receiver_id integer NOT NULL
+);
+
+
+--
+-- Name: gever_cmiconstantvalue; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.gever_cmiconstantvalue (
+    slug character varying(50) NOT NULL,
+    use_for character varying(100) NOT NULL,
+    label character varying(250) NOT NULL
+);
+
+
+--
+-- Name: gever_cmiobjecttemplate; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.gever_cmiobjecttemplate (
+    slug character varying(50) NOT NULL,
+    use_for character varying(100) NOT NULL,
+    template_path character varying(250) NOT NULL
+);
+
+
+--
+-- Name: gis_export_aggisexport; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.gis_export_aggisexport (
+    created_at timestamp with time zone DEFAULT '2025-11-19 07:42:42.084766+00'::timestamp with time zone NOT NULL,
+    modified_at timestamp with time zone DEFAULT '2025-11-19 07:42:42.08479+00'::timestamp with time zone NOT NULL,
+    hash character varying NOT NULL,
+    instance_id integer NOT NULL,
+    coordinate_x double precision,
+    coordinate_y double precision,
+    dossier_number character varying,
+    responsible_user character varying,
+    intent character varying,
+    url character varying NOT NULL,
+    municipality character varying,
+    plot_number character varying,
+    status character varying NOT NULL,
+    applicant character varying,
+    submit_date date,
+    type character varying NOT NULL
+);
+
+
+--
+-- Name: gis_gisdatasource; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.gis_gisdatasource (
+    id uuid DEFAULT '9fe25128-2c87-40fe-bc1a-535b19c22078'::uuid NOT NULL,
+    description character varying(255) NOT NULL,
+    client character varying(255) NOT NULL,
+    config jsonb DEFAULT '{}'::jsonb NOT NULL,
+    disabled boolean DEFAULT false NOT NULL,
+    sort integer DEFAULT 0 NOT NULL
+);
+
+
+--
+-- Name: instance_formfield; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.instance_formfield (
+    id integer NOT NULL,
+    name character varying(500) NOT NULL,
+    value jsonb NOT NULL,
+    instance_id integer NOT NULL
+);
+
+
+--
+-- Name: instance_formfield_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.instance_formfield ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.instance_formfield_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: instance_historyentry; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.instance_historyentry (
+    id integer NOT NULL,
+    created_at timestamp with time zone NOT NULL,
+    title text,
+    body text,
+    history_type character varying(20) NOT NULL,
+    instance_id integer NOT NULL,
+    service_id integer,
+    user_id integer NOT NULL
+);
+
+
+--
+-- Name: instance_historyentry_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.instance_historyentry ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.instance_historyentry_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: instance_historyentryt; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.instance_historyentryt (
+    id integer NOT NULL,
+    title text NOT NULL,
+    body text,
+    language character varying(2) NOT NULL,
+    history_entry_id integer NOT NULL
+);
+
+
+--
+-- Name: instance_historyentryt_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.instance_historyentryt ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.instance_historyentryt_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: instance_instancealexandriadocument; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.instance_instancealexandriadocument (
+    id integer NOT NULL,
+    document_id uuid NOT NULL,
+    instance_id integer NOT NULL
+);
+
+
+--
+-- Name: instance_instancealexandriadocument_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.instance_instancealexandriadocument ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.instance_instancealexandriadocument_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: instance_instancegroup; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.instance_instancegroup (
+    id integer NOT NULL
+);
+
+
+--
+-- Name: instance_instancegroup_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.instance_instancegroup ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.instance_instancegroup_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: instance_instanceresponsibility; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.instance_instanceresponsibility (
+    id integer NOT NULL,
+    instance_id integer NOT NULL,
+    "SERVICE_ID" integer NOT NULL,
+    "USER_ID" integer NOT NULL
+);
+
+
+--
+-- Name: instance_instanceresponsibility_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.instance_instanceresponsibility ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.instance_instanceresponsibility_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: instance_issue; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.instance_issue (
+    id integer NOT NULL,
+    deadline_date date NOT NULL,
+    state character varying(20) DEFAULT 'open'::character varying NOT NULL,
+    text text NOT NULL,
+    group_id integer NOT NULL,
+    instance_id integer NOT NULL,
+    service_id integer,
+    user_id integer
+);
+
+
+--
+-- Name: instance_issue_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.instance_issue ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.instance_issue_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: instance_issuetemplate; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.instance_issuetemplate (
+    id integer NOT NULL,
+    deadline_length integer NOT NULL,
+    text text NOT NULL,
+    group_id integer NOT NULL,
+    service_id integer,
+    user_id integer,
+    CONSTRAINT instance_issuetemplate_deadline_length_check CHECK ((deadline_length >= 0))
+);
+
+
+--
+-- Name: instance_issuetemplate_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.instance_issuetemplate ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.instance_issuetemplate_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: instance_issuetemplateset; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.instance_issuetemplateset (
+    id integer NOT NULL,
+    name character varying(500) NOT NULL,
+    group_id integer NOT NULL,
+    service_id integer
+);
+
+
+--
+-- Name: instance_issuetemplateset_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.instance_issuetemplateset ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.instance_issuetemplateset_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: instance_issuetemplateset_issue_templates; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.instance_issuetemplateset_issue_templates (
+    id integer NOT NULL,
+    issuetemplateset_id integer NOT NULL,
+    issuetemplate_id integer NOT NULL
+);
+
+
+--
+-- Name: instance_issuetemplateset_issue_templates_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.instance_issuetemplateset_issue_templates ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.instance_issuetemplateset_issue_templates_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: instance_journalentry; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.instance_journalentry (
+    id integer NOT NULL,
+    text text,
+    creation_date timestamp with time zone NOT NULL,
+    modification_date timestamp with time zone NOT NULL,
+    instance_id integer NOT NULL,
+    user_id integer NOT NULL,
+    service_id integer,
+    visibility character varying(16) DEFAULT 'own_organization'::character varying NOT NULL,
+    duration interval
+);
+
+
+--
+-- Name: instance_journalentry_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.instance_journalentry ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.instance_journalentry_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: linker_gwrlink; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.linker_gwrlink (
+    id uuid DEFAULT '0517cc6b-26d0-492c-94b5-8284c707eac5'::uuid NOT NULL,
+    eproid character varying(255) NOT NULL,
+    local_id character varying(255) NOT NULL,
+    context jsonb DEFAULT '{}'::jsonb NOT NULL
+);
+
+
+--
+-- Name: manabi_lock; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.manabi_lock (
+    token character varying(255) NOT NULL,
+    data jsonb NOT NULL
+);
+
+
+--
+-- Name: objection_objection; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.objection_objection (
+    id integer NOT NULL,
+    creation_date date NOT NULL,
+    instance_id integer NOT NULL,
+    title character varying(200)
+);
+
+
+--
+-- Name: objection_objection_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.objection_objection ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.objection_objection_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: objection_objectionparticipant; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.objection_objectionparticipant (
+    id integer NOT NULL,
+    company character varying(200),
+    name character varying(200),
+    address character varying(100),
+    city character varying(100),
+    email character varying(254),
+    phone character varying(50),
+    representative smallint DEFAULT 0 NOT NULL,
+    objection_id integer NOT NULL,
+    CONSTRAINT objection_objectionparticipant_representative_check CHECK ((representative >= 0))
+);
+
+
+--
+-- Name: objection_objectionparticipant_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.objection_objectionparticipant ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.objection_objectionparticipant_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: objection_objectiontimeframe; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.objection_objectiontimeframe (
+    id integer NOT NULL,
+    timeframe tstzrange,
+    instance_id integer NOT NULL
+);
+
+
+--
+-- Name: objection_objectiontimeframe_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.objection_objectiontimeframe ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.objection_objectiontimeframe_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: permissions_accesslevel; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.permissions_accesslevel (
+    slug character varying(100) NOT NULL,
+    name public.hstore NOT NULL,
+    description public.hstore NOT NULL,
+    required_grant_type character varying(50),
+    applicable_area character varying(50) DEFAULT 'ANY'::character varying NOT NULL
+);
+
+
+--
+-- Name: permissions_instanceacl; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.permissions_instanceacl (
+    id bigint NOT NULL,
+    token character varying(250),
+    start_time timestamp with time zone DEFAULT '2025-11-19 07:42:43.27655+00'::timestamp with time zone NOT NULL,
+    end_time timestamp with time zone,
+    created_by_event character varying(250),
+    revoked_by_event character varying(250),
+    grant_type character varying(50) NOT NULL,
+    created_at timestamp with time zone DEFAULT '2025-11-19 07:42:43.276613+00'::timestamp with time zone NOT NULL,
+    revoked_at timestamp with time zone,
+    metainfo jsonb,
+    access_level_id character varying(100) NOT NULL,
+    created_by_service_id integer,
+    created_by_user_id integer,
+    instance_id integer NOT NULL,
+    revoked_by_service_id integer,
+    revoked_by_user_id integer,
+    service_id integer,
+    user_id integer,
+    role_id integer
+);
+
+
+--
+-- Name: permissions_instanceacl_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.permissions_instanceacl ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.permissions_instanceacl_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: php_session; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.php_session (
+    id character varying(128) NOT NULL,
+    modified integer NOT NULL,
+    lifetime integer NOT NULL,
+    data text NOT NULL
+);
+
+
+--
+-- Name: reversion_revision; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.reversion_revision (
+    id integer NOT NULL,
+    date_created timestamp with time zone NOT NULL,
+    comment text DEFAULT ''::text NOT NULL,
+    user_id integer
+);
+
+
+--
+-- Name: reversion_revision_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.reversion_revision ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.reversion_revision_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: reversion_version; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.reversion_version (
+    id integer NOT NULL,
+    object_id character varying(191) NOT NULL,
+    format character varying(255) NOT NULL,
+    serialized_data text NOT NULL,
+    object_repr text NOT NULL,
+    content_type_id integer NOT NULL,
+    revision_id integer NOT NULL,
+    db character varying(191) NOT NULL
+);
+
+
+--
+-- Name: reversion_version_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.reversion_version ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.reversion_version_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: rulesets_distributiondeadlinerule; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.rulesets_distributiondeadlinerule (
+    id bigint NOT NULL,
+    lead_time integer NOT NULL,
+    source_service_id integer NOT NULL,
+    target_service_id integer NOT NULL,
+    CONSTRAINT rulesets_distributiondeadlinerule_lead_time_check CHECK ((lead_time >= 0))
+);
+
+
+--
+-- Name: rulesets_distributiondeadlinerule_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.rulesets_distributiondeadlinerule ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.rulesets_distributiondeadlinerule_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: rulesets_responsibleuserrule; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.rulesets_responsibleuserrule (
+    id bigint NOT NULL,
+    sort integer DEFAULT 0 NOT NULL,
+    responsible_user_id integer NOT NULL,
+    service_id integer NOT NULL,
+    CONSTRAINT rulesets_responsibleuserrule_sort_check CHECK ((sort >= 0))
+);
+
+
+--
+-- Name: rulesets_responsibleuserrule_application_types; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.rulesets_responsibleuserrule_application_types (
+    id integer NOT NULL,
+    responsibleuserrule_id bigint NOT NULL,
+    form_id character varying(127) NOT NULL
+);
+
+
+--
+-- Name: rulesets_responsibleuserrule_application_types_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.rulesets_responsibleuserrule_application_types ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.rulesets_responsibleuserrule_application_types_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: rulesets_responsibleuserrule_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.rulesets_responsibleuserrule ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.rulesets_responsibleuserrule_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: rulesets_responsibleuserrule_municipalities; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.rulesets_responsibleuserrule_municipalities (
+    id integer NOT NULL,
+    responsibleuserrule_id bigint NOT NULL,
+    service_id integer NOT NULL
+);
+
+
+--
+-- Name: rulesets_responsibleuserrule_municipalities_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.rulesets_responsibleuserrule_municipalities ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.rulesets_responsibleuserrule_municipalities_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: sanctions_sanction; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.sanctions_sanction (
+    id uuid DEFAULT '67450221-856f-4684-859d-4b295b5b9765'::uuid NOT NULL,
+    name character varying(255) NOT NULL,
+    description text,
+    created_at timestamp with time zone DEFAULT '2025-11-19 07:42:45.097278+00'::timestamp with time zone NOT NULL,
+    control_step character varying(20) NOT NULL,
+    controlled_at timestamp with time zone,
+    control_notes text,
+    assigned_service_id integer NOT NULL,
+    controlled_by_user_id integer,
+    created_by_service_id integer NOT NULL,
+    created_by_user_id integer NOT NULL,
+    instance_id integer NOT NULL,
+    meta jsonb DEFAULT '{}'::jsonb NOT NULL,
+    CONSTRAINT controlled_consistently CHECK ((((controlled_at IS NULL) AND (controlled_by_user_id IS NULL)) OR ((controlled_at IS NOT NULL) AND (controlled_by_user_id IS NOT NULL))))
+);
+
+
+--
+-- Name: sanctions_sanctiontemplate; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.sanctions_sanctiontemplate (
+    id uuid DEFAULT '3799f214-1b9a-4321-a8fa-ac0f37f9b247'::uuid NOT NULL,
+    name character varying(255) NOT NULL,
+    description text,
+    created_at timestamp with time zone DEFAULT '2025-11-19 07:42:44.942092+00'::timestamp with time zone NOT NULL,
+    control_step character varying(20) NOT NULL,
+    assigned_service_id integer NOT NULL,
+    created_by_service_id integer NOT NULL,
+    created_by_user_id integer NOT NULL,
+    meta jsonb DEFAULT '{}'::jsonb NOT NULL
+);
+
+
+--
+-- Name: tags_keyword; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.tags_keyword (
+    id integer NOT NULL,
+    name character varying(50) NOT NULL,
+    service_id integer NOT NULL
+);
+
+
+--
+-- Name: tags_keyword_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.tags_keyword ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.tags_keyword_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: tags_keyword_instances; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.tags_keyword_instances (
+    id integer NOT NULL,
+    keyword_id integer NOT NULL,
+    instance_id integer NOT NULL
+);
+
+
+--
+-- Name: tags_keyword_instances_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.tags_keyword_instances ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.tags_keyword_instances_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: thumbnail_kvstore; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.thumbnail_kvstore (
+    key character varying(200) NOT NULL,
+    value text NOT NULL
+);
+
+
+--
+-- Name: token_proxy_housingstatcreds; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.token_proxy_housingstatcreds (
+    id uuid DEFAULT '35a958e8-10d3-4ffa-b83f-6f0796a1be0e'::uuid NOT NULL,
+    owner character varying(255) NOT NULL,
+    username character varying(255) NOT NULL,
+    password bytea NOT NULL,
+    municipality integer DEFAULT 1342 NOT NULL,
+    "group" integer DEFAULT 0 NOT NULL
+);
+
+
+--
+-- Name: user_servicerelation; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.user_servicerelation (
+    id integer NOT NULL,
+    function character varying(100) NOT NULL,
+    receiver_id integer NOT NULL,
+    provider_id integer NOT NULL
+);
+
+
+--
+-- Name: user_servicerelation_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.user_servicerelation ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.user_servicerelation_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: user_usergroupinvitation; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.user_usergroupinvitation (
+    id integer NOT NULL,
+    email character varying(254) NOT NULL COLLATE public.case_insensitive,
+    created_at timestamp with time zone DEFAULT '2025-11-19 07:42:46.810101+00'::timestamp with time zone NOT NULL,
+    created_by_id integer NOT NULL,
+    group_id integer NOT NULL,
+    expires_at timestamp with time zone
+);
+
+
+--
+-- Name: user_usergroupinvitation_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.user_usergroupinvitation ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.user_usergroupinvitation_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: work_items_workitemlistfilterpreset; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.work_items_workitemlistfilterpreset (
+    id uuid DEFAULT '0691d74f-886d-7311-8000-75b4f3679c0f'::uuid NOT NULL,
+    name public.hstore NOT NULL,
+    query_params jsonb NOT NULL,
+    prefilter_tasks boolean DEFAULT false NOT NULL,
+    prefilter_work_item_templates boolean DEFAULT false NOT NULL,
+    sort integer DEFAULT 0 NOT NULL,
+    CONSTRAINT work_items_workitemlistfilterpreset_sort_check CHECK ((sort >= 0))
+);
+
+
+--
+-- Name: work_items_workitemlistfilterpreset_tasks; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.work_items_workitemlistfilterpreset_tasks (
+    id integer NOT NULL,
+    workitemlistfilterpreset_id uuid NOT NULL,
+    task_id character varying(127) NOT NULL
+);
+
+
+--
+-- Name: work_items_workitemlistfilterpreset_new_tasks_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.work_items_workitemlistfilterpreset_tasks ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.work_items_workitemlistfilterpreset_new_tasks_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: work_items_workitemlistfilterpreset_service_groups; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.work_items_workitemlistfilterpreset_service_groups (
+    id integer NOT NULL,
+    workitemlistfilterpreset_id uuid NOT NULL,
+    servicegroup_id integer NOT NULL
+);
+
+
+--
+-- Name: work_items_workitemlistfilterpreset_service_groups_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.work_items_workitemlistfilterpreset_service_groups ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.work_items_workitemlistfilterpreset_service_groups_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: work_items_workitemlistfilterpreset_services; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.work_items_workitemlistfilterpreset_services (
+    id integer NOT NULL,
+    workitemlistfilterpreset_id uuid NOT NULL,
+    service_id integer NOT NULL
+);
+
+
+--
+-- Name: work_items_workitemlistfilterpreset_services_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.work_items_workitemlistfilterpreset_services ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.work_items_workitemlistfilterpreset_services_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: work_items_workitemlistfilterpreset_work_item_templates; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.work_items_workitemlistfilterpreset_work_item_templates (
+    id integer NOT NULL,
+    workitemlistfilterpreset_id uuid NOT NULL,
+    workitemtemplate_id uuid NOT NULL
+);
+
+
+--
+-- Name: work_items_workitemlistfilterpreset_work_item_templates_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.work_items_workitemlistfilterpreset_work_item_templates ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.work_items_workitemlistfilterpreset_work_item_templates_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: work_items_workitemtemplate; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.work_items_workitemtemplate (
+    id uuid DEFAULT '0691d74f-78c8-7e8a-8000-809cfee58c0b'::uuid NOT NULL,
+    name character varying NOT NULL,
+    description text,
+    lead_time integer,
+    sort integer DEFAULT 0 NOT NULL,
+    responsibility_rule character varying(20) NOT NULL,
+    assigned_user_id integer,
+    CONSTRAINT work_items_workitemtemplate_lead_time_check CHECK ((lead_time >= 0)),
+    CONSTRAINT work_items_workitemtemplate_sort_check CHECK ((sort >= 0))
+);
+
+
+--
+-- Name: work_items_workitemtemplate_service_groups; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.work_items_workitemtemplate_service_groups (
+    id integer NOT NULL,
+    workitemtemplate_id uuid NOT NULL,
+    servicegroup_id integer NOT NULL
+);
+
+
+--
+-- Name: work_items_workitemtemplate_service_groups_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.work_items_workitemtemplate_service_groups ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.work_items_workitemtemplate_service_groups_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: work_items_workitemtemplate_services; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.work_items_workitemtemplate_services (
+    id integer NOT NULL,
+    workitemtemplate_id uuid NOT NULL,
+    service_id integer NOT NULL
+);
+
+
+--
+-- Name: work_items_workitemtemplate_services_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+ALTER TABLE public.work_items_workitemtemplate_services ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDENTITY (
+    SEQUENCE NAME public.work_items_workitemtemplate_services_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1
+);
+
+
+--
+-- Name: org_domain ORG_DOMAIN_pkey; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.org_domain
+    ADD CONSTRAINT "ORG_DOMAIN_pkey" PRIMARY KEY (id, name);
+
+
+--
+-- Name: org ORG_pkey; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.org
+    ADD CONSTRAINT "ORG_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: server_config SERVER_CONFIG_pkey; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.server_config
+    ADD CONSTRAINT "SERVER_CONFIG_pkey" PRIMARY KEY (server_config_key);
+
+
+--
+-- Name: keycloak_role UK_J3RWUVD56ONTGSUHOGM184WW2-2; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.keycloak_role
+    ADD CONSTRAINT "UK_J3RWUVD56ONTGSUHOGM184WW2-2" UNIQUE (name, client_realm_constraint);
+
+
+--
+-- Name: client_auth_flow_bindings c_cli_flow_bind; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.client_auth_flow_bindings
+    ADD CONSTRAINT c_cli_flow_bind PRIMARY KEY (client_id, binding_name);
+
+
+--
+-- Name: client_scope_client c_cli_scope_bind; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.client_scope_client
+    ADD CONSTRAINT c_cli_scope_bind PRIMARY KEY (client_id, scope_id);
+
+
+--
+-- Name: client_initial_access cnstr_client_init_acc_pk; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.client_initial_access
+    ADD CONSTRAINT cnstr_client_init_acc_pk PRIMARY KEY (id);
+
+
+--
+-- Name: realm_default_groups con_group_id_def_groups; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.realm_default_groups
+    ADD CONSTRAINT con_group_id_def_groups UNIQUE (group_id);
+
+
+--
+-- Name: broker_link constr_broker_link_pk; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.broker_link
+    ADD CONSTRAINT constr_broker_link_pk PRIMARY KEY (identity_provider, user_id);
+
+
+--
+-- Name: component_config constr_component_config_pk; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.component_config
+    ADD CONSTRAINT constr_component_config_pk PRIMARY KEY (id);
+
+
+--
+-- Name: component constr_component_pk; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.component
+    ADD CONSTRAINT constr_component_pk PRIMARY KEY (id);
+
+
+--
+-- Name: fed_user_required_action constr_fed_required_action; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.fed_user_required_action
+    ADD CONSTRAINT constr_fed_required_action PRIMARY KEY (required_action, user_id);
+
+
+--
+-- Name: fed_user_attribute constr_fed_user_attr_pk; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.fed_user_attribute
+    ADD CONSTRAINT constr_fed_user_attr_pk PRIMARY KEY (id);
+
+
+--
+-- Name: fed_user_consent constr_fed_user_consent_pk; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.fed_user_consent
+    ADD CONSTRAINT constr_fed_user_consent_pk PRIMARY KEY (id);
+
+
+--
+-- Name: fed_user_credential constr_fed_user_cred_pk; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.fed_user_credential
+    ADD CONSTRAINT constr_fed_user_cred_pk PRIMARY KEY (id);
+
+
+--
+-- Name: fed_user_group_membership constr_fed_user_group; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.fed_user_group_membership
+    ADD CONSTRAINT constr_fed_user_group PRIMARY KEY (group_id, user_id);
+
+
+--
+-- Name: fed_user_role_mapping constr_fed_user_role; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.fed_user_role_mapping
+    ADD CONSTRAINT constr_fed_user_role PRIMARY KEY (role_id, user_id);
+
+
+--
+-- Name: federated_user constr_federated_user; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.federated_user
+    ADD CONSTRAINT constr_federated_user PRIMARY KEY (id);
+
+
+--
+-- Name: realm_default_groups constr_realm_default_groups; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.realm_default_groups
+    ADD CONSTRAINT constr_realm_default_groups PRIMARY KEY (realm_id, group_id);
+
+
+--
+-- Name: realm_enabled_event_types constr_realm_enabl_event_types; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.realm_enabled_event_types
+    ADD CONSTRAINT constr_realm_enabl_event_types PRIMARY KEY (realm_id, value);
+
+
+--
+-- Name: realm_events_listeners constr_realm_events_listeners; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.realm_events_listeners
+    ADD CONSTRAINT constr_realm_events_listeners PRIMARY KEY (realm_id, value);
+
+
+--
+-- Name: realm_supported_locales constr_realm_supported_locales; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.realm_supported_locales
+    ADD CONSTRAINT constr_realm_supported_locales PRIMARY KEY (realm_id, value);
+
+
+--
+-- Name: identity_provider constraint_2b; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.identity_provider
+    ADD CONSTRAINT constraint_2b PRIMARY KEY (internal_id);
+
+
+--
+-- Name: client_attributes constraint_3c; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.client_attributes
+    ADD CONSTRAINT constraint_3c PRIMARY KEY (client_id, name);
+
+
+--
+-- Name: event_entity constraint_4; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.event_entity
+    ADD CONSTRAINT constraint_4 PRIMARY KEY (id);
+
+
+--
+-- Name: federated_identity constraint_40; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.federated_identity
+    ADD CONSTRAINT constraint_40 PRIMARY KEY (identity_provider, user_id);
+
+
+--
+-- Name: realm constraint_4a; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.realm
+    ADD CONSTRAINT constraint_4a PRIMARY KEY (id);
+
+
+--
+-- Name: user_federation_provider constraint_5c; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.user_federation_provider
+    ADD CONSTRAINT constraint_5c PRIMARY KEY (id);
+
+
+--
+-- Name: client constraint_7; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.client
+    ADD CONSTRAINT constraint_7 PRIMARY KEY (id);
+
+
+--
+-- Name: scope_mapping constraint_81; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.scope_mapping
+    ADD CONSTRAINT constraint_81 PRIMARY KEY (client_id, role_id);
+
+
+--
+-- Name: client_node_registrations constraint_84; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.client_node_registrations
+    ADD CONSTRAINT constraint_84 PRIMARY KEY (client_id, name);
+
+
+--
+-- Name: realm_attribute constraint_9; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.realm_attribute
+    ADD CONSTRAINT constraint_9 PRIMARY KEY (name, realm_id);
+
+
+--
+-- Name: realm_required_credential constraint_92; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.realm_required_credential
+    ADD CONSTRAINT constraint_92 PRIMARY KEY (realm_id, type);
+
+
+--
+-- Name: keycloak_role constraint_a; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.keycloak_role
+    ADD CONSTRAINT constraint_a PRIMARY KEY (id);
+
+
+--
+-- Name: admin_event_entity constraint_admin_event_entity; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.admin_event_entity
+    ADD CONSTRAINT constraint_admin_event_entity PRIMARY KEY (id);
+
+
+--
+-- Name: authenticator_config_entry constraint_auth_cfg_pk; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.authenticator_config_entry
+    ADD CONSTRAINT constraint_auth_cfg_pk PRIMARY KEY (authenticator_id, name);
+
+
+--
+-- Name: authentication_execution constraint_auth_exec_pk; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.authentication_execution
+    ADD CONSTRAINT constraint_auth_exec_pk PRIMARY KEY (id);
+
+
+--
+-- Name: authentication_flow constraint_auth_flow_pk; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.authentication_flow
+    ADD CONSTRAINT constraint_auth_flow_pk PRIMARY KEY (id);
+
+
+--
+-- Name: authenticator_config constraint_auth_pk; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.authenticator_config
+    ADD CONSTRAINT constraint_auth_pk PRIMARY KEY (id);
+
+
+--
+-- Name: user_role_mapping constraint_c; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.user_role_mapping
+    ADD CONSTRAINT constraint_c PRIMARY KEY (role_id, user_id);
+
+
+--
+-- Name: composite_role constraint_composite_role; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.composite_role
+    ADD CONSTRAINT constraint_composite_role PRIMARY KEY (composite, child_role);
+
+
+--
+-- Name: identity_provider_config constraint_d; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.identity_provider_config
+    ADD CONSTRAINT constraint_d PRIMARY KEY (identity_provider_id, name);
+
+
+--
+-- Name: policy_config constraint_dpc; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.policy_config
+    ADD CONSTRAINT constraint_dpc PRIMARY KEY (policy_id, name);
+
+
+--
+-- Name: realm_smtp_config constraint_e; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.realm_smtp_config
+    ADD CONSTRAINT constraint_e PRIMARY KEY (realm_id, name);
+
+
+--
+-- Name: credential constraint_f; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.credential
+    ADD CONSTRAINT constraint_f PRIMARY KEY (id);
+
+
+--
+-- Name: user_federation_config constraint_f9; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.user_federation_config
+    ADD CONSTRAINT constraint_f9 PRIMARY KEY (user_federation_provider_id, name);
+
+
+--
+-- Name: resource_server_perm_ticket constraint_fapmt; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.resource_server_perm_ticket
+    ADD CONSTRAINT constraint_fapmt PRIMARY KEY (id);
+
+
+--
+-- Name: resource_server_resource constraint_farsr; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.resource_server_resource
+    ADD CONSTRAINT constraint_farsr PRIMARY KEY (id);
+
+
+--
+-- Name: resource_server_policy constraint_farsrp; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.resource_server_policy
+    ADD CONSTRAINT constraint_farsrp PRIMARY KEY (id);
+
+
+--
+-- Name: associated_policy constraint_farsrpap; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.associated_policy
+    ADD CONSTRAINT constraint_farsrpap PRIMARY KEY (policy_id, associated_policy_id);
+
+
+--
+-- Name: resource_policy constraint_farsrpp; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.resource_policy
+    ADD CONSTRAINT constraint_farsrpp PRIMARY KEY (resource_id, policy_id);
+
+
+--
+-- Name: resource_server_scope constraint_farsrs; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.resource_server_scope
+    ADD CONSTRAINT constraint_farsrs PRIMARY KEY (id);
+
+
+--
+-- Name: resource_scope constraint_farsrsp; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.resource_scope
+    ADD CONSTRAINT constraint_farsrsp PRIMARY KEY (resource_id, scope_id);
+
+
+--
+-- Name: scope_policy constraint_farsrsps; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.scope_policy
+    ADD CONSTRAINT constraint_farsrsps PRIMARY KEY (scope_id, policy_id);
+
+
+--
+-- Name: user_entity constraint_fb; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.user_entity
+    ADD CONSTRAINT constraint_fb PRIMARY KEY (id);
+
+
+--
+-- Name: user_federation_mapper_config constraint_fedmapper_cfg_pm; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.user_federation_mapper_config
+    ADD CONSTRAINT constraint_fedmapper_cfg_pm PRIMARY KEY (user_federation_mapper_id, name);
+
+
+--
+-- Name: user_federation_mapper constraint_fedmapperpm; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.user_federation_mapper
+    ADD CONSTRAINT constraint_fedmapperpm PRIMARY KEY (id);
+
+
+--
+-- Name: fed_user_consent_cl_scope constraint_fgrntcsnt_clsc_pm; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.fed_user_consent_cl_scope
+    ADD CONSTRAINT constraint_fgrntcsnt_clsc_pm PRIMARY KEY (user_consent_id, scope_id);
+
+
+--
+-- Name: user_consent_client_scope constraint_grntcsnt_clsc_pm; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.user_consent_client_scope
+    ADD CONSTRAINT constraint_grntcsnt_clsc_pm PRIMARY KEY (user_consent_id, scope_id);
+
+
+--
+-- Name: user_consent constraint_grntcsnt_pm; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.user_consent
+    ADD CONSTRAINT constraint_grntcsnt_pm PRIMARY KEY (id);
+
+
+--
+-- Name: keycloak_group constraint_group; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.keycloak_group
+    ADD CONSTRAINT constraint_group PRIMARY KEY (id);
+
+
+--
+-- Name: group_attribute constraint_group_attribute_pk; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.group_attribute
+    ADD CONSTRAINT constraint_group_attribute_pk PRIMARY KEY (id);
+
+
+--
+-- Name: group_role_mapping constraint_group_role; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.group_role_mapping
+    ADD CONSTRAINT constraint_group_role PRIMARY KEY (role_id, group_id);
+
+
+--
+-- Name: identity_provider_mapper constraint_idpm; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.identity_provider_mapper
+    ADD CONSTRAINT constraint_idpm PRIMARY KEY (id);
+
+
+--
+-- Name: idp_mapper_config constraint_idpmconfig; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.idp_mapper_config
+    ADD CONSTRAINT constraint_idpmconfig PRIMARY KEY (idp_mapper_id, name);
+
+
+--
+-- Name: jgroups_ping constraint_jgroups_ping; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.jgroups_ping
+    ADD CONSTRAINT constraint_jgroups_ping PRIMARY KEY (address);
+
+
+--
+-- Name: migration_model constraint_migmod; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.migration_model
+    ADD CONSTRAINT constraint_migmod PRIMARY KEY (id);
+
+
+--
+-- Name: offline_client_session constraint_offl_cl_ses_pk3; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.offline_client_session
+    ADD CONSTRAINT constraint_offl_cl_ses_pk3 PRIMARY KEY (user_session_id, client_id, client_storage_provider, external_client_id, offline_flag);
+
+
+--
+-- Name: offline_user_session constraint_offl_us_ses_pk2; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.offline_user_session
+    ADD CONSTRAINT constraint_offl_us_ses_pk2 PRIMARY KEY (user_session_id, offline_flag);
+
+
+--
+-- Name: protocol_mapper constraint_pcm; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.protocol_mapper
+    ADD CONSTRAINT constraint_pcm PRIMARY KEY (id);
+
+
+--
+-- Name: protocol_mapper_config constraint_pmconfig; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.protocol_mapper_config
+    ADD CONSTRAINT constraint_pmconfig PRIMARY KEY (protocol_mapper_id, name);
+
+
+--
+-- Name: redirect_uris constraint_redirect_uris; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.redirect_uris
+    ADD CONSTRAINT constraint_redirect_uris PRIMARY KEY (client_id, value);
+
+
+--
+-- Name: required_action_config constraint_req_act_cfg_pk; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.required_action_config
+    ADD CONSTRAINT constraint_req_act_cfg_pk PRIMARY KEY (required_action_id, name);
+
+
+--
+-- Name: required_action_provider constraint_req_act_prv_pk; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.required_action_provider
+    ADD CONSTRAINT constraint_req_act_prv_pk PRIMARY KEY (id);
+
+
+--
+-- Name: user_required_action constraint_required_action; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.user_required_action
+    ADD CONSTRAINT constraint_required_action PRIMARY KEY (required_action, user_id);
+
+
+--
+-- Name: resource_uris constraint_resour_uris_pk; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.resource_uris
+    ADD CONSTRAINT constraint_resour_uris_pk PRIMARY KEY (resource_id, value);
+
+
+--
+-- Name: role_attribute constraint_role_attribute_pk; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.role_attribute
+    ADD CONSTRAINT constraint_role_attribute_pk PRIMARY KEY (id);
+
+
+--
+-- Name: revoked_token constraint_rt; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.revoked_token
+    ADD CONSTRAINT constraint_rt PRIMARY KEY (id);
+
+
+--
+-- Name: user_attribute constraint_user_attribute_pk; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.user_attribute
+    ADD CONSTRAINT constraint_user_attribute_pk PRIMARY KEY (id);
+
+
+--
+-- Name: user_group_membership constraint_user_group; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.user_group_membership
+    ADD CONSTRAINT constraint_user_group PRIMARY KEY (group_id, user_id);
+
+
+--
+-- Name: web_origins constraint_web_origins; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.web_origins
+    ADD CONSTRAINT constraint_web_origins PRIMARY KEY (client_id, value);
+
+
+--
+-- Name: databasechangeloglock databasechangeloglock_pkey; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.databasechangeloglock
+    ADD CONSTRAINT databasechangeloglock_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: client_scope_attributes pk_cl_tmpl_attr; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.client_scope_attributes
+    ADD CONSTRAINT pk_cl_tmpl_attr PRIMARY KEY (scope_id, name);
+
+
+--
+-- Name: client_scope pk_cli_template; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.client_scope
+    ADD CONSTRAINT pk_cli_template PRIMARY KEY (id);
+
+
+--
+-- Name: resource_server pk_resource_server; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.resource_server
+    ADD CONSTRAINT pk_resource_server PRIMARY KEY (id);
+
+
+--
+-- Name: client_scope_role_mapping pk_template_scope; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.client_scope_role_mapping
+    ADD CONSTRAINT pk_template_scope PRIMARY KEY (scope_id, role_id);
+
+
+--
+-- Name: default_client_scope r_def_cli_scope_bind; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.default_client_scope
+    ADD CONSTRAINT r_def_cli_scope_bind PRIMARY KEY (realm_id, scope_id);
+
+
+--
+-- Name: realm_localizations realm_localizations_pkey; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.realm_localizations
+    ADD CONSTRAINT realm_localizations_pkey PRIMARY KEY (realm_id, locale);
+
+
+--
+-- Name: resource_attribute res_attr_pk; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.resource_attribute
+    ADD CONSTRAINT res_attr_pk PRIMARY KEY (id);
+
+
+--
+-- Name: keycloak_group sibling_names; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.keycloak_group
+    ADD CONSTRAINT sibling_names UNIQUE (realm_id, parent_group, name);
+
+
+--
+-- Name: identity_provider uk_2daelwnibji49avxsrtuf6xj33; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.identity_provider
+    ADD CONSTRAINT uk_2daelwnibji49avxsrtuf6xj33 UNIQUE (provider_alias, realm_id);
+
+
+--
+-- Name: client uk_b71cjlbenv945rb6gcon438at; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.client
+    ADD CONSTRAINT uk_b71cjlbenv945rb6gcon438at UNIQUE (realm_id, client_id);
+
+
+--
+-- Name: client_scope uk_cli_scope; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.client_scope
+    ADD CONSTRAINT uk_cli_scope UNIQUE (realm_id, name);
+
+
+--
+-- Name: user_entity uk_dykn684sl8up1crfei6eckhd7; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.user_entity
+    ADD CONSTRAINT uk_dykn684sl8up1crfei6eckhd7 UNIQUE (realm_id, email_constraint);
+
+
+--
+-- Name: user_consent uk_external_consent; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.user_consent
+    ADD CONSTRAINT uk_external_consent UNIQUE (client_storage_provider, external_client_id, user_id);
+
+
+--
+-- Name: resource_server_resource uk_frsr6t700s9v50bu18ws5ha6; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.resource_server_resource
+    ADD CONSTRAINT uk_frsr6t700s9v50bu18ws5ha6 UNIQUE (name, owner, resource_server_id);
+
+
+--
+-- Name: resource_server_perm_ticket uk_frsr6t700s9v50bu18ws5pmt; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.resource_server_perm_ticket
+    ADD CONSTRAINT uk_frsr6t700s9v50bu18ws5pmt UNIQUE (owner, requester, resource_server_id, resource_id, scope_id);
+
+
+--
+-- Name: resource_server_policy uk_frsrpt700s9v50bu18ws5ha6; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.resource_server_policy
+    ADD CONSTRAINT uk_frsrpt700s9v50bu18ws5ha6 UNIQUE (name, resource_server_id);
+
+
+--
+-- Name: resource_server_scope uk_frsrst700s9v50bu18ws5ha6; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.resource_server_scope
+    ADD CONSTRAINT uk_frsrst700s9v50bu18ws5ha6 UNIQUE (name, resource_server_id);
+
+
+--
+-- Name: user_consent uk_local_consent; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.user_consent
+    ADD CONSTRAINT uk_local_consent UNIQUE (client_id, user_id);
+
+
+--
+-- Name: org uk_org_alias; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.org
+    ADD CONSTRAINT uk_org_alias UNIQUE (realm_id, alias);
+
+
+--
+-- Name: org uk_org_group; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.org
+    ADD CONSTRAINT uk_org_group UNIQUE (group_id);
+
+
+--
+-- Name: org uk_org_name; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.org
+    ADD CONSTRAINT uk_org_name UNIQUE (realm_id, name);
+
+
+--
+-- Name: realm uk_orvsdmla56612eaefiq6wl5oi; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.realm
+    ADD CONSTRAINT uk_orvsdmla56612eaefiq6wl5oi UNIQUE (name);
+
+
+--
+-- Name: user_entity uk_ru8tt6t700s9v50bu18ws5ha6; Type: CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.user_entity
+    ADD CONSTRAINT uk_ru8tt6t700s9v50bu18ws5ha6 UNIQUE (realm_id, username);
+
+
+--
+-- Name: ACTION_CASE ACTION_CASE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ACTION_CASE"
+    ADD CONSTRAINT "ACTION_CASE_pkey" PRIMARY KEY ("ACTION_ID");
+
+
+--
+-- Name: ACTION_NOTIFICATION ACTION_NOTIFICATION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ACTION_NOTIFICATION"
+    ADD CONSTRAINT "ACTION_NOTIFICATION_pkey" PRIMARY KEY ("ACTION_ID");
+
+
+--
+-- Name: ACTION_T ACTION_T_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ACTION_T"
+    ADD CONSTRAINT "ACTION_T_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: ACTION_WORKITEM ACTION_WORKITEM_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ACTION_WORKITEM"
+    ADD CONSTRAINT "ACTION_WORKITEM_pkey" PRIMARY KEY ("ACTION_ID");
+
+
+--
+-- Name: ACTION ACTION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ACTION"
+    ADD CONSTRAINT "ACTION_pkey" PRIMARY KEY ("ACTION_ID");
+
+
+--
+-- Name: ACTIVATION_ANSWER ACTIVATION_ANSWER_ACTIVATION_ID_QUESTION_I_dda701c6_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ACTIVATION_ANSWER"
+    ADD CONSTRAINT "ACTIVATION_ANSWER_ACTIVATION_ID_QUESTION_I_dda701c6_uniq" UNIQUE ("ACTIVATION_ID", "QUESTION_ID", "CHAPTER_ID", "ITEM");
+
+
+--
+-- Name: ACTIVATION_ANSWER_LOG ACTIVATION_ANSWER_LOG_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ACTIVATION_ANSWER_LOG"
+    ADD CONSTRAINT "ACTIVATION_ANSWER_LOG_pkey" PRIMARY KEY ("ACTIVATION_ANSWER_LOG_ID");
+
+
+--
+-- Name: ACTIVATION_ANSWER ACTIVATION_ANSWER_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ACTIVATION_ANSWER"
+    ADD CONSTRAINT "ACTIVATION_ANSWER_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: ACTIVATION_CALLBACK_EXCLUDE ACTIVATION_CALLBACK_EXCLUDE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ACTIVATION_CALLBACK_EXCLUDE"
+    ADD CONSTRAINT "ACTIVATION_CALLBACK_EXCLUDE_pkey" PRIMARY KEY ("ACTIVATION_CALLBACK_EXCLUDE_ID");
+
+
+--
+-- Name: ACTIVATION_CALLBACK_NOTICE ACTIVATION_CALLBACK_NOTICE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ACTIVATION_CALLBACK_NOTICE"
+    ADD CONSTRAINT "ACTIVATION_CALLBACK_NOTICE_pkey" PRIMARY KEY ("ACTIVATION_CALLBACK_NOTICE_ID");
+
+
+--
+-- Name: ACTIVATION_LOG ACTIVATION_LOG_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ACTIVATION_LOG"
+    ADD CONSTRAINT "ACTIVATION_LOG_pkey" PRIMARY KEY ("ACTIVATION_LOG_ID");
+
+
+--
+-- Name: ACTIVATION ACTIVATION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ACTIVATION"
+    ADD CONSTRAINT "ACTIVATION_pkey" PRIMARY KEY ("ACTIVATION_ID");
+
+
+--
+-- Name: AIR_ACTION AIR_ACTION_AVAILABLE_INSTANCE_RESOU_866d1432_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."AIR_ACTION"
+    ADD CONSTRAINT "AIR_ACTION_AVAILABLE_INSTANCE_RESOU_866d1432_uniq" UNIQUE ("AVAILABLE_INSTANCE_RESOURCE_ID", "ACTION_NAME");
+
+
+--
+-- Name: AIR_ACTION AIR_ACTION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."AIR_ACTION"
+    ADD CONSTRAINT "AIR_ACTION_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: ANSWER ANSWER_INSTANCE_ID_QUESTION_ID_CHAPTER_ID_ITEM_39fd7f62_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ANSWER"
+    ADD CONSTRAINT "ANSWER_INSTANCE_ID_QUESTION_ID_CHAPTER_ID_ITEM_39fd7f62_uniq" UNIQUE ("INSTANCE_ID", "QUESTION_ID", "CHAPTER_ID", "ITEM");
+
+
+--
+-- Name: ANSWER_LIST_T ANSWER_LIST_T_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ANSWER_LIST_T"
+    ADD CONSTRAINT "ANSWER_LIST_T_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: ANSWER_LIST ANSWER_LIST_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ANSWER_LIST"
+    ADD CONSTRAINT "ANSWER_LIST_pkey" PRIMARY KEY ("ANSWER_LIST_ID");
+
+
+--
+-- Name: ANSWER_LOG ANSWER_LOG_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ANSWER_LOG"
+    ADD CONSTRAINT "ANSWER_LOG_pkey" PRIMARY KEY ("ANSWER_LOG_ID");
+
+
+--
+-- Name: ANSWER_QUERY ANSWER_QUERY_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ANSWER_QUERY"
+    ADD CONSTRAINT "ANSWER_QUERY_pkey" PRIMARY KEY ("ANSWER_QUERY_ID");
+
+
+--
+-- Name: ANSWER ANSWER_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ANSWER"
+    ADD CONSTRAINT "ANSWER_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: APPLICANTS APPLICANTS_INSTANCE_ID_APPLICANT_USER_ID_c26aa209_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."APPLICANTS"
+    ADD CONSTRAINT "APPLICANTS_INSTANCE_ID_APPLICANT_USER_ID_c26aa209_uniq" UNIQUE ("INSTANCE_ID", "APPLICANT_USER_ID");
+
+
+--
+-- Name: APPLICANTS APPLICANTS_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."APPLICANTS"
+    ADD CONSTRAINT "APPLICANTS_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: ARCHIVE ARCHIVE_IDENTIFIER_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ARCHIVE"
+    ADD CONSTRAINT "ARCHIVE_IDENTIFIER_key" UNIQUE ("IDENTIFIER");
+
+
+--
+-- Name: ARCHIVE ARCHIVE_PATH_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ARCHIVE"
+    ADD CONSTRAINT "ARCHIVE_PATH_key" UNIQUE ("PATH");
+
+
+--
+-- Name: ARCHIVE ARCHIVE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ARCHIVE"
+    ADD CONSTRAINT "ARCHIVE_pkey" PRIMARY KEY ("ARCHIVE_ID");
+
+
+--
+-- Name: AR_ACTION AR_ACTION_AVAILABLE_RESOURCE_ID_ACTION_NAME_fcaf8d67_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."AR_ACTION"
+    ADD CONSTRAINT "AR_ACTION_AVAILABLE_RESOURCE_ID_ACTION_NAME_fcaf8d67_uniq" UNIQUE ("AVAILABLE_RESOURCE_ID", "ACTION_NAME");
+
+
+--
+-- Name: AR_ACTION AR_ACTION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."AR_ACTION"
+    ADD CONSTRAINT "AR_ACTION_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: ATTACHMENT_EXTENSION_ROLE ATTACHMENT_EXTENSION_ROLE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ATTACHMENT_EXTENSION_ROLE"
+    ADD CONSTRAINT "ATTACHMENT_EXTENSION_ROLE_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: ATTACHMENT_EXTENSION_ROLE ATTACHMENT_EXTENSION_ROL_ATTACHMENT_EXTENSION_ID__3fd191ab_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ATTACHMENT_EXTENSION_ROLE"
+    ADD CONSTRAINT "ATTACHMENT_EXTENSION_ROL_ATTACHMENT_EXTENSION_ID__3fd191ab_uniq" UNIQUE ("ATTACHMENT_EXTENSION_ID", "ROLE_ID");
+
+
+--
+-- Name: ATTACHMENT_EXTENSION_SERVICE ATTACHMENT_EXTENSION_SERVICE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ATTACHMENT_EXTENSION_SERVICE"
+    ADD CONSTRAINT "ATTACHMENT_EXTENSION_SERVICE_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: ATTACHMENT_EXTENSION_SERVICE ATTACHMENT_EXTENSION_SER_ATTACHMENT_EXTENSION_ID__57e5c2ed_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ATTACHMENT_EXTENSION_SERVICE"
+    ADD CONSTRAINT "ATTACHMENT_EXTENSION_SER_ATTACHMENT_EXTENSION_ID__57e5c2ed_uniq" UNIQUE ("ATTACHMENT_EXTENSION_ID", "SERVICE_ID");
+
+
+--
+-- Name: ATTACHMENT_EXTENSION ATTACHMENT_EXTENSION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ATTACHMENT_EXTENSION"
+    ADD CONSTRAINT "ATTACHMENT_EXTENSION_pkey" PRIMARY KEY ("ATTACHMENT_EXTENSION_ID");
+
+
+--
+-- Name: ATTACHMENT_SECTION_T ATTACHMENT_SECTION_T_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ATTACHMENT_SECTION_T"
+    ADD CONSTRAINT "ATTACHMENT_SECTION_T_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: ATTACHMENT_SECTION ATTACHMENT_SECTION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ATTACHMENT_SECTION"
+    ADD CONSTRAINT "ATTACHMENT_SECTION_pkey" PRIMARY KEY ("ATTACHMENT_SECTION_ID");
+
+
+--
+-- Name: ATTACHMENT_attachment_sections ATTACHMENT_attachment_se_attachment_id_attachment_426aa1a4_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ATTACHMENT_attachment_sections"
+    ADD CONSTRAINT "ATTACHMENT_attachment_se_attachment_id_attachment_426aa1a4_uniq" UNIQUE (attachment_id, attachmentsection_id);
+
+
+--
+-- Name: ATTACHMENT_attachment_sections ATTACHMENT_attachment_sections_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ATTACHMENT_attachment_sections"
+    ADD CONSTRAINT "ATTACHMENT_attachment_sections_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: ATTACHMENT ATTACHMENT_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ATTACHMENT"
+    ADD CONSTRAINT "ATTACHMENT_pkey" PRIMARY KEY ("ATTACHMENT_ID");
+
+
+--
+-- Name: ATTACHMENT ATTACHMENT_uuid_104e03d1_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ATTACHMENT"
+    ADD CONSTRAINT "ATTACHMENT_uuid_104e03d1_uniq" UNIQUE (uuid);
+
+
+--
+-- Name: AUDIT_LOG AUDIT_LOG_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."AUDIT_LOG"
+    ADD CONSTRAINT "AUDIT_LOG_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: AUTHORITY_AUTHORITY_TYPE AUTHORITY_AUTHORITY_TYPE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."AUTHORITY_AUTHORITY_TYPE"
+    ADD CONSTRAINT "AUTHORITY_AUTHORITY_TYPE_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: AUTHORITY_LOCATION AUTHORITY_LOCATION_AUTHORITY_ID_LOCATION_ID_b9d60562_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."AUTHORITY_LOCATION"
+    ADD CONSTRAINT "AUTHORITY_LOCATION_AUTHORITY_ID_LOCATION_ID_b9d60562_uniq" UNIQUE ("AUTHORITY_ID", "LOCATION_ID");
+
+
+--
+-- Name: AUTHORITY_LOCATION AUTHORITY_LOCATION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."AUTHORITY_LOCATION"
+    ADD CONSTRAINT "AUTHORITY_LOCATION_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: AUTHORITY_TYPE AUTHORITY_TYPE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."AUTHORITY_TYPE"
+    ADD CONSTRAINT "AUTHORITY_TYPE_pkey" PRIMARY KEY ("AUTHORITY_TYPE_ID");
+
+
+--
+-- Name: AUTHORITY AUTHORITY_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."AUTHORITY"
+    ADD CONSTRAINT "AUTHORITY_pkey" PRIMARY KEY ("AUTHORITY_ID");
+
+
+--
+-- Name: AVAILABLE_ACTION AVAILABLE_ACTION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."AVAILABLE_ACTION"
+    ADD CONSTRAINT "AVAILABLE_ACTION_pkey" PRIMARY KEY ("AVAILABLE_ACTION_ID");
+
+
+--
+-- Name: AVAILABLE_INSTANCE_RESOURCE AVAILABLE_INSTANCE_RESOURCE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."AVAILABLE_INSTANCE_RESOURCE"
+    ADD CONSTRAINT "AVAILABLE_INSTANCE_RESOURCE_pkey" PRIMARY KEY ("AVAILABLE_INSTANCE_RESOURCE_ID");
+
+
+--
+-- Name: AVAILABLE_RESOURCE AVAILABLE_RESOURCE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."AVAILABLE_RESOURCE"
+    ADD CONSTRAINT "AVAILABLE_RESOURCE_pkey" PRIMARY KEY ("AVAILABLE_RESOURCE_ID");
+
+
+--
+-- Name: A_CHECKQUERY A_CHECKQUERY_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_CHECKQUERY"
+    ADD CONSTRAINT "A_CHECKQUERY_pkey" PRIMARY KEY ("ACTION_ID");
+
+
+--
+-- Name: A_CIRCULATIONTRANSITION A_CIRCULATIONTRANSITION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_CIRCULATIONTRANSITION"
+    ADD CONSTRAINT "A_CIRCULATIONTRANSITION_pkey" PRIMARY KEY ("ACTION_ID");
+
+
+--
+-- Name: A_CIRCULATION_EMAIL_T A_CIRCULATION_EMAIL_T_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_CIRCULATION_EMAIL_T"
+    ADD CONSTRAINT "A_CIRCULATION_EMAIL_T_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: A_CIRCULATION_EMAIL A_CIRCULATION_EMAIL_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_CIRCULATION_EMAIL"
+    ADD CONSTRAINT "A_CIRCULATION_EMAIL_pkey" PRIMARY KEY ("ACTION_ID");
+
+
+--
+-- Name: A_COPYANSWER_MAPPING A_COPYANSWER_MAPPING_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_COPYANSWER_MAPPING"
+    ADD CONSTRAINT "A_COPYANSWER_MAPPING_pkey" PRIMARY KEY ("A_COPYANSWER_MAPPING_ID");
+
+
+--
+-- Name: A_COPYANSWER A_COPYANSWER_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_COPYANSWER"
+    ADD CONSTRAINT "A_COPYANSWER_pkey" PRIMARY KEY ("ACTION_ID");
+
+
+--
+-- Name: A_COPYDATA_MAPPING A_COPYDATA_MAPPING_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_COPYDATA_MAPPING"
+    ADD CONSTRAINT "A_COPYDATA_MAPPING_pkey" PRIMARY KEY ("A_COPYDATA_MAPPING_ID");
+
+
+--
+-- Name: A_COPYDATA A_COPYDATA_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_COPYDATA"
+    ADD CONSTRAINT "A_COPYDATA_pkey" PRIMARY KEY ("ACTION_ID");
+
+
+--
+-- Name: A_DELETE_CIRCULATION A_DELETE_CIRCULATION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_DELETE_CIRCULATION"
+    ADD CONSTRAINT "A_DELETE_CIRCULATION_pkey" PRIMARY KEY ("ACTION_ID");
+
+
+--
+-- Name: A_EMAIL_T A_EMAIL_T_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_EMAIL_T"
+    ADD CONSTRAINT "A_EMAIL_T_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: A_EMAIL A_EMAIL_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_EMAIL"
+    ADD CONSTRAINT "A_EMAIL_pkey" PRIMARY KEY ("ACTION_ID");
+
+
+--
+-- Name: A_FORMTRANSITION A_FORMTRANSITION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_FORMTRANSITION"
+    ADD CONSTRAINT "A_FORMTRANSITION_pkey" PRIMARY KEY ("ACTION_ID");
+
+
+--
+-- Name: A_LOCATION_QC A_LOCATION_QC_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_LOCATION_QC"
+    ADD CONSTRAINT "A_LOCATION_QC_pkey" PRIMARY KEY ("A_LOCATION_QC_ID");
+
+
+--
+-- Name: A_LOCATION A_LOCATION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_LOCATION"
+    ADD CONSTRAINT "A_LOCATION_pkey" PRIMARY KEY ("ACTION_ID");
+
+
+--
+-- Name: A_NOTICE A_NOTICE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_NOTICE"
+    ADD CONSTRAINT "A_NOTICE_pkey" PRIMARY KEY ("ACTION_ID");
+
+
+--
+-- Name: A_PAGEREDIRECT A_PAGEREDIRECT_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_PAGEREDIRECT"
+    ADD CONSTRAINT "A_PAGEREDIRECT_pkey" PRIMARY KEY ("ACTION_ID");
+
+
+--
+-- Name: A_PHP A_PHP_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_PHP"
+    ADD CONSTRAINT "A_PHP_pkey" PRIMARY KEY ("ACTION_ID");
+
+
+--
+-- Name: A_PROPOSAL_HOLIDAY A_PROPOSAL_HOLIDAY_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_PROPOSAL_HOLIDAY"
+    ADD CONSTRAINT "A_PROPOSAL_HOLIDAY_pkey" PRIMARY KEY ("A_PROPOSAL_HOLIDAY_ID");
+
+
+--
+-- Name: A_PROPOSAL_T A_PROPOSAL_T_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_PROPOSAL_T"
+    ADD CONSTRAINT "A_PROPOSAL_T_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: A_PROPOSAL A_PROPOSAL_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_PROPOSAL"
+    ADD CONSTRAINT "A_PROPOSAL_pkey" PRIMARY KEY ("ACTION_ID");
+
+
+--
+-- Name: A_SAVEPDF A_SAVEPDF_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_SAVEPDF"
+    ADD CONSTRAINT "A_SAVEPDF_pkey" PRIMARY KEY ("ACTION_ID");
+
+
+--
+-- Name: A_SETRESPONSIBLEGROUP A_SETRESPONSIBLEGROUP_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_SETRESPONSIBLEGROUP"
+    ADD CONSTRAINT "A_SETRESPONSIBLEGROUP_pkey" PRIMARY KEY ("ACTION_ID");
+
+
+--
+-- Name: A_VALIDATE A_VALIDATE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_VALIDATE"
+    ADD CONSTRAINT "A_VALIDATE_pkey" PRIMARY KEY ("ACTION_ID");
+
+
+--
+-- Name: BAB_USAGE BAB_USAGE_INSTANCE_ID_USAGE_TYPE_ad5e46a9_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BAB_USAGE"
+    ADD CONSTRAINT "BAB_USAGE_INSTANCE_ID_USAGE_TYPE_ad5e46a9_uniq" UNIQUE ("INSTANCE_ID", "USAGE_TYPE");
+
+
+--
+-- Name: BAB_USAGE BAB_USAGE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BAB_USAGE"
+    ADD CONSTRAINT "BAB_USAGE_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: BILLING_ACCOUNT_STATE BILLING_ACCOUNT_STATE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BILLING_ACCOUNT_STATE"
+    ADD CONSTRAINT "BILLING_ACCOUNT_STATE_pkey" PRIMARY KEY ("BILLING_ACCOUNT_STATE_ID");
+
+
+--
+-- Name: BILLING_ACCOUNT BILLING_ACCOUNT_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BILLING_ACCOUNT"
+    ADD CONSTRAINT "BILLING_ACCOUNT_pkey" PRIMARY KEY ("BILLING_ACCOUNT_ID");
+
+
+--
+-- Name: BILLING_CONFIG BILLING_CONFIG_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BILLING_CONFIG"
+    ADD CONSTRAINT "BILLING_CONFIG_pkey" PRIMARY KEY ("BILLING_CONFIG_ID");
+
+
+--
+-- Name: BILLING_ENTRY BILLING_ENTRY_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BILLING_ENTRY"
+    ADD CONSTRAINT "BILLING_ENTRY_pkey" PRIMARY KEY ("BILLING_ENTRY_ID");
+
+
+--
+-- Name: BILLING_INVOICE BILLING_INVOICE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BILLING_INVOICE"
+    ADD CONSTRAINT "BILLING_INVOICE_pkey" PRIMARY KEY ("BILLING_INVOICE_ID");
+
+
+--
+-- Name: billing_billingv2entry BILLING_V2_ENTRY_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.billing_billingv2entry
+    ADD CONSTRAINT "BILLING_V2_ENTRY_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: BUILDING_AUTHORITY_BUTTONSTATE BUILDING_AUTHORITY_BUTTONSTATE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BUILDING_AUTHORITY_BUTTONSTATE"
+    ADD CONSTRAINT "BUILDING_AUTHORITY_BUTTONSTATE_pkey" PRIMARY KEY ("BA_BUTTON_STATE_ID");
+
+
+--
+-- Name: BUILDING_AUTHORITY_BUTTON BUILDING_AUTHORITY_BUTTON_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BUILDING_AUTHORITY_BUTTON"
+    ADD CONSTRAINT "BUILDING_AUTHORITY_BUTTON_pkey" PRIMARY KEY ("BUILDING_AUTHORITY_BUTTON_ID");
+
+
+--
+-- Name: BUILDING_AUTHORITY_COMMENT BUILDING_AUTHORITY_COMMENT_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BUILDING_AUTHORITY_COMMENT"
+    ADD CONSTRAINT "BUILDING_AUTHORITY_COMMENT_pkey" PRIMARY KEY ("BUILDING_AUTHORITY_COMMENT_ID");
+
+
+--
+-- Name: BUILDING_AUTHORITY_COMMENT BUILDING_AUTHORITY_COMME_BUILDING_AUTHORITY_SECTI_417e8728_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BUILDING_AUTHORITY_COMMENT"
+    ADD CONSTRAINT "BUILDING_AUTHORITY_COMME_BUILDING_AUTHORITY_SECTI_417e8728_uniq" UNIQUE ("BUILDING_AUTHORITY_SECTION_ID", "GROUP", "INSTANCE_ID");
+
+
+--
+-- Name: BUILDING_AUTHORITY_DOC BUILDING_AUTHORITY_DOC_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BUILDING_AUTHORITY_DOC"
+    ADD CONSTRAINT "BUILDING_AUTHORITY_DOC_pkey" PRIMARY KEY ("BUILDING_AUTHORITY_DOC_ID");
+
+
+--
+-- Name: BUILDING_AUTHORITY_EMAIL BUILDING_AUTHORITY_EMAIL_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BUILDING_AUTHORITY_EMAIL"
+    ADD CONSTRAINT "BUILDING_AUTHORITY_EMAIL_pkey" PRIMARY KEY ("BUILDING_AUTHORITY_EMAIL_ID");
+
+
+--
+-- Name: BUILDING_AUTHORITY_ITEM_DIS BUILDING_AUTHORITY_ITEM_DIS_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BUILDING_AUTHORITY_ITEM_DIS"
+    ADD CONSTRAINT "BUILDING_AUTHORITY_ITEM_DIS_pkey" PRIMARY KEY ("BA_ITEM_DIS_ID");
+
+
+--
+-- Name: BUILDING_AUTHORITY_SECTION_DIS BUILDING_AUTHORITY_SECTION_DIS_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BUILDING_AUTHORITY_SECTION_DIS"
+    ADD CONSTRAINT "BUILDING_AUTHORITY_SECTION_DIS_pkey" PRIMARY KEY ("BA_SECTION_DIS_ID");
+
+
+--
+-- Name: BUILDING_AUTHORITY_SECTION BUILDING_AUTHORITY_SECTION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BUILDING_AUTHORITY_SECTION"
+    ADD CONSTRAINT "BUILDING_AUTHORITY_SECTION_pkey" PRIMARY KEY ("BUILDING_AUTHORITY_SECTION_ID");
+
+
+--
+-- Name: BUTTON_T BUTTON_T_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BUTTON_T"
+    ADD CONSTRAINT "BUTTON_T_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: BUTTON BUTTON_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BUTTON"
+    ADD CONSTRAINT "BUTTON_pkey" PRIMARY KEY ("BUTTON_ID");
+
+
+--
+-- Name: B_GROUP_ACL B_GROUP_ACL_BUTTON_ID_GROUP_ID_INSTANCE_STATE_ID_6eb68711_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."B_GROUP_ACL"
+    ADD CONSTRAINT "B_GROUP_ACL_BUTTON_ID_GROUP_ID_INSTANCE_STATE_ID_6eb68711_uniq" UNIQUE ("BUTTON_ID", "GROUP_ID", "INSTANCE_STATE_ID");
+
+
+--
+-- Name: B_GROUP_ACL B_GROUP_ACL_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."B_GROUP_ACL"
+    ADD CONSTRAINT "B_GROUP_ACL_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: B_ROLE_ACL B_ROLE_ACL_BUTTON_ID_ROLE_ID_INSTANCE_STATE_ID_08282079_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."B_ROLE_ACL"
+    ADD CONSTRAINT "B_ROLE_ACL_BUTTON_ID_ROLE_ID_INSTANCE_STATE_ID_08282079_uniq" UNIQUE ("BUTTON_ID", "ROLE_ID", "INSTANCE_STATE_ID");
+
+
+--
+-- Name: B_ROLE_ACL B_ROLE_ACL_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."B_ROLE_ACL"
+    ADD CONSTRAINT "B_ROLE_ACL_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: B_SERVICE_ACL B_SERVICE_ACL_BUTTON_ID_SERVICE_ID_INS_8a00d9c3_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."B_SERVICE_ACL"
+    ADD CONSTRAINT "B_SERVICE_ACL_BUTTON_ID_SERVICE_ID_INS_8a00d9c3_uniq" UNIQUE ("BUTTON_ID", "SERVICE_ID", "INSTANCE_STATE_ID");
+
+
+--
+-- Name: B_SERVICE_ACL B_SERVICE_ACL_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."B_SERVICE_ACL"
+    ADD CONSTRAINT "B_SERVICE_ACL_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: B_USER_ACL B_USER_ACL_BUTTON_ID_USER_ID_INSTANCE_STATE_ID_df438503_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."B_USER_ACL"
+    ADD CONSTRAINT "B_USER_ACL_BUTTON_ID_USER_ID_INSTANCE_STATE_ID_df438503_uniq" UNIQUE ("BUTTON_ID", "USER_ID", "INSTANCE_STATE_ID");
+
+
+--
+-- Name: B_USER_ACL B_USER_ACL_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."B_USER_ACL"
+    ADD CONSTRAINT "B_USER_ACL_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: CHAPTER_PAGE CHAPTER_PAGE_CHAPTER_ID_PAGE_ID_6d7980e8_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CHAPTER_PAGE"
+    ADD CONSTRAINT "CHAPTER_PAGE_CHAPTER_ID_PAGE_ID_6d7980e8_uniq" UNIQUE ("CHAPTER_ID", "PAGE_ID");
+
+
+--
+-- Name: CHAPTER_PAGE_GROUP_ACL CHAPTER_PAGE_GROUP_ACL_CHAPTER_ID_PAGE_ID_GROUP_7d2c130f_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CHAPTER_PAGE_GROUP_ACL"
+    ADD CONSTRAINT "CHAPTER_PAGE_GROUP_ACL_CHAPTER_ID_PAGE_ID_GROUP_7d2c130f_uniq" UNIQUE ("CHAPTER_ID", "PAGE_ID", "GROUP_ID", "INSTANCE_STATE_ID");
+
+
+--
+-- Name: CHAPTER_PAGE_GROUP_ACL CHAPTER_PAGE_GROUP_ACL_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CHAPTER_PAGE_GROUP_ACL"
+    ADD CONSTRAINT "CHAPTER_PAGE_GROUP_ACL_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: CHAPTER_PAGE_ROLE_ACL CHAPTER_PAGE_ROLE_ACL_CHAPTER_ID_PAGE_ID_ROLE__c898c4a3_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CHAPTER_PAGE_ROLE_ACL"
+    ADD CONSTRAINT "CHAPTER_PAGE_ROLE_ACL_CHAPTER_ID_PAGE_ID_ROLE__c898c4a3_uniq" UNIQUE ("CHAPTER_ID", "PAGE_ID", "ROLE_ID", "INSTANCE_STATE_ID");
+
+
+--
+-- Name: CHAPTER_PAGE_ROLE_ACL CHAPTER_PAGE_ROLE_ACL_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CHAPTER_PAGE_ROLE_ACL"
+    ADD CONSTRAINT "CHAPTER_PAGE_ROLE_ACL_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: CHAPTER_PAGE_SERVICE_ACL CHAPTER_PAGE_SERVICE_ACL_CHAPTER_ID_PAGE_ID_SERVI_3b018b3a_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CHAPTER_PAGE_SERVICE_ACL"
+    ADD CONSTRAINT "CHAPTER_PAGE_SERVICE_ACL_CHAPTER_ID_PAGE_ID_SERVI_3b018b3a_uniq" UNIQUE ("CHAPTER_ID", "PAGE_ID", "SERVICE_ID", "INSTANCE_STATE_ID");
+
+
+--
+-- Name: CHAPTER_PAGE_SERVICE_ACL CHAPTER_PAGE_SERVICE_ACL_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CHAPTER_PAGE_SERVICE_ACL"
+    ADD CONSTRAINT "CHAPTER_PAGE_SERVICE_ACL_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: CHAPTER_PAGE_USER_ACL CHAPTER_PAGE_USER_ACL_CHAPTER_ID_PAGE_ID_USER__e9b50100_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CHAPTER_PAGE_USER_ACL"
+    ADD CONSTRAINT "CHAPTER_PAGE_USER_ACL_CHAPTER_ID_PAGE_ID_USER__e9b50100_uniq" UNIQUE ("CHAPTER_ID", "PAGE_ID", "USER_ID", "INSTANCE_STATE_ID");
+
+
+--
+-- Name: CHAPTER_PAGE_USER_ACL CHAPTER_PAGE_USER_ACL_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CHAPTER_PAGE_USER_ACL"
+    ADD CONSTRAINT "CHAPTER_PAGE_USER_ACL_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: CHAPTER_PAGE CHAPTER_PAGE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CHAPTER_PAGE"
+    ADD CONSTRAINT "CHAPTER_PAGE_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: CHAPTER_T CHAPTER_T_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CHAPTER_T"
+    ADD CONSTRAINT "CHAPTER_T_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: CHAPTER CHAPTER_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CHAPTER"
+    ADD CONSTRAINT "CHAPTER_pkey" PRIMARY KEY ("CHAPTER_ID");
+
+
+--
+-- Name: CIRCULATION_ANSWER_TYPE_T CIRCULATION_ANSWER_TYPE_T_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CIRCULATION_ANSWER_TYPE_T"
+    ADD CONSTRAINT "CIRCULATION_ANSWER_TYPE_T_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: CIRCULATION_ANSWER_TYPE CIRCULATION_ANSWER_TYPE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CIRCULATION_ANSWER_TYPE"
+    ADD CONSTRAINT "CIRCULATION_ANSWER_TYPE_pkey" PRIMARY KEY ("CIRCULATION_ANSWER_TYPE_ID");
+
+
+--
+-- Name: CIRCULATION_ANSWER_T CIRCULATION_ANSWER_T_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CIRCULATION_ANSWER_T"
+    ADD CONSTRAINT "CIRCULATION_ANSWER_T_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: CIRCULATION_ANSWER CIRCULATION_ANSWER_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CIRCULATION_ANSWER"
+    ADD CONSTRAINT "CIRCULATION_ANSWER_pkey" PRIMARY KEY ("CIRCULATION_ANSWER_ID");
+
+
+--
+-- Name: CIRCULATION_LOG CIRCULATION_LOG_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CIRCULATION_LOG"
+    ADD CONSTRAINT "CIRCULATION_LOG_pkey" PRIMARY KEY ("CIRCULATION_LOG_ID");
+
+
+--
+-- Name: CIRCULATION_REASON_T CIRCULATION_REASON_T_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CIRCULATION_REASON_T"
+    ADD CONSTRAINT "CIRCULATION_REASON_T_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: CIRCULATION_REASON CIRCULATION_REASON_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CIRCULATION_REASON"
+    ADD CONSTRAINT "CIRCULATION_REASON_pkey" PRIMARY KEY ("CIRCULATION_REASON_ID");
+
+
+--
+-- Name: CIRCULATION_STATE_T CIRCULATION_STATE_T_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CIRCULATION_STATE_T"
+    ADD CONSTRAINT "CIRCULATION_STATE_T_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: CIRCULATION_STATE CIRCULATION_STATE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CIRCULATION_STATE"
+    ADD CONSTRAINT "CIRCULATION_STATE_pkey" PRIMARY KEY ("CIRCULATION_STATE_ID");
+
+
+--
+-- Name: CIRCULATION_TYPE_T CIRCULATION_TYPE_T_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CIRCULATION_TYPE_T"
+    ADD CONSTRAINT "CIRCULATION_TYPE_T_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: CIRCULATION_TYPE CIRCULATION_TYPE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CIRCULATION_TYPE"
+    ADD CONSTRAINT "CIRCULATION_TYPE_pkey" PRIMARY KEY ("CIRCULATION_TYPE_ID");
+
+
+--
+-- Name: CIRCULATION CIRCULATION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CIRCULATION"
+    ADD CONSTRAINT "CIRCULATION_pkey" PRIMARY KEY ("CIRCULATION_ID");
+
+
+--
+-- Name: COMMISSION_ASSIGNMENT COMMISSION_ASSIGNMENT_GROUP_ID_INSTANCE_ID_d1760f71_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."COMMISSION_ASSIGNMENT"
+    ADD CONSTRAINT "COMMISSION_ASSIGNMENT_GROUP_ID_INSTANCE_ID_d1760f71_uniq" UNIQUE ("GROUP_ID", "INSTANCE_ID");
+
+
+--
+-- Name: COMMISSION_ASSIGNMENT COMMISSION_ASSIGNMENT_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."COMMISSION_ASSIGNMENT"
+    ADD CONSTRAINT "COMMISSION_ASSIGNMENT_pkey" PRIMARY KEY ("COMMISSION_ASSIGNMENT_ID");
+
+
+--
+-- Name: DOCGEN_ACTIVATIONACTION_ACTION DOCGEN_ACTIVATIONACTION_ACTION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."DOCGEN_ACTIVATIONACTION_ACTION"
+    ADD CONSTRAINT "DOCGEN_ACTIVATIONACTION_ACTION_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: DOCGEN_ACTIVATIONACTION_ACTION DOCGEN_ACTIVATIONACTION__DOCGEN_ACTIVATION_ACTION_a66955a8_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."DOCGEN_ACTIVATIONACTION_ACTION"
+    ADD CONSTRAINT "DOCGEN_ACTIVATIONACTION__DOCGEN_ACTIVATION_ACTION_a66955a8_uniq" UNIQUE ("DOCGEN_ACTIVATION_ACTION_ID", "ACTION_ID");
+
+
+--
+-- Name: DOCGEN_ACTIVATION_ACTION DOCGEN_ACTIVATION_ACTION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."DOCGEN_ACTIVATION_ACTION"
+    ADD CONSTRAINT "DOCGEN_ACTIVATION_ACTION_pkey" PRIMARY KEY ("DOCGEN_ACTIVATION_ACTION_ID");
+
+
+--
+-- Name: DOCGEN_ACTIVATION_DOCKET DOCGEN_ACTIVATION_DOCKET_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."DOCGEN_ACTIVATION_DOCKET"
+    ADD CONSTRAINT "DOCGEN_ACTIVATION_DOCKET_pkey" PRIMARY KEY ("DOCGEN_ACTIVATION_DOCKET_ID");
+
+
+--
+-- Name: DOCGEN_DOCX_ACTION DOCGEN_DOCX_ACTION_DOCGEN_TEMPLATE_ID_DOCGE_71fee983_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."DOCGEN_DOCX_ACTION"
+    ADD CONSTRAINT "DOCGEN_DOCX_ACTION_DOCGEN_TEMPLATE_ID_DOCGE_71fee983_uniq" UNIQUE ("DOCGEN_TEMPLATE_ID", "DOCGEN_TEMPLATE_CLASS_ID", "ACTION_ID");
+
+
+--
+-- Name: DOCGEN_DOCX_ACTION DOCGEN_DOCX_ACTION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."DOCGEN_DOCX_ACTION"
+    ADD CONSTRAINT "DOCGEN_DOCX_ACTION_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: DOCGEN_PDF_ACTION DOCGEN_PDF_ACTION_DOCGEN_TEMPLATE_ID_DOCGE_eb991e02_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."DOCGEN_PDF_ACTION"
+    ADD CONSTRAINT "DOCGEN_PDF_ACTION_DOCGEN_TEMPLATE_ID_DOCGE_eb991e02_uniq" UNIQUE ("DOCGEN_TEMPLATE_ID", "DOCGEN_TEMPLATE_CLASS_ID", "ACTION_ID");
+
+
+--
+-- Name: DOCGEN_PDF_ACTION DOCGEN_PDF_ACTION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."DOCGEN_PDF_ACTION"
+    ADD CONSTRAINT "DOCGEN_PDF_ACTION_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: DOCGEN_TEMPLATE_CLASS DOCGEN_TEMPLATE_CLASS_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."DOCGEN_TEMPLATE_CLASS"
+    ADD CONSTRAINT "DOCGEN_TEMPLATE_CLASS_pkey" PRIMARY KEY ("DOCGEN_TEMPLATE_CLASS_ID");
+
+
+--
+-- Name: DOCGEN_TEMPLATE DOCGEN_TEMPLATE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."DOCGEN_TEMPLATE"
+    ADD CONSTRAINT "DOCGEN_TEMPLATE_pkey" PRIMARY KEY ("DOCGEN_TEMPLATE_ID");
+
+
+--
+-- Name: DOCX_DECISION DOCX_DECISION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."DOCX_DECISION"
+    ADD CONSTRAINT "DOCX_DECISION_pkey" PRIMARY KEY ("INSTANCE_ID");
+
+
+--
+-- Name: FORM_GROUP_FORM FORM_GROUP_FORM_FORM_GROUP_ID_FORM_ID_e99dac18_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."FORM_GROUP_FORM"
+    ADD CONSTRAINT "FORM_GROUP_FORM_FORM_GROUP_ID_FORM_ID_e99dac18_uniq" UNIQUE ("FORM_GROUP_ID", "FORM_ID");
+
+
+--
+-- Name: FORM_GROUP_FORM FORM_GROUP_FORM_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."FORM_GROUP_FORM"
+    ADD CONSTRAINT "FORM_GROUP_FORM_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: FORM_GROUP_T FORM_GROUP_T_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."FORM_GROUP_T"
+    ADD CONSTRAINT "FORM_GROUP_T_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: FORM_GROUP FORM_GROUP_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."FORM_GROUP"
+    ADD CONSTRAINT "FORM_GROUP_pkey" PRIMARY KEY ("FORM_GROUP_ID");
+
+
+--
+-- Name: FORM_STATE FORM_STATE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."FORM_STATE"
+    ADD CONSTRAINT "FORM_STATE_pkey" PRIMARY KEY ("FORM_STATE_ID");
+
+
+--
+-- Name: FORM_T FORM_T_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."FORM_T"
+    ADD CONSTRAINT "FORM_T_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: FORM FORM_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."FORM"
+    ADD CONSTRAINT "FORM_pkey" PRIMARY KEY ("FORM_ID");
+
+
+--
+-- Name: GROUP_LOCATION GROUP_LOCATION_GROUP_ID_LOCATION_ID_407a48c1_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."GROUP_LOCATION"
+    ADD CONSTRAINT "GROUP_LOCATION_GROUP_ID_LOCATION_ID_407a48c1_uniq" UNIQUE ("GROUP_ID", "LOCATION_ID");
+
+
+--
+-- Name: GROUP_LOCATION GROUP_LOCATION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."GROUP_LOCATION"
+    ADD CONSTRAINT "GROUP_LOCATION_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: GROUP_PERMISSION GROUP_PERMISSION_GROUP_ID_PERMISSION_ID_526c3229_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."GROUP_PERMISSION"
+    ADD CONSTRAINT "GROUP_PERMISSION_GROUP_ID_PERMISSION_ID_526c3229_uniq" UNIQUE ("GROUP_ID", "PERMISSION_ID");
+
+
+--
+-- Name: GROUP_PERMISSION GROUP_PERMISSION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."GROUP_PERMISSION"
+    ADD CONSTRAINT "GROUP_PERMISSION_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: GROUP_T GROUP_T_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."GROUP_T"
+    ADD CONSTRAINT "GROUP_T_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: GROUP GROUP_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."GROUP"
+    ADD CONSTRAINT "GROUP_pkey" PRIMARY KEY ("GROUP_ID");
+
+
+--
+-- Name: HISTORY_ACTION_CONFIG_T HISTORY_ACTION_CONFIG_T_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."HISTORY_ACTION_CONFIG_T"
+    ADD CONSTRAINT "HISTORY_ACTION_CONFIG_T_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: HISTORY_ACTION_CONFIG HISTORY_ACTION_CONFIG_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."HISTORY_ACTION_CONFIG"
+    ADD CONSTRAINT "HISTORY_ACTION_CONFIG_pkey" PRIMARY KEY ("ACTION_ID");
+
+
+--
+-- Name: INSTANCE_DEMO_LOG INSTANCE_DEMO_LOG_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_DEMO_LOG"
+    ADD CONSTRAINT "INSTANCE_DEMO_LOG_pkey" PRIMARY KEY ("INSTANCE_DEMO_LOG_ID");
+
+
+--
+-- Name: INSTANCE_DEMO INSTANCE_DEMO_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_DEMO"
+    ADD CONSTRAINT "INSTANCE_DEMO_pkey" PRIMARY KEY ("INSTANCE_DEMO_ID");
+
+
+--
+-- Name: INSTANCE_FORMWIZARD_LOG INSTANCE_FORMWIZARD_LOG_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_FORMWIZARD_LOG"
+    ADD CONSTRAINT "INSTANCE_FORMWIZARD_LOG_pkey" PRIMARY KEY ("INSTANCE_FORMWIZARD_LOG_ID");
+
+
+--
+-- Name: INSTANCE_FORMWIZARD INSTANCE_FORMWIZARD_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_FORMWIZARD"
+    ADD CONSTRAINT "INSTANCE_FORMWIZARD_pkey" PRIMARY KEY ("INSTANCE_ID");
+
+
+--
+-- Name: INSTANCE_FORM_PDF INSTANCE_FORM_PDF_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_FORM_PDF"
+    ADD CONSTRAINT "INSTANCE_FORM_PDF_pkey" PRIMARY KEY ("INSTANCE_FORM_PDF_ID");
+
+
+--
+-- Name: INSTANCE_GUEST INSTANCE_GUEST_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_GUEST"
+    ADD CONSTRAINT "INSTANCE_GUEST_pkey" PRIMARY KEY ("INSTANCE_ID");
+
+
+--
+-- Name: INSTANCE_LOCATION INSTANCE_LOCATION_LOCATION_ID_INSTANCE_ID_1ef23714_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_LOCATION"
+    ADD CONSTRAINT "INSTANCE_LOCATION_LOCATION_ID_INSTANCE_ID_1ef23714_uniq" UNIQUE ("LOCATION_ID", "INSTANCE_ID");
+
+
+--
+-- Name: INSTANCE_LOCATION_LOG INSTANCE_LOCATION_LOG_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_LOCATION_LOG"
+    ADD CONSTRAINT "INSTANCE_LOCATION_LOG_pkey" PRIMARY KEY ("INSTANCE_LOCATION_LOG_ID");
+
+
+--
+-- Name: INSTANCE_LOCATION INSTANCE_LOCATION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_LOCATION"
+    ADD CONSTRAINT "INSTANCE_LOCATION_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: INSTANCE_LOG INSTANCE_LOG_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_LOG"
+    ADD CONSTRAINT "INSTANCE_LOG_pkey" PRIMARY KEY ("INSTANCE_LOG_ID");
+
+
+--
+-- Name: INSTANCE_PARENT INSTANCE_PARENT_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_PARENT"
+    ADD CONSTRAINT "INSTANCE_PARENT_pkey" PRIMARY KEY ("INSTANCE_ID");
+
+
+--
+-- Name: INSTANCE_PORTAL INSTANCE_PORTAL_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_PORTAL"
+    ADD CONSTRAINT "INSTANCE_PORTAL_pkey" PRIMARY KEY ("INSTANCE_ID");
+
+
+--
+-- Name: INSTANCE_RESOURCE_ACTION INSTANCE_RESOURCE_ACTION_AVAILABLE_INSTANCE_RESOU_582e7a18_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_RESOURCE_ACTION"
+    ADD CONSTRAINT "INSTANCE_RESOURCE_ACTION_AVAILABLE_INSTANCE_RESOU_582e7a18_uniq" UNIQUE ("AVAILABLE_INSTANCE_RESOURCE_ID", "AVAILABLE_ACTION_ID");
+
+
+--
+-- Name: INSTANCE_RESOURCE_ACTION INSTANCE_RESOURCE_ACTION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_RESOURCE_ACTION"
+    ADD CONSTRAINT "INSTANCE_RESOURCE_ACTION_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: INSTANCE_RESOURCE_T INSTANCE_RESOURCE_T_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_RESOURCE_T"
+    ADD CONSTRAINT "INSTANCE_RESOURCE_T_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: INSTANCE_RESOURCE INSTANCE_RESOURCE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_RESOURCE"
+    ADD CONSTRAINT "INSTANCE_RESOURCE_pkey" PRIMARY KEY ("INSTANCE_RESOURCE_ID");
+
+
+--
+-- Name: INSTANCE_SERVICE INSTANCE_SERVICE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_SERVICE"
+    ADD CONSTRAINT "INSTANCE_SERVICE_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: INSTANCE_STATE_DESCRIPTION INSTANCE_STATE_DESCRIPTION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_STATE_DESCRIPTION"
+    ADD CONSTRAINT "INSTANCE_STATE_DESCRIPTION_pkey" PRIMARY KEY ("INSTANCE_STATE_ID");
+
+
+--
+-- Name: INSTANCE_STATE_T INSTANCE_STATE_T_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_STATE_T"
+    ADD CONSTRAINT "INSTANCE_STATE_T_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: INSTANCE_STATE INSTANCE_STATE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_STATE"
+    ADD CONSTRAINT "INSTANCE_STATE_pkey" PRIMARY KEY ("INSTANCE_STATE_ID");
+
+
+--
+-- Name: INSTANCE INSTANCE_case_id_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE"
+    ADD CONSTRAINT "INSTANCE_case_id_key" UNIQUE (case_id);
+
+
+--
+-- Name: INSTANCE INSTANCE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE"
+    ADD CONSTRAINT "INSTANCE_pkey" PRIMARY KEY ("INSTANCE_ID");
+
+
+--
+-- Name: IR_ALLFORMPAGES IR_ALLFORMPAGES_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_ALLFORMPAGES"
+    ADD CONSTRAINT "IR_ALLFORMPAGES_pkey" PRIMARY KEY ("INSTANCE_RESOURCE_ID");
+
+
+--
+-- Name: IR_CIRCULATION IR_CIRCULATION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_CIRCULATION"
+    ADD CONSTRAINT "IR_CIRCULATION_pkey" PRIMARY KEY ("INSTANCE_RESOURCE_ID");
+
+
+--
+-- Name: IR_EDITCIRCULATION_SG IR_EDITCIRCULATION_SG_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_EDITCIRCULATION_SG"
+    ADD CONSTRAINT "IR_EDITCIRCULATION_SG_pkey" PRIMARY KEY ("IR_EDITCIRCULATION_SG_ID");
+
+
+--
+-- Name: IR_EDITCIRCULATION_T IR_EDITCIRCULATION_T_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_EDITCIRCULATION_T"
+    ADD CONSTRAINT "IR_EDITCIRCULATION_T_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: IR_EDITCIRCULATION IR_EDITCIRCULATION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_EDITCIRCULATION"
+    ADD CONSTRAINT "IR_EDITCIRCULATION_pkey" PRIMARY KEY ("INSTANCE_RESOURCE_ID");
+
+
+--
+-- Name: IR_EDITFORMPAGES IR_EDITFORMPAGES_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_EDITFORMPAGES"
+    ADD CONSTRAINT "IR_EDITFORMPAGES_pkey" PRIMARY KEY ("INSTANCE_RESOURCE_ID");
+
+
+--
+-- Name: IR_EDITFORMPAGE IR_EDITFORMPAGE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_EDITFORMPAGE"
+    ADD CONSTRAINT "IR_EDITFORMPAGE_pkey" PRIMARY KEY ("INSTANCE_RESOURCE_ID");
+
+
+--
+-- Name: IR_EDITLETTER_ANSWER_T IR_EDITLETTER_ANSWER_T_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_EDITLETTER_ANSWER_T"
+    ADD CONSTRAINT "IR_EDITLETTER_ANSWER_T_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: IR_EDITLETTER_ANSWER IR_EDITLETTER_ANSWER_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_EDITLETTER_ANSWER"
+    ADD CONSTRAINT "IR_EDITLETTER_ANSWER_pkey" PRIMARY KEY ("IR_EDITLETTER_ANSWER_ID");
+
+
+--
+-- Name: IR_EDITLETTER IR_EDITLETTER_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_EDITLETTER"
+    ADD CONSTRAINT "IR_EDITLETTER_pkey" PRIMARY KEY ("INSTANCE_RESOURCE_ID");
+
+
+--
+-- Name: IR_EDITNOTICE IR_EDITNOTICE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_EDITNOTICE"
+    ADD CONSTRAINT "IR_EDITNOTICE_pkey" PRIMARY KEY ("INSTANCE_RESOURCE_ID");
+
+
+--
+-- Name: IR_EDITRESPONSIBLEGROUP IR_EDITRESPONSIBLEGROUP_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_EDITRESPONSIBLEGROUP"
+    ADD CONSTRAINT "IR_EDITRESPONSIBLEGROUP_pkey" PRIMARY KEY ("INSTANCE_RESOURCE_ID");
+
+
+--
+-- Name: IR_EDITRESPONSIBLEUSER IR_EDITRESPONSIBLEUSER_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_EDITRESPONSIBLEUSER"
+    ADD CONSTRAINT "IR_EDITRESPONSIBLEUSER_pkey" PRIMARY KEY ("INSTANCE_RESOURCE_ID");
+
+
+--
+-- Name: IR_FORMERROR IR_FORMERROR_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_FORMERROR"
+    ADD CONSTRAINT "IR_FORMERROR_pkey" PRIMARY KEY ("INSTANCE_RESOURCE_ID");
+
+
+--
+-- Name: IR_FORMPAGES IR_FORMPAGES_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_FORMPAGES"
+    ADD CONSTRAINT "IR_FORMPAGES_pkey" PRIMARY KEY ("INSTANCE_RESOURCE_ID");
+
+
+--
+-- Name: IR_FORMPAGE IR_FORMPAGE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_FORMPAGE"
+    ADD CONSTRAINT "IR_FORMPAGE_pkey" PRIMARY KEY ("INSTANCE_RESOURCE_ID");
+
+
+--
+-- Name: IR_FORMWIZARD_T IR_FORMWIZARD_T_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_FORMWIZARD_T"
+    ADD CONSTRAINT "IR_FORMWIZARD_T_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: IR_FORMWIZARD IR_FORMWIZARD_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_FORMWIZARD"
+    ADD CONSTRAINT "IR_FORMWIZARD_pkey" PRIMARY KEY ("INSTANCE_RESOURCE_ID");
+
+
+--
+-- Name: IR_GROUP_ACL IR_GROUP_ACL_INSTANCE_RESOURCE_ID_GRO_1c43586b_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_GROUP_ACL"
+    ADD CONSTRAINT "IR_GROUP_ACL_INSTANCE_RESOURCE_ID_GRO_1c43586b_uniq" UNIQUE ("INSTANCE_RESOURCE_ID", "GROUP_ID", "INSTANCE_STATE_ID");
+
+
+--
+-- Name: IR_GROUP_ACL IR_GROUP_ACL_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_GROUP_ACL"
+    ADD CONSTRAINT "IR_GROUP_ACL_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: IR_LETTER IR_LETTER_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_LETTER"
+    ADD CONSTRAINT "IR_LETTER_pkey" PRIMARY KEY ("INSTANCE_RESOURCE_ID");
+
+
+--
+-- Name: IR_NEWFORM IR_NEWFORM_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_NEWFORM"
+    ADD CONSTRAINT "IR_NEWFORM_pkey" PRIMARY KEY ("INSTANCE_RESOURCE_ID");
+
+
+--
+-- Name: IR_PAGE IR_PAGE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_PAGE"
+    ADD CONSTRAINT "IR_PAGE_pkey" PRIMARY KEY ("INSTANCE_RESOURCE_ID");
+
+
+--
+-- Name: IR_ROLE_ACL IR_ROLE_ACL_INSTANCE_RESOURCE_ID_ROL_233a62ca_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_ROLE_ACL"
+    ADD CONSTRAINT "IR_ROLE_ACL_INSTANCE_RESOURCE_ID_ROL_233a62ca_uniq" UNIQUE ("INSTANCE_RESOURCE_ID", "ROLE_ID", "INSTANCE_STATE_ID");
+
+
+--
+-- Name: IR_ROLE_ACL IR_ROLE_ACL_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_ROLE_ACL"
+    ADD CONSTRAINT "IR_ROLE_ACL_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: IR_SERVICE_ACL IR_SERVICE_ACL_INSTANCE_RESOURCE_ID_SER_d9a609fb_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_SERVICE_ACL"
+    ADD CONSTRAINT "IR_SERVICE_ACL_INSTANCE_RESOURCE_ID_SER_d9a609fb_uniq" UNIQUE ("INSTANCE_RESOURCE_ID", "SERVICE_ID", "INSTANCE_STATE_ID");
+
+
+--
+-- Name: IR_SERVICE_ACL IR_SERVICE_ACL_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_SERVICE_ACL"
+    ADD CONSTRAINT "IR_SERVICE_ACL_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: IR_TASKFORM IR_TASKFORM_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_TASKFORM"
+    ADD CONSTRAINT "IR_TASKFORM_pkey" PRIMARY KEY ("INSTANCE_RESOURCE_ID");
+
+
+--
+-- Name: IR_USER_ACL IR_USER_ACL_INSTANCE_RESOURCE_ID_USE_d15384d8_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_USER_ACL"
+    ADD CONSTRAINT "IR_USER_ACL_INSTANCE_RESOURCE_ID_USE_d15384d8_uniq" UNIQUE ("INSTANCE_RESOURCE_ID", "USER_ID", "INSTANCE_STATE_ID");
+
+
+--
+-- Name: IR_USER_ACL IR_USER_ACL_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_USER_ACL"
+    ADD CONSTRAINT "IR_USER_ACL_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: LETTER_IMAGE LETTER_IMAGE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."LETTER_IMAGE"
+    ADD CONSTRAINT "LETTER_IMAGE_pkey" PRIMARY KEY ("LETTER_IMAGE_ID");
+
+
+--
+-- Name: LETTER LETTER_INSTANCE_ID_INSTANCE_RESOURCE_ID_c9b4963f_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."LETTER"
+    ADD CONSTRAINT "LETTER_INSTANCE_ID_INSTANCE_RESOURCE_ID_c9b4963f_uniq" UNIQUE ("INSTANCE_ID", "INSTANCE_RESOURCE_ID");
+
+
+--
+-- Name: LETTER LETTER_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."LETTER"
+    ADD CONSTRAINT "LETTER_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: LOCATION_T LOCATION_T_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."LOCATION_T"
+    ADD CONSTRAINT "LOCATION_T_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: LOCATION LOCATION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."LOCATION"
+    ADD CONSTRAINT "LOCATION_pkey" PRIMARY KEY ("LOCATION_ID");
+
+
+--
+-- Name: LOGIN_ATTEMPT LOGIN_ATTEMPT_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."LOGIN_ATTEMPT"
+    ADD CONSTRAINT "LOGIN_ATTEMPT_pkey" PRIMARY KEY ("LOGIN_ATTEMPT_ID");
+
+
+--
+-- Name: MAPPING MAPPING_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."MAPPING"
+    ADD CONSTRAINT "MAPPING_pkey" PRIMARY KEY ("MAPPING_ID");
+
+
+--
+-- Name: MUNICIPALITY MUNICIPALITY_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."MUNICIPALITY"
+    ADD CONSTRAINT "MUNICIPALITY_pkey" PRIMARY KEY ("BFS_NR");
+
+
+--
+-- Name: NOTICE_IMAGE NOTICE_IMAGE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."NOTICE_IMAGE"
+    ADD CONSTRAINT "NOTICE_IMAGE_pkey" PRIMARY KEY ("NOTICE_IMAGE_ID");
+
+
+--
+-- Name: NOTICE_LOG NOTICE_LOG_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."NOTICE_LOG"
+    ADD CONSTRAINT "NOTICE_LOG_pkey" PRIMARY KEY ("NOTICE_LOG_ID");
+
+
+--
+-- Name: NOTICE NOTICE_NOTICE_TYPE_ID_ACTIVATION_ID_20ac8d7e_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."NOTICE"
+    ADD CONSTRAINT "NOTICE_NOTICE_TYPE_ID_ACTIVATION_ID_20ac8d7e_uniq" UNIQUE ("NOTICE_TYPE_ID", "ACTIVATION_ID");
+
+
+--
+-- Name: NOTICE_TYPE_T NOTICE_TYPE_T_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."NOTICE_TYPE_T"
+    ADD CONSTRAINT "NOTICE_TYPE_T_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: NOTICE_TYPE NOTICE_TYPE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."NOTICE_TYPE"
+    ADD CONSTRAINT "NOTICE_TYPE_pkey" PRIMARY KEY ("NOTICE_TYPE_ID");
+
+
+--
+-- Name: NOTICE NOTICE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."NOTICE"
+    ADD CONSTRAINT "NOTICE_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: NOTIFICATION_TEMPLATE_T NOTIFICATION_TEMPLATE_T_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."NOTIFICATION_TEMPLATE_T"
+    ADD CONSTRAINT "NOTIFICATION_TEMPLATE_T_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: NOTIFICATION_TEMPLATE NOTIFICATION_TEMPLATE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."NOTIFICATION_TEMPLATE"
+    ADD CONSTRAINT "NOTIFICATION_TEMPLATE_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: NOTIFICATION_TEMPLATE NOTIFICATION_TEMPLATE_slug_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."NOTIFICATION_TEMPLATE"
+    ADD CONSTRAINT "NOTIFICATION_TEMPLATE_slug_key" UNIQUE (slug);
+
+
+--
+-- Name: PAGE_ANSWER_ACTIVATION PAGE_ANSWER_ACTIVATION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_ANSWER_ACTIVATION"
+    ADD CONSTRAINT "PAGE_ANSWER_ACTIVATION_pkey" PRIMARY KEY ("PAGE_ANSWER_ACTIVATION_ID");
+
+
+--
+-- Name: PAGE_FORM_GROUP_ACL PAGE_FORM_GROUP_ACL_PAGE_ID_FORM_ID_GROUP_ID_97f6fb64_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_FORM_GROUP_ACL"
+    ADD CONSTRAINT "PAGE_FORM_GROUP_ACL_PAGE_ID_FORM_ID_GROUP_ID_97f6fb64_uniq" UNIQUE ("PAGE_ID", "FORM_ID", "GROUP_ID", "INSTANCE_STATE_ID");
+
+
+--
+-- Name: PAGE_FORM_GROUP_ACL PAGE_FORM_GROUP_ACL_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_FORM_GROUP_ACL"
+    ADD CONSTRAINT "PAGE_FORM_GROUP_ACL_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: PAGE_FORM_GROUP_T PAGE_FORM_GROUP_T_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_FORM_GROUP_T"
+    ADD CONSTRAINT "PAGE_FORM_GROUP_T_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: PAGE_FORM_GROUP PAGE_FORM_GROUP_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_FORM_GROUP"
+    ADD CONSTRAINT "PAGE_FORM_GROUP_pkey" PRIMARY KEY ("PAGE_FORM_GROUP_ID");
+
+
+--
+-- Name: PAGE_FORM_MODE PAGE_FORM_MODE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_FORM_MODE"
+    ADD CONSTRAINT "PAGE_FORM_MODE_pkey" PRIMARY KEY ("PAGE_FORM_MODE_ID");
+
+
+--
+-- Name: PAGE_FORM PAGE_FORM_PAGE_ID_FORM_ID_dc849919_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_FORM"
+    ADD CONSTRAINT "PAGE_FORM_PAGE_ID_FORM_ID_dc849919_uniq" UNIQUE ("PAGE_ID", "FORM_ID");
+
+
+--
+-- Name: PAGE_FORM_ROLE_ACL PAGE_FORM_ROLE_ACL_PAGE_ID_FORM_ID_ROLE_ID__e1fde05d_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_FORM_ROLE_ACL"
+    ADD CONSTRAINT "PAGE_FORM_ROLE_ACL_PAGE_ID_FORM_ID_ROLE_ID__e1fde05d_uniq" UNIQUE ("PAGE_ID", "FORM_ID", "ROLE_ID", "INSTANCE_STATE_ID");
+
+
+--
+-- Name: PAGE_FORM_ROLE_ACL PAGE_FORM_ROLE_ACL_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_FORM_ROLE_ACL"
+    ADD CONSTRAINT "PAGE_FORM_ROLE_ACL_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: PAGE_FORM_SERVICE_ACL PAGE_FORM_SERVICE_ACL_PAGE_ID_FORM_ID_SERVICE__8de26a28_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_FORM_SERVICE_ACL"
+    ADD CONSTRAINT "PAGE_FORM_SERVICE_ACL_PAGE_ID_FORM_ID_SERVICE__8de26a28_uniq" UNIQUE ("PAGE_ID", "FORM_ID", "SERVICE_ID", "INSTANCE_STATE_ID");
+
+
+--
+-- Name: PAGE_FORM_SERVICE_ACL PAGE_FORM_SERVICE_ACL_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_FORM_SERVICE_ACL"
+    ADD CONSTRAINT "PAGE_FORM_SERVICE_ACL_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: PAGE_FORM_USER_ACL PAGE_FORM_USER_ACL_PAGE_ID_FORM_ID_USER_ID__69254aee_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_FORM_USER_ACL"
+    ADD CONSTRAINT "PAGE_FORM_USER_ACL_PAGE_ID_FORM_ID_USER_ID__69254aee_uniq" UNIQUE ("PAGE_ID", "FORM_ID", "USER_ID", "INSTANCE_STATE_ID");
+
+
+--
+-- Name: PAGE_FORM_USER_ACL PAGE_FORM_USER_ACL_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_FORM_USER_ACL"
+    ADD CONSTRAINT "PAGE_FORM_USER_ACL_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: PAGE_FORM PAGE_FORM_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_FORM"
+    ADD CONSTRAINT "PAGE_FORM_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: PAGE_T PAGE_T_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_T"
+    ADD CONSTRAINT "PAGE_T_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: PAGE PAGE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE"
+    ADD CONSTRAINT "PAGE_pkey" PRIMARY KEY ("PAGE_ID");
+
+
+--
+-- Name: PORTAL_SESSION PORTAL_SESSION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PORTAL_SESSION"
+    ADD CONSTRAINT "PORTAL_SESSION_pkey" PRIMARY KEY ("PORTAL_SESSION_ID");
+
+
+--
+-- Name: PROPOSAL_ACTIVATION PROPOSAL_ACTIVATION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PROPOSAL_ACTIVATION"
+    ADD CONSTRAINT "PROPOSAL_ACTIVATION_pkey" PRIMARY KEY ("PROPOSAL_ACTIVATION_ID");
+
+
+--
+-- Name: PUBLICATION_ENTRY PUBLICATION_ENTRY_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PUBLICATION_ENTRY"
+    ADD CONSTRAINT "PUBLICATION_ENTRY_pkey" PRIMARY KEY ("PUBLICATION_ENTRY_ID");
+
+
+--
+-- Name: PUBLICATION_SETTING PUBLICATION_SETTING_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PUBLICATION_SETTING"
+    ADD CONSTRAINT "PUBLICATION_SETTING_pkey" PRIMARY KEY ("PUBLICATION_SETTING_ID");
+
+
+--
+-- Name: PUBLICATION_TYPE PUBLICATION_TYPE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PUBLICATION_TYPE"
+    ADD CONSTRAINT "PUBLICATION_TYPE_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: PUBLICATION PUBLICATION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PUBLICATION"
+    ADD CONSTRAINT "PUBLICATION_pkey" PRIMARY KEY ("INSTANCE_ID");
+
+
+--
+-- Name: QUESTION_CHAPTER_GROUP_ACL QUESTION_CHAPTER_GROUP_ACL_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."QUESTION_CHAPTER_GROUP_ACL"
+    ADD CONSTRAINT "QUESTION_CHAPTER_GROUP_ACL_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: QUESTION_CHAPTER_GROUP_ACL QUESTION_CHAPTER_GROUP_A_QUESTION_ID_CHAPTER_ID_G_f7f17824_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."QUESTION_CHAPTER_GROUP_ACL"
+    ADD CONSTRAINT "QUESTION_CHAPTER_GROUP_A_QUESTION_ID_CHAPTER_ID_G_f7f17824_uniq" UNIQUE ("QUESTION_ID", "CHAPTER_ID", "GROUP_ID", "INSTANCE_STATE_ID");
+
+
+--
+-- Name: QUESTION_CHAPTER QUESTION_CHAPTER_QUESTION_ID_CHAPTER_ID_e9fddc90_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."QUESTION_CHAPTER"
+    ADD CONSTRAINT "QUESTION_CHAPTER_QUESTION_ID_CHAPTER_ID_e9fddc90_uniq" UNIQUE ("QUESTION_ID", "CHAPTER_ID");
+
+
+--
+-- Name: QUESTION_CHAPTER_ROLE_ACL QUESTION_CHAPTER_ROLE_ACL_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."QUESTION_CHAPTER_ROLE_ACL"
+    ADD CONSTRAINT "QUESTION_CHAPTER_ROLE_ACL_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: QUESTION_CHAPTER_ROLE_ACL QUESTION_CHAPTER_ROLE_AC_QUESTION_ID_CHAPTER_ID_R_138ee5ae_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."QUESTION_CHAPTER_ROLE_ACL"
+    ADD CONSTRAINT "QUESTION_CHAPTER_ROLE_AC_QUESTION_ID_CHAPTER_ID_R_138ee5ae_uniq" UNIQUE ("QUESTION_ID", "CHAPTER_ID", "ROLE_ID", "INSTANCE_STATE_ID");
+
+
+--
+-- Name: QUESTION_CHAPTER_SERVICE_ACL QUESTION_CHAPTER_SERVICE_ACL_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."QUESTION_CHAPTER_SERVICE_ACL"
+    ADD CONSTRAINT "QUESTION_CHAPTER_SERVICE_ACL_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: QUESTION_CHAPTER_SERVICE_ACL QUESTION_CHAPTER_SERVICE_QUESTION_ID_CHAPTER_ID_S_6a0f7054_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."QUESTION_CHAPTER_SERVICE_ACL"
+    ADD CONSTRAINT "QUESTION_CHAPTER_SERVICE_QUESTION_ID_CHAPTER_ID_S_6a0f7054_uniq" UNIQUE ("QUESTION_ID", "CHAPTER_ID", "SERVICE_ID", "INSTANCE_STATE_ID");
+
+
+--
+-- Name: QUESTION_CHAPTER_USER_ACL QUESTION_CHAPTER_USER_ACL_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."QUESTION_CHAPTER_USER_ACL"
+    ADD CONSTRAINT "QUESTION_CHAPTER_USER_ACL_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: QUESTION_CHAPTER_USER_ACL QUESTION_CHAPTER_USER_AC_QUESTION_ID_CHAPTER_ID_U_74e62a33_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."QUESTION_CHAPTER_USER_ACL"
+    ADD CONSTRAINT "QUESTION_CHAPTER_USER_AC_QUESTION_ID_CHAPTER_ID_U_74e62a33_uniq" UNIQUE ("QUESTION_ID", "CHAPTER_ID", "USER_ID", "INSTANCE_STATE_ID");
+
+
+--
+-- Name: QUESTION_CHAPTER QUESTION_CHAPTER_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."QUESTION_CHAPTER"
+    ADD CONSTRAINT "QUESTION_CHAPTER_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: QUESTION_TYPE QUESTION_TYPE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."QUESTION_TYPE"
+    ADD CONSTRAINT "QUESTION_TYPE_pkey" PRIMARY KEY ("QUESTION_TYPE_ID");
+
+
+--
+-- Name: QUESTION_T QUESTION_T_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."QUESTION_T"
+    ADD CONSTRAINT "QUESTION_T_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: QUESTION QUESTION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."QUESTION"
+    ADD CONSTRAINT "QUESTION_pkey" PRIMARY KEY ("QUESTION_ID");
+
+
+--
+-- Name: RESOURCE_T RESOURCE_T_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."RESOURCE_T"
+    ADD CONSTRAINT "RESOURCE_T_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: RESOURCE RESOURCE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."RESOURCE"
+    ADD CONSTRAINT "RESOURCE_pkey" PRIMARY KEY ("RESOURCE_ID");
+
+
+--
+-- Name: RESPONSIBLE_ALLOCATION RESPONSIBLE_ALLOCATION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."RESPONSIBLE_ALLOCATION"
+    ADD CONSTRAINT "RESPONSIBLE_ALLOCATION_pkey" PRIMARY KEY ("ALLOCATION_ID");
+
+
+--
+-- Name: RESPONSIBLE_SERVICE_ALLOCATION RESPONSIBLE_SERVICE_ALLOCATION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."RESPONSIBLE_SERVICE_ALLOCATION"
+    ADD CONSTRAINT "RESPONSIBLE_SERVICE_ALLOCATION_pkey" PRIMARY KEY ("SERVICE_ALLOCATION_ID");
+
+
+--
+-- Name: RESPONSIBLE_SERVICE RESPONSIBLE_SERVICE_INSTANCE_ID_SERVICE_ID_8b012deb_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."RESPONSIBLE_SERVICE"
+    ADD CONSTRAINT "RESPONSIBLE_SERVICE_INSTANCE_ID_SERVICE_ID_8b012deb_uniq" UNIQUE ("INSTANCE_ID", "SERVICE_ID");
+
+
+--
+-- Name: RESPONSIBLE_SERVICE_LOG RESPONSIBLE_SERVICE_LOG_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."RESPONSIBLE_SERVICE_LOG"
+    ADD CONSTRAINT "RESPONSIBLE_SERVICE_LOG_pkey" PRIMARY KEY ("RESPONSIBLE_SERVICE_LOG_ID");
+
+
+--
+-- Name: RESPONSIBLE_SERVICE RESPONSIBLE_SERVICE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."RESPONSIBLE_SERVICE"
+    ADD CONSTRAINT "RESPONSIBLE_SERVICE_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: ROLE_T ROLE_T_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ROLE_T"
+    ADD CONSTRAINT "ROLE_T_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: ROLE ROLE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ROLE"
+    ADD CONSTRAINT "ROLE_pkey" PRIMARY KEY ("ROLE_ID");
+
+
+--
+-- Name: ROLE ROLE_slug_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ROLE"
+    ADD CONSTRAINT "ROLE_slug_key" UNIQUE ("SLUG");
+
+
+--
+-- Name: R_EMBER_LIST R_EMBER_LIST_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."R_EMBER_LIST"
+    ADD CONSTRAINT "R_EMBER_LIST_pkey" PRIMARY KEY ("RESOURCE_ID");
+
+
+--
+-- Name: R_FORMLIST R_FORMLIST_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."R_FORMLIST"
+    ADD CONSTRAINT "R_FORMLIST_pkey" PRIMARY KEY ("RESOURCE_ID");
+
+
+--
+-- Name: R_GROUP_ACL R_GROUP_ACL_RESOURCE_ID_GROUP_ID_a99d45ac_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."R_GROUP_ACL"
+    ADD CONSTRAINT "R_GROUP_ACL_RESOURCE_ID_GROUP_ID_a99d45ac_uniq" UNIQUE ("RESOURCE_ID", "GROUP_ID");
+
+
+--
+-- Name: R_GROUP_ACL R_GROUP_ACL_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."R_GROUP_ACL"
+    ADD CONSTRAINT "R_GROUP_ACL_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: R_LIST_COLUMN_T R_LIST_COLUMN_T_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."R_LIST_COLUMN_T"
+    ADD CONSTRAINT "R_LIST_COLUMN_T_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: R_LIST_COLUMN R_LIST_COLUMN_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."R_LIST_COLUMN"
+    ADD CONSTRAINT "R_LIST_COLUMN_pkey" PRIMARY KEY ("R_LIST_COLUMN_ID");
+
+
+--
+-- Name: R_LIST R_LIST_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."R_LIST"
+    ADD CONSTRAINT "R_LIST_pkey" PRIMARY KEY ("RESOURCE_ID");
+
+
+--
+-- Name: R_PAGE R_PAGE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."R_PAGE"
+    ADD CONSTRAINT "R_PAGE_pkey" PRIMARY KEY ("RESOURCE_ID");
+
+
+--
+-- Name: R_ROLE_ACL R_ROLE_ACL_RESOURCE_ID_ROLE_ID_8cdd090c_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."R_ROLE_ACL"
+    ADD CONSTRAINT "R_ROLE_ACL_RESOURCE_ID_ROLE_ID_8cdd090c_uniq" UNIQUE ("RESOURCE_ID", "ROLE_ID");
+
+
+--
+-- Name: R_ROLE_ACL R_ROLE_ACL_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."R_ROLE_ACL"
+    ADD CONSTRAINT "R_ROLE_ACL_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: R_SEARCH_COLUMN_T R_SEARCH_COLUMN_T_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."R_SEARCH_COLUMN_T"
+    ADD CONSTRAINT "R_SEARCH_COLUMN_T_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: R_SEARCH_COLUMN R_SEARCH_COLUMN_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."R_SEARCH_COLUMN"
+    ADD CONSTRAINT "R_SEARCH_COLUMN_pkey" PRIMARY KEY ("R_SEARCH_COLUMN_ID");
+
+
+--
+-- Name: R_SEARCH_FILTER_T R_SEARCH_FILTER_T_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."R_SEARCH_FILTER_T"
+    ADD CONSTRAINT "R_SEARCH_FILTER_T_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: R_SEARCH_FILTER R_SEARCH_FILTER_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."R_SEARCH_FILTER"
+    ADD CONSTRAINT "R_SEARCH_FILTER_pkey" PRIMARY KEY ("R_SEARCH_FILTER_ID");
+
+
+--
+-- Name: R_SEARCH R_SEARCH_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."R_SEARCH"
+    ADD CONSTRAINT "R_SEARCH_pkey" PRIMARY KEY ("RESOURCE_ID");
+
+
+--
+-- Name: R_SERVICE_ACL R_SERVICE_ACL_RESOURCE_ID_SERVICE_ID_73d80182_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."R_SERVICE_ACL"
+    ADD CONSTRAINT "R_SERVICE_ACL_RESOURCE_ID_SERVICE_ID_73d80182_uniq" UNIQUE ("RESOURCE_ID", "SERVICE_ID");
+
+
+--
+-- Name: R_SERVICE_ACL R_SERVICE_ACL_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."R_SERVICE_ACL"
+    ADD CONSTRAINT "R_SERVICE_ACL_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: R_USER_ACL R_USER_ACL_RESOURCE_ID_USER_ID_c65e60fe_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."R_USER_ACL"
+    ADD CONSTRAINT "R_USER_ACL_RESOURCE_ID_USER_ID_c65e60fe_uniq" UNIQUE ("RESOURCE_ID", "USER_ID");
+
+
+--
+-- Name: R_USER_ACL R_USER_ACL_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."R_USER_ACL"
+    ADD CONSTRAINT "R_USER_ACL_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: SANCTION SANCTION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."SANCTION"
+    ADD CONSTRAINT "SANCTION_pkey" PRIMARY KEY ("SANCTION_ID");
+
+
+--
+-- Name: SERVICE_ANSWER_ACTIVATION SERVICE_ANSWER_ACTIVATION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."SERVICE_ANSWER_ACTIVATION"
+    ADD CONSTRAINT "SERVICE_ANSWER_ACTIVATION_pkey" PRIMARY KEY ("SERVICE_ANSWER_ACTIVATION_ID");
+
+
+--
+-- Name: SERVICE_GROUP_T SERVICE_GROUP_T_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."SERVICE_GROUP_T"
+    ADD CONSTRAINT "SERVICE_GROUP_T_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: SERVICE_GROUP SERVICE_GROUP_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."SERVICE_GROUP"
+    ADD CONSTRAINT "SERVICE_GROUP_pkey" PRIMARY KEY ("SERVICE_GROUP_ID");
+
+
+--
+-- Name: SERVICE_GROUP SERVICE_GROUP_slug_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."SERVICE_GROUP"
+    ADD CONSTRAINT "SERVICE_GROUP_slug_key" UNIQUE (slug);
+
+
+--
+-- Name: SERVICE_T SERVICE_T_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."SERVICE_T"
+    ADD CONSTRAINT "SERVICE_T_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: SERVICE SERVICE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."SERVICE"
+    ADD CONSTRAINT "SERVICE_pkey" PRIMARY KEY ("SERVICE_ID");
+
+
+--
+-- Name: SERVICE SERVICE_slug_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."SERVICE"
+    ADD CONSTRAINT "SERVICE_slug_key" UNIQUE (slug);
+
+
+--
+-- Name: TAGS TAGS_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."TAGS"
+    ADD CONSTRAINT "TAGS_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: TEMPLATE_GENERATE_ACTION TEMPLATE_GENERATE_ACTION_AS_PDF_TEMPLATE_ID_ACTIO_065ec77b_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."TEMPLATE_GENERATE_ACTION"
+    ADD CONSTRAINT "TEMPLATE_GENERATE_ACTION_AS_PDF_TEMPLATE_ID_ACTIO_065ec77b_uniq" UNIQUE ("AS_PDF", "TEMPLATE_ID", "ACTION_ID");
+
+
+--
+-- Name: TEMPLATE_GENERATE_ACTION TEMPLATE_GENERATE_ACTION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."TEMPLATE_GENERATE_ACTION"
+    ADD CONSTRAINT "TEMPLATE_GENERATE_ACTION_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: TEMPLATE TEMPLATE_NAME_service_id_c136fc50_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."TEMPLATE"
+    ADD CONSTRAINT "TEMPLATE_NAME_service_id_c136fc50_uniq" UNIQUE ("NAME", service_id);
+
+
+--
+-- Name: TEMPLATE TEMPLATE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."TEMPLATE"
+    ADD CONSTRAINT "TEMPLATE_pkey" PRIMARY KEY ("TEMPLATE_ID");
+
+
+--
+-- Name: USER_GROUP_LOG USER_GROUP_LOG_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."USER_GROUP_LOG"
+    ADD CONSTRAINT "USER_GROUP_LOG_pkey" PRIMARY KEY ("USER_GROUP_LOG_ID");
+
+
+--
+-- Name: USER_GROUP USER_GROUP_USER_ID_GROUP_ID_a35636fa_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."USER_GROUP"
+    ADD CONSTRAINT "USER_GROUP_USER_ID_GROUP_ID_a35636fa_uniq" UNIQUE ("USER_ID", "GROUP_ID");
+
+
+--
+-- Name: USER_GROUP USER_GROUP_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."USER_GROUP"
+    ADD CONSTRAINT "USER_GROUP_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: USER_T USER_T_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."USER_T"
+    ADD CONSTRAINT "USER_T_pkey" PRIMARY KEY (id);
+
+
+--
+-- Name: USER USER_USERNAME_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."USER"
+    ADD CONSTRAINT "USER_USERNAME_key" UNIQUE ("USERNAME");
+
+
+--
+-- Name: USER USER_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."USER"
+    ADD CONSTRAINT "USER_pkey" PRIMARY KEY ("USER_ID");
+
+
+--
+-- Name: WORKFLOW_ACTION WORKFLOW_ACTION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."WORKFLOW_ACTION"
+    ADD CONSTRAINT "WORKFLOW_ACTION_pkey" PRIMARY KEY ("ACTION_ID");
+
+
+--
+-- Name: WORKFLOW_ENTRY WORKFLOW_ENTRY_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."WORKFLOW_ENTRY"
+    ADD CONSTRAINT "WORKFLOW_ENTRY_pkey" PRIMARY KEY ("WORKFLOW_ENTRY_ID");
+
+
+--
+-- Name: WORKFLOW_ITEM WORKFLOW_ITEM_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."WORKFLOW_ITEM"
+    ADD CONSTRAINT "WORKFLOW_ITEM_pkey" PRIMARY KEY ("WORKFLOW_ITEM_ID");
+
+
+--
+-- Name: WORKFLOW_ROLE WORKFLOW_ROLE_ROLE_ID_WORKFLOW_ITEM_ID_3941fdf4_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."WORKFLOW_ROLE"
+    ADD CONSTRAINT "WORKFLOW_ROLE_ROLE_ID_WORKFLOW_ITEM_ID_3941fdf4_uniq" UNIQUE ("ROLE_ID", "WORKFLOW_ITEM_ID");
+
+
+--
+-- Name: WORKFLOW_ROLE WORKFLOW_ROLE_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."WORKFLOW_ROLE"
+    ADD CONSTRAINT "WORKFLOW_ROLE_pkey" PRIMARY KEY ("ID");
+
+
+--
+-- Name: WORKFLOW_SECTION WORKFLOW_SECTION_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."WORKFLOW_SECTION"
+    ADD CONSTRAINT "WORKFLOW_SECTION_pkey" PRIMARY KEY ("WORKFLOW_SECTION_ID");
+
+
+--
+-- Name: alert_message_alertmessage alert_message_alertmessage_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.alert_message_alertmessage
+    ADD CONSTRAINT alert_message_alertmessage_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: alexandria_core_category alexandria_core_category_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.alexandria_core_category
+    ADD CONSTRAINT alexandria_core_category_pkey PRIMARY KEY (slug);
+
+
+--
+-- Name: alexandria_core_document_marks alexandria_core_document_document_id_mark_id_39124e7c_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.alexandria_core_document_marks
+    ADD CONSTRAINT alexandria_core_document_document_id_mark_id_39124e7c_uniq UNIQUE (document_id, mark_id);
+
+
+--
+-- Name: alexandria_core_document_marks alexandria_core_document_marks_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.alexandria_core_document_marks
+    ADD CONSTRAINT alexandria_core_document_marks_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: alexandria_core_document alexandria_core_document_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.alexandria_core_document
+    ADD CONSTRAINT alexandria_core_document_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: alexandria_core_document_tags alexandria_core_document_tags_document_id_tag_id_1969343a_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.alexandria_core_document_tags
+    ADD CONSTRAINT alexandria_core_document_tags_document_id_tag_id_1969343a_uniq UNIQUE (document_id, tag_id);
+
+
+--
+-- Name: alexandria_core_document_tags alexandria_core_document_tags_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.alexandria_core_document_tags
+    ADD CONSTRAINT alexandria_core_document_tags_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: alexandria_core_file alexandria_core_file_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.alexandria_core_file
+    ADD CONSTRAINT alexandria_core_file_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: alexandria_core_mark alexandria_core_mark_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.alexandria_core_mark
+    ADD CONSTRAINT alexandria_core_mark_pkey PRIMARY KEY (slug);
+
+
+--
+-- Name: alexandria_core_tag alexandria_core_tag_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.alexandria_core_tag
+    ADD CONSTRAINT alexandria_core_tag_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: alexandria_core_tagsynonymgroup alexandria_core_tagsynonymgroup_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.alexandria_core_tagsynonymgroup
+    ADD CONSTRAINT alexandria_core_tagsynonymgroup_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: api_template api_template_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.api_template
+    ADD CONSTRAINT api_template_pkey PRIMARY KEY (slug);
+
+
+--
+-- Name: auth_group auth_group_name_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.auth_group
+    ADD CONSTRAINT auth_group_name_key UNIQUE (name);
+
+
+--
+-- Name: auth_group_permissions auth_group_permissions_group_id_permission_id_0cd325b0_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.auth_group_permissions
+    ADD CONSTRAINT auth_group_permissions_group_id_permission_id_0cd325b0_uniq UNIQUE (group_id, permission_id);
+
+
+--
+-- Name: auth_group_permissions auth_group_permissions_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.auth_group_permissions
+    ADD CONSTRAINT auth_group_permissions_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: auth_group auth_group_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.auth_group
+    ADD CONSTRAINT auth_group_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: auth_permission auth_permission_content_type_id_codename_01ab375a_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.auth_permission
+    ADD CONSTRAINT auth_permission_content_type_id_codename_01ab375a_uniq UNIQUE (content_type_id, codename);
+
+
+--
+-- Name: auth_permission auth_permission_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.auth_permission
+    ADD CONSTRAINT auth_permission_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: billing_billingv2entrytemplate_services billing_billingv2entryte_billingv2entrytemplate_i_a69e8675_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.billing_billingv2entrytemplate_services
+    ADD CONSTRAINT billing_billingv2entryte_billingv2entrytemplate_i_a69e8675_uniq UNIQUE (billingv2entrytemplate_id, service_id);
+
+
+--
+-- Name: billing_billingv2entrytemplate_service_groups billing_billingv2entryte_billingv2entrytemplate_i_f16c9438_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.billing_billingv2entrytemplate_service_groups
+    ADD CONSTRAINT billing_billingv2entryte_billingv2entrytemplate_i_f16c9438_uniq UNIQUE (billingv2entrytemplate_id, servicegroup_id);
+
+
+--
+-- Name: billing_billingv2entrytemplate_service_groups billing_billingv2entrytemplate_service_groups_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.billing_billingv2entrytemplate_service_groups
+    ADD CONSTRAINT billing_billingv2entrytemplate_service_groups_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: billing_billingv2entrytemplate_services billing_billingv2entrytemplate_services_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.billing_billingv2entrytemplate_services
+    ADD CONSTRAINT billing_billingv2entrytemplate_services_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: billing_billingv2entrytemplate billing_billingv2entrytemplate_uuid_db2922c7_pk; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.billing_billingv2entrytemplate
+    ADD CONSTRAINT billing_billingv2entrytemplate_uuid_db2922c7_pk PRIMARY KEY (id);
+
+
+--
+-- Name: billing_invoice billing_invoice_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.billing_invoice
+    ADD CONSTRAINT billing_invoice_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: billing_lineitem billing_lineitem_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.billing_lineitem
+    ADD CONSTRAINT billing_lineitem_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: caluma_analytics_analyticsfield caluma_analytics_analyticsfield_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_analytics_analyticsfield
+    ADD CONSTRAINT caluma_analytics_analyticsfield_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: caluma_analytics_analyticstable caluma_analytics_analyticstable_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_analytics_analyticstable
+    ADD CONSTRAINT caluma_analytics_analyticstable_pkey PRIMARY KEY (slug);
+
+
+--
+-- Name: caluma_analytics_historicalanalyticsfield caluma_analytics_historicalanalyticsfield_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_analytics_historicalanalyticsfield
+    ADD CONSTRAINT caluma_analytics_historicalanalyticsfield_pkey PRIMARY KEY (history_id);
+
+
+--
+-- Name: caluma_analytics_historicalanalyticstable caluma_analytics_historicalanalyticstable_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_analytics_historicalanalyticstable
+    ADD CONSTRAINT caluma_analytics_historicalanalyticstable_pkey PRIMARY KEY (history_id);
+
+
+--
+-- Name: caluma_form_answer caluma_form_answer_document_id_question_id_e46817d0_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_answer
+    ADD CONSTRAINT caluma_form_answer_document_id_question_id_e46817d0_uniq UNIQUE (document_id, question_id);
+
+
+--
+-- Name: caluma_form_answer caluma_form_answer_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_answer
+    ADD CONSTRAINT caluma_form_answer_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: caluma_form_answerdocument caluma_form_answerdocument_answer_id_document_id_2faf97f5_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_answerdocument
+    ADD CONSTRAINT caluma_form_answerdocument_answer_id_document_id_2faf97f5_uniq UNIQUE (answer_id, document_id);
+
+
+--
+-- Name: caluma_form_answerdocument caluma_form_answerdocument_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_answerdocument
+    ADD CONSTRAINT caluma_form_answerdocument_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: caluma_form_document caluma_form_document_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_document
+    ADD CONSTRAINT caluma_form_document_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: caluma_form_dynamicoption caluma_form_dynamicoptio_slug_document_id_questio_84a81a02_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_dynamicoption
+    ADD CONSTRAINT caluma_form_dynamicoptio_slug_document_id_questio_84a81a02_uniq UNIQUE (slug, document_id, question_id);
+
+
+--
+-- Name: caluma_form_dynamicoption caluma_form_dynamicoption_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_dynamicoption
+    ADD CONSTRAINT caluma_form_dynamicoption_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: caluma_form_file caluma_form_file_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_file
+    ADD CONSTRAINT caluma_form_file_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: caluma_form_form caluma_form_form_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_form
+    ADD CONSTRAINT caluma_form_form_pkey PRIMARY KEY (slug);
+
+
+--
+-- Name: caluma_form_formquestion caluma_form_formquestion_form_id_question_id_d5d65b6c_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_formquestion
+    ADD CONSTRAINT caluma_form_formquestion_form_id_question_id_d5d65b6c_uniq UNIQUE (form_id, question_id);
+
+
+--
+-- Name: caluma_form_formquestion caluma_form_formquestion_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_formquestion
+    ADD CONSTRAINT caluma_form_formquestion_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: caluma_form_historicalanswer caluma_form_historicalanswer_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_historicalanswer
+    ADD CONSTRAINT caluma_form_historicalanswer_pkey PRIMARY KEY (history_id);
+
+
+--
+-- Name: caluma_form_historicalanswerdocument caluma_form_historicalanswerdocument_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_historicalanswerdocument
+    ADD CONSTRAINT caluma_form_historicalanswerdocument_pkey PRIMARY KEY (history_id);
+
+
+--
+-- Name: caluma_form_historicaldocument caluma_form_historicaldocument_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_historicaldocument
+    ADD CONSTRAINT caluma_form_historicaldocument_pkey PRIMARY KEY (history_id);
+
+
+--
+-- Name: caluma_form_historicaldynamicoption caluma_form_historicaldynamicoption_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_historicaldynamicoption
+    ADD CONSTRAINT caluma_form_historicaldynamicoption_pkey PRIMARY KEY (history_id);
+
+
+--
+-- Name: caluma_form_historicalfile caluma_form_historicalfile_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_historicalfile
+    ADD CONSTRAINT caluma_form_historicalfile_pkey PRIMARY KEY (history_id);
+
+
+--
+-- Name: caluma_form_historicalform caluma_form_historicalform_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_historicalform
+    ADD CONSTRAINT caluma_form_historicalform_pkey PRIMARY KEY (history_id);
+
+
+--
+-- Name: caluma_form_historicalformquestion caluma_form_historicalformquestion_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_historicalformquestion
+    ADD CONSTRAINT caluma_form_historicalformquestion_pkey PRIMARY KEY (history_id);
+
+
+--
+-- Name: caluma_form_historicaloption caluma_form_historicaloption_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_historicaloption
+    ADD CONSTRAINT caluma_form_historicaloption_pkey PRIMARY KEY (history_id);
+
+
+--
+-- Name: caluma_form_historicalquestion caluma_form_historicalquestion_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_historicalquestion
+    ADD CONSTRAINT caluma_form_historicalquestion_pkey PRIMARY KEY (history_id);
+
+
+--
+-- Name: caluma_form_historicalquestionoption caluma_form_historicalquestionoption_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_historicalquestionoption
+    ADD CONSTRAINT caluma_form_historicalquestionoption_pkey PRIMARY KEY (history_id);
+
+
+--
+-- Name: caluma_form_option caluma_form_option_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_option
+    ADD CONSTRAINT caluma_form_option_pkey PRIMARY KEY (slug);
+
+
+--
+-- Name: caluma_form_question caluma_form_question_default_answer_id_0233e6a2_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_question
+    ADD CONSTRAINT caluma_form_question_default_answer_id_0233e6a2_uniq UNIQUE (default_answer_id);
+
+
+--
+-- Name: caluma_form_question caluma_form_question_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_question
+    ADD CONSTRAINT caluma_form_question_pkey PRIMARY KEY (slug);
+
+
+--
+-- Name: caluma_form_questionoption caluma_form_questionoption_option_id_question_id_edf6216a_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_questionoption
+    ADD CONSTRAINT caluma_form_questionoption_option_id_question_id_edf6216a_uniq UNIQUE (option_id, question_id);
+
+
+--
+-- Name: caluma_form_questionoption caluma_form_questionoption_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_questionoption
+    ADD CONSTRAINT caluma_form_questionoption_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: caluma_workflow_case caluma_workflow_case_document_id_84a34621_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_workflow_case
+    ADD CONSTRAINT caluma_workflow_case_document_id_84a34621_uniq UNIQUE (document_id);
+
+
+--
+-- Name: caluma_workflow_case caluma_workflow_case_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_workflow_case
+    ADD CONSTRAINT caluma_workflow_case_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: caluma_workflow_flow caluma_workflow_flow_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_workflow_flow
+    ADD CONSTRAINT caluma_workflow_flow_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: caluma_workflow_historicalcase caluma_workflow_historicalcase_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_workflow_historicalcase
+    ADD CONSTRAINT caluma_workflow_historicalcase_pkey PRIMARY KEY (history_id);
+
+
+--
+-- Name: caluma_workflow_historicalflow caluma_workflow_historicalflow_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_workflow_historicalflow
+    ADD CONSTRAINT caluma_workflow_historicalflow_pkey PRIMARY KEY (history_id);
+
+
+--
+-- Name: caluma_workflow_historicaltask caluma_workflow_historicaltask_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_workflow_historicaltask
+    ADD CONSTRAINT caluma_workflow_historicaltask_pkey PRIMARY KEY (history_id);
+
+
+--
+-- Name: caluma_workflow_historicaltaskflow caluma_workflow_historicaltaskflow_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_workflow_historicaltaskflow
+    ADD CONSTRAINT caluma_workflow_historicaltaskflow_pkey PRIMARY KEY (history_id);
+
+
+--
+-- Name: caluma_workflow_historicalworkflow caluma_workflow_historicalworkflow_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_workflow_historicalworkflow
+    ADD CONSTRAINT caluma_workflow_historicalworkflow_pkey PRIMARY KEY (history_id);
+
+
+--
+-- Name: caluma_workflow_historicalworkitem caluma_workflow_historicalworkitem_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_workflow_historicalworkitem
+    ADD CONSTRAINT caluma_workflow_historicalworkitem_pkey PRIMARY KEY (history_id);
+
+
+--
+-- Name: caluma_workflow_task caluma_workflow_task_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_workflow_task
+    ADD CONSTRAINT caluma_workflow_task_pkey PRIMARY KEY (slug);
+
+
+--
+-- Name: caluma_workflow_taskflow caluma_workflow_taskflow_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_workflow_taskflow
+    ADD CONSTRAINT caluma_workflow_taskflow_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: caluma_workflow_taskflow caluma_workflow_taskflow_workflow_id_task_id_8faf85ee_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_workflow_taskflow
+    ADD CONSTRAINT caluma_workflow_taskflow_workflow_id_task_id_8faf85ee_uniq UNIQUE (workflow_id, task_id);
+
+
+--
+-- Name: caluma_workflow_workflow_allow_forms caluma_workflow_workflow_allow_forms_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_workflow_workflow_allow_forms
+    ADD CONSTRAINT caluma_workflow_workflow_allow_forms_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: caluma_workflow_workflow caluma_workflow_workflow_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_workflow_workflow
+    ADD CONSTRAINT caluma_workflow_workflow_pkey PRIMARY KEY (slug);
+
+
+--
+-- Name: caluma_workflow_workflow_start_tasks caluma_workflow_workflow_start_tasks_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_workflow_workflow_start_tasks
+    ADD CONSTRAINT caluma_workflow_workflow_start_tasks_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: caluma_workflow_workflow_allow_forms caluma_workflow_workflow_workflow_id_form_id_3c214403_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_workflow_workflow_allow_forms
+    ADD CONSTRAINT caluma_workflow_workflow_workflow_id_form_id_3c214403_uniq UNIQUE (workflow_id, form_id);
+
+
+--
+-- Name: caluma_workflow_workflow_start_tasks caluma_workflow_workflow_workflow_id_task_id_fa8c0d83_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_workflow_workflow_start_tasks
+    ADD CONSTRAINT caluma_workflow_workflow_workflow_id_task_id_fa8c0d83_uniq UNIQUE (workflow_id, task_id);
+
+
+--
+-- Name: caluma_workflow_workitem caluma_workflow_workitem_child_case_id_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_workflow_workitem
+    ADD CONSTRAINT caluma_workflow_workitem_child_case_id_key UNIQUE (child_case_id);
+
+
+--
+-- Name: caluma_workflow_workitem caluma_workflow_workitem_document_id_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_workflow_workitem
+    ADD CONSTRAINT caluma_workflow_workitem_document_id_key UNIQUE (document_id);
+
+
+--
+-- Name: caluma_workflow_workitem caluma_workflow_workitem_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_workflow_workitem
+    ADD CONSTRAINT caluma_workflow_workitem_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: captcha_captchastore captcha_captchastore_hashkey_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.captcha_captchastore
+    ADD CONSTRAINT captcha_captchastore_hashkey_key UNIQUE (hashkey);
+
+
+--
+-- Name: captcha_captchastore captcha_captchastore_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.captcha_captchastore
+    ADD CONSTRAINT captcha_captchastore_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: communications_communicationsreadmarker communications_communica_message_id_entity_49492535_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.communications_communicationsreadmarker
+    ADD CONSTRAINT communications_communica_message_id_entity_49492535_uniq UNIQUE (message_id, entity);
+
+
+--
+-- Name: communications_communicationsattachment communications_communicationsattachment_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.communications_communicationsattachment
+    ADD CONSTRAINT communications_communicationsattachment_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: communications_communicationsmessage communications_communicationsmessage_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.communications_communicationsmessage
+    ADD CONSTRAINT communications_communicationsmessage_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: communications_communicationsreadmarker communications_communicationsreadmarker_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.communications_communicationsreadmarker
+    ADD CONSTRAINT communications_communicationsreadmarker_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: communications_communicationstopic communications_communicationstopic_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.communications_communicationstopic
+    ADD CONSTRAINT communications_communicationstopic_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: core_servicecontent_forms core_servicecontent_form_servicecontent_id_form_i_012d9ace_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.core_servicecontent_forms
+    ADD CONSTRAINT core_servicecontent_form_servicecontent_id_form_i_012d9ace_uniq UNIQUE (servicecontent_id, form_id);
+
+
+--
+-- Name: core_servicecontent_forms core_servicecontent_forms_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.core_servicecontent_forms
+    ADD CONSTRAINT core_servicecontent_forms_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: core_servicecontent core_servicecontent_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.core_servicecontent
+    ADD CONSTRAINT core_servicecontent_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: core_staticcontent core_staticcontent_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.core_staticcontent
+    ADD CONSTRAINT core_staticcontent_pkey PRIMARY KEY (slug);
+
+
+--
+-- Name: deadlines_deadlinetype deadlines_deadlinetype_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.deadlines_deadlinetype
+    ADD CONSTRAINT deadlines_deadlinetype_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: deadlines_deadlinetype_services deadlines_deadlinetype_s_deadlinetype_id_service__c5685e57_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.deadlines_deadlinetype_services
+    ADD CONSTRAINT deadlines_deadlinetype_s_deadlinetype_id_service__c5685e57_uniq UNIQUE (deadlinetype_id, service_id);
+
+
+--
+-- Name: deadlines_deadlinetype_service_groups deadlines_deadlinetype_s_deadlinetype_id_serviceg_e48d6922_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.deadlines_deadlinetype_service_groups
+    ADD CONSTRAINT deadlines_deadlinetype_s_deadlinetype_id_serviceg_e48d6922_uniq UNIQUE (deadlinetype_id, servicegroup_id);
+
+
+--
+-- Name: deadlines_deadlinetype_service_groups deadlines_deadlinetype_service_groups_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.deadlines_deadlinetype_service_groups
+    ADD CONSTRAINT deadlines_deadlinetype_service_groups_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: deadlines_deadlinetype_services deadlines_deadlinetype_services_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.deadlines_deadlinetype_services
+    ADD CONSTRAINT deadlines_deadlinetype_services_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: deadlines_instancedeadline deadlines_instancedeadline_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.deadlines_instancedeadline
+    ADD CONSTRAINT deadlines_instancedeadline_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: deadlines_suspension deadlines_suspension_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.deadlines_suspension
+    ADD CONSTRAINT deadlines_suspension_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: django_admin_log django_admin_log_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.django_admin_log
+    ADD CONSTRAINT django_admin_log_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: django_celery_beat_clockedschedule django_celery_beat_clockedschedule_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.django_celery_beat_clockedschedule
+    ADD CONSTRAINT django_celery_beat_clockedschedule_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: django_celery_beat_crontabschedule django_celery_beat_crontabschedule_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.django_celery_beat_crontabschedule
+    ADD CONSTRAINT django_celery_beat_crontabschedule_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: django_celery_beat_intervalschedule django_celery_beat_intervalschedule_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.django_celery_beat_intervalschedule
+    ADD CONSTRAINT django_celery_beat_intervalschedule_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: django_celery_beat_periodictask django_celery_beat_periodictask_name_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.django_celery_beat_periodictask
+    ADD CONSTRAINT django_celery_beat_periodictask_name_key UNIQUE (name);
+
+
+--
+-- Name: django_celery_beat_periodictask django_celery_beat_periodictask_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.django_celery_beat_periodictask
+    ADD CONSTRAINT django_celery_beat_periodictask_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: django_celery_beat_periodictasks django_celery_beat_periodictasks_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.django_celery_beat_periodictasks
+    ADD CONSTRAINT django_celery_beat_periodictasks_pkey PRIMARY KEY (ident);
+
+
+--
+-- Name: django_celery_beat_solarschedule django_celery_beat_solar_event_latitude_longitude_ba64999a_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.django_celery_beat_solarschedule
+    ADD CONSTRAINT django_celery_beat_solar_event_latitude_longitude_ba64999a_uniq UNIQUE (event, latitude, longitude);
+
+
+--
+-- Name: django_celery_beat_solarschedule django_celery_beat_solarschedule_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.django_celery_beat_solarschedule
+    ADD CONSTRAINT django_celery_beat_solarschedule_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: django_content_type django_content_type_app_label_model_76bd3d3b_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.django_content_type
+    ADD CONSTRAINT django_content_type_app_label_model_76bd3d3b_uniq UNIQUE (app_label, model);
+
+
+--
+-- Name: django_content_type django_content_type_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.django_content_type
+    ADD CONSTRAINT django_content_type_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: django_migrations django_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.django_migrations
+    ADD CONSTRAINT django_migrations_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: django_q_ormq django_q_ormq_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.django_q_ormq
+    ADD CONSTRAINT django_q_ormq_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: django_q_schedule django_q_schedule_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.django_q_schedule
+    ADD CONSTRAINT django_q_schedule_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: django_q_task django_q_task_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.django_q_task
+    ADD CONSTRAINT django_q_task_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: django_session django_session_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.django_session
+    ADD CONSTRAINT django_session_pkey PRIMARY KEY (session_key);
+
+
+--
+-- Name: document_attachmentdownloadhistory document_attachmentdownloadhistory_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.document_attachmentdownloadhistory
+    ADD CONSTRAINT document_attachmentdownloadhistory_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: document_attachmentversion document_attachmentversion_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.document_attachmentversion
+    ADD CONSTRAINT document_attachmentversion_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: dossier_import_dossierimport dossier_import_dossierimport_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.dossier_import_dossierimport
+    ADD CONSTRAINT dossier_import_dossierimport_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: dossier_import_historicaldossierimport dossier_import_historicaldossierimport_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.dossier_import_historicaldossierimport
+    ADD CONSTRAINT dossier_import_historicaldossierimport_pkey PRIMARY KEY (history_id);
+
+
+--
+-- Name: ech0211_message ech0211_message_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.ech0211_message
+    ADD CONSTRAINT ech0211_message_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: gever_cmiconstantvalue gever_cmiconstantvalue_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.gever_cmiconstantvalue
+    ADD CONSTRAINT gever_cmiconstantvalue_pkey PRIMARY KEY (slug);
+
+
+--
+-- Name: gever_cmiobjecttemplate gever_cmiobjecttemplate_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.gever_cmiobjecttemplate
+    ADD CONSTRAINT gever_cmiobjecttemplate_pkey PRIMARY KEY (slug);
+
+
+--
+-- Name: gis_export_aggisexport gis_export_aggisexport_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.gis_export_aggisexport
+    ADD CONSTRAINT gis_export_aggisexport_pkey PRIMARY KEY (instance_id);
+
+
+--
+-- Name: gis_gisdatasource gis_gisdatasource_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.gis_gisdatasource
+    ADD CONSTRAINT gis_gisdatasource_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: instance_formfield instance_formfield_instance_id_name_78521b08_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_formfield
+    ADD CONSTRAINT instance_formfield_instance_id_name_78521b08_uniq UNIQUE (instance_id, name);
+
+
+--
+-- Name: instance_formfield instance_formfield_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_formfield
+    ADD CONSTRAINT instance_formfield_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: instance_historyentry instance_historyentry_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_historyentry
+    ADD CONSTRAINT instance_historyentry_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: instance_historyentryt instance_historyentryt_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_historyentryt
+    ADD CONSTRAINT instance_historyentryt_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: instance_instancealexandriadocument instance_instancealexand_instance_id_document_id_17dd7428_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_instancealexandriadocument
+    ADD CONSTRAINT instance_instancealexand_instance_id_document_id_17dd7428_uniq UNIQUE (instance_id, document_id);
+
+
+--
+-- Name: instance_instancealexandriadocument instance_instancealexandriadocument_document_id_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_instancealexandriadocument
+    ADD CONSTRAINT instance_instancealexandriadocument_document_id_key UNIQUE (document_id);
+
+
+--
+-- Name: instance_instancealexandriadocument instance_instancealexandriadocument_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_instancealexandriadocument
+    ADD CONSTRAINT instance_instancealexandriadocument_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: instance_instancegroup instance_instancegroup_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_instancegroup
+    ADD CONSTRAINT instance_instancegroup_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: instance_instanceresponsibility instance_instancerespons_instance_id_USER_ID_SERV_18e06ddc_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_instanceresponsibility
+    ADD CONSTRAINT "instance_instancerespons_instance_id_USER_ID_SERV_18e06ddc_uniq" UNIQUE (instance_id, "USER_ID", "SERVICE_ID");
+
+
+--
+-- Name: instance_instanceresponsibility instance_instanceresponsibility_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_instanceresponsibility
+    ADD CONSTRAINT instance_instanceresponsibility_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: instance_issue instance_issue_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_issue
+    ADD CONSTRAINT instance_issue_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: instance_issuetemplate instance_issuetemplate_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_issuetemplate
+    ADD CONSTRAINT instance_issuetemplate_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: instance_issuetemplateset_issue_templates instance_issuetemplatese_issuetemplateset_id_issu_1fa62029_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_issuetemplateset_issue_templates
+    ADD CONSTRAINT instance_issuetemplatese_issuetemplateset_id_issu_1fa62029_uniq UNIQUE (issuetemplateset_id, issuetemplate_id);
+
+
+--
+-- Name: instance_issuetemplateset_issue_templates instance_issuetemplateset_issue_templates_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_issuetemplateset_issue_templates
+    ADD CONSTRAINT instance_issuetemplateset_issue_templates_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: instance_issuetemplateset instance_issuetemplateset_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_issuetemplateset
+    ADD CONSTRAINT instance_issuetemplateset_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: instance_journalentry instance_journalentry_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_journalentry
+    ADD CONSTRAINT instance_journalentry_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: linker_gwrlink linker_gwrlink_eproid_local_id_6aabe721_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.linker_gwrlink
+    ADD CONSTRAINT linker_gwrlink_eproid_local_id_6aabe721_uniq UNIQUE (eproid, local_id);
+
+
+--
+-- Name: linker_gwrlink linker_gwrlink_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.linker_gwrlink
+    ADD CONSTRAINT linker_gwrlink_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: manabi_lock manabi_lock_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.manabi_lock
+    ADD CONSTRAINT manabi_lock_pkey PRIMARY KEY (token);
+
+
+--
+-- Name: objection_objection objection_objection_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.objection_objection
+    ADD CONSTRAINT objection_objection_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: objection_objectionparticipant objection_objectionparticipant_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.objection_objectionparticipant
+    ADD CONSTRAINT objection_objectionparticipant_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: objection_objectiontimeframe objection_objectiontimeframe_instance_id_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.objection_objectiontimeframe
+    ADD CONSTRAINT objection_objectiontimeframe_instance_id_key UNIQUE (instance_id);
+
+
+--
+-- Name: objection_objectiontimeframe objection_objectiontimeframe_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.objection_objectiontimeframe
+    ADD CONSTRAINT objection_objectiontimeframe_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: permissions_accesslevel permissions_accesslevel_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.permissions_accesslevel
+    ADD CONSTRAINT permissions_accesslevel_pkey PRIMARY KEY (slug);
+
+
+--
+-- Name: permissions_instanceacl permissions_instanceacl_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.permissions_instanceacl
+    ADD CONSTRAINT permissions_instanceacl_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: php_session php_session_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.php_session
+    ADD CONSTRAINT php_session_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: reversion_revision reversion_revision_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.reversion_revision
+    ADD CONSTRAINT reversion_revision_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: reversion_version reversion_version_db_content_type_id_objec_b2c54f65_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.reversion_version
+    ADD CONSTRAINT reversion_version_db_content_type_id_objec_b2c54f65_uniq UNIQUE (db, content_type_id, object_id, revision_id);
+
+
+--
+-- Name: reversion_version reversion_version_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.reversion_version
+    ADD CONSTRAINT reversion_version_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: rulesets_distributiondeadlinerule rulesets_distributiondea_source_service_id_target_89c280a5_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.rulesets_distributiondeadlinerule
+    ADD CONSTRAINT rulesets_distributiondea_source_service_id_target_89c280a5_uniq UNIQUE (source_service_id, target_service_id);
+
+
+--
+-- Name: rulesets_distributiondeadlinerule rulesets_distributiondeadlinerule_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.rulesets_distributiondeadlinerule
+    ADD CONSTRAINT rulesets_distributiondeadlinerule_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: rulesets_responsibleuserrule_application_types rulesets_responsibleuser_responsibleuserrule_id_f_07d6e2cf_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.rulesets_responsibleuserrule_application_types
+    ADD CONSTRAINT rulesets_responsibleuser_responsibleuserrule_id_f_07d6e2cf_uniq UNIQUE (responsibleuserrule_id, form_id);
+
+
+--
+-- Name: rulesets_responsibleuserrule_municipalities rulesets_responsibleuser_responsibleuserrule_id_s_ac3452ce_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.rulesets_responsibleuserrule_municipalities
+    ADD CONSTRAINT rulesets_responsibleuser_responsibleuserrule_id_s_ac3452ce_uniq UNIQUE (responsibleuserrule_id, service_id);
+
+
+--
+-- Name: rulesets_responsibleuserrule_application_types rulesets_responsibleuserrule_application_types_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.rulesets_responsibleuserrule_application_types
+    ADD CONSTRAINT rulesets_responsibleuserrule_application_types_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: rulesets_responsibleuserrule_municipalities rulesets_responsibleuserrule_municipalities_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.rulesets_responsibleuserrule_municipalities
+    ADD CONSTRAINT rulesets_responsibleuserrule_municipalities_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: rulesets_responsibleuserrule rulesets_responsibleuserrule_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.rulesets_responsibleuserrule
+    ADD CONSTRAINT rulesets_responsibleuserrule_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: rulesets_responsibleuserrule rulesets_responsibleuserrule_service_id_sort_cea63442_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.rulesets_responsibleuserrule
+    ADD CONSTRAINT rulesets_responsibleuserrule_service_id_sort_cea63442_uniq UNIQUE (service_id, sort);
+
+
+--
+-- Name: sanctions_sanction sanctions_sanction_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sanctions_sanction
+    ADD CONSTRAINT sanctions_sanction_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: sanctions_sanctiontemplate sanctions_sanctiontemplate_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sanctions_sanctiontemplate
+    ADD CONSTRAINT sanctions_sanctiontemplate_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: tags_keyword_instances tags_keyword_instances_keyword_id_instance_id_d334ec11_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.tags_keyword_instances
+    ADD CONSTRAINT tags_keyword_instances_keyword_id_instance_id_d334ec11_uniq UNIQUE (keyword_id, instance_id);
+
+
+--
+-- Name: tags_keyword_instances tags_keyword_instances_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.tags_keyword_instances
+    ADD CONSTRAINT tags_keyword_instances_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: tags_keyword tags_keyword_name_service_id_656b2290_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.tags_keyword
+    ADD CONSTRAINT tags_keyword_name_service_id_656b2290_uniq UNIQUE (name, service_id);
+
+
+--
+-- Name: tags_keyword tags_keyword_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.tags_keyword
+    ADD CONSTRAINT tags_keyword_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: thumbnail_kvstore thumbnail_kvstore_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.thumbnail_kvstore
+    ADD CONSTRAINT thumbnail_kvstore_pkey PRIMARY KEY (key);
+
+
+--
+-- Name: token_proxy_housingstatcreds token_proxy_housingstatcreds_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.token_proxy_housingstatcreds
+    ADD CONSTRAINT token_proxy_housingstatcreds_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: caluma_analytics_analyticsfield unique_alias; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_analytics_analyticsfield
+    ADD CONSTRAINT unique_alias UNIQUE (table_id, alias);
+
+
+--
+-- Name: document_attachmentversion unique_attachment_version; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.document_attachmentversion
+    ADD CONSTRAINT unique_attachment_version UNIQUE (attachment_id, version);
+
+
+--
+-- Name: caluma_analytics_analyticsfield unique_data_source; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_analytics_analyticsfield
+    ADD CONSTRAINT unique_data_source UNIQUE (table_id, data_source, function);
+
+
+--
+-- Name: user_servicerelation user_servicerelation_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.user_servicerelation
+    ADD CONSTRAINT user_servicerelation_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: user_servicerelation user_servicerelation_receiver_id_function_d966698c_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.user_servicerelation
+    ADD CONSTRAINT user_servicerelation_receiver_id_function_d966698c_uniq UNIQUE (receiver_id, function);
+
+
+--
+-- Name: user_usergroupinvitation user_usergroupinvitation_email_group_id_11987687_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.user_usergroupinvitation
+    ADD CONSTRAINT user_usergroupinvitation_email_group_id_11987687_uniq UNIQUE (email, group_id);
+
+
+--
+-- Name: user_usergroupinvitation user_usergroupinvitation_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.user_usergroupinvitation
+    ADD CONSTRAINT user_usergroupinvitation_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: work_items_workitemlistfilterpreset_work_item_templates work_items_workitemlistf_workitemlistfilterpreset_28fa5707_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.work_items_workitemlistfilterpreset_work_item_templates
+    ADD CONSTRAINT work_items_workitemlistf_workitemlistfilterpreset_28fa5707_uniq UNIQUE (workitemlistfilterpreset_id, workitemtemplate_id);
+
+
+--
+-- Name: work_items_workitemlistfilterpreset_tasks work_items_workitemlistf_workitemlistfilterpreset_5b225534_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.work_items_workitemlistfilterpreset_tasks
+    ADD CONSTRAINT work_items_workitemlistf_workitemlistfilterpreset_5b225534_uniq UNIQUE (workitemlistfilterpreset_id, task_id);
+
+
+--
+-- Name: work_items_workitemlistfilterpreset_service_groups work_items_workitemlistf_workitemlistfilterpreset_7d24c36b_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.work_items_workitemlistfilterpreset_service_groups
+    ADD CONSTRAINT work_items_workitemlistf_workitemlistfilterpreset_7d24c36b_uniq UNIQUE (workitemlistfilterpreset_id, servicegroup_id);
+
+
+--
+-- Name: work_items_workitemlistfilterpreset_services work_items_workitemlistf_workitemlistfilterpreset_83ee4dc6_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.work_items_workitemlistfilterpreset_services
+    ADD CONSTRAINT work_items_workitemlistf_workitemlistfilterpreset_83ee4dc6_uniq UNIQUE (workitemlistfilterpreset_id, service_id);
+
+
+--
+-- Name: work_items_workitemlistfilterpreset_tasks work_items_workitemlistfilterpreset_new_tasks_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.work_items_workitemlistfilterpreset_tasks
+    ADD CONSTRAINT work_items_workitemlistfilterpreset_new_tasks_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: work_items_workitemlistfilterpreset work_items_workitemlistfilterpreset_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.work_items_workitemlistfilterpreset
+    ADD CONSTRAINT work_items_workitemlistfilterpreset_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: work_items_workitemlistfilterpreset_service_groups work_items_workitemlistfilterpreset_service_groups_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.work_items_workitemlistfilterpreset_service_groups
+    ADD CONSTRAINT work_items_workitemlistfilterpreset_service_groups_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: work_items_workitemlistfilterpreset_services work_items_workitemlistfilterpreset_services_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.work_items_workitemlistfilterpreset_services
+    ADD CONSTRAINT work_items_workitemlistfilterpreset_services_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: work_items_workitemlistfilterpreset_work_item_templates work_items_workitemlistfilterpreset_work_item_templates_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.work_items_workitemlistfilterpreset_work_item_templates
+    ADD CONSTRAINT work_items_workitemlistfilterpreset_work_item_templates_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: work_items_workitemtemplate_services work_items_workitemtempl_workitemtemplate_id_serv_4ae0fe17_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.work_items_workitemtemplate_services
+    ADD CONSTRAINT work_items_workitemtempl_workitemtemplate_id_serv_4ae0fe17_uniq UNIQUE (workitemtemplate_id, service_id);
+
+
+--
+-- Name: work_items_workitemtemplate_service_groups work_items_workitemtempl_workitemtemplate_id_serv_eaf6b8a6_uniq; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.work_items_workitemtemplate_service_groups
+    ADD CONSTRAINT work_items_workitemtempl_workitemtemplate_id_serv_eaf6b8a6_uniq UNIQUE (workitemtemplate_id, servicegroup_id);
+
+
+--
+-- Name: work_items_workitemtemplate work_items_workitemtemplate_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.work_items_workitemtemplate
+    ADD CONSTRAINT work_items_workitemtemplate_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: work_items_workitemtemplate_service_groups work_items_workitemtemplate_service_groups_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.work_items_workitemtemplate_service_groups
+    ADD CONSTRAINT work_items_workitemtemplate_service_groups_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: work_items_workitemtemplate_services work_items_workitemtemplate_services_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.work_items_workitemtemplate_services
+    ADD CONSTRAINT work_items_workitemtemplate_services_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: fed_user_attr_long_values; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX fed_user_attr_long_values ON keycloak.fed_user_attribute USING btree (long_value_hash, name);
+
+
+--
+-- Name: fed_user_attr_long_values_lower_case; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX fed_user_attr_long_values_lower_case ON keycloak.fed_user_attribute USING btree (long_value_hash_lower_case, name);
+
+
+--
+-- Name: idx_admin_event_time; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_admin_event_time ON keycloak.admin_event_entity USING btree (realm_id, admin_event_time);
+
+
+--
+-- Name: idx_assoc_pol_assoc_pol_id; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_assoc_pol_assoc_pol_id ON keycloak.associated_policy USING btree (associated_policy_id);
+
+
+--
+-- Name: idx_auth_config_realm; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_auth_config_realm ON keycloak.authenticator_config USING btree (realm_id);
+
+
+--
+-- Name: idx_auth_exec_flow; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_auth_exec_flow ON keycloak.authentication_execution USING btree (flow_id);
+
+
+--
+-- Name: idx_auth_exec_realm_flow; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_auth_exec_realm_flow ON keycloak.authentication_execution USING btree (realm_id, flow_id);
+
+
+--
+-- Name: idx_auth_flow_realm; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_auth_flow_realm ON keycloak.authentication_flow USING btree (realm_id);
+
+
+--
+-- Name: idx_cl_clscope; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_cl_clscope ON keycloak.client_scope_client USING btree (scope_id);
+
+
+--
+-- Name: idx_client_att_by_name_value; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_client_att_by_name_value ON keycloak.client_attributes USING btree (name, substr(value, 1, 255));
+
+
+--
+-- Name: idx_client_id; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_client_id ON keycloak.client USING btree (client_id);
+
+
+--
+-- Name: idx_client_init_acc_realm; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_client_init_acc_realm ON keycloak.client_initial_access USING btree (realm_id);
+
+
+--
+-- Name: idx_clscope_attrs; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_clscope_attrs ON keycloak.client_scope_attributes USING btree (scope_id);
+
+
+--
+-- Name: idx_clscope_cl; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_clscope_cl ON keycloak.client_scope_client USING btree (client_id);
+
+
+--
+-- Name: idx_clscope_protmap; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_clscope_protmap ON keycloak.protocol_mapper USING btree (client_scope_id);
+
+
+--
+-- Name: idx_clscope_role; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_clscope_role ON keycloak.client_scope_role_mapping USING btree (scope_id);
+
+
+--
+-- Name: idx_compo_config_compo; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_compo_config_compo ON keycloak.component_config USING btree (component_id);
+
+
+--
+-- Name: idx_component_provider_type; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_component_provider_type ON keycloak.component USING btree (provider_type);
+
+
+--
+-- Name: idx_component_realm; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_component_realm ON keycloak.component USING btree (realm_id);
+
+
+--
+-- Name: idx_composite; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_composite ON keycloak.composite_role USING btree (composite);
+
+
+--
+-- Name: idx_composite_child; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_composite_child ON keycloak.composite_role USING btree (child_role);
+
+
+--
+-- Name: idx_defcls_realm; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_defcls_realm ON keycloak.default_client_scope USING btree (realm_id);
+
+
+--
+-- Name: idx_defcls_scope; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_defcls_scope ON keycloak.default_client_scope USING btree (scope_id);
+
+
+--
+-- Name: idx_event_time; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_event_time ON keycloak.event_entity USING btree (realm_id, event_time);
+
+
+--
+-- Name: idx_fedidentity_feduser; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_fedidentity_feduser ON keycloak.federated_identity USING btree (federated_user_id);
+
+
+--
+-- Name: idx_fedidentity_user; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_fedidentity_user ON keycloak.federated_identity USING btree (user_id);
+
+
+--
+-- Name: idx_fu_attribute; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_fu_attribute ON keycloak.fed_user_attribute USING btree (user_id, realm_id, name);
+
+
+--
+-- Name: idx_fu_cnsnt_ext; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_fu_cnsnt_ext ON keycloak.fed_user_consent USING btree (user_id, client_storage_provider, external_client_id);
+
+
+--
+-- Name: idx_fu_consent; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_fu_consent ON keycloak.fed_user_consent USING btree (user_id, client_id);
+
+
+--
+-- Name: idx_fu_consent_ru; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_fu_consent_ru ON keycloak.fed_user_consent USING btree (realm_id, user_id);
+
+
+--
+-- Name: idx_fu_credential; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_fu_credential ON keycloak.fed_user_credential USING btree (user_id, type);
+
+
+--
+-- Name: idx_fu_credential_ru; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_fu_credential_ru ON keycloak.fed_user_credential USING btree (realm_id, user_id);
+
+
+--
+-- Name: idx_fu_group_membership; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_fu_group_membership ON keycloak.fed_user_group_membership USING btree (user_id, group_id);
+
+
+--
+-- Name: idx_fu_group_membership_ru; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_fu_group_membership_ru ON keycloak.fed_user_group_membership USING btree (realm_id, user_id);
+
+
+--
+-- Name: idx_fu_required_action; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_fu_required_action ON keycloak.fed_user_required_action USING btree (user_id, required_action);
+
+
+--
+-- Name: idx_fu_required_action_ru; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_fu_required_action_ru ON keycloak.fed_user_required_action USING btree (realm_id, user_id);
+
+
+--
+-- Name: idx_fu_role_mapping; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_fu_role_mapping ON keycloak.fed_user_role_mapping USING btree (user_id, role_id);
+
+
+--
+-- Name: idx_fu_role_mapping_ru; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_fu_role_mapping_ru ON keycloak.fed_user_role_mapping USING btree (realm_id, user_id);
+
+
+--
+-- Name: idx_group_att_by_name_value; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_group_att_by_name_value ON keycloak.group_attribute USING btree (name, ((value)::character varying(250)));
+
+
+--
+-- Name: idx_group_attr_group; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_group_attr_group ON keycloak.group_attribute USING btree (group_id);
+
+
+--
+-- Name: idx_group_role_mapp_group; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_group_role_mapp_group ON keycloak.group_role_mapping USING btree (group_id);
+
+
+--
+-- Name: idx_id_prov_mapp_realm; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_id_prov_mapp_realm ON keycloak.identity_provider_mapper USING btree (realm_id);
+
+
+--
+-- Name: idx_ident_prov_realm; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_ident_prov_realm ON keycloak.identity_provider USING btree (realm_id);
+
+
+--
+-- Name: idx_idp_for_login; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_idp_for_login ON keycloak.identity_provider USING btree (realm_id, enabled, link_only, hide_on_login, organization_id);
+
+
+--
+-- Name: idx_idp_realm_org; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_idp_realm_org ON keycloak.identity_provider USING btree (realm_id, organization_id);
+
+
+--
+-- Name: idx_keycloak_role_client; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_keycloak_role_client ON keycloak.keycloak_role USING btree (client);
+
+
+--
+-- Name: idx_keycloak_role_realm; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_keycloak_role_realm ON keycloak.keycloak_role USING btree (realm);
+
+
+--
+-- Name: idx_offline_uss_by_broker_session_id; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_offline_uss_by_broker_session_id ON keycloak.offline_user_session USING btree (broker_session_id, realm_id);
+
+
+--
+-- Name: idx_offline_uss_by_last_session_refresh; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_offline_uss_by_last_session_refresh ON keycloak.offline_user_session USING btree (realm_id, offline_flag, last_session_refresh);
+
+
+--
+-- Name: idx_offline_uss_by_user; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_offline_uss_by_user ON keycloak.offline_user_session USING btree (user_id, realm_id, offline_flag);
+
+
+--
+-- Name: idx_org_domain_org_id; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_org_domain_org_id ON keycloak.org_domain USING btree (org_id);
+
+
+--
+-- Name: idx_perm_ticket_owner; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_perm_ticket_owner ON keycloak.resource_server_perm_ticket USING btree (owner);
+
+
+--
+-- Name: idx_perm_ticket_requester; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_perm_ticket_requester ON keycloak.resource_server_perm_ticket USING btree (requester);
+
+
+--
+-- Name: idx_protocol_mapper_client; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_protocol_mapper_client ON keycloak.protocol_mapper USING btree (client_id);
+
+
+--
+-- Name: idx_realm_attr_realm; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_realm_attr_realm ON keycloak.realm_attribute USING btree (realm_id);
+
+
+--
+-- Name: idx_realm_clscope; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_realm_clscope ON keycloak.client_scope USING btree (realm_id);
+
+
+--
+-- Name: idx_realm_def_grp_realm; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_realm_def_grp_realm ON keycloak.realm_default_groups USING btree (realm_id);
+
+
+--
+-- Name: idx_realm_evt_list_realm; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_realm_evt_list_realm ON keycloak.realm_events_listeners USING btree (realm_id);
+
+
+--
+-- Name: idx_realm_evt_types_realm; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_realm_evt_types_realm ON keycloak.realm_enabled_event_types USING btree (realm_id);
+
+
+--
+-- Name: idx_realm_master_adm_cli; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_realm_master_adm_cli ON keycloak.realm USING btree (master_admin_client);
+
+
+--
+-- Name: idx_realm_supp_local_realm; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_realm_supp_local_realm ON keycloak.realm_supported_locales USING btree (realm_id);
+
+
+--
+-- Name: idx_redir_uri_client; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_redir_uri_client ON keycloak.redirect_uris USING btree (client_id);
+
+
+--
+-- Name: idx_req_act_prov_realm; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_req_act_prov_realm ON keycloak.required_action_provider USING btree (realm_id);
+
+
+--
+-- Name: idx_res_policy_policy; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_res_policy_policy ON keycloak.resource_policy USING btree (policy_id);
+
+
+--
+-- Name: idx_res_scope_scope; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_res_scope_scope ON keycloak.resource_scope USING btree (scope_id);
+
+
+--
+-- Name: idx_res_serv_pol_res_serv; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_res_serv_pol_res_serv ON keycloak.resource_server_policy USING btree (resource_server_id);
+
+
+--
+-- Name: idx_res_srv_res_res_srv; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_res_srv_res_res_srv ON keycloak.resource_server_resource USING btree (resource_server_id);
+
+
+--
+-- Name: idx_res_srv_scope_res_srv; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_res_srv_scope_res_srv ON keycloak.resource_server_scope USING btree (resource_server_id);
+
+
+--
+-- Name: idx_rev_token_on_expire; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_rev_token_on_expire ON keycloak.revoked_token USING btree (expire);
+
+
+--
+-- Name: idx_role_attribute; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_role_attribute ON keycloak.role_attribute USING btree (role_id);
+
+
+--
+-- Name: idx_role_clscope; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_role_clscope ON keycloak.client_scope_role_mapping USING btree (role_id);
+
+
+--
+-- Name: idx_scope_mapping_role; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_scope_mapping_role ON keycloak.scope_mapping USING btree (role_id);
+
+
+--
+-- Name: idx_scope_policy_policy; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_scope_policy_policy ON keycloak.scope_policy USING btree (policy_id);
+
+
+--
+-- Name: idx_update_time; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_update_time ON keycloak.migration_model USING btree (update_time);
+
+
+--
+-- Name: idx_usconsent_clscope; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_usconsent_clscope ON keycloak.user_consent_client_scope USING btree (user_consent_id);
+
+
+--
+-- Name: idx_usconsent_scope_id; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_usconsent_scope_id ON keycloak.user_consent_client_scope USING btree (scope_id);
+
+
+--
+-- Name: idx_user_attribute; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_user_attribute ON keycloak.user_attribute USING btree (user_id);
+
+
+--
+-- Name: idx_user_attribute_name; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_user_attribute_name ON keycloak.user_attribute USING btree (name, value);
+
+
+--
+-- Name: idx_user_consent; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_user_consent ON keycloak.user_consent USING btree (user_id);
+
+
+--
+-- Name: idx_user_credential; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_user_credential ON keycloak.credential USING btree (user_id);
+
+
+--
+-- Name: idx_user_email; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_user_email ON keycloak.user_entity USING btree (email);
+
+
+--
+-- Name: idx_user_group_mapping; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_user_group_mapping ON keycloak.user_group_membership USING btree (user_id);
+
+
+--
+-- Name: idx_user_reqactions; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_user_reqactions ON keycloak.user_required_action USING btree (user_id);
+
+
+--
+-- Name: idx_user_role_mapping; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_user_role_mapping ON keycloak.user_role_mapping USING btree (user_id);
+
+
+--
+-- Name: idx_user_service_account; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_user_service_account ON keycloak.user_entity USING btree (realm_id, service_account_client_link);
+
+
+--
+-- Name: idx_usr_fed_map_fed_prv; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_usr_fed_map_fed_prv ON keycloak.user_federation_mapper USING btree (federation_provider_id);
+
+
+--
+-- Name: idx_usr_fed_map_realm; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_usr_fed_map_realm ON keycloak.user_federation_mapper USING btree (realm_id);
+
+
+--
+-- Name: idx_usr_fed_prv_realm; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_usr_fed_prv_realm ON keycloak.user_federation_provider USING btree (realm_id);
+
+
+--
+-- Name: idx_web_orig_client; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX idx_web_orig_client ON keycloak.web_origins USING btree (client_id);
+
+
+--
+-- Name: user_attr_long_values; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX user_attr_long_values ON keycloak.user_attribute USING btree (long_value_hash, name);
+
+
+--
+-- Name: user_attr_long_values_lower_case; Type: INDEX; Schema: keycloak; Owner: -
+--
+
+CREATE INDEX user_attr_long_values_lower_case ON keycloak.user_attribute USING btree (long_value_hash_lower_case, name);
+
+
+--
+-- Name: ACTION_AVAILABLE_ACTION_ID_39adefcf; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ACTION_AVAILABLE_ACTION_ID_39adefcf" ON public."ACTION" USING btree ("AVAILABLE_ACTION_ID");
+
+
+--
+-- Name: ACTION_AVAILABLE_ACTION_ID_39adefcf_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ACTION_AVAILABLE_ACTION_ID_39adefcf_like" ON public."ACTION" USING btree ("AVAILABLE_ACTION_ID" varchar_pattern_ops);
+
+
+--
+-- Name: ACTION_BUTTON_ID_b139075c; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ACTION_BUTTON_ID_b139075c" ON public."ACTION" USING btree ("BUTTON_ID");
+
+
+--
+-- Name: ACTION_NOTIFICATION_TEMPLATE_ID_5f87c89d; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ACTION_NOTIFICATION_TEMPLATE_ID_5f87c89d" ON public."ACTION_NOTIFICATION" USING btree ("TEMPLATE_ID");
+
+
+--
+-- Name: ACTION_NOTIFICATION_TEMPLATE_ID_5f87c89d_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ACTION_NOTIFICATION_TEMPLATE_ID_5f87c89d_like" ON public."ACTION_NOTIFICATION" USING btree ("TEMPLATE_ID" varchar_pattern_ops);
+
+
+--
+-- Name: ACTION_T_ACTION_ID_19fb895c; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ACTION_T_ACTION_ID_19fb895c" ON public."ACTION_T" USING btree ("ACTION_ID");
+
+
+--
+-- Name: ACTIVATION_ACTIVATION_PARENT_ID_143619eb; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ACTIVATION_ACTIVATION_PARENT_ID_143619eb" ON public."ACTIVATION" USING btree ("ACTIVATION_PARENT_ID");
+
+
+--
+-- Name: ACTIVATION_ANSWER_ACTIVATION_ID_04ec1b84; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ACTIVATION_ANSWER_ACTIVATION_ID_04ec1b84" ON public."ACTIVATION_ANSWER" USING btree ("ACTIVATION_ID");
+
+
+--
+-- Name: ACTIVATION_ANSWER_CHAPTER_ID_5c3ea20e; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ACTIVATION_ANSWER_CHAPTER_ID_5c3ea20e" ON public."ACTIVATION_ANSWER" USING btree ("CHAPTER_ID");
+
+
+--
+-- Name: ACTIVATION_ANSWER_QUESTION_ID_5bf3afe3; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ACTIVATION_ANSWER_QUESTION_ID_5bf3afe3" ON public."ACTIVATION_ANSWER" USING btree ("QUESTION_ID");
+
+
+--
+-- Name: ACTIVATION_CALLBACK_NOTICE_ACTIVATION_ID_b1022152; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ACTIVATION_CALLBACK_NOTICE_ACTIVATION_ID_b1022152" ON public."ACTIVATION_CALLBACK_NOTICE" USING btree ("ACTIVATION_ID");
+
+
+--
+-- Name: ACTIVATION_CALLBACK_NOTICE_CIRCULATION_ID_88afc5fb; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ACTIVATION_CALLBACK_NOTICE_CIRCULATION_ID_88afc5fb" ON public."ACTIVATION_CALLBACK_NOTICE" USING btree ("CIRCULATION_ID");
+
+
+--
+-- Name: ACTIVATION_CIRCULATION_ANSWER_ID_ff3e2678; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ACTIVATION_CIRCULATION_ANSWER_ID_ff3e2678" ON public."ACTIVATION" USING btree ("CIRCULATION_ANSWER_ID");
+
+
+--
+-- Name: ACTIVATION_CIRCULATION_ID_afb3fa0c; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ACTIVATION_CIRCULATION_ID_afb3fa0c" ON public."ACTIVATION" USING btree ("CIRCULATION_ID");
+
+
+--
+-- Name: ACTIVATION_CIRCULATION_STATE_ID_0fd7b793; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ACTIVATION_CIRCULATION_STATE_ID_0fd7b793" ON public."ACTIVATION" USING btree ("CIRCULATION_STATE_ID");
+
+
+--
+-- Name: ACTIVATION_SERVICE_ID_32b4a09f; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ACTIVATION_SERVICE_ID_32b4a09f" ON public."ACTIVATION" USING btree ("SERVICE_ID");
+
+
+--
+-- Name: ACTIVATION_SERVICE_PARENT_ID_39a33257; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ACTIVATION_SERVICE_PARENT_ID_39a33257" ON public."ACTIVATION" USING btree ("SERVICE_PARENT_ID");
+
+
+--
+-- Name: ACTIVATION_USER_ID_24434bc6; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ACTIVATION_USER_ID_24434bc6" ON public."ACTIVATION" USING btree ("USER_ID");
+
+
+--
+-- Name: AIR_ACTION_AVAILABLE_INSTANCE_RESOURCE_ID_ee788ad1; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "AIR_ACTION_AVAILABLE_INSTANCE_RESOURCE_ID_ee788ad1" ON public."AIR_ACTION" USING btree ("AVAILABLE_INSTANCE_RESOURCE_ID");
+
+
+--
+-- Name: AIR_ACTION_AVAILABLE_INSTANCE_RESOURCE_ID_ee788ad1_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "AIR_ACTION_AVAILABLE_INSTANCE_RESOURCE_ID_ee788ad1_like" ON public."AIR_ACTION" USING btree ("AVAILABLE_INSTANCE_RESOURCE_ID" varchar_pattern_ops);
+
+
+--
+-- Name: ANSWER_CHAPTER_ID_11bf419d; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ANSWER_CHAPTER_ID_11bf419d" ON public."ANSWER" USING btree ("CHAPTER_ID");
+
+
+--
+-- Name: ANSWER_INSTANCE_ID_10c54e47; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ANSWER_INSTANCE_ID_10c54e47" ON public."ANSWER" USING btree ("INSTANCE_ID");
+
+
+--
+-- Name: ANSWER_LIST_QUESTION_ID_ed8dc583; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ANSWER_LIST_QUESTION_ID_ed8dc583" ON public."ANSWER_LIST" USING btree ("QUESTION_ID");
+
+
+--
+-- Name: ANSWER_LIST_T_ANSWER_LIST_ID_cd377f13; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ANSWER_LIST_T_ANSWER_LIST_ID_cd377f13" ON public."ANSWER_LIST_T" USING btree ("ANSWER_LIST_ID");
+
+
+--
+-- Name: ANSWER_QUESTION_ID_1afad1f5; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ANSWER_QUESTION_ID_1afad1f5" ON public."ANSWER" USING btree ("QUESTION_ID");
+
+
+--
+-- Name: APPLICANTS_APPLICANT_USER_ID_a5772f80; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "APPLICANTS_APPLICANT_USER_ID_a5772f80" ON public."APPLICANTS" USING btree ("APPLICANT_USER_ID");
+
+
+--
+-- Name: APPLICANTS_INSTANCE_ID_4f55ca8d; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "APPLICANTS_INSTANCE_ID_4f55ca8d" ON public."APPLICANTS" USING btree ("INSTANCE_ID");
+
+
+--
+-- Name: APPLICANTS_USER_ID_55df0615; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "APPLICANTS_USER_ID_55df0615" ON public."APPLICANTS" USING btree ("USER_ID");
+
+
+--
+-- Name: ARCHIVE_ATTACHMENT_SECTION_ID_5441e038; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ARCHIVE_ATTACHMENT_SECTION_ID_5441e038" ON public."ARCHIVE" USING btree ("ATTACHMENT_SECTION_ID");
+
+
+--
+-- Name: ARCHIVE_IDENTIFIER_769c5960_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ARCHIVE_IDENTIFIER_769c5960_like" ON public."ARCHIVE" USING btree ("IDENTIFIER" text_pattern_ops);
+
+
+--
+-- Name: ARCHIVE_INSTANCE_ID_1214093c; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ARCHIVE_INSTANCE_ID_1214093c" ON public."ARCHIVE" USING btree ("INSTANCE_ID");
+
+
+--
+-- Name: ARCHIVE_PATH_a8f3a57f_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ARCHIVE_PATH_a8f3a57f_like" ON public."ARCHIVE" USING btree ("PATH" text_pattern_ops);
+
+
+--
+-- Name: ARCHIVE_WORKFLOW_ITEM_ID_3f593cf9; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ARCHIVE_WORKFLOW_ITEM_ID_3f593cf9" ON public."ARCHIVE" USING btree ("WORKFLOW_ITEM_ID");
+
+
+--
+-- Name: AR_ACTION_AVAILABLE_RESOURCE_ID_b9ce034f; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "AR_ACTION_AVAILABLE_RESOURCE_ID_b9ce034f" ON public."AR_ACTION" USING btree ("AVAILABLE_RESOURCE_ID");
+
+
+--
+-- Name: AR_ACTION_AVAILABLE_RESOURCE_ID_b9ce034f_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "AR_ACTION_AVAILABLE_RESOURCE_ID_b9ce034f_like" ON public."AR_ACTION" USING btree ("AVAILABLE_RESOURCE_ID" varchar_pattern_ops);
+
+
+--
+-- Name: ATTACHMENT_EXTENSION_ROLE_ATTACHMENT_EXTENSION_ID_7a41df3f; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ATTACHMENT_EXTENSION_ROLE_ATTACHMENT_EXTENSION_ID_7a41df3f" ON public."ATTACHMENT_EXTENSION_ROLE" USING btree ("ATTACHMENT_EXTENSION_ID");
+
+
+--
+-- Name: ATTACHMENT_EXTENSION_ROLE_ROLE_ID_4a2dfcae; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ATTACHMENT_EXTENSION_ROLE_ROLE_ID_4a2dfcae" ON public."ATTACHMENT_EXTENSION_ROLE" USING btree ("ROLE_ID");
+
+
+--
+-- Name: ATTACHMENT_EXTENSION_SERVICE_ATTACHMENT_EXTENSION_ID_97d5cea9; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ATTACHMENT_EXTENSION_SERVICE_ATTACHMENT_EXTENSION_ID_97d5cea9" ON public."ATTACHMENT_EXTENSION_SERVICE" USING btree ("ATTACHMENT_EXTENSION_ID");
+
+
+--
+-- Name: ATTACHMENT_EXTENSION_SERVICE_SERVICE_ID_f5fa0f1f; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ATTACHMENT_EXTENSION_SERVICE_SERVICE_ID_f5fa0f1f" ON public."ATTACHMENT_EXTENSION_SERVICE" USING btree ("SERVICE_ID");
+
+
+--
+-- Name: ATTACHMENT_INSTANCE_ID_afeb8431; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ATTACHMENT_INSTANCE_ID_afeb8431" ON public."ATTACHMENT" USING btree ("INSTANCE_ID");
+
+
+--
+-- Name: ATTACHMENT_SECTION_NOTIFICATION_TEMPLATE_ID_2314d6cf; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ATTACHMENT_SECTION_NOTIFICATION_TEMPLATE_ID_2314d6cf" ON public."ATTACHMENT_SECTION" USING btree ("NOTIFICATION_TEMPLATE_ID");
+
+
+--
+-- Name: ATTACHMENT_SECTION_SORT_10c251b1; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ATTACHMENT_SECTION_SORT_10c251b1" ON public."ATTACHMENT_SECTION" USING btree ("SORT");
+
+
+--
+-- Name: ATTACHMENT_SECTION_T_ATTACHMENT_SECTION_ID_9ce855c5; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ATTACHMENT_SECTION_T_ATTACHMENT_SECTION_ID_9ce855c5" ON public."ATTACHMENT_SECTION_T" USING btree ("ATTACHMENT_SECTION_ID");
+
+
+--
+-- Name: ATTACHMENT_SERVICE_ID_b133c8e9; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ATTACHMENT_SERVICE_ID_b133c8e9" ON public."ATTACHMENT" USING btree ("SERVICE_ID");
+
+
+--
+-- Name: ATTACHMENT_USER_ID_207f71a7; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ATTACHMENT_USER_ID_207f71a7" ON public."ATTACHMENT" USING btree ("USER_ID");
+
+
+--
+-- Name: ATTACHMENT_attachment_sections_attachment_id_4d835076; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ATTACHMENT_attachment_sections_attachment_id_4d835076" ON public."ATTACHMENT_attachment_sections" USING btree (attachment_id);
+
+
+--
+-- Name: ATTACHMENT_attachment_sections_attachmentsection_id_67bab506; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ATTACHMENT_attachment_sections_attachmentsection_id_67bab506" ON public."ATTACHMENT_attachment_sections" USING btree (attachmentsection_id);
+
+
+--
+-- Name: ATTACHMENT_group_id_8d4a8ce0; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ATTACHMENT_group_id_8d4a8ce0" ON public."ATTACHMENT" USING btree (group_id);
+
+
+--
+-- Name: AUDIT_LOG_INSTANCE_ID_22db41ef; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "AUDIT_LOG_INSTANCE_ID_22db41ef" ON public."AUDIT_LOG" USING btree ("INSTANCE_ID");
+
+
+--
+-- Name: AUDIT_LOG_USER_ID_e1056549; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "AUDIT_LOG_USER_ID_e1056549" ON public."AUDIT_LOG" USING btree ("USER_ID");
+
+
+--
+-- Name: AUTHORITY_AUTHORITY_TYPE_AUTHORITY_ID_f5ac34a6; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "AUTHORITY_AUTHORITY_TYPE_AUTHORITY_ID_f5ac34a6" ON public."AUTHORITY_AUTHORITY_TYPE" USING btree ("AUTHORITY_ID");
+
+
+--
+-- Name: AUTHORITY_AUTHORITY_TYPE_AUTHORITY_TYPE_ID_1edd1707; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "AUTHORITY_AUTHORITY_TYPE_AUTHORITY_TYPE_ID_1edd1707" ON public."AUTHORITY_AUTHORITY_TYPE" USING btree ("AUTHORITY_TYPE_ID");
+
+
+--
+-- Name: AUTHORITY_LOCATION_AUTHORITY_ID_3f6a3c39; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "AUTHORITY_LOCATION_AUTHORITY_ID_3f6a3c39" ON public."AUTHORITY_LOCATION" USING btree ("AUTHORITY_ID");
+
+
+--
+-- Name: AUTHORITY_LOCATION_LOCATION_ID_9d39c2fe; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "AUTHORITY_LOCATION_LOCATION_ID_9d39c2fe" ON public."AUTHORITY_LOCATION" USING btree ("LOCATION_ID");
+
+
+--
+-- Name: AVAILABLE_ACTION_AVAILABLE_ACTION_ID_7f941623_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "AVAILABLE_ACTION_AVAILABLE_ACTION_ID_7f941623_like" ON public."AVAILABLE_ACTION" USING btree ("AVAILABLE_ACTION_ID" varchar_pattern_ops);
+
+
+--
+-- Name: AVAILABLE_INSTANCE_RESOU_AVAILABLE_INSTANCE_RESOU_70c948d9_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "AVAILABLE_INSTANCE_RESOU_AVAILABLE_INSTANCE_RESOU_70c948d9_like" ON public."AVAILABLE_INSTANCE_RESOURCE" USING btree ("AVAILABLE_INSTANCE_RESOURCE_ID" varchar_pattern_ops);
+
+
+--
+-- Name: AVAILABLE_RESOURCE_AVAILABLE_RESOURCE_ID_f8c3ea31_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "AVAILABLE_RESOURCE_AVAILABLE_RESOURCE_ID_f8c3ea31_like" ON public."AVAILABLE_RESOURCE" USING btree ("AVAILABLE_RESOURCE_ID" varchar_pattern_ops);
+
+
+--
+-- Name: A_CIRCULATIONTRANSITION_CURRENT_CIRCULATION_STATE_ID_5496275b; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "A_CIRCULATIONTRANSITION_CURRENT_CIRCULATION_STATE_ID_5496275b" ON public."A_CIRCULATIONTRANSITION" USING btree ("CURRENT_CIRCULATION_STATE_ID");
+
+
+--
+-- Name: A_CIRCULATIONTRANSITION_NEXT_CIRCULATION_STATE_ID_424006be; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "A_CIRCULATIONTRANSITION_NEXT_CIRCULATION_STATE_ID_424006be" ON public."A_CIRCULATIONTRANSITION" USING btree ("NEXT_CIRCULATION_STATE_ID");
+
+
+--
+-- Name: A_CIRCULATION_EMAIL_T_ACTION_ID_07740ef4; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "A_CIRCULATION_EMAIL_T_ACTION_ID_07740ef4" ON public."A_CIRCULATION_EMAIL_T" USING btree ("ACTION_ID");
+
+
+--
+-- Name: A_COPYANSWER_MAPPING_ACTION_ID_eab4b5d1; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "A_COPYANSWER_MAPPING_ACTION_ID_eab4b5d1" ON public."A_COPYANSWER_MAPPING" USING btree ("ACTION_ID");
+
+
+--
+-- Name: A_COPYANSWER_MAPPING_DESTINATION_CHAPTER_ID_3b588a0e; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "A_COPYANSWER_MAPPING_DESTINATION_CHAPTER_ID_3b588a0e" ON public."A_COPYANSWER_MAPPING" USING btree ("DESTINATION_CHAPTER_ID");
+
+
+--
+-- Name: A_COPYANSWER_MAPPING_DESTINATION_QUESTION_ID_7cc826c3; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "A_COPYANSWER_MAPPING_DESTINATION_QUESTION_ID_7cc826c3" ON public."A_COPYANSWER_MAPPING" USING btree ("DESTINATION_QUESTION_ID");
+
+
+--
+-- Name: A_COPYANSWER_MAPPING_SOURCE_CHAPTER_ID_9cc2c731; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "A_COPYANSWER_MAPPING_SOURCE_CHAPTER_ID_9cc2c731" ON public."A_COPYANSWER_MAPPING" USING btree ("SOURCE_CHAPTER_ID");
+
+
+--
+-- Name: A_COPYANSWER_MAPPING_SOURCE_QUESTION_ID_1152cac7; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "A_COPYANSWER_MAPPING_SOURCE_QUESTION_ID_1152cac7" ON public."A_COPYANSWER_MAPPING" USING btree ("SOURCE_QUESTION_ID");
+
+
+--
+-- Name: A_COPYDATA_MAPPING_ACTION_ID_0845d4b1; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "A_COPYDATA_MAPPING_ACTION_ID_0845d4b1" ON public."A_COPYDATA_MAPPING" USING btree ("ACTION_ID");
+
+
+--
+-- Name: A_COPYDATA_MAPPING_CHAPTER_ID_4698238d; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "A_COPYDATA_MAPPING_CHAPTER_ID_4698238d" ON public."A_COPYDATA_MAPPING" USING btree ("CHAPTER_ID");
+
+
+--
+-- Name: A_COPYDATA_MAPPING_QUESTION_ID_d9d8efd9; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "A_COPYDATA_MAPPING_QUESTION_ID_d9d8efd9" ON public."A_COPYDATA_MAPPING" USING btree ("QUESTION_ID");
+
+
+--
+-- Name: A_EMAIL_T_ACTION_ID_db84d68c; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "A_EMAIL_T_ACTION_ID_db84d68c" ON public."A_EMAIL_T" USING btree ("ACTION_ID");
+
+
+--
+-- Name: A_FORMTRANSITION_CURRENT_INSTANCE_STATE_ID_262b1ddd; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "A_FORMTRANSITION_CURRENT_INSTANCE_STATE_ID_262b1ddd" ON public."A_FORMTRANSITION" USING btree ("CURRENT_INSTANCE_STATE_ID");
+
+
+--
+-- Name: A_FORMTRANSITION_NEXT_INSTANCE_STATE_ID_545de601; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "A_FORMTRANSITION_NEXT_INSTANCE_STATE_ID_545de601" ON public."A_FORMTRANSITION" USING btree ("NEXT_INSTANCE_STATE_ID");
+
+
+--
+-- Name: A_LOCATION_QC_ACTION_ID_58d22200; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "A_LOCATION_QC_ACTION_ID_58d22200" ON public."A_LOCATION_QC" USING btree ("ACTION_ID");
+
+
+--
+-- Name: A_LOCATION_QC_CHAPTER_ID_7f0816e9; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "A_LOCATION_QC_CHAPTER_ID_7f0816e9" ON public."A_LOCATION_QC" USING btree ("CHAPTER_ID");
+
+
+--
+-- Name: A_LOCATION_QC_QUESTION_ID_f295a170; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "A_LOCATION_QC_QUESTION_ID_f295a170" ON public."A_LOCATION_QC" USING btree ("QUESTION_ID");
+
+
+--
+-- Name: A_NOTICE_NOTICE_TYPE_ID_c9514638; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "A_NOTICE_NOTICE_TYPE_ID_c9514638" ON public."A_NOTICE" USING btree ("NOTICE_TYPE_ID");
+
+
+--
+-- Name: A_PAGEREDIRECT_INSTANCE_RESOURCE_ID_a0ef2f4b; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "A_PAGEREDIRECT_INSTANCE_RESOURCE_ID_a0ef2f4b" ON public."A_PAGEREDIRECT" USING btree ("INSTANCE_RESOURCE_ID");
+
+
+--
+-- Name: A_PAGEREDIRECT_RESOURCE_ID_78016313; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "A_PAGEREDIRECT_RESOURCE_ID_78016313" ON public."A_PAGEREDIRECT" USING btree ("RESOURCE_ID");
+
+
+--
+-- Name: A_PROPOSAL_CIRCULATION_STATE_ID_d328950f; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "A_PROPOSAL_CIRCULATION_STATE_ID_d328950f" ON public."A_PROPOSAL" USING btree ("CIRCULATION_STATE_ID");
+
+
+--
+-- Name: A_PROPOSAL_CIRCULATION_TYPE_ID_dd28f411; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "A_PROPOSAL_CIRCULATION_TYPE_ID_dd28f411" ON public."A_PROPOSAL" USING btree ("CIRCULATION_TYPE_ID");
+
+
+--
+-- Name: A_PROPOSAL_T_ACTION_ID_c7f0decb; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "A_PROPOSAL_T_ACTION_ID_c7f0decb" ON public."A_PROPOSAL_T" USING btree ("ACTION_ID");
+
+
+--
+-- Name: A_SAVEPDF_FORM_ID_f7d34222; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "A_SAVEPDF_FORM_ID_f7d34222" ON public."A_SAVEPDF" USING btree ("FORM_ID");
+
+
+--
+-- Name: A_SAVEPDF_PAGE_FORM_GROUP_ID_d78123b2; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "A_SAVEPDF_PAGE_FORM_GROUP_ID_d78123b2" ON public."A_SAVEPDF" USING btree ("PAGE_FORM_GROUP_ID");
+
+
+--
+-- Name: A_VALIDATE_PAGE_FORM_GROUP_ID_d1ca6cca; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "A_VALIDATE_PAGE_FORM_GROUP_ID_d1ca6cca" ON public."A_VALIDATE" USING btree ("PAGE_FORM_GROUP_ID");
+
+
+--
+-- Name: BAB_USAGE_INSTANCE_ID_cfafd8b4; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "BAB_USAGE_INSTANCE_ID_cfafd8b4" ON public."BAB_USAGE" USING btree ("INSTANCE_ID");
+
+
+--
+-- Name: BILLING_ACCOUNT_SERVICE_GROUP_ID_39ee2ac7; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "BILLING_ACCOUNT_SERVICE_GROUP_ID_39ee2ac7" ON public."BILLING_ACCOUNT" USING btree ("SERVICE_GROUP_ID");
+
+
+--
+-- Name: BILLING_ACCOUNT_STATE_BILLING_ACCOUNT_ID_ea4fae48; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "BILLING_ACCOUNT_STATE_BILLING_ACCOUNT_ID_ea4fae48" ON public."BILLING_ACCOUNT_STATE" USING btree ("BILLING_ACCOUNT_ID");
+
+
+--
+-- Name: BILLING_ACCOUNT_STATE_INSTANCE_STATE_ID_e05017cc; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "BILLING_ACCOUNT_STATE_INSTANCE_STATE_ID_e05017cc" ON public."BILLING_ACCOUNT_STATE" USING btree ("INSTANCE_STATE_ID");
+
+
+--
+-- Name: BILLING_ENTRY_BILLING_ACCOUNT_ID_2a98ce51; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "BILLING_ENTRY_BILLING_ACCOUNT_ID_2a98ce51" ON public."BILLING_ENTRY" USING btree ("BILLING_ACCOUNT_ID");
+
+
+--
+-- Name: BILLING_ENTRY_INSTANCE_ID_b5a0222a; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "BILLING_ENTRY_INSTANCE_ID_b5a0222a" ON public."BILLING_ENTRY" USING btree ("INSTANCE_ID");
+
+
+--
+-- Name: BILLING_ENTRY_INVOICE_ID_511a100e; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "BILLING_ENTRY_INVOICE_ID_511a100e" ON public."BILLING_ENTRY" USING btree ("INVOICE_ID");
+
+
+--
+-- Name: BILLING_ENTRY_SERVICE_ID_c8bf3d7c; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "BILLING_ENTRY_SERVICE_ID_c8bf3d7c" ON public."BILLING_ENTRY" USING btree ("SERVICE_ID");
+
+
+--
+-- Name: BILLING_ENTRY_USER_ID_cd91848e; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "BILLING_ENTRY_USER_ID_cd91848e" ON public."BILLING_ENTRY" USING btree ("USER_ID");
+
+
+--
+-- Name: BILLING_INVOICE_ATTACHMENT_ID_c097dfc5; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "BILLING_INVOICE_ATTACHMENT_ID_c097dfc5" ON public."BILLING_INVOICE" USING btree ("ATTACHMENT_ID");
+
+
+--
+-- Name: BILLING_V2_ENTRY_INSTANCE_ID_e2cc3746; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "BILLING_V2_ENTRY_INSTANCE_ID_e2cc3746" ON public.billing_billingv2entry USING btree (instance_id);
+
+
+--
+-- Name: BILLING_V2_ENTRY_group_id_b586ddad; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "BILLING_V2_ENTRY_group_id_b586ddad" ON public.billing_billingv2entry USING btree (group_id);
+
+
+--
+-- Name: BILLING_V2_ENTRY_user_id_0f1b3183; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "BILLING_V2_ENTRY_user_id_0f1b3183" ON public.billing_billingv2entry USING btree (user_id);
+
+
+--
+-- Name: BUILDING_AUTHORITY_BUTTONSTATE_INSTANCE_ID_cd771e8f; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "BUILDING_AUTHORITY_BUTTONSTATE_INSTANCE_ID_cd771e8f" ON public."BUILDING_AUTHORITY_BUTTONSTATE" USING btree ("INSTANCE_ID");
+
+
+--
+-- Name: BUILDING_AUTHORITY_BUTTONS_BUILDING_AUTHORITY_BUTTON__9f954dc3; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "BUILDING_AUTHORITY_BUTTONS_BUILDING_AUTHORITY_BUTTON__9f954dc3" ON public."BUILDING_AUTHORITY_BUTTONSTATE" USING btree ("BUILDING_AUTHORITY_BUTTON_ID");
+
+
+--
+-- Name: BUILDING_AUTHORITY_COMMENT_BUILDING_AUTHORITY_SECTION_946bc1a9; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "BUILDING_AUTHORITY_COMMENT_BUILDING_AUTHORITY_SECTION_946bc1a9" ON public."BUILDING_AUTHORITY_COMMENT" USING btree ("BUILDING_AUTHORITY_SECTION_ID");
+
+
+--
+-- Name: BUILDING_AUTHORITY_COMMENT_INSTANCE_ID_551ceb32; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "BUILDING_AUTHORITY_COMMENT_INSTANCE_ID_551ceb32" ON public."BUILDING_AUTHORITY_COMMENT" USING btree ("INSTANCE_ID");
+
+
+--
+-- Name: BUILDING_AUTHORITY_DOC_BUILDING_AUTHORITY_BUTTON_ID_12f6c45b; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "BUILDING_AUTHORITY_DOC_BUILDING_AUTHORITY_BUTTON_ID_12f6c45b" ON public."BUILDING_AUTHORITY_DOC" USING btree ("BUILDING_AUTHORITY_BUTTON_ID");
+
+
+--
+-- Name: BUILDING_AUTHORITY_DOC_TEMPLATE_CLASS_ID_7cb43e69; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "BUILDING_AUTHORITY_DOC_TEMPLATE_CLASS_ID_7cb43e69" ON public."BUILDING_AUTHORITY_DOC" USING btree ("TEMPLATE_CLASS_ID");
+
+
+--
+-- Name: BUILDING_AUTHORITY_DOC_TEMPLATE_ID_3632bdbd; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "BUILDING_AUTHORITY_DOC_TEMPLATE_ID_3632bdbd" ON public."BUILDING_AUTHORITY_DOC" USING btree ("TEMPLATE_ID");
+
+
+--
+-- Name: BUILDING_AUTHORITY_EMAIL_ATTACHMENT_SECTION_ID_ce28aab4; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "BUILDING_AUTHORITY_EMAIL_ATTACHMENT_SECTION_ID_ce28aab4" ON public."BUILDING_AUTHORITY_EMAIL" USING btree ("ATTACHMENT_SECTION_ID");
+
+
+--
+-- Name: BUILDING_AUTHORITY_EMAIL_BUILDING_AUTHORITY_BUTTON_ID_6caaf8f2; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "BUILDING_AUTHORITY_EMAIL_BUILDING_AUTHORITY_BUTTON_ID_6caaf8f2" ON public."BUILDING_AUTHORITY_EMAIL" USING btree ("BUILDING_AUTHORITY_BUTTON_ID");
+
+
+--
+-- Name: BUILDING_AUTHORITY_EMAIL_WORKFLOW_ITEM_ID_e0a2ae4a; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "BUILDING_AUTHORITY_EMAIL_WORKFLOW_ITEM_ID_e0a2ae4a" ON public."BUILDING_AUTHORITY_EMAIL" USING btree ("WORKFLOW_ITEM_ID");
+
+
+--
+-- Name: BUILDING_AUTHORITY_ITEM_DIS_INSTANCE_ID_2a12086e; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "BUILDING_AUTHORITY_ITEM_DIS_INSTANCE_ID_2a12086e" ON public."BUILDING_AUTHORITY_ITEM_DIS" USING btree ("INSTANCE_ID");
+
+
+--
+-- Name: BUILDING_AUTHORITY_ITEM_DIS_WORKFLOW_ITEM_ID_aa7072a7; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "BUILDING_AUTHORITY_ITEM_DIS_WORKFLOW_ITEM_ID_aa7072a7" ON public."BUILDING_AUTHORITY_ITEM_DIS" USING btree ("WORKFLOW_ITEM_ID");
+
+
+--
+-- Name: BUILDING_AUTHORITY_SECTION_DIS_BA_SECTION_ID_a65f427d; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "BUILDING_AUTHORITY_SECTION_DIS_BA_SECTION_ID_a65f427d" ON public."BUILDING_AUTHORITY_SECTION_DIS" USING btree ("BA_SECTION_ID");
+
+
+--
+-- Name: BUILDING_AUTHORITY_SECTION_DIS_INSTANCE_ID_7689ad00; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "BUILDING_AUTHORITY_SECTION_DIS_INSTANCE_ID_7689ad00" ON public."BUILDING_AUTHORITY_SECTION_DIS" USING btree ("INSTANCE_ID");
+
+
+--
+-- Name: BUTTON_INSTANCE_RESOURCE_ID_77460733; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "BUTTON_INSTANCE_RESOURCE_ID_77460733" ON public."BUTTON" USING btree ("INSTANCE_RESOURCE_ID");
+
+
+--
+-- Name: BUTTON_T_BUTTON_ID_8833ef02; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "BUTTON_T_BUTTON_ID_8833ef02" ON public."BUTTON_T" USING btree ("BUTTON_ID");
+
+
+--
+-- Name: B_GROUP_ACL_BUTTON_ID_ed0e0356; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "B_GROUP_ACL_BUTTON_ID_ed0e0356" ON public."B_GROUP_ACL" USING btree ("BUTTON_ID");
+
+
+--
+-- Name: B_GROUP_ACL_GROUP_ID_35a21fb5; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "B_GROUP_ACL_GROUP_ID_35a21fb5" ON public."B_GROUP_ACL" USING btree ("GROUP_ID");
+
+
+--
+-- Name: B_GROUP_ACL_INSTANCE_STATE_ID_58bea0da; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "B_GROUP_ACL_INSTANCE_STATE_ID_58bea0da" ON public."B_GROUP_ACL" USING btree ("INSTANCE_STATE_ID");
+
+
+--
+-- Name: B_ROLE_ACL_BUTTON_ID_dd649b31; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "B_ROLE_ACL_BUTTON_ID_dd649b31" ON public."B_ROLE_ACL" USING btree ("BUTTON_ID");
+
+
+--
+-- Name: B_ROLE_ACL_INSTANCE_STATE_ID_46bf9c22; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "B_ROLE_ACL_INSTANCE_STATE_ID_46bf9c22" ON public."B_ROLE_ACL" USING btree ("INSTANCE_STATE_ID");
+
+
+--
+-- Name: B_ROLE_ACL_ROLE_ID_d20dfd5e; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "B_ROLE_ACL_ROLE_ID_d20dfd5e" ON public."B_ROLE_ACL" USING btree ("ROLE_ID");
+
+
+--
+-- Name: B_SERVICE_ACL_BUTTON_ID_84871b11; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "B_SERVICE_ACL_BUTTON_ID_84871b11" ON public."B_SERVICE_ACL" USING btree ("BUTTON_ID");
+
+
+--
+-- Name: B_SERVICE_ACL_INSTANCE_STATE_ID_dc93e9cf; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "B_SERVICE_ACL_INSTANCE_STATE_ID_dc93e9cf" ON public."B_SERVICE_ACL" USING btree ("INSTANCE_STATE_ID");
+
+
+--
+-- Name: B_SERVICE_ACL_SERVICE_ID_2c9bd5c2; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "B_SERVICE_ACL_SERVICE_ID_2c9bd5c2" ON public."B_SERVICE_ACL" USING btree ("SERVICE_ID");
+
+
+--
+-- Name: B_USER_ACL_BUTTON_ID_d1d38447; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "B_USER_ACL_BUTTON_ID_d1d38447" ON public."B_USER_ACL" USING btree ("BUTTON_ID");
+
+
+--
+-- Name: B_USER_ACL_INSTANCE_STATE_ID_5e91927a; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "B_USER_ACL_INSTANCE_STATE_ID_5e91927a" ON public."B_USER_ACL" USING btree ("INSTANCE_STATE_ID");
+
+
+--
+-- Name: B_USER_ACL_USER_ID_9d50a42f; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "B_USER_ACL_USER_ID_9d50a42f" ON public."B_USER_ACL" USING btree ("USER_ID");
+
+
+--
+-- Name: CHAPTER_PAGE_CHAPTER_ID_861cec58; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "CHAPTER_PAGE_CHAPTER_ID_861cec58" ON public."CHAPTER_PAGE" USING btree ("CHAPTER_ID");
+
+
+--
+-- Name: CHAPTER_PAGE_GROUP_ACL_CHAPTER_ID_abf87288; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "CHAPTER_PAGE_GROUP_ACL_CHAPTER_ID_abf87288" ON public."CHAPTER_PAGE_GROUP_ACL" USING btree ("CHAPTER_ID");
+
+
+--
+-- Name: CHAPTER_PAGE_GROUP_ACL_GROUP_ID_d52711b9; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "CHAPTER_PAGE_GROUP_ACL_GROUP_ID_d52711b9" ON public."CHAPTER_PAGE_GROUP_ACL" USING btree ("GROUP_ID");
+
+
+--
+-- Name: CHAPTER_PAGE_GROUP_ACL_INSTANCE_STATE_ID_1cf085a2; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "CHAPTER_PAGE_GROUP_ACL_INSTANCE_STATE_ID_1cf085a2" ON public."CHAPTER_PAGE_GROUP_ACL" USING btree ("INSTANCE_STATE_ID");
+
+
+--
+-- Name: CHAPTER_PAGE_GROUP_ACL_PAGE_ID_67b0b4d5; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "CHAPTER_PAGE_GROUP_ACL_PAGE_ID_67b0b4d5" ON public."CHAPTER_PAGE_GROUP_ACL" USING btree ("PAGE_ID");
+
+
+--
+-- Name: CHAPTER_PAGE_PAGE_ID_170aaf53; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "CHAPTER_PAGE_PAGE_ID_170aaf53" ON public."CHAPTER_PAGE" USING btree ("PAGE_ID");
+
+
+--
+-- Name: CHAPTER_PAGE_ROLE_ACL_CHAPTER_ID_ff5126f3; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "CHAPTER_PAGE_ROLE_ACL_CHAPTER_ID_ff5126f3" ON public."CHAPTER_PAGE_ROLE_ACL" USING btree ("CHAPTER_ID");
+
+
+--
+-- Name: CHAPTER_PAGE_ROLE_ACL_INSTANCE_STATE_ID_7c0f1af1; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "CHAPTER_PAGE_ROLE_ACL_INSTANCE_STATE_ID_7c0f1af1" ON public."CHAPTER_PAGE_ROLE_ACL" USING btree ("INSTANCE_STATE_ID");
+
+
+--
+-- Name: CHAPTER_PAGE_ROLE_ACL_PAGE_ID_e62c6b28; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "CHAPTER_PAGE_ROLE_ACL_PAGE_ID_e62c6b28" ON public."CHAPTER_PAGE_ROLE_ACL" USING btree ("PAGE_ID");
+
+
+--
+-- Name: CHAPTER_PAGE_ROLE_ACL_ROLE_ID_16015b09; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "CHAPTER_PAGE_ROLE_ACL_ROLE_ID_16015b09" ON public."CHAPTER_PAGE_ROLE_ACL" USING btree ("ROLE_ID");
+
+
+--
+-- Name: CHAPTER_PAGE_SERVICE_ACL_CHAPTER_ID_1916bf4b; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "CHAPTER_PAGE_SERVICE_ACL_CHAPTER_ID_1916bf4b" ON public."CHAPTER_PAGE_SERVICE_ACL" USING btree ("CHAPTER_ID");
+
+
+--
+-- Name: CHAPTER_PAGE_SERVICE_ACL_INSTANCE_STATE_ID_79dc2041; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "CHAPTER_PAGE_SERVICE_ACL_INSTANCE_STATE_ID_79dc2041" ON public."CHAPTER_PAGE_SERVICE_ACL" USING btree ("INSTANCE_STATE_ID");
+
+
+--
+-- Name: CHAPTER_PAGE_SERVICE_ACL_PAGE_ID_5f8ac2aa; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "CHAPTER_PAGE_SERVICE_ACL_PAGE_ID_5f8ac2aa" ON public."CHAPTER_PAGE_SERVICE_ACL" USING btree ("PAGE_ID");
+
+
+--
+-- Name: CHAPTER_PAGE_SERVICE_ACL_SERVICE_ID_f922ac11; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "CHAPTER_PAGE_SERVICE_ACL_SERVICE_ID_f922ac11" ON public."CHAPTER_PAGE_SERVICE_ACL" USING btree ("SERVICE_ID");
+
+
+--
+-- Name: CHAPTER_PAGE_USER_ACL_CHAPTER_ID_1380a969; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "CHAPTER_PAGE_USER_ACL_CHAPTER_ID_1380a969" ON public."CHAPTER_PAGE_USER_ACL" USING btree ("CHAPTER_ID");
+
+
+--
+-- Name: CHAPTER_PAGE_USER_ACL_INSTANCE_STATE_ID_11223d32; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "CHAPTER_PAGE_USER_ACL_INSTANCE_STATE_ID_11223d32" ON public."CHAPTER_PAGE_USER_ACL" USING btree ("INSTANCE_STATE_ID");
+
+
+--
+-- Name: CHAPTER_PAGE_USER_ACL_PAGE_ID_ca2a692f; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "CHAPTER_PAGE_USER_ACL_PAGE_ID_ca2a692f" ON public."CHAPTER_PAGE_USER_ACL" USING btree ("PAGE_ID");
+
+
+--
+-- Name: CHAPTER_PAGE_USER_ACL_USER_ID_3a1fd8aa; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "CHAPTER_PAGE_USER_ACL_USER_ID_3a1fd8aa" ON public."CHAPTER_PAGE_USER_ACL" USING btree ("USER_ID");
+
+
+--
+-- Name: CHAPTER_T_CHAPTER_ID_e3c570c2; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "CHAPTER_T_CHAPTER_ID_e3c570c2" ON public."CHAPTER_T" USING btree ("CHAPTER_ID");
+
+
+--
+-- Name: CIRCULATION_ANSWER_CIRCULATION_ANSWER_TYPE_ID_ff2dc1d1; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "CIRCULATION_ANSWER_CIRCULATION_ANSWER_TYPE_ID_ff2dc1d1" ON public."CIRCULATION_ANSWER" USING btree ("CIRCULATION_ANSWER_TYPE_ID");
+
+
+--
+-- Name: CIRCULATION_ANSWER_CIRCULATION_TYPE_ID_02f04a6a; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "CIRCULATION_ANSWER_CIRCULATION_TYPE_ID_02f04a6a" ON public."CIRCULATION_ANSWER" USING btree ("CIRCULATION_TYPE_ID");
+
+
+--
+-- Name: CIRCULATION_ANSWER_TYPE_T_CIRCULATION_ANSWER_TYPE_ID_32ee3eca; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "CIRCULATION_ANSWER_TYPE_T_CIRCULATION_ANSWER_TYPE_ID_32ee3eca" ON public."CIRCULATION_ANSWER_TYPE_T" USING btree ("CIRCULATION_ANSWER_TYPE_ID");
+
+
+--
+-- Name: CIRCULATION_ANSWER_T_CIRCULATION_ANSWER_ID_c6c0dcc8; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "CIRCULATION_ANSWER_T_CIRCULATION_ANSWER_ID_c6c0dcc8" ON public."CIRCULATION_ANSWER_T" USING btree ("CIRCULATION_ANSWER_ID");
+
+
+--
+-- Name: CIRCULATION_INSTANCE_ID_d4772fff; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "CIRCULATION_INSTANCE_ID_d4772fff" ON public."CIRCULATION" USING btree ("INSTANCE_ID");
+
+
+--
+-- Name: CIRCULATION_INSTANCE_RESOURCE_ID_f535d949; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "CIRCULATION_INSTANCE_RESOURCE_ID_f535d949" ON public."CIRCULATION" USING btree ("INSTANCE_RESOURCE_ID");
+
+
+--
+-- Name: CIRCULATION_REASON_CIRCULATION_TYPE_ID_4072f54a; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "CIRCULATION_REASON_CIRCULATION_TYPE_ID_4072f54a" ON public."CIRCULATION_REASON" USING btree ("CIRCULATION_TYPE_ID");
+
+
+--
+-- Name: CIRCULATION_REASON_T_CIRCULATION_REASON_ID_2ada9e6b; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "CIRCULATION_REASON_T_CIRCULATION_REASON_ID_2ada9e6b" ON public."CIRCULATION_REASON_T" USING btree ("CIRCULATION_REASON_ID");
+
+
+--
+-- Name: CIRCULATION_SERVICE_ID_6411cfd2; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "CIRCULATION_SERVICE_ID_6411cfd2" ON public."CIRCULATION" USING btree ("SERVICE_ID");
+
+
+--
+-- Name: CIRCULATION_STATE_T_CIRCULATION_STATE_ID_8742eb4b; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "CIRCULATION_STATE_T_CIRCULATION_STATE_ID_8742eb4b" ON public."CIRCULATION_STATE_T" USING btree ("CIRCULATION_STATE_ID");
+
+
+--
+-- Name: CIRCULATION_TYPE_PAGE_ID_1ee15f2a; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "CIRCULATION_TYPE_PAGE_ID_1ee15f2a" ON public."CIRCULATION_TYPE" USING btree ("PAGE_ID");
+
+
+--
+-- Name: CIRCULATION_TYPE_T_CIRCULATION_TYPE_ID_99a2f6e7; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "CIRCULATION_TYPE_T_CIRCULATION_TYPE_ID_99a2f6e7" ON public."CIRCULATION_TYPE_T" USING btree ("CIRCULATION_TYPE_ID");
+
+
+--
+-- Name: COMMISSION_ASSIGNMENT_CREATOR_GROUP_ID_83ae0516; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "COMMISSION_ASSIGNMENT_CREATOR_GROUP_ID_83ae0516" ON public."COMMISSION_ASSIGNMENT" USING btree ("CREATOR_GROUP_ID");
+
+
+--
+-- Name: COMMISSION_ASSIGNMENT_GROUP_ID_ab890c89; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "COMMISSION_ASSIGNMENT_GROUP_ID_ab890c89" ON public."COMMISSION_ASSIGNMENT" USING btree ("GROUP_ID");
+
+
+--
+-- Name: COMMISSION_ASSIGNMENT_INSTANCE_ID_b0f30747; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "COMMISSION_ASSIGNMENT_INSTANCE_ID_b0f30747" ON public."COMMISSION_ASSIGNMENT" USING btree ("INSTANCE_ID");
+
+
+--
+-- Name: DOCGEN_ACTIVATIONACTION_ACTION_ACTION_ID_f9330140; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "DOCGEN_ACTIVATIONACTION_ACTION_ACTION_ID_f9330140" ON public."DOCGEN_ACTIVATIONACTION_ACTION" USING btree ("ACTION_ID");
+
+
+--
+-- Name: DOCGEN_ACTIVATIONACTION_AC_DOCGEN_ACTIVATION_ACTION_I_1a661c0a; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "DOCGEN_ACTIVATIONACTION_AC_DOCGEN_ACTIVATION_ACTION_I_1a661c0a" ON public."DOCGEN_ACTIVATIONACTION_ACTION" USING btree ("DOCGEN_ACTIVATION_ACTION_ID");
+
+
+--
+-- Name: DOCGEN_ACTIVATION_DOCKET_ACTIVATION_ID_d6b43bde; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "DOCGEN_ACTIVATION_DOCKET_ACTIVATION_ID_d6b43bde" ON public."DOCGEN_ACTIVATION_DOCKET" USING btree ("ACTIVATION_ID");
+
+
+--
+-- Name: DOCGEN_ACTIVATION_DOCKET_INSTANCE_ID_a8d94cff; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "DOCGEN_ACTIVATION_DOCKET_INSTANCE_ID_a8d94cff" ON public."DOCGEN_ACTIVATION_DOCKET" USING btree ("INSTANCE_ID");
+
+
+--
+-- Name: DOCGEN_DOCX_ACTION_ACTION_ID_5cb8ea65; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "DOCGEN_DOCX_ACTION_ACTION_ID_5cb8ea65" ON public."DOCGEN_DOCX_ACTION" USING btree ("ACTION_ID");
+
+
+--
+-- Name: DOCGEN_DOCX_ACTION_DOCGEN_TEMPLATE_CLASS_ID_10943b92; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "DOCGEN_DOCX_ACTION_DOCGEN_TEMPLATE_CLASS_ID_10943b92" ON public."DOCGEN_DOCX_ACTION" USING btree ("DOCGEN_TEMPLATE_CLASS_ID");
+
+
+--
+-- Name: DOCGEN_DOCX_ACTION_DOCGEN_TEMPLATE_ID_38d052d8; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "DOCGEN_DOCX_ACTION_DOCGEN_TEMPLATE_ID_38d052d8" ON public."DOCGEN_DOCX_ACTION" USING btree ("DOCGEN_TEMPLATE_ID");
+
+
+--
+-- Name: DOCGEN_PDF_ACTION_ACTION_ID_67fd1985; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "DOCGEN_PDF_ACTION_ACTION_ID_67fd1985" ON public."DOCGEN_PDF_ACTION" USING btree ("ACTION_ID");
+
+
+--
+-- Name: DOCGEN_PDF_ACTION_DOCGEN_TEMPLATE_CLASS_ID_e0c39fe1; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "DOCGEN_PDF_ACTION_DOCGEN_TEMPLATE_CLASS_ID_e0c39fe1" ON public."DOCGEN_PDF_ACTION" USING btree ("DOCGEN_TEMPLATE_CLASS_ID");
+
+
+--
+-- Name: DOCGEN_PDF_ACTION_DOCGEN_TEMPLATE_ID_542dea7a; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "DOCGEN_PDF_ACTION_DOCGEN_TEMPLATE_ID_542dea7a" ON public."DOCGEN_PDF_ACTION" USING btree ("DOCGEN_TEMPLATE_ID");
+
+
+--
+-- Name: FORM_FAMILY_cf736e53; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "FORM_FAMILY_cf736e53" ON public."FORM" USING btree ("FAMILY");
+
+
+--
+-- Name: FORM_FORM_STATE_ID_6facae98; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "FORM_FORM_STATE_ID_6facae98" ON public."FORM" USING btree ("FORM_STATE_ID");
+
+
+--
+-- Name: FORM_GROUP_FORM_FORM_GROUP_ID_b7c9c1ef; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "FORM_GROUP_FORM_FORM_GROUP_ID_b7c9c1ef" ON public."FORM_GROUP_FORM" USING btree ("FORM_GROUP_ID");
+
+
+--
+-- Name: FORM_GROUP_FORM_FORM_ID_8311f65c; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "FORM_GROUP_FORM_FORM_ID_8311f65c" ON public."FORM_GROUP_FORM" USING btree ("FORM_ID");
+
+
+--
+-- Name: FORM_GROUP_T_FORM_GROUP_ID_7d9bb06a; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "FORM_GROUP_T_FORM_GROUP_ID_7d9bb06a" ON public."FORM_GROUP_T" USING btree ("FORM_GROUP_ID");
+
+
+--
+-- Name: FORM_T_FORM_ID_3a4d4a56; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "FORM_T_FORM_ID_3a4d4a56" ON public."FORM_T" USING btree ("FORM_ID");
+
+
+--
+-- Name: GROUP_LOCATION_GROUP_ID_d30a9a84; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "GROUP_LOCATION_GROUP_ID_d30a9a84" ON public."GROUP_LOCATION" USING btree ("GROUP_ID");
+
+
+--
+-- Name: GROUP_LOCATION_LOCATION_ID_0dff4919; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "GROUP_LOCATION_LOCATION_ID_0dff4919" ON public."GROUP_LOCATION" USING btree ("LOCATION_ID");
+
+
+--
+-- Name: GROUP_PERMISSION_GROUP_ID_43ef42be; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "GROUP_PERMISSION_GROUP_ID_43ef42be" ON public."GROUP_PERMISSION" USING btree ("GROUP_ID");
+
+
+--
+-- Name: GROUP_ROLE_ID_11e2035f; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "GROUP_ROLE_ID_11e2035f" ON public."GROUP" USING btree ("ROLE_ID");
+
+
+--
+-- Name: GROUP_SERVICE_ID_8f03f501; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "GROUP_SERVICE_ID_8f03f501" ON public."GROUP" USING btree ("SERVICE_ID");
+
+
+--
+-- Name: GROUP_T_GROUP_ID_1ed5d2ac; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "GROUP_T_GROUP_ID_1ed5d2ac" ON public."GROUP_T" USING btree ("GROUP_ID");
+
+
+--
+-- Name: HISTORY_ACTION_CONFIG_T_ACTION_ID_52a67a63; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "HISTORY_ACTION_CONFIG_T_ACTION_ID_52a67a63" ON public."HISTORY_ACTION_CONFIG_T" USING btree ("ACTION_ID");
+
+
+--
+-- Name: INSTANCE_FORM_ID_3368d340; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "INSTANCE_FORM_ID_3368d340" ON public."INSTANCE" USING btree ("FORM_ID");
+
+
+--
+-- Name: INSTANCE_FORM_PDF_ACTION_ID_93b0ca2f; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "INSTANCE_FORM_PDF_ACTION_ID_93b0ca2f" ON public."INSTANCE_FORM_PDF" USING btree ("ACTION_ID");
+
+
+--
+-- Name: INSTANCE_FORM_PDF_INSTANCE_ID_3c2418a2; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "INSTANCE_FORM_PDF_INSTANCE_ID_3c2418a2" ON public."INSTANCE_FORM_PDF" USING btree ("INSTANCE_ID");
+
+
+--
+-- Name: INSTANCE_FORM_PDF_USER_ID_8ac1a039; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "INSTANCE_FORM_PDF_USER_ID_8ac1a039" ON public."INSTANCE_FORM_PDF" USING btree ("USER_ID");
+
+
+--
+-- Name: INSTANCE_GROUP_ID_4ce4e157; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "INSTANCE_GROUP_ID_4ce4e157" ON public."INSTANCE" USING btree ("GROUP_ID");
+
+
+--
+-- Name: INSTANCE_INSTANCE_STATE_ID_66e2f596; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "INSTANCE_INSTANCE_STATE_ID_66e2f596" ON public."INSTANCE" USING btree ("INSTANCE_STATE_ID");
+
+
+--
+-- Name: INSTANCE_LOCATION_ID_0e4db695; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "INSTANCE_LOCATION_ID_0e4db695" ON public."INSTANCE" USING btree ("LOCATION_ID");
+
+
+--
+-- Name: INSTANCE_LOCATION_INSTANCE_ID_71e39bb3; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "INSTANCE_LOCATION_INSTANCE_ID_71e39bb3" ON public."INSTANCE_LOCATION" USING btree ("INSTANCE_ID");
+
+
+--
+-- Name: INSTANCE_LOCATION_LOCATION_ID_e9848dd9; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "INSTANCE_LOCATION_LOCATION_ID_e9848dd9" ON public."INSTANCE_LOCATION" USING btree ("LOCATION_ID");
+
+
+--
+-- Name: INSTANCE_PARENT_PARENT_INSTANCE_ID_ea9733d3; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "INSTANCE_PARENT_PARENT_INSTANCE_ID_ea9733d3" ON public."INSTANCE_PARENT" USING btree ("PARENT_INSTANCE_ID");
+
+
+--
+-- Name: INSTANCE_PARENT_SERVICE_ID_194e9c1e; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "INSTANCE_PARENT_SERVICE_ID_194e9c1e" ON public."INSTANCE_PARENT" USING btree ("SERVICE_ID");
+
+
+--
+-- Name: INSTANCE_PARENT_USER_ID_9aa12714; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "INSTANCE_PARENT_USER_ID_9aa12714" ON public."INSTANCE_PARENT" USING btree ("USER_ID");
+
+
+--
+-- Name: INSTANCE_PREVIOUS_INSTANCE_STATE_ID_05f24fb6; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "INSTANCE_PREVIOUS_INSTANCE_STATE_ID_05f24fb6" ON public."INSTANCE" USING btree ("PREVIOUS_INSTANCE_STATE_ID");
+
+
+--
+-- Name: INSTANCE_RESOURCE_ACTION_AVAILABLE_ACTION_ID_4f9b643b; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "INSTANCE_RESOURCE_ACTION_AVAILABLE_ACTION_ID_4f9b643b" ON public."INSTANCE_RESOURCE_ACTION" USING btree ("AVAILABLE_ACTION_ID");
+
+
+--
+-- Name: INSTANCE_RESOURCE_ACTION_AVAILABLE_ACTION_ID_4f9b643b_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "INSTANCE_RESOURCE_ACTION_AVAILABLE_ACTION_ID_4f9b643b_like" ON public."INSTANCE_RESOURCE_ACTION" USING btree ("AVAILABLE_ACTION_ID" varchar_pattern_ops);
+
+
+--
+-- Name: INSTANCE_RESOURCE_ACTION_AVAILABLE_INSTANCE_RESOURC_5fa980e9; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "INSTANCE_RESOURCE_ACTION_AVAILABLE_INSTANCE_RESOURC_5fa980e9" ON public."INSTANCE_RESOURCE_ACTION" USING btree ("AVAILABLE_INSTANCE_RESOURCE_ID");
+
+
+--
+-- Name: INSTANCE_RESOURCE_ACTION_AVAILABLE_INSTANCE_RESOU_5fa980e9_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "INSTANCE_RESOURCE_ACTION_AVAILABLE_INSTANCE_RESOU_5fa980e9_like" ON public."INSTANCE_RESOURCE_ACTION" USING btree ("AVAILABLE_INSTANCE_RESOURCE_ID" varchar_pattern_ops);
+
+
+--
+-- Name: INSTANCE_RESOURCE_AVAILABLE_INSTANCE_RESOURCE_ID_8c9763ee; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "INSTANCE_RESOURCE_AVAILABLE_INSTANCE_RESOURCE_ID_8c9763ee" ON public."INSTANCE_RESOURCE" USING btree ("AVAILABLE_INSTANCE_RESOURCE_ID");
+
+
+--
+-- Name: INSTANCE_RESOURCE_AVAILABLE_INSTANCE_RESOURCE_ID_8c9763ee_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "INSTANCE_RESOURCE_AVAILABLE_INSTANCE_RESOURCE_ID_8c9763ee_like" ON public."INSTANCE_RESOURCE" USING btree ("AVAILABLE_INSTANCE_RESOURCE_ID" varchar_pattern_ops);
+
+
+--
+-- Name: INSTANCE_RESOURCE_FORM_GROUP_ID_b0002cc9; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "INSTANCE_RESOURCE_FORM_GROUP_ID_b0002cc9" ON public."INSTANCE_RESOURCE" USING btree ("FORM_GROUP_ID");
+
+
+--
+-- Name: INSTANCE_RESOURCE_RESOURCE_ID_fa2fee26; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "INSTANCE_RESOURCE_RESOURCE_ID_fa2fee26" ON public."INSTANCE_RESOURCE" USING btree ("RESOURCE_ID");
+
+
+--
+-- Name: INSTANCE_RESOURCE_T_INSTANCE_RESOURCE_ID_e673c503; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "INSTANCE_RESOURCE_T_INSTANCE_RESOURCE_ID_e673c503" ON public."INSTANCE_RESOURCE_T" USING btree ("INSTANCE_RESOURCE_ID");
+
+
+--
+-- Name: INSTANCE_SERVICE_INSTANCE_ID_0d51cb2b; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "INSTANCE_SERVICE_INSTANCE_ID_0d51cb2b" ON public."INSTANCE_SERVICE" USING btree ("INSTANCE_ID");
+
+
+--
+-- Name: INSTANCE_SERVICE_SERVICE_ID_4168fa24; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "INSTANCE_SERVICE_SERVICE_ID_4168fa24" ON public."INSTANCE_SERVICE" USING btree ("SERVICE_ID");
+
+
+--
+-- Name: INSTANCE_STATE_SORT_79ecaa69; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "INSTANCE_STATE_SORT_79ecaa69" ON public."INSTANCE_STATE" USING btree ("SORT");
+
+
+--
+-- Name: INSTANCE_STATE_T_INSTANCE_STATE_ID_d09d8333; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "INSTANCE_STATE_T_INSTANCE_STATE_ID_d09d8333" ON public."INSTANCE_STATE_T" USING btree ("INSTANCE_STATE_ID");
+
+
+--
+-- Name: INSTANCE_USER_ID_ba369747; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "INSTANCE_USER_ID_ba369747" ON public."INSTANCE" USING btree ("USER_ID");
+
+
+--
+-- Name: INSTANCE_copy_source_id_6d001cad; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "INSTANCE_copy_source_id_6d001cad" ON public."INSTANCE" USING btree (copy_source_id);
+
+
+--
+-- Name: INSTANCE_instance_group_id_fb3d9159; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "INSTANCE_instance_group_id_fb3d9159" ON public."INSTANCE" USING btree (instance_group_id);
+
+
+--
+-- Name: IR_ALLFORMPAGES_PAGE_FORM_GROUP_ID_49e7e059; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "IR_ALLFORMPAGES_PAGE_FORM_GROUP_ID_49e7e059" ON public."IR_ALLFORMPAGES" USING btree ("PAGE_FORM_GROUP_ID");
+
+
+--
+-- Name: IR_CIRCULATION_CIRCULATION_TYPE_ID_dcd6ee8a; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "IR_CIRCULATION_CIRCULATION_TYPE_ID_dcd6ee8a" ON public."IR_CIRCULATION" USING btree ("CIRCULATION_TYPE_ID");
+
+
+--
+-- Name: IR_CIRCULATION_DRAFT_CIRCULATION_ANSWER_ID_93cf4a46; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "IR_CIRCULATION_DRAFT_CIRCULATION_ANSWER_ID_93cf4a46" ON public."IR_CIRCULATION" USING btree ("DRAFT_CIRCULATION_ANSWER_ID");
+
+
+--
+-- Name: IR_CIRCULATION_SERVICE_ID_015e479d; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "IR_CIRCULATION_SERVICE_ID_015e479d" ON public."IR_CIRCULATION" USING btree ("SERVICE_ID");
+
+
+--
+-- Name: IR_EDITCIRCULATION_CIRCULATION_EMAIL_ACTION_ID_2bac0002; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "IR_EDITCIRCULATION_CIRCULATION_EMAIL_ACTION_ID_2bac0002" ON public."IR_EDITCIRCULATION" USING btree ("CIRCULATION_EMAIL_ACTION_ID");
+
+
+--
+-- Name: IR_EDITCIRCULATION_CIRCULATION_TYPE_ID_50f509f8; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "IR_EDITCIRCULATION_CIRCULATION_TYPE_ID_50f509f8" ON public."IR_EDITCIRCULATION" USING btree ("CIRCULATION_TYPE_ID");
+
+
+--
+-- Name: IR_EDITCIRCULATION_DRAFT_CIRCULATION_ANSWER_ID_21c08d7e; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "IR_EDITCIRCULATION_DRAFT_CIRCULATION_ANSWER_ID_21c08d7e" ON public."IR_EDITCIRCULATION" USING btree ("DRAFT_CIRCULATION_ANSWER_ID");
+
+
+--
+-- Name: IR_EDITCIRCULATION_SG_INSTANCE_RESOURCE_ID_2dced4d0; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "IR_EDITCIRCULATION_SG_INSTANCE_RESOURCE_ID_2dced4d0" ON public."IR_EDITCIRCULATION_SG" USING btree ("INSTANCE_RESOURCE_ID");
+
+
+--
+-- Name: IR_EDITCIRCULATION_SG_SERVICE_GROUP_ID_14d25cac; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "IR_EDITCIRCULATION_SG_SERVICE_GROUP_ID_14d25cac" ON public."IR_EDITCIRCULATION_SG" USING btree ("SERVICE_GROUP_ID");
+
+
+--
+-- Name: IR_EDITCIRCULATION_T_INSTANCE_RESOURCE_ID_ab5e283e; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "IR_EDITCIRCULATION_T_INSTANCE_RESOURCE_ID_ab5e283e" ON public."IR_EDITCIRCULATION_T" USING btree ("INSTANCE_RESOURCE_ID");
+
+
+--
+-- Name: IR_EDITFORMPAGES_PAGE_FORM_GROUP_ID_074133f4; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "IR_EDITFORMPAGES_PAGE_FORM_GROUP_ID_074133f4" ON public."IR_EDITFORMPAGES" USING btree ("PAGE_FORM_GROUP_ID");
+
+
+--
+-- Name: IR_EDITFORMPAGE_PAGE_ID_17b31a7c; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "IR_EDITFORMPAGE_PAGE_ID_17b31a7c" ON public."IR_EDITFORMPAGE" USING btree ("PAGE_ID");
+
+
+--
+-- Name: IR_EDITLETTER_ANSWER_INSTANCE_RESOURCE_ID_c7c571e2; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "IR_EDITLETTER_ANSWER_INSTANCE_RESOURCE_ID_c7c571e2" ON public."IR_EDITLETTER_ANSWER" USING btree ("INSTANCE_RESOURCE_ID");
+
+
+--
+-- Name: IR_EDITLETTER_ANSWER_T_IR_EDITLETTER_ANSWER_ID_726e31c4; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "IR_EDITLETTER_ANSWER_T_IR_EDITLETTER_ANSWER_ID_726e31c4" ON public."IR_EDITLETTER_ANSWER_T" USING btree ("IR_EDITLETTER_ANSWER_ID");
+
+
+--
+-- Name: IR_EDITNOTICE_CIRCULATION_TYPE_ID_5b82c8c7; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "IR_EDITNOTICE_CIRCULATION_TYPE_ID_5b82c8c7" ON public."IR_EDITNOTICE" USING btree ("CIRCULATION_TYPE_ID");
+
+
+--
+-- Name: IR_EDITRESPONSIBLEGROUP_RESPONSIBLE_ROLE_ID_547e76d7; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "IR_EDITRESPONSIBLEGROUP_RESPONSIBLE_ROLE_ID_547e76d7" ON public."IR_EDITRESPONSIBLEGROUP" USING btree ("RESPONSIBLE_ROLE_ID");
+
+
+--
+-- Name: IR_FORMERROR_IR_EDITFORMPAGES_ID_a8af95ce; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "IR_FORMERROR_IR_EDITFORMPAGES_ID_a8af95ce" ON public."IR_FORMERROR" USING btree ("IR_EDITFORMPAGES_ID");
+
+
+--
+-- Name: IR_FORMPAGES_PAGE_FORM_GROUP_ID_3d9e166b; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "IR_FORMPAGES_PAGE_FORM_GROUP_ID_3d9e166b" ON public."IR_FORMPAGES" USING btree ("PAGE_FORM_GROUP_ID");
+
+
+--
+-- Name: IR_FORMPAGE_PAGE_ID_78bb422d; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "IR_FORMPAGE_PAGE_ID_78bb422d" ON public."IR_FORMPAGE" USING btree ("PAGE_ID");
+
+
+--
+-- Name: IR_FORMWIZARD_INSTANCE_STATE_ID_c5340eb6; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "IR_FORMWIZARD_INSTANCE_STATE_ID_c5340eb6" ON public."IR_FORMWIZARD" USING btree ("INSTANCE_STATE_ID");
+
+
+--
+-- Name: IR_FORMWIZARD_PAGE_FORM_GROUP_ID_787c47df; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "IR_FORMWIZARD_PAGE_FORM_GROUP_ID_787c47df" ON public."IR_FORMWIZARD" USING btree ("PAGE_FORM_GROUP_ID");
+
+
+--
+-- Name: IR_FORMWIZARD_T_INSTANCE_RESOURCE_ID_101448d4; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "IR_FORMWIZARD_T_INSTANCE_RESOURCE_ID_101448d4" ON public."IR_FORMWIZARD_T" USING btree ("INSTANCE_RESOURCE_ID");
+
+
+--
+-- Name: IR_GROUP_ACL_GROUP_ID_442eecc3; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "IR_GROUP_ACL_GROUP_ID_442eecc3" ON public."IR_GROUP_ACL" USING btree ("GROUP_ID");
+
+
+--
+-- Name: IR_GROUP_ACL_INSTANCE_RESOURCE_ID_27cd75fc; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "IR_GROUP_ACL_INSTANCE_RESOURCE_ID_27cd75fc" ON public."IR_GROUP_ACL" USING btree ("INSTANCE_RESOURCE_ID");
+
+
+--
+-- Name: IR_GROUP_ACL_INSTANCE_STATE_ID_43d34491; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "IR_GROUP_ACL_INSTANCE_STATE_ID_43d34491" ON public."IR_GROUP_ACL" USING btree ("INSTANCE_STATE_ID");
+
+
+--
+-- Name: IR_NEWFORM_INSTANCE_STATE_ID_89720137; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "IR_NEWFORM_INSTANCE_STATE_ID_89720137" ON public."IR_NEWFORM" USING btree ("INSTANCE_STATE_ID");
+
+
+--
+-- Name: IR_NEWFORM_PAGE_FORM_GROUP_ID_5d0c879e; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "IR_NEWFORM_PAGE_FORM_GROUP_ID_5d0c879e" ON public."IR_NEWFORM" USING btree ("PAGE_FORM_GROUP_ID");
+
+
+--
+-- Name: IR_ROLE_ACL_INSTANCE_RESOURCE_ID_ebea495f; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "IR_ROLE_ACL_INSTANCE_RESOURCE_ID_ebea495f" ON public."IR_ROLE_ACL" USING btree ("INSTANCE_RESOURCE_ID");
+
+
+--
+-- Name: IR_ROLE_ACL_INSTANCE_STATE_ID_0010f292; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "IR_ROLE_ACL_INSTANCE_STATE_ID_0010f292" ON public."IR_ROLE_ACL" USING btree ("INSTANCE_STATE_ID");
+
+
+--
+-- Name: IR_ROLE_ACL_ROLE_ID_11fca30c; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "IR_ROLE_ACL_ROLE_ID_11fca30c" ON public."IR_ROLE_ACL" USING btree ("ROLE_ID");
+
+
+--
+-- Name: IR_SERVICE_ACL_INSTANCE_RESOURCE_ID_54c28fc7; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "IR_SERVICE_ACL_INSTANCE_RESOURCE_ID_54c28fc7" ON public."IR_SERVICE_ACL" USING btree ("INSTANCE_RESOURCE_ID");
+
+
+--
+-- Name: IR_SERVICE_ACL_INSTANCE_STATE_ID_5d903197; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "IR_SERVICE_ACL_INSTANCE_STATE_ID_5d903197" ON public."IR_SERVICE_ACL" USING btree ("INSTANCE_STATE_ID");
+
+
+--
+-- Name: IR_SERVICE_ACL_SERVICE_ID_793f675a; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "IR_SERVICE_ACL_SERVICE_ID_793f675a" ON public."IR_SERVICE_ACL" USING btree ("SERVICE_ID");
+
+
+--
+-- Name: IR_TASKFORM_TASK_71c023fa; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "IR_TASKFORM_TASK_71c023fa" ON public."IR_TASKFORM" USING btree ("TASK");
+
+
+--
+-- Name: IR_TASKFORM_TASK_71c023fa_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "IR_TASKFORM_TASK_71c023fa_like" ON public."IR_TASKFORM" USING btree ("TASK" varchar_pattern_ops);
+
+
+--
+-- Name: IR_USER_ACL_INSTANCE_RESOURCE_ID_d69fcfad; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "IR_USER_ACL_INSTANCE_RESOURCE_ID_d69fcfad" ON public."IR_USER_ACL" USING btree ("INSTANCE_RESOURCE_ID");
+
+
+--
+-- Name: IR_USER_ACL_INSTANCE_STATE_ID_8aea8cc4; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "IR_USER_ACL_INSTANCE_STATE_ID_8aea8cc4" ON public."IR_USER_ACL" USING btree ("INSTANCE_STATE_ID");
+
+
+--
+-- Name: IR_USER_ACL_USER_ID_2b4e23cd; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "IR_USER_ACL_USER_ID_2b4e23cd" ON public."IR_USER_ACL" USING btree ("USER_ID");
+
+
+--
+-- Name: LETTER_IMAGE_INSTANCE_ID_f6af1604; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "LETTER_IMAGE_INSTANCE_ID_f6af1604" ON public."LETTER_IMAGE" USING btree ("INSTANCE_ID");
+
+
+--
+-- Name: LETTER_IMAGE_INSTANCE_RESOURCE_ID_f76612b9; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "LETTER_IMAGE_INSTANCE_RESOURCE_ID_f76612b9" ON public."LETTER_IMAGE" USING btree ("INSTANCE_RESOURCE_ID");
+
+
+--
+-- Name: LETTER_IMAGE_USER_ID_9a14c3f1; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "LETTER_IMAGE_USER_ID_9a14c3f1" ON public."LETTER_IMAGE" USING btree ("USER_ID");
+
+
+--
+-- Name: LETTER_INSTANCE_ID_bf99c8cb; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "LETTER_INSTANCE_ID_bf99c8cb" ON public."LETTER" USING btree ("INSTANCE_ID");
+
+
+--
+-- Name: LETTER_INSTANCE_RESOURCE_ID_88f9cf4c; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "LETTER_INSTANCE_RESOURCE_ID_88f9cf4c" ON public."LETTER" USING btree ("INSTANCE_RESOURCE_ID");
+
+
+--
+-- Name: LETTER_IR_EDITLETTER_ANSWER_ID_3c006f34; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "LETTER_IR_EDITLETTER_ANSWER_ID_3c006f34" ON public."LETTER" USING btree ("IR_EDITLETTER_ANSWER_ID");
+
+
+--
+-- Name: LETTER_USER_ID_865b8643; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "LETTER_USER_ID_865b8643" ON public."LETTER" USING btree ("USER_ID");
+
+
+--
+-- Name: LOCATION_T_LOCATION_ID_c36407f9; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "LOCATION_T_LOCATION_ID_c36407f9" ON public."LOCATION_T" USING btree ("LOCATION_ID");
+
+
+--
+-- Name: NOTICE_ACTIVATION_ID_5df3baf6; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "NOTICE_ACTIVATION_ID_5df3baf6" ON public."NOTICE" USING btree ("ACTIVATION_ID");
+
+
+--
+-- Name: NOTICE_IMAGE_ACTIVATION_ID_1514495c; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "NOTICE_IMAGE_ACTIVATION_ID_1514495c" ON public."NOTICE_IMAGE" USING btree ("ACTIVATION_ID");
+
+
+--
+-- Name: NOTICE_IMAGE_INSTANCE_ID_2ee64c47; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "NOTICE_IMAGE_INSTANCE_ID_2ee64c47" ON public."NOTICE_IMAGE" USING btree ("INSTANCE_ID");
+
+
+--
+-- Name: NOTICE_IMAGE_INSTANCE_RESOURCE_ID_f83511a0; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "NOTICE_IMAGE_INSTANCE_RESOURCE_ID_f83511a0" ON public."NOTICE_IMAGE" USING btree ("INSTANCE_RESOURCE_ID");
+
+
+--
+-- Name: NOTICE_IMAGE_USER_ID_532150c9; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "NOTICE_IMAGE_USER_ID_532150c9" ON public."NOTICE_IMAGE" USING btree ("USER_ID");
+
+
+--
+-- Name: NOTICE_NOTICE_TYPE_ID_9b81ab49; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "NOTICE_NOTICE_TYPE_ID_9b81ab49" ON public."NOTICE" USING btree ("NOTICE_TYPE_ID");
+
+
+--
+-- Name: NOTICE_TYPE_CIRCULATION_TYPE_ID_18998ff2; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "NOTICE_TYPE_CIRCULATION_TYPE_ID_18998ff2" ON public."NOTICE_TYPE" USING btree ("CIRCULATION_TYPE_ID");
+
+
+--
+-- Name: NOTICE_TYPE_T_NOTICE_TYPE_ID_43ffcdd0; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "NOTICE_TYPE_T_NOTICE_TYPE_ID_43ffcdd0" ON public."NOTICE_TYPE_T" USING btree ("NOTICE_TYPE_ID");
+
+
+--
+-- Name: NOTIFICATION_TEMPLATE_PURPOSE_5a4489dc; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "NOTIFICATION_TEMPLATE_PURPOSE_5a4489dc" ON public."NOTIFICATION_TEMPLATE" USING btree ("PURPOSE");
+
+
+--
+-- Name: NOTIFICATION_TEMPLATE_PURPOSE_5a4489dc_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "NOTIFICATION_TEMPLATE_PURPOSE_5a4489dc_like" ON public."NOTIFICATION_TEMPLATE" USING btree ("PURPOSE" varchar_pattern_ops);
+
+
+--
+-- Name: NOTIFICATION_TEMPLATE_T_TEMPLATE_ID_27e2bec2; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "NOTIFICATION_TEMPLATE_T_TEMPLATE_ID_27e2bec2" ON public."NOTIFICATION_TEMPLATE_T" USING btree ("TEMPLATE_ID");
+
+
+--
+-- Name: NOTIFICATION_TEMPLATE_T_template_slug_id_c7d1fcc4; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "NOTIFICATION_TEMPLATE_T_template_slug_id_c7d1fcc4" ON public."NOTIFICATION_TEMPLATE_T" USING btree (template_slug_id);
+
+
+--
+-- Name: NOTIFICATION_TEMPLATE_T_template_slug_id_c7d1fcc4_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "NOTIFICATION_TEMPLATE_T_template_slug_id_c7d1fcc4_like" ON public."NOTIFICATION_TEMPLATE_T" USING btree (template_slug_id varchar_pattern_ops);
+
+
+--
+-- Name: NOTIFICATION_TEMPLATE_service_id_9d61524c; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "NOTIFICATION_TEMPLATE_service_id_9d61524c" ON public."NOTIFICATION_TEMPLATE" USING btree (service_id);
+
+
+--
+-- Name: NOTIFICATION_TEMPLATE_slug_1e68a2d8_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "NOTIFICATION_TEMPLATE_slug_1e68a2d8_like" ON public."NOTIFICATION_TEMPLATE" USING btree (slug varchar_pattern_ops);
+
+
+--
+-- Name: PAGE_ANSWER_ACTIVATION_CHAPTER_ID_ac82d1ec; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "PAGE_ANSWER_ACTIVATION_CHAPTER_ID_ac82d1ec" ON public."PAGE_ANSWER_ACTIVATION" USING btree ("CHAPTER_ID");
+
+
+--
+-- Name: PAGE_ANSWER_ACTIVATION_FORM_ID_7aec2646; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "PAGE_ANSWER_ACTIVATION_FORM_ID_7aec2646" ON public."PAGE_ANSWER_ACTIVATION" USING btree ("FORM_ID");
+
+
+--
+-- Name: PAGE_ANSWER_ACTIVATION_PAGE_ID_9fe4ee39; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "PAGE_ANSWER_ACTIVATION_PAGE_ID_9fe4ee39" ON public."PAGE_ANSWER_ACTIVATION" USING btree ("PAGE_ID");
+
+
+--
+-- Name: PAGE_ANSWER_ACTIVATION_QUESTION_ID_e69bfeeb; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "PAGE_ANSWER_ACTIVATION_QUESTION_ID_e69bfeeb" ON public."PAGE_ANSWER_ACTIVATION" USING btree ("QUESTION_ID");
+
+
+--
+-- Name: PAGE_FORM_FORM_ID_b1d7539e; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "PAGE_FORM_FORM_ID_b1d7539e" ON public."PAGE_FORM" USING btree ("FORM_ID");
+
+
+--
+-- Name: PAGE_FORM_GROUP_ACL_FORM_ID_9e56ecda; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "PAGE_FORM_GROUP_ACL_FORM_ID_9e56ecda" ON public."PAGE_FORM_GROUP_ACL" USING btree ("FORM_ID");
+
+
+--
+-- Name: PAGE_FORM_GROUP_ACL_GROUP_ID_37c10218; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "PAGE_FORM_GROUP_ACL_GROUP_ID_37c10218" ON public."PAGE_FORM_GROUP_ACL" USING btree ("GROUP_ID");
+
+
+--
+-- Name: PAGE_FORM_GROUP_ACL_INSTANCE_STATE_ID_a833d72f; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "PAGE_FORM_GROUP_ACL_INSTANCE_STATE_ID_a833d72f" ON public."PAGE_FORM_GROUP_ACL" USING btree ("INSTANCE_STATE_ID");
+
+
+--
+-- Name: PAGE_FORM_GROUP_ACL_PAGE_ID_548fb770; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "PAGE_FORM_GROUP_ACL_PAGE_ID_548fb770" ON public."PAGE_FORM_GROUP_ACL" USING btree ("PAGE_ID");
+
+
+--
+-- Name: PAGE_FORM_GROUP_T_PAGE_FORM_GROUP_ID_0434eed8; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "PAGE_FORM_GROUP_T_PAGE_FORM_GROUP_ID_0434eed8" ON public."PAGE_FORM_GROUP_T" USING btree ("PAGE_FORM_GROUP_ID");
+
+
+--
+-- Name: PAGE_FORM_PAGE_FORM_GROUP_ID_a297b306; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "PAGE_FORM_PAGE_FORM_GROUP_ID_a297b306" ON public."PAGE_FORM" USING btree ("PAGE_FORM_GROUP_ID");
+
+
+--
+-- Name: PAGE_FORM_PAGE_FORM_MODE_ID_5e67c92f; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "PAGE_FORM_PAGE_FORM_MODE_ID_5e67c92f" ON public."PAGE_FORM" USING btree ("PAGE_FORM_MODE_ID");
+
+
+--
+-- Name: PAGE_FORM_PAGE_ID_bc9d500b; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "PAGE_FORM_PAGE_ID_bc9d500b" ON public."PAGE_FORM" USING btree ("PAGE_ID");
+
+
+--
+-- Name: PAGE_FORM_ROLE_ACL_FORM_ID_f9bbd70c; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "PAGE_FORM_ROLE_ACL_FORM_ID_f9bbd70c" ON public."PAGE_FORM_ROLE_ACL" USING btree ("FORM_ID");
+
+
+--
+-- Name: PAGE_FORM_ROLE_ACL_INSTANCE_STATE_ID_57d85a97; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "PAGE_FORM_ROLE_ACL_INSTANCE_STATE_ID_57d85a97" ON public."PAGE_FORM_ROLE_ACL" USING btree ("INSTANCE_STATE_ID");
+
+
+--
+-- Name: PAGE_FORM_ROLE_ACL_PAGE_ID_5a35d06e; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "PAGE_FORM_ROLE_ACL_PAGE_ID_5a35d06e" ON public."PAGE_FORM_ROLE_ACL" USING btree ("PAGE_ID");
+
+
+--
+-- Name: PAGE_FORM_ROLE_ACL_ROLE_ID_0c39e00e; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "PAGE_FORM_ROLE_ACL_ROLE_ID_0c39e00e" ON public."PAGE_FORM_ROLE_ACL" USING btree ("ROLE_ID");
+
+
+--
+-- Name: PAGE_FORM_SERVICE_ACL_FORM_ID_a5595a13; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "PAGE_FORM_SERVICE_ACL_FORM_ID_a5595a13" ON public."PAGE_FORM_SERVICE_ACL" USING btree ("FORM_ID");
+
+
+--
+-- Name: PAGE_FORM_SERVICE_ACL_INSTANCE_STATE_ID_e6e98a4e; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "PAGE_FORM_SERVICE_ACL_INSTANCE_STATE_ID_e6e98a4e" ON public."PAGE_FORM_SERVICE_ACL" USING btree ("INSTANCE_STATE_ID");
+
+
+--
+-- Name: PAGE_FORM_SERVICE_ACL_PAGE_ID_7d76d77f; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "PAGE_FORM_SERVICE_ACL_PAGE_ID_7d76d77f" ON public."PAGE_FORM_SERVICE_ACL" USING btree ("PAGE_ID");
+
+
+--
+-- Name: PAGE_FORM_SERVICE_ACL_SERVICE_ID_aff76c80; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "PAGE_FORM_SERVICE_ACL_SERVICE_ID_aff76c80" ON public."PAGE_FORM_SERVICE_ACL" USING btree ("SERVICE_ID");
+
+
+--
+-- Name: PAGE_FORM_USER_ACL_FORM_ID_ad56c2e4; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "PAGE_FORM_USER_ACL_FORM_ID_ad56c2e4" ON public."PAGE_FORM_USER_ACL" USING btree ("FORM_ID");
+
+
+--
+-- Name: PAGE_FORM_USER_ACL_INSTANCE_STATE_ID_3cf1113c; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "PAGE_FORM_USER_ACL_INSTANCE_STATE_ID_3cf1113c" ON public."PAGE_FORM_USER_ACL" USING btree ("INSTANCE_STATE_ID");
+
+
+--
+-- Name: PAGE_FORM_USER_ACL_PAGE_ID_220b53dd; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "PAGE_FORM_USER_ACL_PAGE_ID_220b53dd" ON public."PAGE_FORM_USER_ACL" USING btree ("PAGE_ID");
+
+
+--
+-- Name: PAGE_FORM_USER_ACL_USER_ID_15a30891; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "PAGE_FORM_USER_ACL_USER_ID_15a30891" ON public."PAGE_FORM_USER_ACL" USING btree ("USER_ID");
+
+
+--
+-- Name: PAGE_T_PAGE_ID_472ed5db; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "PAGE_T_PAGE_ID_472ed5db" ON public."PAGE_T" USING btree ("PAGE_ID");
+
+
+--
+-- Name: PORTAL_SESSION_PORTAL_SESSION_ID_fae45817_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "PORTAL_SESSION_PORTAL_SESSION_ID_fae45817_like" ON public."PORTAL_SESSION" USING btree ("PORTAL_SESSION_ID" varchar_pattern_ops);
+
+
+--
+-- Name: PROPOSAL_ACTIVATION_CIRCULATION_STATE_ID_1b9fd676; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "PROPOSAL_ACTIVATION_CIRCULATION_STATE_ID_1b9fd676" ON public."PROPOSAL_ACTIVATION" USING btree ("CIRCULATION_STATE_ID");
+
+
+--
+-- Name: PROPOSAL_ACTIVATION_CIRCULATION_TYPE_ID_390d361e; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "PROPOSAL_ACTIVATION_CIRCULATION_TYPE_ID_390d361e" ON public."PROPOSAL_ACTIVATION" USING btree ("CIRCULATION_TYPE_ID");
+
+
+--
+-- Name: PROPOSAL_ACTIVATION_INSTANCE_ID_4cd3165b; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "PROPOSAL_ACTIVATION_INSTANCE_ID_4cd3165b" ON public."PROPOSAL_ACTIVATION" USING btree ("INSTANCE_ID");
+
+
+--
+-- Name: PROPOSAL_ACTIVATION_SERVICE_ID_b9881de4; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "PROPOSAL_ACTIVATION_SERVICE_ID_b9881de4" ON public."PROPOSAL_ACTIVATION" USING btree ("SERVICE_ID");
+
+
+--
+-- Name: PUBLICATION_ENTRY_INSTANCE_ID_907cbbb9; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "PUBLICATION_ENTRY_INSTANCE_ID_907cbbb9" ON public."PUBLICATION_ENTRY" USING btree ("INSTANCE_ID");
+
+
+--
+-- Name: PUBLICATION_ENTRY_PUBLICATION_TYPE_ID_f1c18b52; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "PUBLICATION_ENTRY_PUBLICATION_TYPE_ID_f1c18b52" ON public."PUBLICATION_ENTRY" USING btree ("PUBLICATION_TYPE_ID");
+
+
+--
+-- Name: PUBLICATION_SETTING_PUBLICATION_TYPE_ID_121119d2; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "PUBLICATION_SETTING_PUBLICATION_TYPE_ID_121119d2" ON public."PUBLICATION_SETTING" USING btree ("PUBLICATION_TYPE_ID");
+
+
+--
+-- Name: QUESTION_ANSWER_QUERY_ID_d9c9320e; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "QUESTION_ANSWER_QUERY_ID_d9c9320e" ON public."QUESTION" USING btree ("ANSWER_QUERY_ID");
+
+
+--
+-- Name: QUESTION_CHAPTER_CHAPTER_ID_bdcebef3; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "QUESTION_CHAPTER_CHAPTER_ID_bdcebef3" ON public."QUESTION_CHAPTER" USING btree ("CHAPTER_ID");
+
+
+--
+-- Name: QUESTION_CHAPTER_GROUP_ACL_CHAPTER_ID_a3bc4339; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "QUESTION_CHAPTER_GROUP_ACL_CHAPTER_ID_a3bc4339" ON public."QUESTION_CHAPTER_GROUP_ACL" USING btree ("CHAPTER_ID");
+
+
+--
+-- Name: QUESTION_CHAPTER_GROUP_ACL_GROUP_ID_ea7a168c; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "QUESTION_CHAPTER_GROUP_ACL_GROUP_ID_ea7a168c" ON public."QUESTION_CHAPTER_GROUP_ACL" USING btree ("GROUP_ID");
+
+
+--
+-- Name: QUESTION_CHAPTER_GROUP_ACL_INSTANCE_STATE_ID_94acd6d4; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "QUESTION_CHAPTER_GROUP_ACL_INSTANCE_STATE_ID_94acd6d4" ON public."QUESTION_CHAPTER_GROUP_ACL" USING btree ("INSTANCE_STATE_ID");
+
+
+--
+-- Name: QUESTION_CHAPTER_GROUP_ACL_QUESTION_ID_502a8c83; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "QUESTION_CHAPTER_GROUP_ACL_QUESTION_ID_502a8c83" ON public."QUESTION_CHAPTER_GROUP_ACL" USING btree ("QUESTION_ID");
+
+
+--
+-- Name: QUESTION_CHAPTER_QUESTION_ID_0994eadd; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "QUESTION_CHAPTER_QUESTION_ID_0994eadd" ON public."QUESTION_CHAPTER" USING btree ("QUESTION_ID");
+
+
+--
+-- Name: QUESTION_CHAPTER_ROLE_ACL_CHAPTER_ID_de69c275; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "QUESTION_CHAPTER_ROLE_ACL_CHAPTER_ID_de69c275" ON public."QUESTION_CHAPTER_ROLE_ACL" USING btree ("CHAPTER_ID");
+
+
+--
+-- Name: QUESTION_CHAPTER_ROLE_ACL_INSTANCE_STATE_ID_d536131d; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "QUESTION_CHAPTER_ROLE_ACL_INSTANCE_STATE_ID_d536131d" ON public."QUESTION_CHAPTER_ROLE_ACL" USING btree ("INSTANCE_STATE_ID");
+
+
+--
+-- Name: QUESTION_CHAPTER_ROLE_ACL_QUESTION_ID_7a8338b8; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "QUESTION_CHAPTER_ROLE_ACL_QUESTION_ID_7a8338b8" ON public."QUESTION_CHAPTER_ROLE_ACL" USING btree ("QUESTION_ID");
+
+
+--
+-- Name: QUESTION_CHAPTER_ROLE_ACL_ROLE_ID_22372532; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "QUESTION_CHAPTER_ROLE_ACL_ROLE_ID_22372532" ON public."QUESTION_CHAPTER_ROLE_ACL" USING btree ("ROLE_ID");
+
+
+--
+-- Name: QUESTION_CHAPTER_SERVICE_ACL_CHAPTER_ID_31b17e82; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "QUESTION_CHAPTER_SERVICE_ACL_CHAPTER_ID_31b17e82" ON public."QUESTION_CHAPTER_SERVICE_ACL" USING btree ("CHAPTER_ID");
+
+
+--
+-- Name: QUESTION_CHAPTER_SERVICE_ACL_INSTANCE_STATE_ID_06c5a49f; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "QUESTION_CHAPTER_SERVICE_ACL_INSTANCE_STATE_ID_06c5a49f" ON public."QUESTION_CHAPTER_SERVICE_ACL" USING btree ("INSTANCE_STATE_ID");
+
+
+--
+-- Name: QUESTION_CHAPTER_SERVICE_ACL_QUESTION_ID_cf6c35c8; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "QUESTION_CHAPTER_SERVICE_ACL_QUESTION_ID_cf6c35c8" ON public."QUESTION_CHAPTER_SERVICE_ACL" USING btree ("QUESTION_ID");
+
+
+--
+-- Name: QUESTION_CHAPTER_SERVICE_ACL_SERVICE_ID_2b971efd; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "QUESTION_CHAPTER_SERVICE_ACL_SERVICE_ID_2b971efd" ON public."QUESTION_CHAPTER_SERVICE_ACL" USING btree ("SERVICE_ID");
+
+
+--
+-- Name: QUESTION_CHAPTER_USER_ACL_CHAPTER_ID_e2a39690; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "QUESTION_CHAPTER_USER_ACL_CHAPTER_ID_e2a39690" ON public."QUESTION_CHAPTER_USER_ACL" USING btree ("CHAPTER_ID");
+
+
+--
+-- Name: QUESTION_CHAPTER_USER_ACL_INSTANCE_STATE_ID_bbc41b15; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "QUESTION_CHAPTER_USER_ACL_INSTANCE_STATE_ID_bbc41b15" ON public."QUESTION_CHAPTER_USER_ACL" USING btree ("INSTANCE_STATE_ID");
+
+
+--
+-- Name: QUESTION_CHAPTER_USER_ACL_QUESTION_ID_edb6f1be; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "QUESTION_CHAPTER_USER_ACL_QUESTION_ID_edb6f1be" ON public."QUESTION_CHAPTER_USER_ACL" USING btree ("QUESTION_ID");
+
+
+--
+-- Name: QUESTION_CHAPTER_USER_ACL_USER_ID_5575031b; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "QUESTION_CHAPTER_USER_ACL_USER_ID_5575031b" ON public."QUESTION_CHAPTER_USER_ACL" USING btree ("USER_ID");
+
+
+--
+-- Name: QUESTION_MAPPING_ID_03e9e9ac; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "QUESTION_MAPPING_ID_03e9e9ac" ON public."QUESTION" USING btree ("MAPPING_ID");
+
+
+--
+-- Name: QUESTION_QUESTION_TYPE_ID_69737b84; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "QUESTION_QUESTION_TYPE_ID_69737b84" ON public."QUESTION" USING btree ("QUESTION_TYPE_ID");
+
+
+--
+-- Name: QUESTION_T_QUESTION_ID_0bc58e7c; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "QUESTION_T_QUESTION_ID_0bc58e7c" ON public."QUESTION_T" USING btree ("QUESTION_ID");
+
+
+--
+-- Name: RESOURCE_AVAILABLE_RESOURCE_ID_7726eecf; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "RESOURCE_AVAILABLE_RESOURCE_ID_7726eecf" ON public."RESOURCE" USING btree ("AVAILABLE_RESOURCE_ID");
+
+
+--
+-- Name: RESOURCE_AVAILABLE_RESOURCE_ID_7726eecf_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "RESOURCE_AVAILABLE_RESOURCE_ID_7726eecf_like" ON public."RESOURCE" USING btree ("AVAILABLE_RESOURCE_ID" varchar_pattern_ops);
+
+
+--
+-- Name: RESOURCE_T_RESOURCE_ID_f7357177; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "RESOURCE_T_RESOURCE_ID_f7357177" ON public."RESOURCE_T" USING btree ("RESOURCE_ID");
+
+
+--
+-- Name: RESPONSIBLE_ALLOCATION_GROUP_ID_b325261f; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "RESPONSIBLE_ALLOCATION_GROUP_ID_b325261f" ON public."RESPONSIBLE_ALLOCATION" USING btree ("GROUP_ID");
+
+
+--
+-- Name: RESPONSIBLE_ALLOCATION_LOCATION_ID_b8689c12; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "RESPONSIBLE_ALLOCATION_LOCATION_ID_b8689c12" ON public."RESPONSIBLE_ALLOCATION" USING btree ("LOCATION_ID");
+
+
+--
+-- Name: RESPONSIBLE_SERVICE_ALLOCATION_LOCATION_ID_dd7e97ff; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "RESPONSIBLE_SERVICE_ALLOCATION_LOCATION_ID_dd7e97ff" ON public."RESPONSIBLE_SERVICE_ALLOCATION" USING btree ("LOCATION_ID");
+
+
+--
+-- Name: RESPONSIBLE_SERVICE_ALLOCATION_SERVICE_ID_7ac47fce; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "RESPONSIBLE_SERVICE_ALLOCATION_SERVICE_ID_7ac47fce" ON public."RESPONSIBLE_SERVICE_ALLOCATION" USING btree ("SERVICE_ID");
+
+
+--
+-- Name: RESPONSIBLE_SERVICE_ALLOCATION_USER_ID_2abbae3e; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "RESPONSIBLE_SERVICE_ALLOCATION_USER_ID_2abbae3e" ON public."RESPONSIBLE_SERVICE_ALLOCATION" USING btree ("USER_ID");
+
+
+--
+-- Name: RESPONSIBLE_SERVICE_INSTANCE_ID_fbbef379; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "RESPONSIBLE_SERVICE_INSTANCE_ID_fbbef379" ON public."RESPONSIBLE_SERVICE" USING btree ("INSTANCE_ID");
+
+
+--
+-- Name: RESPONSIBLE_SERVICE_RESPONSIBLE_USER_ID_090002e1; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "RESPONSIBLE_SERVICE_RESPONSIBLE_USER_ID_090002e1" ON public."RESPONSIBLE_SERVICE" USING btree ("RESPONSIBLE_USER_ID");
+
+
+--
+-- Name: RESPONSIBLE_SERVICE_SERVICE_ID_3d8f3e1d; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "RESPONSIBLE_SERVICE_SERVICE_ID_3d8f3e1d" ON public."RESPONSIBLE_SERVICE" USING btree ("SERVICE_ID");
+
+
+--
+-- Name: ROLE_ROLE_PARENT_ID_2dfb744a; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ROLE_ROLE_PARENT_ID_2dfb744a" ON public."ROLE" USING btree ("ROLE_PARENT_ID");
+
+
+--
+-- Name: ROLE_T_ROLE_ID_1373af16; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "ROLE_T_ROLE_ID_1373af16" ON public."ROLE_T" USING btree ("ROLE_ID");
+
+
+--
+-- Name: R_FORMLIST_FORM_ID_7f9372fe; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "R_FORMLIST_FORM_ID_7f9372fe" ON public."R_FORMLIST" USING btree ("FORM_ID");
+
+
+--
+-- Name: R_GROUP_ACL_GROUP_ID_a1e2809d; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "R_GROUP_ACL_GROUP_ID_a1e2809d" ON public."R_GROUP_ACL" USING btree ("GROUP_ID");
+
+
+--
+-- Name: R_GROUP_ACL_RESOURCE_ID_fa4e243a; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "R_GROUP_ACL_RESOURCE_ID_fa4e243a" ON public."R_GROUP_ACL" USING btree ("RESOURCE_ID");
+
+
+--
+-- Name: R_LIST_COLUMN_RESOURCE_ID_f26a24e5; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "R_LIST_COLUMN_RESOURCE_ID_f26a24e5" ON public."R_LIST_COLUMN" USING btree ("RESOURCE_ID");
+
+
+--
+-- Name: R_LIST_COLUMN_T_R_LIST_COLUMN_ID_0d8b7477; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "R_LIST_COLUMN_T_R_LIST_COLUMN_ID_0d8b7477" ON public."R_LIST_COLUMN_T" USING btree ("R_LIST_COLUMN_ID");
+
+
+--
+-- Name: R_ROLE_ACL_RESOURCE_ID_3c9dabef; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "R_ROLE_ACL_RESOURCE_ID_3c9dabef" ON public."R_ROLE_ACL" USING btree ("RESOURCE_ID");
+
+
+--
+-- Name: R_ROLE_ACL_ROLE_ID_c80c3fdc; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "R_ROLE_ACL_ROLE_ID_c80c3fdc" ON public."R_ROLE_ACL" USING btree ("ROLE_ID");
+
+
+--
+-- Name: R_SEARCH_COLUMN_RESOURCE_ID_6df43880; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "R_SEARCH_COLUMN_RESOURCE_ID_6df43880" ON public."R_SEARCH_COLUMN" USING btree ("RESOURCE_ID");
+
+
+--
+-- Name: R_SEARCH_COLUMN_T_R_SEARCH_COLUMN_ID_f7d18a36; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "R_SEARCH_COLUMN_T_R_SEARCH_COLUMN_ID_f7d18a36" ON public."R_SEARCH_COLUMN_T" USING btree ("R_SEARCH_COLUMN_ID");
+
+
+--
+-- Name: R_SEARCH_FILTER_QUESTION_ID_11e215d3; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "R_SEARCH_FILTER_QUESTION_ID_11e215d3" ON public."R_SEARCH_FILTER" USING btree ("QUESTION_ID");
+
+
+--
+-- Name: R_SEARCH_FILTER_RESOURCE_ID_d64f4a69; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "R_SEARCH_FILTER_RESOURCE_ID_d64f4a69" ON public."R_SEARCH_FILTER" USING btree ("RESOURCE_ID");
+
+
+--
+-- Name: R_SEARCH_FILTER_T_R_SEARCH_FILTER_ID_8f3fcca2; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "R_SEARCH_FILTER_T_R_SEARCH_FILTER_ID_8f3fcca2" ON public."R_SEARCH_FILTER_T" USING btree ("R_SEARCH_FILTER_ID");
+
+
+--
+-- Name: R_SERVICE_ACL_RESOURCE_ID_74270c6e; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "R_SERVICE_ACL_RESOURCE_ID_74270c6e" ON public."R_SERVICE_ACL" USING btree ("RESOURCE_ID");
+
+
+--
+-- Name: R_SERVICE_ACL_SERVICE_ID_39561725; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "R_SERVICE_ACL_SERVICE_ID_39561725" ON public."R_SERVICE_ACL" USING btree ("SERVICE_ID");
+
+
+--
+-- Name: R_USER_ACL_RESOURCE_ID_f1c65330; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "R_USER_ACL_RESOURCE_ID_f1c65330" ON public."R_USER_ACL" USING btree ("RESOURCE_ID");
+
+
+--
+-- Name: R_USER_ACL_USER_ID_0441f8c5; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "R_USER_ACL_USER_ID_0441f8c5" ON public."R_USER_ACL" USING btree ("USER_ID");
+
+
+--
+-- Name: SANCTION_CONTROL_INSTANCE_ID_c0c0e275; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "SANCTION_CONTROL_INSTANCE_ID_c0c0e275" ON public."SANCTION" USING btree ("CONTROL_INSTANCE_ID");
+
+
+--
+-- Name: SANCTION_FINISHED_BY_USER_ID_4cfc0ea0; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "SANCTION_FINISHED_BY_USER_ID_4cfc0ea0" ON public."SANCTION" USING btree ("FINISHED_BY_USER_ID");
+
+
+--
+-- Name: SANCTION_INSTANCE_ID_8a78eaf5; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "SANCTION_INSTANCE_ID_8a78eaf5" ON public."SANCTION" USING btree ("INSTANCE_ID");
+
+
+--
+-- Name: SANCTION_SERVICE_ID_b726ff1f; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "SANCTION_SERVICE_ID_b726ff1f" ON public."SANCTION" USING btree ("SERVICE_ID");
+
+
+--
+-- Name: SANCTION_USER_ID_9bc418a3; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "SANCTION_USER_ID_9bc418a3" ON public."SANCTION" USING btree ("USER_ID");
+
+
+--
+-- Name: SERVICE_ANSWER_ACTIVATION_CHAPTER_ID_ef9731d1; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "SERVICE_ANSWER_ACTIVATION_CHAPTER_ID_ef9731d1" ON public."SERVICE_ANSWER_ACTIVATION" USING btree ("CHAPTER_ID");
+
+
+--
+-- Name: SERVICE_ANSWER_ACTIVATION_FORM_ID_35e98f5b; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "SERVICE_ANSWER_ACTIVATION_FORM_ID_35e98f5b" ON public."SERVICE_ANSWER_ACTIVATION" USING btree ("FORM_ID");
+
+
+--
+-- Name: SERVICE_ANSWER_ACTIVATION_QUESTION_ID_6d2071fc; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "SERVICE_ANSWER_ACTIVATION_QUESTION_ID_6d2071fc" ON public."SERVICE_ANSWER_ACTIVATION" USING btree ("QUESTION_ID");
+
+
+--
+-- Name: SERVICE_ANSWER_ACTIVATION_SERVICE_ID_4232baa6; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "SERVICE_ANSWER_ACTIVATION_SERVICE_ID_4232baa6" ON public."SERVICE_ANSWER_ACTIVATION" USING btree ("SERVICE_ID");
+
+
+--
+-- Name: SERVICE_GROUP_T_SERVICE_GROUP_ID_9ea2d06b; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "SERVICE_GROUP_T_SERVICE_GROUP_ID_9ea2d06b" ON public."SERVICE_GROUP_T" USING btree ("SERVICE_GROUP_ID");
+
+
+--
+-- Name: SERVICE_GROUP_slug_4cf1b717_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "SERVICE_GROUP_slug_4cf1b717_like" ON public."SERVICE_GROUP" USING btree (slug varchar_pattern_ops);
+
+
+--
+-- Name: SERVICE_SERVICE_GROUP_ID_8a973e36; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "SERVICE_SERVICE_GROUP_ID_8a973e36" ON public."SERVICE" USING btree ("SERVICE_GROUP_ID");
+
+
+--
+-- Name: SERVICE_SERVICE_PARENT_ID_24babd53; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "SERVICE_SERVICE_PARENT_ID_24babd53" ON public."SERVICE" USING btree ("SERVICE_PARENT_ID");
+
+
+--
+-- Name: SERVICE_T_SERVICE_ID_2ddc276c; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "SERVICE_T_SERVICE_ID_2ddc276c" ON public."SERVICE_T" USING btree ("SERVICE_ID");
+
+
+--
+-- Name: SERVICE_slug_8732ba19_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "SERVICE_slug_8732ba19_like" ON public."SERVICE" USING btree (slug varchar_pattern_ops);
+
+
+--
+-- Name: TAGS_INSTANCE_ID_cee1fd6e; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "TAGS_INSTANCE_ID_cee1fd6e" ON public."TAGS" USING btree ("INSTANCE_ID");
+
+
+--
+-- Name: TAGS_SERVICE_ID_c150e94f; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "TAGS_SERVICE_ID_c150e94f" ON public."TAGS" USING btree ("SERVICE_ID");
+
+
+--
+-- Name: TEMPLATE_GENERATE_ACTION_ACTION_ID_267a8014; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "TEMPLATE_GENERATE_ACTION_ACTION_ID_267a8014" ON public."TEMPLATE_GENERATE_ACTION" USING btree ("ACTION_ID");
+
+
+--
+-- Name: TEMPLATE_GENERATE_ACTION_TEMPLATE_ID_580da4f2; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "TEMPLATE_GENERATE_ACTION_TEMPLATE_ID_580da4f2" ON public."TEMPLATE_GENERATE_ACTION" USING btree ("TEMPLATE_ID");
+
+
+--
+-- Name: TEMPLATE_group_id_dfdd41fa; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "TEMPLATE_group_id_dfdd41fa" ON public."TEMPLATE" USING btree (group_id);
+
+
+--
+-- Name: TEMPLATE_service_id_fca7a53f; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "TEMPLATE_service_id_fca7a53f" ON public."TEMPLATE" USING btree (service_id);
+
+
+--
+-- Name: USER_GROUP_GROUP_ID_9ca8ba42; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "USER_GROUP_GROUP_ID_9ca8ba42" ON public."USER_GROUP" USING btree ("GROUP_ID");
+
+
+--
+-- Name: USER_GROUP_USER_ID_94a94f86; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "USER_GROUP_USER_ID_94a94f86" ON public."USER_GROUP" USING btree ("USER_ID");
+
+
+--
+-- Name: USER_GROUP_created_by_id_f78ce4ae; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "USER_GROUP_created_by_id_f78ce4ae" ON public."USER_GROUP" USING btree (created_by_id);
+
+
+--
+-- Name: USER_T_USER_ID_00a6ec9c; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "USER_T_USER_ID_00a6ec9c" ON public."USER_T" USING btree ("USER_ID");
+
+
+--
+-- Name: USER_USERNAME_3d97722d_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "USER_USERNAME_3d97722d_like" ON public."USER" USING btree ("USERNAME" varchar_pattern_ops);
+
+
+--
+-- Name: WORKFLOW_ACTION_WORKFLOW_ITEM_ID_14ea63d0; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "WORKFLOW_ACTION_WORKFLOW_ITEM_ID_14ea63d0" ON public."WORKFLOW_ACTION" USING btree ("WORKFLOW_ITEM_ID");
+
+
+--
+-- Name: WORKFLOW_ENTRY_INSTANCE_ID_e97c3ec7; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "WORKFLOW_ENTRY_INSTANCE_ID_e97c3ec7" ON public."WORKFLOW_ENTRY" USING btree ("INSTANCE_ID");
+
+
+--
+-- Name: WORKFLOW_ENTRY_WORKFLOW_ITEM_ID_fb3e18d0; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "WORKFLOW_ENTRY_WORKFLOW_ITEM_ID_fb3e18d0" ON public."WORKFLOW_ENTRY" USING btree ("WORKFLOW_ITEM_ID");
+
+
+--
+-- Name: WORKFLOW_ITEM_WORKFLOW_SECTION_ID_8c982360; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "WORKFLOW_ITEM_WORKFLOW_SECTION_ID_8c982360" ON public."WORKFLOW_ITEM" USING btree ("WORKFLOW_SECTION_ID");
+
+
+--
+-- Name: WORKFLOW_ITEM_caluma_question_id_3537ca67; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "WORKFLOW_ITEM_caluma_question_id_3537ca67" ON public."WORKFLOW_ITEM" USING btree (caluma_question_id);
+
+
+--
+-- Name: WORKFLOW_ITEM_caluma_question_id_3537ca67_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "WORKFLOW_ITEM_caluma_question_id_3537ca67_like" ON public."WORKFLOW_ITEM" USING btree (caluma_question_id varchar_pattern_ops);
+
+
+--
+-- Name: WORKFLOW_ITEM_caluma_task_id_d6bad0c2; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "WORKFLOW_ITEM_caluma_task_id_d6bad0c2" ON public."WORKFLOW_ITEM" USING btree (caluma_task_id);
+
+
+--
+-- Name: WORKFLOW_ITEM_caluma_task_id_d6bad0c2_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "WORKFLOW_ITEM_caluma_task_id_d6bad0c2_like" ON public."WORKFLOW_ITEM" USING btree (caluma_task_id varchar_pattern_ops);
+
+
+--
+-- Name: WORKFLOW_ROLE_ROLE_ID_96514168; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "WORKFLOW_ROLE_ROLE_ID_96514168" ON public."WORKFLOW_ROLE" USING btree ("ROLE_ID");
+
+
+--
+-- Name: WORKFLOW_ROLE_WORKFLOW_ITEM_ID_628bff4c; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "WORKFLOW_ROLE_WORKFLOW_ITEM_ID_628bff4c" ON public."WORKFLOW_ROLE" USING btree ("WORKFLOW_ITEM_ID");
+
+
+--
+-- Name: alexandria__content_5ff46e_gin; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX alexandria__content_5ff46e_gin ON public.alexandria_core_file USING gin (content_vector);
+
+
+--
+-- Name: alexandria_core_category_created_at_c8993d08; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX alexandria_core_category_created_at_c8993d08 ON public.alexandria_core_category USING btree (created_at);
+
+
+--
+-- Name: alexandria_core_category_modified_at_589aeae5; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX alexandria_core_category_modified_at_589aeae5 ON public.alexandria_core_category USING btree (modified_at);
+
+
+--
+-- Name: alexandria_core_category_parent_id_3d31dd25; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX alexandria_core_category_parent_id_3d31dd25 ON public.alexandria_core_category USING btree (parent_id);
+
+
+--
+-- Name: alexandria_core_category_parent_id_3d31dd25_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX alexandria_core_category_parent_id_3d31dd25_like ON public.alexandria_core_category USING btree (parent_id varchar_pattern_ops);
+
+
+--
+-- Name: alexandria_core_category_slug_1c4e9fc6_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX alexandria_core_category_slug_1c4e9fc6_like ON public.alexandria_core_category USING btree (slug varchar_pattern_ops);
+
+
+--
+-- Name: alexandria_core_category_sort_9cfa769c; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX alexandria_core_category_sort_9cfa769c ON public.alexandria_core_category USING btree (sort);
+
+
+--
+-- Name: alexandria_core_document_category_id_e778a740; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX alexandria_core_document_category_id_e778a740 ON public.alexandria_core_document USING btree (category_id);
+
+
+--
+-- Name: alexandria_core_document_category_id_e778a740_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX alexandria_core_document_category_id_e778a740_like ON public.alexandria_core_document USING btree (category_id varchar_pattern_ops);
+
+
+--
+-- Name: alexandria_core_document_created_at_b3a14958; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX alexandria_core_document_created_at_b3a14958 ON public.alexandria_core_document USING btree (created_at);
+
+
+--
+-- Name: alexandria_core_document_instance_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX alexandria_core_document_instance_id ON public.alexandria_core_document USING btree (((metainfo -> 'camac-instance-id'::text)));
+
+
+--
+-- Name: alexandria_core_document_marks_document_id_80249d44; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX alexandria_core_document_marks_document_id_80249d44 ON public.alexandria_core_document_marks USING btree (document_id);
+
+
+--
+-- Name: alexandria_core_document_marks_mark_id_520f5c84; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX alexandria_core_document_marks_mark_id_520f5c84 ON public.alexandria_core_document_marks USING btree (mark_id);
+
+
+--
+-- Name: alexandria_core_document_marks_mark_id_520f5c84_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX alexandria_core_document_marks_mark_id_520f5c84_like ON public.alexandria_core_document_marks USING btree (mark_id varchar_pattern_ops);
+
+
+--
+-- Name: alexandria_core_document_modified_at_b988e63e; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX alexandria_core_document_modified_at_b988e63e ON public.alexandria_core_document USING btree (modified_at);
+
+
+--
+-- Name: alexandria_core_document_tags_document_id_03b70e35; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX alexandria_core_document_tags_document_id_03b70e35 ON public.alexandria_core_document_tags USING btree (document_id);
+
+
+--
+-- Name: alexandria_core_document_tags_tag_id_8dc7fb00; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX alexandria_core_document_tags_tag_id_8dc7fb00 ON public.alexandria_core_document_tags USING btree (tag_id);
+
+
+--
+-- Name: alexandria_core_file_created_at_e5d2cd72; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX alexandria_core_file_created_at_e5d2cd72 ON public.alexandria_core_file USING btree (created_at);
+
+
+--
+-- Name: alexandria_core_file_document_id_155ad7ba; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX alexandria_core_file_document_id_155ad7ba ON public.alexandria_core_file USING btree (document_id);
+
+
+--
+-- Name: alexandria_core_file_modified_at_6d4ac7ce; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX alexandria_core_file_modified_at_6d4ac7ce ON public.alexandria_core_file USING btree (modified_at);
+
+
+--
+-- Name: alexandria_core_file_original_id_d665c65a; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX alexandria_core_file_original_id_d665c65a ON public.alexandria_core_file USING btree (original_id);
+
+
+--
+-- Name: alexandria_core_mark_created_at_af9f2fc3; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX alexandria_core_mark_created_at_af9f2fc3 ON public.alexandria_core_mark USING btree (created_at);
+
+
+--
+-- Name: alexandria_core_mark_modified_at_18633e73; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX alexandria_core_mark_modified_at_18633e73 ON public.alexandria_core_mark USING btree (modified_at);
+
+
+--
+-- Name: alexandria_core_mark_slug_6ee772bf_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX alexandria_core_mark_slug_6ee772bf_like ON public.alexandria_core_mark USING btree (slug varchar_pattern_ops);
+
+
+--
+-- Name: alexandria_core_tag_created_at_a28b2a57; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX alexandria_core_tag_created_at_a28b2a57 ON public.alexandria_core_tag USING btree (created_at);
+
+
+--
+-- Name: alexandria_core_tag_modified_at_67fd6dd4; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX alexandria_core_tag_modified_at_67fd6dd4 ON public.alexandria_core_tag USING btree (modified_at);
+
+
+--
+-- Name: alexandria_core_tag_tag_synonym_group_id_c403b435; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX alexandria_core_tag_tag_synonym_group_id_c403b435 ON public.alexandria_core_tag USING btree (tag_synonym_group_id);
+
+
+--
+-- Name: alexandria_core_tagsynonymgroup_created_at_f2f37e88; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX alexandria_core_tagsynonymgroup_created_at_f2f37e88 ON public.alexandria_core_tagsynonymgroup USING btree (created_at);
+
+
+--
+-- Name: alexandria_core_tagsynonymgroup_modified_at_7fbef882; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX alexandria_core_tagsynonymgroup_modified_at_7fbef882 ON public.alexandria_core_tagsynonymgroup USING btree (modified_at);
+
+
+--
+-- Name: api_template_created_at_b5ced018; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX api_template_created_at_b5ced018 ON public.api_template USING btree (created_at);
+
+
+--
+-- Name: api_template_modified_at_62619dec; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX api_template_modified_at_62619dec ON public.api_template USING btree (modified_at);
+
+
+--
+-- Name: api_template_slug_5e2ea539_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX api_template_slug_5e2ea539_like ON public.api_template USING btree (slug varchar_pattern_ops);
+
+
+--
+-- Name: auth_group_name_a6ea08ec_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX auth_group_name_a6ea08ec_like ON public.auth_group USING btree (name varchar_pattern_ops);
+
+
+--
+-- Name: auth_group_permissions_group_id_b120cbf9; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX auth_group_permissions_group_id_b120cbf9 ON public.auth_group_permissions USING btree (group_id);
+
+
+--
+-- Name: auth_group_permissions_permission_id_84c5c92e; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX auth_group_permissions_permission_id_84c5c92e ON public.auth_group_permissions USING btree (permission_id);
+
+
+--
+-- Name: auth_permission_content_type_id_2f476e4b; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX auth_permission_content_type_id_2f476e4b ON public.auth_permission USING btree (content_type_id);
+
+
+--
+-- Name: billing_billingv2entrytemp_billingv2entrytemplate_id_981242e7; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX billing_billingv2entrytemp_billingv2entrytemplate_id_981242e7 ON public.billing_billingv2entrytemplate_services USING btree (billingv2entrytemplate_id);
+
+
+--
+-- Name: billing_billingv2entrytemp_billingv2entrytemplate_id_ce84d07f; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX billing_billingv2entrytemp_billingv2entrytemplate_id_ce84d07f ON public.billing_billingv2entrytemplate_service_groups USING btree (billingv2entrytemplate_id);
+
+
+--
+-- Name: billing_billingv2entrytemp_servicegroup_id_7d99ce14; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX billing_billingv2entrytemp_servicegroup_id_7d99ce14 ON public.billing_billingv2entrytemplate_service_groups USING btree (servicegroup_id);
+
+
+--
+-- Name: billing_billingv2entrytemplate_services_service_id_fb5b92fa; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX billing_billingv2entrytemplate_services_service_id_fb5b92fa ON public.billing_billingv2entrytemplate_services USING btree (service_id);
+
+
+--
+-- Name: billing_invoice_instance_id_570d2a2a; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX billing_invoice_instance_id_570d2a2a ON public.billing_invoice USING btree (instance_id);
+
+
+--
+-- Name: billing_lineitem_billing_v2_entry_id_ed3321b5; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX billing_lineitem_billing_v2_entry_id_ed3321b5 ON public.billing_lineitem USING btree (billing_v2_entry_id);
+
+
+--
+-- Name: billing_lineitem_invoice_id_36d712b9; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX billing_lineitem_invoice_id_36d712b9 ON public.billing_lineitem USING btree (invoice_id);
+
+
+--
+-- Name: caluma_analytics_analyticsfield_created_at_5d6e8881; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_analyticsfield_created_at_5d6e8881 ON public.caluma_analytics_analyticsfield USING btree (created_at);
+
+
+--
+-- Name: caluma_analytics_analyticsfield_created_by_group_3bd47037; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_analyticsfield_created_by_group_3bd47037 ON public.caluma_analytics_analyticsfield USING btree (created_by_group);
+
+
+--
+-- Name: caluma_analytics_analyticsfield_created_by_group_3bd47037_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_analyticsfield_created_by_group_3bd47037_like ON public.caluma_analytics_analyticsfield USING btree (created_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_analytics_analyticsfield_created_by_user_2b2289ff; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_analyticsfield_created_by_user_2b2289ff ON public.caluma_analytics_analyticsfield USING btree (created_by_user);
+
+
+--
+-- Name: caluma_analytics_analyticsfield_created_by_user_2b2289ff_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_analyticsfield_created_by_user_2b2289ff_like ON public.caluma_analytics_analyticsfield USING btree (created_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_analytics_analyticsfield_modified_at_8367d216; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_analyticsfield_modified_at_8367d216 ON public.caluma_analytics_analyticsfield USING btree (modified_at);
+
+
+--
+-- Name: caluma_analytics_analyticsfield_modified_by_group_0bd16daa; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_analyticsfield_modified_by_group_0bd16daa ON public.caluma_analytics_analyticsfield USING btree (modified_by_group);
+
+
+--
+-- Name: caluma_analytics_analyticsfield_modified_by_group_0bd16daa_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_analyticsfield_modified_by_group_0bd16daa_like ON public.caluma_analytics_analyticsfield USING btree (modified_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_analytics_analyticsfield_modified_by_user_5937fe43; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_analyticsfield_modified_by_user_5937fe43 ON public.caluma_analytics_analyticsfield USING btree (modified_by_user);
+
+
+--
+-- Name: caluma_analytics_analyticsfield_modified_by_user_5937fe43_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_analyticsfield_modified_by_user_5937fe43_like ON public.caluma_analytics_analyticsfield USING btree (modified_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_analytics_analyticsfield_sort_8eb46fff; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_analyticsfield_sort_8eb46fff ON public.caluma_analytics_analyticsfield USING btree (sort);
+
+
+--
+-- Name: caluma_analytics_analyticsfield_table_id_1aeb03fe; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_analyticsfield_table_id_1aeb03fe ON public.caluma_analytics_analyticsfield USING btree (table_id);
+
+
+--
+-- Name: caluma_analytics_analyticsfield_table_id_1aeb03fe_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_analyticsfield_table_id_1aeb03fe_like ON public.caluma_analytics_analyticsfield USING btree (table_id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_analytics_analyticstable_created_at_7090b856; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_analyticstable_created_at_7090b856 ON public.caluma_analytics_analyticstable USING btree (created_at);
+
+
+--
+-- Name: caluma_analytics_analyticstable_created_by_group_17c0bd5e; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_analyticstable_created_by_group_17c0bd5e ON public.caluma_analytics_analyticstable USING btree (created_by_group);
+
+
+--
+-- Name: caluma_analytics_analyticstable_created_by_group_17c0bd5e_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_analyticstable_created_by_group_17c0bd5e_like ON public.caluma_analytics_analyticstable USING btree (created_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_analytics_analyticstable_created_by_user_4fa5b14c; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_analyticstable_created_by_user_4fa5b14c ON public.caluma_analytics_analyticstable USING btree (created_by_user);
+
+
+--
+-- Name: caluma_analytics_analyticstable_created_by_user_4fa5b14c_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_analyticstable_created_by_user_4fa5b14c_like ON public.caluma_analytics_analyticstable USING btree (created_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_analytics_analyticstable_modified_at_c879d96b; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_analyticstable_modified_at_c879d96b ON public.caluma_analytics_analyticstable USING btree (modified_at);
+
+
+--
+-- Name: caluma_analytics_analyticstable_modified_by_group_8338426a; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_analyticstable_modified_by_group_8338426a ON public.caluma_analytics_analyticstable USING btree (modified_by_group);
+
+
+--
+-- Name: caluma_analytics_analyticstable_modified_by_group_8338426a_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_analyticstable_modified_by_group_8338426a_like ON public.caluma_analytics_analyticstable USING btree (modified_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_analytics_analyticstable_modified_by_user_05f09cbb; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_analyticstable_modified_by_user_05f09cbb ON public.caluma_analytics_analyticstable USING btree (modified_by_user);
+
+
+--
+-- Name: caluma_analytics_analyticstable_modified_by_user_05f09cbb_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_analyticstable_modified_by_user_05f09cbb_like ON public.caluma_analytics_analyticstable USING btree (modified_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_analytics_analyticstable_slug_c9311c5e_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_analyticstable_slug_c9311c5e_like ON public.caluma_analytics_analyticstable USING btree (slug varchar_pattern_ops);
+
+
+--
+-- Name: caluma_analytics_histori_created_by_group_0f370461_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_histori_created_by_group_0f370461_like ON public.caluma_analytics_historicalanalyticsfield USING btree (created_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_analytics_histori_created_by_group_7e019cc5_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_histori_created_by_group_7e019cc5_like ON public.caluma_analytics_historicalanalyticstable USING btree (created_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_analytics_histori_created_by_user_799d8cd1_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_histori_created_by_user_799d8cd1_like ON public.caluma_analytics_historicalanalyticsfield USING btree (created_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_analytics_histori_created_by_user_9296be13_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_histori_created_by_user_9296be13_like ON public.caluma_analytics_historicalanalyticstable USING btree (created_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_analytics_histori_modified_by_group_6a622f14_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_histori_modified_by_group_6a622f14_like ON public.caluma_analytics_historicalanalyticstable USING btree (modified_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_analytics_histori_modified_by_group_e7869b61_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_histori_modified_by_group_e7869b61_like ON public.caluma_analytics_historicalanalyticsfield USING btree (modified_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_analytics_histori_modified_by_user_145a090f_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_histori_modified_by_user_145a090f_like ON public.caluma_analytics_historicalanalyticsfield USING btree (modified_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_analytics_histori_modified_by_user_c39aadfa_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_histori_modified_by_user_c39aadfa_like ON public.caluma_analytics_historicalanalyticstable USING btree (modified_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_analytics_histori_table_id_ff5b6a2d_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_histori_table_id_ff5b6a2d_like ON public.caluma_analytics_historicalanalyticsfield USING btree (table_id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_analytics_historica_created_by_group_0f370461; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_historica_created_by_group_0f370461 ON public.caluma_analytics_historicalanalyticsfield USING btree (created_by_group);
+
+
+--
+-- Name: caluma_analytics_historica_created_by_group_7e019cc5; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_historica_created_by_group_7e019cc5 ON public.caluma_analytics_historicalanalyticstable USING btree (created_by_group);
+
+
+--
+-- Name: caluma_analytics_historica_created_by_user_799d8cd1; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_historica_created_by_user_799d8cd1 ON public.caluma_analytics_historicalanalyticsfield USING btree (created_by_user);
+
+
+--
+-- Name: caluma_analytics_historica_created_by_user_9296be13; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_historica_created_by_user_9296be13 ON public.caluma_analytics_historicalanalyticstable USING btree (created_by_user);
+
+
+--
+-- Name: caluma_analytics_historica_modified_by_group_6a622f14; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_historica_modified_by_group_6a622f14 ON public.caluma_analytics_historicalanalyticstable USING btree (modified_by_group);
+
+
+--
+-- Name: caluma_analytics_historica_modified_by_group_e7869b61; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_historica_modified_by_group_e7869b61 ON public.caluma_analytics_historicalanalyticsfield USING btree (modified_by_group);
+
+
+--
+-- Name: caluma_analytics_historica_modified_by_user_145a090f; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_historica_modified_by_user_145a090f ON public.caluma_analytics_historicalanalyticsfield USING btree (modified_by_user);
+
+
+--
+-- Name: caluma_analytics_historica_modified_by_user_c39aadfa; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_historica_modified_by_user_c39aadfa ON public.caluma_analytics_historicalanalyticstable USING btree (modified_by_user);
+
+
+--
+-- Name: caluma_analytics_historicalanalyticsfield_created_at_9cc638e2; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_historicalanalyticsfield_created_at_9cc638e2 ON public.caluma_analytics_historicalanalyticsfield USING btree (created_at);
+
+
+--
+-- Name: caluma_analytics_historicalanalyticsfield_history_date_aff15f52; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_historicalanalyticsfield_history_date_aff15f52 ON public.caluma_analytics_historicalanalyticsfield USING btree (history_date);
+
+
+--
+-- Name: caluma_analytics_historicalanalyticsfield_id_a69cac69; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_historicalanalyticsfield_id_a69cac69 ON public.caluma_analytics_historicalanalyticsfield USING btree (id);
+
+
+--
+-- Name: caluma_analytics_historicalanalyticsfield_modified_at_02bf339f; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_historicalanalyticsfield_modified_at_02bf339f ON public.caluma_analytics_historicalanalyticsfield USING btree (modified_at);
+
+
+--
+-- Name: caluma_analytics_historicalanalyticsfield_sort_5e79b9d1; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_historicalanalyticsfield_sort_5e79b9d1 ON public.caluma_analytics_historicalanalyticsfield USING btree (sort);
+
+
+--
+-- Name: caluma_analytics_historicalanalyticsfield_table_id_ff5b6a2d; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_historicalanalyticsfield_table_id_ff5b6a2d ON public.caluma_analytics_historicalanalyticsfield USING btree (table_id);
+
+
+--
+-- Name: caluma_analytics_historicalanalyticstable_created_at_817b771d; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_historicalanalyticstable_created_at_817b771d ON public.caluma_analytics_historicalanalyticstable USING btree (created_at);
+
+
+--
+-- Name: caluma_analytics_historicalanalyticstable_history_date_0d354cd5; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_historicalanalyticstable_history_date_0d354cd5 ON public.caluma_analytics_historicalanalyticstable USING btree (history_date);
+
+
+--
+-- Name: caluma_analytics_historicalanalyticstable_modified_at_5e0727dd; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_historicalanalyticstable_modified_at_5e0727dd ON public.caluma_analytics_historicalanalyticstable USING btree (modified_at);
+
+
+--
+-- Name: caluma_analytics_historicalanalyticstable_slug_367055c5; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_historicalanalyticstable_slug_367055c5 ON public.caluma_analytics_historicalanalyticstable USING btree (slug);
+
+
+--
+-- Name: caluma_analytics_historicalanalyticstable_slug_367055c5_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_analytics_historicalanalyticstable_slug_367055c5_like ON public.caluma_analytics_historicalanalyticstable USING btree (slug varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_answer_created_at_6902cf30; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_answer_created_at_6902cf30 ON public.caluma_form_answer USING btree (created_at);
+
+
+--
+-- Name: caluma_form_answer_created_by_group_9eee2777; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_answer_created_by_group_9eee2777 ON public.caluma_form_answer USING btree (created_by_group);
+
+
+--
+-- Name: caluma_form_answer_created_by_group_9eee2777_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_answer_created_by_group_9eee2777_like ON public.caluma_form_answer USING btree (created_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_answer_created_by_user_76d7cd4b; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_answer_created_by_user_76d7cd4b ON public.caluma_form_answer USING btree (created_by_user);
+
+
+--
+-- Name: caluma_form_answer_created_by_user_76d7cd4b_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_answer_created_by_user_76d7cd4b_like ON public.caluma_form_answer USING btree (created_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_answer_document_id_37a39e57; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_answer_document_id_37a39e57 ON public.caluma_form_answer USING btree (document_id);
+
+
+--
+-- Name: caluma_form_answer_modified_at_859164a1; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_answer_modified_at_859164a1 ON public.caluma_form_answer USING btree (modified_at);
+
+
+--
+-- Name: caluma_form_answer_modified_by_group_81191040; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_answer_modified_by_group_81191040 ON public.caluma_form_answer USING btree (modified_by_group);
+
+
+--
+-- Name: caluma_form_answer_modified_by_group_81191040_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_answer_modified_by_group_81191040_like ON public.caluma_form_answer USING btree (modified_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_answer_modified_by_user_1932a3ca; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_answer_modified_by_user_1932a3ca ON public.caluma_form_answer USING btree (modified_by_user);
+
+
+--
+-- Name: caluma_form_answer_modified_by_user_1932a3ca_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_answer_modified_by_user_1932a3ca_like ON public.caluma_form_answer USING btree (modified_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_answer_question_id_3fa9630c; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_answer_question_id_3fa9630c ON public.caluma_form_answer USING btree (question_id);
+
+
+--
+-- Name: caluma_form_answer_question_id_3fa9630c_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_answer_question_id_3fa9630c_like ON public.caluma_form_answer USING btree (question_id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_answerdocument_answer_id_097d6b47; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_answerdocument_answer_id_097d6b47 ON public.caluma_form_answerdocument USING btree (answer_id);
+
+
+--
+-- Name: caluma_form_answerdocument_created_at_95b0e294; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_answerdocument_created_at_95b0e294 ON public.caluma_form_answerdocument USING btree (created_at);
+
+
+--
+-- Name: caluma_form_answerdocument_created_by_group_d5ddadb5; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_answerdocument_created_by_group_d5ddadb5 ON public.caluma_form_answerdocument USING btree (created_by_group);
+
+
+--
+-- Name: caluma_form_answerdocument_created_by_group_d5ddadb5_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_answerdocument_created_by_group_d5ddadb5_like ON public.caluma_form_answerdocument USING btree (created_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_answerdocument_created_by_user_4e527fe6; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_answerdocument_created_by_user_4e527fe6 ON public.caluma_form_answerdocument USING btree (created_by_user);
+
+
+--
+-- Name: caluma_form_answerdocument_created_by_user_4e527fe6_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_answerdocument_created_by_user_4e527fe6_like ON public.caluma_form_answerdocument USING btree (created_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_answerdocument_document_id_fa92a43b; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_answerdocument_document_id_fa92a43b ON public.caluma_form_answerdocument USING btree (document_id);
+
+
+--
+-- Name: caluma_form_answerdocument_modified_at_dc3b7b2d; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_answerdocument_modified_at_dc3b7b2d ON public.caluma_form_answerdocument USING btree (modified_at);
+
+
+--
+-- Name: caluma_form_answerdocument_modified_by_group_dd29e869; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_answerdocument_modified_by_group_dd29e869 ON public.caluma_form_answerdocument USING btree (modified_by_group);
+
+
+--
+-- Name: caluma_form_answerdocument_modified_by_group_dd29e869_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_answerdocument_modified_by_group_dd29e869_like ON public.caluma_form_answerdocument USING btree (modified_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_answerdocument_modified_by_user_98875305; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_answerdocument_modified_by_user_98875305 ON public.caluma_form_answerdocument USING btree (modified_by_user);
+
+
+--
+-- Name: caluma_form_answerdocument_modified_by_user_98875305_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_answerdocument_modified_by_user_98875305_like ON public.caluma_form_answerdocument USING btree (modified_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_answerdocument_sort_1d2527c2; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_answerdocument_sort_1d2527c2 ON public.caluma_form_answerdocument USING btree (sort);
+
+
+--
+-- Name: caluma_form_date_c923c1_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_date_c923c1_idx ON public.caluma_form_answer USING btree (date);
+
+
+--
+-- Name: caluma_form_document_created_at_b4a1abd7; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_document_created_at_b4a1abd7 ON public.caluma_form_document USING btree (created_at);
+
+
+--
+-- Name: caluma_form_document_created_by_group_9b8d9f90; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_document_created_by_group_9b8d9f90 ON public.caluma_form_document USING btree (created_by_group);
+
+
+--
+-- Name: caluma_form_document_created_by_group_9b8d9f90_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_document_created_by_group_9b8d9f90_like ON public.caluma_form_document USING btree (created_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_document_created_by_user_cfd62d5b; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_document_created_by_user_cfd62d5b ON public.caluma_form_document USING btree (created_by_user);
+
+
+--
+-- Name: caluma_form_document_created_by_user_cfd62d5b_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_document_created_by_user_cfd62d5b_like ON public.caluma_form_document USING btree (created_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_document_family_57e712d3; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_document_family_57e712d3 ON public.caluma_form_document USING btree (family_id);
+
+
+--
+-- Name: caluma_form_document_form_id_45e1a673; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_document_form_id_45e1a673 ON public.caluma_form_document USING btree (form_id);
+
+
+--
+-- Name: caluma_form_document_form_id_45e1a673_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_document_form_id_45e1a673_like ON public.caluma_form_document USING btree (form_id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_document_modified_at_ed82f104; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_document_modified_at_ed82f104 ON public.caluma_form_document USING btree (modified_at);
+
+
+--
+-- Name: caluma_form_document_modified_by_group_29d20dee; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_document_modified_by_group_29d20dee ON public.caluma_form_document USING btree (modified_by_group);
+
+
+--
+-- Name: caluma_form_document_modified_by_group_29d20dee_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_document_modified_by_group_29d20dee_like ON public.caluma_form_document USING btree (modified_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_document_modified_by_user_9a1c7884; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_document_modified_by_user_9a1c7884 ON public.caluma_form_document USING btree (modified_by_user);
+
+
+--
+-- Name: caluma_form_document_modified_by_user_9a1c7884_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_document_modified_by_user_9a1c7884_like ON public.caluma_form_document USING btree (modified_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_document_source_id_e00a9078; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_document_source_id_e00a9078 ON public.caluma_form_document USING btree (source_id);
+
+
+--
+-- Name: caluma_form_dynamicoption_created_at_26f95c27; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_dynamicoption_created_at_26f95c27 ON public.caluma_form_dynamicoption USING btree (created_at);
+
+
+--
+-- Name: caluma_form_dynamicoption_created_by_group_a9c2d9c9; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_dynamicoption_created_by_group_a9c2d9c9 ON public.caluma_form_dynamicoption USING btree (created_by_group);
+
+
+--
+-- Name: caluma_form_dynamicoption_created_by_group_a9c2d9c9_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_dynamicoption_created_by_group_a9c2d9c9_like ON public.caluma_form_dynamicoption USING btree (created_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_dynamicoption_created_by_user_5e044f9c; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_dynamicoption_created_by_user_5e044f9c ON public.caluma_form_dynamicoption USING btree (created_by_user);
+
+
+--
+-- Name: caluma_form_dynamicoption_created_by_user_5e044f9c_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_dynamicoption_created_by_user_5e044f9c_like ON public.caluma_form_dynamicoption USING btree (created_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_dynamicoption_document_id_4c9cc974; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_dynamicoption_document_id_4c9cc974 ON public.caluma_form_dynamicoption USING btree (document_id);
+
+
+--
+-- Name: caluma_form_dynamicoption_modified_at_a69995ae; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_dynamicoption_modified_at_a69995ae ON public.caluma_form_dynamicoption USING btree (modified_at);
+
+
+--
+-- Name: caluma_form_dynamicoption_modified_by_group_9cfa63e3; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_dynamicoption_modified_by_group_9cfa63e3 ON public.caluma_form_dynamicoption USING btree (modified_by_group);
+
+
+--
+-- Name: caluma_form_dynamicoption_modified_by_group_9cfa63e3_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_dynamicoption_modified_by_group_9cfa63e3_like ON public.caluma_form_dynamicoption USING btree (modified_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_dynamicoption_modified_by_user_57ae149f; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_dynamicoption_modified_by_user_57ae149f ON public.caluma_form_dynamicoption USING btree (modified_by_user);
+
+
+--
+-- Name: caluma_form_dynamicoption_modified_by_user_57ae149f_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_dynamicoption_modified_by_user_57ae149f_like ON public.caluma_form_dynamicoption USING btree (modified_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_dynamicoption_question_id_fc380347; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_dynamicoption_question_id_fc380347 ON public.caluma_form_dynamicoption USING btree (question_id);
+
+
+--
+-- Name: caluma_form_dynamicoption_question_id_fc380347_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_dynamicoption_question_id_fc380347_like ON public.caluma_form_dynamicoption USING btree (question_id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_file_answer_id_6f6730ee; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_file_answer_id_6f6730ee ON public.caluma_form_file USING btree (answer_id);
+
+
+--
+-- Name: caluma_form_file_created_at_470763fd; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_file_created_at_470763fd ON public.caluma_form_file USING btree (created_at);
+
+
+--
+-- Name: caluma_form_file_created_by_group_0c730d57; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_file_created_by_group_0c730d57 ON public.caluma_form_file USING btree (created_by_group);
+
+
+--
+-- Name: caluma_form_file_created_by_group_0c730d57_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_file_created_by_group_0c730d57_like ON public.caluma_form_file USING btree (created_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_file_created_by_user_dcd5ec04; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_file_created_by_user_dcd5ec04 ON public.caluma_form_file USING btree (created_by_user);
+
+
+--
+-- Name: caluma_form_file_created_by_user_dcd5ec04_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_file_created_by_user_dcd5ec04_like ON public.caluma_form_file USING btree (created_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_file_modified_at_2a240bff; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_file_modified_at_2a240bff ON public.caluma_form_file USING btree (modified_at);
+
+
+--
+-- Name: caluma_form_file_modified_by_group_70264a9e; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_file_modified_by_group_70264a9e ON public.caluma_form_file USING btree (modified_by_group);
+
+
+--
+-- Name: caluma_form_file_modified_by_group_70264a9e_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_file_modified_by_group_70264a9e_like ON public.caluma_form_file USING btree (modified_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_file_modified_by_user_425d3f39; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_file_modified_by_user_425d3f39 ON public.caluma_form_file USING btree (modified_by_user);
+
+
+--
+-- Name: caluma_form_file_modified_by_user_425d3f39_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_file_modified_by_user_425d3f39_like ON public.caluma_form_file USING btree (modified_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_form_created_at_4b1050f4; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_form_created_at_4b1050f4 ON public.caluma_form_form USING btree (created_at);
+
+
+--
+-- Name: caluma_form_form_created_by_group_0157383f; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_form_created_by_group_0157383f ON public.caluma_form_form USING btree (created_by_group);
+
+
+--
+-- Name: caluma_form_form_created_by_group_0157383f_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_form_created_by_group_0157383f_like ON public.caluma_form_form USING btree (created_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_form_created_by_user_855079df; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_form_created_by_user_855079df ON public.caluma_form_form USING btree (created_by_user);
+
+
+--
+-- Name: caluma_form_form_created_by_user_855079df_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_form_created_by_user_855079df_like ON public.caluma_form_form USING btree (created_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_form_modified_at_55be26d9; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_form_modified_at_55be26d9 ON public.caluma_form_form USING btree (modified_at);
+
+
+--
+-- Name: caluma_form_form_modified_by_group_84b30422; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_form_modified_by_group_84b30422 ON public.caluma_form_form USING btree (modified_by_group);
+
+
+--
+-- Name: caluma_form_form_modified_by_group_84b30422_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_form_modified_by_group_84b30422_like ON public.caluma_form_form USING btree (modified_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_form_modified_by_user_548fb0ff; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_form_modified_by_user_548fb0ff ON public.caluma_form_form USING btree (modified_by_user);
+
+
+--
+-- Name: caluma_form_form_modified_by_user_548fb0ff_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_form_modified_by_user_548fb0ff_like ON public.caluma_form_form USING btree (modified_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_form_slug_2fce1b56_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_form_slug_2fce1b56_like ON public.caluma_form_form USING btree (slug varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_form_source_id_60e283c8; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_form_source_id_60e283c8 ON public.caluma_form_form USING btree (source_id);
+
+
+--
+-- Name: caluma_form_form_source_id_60e283c8_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_form_source_id_60e283c8_like ON public.caluma_form_form USING btree (source_id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_formquestion_created_at_b757866a; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_formquestion_created_at_b757866a ON public.caluma_form_formquestion USING btree (created_at);
+
+
+--
+-- Name: caluma_form_formquestion_created_by_group_08c9e4b9; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_formquestion_created_by_group_08c9e4b9 ON public.caluma_form_formquestion USING btree (created_by_group);
+
+
+--
+-- Name: caluma_form_formquestion_created_by_group_08c9e4b9_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_formquestion_created_by_group_08c9e4b9_like ON public.caluma_form_formquestion USING btree (created_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_formquestion_created_by_user_86f620c8; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_formquestion_created_by_user_86f620c8 ON public.caluma_form_formquestion USING btree (created_by_user);
+
+
+--
+-- Name: caluma_form_formquestion_created_by_user_86f620c8_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_formquestion_created_by_user_86f620c8_like ON public.caluma_form_formquestion USING btree (created_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_formquestion_form_id_5aa3dfb1; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_formquestion_form_id_5aa3dfb1 ON public.caluma_form_formquestion USING btree (form_id);
+
+
+--
+-- Name: caluma_form_formquestion_form_id_5aa3dfb1_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_formquestion_form_id_5aa3dfb1_like ON public.caluma_form_formquestion USING btree (form_id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_formquestion_modified_at_0da869f0; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_formquestion_modified_at_0da869f0 ON public.caluma_form_formquestion USING btree (modified_at);
+
+
+--
+-- Name: caluma_form_formquestion_modified_by_group_20a747d3; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_formquestion_modified_by_group_20a747d3 ON public.caluma_form_formquestion USING btree (modified_by_group);
+
+
+--
+-- Name: caluma_form_formquestion_modified_by_group_20a747d3_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_formquestion_modified_by_group_20a747d3_like ON public.caluma_form_formquestion USING btree (modified_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_formquestion_modified_by_user_a3dc2608; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_formquestion_modified_by_user_a3dc2608 ON public.caluma_form_formquestion USING btree (modified_by_user);
+
+
+--
+-- Name: caluma_form_formquestion_modified_by_user_a3dc2608_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_formquestion_modified_by_user_a3dc2608_like ON public.caluma_form_formquestion USING btree (modified_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_formquestion_question_id_08670611; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_formquestion_question_id_08670611 ON public.caluma_form_formquestion USING btree (question_id);
+
+
+--
+-- Name: caluma_form_formquestion_question_id_08670611_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_formquestion_question_id_08670611_like ON public.caluma_form_formquestion USING btree (question_id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_formquestion_sort_c61b3add; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_formquestion_sort_c61b3add ON public.caluma_form_formquestion USING btree (sort);
+
+
+--
+-- Name: caluma_form_historicalan_created_by_group_e1b9fe36_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalan_created_by_group_e1b9fe36_like ON public.caluma_form_historicalanswerdocument USING btree (created_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalan_created_by_user_a686f0a5_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalan_created_by_user_a686f0a5_like ON public.caluma_form_historicalanswerdocument USING btree (created_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalan_modified_by_group_1e6d72e8_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalan_modified_by_group_1e6d72e8_like ON public.caluma_form_historicalanswerdocument USING btree (modified_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalan_modified_by_user_d2a6c570_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalan_modified_by_user_d2a6c570_like ON public.caluma_form_historicalanswerdocument USING btree (modified_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalanswer_created_at_9bea48ad; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalanswer_created_at_9bea48ad ON public.caluma_form_historicalanswer USING btree (created_at);
+
+
+--
+-- Name: caluma_form_historicalanswer_created_by_group_ea66a666; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalanswer_created_by_group_ea66a666 ON public.caluma_form_historicalanswer USING btree (created_by_group);
+
+
+--
+-- Name: caluma_form_historicalanswer_created_by_group_ea66a666_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalanswer_created_by_group_ea66a666_like ON public.caluma_form_historicalanswer USING btree (created_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalanswer_created_by_user_e61f8a02; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalanswer_created_by_user_e61f8a02 ON public.caluma_form_historicalanswer USING btree (created_by_user);
+
+
+--
+-- Name: caluma_form_historicalanswer_created_by_user_e61f8a02_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalanswer_created_by_user_e61f8a02_like ON public.caluma_form_historicalanswer USING btree (created_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalanswer_document_id_d7280d2f; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalanswer_document_id_d7280d2f ON public.caluma_form_historicalanswer USING btree (document_id);
+
+
+--
+-- Name: caluma_form_historicalanswer_history_date_6029c5b1; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalanswer_history_date_6029c5b1 ON public.caluma_form_historicalanswer USING btree (history_date);
+
+
+--
+-- Name: caluma_form_historicalanswer_id_6fdad838; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalanswer_id_6fdad838 ON public.caluma_form_historicalanswer USING btree (id);
+
+
+--
+-- Name: caluma_form_historicalanswer_modified_at_a52924a9; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalanswer_modified_at_a52924a9 ON public.caluma_form_historicalanswer USING btree (modified_at);
+
+
+--
+-- Name: caluma_form_historicalanswer_modified_by_group_da97a745; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalanswer_modified_by_group_da97a745 ON public.caluma_form_historicalanswer USING btree (modified_by_group);
+
+
+--
+-- Name: caluma_form_historicalanswer_modified_by_group_da97a745_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalanswer_modified_by_group_da97a745_like ON public.caluma_form_historicalanswer USING btree (modified_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalanswer_modified_by_user_7bb0ad56; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalanswer_modified_by_user_7bb0ad56 ON public.caluma_form_historicalanswer USING btree (modified_by_user);
+
+
+--
+-- Name: caluma_form_historicalanswer_modified_by_user_7bb0ad56_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalanswer_modified_by_user_7bb0ad56_like ON public.caluma_form_historicalanswer USING btree (modified_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalanswer_question_id_6a6cf0aa; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalanswer_question_id_6a6cf0aa ON public.caluma_form_historicalanswer USING btree (question_id);
+
+
+--
+-- Name: caluma_form_historicalanswer_question_id_6a6cf0aa_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalanswer_question_id_6a6cf0aa_like ON public.caluma_form_historicalanswer USING btree (question_id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalanswerdocument_answer_id_d52e661d; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalanswerdocument_answer_id_d52e661d ON public.caluma_form_historicalanswerdocument USING btree (answer_id);
+
+
+--
+-- Name: caluma_form_historicalanswerdocument_created_at_31c6fe8b; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalanswerdocument_created_at_31c6fe8b ON public.caluma_form_historicalanswerdocument USING btree (created_at);
+
+
+--
+-- Name: caluma_form_historicalanswerdocument_created_by_group_e1b9fe36; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalanswerdocument_created_by_group_e1b9fe36 ON public.caluma_form_historicalanswerdocument USING btree (created_by_group);
+
+
+--
+-- Name: caluma_form_historicalanswerdocument_created_by_user_a686f0a5; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalanswerdocument_created_by_user_a686f0a5 ON public.caluma_form_historicalanswerdocument USING btree (created_by_user);
+
+
+--
+-- Name: caluma_form_historicalanswerdocument_document_id_70f45d36; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalanswerdocument_document_id_70f45d36 ON public.caluma_form_historicalanswerdocument USING btree (document_id);
+
+
+--
+-- Name: caluma_form_historicalanswerdocument_history_date_2ec4dd5e; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalanswerdocument_history_date_2ec4dd5e ON public.caluma_form_historicalanswerdocument USING btree (history_date);
+
+
+--
+-- Name: caluma_form_historicalanswerdocument_id_c5d6328d; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalanswerdocument_id_c5d6328d ON public.caluma_form_historicalanswerdocument USING btree (id);
+
+
+--
+-- Name: caluma_form_historicalanswerdocument_modified_at_e9ce4f1e; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalanswerdocument_modified_at_e9ce4f1e ON public.caluma_form_historicalanswerdocument USING btree (modified_at);
+
+
+--
+-- Name: caluma_form_historicalanswerdocument_modified_by_group_1e6d72e8; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalanswerdocument_modified_by_group_1e6d72e8 ON public.caluma_form_historicalanswerdocument USING btree (modified_by_group);
+
+
+--
+-- Name: caluma_form_historicalanswerdocument_modified_by_user_d2a6c570; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalanswerdocument_modified_by_user_d2a6c570 ON public.caluma_form_historicalanswerdocument USING btree (modified_by_user);
+
+
+--
+-- Name: caluma_form_historicalanswerdocument_sort_ecf56dcf; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalanswerdocument_sort_ecf56dcf ON public.caluma_form_historicalanswerdocument USING btree (sort);
+
+
+--
+-- Name: caluma_form_historicaldocument_created_at_1a968082; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaldocument_created_at_1a968082 ON public.caluma_form_historicaldocument USING btree (created_at);
+
+
+--
+-- Name: caluma_form_historicaldocument_created_by_group_cdf6573b; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaldocument_created_by_group_cdf6573b ON public.caluma_form_historicaldocument USING btree (created_by_group);
+
+
+--
+-- Name: caluma_form_historicaldocument_created_by_group_cdf6573b_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaldocument_created_by_group_cdf6573b_like ON public.caluma_form_historicaldocument USING btree (created_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicaldocument_created_by_user_57c11b6e; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaldocument_created_by_user_57c11b6e ON public.caluma_form_historicaldocument USING btree (created_by_user);
+
+
+--
+-- Name: caluma_form_historicaldocument_created_by_user_57c11b6e_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaldocument_created_by_user_57c11b6e_like ON public.caluma_form_historicaldocument USING btree (created_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicaldocument_family_36257b30; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaldocument_family_36257b30 ON public.caluma_form_historicaldocument USING btree (family_id);
+
+
+--
+-- Name: caluma_form_historicaldocument_form_id_4cab8681; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaldocument_form_id_4cab8681 ON public.caluma_form_historicaldocument USING btree (form_id);
+
+
+--
+-- Name: caluma_form_historicaldocument_form_id_4cab8681_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaldocument_form_id_4cab8681_like ON public.caluma_form_historicaldocument USING btree (form_id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicaldocument_history_date_ffa496ec; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaldocument_history_date_ffa496ec ON public.caluma_form_historicaldocument USING btree (history_date);
+
+
+--
+-- Name: caluma_form_historicaldocument_id_392d2bd3; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaldocument_id_392d2bd3 ON public.caluma_form_historicaldocument USING btree (id);
+
+
+--
+-- Name: caluma_form_historicaldocument_modified_at_5f76280a; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaldocument_modified_at_5f76280a ON public.caluma_form_historicaldocument USING btree (modified_at);
+
+
+--
+-- Name: caluma_form_historicaldocument_modified_by_group_6f718b68; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaldocument_modified_by_group_6f718b68 ON public.caluma_form_historicaldocument USING btree (modified_by_group);
+
+
+--
+-- Name: caluma_form_historicaldocument_modified_by_group_6f718b68_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaldocument_modified_by_group_6f718b68_like ON public.caluma_form_historicaldocument USING btree (modified_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicaldocument_modified_by_user_9b33c624; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaldocument_modified_by_user_9b33c624 ON public.caluma_form_historicaldocument USING btree (modified_by_user);
+
+
+--
+-- Name: caluma_form_historicaldocument_modified_by_user_9b33c624_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaldocument_modified_by_user_9b33c624_like ON public.caluma_form_historicaldocument USING btree (modified_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicaldocument_source_id_8b89ef69; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaldocument_source_id_8b89ef69 ON public.caluma_form_historicaldocument USING btree (source_id);
+
+
+--
+-- Name: caluma_form_historicaldy_created_by_group_f2b22efa_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaldy_created_by_group_f2b22efa_like ON public.caluma_form_historicaldynamicoption USING btree (created_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicaldy_created_by_user_d8ca8df5_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaldy_created_by_user_d8ca8df5_like ON public.caluma_form_historicaldynamicoption USING btree (created_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicaldy_modified_by_group_f6f124c5_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaldy_modified_by_group_f6f124c5_like ON public.caluma_form_historicaldynamicoption USING btree (modified_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicaldy_modified_by_user_b9b87f9e_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaldy_modified_by_user_b9b87f9e_like ON public.caluma_form_historicaldynamicoption USING btree (modified_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicaldynamicoption_created_at_f9c07a1e; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaldynamicoption_created_at_f9c07a1e ON public.caluma_form_historicaldynamicoption USING btree (created_at);
+
+
+--
+-- Name: caluma_form_historicaldynamicoption_created_by_group_f2b22efa; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaldynamicoption_created_by_group_f2b22efa ON public.caluma_form_historicaldynamicoption USING btree (created_by_group);
+
+
+--
+-- Name: caluma_form_historicaldynamicoption_created_by_user_d8ca8df5; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaldynamicoption_created_by_user_d8ca8df5 ON public.caluma_form_historicaldynamicoption USING btree (created_by_user);
+
+
+--
+-- Name: caluma_form_historicaldynamicoption_document_id_619c41d8; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaldynamicoption_document_id_619c41d8 ON public.caluma_form_historicaldynamicoption USING btree (document_id);
+
+
+--
+-- Name: caluma_form_historicaldynamicoption_history_date_a87ba44a; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaldynamicoption_history_date_a87ba44a ON public.caluma_form_historicaldynamicoption USING btree (history_date);
+
+
+--
+-- Name: caluma_form_historicaldynamicoption_id_400c5e02; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaldynamicoption_id_400c5e02 ON public.caluma_form_historicaldynamicoption USING btree (id);
+
+
+--
+-- Name: caluma_form_historicaldynamicoption_modified_at_fcf197f3; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaldynamicoption_modified_at_fcf197f3 ON public.caluma_form_historicaldynamicoption USING btree (modified_at);
+
+
+--
+-- Name: caluma_form_historicaldynamicoption_modified_by_group_f6f124c5; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaldynamicoption_modified_by_group_f6f124c5 ON public.caluma_form_historicaldynamicoption USING btree (modified_by_group);
+
+
+--
+-- Name: caluma_form_historicaldynamicoption_modified_by_user_b9b87f9e; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaldynamicoption_modified_by_user_b9b87f9e ON public.caluma_form_historicaldynamicoption USING btree (modified_by_user);
+
+
+--
+-- Name: caluma_form_historicaldynamicoption_question_id_77a34a23; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaldynamicoption_question_id_77a34a23 ON public.caluma_form_historicaldynamicoption USING btree (question_id);
+
+
+--
+-- Name: caluma_form_historicaldynamicoption_question_id_77a34a23_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaldynamicoption_question_id_77a34a23_like ON public.caluma_form_historicaldynamicoption USING btree (question_id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalfile_answer_id_b9819327; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalfile_answer_id_b9819327 ON public.caluma_form_historicalfile USING btree (answer_id);
+
+
+--
+-- Name: caluma_form_historicalfile_created_at_23ccb469; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalfile_created_at_23ccb469 ON public.caluma_form_historicalfile USING btree (created_at);
+
+
+--
+-- Name: caluma_form_historicalfile_created_by_group_780b69f3; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalfile_created_by_group_780b69f3 ON public.caluma_form_historicalfile USING btree (created_by_group);
+
+
+--
+-- Name: caluma_form_historicalfile_created_by_group_780b69f3_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalfile_created_by_group_780b69f3_like ON public.caluma_form_historicalfile USING btree (created_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalfile_created_by_user_8fe4ec33; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalfile_created_by_user_8fe4ec33 ON public.caluma_form_historicalfile USING btree (created_by_user);
+
+
+--
+-- Name: caluma_form_historicalfile_created_by_user_8fe4ec33_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalfile_created_by_user_8fe4ec33_like ON public.caluma_form_historicalfile USING btree (created_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalfile_history_date_8eafb8f5; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalfile_history_date_8eafb8f5 ON public.caluma_form_historicalfile USING btree (history_date);
+
+
+--
+-- Name: caluma_form_historicalfile_id_328db506; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalfile_id_328db506 ON public.caluma_form_historicalfile USING btree (id);
+
+
+--
+-- Name: caluma_form_historicalfile_modified_at_e332231e; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalfile_modified_at_e332231e ON public.caluma_form_historicalfile USING btree (modified_at);
+
+
+--
+-- Name: caluma_form_historicalfile_modified_by_group_cb300ebd; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalfile_modified_by_group_cb300ebd ON public.caluma_form_historicalfile USING btree (modified_by_group);
+
+
+--
+-- Name: caluma_form_historicalfile_modified_by_group_cb300ebd_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalfile_modified_by_group_cb300ebd_like ON public.caluma_form_historicalfile USING btree (modified_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalfile_modified_by_user_14a72275; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalfile_modified_by_user_14a72275 ON public.caluma_form_historicalfile USING btree (modified_by_user);
+
+
+--
+-- Name: caluma_form_historicalfile_modified_by_user_14a72275_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalfile_modified_by_user_14a72275_like ON public.caluma_form_historicalfile USING btree (modified_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalfo_created_by_group_013065ab_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalfo_created_by_group_013065ab_like ON public.caluma_form_historicalformquestion USING btree (created_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalfo_created_by_user_7075c51f_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalfo_created_by_user_7075c51f_like ON public.caluma_form_historicalformquestion USING btree (created_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalfo_modified_by_group_64c79d34_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalfo_modified_by_group_64c79d34_like ON public.caluma_form_historicalformquestion USING btree (modified_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalfo_modified_by_user_23d069a8_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalfo_modified_by_user_23d069a8_like ON public.caluma_form_historicalformquestion USING btree (modified_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalform_created_at_4ba605d2; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalform_created_at_4ba605d2 ON public.caluma_form_historicalform USING btree (created_at);
+
+
+--
+-- Name: caluma_form_historicalform_created_by_group_43c9254b; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalform_created_by_group_43c9254b ON public.caluma_form_historicalform USING btree (created_by_group);
+
+
+--
+-- Name: caluma_form_historicalform_created_by_group_43c9254b_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalform_created_by_group_43c9254b_like ON public.caluma_form_historicalform USING btree (created_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalform_created_by_user_1994c475; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalform_created_by_user_1994c475 ON public.caluma_form_historicalform USING btree (created_by_user);
+
+
+--
+-- Name: caluma_form_historicalform_created_by_user_1994c475_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalform_created_by_user_1994c475_like ON public.caluma_form_historicalform USING btree (created_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalform_history_date_ce8c3da6; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalform_history_date_ce8c3da6 ON public.caluma_form_historicalform USING btree (history_date);
+
+
+--
+-- Name: caluma_form_historicalform_modified_at_ce116450; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalform_modified_at_ce116450 ON public.caluma_form_historicalform USING btree (modified_at);
+
+
+--
+-- Name: caluma_form_historicalform_modified_by_group_cfb84858; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalform_modified_by_group_cfb84858 ON public.caluma_form_historicalform USING btree (modified_by_group);
+
+
+--
+-- Name: caluma_form_historicalform_modified_by_group_cfb84858_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalform_modified_by_group_cfb84858_like ON public.caluma_form_historicalform USING btree (modified_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalform_modified_by_user_4c3d5b24; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalform_modified_by_user_4c3d5b24 ON public.caluma_form_historicalform USING btree (modified_by_user);
+
+
+--
+-- Name: caluma_form_historicalform_modified_by_user_4c3d5b24_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalform_modified_by_user_4c3d5b24_like ON public.caluma_form_historicalform USING btree (modified_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalform_slug_0b164167; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalform_slug_0b164167 ON public.caluma_form_historicalform USING btree (slug);
+
+
+--
+-- Name: caluma_form_historicalform_slug_0b164167_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalform_slug_0b164167_like ON public.caluma_form_historicalform USING btree (slug varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalform_source_id_239199e9; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalform_source_id_239199e9 ON public.caluma_form_historicalform USING btree (source_id);
+
+
+--
+-- Name: caluma_form_historicalform_source_id_239199e9_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalform_source_id_239199e9_like ON public.caluma_form_historicalform USING btree (source_id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalformquestion_created_at_e7fadef9; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalformquestion_created_at_e7fadef9 ON public.caluma_form_historicalformquestion USING btree (created_at);
+
+
+--
+-- Name: caluma_form_historicalformquestion_created_by_group_013065ab; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalformquestion_created_by_group_013065ab ON public.caluma_form_historicalformquestion USING btree (created_by_group);
+
+
+--
+-- Name: caluma_form_historicalformquestion_created_by_user_7075c51f; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalformquestion_created_by_user_7075c51f ON public.caluma_form_historicalformquestion USING btree (created_by_user);
+
+
+--
+-- Name: caluma_form_historicalformquestion_form_id_a3ca1b36; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalformquestion_form_id_a3ca1b36 ON public.caluma_form_historicalformquestion USING btree (form_id);
+
+
+--
+-- Name: caluma_form_historicalformquestion_form_id_a3ca1b36_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalformquestion_form_id_a3ca1b36_like ON public.caluma_form_historicalformquestion USING btree (form_id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalformquestion_history_date_25e1d93a; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalformquestion_history_date_25e1d93a ON public.caluma_form_historicalformquestion USING btree (history_date);
+
+
+--
+-- Name: caluma_form_historicalformquestion_id_363a6ed5; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalformquestion_id_363a6ed5 ON public.caluma_form_historicalformquestion USING btree (id);
+
+
+--
+-- Name: caluma_form_historicalformquestion_modified_at_b8c99b1f; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalformquestion_modified_at_b8c99b1f ON public.caluma_form_historicalformquestion USING btree (modified_at);
+
+
+--
+-- Name: caluma_form_historicalformquestion_modified_by_group_64c79d34; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalformquestion_modified_by_group_64c79d34 ON public.caluma_form_historicalformquestion USING btree (modified_by_group);
+
+
+--
+-- Name: caluma_form_historicalformquestion_modified_by_user_23d069a8; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalformquestion_modified_by_user_23d069a8 ON public.caluma_form_historicalformquestion USING btree (modified_by_user);
+
+
+--
+-- Name: caluma_form_historicalformquestion_question_id_7338e058; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalformquestion_question_id_7338e058 ON public.caluma_form_historicalformquestion USING btree (question_id);
+
+
+--
+-- Name: caluma_form_historicalformquestion_question_id_7338e058_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalformquestion_question_id_7338e058_like ON public.caluma_form_historicalformquestion USING btree (question_id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalformquestion_sort_de5dedc8; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalformquestion_sort_de5dedc8 ON public.caluma_form_historicalformquestion USING btree (sort);
+
+
+--
+-- Name: caluma_form_historicaloption_created_at_9ef1739b; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaloption_created_at_9ef1739b ON public.caluma_form_historicaloption USING btree (created_at);
+
+
+--
+-- Name: caluma_form_historicaloption_created_by_group_40ade26a; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaloption_created_by_group_40ade26a ON public.caluma_form_historicaloption USING btree (created_by_group);
+
+
+--
+-- Name: caluma_form_historicaloption_created_by_group_40ade26a_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaloption_created_by_group_40ade26a_like ON public.caluma_form_historicaloption USING btree (created_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicaloption_created_by_user_ed2b5878; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaloption_created_by_user_ed2b5878 ON public.caluma_form_historicaloption USING btree (created_by_user);
+
+
+--
+-- Name: caluma_form_historicaloption_created_by_user_ed2b5878_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaloption_created_by_user_ed2b5878_like ON public.caluma_form_historicaloption USING btree (created_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicaloption_history_date_2279c9c1; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaloption_history_date_2279c9c1 ON public.caluma_form_historicaloption USING btree (history_date);
+
+
+--
+-- Name: caluma_form_historicaloption_modified_at_8f974503; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaloption_modified_at_8f974503 ON public.caluma_form_historicaloption USING btree (modified_at);
+
+
+--
+-- Name: caluma_form_historicaloption_modified_by_group_d2ea99a6; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaloption_modified_by_group_d2ea99a6 ON public.caluma_form_historicaloption USING btree (modified_by_group);
+
+
+--
+-- Name: caluma_form_historicaloption_modified_by_group_d2ea99a6_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaloption_modified_by_group_d2ea99a6_like ON public.caluma_form_historicaloption USING btree (modified_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicaloption_modified_by_user_cef57f13; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaloption_modified_by_user_cef57f13 ON public.caluma_form_historicaloption USING btree (modified_by_user);
+
+
+--
+-- Name: caluma_form_historicaloption_modified_by_user_cef57f13_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaloption_modified_by_user_cef57f13_like ON public.caluma_form_historicaloption USING btree (modified_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicaloption_slug_107414a9; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaloption_slug_107414a9 ON public.caluma_form_historicaloption USING btree (slug);
+
+
+--
+-- Name: caluma_form_historicaloption_slug_107414a9_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaloption_slug_107414a9_like ON public.caluma_form_historicaloption USING btree (slug varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicaloption_source_id_bfc4e649; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaloption_source_id_bfc4e649 ON public.caluma_form_historicaloption USING btree (source_id);
+
+
+--
+-- Name: caluma_form_historicaloption_source_id_bfc4e649_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicaloption_source_id_bfc4e649_like ON public.caluma_form_historicaloption USING btree (source_id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalqu_created_by_group_a50998fa_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalqu_created_by_group_a50998fa_like ON public.caluma_form_historicalquestionoption USING btree (created_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalqu_created_by_user_17e4abd9_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalqu_created_by_user_17e4abd9_like ON public.caluma_form_historicalquestionoption USING btree (created_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalqu_modified_by_group_9445a3f0_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalqu_modified_by_group_9445a3f0_like ON public.caluma_form_historicalquestionoption USING btree (modified_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalqu_modified_by_user_ebaf65e8_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalqu_modified_by_user_ebaf65e8_like ON public.caluma_form_historicalquestionoption USING btree (modified_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalquestion_created_at_ba3fcf7d; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalquestion_created_at_ba3fcf7d ON public.caluma_form_historicalquestion USING btree (created_at);
+
+
+--
+-- Name: caluma_form_historicalquestion_created_by_group_e7a0f634; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalquestion_created_by_group_e7a0f634 ON public.caluma_form_historicalquestion USING btree (created_by_group);
+
+
+--
+-- Name: caluma_form_historicalquestion_created_by_group_e7a0f634_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalquestion_created_by_group_e7a0f634_like ON public.caluma_form_historicalquestion USING btree (created_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalquestion_created_by_user_06e95454; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalquestion_created_by_user_06e95454 ON public.caluma_form_historicalquestion USING btree (created_by_user);
+
+
+--
+-- Name: caluma_form_historicalquestion_created_by_user_06e95454_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalquestion_created_by_user_06e95454_like ON public.caluma_form_historicalquestion USING btree (created_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalquestion_default_answer_id_9a26467b; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalquestion_default_answer_id_9a26467b ON public.caluma_form_historicalquestion USING btree (default_answer_id);
+
+
+--
+-- Name: caluma_form_historicalquestion_history_date_c5e1ab7d; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalquestion_history_date_c5e1ab7d ON public.caluma_form_historicalquestion USING btree (history_date);
+
+
+--
+-- Name: caluma_form_historicalquestion_modified_at_7684f05f; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalquestion_modified_at_7684f05f ON public.caluma_form_historicalquestion USING btree (modified_at);
+
+
+--
+-- Name: caluma_form_historicalquestion_modified_by_group_ec94a431; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalquestion_modified_by_group_ec94a431 ON public.caluma_form_historicalquestion USING btree (modified_by_group);
+
+
+--
+-- Name: caluma_form_historicalquestion_modified_by_group_ec94a431_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalquestion_modified_by_group_ec94a431_like ON public.caluma_form_historicalquestion USING btree (modified_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalquestion_modified_by_user_e419e89b; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalquestion_modified_by_user_e419e89b ON public.caluma_form_historicalquestion USING btree (modified_by_user);
+
+
+--
+-- Name: caluma_form_historicalquestion_modified_by_user_e419e89b_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalquestion_modified_by_user_e419e89b_like ON public.caluma_form_historicalquestion USING btree (modified_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalquestion_row_form_id_a6de783d; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalquestion_row_form_id_a6de783d ON public.caluma_form_historicalquestion USING btree (row_form_id);
+
+
+--
+-- Name: caluma_form_historicalquestion_row_form_id_a6de783d_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalquestion_row_form_id_a6de783d_like ON public.caluma_form_historicalquestion USING btree (row_form_id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalquestion_slug_6d28f5eb; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalquestion_slug_6d28f5eb ON public.caluma_form_historicalquestion USING btree (slug);
+
+
+--
+-- Name: caluma_form_historicalquestion_slug_6d28f5eb_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalquestion_slug_6d28f5eb_like ON public.caluma_form_historicalquestion USING btree (slug varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalquestion_source_id_90910497; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalquestion_source_id_90910497 ON public.caluma_form_historicalquestion USING btree (source_id);
+
+
+--
+-- Name: caluma_form_historicalquestion_source_id_90910497_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalquestion_source_id_90910497_like ON public.caluma_form_historicalquestion USING btree (source_id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalquestion_sub_form_id_50749fab; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalquestion_sub_form_id_50749fab ON public.caluma_form_historicalquestion USING btree (sub_form_id);
+
+
+--
+-- Name: caluma_form_historicalquestion_sub_form_id_50749fab_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalquestion_sub_form_id_50749fab_like ON public.caluma_form_historicalquestion USING btree (sub_form_id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalquestionoption_created_at_bf1a9e25; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalquestionoption_created_at_bf1a9e25 ON public.caluma_form_historicalquestionoption USING btree (created_at);
+
+
+--
+-- Name: caluma_form_historicalquestionoption_created_by_group_a50998fa; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalquestionoption_created_by_group_a50998fa ON public.caluma_form_historicalquestionoption USING btree (created_by_group);
+
+
+--
+-- Name: caluma_form_historicalquestionoption_created_by_user_17e4abd9; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalquestionoption_created_by_user_17e4abd9 ON public.caluma_form_historicalquestionoption USING btree (created_by_user);
+
+
+--
+-- Name: caluma_form_historicalquestionoption_history_date_c27d73df; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalquestionoption_history_date_c27d73df ON public.caluma_form_historicalquestionoption USING btree (history_date);
+
+
+--
+-- Name: caluma_form_historicalquestionoption_id_ee7d0e3d; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalquestionoption_id_ee7d0e3d ON public.caluma_form_historicalquestionoption USING btree (id);
+
+
+--
+-- Name: caluma_form_historicalquestionoption_id_ee7d0e3d_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalquestionoption_id_ee7d0e3d_like ON public.caluma_form_historicalquestionoption USING btree (id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalquestionoption_modified_at_b6e66a13; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalquestionoption_modified_at_b6e66a13 ON public.caluma_form_historicalquestionoption USING btree (modified_at);
+
+
+--
+-- Name: caluma_form_historicalquestionoption_modified_by_group_9445a3f0; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalquestionoption_modified_by_group_9445a3f0 ON public.caluma_form_historicalquestionoption USING btree (modified_by_group);
+
+
+--
+-- Name: caluma_form_historicalquestionoption_modified_by_user_ebaf65e8; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalquestionoption_modified_by_user_ebaf65e8 ON public.caluma_form_historicalquestionoption USING btree (modified_by_user);
+
+
+--
+-- Name: caluma_form_historicalquestionoption_option_id_06486e28; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalquestionoption_option_id_06486e28 ON public.caluma_form_historicalquestionoption USING btree (option_id);
+
+
+--
+-- Name: caluma_form_historicalquestionoption_option_id_06486e28_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalquestionoption_option_id_06486e28_like ON public.caluma_form_historicalquestionoption USING btree (option_id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalquestionoption_question_id_6aee904b; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalquestionoption_question_id_6aee904b ON public.caluma_form_historicalquestionoption USING btree (question_id);
+
+
+--
+-- Name: caluma_form_historicalquestionoption_question_id_6aee904b_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalquestionoption_question_id_6aee904b_like ON public.caluma_form_historicalquestionoption USING btree (question_id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_historicalquestionoption_sort_dc120450; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_historicalquestionoption_sort_dc120450 ON public.caluma_form_historicalquestionoption USING btree (sort);
+
+
+--
+-- Name: caluma_form_meta_32fc37_gin; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_meta_32fc37_gin ON public.caluma_form_answer USING gin (meta, value);
+
+
+--
+-- Name: caluma_form_meta_796a95_gin; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_meta_796a95_gin ON public.caluma_form_form USING gin (meta);
+
+
+--
+-- Name: caluma_form_meta_89b894_gin; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_meta_89b894_gin ON public.caluma_form_document USING gin (meta);
+
+
+--
+-- Name: caluma_form_meta_e0f506_gin; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_meta_e0f506_gin ON public.caluma_form_option USING gin (meta);
+
+
+--
+-- Name: caluma_form_meta_e7f451_gin; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_meta_e7f451_gin ON public.caluma_form_question USING gin (meta);
+
+
+--
+-- Name: caluma_form_option_created_at_7fbd7537; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_option_created_at_7fbd7537 ON public.caluma_form_option USING btree (created_at);
+
+
+--
+-- Name: caluma_form_option_created_by_group_b793782d; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_option_created_by_group_b793782d ON public.caluma_form_option USING btree (created_by_group);
+
+
+--
+-- Name: caluma_form_option_created_by_group_b793782d_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_option_created_by_group_b793782d_like ON public.caluma_form_option USING btree (created_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_option_created_by_user_ebd04c9d; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_option_created_by_user_ebd04c9d ON public.caluma_form_option USING btree (created_by_user);
+
+
+--
+-- Name: caluma_form_option_created_by_user_ebd04c9d_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_option_created_by_user_ebd04c9d_like ON public.caluma_form_option USING btree (created_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_option_modified_at_0dabf3f4; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_option_modified_at_0dabf3f4 ON public.caluma_form_option USING btree (modified_at);
+
+
+--
+-- Name: caluma_form_option_modified_by_group_624a90f2; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_option_modified_by_group_624a90f2 ON public.caluma_form_option USING btree (modified_by_group);
+
+
+--
+-- Name: caluma_form_option_modified_by_group_624a90f2_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_option_modified_by_group_624a90f2_like ON public.caluma_form_option USING btree (modified_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_option_modified_by_user_237e0f23; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_option_modified_by_user_237e0f23 ON public.caluma_form_option USING btree (modified_by_user);
+
+
+--
+-- Name: caluma_form_option_modified_by_user_237e0f23_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_option_modified_by_user_237e0f23_like ON public.caluma_form_option USING btree (modified_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_option_slug_3efed4e1_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_option_slug_3efed4e1_like ON public.caluma_form_option USING btree (slug varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_option_source_id_d6bebdda; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_option_source_id_d6bebdda ON public.caluma_form_option USING btree (source_id);
+
+
+--
+-- Name: caluma_form_option_source_id_d6bebdda_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_option_source_id_d6bebdda_like ON public.caluma_form_option USING btree (source_id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_question_created_at_5352034b; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_question_created_at_5352034b ON public.caluma_form_question USING btree (created_at);
+
+
+--
+-- Name: caluma_form_question_created_by_group_ec8cdd44; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_question_created_by_group_ec8cdd44 ON public.caluma_form_question USING btree (created_by_group);
+
+
+--
+-- Name: caluma_form_question_created_by_group_ec8cdd44_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_question_created_by_group_ec8cdd44_like ON public.caluma_form_question USING btree (created_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_question_created_by_user_cc998091; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_question_created_by_user_cc998091 ON public.caluma_form_question USING btree (created_by_user);
+
+
+--
+-- Name: caluma_form_question_created_by_user_cc998091_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_question_created_by_user_cc998091_like ON public.caluma_form_question USING btree (created_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_question_modified_at_4a5d2a3c; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_question_modified_at_4a5d2a3c ON public.caluma_form_question USING btree (modified_at);
+
+
+--
+-- Name: caluma_form_question_modified_by_group_6ee20182; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_question_modified_by_group_6ee20182 ON public.caluma_form_question USING btree (modified_by_group);
+
+
+--
+-- Name: caluma_form_question_modified_by_group_6ee20182_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_question_modified_by_group_6ee20182_like ON public.caluma_form_question USING btree (modified_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_question_modified_by_user_f3998750; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_question_modified_by_user_f3998750 ON public.caluma_form_question USING btree (modified_by_user);
+
+
+--
+-- Name: caluma_form_question_modified_by_user_f3998750_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_question_modified_by_user_f3998750_like ON public.caluma_form_question USING btree (modified_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_question_row_form_id_f95c6b4c; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_question_row_form_id_f95c6b4c ON public.caluma_form_question USING btree (row_form_id);
+
+
+--
+-- Name: caluma_form_question_row_form_id_f95c6b4c_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_question_row_form_id_f95c6b4c_like ON public.caluma_form_question USING btree (row_form_id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_question_slug_d2477668_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_question_slug_d2477668_like ON public.caluma_form_question USING btree (slug varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_question_source_id_2f64b729; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_question_source_id_2f64b729 ON public.caluma_form_question USING btree (source_id);
+
+
+--
+-- Name: caluma_form_question_source_id_2f64b729_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_question_source_id_2f64b729_like ON public.caluma_form_question USING btree (source_id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_question_sub_form_id_8413f4e5; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_question_sub_form_id_8413f4e5 ON public.caluma_form_question USING btree (sub_form_id);
+
+
+--
+-- Name: caluma_form_question_sub_form_id_8413f4e5_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_question_sub_form_id_8413f4e5_like ON public.caluma_form_question USING btree (sub_form_id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_questionoption_created_at_a410bf48; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_questionoption_created_at_a410bf48 ON public.caluma_form_questionoption USING btree (created_at);
+
+
+--
+-- Name: caluma_form_questionoption_created_by_group_51c1aabf; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_questionoption_created_by_group_51c1aabf ON public.caluma_form_questionoption USING btree (created_by_group);
+
+
+--
+-- Name: caluma_form_questionoption_created_by_group_51c1aabf_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_questionoption_created_by_group_51c1aabf_like ON public.caluma_form_questionoption USING btree (created_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_questionoption_created_by_user_8398a0c8; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_questionoption_created_by_user_8398a0c8 ON public.caluma_form_questionoption USING btree (created_by_user);
+
+
+--
+-- Name: caluma_form_questionoption_created_by_user_8398a0c8_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_questionoption_created_by_user_8398a0c8_like ON public.caluma_form_questionoption USING btree (created_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_questionoption_modified_at_85be81ba; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_questionoption_modified_at_85be81ba ON public.caluma_form_questionoption USING btree (modified_at);
+
+
+--
+-- Name: caluma_form_questionoption_modified_by_group_b1a76a47; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_questionoption_modified_by_group_b1a76a47 ON public.caluma_form_questionoption USING btree (modified_by_group);
+
+
+--
+-- Name: caluma_form_questionoption_modified_by_group_b1a76a47_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_questionoption_modified_by_group_b1a76a47_like ON public.caluma_form_questionoption USING btree (modified_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_questionoption_modified_by_user_a37558eb; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_questionoption_modified_by_user_a37558eb ON public.caluma_form_questionoption USING btree (modified_by_user);
+
+
+--
+-- Name: caluma_form_questionoption_modified_by_user_a37558eb_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_questionoption_modified_by_user_a37558eb_like ON public.caluma_form_questionoption USING btree (modified_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_questionoption_option_id_0d16d6bd; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_questionoption_option_id_0d16d6bd ON public.caluma_form_questionoption USING btree (option_id);
+
+
+--
+-- Name: caluma_form_questionoption_option_id_0d16d6bd_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_questionoption_option_id_0d16d6bd_like ON public.caluma_form_questionoption USING btree (option_id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_questionoption_question_id_ca5ccf47; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_questionoption_question_id_ca5ccf47 ON public.caluma_form_questionoption USING btree (question_id);
+
+
+--
+-- Name: caluma_form_questionoption_question_id_ca5ccf47_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_questionoption_question_id_ca5ccf47_like ON public.caluma_form_questionoption USING btree (question_id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_form_questionoption_sort_4f98c46e; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_form_questionoption_sort_4f98c46e ON public.caluma_form_questionoption USING btree (sort);
+
+
+--
+-- Name: caluma_work_address_23d0a8_gin; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_work_address_23d0a8_gin ON public.caluma_workflow_workitem USING gin (addressed_groups);
+
+
+--
+-- Name: caluma_work_assigne_7880f0_gin; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_work_assigne_7880f0_gin ON public.caluma_workflow_workitem USING gin (assigned_users);
+
+
+--
+-- Name: caluma_work_control_6ede39_gin; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_work_control_6ede39_gin ON public.caluma_workflow_workitem USING gin (controlling_groups);
+
+
+--
+-- Name: caluma_work_created_c87fd3_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_work_created_c87fd3_idx ON public.caluma_workflow_workitem USING btree (created_at);
+
+
+--
+-- Name: caluma_work_deadlin_3d2f3c_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_work_deadlin_3d2f3c_idx ON public.caluma_workflow_workitem USING btree (deadline);
+
+
+--
+-- Name: caluma_work_meta_25e8ed_gin; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_work_meta_25e8ed_gin ON public.caluma_workflow_task USING gin (meta);
+
+
+--
+-- Name: caluma_work_meta_42c1ce_gin; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_work_meta_42c1ce_gin ON public.caluma_workflow_workflow USING gin (meta);
+
+
+--
+-- Name: caluma_work_meta_5cd3f3_gin; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_work_meta_5cd3f3_gin ON public.caluma_workflow_case USING gin (meta);
+
+
+--
+-- Name: caluma_work_meta_f6fc45_gin; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_work_meta_f6fc45_gin ON public.caluma_workflow_workitem USING gin (meta);
+
+
+--
+-- Name: caluma_work_status_4d2ecc_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_work_status_4d2ecc_idx ON public.caluma_workflow_workitem USING btree (status);
+
+
+--
+-- Name: caluma_work_status_deadline_not_null; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_work_status_deadline_not_null ON public.caluma_workflow_workitem USING btree (status, deadline) WHERE (deadline IS NOT NULL);
+
+
+--
+-- Name: caluma_workflow_case_created_at_45dc7f0e; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_case_created_at_45dc7f0e ON public.caluma_workflow_case USING btree (created_at);
+
+
+--
+-- Name: caluma_workflow_case_created_by_group_5d32042f; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_case_created_by_group_5d32042f ON public.caluma_workflow_case USING btree (created_by_group);
+
+
+--
+-- Name: caluma_workflow_case_created_by_group_5d32042f_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_case_created_by_group_5d32042f_like ON public.caluma_workflow_case USING btree (created_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_case_created_by_user_ce6b26c6; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_case_created_by_user_ce6b26c6 ON public.caluma_workflow_case USING btree (created_by_user);
+
+
+--
+-- Name: caluma_workflow_case_created_by_user_ce6b26c6_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_case_created_by_user_ce6b26c6_like ON public.caluma_workflow_case USING btree (created_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_case_family_id_26115d17; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_case_family_id_26115d17 ON public.caluma_workflow_case USING btree (family_id);
+
+
+--
+-- Name: caluma_workflow_case_modified_at_b0f3f47b; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_case_modified_at_b0f3f47b ON public.caluma_workflow_case USING btree (modified_at);
+
+
+--
+-- Name: caluma_workflow_case_modified_by_group_00a24fd1; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_case_modified_by_group_00a24fd1 ON public.caluma_workflow_case USING btree (modified_by_group);
+
+
+--
+-- Name: caluma_workflow_case_modified_by_group_00a24fd1_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_case_modified_by_group_00a24fd1_like ON public.caluma_workflow_case USING btree (modified_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_case_modified_by_user_b01023c0; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_case_modified_by_user_b01023c0 ON public.caluma_workflow_case USING btree (modified_by_user);
+
+
+--
+-- Name: caluma_workflow_case_modified_by_user_b01023c0_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_case_modified_by_user_b01023c0_like ON public.caluma_workflow_case USING btree (modified_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_case_status_25bb4a7c; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_case_status_25bb4a7c ON public.caluma_workflow_case USING btree (status);
+
+
+--
+-- Name: caluma_workflow_case_status_25bb4a7c_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_case_status_25bb4a7c_like ON public.caluma_workflow_case USING btree (status varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_case_workflow_id_4af5b51a; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_case_workflow_id_4af5b51a ON public.caluma_workflow_case USING btree (workflow_id);
+
+
+--
+-- Name: caluma_workflow_case_workflow_id_4af5b51a_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_case_workflow_id_4af5b51a_like ON public.caluma_workflow_case USING btree (workflow_id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_flow_created_at_4a3ff59e; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_flow_created_at_4a3ff59e ON public.caluma_workflow_flow USING btree (created_at);
+
+
+--
+-- Name: caluma_workflow_flow_created_by_group_e9c67762; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_flow_created_by_group_e9c67762 ON public.caluma_workflow_flow USING btree (created_by_group);
+
+
+--
+-- Name: caluma_workflow_flow_created_by_group_e9c67762_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_flow_created_by_group_e9c67762_like ON public.caluma_workflow_flow USING btree (created_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_flow_created_by_user_d9d29054; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_flow_created_by_user_d9d29054 ON public.caluma_workflow_flow USING btree (created_by_user);
+
+
+--
+-- Name: caluma_workflow_flow_created_by_user_d9d29054_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_flow_created_by_user_d9d29054_like ON public.caluma_workflow_flow USING btree (created_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_flow_modified_at_90280381; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_flow_modified_at_90280381 ON public.caluma_workflow_flow USING btree (modified_at);
+
+
+--
+-- Name: caluma_workflow_flow_modified_by_group_b49cdd49; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_flow_modified_by_group_b49cdd49 ON public.caluma_workflow_flow USING btree (modified_by_group);
+
+
+--
+-- Name: caluma_workflow_flow_modified_by_group_b49cdd49_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_flow_modified_by_group_b49cdd49_like ON public.caluma_workflow_flow USING btree (modified_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_flow_modified_by_user_59aea1d5; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_flow_modified_by_user_59aea1d5 ON public.caluma_workflow_flow USING btree (modified_by_user);
+
+
+--
+-- Name: caluma_workflow_flow_modified_by_user_59aea1d5_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_flow_modified_by_user_59aea1d5_like ON public.caluma_workflow_flow USING btree (modified_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_historic_created_by_group_8ef56f55_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historic_created_by_group_8ef56f55_like ON public.caluma_workflow_historicaltaskflow USING btree (created_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_historic_created_by_group_ad5ab76d_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historic_created_by_group_ad5ab76d_like ON public.caluma_workflow_historicalworkflow USING btree (created_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_historic_created_by_group_c0799ee7_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historic_created_by_group_c0799ee7_like ON public.caluma_workflow_historicalworkitem USING btree (created_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_historic_created_by_user_78b50225_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historic_created_by_user_78b50225_like ON public.caluma_workflow_historicaltaskflow USING btree (created_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_historic_created_by_user_cfa94561_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historic_created_by_user_cfa94561_like ON public.caluma_workflow_historicalworkflow USING btree (created_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_historic_created_by_user_f135500d_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historic_created_by_user_f135500d_like ON public.caluma_workflow_historicalworkitem USING btree (created_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_historic_modified_by_group_97c9c80b_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historic_modified_by_group_97c9c80b_like ON public.caluma_workflow_historicalworkflow USING btree (modified_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_historic_modified_by_group_c88373e3_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historic_modified_by_group_c88373e3_like ON public.caluma_workflow_historicaltaskflow USING btree (modified_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_historic_modified_by_group_d307ac8d_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historic_modified_by_group_d307ac8d_like ON public.caluma_workflow_historicalworkitem USING btree (modified_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_historic_modified_by_user_371cfc03_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historic_modified_by_user_371cfc03_like ON public.caluma_workflow_historicalworkitem USING btree (modified_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_historic_modified_by_user_4028f768_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historic_modified_by_user_4028f768_like ON public.caluma_workflow_historicalworkflow USING btree (modified_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_historic_modified_by_user_75dff210_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historic_modified_by_user_75dff210_like ON public.caluma_workflow_historicaltaskflow USING btree (modified_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_historical_previous_work_item_id_268decef; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historical_previous_work_item_id_268decef ON public.caluma_workflow_historicalworkitem USING btree (previous_work_item_id);
+
+
+--
+-- Name: caluma_workflow_historicalcase_created_at_6ecc2742; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalcase_created_at_6ecc2742 ON public.caluma_workflow_historicalcase USING btree (created_at);
+
+
+--
+-- Name: caluma_workflow_historicalcase_created_by_group_9049ae1d; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalcase_created_by_group_9049ae1d ON public.caluma_workflow_historicalcase USING btree (created_by_group);
+
+
+--
+-- Name: caluma_workflow_historicalcase_created_by_group_9049ae1d_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalcase_created_by_group_9049ae1d_like ON public.caluma_workflow_historicalcase USING btree (created_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_historicalcase_created_by_user_fdbf089a; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalcase_created_by_user_fdbf089a ON public.caluma_workflow_historicalcase USING btree (created_by_user);
+
+
+--
+-- Name: caluma_workflow_historicalcase_created_by_user_fdbf089a_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalcase_created_by_user_fdbf089a_like ON public.caluma_workflow_historicalcase USING btree (created_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_historicalcase_document_id_0708a86f; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalcase_document_id_0708a86f ON public.caluma_workflow_historicalcase USING btree (document_id);
+
+
+--
+-- Name: caluma_workflow_historicalcase_family_id_0da52332; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalcase_family_id_0da52332 ON public.caluma_workflow_historicalcase USING btree (family_id);
+
+
+--
+-- Name: caluma_workflow_historicalcase_history_date_7eb160a1; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalcase_history_date_7eb160a1 ON public.caluma_workflow_historicalcase USING btree (history_date);
+
+
+--
+-- Name: caluma_workflow_historicalcase_id_16789f51; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalcase_id_16789f51 ON public.caluma_workflow_historicalcase USING btree (id);
+
+
+--
+-- Name: caluma_workflow_historicalcase_modified_at_94e3f8a0; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalcase_modified_at_94e3f8a0 ON public.caluma_workflow_historicalcase USING btree (modified_at);
+
+
+--
+-- Name: caluma_workflow_historicalcase_modified_by_group_3b68cdb4; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalcase_modified_by_group_3b68cdb4 ON public.caluma_workflow_historicalcase USING btree (modified_by_group);
+
+
+--
+-- Name: caluma_workflow_historicalcase_modified_by_group_3b68cdb4_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalcase_modified_by_group_3b68cdb4_like ON public.caluma_workflow_historicalcase USING btree (modified_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_historicalcase_modified_by_user_ae79b2ea; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalcase_modified_by_user_ae79b2ea ON public.caluma_workflow_historicalcase USING btree (modified_by_user);
+
+
+--
+-- Name: caluma_workflow_historicalcase_modified_by_user_ae79b2ea_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalcase_modified_by_user_ae79b2ea_like ON public.caluma_workflow_historicalcase USING btree (modified_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_historicalcase_status_854de8a3; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalcase_status_854de8a3 ON public.caluma_workflow_historicalcase USING btree (status);
+
+
+--
+-- Name: caluma_workflow_historicalcase_status_854de8a3_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalcase_status_854de8a3_like ON public.caluma_workflow_historicalcase USING btree (status varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_historicalcase_workflow_id_dd932b6b; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalcase_workflow_id_dd932b6b ON public.caluma_workflow_historicalcase USING btree (workflow_id);
+
+
+--
+-- Name: caluma_workflow_historicalcase_workflow_id_dd932b6b_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalcase_workflow_id_dd932b6b_like ON public.caluma_workflow_historicalcase USING btree (workflow_id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_historicalflow_created_at_cfc3b01c; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalflow_created_at_cfc3b01c ON public.caluma_workflow_historicalflow USING btree (created_at);
+
+
+--
+-- Name: caluma_workflow_historicalflow_created_by_group_9a3895d8; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalflow_created_by_group_9a3895d8 ON public.caluma_workflow_historicalflow USING btree (created_by_group);
+
+
+--
+-- Name: caluma_workflow_historicalflow_created_by_group_9a3895d8_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalflow_created_by_group_9a3895d8_like ON public.caluma_workflow_historicalflow USING btree (created_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_historicalflow_created_by_user_78613eab; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalflow_created_by_user_78613eab ON public.caluma_workflow_historicalflow USING btree (created_by_user);
+
+
+--
+-- Name: caluma_workflow_historicalflow_created_by_user_78613eab_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalflow_created_by_user_78613eab_like ON public.caluma_workflow_historicalflow USING btree (created_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_historicalflow_history_date_0d2b42ab; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalflow_history_date_0d2b42ab ON public.caluma_workflow_historicalflow USING btree (history_date);
+
+
+--
+-- Name: caluma_workflow_historicalflow_id_a8339e00; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalflow_id_a8339e00 ON public.caluma_workflow_historicalflow USING btree (id);
+
+
+--
+-- Name: caluma_workflow_historicalflow_modified_at_2b41669d; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalflow_modified_at_2b41669d ON public.caluma_workflow_historicalflow USING btree (modified_at);
+
+
+--
+-- Name: caluma_workflow_historicalflow_modified_by_group_8f3edbe6; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalflow_modified_by_group_8f3edbe6 ON public.caluma_workflow_historicalflow USING btree (modified_by_group);
+
+
+--
+-- Name: caluma_workflow_historicalflow_modified_by_group_8f3edbe6_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalflow_modified_by_group_8f3edbe6_like ON public.caluma_workflow_historicalflow USING btree (modified_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_historicalflow_modified_by_user_b9eb72df; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalflow_modified_by_user_b9eb72df ON public.caluma_workflow_historicalflow USING btree (modified_by_user);
+
+
+--
+-- Name: caluma_workflow_historicalflow_modified_by_user_b9eb72df_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalflow_modified_by_user_b9eb72df_like ON public.caluma_workflow_historicalflow USING btree (modified_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_historicaltask_created_at_30b9aaa6; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicaltask_created_at_30b9aaa6 ON public.caluma_workflow_historicaltask USING btree (created_at);
+
+
+--
+-- Name: caluma_workflow_historicaltask_created_by_group_fbb5610a; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicaltask_created_by_group_fbb5610a ON public.caluma_workflow_historicaltask USING btree (created_by_group);
+
+
+--
+-- Name: caluma_workflow_historicaltask_created_by_group_fbb5610a_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicaltask_created_by_group_fbb5610a_like ON public.caluma_workflow_historicaltask USING btree (created_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_historicaltask_created_by_user_a5e2f752; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicaltask_created_by_user_a5e2f752 ON public.caluma_workflow_historicaltask USING btree (created_by_user);
+
+
+--
+-- Name: caluma_workflow_historicaltask_created_by_user_a5e2f752_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicaltask_created_by_user_a5e2f752_like ON public.caluma_workflow_historicaltask USING btree (created_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_historicaltask_form_id_4b74f696; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicaltask_form_id_4b74f696 ON public.caluma_workflow_historicaltask USING btree (form_id);
+
+
+--
+-- Name: caluma_workflow_historicaltask_form_id_4b74f696_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicaltask_form_id_4b74f696_like ON public.caluma_workflow_historicaltask USING btree (form_id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_historicaltask_history_date_6b8b2c95; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicaltask_history_date_6b8b2c95 ON public.caluma_workflow_historicaltask USING btree (history_date);
+
+
+--
+-- Name: caluma_workflow_historicaltask_modified_at_07086498; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicaltask_modified_at_07086498 ON public.caluma_workflow_historicaltask USING btree (modified_at);
+
+
+--
+-- Name: caluma_workflow_historicaltask_modified_by_group_385d3911; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicaltask_modified_by_group_385d3911 ON public.caluma_workflow_historicaltask USING btree (modified_by_group);
+
+
+--
+-- Name: caluma_workflow_historicaltask_modified_by_group_385d3911_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicaltask_modified_by_group_385d3911_like ON public.caluma_workflow_historicaltask USING btree (modified_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_historicaltask_modified_by_user_5fa43937; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicaltask_modified_by_user_5fa43937 ON public.caluma_workflow_historicaltask USING btree (modified_by_user);
+
+
+--
+-- Name: caluma_workflow_historicaltask_modified_by_user_5fa43937_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicaltask_modified_by_user_5fa43937_like ON public.caluma_workflow_historicaltask USING btree (modified_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_historicaltask_slug_1d2454af; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicaltask_slug_1d2454af ON public.caluma_workflow_historicaltask USING btree (slug);
+
+
+--
+-- Name: caluma_workflow_historicaltask_slug_1d2454af_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicaltask_slug_1d2454af_like ON public.caluma_workflow_historicaltask USING btree (slug varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_historicaltaskflow_created_at_684aed97; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicaltaskflow_created_at_684aed97 ON public.caluma_workflow_historicaltaskflow USING btree (created_at);
+
+
+--
+-- Name: caluma_workflow_historicaltaskflow_created_by_group_8ef56f55; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicaltaskflow_created_by_group_8ef56f55 ON public.caluma_workflow_historicaltaskflow USING btree (created_by_group);
+
+
+--
+-- Name: caluma_workflow_historicaltaskflow_created_by_user_78b50225; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicaltaskflow_created_by_user_78b50225 ON public.caluma_workflow_historicaltaskflow USING btree (created_by_user);
+
+
+--
+-- Name: caluma_workflow_historicaltaskflow_flow_id_07c0db11; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicaltaskflow_flow_id_07c0db11 ON public.caluma_workflow_historicaltaskflow USING btree (flow_id);
+
+
+--
+-- Name: caluma_workflow_historicaltaskflow_history_date_e9ad153a; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicaltaskflow_history_date_e9ad153a ON public.caluma_workflow_historicaltaskflow USING btree (history_date);
+
+
+--
+-- Name: caluma_workflow_historicaltaskflow_id_a54799b4; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicaltaskflow_id_a54799b4 ON public.caluma_workflow_historicaltaskflow USING btree (id);
+
+
+--
+-- Name: caluma_workflow_historicaltaskflow_modified_at_41dbd6f9; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicaltaskflow_modified_at_41dbd6f9 ON public.caluma_workflow_historicaltaskflow USING btree (modified_at);
+
+
+--
+-- Name: caluma_workflow_historicaltaskflow_modified_by_group_c88373e3; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicaltaskflow_modified_by_group_c88373e3 ON public.caluma_workflow_historicaltaskflow USING btree (modified_by_group);
+
+
+--
+-- Name: caluma_workflow_historicaltaskflow_modified_by_user_75dff210; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicaltaskflow_modified_by_user_75dff210 ON public.caluma_workflow_historicaltaskflow USING btree (modified_by_user);
+
+
+--
+-- Name: caluma_workflow_historicaltaskflow_task_id_aba551fb; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicaltaskflow_task_id_aba551fb ON public.caluma_workflow_historicaltaskflow USING btree (task_id);
+
+
+--
+-- Name: caluma_workflow_historicaltaskflow_task_id_aba551fb_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicaltaskflow_task_id_aba551fb_like ON public.caluma_workflow_historicaltaskflow USING btree (task_id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_historicaltaskflow_workflow_id_a16c819c; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicaltaskflow_workflow_id_a16c819c ON public.caluma_workflow_historicaltaskflow USING btree (workflow_id);
+
+
+--
+-- Name: caluma_workflow_historicaltaskflow_workflow_id_a16c819c_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicaltaskflow_workflow_id_a16c819c_like ON public.caluma_workflow_historicaltaskflow USING btree (workflow_id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_historicalworkflow_created_at_1323e9ef; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalworkflow_created_at_1323e9ef ON public.caluma_workflow_historicalworkflow USING btree (created_at);
+
+
+--
+-- Name: caluma_workflow_historicalworkflow_created_by_group_ad5ab76d; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalworkflow_created_by_group_ad5ab76d ON public.caluma_workflow_historicalworkflow USING btree (created_by_group);
+
+
+--
+-- Name: caluma_workflow_historicalworkflow_created_by_user_cfa94561; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalworkflow_created_by_user_cfa94561 ON public.caluma_workflow_historicalworkflow USING btree (created_by_user);
+
+
+--
+-- Name: caluma_workflow_historicalworkflow_history_date_402a7319; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalworkflow_history_date_402a7319 ON public.caluma_workflow_historicalworkflow USING btree (history_date);
+
+
+--
+-- Name: caluma_workflow_historicalworkflow_modified_at_1fcfb2de; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalworkflow_modified_at_1fcfb2de ON public.caluma_workflow_historicalworkflow USING btree (modified_at);
+
+
+--
+-- Name: caluma_workflow_historicalworkflow_modified_by_group_97c9c80b; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalworkflow_modified_by_group_97c9c80b ON public.caluma_workflow_historicalworkflow USING btree (modified_by_group);
+
+
+--
+-- Name: caluma_workflow_historicalworkflow_modified_by_user_4028f768; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalworkflow_modified_by_user_4028f768 ON public.caluma_workflow_historicalworkflow USING btree (modified_by_user);
+
+
+--
+-- Name: caluma_workflow_historicalworkflow_slug_60e8c6fa; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalworkflow_slug_60e8c6fa ON public.caluma_workflow_historicalworkflow USING btree (slug);
+
+
+--
+-- Name: caluma_workflow_historicalworkflow_slug_60e8c6fa_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalworkflow_slug_60e8c6fa_like ON public.caluma_workflow_historicalworkflow USING btree (slug varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_historicalworkitem_case_id_b5be07d2; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalworkitem_case_id_b5be07d2 ON public.caluma_workflow_historicalworkitem USING btree (case_id);
+
+
+--
+-- Name: caluma_workflow_historicalworkitem_child_case_id_1eb5fb3a; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalworkitem_child_case_id_1eb5fb3a ON public.caluma_workflow_historicalworkitem USING btree (child_case_id);
+
+
+--
+-- Name: caluma_workflow_historicalworkitem_created_at_7102d51f; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalworkitem_created_at_7102d51f ON public.caluma_workflow_historicalworkitem USING btree (created_at);
+
+
+--
+-- Name: caluma_workflow_historicalworkitem_created_by_group_c0799ee7; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalworkitem_created_by_group_c0799ee7 ON public.caluma_workflow_historicalworkitem USING btree (created_by_group);
+
+
+--
+-- Name: caluma_workflow_historicalworkitem_created_by_user_f135500d; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalworkitem_created_by_user_f135500d ON public.caluma_workflow_historicalworkitem USING btree (created_by_user);
+
+
+--
+-- Name: caluma_workflow_historicalworkitem_document_id_3ea44ab1; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalworkitem_document_id_3ea44ab1 ON public.caluma_workflow_historicalworkitem USING btree (document_id);
+
+
+--
+-- Name: caluma_workflow_historicalworkitem_history_date_04b30a61; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalworkitem_history_date_04b30a61 ON public.caluma_workflow_historicalworkitem USING btree (history_date);
+
+
+--
+-- Name: caluma_workflow_historicalworkitem_id_fd177cf5; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalworkitem_id_fd177cf5 ON public.caluma_workflow_historicalworkitem USING btree (id);
+
+
+--
+-- Name: caluma_workflow_historicalworkitem_modified_at_9c00788c; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalworkitem_modified_at_9c00788c ON public.caluma_workflow_historicalworkitem USING btree (modified_at);
+
+
+--
+-- Name: caluma_workflow_historicalworkitem_modified_by_group_d307ac8d; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalworkitem_modified_by_group_d307ac8d ON public.caluma_workflow_historicalworkitem USING btree (modified_by_group);
+
+
+--
+-- Name: caluma_workflow_historicalworkitem_modified_by_user_371cfc03; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalworkitem_modified_by_user_371cfc03 ON public.caluma_workflow_historicalworkitem USING btree (modified_by_user);
+
+
+--
+-- Name: caluma_workflow_historicalworkitem_status_2ef2e826; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalworkitem_status_2ef2e826 ON public.caluma_workflow_historicalworkitem USING btree (status);
+
+
+--
+-- Name: caluma_workflow_historicalworkitem_status_2ef2e826_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalworkitem_status_2ef2e826_like ON public.caluma_workflow_historicalworkitem USING btree (status varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_historicalworkitem_task_id_d39b8797; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalworkitem_task_id_d39b8797 ON public.caluma_workflow_historicalworkitem USING btree (task_id);
+
+
+--
+-- Name: caluma_workflow_historicalworkitem_task_id_d39b8797_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_historicalworkitem_task_id_d39b8797_like ON public.caluma_workflow_historicalworkitem USING btree (task_id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_task_created_at_0d2452bc; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_task_created_at_0d2452bc ON public.caluma_workflow_task USING btree (created_at);
+
+
+--
+-- Name: caluma_workflow_task_created_by_group_9db2a4c8; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_task_created_by_group_9db2a4c8 ON public.caluma_workflow_task USING btree (created_by_group);
+
+
+--
+-- Name: caluma_workflow_task_created_by_group_9db2a4c8_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_task_created_by_group_9db2a4c8_like ON public.caluma_workflow_task USING btree (created_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_task_created_by_user_e4f84544; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_task_created_by_user_e4f84544 ON public.caluma_workflow_task USING btree (created_by_user);
+
+
+--
+-- Name: caluma_workflow_task_created_by_user_e4f84544_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_task_created_by_user_e4f84544_like ON public.caluma_workflow_task USING btree (created_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_task_form_id_642f329c; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_task_form_id_642f329c ON public.caluma_workflow_task USING btree (form_id);
+
+
+--
+-- Name: caluma_workflow_task_form_id_642f329c_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_task_form_id_642f329c_like ON public.caluma_workflow_task USING btree (form_id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_task_modified_at_4509bd58; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_task_modified_at_4509bd58 ON public.caluma_workflow_task USING btree (modified_at);
+
+
+--
+-- Name: caluma_workflow_task_modified_by_group_641d3a26; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_task_modified_by_group_641d3a26 ON public.caluma_workflow_task USING btree (modified_by_group);
+
+
+--
+-- Name: caluma_workflow_task_modified_by_group_641d3a26_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_task_modified_by_group_641d3a26_like ON public.caluma_workflow_task USING btree (modified_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_task_modified_by_user_6a56b795; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_task_modified_by_user_6a56b795 ON public.caluma_workflow_task USING btree (modified_by_user);
+
+
+--
+-- Name: caluma_workflow_task_modified_by_user_6a56b795_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_task_modified_by_user_6a56b795_like ON public.caluma_workflow_task USING btree (modified_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_task_slug_53fe98ea_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_task_slug_53fe98ea_like ON public.caluma_workflow_task USING btree (slug varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_taskflow_created_at_536d4b4f; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_taskflow_created_at_536d4b4f ON public.caluma_workflow_taskflow USING btree (created_at);
+
+
+--
+-- Name: caluma_workflow_taskflow_created_by_group_f684db4b; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_taskflow_created_by_group_f684db4b ON public.caluma_workflow_taskflow USING btree (created_by_group);
+
+
+--
+-- Name: caluma_workflow_taskflow_created_by_group_f684db4b_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_taskflow_created_by_group_f684db4b_like ON public.caluma_workflow_taskflow USING btree (created_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_taskflow_created_by_user_2dc434bf; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_taskflow_created_by_user_2dc434bf ON public.caluma_workflow_taskflow USING btree (created_by_user);
+
+
+--
+-- Name: caluma_workflow_taskflow_created_by_user_2dc434bf_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_taskflow_created_by_user_2dc434bf_like ON public.caluma_workflow_taskflow USING btree (created_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_taskflow_flow_id_05f3a405; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_taskflow_flow_id_05f3a405 ON public.caluma_workflow_taskflow USING btree (flow_id);
+
+
+--
+-- Name: caluma_workflow_taskflow_modified_at_c66bc4c8; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_taskflow_modified_at_c66bc4c8 ON public.caluma_workflow_taskflow USING btree (modified_at);
+
+
+--
+-- Name: caluma_workflow_taskflow_modified_by_group_c3d2ff11; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_taskflow_modified_by_group_c3d2ff11 ON public.caluma_workflow_taskflow USING btree (modified_by_group);
+
+
+--
+-- Name: caluma_workflow_taskflow_modified_by_group_c3d2ff11_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_taskflow_modified_by_group_c3d2ff11_like ON public.caluma_workflow_taskflow USING btree (modified_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_taskflow_modified_by_user_a8dc34f7; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_taskflow_modified_by_user_a8dc34f7 ON public.caluma_workflow_taskflow USING btree (modified_by_user);
+
+
+--
+-- Name: caluma_workflow_taskflow_modified_by_user_a8dc34f7_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_taskflow_modified_by_user_a8dc34f7_like ON public.caluma_workflow_taskflow USING btree (modified_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_taskflow_task_id_71d6569b; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_taskflow_task_id_71d6569b ON public.caluma_workflow_taskflow USING btree (task_id);
+
+
+--
+-- Name: caluma_workflow_taskflow_task_id_71d6569b_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_taskflow_task_id_71d6569b_like ON public.caluma_workflow_taskflow USING btree (task_id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_taskflow_workflow_id_72f22434; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_taskflow_workflow_id_72f22434 ON public.caluma_workflow_taskflow USING btree (workflow_id);
+
+
+--
+-- Name: caluma_workflow_taskflow_workflow_id_72f22434_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_taskflow_workflow_id_72f22434_like ON public.caluma_workflow_taskflow USING btree (workflow_id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_workflow_allow_forms_form_id_1f343f15; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_workflow_allow_forms_form_id_1f343f15 ON public.caluma_workflow_workflow_allow_forms USING btree (form_id);
+
+
+--
+-- Name: caluma_workflow_workflow_allow_forms_form_id_1f343f15_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_workflow_allow_forms_form_id_1f343f15_like ON public.caluma_workflow_workflow_allow_forms USING btree (form_id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_workflow_allow_forms_workflow_id_ecc2c8c5; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_workflow_allow_forms_workflow_id_ecc2c8c5 ON public.caluma_workflow_workflow_allow_forms USING btree (workflow_id);
+
+
+--
+-- Name: caluma_workflow_workflow_allow_forms_workflow_id_ecc2c8c5_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_workflow_allow_forms_workflow_id_ecc2c8c5_like ON public.caluma_workflow_workflow_allow_forms USING btree (workflow_id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_workflow_created_at_c9157f76; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_workflow_created_at_c9157f76 ON public.caluma_workflow_workflow USING btree (created_at);
+
+
+--
+-- Name: caluma_workflow_workflow_created_by_group_27db68d3; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_workflow_created_by_group_27db68d3 ON public.caluma_workflow_workflow USING btree (created_by_group);
+
+
+--
+-- Name: caluma_workflow_workflow_created_by_group_27db68d3_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_workflow_created_by_group_27db68d3_like ON public.caluma_workflow_workflow USING btree (created_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_workflow_created_by_user_1e054271; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_workflow_created_by_user_1e054271 ON public.caluma_workflow_workflow USING btree (created_by_user);
+
+
+--
+-- Name: caluma_workflow_workflow_created_by_user_1e054271_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_workflow_created_by_user_1e054271_like ON public.caluma_workflow_workflow USING btree (created_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_workflow_modified_at_681d3926; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_workflow_modified_at_681d3926 ON public.caluma_workflow_workflow USING btree (modified_at);
+
+
+--
+-- Name: caluma_workflow_workflow_modified_by_group_7c0d4b4b; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_workflow_modified_by_group_7c0d4b4b ON public.caluma_workflow_workflow USING btree (modified_by_group);
+
+
+--
+-- Name: caluma_workflow_workflow_modified_by_group_7c0d4b4b_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_workflow_modified_by_group_7c0d4b4b_like ON public.caluma_workflow_workflow USING btree (modified_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_workflow_modified_by_user_2178eff6; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_workflow_modified_by_user_2178eff6 ON public.caluma_workflow_workflow USING btree (modified_by_user);
+
+
+--
+-- Name: caluma_workflow_workflow_modified_by_user_2178eff6_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_workflow_modified_by_user_2178eff6_like ON public.caluma_workflow_workflow USING btree (modified_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_workflow_slug_91852c40_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_workflow_slug_91852c40_like ON public.caluma_workflow_workflow USING btree (slug varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_workflow_start_tasks_task_id_9703b542; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_workflow_start_tasks_task_id_9703b542 ON public.caluma_workflow_workflow_start_tasks USING btree (task_id);
+
+
+--
+-- Name: caluma_workflow_workflow_start_tasks_task_id_9703b542_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_workflow_start_tasks_task_id_9703b542_like ON public.caluma_workflow_workflow_start_tasks USING btree (task_id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_workflow_start_tasks_workflow_id_949a7a65; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_workflow_start_tasks_workflow_id_949a7a65 ON public.caluma_workflow_workflow_start_tasks USING btree (workflow_id);
+
+
+--
+-- Name: caluma_workflow_workflow_start_tasks_workflow_id_949a7a65_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_workflow_start_tasks_workflow_id_949a7a65_like ON public.caluma_workflow_workflow_start_tasks USING btree (workflow_id varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_workitem_case_id_bcf84ed8; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_workitem_case_id_bcf84ed8 ON public.caluma_workflow_workitem USING btree (case_id);
+
+
+--
+-- Name: caluma_workflow_workitem_created_at_5dd15261; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_workitem_created_at_5dd15261 ON public.caluma_workflow_workitem USING btree (created_at);
+
+
+--
+-- Name: caluma_workflow_workitem_created_by_group_b773f83e; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_workitem_created_by_group_b773f83e ON public.caluma_workflow_workitem USING btree (created_by_group);
+
+
+--
+-- Name: caluma_workflow_workitem_created_by_group_b773f83e_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_workitem_created_by_group_b773f83e_like ON public.caluma_workflow_workitem USING btree (created_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_workitem_created_by_user_7f708572; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_workitem_created_by_user_7f708572 ON public.caluma_workflow_workitem USING btree (created_by_user);
+
+
+--
+-- Name: caluma_workflow_workitem_created_by_user_7f708572_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_workitem_created_by_user_7f708572_like ON public.caluma_workflow_workitem USING btree (created_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_workitem_modified_at_055cf75d; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_workitem_modified_at_055cf75d ON public.caluma_workflow_workitem USING btree (modified_at);
+
+
+--
+-- Name: caluma_workflow_workitem_modified_by_group_454cd7d9; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_workitem_modified_by_group_454cd7d9 ON public.caluma_workflow_workitem USING btree (modified_by_group);
+
+
+--
+-- Name: caluma_workflow_workitem_modified_by_group_454cd7d9_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_workitem_modified_by_group_454cd7d9_like ON public.caluma_workflow_workitem USING btree (modified_by_group varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_workitem_modified_by_user_2e00c66d; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_workitem_modified_by_user_2e00c66d ON public.caluma_workflow_workitem USING btree (modified_by_user);
+
+
+--
+-- Name: caluma_workflow_workitem_modified_by_user_2e00c66d_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_workitem_modified_by_user_2e00c66d_like ON public.caluma_workflow_workitem USING btree (modified_by_user varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_workitem_previous_work_item_id_860125b1; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_workitem_previous_work_item_id_860125b1 ON public.caluma_workflow_workitem USING btree (previous_work_item_id);
+
+
+--
+-- Name: caluma_workflow_workitem_status_7293fa32; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_workitem_status_7293fa32 ON public.caluma_workflow_workitem USING btree (status);
+
+
+--
+-- Name: caluma_workflow_workitem_status_7293fa32_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_workitem_status_7293fa32_like ON public.caluma_workflow_workitem USING btree (status varchar_pattern_ops);
+
+
+--
+-- Name: caluma_workflow_workitem_task_id_b273aa99; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_workitem_task_id_b273aa99 ON public.caluma_workflow_workitem USING btree (task_id);
+
+
+--
+-- Name: caluma_workflow_workitem_task_id_b273aa99_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX caluma_workflow_workitem_task_id_b273aa99_like ON public.caluma_workflow_workitem USING btree (task_id varchar_pattern_ops);
+
+
+--
+-- Name: captcha_captchastore_hashkey_cbe8d15a_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX captcha_captchastore_hashkey_cbe8d15a_like ON public.captcha_captchastore USING btree (hashkey varchar_pattern_ops);
+
+
+--
+-- Name: case_instance_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX case_instance_id ON public.caluma_workflow_case USING btree (((meta -> 'camac-instance-id'::text)));
+
+
+--
+-- Name: communications_communicati_alexandria_file_id_15243c3a; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX communications_communicati_alexandria_file_id_15243c3a ON public.communications_communicationsattachment USING btree (alexandria_file_id);
+
+
+--
+-- Name: communications_communicati_created_by_user_id_b34c3973; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX communications_communicati_created_by_user_id_b34c3973 ON public.communications_communicationsmessage USING btree (created_by_user_id);
+
+
+--
+-- Name: communications_communicati_document_attachment_id_1fa35216; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX communications_communicati_document_attachment_id_1fa35216 ON public.communications_communicationsattachment USING btree (document_attachment_id);
+
+
+--
+-- Name: communications_communicationsattachment_message_id_dd0fa955; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX communications_communicationsattachment_message_id_dd0fa955 ON public.communications_communicationsattachment USING btree (message_id);
+
+
+--
+-- Name: communications_communicationsmessage_topic_id_983fb366; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX communications_communicationsmessage_topic_id_983fb366 ON public.communications_communicationsmessage USING btree (topic_id);
+
+
+--
+-- Name: communications_communicationsreadmarker_message_id_82e62952; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX communications_communicationsreadmarker_message_id_82e62952 ON public.communications_communicationsreadmarker USING btree (message_id);
+
+
+--
+-- Name: communications_communicationstopic_initiated_by_id_9f33e585; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX communications_communicationstopic_initiated_by_id_9f33e585 ON public.communications_communicationstopic USING btree (initiated_by_id);
+
+
+--
+-- Name: communications_communicationstopic_instance_id_da0c36ea; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX communications_communicationstopic_instance_id_da0c36ea ON public.communications_communicationstopic USING btree (instance_id);
+
+
+--
+-- Name: core_servicecontent_forms_form_id_0ee4f708; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX core_servicecontent_forms_form_id_0ee4f708 ON public.core_servicecontent_forms USING btree (form_id);
+
+
+--
+-- Name: core_servicecontent_forms_form_id_0ee4f708_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX core_servicecontent_forms_form_id_0ee4f708_like ON public.core_servicecontent_forms USING btree (form_id varchar_pattern_ops);
+
+
+--
+-- Name: core_servicecontent_forms_servicecontent_id_ba249f4a; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX core_servicecontent_forms_servicecontent_id_ba249f4a ON public.core_servicecontent_forms USING btree (servicecontent_id);
+
+
+--
+-- Name: core_servicecontent_service_id_8f549487; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX core_servicecontent_service_id_8f549487 ON public.core_servicecontent USING btree (service_id);
+
+
+--
+-- Name: core_staticcontent_slug_fd91e5c8_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX core_staticcontent_slug_fd91e5c8_like ON public.core_staticcontent USING btree (slug varchar_pattern_ops);
+
+
+--
+-- Name: deadlines_deadlinetype_service_groups_deadlinetype_id_fb7fb231; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX deadlines_deadlinetype_service_groups_deadlinetype_id_fb7fb231 ON public.deadlines_deadlinetype_service_groups USING btree (deadlinetype_id);
+
+
+--
+-- Name: deadlines_deadlinetype_service_groups_servicegroup_id_3da9f972; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX deadlines_deadlinetype_service_groups_servicegroup_id_3da9f972 ON public.deadlines_deadlinetype_service_groups USING btree (servicegroup_id);
+
+
+--
+-- Name: deadlines_deadlinetype_services_deadlinetype_id_aca08dc0; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX deadlines_deadlinetype_services_deadlinetype_id_aca08dc0 ON public.deadlines_deadlinetype_services USING btree (deadlinetype_id);
+
+
+--
+-- Name: deadlines_deadlinetype_services_service_id_29d1de92; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX deadlines_deadlinetype_services_service_id_29d1de92 ON public.deadlines_deadlinetype_services USING btree (service_id);
+
+
+--
+-- Name: deadlines_instancedeadline_deadline_type_id_e726d98f; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX deadlines_instancedeadline_deadline_type_id_e726d98f ON public.deadlines_instancedeadline USING btree (deadline_type_id);
+
+
+--
+-- Name: deadlines_instancedeadline_instance_id_53d3631e; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX deadlines_instancedeadline_instance_id_53d3631e ON public.deadlines_instancedeadline USING btree (instance_id);
+
+
+--
+-- Name: deadlines_instancedeadline_service_id_c3b13afc; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX deadlines_instancedeadline_service_id_c3b13afc ON public.deadlines_instancedeadline USING btree (service_id);
+
+
+--
+-- Name: deadlines_suspension_deadline_id_1cc0fb92; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX deadlines_suspension_deadline_id_1cc0fb92 ON public.deadlines_suspension USING btree (deadline_id);
+
+
+--
+-- Name: deadlines_suspension_group_id_33f52489; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX deadlines_suspension_group_id_33f52489 ON public.deadlines_suspension USING btree (group_id);
+
+
+--
+-- Name: deadlines_suspension_user_id_fcfa0290; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX deadlines_suspension_user_id_fcfa0290 ON public.deadlines_suspension USING btree (user_id);
+
+
+--
+-- Name: deadlines_suspension_work_item_id_de168eec; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX deadlines_suspension_work_item_id_de168eec ON public.deadlines_suspension USING btree (work_item_id);
+
+
+--
+-- Name: django_admin_log_content_type_id_c4bce8eb; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX django_admin_log_content_type_id_c4bce8eb ON public.django_admin_log USING btree (content_type_id);
+
+
+--
+-- Name: django_admin_log_user_id_c564eba6; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX django_admin_log_user_id_c564eba6 ON public.django_admin_log USING btree (user_id);
+
+
+--
+-- Name: django_celery_beat_periodictask_clocked_id_47a69f82; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX django_celery_beat_periodictask_clocked_id_47a69f82 ON public.django_celery_beat_periodictask USING btree (clocked_id);
+
+
+--
+-- Name: django_celery_beat_periodictask_crontab_id_d3cba168; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX django_celery_beat_periodictask_crontab_id_d3cba168 ON public.django_celery_beat_periodictask USING btree (crontab_id);
+
+
+--
+-- Name: django_celery_beat_periodictask_interval_id_a8ca27da; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX django_celery_beat_periodictask_interval_id_a8ca27da ON public.django_celery_beat_periodictask USING btree (interval_id);
+
+
+--
+-- Name: django_celery_beat_periodictask_name_265a36b7_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX django_celery_beat_periodictask_name_265a36b7_like ON public.django_celery_beat_periodictask USING btree (name varchar_pattern_ops);
+
+
+--
+-- Name: django_celery_beat_periodictask_solar_id_a87ce72c; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX django_celery_beat_periodictask_solar_id_a87ce72c ON public.django_celery_beat_periodictask USING btree (solar_id);
+
+
+--
+-- Name: django_q_task_id_32882367_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX django_q_task_id_32882367_like ON public.django_q_task USING btree (id varchar_pattern_ops);
+
+
+--
+-- Name: django_session_expire_date_a5c62663; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX django_session_expire_date_a5c62663 ON public.django_session USING btree (expire_date);
+
+
+--
+-- Name: django_session_session_key_c0390e0f_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX django_session_session_key_c0390e0f_like ON public.django_session USING btree (session_key varchar_pattern_ops);
+
+
+--
+-- Name: document_attachmentdownloadhistory_attachment_id_5420c69e; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX document_attachmentdownloadhistory_attachment_id_5420c69e ON public.document_attachmentdownloadhistory USING btree (attachment_id);
+
+
+--
+-- Name: document_attachmentdownloadhistory_group_id_79475cc1; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX document_attachmentdownloadhistory_group_id_79475cc1 ON public.document_attachmentdownloadhistory USING btree (group_id);
+
+
+--
+-- Name: document_attachmentdownloadhistory_user_id_7bf1d4a1; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX document_attachmentdownloadhistory_user_id_7bf1d4a1 ON public.document_attachmentdownloadhistory USING btree (user_id);
+
+
+--
+-- Name: document_attachmentversion_attachment_id_444d5dd0; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX document_attachmentversion_attachment_id_444d5dd0 ON public.document_attachmentversion USING btree (attachment_id);
+
+
+--
+-- Name: document_attachmentversion_created_by_user_id_5056a32a; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX document_attachmentversion_created_by_user_id_5056a32a ON public.document_attachmentversion USING btree (created_by_user_id);
+
+
+--
+-- Name: dossier_import_dossierimport_created_at_ab935afd; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX dossier_import_dossierimport_created_at_ab935afd ON public.dossier_import_dossierimport USING btree (created_at);
+
+
+--
+-- Name: dossier_import_dossierimport_created_by_group_bceda6f8; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX dossier_import_dossierimport_created_by_group_bceda6f8 ON public.dossier_import_dossierimport USING btree (created_by_group);
+
+
+--
+-- Name: dossier_import_dossierimport_created_by_group_bceda6f8_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX dossier_import_dossierimport_created_by_group_bceda6f8_like ON public.dossier_import_dossierimport USING btree (created_by_group varchar_pattern_ops);
+
+
+--
+-- Name: dossier_import_dossierimport_created_by_user_734fc9a0; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX dossier_import_dossierimport_created_by_user_734fc9a0 ON public.dossier_import_dossierimport USING btree (created_by_user);
+
+
+--
+-- Name: dossier_import_dossierimport_created_by_user_734fc9a0_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX dossier_import_dossierimport_created_by_user_734fc9a0_like ON public.dossier_import_dossierimport USING btree (created_by_user varchar_pattern_ops);
+
+
+--
+-- Name: dossier_import_dossierimport_group_id_16c942fb; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX dossier_import_dossierimport_group_id_16c942fb ON public.dossier_import_dossierimport USING btree (group_id);
+
+
+--
+-- Name: dossier_import_dossierimport_location_id_8db5d894; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX dossier_import_dossierimport_location_id_8db5d894 ON public.dossier_import_dossierimport USING btree (location_id);
+
+
+--
+-- Name: dossier_import_dossierimport_modified_at_194aca51; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX dossier_import_dossierimport_modified_at_194aca51 ON public.dossier_import_dossierimport USING btree (modified_at);
+
+
+--
+-- Name: dossier_import_dossierimport_modified_by_group_dad531a1; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX dossier_import_dossierimport_modified_by_group_dad531a1 ON public.dossier_import_dossierimport USING btree (modified_by_group);
+
+
+--
+-- Name: dossier_import_dossierimport_modified_by_group_dad531a1_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX dossier_import_dossierimport_modified_by_group_dad531a1_like ON public.dossier_import_dossierimport USING btree (modified_by_group varchar_pattern_ops);
+
+
+--
+-- Name: dossier_import_dossierimport_modified_by_user_dd8df573; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX dossier_import_dossierimport_modified_by_user_dd8df573 ON public.dossier_import_dossierimport USING btree (modified_by_user);
+
+
+--
+-- Name: dossier_import_dossierimport_modified_by_user_dd8df573_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX dossier_import_dossierimport_modified_by_user_dd8df573_like ON public.dossier_import_dossierimport USING btree (modified_by_user varchar_pattern_ops);
+
+
+--
+-- Name: dossier_import_dossierimport_user_id_b9963e5c; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX dossier_import_dossierimport_user_id_b9963e5c ON public.dossier_import_dossierimport USING btree (user_id);
+
+
+--
+-- Name: dossier_import_historica_created_by_group_acfede22_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX dossier_import_historica_created_by_group_acfede22_like ON public.dossier_import_historicaldossierimport USING btree (created_by_group varchar_pattern_ops);
+
+
+--
+-- Name: dossier_import_historica_created_by_user_b9459f6f_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX dossier_import_historica_created_by_user_b9459f6f_like ON public.dossier_import_historicaldossierimport USING btree (created_by_user varchar_pattern_ops);
+
+
+--
+-- Name: dossier_import_historica_modified_by_group_a77cb2a2_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX dossier_import_historica_modified_by_group_a77cb2a2_like ON public.dossier_import_historicaldossierimport USING btree (modified_by_group varchar_pattern_ops);
+
+
+--
+-- Name: dossier_import_historica_modified_by_user_03bf1954_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX dossier_import_historica_modified_by_user_03bf1954_like ON public.dossier_import_historicaldossierimport USING btree (modified_by_user varchar_pattern_ops);
+
+
+--
+-- Name: dossier_import_historicald_created_by_group_acfede22; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX dossier_import_historicald_created_by_group_acfede22 ON public.dossier_import_historicaldossierimport USING btree (created_by_group);
+
+
+--
+-- Name: dossier_import_historicald_modified_by_group_a77cb2a2; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX dossier_import_historicald_modified_by_group_a77cb2a2 ON public.dossier_import_historicaldossierimport USING btree (modified_by_group);
+
+
+--
+-- Name: dossier_import_historicald_modified_by_user_03bf1954; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX dossier_import_historicald_modified_by_user_03bf1954 ON public.dossier_import_historicaldossierimport USING btree (modified_by_user);
+
+
+--
+-- Name: dossier_import_historicaldossierimport_created_at_553b6d08; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX dossier_import_historicaldossierimport_created_at_553b6d08 ON public.dossier_import_historicaldossierimport USING btree (created_at);
+
+
+--
+-- Name: dossier_import_historicaldossierimport_created_by_user_b9459f6f; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX dossier_import_historicaldossierimport_created_by_user_b9459f6f ON public.dossier_import_historicaldossierimport USING btree (created_by_user);
+
+
+--
+-- Name: dossier_import_historicaldossierimport_group_id_47d3a442; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX dossier_import_historicaldossierimport_group_id_47d3a442 ON public.dossier_import_historicaldossierimport USING btree (group_id);
+
+
+--
+-- Name: dossier_import_historicaldossierimport_history_date_a44f8a1a; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX dossier_import_historicaldossierimport_history_date_a44f8a1a ON public.dossier_import_historicaldossierimport USING btree (history_date);
+
+
+--
+-- Name: dossier_import_historicaldossierimport_id_bbfa0287; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX dossier_import_historicaldossierimport_id_bbfa0287 ON public.dossier_import_historicaldossierimport USING btree (id);
+
+
+--
+-- Name: dossier_import_historicaldossierimport_location_id_039cf99a; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX dossier_import_historicaldossierimport_location_id_039cf99a ON public.dossier_import_historicaldossierimport USING btree (location_id);
+
+
+--
+-- Name: dossier_import_historicaldossierimport_modified_at_f9a92d21; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX dossier_import_historicaldossierimport_modified_at_f9a92d21 ON public.dossier_import_historicaldossierimport USING btree (modified_at);
+
+
+--
+-- Name: dossier_import_historicaldossierimport_user_id_47dc4b47; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX dossier_import_historicaldossierimport_user_id_47dc4b47 ON public.dossier_import_historicaldossierimport USING btree (user_id);
+
+
+--
+-- Name: ech0211_message_receiver_id_36d2d728; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX ech0211_message_receiver_id_36d2d728 ON public.ech0211_message USING btree (receiver_id);
+
+
+--
+-- Name: gever_cmiconstantvalue_slug_adac3dea_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX gever_cmiconstantvalue_slug_adac3dea_like ON public.gever_cmiconstantvalue USING btree (slug varchar_pattern_ops);
+
+
+--
+-- Name: gever_cmiobjecttemplate_slug_fae401f0_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX gever_cmiobjecttemplate_slug_fae401f0_like ON public.gever_cmiobjecttemplate USING btree (slug varchar_pattern_ops);
+
+
+--
+-- Name: gis_export_aggisexport_created_at_c301958e; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX gis_export_aggisexport_created_at_c301958e ON public.gis_export_aggisexport USING btree (created_at);
+
+
+--
+-- Name: gis_export_aggisexport_modified_at_c25f895e; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX gis_export_aggisexport_modified_at_c25f895e ON public.gis_export_aggisexport USING btree (modified_at);
+
+
+--
+-- Name: instance_formfield_instance_id_5b36be75; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX instance_formfield_instance_id_5b36be75 ON public.instance_formfield USING btree (instance_id);
+
+
+--
+-- Name: instance_historyentry_instance_id_a906d6e8; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX instance_historyentry_instance_id_a906d6e8 ON public.instance_historyentry USING btree (instance_id);
+
+
+--
+-- Name: instance_historyentry_service_id_90402394; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX instance_historyentry_service_id_90402394 ON public.instance_historyentry USING btree (service_id);
+
+
+--
+-- Name: instance_historyentry_user_id_19004642; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX instance_historyentry_user_id_19004642 ON public.instance_historyentry USING btree (user_id);
+
+
+--
+-- Name: instance_historyentryt_history_entry_id_8353677f; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX instance_historyentryt_history_entry_id_8353677f ON public.instance_historyentryt USING btree (history_entry_id);
+
+
+--
+-- Name: instance_instancealexandriadocument_instance_id_efc5f3c4; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX instance_instancealexandriadocument_instance_id_efc5f3c4 ON public.instance_instancealexandriadocument USING btree (instance_id);
+
+
+--
+-- Name: instance_instanceresponsibility_SERVICE_ID_34d974f0; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "instance_instanceresponsibility_SERVICE_ID_34d974f0" ON public.instance_instanceresponsibility USING btree ("SERVICE_ID");
+
+
+--
+-- Name: instance_instanceresponsibility_USER_ID_466c388f; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX "instance_instanceresponsibility_USER_ID_466c388f" ON public.instance_instanceresponsibility USING btree ("USER_ID");
+
+
+--
+-- Name: instance_instanceresponsibility_instance_id_7cffdec7; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX instance_instanceresponsibility_instance_id_7cffdec7 ON public.instance_instanceresponsibility USING btree (instance_id);
+
+
+--
+-- Name: instance_issue_group_id_32fa7a5e; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX instance_issue_group_id_32fa7a5e ON public.instance_issue USING btree (group_id);
+
+
+--
+-- Name: instance_issue_instance_id_68a3c385; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX instance_issue_instance_id_68a3c385 ON public.instance_issue USING btree (instance_id);
+
+
+--
+-- Name: instance_issue_service_id_58589088; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX instance_issue_service_id_58589088 ON public.instance_issue USING btree (service_id);
+
+
+--
+-- Name: instance_issue_user_id_cd210eb1; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX instance_issue_user_id_cd210eb1 ON public.instance_issue USING btree (user_id);
+
+
+--
+-- Name: instance_issuetemplate_group_id_008e91da; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX instance_issuetemplate_group_id_008e91da ON public.instance_issuetemplate USING btree (group_id);
+
+
+--
+-- Name: instance_issuetemplate_service_id_87c90251; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX instance_issuetemplate_service_id_87c90251 ON public.instance_issuetemplate USING btree (service_id);
+
+
+--
+-- Name: instance_issuetemplate_user_id_4f4dbe2f; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX instance_issuetemplate_user_id_4f4dbe2f ON public.instance_issuetemplate USING btree (user_id);
+
+
+--
+-- Name: instance_issuetemplateset__issuetemplate_id_09a32d6b; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX instance_issuetemplateset__issuetemplate_id_09a32d6b ON public.instance_issuetemplateset_issue_templates USING btree (issuetemplate_id);
+
+
+--
+-- Name: instance_issuetemplateset__issuetemplateset_id_6b40171e; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX instance_issuetemplateset__issuetemplateset_id_6b40171e ON public.instance_issuetemplateset_issue_templates USING btree (issuetemplateset_id);
+
+
+--
+-- Name: instance_issuetemplateset_group_id_57277e0f; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX instance_issuetemplateset_group_id_57277e0f ON public.instance_issuetemplateset USING btree (group_id);
+
+
+--
+-- Name: instance_issuetemplateset_service_id_e7f6c8d8; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX instance_issuetemplateset_service_id_e7f6c8d8 ON public.instance_issuetemplateset USING btree (service_id);
+
+
+--
+-- Name: instance_journalentry_instance_id_eedc49e7; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX instance_journalentry_instance_id_eedc49e7 ON public.instance_journalentry USING btree (instance_id);
+
+
+--
+-- Name: instance_journalentry_service_id_f9e7c734; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX instance_journalentry_service_id_f9e7c734 ON public.instance_journalentry USING btree (service_id);
+
+
+--
+-- Name: instance_journalentry_user_id_30cf78be; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX instance_journalentry_user_id_30cf78be ON public.instance_journalentry USING btree (user_id);
+
+
+--
+-- Name: manabi_lock_token_7a392042_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX manabi_lock_token_7a392042_like ON public.manabi_lock USING btree (token varchar_pattern_ops);
+
+
+--
+-- Name: objection_objection_instance_id_278032ca; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX objection_objection_instance_id_278032ca ON public.objection_objection USING btree (instance_id);
+
+
+--
+-- Name: objection_objectionparticipant_objection_id_7ed0cff9; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX objection_objectionparticipant_objection_id_7ed0cff9 ON public.objection_objectionparticipant USING btree (objection_id);
+
+
+--
+-- Name: permissions_accesslevel_slug_eefc5fc7_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX permissions_accesslevel_slug_eefc5fc7_like ON public.permissions_accesslevel USING btree (slug varchar_pattern_ops);
+
+
+--
+-- Name: permissions_instanceacl_access_level_id_62a56ef9; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX permissions_instanceacl_access_level_id_62a56ef9 ON public.permissions_instanceacl USING btree (access_level_id);
+
+
+--
+-- Name: permissions_instanceacl_access_level_id_62a56ef9_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX permissions_instanceacl_access_level_id_62a56ef9_like ON public.permissions_instanceacl USING btree (access_level_id varchar_pattern_ops);
+
+
+--
+-- Name: permissions_instanceacl_created_by_service_id_58b41c66; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX permissions_instanceacl_created_by_service_id_58b41c66 ON public.permissions_instanceacl USING btree (created_by_service_id);
+
+
+--
+-- Name: permissions_instanceacl_created_by_user_id_c3edf9a9; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX permissions_instanceacl_created_by_user_id_c3edf9a9 ON public.permissions_instanceacl USING btree (created_by_user_id);
+
+
+--
+-- Name: permissions_instanceacl_instance_id_7bb64df0; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX permissions_instanceacl_instance_id_7bb64df0 ON public.permissions_instanceacl USING btree (instance_id);
+
+
+--
+-- Name: permissions_instanceacl_revoked_by_service_id_632870fb; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX permissions_instanceacl_revoked_by_service_id_632870fb ON public.permissions_instanceacl USING btree (revoked_by_service_id);
+
+
+--
+-- Name: permissions_instanceacl_revoked_by_user_id_52a1b769; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX permissions_instanceacl_revoked_by_user_id_52a1b769 ON public.permissions_instanceacl USING btree (revoked_by_user_id);
+
+
+--
+-- Name: permissions_instanceacl_role_id_776ff5c2; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX permissions_instanceacl_role_id_776ff5c2 ON public.permissions_instanceacl USING btree (role_id);
+
+
+--
+-- Name: permissions_instanceacl_service_id_1115c2e8; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX permissions_instanceacl_service_id_1115c2e8 ON public.permissions_instanceacl USING btree (service_id);
+
+
+--
+-- Name: permissions_instanceacl_user_id_b8e833ec; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX permissions_instanceacl_user_id_b8e833ec ON public.permissions_instanceacl USING btree (user_id);
+
+
+--
+-- Name: php_session_id_12cde8bb_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX php_session_id_12cde8bb_like ON public.php_session USING btree (id varchar_pattern_ops);
+
+
+--
+-- Name: reversion_revision_date_created_96f7c20c; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX reversion_revision_date_created_96f7c20c ON public.reversion_revision USING btree (date_created);
+
+
+--
+-- Name: reversion_revision_user_id_17095f45; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX reversion_revision_user_id_17095f45 ON public.reversion_revision USING btree (user_id);
+
+
+--
+-- Name: reversion_v_content_f95daf_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX reversion_v_content_f95daf_idx ON public.reversion_version USING btree (content_type_id, db);
+
+
+--
+-- Name: reversion_version_content_type_id_7d0ff25c; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX reversion_version_content_type_id_7d0ff25c ON public.reversion_version USING btree (content_type_id);
+
+
+--
+-- Name: reversion_version_revision_id_af9f6a9d; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX reversion_version_revision_id_af9f6a9d ON public.reversion_version USING btree (revision_id);
+
+
+--
+-- Name: rulesets_distributiondeadlinerule_source_service_id_503432ed; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX rulesets_distributiondeadlinerule_source_service_id_503432ed ON public.rulesets_distributiondeadlinerule USING btree (source_service_id);
+
+
+--
+-- Name: rulesets_distributiondeadlinerule_target_service_id_1f8db8ec; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX rulesets_distributiondeadlinerule_target_service_id_1f8db8ec ON public.rulesets_distributiondeadlinerule USING btree (target_service_id);
+
+
+--
+-- Name: rulesets_re_sort_2e7c5b_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX rulesets_re_sort_2e7c5b_idx ON public.rulesets_responsibleuserrule USING btree (sort);
+
+
+--
+-- Name: rulesets_responsibleuser_form_id_08194f31_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX rulesets_responsibleuser_form_id_08194f31_like ON public.rulesets_responsibleuserrule_application_types USING btree (form_id varchar_pattern_ops);
+
+
+--
+-- Name: rulesets_responsibleuserru_responsibleuserrule_id_48af9b0c; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX rulesets_responsibleuserru_responsibleuserrule_id_48af9b0c ON public.rulesets_responsibleuserrule_municipalities USING btree (responsibleuserrule_id);
+
+
+--
+-- Name: rulesets_responsibleuserru_responsibleuserrule_id_b1eed3e2; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX rulesets_responsibleuserru_responsibleuserrule_id_b1eed3e2 ON public.rulesets_responsibleuserrule_application_types USING btree (responsibleuserrule_id);
+
+
+--
+-- Name: rulesets_responsibleuserrule_application_types_form_id_08194f31; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX rulesets_responsibleuserrule_application_types_form_id_08194f31 ON public.rulesets_responsibleuserrule_application_types USING btree (form_id);
+
+
+--
+-- Name: rulesets_responsibleuserrule_municipalities_service_id_07cee219; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX rulesets_responsibleuserrule_municipalities_service_id_07cee219 ON public.rulesets_responsibleuserrule_municipalities USING btree (service_id);
+
+
+--
+-- Name: rulesets_responsibleuserrule_responsible_user_id_d47aa385; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX rulesets_responsibleuserrule_responsible_user_id_d47aa385 ON public.rulesets_responsibleuserrule USING btree (responsible_user_id);
+
+
+--
+-- Name: rulesets_responsibleuserrule_service_id_1c812b09; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX rulesets_responsibleuserrule_service_id_1c812b09 ON public.rulesets_responsibleuserrule USING btree (service_id);
+
+
+--
+-- Name: sanctions_sanction_assigned_service_id_3c2146d3; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX sanctions_sanction_assigned_service_id_3c2146d3 ON public.sanctions_sanction USING btree (assigned_service_id);
+
+
+--
+-- Name: sanctions_sanction_controlled_by_user_id_fbf4c19c; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX sanctions_sanction_controlled_by_user_id_fbf4c19c ON public.sanctions_sanction USING btree (controlled_by_user_id);
+
+
+--
+-- Name: sanctions_sanction_created_by_service_id_0406648a; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX sanctions_sanction_created_by_service_id_0406648a ON public.sanctions_sanction USING btree (created_by_service_id);
+
+
+--
+-- Name: sanctions_sanction_created_by_user_id_277819dc; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX sanctions_sanction_created_by_user_id_277819dc ON public.sanctions_sanction USING btree (created_by_user_id);
+
+
+--
+-- Name: sanctions_sanction_instance_id_bd7823d9; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX sanctions_sanction_instance_id_bd7823d9 ON public.sanctions_sanction USING btree (instance_id);
+
+
+--
+-- Name: sanctions_sanctiontemplate_assigned_service_id_402042ec; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX sanctions_sanctiontemplate_assigned_service_id_402042ec ON public.sanctions_sanctiontemplate USING btree (assigned_service_id);
+
+
+--
+-- Name: sanctions_sanctiontemplate_created_by_service_id_ca72eb05; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX sanctions_sanctiontemplate_created_by_service_id_ca72eb05 ON public.sanctions_sanctiontemplate USING btree (created_by_service_id);
+
+
+--
+-- Name: sanctions_sanctiontemplate_created_by_user_id_8cf9a991; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX sanctions_sanctiontemplate_created_by_user_id_8cf9a991 ON public.sanctions_sanctiontemplate USING btree (created_by_user_id);
+
+
+--
+-- Name: success_index; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX success_index ON public.django_q_task USING btree ("group", name, func) WHERE success;
+
+
+--
+-- Name: tags_keyword_instances_instance_id_186ac72f; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tags_keyword_instances_instance_id_186ac72f ON public.tags_keyword_instances USING btree (instance_id);
+
+
+--
+-- Name: tags_keyword_instances_keyword_id_b6908bf7; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tags_keyword_instances_keyword_id_b6908bf7 ON public.tags_keyword_instances USING btree (keyword_id);
+
+
+--
+-- Name: tags_keyword_service_id_f3225f2b; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX tags_keyword_service_id_f3225f2b ON public.tags_keyword USING btree (service_id);
+
+
+--
+-- Name: thumbnail_kvstore_key_3f850178_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX thumbnail_kvstore_key_3f850178_like ON public.thumbnail_kvstore USING btree (key varchar_pattern_ops);
+
+
+--
+-- Name: user_servicerelation_provider_id_d12854fa; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX user_servicerelation_provider_id_d12854fa ON public.user_servicerelation USING btree (provider_id);
+
+
+--
+-- Name: user_servicerelation_receiver_id_18c2bbb9; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX user_servicerelation_receiver_id_18c2bbb9 ON public.user_servicerelation USING btree (receiver_id);
+
+
+--
+-- Name: user_usergroupinvitation_created_by_id_b094edc1; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX user_usergroupinvitation_created_by_id_b094edc1 ON public.user_usergroupinvitation USING btree (created_by_id);
+
+
+--
+-- Name: user_usergroupinvitation_email_c4232b50; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX user_usergroupinvitation_email_c4232b50 ON public.user_usergroupinvitation USING btree (email);
+
+
+--
+-- Name: user_usergroupinvitation_group_id_90e5e2a6; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX user_usergroupinvitation_group_id_90e5e2a6 ON public.user_usergroupinvitation USING btree (group_id);
+
+
+--
+-- Name: work_items_workitemlistfil_service_id_c0f2f4fa; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX work_items_workitemlistfil_service_id_c0f2f4fa ON public.work_items_workitemlistfilterpreset_services USING btree (service_id);
+
+
+--
+-- Name: work_items_workitemlistfil_servicegroup_id_b4e58dbf; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX work_items_workitemlistfil_servicegroup_id_b4e58dbf ON public.work_items_workitemlistfilterpreset_service_groups USING btree (servicegroup_id);
+
+
+--
+-- Name: work_items_workitemlistfil_workitemlistfilterpreset_i_0d284708; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX work_items_workitemlistfil_workitemlistfilterpreset_i_0d284708 ON public.work_items_workitemlistfilterpreset_work_item_templates USING btree (workitemlistfilterpreset_id);
+
+
+--
+-- Name: work_items_workitemlistfil_workitemlistfilterpreset_i_7b85bef5; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX work_items_workitemlistfil_workitemlistfilterpreset_i_7b85bef5 ON public.work_items_workitemlistfilterpreset_tasks USING btree (workitemlistfilterpreset_id);
+
+
+--
+-- Name: work_items_workitemlistfil_workitemlistfilterpreset_i_cb030675; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX work_items_workitemlistfil_workitemlistfilterpreset_i_cb030675 ON public.work_items_workitemlistfilterpreset_services USING btree (workitemlistfilterpreset_id);
+
+
+--
+-- Name: work_items_workitemlistfil_workitemlistfilterpreset_i_d5d58d9b; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX work_items_workitemlistfil_workitemlistfilterpreset_i_d5d58d9b ON public.work_items_workitemlistfilterpreset_service_groups USING btree (workitemlistfilterpreset_id);
+
+
+--
+-- Name: work_items_workitemlistfil_workitemtemplate_id_24886355; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX work_items_workitemlistfil_workitemtemplate_id_24886355 ON public.work_items_workitemlistfilterpreset_work_item_templates USING btree (workitemtemplate_id);
+
+
+--
+-- Name: work_items_workitemlistfilterpreset_tasks_task_id_e3a03d09; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX work_items_workitemlistfilterpreset_tasks_task_id_e3a03d09 ON public.work_items_workitemlistfilterpreset_tasks USING btree (task_id);
+
+
+--
+-- Name: work_items_workitemlistfilterpreset_tasks_task_id_e3a03d09_like; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX work_items_workitemlistfilterpreset_tasks_task_id_e3a03d09_like ON public.work_items_workitemlistfilterpreset_tasks USING btree (task_id varchar_pattern_ops);
+
+
+--
+-- Name: work_items_workitemtemplat_servicegroup_id_90274038; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX work_items_workitemtemplat_servicegroup_id_90274038 ON public.work_items_workitemtemplate_service_groups USING btree (servicegroup_id);
+
+
+--
+-- Name: work_items_workitemtemplat_workitemtemplate_id_548a6350; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX work_items_workitemtemplat_workitemtemplate_id_548a6350 ON public.work_items_workitemtemplate_service_groups USING btree (workitemtemplate_id);
+
+
+--
+-- Name: work_items_workitemtemplat_workitemtemplate_id_681e50c7; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX work_items_workitemtemplat_workitemtemplate_id_681e50c7 ON public.work_items_workitemtemplate_services USING btree (workitemtemplate_id);
+
+
+--
+-- Name: work_items_workitemtemplate_assigned_user_id_494045c9; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX work_items_workitemtemplate_assigned_user_id_494045c9 ON public.work_items_workitemtemplate USING btree (assigned_user_id);
+
+
+--
+-- Name: work_items_workitemtemplate_services_service_id_1484bb6a; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX work_items_workitemtemplate_services_service_id_1484bb6a ON public.work_items_workitemtemplate_services USING btree (service_id);
+
+
+--
+-- Name: identity_provider fk2b4ebc52ae5c3b34; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.identity_provider
+    ADD CONSTRAINT fk2b4ebc52ae5c3b34 FOREIGN KEY (realm_id) REFERENCES keycloak.realm(id);
+
+
+--
+-- Name: client_attributes fk3c47c64beacca966; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.client_attributes
+    ADD CONSTRAINT fk3c47c64beacca966 FOREIGN KEY (client_id) REFERENCES keycloak.client(id);
+
+
+--
+-- Name: federated_identity fk404288b92ef007a6; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.federated_identity
+    ADD CONSTRAINT fk404288b92ef007a6 FOREIGN KEY (user_id) REFERENCES keycloak.user_entity(id);
+
+
+--
+-- Name: client_node_registrations fk4129723ba992f594; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.client_node_registrations
+    ADD CONSTRAINT fk4129723ba992f594 FOREIGN KEY (client_id) REFERENCES keycloak.client(id);
+
+
+--
+-- Name: redirect_uris fk_1burs8pb4ouj97h5wuppahv9f; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.redirect_uris
+    ADD CONSTRAINT fk_1burs8pb4ouj97h5wuppahv9f FOREIGN KEY (client_id) REFERENCES keycloak.client(id);
+
+
+--
+-- Name: user_federation_provider fk_1fj32f6ptolw2qy60cd8n01e8; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.user_federation_provider
+    ADD CONSTRAINT fk_1fj32f6ptolw2qy60cd8n01e8 FOREIGN KEY (realm_id) REFERENCES keycloak.realm(id);
+
+
+--
+-- Name: realm_required_credential fk_5hg65lybevavkqfki3kponh9v; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.realm_required_credential
+    ADD CONSTRAINT fk_5hg65lybevavkqfki3kponh9v FOREIGN KEY (realm_id) REFERENCES keycloak.realm(id);
+
+
+--
+-- Name: resource_attribute fk_5hrm2vlf9ql5fu022kqepovbr; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.resource_attribute
+    ADD CONSTRAINT fk_5hrm2vlf9ql5fu022kqepovbr FOREIGN KEY (resource_id) REFERENCES keycloak.resource_server_resource(id);
+
+
+--
+-- Name: user_attribute fk_5hrm2vlf9ql5fu043kqepovbr; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.user_attribute
+    ADD CONSTRAINT fk_5hrm2vlf9ql5fu043kqepovbr FOREIGN KEY (user_id) REFERENCES keycloak.user_entity(id);
+
+
+--
+-- Name: user_required_action fk_6qj3w1jw9cvafhe19bwsiuvmd; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.user_required_action
+    ADD CONSTRAINT fk_6qj3w1jw9cvafhe19bwsiuvmd FOREIGN KEY (user_id) REFERENCES keycloak.user_entity(id);
+
+
+--
+-- Name: keycloak_role fk_6vyqfe4cn4wlq8r6kt5vdsj5c; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.keycloak_role
+    ADD CONSTRAINT fk_6vyqfe4cn4wlq8r6kt5vdsj5c FOREIGN KEY (realm) REFERENCES keycloak.realm(id);
+
+
+--
+-- Name: realm_smtp_config fk_70ej8xdxgxd0b9hh6180irr0o; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.realm_smtp_config
+    ADD CONSTRAINT fk_70ej8xdxgxd0b9hh6180irr0o FOREIGN KEY (realm_id) REFERENCES keycloak.realm(id);
+
+
+--
+-- Name: realm_attribute fk_8shxd6l3e9atqukacxgpffptw; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.realm_attribute
+    ADD CONSTRAINT fk_8shxd6l3e9atqukacxgpffptw FOREIGN KEY (realm_id) REFERENCES keycloak.realm(id);
+
+
+--
+-- Name: composite_role fk_a63wvekftu8jo1pnj81e7mce2; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.composite_role
+    ADD CONSTRAINT fk_a63wvekftu8jo1pnj81e7mce2 FOREIGN KEY (composite) REFERENCES keycloak.keycloak_role(id);
+
+
+--
+-- Name: authentication_execution fk_auth_exec_flow; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.authentication_execution
+    ADD CONSTRAINT fk_auth_exec_flow FOREIGN KEY (flow_id) REFERENCES keycloak.authentication_flow(id);
+
+
+--
+-- Name: authentication_execution fk_auth_exec_realm; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.authentication_execution
+    ADD CONSTRAINT fk_auth_exec_realm FOREIGN KEY (realm_id) REFERENCES keycloak.realm(id);
+
+
+--
+-- Name: authentication_flow fk_auth_flow_realm; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.authentication_flow
+    ADD CONSTRAINT fk_auth_flow_realm FOREIGN KEY (realm_id) REFERENCES keycloak.realm(id);
+
+
+--
+-- Name: authenticator_config fk_auth_realm; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.authenticator_config
+    ADD CONSTRAINT fk_auth_realm FOREIGN KEY (realm_id) REFERENCES keycloak.realm(id);
+
+
+--
+-- Name: user_role_mapping fk_c4fqv34p1mbylloxang7b1q3l; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.user_role_mapping
+    ADD CONSTRAINT fk_c4fqv34p1mbylloxang7b1q3l FOREIGN KEY (user_id) REFERENCES keycloak.user_entity(id);
+
+
+--
+-- Name: client_scope_attributes fk_cl_scope_attr_scope; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.client_scope_attributes
+    ADD CONSTRAINT fk_cl_scope_attr_scope FOREIGN KEY (scope_id) REFERENCES keycloak.client_scope(id);
+
+
+--
+-- Name: client_scope_role_mapping fk_cl_scope_rm_scope; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.client_scope_role_mapping
+    ADD CONSTRAINT fk_cl_scope_rm_scope FOREIGN KEY (scope_id) REFERENCES keycloak.client_scope(id);
+
+
+--
+-- Name: protocol_mapper fk_cli_scope_mapper; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.protocol_mapper
+    ADD CONSTRAINT fk_cli_scope_mapper FOREIGN KEY (client_scope_id) REFERENCES keycloak.client_scope(id);
+
+
+--
+-- Name: client_initial_access fk_client_init_acc_realm; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.client_initial_access
+    ADD CONSTRAINT fk_client_init_acc_realm FOREIGN KEY (realm_id) REFERENCES keycloak.realm(id);
+
+
+--
+-- Name: component_config fk_component_config; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.component_config
+    ADD CONSTRAINT fk_component_config FOREIGN KEY (component_id) REFERENCES keycloak.component(id);
+
+
+--
+-- Name: component fk_component_realm; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.component
+    ADD CONSTRAINT fk_component_realm FOREIGN KEY (realm_id) REFERENCES keycloak.realm(id);
+
+
+--
+-- Name: realm_default_groups fk_def_groups_realm; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.realm_default_groups
+    ADD CONSTRAINT fk_def_groups_realm FOREIGN KEY (realm_id) REFERENCES keycloak.realm(id);
+
+
+--
+-- Name: user_federation_mapper_config fk_fedmapper_cfg; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.user_federation_mapper_config
+    ADD CONSTRAINT fk_fedmapper_cfg FOREIGN KEY (user_federation_mapper_id) REFERENCES keycloak.user_federation_mapper(id);
+
+
+--
+-- Name: user_federation_mapper fk_fedmapperpm_fedprv; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.user_federation_mapper
+    ADD CONSTRAINT fk_fedmapperpm_fedprv FOREIGN KEY (federation_provider_id) REFERENCES keycloak.user_federation_provider(id);
+
+
+--
+-- Name: user_federation_mapper fk_fedmapperpm_realm; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.user_federation_mapper
+    ADD CONSTRAINT fk_fedmapperpm_realm FOREIGN KEY (realm_id) REFERENCES keycloak.realm(id);
+
+
+--
+-- Name: associated_policy fk_frsr5s213xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.associated_policy
+    ADD CONSTRAINT fk_frsr5s213xcx4wnkog82ssrfy FOREIGN KEY (associated_policy_id) REFERENCES keycloak.resource_server_policy(id);
+
+
+--
+-- Name: scope_policy fk_frsrasp13xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.scope_policy
+    ADD CONSTRAINT fk_frsrasp13xcx4wnkog82ssrfy FOREIGN KEY (policy_id) REFERENCES keycloak.resource_server_policy(id);
+
+
+--
+-- Name: resource_server_perm_ticket fk_frsrho213xcx4wnkog82sspmt; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.resource_server_perm_ticket
+    ADD CONSTRAINT fk_frsrho213xcx4wnkog82sspmt FOREIGN KEY (resource_server_id) REFERENCES keycloak.resource_server(id);
+
+
+--
+-- Name: resource_server_resource fk_frsrho213xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.resource_server_resource
+    ADD CONSTRAINT fk_frsrho213xcx4wnkog82ssrfy FOREIGN KEY (resource_server_id) REFERENCES keycloak.resource_server(id);
+
+
+--
+-- Name: resource_server_perm_ticket fk_frsrho213xcx4wnkog83sspmt; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.resource_server_perm_ticket
+    ADD CONSTRAINT fk_frsrho213xcx4wnkog83sspmt FOREIGN KEY (resource_id) REFERENCES keycloak.resource_server_resource(id);
+
+
+--
+-- Name: resource_server_perm_ticket fk_frsrho213xcx4wnkog84sspmt; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.resource_server_perm_ticket
+    ADD CONSTRAINT fk_frsrho213xcx4wnkog84sspmt FOREIGN KEY (scope_id) REFERENCES keycloak.resource_server_scope(id);
+
+
+--
+-- Name: associated_policy fk_frsrpas14xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.associated_policy
+    ADD CONSTRAINT fk_frsrpas14xcx4wnkog82ssrfy FOREIGN KEY (policy_id) REFERENCES keycloak.resource_server_policy(id);
+
+
+--
+-- Name: scope_policy fk_frsrpass3xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.scope_policy
+    ADD CONSTRAINT fk_frsrpass3xcx4wnkog82ssrfy FOREIGN KEY (scope_id) REFERENCES keycloak.resource_server_scope(id);
+
+
+--
+-- Name: resource_server_perm_ticket fk_frsrpo2128cx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.resource_server_perm_ticket
+    ADD CONSTRAINT fk_frsrpo2128cx4wnkog82ssrfy FOREIGN KEY (policy_id) REFERENCES keycloak.resource_server_policy(id);
+
+
+--
+-- Name: resource_server_policy fk_frsrpo213xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.resource_server_policy
+    ADD CONSTRAINT fk_frsrpo213xcx4wnkog82ssrfy FOREIGN KEY (resource_server_id) REFERENCES keycloak.resource_server(id);
+
+
+--
+-- Name: resource_scope fk_frsrpos13xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.resource_scope
+    ADD CONSTRAINT fk_frsrpos13xcx4wnkog82ssrfy FOREIGN KEY (resource_id) REFERENCES keycloak.resource_server_resource(id);
+
+
+--
+-- Name: resource_policy fk_frsrpos53xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.resource_policy
+    ADD CONSTRAINT fk_frsrpos53xcx4wnkog82ssrfy FOREIGN KEY (resource_id) REFERENCES keycloak.resource_server_resource(id);
+
+
+--
+-- Name: resource_policy fk_frsrpp213xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.resource_policy
+    ADD CONSTRAINT fk_frsrpp213xcx4wnkog82ssrfy FOREIGN KEY (policy_id) REFERENCES keycloak.resource_server_policy(id);
+
+
+--
+-- Name: resource_scope fk_frsrps213xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.resource_scope
+    ADD CONSTRAINT fk_frsrps213xcx4wnkog82ssrfy FOREIGN KEY (scope_id) REFERENCES keycloak.resource_server_scope(id);
+
+
+--
+-- Name: resource_server_scope fk_frsrso213xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.resource_server_scope
+    ADD CONSTRAINT fk_frsrso213xcx4wnkog82ssrfy FOREIGN KEY (resource_server_id) REFERENCES keycloak.resource_server(id);
+
+
+--
+-- Name: composite_role fk_gr7thllb9lu8q4vqa4524jjy8; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.composite_role
+    ADD CONSTRAINT fk_gr7thllb9lu8q4vqa4524jjy8 FOREIGN KEY (child_role) REFERENCES keycloak.keycloak_role(id);
+
+
+--
+-- Name: user_consent_client_scope fk_grntcsnt_clsc_usc; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.user_consent_client_scope
+    ADD CONSTRAINT fk_grntcsnt_clsc_usc FOREIGN KEY (user_consent_id) REFERENCES keycloak.user_consent(id);
+
+
+--
+-- Name: user_consent fk_grntcsnt_user; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.user_consent
+    ADD CONSTRAINT fk_grntcsnt_user FOREIGN KEY (user_id) REFERENCES keycloak.user_entity(id);
+
+
+--
+-- Name: group_attribute fk_group_attribute_group; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.group_attribute
+    ADD CONSTRAINT fk_group_attribute_group FOREIGN KEY (group_id) REFERENCES keycloak.keycloak_group(id);
+
+
+--
+-- Name: group_role_mapping fk_group_role_group; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.group_role_mapping
+    ADD CONSTRAINT fk_group_role_group FOREIGN KEY (group_id) REFERENCES keycloak.keycloak_group(id);
+
+
+--
+-- Name: realm_enabled_event_types fk_h846o4h0w8epx5nwedrf5y69j; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.realm_enabled_event_types
+    ADD CONSTRAINT fk_h846o4h0w8epx5nwedrf5y69j FOREIGN KEY (realm_id) REFERENCES keycloak.realm(id);
+
+
+--
+-- Name: realm_events_listeners fk_h846o4h0w8epx5nxev9f5y69j; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.realm_events_listeners
+    ADD CONSTRAINT fk_h846o4h0w8epx5nxev9f5y69j FOREIGN KEY (realm_id) REFERENCES keycloak.realm(id);
+
+
+--
+-- Name: identity_provider_mapper fk_idpm_realm; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.identity_provider_mapper
+    ADD CONSTRAINT fk_idpm_realm FOREIGN KEY (realm_id) REFERENCES keycloak.realm(id);
+
+
+--
+-- Name: idp_mapper_config fk_idpmconfig; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.idp_mapper_config
+    ADD CONSTRAINT fk_idpmconfig FOREIGN KEY (idp_mapper_id) REFERENCES keycloak.identity_provider_mapper(id);
+
+
+--
+-- Name: web_origins fk_lojpho213xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.web_origins
+    ADD CONSTRAINT fk_lojpho213xcx4wnkog82ssrfy FOREIGN KEY (client_id) REFERENCES keycloak.client(id);
+
+
+--
+-- Name: scope_mapping fk_ouse064plmlr732lxjcn1q5f1; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.scope_mapping
+    ADD CONSTRAINT fk_ouse064plmlr732lxjcn1q5f1 FOREIGN KEY (client_id) REFERENCES keycloak.client(id);
+
+
+--
+-- Name: protocol_mapper fk_pcm_realm; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.protocol_mapper
+    ADD CONSTRAINT fk_pcm_realm FOREIGN KEY (client_id) REFERENCES keycloak.client(id);
+
+
+--
+-- Name: credential fk_pfyr0glasqyl0dei3kl69r6v0; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.credential
+    ADD CONSTRAINT fk_pfyr0glasqyl0dei3kl69r6v0 FOREIGN KEY (user_id) REFERENCES keycloak.user_entity(id);
+
+
+--
+-- Name: protocol_mapper_config fk_pmconfig; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.protocol_mapper_config
+    ADD CONSTRAINT fk_pmconfig FOREIGN KEY (protocol_mapper_id) REFERENCES keycloak.protocol_mapper(id);
+
+
+--
+-- Name: default_client_scope fk_r_def_cli_scope_realm; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.default_client_scope
+    ADD CONSTRAINT fk_r_def_cli_scope_realm FOREIGN KEY (realm_id) REFERENCES keycloak.realm(id);
+
+
+--
+-- Name: required_action_provider fk_req_act_realm; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.required_action_provider
+    ADD CONSTRAINT fk_req_act_realm FOREIGN KEY (realm_id) REFERENCES keycloak.realm(id);
+
+
+--
+-- Name: resource_uris fk_resource_server_uris; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.resource_uris
+    ADD CONSTRAINT fk_resource_server_uris FOREIGN KEY (resource_id) REFERENCES keycloak.resource_server_resource(id);
+
+
+--
+-- Name: role_attribute fk_role_attribute_id; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.role_attribute
+    ADD CONSTRAINT fk_role_attribute_id FOREIGN KEY (role_id) REFERENCES keycloak.keycloak_role(id);
+
+
+--
+-- Name: realm_supported_locales fk_supported_locales_realm; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.realm_supported_locales
+    ADD CONSTRAINT fk_supported_locales_realm FOREIGN KEY (realm_id) REFERENCES keycloak.realm(id);
+
+
+--
+-- Name: user_federation_config fk_t13hpu1j94r2ebpekr39x5eu5; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.user_federation_config
+    ADD CONSTRAINT fk_t13hpu1j94r2ebpekr39x5eu5 FOREIGN KEY (user_federation_provider_id) REFERENCES keycloak.user_federation_provider(id);
+
+
+--
+-- Name: user_group_membership fk_user_group_user; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.user_group_membership
+    ADD CONSTRAINT fk_user_group_user FOREIGN KEY (user_id) REFERENCES keycloak.user_entity(id);
+
+
+--
+-- Name: policy_config fkdc34197cf864c4e43; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.policy_config
+    ADD CONSTRAINT fkdc34197cf864c4e43 FOREIGN KEY (policy_id) REFERENCES keycloak.resource_server_policy(id);
+
+
+--
+-- Name: identity_provider_config fkdc4897cf864c4e43; Type: FK CONSTRAINT; Schema: keycloak; Owner: -
+--
+
+ALTER TABLE ONLY keycloak.identity_provider_config
+    ADD CONSTRAINT fkdc4897cf864c4e43 FOREIGN KEY (identity_provider_id) REFERENCES keycloak.identity_provider(internal_id);
+
+
+--
+-- Name: ACTION ACTION_AVAILABLE_ACTION_ID_39adefcf_fk_AVAILABLE; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ACTION"
+    ADD CONSTRAINT "ACTION_AVAILABLE_ACTION_ID_39adefcf_fk_AVAILABLE" FOREIGN KEY ("AVAILABLE_ACTION_ID") REFERENCES public."AVAILABLE_ACTION"("AVAILABLE_ACTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ACTION ACTION_BUTTON_ID_b139075c_fk_BUTTON_BUTTON_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ACTION"
+    ADD CONSTRAINT "ACTION_BUTTON_ID_b139075c_fk_BUTTON_BUTTON_ID" FOREIGN KEY ("BUTTON_ID") REFERENCES public."BUTTON"("BUTTON_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ACTION_CASE ACTION_CASE_ACTION_ID_81dec06b_fk_ACTION_ACTION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ACTION_CASE"
+    ADD CONSTRAINT "ACTION_CASE_ACTION_ID_81dec06b_fk_ACTION_ACTION_ID" FOREIGN KEY ("ACTION_ID") REFERENCES public."ACTION"("ACTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ACTION_NOTIFICATION ACTION_NOTIFICATION_ACTION_ID_71a68e90_fk_ACTION_ACTION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ACTION_NOTIFICATION"
+    ADD CONSTRAINT "ACTION_NOTIFICATION_ACTION_ID_71a68e90_fk_ACTION_ACTION_ID" FOREIGN KEY ("ACTION_ID") REFERENCES public."ACTION"("ACTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ACTION_T ACTION_T_ACTION_ID_19fb895c_fk_ACTION_ACTION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ACTION_T"
+    ADD CONSTRAINT "ACTION_T_ACTION_ID_19fb895c_fk_ACTION_ACTION_ID" FOREIGN KEY ("ACTION_ID") REFERENCES public."ACTION"("ACTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ACTION_WORKITEM ACTION_WORKITEM_ACTION_ID_cc4f3b74_fk_ACTION_ACTION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ACTION_WORKITEM"
+    ADD CONSTRAINT "ACTION_WORKITEM_ACTION_ID_cc4f3b74_fk_ACTION_ACTION_ID" FOREIGN KEY ("ACTION_ID") REFERENCES public."ACTION"("ACTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ACTIVATION ACTIVATION_ACTIVATION_PARENT_ID_143619eb_fk_ACTIVATIO; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ACTIVATION"
+    ADD CONSTRAINT "ACTIVATION_ACTIVATION_PARENT_ID_143619eb_fk_ACTIVATIO" FOREIGN KEY ("ACTIVATION_PARENT_ID") REFERENCES public."ACTIVATION"("ACTIVATION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ACTIVATION_ANSWER ACTIVATION_ANSWER_ACTIVATION_ID_04ec1b84_fk_ACTIVATIO; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ACTIVATION_ANSWER"
+    ADD CONSTRAINT "ACTIVATION_ANSWER_ACTIVATION_ID_04ec1b84_fk_ACTIVATIO" FOREIGN KEY ("ACTIVATION_ID") REFERENCES public."ACTIVATION"("ACTIVATION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ACTIVATION_ANSWER ACTIVATION_ANSWER_CHAPTER_ID_5c3ea20e_fk_CHAPTER_CHAPTER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ACTIVATION_ANSWER"
+    ADD CONSTRAINT "ACTIVATION_ANSWER_CHAPTER_ID_5c3ea20e_fk_CHAPTER_CHAPTER_ID" FOREIGN KEY ("CHAPTER_ID") REFERENCES public."CHAPTER"("CHAPTER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ACTIVATION_ANSWER ACTIVATION_ANSWER_QUESTION_ID_5bf3afe3_fk_QUESTION_QUESTION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ACTIVATION_ANSWER"
+    ADD CONSTRAINT "ACTIVATION_ANSWER_QUESTION_ID_5bf3afe3_fk_QUESTION_QUESTION_ID" FOREIGN KEY ("QUESTION_ID") REFERENCES public."QUESTION"("QUESTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ACTIVATION_CALLBACK_NOTICE ACTIVATION_CALLBACK__ACTIVATION_ID_b1022152_fk_ACTIVATIO; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ACTIVATION_CALLBACK_NOTICE"
+    ADD CONSTRAINT "ACTIVATION_CALLBACK__ACTIVATION_ID_b1022152_fk_ACTIVATIO" FOREIGN KEY ("ACTIVATION_ID") REFERENCES public."ACTIVATION"("ACTIVATION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ACTIVATION_CALLBACK_NOTICE ACTIVATION_CALLBACK__CIRCULATION_ID_88afc5fb_fk_CIRCULATI; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ACTIVATION_CALLBACK_NOTICE"
+    ADD CONSTRAINT "ACTIVATION_CALLBACK__CIRCULATION_ID_88afc5fb_fk_CIRCULATI" FOREIGN KEY ("CIRCULATION_ID") REFERENCES public."CIRCULATION"("CIRCULATION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ACTIVATION ACTIVATION_CIRCULATION_ANSWER_I_ff3e2678_fk_CIRCULATI; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ACTIVATION"
+    ADD CONSTRAINT "ACTIVATION_CIRCULATION_ANSWER_I_ff3e2678_fk_CIRCULATI" FOREIGN KEY ("CIRCULATION_ANSWER_ID") REFERENCES public."CIRCULATION_ANSWER"("CIRCULATION_ANSWER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ACTIVATION ACTIVATION_CIRCULATION_ID_afb3fa0c_fk_CIRCULATI; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ACTIVATION"
+    ADD CONSTRAINT "ACTIVATION_CIRCULATION_ID_afb3fa0c_fk_CIRCULATI" FOREIGN KEY ("CIRCULATION_ID") REFERENCES public."CIRCULATION"("CIRCULATION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ACTIVATION ACTIVATION_CIRCULATION_STATE_ID_0fd7b793_fk_CIRCULATI; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ACTIVATION"
+    ADD CONSTRAINT "ACTIVATION_CIRCULATION_STATE_ID_0fd7b793_fk_CIRCULATI" FOREIGN KEY ("CIRCULATION_STATE_ID") REFERENCES public."CIRCULATION_STATE"("CIRCULATION_STATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ACTIVATION ACTIVATION_SERVICE_ID_32b4a09f_fk_SERVICE_SERVICE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ACTIVATION"
+    ADD CONSTRAINT "ACTIVATION_SERVICE_ID_32b4a09f_fk_SERVICE_SERVICE_ID" FOREIGN KEY ("SERVICE_ID") REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ACTIVATION ACTIVATION_SERVICE_PARENT_ID_39a33257_fk_SERVICE_SERVICE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ACTIVATION"
+    ADD CONSTRAINT "ACTIVATION_SERVICE_PARENT_ID_39a33257_fk_SERVICE_SERVICE_ID" FOREIGN KEY ("SERVICE_PARENT_ID") REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ACTIVATION ACTIVATION_USER_ID_24434bc6_fk_USER_USER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ACTIVATION"
+    ADD CONSTRAINT "ACTIVATION_USER_ID_24434bc6_fk_USER_USER_ID" FOREIGN KEY ("USER_ID") REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: AIR_ACTION AIR_ACTION_AVAILABLE_INSTANCE_R_ee788ad1_fk_AVAILABLE; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."AIR_ACTION"
+    ADD CONSTRAINT "AIR_ACTION_AVAILABLE_INSTANCE_R_ee788ad1_fk_AVAILABLE" FOREIGN KEY ("AVAILABLE_INSTANCE_RESOURCE_ID") REFERENCES public."AVAILABLE_INSTANCE_RESOURCE"("AVAILABLE_INSTANCE_RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ANSWER ANSWER_CHAPTER_ID_11bf419d_fk_CHAPTER_CHAPTER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ANSWER"
+    ADD CONSTRAINT "ANSWER_CHAPTER_ID_11bf419d_fk_CHAPTER_CHAPTER_ID" FOREIGN KEY ("CHAPTER_ID") REFERENCES public."CHAPTER"("CHAPTER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ANSWER ANSWER_INSTANCE_ID_10c54e47_fk_INSTANCE_INSTANCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ANSWER"
+    ADD CONSTRAINT "ANSWER_INSTANCE_ID_10c54e47_fk_INSTANCE_INSTANCE_ID" FOREIGN KEY ("INSTANCE_ID") REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ANSWER_LIST ANSWER_LIST_QUESTION_ID_ed8dc583_fk_QUESTION_QUESTION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ANSWER_LIST"
+    ADD CONSTRAINT "ANSWER_LIST_QUESTION_ID_ed8dc583_fk_QUESTION_QUESTION_ID" FOREIGN KEY ("QUESTION_ID") REFERENCES public."QUESTION"("QUESTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ANSWER_LIST_T ANSWER_LIST_T_ANSWER_LIST_ID_cd377f13_fk_ANSWER_LI; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ANSWER_LIST_T"
+    ADD CONSTRAINT "ANSWER_LIST_T_ANSWER_LIST_ID_cd377f13_fk_ANSWER_LI" FOREIGN KEY ("ANSWER_LIST_ID") REFERENCES public."ANSWER_LIST"("ANSWER_LIST_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ANSWER ANSWER_QUESTION_ID_1afad1f5_fk_QUESTION_QUESTION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ANSWER"
+    ADD CONSTRAINT "ANSWER_QUESTION_ID_1afad1f5_fk_QUESTION_QUESTION_ID" FOREIGN KEY ("QUESTION_ID") REFERENCES public."QUESTION"("QUESTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: APPLICANTS APPLICANTS_APPLICANT_USER_ID_a5772f80_fk_USER_USER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."APPLICANTS"
+    ADD CONSTRAINT "APPLICANTS_APPLICANT_USER_ID_a5772f80_fk_USER_USER_ID" FOREIGN KEY ("APPLICANT_USER_ID") REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: APPLICANTS APPLICANTS_INSTANCE_ID_4f55ca8d_fk_INSTANCE_INSTANCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."APPLICANTS"
+    ADD CONSTRAINT "APPLICANTS_INSTANCE_ID_4f55ca8d_fk_INSTANCE_INSTANCE_ID" FOREIGN KEY ("INSTANCE_ID") REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: APPLICANTS APPLICANTS_USER_ID_55df0615_fk_USER_USER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."APPLICANTS"
+    ADD CONSTRAINT "APPLICANTS_USER_ID_55df0615_fk_USER_USER_ID" FOREIGN KEY ("USER_ID") REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ARCHIVE ARCHIVE_ATTACHMENT_SECTION_I_5441e038_fk_ATTACHMEN; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ARCHIVE"
+    ADD CONSTRAINT "ARCHIVE_ATTACHMENT_SECTION_I_5441e038_fk_ATTACHMEN" FOREIGN KEY ("ATTACHMENT_SECTION_ID") REFERENCES public."ATTACHMENT_SECTION"("ATTACHMENT_SECTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ARCHIVE ARCHIVE_INSTANCE_ID_1214093c_fk_INSTANCE_INSTANCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ARCHIVE"
+    ADD CONSTRAINT "ARCHIVE_INSTANCE_ID_1214093c_fk_INSTANCE_INSTANCE_ID" FOREIGN KEY ("INSTANCE_ID") REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ARCHIVE ARCHIVE_WORKFLOW_ITEM_ID_3f593cf9_fk_WORKFLOW_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ARCHIVE"
+    ADD CONSTRAINT "ARCHIVE_WORKFLOW_ITEM_ID_3f593cf9_fk_WORKFLOW_" FOREIGN KEY ("WORKFLOW_ITEM_ID") REFERENCES public."WORKFLOW_ITEM"("WORKFLOW_ITEM_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: AR_ACTION AR_ACTION_AVAILABLE_RESOURCE_I_b9ce034f_fk_AVAILABLE; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."AR_ACTION"
+    ADD CONSTRAINT "AR_ACTION_AVAILABLE_RESOURCE_I_b9ce034f_fk_AVAILABLE" FOREIGN KEY ("AVAILABLE_RESOURCE_ID") REFERENCES public."AVAILABLE_RESOURCE"("AVAILABLE_RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ATTACHMENT_EXTENSION_ROLE ATTACHMENT_EXTENSION_ATTACHMENT_EXTENSION_7a41df3f_fk_ATTACHMEN; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ATTACHMENT_EXTENSION_ROLE"
+    ADD CONSTRAINT "ATTACHMENT_EXTENSION_ATTACHMENT_EXTENSION_7a41df3f_fk_ATTACHMEN" FOREIGN KEY ("ATTACHMENT_EXTENSION_ID") REFERENCES public."ATTACHMENT_EXTENSION"("ATTACHMENT_EXTENSION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ATTACHMENT_EXTENSION_SERVICE ATTACHMENT_EXTENSION_ATTACHMENT_EXTENSION_97d5cea9_fk_ATTACHMEN; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ATTACHMENT_EXTENSION_SERVICE"
+    ADD CONSTRAINT "ATTACHMENT_EXTENSION_ATTACHMENT_EXTENSION_97d5cea9_fk_ATTACHMEN" FOREIGN KEY ("ATTACHMENT_EXTENSION_ID") REFERENCES public."ATTACHMENT_EXTENSION"("ATTACHMENT_EXTENSION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ATTACHMENT_EXTENSION_ROLE ATTACHMENT_EXTENSION_ROLE_ROLE_ID_4a2dfcae_fk_ROLE_ROLE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ATTACHMENT_EXTENSION_ROLE"
+    ADD CONSTRAINT "ATTACHMENT_EXTENSION_ROLE_ROLE_ID_4a2dfcae_fk_ROLE_ROLE_ID" FOREIGN KEY ("ROLE_ID") REFERENCES public."ROLE"("ROLE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ATTACHMENT_EXTENSION_SERVICE ATTACHMENT_EXTENSION_SERVICE_ID_f5fa0f1f_fk_SERVICE_S; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ATTACHMENT_EXTENSION_SERVICE"
+    ADD CONSTRAINT "ATTACHMENT_EXTENSION_SERVICE_ID_f5fa0f1f_fk_SERVICE_S" FOREIGN KEY ("SERVICE_ID") REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ATTACHMENT ATTACHMENT_INSTANCE_ID_afeb8431_fk_INSTANCE_INSTANCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ATTACHMENT"
+    ADD CONSTRAINT "ATTACHMENT_INSTANCE_ID_afeb8431_fk_INSTANCE_INSTANCE_ID" FOREIGN KEY ("INSTANCE_ID") REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ATTACHMENT_SECTION ATTACHMENT_SECTION_NOTIFICATION_TEMPLAT_2314d6cf_fk_NOTIFICAT; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ATTACHMENT_SECTION"
+    ADD CONSTRAINT "ATTACHMENT_SECTION_NOTIFICATION_TEMPLAT_2314d6cf_fk_NOTIFICAT" FOREIGN KEY ("NOTIFICATION_TEMPLATE_ID") REFERENCES public."NOTIFICATION_TEMPLATE"(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ATTACHMENT_SECTION_T ATTACHMENT_SECTION_T_ATTACHMENT_SECTION_I_9ce855c5_fk_ATTACHMEN; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ATTACHMENT_SECTION_T"
+    ADD CONSTRAINT "ATTACHMENT_SECTION_T_ATTACHMENT_SECTION_I_9ce855c5_fk_ATTACHMEN" FOREIGN KEY ("ATTACHMENT_SECTION_ID") REFERENCES public."ATTACHMENT_SECTION"("ATTACHMENT_SECTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ATTACHMENT ATTACHMENT_SERVICE_ID_b133c8e9_fk_SERVICE_SERVICE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ATTACHMENT"
+    ADD CONSTRAINT "ATTACHMENT_SERVICE_ID_b133c8e9_fk_SERVICE_SERVICE_ID" FOREIGN KEY ("SERVICE_ID") REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ATTACHMENT ATTACHMENT_USER_ID_207f71a7_fk_USER_USER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ATTACHMENT"
+    ADD CONSTRAINT "ATTACHMENT_USER_ID_207f71a7_fk_USER_USER_ID" FOREIGN KEY ("USER_ID") REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ATTACHMENT_attachment_sections ATTACHMENT_attachmen_attachment_id_4d835076_fk_ATTACHMEN; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ATTACHMENT_attachment_sections"
+    ADD CONSTRAINT "ATTACHMENT_attachmen_attachment_id_4d835076_fk_ATTACHMEN" FOREIGN KEY (attachment_id) REFERENCES public."ATTACHMENT"("ATTACHMENT_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ATTACHMENT_attachment_sections ATTACHMENT_attachmen_attachmentsection_id_67bab506_fk_ATTACHMEN; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ATTACHMENT_attachment_sections"
+    ADD CONSTRAINT "ATTACHMENT_attachmen_attachmentsection_id_67bab506_fk_ATTACHMEN" FOREIGN KEY (attachmentsection_id) REFERENCES public."ATTACHMENT_SECTION"("ATTACHMENT_SECTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ATTACHMENT ATTACHMENT_group_id_8d4a8ce0_fk_GROUP_GROUP_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ATTACHMENT"
+    ADD CONSTRAINT "ATTACHMENT_group_id_8d4a8ce0_fk_GROUP_GROUP_ID" FOREIGN KEY (group_id) REFERENCES public."GROUP"("GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: AUDIT_LOG AUDIT_LOG_INSTANCE_ID_22db41ef_fk_INSTANCE_INSTANCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."AUDIT_LOG"
+    ADD CONSTRAINT "AUDIT_LOG_INSTANCE_ID_22db41ef_fk_INSTANCE_INSTANCE_ID" FOREIGN KEY ("INSTANCE_ID") REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: AUDIT_LOG AUDIT_LOG_USER_ID_e1056549_fk_USER_USER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."AUDIT_LOG"
+    ADD CONSTRAINT "AUDIT_LOG_USER_ID_e1056549_fk_USER_USER_ID" FOREIGN KEY ("USER_ID") REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: AUTHORITY_AUTHORITY_TYPE AUTHORITY_AUTHORITY__AUTHORITY_ID_f5ac34a6_fk_AUTHORITY; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."AUTHORITY_AUTHORITY_TYPE"
+    ADD CONSTRAINT "AUTHORITY_AUTHORITY__AUTHORITY_ID_f5ac34a6_fk_AUTHORITY" FOREIGN KEY ("AUTHORITY_ID") REFERENCES public."AUTHORITY"("AUTHORITY_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: AUTHORITY_AUTHORITY_TYPE AUTHORITY_AUTHORITY__AUTHORITY_TYPE_ID_1edd1707_fk_AUTHORITY; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."AUTHORITY_AUTHORITY_TYPE"
+    ADD CONSTRAINT "AUTHORITY_AUTHORITY__AUTHORITY_TYPE_ID_1edd1707_fk_AUTHORITY" FOREIGN KEY ("AUTHORITY_TYPE_ID") REFERENCES public."AUTHORITY_TYPE"("AUTHORITY_TYPE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: AUTHORITY_LOCATION AUTHORITY_LOCATION_AUTHORITY_ID_3f6a3c39_fk_AUTHORITY; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."AUTHORITY_LOCATION"
+    ADD CONSTRAINT "AUTHORITY_LOCATION_AUTHORITY_ID_3f6a3c39_fk_AUTHORITY" FOREIGN KEY ("AUTHORITY_ID") REFERENCES public."AUTHORITY"("AUTHORITY_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: AUTHORITY_LOCATION AUTHORITY_LOCATION_LOCATION_ID_9d39c2fe_fk_LOCATION_LOCATION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."AUTHORITY_LOCATION"
+    ADD CONSTRAINT "AUTHORITY_LOCATION_LOCATION_ID_9d39c2fe_fk_LOCATION_LOCATION_ID" FOREIGN KEY ("LOCATION_ID") REFERENCES public."LOCATION"("LOCATION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_CHECKQUERY A_CHECKQUERY_ACTION_ID_deacf315_fk_ACTION_ACTION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_CHECKQUERY"
+    ADD CONSTRAINT "A_CHECKQUERY_ACTION_ID_deacf315_fk_ACTION_ACTION_ID" FOREIGN KEY ("ACTION_ID") REFERENCES public."ACTION"("ACTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_CIRCULATIONTRANSITION A_CIRCULATIONTRANSITION_ACTION_ID_71868e6e_fk_ACTION_ACTION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_CIRCULATIONTRANSITION"
+    ADD CONSTRAINT "A_CIRCULATIONTRANSITION_ACTION_ID_71868e6e_fk_ACTION_ACTION_ID" FOREIGN KEY ("ACTION_ID") REFERENCES public."ACTION"("ACTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_CIRCULATIONTRANSITION A_CIRCULATIONTRANSIT_CURRENT_CIRCULATION__5496275b_fk_CIRCULATI; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_CIRCULATIONTRANSITION"
+    ADD CONSTRAINT "A_CIRCULATIONTRANSIT_CURRENT_CIRCULATION__5496275b_fk_CIRCULATI" FOREIGN KEY ("CURRENT_CIRCULATION_STATE_ID") REFERENCES public."CIRCULATION_STATE"("CIRCULATION_STATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_CIRCULATIONTRANSITION A_CIRCULATIONTRANSIT_NEXT_CIRCULATION_STA_424006be_fk_CIRCULATI; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_CIRCULATIONTRANSITION"
+    ADD CONSTRAINT "A_CIRCULATIONTRANSIT_NEXT_CIRCULATION_STA_424006be_fk_CIRCULATI" FOREIGN KEY ("NEXT_CIRCULATION_STATE_ID") REFERENCES public."CIRCULATION_STATE"("CIRCULATION_STATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_CIRCULATION_EMAIL A_CIRCULATION_EMAIL_ACTION_ID_42939dcf_fk_ACTION_ACTION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_CIRCULATION_EMAIL"
+    ADD CONSTRAINT "A_CIRCULATION_EMAIL_ACTION_ID_42939dcf_fk_ACTION_ACTION_ID" FOREIGN KEY ("ACTION_ID") REFERENCES public."ACTION"("ACTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_CIRCULATION_EMAIL_T A_CIRCULATION_EMAIL__ACTION_ID_07740ef4_fk_A_CIRCULA; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_CIRCULATION_EMAIL_T"
+    ADD CONSTRAINT "A_CIRCULATION_EMAIL__ACTION_ID_07740ef4_fk_A_CIRCULA" FOREIGN KEY ("ACTION_ID") REFERENCES public."A_CIRCULATION_EMAIL"("ACTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_COPYANSWER A_COPYANSWER_ACTION_ID_7228ba68_fk_ACTION_ACTION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_COPYANSWER"
+    ADD CONSTRAINT "A_COPYANSWER_ACTION_ID_7228ba68_fk_ACTION_ACTION_ID" FOREIGN KEY ("ACTION_ID") REFERENCES public."ACTION"("ACTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_COPYANSWER_MAPPING A_COPYANSWER_MAPPING_ACTION_ID_eab4b5d1_fk_A_COPYANS; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_COPYANSWER_MAPPING"
+    ADD CONSTRAINT "A_COPYANSWER_MAPPING_ACTION_ID_eab4b5d1_fk_A_COPYANS" FOREIGN KEY ("ACTION_ID") REFERENCES public."A_COPYANSWER"("ACTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_COPYANSWER_MAPPING A_COPYANSWER_MAPPING_DESTINATION_CHAPTER__3b588a0e_fk_CHAPTER_C; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_COPYANSWER_MAPPING"
+    ADD CONSTRAINT "A_COPYANSWER_MAPPING_DESTINATION_CHAPTER__3b588a0e_fk_CHAPTER_C" FOREIGN KEY ("DESTINATION_CHAPTER_ID") REFERENCES public."CHAPTER"("CHAPTER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_COPYANSWER_MAPPING A_COPYANSWER_MAPPING_DESTINATION_QUESTION_7cc826c3_fk_QUESTION_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_COPYANSWER_MAPPING"
+    ADD CONSTRAINT "A_COPYANSWER_MAPPING_DESTINATION_QUESTION_7cc826c3_fk_QUESTION_" FOREIGN KEY ("DESTINATION_QUESTION_ID") REFERENCES public."QUESTION"("QUESTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_COPYANSWER_MAPPING A_COPYANSWER_MAPPING_SOURCE_CHAPTER_ID_9cc2c731_fk_CHAPTER_C; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_COPYANSWER_MAPPING"
+    ADD CONSTRAINT "A_COPYANSWER_MAPPING_SOURCE_CHAPTER_ID_9cc2c731_fk_CHAPTER_C" FOREIGN KEY ("SOURCE_CHAPTER_ID") REFERENCES public."CHAPTER"("CHAPTER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_COPYANSWER_MAPPING A_COPYANSWER_MAPPING_SOURCE_QUESTION_ID_1152cac7_fk_QUESTION_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_COPYANSWER_MAPPING"
+    ADD CONSTRAINT "A_COPYANSWER_MAPPING_SOURCE_QUESTION_ID_1152cac7_fk_QUESTION_" FOREIGN KEY ("SOURCE_QUESTION_ID") REFERENCES public."QUESTION"("QUESTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_COPYDATA A_COPYDATA_ACTION_ID_f7ae5431_fk_ACTION_ACTION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_COPYDATA"
+    ADD CONSTRAINT "A_COPYDATA_ACTION_ID_f7ae5431_fk_ACTION_ACTION_ID" FOREIGN KEY ("ACTION_ID") REFERENCES public."ACTION"("ACTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_COPYDATA_MAPPING A_COPYDATA_MAPPING_ACTION_ID_0845d4b1_fk_A_COPYDATA_ACTION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_COPYDATA_MAPPING"
+    ADD CONSTRAINT "A_COPYDATA_MAPPING_ACTION_ID_0845d4b1_fk_A_COPYDATA_ACTION_ID" FOREIGN KEY ("ACTION_ID") REFERENCES public."A_COPYDATA"("ACTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_COPYDATA_MAPPING A_COPYDATA_MAPPING_CHAPTER_ID_4698238d_fk_CHAPTER_CHAPTER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_COPYDATA_MAPPING"
+    ADD CONSTRAINT "A_COPYDATA_MAPPING_CHAPTER_ID_4698238d_fk_CHAPTER_CHAPTER_ID" FOREIGN KEY ("CHAPTER_ID") REFERENCES public."CHAPTER"("CHAPTER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_COPYDATA_MAPPING A_COPYDATA_MAPPING_QUESTION_ID_d9d8efd9_fk_QUESTION_QUESTION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_COPYDATA_MAPPING"
+    ADD CONSTRAINT "A_COPYDATA_MAPPING_QUESTION_ID_d9d8efd9_fk_QUESTION_QUESTION_ID" FOREIGN KEY ("QUESTION_ID") REFERENCES public."QUESTION"("QUESTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_DELETE_CIRCULATION A_DELETE_CIRCULATION_ACTION_ID_2fc51983_fk_ACTION_ACTION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_DELETE_CIRCULATION"
+    ADD CONSTRAINT "A_DELETE_CIRCULATION_ACTION_ID_2fc51983_fk_ACTION_ACTION_ID" FOREIGN KEY ("ACTION_ID") REFERENCES public."ACTION"("ACTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_EMAIL A_EMAIL_ACTION_ID_9667de4a_fk_ACTION_ACTION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_EMAIL"
+    ADD CONSTRAINT "A_EMAIL_ACTION_ID_9667de4a_fk_ACTION_ACTION_ID" FOREIGN KEY ("ACTION_ID") REFERENCES public."ACTION"("ACTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_EMAIL_T A_EMAIL_T_ACTION_ID_db84d68c_fk_A_EMAIL_ACTION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_EMAIL_T"
+    ADD CONSTRAINT "A_EMAIL_T_ACTION_ID_db84d68c_fk_A_EMAIL_ACTION_ID" FOREIGN KEY ("ACTION_ID") REFERENCES public."A_EMAIL"("ACTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_FORMTRANSITION A_FORMTRANSITION_ACTION_ID_d90e614d_fk_ACTION_ACTION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_FORMTRANSITION"
+    ADD CONSTRAINT "A_FORMTRANSITION_ACTION_ID_d90e614d_fk_ACTION_ACTION_ID" FOREIGN KEY ("ACTION_ID") REFERENCES public."ACTION"("ACTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_FORMTRANSITION A_FORMTRANSITION_CURRENT_INSTANCE_STA_262b1ddd_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_FORMTRANSITION"
+    ADD CONSTRAINT "A_FORMTRANSITION_CURRENT_INSTANCE_STA_262b1ddd_fk_INSTANCE_" FOREIGN KEY ("CURRENT_INSTANCE_STATE_ID") REFERENCES public."INSTANCE_STATE"("INSTANCE_STATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_FORMTRANSITION A_FORMTRANSITION_NEXT_INSTANCE_STATE__545de601_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_FORMTRANSITION"
+    ADD CONSTRAINT "A_FORMTRANSITION_NEXT_INSTANCE_STATE__545de601_fk_INSTANCE_" FOREIGN KEY ("NEXT_INSTANCE_STATE_ID") REFERENCES public."INSTANCE_STATE"("INSTANCE_STATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_LOCATION A_LOCATION_ACTION_ID_0299184a_fk_ACTION_ACTION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_LOCATION"
+    ADD CONSTRAINT "A_LOCATION_ACTION_ID_0299184a_fk_ACTION_ACTION_ID" FOREIGN KEY ("ACTION_ID") REFERENCES public."ACTION"("ACTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_LOCATION_QC A_LOCATION_QC_ACTION_ID_58d22200_fk_A_LOCATION_ACTION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_LOCATION_QC"
+    ADD CONSTRAINT "A_LOCATION_QC_ACTION_ID_58d22200_fk_A_LOCATION_ACTION_ID" FOREIGN KEY ("ACTION_ID") REFERENCES public."A_LOCATION"("ACTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_LOCATION_QC A_LOCATION_QC_CHAPTER_ID_7f0816e9_fk_CHAPTER_CHAPTER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_LOCATION_QC"
+    ADD CONSTRAINT "A_LOCATION_QC_CHAPTER_ID_7f0816e9_fk_CHAPTER_CHAPTER_ID" FOREIGN KEY ("CHAPTER_ID") REFERENCES public."CHAPTER"("CHAPTER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_LOCATION_QC A_LOCATION_QC_QUESTION_ID_f295a170_fk_QUESTION_QUESTION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_LOCATION_QC"
+    ADD CONSTRAINT "A_LOCATION_QC_QUESTION_ID_f295a170_fk_QUESTION_QUESTION_ID" FOREIGN KEY ("QUESTION_ID") REFERENCES public."QUESTION"("QUESTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_NOTICE A_NOTICE_ACTION_ID_5dcc9644_fk_ACTION_ACTION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_NOTICE"
+    ADD CONSTRAINT "A_NOTICE_ACTION_ID_5dcc9644_fk_ACTION_ACTION_ID" FOREIGN KEY ("ACTION_ID") REFERENCES public."ACTION"("ACTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_NOTICE A_NOTICE_NOTICE_TYPE_ID_c9514638_fk_NOTICE_TYPE_NOTICE_TYPE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_NOTICE"
+    ADD CONSTRAINT "A_NOTICE_NOTICE_TYPE_ID_c9514638_fk_NOTICE_TYPE_NOTICE_TYPE_ID" FOREIGN KEY ("NOTICE_TYPE_ID") REFERENCES public."NOTICE_TYPE"("NOTICE_TYPE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_PAGEREDIRECT A_PAGEREDIRECT_ACTION_ID_00793f2b_fk_ACTION_ACTION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_PAGEREDIRECT"
+    ADD CONSTRAINT "A_PAGEREDIRECT_ACTION_ID_00793f2b_fk_ACTION_ACTION_ID" FOREIGN KEY ("ACTION_ID") REFERENCES public."ACTION"("ACTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_PAGEREDIRECT A_PAGEREDIRECT_INSTANCE_RESOURCE_ID_a0ef2f4b_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_PAGEREDIRECT"
+    ADD CONSTRAINT "A_PAGEREDIRECT_INSTANCE_RESOURCE_ID_a0ef2f4b_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_RESOURCE_ID") REFERENCES public."INSTANCE_RESOURCE"("INSTANCE_RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_PAGEREDIRECT A_PAGEREDIRECT_RESOURCE_ID_78016313_fk_RESOURCE_RESOURCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_PAGEREDIRECT"
+    ADD CONSTRAINT "A_PAGEREDIRECT_RESOURCE_ID_78016313_fk_RESOURCE_RESOURCE_ID" FOREIGN KEY ("RESOURCE_ID") REFERENCES public."RESOURCE"("RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_PHP A_PHP_ACTION_ID_a2ce65b5_fk_ACTION_ACTION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_PHP"
+    ADD CONSTRAINT "A_PHP_ACTION_ID_a2ce65b5_fk_ACTION_ACTION_ID" FOREIGN KEY ("ACTION_ID") REFERENCES public."ACTION"("ACTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_PROPOSAL A_PROPOSAL_ACTION_ID_b899e023_fk_ACTION_ACTION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_PROPOSAL"
+    ADD CONSTRAINT "A_PROPOSAL_ACTION_ID_b899e023_fk_ACTION_ACTION_ID" FOREIGN KEY ("ACTION_ID") REFERENCES public."ACTION"("ACTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_PROPOSAL A_PROPOSAL_CIRCULATION_STATE_ID_d328950f_fk_CIRCULATI; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_PROPOSAL"
+    ADD CONSTRAINT "A_PROPOSAL_CIRCULATION_STATE_ID_d328950f_fk_CIRCULATI" FOREIGN KEY ("CIRCULATION_STATE_ID") REFERENCES public."CIRCULATION_STATE"("CIRCULATION_STATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_PROPOSAL A_PROPOSAL_CIRCULATION_TYPE_ID_dd28f411_fk_CIRCULATI; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_PROPOSAL"
+    ADD CONSTRAINT "A_PROPOSAL_CIRCULATION_TYPE_ID_dd28f411_fk_CIRCULATI" FOREIGN KEY ("CIRCULATION_TYPE_ID") REFERENCES public."CIRCULATION_TYPE"("CIRCULATION_TYPE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_PROPOSAL_T A_PROPOSAL_T_ACTION_ID_c7f0decb_fk_A_PROPOSAL_ACTION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_PROPOSAL_T"
+    ADD CONSTRAINT "A_PROPOSAL_T_ACTION_ID_c7f0decb_fk_A_PROPOSAL_ACTION_ID" FOREIGN KEY ("ACTION_ID") REFERENCES public."A_PROPOSAL"("ACTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_SAVEPDF A_SAVEPDF_ACTION_ID_0d1e3998_fk_ACTION_ACTION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_SAVEPDF"
+    ADD CONSTRAINT "A_SAVEPDF_ACTION_ID_0d1e3998_fk_ACTION_ACTION_ID" FOREIGN KEY ("ACTION_ID") REFERENCES public."ACTION"("ACTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_SAVEPDF A_SAVEPDF_FORM_ID_f7d34222_fk_FORM_FORM_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_SAVEPDF"
+    ADD CONSTRAINT "A_SAVEPDF_FORM_ID_f7d34222_fk_FORM_FORM_ID" FOREIGN KEY ("FORM_ID") REFERENCES public."FORM"("FORM_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_SAVEPDF A_SAVEPDF_PAGE_FORM_GROUP_ID_d78123b2_fk_PAGE_FORM; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_SAVEPDF"
+    ADD CONSTRAINT "A_SAVEPDF_PAGE_FORM_GROUP_ID_d78123b2_fk_PAGE_FORM" FOREIGN KEY ("PAGE_FORM_GROUP_ID") REFERENCES public."PAGE_FORM_GROUP"("PAGE_FORM_GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_SETRESPONSIBLEGROUP A_SETRESPONSIBLEGROUP_ACTION_ID_9a1778d1_fk_ACTION_ACTION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_SETRESPONSIBLEGROUP"
+    ADD CONSTRAINT "A_SETRESPONSIBLEGROUP_ACTION_ID_9a1778d1_fk_ACTION_ACTION_ID" FOREIGN KEY ("ACTION_ID") REFERENCES public."ACTION"("ACTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_VALIDATE A_VALIDATE_ACTION_ID_d8f8e79e_fk_ACTION_ACTION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_VALIDATE"
+    ADD CONSTRAINT "A_VALIDATE_ACTION_ID_d8f8e79e_fk_ACTION_ACTION_ID" FOREIGN KEY ("ACTION_ID") REFERENCES public."ACTION"("ACTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: A_VALIDATE A_VALIDATE_PAGE_FORM_GROUP_ID_d1ca6cca_fk_PAGE_FORM; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."A_VALIDATE"
+    ADD CONSTRAINT "A_VALIDATE_PAGE_FORM_GROUP_ID_d1ca6cca_fk_PAGE_FORM" FOREIGN KEY ("PAGE_FORM_GROUP_ID") REFERENCES public."PAGE_FORM_GROUP"("PAGE_FORM_GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: BAB_USAGE BAB_USAGE_INSTANCE_ID_cfafd8b4_fk_INSTANCE_INSTANCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BAB_USAGE"
+    ADD CONSTRAINT "BAB_USAGE_INSTANCE_ID_cfafd8b4_fk_INSTANCE_INSTANCE_ID" FOREIGN KEY ("INSTANCE_ID") REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: BILLING_ACCOUNT BILLING_ACCOUNT_SERVICE_GROUP_ID_39ee2ac7_fk_SERVICE_G; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BILLING_ACCOUNT"
+    ADD CONSTRAINT "BILLING_ACCOUNT_SERVICE_GROUP_ID_39ee2ac7_fk_SERVICE_G" FOREIGN KEY ("SERVICE_GROUP_ID") REFERENCES public."SERVICE_GROUP"("SERVICE_GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: BILLING_ACCOUNT_STATE BILLING_ACCOUNT_STAT_BILLING_ACCOUNT_ID_ea4fae48_fk_BILLING_A; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BILLING_ACCOUNT_STATE"
+    ADD CONSTRAINT "BILLING_ACCOUNT_STAT_BILLING_ACCOUNT_ID_ea4fae48_fk_BILLING_A" FOREIGN KEY ("BILLING_ACCOUNT_ID") REFERENCES public."BILLING_ACCOUNT"("BILLING_ACCOUNT_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: BILLING_ACCOUNT_STATE BILLING_ACCOUNT_STAT_INSTANCE_STATE_ID_e05017cc_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BILLING_ACCOUNT_STATE"
+    ADD CONSTRAINT "BILLING_ACCOUNT_STAT_INSTANCE_STATE_ID_e05017cc_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_STATE_ID") REFERENCES public."INSTANCE_STATE"("INSTANCE_STATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: BILLING_ENTRY BILLING_ENTRY_BILLING_ACCOUNT_ID_2a98ce51_fk_BILLING_A; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BILLING_ENTRY"
+    ADD CONSTRAINT "BILLING_ENTRY_BILLING_ACCOUNT_ID_2a98ce51_fk_BILLING_A" FOREIGN KEY ("BILLING_ACCOUNT_ID") REFERENCES public."BILLING_ACCOUNT"("BILLING_ACCOUNT_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: BILLING_ENTRY BILLING_ENTRY_INSTANCE_ID_b5a0222a_fk_INSTANCE_INSTANCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BILLING_ENTRY"
+    ADD CONSTRAINT "BILLING_ENTRY_INSTANCE_ID_b5a0222a_fk_INSTANCE_INSTANCE_ID" FOREIGN KEY ("INSTANCE_ID") REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: BILLING_ENTRY BILLING_ENTRY_INVOICE_ID_511a100e_fk_BILLING_I; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BILLING_ENTRY"
+    ADD CONSTRAINT "BILLING_ENTRY_INVOICE_ID_511a100e_fk_BILLING_I" FOREIGN KEY ("INVOICE_ID") REFERENCES public."BILLING_INVOICE"("BILLING_INVOICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: BILLING_ENTRY BILLING_ENTRY_SERVICE_ID_c8bf3d7c_fk_SERVICE_SERVICE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BILLING_ENTRY"
+    ADD CONSTRAINT "BILLING_ENTRY_SERVICE_ID_c8bf3d7c_fk_SERVICE_SERVICE_ID" FOREIGN KEY ("SERVICE_ID") REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: BILLING_ENTRY BILLING_ENTRY_USER_ID_cd91848e_fk_USER_USER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BILLING_ENTRY"
+    ADD CONSTRAINT "BILLING_ENTRY_USER_ID_cd91848e_fk_USER_USER_ID" FOREIGN KEY ("USER_ID") REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: BILLING_INVOICE BILLING_INVOICE_ATTACHMENT_ID_c097dfc5_fk_ATTACHMEN; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BILLING_INVOICE"
+    ADD CONSTRAINT "BILLING_INVOICE_ATTACHMENT_ID_c097dfc5_fk_ATTACHMEN" FOREIGN KEY ("ATTACHMENT_ID") REFERENCES public."ATTACHMENT"("ATTACHMENT_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: billing_billingv2entry BILLING_V2_ENTRY_group_id_b586ddad_fk_GROUP_GROUP_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.billing_billingv2entry
+    ADD CONSTRAINT "BILLING_V2_ENTRY_group_id_b586ddad_fk_GROUP_GROUP_ID" FOREIGN KEY (group_id) REFERENCES public."GROUP"("GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: billing_billingv2entry BILLING_V2_ENTRY_user_id_0f1b3183_fk_USER_USER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.billing_billingv2entry
+    ADD CONSTRAINT "BILLING_V2_ENTRY_user_id_0f1b3183_fk_USER_USER_ID" FOREIGN KEY (user_id) REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: BUILDING_AUTHORITY_BUTTONSTATE BUILDING_AUTHORITY_B_BUILDING_AUTHORITY_B_9f954dc3_fk_BUILDING_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BUILDING_AUTHORITY_BUTTONSTATE"
+    ADD CONSTRAINT "BUILDING_AUTHORITY_B_BUILDING_AUTHORITY_B_9f954dc3_fk_BUILDING_" FOREIGN KEY ("BUILDING_AUTHORITY_BUTTON_ID") REFERENCES public."BUILDING_AUTHORITY_BUTTON"("BUILDING_AUTHORITY_BUTTON_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: BUILDING_AUTHORITY_BUTTONSTATE BUILDING_AUTHORITY_B_INSTANCE_ID_cd771e8f_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BUILDING_AUTHORITY_BUTTONSTATE"
+    ADD CONSTRAINT "BUILDING_AUTHORITY_B_INSTANCE_ID_cd771e8f_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_ID") REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: BUILDING_AUTHORITY_COMMENT BUILDING_AUTHORITY_C_BUILDING_AUTHORITY_S_946bc1a9_fk_BUILDING_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BUILDING_AUTHORITY_COMMENT"
+    ADD CONSTRAINT "BUILDING_AUTHORITY_C_BUILDING_AUTHORITY_S_946bc1a9_fk_BUILDING_" FOREIGN KEY ("BUILDING_AUTHORITY_SECTION_ID") REFERENCES public."BUILDING_AUTHORITY_SECTION"("BUILDING_AUTHORITY_SECTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: BUILDING_AUTHORITY_COMMENT BUILDING_AUTHORITY_C_INSTANCE_ID_551ceb32_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BUILDING_AUTHORITY_COMMENT"
+    ADD CONSTRAINT "BUILDING_AUTHORITY_C_INSTANCE_ID_551ceb32_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_ID") REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: BUILDING_AUTHORITY_DOC BUILDING_AUTHORITY_D_BUILDING_AUTHORITY_B_12f6c45b_fk_BUILDING_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BUILDING_AUTHORITY_DOC"
+    ADD CONSTRAINT "BUILDING_AUTHORITY_D_BUILDING_AUTHORITY_B_12f6c45b_fk_BUILDING_" FOREIGN KEY ("BUILDING_AUTHORITY_BUTTON_ID") REFERENCES public."BUILDING_AUTHORITY_BUTTON"("BUILDING_AUTHORITY_BUTTON_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: BUILDING_AUTHORITY_DOC BUILDING_AUTHORITY_D_TEMPLATE_CLASS_ID_7cb43e69_fk_DOCGEN_TE; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BUILDING_AUTHORITY_DOC"
+    ADD CONSTRAINT "BUILDING_AUTHORITY_D_TEMPLATE_CLASS_ID_7cb43e69_fk_DOCGEN_TE" FOREIGN KEY ("TEMPLATE_CLASS_ID") REFERENCES public."DOCGEN_TEMPLATE_CLASS"("DOCGEN_TEMPLATE_CLASS_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: BUILDING_AUTHORITY_DOC BUILDING_AUTHORITY_D_TEMPLATE_ID_3632bdbd_fk_DOCGEN_TE; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BUILDING_AUTHORITY_DOC"
+    ADD CONSTRAINT "BUILDING_AUTHORITY_D_TEMPLATE_ID_3632bdbd_fk_DOCGEN_TE" FOREIGN KEY ("TEMPLATE_ID") REFERENCES public."DOCGEN_TEMPLATE"("DOCGEN_TEMPLATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: BUILDING_AUTHORITY_EMAIL BUILDING_AUTHORITY_E_ATTACHMENT_SECTION_I_ce28aab4_fk_ATTACHMEN; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BUILDING_AUTHORITY_EMAIL"
+    ADD CONSTRAINT "BUILDING_AUTHORITY_E_ATTACHMENT_SECTION_I_ce28aab4_fk_ATTACHMEN" FOREIGN KEY ("ATTACHMENT_SECTION_ID") REFERENCES public."ATTACHMENT_SECTION"("ATTACHMENT_SECTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: BUILDING_AUTHORITY_EMAIL BUILDING_AUTHORITY_E_BUILDING_AUTHORITY_B_6caaf8f2_fk_BUILDING_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BUILDING_AUTHORITY_EMAIL"
+    ADD CONSTRAINT "BUILDING_AUTHORITY_E_BUILDING_AUTHORITY_B_6caaf8f2_fk_BUILDING_" FOREIGN KEY ("BUILDING_AUTHORITY_BUTTON_ID") REFERENCES public."BUILDING_AUTHORITY_BUTTON"("BUILDING_AUTHORITY_BUTTON_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: BUILDING_AUTHORITY_EMAIL BUILDING_AUTHORITY_E_WORKFLOW_ITEM_ID_e0a2ae4a_fk_WORKFLOW_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BUILDING_AUTHORITY_EMAIL"
+    ADD CONSTRAINT "BUILDING_AUTHORITY_E_WORKFLOW_ITEM_ID_e0a2ae4a_fk_WORKFLOW_" FOREIGN KEY ("WORKFLOW_ITEM_ID") REFERENCES public."WORKFLOW_ITEM"("WORKFLOW_ITEM_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: BUILDING_AUTHORITY_ITEM_DIS BUILDING_AUTHORITY_I_INSTANCE_ID_2a12086e_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BUILDING_AUTHORITY_ITEM_DIS"
+    ADD CONSTRAINT "BUILDING_AUTHORITY_I_INSTANCE_ID_2a12086e_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_ID") REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: BUILDING_AUTHORITY_ITEM_DIS BUILDING_AUTHORITY_I_WORKFLOW_ITEM_ID_aa7072a7_fk_WORKFLOW_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BUILDING_AUTHORITY_ITEM_DIS"
+    ADD CONSTRAINT "BUILDING_AUTHORITY_I_WORKFLOW_ITEM_ID_aa7072a7_fk_WORKFLOW_" FOREIGN KEY ("WORKFLOW_ITEM_ID") REFERENCES public."WORKFLOW_ITEM"("WORKFLOW_ITEM_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: BUILDING_AUTHORITY_SECTION_DIS BUILDING_AUTHORITY_S_BA_SECTION_ID_a65f427d_fk_BUILDING_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BUILDING_AUTHORITY_SECTION_DIS"
+    ADD CONSTRAINT "BUILDING_AUTHORITY_S_BA_SECTION_ID_a65f427d_fk_BUILDING_" FOREIGN KEY ("BA_SECTION_ID") REFERENCES public."BUILDING_AUTHORITY_SECTION"("BUILDING_AUTHORITY_SECTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: BUILDING_AUTHORITY_SECTION_DIS BUILDING_AUTHORITY_S_INSTANCE_ID_7689ad00_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BUILDING_AUTHORITY_SECTION_DIS"
+    ADD CONSTRAINT "BUILDING_AUTHORITY_S_INSTANCE_ID_7689ad00_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_ID") REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: BUTTON BUTTON_INSTANCE_RESOURCE_ID_77460733_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BUTTON"
+    ADD CONSTRAINT "BUTTON_INSTANCE_RESOURCE_ID_77460733_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_RESOURCE_ID") REFERENCES public."INSTANCE_RESOURCE"("INSTANCE_RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: BUTTON_T BUTTON_T_BUTTON_ID_8833ef02_fk_BUTTON_BUTTON_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."BUTTON_T"
+    ADD CONSTRAINT "BUTTON_T_BUTTON_ID_8833ef02_fk_BUTTON_BUTTON_ID" FOREIGN KEY ("BUTTON_ID") REFERENCES public."BUTTON"("BUTTON_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: B_GROUP_ACL B_GROUP_ACL_BUTTON_ID_ed0e0356_fk_BUTTON_BUTTON_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."B_GROUP_ACL"
+    ADD CONSTRAINT "B_GROUP_ACL_BUTTON_ID_ed0e0356_fk_BUTTON_BUTTON_ID" FOREIGN KEY ("BUTTON_ID") REFERENCES public."BUTTON"("BUTTON_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: B_GROUP_ACL B_GROUP_ACL_GROUP_ID_35a21fb5_fk_GROUP_GROUP_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."B_GROUP_ACL"
+    ADD CONSTRAINT "B_GROUP_ACL_GROUP_ID_35a21fb5_fk_GROUP_GROUP_ID" FOREIGN KEY ("GROUP_ID") REFERENCES public."GROUP"("GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: B_GROUP_ACL B_GROUP_ACL_INSTANCE_STATE_ID_58bea0da_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."B_GROUP_ACL"
+    ADD CONSTRAINT "B_GROUP_ACL_INSTANCE_STATE_ID_58bea0da_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_STATE_ID") REFERENCES public."INSTANCE_STATE"("INSTANCE_STATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: B_ROLE_ACL B_ROLE_ACL_BUTTON_ID_dd649b31_fk_BUTTON_BUTTON_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."B_ROLE_ACL"
+    ADD CONSTRAINT "B_ROLE_ACL_BUTTON_ID_dd649b31_fk_BUTTON_BUTTON_ID" FOREIGN KEY ("BUTTON_ID") REFERENCES public."BUTTON"("BUTTON_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: B_ROLE_ACL B_ROLE_ACL_INSTANCE_STATE_ID_46bf9c22_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."B_ROLE_ACL"
+    ADD CONSTRAINT "B_ROLE_ACL_INSTANCE_STATE_ID_46bf9c22_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_STATE_ID") REFERENCES public."INSTANCE_STATE"("INSTANCE_STATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: B_ROLE_ACL B_ROLE_ACL_ROLE_ID_d20dfd5e_fk_ROLE_ROLE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."B_ROLE_ACL"
+    ADD CONSTRAINT "B_ROLE_ACL_ROLE_ID_d20dfd5e_fk_ROLE_ROLE_ID" FOREIGN KEY ("ROLE_ID") REFERENCES public."ROLE"("ROLE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: B_SERVICE_ACL B_SERVICE_ACL_BUTTON_ID_84871b11_fk_BUTTON_BUTTON_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."B_SERVICE_ACL"
+    ADD CONSTRAINT "B_SERVICE_ACL_BUTTON_ID_84871b11_fk_BUTTON_BUTTON_ID" FOREIGN KEY ("BUTTON_ID") REFERENCES public."BUTTON"("BUTTON_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: B_SERVICE_ACL B_SERVICE_ACL_INSTANCE_STATE_ID_dc93e9cf_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."B_SERVICE_ACL"
+    ADD CONSTRAINT "B_SERVICE_ACL_INSTANCE_STATE_ID_dc93e9cf_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_STATE_ID") REFERENCES public."INSTANCE_STATE"("INSTANCE_STATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: B_SERVICE_ACL B_SERVICE_ACL_SERVICE_ID_2c9bd5c2_fk_SERVICE_SERVICE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."B_SERVICE_ACL"
+    ADD CONSTRAINT "B_SERVICE_ACL_SERVICE_ID_2c9bd5c2_fk_SERVICE_SERVICE_ID" FOREIGN KEY ("SERVICE_ID") REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: B_USER_ACL B_USER_ACL_BUTTON_ID_d1d38447_fk_BUTTON_BUTTON_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."B_USER_ACL"
+    ADD CONSTRAINT "B_USER_ACL_BUTTON_ID_d1d38447_fk_BUTTON_BUTTON_ID" FOREIGN KEY ("BUTTON_ID") REFERENCES public."BUTTON"("BUTTON_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: B_USER_ACL B_USER_ACL_INSTANCE_STATE_ID_5e91927a_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."B_USER_ACL"
+    ADD CONSTRAINT "B_USER_ACL_INSTANCE_STATE_ID_5e91927a_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_STATE_ID") REFERENCES public."INSTANCE_STATE"("INSTANCE_STATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: B_USER_ACL B_USER_ACL_USER_ID_9d50a42f_fk_USER_USER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."B_USER_ACL"
+    ADD CONSTRAINT "B_USER_ACL_USER_ID_9d50a42f_fk_USER_USER_ID" FOREIGN KEY ("USER_ID") REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: CHAPTER_PAGE CHAPTER_PAGE_CHAPTER_ID_861cec58_fk_CHAPTER_CHAPTER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CHAPTER_PAGE"
+    ADD CONSTRAINT "CHAPTER_PAGE_CHAPTER_ID_861cec58_fk_CHAPTER_CHAPTER_ID" FOREIGN KEY ("CHAPTER_ID") REFERENCES public."CHAPTER"("CHAPTER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: CHAPTER_PAGE_GROUP_ACL CHAPTER_PAGE_GROUP_ACL_CHAPTER_ID_abf87288_fk_CHAPTER_PAGE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CHAPTER_PAGE_GROUP_ACL"
+    ADD CONSTRAINT "CHAPTER_PAGE_GROUP_ACL_CHAPTER_ID_abf87288_fk_CHAPTER_PAGE_ID" FOREIGN KEY ("CHAPTER_ID") REFERENCES public."CHAPTER_PAGE"("ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: CHAPTER_PAGE_GROUP_ACL CHAPTER_PAGE_GROUP_ACL_GROUP_ID_d52711b9_fk_GROUP_GROUP_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CHAPTER_PAGE_GROUP_ACL"
+    ADD CONSTRAINT "CHAPTER_PAGE_GROUP_ACL_GROUP_ID_d52711b9_fk_GROUP_GROUP_ID" FOREIGN KEY ("GROUP_ID") REFERENCES public."GROUP"("GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: CHAPTER_PAGE_GROUP_ACL CHAPTER_PAGE_GROUP_ACL_PAGE_ID_67b0b4d5_fk_CHAPTER_PAGE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CHAPTER_PAGE_GROUP_ACL"
+    ADD CONSTRAINT "CHAPTER_PAGE_GROUP_ACL_PAGE_ID_67b0b4d5_fk_CHAPTER_PAGE_ID" FOREIGN KEY ("PAGE_ID") REFERENCES public."CHAPTER_PAGE"("ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: CHAPTER_PAGE_GROUP_ACL CHAPTER_PAGE_GROUP_A_INSTANCE_STATE_ID_1cf085a2_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CHAPTER_PAGE_GROUP_ACL"
+    ADD CONSTRAINT "CHAPTER_PAGE_GROUP_A_INSTANCE_STATE_ID_1cf085a2_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_STATE_ID") REFERENCES public."INSTANCE_STATE"("INSTANCE_STATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: CHAPTER_PAGE CHAPTER_PAGE_PAGE_ID_170aaf53_fk_PAGE_PAGE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CHAPTER_PAGE"
+    ADD CONSTRAINT "CHAPTER_PAGE_PAGE_ID_170aaf53_fk_PAGE_PAGE_ID" FOREIGN KEY ("PAGE_ID") REFERENCES public."PAGE"("PAGE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: CHAPTER_PAGE_ROLE_ACL CHAPTER_PAGE_ROLE_ACL_CHAPTER_ID_ff5126f3_fk_CHAPTER_PAGE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CHAPTER_PAGE_ROLE_ACL"
+    ADD CONSTRAINT "CHAPTER_PAGE_ROLE_ACL_CHAPTER_ID_ff5126f3_fk_CHAPTER_PAGE_ID" FOREIGN KEY ("CHAPTER_ID") REFERENCES public."CHAPTER_PAGE"("ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: CHAPTER_PAGE_ROLE_ACL CHAPTER_PAGE_ROLE_ACL_PAGE_ID_e62c6b28_fk_CHAPTER_PAGE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CHAPTER_PAGE_ROLE_ACL"
+    ADD CONSTRAINT "CHAPTER_PAGE_ROLE_ACL_PAGE_ID_e62c6b28_fk_CHAPTER_PAGE_ID" FOREIGN KEY ("PAGE_ID") REFERENCES public."CHAPTER_PAGE"("ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: CHAPTER_PAGE_ROLE_ACL CHAPTER_PAGE_ROLE_ACL_ROLE_ID_16015b09_fk_ROLE_ROLE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CHAPTER_PAGE_ROLE_ACL"
+    ADD CONSTRAINT "CHAPTER_PAGE_ROLE_ACL_ROLE_ID_16015b09_fk_ROLE_ROLE_ID" FOREIGN KEY ("ROLE_ID") REFERENCES public."ROLE"("ROLE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: CHAPTER_PAGE_ROLE_ACL CHAPTER_PAGE_ROLE_AC_INSTANCE_STATE_ID_7c0f1af1_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CHAPTER_PAGE_ROLE_ACL"
+    ADD CONSTRAINT "CHAPTER_PAGE_ROLE_AC_INSTANCE_STATE_ID_7c0f1af1_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_STATE_ID") REFERENCES public."INSTANCE_STATE"("INSTANCE_STATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: CHAPTER_PAGE_SERVICE_ACL CHAPTER_PAGE_SERVICE_ACL_CHAPTER_ID_1916bf4b_fk_CHAPTER_PAGE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CHAPTER_PAGE_SERVICE_ACL"
+    ADD CONSTRAINT "CHAPTER_PAGE_SERVICE_ACL_CHAPTER_ID_1916bf4b_fk_CHAPTER_PAGE_ID" FOREIGN KEY ("CHAPTER_ID") REFERENCES public."CHAPTER_PAGE"("ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: CHAPTER_PAGE_SERVICE_ACL CHAPTER_PAGE_SERVICE_ACL_PAGE_ID_5f8ac2aa_fk_CHAPTER_PAGE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CHAPTER_PAGE_SERVICE_ACL"
+    ADD CONSTRAINT "CHAPTER_PAGE_SERVICE_ACL_PAGE_ID_5f8ac2aa_fk_CHAPTER_PAGE_ID" FOREIGN KEY ("PAGE_ID") REFERENCES public."CHAPTER_PAGE"("ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: CHAPTER_PAGE_SERVICE_ACL CHAPTER_PAGE_SERVICE_INSTANCE_STATE_ID_79dc2041_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CHAPTER_PAGE_SERVICE_ACL"
+    ADD CONSTRAINT "CHAPTER_PAGE_SERVICE_INSTANCE_STATE_ID_79dc2041_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_STATE_ID") REFERENCES public."INSTANCE_STATE"("INSTANCE_STATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: CHAPTER_PAGE_SERVICE_ACL CHAPTER_PAGE_SERVICE_SERVICE_ID_f922ac11_fk_SERVICE_S; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CHAPTER_PAGE_SERVICE_ACL"
+    ADD CONSTRAINT "CHAPTER_PAGE_SERVICE_SERVICE_ID_f922ac11_fk_SERVICE_S" FOREIGN KEY ("SERVICE_ID") REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: CHAPTER_PAGE_USER_ACL CHAPTER_PAGE_USER_ACL_CHAPTER_ID_1380a969_fk_CHAPTER_PAGE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CHAPTER_PAGE_USER_ACL"
+    ADD CONSTRAINT "CHAPTER_PAGE_USER_ACL_CHAPTER_ID_1380a969_fk_CHAPTER_PAGE_ID" FOREIGN KEY ("CHAPTER_ID") REFERENCES public."CHAPTER_PAGE"("ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: CHAPTER_PAGE_USER_ACL CHAPTER_PAGE_USER_ACL_PAGE_ID_ca2a692f_fk_CHAPTER_PAGE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CHAPTER_PAGE_USER_ACL"
+    ADD CONSTRAINT "CHAPTER_PAGE_USER_ACL_PAGE_ID_ca2a692f_fk_CHAPTER_PAGE_ID" FOREIGN KEY ("PAGE_ID") REFERENCES public."CHAPTER_PAGE"("ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: CHAPTER_PAGE_USER_ACL CHAPTER_PAGE_USER_ACL_USER_ID_3a1fd8aa_fk_USER_USER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CHAPTER_PAGE_USER_ACL"
+    ADD CONSTRAINT "CHAPTER_PAGE_USER_ACL_USER_ID_3a1fd8aa_fk_USER_USER_ID" FOREIGN KEY ("USER_ID") REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: CHAPTER_PAGE_USER_ACL CHAPTER_PAGE_USER_AC_INSTANCE_STATE_ID_11223d32_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CHAPTER_PAGE_USER_ACL"
+    ADD CONSTRAINT "CHAPTER_PAGE_USER_AC_INSTANCE_STATE_ID_11223d32_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_STATE_ID") REFERENCES public."INSTANCE_STATE"("INSTANCE_STATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: CHAPTER_T CHAPTER_T_CHAPTER_ID_e3c570c2_fk_CHAPTER_CHAPTER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CHAPTER_T"
+    ADD CONSTRAINT "CHAPTER_T_CHAPTER_ID_e3c570c2_fk_CHAPTER_CHAPTER_ID" FOREIGN KEY ("CHAPTER_ID") REFERENCES public."CHAPTER"("CHAPTER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: CIRCULATION_ANSWER CIRCULATION_ANSWER_CIRCULATION_ANSWER_T_ff2dc1d1_fk_CIRCULATI; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CIRCULATION_ANSWER"
+    ADD CONSTRAINT "CIRCULATION_ANSWER_CIRCULATION_ANSWER_T_ff2dc1d1_fk_CIRCULATI" FOREIGN KEY ("CIRCULATION_ANSWER_TYPE_ID") REFERENCES public."CIRCULATION_ANSWER_TYPE"("CIRCULATION_ANSWER_TYPE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: CIRCULATION_ANSWER CIRCULATION_ANSWER_CIRCULATION_TYPE_ID_02f04a6a_fk_CIRCULATI; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CIRCULATION_ANSWER"
+    ADD CONSTRAINT "CIRCULATION_ANSWER_CIRCULATION_TYPE_ID_02f04a6a_fk_CIRCULATI" FOREIGN KEY ("CIRCULATION_TYPE_ID") REFERENCES public."CIRCULATION_TYPE"("CIRCULATION_TYPE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: CIRCULATION_ANSWER_T CIRCULATION_ANSWER_T_CIRCULATION_ANSWER_I_c6c0dcc8_fk_CIRCULATI; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CIRCULATION_ANSWER_T"
+    ADD CONSTRAINT "CIRCULATION_ANSWER_T_CIRCULATION_ANSWER_I_c6c0dcc8_fk_CIRCULATI" FOREIGN KEY ("CIRCULATION_ANSWER_ID") REFERENCES public."CIRCULATION_ANSWER"("CIRCULATION_ANSWER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: CIRCULATION_ANSWER_TYPE_T CIRCULATION_ANSWER_T_CIRCULATION_ANSWER_T_32ee3eca_fk_CIRCULATI; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CIRCULATION_ANSWER_TYPE_T"
+    ADD CONSTRAINT "CIRCULATION_ANSWER_T_CIRCULATION_ANSWER_T_32ee3eca_fk_CIRCULATI" FOREIGN KEY ("CIRCULATION_ANSWER_TYPE_ID") REFERENCES public."CIRCULATION_ANSWER_TYPE"("CIRCULATION_ANSWER_TYPE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: CIRCULATION CIRCULATION_INSTANCE_ID_d4772fff_fk_INSTANCE_INSTANCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CIRCULATION"
+    ADD CONSTRAINT "CIRCULATION_INSTANCE_ID_d4772fff_fk_INSTANCE_INSTANCE_ID" FOREIGN KEY ("INSTANCE_ID") REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: CIRCULATION_REASON CIRCULATION_REASON_CIRCULATION_TYPE_ID_4072f54a_fk_CIRCULATI; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CIRCULATION_REASON"
+    ADD CONSTRAINT "CIRCULATION_REASON_CIRCULATION_TYPE_ID_4072f54a_fk_CIRCULATI" FOREIGN KEY ("CIRCULATION_TYPE_ID") REFERENCES public."CIRCULATION_TYPE"("CIRCULATION_TYPE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: CIRCULATION_REASON_T CIRCULATION_REASON_T_CIRCULATION_REASON_I_2ada9e6b_fk_CIRCULATI; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CIRCULATION_REASON_T"
+    ADD CONSTRAINT "CIRCULATION_REASON_T_CIRCULATION_REASON_I_2ada9e6b_fk_CIRCULATI" FOREIGN KEY ("CIRCULATION_REASON_ID") REFERENCES public."CIRCULATION_REASON"("CIRCULATION_REASON_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: CIRCULATION CIRCULATION_SERVICE_ID_6411cfd2_fk_SERVICE_SERVICE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CIRCULATION"
+    ADD CONSTRAINT "CIRCULATION_SERVICE_ID_6411cfd2_fk_SERVICE_SERVICE_ID" FOREIGN KEY ("SERVICE_ID") REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: CIRCULATION_STATE_T CIRCULATION_STATE_T_CIRCULATION_STATE_ID_8742eb4b_fk_CIRCULATI; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CIRCULATION_STATE_T"
+    ADD CONSTRAINT "CIRCULATION_STATE_T_CIRCULATION_STATE_ID_8742eb4b_fk_CIRCULATI" FOREIGN KEY ("CIRCULATION_STATE_ID") REFERENCES public."CIRCULATION_STATE"("CIRCULATION_STATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: CIRCULATION_TYPE_T CIRCULATION_TYPE_T_CIRCULATION_TYPE_ID_99a2f6e7_fk_CIRCULATI; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."CIRCULATION_TYPE_T"
+    ADD CONSTRAINT "CIRCULATION_TYPE_T_CIRCULATION_TYPE_ID_99a2f6e7_fk_CIRCULATI" FOREIGN KEY ("CIRCULATION_TYPE_ID") REFERENCES public."CIRCULATION_TYPE"("CIRCULATION_TYPE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: COMMISSION_ASSIGNMENT COMMISSION_ASSIGNMENT_GROUP_ID_ab890c89_fk_GROUP_GROUP_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."COMMISSION_ASSIGNMENT"
+    ADD CONSTRAINT "COMMISSION_ASSIGNMENT_GROUP_ID_ab890c89_fk_GROUP_GROUP_ID" FOREIGN KEY ("GROUP_ID") REFERENCES public."GROUP"("GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: COMMISSION_ASSIGNMENT COMMISSION_ASSIGNMEN_CREATOR_GROUP_ID_83ae0516_fk_GROUP_GRO; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."COMMISSION_ASSIGNMENT"
+    ADD CONSTRAINT "COMMISSION_ASSIGNMEN_CREATOR_GROUP_ID_83ae0516_fk_GROUP_GRO" FOREIGN KEY ("CREATOR_GROUP_ID") REFERENCES public."GROUP"("GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: COMMISSION_ASSIGNMENT COMMISSION_ASSIGNMEN_INSTANCE_ID_b0f30747_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."COMMISSION_ASSIGNMENT"
+    ADD CONSTRAINT "COMMISSION_ASSIGNMEN_INSTANCE_ID_b0f30747_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_ID") REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: DOCGEN_ACTIVATIONACTION_ACTION DOCGEN_ACTIVATIONACT_ACTION_ID_f9330140_fk_ACTION_AC; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."DOCGEN_ACTIVATIONACTION_ACTION"
+    ADD CONSTRAINT "DOCGEN_ACTIVATIONACT_ACTION_ID_f9330140_fk_ACTION_AC" FOREIGN KEY ("ACTION_ID") REFERENCES public."ACTION"("ACTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: DOCGEN_ACTIVATIONACTION_ACTION DOCGEN_ACTIVATIONACT_DOCGEN_ACTIVATION_AC_1a661c0a_fk_DOCGEN_AC; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."DOCGEN_ACTIVATIONACTION_ACTION"
+    ADD CONSTRAINT "DOCGEN_ACTIVATIONACT_DOCGEN_ACTIVATION_AC_1a661c0a_fk_DOCGEN_AC" FOREIGN KEY ("DOCGEN_ACTIVATION_ACTION_ID") REFERENCES public."DOCGEN_ACTIVATION_ACTION"("DOCGEN_ACTIVATION_ACTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: DOCGEN_ACTIVATION_DOCKET DOCGEN_ACTIVATION_DO_ACTIVATION_ID_d6b43bde_fk_ACTIVATIO; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."DOCGEN_ACTIVATION_DOCKET"
+    ADD CONSTRAINT "DOCGEN_ACTIVATION_DO_ACTIVATION_ID_d6b43bde_fk_ACTIVATIO" FOREIGN KEY ("ACTIVATION_ID") REFERENCES public."ACTIVATION"("ACTIVATION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: DOCGEN_ACTIVATION_DOCKET DOCGEN_ACTIVATION_DO_INSTANCE_ID_a8d94cff_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."DOCGEN_ACTIVATION_DOCKET"
+    ADD CONSTRAINT "DOCGEN_ACTIVATION_DO_INSTANCE_ID_a8d94cff_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_ID") REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: DOCGEN_DOCX_ACTION DOCGEN_DOCX_ACTION_ACTION_ID_5cb8ea65_fk_ACTION_ACTION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."DOCGEN_DOCX_ACTION"
+    ADD CONSTRAINT "DOCGEN_DOCX_ACTION_ACTION_ID_5cb8ea65_fk_ACTION_ACTION_ID" FOREIGN KEY ("ACTION_ID") REFERENCES public."ACTION"("ACTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: DOCGEN_DOCX_ACTION DOCGEN_DOCX_ACTION_DOCGEN_TEMPLATE_CLAS_10943b92_fk_DOCGEN_TE; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."DOCGEN_DOCX_ACTION"
+    ADD CONSTRAINT "DOCGEN_DOCX_ACTION_DOCGEN_TEMPLATE_CLAS_10943b92_fk_DOCGEN_TE" FOREIGN KEY ("DOCGEN_TEMPLATE_CLASS_ID") REFERENCES public."DOCGEN_TEMPLATE_CLASS"("DOCGEN_TEMPLATE_CLASS_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: DOCGEN_DOCX_ACTION DOCGEN_DOCX_ACTION_DOCGEN_TEMPLATE_ID_38d052d8_fk_DOCGEN_TE; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."DOCGEN_DOCX_ACTION"
+    ADD CONSTRAINT "DOCGEN_DOCX_ACTION_DOCGEN_TEMPLATE_ID_38d052d8_fk_DOCGEN_TE" FOREIGN KEY ("DOCGEN_TEMPLATE_ID") REFERENCES public."DOCGEN_TEMPLATE"("DOCGEN_TEMPLATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: DOCGEN_PDF_ACTION DOCGEN_PDF_ACTION_ACTION_ID_67fd1985_fk_ACTION_ACTION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."DOCGEN_PDF_ACTION"
+    ADD CONSTRAINT "DOCGEN_PDF_ACTION_ACTION_ID_67fd1985_fk_ACTION_ACTION_ID" FOREIGN KEY ("ACTION_ID") REFERENCES public."ACTION"("ACTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: DOCGEN_PDF_ACTION DOCGEN_PDF_ACTION_DOCGEN_TEMPLATE_CLAS_e0c39fe1_fk_DOCGEN_TE; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."DOCGEN_PDF_ACTION"
+    ADD CONSTRAINT "DOCGEN_PDF_ACTION_DOCGEN_TEMPLATE_CLAS_e0c39fe1_fk_DOCGEN_TE" FOREIGN KEY ("DOCGEN_TEMPLATE_CLASS_ID") REFERENCES public."DOCGEN_TEMPLATE_CLASS"("DOCGEN_TEMPLATE_CLASS_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: DOCGEN_PDF_ACTION DOCGEN_PDF_ACTION_DOCGEN_TEMPLATE_ID_542dea7a_fk_DOCGEN_TE; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."DOCGEN_PDF_ACTION"
+    ADD CONSTRAINT "DOCGEN_PDF_ACTION_DOCGEN_TEMPLATE_ID_542dea7a_fk_DOCGEN_TE" FOREIGN KEY ("DOCGEN_TEMPLATE_ID") REFERENCES public."DOCGEN_TEMPLATE"("DOCGEN_TEMPLATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: DOCX_DECISION DOCX_DECISION_INSTANCE_ID_3b96eaab_fk_INSTANCE_INSTANCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."DOCX_DECISION"
+    ADD CONSTRAINT "DOCX_DECISION_INSTANCE_ID_3b96eaab_fk_INSTANCE_INSTANCE_ID" FOREIGN KEY ("INSTANCE_ID") REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: FORM FORM_FAMILY_cf736e53_fk_FORM_FORM_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."FORM"
+    ADD CONSTRAINT "FORM_FAMILY_cf736e53_fk_FORM_FORM_ID" FOREIGN KEY ("FAMILY") REFERENCES public."FORM"("FORM_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: FORM FORM_FORM_STATE_ID_6facae98_fk_FORM_STATE_FORM_STATE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."FORM"
+    ADD CONSTRAINT "FORM_FORM_STATE_ID_6facae98_fk_FORM_STATE_FORM_STATE_ID" FOREIGN KEY ("FORM_STATE_ID") REFERENCES public."FORM_STATE"("FORM_STATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: FORM_GROUP_FORM FORM_GROUP_FORM_FORM_GROUP_ID_b7c9c1ef_fk_FORM_GROU; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."FORM_GROUP_FORM"
+    ADD CONSTRAINT "FORM_GROUP_FORM_FORM_GROUP_ID_b7c9c1ef_fk_FORM_GROU" FOREIGN KEY ("FORM_GROUP_ID") REFERENCES public."FORM_GROUP"("FORM_GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: FORM_GROUP_FORM FORM_GROUP_FORM_FORM_ID_8311f65c_fk_FORM_FORM_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."FORM_GROUP_FORM"
+    ADD CONSTRAINT "FORM_GROUP_FORM_FORM_ID_8311f65c_fk_FORM_FORM_ID" FOREIGN KEY ("FORM_ID") REFERENCES public."FORM"("FORM_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: FORM_GROUP_T FORM_GROUP_T_FORM_GROUP_ID_7d9bb06a_fk_FORM_GROUP_FORM_GROUP_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."FORM_GROUP_T"
+    ADD CONSTRAINT "FORM_GROUP_T_FORM_GROUP_ID_7d9bb06a_fk_FORM_GROUP_FORM_GROUP_ID" FOREIGN KEY ("FORM_GROUP_ID") REFERENCES public."FORM_GROUP"("FORM_GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: FORM_T FORM_T_FORM_ID_3a4d4a56_fk_FORM_FORM_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."FORM_T"
+    ADD CONSTRAINT "FORM_T_FORM_ID_3a4d4a56_fk_FORM_FORM_ID" FOREIGN KEY ("FORM_ID") REFERENCES public."FORM"("FORM_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: GROUP_LOCATION GROUP_LOCATION_GROUP_ID_d30a9a84_fk_GROUP_GROUP_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."GROUP_LOCATION"
+    ADD CONSTRAINT "GROUP_LOCATION_GROUP_ID_d30a9a84_fk_GROUP_GROUP_ID" FOREIGN KEY ("GROUP_ID") REFERENCES public."GROUP"("GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: GROUP_LOCATION GROUP_LOCATION_LOCATION_ID_0dff4919_fk_LOCATION_LOCATION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."GROUP_LOCATION"
+    ADD CONSTRAINT "GROUP_LOCATION_LOCATION_ID_0dff4919_fk_LOCATION_LOCATION_ID" FOREIGN KEY ("LOCATION_ID") REFERENCES public."LOCATION"("LOCATION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: GROUP_PERMISSION GROUP_PERMISSION_GROUP_ID_43ef42be_fk_GROUP_GROUP_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."GROUP_PERMISSION"
+    ADD CONSTRAINT "GROUP_PERMISSION_GROUP_ID_43ef42be_fk_GROUP_GROUP_ID" FOREIGN KEY ("GROUP_ID") REFERENCES public."GROUP"("GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: GROUP GROUP_ROLE_ID_11e2035f_fk_ROLE_ROLE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."GROUP"
+    ADD CONSTRAINT "GROUP_ROLE_ID_11e2035f_fk_ROLE_ROLE_ID" FOREIGN KEY ("ROLE_ID") REFERENCES public."ROLE"("ROLE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: GROUP GROUP_SERVICE_ID_8f03f501_fk_SERVICE_SERVICE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."GROUP"
+    ADD CONSTRAINT "GROUP_SERVICE_ID_8f03f501_fk_SERVICE_SERVICE_ID" FOREIGN KEY ("SERVICE_ID") REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: GROUP_T GROUP_T_GROUP_ID_1ed5d2ac_fk_GROUP_GROUP_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."GROUP_T"
+    ADD CONSTRAINT "GROUP_T_GROUP_ID_1ed5d2ac_fk_GROUP_GROUP_ID" FOREIGN KEY ("GROUP_ID") REFERENCES public."GROUP"("GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: HISTORY_ACTION_CONFIG HISTORY_ACTION_CONFIG_ACTION_ID_a28966aa_fk_ACTION_ACTION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."HISTORY_ACTION_CONFIG"
+    ADD CONSTRAINT "HISTORY_ACTION_CONFIG_ACTION_ID_a28966aa_fk_ACTION_ACTION_ID" FOREIGN KEY ("ACTION_ID") REFERENCES public."ACTION"("ACTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: HISTORY_ACTION_CONFIG_T HISTORY_ACTION_CONFI_ACTION_ID_52a67a63_fk_HISTORY_A; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."HISTORY_ACTION_CONFIG_T"
+    ADD CONSTRAINT "HISTORY_ACTION_CONFI_ACTION_ID_52a67a63_fk_HISTORY_A" FOREIGN KEY ("ACTION_ID") REFERENCES public."HISTORY_ACTION_CONFIG"("ACTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: INSTANCE_DEMO INSTANCE_DEMO_INSTANCE_DEMO_ID_c010f4db_fk_INSTANCE_INSTANCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_DEMO"
+    ADD CONSTRAINT "INSTANCE_DEMO_INSTANCE_DEMO_ID_c010f4db_fk_INSTANCE_INSTANCE_ID" FOREIGN KEY ("INSTANCE_DEMO_ID") REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: INSTANCE_FORMWIZARD INSTANCE_FORMWIZARD_INSTANCE_ID_29c95317_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_FORMWIZARD"
+    ADD CONSTRAINT "INSTANCE_FORMWIZARD_INSTANCE_ID_29c95317_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_ID") REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: INSTANCE INSTANCE_FORM_ID_3368d340_fk_FORM_FORM_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE"
+    ADD CONSTRAINT "INSTANCE_FORM_ID_3368d340_fk_FORM_FORM_ID" FOREIGN KEY ("FORM_ID") REFERENCES public."FORM"("FORM_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: INSTANCE_FORM_PDF INSTANCE_FORM_PDF_ACTION_ID_93b0ca2f_fk_ACTION_ACTION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_FORM_PDF"
+    ADD CONSTRAINT "INSTANCE_FORM_PDF_ACTION_ID_93b0ca2f_fk_ACTION_ACTION_ID" FOREIGN KEY ("ACTION_ID") REFERENCES public."ACTION"("ACTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: INSTANCE_FORM_PDF INSTANCE_FORM_PDF_INSTANCE_ID_3c2418a2_fk_INSTANCE_INSTANCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_FORM_PDF"
+    ADD CONSTRAINT "INSTANCE_FORM_PDF_INSTANCE_ID_3c2418a2_fk_INSTANCE_INSTANCE_ID" FOREIGN KEY ("INSTANCE_ID") REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: INSTANCE_FORM_PDF INSTANCE_FORM_PDF_USER_ID_8ac1a039_fk_USER_USER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_FORM_PDF"
+    ADD CONSTRAINT "INSTANCE_FORM_PDF_USER_ID_8ac1a039_fk_USER_USER_ID" FOREIGN KEY ("USER_ID") REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: INSTANCE INSTANCE_GROUP_ID_4ce4e157_fk_GROUP_GROUP_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE"
+    ADD CONSTRAINT "INSTANCE_GROUP_ID_4ce4e157_fk_GROUP_GROUP_ID" FOREIGN KEY ("GROUP_ID") REFERENCES public."GROUP"("GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: INSTANCE_GUEST INSTANCE_GUEST_INSTANCE_ID_7fb30fb4_fk_INSTANCE_INSTANCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_GUEST"
+    ADD CONSTRAINT "INSTANCE_GUEST_INSTANCE_ID_7fb30fb4_fk_INSTANCE_INSTANCE_ID" FOREIGN KEY ("INSTANCE_ID") REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: INSTANCE INSTANCE_INSTANCE_STATE_ID_66e2f596_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE"
+    ADD CONSTRAINT "INSTANCE_INSTANCE_STATE_ID_66e2f596_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_STATE_ID") REFERENCES public."INSTANCE_STATE"("INSTANCE_STATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: INSTANCE INSTANCE_LOCATION_ID_0e4db695_fk_LOCATION_LOCATION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE"
+    ADD CONSTRAINT "INSTANCE_LOCATION_ID_0e4db695_fk_LOCATION_LOCATION_ID" FOREIGN KEY ("LOCATION_ID") REFERENCES public."LOCATION"("LOCATION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: INSTANCE_LOCATION INSTANCE_LOCATION_INSTANCE_ID_71e39bb3_fk_INSTANCE_INSTANCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_LOCATION"
+    ADD CONSTRAINT "INSTANCE_LOCATION_INSTANCE_ID_71e39bb3_fk_INSTANCE_INSTANCE_ID" FOREIGN KEY ("INSTANCE_ID") REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: INSTANCE_LOCATION INSTANCE_LOCATION_LOCATION_ID_e9848dd9_fk_LOCATION_LOCATION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_LOCATION"
+    ADD CONSTRAINT "INSTANCE_LOCATION_LOCATION_ID_e9848dd9_fk_LOCATION_LOCATION_ID" FOREIGN KEY ("LOCATION_ID") REFERENCES public."LOCATION"("LOCATION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: INSTANCE_PARENT INSTANCE_PARENT_PARENT_INSTANCE_ID_ea9733d3_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_PARENT"
+    ADD CONSTRAINT "INSTANCE_PARENT_PARENT_INSTANCE_ID_ea9733d3_fk_INSTANCE_" FOREIGN KEY ("PARENT_INSTANCE_ID") REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: INSTANCE_PARENT INSTANCE_PARENT_SERVICE_ID_194e9c1e_fk_SERVICE_SERVICE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_PARENT"
+    ADD CONSTRAINT "INSTANCE_PARENT_SERVICE_ID_194e9c1e_fk_SERVICE_SERVICE_ID" FOREIGN KEY ("SERVICE_ID") REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: INSTANCE_PARENT INSTANCE_PARENT_USER_ID_9aa12714_fk_USER_USER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_PARENT"
+    ADD CONSTRAINT "INSTANCE_PARENT_USER_ID_9aa12714_fk_USER_USER_ID" FOREIGN KEY ("USER_ID") REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: INSTANCE INSTANCE_PREVIOUS_INSTANCE_ST_05f24fb6_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE"
+    ADD CONSTRAINT "INSTANCE_PREVIOUS_INSTANCE_ST_05f24fb6_fk_INSTANCE_" FOREIGN KEY ("PREVIOUS_INSTANCE_STATE_ID") REFERENCES public."INSTANCE_STATE"("INSTANCE_STATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: INSTANCE_RESOURCE_ACTION INSTANCE_RESOURCE_AC_AVAILABLE_ACTION_ID_4f9b643b_fk_AVAILABLE; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_RESOURCE_ACTION"
+    ADD CONSTRAINT "INSTANCE_RESOURCE_AC_AVAILABLE_ACTION_ID_4f9b643b_fk_AVAILABLE" FOREIGN KEY ("AVAILABLE_ACTION_ID") REFERENCES public."AVAILABLE_ACTION"("AVAILABLE_ACTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: INSTANCE_RESOURCE_ACTION INSTANCE_RESOURCE_AC_AVAILABLE_INSTANCE_R_5fa980e9_fk_AVAILABLE; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_RESOURCE_ACTION"
+    ADD CONSTRAINT "INSTANCE_RESOURCE_AC_AVAILABLE_INSTANCE_R_5fa980e9_fk_AVAILABLE" FOREIGN KEY ("AVAILABLE_INSTANCE_RESOURCE_ID") REFERENCES public."AVAILABLE_INSTANCE_RESOURCE"("AVAILABLE_INSTANCE_RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: INSTANCE_RESOURCE INSTANCE_RESOURCE_AVAILABLE_INSTANCE_R_8c9763ee_fk_AVAILABLE; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_RESOURCE"
+    ADD CONSTRAINT "INSTANCE_RESOURCE_AVAILABLE_INSTANCE_R_8c9763ee_fk_AVAILABLE" FOREIGN KEY ("AVAILABLE_INSTANCE_RESOURCE_ID") REFERENCES public."AVAILABLE_INSTANCE_RESOURCE"("AVAILABLE_INSTANCE_RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: INSTANCE_RESOURCE INSTANCE_RESOURCE_FORM_GROUP_ID_b0002cc9_fk_FORM_GROU; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_RESOURCE"
+    ADD CONSTRAINT "INSTANCE_RESOURCE_FORM_GROUP_ID_b0002cc9_fk_FORM_GROU" FOREIGN KEY ("FORM_GROUP_ID") REFERENCES public."FORM_GROUP"("FORM_GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: INSTANCE_RESOURCE INSTANCE_RESOURCE_RESOURCE_ID_fa2fee26_fk_RESOURCE_RESOURCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_RESOURCE"
+    ADD CONSTRAINT "INSTANCE_RESOURCE_RESOURCE_ID_fa2fee26_fk_RESOURCE_RESOURCE_ID" FOREIGN KEY ("RESOURCE_ID") REFERENCES public."RESOURCE"("RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: INSTANCE_RESOURCE_T INSTANCE_RESOURCE_T_INSTANCE_RESOURCE_ID_e673c503_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_RESOURCE_T"
+    ADD CONSTRAINT "INSTANCE_RESOURCE_T_INSTANCE_RESOURCE_ID_e673c503_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_RESOURCE_ID") REFERENCES public."INSTANCE_RESOURCE"("INSTANCE_RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: INSTANCE_SERVICE INSTANCE_SERVICE_INSTANCE_ID_0d51cb2b_fk_INSTANCE_INSTANCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_SERVICE"
+    ADD CONSTRAINT "INSTANCE_SERVICE_INSTANCE_ID_0d51cb2b_fk_INSTANCE_INSTANCE_ID" FOREIGN KEY ("INSTANCE_ID") REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: INSTANCE_SERVICE INSTANCE_SERVICE_SERVICE_ID_4168fa24_fk_SERVICE_SERVICE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_SERVICE"
+    ADD CONSTRAINT "INSTANCE_SERVICE_SERVICE_ID_4168fa24_fk_SERVICE_SERVICE_ID" FOREIGN KEY ("SERVICE_ID") REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: INSTANCE_STATE_DESCRIPTION INSTANCE_STATE_DESCR_INSTANCE_STATE_ID_b77921d1_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_STATE_DESCRIPTION"
+    ADD CONSTRAINT "INSTANCE_STATE_DESCR_INSTANCE_STATE_ID_b77921d1_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_STATE_ID") REFERENCES public."INSTANCE_STATE"("INSTANCE_STATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: INSTANCE_STATE_T INSTANCE_STATE_T_INSTANCE_STATE_ID_d09d8333_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE_STATE_T"
+    ADD CONSTRAINT "INSTANCE_STATE_T_INSTANCE_STATE_ID_d09d8333_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_STATE_ID") REFERENCES public."INSTANCE_STATE"("INSTANCE_STATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: INSTANCE INSTANCE_USER_ID_ba369747_fk_USER_USER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE"
+    ADD CONSTRAINT "INSTANCE_USER_ID_ba369747_fk_USER_USER_ID" FOREIGN KEY ("USER_ID") REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: INSTANCE INSTANCE_case_id_7fcf3413_fk_caluma_workflow_case_id; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE"
+    ADD CONSTRAINT "INSTANCE_case_id_7fcf3413_fk_caluma_workflow_case_id" FOREIGN KEY (case_id) REFERENCES public.caluma_workflow_case(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: INSTANCE INSTANCE_copy_source_id_6d001cad_fk_INSTANCE_INSTANCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE"
+    ADD CONSTRAINT "INSTANCE_copy_source_id_6d001cad_fk_INSTANCE_INSTANCE_ID" FOREIGN KEY (copy_source_id) REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: INSTANCE INSTANCE_instance_group_id_fb3d9159_fk_instance_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."INSTANCE"
+    ADD CONSTRAINT "INSTANCE_instance_group_id_fb3d9159_fk_instance_" FOREIGN KEY (instance_group_id) REFERENCES public.instance_instancegroup(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_ALLFORMPAGES IR_ALLFORMPAGES_INSTANCE_RESOURCE_ID_9e7aa0b1_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_ALLFORMPAGES"
+    ADD CONSTRAINT "IR_ALLFORMPAGES_INSTANCE_RESOURCE_ID_9e7aa0b1_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_RESOURCE_ID") REFERENCES public."INSTANCE_RESOURCE"("INSTANCE_RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_ALLFORMPAGES IR_ALLFORMPAGES_PAGE_FORM_GROUP_ID_49e7e059_fk_PAGE_FORM; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_ALLFORMPAGES"
+    ADD CONSTRAINT "IR_ALLFORMPAGES_PAGE_FORM_GROUP_ID_49e7e059_fk_PAGE_FORM" FOREIGN KEY ("PAGE_FORM_GROUP_ID") REFERENCES public."PAGE_FORM_GROUP"("PAGE_FORM_GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_CIRCULATION IR_CIRCULATION_CIRCULATION_TYPE_ID_dcd6ee8a_fk_CIRCULATI; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_CIRCULATION"
+    ADD CONSTRAINT "IR_CIRCULATION_CIRCULATION_TYPE_ID_dcd6ee8a_fk_CIRCULATI" FOREIGN KEY ("CIRCULATION_TYPE_ID") REFERENCES public."CIRCULATION_TYPE"("CIRCULATION_TYPE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_CIRCULATION IR_CIRCULATION_DRAFT_CIRCULATION_AN_93cf4a46_fk_CIRCULATI; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_CIRCULATION"
+    ADD CONSTRAINT "IR_CIRCULATION_DRAFT_CIRCULATION_AN_93cf4a46_fk_CIRCULATI" FOREIGN KEY ("DRAFT_CIRCULATION_ANSWER_ID") REFERENCES public."CIRCULATION_ANSWER"("CIRCULATION_ANSWER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_CIRCULATION IR_CIRCULATION_INSTANCE_RESOURCE_ID_482ab7f9_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_CIRCULATION"
+    ADD CONSTRAINT "IR_CIRCULATION_INSTANCE_RESOURCE_ID_482ab7f9_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_RESOURCE_ID") REFERENCES public."INSTANCE_RESOURCE"("INSTANCE_RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_CIRCULATION IR_CIRCULATION_SERVICE_ID_015e479d_fk_SERVICE_SERVICE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_CIRCULATION"
+    ADD CONSTRAINT "IR_CIRCULATION_SERVICE_ID_015e479d_fk_SERVICE_SERVICE_ID" FOREIGN KEY ("SERVICE_ID") REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_EDITCIRCULATION IR_EDITCIRCULATION_CIRCULATION_EMAIL_AC_2bac0002_fk_ACTION_AC; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_EDITCIRCULATION"
+    ADD CONSTRAINT "IR_EDITCIRCULATION_CIRCULATION_EMAIL_AC_2bac0002_fk_ACTION_AC" FOREIGN KEY ("CIRCULATION_EMAIL_ACTION_ID") REFERENCES public."ACTION"("ACTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_EDITCIRCULATION IR_EDITCIRCULATION_CIRCULATION_TYPE_ID_50f509f8_fk_CIRCULATI; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_EDITCIRCULATION"
+    ADD CONSTRAINT "IR_EDITCIRCULATION_CIRCULATION_TYPE_ID_50f509f8_fk_CIRCULATI" FOREIGN KEY ("CIRCULATION_TYPE_ID") REFERENCES public."CIRCULATION_TYPE"("CIRCULATION_TYPE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_EDITCIRCULATION IR_EDITCIRCULATION_DRAFT_CIRCULATION_AN_21c08d7e_fk_CIRCULATI; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_EDITCIRCULATION"
+    ADD CONSTRAINT "IR_EDITCIRCULATION_DRAFT_CIRCULATION_AN_21c08d7e_fk_CIRCULATI" FOREIGN KEY ("DRAFT_CIRCULATION_ANSWER_ID") REFERENCES public."CIRCULATION_ANSWER"("CIRCULATION_ANSWER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_EDITCIRCULATION IR_EDITCIRCULATION_INSTANCE_RESOURCE_ID_a5321932_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_EDITCIRCULATION"
+    ADD CONSTRAINT "IR_EDITCIRCULATION_INSTANCE_RESOURCE_ID_a5321932_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_RESOURCE_ID") REFERENCES public."INSTANCE_RESOURCE"("INSTANCE_RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_EDITCIRCULATION_SG IR_EDITCIRCULATION_S_INSTANCE_RESOURCE_ID_2dced4d0_fk_IR_EDITCI; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_EDITCIRCULATION_SG"
+    ADD CONSTRAINT "IR_EDITCIRCULATION_S_INSTANCE_RESOURCE_ID_2dced4d0_fk_IR_EDITCI" FOREIGN KEY ("INSTANCE_RESOURCE_ID") REFERENCES public."IR_EDITCIRCULATION"("INSTANCE_RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_EDITCIRCULATION_SG IR_EDITCIRCULATION_S_SERVICE_GROUP_ID_14d25cac_fk_SERVICE_G; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_EDITCIRCULATION_SG"
+    ADD CONSTRAINT "IR_EDITCIRCULATION_S_SERVICE_GROUP_ID_14d25cac_fk_SERVICE_G" FOREIGN KEY ("SERVICE_GROUP_ID") REFERENCES public."SERVICE_GROUP"("SERVICE_GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_EDITCIRCULATION_T IR_EDITCIRCULATION_T_INSTANCE_RESOURCE_ID_ab5e283e_fk_IR_EDITCI; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_EDITCIRCULATION_T"
+    ADD CONSTRAINT "IR_EDITCIRCULATION_T_INSTANCE_RESOURCE_ID_ab5e283e_fk_IR_EDITCI" FOREIGN KEY ("INSTANCE_RESOURCE_ID") REFERENCES public."IR_EDITCIRCULATION"("INSTANCE_RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_EDITFORMPAGES IR_EDITFORMPAGES_INSTANCE_RESOURCE_ID_8d2112b7_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_EDITFORMPAGES"
+    ADD CONSTRAINT "IR_EDITFORMPAGES_INSTANCE_RESOURCE_ID_8d2112b7_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_RESOURCE_ID") REFERENCES public."INSTANCE_RESOURCE"("INSTANCE_RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_EDITFORMPAGES IR_EDITFORMPAGES_PAGE_FORM_GROUP_ID_074133f4_fk_PAGE_FORM; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_EDITFORMPAGES"
+    ADD CONSTRAINT "IR_EDITFORMPAGES_PAGE_FORM_GROUP_ID_074133f4_fk_PAGE_FORM" FOREIGN KEY ("PAGE_FORM_GROUP_ID") REFERENCES public."PAGE_FORM_GROUP"("PAGE_FORM_GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_EDITFORMPAGE IR_EDITFORMPAGE_INSTANCE_RESOURCE_ID_d45af444_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_EDITFORMPAGE"
+    ADD CONSTRAINT "IR_EDITFORMPAGE_INSTANCE_RESOURCE_ID_d45af444_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_RESOURCE_ID") REFERENCES public."INSTANCE_RESOURCE"("INSTANCE_RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_EDITFORMPAGE IR_EDITFORMPAGE_PAGE_ID_17b31a7c_fk_PAGE_PAGE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_EDITFORMPAGE"
+    ADD CONSTRAINT "IR_EDITFORMPAGE_PAGE_ID_17b31a7c_fk_PAGE_PAGE_ID" FOREIGN KEY ("PAGE_ID") REFERENCES public."PAGE"("PAGE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_EDITLETTER_ANSWER IR_EDITLETTER_ANSWER_INSTANCE_RESOURCE_ID_c7c571e2_fk_IR_EDITLE; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_EDITLETTER_ANSWER"
+    ADD CONSTRAINT "IR_EDITLETTER_ANSWER_INSTANCE_RESOURCE_ID_c7c571e2_fk_IR_EDITLE" FOREIGN KEY ("INSTANCE_RESOURCE_ID") REFERENCES public."IR_EDITLETTER"("INSTANCE_RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_EDITLETTER_ANSWER_T IR_EDITLETTER_ANSWER_IR_EDITLETTER_ANSWER_726e31c4_fk_IR_EDITLE; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_EDITLETTER_ANSWER_T"
+    ADD CONSTRAINT "IR_EDITLETTER_ANSWER_IR_EDITLETTER_ANSWER_726e31c4_fk_IR_EDITLE" FOREIGN KEY ("IR_EDITLETTER_ANSWER_ID") REFERENCES public."IR_EDITLETTER_ANSWER"("IR_EDITLETTER_ANSWER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_EDITLETTER IR_EDITLETTER_INSTANCE_RESOURCE_ID_d01bd537_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_EDITLETTER"
+    ADD CONSTRAINT "IR_EDITLETTER_INSTANCE_RESOURCE_ID_d01bd537_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_RESOURCE_ID") REFERENCES public."INSTANCE_RESOURCE"("INSTANCE_RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_EDITNOTICE IR_EDITNOTICE_CIRCULATION_TYPE_ID_5b82c8c7_fk_CIRCULATI; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_EDITNOTICE"
+    ADD CONSTRAINT "IR_EDITNOTICE_CIRCULATION_TYPE_ID_5b82c8c7_fk_CIRCULATI" FOREIGN KEY ("CIRCULATION_TYPE_ID") REFERENCES public."CIRCULATION_TYPE"("CIRCULATION_TYPE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_EDITNOTICE IR_EDITNOTICE_INSTANCE_RESOURCE_ID_5a72dd99_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_EDITNOTICE"
+    ADD CONSTRAINT "IR_EDITNOTICE_INSTANCE_RESOURCE_ID_5a72dd99_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_RESOURCE_ID") REFERENCES public."INSTANCE_RESOURCE"("INSTANCE_RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_EDITRESPONSIBLEGROUP IR_EDITRESPONSIBLEGR_INSTANCE_RESOURCE_ID_80bec74e_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_EDITRESPONSIBLEGROUP"
+    ADD CONSTRAINT "IR_EDITRESPONSIBLEGR_INSTANCE_RESOURCE_ID_80bec74e_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_RESOURCE_ID") REFERENCES public."INSTANCE_RESOURCE"("INSTANCE_RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_EDITRESPONSIBLEGROUP IR_EDITRESPONSIBLEGR_RESPONSIBLE_ROLE_ID_547e76d7_fk_ROLE_ROLE; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_EDITRESPONSIBLEGROUP"
+    ADD CONSTRAINT "IR_EDITRESPONSIBLEGR_RESPONSIBLE_ROLE_ID_547e76d7_fk_ROLE_ROLE" FOREIGN KEY ("RESPONSIBLE_ROLE_ID") REFERENCES public."ROLE"("ROLE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_EDITRESPONSIBLEUSER IR_EDITRESPONSIBLEUS_INSTANCE_RESOURCE_ID_6b6703a7_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_EDITRESPONSIBLEUSER"
+    ADD CONSTRAINT "IR_EDITRESPONSIBLEUS_INSTANCE_RESOURCE_ID_6b6703a7_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_RESOURCE_ID") REFERENCES public."INSTANCE_RESOURCE"("INSTANCE_RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_FORMERROR IR_FORMERROR_INSTANCE_RESOURCE_ID_22d8a503_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_FORMERROR"
+    ADD CONSTRAINT "IR_FORMERROR_INSTANCE_RESOURCE_ID_22d8a503_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_RESOURCE_ID") REFERENCES public."INSTANCE_RESOURCE"("INSTANCE_RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_FORMERROR IR_FORMERROR_IR_EDITFORMPAGES_ID_a8af95ce_fk_IR_EDITFO; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_FORMERROR"
+    ADD CONSTRAINT "IR_FORMERROR_IR_EDITFORMPAGES_ID_a8af95ce_fk_IR_EDITFO" FOREIGN KEY ("IR_EDITFORMPAGES_ID") REFERENCES public."IR_EDITFORMPAGES"("INSTANCE_RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_FORMPAGES IR_FORMPAGES_INSTANCE_RESOURCE_ID_83ef6dc3_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_FORMPAGES"
+    ADD CONSTRAINT "IR_FORMPAGES_INSTANCE_RESOURCE_ID_83ef6dc3_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_RESOURCE_ID") REFERENCES public."INSTANCE_RESOURCE"("INSTANCE_RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_FORMPAGES IR_FORMPAGES_PAGE_FORM_GROUP_ID_3d9e166b_fk_PAGE_FORM; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_FORMPAGES"
+    ADD CONSTRAINT "IR_FORMPAGES_PAGE_FORM_GROUP_ID_3d9e166b_fk_PAGE_FORM" FOREIGN KEY ("PAGE_FORM_GROUP_ID") REFERENCES public."PAGE_FORM_GROUP"("PAGE_FORM_GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_FORMPAGE IR_FORMPAGE_INSTANCE_RESOURCE_ID_b91947f5_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_FORMPAGE"
+    ADD CONSTRAINT "IR_FORMPAGE_INSTANCE_RESOURCE_ID_b91947f5_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_RESOURCE_ID") REFERENCES public."INSTANCE_RESOURCE"("INSTANCE_RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_FORMPAGE IR_FORMPAGE_PAGE_ID_78bb422d_fk_PAGE_PAGE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_FORMPAGE"
+    ADD CONSTRAINT "IR_FORMPAGE_PAGE_ID_78bb422d_fk_PAGE_PAGE_ID" FOREIGN KEY ("PAGE_ID") REFERENCES public."PAGE"("PAGE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_FORMWIZARD IR_FORMWIZARD_INSTANCE_RESOURCE_ID_916ce2ca_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_FORMWIZARD"
+    ADD CONSTRAINT "IR_FORMWIZARD_INSTANCE_RESOURCE_ID_916ce2ca_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_RESOURCE_ID") REFERENCES public."INSTANCE_RESOURCE"("INSTANCE_RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_FORMWIZARD IR_FORMWIZARD_INSTANCE_STATE_ID_c5340eb6_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_FORMWIZARD"
+    ADD CONSTRAINT "IR_FORMWIZARD_INSTANCE_STATE_ID_c5340eb6_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_STATE_ID") REFERENCES public."INSTANCE_STATE"("INSTANCE_STATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_FORMWIZARD IR_FORMWIZARD_PAGE_FORM_GROUP_ID_787c47df_fk_PAGE_FORM; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_FORMWIZARD"
+    ADD CONSTRAINT "IR_FORMWIZARD_PAGE_FORM_GROUP_ID_787c47df_fk_PAGE_FORM" FOREIGN KEY ("PAGE_FORM_GROUP_ID") REFERENCES public."PAGE_FORM_GROUP"("PAGE_FORM_GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_FORMWIZARD_T IR_FORMWIZARD_T_INSTANCE_RESOURCE_ID_101448d4_fk_IR_FORMWI; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_FORMWIZARD_T"
+    ADD CONSTRAINT "IR_FORMWIZARD_T_INSTANCE_RESOURCE_ID_101448d4_fk_IR_FORMWI" FOREIGN KEY ("INSTANCE_RESOURCE_ID") REFERENCES public."IR_FORMWIZARD"("INSTANCE_RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_GROUP_ACL IR_GROUP_ACL_GROUP_ID_442eecc3_fk_GROUP_GROUP_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_GROUP_ACL"
+    ADD CONSTRAINT "IR_GROUP_ACL_GROUP_ID_442eecc3_fk_GROUP_GROUP_ID" FOREIGN KEY ("GROUP_ID") REFERENCES public."GROUP"("GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_GROUP_ACL IR_GROUP_ACL_INSTANCE_RESOURCE_ID_27cd75fc_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_GROUP_ACL"
+    ADD CONSTRAINT "IR_GROUP_ACL_INSTANCE_RESOURCE_ID_27cd75fc_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_RESOURCE_ID") REFERENCES public."INSTANCE_RESOURCE"("INSTANCE_RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_GROUP_ACL IR_GROUP_ACL_INSTANCE_STATE_ID_43d34491_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_GROUP_ACL"
+    ADD CONSTRAINT "IR_GROUP_ACL_INSTANCE_STATE_ID_43d34491_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_STATE_ID") REFERENCES public."INSTANCE_STATE"("INSTANCE_STATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_LETTER IR_LETTER_INSTANCE_RESOURCE_ID_cf5b6aed_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_LETTER"
+    ADD CONSTRAINT "IR_LETTER_INSTANCE_RESOURCE_ID_cf5b6aed_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_RESOURCE_ID") REFERENCES public."INSTANCE_RESOURCE"("INSTANCE_RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_NEWFORM IR_NEWFORM_INSTANCE_RESOURCE_ID_e99d990c_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_NEWFORM"
+    ADD CONSTRAINT "IR_NEWFORM_INSTANCE_RESOURCE_ID_e99d990c_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_RESOURCE_ID") REFERENCES public."INSTANCE_RESOURCE"("INSTANCE_RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_NEWFORM IR_NEWFORM_INSTANCE_STATE_ID_89720137_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_NEWFORM"
+    ADD CONSTRAINT "IR_NEWFORM_INSTANCE_STATE_ID_89720137_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_STATE_ID") REFERENCES public."INSTANCE_STATE"("INSTANCE_STATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_NEWFORM IR_NEWFORM_PAGE_FORM_GROUP_ID_5d0c879e_fk_PAGE_FORM; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_NEWFORM"
+    ADD CONSTRAINT "IR_NEWFORM_PAGE_FORM_GROUP_ID_5d0c879e_fk_PAGE_FORM" FOREIGN KEY ("PAGE_FORM_GROUP_ID") REFERENCES public."PAGE_FORM_GROUP"("PAGE_FORM_GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_PAGE IR_PAGE_INSTANCE_RESOURCE_ID_1c0925e5_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_PAGE"
+    ADD CONSTRAINT "IR_PAGE_INSTANCE_RESOURCE_ID_1c0925e5_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_RESOURCE_ID") REFERENCES public."INSTANCE_RESOURCE"("INSTANCE_RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_ROLE_ACL IR_ROLE_ACL_INSTANCE_RESOURCE_ID_ebea495f_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_ROLE_ACL"
+    ADD CONSTRAINT "IR_ROLE_ACL_INSTANCE_RESOURCE_ID_ebea495f_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_RESOURCE_ID") REFERENCES public."INSTANCE_RESOURCE"("INSTANCE_RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_ROLE_ACL IR_ROLE_ACL_INSTANCE_STATE_ID_0010f292_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_ROLE_ACL"
+    ADD CONSTRAINT "IR_ROLE_ACL_INSTANCE_STATE_ID_0010f292_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_STATE_ID") REFERENCES public."INSTANCE_STATE"("INSTANCE_STATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_ROLE_ACL IR_ROLE_ACL_ROLE_ID_11fca30c_fk_ROLE_ROLE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_ROLE_ACL"
+    ADD CONSTRAINT "IR_ROLE_ACL_ROLE_ID_11fca30c_fk_ROLE_ROLE_ID" FOREIGN KEY ("ROLE_ID") REFERENCES public."ROLE"("ROLE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_SERVICE_ACL IR_SERVICE_ACL_INSTANCE_RESOURCE_ID_54c28fc7_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_SERVICE_ACL"
+    ADD CONSTRAINT "IR_SERVICE_ACL_INSTANCE_RESOURCE_ID_54c28fc7_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_RESOURCE_ID") REFERENCES public."INSTANCE_RESOURCE"("INSTANCE_RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_SERVICE_ACL IR_SERVICE_ACL_INSTANCE_STATE_ID_5d903197_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_SERVICE_ACL"
+    ADD CONSTRAINT "IR_SERVICE_ACL_INSTANCE_STATE_ID_5d903197_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_STATE_ID") REFERENCES public."INSTANCE_STATE"("INSTANCE_STATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_SERVICE_ACL IR_SERVICE_ACL_SERVICE_ID_793f675a_fk_SERVICE_SERVICE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_SERVICE_ACL"
+    ADD CONSTRAINT "IR_SERVICE_ACL_SERVICE_ID_793f675a_fk_SERVICE_SERVICE_ID" FOREIGN KEY ("SERVICE_ID") REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_TASKFORM IR_TASKFORM_INSTANCE_RESOURCE_ID_8b5d5d87_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_TASKFORM"
+    ADD CONSTRAINT "IR_TASKFORM_INSTANCE_RESOURCE_ID_8b5d5d87_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_RESOURCE_ID") REFERENCES public."INSTANCE_RESOURCE"("INSTANCE_RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_TASKFORM IR_TASKFORM_TASK_71c023fa_fk_caluma_workflow_task_slug; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_TASKFORM"
+    ADD CONSTRAINT "IR_TASKFORM_TASK_71c023fa_fk_caluma_workflow_task_slug" FOREIGN KEY ("TASK") REFERENCES public.caluma_workflow_task(slug) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_USER_ACL IR_USER_ACL_INSTANCE_RESOURCE_ID_d69fcfad_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_USER_ACL"
+    ADD CONSTRAINT "IR_USER_ACL_INSTANCE_RESOURCE_ID_d69fcfad_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_RESOURCE_ID") REFERENCES public."INSTANCE_RESOURCE"("INSTANCE_RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_USER_ACL IR_USER_ACL_INSTANCE_STATE_ID_8aea8cc4_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_USER_ACL"
+    ADD CONSTRAINT "IR_USER_ACL_INSTANCE_STATE_ID_8aea8cc4_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_STATE_ID") REFERENCES public."INSTANCE_STATE"("INSTANCE_STATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: IR_USER_ACL IR_USER_ACL_USER_ID_2b4e23cd_fk_USER_USER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."IR_USER_ACL"
+    ADD CONSTRAINT "IR_USER_ACL_USER_ID_2b4e23cd_fk_USER_USER_ID" FOREIGN KEY ("USER_ID") REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: LETTER_IMAGE LETTER_IMAGE_INSTANCE_ID_f6af1604_fk_INSTANCE_INSTANCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."LETTER_IMAGE"
+    ADD CONSTRAINT "LETTER_IMAGE_INSTANCE_ID_f6af1604_fk_INSTANCE_INSTANCE_ID" FOREIGN KEY ("INSTANCE_ID") REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: LETTER_IMAGE LETTER_IMAGE_INSTANCE_RESOURCE_ID_f76612b9_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."LETTER_IMAGE"
+    ADD CONSTRAINT "LETTER_IMAGE_INSTANCE_RESOURCE_ID_f76612b9_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_RESOURCE_ID") REFERENCES public."INSTANCE_RESOURCE"("INSTANCE_RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: LETTER_IMAGE LETTER_IMAGE_USER_ID_9a14c3f1_fk_USER_USER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."LETTER_IMAGE"
+    ADD CONSTRAINT "LETTER_IMAGE_USER_ID_9a14c3f1_fk_USER_USER_ID" FOREIGN KEY ("USER_ID") REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: LETTER LETTER_INSTANCE_ID_bf99c8cb_fk_INSTANCE_INSTANCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."LETTER"
+    ADD CONSTRAINT "LETTER_INSTANCE_ID_bf99c8cb_fk_INSTANCE_INSTANCE_ID" FOREIGN KEY ("INSTANCE_ID") REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: LETTER LETTER_INSTANCE_RESOURCE_ID_88f9cf4c_fk_IR_EDITLE; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."LETTER"
+    ADD CONSTRAINT "LETTER_INSTANCE_RESOURCE_ID_88f9cf4c_fk_IR_EDITLE" FOREIGN KEY ("INSTANCE_RESOURCE_ID") REFERENCES public."IR_EDITLETTER"("INSTANCE_RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: LETTER LETTER_IR_EDITLETTER_ANSWER_3c006f34_fk_IR_EDITLE; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."LETTER"
+    ADD CONSTRAINT "LETTER_IR_EDITLETTER_ANSWER_3c006f34_fk_IR_EDITLE" FOREIGN KEY ("IR_EDITLETTER_ANSWER_ID") REFERENCES public."IR_EDITLETTER_ANSWER"("IR_EDITLETTER_ANSWER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: LETTER LETTER_USER_ID_865b8643_fk_USER_USER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."LETTER"
+    ADD CONSTRAINT "LETTER_USER_ID_865b8643_fk_USER_USER_ID" FOREIGN KEY ("USER_ID") REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: LOCATION_T LOCATION_T_LOCATION_ID_c36407f9_fk_LOCATION_LOCATION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."LOCATION_T"
+    ADD CONSTRAINT "LOCATION_T_LOCATION_ID_c36407f9_fk_LOCATION_LOCATION_ID" FOREIGN KEY ("LOCATION_ID") REFERENCES public."LOCATION"("LOCATION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: NOTICE NOTICE_ACTIVATION_ID_5df3baf6_fk_ACTIVATION_ACTIVATION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."NOTICE"
+    ADD CONSTRAINT "NOTICE_ACTIVATION_ID_5df3baf6_fk_ACTIVATION_ACTIVATION_ID" FOREIGN KEY ("ACTIVATION_ID") REFERENCES public."ACTIVATION"("ACTIVATION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: NOTICE_IMAGE NOTICE_IMAGE_ACTIVATION_ID_1514495c_fk_ACTIVATION_ACTIVATION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."NOTICE_IMAGE"
+    ADD CONSTRAINT "NOTICE_IMAGE_ACTIVATION_ID_1514495c_fk_ACTIVATION_ACTIVATION_ID" FOREIGN KEY ("ACTIVATION_ID") REFERENCES public."ACTIVATION"("ACTIVATION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: NOTICE_IMAGE NOTICE_IMAGE_INSTANCE_ID_2ee64c47_fk_INSTANCE_INSTANCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."NOTICE_IMAGE"
+    ADD CONSTRAINT "NOTICE_IMAGE_INSTANCE_ID_2ee64c47_fk_INSTANCE_INSTANCE_ID" FOREIGN KEY ("INSTANCE_ID") REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: NOTICE_IMAGE NOTICE_IMAGE_INSTANCE_RESOURCE_ID_f83511a0_fk_IR_EDITNO; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."NOTICE_IMAGE"
+    ADD CONSTRAINT "NOTICE_IMAGE_INSTANCE_RESOURCE_ID_f83511a0_fk_IR_EDITNO" FOREIGN KEY ("INSTANCE_RESOURCE_ID") REFERENCES public."IR_EDITNOTICE"("INSTANCE_RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: NOTICE_IMAGE NOTICE_IMAGE_USER_ID_532150c9_fk_USER_USER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."NOTICE_IMAGE"
+    ADD CONSTRAINT "NOTICE_IMAGE_USER_ID_532150c9_fk_USER_USER_ID" FOREIGN KEY ("USER_ID") REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: NOTICE NOTICE_NOTICE_TYPE_ID_9b81ab49_fk_NOTICE_TYPE_NOTICE_TYPE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."NOTICE"
+    ADD CONSTRAINT "NOTICE_NOTICE_TYPE_ID_9b81ab49_fk_NOTICE_TYPE_NOTICE_TYPE_ID" FOREIGN KEY ("NOTICE_TYPE_ID") REFERENCES public."NOTICE_TYPE"("NOTICE_TYPE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: NOTICE_TYPE NOTICE_TYPE_CIRCULATION_TYPE_ID_18998ff2_fk_CIRCULATI; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."NOTICE_TYPE"
+    ADD CONSTRAINT "NOTICE_TYPE_CIRCULATION_TYPE_ID_18998ff2_fk_CIRCULATI" FOREIGN KEY ("CIRCULATION_TYPE_ID") REFERENCES public."CIRCULATION_TYPE"("CIRCULATION_TYPE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: NOTICE_TYPE_T NOTICE_TYPE_T_NOTICE_TYPE_ID_43ffcdd0_fk_NOTICE_TY; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."NOTICE_TYPE_T"
+    ADD CONSTRAINT "NOTICE_TYPE_T_NOTICE_TYPE_ID_43ffcdd0_fk_NOTICE_TY" FOREIGN KEY ("NOTICE_TYPE_ID") REFERENCES public."NOTICE_TYPE"("NOTICE_TYPE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: NOTIFICATION_TEMPLATE NOTIFICATION_TEMPLATE_service_id_9d61524c_fk_SERVICE_SERVICE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."NOTIFICATION_TEMPLATE"
+    ADD CONSTRAINT "NOTIFICATION_TEMPLATE_service_id_9d61524c_fk_SERVICE_SERVICE_ID" FOREIGN KEY (service_id) REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: NOTIFICATION_TEMPLATE_T NOTIFICATION_TEMPLAT_TEMPLATE_ID_27e2bec2_fk_NOTIFICAT; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."NOTIFICATION_TEMPLATE_T"
+    ADD CONSTRAINT "NOTIFICATION_TEMPLAT_TEMPLATE_ID_27e2bec2_fk_NOTIFICAT" FOREIGN KEY ("TEMPLATE_ID") REFERENCES public."NOTIFICATION_TEMPLATE"(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: NOTIFICATION_TEMPLATE_T NOTIFICATION_TEMPLAT_template_slug_id_c7d1fcc4_fk_NOTIFICAT; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."NOTIFICATION_TEMPLATE_T"
+    ADD CONSTRAINT "NOTIFICATION_TEMPLAT_template_slug_id_c7d1fcc4_fk_NOTIFICAT" FOREIGN KEY (template_slug_id) REFERENCES public."NOTIFICATION_TEMPLATE"(slug) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: PAGE_ANSWER_ACTIVATION PAGE_ANSWER_ACTIVATION_FORM_ID_7aec2646_fk_FORM_FORM_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_ANSWER_ACTIVATION"
+    ADD CONSTRAINT "PAGE_ANSWER_ACTIVATION_FORM_ID_7aec2646_fk_FORM_FORM_ID" FOREIGN KEY ("FORM_ID") REFERENCES public."FORM"("FORM_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: PAGE_ANSWER_ACTIVATION PAGE_ANSWER_ACTIVATION_PAGE_ID_9fe4ee39_fk_PAGE_PAGE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_ANSWER_ACTIVATION"
+    ADD CONSTRAINT "PAGE_ANSWER_ACTIVATION_PAGE_ID_9fe4ee39_fk_PAGE_PAGE_ID" FOREIGN KEY ("PAGE_ID") REFERENCES public."PAGE"("PAGE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: PAGE_ANSWER_ACTIVATION PAGE_ANSWER_ACTIVATI_CHAPTER_ID_ac82d1ec_fk_CHAPTER_C; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_ANSWER_ACTIVATION"
+    ADD CONSTRAINT "PAGE_ANSWER_ACTIVATI_CHAPTER_ID_ac82d1ec_fk_CHAPTER_C" FOREIGN KEY ("CHAPTER_ID") REFERENCES public."CHAPTER"("CHAPTER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: PAGE_ANSWER_ACTIVATION PAGE_ANSWER_ACTIVATI_QUESTION_ID_e69bfeeb_fk_QUESTION_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_ANSWER_ACTIVATION"
+    ADD CONSTRAINT "PAGE_ANSWER_ACTIVATI_QUESTION_ID_e69bfeeb_fk_QUESTION_" FOREIGN KEY ("QUESTION_ID") REFERENCES public."QUESTION"("QUESTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: PAGE_FORM PAGE_FORM_FORM_ID_b1d7539e_fk_FORM_FORM_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_FORM"
+    ADD CONSTRAINT "PAGE_FORM_FORM_ID_b1d7539e_fk_FORM_FORM_ID" FOREIGN KEY ("FORM_ID") REFERENCES public."FORM"("FORM_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: PAGE_FORM_GROUP_ACL PAGE_FORM_GROUP_ACL_FORM_ID_9e56ecda_fk_PAGE_FORM_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_FORM_GROUP_ACL"
+    ADD CONSTRAINT "PAGE_FORM_GROUP_ACL_FORM_ID_9e56ecda_fk_PAGE_FORM_ID" FOREIGN KEY ("FORM_ID") REFERENCES public."PAGE_FORM"("ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: PAGE_FORM_GROUP_ACL PAGE_FORM_GROUP_ACL_GROUP_ID_37c10218_fk_GROUP_GROUP_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_FORM_GROUP_ACL"
+    ADD CONSTRAINT "PAGE_FORM_GROUP_ACL_GROUP_ID_37c10218_fk_GROUP_GROUP_ID" FOREIGN KEY ("GROUP_ID") REFERENCES public."GROUP"("GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: PAGE_FORM_GROUP_ACL PAGE_FORM_GROUP_ACL_INSTANCE_STATE_ID_a833d72f_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_FORM_GROUP_ACL"
+    ADD CONSTRAINT "PAGE_FORM_GROUP_ACL_INSTANCE_STATE_ID_a833d72f_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_STATE_ID") REFERENCES public."INSTANCE_STATE"("INSTANCE_STATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: PAGE_FORM_GROUP_ACL PAGE_FORM_GROUP_ACL_PAGE_ID_548fb770_fk_PAGE_FORM_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_FORM_GROUP_ACL"
+    ADD CONSTRAINT "PAGE_FORM_GROUP_ACL_PAGE_ID_548fb770_fk_PAGE_FORM_ID" FOREIGN KEY ("PAGE_ID") REFERENCES public."PAGE_FORM"("ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: PAGE_FORM_GROUP_T PAGE_FORM_GROUP_T_PAGE_FORM_GROUP_ID_0434eed8_fk_PAGE_FORM; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_FORM_GROUP_T"
+    ADD CONSTRAINT "PAGE_FORM_GROUP_T_PAGE_FORM_GROUP_ID_0434eed8_fk_PAGE_FORM" FOREIGN KEY ("PAGE_FORM_GROUP_ID") REFERENCES public."PAGE_FORM_GROUP"("PAGE_FORM_GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: PAGE_FORM PAGE_FORM_PAGE_FORM_GROUP_ID_a297b306_fk_PAGE_FORM; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_FORM"
+    ADD CONSTRAINT "PAGE_FORM_PAGE_FORM_GROUP_ID_a297b306_fk_PAGE_FORM" FOREIGN KEY ("PAGE_FORM_GROUP_ID") REFERENCES public."PAGE_FORM_GROUP"("PAGE_FORM_GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: PAGE_FORM PAGE_FORM_PAGE_FORM_MODE_ID_5e67c92f_fk_PAGE_FORM; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_FORM"
+    ADD CONSTRAINT "PAGE_FORM_PAGE_FORM_MODE_ID_5e67c92f_fk_PAGE_FORM" FOREIGN KEY ("PAGE_FORM_MODE_ID") REFERENCES public."PAGE_FORM_MODE"("PAGE_FORM_MODE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: PAGE_FORM PAGE_FORM_PAGE_ID_bc9d500b_fk_PAGE_PAGE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_FORM"
+    ADD CONSTRAINT "PAGE_FORM_PAGE_ID_bc9d500b_fk_PAGE_PAGE_ID" FOREIGN KEY ("PAGE_ID") REFERENCES public."PAGE"("PAGE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: PAGE_FORM_ROLE_ACL PAGE_FORM_ROLE_ACL_FORM_ID_f9bbd70c_fk_PAGE_FORM_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_FORM_ROLE_ACL"
+    ADD CONSTRAINT "PAGE_FORM_ROLE_ACL_FORM_ID_f9bbd70c_fk_PAGE_FORM_ID" FOREIGN KEY ("FORM_ID") REFERENCES public."PAGE_FORM"("ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: PAGE_FORM_ROLE_ACL PAGE_FORM_ROLE_ACL_INSTANCE_STATE_ID_57d85a97_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_FORM_ROLE_ACL"
+    ADD CONSTRAINT "PAGE_FORM_ROLE_ACL_INSTANCE_STATE_ID_57d85a97_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_STATE_ID") REFERENCES public."INSTANCE_STATE"("INSTANCE_STATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: PAGE_FORM_ROLE_ACL PAGE_FORM_ROLE_ACL_PAGE_ID_5a35d06e_fk_PAGE_FORM_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_FORM_ROLE_ACL"
+    ADD CONSTRAINT "PAGE_FORM_ROLE_ACL_PAGE_ID_5a35d06e_fk_PAGE_FORM_ID" FOREIGN KEY ("PAGE_ID") REFERENCES public."PAGE_FORM"("ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: PAGE_FORM_ROLE_ACL PAGE_FORM_ROLE_ACL_ROLE_ID_0c39e00e_fk_ROLE_ROLE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_FORM_ROLE_ACL"
+    ADD CONSTRAINT "PAGE_FORM_ROLE_ACL_ROLE_ID_0c39e00e_fk_ROLE_ROLE_ID" FOREIGN KEY ("ROLE_ID") REFERENCES public."ROLE"("ROLE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: PAGE_FORM_SERVICE_ACL PAGE_FORM_SERVICE_ACL_FORM_ID_a5595a13_fk_PAGE_FORM_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_FORM_SERVICE_ACL"
+    ADD CONSTRAINT "PAGE_FORM_SERVICE_ACL_FORM_ID_a5595a13_fk_PAGE_FORM_ID" FOREIGN KEY ("FORM_ID") REFERENCES public."PAGE_FORM"("ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: PAGE_FORM_SERVICE_ACL PAGE_FORM_SERVICE_ACL_PAGE_ID_7d76d77f_fk_PAGE_FORM_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_FORM_SERVICE_ACL"
+    ADD CONSTRAINT "PAGE_FORM_SERVICE_ACL_PAGE_ID_7d76d77f_fk_PAGE_FORM_ID" FOREIGN KEY ("PAGE_ID") REFERENCES public."PAGE_FORM"("ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: PAGE_FORM_SERVICE_ACL PAGE_FORM_SERVICE_ACL_SERVICE_ID_aff76c80_fk_SERVICE_SERVICE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_FORM_SERVICE_ACL"
+    ADD CONSTRAINT "PAGE_FORM_SERVICE_ACL_SERVICE_ID_aff76c80_fk_SERVICE_SERVICE_ID" FOREIGN KEY ("SERVICE_ID") REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: PAGE_FORM_SERVICE_ACL PAGE_FORM_SERVICE_AC_INSTANCE_STATE_ID_e6e98a4e_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_FORM_SERVICE_ACL"
+    ADD CONSTRAINT "PAGE_FORM_SERVICE_AC_INSTANCE_STATE_ID_e6e98a4e_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_STATE_ID") REFERENCES public."INSTANCE_STATE"("INSTANCE_STATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: PAGE_FORM_USER_ACL PAGE_FORM_USER_ACL_FORM_ID_ad56c2e4_fk_PAGE_FORM_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_FORM_USER_ACL"
+    ADD CONSTRAINT "PAGE_FORM_USER_ACL_FORM_ID_ad56c2e4_fk_PAGE_FORM_ID" FOREIGN KEY ("FORM_ID") REFERENCES public."PAGE_FORM"("ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: PAGE_FORM_USER_ACL PAGE_FORM_USER_ACL_INSTANCE_STATE_ID_3cf1113c_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_FORM_USER_ACL"
+    ADD CONSTRAINT "PAGE_FORM_USER_ACL_INSTANCE_STATE_ID_3cf1113c_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_STATE_ID") REFERENCES public."INSTANCE_STATE"("INSTANCE_STATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: PAGE_FORM_USER_ACL PAGE_FORM_USER_ACL_PAGE_ID_220b53dd_fk_PAGE_FORM_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_FORM_USER_ACL"
+    ADD CONSTRAINT "PAGE_FORM_USER_ACL_PAGE_ID_220b53dd_fk_PAGE_FORM_ID" FOREIGN KEY ("PAGE_ID") REFERENCES public."PAGE_FORM"("ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: PAGE_FORM_USER_ACL PAGE_FORM_USER_ACL_USER_ID_15a30891_fk_USER_USER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_FORM_USER_ACL"
+    ADD CONSTRAINT "PAGE_FORM_USER_ACL_USER_ID_15a30891_fk_USER_USER_ID" FOREIGN KEY ("USER_ID") REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: PAGE_T PAGE_T_PAGE_ID_472ed5db_fk_PAGE_PAGE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PAGE_T"
+    ADD CONSTRAINT "PAGE_T_PAGE_ID_472ed5db_fk_PAGE_PAGE_ID" FOREIGN KEY ("PAGE_ID") REFERENCES public."PAGE"("PAGE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: PROPOSAL_ACTIVATION PROPOSAL_ACTIVATION_CIRCULATION_STATE_ID_1b9fd676_fk_CIRCULATI; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PROPOSAL_ACTIVATION"
+    ADD CONSTRAINT "PROPOSAL_ACTIVATION_CIRCULATION_STATE_ID_1b9fd676_fk_CIRCULATI" FOREIGN KEY ("CIRCULATION_STATE_ID") REFERENCES public."CIRCULATION_STATE"("CIRCULATION_STATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: PROPOSAL_ACTIVATION PROPOSAL_ACTIVATION_CIRCULATION_TYPE_ID_390d361e_fk_CIRCULATI; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PROPOSAL_ACTIVATION"
+    ADD CONSTRAINT "PROPOSAL_ACTIVATION_CIRCULATION_TYPE_ID_390d361e_fk_CIRCULATI" FOREIGN KEY ("CIRCULATION_TYPE_ID") REFERENCES public."CIRCULATION_TYPE"("CIRCULATION_TYPE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: PROPOSAL_ACTIVATION PROPOSAL_ACTIVATION_INSTANCE_ID_4cd3165b_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PROPOSAL_ACTIVATION"
+    ADD CONSTRAINT "PROPOSAL_ACTIVATION_INSTANCE_ID_4cd3165b_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_ID") REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: PROPOSAL_ACTIVATION PROPOSAL_ACTIVATION_SERVICE_ID_b9881de4_fk_SERVICE_SERVICE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PROPOSAL_ACTIVATION"
+    ADD CONSTRAINT "PROPOSAL_ACTIVATION_SERVICE_ID_b9881de4_fk_SERVICE_SERVICE_ID" FOREIGN KEY ("SERVICE_ID") REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: PUBLICATION_ENTRY PUBLICATION_ENTRY_INSTANCE_ID_907cbbb9_fk_INSTANCE_INSTANCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PUBLICATION_ENTRY"
+    ADD CONSTRAINT "PUBLICATION_ENTRY_INSTANCE_ID_907cbbb9_fk_INSTANCE_INSTANCE_ID" FOREIGN KEY ("INSTANCE_ID") REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: PUBLICATION_ENTRY PUBLICATION_ENTRY_PUBLICATION_TYPE_ID_f1c18b52_fk_PUBLICATI; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PUBLICATION_ENTRY"
+    ADD CONSTRAINT "PUBLICATION_ENTRY_PUBLICATION_TYPE_ID_f1c18b52_fk_PUBLICATI" FOREIGN KEY ("PUBLICATION_TYPE_ID") REFERENCES public."PUBLICATION_TYPE"(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: PUBLICATION_SETTING PUBLICATION_SETTING_PUBLICATION_TYPE_ID_121119d2_fk_PUBLICATI; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."PUBLICATION_SETTING"
+    ADD CONSTRAINT "PUBLICATION_SETTING_PUBLICATION_TYPE_ID_121119d2_fk_PUBLICATI" FOREIGN KEY ("PUBLICATION_TYPE_ID") REFERENCES public."PUBLICATION_TYPE"(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: QUESTION QUESTION_ANSWER_QUERY_ID_d9c9320e_fk_ANSWER_QU; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."QUESTION"
+    ADD CONSTRAINT "QUESTION_ANSWER_QUERY_ID_d9c9320e_fk_ANSWER_QU" FOREIGN KEY ("ANSWER_QUERY_ID") REFERENCES public."ANSWER_QUERY"("ANSWER_QUERY_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: QUESTION_CHAPTER QUESTION_CHAPTER_CHAPTER_ID_bdcebef3_fk_CHAPTER_CHAPTER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."QUESTION_CHAPTER"
+    ADD CONSTRAINT "QUESTION_CHAPTER_CHAPTER_ID_bdcebef3_fk_CHAPTER_CHAPTER_ID" FOREIGN KEY ("CHAPTER_ID") REFERENCES public."CHAPTER"("CHAPTER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: QUESTION_CHAPTER_GROUP_ACL QUESTION_CHAPTER_GROUP_ACL_GROUP_ID_ea7a168c_fk_GROUP_GROUP_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."QUESTION_CHAPTER_GROUP_ACL"
+    ADD CONSTRAINT "QUESTION_CHAPTER_GROUP_ACL_GROUP_ID_ea7a168c_fk_GROUP_GROUP_ID" FOREIGN KEY ("GROUP_ID") REFERENCES public."GROUP"("GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: QUESTION_CHAPTER_GROUP_ACL QUESTION_CHAPTER_GRO_CHAPTER_ID_a3bc4339_fk_CHAPTER_C; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."QUESTION_CHAPTER_GROUP_ACL"
+    ADD CONSTRAINT "QUESTION_CHAPTER_GRO_CHAPTER_ID_a3bc4339_fk_CHAPTER_C" FOREIGN KEY ("CHAPTER_ID") REFERENCES public."CHAPTER"("CHAPTER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: QUESTION_CHAPTER_GROUP_ACL QUESTION_CHAPTER_GRO_INSTANCE_STATE_ID_94acd6d4_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."QUESTION_CHAPTER_GROUP_ACL"
+    ADD CONSTRAINT "QUESTION_CHAPTER_GRO_INSTANCE_STATE_ID_94acd6d4_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_STATE_ID") REFERENCES public."INSTANCE_STATE"("INSTANCE_STATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: QUESTION_CHAPTER_GROUP_ACL QUESTION_CHAPTER_GRO_QUESTION_ID_502a8c83_fk_QUESTION_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."QUESTION_CHAPTER_GROUP_ACL"
+    ADD CONSTRAINT "QUESTION_CHAPTER_GRO_QUESTION_ID_502a8c83_fk_QUESTION_" FOREIGN KEY ("QUESTION_ID") REFERENCES public."QUESTION"("QUESTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: QUESTION_CHAPTER QUESTION_CHAPTER_QUESTION_ID_0994eadd_fk_QUESTION_QUESTION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."QUESTION_CHAPTER"
+    ADD CONSTRAINT "QUESTION_CHAPTER_QUESTION_ID_0994eadd_fk_QUESTION_QUESTION_ID" FOREIGN KEY ("QUESTION_ID") REFERENCES public."QUESTION"("QUESTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: QUESTION_CHAPTER_ROLE_ACL QUESTION_CHAPTER_ROLE_ACL_ROLE_ID_22372532_fk_ROLE_ROLE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."QUESTION_CHAPTER_ROLE_ACL"
+    ADD CONSTRAINT "QUESTION_CHAPTER_ROLE_ACL_ROLE_ID_22372532_fk_ROLE_ROLE_ID" FOREIGN KEY ("ROLE_ID") REFERENCES public."ROLE"("ROLE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: QUESTION_CHAPTER_ROLE_ACL QUESTION_CHAPTER_ROL_CHAPTER_ID_de69c275_fk_CHAPTER_C; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."QUESTION_CHAPTER_ROLE_ACL"
+    ADD CONSTRAINT "QUESTION_CHAPTER_ROL_CHAPTER_ID_de69c275_fk_CHAPTER_C" FOREIGN KEY ("CHAPTER_ID") REFERENCES public."CHAPTER"("CHAPTER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: QUESTION_CHAPTER_ROLE_ACL QUESTION_CHAPTER_ROL_INSTANCE_STATE_ID_d536131d_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."QUESTION_CHAPTER_ROLE_ACL"
+    ADD CONSTRAINT "QUESTION_CHAPTER_ROL_INSTANCE_STATE_ID_d536131d_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_STATE_ID") REFERENCES public."INSTANCE_STATE"("INSTANCE_STATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: QUESTION_CHAPTER_ROLE_ACL QUESTION_CHAPTER_ROL_QUESTION_ID_7a8338b8_fk_QUESTION_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."QUESTION_CHAPTER_ROLE_ACL"
+    ADD CONSTRAINT "QUESTION_CHAPTER_ROL_QUESTION_ID_7a8338b8_fk_QUESTION_" FOREIGN KEY ("QUESTION_ID") REFERENCES public."QUESTION"("QUESTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: QUESTION_CHAPTER_SERVICE_ACL QUESTION_CHAPTER_SER_CHAPTER_ID_31b17e82_fk_CHAPTER_C; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."QUESTION_CHAPTER_SERVICE_ACL"
+    ADD CONSTRAINT "QUESTION_CHAPTER_SER_CHAPTER_ID_31b17e82_fk_CHAPTER_C" FOREIGN KEY ("CHAPTER_ID") REFERENCES public."CHAPTER"("CHAPTER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: QUESTION_CHAPTER_SERVICE_ACL QUESTION_CHAPTER_SER_INSTANCE_STATE_ID_06c5a49f_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."QUESTION_CHAPTER_SERVICE_ACL"
+    ADD CONSTRAINT "QUESTION_CHAPTER_SER_INSTANCE_STATE_ID_06c5a49f_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_STATE_ID") REFERENCES public."INSTANCE_STATE"("INSTANCE_STATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: QUESTION_CHAPTER_SERVICE_ACL QUESTION_CHAPTER_SER_QUESTION_ID_cf6c35c8_fk_QUESTION_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."QUESTION_CHAPTER_SERVICE_ACL"
+    ADD CONSTRAINT "QUESTION_CHAPTER_SER_QUESTION_ID_cf6c35c8_fk_QUESTION_" FOREIGN KEY ("QUESTION_ID") REFERENCES public."QUESTION"("QUESTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: QUESTION_CHAPTER_SERVICE_ACL QUESTION_CHAPTER_SER_SERVICE_ID_2b971efd_fk_SERVICE_S; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."QUESTION_CHAPTER_SERVICE_ACL"
+    ADD CONSTRAINT "QUESTION_CHAPTER_SER_SERVICE_ID_2b971efd_fk_SERVICE_S" FOREIGN KEY ("SERVICE_ID") REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: QUESTION_CHAPTER_USER_ACL QUESTION_CHAPTER_USER_ACL_USER_ID_5575031b_fk_USER_USER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."QUESTION_CHAPTER_USER_ACL"
+    ADD CONSTRAINT "QUESTION_CHAPTER_USER_ACL_USER_ID_5575031b_fk_USER_USER_ID" FOREIGN KEY ("USER_ID") REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: QUESTION_CHAPTER_USER_ACL QUESTION_CHAPTER_USE_CHAPTER_ID_e2a39690_fk_CHAPTER_C; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."QUESTION_CHAPTER_USER_ACL"
+    ADD CONSTRAINT "QUESTION_CHAPTER_USE_CHAPTER_ID_e2a39690_fk_CHAPTER_C" FOREIGN KEY ("CHAPTER_ID") REFERENCES public."CHAPTER"("CHAPTER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: QUESTION_CHAPTER_USER_ACL QUESTION_CHAPTER_USE_INSTANCE_STATE_ID_bbc41b15_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."QUESTION_CHAPTER_USER_ACL"
+    ADD CONSTRAINT "QUESTION_CHAPTER_USE_INSTANCE_STATE_ID_bbc41b15_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_STATE_ID") REFERENCES public."INSTANCE_STATE"("INSTANCE_STATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: QUESTION_CHAPTER_USER_ACL QUESTION_CHAPTER_USE_QUESTION_ID_edb6f1be_fk_QUESTION_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."QUESTION_CHAPTER_USER_ACL"
+    ADD CONSTRAINT "QUESTION_CHAPTER_USE_QUESTION_ID_edb6f1be_fk_QUESTION_" FOREIGN KEY ("QUESTION_ID") REFERENCES public."QUESTION"("QUESTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: QUESTION QUESTION_MAPPING_ID_03e9e9ac_fk_MAPPING_MAPPING_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."QUESTION"
+    ADD CONSTRAINT "QUESTION_MAPPING_ID_03e9e9ac_fk_MAPPING_MAPPING_ID" FOREIGN KEY ("MAPPING_ID") REFERENCES public."MAPPING"("MAPPING_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: QUESTION QUESTION_QUESTION_TYPE_ID_69737b84_fk_QUESTION_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."QUESTION"
+    ADD CONSTRAINT "QUESTION_QUESTION_TYPE_ID_69737b84_fk_QUESTION_" FOREIGN KEY ("QUESTION_TYPE_ID") REFERENCES public."QUESTION_TYPE"("QUESTION_TYPE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: QUESTION_T QUESTION_T_QUESTION_ID_0bc58e7c_fk_QUESTION_QUESTION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."QUESTION_T"
+    ADD CONSTRAINT "QUESTION_T_QUESTION_ID_0bc58e7c_fk_QUESTION_QUESTION_ID" FOREIGN KEY ("QUESTION_ID") REFERENCES public."QUESTION"("QUESTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: RESOURCE RESOURCE_AVAILABLE_RESOURCE_I_7726eecf_fk_AVAILABLE; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."RESOURCE"
+    ADD CONSTRAINT "RESOURCE_AVAILABLE_RESOURCE_I_7726eecf_fk_AVAILABLE" FOREIGN KEY ("AVAILABLE_RESOURCE_ID") REFERENCES public."AVAILABLE_RESOURCE"("AVAILABLE_RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: RESOURCE_T RESOURCE_T_RESOURCE_ID_f7357177_fk_RESOURCE_RESOURCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."RESOURCE_T"
+    ADD CONSTRAINT "RESOURCE_T_RESOURCE_ID_f7357177_fk_RESOURCE_RESOURCE_ID" FOREIGN KEY ("RESOURCE_ID") REFERENCES public."RESOURCE"("RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: RESPONSIBLE_ALLOCATION RESPONSIBLE_ALLOCATION_GROUP_ID_b325261f_fk_GROUP_GROUP_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."RESPONSIBLE_ALLOCATION"
+    ADD CONSTRAINT "RESPONSIBLE_ALLOCATION_GROUP_ID_b325261f_fk_GROUP_GROUP_ID" FOREIGN KEY ("GROUP_ID") REFERENCES public."GROUP"("GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: RESPONSIBLE_ALLOCATION RESPONSIBLE_ALLOCATI_LOCATION_ID_b8689c12_fk_LOCATION_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."RESPONSIBLE_ALLOCATION"
+    ADD CONSTRAINT "RESPONSIBLE_ALLOCATI_LOCATION_ID_b8689c12_fk_LOCATION_" FOREIGN KEY ("LOCATION_ID") REFERENCES public."LOCATION"("LOCATION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: RESPONSIBLE_SERVICE_ALLOCATION RESPONSIBLE_SERVICE_ALLOCATION_USER_ID_2abbae3e_fk_USER_USER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."RESPONSIBLE_SERVICE_ALLOCATION"
+    ADD CONSTRAINT "RESPONSIBLE_SERVICE_ALLOCATION_USER_ID_2abbae3e_fk_USER_USER_ID" FOREIGN KEY ("USER_ID") REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: RESPONSIBLE_SERVICE RESPONSIBLE_SERVICE_INSTANCE_ID_fbbef379_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."RESPONSIBLE_SERVICE"
+    ADD CONSTRAINT "RESPONSIBLE_SERVICE_INSTANCE_ID_fbbef379_fk_INSTANCE_" FOREIGN KEY ("INSTANCE_ID") REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: RESPONSIBLE_SERVICE RESPONSIBLE_SERVICE_RESPONSIBLE_USER_ID_090002e1_fk_USER_USER; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."RESPONSIBLE_SERVICE"
+    ADD CONSTRAINT "RESPONSIBLE_SERVICE_RESPONSIBLE_USER_ID_090002e1_fk_USER_USER" FOREIGN KEY ("RESPONSIBLE_USER_ID") REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: RESPONSIBLE_SERVICE RESPONSIBLE_SERVICE_SERVICE_ID_3d8f3e1d_fk_SERVICE_SERVICE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."RESPONSIBLE_SERVICE"
+    ADD CONSTRAINT "RESPONSIBLE_SERVICE_SERVICE_ID_3d8f3e1d_fk_SERVICE_SERVICE_ID" FOREIGN KEY ("SERVICE_ID") REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: RESPONSIBLE_SERVICE_ALLOCATION RESPONSIBLE_SERVICE__LOCATION_ID_dd7e97ff_fk_LOCATION_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."RESPONSIBLE_SERVICE_ALLOCATION"
+    ADD CONSTRAINT "RESPONSIBLE_SERVICE__LOCATION_ID_dd7e97ff_fk_LOCATION_" FOREIGN KEY ("LOCATION_ID") REFERENCES public."LOCATION"("LOCATION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: RESPONSIBLE_SERVICE_ALLOCATION RESPONSIBLE_SERVICE__SERVICE_ID_7ac47fce_fk_SERVICE_S; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."RESPONSIBLE_SERVICE_ALLOCATION"
+    ADD CONSTRAINT "RESPONSIBLE_SERVICE__SERVICE_ID_7ac47fce_fk_SERVICE_S" FOREIGN KEY ("SERVICE_ID") REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ROLE ROLE_ROLE_PARENT_ID_2dfb744a_fk_ROLE_ROLE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ROLE"
+    ADD CONSTRAINT "ROLE_ROLE_PARENT_ID_2dfb744a_fk_ROLE_ROLE_ID" FOREIGN KEY ("ROLE_PARENT_ID") REFERENCES public."ROLE"("ROLE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ROLE_T ROLE_T_ROLE_ID_1373af16_fk_ROLE_ROLE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."ROLE_T"
+    ADD CONSTRAINT "ROLE_T_ROLE_ID_1373af16_fk_ROLE_ROLE_ID" FOREIGN KEY ("ROLE_ID") REFERENCES public."ROLE"("ROLE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: R_FORMLIST R_FORMLIST_FORM_ID_7f9372fe_fk_FORM_FORM_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."R_FORMLIST"
+    ADD CONSTRAINT "R_FORMLIST_FORM_ID_7f9372fe_fk_FORM_FORM_ID" FOREIGN KEY ("FORM_ID") REFERENCES public."FORM"("FORM_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: R_FORMLIST R_FORMLIST_RESOURCE_ID_a273097a_fk_RESOURCE_RESOURCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."R_FORMLIST"
+    ADD CONSTRAINT "R_FORMLIST_RESOURCE_ID_a273097a_fk_RESOURCE_RESOURCE_ID" FOREIGN KEY ("RESOURCE_ID") REFERENCES public."RESOURCE"("RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: R_GROUP_ACL R_GROUP_ACL_GROUP_ID_a1e2809d_fk_GROUP_GROUP_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."R_GROUP_ACL"
+    ADD CONSTRAINT "R_GROUP_ACL_GROUP_ID_a1e2809d_fk_GROUP_GROUP_ID" FOREIGN KEY ("GROUP_ID") REFERENCES public."GROUP"("GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: R_GROUP_ACL R_GROUP_ACL_RESOURCE_ID_fa4e243a_fk_RESOURCE_RESOURCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."R_GROUP_ACL"
+    ADD CONSTRAINT "R_GROUP_ACL_RESOURCE_ID_fa4e243a_fk_RESOURCE_RESOURCE_ID" FOREIGN KEY ("RESOURCE_ID") REFERENCES public."RESOURCE"("RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: R_LIST_COLUMN R_LIST_COLUMN_RESOURCE_ID_f26a24e5_fk_R_LIST_RESOURCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."R_LIST_COLUMN"
+    ADD CONSTRAINT "R_LIST_COLUMN_RESOURCE_ID_f26a24e5_fk_R_LIST_RESOURCE_ID" FOREIGN KEY ("RESOURCE_ID") REFERENCES public."R_LIST"("RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: R_LIST_COLUMN_T R_LIST_COLUMN_T_R_LIST_COLUMN_ID_0d8b7477_fk_R_LIST_CO; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."R_LIST_COLUMN_T"
+    ADD CONSTRAINT "R_LIST_COLUMN_T_R_LIST_COLUMN_ID_0d8b7477_fk_R_LIST_CO" FOREIGN KEY ("R_LIST_COLUMN_ID") REFERENCES public."R_LIST_COLUMN"("R_LIST_COLUMN_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: R_LIST R_LIST_RESOURCE_ID_24731a2c_fk_RESOURCE_RESOURCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."R_LIST"
+    ADD CONSTRAINT "R_LIST_RESOURCE_ID_24731a2c_fk_RESOURCE_RESOURCE_ID" FOREIGN KEY ("RESOURCE_ID") REFERENCES public."RESOURCE"("RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: R_PAGE R_PAGE_RESOURCE_ID_2fbd3753_fk_RESOURCE_RESOURCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."R_PAGE"
+    ADD CONSTRAINT "R_PAGE_RESOURCE_ID_2fbd3753_fk_RESOURCE_RESOURCE_ID" FOREIGN KEY ("RESOURCE_ID") REFERENCES public."RESOURCE"("RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: R_ROLE_ACL R_ROLE_ACL_RESOURCE_ID_3c9dabef_fk_RESOURCE_RESOURCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."R_ROLE_ACL"
+    ADD CONSTRAINT "R_ROLE_ACL_RESOURCE_ID_3c9dabef_fk_RESOURCE_RESOURCE_ID" FOREIGN KEY ("RESOURCE_ID") REFERENCES public."RESOURCE"("RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: R_ROLE_ACL R_ROLE_ACL_ROLE_ID_c80c3fdc_fk_ROLE_ROLE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."R_ROLE_ACL"
+    ADD CONSTRAINT "R_ROLE_ACL_ROLE_ID_c80c3fdc_fk_ROLE_ROLE_ID" FOREIGN KEY ("ROLE_ID") REFERENCES public."ROLE"("ROLE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: R_SEARCH_COLUMN R_SEARCH_COLUMN_RESOURCE_ID_6df43880_fk_R_SEARCH_RESOURCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."R_SEARCH_COLUMN"
+    ADD CONSTRAINT "R_SEARCH_COLUMN_RESOURCE_ID_6df43880_fk_R_SEARCH_RESOURCE_ID" FOREIGN KEY ("RESOURCE_ID") REFERENCES public."R_SEARCH"("RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: R_SEARCH_COLUMN_T R_SEARCH_COLUMN_T_R_SEARCH_COLUMN_ID_f7d18a36_fk_R_SEARCH_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."R_SEARCH_COLUMN_T"
+    ADD CONSTRAINT "R_SEARCH_COLUMN_T_R_SEARCH_COLUMN_ID_f7d18a36_fk_R_SEARCH_" FOREIGN KEY ("R_SEARCH_COLUMN_ID") REFERENCES public."R_SEARCH_COLUMN"("R_SEARCH_COLUMN_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: R_SEARCH_FILTER R_SEARCH_FILTER_QUESTION_ID_11e215d3_fk_QUESTION_QUESTION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."R_SEARCH_FILTER"
+    ADD CONSTRAINT "R_SEARCH_FILTER_QUESTION_ID_11e215d3_fk_QUESTION_QUESTION_ID" FOREIGN KEY ("QUESTION_ID") REFERENCES public."QUESTION"("QUESTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: R_SEARCH_FILTER R_SEARCH_FILTER_RESOURCE_ID_d64f4a69_fk_R_SEARCH_RESOURCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."R_SEARCH_FILTER"
+    ADD CONSTRAINT "R_SEARCH_FILTER_RESOURCE_ID_d64f4a69_fk_R_SEARCH_RESOURCE_ID" FOREIGN KEY ("RESOURCE_ID") REFERENCES public."R_SEARCH"("RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: R_SEARCH_FILTER_T R_SEARCH_FILTER_T_R_SEARCH_FILTER_ID_8f3fcca2_fk_R_SEARCH_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."R_SEARCH_FILTER_T"
+    ADD CONSTRAINT "R_SEARCH_FILTER_T_R_SEARCH_FILTER_ID_8f3fcca2_fk_R_SEARCH_" FOREIGN KEY ("R_SEARCH_FILTER_ID") REFERENCES public."R_SEARCH_FILTER"("R_SEARCH_FILTER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: R_SEARCH R_SEARCH_RESOURCE_ID_a0aff05f_fk_RESOURCE_RESOURCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."R_SEARCH"
+    ADD CONSTRAINT "R_SEARCH_RESOURCE_ID_a0aff05f_fk_RESOURCE_RESOURCE_ID" FOREIGN KEY ("RESOURCE_ID") REFERENCES public."RESOURCE"("RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: R_SERVICE_ACL R_SERVICE_ACL_RESOURCE_ID_74270c6e_fk_RESOURCE_RESOURCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."R_SERVICE_ACL"
+    ADD CONSTRAINT "R_SERVICE_ACL_RESOURCE_ID_74270c6e_fk_RESOURCE_RESOURCE_ID" FOREIGN KEY ("RESOURCE_ID") REFERENCES public."RESOURCE"("RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: R_SERVICE_ACL R_SERVICE_ACL_SERVICE_ID_39561725_fk_SERVICE_SERVICE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."R_SERVICE_ACL"
+    ADD CONSTRAINT "R_SERVICE_ACL_SERVICE_ID_39561725_fk_SERVICE_SERVICE_ID" FOREIGN KEY ("SERVICE_ID") REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: R_USER_ACL R_USER_ACL_RESOURCE_ID_f1c65330_fk_RESOURCE_RESOURCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."R_USER_ACL"
+    ADD CONSTRAINT "R_USER_ACL_RESOURCE_ID_f1c65330_fk_RESOURCE_RESOURCE_ID" FOREIGN KEY ("RESOURCE_ID") REFERENCES public."RESOURCE"("RESOURCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: R_USER_ACL R_USER_ACL_USER_ID_0441f8c5_fk_USER_USER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."R_USER_ACL"
+    ADD CONSTRAINT "R_USER_ACL_USER_ID_0441f8c5_fk_USER_USER_ID" FOREIGN KEY ("USER_ID") REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: SANCTION SANCTION_CONTROL_INSTANCE_ID_c0c0e275_fk_SERVICE_SERVICE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."SANCTION"
+    ADD CONSTRAINT "SANCTION_CONTROL_INSTANCE_ID_c0c0e275_fk_SERVICE_SERVICE_ID" FOREIGN KEY ("CONTROL_INSTANCE_ID") REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: SANCTION SANCTION_FINISHED_BY_USER_ID_4cfc0ea0_fk_USER_USER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."SANCTION"
+    ADD CONSTRAINT "SANCTION_FINISHED_BY_USER_ID_4cfc0ea0_fk_USER_USER_ID" FOREIGN KEY ("FINISHED_BY_USER_ID") REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: SANCTION SANCTION_INSTANCE_ID_8a78eaf5_fk_INSTANCE_INSTANCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."SANCTION"
+    ADD CONSTRAINT "SANCTION_INSTANCE_ID_8a78eaf5_fk_INSTANCE_INSTANCE_ID" FOREIGN KEY ("INSTANCE_ID") REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: SANCTION SANCTION_SERVICE_ID_b726ff1f_fk_SERVICE_SERVICE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."SANCTION"
+    ADD CONSTRAINT "SANCTION_SERVICE_ID_b726ff1f_fk_SERVICE_SERVICE_ID" FOREIGN KEY ("SERVICE_ID") REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: SANCTION SANCTION_USER_ID_9bc418a3_fk_USER_USER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."SANCTION"
+    ADD CONSTRAINT "SANCTION_USER_ID_9bc418a3_fk_USER_USER_ID" FOREIGN KEY ("USER_ID") REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: SERVICE_ANSWER_ACTIVATION SERVICE_ANSWER_ACTIVATION_FORM_ID_35e98f5b_fk_FORM_FORM_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."SERVICE_ANSWER_ACTIVATION"
+    ADD CONSTRAINT "SERVICE_ANSWER_ACTIVATION_FORM_ID_35e98f5b_fk_FORM_FORM_ID" FOREIGN KEY ("FORM_ID") REFERENCES public."FORM"("FORM_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: SERVICE_ANSWER_ACTIVATION SERVICE_ANSWER_ACTIV_CHAPTER_ID_ef9731d1_fk_CHAPTER_C; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."SERVICE_ANSWER_ACTIVATION"
+    ADD CONSTRAINT "SERVICE_ANSWER_ACTIV_CHAPTER_ID_ef9731d1_fk_CHAPTER_C" FOREIGN KEY ("CHAPTER_ID") REFERENCES public."CHAPTER"("CHAPTER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: SERVICE_ANSWER_ACTIVATION SERVICE_ANSWER_ACTIV_QUESTION_ID_6d2071fc_fk_QUESTION_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."SERVICE_ANSWER_ACTIVATION"
+    ADD CONSTRAINT "SERVICE_ANSWER_ACTIV_QUESTION_ID_6d2071fc_fk_QUESTION_" FOREIGN KEY ("QUESTION_ID") REFERENCES public."QUESTION"("QUESTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: SERVICE_ANSWER_ACTIVATION SERVICE_ANSWER_ACTIV_SERVICE_ID_4232baa6_fk_SERVICE_S; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."SERVICE_ANSWER_ACTIVATION"
+    ADD CONSTRAINT "SERVICE_ANSWER_ACTIV_SERVICE_ID_4232baa6_fk_SERVICE_S" FOREIGN KEY ("SERVICE_ID") REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: SERVICE_GROUP_T SERVICE_GROUP_T_SERVICE_GROUP_ID_9ea2d06b_fk_SERVICE_G; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."SERVICE_GROUP_T"
+    ADD CONSTRAINT "SERVICE_GROUP_T_SERVICE_GROUP_ID_9ea2d06b_fk_SERVICE_G" FOREIGN KEY ("SERVICE_GROUP_ID") REFERENCES public."SERVICE_GROUP"("SERVICE_GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: SERVICE SERVICE_SERVICE_GROUP_ID_8a973e36_fk_SERVICE_G; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."SERVICE"
+    ADD CONSTRAINT "SERVICE_SERVICE_GROUP_ID_8a973e36_fk_SERVICE_G" FOREIGN KEY ("SERVICE_GROUP_ID") REFERENCES public."SERVICE_GROUP"("SERVICE_GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: SERVICE SERVICE_SERVICE_PARENT_ID_24babd53_fk_SERVICE_SERVICE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."SERVICE"
+    ADD CONSTRAINT "SERVICE_SERVICE_PARENT_ID_24babd53_fk_SERVICE_SERVICE_ID" FOREIGN KEY ("SERVICE_PARENT_ID") REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: SERVICE_T SERVICE_T_SERVICE_ID_2ddc276c_fk_SERVICE_SERVICE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."SERVICE_T"
+    ADD CONSTRAINT "SERVICE_T_SERVICE_ID_2ddc276c_fk_SERVICE_SERVICE_ID" FOREIGN KEY ("SERVICE_ID") REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: TAGS TAGS_INSTANCE_ID_cee1fd6e_fk_INSTANCE_INSTANCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."TAGS"
+    ADD CONSTRAINT "TAGS_INSTANCE_ID_cee1fd6e_fk_INSTANCE_INSTANCE_ID" FOREIGN KEY ("INSTANCE_ID") REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: TAGS TAGS_SERVICE_ID_c150e94f_fk_SERVICE_SERVICE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."TAGS"
+    ADD CONSTRAINT "TAGS_SERVICE_ID_c150e94f_fk_SERVICE_SERVICE_ID" FOREIGN KEY ("SERVICE_ID") REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: TEMPLATE_GENERATE_ACTION TEMPLATE_GENERATE_ACTION_ACTION_ID_267a8014_fk_ACTION_ACTION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."TEMPLATE_GENERATE_ACTION"
+    ADD CONSTRAINT "TEMPLATE_GENERATE_ACTION_ACTION_ID_267a8014_fk_ACTION_ACTION_ID" FOREIGN KEY ("ACTION_ID") REFERENCES public."ACTION"("ACTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: TEMPLATE_GENERATE_ACTION TEMPLATE_GENERATE_AC_TEMPLATE_ID_580da4f2_fk_TEMPLATE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."TEMPLATE_GENERATE_ACTION"
+    ADD CONSTRAINT "TEMPLATE_GENERATE_AC_TEMPLATE_ID_580da4f2_fk_TEMPLATE_" FOREIGN KEY ("TEMPLATE_ID") REFERENCES public."TEMPLATE"("TEMPLATE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: TEMPLATE TEMPLATE_group_id_dfdd41fa_fk_GROUP_GROUP_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."TEMPLATE"
+    ADD CONSTRAINT "TEMPLATE_group_id_dfdd41fa_fk_GROUP_GROUP_ID" FOREIGN KEY (group_id) REFERENCES public."GROUP"("GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: TEMPLATE TEMPLATE_service_id_fca7a53f_fk_SERVICE_SERVICE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."TEMPLATE"
+    ADD CONSTRAINT "TEMPLATE_service_id_fca7a53f_fk_SERVICE_SERVICE_ID" FOREIGN KEY (service_id) REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: USER_GROUP USER_GROUP_GROUP_ID_9ca8ba42_fk_GROUP_GROUP_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."USER_GROUP"
+    ADD CONSTRAINT "USER_GROUP_GROUP_ID_9ca8ba42_fk_GROUP_GROUP_ID" FOREIGN KEY ("GROUP_ID") REFERENCES public."GROUP"("GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: USER_GROUP USER_GROUP_USER_ID_94a94f86_fk_USER_USER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."USER_GROUP"
+    ADD CONSTRAINT "USER_GROUP_USER_ID_94a94f86_fk_USER_USER_ID" FOREIGN KEY ("USER_ID") REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: USER_GROUP USER_GROUP_created_by_id_f78ce4ae_fk_USER_USER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."USER_GROUP"
+    ADD CONSTRAINT "USER_GROUP_created_by_id_f78ce4ae_fk_USER_USER_ID" FOREIGN KEY (created_by_id) REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: USER_T USER_T_USER_ID_00a6ec9c_fk_USER_USER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."USER_T"
+    ADD CONSTRAINT "USER_T_USER_ID_00a6ec9c_fk_USER_USER_ID" FOREIGN KEY ("USER_ID") REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: WORKFLOW_ACTION WORKFLOW_ACTION_ACTION_ID_039494c3_fk_ACTION_ACTION_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."WORKFLOW_ACTION"
+    ADD CONSTRAINT "WORKFLOW_ACTION_ACTION_ID_039494c3_fk_ACTION_ACTION_ID" FOREIGN KEY ("ACTION_ID") REFERENCES public."ACTION"("ACTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: WORKFLOW_ACTION WORKFLOW_ACTION_WORKFLOW_ITEM_ID_14ea63d0_fk_WORKFLOW_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."WORKFLOW_ACTION"
+    ADD CONSTRAINT "WORKFLOW_ACTION_WORKFLOW_ITEM_ID_14ea63d0_fk_WORKFLOW_" FOREIGN KEY ("WORKFLOW_ITEM_ID") REFERENCES public."WORKFLOW_ITEM"("WORKFLOW_ITEM_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: WORKFLOW_ENTRY WORKFLOW_ENTRY_INSTANCE_ID_e97c3ec7_fk_INSTANCE_INSTANCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."WORKFLOW_ENTRY"
+    ADD CONSTRAINT "WORKFLOW_ENTRY_INSTANCE_ID_e97c3ec7_fk_INSTANCE_INSTANCE_ID" FOREIGN KEY ("INSTANCE_ID") REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: WORKFLOW_ENTRY WORKFLOW_ENTRY_WORKFLOW_ITEM_ID_fb3e18d0_fk_WORKFLOW_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."WORKFLOW_ENTRY"
+    ADD CONSTRAINT "WORKFLOW_ENTRY_WORKFLOW_ITEM_ID_fb3e18d0_fk_WORKFLOW_" FOREIGN KEY ("WORKFLOW_ITEM_ID") REFERENCES public."WORKFLOW_ITEM"("WORKFLOW_ITEM_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: WORKFLOW_ITEM WORKFLOW_ITEM_WORKFLOW_SECTION_ID_8c982360_fk_WORKFLOW_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."WORKFLOW_ITEM"
+    ADD CONSTRAINT "WORKFLOW_ITEM_WORKFLOW_SECTION_ID_8c982360_fk_WORKFLOW_" FOREIGN KEY ("WORKFLOW_SECTION_ID") REFERENCES public."WORKFLOW_SECTION"("WORKFLOW_SECTION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: WORKFLOW_ITEM WORKFLOW_ITEM_caluma_question_id_3537ca67_fk_caluma_fo; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."WORKFLOW_ITEM"
+    ADD CONSTRAINT "WORKFLOW_ITEM_caluma_question_id_3537ca67_fk_caluma_fo" FOREIGN KEY (caluma_question_id) REFERENCES public.caluma_form_question(slug) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: WORKFLOW_ITEM WORKFLOW_ITEM_caluma_task_id_d6bad0c2_fk_caluma_wo; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."WORKFLOW_ITEM"
+    ADD CONSTRAINT "WORKFLOW_ITEM_caluma_task_id_d6bad0c2_fk_caluma_wo" FOREIGN KEY (caluma_task_id) REFERENCES public.caluma_workflow_task(slug) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: WORKFLOW_ROLE WORKFLOW_ROLE_ROLE_ID_96514168_fk_ROLE_ROLE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."WORKFLOW_ROLE"
+    ADD CONSTRAINT "WORKFLOW_ROLE_ROLE_ID_96514168_fk_ROLE_ROLE_ID" FOREIGN KEY ("ROLE_ID") REFERENCES public."ROLE"("ROLE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: WORKFLOW_ROLE WORKFLOW_ROLE_WORKFLOW_ITEM_ID_628bff4c_fk_WORKFLOW_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public."WORKFLOW_ROLE"
+    ADD CONSTRAINT "WORKFLOW_ROLE_WORKFLOW_ITEM_ID_628bff4c_fk_WORKFLOW_" FOREIGN KEY ("WORKFLOW_ITEM_ID") REFERENCES public."WORKFLOW_ITEM"("WORKFLOW_ITEM_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: alexandria_core_category alexandria_core_cate_parent_id_3d31dd25_fk_alexandri; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.alexandria_core_category
+    ADD CONSTRAINT alexandria_core_cate_parent_id_3d31dd25_fk_alexandri FOREIGN KEY (parent_id) REFERENCES public.alexandria_core_category(slug) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: alexandria_core_document alexandria_core_docu_category_id_e778a740_fk_alexandri; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.alexandria_core_document
+    ADD CONSTRAINT alexandria_core_docu_category_id_e778a740_fk_alexandri FOREIGN KEY (category_id) REFERENCES public.alexandria_core_category(slug) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: alexandria_core_document_tags alexandria_core_docu_document_id_03b70e35_fk_alexandri; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.alexandria_core_document_tags
+    ADD CONSTRAINT alexandria_core_docu_document_id_03b70e35_fk_alexandri FOREIGN KEY (document_id) REFERENCES public.alexandria_core_document(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: alexandria_core_document_marks alexandria_core_docu_document_id_80249d44_fk_alexandri; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.alexandria_core_document_marks
+    ADD CONSTRAINT alexandria_core_docu_document_id_80249d44_fk_alexandri FOREIGN KEY (document_id) REFERENCES public.alexandria_core_document(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: alexandria_core_document_marks alexandria_core_docu_mark_id_520f5c84_fk_alexandri; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.alexandria_core_document_marks
+    ADD CONSTRAINT alexandria_core_docu_mark_id_520f5c84_fk_alexandri FOREIGN KEY (mark_id) REFERENCES public.alexandria_core_mark(slug) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: alexandria_core_document_tags alexandria_core_document_tags_tag_id_8dc7fb00_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.alexandria_core_document_tags
+    ADD CONSTRAINT alexandria_core_document_tags_tag_id_8dc7fb00_fk FOREIGN KEY (tag_id) REFERENCES public.alexandria_core_tag(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: alexandria_core_file alexandria_core_file_document_id_155ad7ba_fk_alexandri; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.alexandria_core_file
+    ADD CONSTRAINT alexandria_core_file_document_id_155ad7ba_fk_alexandri FOREIGN KEY (document_id) REFERENCES public.alexandria_core_document(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: alexandria_core_file alexandria_core_file_original_id_d665c65a_fk_alexandri; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.alexandria_core_file
+    ADD CONSTRAINT alexandria_core_file_original_id_d665c65a_fk_alexandri FOREIGN KEY (original_id) REFERENCES public.alexandria_core_file(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: alexandria_core_tag alexandria_core_tag_tag_synonym_group_id_c403b435_fk_alexandri; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.alexandria_core_tag
+    ADD CONSTRAINT alexandria_core_tag_tag_synonym_group_id_c403b435_fk_alexandri FOREIGN KEY (tag_synonym_group_id) REFERENCES public.alexandria_core_tagsynonymgroup(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: auth_group_permissions auth_group_permissio_permission_id_84c5c92e_fk_auth_perm; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.auth_group_permissions
+    ADD CONSTRAINT auth_group_permissio_permission_id_84c5c92e_fk_auth_perm FOREIGN KEY (permission_id) REFERENCES public.auth_permission(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: auth_group_permissions auth_group_permissions_group_id_b120cbf9_fk_auth_group_id; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.auth_group_permissions
+    ADD CONSTRAINT auth_group_permissions_group_id_b120cbf9_fk_auth_group_id FOREIGN KEY (group_id) REFERENCES public.auth_group(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: auth_permission auth_permission_content_type_id_2f476e4b_fk_django_co; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.auth_permission
+    ADD CONSTRAINT auth_permission_content_type_id_2f476e4b_fk_django_co FOREIGN KEY (content_type_id) REFERENCES public.django_content_type(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: billing_billingv2entrytemplate_services billing_billingv2ent_billingv2entrytempla_981242e7_fk_billing_b; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.billing_billingv2entrytemplate_services
+    ADD CONSTRAINT billing_billingv2ent_billingv2entrytempla_981242e7_fk_billing_b FOREIGN KEY (billingv2entrytemplate_id) REFERENCES public.billing_billingv2entrytemplate(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: billing_billingv2entrytemplate_service_groups billing_billingv2ent_billingv2entrytempla_ce84d07f_fk_billing_b; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.billing_billingv2entrytemplate_service_groups
+    ADD CONSTRAINT billing_billingv2ent_billingv2entrytempla_ce84d07f_fk_billing_b FOREIGN KEY (billingv2entrytemplate_id) REFERENCES public.billing_billingv2entrytemplate(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: billing_billingv2entry billing_billingv2ent_instance_id_db6ab9ec_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.billing_billingv2entry
+    ADD CONSTRAINT "billing_billingv2ent_instance_id_db6ab9ec_fk_INSTANCE_" FOREIGN KEY (instance_id) REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: billing_billingv2entrytemplate_services billing_billingv2ent_service_id_fb5b92fa_fk_SERVICE_S; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.billing_billingv2entrytemplate_services
+    ADD CONSTRAINT "billing_billingv2ent_service_id_fb5b92fa_fk_SERVICE_S" FOREIGN KEY (service_id) REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: billing_billingv2entrytemplate_service_groups billing_billingv2ent_servicegroup_id_7d99ce14_fk_SERVICE_G; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.billing_billingv2entrytemplate_service_groups
+    ADD CONSTRAINT "billing_billingv2ent_servicegroup_id_7d99ce14_fk_SERVICE_G" FOREIGN KEY (servicegroup_id) REFERENCES public."SERVICE_GROUP"("SERVICE_GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: billing_invoice billing_invoice_instance_id_570d2a2a_fk_INSTANCE_INSTANCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.billing_invoice
+    ADD CONSTRAINT "billing_invoice_instance_id_570d2a2a_fk_INSTANCE_INSTANCE_ID" FOREIGN KEY (instance_id) REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: billing_lineitem billing_lineitem_billing_v2_entry_id_ed3321b5_fk_billing_b; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.billing_lineitem
+    ADD CONSTRAINT billing_lineitem_billing_v2_entry_id_ed3321b5_fk_billing_b FOREIGN KEY (billing_v2_entry_id) REFERENCES public.billing_billingv2entry(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: billing_lineitem billing_lineitem_invoice_id_36d712b9_fk_billing_invoice_id; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.billing_lineitem
+    ADD CONSTRAINT billing_lineitem_invoice_id_36d712b9_fk_billing_invoice_id FOREIGN KEY (invoice_id) REFERENCES public.billing_invoice(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: caluma_analytics_analyticsfield caluma_analytics_ana_table_id_1aeb03fe_fk_caluma_an; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_analytics_analyticsfield
+    ADD CONSTRAINT caluma_analytics_ana_table_id_1aeb03fe_fk_caluma_an FOREIGN KEY (table_id) REFERENCES public.caluma_analytics_analyticstable(slug) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: caluma_form_answer caluma_form_answer_document_id_37a39e57_fk_caluma_fo; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_answer
+    ADD CONSTRAINT caluma_form_answer_document_id_37a39e57_fk_caluma_fo FOREIGN KEY (document_id) REFERENCES public.caluma_form_document(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: caluma_form_answer caluma_form_answer_question_id_3fa9630c_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_answer
+    ADD CONSTRAINT caluma_form_answer_question_id_3fa9630c_fk FOREIGN KEY (question_id) REFERENCES public.caluma_form_question(slug) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: caluma_form_answerdocument caluma_form_answerdo_answer_id_097d6b47_fk_caluma_fo; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_answerdocument
+    ADD CONSTRAINT caluma_form_answerdo_answer_id_097d6b47_fk_caluma_fo FOREIGN KEY (answer_id) REFERENCES public.caluma_form_answer(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: caluma_form_answerdocument caluma_form_answerdo_document_id_fa92a43b_fk_caluma_fo; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_answerdocument
+    ADD CONSTRAINT caluma_form_answerdo_document_id_fa92a43b_fk_caluma_fo FOREIGN KEY (document_id) REFERENCES public.caluma_form_document(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: caluma_form_document caluma_form_document_family_id_5e4a0a46_fk_caluma_fo; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_document
+    ADD CONSTRAINT caluma_form_document_family_id_5e4a0a46_fk_caluma_fo FOREIGN KEY (family_id) REFERENCES public.caluma_form_document(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: caluma_form_document caluma_form_document_form_id_45e1a673_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_document
+    ADD CONSTRAINT caluma_form_document_form_id_45e1a673_fk FOREIGN KEY (form_id) REFERENCES public.caluma_form_form(slug) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: caluma_form_document caluma_form_document_source_id_e00a9078_fk_caluma_fo; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_document
+    ADD CONSTRAINT caluma_form_document_source_id_e00a9078_fk_caluma_fo FOREIGN KEY (source_id) REFERENCES public.caluma_form_document(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: caluma_form_dynamicoption caluma_form_dynamico_document_id_4c9cc974_fk_caluma_fo; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_dynamicoption
+    ADD CONSTRAINT caluma_form_dynamico_document_id_4c9cc974_fk_caluma_fo FOREIGN KEY (document_id) REFERENCES public.caluma_form_document(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: caluma_form_dynamicoption caluma_form_dynamicoption_question_id_fc380347_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_dynamicoption
+    ADD CONSTRAINT caluma_form_dynamicoption_question_id_fc380347_fk FOREIGN KEY (question_id) REFERENCES public.caluma_form_question(slug) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: caluma_form_file caluma_form_file_answer_id_6f6730ee_fk_caluma_form_answer_id; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_file
+    ADD CONSTRAINT caluma_form_file_answer_id_6f6730ee_fk_caluma_form_answer_id FOREIGN KEY (answer_id) REFERENCES public.caluma_form_answer(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: caluma_form_form caluma_form_form_source_id_60e283c8_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_form
+    ADD CONSTRAINT caluma_form_form_source_id_60e283c8_fk FOREIGN KEY (source_id) REFERENCES public.caluma_form_form(slug) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: caluma_form_formquestion caluma_form_formquestion_form_id_5aa3dfb1_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_formquestion
+    ADD CONSTRAINT caluma_form_formquestion_form_id_5aa3dfb1_fk FOREIGN KEY (form_id) REFERENCES public.caluma_form_form(slug) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: caluma_form_formquestion caluma_form_formquestion_question_id_08670611_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_formquestion
+    ADD CONSTRAINT caluma_form_formquestion_question_id_08670611_fk FOREIGN KEY (question_id) REFERENCES public.caluma_form_question(slug) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: caluma_form_option caluma_form_option_source_id_d6bebdda_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_option
+    ADD CONSTRAINT caluma_form_option_source_id_d6bebdda_fk FOREIGN KEY (source_id) REFERENCES public.caluma_form_option(slug) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: caluma_form_question caluma_form_question_default_answer_id_0233e6a2_fk_caluma_fo; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_question
+    ADD CONSTRAINT caluma_form_question_default_answer_id_0233e6a2_fk_caluma_fo FOREIGN KEY (default_answer_id) REFERENCES public.caluma_form_answer(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: caluma_form_question caluma_form_question_row_form_id_f95c6b4c_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_question
+    ADD CONSTRAINT caluma_form_question_row_form_id_f95c6b4c_fk FOREIGN KEY (row_form_id) REFERENCES public.caluma_form_form(slug) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: caluma_form_question caluma_form_question_source_id_2f64b729_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_question
+    ADD CONSTRAINT caluma_form_question_source_id_2f64b729_fk FOREIGN KEY (source_id) REFERENCES public.caluma_form_question(slug) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: caluma_form_question caluma_form_question_sub_form_id_8413f4e5_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_question
+    ADD CONSTRAINT caluma_form_question_sub_form_id_8413f4e5_fk FOREIGN KEY (sub_form_id) REFERENCES public.caluma_form_form(slug) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: caluma_form_questionoption caluma_form_questionoption_option_id_0d16d6bd_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_questionoption
+    ADD CONSTRAINT caluma_form_questionoption_option_id_0d16d6bd_fk FOREIGN KEY (option_id) REFERENCES public.caluma_form_option(slug) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: caluma_form_questionoption caluma_form_questionoption_question_id_ca5ccf47_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_form_questionoption
+    ADD CONSTRAINT caluma_form_questionoption_question_id_ca5ccf47_fk FOREIGN KEY (question_id) REFERENCES public.caluma_form_question(slug) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: caluma_workflow_case caluma_workflow_case_document_id_84a34621_fk_caluma_fo; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_workflow_case
+    ADD CONSTRAINT caluma_workflow_case_document_id_84a34621_fk_caluma_fo FOREIGN KEY (document_id) REFERENCES public.caluma_form_document(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: caluma_workflow_case caluma_workflow_case_family_id_26115d17_fk_caluma_wo; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_workflow_case
+    ADD CONSTRAINT caluma_workflow_case_family_id_26115d17_fk_caluma_wo FOREIGN KEY (family_id) REFERENCES public.caluma_workflow_case(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: caluma_workflow_case caluma_workflow_case_workflow_id_4af5b51a_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_workflow_case
+    ADD CONSTRAINT caluma_workflow_case_workflow_id_4af5b51a_fk FOREIGN KEY (workflow_id) REFERENCES public.caluma_workflow_workflow(slug) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: caluma_workflow_taskflow caluma_workflow_task_flow_id_05f3a405_fk_caluma_wo; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_workflow_taskflow
+    ADD CONSTRAINT caluma_workflow_task_flow_id_05f3a405_fk_caluma_wo FOREIGN KEY (flow_id) REFERENCES public.caluma_workflow_flow(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: caluma_workflow_task caluma_workflow_task_form_id_642f329c_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_workflow_task
+    ADD CONSTRAINT caluma_workflow_task_form_id_642f329c_fk FOREIGN KEY (form_id) REFERENCES public.caluma_form_form(slug) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: caluma_workflow_taskflow caluma_workflow_taskflow_task_id_71d6569b_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_workflow_taskflow
+    ADD CONSTRAINT caluma_workflow_taskflow_task_id_71d6569b_fk FOREIGN KEY (task_id) REFERENCES public.caluma_workflow_task(slug) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: caluma_workflow_taskflow caluma_workflow_taskflow_workflow_id_72f22434_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_workflow_taskflow
+    ADD CONSTRAINT caluma_workflow_taskflow_workflow_id_72f22434_fk FOREIGN KEY (workflow_id) REFERENCES public.caluma_workflow_workflow(slug) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: caluma_workflow_workitem caluma_workflow_work_case_id_bcf84ed8_fk_caluma_wo; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_workflow_workitem
+    ADD CONSTRAINT caluma_workflow_work_case_id_bcf84ed8_fk_caluma_wo FOREIGN KEY (case_id) REFERENCES public.caluma_workflow_case(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: caluma_workflow_workitem caluma_workflow_work_child_case_id_7d915f8f_fk_caluma_wo; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_workflow_workitem
+    ADD CONSTRAINT caluma_workflow_work_child_case_id_7d915f8f_fk_caluma_wo FOREIGN KEY (child_case_id) REFERENCES public.caluma_workflow_case(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: caluma_workflow_workitem caluma_workflow_work_document_id_656272b6_fk_caluma_fo; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_workflow_workitem
+    ADD CONSTRAINT caluma_workflow_work_document_id_656272b6_fk_caluma_fo FOREIGN KEY (document_id) REFERENCES public.caluma_form_document(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: caluma_workflow_workitem caluma_workflow_work_previous_work_item_i_860125b1_fk_caluma_wo; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_workflow_workitem
+    ADD CONSTRAINT caluma_workflow_work_previous_work_item_i_860125b1_fk_caluma_wo FOREIGN KEY (previous_work_item_id) REFERENCES public.caluma_workflow_workitem(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: caluma_workflow_workflow_allow_forms caluma_workflow_workflow_allow_forms_form_id_1f343f15_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_workflow_workflow_allow_forms
+    ADD CONSTRAINT caluma_workflow_workflow_allow_forms_form_id_1f343f15_fk FOREIGN KEY (form_id) REFERENCES public.caluma_form_form(slug) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: caluma_workflow_workflow_allow_forms caluma_workflow_workflow_allow_forms_workflow_id_ecc2c8c5_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_workflow_workflow_allow_forms
+    ADD CONSTRAINT caluma_workflow_workflow_allow_forms_workflow_id_ecc2c8c5_fk FOREIGN KEY (workflow_id) REFERENCES public.caluma_workflow_workflow(slug) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: caluma_workflow_workflow_start_tasks caluma_workflow_workflow_start_tasks_task_id_9703b542_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_workflow_workflow_start_tasks
+    ADD CONSTRAINT caluma_workflow_workflow_start_tasks_task_id_9703b542_fk FOREIGN KEY (task_id) REFERENCES public.caluma_workflow_task(slug) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: caluma_workflow_workflow_start_tasks caluma_workflow_workflow_start_tasks_workflow_id_949a7a65_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_workflow_workflow_start_tasks
+    ADD CONSTRAINT caluma_workflow_workflow_start_tasks_workflow_id_949a7a65_fk FOREIGN KEY (workflow_id) REFERENCES public.caluma_workflow_workflow(slug) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: caluma_workflow_workitem caluma_workflow_workitem_task_id_b273aa99_fk; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.caluma_workflow_workitem
+    ADD CONSTRAINT caluma_workflow_workitem_task_id_b273aa99_fk FOREIGN KEY (task_id) REFERENCES public.caluma_workflow_task(slug) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: communications_communicationsattachment communications_commu_alexandria_file_id_15243c3a_fk_alexandri; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.communications_communicationsattachment
+    ADD CONSTRAINT communications_commu_alexandria_file_id_15243c3a_fk_alexandri FOREIGN KEY (alexandria_file_id) REFERENCES public.alexandria_core_file(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: communications_communicationsmessage communications_commu_created_by_user_id_b34c3973_fk_USER_USER; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.communications_communicationsmessage
+    ADD CONSTRAINT "communications_commu_created_by_user_id_b34c3973_fk_USER_USER" FOREIGN KEY (created_by_user_id) REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: communications_communicationsattachment communications_commu_document_attachment__1fa35216_fk_ATTACHMEN; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.communications_communicationsattachment
+    ADD CONSTRAINT "communications_commu_document_attachment__1fa35216_fk_ATTACHMEN" FOREIGN KEY (document_attachment_id) REFERENCES public."ATTACHMENT"("ATTACHMENT_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: communications_communicationstopic communications_commu_initiated_by_id_9f33e585_fk_USER_USER; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.communications_communicationstopic
+    ADD CONSTRAINT "communications_commu_initiated_by_id_9f33e585_fk_USER_USER" FOREIGN KEY (initiated_by_id) REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: communications_communicationstopic communications_commu_instance_id_da0c36ea_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.communications_communicationstopic
+    ADD CONSTRAINT "communications_commu_instance_id_da0c36ea_fk_INSTANCE_" FOREIGN KEY (instance_id) REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: communications_communicationsreadmarker communications_commu_message_id_82e62952_fk_communica; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.communications_communicationsreadmarker
+    ADD CONSTRAINT communications_commu_message_id_82e62952_fk_communica FOREIGN KEY (message_id) REFERENCES public.communications_communicationsmessage(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: communications_communicationsattachment communications_commu_message_id_dd0fa955_fk_communica; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.communications_communicationsattachment
+    ADD CONSTRAINT communications_commu_message_id_dd0fa955_fk_communica FOREIGN KEY (message_id) REFERENCES public.communications_communicationsmessage(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: communications_communicationsmessage communications_commu_topic_id_983fb366_fk_communica; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.communications_communicationsmessage
+    ADD CONSTRAINT communications_commu_topic_id_983fb366_fk_communica FOREIGN KEY (topic_id) REFERENCES public.communications_communicationstopic(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: core_servicecontent_forms core_servicecontent__form_id_0ee4f708_fk_caluma_fo; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.core_servicecontent_forms
+    ADD CONSTRAINT core_servicecontent__form_id_0ee4f708_fk_caluma_fo FOREIGN KEY (form_id) REFERENCES public.caluma_form_form(slug) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: core_servicecontent_forms core_servicecontent__servicecontent_id_ba249f4a_fk_core_serv; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.core_servicecontent_forms
+    ADD CONSTRAINT core_servicecontent__servicecontent_id_ba249f4a_fk_core_serv FOREIGN KEY (servicecontent_id) REFERENCES public.core_servicecontent(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: core_servicecontent core_servicecontent_service_id_8f549487_fk_SERVICE_SERVICE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.core_servicecontent
+    ADD CONSTRAINT "core_servicecontent_service_id_8f549487_fk_SERVICE_SERVICE_ID" FOREIGN KEY (service_id) REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: deadlines_deadlinetype_services deadlines_deadlinety_deadlinetype_id_aca08dc0_fk_deadlines; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.deadlines_deadlinetype_services
+    ADD CONSTRAINT deadlines_deadlinety_deadlinetype_id_aca08dc0_fk_deadlines FOREIGN KEY (deadlinetype_id) REFERENCES public.deadlines_deadlinetype(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: deadlines_deadlinetype_service_groups deadlines_deadlinety_deadlinetype_id_fb7fb231_fk_deadlines; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.deadlines_deadlinetype_service_groups
+    ADD CONSTRAINT deadlines_deadlinety_deadlinetype_id_fb7fb231_fk_deadlines FOREIGN KEY (deadlinetype_id) REFERENCES public.deadlines_deadlinetype(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: deadlines_deadlinetype_services deadlines_deadlinety_service_id_29d1de92_fk_SERVICE_S; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.deadlines_deadlinetype_services
+    ADD CONSTRAINT "deadlines_deadlinety_service_id_29d1de92_fk_SERVICE_S" FOREIGN KEY (service_id) REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: deadlines_deadlinetype_service_groups deadlines_deadlinety_servicegroup_id_3da9f972_fk_SERVICE_G; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.deadlines_deadlinetype_service_groups
+    ADD CONSTRAINT "deadlines_deadlinety_servicegroup_id_3da9f972_fk_SERVICE_G" FOREIGN KEY (servicegroup_id) REFERENCES public."SERVICE_GROUP"("SERVICE_GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: deadlines_instancedeadline deadlines_instancede_deadline_type_id_e726d98f_fk_deadlines; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.deadlines_instancedeadline
+    ADD CONSTRAINT deadlines_instancede_deadline_type_id_e726d98f_fk_deadlines FOREIGN KEY (deadline_type_id) REFERENCES public.deadlines_deadlinetype(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: deadlines_instancedeadline deadlines_instancede_instance_id_53d3631e_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.deadlines_instancedeadline
+    ADD CONSTRAINT "deadlines_instancede_instance_id_53d3631e_fk_INSTANCE_" FOREIGN KEY (instance_id) REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: deadlines_instancedeadline deadlines_instancede_service_id_c3b13afc_fk_SERVICE_S; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.deadlines_instancedeadline
+    ADD CONSTRAINT "deadlines_instancede_service_id_c3b13afc_fk_SERVICE_S" FOREIGN KEY (service_id) REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: deadlines_suspension deadlines_suspension_deadline_id_1cc0fb92_fk_deadlines; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.deadlines_suspension
+    ADD CONSTRAINT deadlines_suspension_deadline_id_1cc0fb92_fk_deadlines FOREIGN KEY (deadline_id) REFERENCES public.deadlines_instancedeadline(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: deadlines_suspension deadlines_suspension_group_id_33f52489_fk_GROUP_GROUP_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.deadlines_suspension
+    ADD CONSTRAINT "deadlines_suspension_group_id_33f52489_fk_GROUP_GROUP_ID" FOREIGN KEY (group_id) REFERENCES public."GROUP"("GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: deadlines_suspension deadlines_suspension_user_id_fcfa0290_fk_USER_USER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.deadlines_suspension
+    ADD CONSTRAINT "deadlines_suspension_user_id_fcfa0290_fk_USER_USER_ID" FOREIGN KEY (user_id) REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: deadlines_suspension deadlines_suspension_work_item_id_de168eec_fk_caluma_wo; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.deadlines_suspension
+    ADD CONSTRAINT deadlines_suspension_work_item_id_de168eec_fk_caluma_wo FOREIGN KEY (work_item_id) REFERENCES public.caluma_workflow_workitem(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: django_admin_log django_admin_log_content_type_id_c4bce8eb_fk_django_co; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.django_admin_log
+    ADD CONSTRAINT django_admin_log_content_type_id_c4bce8eb_fk_django_co FOREIGN KEY (content_type_id) REFERENCES public.django_content_type(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: django_admin_log django_admin_log_user_id_c564eba6_fk_USER_USER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.django_admin_log
+    ADD CONSTRAINT "django_admin_log_user_id_c564eba6_fk_USER_USER_ID" FOREIGN KEY (user_id) REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: django_celery_beat_periodictask django_celery_beat_p_clocked_id_47a69f82_fk_django_ce; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.django_celery_beat_periodictask
+    ADD CONSTRAINT django_celery_beat_p_clocked_id_47a69f82_fk_django_ce FOREIGN KEY (clocked_id) REFERENCES public.django_celery_beat_clockedschedule(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: django_celery_beat_periodictask django_celery_beat_p_crontab_id_d3cba168_fk_django_ce; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.django_celery_beat_periodictask
+    ADD CONSTRAINT django_celery_beat_p_crontab_id_d3cba168_fk_django_ce FOREIGN KEY (crontab_id) REFERENCES public.django_celery_beat_crontabschedule(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: django_celery_beat_periodictask django_celery_beat_p_interval_id_a8ca27da_fk_django_ce; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.django_celery_beat_periodictask
+    ADD CONSTRAINT django_celery_beat_p_interval_id_a8ca27da_fk_django_ce FOREIGN KEY (interval_id) REFERENCES public.django_celery_beat_intervalschedule(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: django_celery_beat_periodictask django_celery_beat_p_solar_id_a87ce72c_fk_django_ce; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.django_celery_beat_periodictask
+    ADD CONSTRAINT django_celery_beat_p_solar_id_a87ce72c_fk_django_ce FOREIGN KEY (solar_id) REFERENCES public.django_celery_beat_solarschedule(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: document_attachmentdownloadhistory document_attachmentd_attachment_id_5420c69e_fk_ATTACHMEN; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.document_attachmentdownloadhistory
+    ADD CONSTRAINT "document_attachmentd_attachment_id_5420c69e_fk_ATTACHMEN" FOREIGN KEY (attachment_id) REFERENCES public."ATTACHMENT"("ATTACHMENT_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: document_attachmentdownloadhistory document_attachmentd_group_id_79475cc1_fk_GROUP_GRO; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.document_attachmentdownloadhistory
+    ADD CONSTRAINT "document_attachmentd_group_id_79475cc1_fk_GROUP_GRO" FOREIGN KEY (group_id) REFERENCES public."GROUP"("GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: document_attachmentdownloadhistory document_attachmentd_user_id_7bf1d4a1_fk_USER_USER; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.document_attachmentdownloadhistory
+    ADD CONSTRAINT "document_attachmentd_user_id_7bf1d4a1_fk_USER_USER" FOREIGN KEY (user_id) REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: document_attachmentversion document_attachmentv_attachment_id_444d5dd0_fk_ATTACHMEN; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.document_attachmentversion
+    ADD CONSTRAINT "document_attachmentv_attachment_id_444d5dd0_fk_ATTACHMEN" FOREIGN KEY (attachment_id) REFERENCES public."ATTACHMENT"("ATTACHMENT_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: document_attachmentversion document_attachmentv_created_by_user_id_5056a32a_fk_USER_USER; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.document_attachmentversion
+    ADD CONSTRAINT "document_attachmentv_created_by_user_id_5056a32a_fk_USER_USER" FOREIGN KEY (created_by_user_id) REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: dossier_import_dossierimport dossier_import_dossi_group_id_16c942fb_fk_GROUP_GRO; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.dossier_import_dossierimport
+    ADD CONSTRAINT "dossier_import_dossi_group_id_16c942fb_fk_GROUP_GRO" FOREIGN KEY (group_id) REFERENCES public."GROUP"("GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: dossier_import_dossierimport dossier_import_dossi_location_id_8db5d894_fk_LOCATION_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.dossier_import_dossierimport
+    ADD CONSTRAINT "dossier_import_dossi_location_id_8db5d894_fk_LOCATION_" FOREIGN KEY (location_id) REFERENCES public."LOCATION"("LOCATION_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: dossier_import_dossierimport dossier_import_dossierimport_user_id_b9963e5c_fk_USER_USER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.dossier_import_dossierimport
+    ADD CONSTRAINT "dossier_import_dossierimport_user_id_b9963e5c_fk_USER_USER_ID" FOREIGN KEY (user_id) REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: ech0211_message ech0211_message_receiver_id_36d2d728_fk_SERVICE_SERVICE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.ech0211_message
+    ADD CONSTRAINT "ech0211_message_receiver_id_36d2d728_fk_SERVICE_SERVICE_ID" FOREIGN KEY (receiver_id) REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: gis_export_aggisexport gis_export_aggisexpo_instance_id_3c49afe9_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.gis_export_aggisexport
+    ADD CONSTRAINT "gis_export_aggisexpo_instance_id_3c49afe9_fk_INSTANCE_" FOREIGN KEY (instance_id) REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: instance_formfield instance_formfield_instance_id_5b36be75_fk_INSTANCE_INSTANCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_formfield
+    ADD CONSTRAINT "instance_formfield_instance_id_5b36be75_fk_INSTANCE_INSTANCE_ID" FOREIGN KEY (instance_id) REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: instance_historyentryt instance_historyentr_history_entry_id_8353677f_fk_instance_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_historyentryt
+    ADD CONSTRAINT instance_historyentr_history_entry_id_8353677f_fk_instance_ FOREIGN KEY (history_entry_id) REFERENCES public.instance_historyentry(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: instance_historyentry instance_historyentr_instance_id_a906d6e8_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_historyentry
+    ADD CONSTRAINT "instance_historyentr_instance_id_a906d6e8_fk_INSTANCE_" FOREIGN KEY (instance_id) REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: instance_historyentry instance_historyentry_service_id_90402394_fk_SERVICE_SERVICE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_historyentry
+    ADD CONSTRAINT "instance_historyentry_service_id_90402394_fk_SERVICE_SERVICE_ID" FOREIGN KEY (service_id) REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: instance_historyentry instance_historyentry_user_id_19004642_fk_USER_USER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_historyentry
+    ADD CONSTRAINT "instance_historyentry_user_id_19004642_fk_USER_USER_ID" FOREIGN KEY (user_id) REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: instance_instancealexandriadocument instance_instanceale_document_id_97ebdad9_fk_alexandri; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_instancealexandriadocument
+    ADD CONSTRAINT instance_instanceale_document_id_97ebdad9_fk_alexandri FOREIGN KEY (document_id) REFERENCES public.alexandria_core_document(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: instance_instancealexandriadocument instance_instanceale_instance_id_efc5f3c4_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_instancealexandriadocument
+    ADD CONSTRAINT "instance_instanceale_instance_id_efc5f3c4_fk_INSTANCE_" FOREIGN KEY (instance_id) REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: instance_instanceresponsibility instance_instanceres_SERVICE_ID_34d974f0_fk_SERVICE_S; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_instanceresponsibility
+    ADD CONSTRAINT "instance_instanceres_SERVICE_ID_34d974f0_fk_SERVICE_S" FOREIGN KEY ("SERVICE_ID") REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: instance_instanceresponsibility instance_instanceres_USER_ID_466c388f_fk_USER_USER; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_instanceresponsibility
+    ADD CONSTRAINT "instance_instanceres_USER_ID_466c388f_fk_USER_USER" FOREIGN KEY ("USER_ID") REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: instance_instanceresponsibility instance_instanceres_instance_id_7cffdec7_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_instanceresponsibility
+    ADD CONSTRAINT "instance_instanceres_instance_id_7cffdec7_fk_INSTANCE_" FOREIGN KEY (instance_id) REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: instance_issue instance_issue_group_id_32fa7a5e_fk_GROUP_GROUP_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_issue
+    ADD CONSTRAINT "instance_issue_group_id_32fa7a5e_fk_GROUP_GROUP_ID" FOREIGN KEY (group_id) REFERENCES public."GROUP"("GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: instance_issue instance_issue_instance_id_68a3c385_fk_INSTANCE_INSTANCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_issue
+    ADD CONSTRAINT "instance_issue_instance_id_68a3c385_fk_INSTANCE_INSTANCE_ID" FOREIGN KEY (instance_id) REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: instance_issue instance_issue_service_id_58589088_fk_SERVICE_SERVICE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_issue
+    ADD CONSTRAINT "instance_issue_service_id_58589088_fk_SERVICE_SERVICE_ID" FOREIGN KEY (service_id) REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: instance_issue instance_issue_user_id_cd210eb1_fk_USER_USER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_issue
+    ADD CONSTRAINT "instance_issue_user_id_cd210eb1_fk_USER_USER_ID" FOREIGN KEY (user_id) REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: instance_issuetemplateset_issue_templates instance_issuetempla_issuetemplate_id_09a32d6b_fk_instance_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_issuetemplateset_issue_templates
+    ADD CONSTRAINT instance_issuetempla_issuetemplate_id_09a32d6b_fk_instance_ FOREIGN KEY (issuetemplate_id) REFERENCES public.instance_issuetemplate(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: instance_issuetemplateset_issue_templates instance_issuetempla_issuetemplateset_id_6b40171e_fk_instance_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_issuetemplateset_issue_templates
+    ADD CONSTRAINT instance_issuetempla_issuetemplateset_id_6b40171e_fk_instance_ FOREIGN KEY (issuetemplateset_id) REFERENCES public.instance_issuetemplateset(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: instance_issuetemplate instance_issuetempla_service_id_87c90251_fk_SERVICE_S; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_issuetemplate
+    ADD CONSTRAINT "instance_issuetempla_service_id_87c90251_fk_SERVICE_S" FOREIGN KEY (service_id) REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: instance_issuetemplateset instance_issuetempla_service_id_e7f6c8d8_fk_SERVICE_S; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_issuetemplateset
+    ADD CONSTRAINT "instance_issuetempla_service_id_e7f6c8d8_fk_SERVICE_S" FOREIGN KEY (service_id) REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: instance_issuetemplate instance_issuetemplate_group_id_008e91da_fk_GROUP_GROUP_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_issuetemplate
+    ADD CONSTRAINT "instance_issuetemplate_group_id_008e91da_fk_GROUP_GROUP_ID" FOREIGN KEY (group_id) REFERENCES public."GROUP"("GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: instance_issuetemplate instance_issuetemplate_user_id_4f4dbe2f_fk_USER_USER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_issuetemplate
+    ADD CONSTRAINT "instance_issuetemplate_user_id_4f4dbe2f_fk_USER_USER_ID" FOREIGN KEY (user_id) REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: instance_issuetemplateset instance_issuetemplateset_group_id_57277e0f_fk_GROUP_GROUP_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_issuetemplateset
+    ADD CONSTRAINT "instance_issuetemplateset_group_id_57277e0f_fk_GROUP_GROUP_ID" FOREIGN KEY (group_id) REFERENCES public."GROUP"("GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: instance_journalentry instance_journalentr_instance_id_eedc49e7_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_journalentry
+    ADD CONSTRAINT "instance_journalentr_instance_id_eedc49e7_fk_INSTANCE_" FOREIGN KEY (instance_id) REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: instance_journalentry instance_journalentry_service_id_f9e7c734_fk_SERVICE_SERVICE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_journalentry
+    ADD CONSTRAINT "instance_journalentry_service_id_f9e7c734_fk_SERVICE_SERVICE_ID" FOREIGN KEY (service_id) REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: instance_journalentry instance_journalentry_user_id_30cf78be_fk_USER_USER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.instance_journalentry
+    ADD CONSTRAINT "instance_journalentry_user_id_30cf78be_fk_USER_USER_ID" FOREIGN KEY (user_id) REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: objection_objection objection_objection_instance_id_278032ca_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.objection_objection
+    ADD CONSTRAINT "objection_objection_instance_id_278032ca_fk_INSTANCE_" FOREIGN KEY (instance_id) REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: objection_objectionparticipant objection_objectionp_objection_id_7ed0cff9_fk_objection; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.objection_objectionparticipant
+    ADD CONSTRAINT objection_objectionp_objection_id_7ed0cff9_fk_objection FOREIGN KEY (objection_id) REFERENCES public.objection_objection(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: objection_objectiontimeframe objection_objectiont_instance_id_63dcd7c6_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.objection_objectiontimeframe
+    ADD CONSTRAINT "objection_objectiont_instance_id_63dcd7c6_fk_INSTANCE_" FOREIGN KEY (instance_id) REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: permissions_instanceacl permissions_instance_access_level_id_62a56ef9_fk_permissio; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.permissions_instanceacl
+    ADD CONSTRAINT permissions_instance_access_level_id_62a56ef9_fk_permissio FOREIGN KEY (access_level_id) REFERENCES public.permissions_accesslevel(slug) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: permissions_instanceacl permissions_instance_created_by_service_i_58b41c66_fk_SERVICE_S; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.permissions_instanceacl
+    ADD CONSTRAINT "permissions_instance_created_by_service_i_58b41c66_fk_SERVICE_S" FOREIGN KEY (created_by_service_id) REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: permissions_instanceacl permissions_instance_created_by_user_id_c3edf9a9_fk_USER_USER; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.permissions_instanceacl
+    ADD CONSTRAINT "permissions_instance_created_by_user_id_c3edf9a9_fk_USER_USER" FOREIGN KEY (created_by_user_id) REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: permissions_instanceacl permissions_instance_instance_id_7bb64df0_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.permissions_instanceacl
+    ADD CONSTRAINT "permissions_instance_instance_id_7bb64df0_fk_INSTANCE_" FOREIGN KEY (instance_id) REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: permissions_instanceacl permissions_instance_revoked_by_service_i_632870fb_fk_SERVICE_S; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.permissions_instanceacl
+    ADD CONSTRAINT "permissions_instance_revoked_by_service_i_632870fb_fk_SERVICE_S" FOREIGN KEY (revoked_by_service_id) REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: permissions_instanceacl permissions_instance_revoked_by_user_id_52a1b769_fk_USER_USER; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.permissions_instanceacl
+    ADD CONSTRAINT "permissions_instance_revoked_by_user_id_52a1b769_fk_USER_USER" FOREIGN KEY (revoked_by_user_id) REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: permissions_instanceacl permissions_instance_service_id_1115c2e8_fk_SERVICE_S; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.permissions_instanceacl
+    ADD CONSTRAINT "permissions_instance_service_id_1115c2e8_fk_SERVICE_S" FOREIGN KEY (service_id) REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: permissions_instanceacl permissions_instanceacl_role_id_776ff5c2_fk_ROLE_ROLE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.permissions_instanceacl
+    ADD CONSTRAINT "permissions_instanceacl_role_id_776ff5c2_fk_ROLE_ROLE_ID" FOREIGN KEY (role_id) REFERENCES public."ROLE"("ROLE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: permissions_instanceacl permissions_instanceacl_user_id_b8e833ec_fk_USER_USER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.permissions_instanceacl
+    ADD CONSTRAINT "permissions_instanceacl_user_id_b8e833ec_fk_USER_USER_ID" FOREIGN KEY (user_id) REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: reversion_revision reversion_revision_user_id_17095f45_fk_USER_USER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.reversion_revision
+    ADD CONSTRAINT "reversion_revision_user_id_17095f45_fk_USER_USER_ID" FOREIGN KEY (user_id) REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: reversion_revision reversion_revision_user_id_17095f45_fk_user_user_id; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.reversion_revision
+    ADD CONSTRAINT reversion_revision_user_id_17095f45_fk_user_user_id FOREIGN KEY (user_id) REFERENCES public."USER"("USER_ID");
+
+
+--
+-- Name: reversion_version reversion_version_content_type_id_7d0ff25c_fk_django_co; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.reversion_version
+    ADD CONSTRAINT reversion_version_content_type_id_7d0ff25c_fk_django_co FOREIGN KEY (content_type_id) REFERENCES public.django_content_type(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: reversion_version reversion_version_revision_id_af9f6a9d_fk_reversion_revision_id; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.reversion_version
+    ADD CONSTRAINT reversion_version_revision_id_af9f6a9d_fk_reversion_revision_id FOREIGN KEY (revision_id) REFERENCES public.reversion_revision(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: rulesets_distributiondeadlinerule rulesets_distributio_source_service_id_503432ed_fk_SERVICE_S; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.rulesets_distributiondeadlinerule
+    ADD CONSTRAINT "rulesets_distributio_source_service_id_503432ed_fk_SERVICE_S" FOREIGN KEY (source_service_id) REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: rulesets_distributiondeadlinerule rulesets_distributio_target_service_id_1f8db8ec_fk_SERVICE_S; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.rulesets_distributiondeadlinerule
+    ADD CONSTRAINT "rulesets_distributio_target_service_id_1f8db8ec_fk_SERVICE_S" FOREIGN KEY (target_service_id) REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: rulesets_responsibleuserrule_application_types rulesets_responsible_form_id_08194f31_fk_caluma_fo; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.rulesets_responsibleuserrule_application_types
+    ADD CONSTRAINT rulesets_responsible_form_id_08194f31_fk_caluma_fo FOREIGN KEY (form_id) REFERENCES public.caluma_form_form(slug) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: rulesets_responsibleuserrule rulesets_responsible_responsible_user_id_d47aa385_fk_USER_USER; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.rulesets_responsibleuserrule
+    ADD CONSTRAINT "rulesets_responsible_responsible_user_id_d47aa385_fk_USER_USER" FOREIGN KEY (responsible_user_id) REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: rulesets_responsibleuserrule_municipalities rulesets_responsible_responsibleuserrule__48af9b0c_fk_rulesets_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.rulesets_responsibleuserrule_municipalities
+    ADD CONSTRAINT rulesets_responsible_responsibleuserrule__48af9b0c_fk_rulesets_ FOREIGN KEY (responsibleuserrule_id) REFERENCES public.rulesets_responsibleuserrule(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: rulesets_responsibleuserrule_application_types rulesets_responsible_responsibleuserrule__b1eed3e2_fk_rulesets_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.rulesets_responsibleuserrule_application_types
+    ADD CONSTRAINT rulesets_responsible_responsibleuserrule__b1eed3e2_fk_rulesets_ FOREIGN KEY (responsibleuserrule_id) REFERENCES public.rulesets_responsibleuserrule(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: rulesets_responsibleuserrule_municipalities rulesets_responsible_service_id_07cee219_fk_SERVICE_S; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.rulesets_responsibleuserrule_municipalities
+    ADD CONSTRAINT "rulesets_responsible_service_id_07cee219_fk_SERVICE_S" FOREIGN KEY (service_id) REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: rulesets_responsibleuserrule rulesets_responsible_service_id_1c812b09_fk_SERVICE_S; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.rulesets_responsibleuserrule
+    ADD CONSTRAINT "rulesets_responsible_service_id_1c812b09_fk_SERVICE_S" FOREIGN KEY (service_id) REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: sanctions_sanction sanctions_sanction_assigned_service_id_3c2146d3_fk_SERVICE_S; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sanctions_sanction
+    ADD CONSTRAINT "sanctions_sanction_assigned_service_id_3c2146d3_fk_SERVICE_S" FOREIGN KEY (assigned_service_id) REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: sanctions_sanction sanctions_sanction_controlled_by_user_i_fbf4c19c_fk_USER_USER; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sanctions_sanction
+    ADD CONSTRAINT "sanctions_sanction_controlled_by_user_i_fbf4c19c_fk_USER_USER" FOREIGN KEY (controlled_by_user_id) REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: sanctions_sanction sanctions_sanction_created_by_service_i_0406648a_fk_SERVICE_S; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sanctions_sanction
+    ADD CONSTRAINT "sanctions_sanction_created_by_service_i_0406648a_fk_SERVICE_S" FOREIGN KEY (created_by_service_id) REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: sanctions_sanction sanctions_sanction_created_by_user_id_277819dc_fk_USER_USER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sanctions_sanction
+    ADD CONSTRAINT "sanctions_sanction_created_by_user_id_277819dc_fk_USER_USER_ID" FOREIGN KEY (created_by_user_id) REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: sanctions_sanction sanctions_sanction_instance_id_bd7823d9_fk_INSTANCE_INSTANCE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sanctions_sanction
+    ADD CONSTRAINT "sanctions_sanction_instance_id_bd7823d9_fk_INSTANCE_INSTANCE_ID" FOREIGN KEY (instance_id) REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: sanctions_sanctiontemplate sanctions_sanctionte_assigned_service_id_402042ec_fk_SERVICE_S; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sanctions_sanctiontemplate
+    ADD CONSTRAINT "sanctions_sanctionte_assigned_service_id_402042ec_fk_SERVICE_S" FOREIGN KEY (assigned_service_id) REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: sanctions_sanctiontemplate sanctions_sanctionte_created_by_service_i_ca72eb05_fk_SERVICE_S; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sanctions_sanctiontemplate
+    ADD CONSTRAINT "sanctions_sanctionte_created_by_service_i_ca72eb05_fk_SERVICE_S" FOREIGN KEY (created_by_service_id) REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: sanctions_sanctiontemplate sanctions_sanctionte_created_by_user_id_8cf9a991_fk_USER_USER; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.sanctions_sanctiontemplate
+    ADD CONSTRAINT "sanctions_sanctionte_created_by_user_id_8cf9a991_fk_USER_USER" FOREIGN KEY (created_by_user_id) REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: tags_keyword_instances tags_keyword_instanc_instance_id_186ac72f_fk_INSTANCE_; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.tags_keyword_instances
+    ADD CONSTRAINT "tags_keyword_instanc_instance_id_186ac72f_fk_INSTANCE_" FOREIGN KEY (instance_id) REFERENCES public."INSTANCE"("INSTANCE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: tags_keyword_instances tags_keyword_instances_keyword_id_b6908bf7_fk_tags_keyword_id; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.tags_keyword_instances
+    ADD CONSTRAINT tags_keyword_instances_keyword_id_b6908bf7_fk_tags_keyword_id FOREIGN KEY (keyword_id) REFERENCES public.tags_keyword(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: tags_keyword tags_keyword_service_id_f3225f2b_fk_SERVICE_SERVICE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.tags_keyword
+    ADD CONSTRAINT "tags_keyword_service_id_f3225f2b_fk_SERVICE_SERVICE_ID" FOREIGN KEY (service_id) REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: user_servicerelation user_servicerelation_provider_id_d12854fa_fk_SERVICE_SERVICE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.user_servicerelation
+    ADD CONSTRAINT "user_servicerelation_provider_id_d12854fa_fk_SERVICE_SERVICE_ID" FOREIGN KEY (provider_id) REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: user_servicerelation user_servicerelation_receiver_id_18c2bbb9_fk_SERVICE_SERVICE_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.user_servicerelation
+    ADD CONSTRAINT "user_servicerelation_receiver_id_18c2bbb9_fk_SERVICE_SERVICE_ID" FOREIGN KEY (receiver_id) REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: user_usergroupinvitation user_usergroupinvitation_created_by_id_b094edc1_fk_USER_USER_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.user_usergroupinvitation
+    ADD CONSTRAINT "user_usergroupinvitation_created_by_id_b094edc1_fk_USER_USER_ID" FOREIGN KEY (created_by_id) REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: user_usergroupinvitation user_usergroupinvitation_group_id_90e5e2a6_fk_GROUP_GROUP_ID; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.user_usergroupinvitation
+    ADD CONSTRAINT "user_usergroupinvitation_group_id_90e5e2a6_fk_GROUP_GROUP_ID" FOREIGN KEY (group_id) REFERENCES public."GROUP"("GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: work_items_workitemlistfilterpreset_services work_items_workiteml_service_id_c0f2f4fa_fk_SERVICE_S; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.work_items_workitemlistfilterpreset_services
+    ADD CONSTRAINT "work_items_workiteml_service_id_c0f2f4fa_fk_SERVICE_S" FOREIGN KEY (service_id) REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: work_items_workitemlistfilterpreset_service_groups work_items_workiteml_servicegroup_id_b4e58dbf_fk_SERVICE_G; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.work_items_workitemlistfilterpreset_service_groups
+    ADD CONSTRAINT "work_items_workiteml_servicegroup_id_b4e58dbf_fk_SERVICE_G" FOREIGN KEY (servicegroup_id) REFERENCES public."SERVICE_GROUP"("SERVICE_GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: work_items_workitemlistfilterpreset_tasks work_items_workiteml_task_id_e3a03d09_fk_caluma_wo; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.work_items_workitemlistfilterpreset_tasks
+    ADD CONSTRAINT work_items_workiteml_task_id_e3a03d09_fk_caluma_wo FOREIGN KEY (task_id) REFERENCES public.caluma_workflow_task(slug) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: work_items_workitemlistfilterpreset_work_item_templates work_items_workiteml_workitemlistfilterpr_0d284708_fk_work_item; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.work_items_workitemlistfilterpreset_work_item_templates
+    ADD CONSTRAINT work_items_workiteml_workitemlistfilterpr_0d284708_fk_work_item FOREIGN KEY (workitemlistfilterpreset_id) REFERENCES public.work_items_workitemlistfilterpreset(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: work_items_workitemlistfilterpreset_tasks work_items_workiteml_workitemlistfilterpr_7b85bef5_fk_work_item; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.work_items_workitemlistfilterpreset_tasks
+    ADD CONSTRAINT work_items_workiteml_workitemlistfilterpr_7b85bef5_fk_work_item FOREIGN KEY (workitemlistfilterpreset_id) REFERENCES public.work_items_workitemlistfilterpreset(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: work_items_workitemlistfilterpreset_services work_items_workiteml_workitemlistfilterpr_cb030675_fk_work_item; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.work_items_workitemlistfilterpreset_services
+    ADD CONSTRAINT work_items_workiteml_workitemlistfilterpr_cb030675_fk_work_item FOREIGN KEY (workitemlistfilterpreset_id) REFERENCES public.work_items_workitemlistfilterpreset(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: work_items_workitemlistfilterpreset_service_groups work_items_workiteml_workitemlistfilterpr_d5d58d9b_fk_work_item; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.work_items_workitemlistfilterpreset_service_groups
+    ADD CONSTRAINT work_items_workiteml_workitemlistfilterpr_d5d58d9b_fk_work_item FOREIGN KEY (workitemlistfilterpreset_id) REFERENCES public.work_items_workitemlistfilterpreset(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: work_items_workitemlistfilterpreset_work_item_templates work_items_workiteml_workitemtemplate_id_24886355_fk_work_item; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.work_items_workitemlistfilterpreset_work_item_templates
+    ADD CONSTRAINT work_items_workiteml_workitemtemplate_id_24886355_fk_work_item FOREIGN KEY (workitemtemplate_id) REFERENCES public.work_items_workitemtemplate(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: work_items_workitemtemplate work_items_workitemt_assigned_user_id_494045c9_fk_USER_USER; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.work_items_workitemtemplate
+    ADD CONSTRAINT "work_items_workitemt_assigned_user_id_494045c9_fk_USER_USER" FOREIGN KEY (assigned_user_id) REFERENCES public."USER"("USER_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: work_items_workitemtemplate_services work_items_workitemt_service_id_1484bb6a_fk_SERVICE_S; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.work_items_workitemtemplate_services
+    ADD CONSTRAINT "work_items_workitemt_service_id_1484bb6a_fk_SERVICE_S" FOREIGN KEY (service_id) REFERENCES public."SERVICE"("SERVICE_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: work_items_workitemtemplate_service_groups work_items_workitemt_servicegroup_id_90274038_fk_SERVICE_G; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.work_items_workitemtemplate_service_groups
+    ADD CONSTRAINT "work_items_workitemt_servicegroup_id_90274038_fk_SERVICE_G" FOREIGN KEY (servicegroup_id) REFERENCES public."SERVICE_GROUP"("SERVICE_GROUP_ID") DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: work_items_workitemtemplate_service_groups work_items_workitemt_workitemtemplate_id_548a6350_fk_work_item; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.work_items_workitemtemplate_service_groups
+    ADD CONSTRAINT work_items_workitemt_workitemtemplate_id_548a6350_fk_work_item FOREIGN KEY (workitemtemplate_id) REFERENCES public.work_items_workitemtemplate(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: work_items_workitemtemplate_services work_items_workitemt_workitemtemplate_id_681e50c7_fk_work_item; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.work_items_workitemtemplate_services
+    ADD CONSTRAINT work_items_workitemt_workitemtemplate_id_681e50c7_fk_work_item FOREIGN KEY (workitemtemplate_id) REFERENCES public.work_items_workitemtemplate(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- PostgreSQL database dump complete
+--
+
+\unrestrict 4lOR0ds63qMmq3bYAERdaqQsm7WknTvutTh4Bz6iOWOkedT6bsMseZbTbBIVKdw

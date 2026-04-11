@@ -23,7 +23,9 @@ defmodule Ebau.User do
       define :create_service
     end
 
-    resource Ebau.User.ServiceGroup
+    resource Ebau.User.ServiceGroup do
+      define :get_service_group_by_slug, action: :read, get_by: [:slug]
+    end
   end
 
   json_api do
