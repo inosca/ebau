@@ -1,0 +1,46 @@
+[
+  {
+    "model": "work_items.workitemlistfilterpreset",
+    "pk": "06954daf-6eb6-78c1-8000-4e516f234a32",
+    "fields": {
+      "sort": 1,
+      "name": "{\"de\": \"Meine Aufgaben\", \"fr\": \"\", \"it\": \"\"}",
+      "query_params": {
+        "role": "active",
+        "task": "all",
+        "type": "all",
+        "order": "urgent",
+        "status": "READY",
+        "responsible": "own"
+      },
+      "prefilter_work_item_templates": false,
+      "prefilter_tasks": false,
+      "services": [],
+      "service_groups": [],
+      "work_item_templates": [],
+      "tasks": []
+    }
+  },
+  {
+    "model": "work_items.workitemlistfilterpreset",
+    "pk": "06954db2-c65a-7c7e-8000-6900cc75171a",
+    "fields": {
+      "sort": 2,
+      "name": "{\"de\": \"Neue Aufgaben\", \"fr\": \"\", \"it\": \"\"}",
+      "query_params": {
+        "role": "active",
+        "task": "all",
+        "type": "all",
+        "order": "new",
+        "status": "READY",
+        "responsible": "all"
+      },
+      "prefilter_work_item_templates": false,
+      "prefilter_tasks": false,
+      "services": [],
+      "service_groups": [],
+      "work_item_templates": [],
+      "tasks": []
+    }
+  }
+]

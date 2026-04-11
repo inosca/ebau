@@ -75,6 +75,65 @@ Process.exit(pid, :kill)
 The `mix.exs` file is the `package.json` or `pyproject.toml` equivalent of an Elixir project. The `aliases` function defines a bunch of aliases that you can use
 to make your life slightly easier. One that you might find particularly useful is `mix precommit`.
 
+## Test fixtures
+
+Some Elixir tests load legacy JSON fixture data that originates from Django canton config.
+
+In test environment, fixture loading uses vendored files under:
+
+```text
+priv/test_fixtures/
+```
+
+Vendored fixtures mirror all canton directories matching `kt_*`.
+
+This avoids making CI depend on a full `../django` checkout just to run Elixir tests.
+
+Refresh vendored fixtures with:
+
+```bash
+mix ebau.vendor_test_fixtures
+```
+
+### Explicit loading in tests
+
+Keep fixture setup explicit in test `setup` blocks:
+
+```elixir
+setup do
+  Ebau.Test.CantonFixtures.load_canton_config!(:so)
+  :ok
+end
+```
+
+For smaller and faster setup, load only selected files:
+
+```elixir
+setup do
+  Ebau.Test.CantonFixtures.load_canton_files!(:so, [
+    "user.json",
+    "caluma_workflow.json",
+    "caluma_form.json"
+  ])
+
+  :ok
+end
+```
+
+### Overriding fixture root
+
+Fixture root can be overridden with:
+
+```bash
+LEGACY_FIXTURE_ROOT=/path/to/fixtures mix test
+```
+
+Resolution order is:
+
+1. `LEGACY_FIXTURE_ROOT`
+2. `config :ebau, :legacy_fixture_root`
+3. fallback `../django`
+
 ## Cantonal theming of uikit
 
 Cantonal theming of uikit is done using custom input files to dart_sass. The `runtime.exs` file uses the `APPLICATION`

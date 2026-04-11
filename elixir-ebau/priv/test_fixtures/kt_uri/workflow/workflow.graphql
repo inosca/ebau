@@ -1,0 +1,68 @@
+mutation CreateBuildingPermitWorkflow {
+  saveWorkflow(
+    input: {
+      slug: "building-permit"
+      name: "Baugesuch"
+      startTasks: ["submit"]
+      allowAllForms: true
+      isPublished: true
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlow1 {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["submit"]
+      next: "[
+        'complete-check',
+        'create-manual-workitems',
+        'instance-management',
+        'init-additional-demand'
+      ]|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlow2 {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["complete-check"]
+      next: "['distribution', 'after-complete-check-ur', 'bab','release-for-bk']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlow3 {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["distribution"]
+      next: "['decision']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlow4 {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["decision"]
+      next: "['after-decision-ur']|tasks"
+      redoable: "'distribution'|task"
+    }
+  ) {
+    clientMutationId
+  }
+}
+

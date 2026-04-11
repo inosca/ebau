@@ -1,0 +1,55 @@
+mutation CreateMigratedWorkflow {
+  saveWorkflow(
+    input: {
+      slug: "migrated"
+      name: "Migriertes Dossier"
+      startTasks: [
+        "create-publication"
+        "create-information-of-neighbors"
+        "decision"
+        "create-manual-workitems"
+        "ebau-number"
+      ]
+      allowForms: ["migriertes-dossier"]
+      isPublished: true
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlow1 {
+  addWorkflowFlow(
+    input: {
+      workflow: "migrated"
+      tasks: ["fill-publication"]
+      next: "'create-publication'|task"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlow2 {
+  addWorkflowFlow(
+    input: {
+      workflow: "migrated"
+      tasks: ["information-of-neighbors"]
+      next: "'create-information-of-neighbors'|task"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlow3 {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["create-information-of-neighbors"]
+      next: "'information-of-neighbors'|task"
+    }
+  ) {
+    clientMutationId
+  }
+}

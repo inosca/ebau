@@ -1,0 +1,1743 @@
+[
+  {
+    "model": "alexandria_core.category",
+    "pk": "alle-beteiligten",
+    "fields": {
+      "created_at": "2025-02-26T12:28:02.154Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-04-02T09:43:25.014Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "applicant": {
+            "visibility": "all"
+          },
+          "subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "municipality-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "tags",
+                  "category",
+                  "marks"
+                ],
+                "condition": {
+                  "~InstanceState": [
+                    "reject",
+                    "rejected",
+                    "finished",
+                    "decided"
+                  ]
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "condition": {
+                  "~InstanceState": [
+                    "reject",
+                    "rejected",
+                    "finished",
+                    "decided"
+                  ]
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "municipality-read": {
+            "visibility": "all"
+          },
+          "cantonal-subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "cantonal-service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "extra-cantonal-subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "extra-cantonal-service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Alle Beteiligten\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Hier werden von der Gemeinde Dokumente hochgeladen, welche für alle am Verfahren beteiligten Rollen (Insbesondere für Gesuchstellende für Dokumente in Verbindung mit Nachforderungen) einsehbar sind. Für Gesuchstellende werden diese Dokumente im eBau-Portal unter *Rückmeldungen* angezeigt. Im Text zur Nachforderung referenziert die nachfordernde Behörde auf das entsprechende Dokument unter Rückmeldungen.\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"video/mp4\", \"video/quicktime\", \"video/x-msvideo\", \"video/webm\"]",
+      "color": "#CB68C1",
+      "parent": null,
+      "sort": 10
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beilagen-zum-gesuch",
+    "fields": {
+      "created_at": "2023-10-04T00:00:00Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-02-27T16:10:53.140Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "applicant": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": ["metainfo", "title", "category", "files"],
+                "condition": {
+                  "InstanceState": "new"
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "condition": {
+                  "InstanceState": "new"
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "municipality-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "condition": {
+                  "PaperInstance": true
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "fields": ["title", "description", "date", "tags", "marks"],
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "condition": {
+                  "PaperInstance": true
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "condition": {
+                  "PaperInstance": true
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "municipality-read": {
+            "visibility": "all"
+          },
+          "cantonal-subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "cantonal-service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "extra-cantonal-subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "extra-cantonal-service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Beilagen zum Gesuch\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"video/mp4\", \"video/quicktime\", \"video/x-msvideo\", \"video/webm\"]",
+      "color": "#7FC241",
+      "parent": null,
+      "sort": 1
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beilagen-zum-gesuch-grundstuecksangaben",
+    "fields": {
+      "created_at": "2023-10-04T00:00:00Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2023-10-04T00:00:00Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Grundstücksangaben\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Unter die Begriffe *Grundstücksangaben und Projektbeschrieb* fallen Gesuchsunterlagen wie z. B. Katasterplan (z. B. ÖREB-Kataster), Grundbuchauszug, Dienstbarkeiten, Projektbeschrieb.\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"video/mp4\", \"video/quicktime\", \"video/x-msvideo\", \"video/webm\"]",
+      "color": "#7FC241",
+      "parent": "beilagen-zum-gesuch",
+      "sort": 4
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beilagen-zum-gesuch-gutachten-nachweise-begruendungen",
+    "fields": {
+      "created_at": "2023-10-04T00:00:00Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2023-10-04T00:00:00Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Gutachten, Nachweise, Begründungen\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Unter die Begriffe *Gutachten, Nachweise, Begründungen, Ausnahmebegehren* fallen Gesuchsunterlagen wie z. B. Vollmachten, Einverständnis Nachbarn, Nutzungsberechnungen, Energietechnische Massnahmennachweis (EMN), Lärmschutznachweise, Brandschutznachweise.\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"video/mp4\", \"video/quicktime\", \"video/x-msvideo\", \"video/webm\"]",
+      "color": "#7FC241",
+      "parent": "beilagen-zum-gesuch",
+      "sort": 3
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beilagen-zum-gesuch-projektplaene-projektbeschrieb",
+    "fields": {
+      "created_at": "2023-10-04T00:00:00Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2023-10-04T00:00:00Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Projektpläne, Projektbeschrieb\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Unter den Begriff *Projektpläne* fallen Gesuchsunterlagen wie z. B. Situationsplan (Art. 12 und 13 BewD), Projektpläne (Art. 14 BewD) wie Grundrisse, Schnitt- und Fassadenpläne, Umgebungsgestaltungspläne, Kanalisationspläne, Siedlungsentwässerungspläne.\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"video/mp4\", \"video/quicktime\", \"video/x-msvideo\", \"video/webm\"]",
+      "color": "#7FC241",
+      "parent": "beilagen-zum-gesuch",
+      "sort": 2
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beilagen-zum-gesuch-weitere-gesuchsunterlagen",
+    "fields": {
+      "created_at": "2023-10-04T00:00:00Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2023-10-04T00:00:00Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {},
+      "name": "{\"de\": \"Weitere Gesuchsunterlagen\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Unter den Begriff *Weitere Gesuchsunterlagen* fallen Dokumentunterlagen wie z. B. Formulare - Anschluss Elektrizität, Anschluss Gemeinschaftsantenne, Anschluss Gas, Anschluss Wasser, Wasser- / Abwasserinstallationen und andere Gesuchsunterlagen\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"video/mp4\", \"video/quicktime\", \"video/x-msvideo\", \"video/webm\"]",
+      "color": "#7FC241",
+      "parent": "beilagen-zum-gesuch",
+      "sort": 1
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beschwerden",
+    "fields": {
+      "created_at": "2024-03-07T00:00:00Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-02-27T16:13:13.217Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "municipality-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date", "files"],
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags", "marks"],
+                "permission": "update"
+              }
+            ]
+          },
+          "municipality-read": {
+            "visibility": "all"
+          },
+          "cantonal-subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "cantonal-service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "condition": {
+                  "BaBService": true,
+                  "BaBInstance": true
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date", "files"],
+                "condition": {
+                  "BaBService": true,
+                  "BaBInstance": true
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "extra-cantonal-subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "extra-cantonal-service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "condition": {
+                  "BaBService": true,
+                  "BaBInstance": true
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date", "files"],
+                "condition": {
+                  "BaBService": true,
+                  "BaBInstance": true
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Beschwerden\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"video/mp4\", \"video/quicktime\", \"video/x-msvideo\", \"video/webm\"]",
+      "color": "#FF7800",
+      "parent": null,
+      "sort": 5
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "beteiligte-behoerden",
+    "fields": {
+      "created_at": "2023-10-04T00:00:00Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-02-27T16:11:33.037Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "geometer": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date", "files"],
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date", "files"],
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "municipality-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date", "files"],
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags", "marks"],
+                "permission": "update"
+              }
+            ]
+          },
+          "municipality-read": {
+            "visibility": "all"
+          },
+          "cantonal-subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date", "files"],
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "cantonal-service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date", "files"],
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              },
+              {
+                "marks": ["decision"],
+                "scope": "All",
+                "fields": ["marks"],
+                "condition": {
+                  "BaBService": true,
+                  "BaBInstance": true
+                },
+                "permission": "update"
+              }
+            ]
+          },
+          "extra-cantonal-subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date", "files"],
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "extra-cantonal-service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date", "files"],
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              },
+              {
+                "marks": ["decision"],
+                "scope": "All",
+                "fields": ["marks"],
+                "condition": {
+                  "BaBService": true,
+                  "BaBInstance": true
+                },
+                "permission": "update"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Beteiligte Behörden\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"video/mp4\", \"video/quicktime\", \"video/x-msvideo\", \"video/webm\"]",
+      "color": "#00A99D",
+      "parent": null,
+      "sort": 2
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "einsprachen",
+    "fields": {
+      "created_at": "2023-11-23T00:00:00Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-02-27T16:12:44.796Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "municipality-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": ["title", "description", "date", "files"],
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "fields": ["tags", "marks"],
+                "permission": "update"
+              }
+            ]
+          },
+          "municipality-read": {
+            "visibility": "all"
+          },
+          "cantonal-subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "cantonal-service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "extra-cantonal-subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "extra-cantonal-service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Einsprachen\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"video/mp4\", \"video/quicktime\", \"video/x-msvideo\", \"video/webm\"]",
+      "color": "#E1B422",
+      "parent": null,
+      "sort": 4
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "fachstellen",
+    "fields": {
+      "created_at": "2024-09-11T00:00:00Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-02-27T16:09:13.705Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "cantonal-subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "tags",
+                  "files",
+                  "category"
+                ],
+                "permission": "update"
+              }
+            ]
+          },
+          "cantonal-service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "tags",
+                  "files",
+                  "category"
+                ],
+                "permission": "update"
+              },
+              {
+                "marks": ["decision"],
+                "scope": "All",
+                "fields": ["marks"],
+                "condition": {
+                  "BaBService": true,
+                  "BaBInstance": true
+                },
+                "permission": "update"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Fachstellen\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\", \"video/mp4\", \"video/quicktime\", \"video/x-msvideo\", \"video/webm\"]",
+      "color": "#00C2FF",
+      "parent": null,
+      "sort": 6
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "intern",
+    "fields": {
+      "created_at": "2023-10-04T00:00:00Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-02-27T16:13:34.935Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "subservice": {
+            "visibility": "service",
+            "permissions": [
+              {
+                "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "category",
+                  "date",
+                  "tags",
+                  "files"
+                ],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "municipality-lead": {
+            "visibility": "service",
+            "permissions": [
+              {
+                "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "municipality-read": {
+            "visibility": "service"
+          },
+          "cantonal-subservice": {
+            "visibility": "service",
+            "permissions": [
+              {
+                "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "category",
+                  "date",
+                  "tags",
+                  "files"
+                ],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "cantonal-service-lead": {
+            "visibility": "service",
+            "permissions": [
+              {
+                "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "category",
+                  "date",
+                  "tags",
+                  "files"
+                ],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "extra-cantonal-subservice": {
+            "visibility": "service",
+            "permissions": [
+              {
+                "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "category",
+                  "date",
+                  "tags",
+                  "files"
+                ],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "extra-cantonal-service-lead": {
+            "visibility": "service",
+            "permissions": [
+              {
+                "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "category",
+                  "date",
+                  "tags",
+                  "files"
+                ],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Intern\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\", \"video/mp4\", \"video/quicktime\", \"video/x-msvideo\", \"video/webm\"]",
+      "color": "#689BD0",
+      "parent": null,
+      "sort": 7
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "intern-mit-unterfachstellen",
+    "fields": {
+      "created_at": "2023-11-13T00:00:00Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-02-27T16:13:58.620Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "subservice": {
+            "visibility": "service-and-subservice",
+            "permissions": [
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": ["title", "description", "date", "tags", "files"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["category"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "municipality-lead": {
+            "visibility": "service-and-subservice",
+            "permissions": [
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": ["title", "description", "date", "tags", "files"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["category"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "municipality-read": {
+            "visibility": "service-and-subservice"
+          },
+          "cantonal-subservice": {
+            "visibility": "service-and-subservice",
+            "permissions": [
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": ["title", "description", "date", "tags", "files"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["category"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "cantonal-service-lead": {
+            "visibility": "service-and-subservice",
+            "permissions": [
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": ["title", "description", "date", "tags", "files"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["category"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "extra-cantonal-subservice": {
+            "visibility": "service-and-subservice",
+            "permissions": [
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": ["title", "description", "date", "tags", "files"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["category"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "extra-cantonal-service-lead": {
+            "visibility": "service-and-subservice",
+            "permissions": [
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "ServiceAndSubservice",
+                "fields": ["title", "description", "date", "tags", "files"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "fields": ["category"],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Intern (mit Unterfachstellen)\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\", \"video/mp4\", \"video/quicktime\", \"video/x-msvideo\", \"video/webm\"]",
+      "color": "#024A91",
+      "parent": null,
+      "sort": 8
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "migrierte-dokumente",
+    "fields": {
+      "created_at": "2024-06-18T08:50:29.881Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-02-27T16:14:17.591Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "municipality-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "condition": {
+                  "MigratedInstance": true
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "condition": {
+                  "MigratedInstance": true
+                },
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "condition": {
+                  "MigratedInstance": true
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "municipality-read": {
+            "visibility": "all"
+          },
+          "cantonal-subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "cantonal-service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "extra-cantonal-subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "extra-cantonal-service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Migrierte Dokumente\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": null,
+      "color": "#000000",
+      "parent": null,
+      "sort": 9
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "nachforderung",
+    "fields": {
+      "created_at": "2023-10-04T00:00:00Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2025-02-27T16:12:04.953Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "support": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "permission": "delete"
+              }
+            ]
+          },
+          "applicant": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "fields": ["metainfo", "title", "category", "files"],
+                "condition": {
+                  "ReadyWorkItem": "fill-additional-demand"
+                },
+                "permission": "create"
+              },
+              {
+                "scope": "All",
+                "condition": {
+                  "ReadyWorkItem": "fill-additional-demand"
+                },
+                "permission": "delete"
+              }
+            ]
+          },
+          "subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "municipality-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["title", "description", "date", "tags", "marks"],
+                "permission": "update"
+              },
+              {
+                "scope": "All",
+                "condition": {
+                  "PaperInstance": true
+                },
+                "permission": "update"
+              },
+              {
+                "condition": {
+                  "PaperInstance": true
+                },
+                "permission": "create"
+              }
+            ]
+          },
+          "municipality-read": {
+            "visibility": "all"
+          },
+          "cantonal-subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "cantonal-service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "extra-cantonal-subservice": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          },
+          "extra-cantonal-service-lead": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "scope": "All",
+                "fields": ["tags"],
+                "permission": "update"
+              }
+            ]
+          }
+        }
+      },
+      "name": "{\"de\": \"Nachforderung\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"video/mp4\", \"video/quicktime\", \"video/x-msvideo\", \"video/webm\"]",
+      "color": "#EE1D23",
+      "parent": null,
+      "sort": 3
+    }
+  },
+  {
+    "model": "alexandria_core.mark",
+    "pk": "decision",
+    "fields": {
+      "created_at": "2023-12-01T09:11:54.349Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2023-12-01T09:11:54.349Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "sort": 1
+      },
+      "name": "{\"de\": \"Zwischen- / Entscheiddokument\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}"
+    }
+  },
+  {
+    "model": "alexandria_core.mark",
+    "pk": "objection",
+    "fields": {
+      "created_at": "2023-12-01T09:11:54.349Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2023-12-01T09:11:54.349Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "sort": 3
+      },
+      "name": "{\"de\": \"Einsprachedokument\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}"
+    }
+  },
+  {
+    "model": "alexandria_core.mark",
+    "pk": "publication",
+    "fields": {
+      "created_at": "2023-12-01T09:11:54.349Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2023-12-01T09:11:54.349Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "sort": 2
+      },
+      "name": "{\"de\": \"Publikationsdokument\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}"
+    }
+  },
+  {
+    "model": "alexandria_core.mark",
+    "pk": "sensitive",
+    "fields": {
+      "created_at": "2023-12-01T09:11:54.349Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2023-12-01T09:11:54.349Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "sort": 5
+      },
+      "name": "{\"de\": \"Vertraulich\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Dieses Dokument enthält persönliche Daten. Das Dokument kann nicht öffentlich publiziert werden.\", \"fr\": \"\", \"it\": \"\"}"
+    }
+  },
+  {
+    "model": "alexandria_core.mark",
+    "pk": "void",
+    "fields": {
+      "created_at": "2023-12-01T09:11:54.349Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2023-12-01T09:11:54.349Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "sort": 4
+      },
+      "name": "{\"de\": \"Ungültig\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}"
+    }
+  }
+]

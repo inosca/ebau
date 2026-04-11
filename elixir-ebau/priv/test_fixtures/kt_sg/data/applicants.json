@@ -1,0 +1,28 @@
+[
+  {
+    "model": "applicants.applicant",
+    "pk": 1,
+    "fields": {
+      "instance": 1,
+      "user": 1,
+      "invitee": 1,
+      "created": "2026-02-18T09:46:15.116Z",
+      "email": "admin@example.com",
+      "username": "",
+      "role": "ADMIN"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 2,
+    "fields": {
+      "instance": 2,
+      "user": 1,
+      "invitee": 1,
+      "created": "2026-02-18T09:49:30.266Z",
+      "email": "admin@example.com",
+      "username": "",
+      "role": "ADMIN"
+    }
+  }
+]

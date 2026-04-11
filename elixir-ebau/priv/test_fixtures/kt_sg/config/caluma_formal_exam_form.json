@@ -1,0 +1,2000 @@
+[
+  {
+    "model": "caluma_form.form",
+    "pk": "formelle-vorpruefung",
+    "fields": {
+      "created_at": "2026-03-04T14:34:42.175Z",
+      "modified_at": "2026-03-12T10:49:10.447Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Formelle Vorprüfung\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "formelle-vorpruefung.formelle-vorpruefung-abschliessen",
+    "fields": {
+      "created_at": "2026-03-04T15:24:12.839Z",
+      "modified_at": "2026-03-04T15:24:12.839Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "formelle-vorpruefung",
+      "question": "formelle-vorpruefung-abschliessen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "formelle-vorpruefung.formelle-vorpruefung-bauanzeigen-notwendig",
+    "fields": {
+      "created_at": "2026-03-12T13:17:02.082Z",
+      "modified_at": "2026-03-12T13:17:02.082Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "formelle-vorpruefung",
+      "question": "formelle-vorpruefung-bauanzeigen-notwendig",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "formelle-vorpruefung.formelle-vorpruefung-bemerkung",
+    "fields": {
+      "created_at": "2026-03-12T10:43:47.319Z",
+      "modified_at": "2026-03-12T10:43:47.319Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "formelle-vorpruefung",
+      "question": "formelle-vorpruefung-bemerkung",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "formelle-vorpruefung.formelle-vorpruefung-beteiligte-und-berechtigte",
+    "fields": {
+      "created_at": "2026-03-04T15:00:01.239Z",
+      "modified_at": "2026-03-04T15:00:01.239Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "formelle-vorpruefung",
+      "question": "formelle-vorpruefung-beteiligte-und-berechtigte",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "formelle-vorpruefung.formelle-vorpruefung-dateien",
+    "fields": {
+      "created_at": "2026-03-19T10:08:21.618Z",
+      "modified_at": "2026-03-19T10:08:21.618Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "formelle-vorpruefung",
+      "question": "formelle-vorpruefung-dateien",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "formelle-vorpruefung.formelle-vorpruefung-geschaeftsart-plausibel",
+    "fields": {
+      "created_at": "2026-03-04T15:07:11.284Z",
+      "modified_at": "2026-03-04T15:07:11.284Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "formelle-vorpruefung",
+      "question": "formelle-vorpruefung-geschaeftsart-plausibel",
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "formelle-vorpruefung.formelle-vorpruefung-geschaeftsart-plausibel-warnung",
+    "fields": {
+      "created_at": "2026-03-12T12:52:45.606Z",
+      "modified_at": "2026-03-12T12:52:45.606Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "formelle-vorpruefung",
+      "question": "formelle-vorpruefung-geschaeftsart-plausibel-warnung",
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "formelle-vorpruefung.formelle-vorpruefung-gesuchunterlagen-1-pruefung-vollstaendig",
+    "fields": {
+      "created_at": "2026-03-04T15:12:18.147Z",
+      "modified_at": "2026-03-04T15:12:18.147Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "formelle-vorpruefung",
+      "question": "formelle-vorpruefung-gesuchunterlagen-1-pruefung-vollstaendig",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "formelle-vorpruefung.formelle-vorpruefung-gis-standort-plausibel",
+    "fields": {
+      "created_at": "2026-03-04T15:06:14.479Z",
+      "modified_at": "2026-03-04T15:06:14.479Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "formelle-vorpruefung",
+      "question": "formelle-vorpruefung-gis-standort-plausibel",
+      "sort": 21
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "formelle-vorpruefung.formelle-vorpruefung-gis-standort-plausibel-warnung",
+    "fields": {
+      "created_at": "2026-03-12T13:41:00.973Z",
+      "modified_at": "2026-03-12T13:41:00.973Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "formelle-vorpruefung",
+      "question": "formelle-vorpruefung-gis-standort-plausibel-warnung",
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "formelle-vorpruefung.formelle-vorpruefung-koordination",
+    "fields": {
+      "created_at": "2026-03-04T15:03:13.209Z",
+      "modified_at": "2026-03-04T15:03:13.209Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "formelle-vorpruefung",
+      "question": "formelle-vorpruefung-koordination",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "formelle-vorpruefung.formelle-vorpruefung-koordinationspflichtiges-vorhaben",
+    "fields": {
+      "created_at": "2026-03-04T15:13:59.154Z",
+      "modified_at": "2026-03-04T15:13:59.154Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "formelle-vorpruefung",
+      "question": "formelle-vorpruefung-koordinationspflichtiges-vorhaben",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "formelle-vorpruefung.formelle-vorpruefung-koordinationspflichtiges-vorhaben-warnung",
+    "fields": {
+      "created_at": "2026-03-12T12:54:39.244Z",
+      "modified_at": "2026-03-12T12:54:39.244Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "formelle-vorpruefung",
+      "question": "formelle-vorpruefung-koordinationspflichtiges-vorhaben-warnung",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "formelle-vorpruefung.formelle-vorpruefung-mitwirkung-fachstellen-notwendig",
+    "fields": {
+      "created_at": "2026-03-12T13:11:06.494Z",
+      "modified_at": "2026-03-12T13:11:06.494Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "formelle-vorpruefung",
+      "question": "formelle-vorpruefung-mitwirkung-fachstellen-notwendig",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "formelle-vorpruefung.formelle-vorpruefung-notwendige-publikationen",
+    "fields": {
+      "created_at": "2026-03-12T10:45:19.001Z",
+      "modified_at": "2026-03-12T10:45:19.001Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "formelle-vorpruefung",
+      "question": "formelle-vorpruefung-notwendige-publikationen",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "formelle-vorpruefung.formelle-vorpruefung-privatrechtliche-zustimmung-vorhanden",
+    "fields": {
+      "created_at": "2026-03-04T15:08:10.444Z",
+      "modified_at": "2026-03-04T15:08:10.444Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "formelle-vorpruefung",
+      "question": "formelle-vorpruefung-privatrechtliche-zustimmung-vorhanden",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "formelle-vorpruefung.formelle-vorpruefung-publikation-notwendig",
+    "fields": {
+      "created_at": "2026-03-12T12:47:35.838Z",
+      "modified_at": "2026-03-12T12:47:35.838Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "formelle-vorpruefung",
+      "question": "formelle-vorpruefung-publikation-notwendig",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "formelle-vorpruefung.formelle-vorpruefung-publikation-und-profilierung",
+    "fields": {
+      "created_at": "2026-03-04T15:03:37.418Z",
+      "modified_at": "2026-03-04T15:03:37.418Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "formelle-vorpruefung",
+      "question": "formelle-vorpruefung-publikation-und-profilierung",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "formelle-vorpruefung.formelle-vorpruefung-titel-nachvollziehbar",
+    "fields": {
+      "created_at": "2026-03-04T15:04:31.082Z",
+      "modified_at": "2026-03-04T15:04:31.082Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "formelle-vorpruefung",
+      "question": "formelle-vorpruefung-titel-nachvollziehbar",
+      "sort": 23
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "formelle-vorpruefung.formelle-vorpruefung-titel-nachvollziehbar-warnung",
+    "fields": {
+      "created_at": "2026-03-12T12:50:04.895Z",
+      "modified_at": "2026-03-12T12:50:04.895Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "formelle-vorpruefung",
+      "question": "formelle-vorpruefung-titel-nachvollziehbar-warnung",
+      "sort": 22
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "formelle-vorpruefung.formelle-vorpruefung-unterlagen-und-prueffaehigkeit",
+    "fields": {
+      "created_at": "2026-03-04T15:00:23.923Z",
+      "modified_at": "2026-03-04T15:00:23.923Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "formelle-vorpruefung",
+      "question": "formelle-vorpruefung-unterlagen-und-prueffaehigkeit",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "formelle-vorpruefung.formelle-vorpruefung-verfahrensart",
+    "fields": {
+      "created_at": "2026-03-04T15:16:47.122Z",
+      "modified_at": "2026-03-04T15:16:47.122Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "formelle-vorpruefung",
+      "question": "formelle-vorpruefung-verfahrensart",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "formelle-vorpruefung.formelle-vorpruefung-visiere-notwendig",
+    "fields": {
+      "created_at": "2026-03-12T13:18:35.223Z",
+      "modified_at": "2026-03-12T13:18:35.223Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "formelle-vorpruefung",
+      "question": "formelle-vorpruefung-visiere-notwendig",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "formelle-vorpruefung.formelle-vorpruefung-zuordnung-und-klassifizierung",
+    "fields": {
+      "created_at": "2026-03-04T14:59:11.284Z",
+      "modified_at": "2026-03-04T14:59:11.284Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "formelle-vorpruefung",
+      "question": "formelle-vorpruefung-zuordnung-und-klassifizierung",
+      "sort": 24
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "formelle-vorpruefung-bauanzeigen-notwendig-ja",
+    "fields": {
+      "created_at": "2026-03-12T13:17:01.920Z",
+      "modified_at": "2026-03-12T13:17:01.920Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "formelle-vorpruefung-bauanzeigen-notwendig-nein",
+    "fields": {
+      "created_at": "2026-03-12T13:17:01.924Z",
+      "modified_at": "2026-03-12T13:17:01.924Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "formelle-vorpruefung-geschaeftsart-plausibel-ja",
+    "fields": {
+      "created_at": "2026-03-04T15:07:11.206Z",
+      "modified_at": "2026-03-04T15:07:11.206Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "formelle-vorpruefung-geschaeftsart-plausibel-nein",
+    "fields": {
+      "created_at": "2026-03-04T15:07:11.209Z",
+      "modified_at": "2026-03-04T15:07:11.209Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "formelle-vorpruefung-gesuchunterlagen-1-pruefung-vollstaendig-ja",
+    "fields": {
+      "created_at": "2026-03-04T15:12:18.070Z",
+      "modified_at": "2026-03-04T15:12:18.070Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "formelle-vorpruefung-gesuchunterlagen-1-pruefung-vollstaendig-nein",
+    "fields": {
+      "created_at": "2026-03-04T15:12:18.068Z",
+      "modified_at": "2026-03-04T15:12:18.068Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "formelle-vorpruefung-gesuchunterlagen-1-pruefung-vollstaendig-nicht-beurteilbar-nachforderung-erforderlich",
+    "fields": {
+      "created_at": "2026-03-12T10:33:10.729Z",
+      "modified_at": "2026-03-12T10:33:10.729Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht beurteilbar / Nachforderung erforderlich\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "formelle-vorpruefung-gis-standort-plausibel-ja",
+    "fields": {
+      "created_at": "2026-03-04T15:06:14.399Z",
+      "modified_at": "2026-03-04T15:06:14.399Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "formelle-vorpruefung-gis-standort-plausibel-nein",
+    "fields": {
+      "created_at": "2026-03-04T15:06:14.401Z",
+      "modified_at": "2026-03-04T15:06:14.401Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "formelle-vorpruefung-koordinationspflichtiges-vorhaben-ja",
+    "fields": {
+      "created_at": "2026-03-04T15:13:59.067Z",
+      "modified_at": "2026-03-04T15:13:59.067Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "formelle-vorpruefung-koordinationspflichtiges-vorhaben-nein",
+    "fields": {
+      "created_at": "2026-03-04T15:13:59.065Z",
+      "modified_at": "2026-03-04T15:13:59.065Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "formelle-vorpruefung-mitwirkung-fachstellen-notwendig-bund",
+    "fields": {
+      "created_at": "2026-03-12T13:11:06.336Z",
+      "modified_at": "2026-03-12T13:11:06.336Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bund\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "formelle-vorpruefung-mitwirkung-fachstellen-notwendig-kanton",
+    "fields": {
+      "created_at": "2026-03-12T13:11:06.329Z",
+      "modified_at": "2026-03-12T13:11:06.329Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kanton\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "formelle-vorpruefung-mitwirkung-fachstellen-notwendig-kommunale-fachstellen",
+    "fields": {
+      "created_at": "2026-03-12T13:11:06.329Z",
+      "modified_at": "2026-03-12T13:11:06.329Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kommunale Fachstellen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "formelle-vorpruefung-notwendige-publikationen-kantonal",
+    "fields": {
+      "created_at": "2026-03-12T10:45:18.851Z",
+      "modified_at": "2026-03-12T10:45:18.851Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kantonal\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "formelle-vorpruefung-notwendige-publikationen-kommunal",
+    "fields": {
+      "created_at": "2026-03-12T10:45:18.849Z",
+      "modified_at": "2026-03-12T10:45:18.849Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kommunal\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "formelle-vorpruefung-privatrechtliche-zustimmung-vorhanden-ja",
+    "fields": {
+      "created_at": "2026-03-04T15:08:10.365Z",
+      "modified_at": "2026-03-04T15:08:10.365Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "formelle-vorpruefung-privatrechtliche-zustimmung-vorhanden-nein",
+    "fields": {
+      "created_at": "2026-03-04T15:08:10.363Z",
+      "modified_at": "2026-03-04T15:08:10.363Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "formelle-vorpruefung-publikation-notwendig-ja",
+    "fields": {
+      "created_at": "2026-03-04T15:17:16.328Z",
+      "modified_at": "2026-03-04T15:17:16.328Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "formelle-vorpruefung-publikation-notwendig-nein",
+    "fields": {
+      "created_at": "2026-03-04T15:17:16.326Z",
+      "modified_at": "2026-03-04T15:17:16.326Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "formelle-vorpruefung-titel-nachvollziehbar-ja",
+    "fields": {
+      "created_at": "2026-03-04T15:04:30.997Z",
+      "modified_at": "2026-03-04T15:04:30.997Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "formelle-vorpruefung-titel-nachvollziehbar-nein",
+    "fields": {
+      "created_at": "2026-03-04T15:04:30.995Z",
+      "modified_at": "2026-03-04T15:04:30.995Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "formelle-vorpruefung-verfahrensart-meldeverfahren",
+    "fields": {
+      "created_at": "2026-03-04T15:16:47.044Z",
+      "modified_at": "2026-03-04T15:16:47.044Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Meldeverfahren\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "formelle-vorpruefung-verfahrensart-ordentlich",
+    "fields": {
+      "created_at": "2026-03-04T15:16:47.032Z",
+      "modified_at": "2026-03-12T10:38:57.557Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ordentlich\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "formelle-vorpruefung-verfahrensart-vereinfacht",
+    "fields": {
+      "created_at": "2026-03-04T15:16:47.043Z",
+      "modified_at": "2026-03-12T10:38:57.561Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vereinfacht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "formelle-vorpruefung-visiere-notwendig-ja",
+    "fields": {
+      "created_at": "2026-03-12T13:18:35.068Z",
+      "modified_at": "2026-03-12T13:18:35.068Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "formelle-vorpruefung-visiere-notwendig-nein",
+    "fields": {
+      "created_at": "2026-03-12T13:18:35.065Z",
+      "modified_at": "2026-03-12T13:18:35.065Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "formelle-vorpruefung-abschliessen",
+    "fields": {
+      "created_at": "2026-03-04T15:24:12.803Z",
+      "modified_at": "2026-03-04T15:25:09.340Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Formelle Vorprüfung Abschliessen\", \"fr\": null, \"it\": null}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "color": "primary",
+        "action": "complete",
+        "show_validation": true,
+        "validate_on_enter": true
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "formelle-vorpruefung-bauanzeigen-notwendig",
+    "fields": {
+      "created_at": "2026-03-12T13:17:01.996Z",
+      "modified_at": "2026-03-12T13:17:01.996Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauanzeigen notwendig\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "formelle-vorpruefung-bemerkung",
+    "fields": {
+      "created_at": "2026-03-12T10:43:47.218Z",
+      "modified_at": "2026-03-12T13:17:24.157Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "formelle-vorpruefung-beteiligte-und-berechtigte",
+    "fields": {
+      "created_at": "2026-03-04T15:00:01.208Z",
+      "modified_at": "2026-03-12T13:14:43.355Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beteiligte und Berechtigte\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"### Beteiligte und Berechtigte\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "formelle-vorpruefung-dateien",
+    "fields": {
+      "created_at": "2026-03-19T10:08:21.582Z",
+      "modified_at": "2026-03-19T10:08:21.582Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dateien\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "alexandria-documents-form",
+        "alexandria-categories": ["intern"],
+        "alexandriaEnableDocumentFilter": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "formelle-vorpruefung-geschaeftsart-plausibel",
+    "fields": {
+      "created_at": "2026-03-04T15:07:11.245Z",
+      "modified_at": "2026-03-12T13:31:11.495Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Workflow / Geschäftsart plausibel\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "formelle-vorpruefung-geschaeftsart-plausibel-warnung",
+    "fields": {
+      "created_at": "2026-03-12T12:52:45.474Z",
+      "modified_at": "2026-03-13T09:12:43.888Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Workflow /  Geschäftsart plausibel - Warnung\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\"formelle-vorpruefung-geschaeftsart-plausibel\"|answer == \"formelle-vorpruefung-geschaeftsart-plausibel-nein\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert border-highlight uk-margin-remove\\\">Bitte weisen Sie das Dossier mit Hilfe der Funktion \\\"Dossier zurückweisen\\\" zurück.</div>\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "formelle-vorpruefung-gesuchunterlagen-1-pruefung-vollstaendig",
+    "fields": {
+      "created_at": "2026-03-04T15:12:18.103Z",
+      "modified_at": "2026-03-12T13:31:32.072Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vollständig und prüffähig\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "formelle-vorpruefung-gis-standort-plausibel",
+    "fields": {
+      "created_at": "2026-03-04T15:06:14.435Z",
+      "modified_at": "2026-03-12T13:31:00.390Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"GIS-Standort plausibel\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "formelle-vorpruefung-gis-standort-plausibel-warnung",
+    "fields": {
+      "created_at": "2026-03-12T13:41:00.901Z",
+      "modified_at": "2026-03-13T09:12:35.027Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"GIS-Standort plausibel - Warnung\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\"formelle-vorpruefung-gis-standort-plausibel\"|answer == \"formelle-vorpruefung-gis-standort-plausibel-nein\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert border-highlight uk-margin-remove\\\">Bitte korrigieren Sie das Dossier mit Hilfe der Dossierkorrektur.</div>\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "formelle-vorpruefung-koordination",
+    "fields": {
+      "created_at": "2026-03-04T15:03:13.171Z",
+      "modified_at": "2026-03-12T13:14:57.503Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Koordination\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"### Koordination\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "formelle-vorpruefung-koordinationspflichtiges-vorhaben",
+    "fields": {
+      "created_at": "2026-03-04T15:13:59.108Z",
+      "modified_at": "2026-03-12T14:48:21.689Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Koordinationspflichtiges Vorhaben\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "formelle-vorpruefung-koordinationspflichtiges-vorhaben-warnung",
+    "fields": {
+      "created_at": "2026-03-12T12:54:39.143Z",
+      "modified_at": "2026-03-13T09:12:51.620Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Koordinationspflichtiges Vorhaben - Warnung\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\"formelle-vorpruefung-koordinationspflichtiges-vorhaben\"|answer == \"formelle-vorpruefung-koordinationspflichtiges-vorhaben-ja\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert border-highlight uk-margin-remove\\\">Bitte verknüpfen Sie die relevanten Vorhaben im Menü \\\"Verknüpfte Dossiers\\\".</div>\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "formelle-vorpruefung-mitwirkung-fachstellen-notwendig",
+    "fields": {
+      "created_at": "2026-03-12T13:11:06.415Z",
+      "modified_at": "2026-03-12T13:11:06.415Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Mitwirkung Fachstellen notwendig\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "formelle-vorpruefung-notwendige-publikationen",
+    "fields": {
+      "created_at": "2026-03-12T10:45:18.929Z",
+      "modified_at": "2026-03-12T13:24:16.231Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Notwendige Publikationen\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "\"formelle-vorpruefung-publikation-notwendig\"|answer != \"formelle-vorpruefung-publikation-notwendig-ja\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "formelle-vorpruefung-privatrechtliche-zustimmung-vorhanden",
+    "fields": {
+      "created_at": "2026-03-04T15:08:10.405Z",
+      "modified_at": "2026-03-12T13:31:24.511Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Privatrechtliche Zustimmung vorhanden\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "formelle-vorpruefung-publikation-notwendig",
+    "fields": {
+      "created_at": "2026-03-04T15:17:16.364Z",
+      "modified_at": "2026-03-12T14:44:52.073Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Publikation notwendig\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "formelle-vorpruefung-publikation-und-profilierung",
+    "fields": {
+      "created_at": "2026-03-04T15:03:37.383Z",
+      "modified_at": "2026-03-12T13:15:06.738Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Publikation und Profilierung\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"### Publikation und Profilierung\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "formelle-vorpruefung-titel-nachvollziehbar",
+    "fields": {
+      "created_at": "2026-03-04T15:04:31.044Z",
+      "modified_at": "2026-03-12T13:30:52.717Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Titel nachvollziehbar\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "formelle-vorpruefung-titel-nachvollziehbar-warnung",
+    "fields": {
+      "created_at": "2026-03-12T12:50:04.785Z",
+      "modified_at": "2026-03-17T13:11:09.831Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Titel nachvollziehbar - Warnung\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\"formelle-vorpruefung-titel-nachvollziehbar\"|answer == \"formelle-vorpruefung-titel-nachvollziehbar-nein\" )",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert border-highlight uk-margin-remove\\\">Bitte korrigieren Sie das Dossier mit Hilfe der Dossierkorrektur.</div>\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "formelle-vorpruefung-unterlagen-und-prueffaehigkeit",
+    "fields": {
+      "created_at": "2026-03-04T15:00:23.890Z",
+      "modified_at": "2026-03-12T13:14:50.752Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Unterlagen und Prüffähigkeit\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"### Unterlagen und Prüffähigkeit\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "formelle-vorpruefung-verfahrensart",
+    "fields": {
+      "created_at": "2026-03-04T15:16:47.079Z",
+      "modified_at": "2026-03-12T10:38:57.644Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verfahrensart\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "formelle-vorpruefung-visiere-notwendig",
+    "fields": {
+      "created_at": "2026-03-12T13:18:35.143Z",
+      "modified_at": "2026-03-12T13:18:35.143Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Visiere notwendig\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "formelle-vorpruefung-zuordnung-und-klassifizierung",
+    "fields": {
+      "created_at": "2026-03-04T14:59:11.249Z",
+      "modified_at": "2026-03-04T15:04:47.049Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zuordnung und Klassifizierung\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"### Zuordnung und Klassifizierung\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "formelle-vorpruefung-bauanzeigen-notwendig.formelle-vorpruefung-bauanzeigen-notwendig-ja",
+    "fields": {
+      "created_at": "2026-03-12T13:17:02.005Z",
+      "modified_at": "2026-03-12T13:17:02.005Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "formelle-vorpruefung-bauanzeigen-notwendig",
+      "option": "formelle-vorpruefung-bauanzeigen-notwendig-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "formelle-vorpruefung-bauanzeigen-notwendig.formelle-vorpruefung-bauanzeigen-notwendig-nein",
+    "fields": {
+      "created_at": "2026-03-12T13:17:02Z",
+      "modified_at": "2026-03-12T13:17:02Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "formelle-vorpruefung-bauanzeigen-notwendig",
+      "option": "formelle-vorpruefung-bauanzeigen-notwendig-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "formelle-vorpruefung-geschaeftsart-plausibel.formelle-vorpruefung-geschaeftsart-plausibel-ja",
+    "fields": {
+      "created_at": "2026-03-12T13:31:11.503Z",
+      "modified_at": "2026-03-12T13:31:11.503Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "formelle-vorpruefung-geschaeftsart-plausibel",
+      "option": "formelle-vorpruefung-geschaeftsart-plausibel-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "formelle-vorpruefung-geschaeftsart-plausibel.formelle-vorpruefung-geschaeftsart-plausibel-nein",
+    "fields": {
+      "created_at": "2026-03-12T13:31:11.500Z",
+      "modified_at": "2026-03-12T13:31:11.500Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "formelle-vorpruefung-geschaeftsart-plausibel",
+      "option": "formelle-vorpruefung-geschaeftsart-plausibel-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "formelle-vorpruefung-gesuchunterlagen-1-pruefung-vollstaendig.formelle-vorpruefung-gesuchunterlagen-1-pruefung-vollstaendig-ja",
+    "fields": {
+      "created_at": "2026-03-12T13:31:32.083Z",
+      "modified_at": "2026-03-12T13:31:32.083Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "formelle-vorpruefung-gesuchunterlagen-1-pruefung-vollstaendig",
+      "option": "formelle-vorpruefung-gesuchunterlagen-1-pruefung-vollstaendig-ja",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "formelle-vorpruefung-gesuchunterlagen-1-pruefung-vollstaendig.formelle-vorpruefung-gesuchunterlagen-1-pruefung-vollstaendig-nein",
+    "fields": {
+      "created_at": "2026-03-12T13:31:32.080Z",
+      "modified_at": "2026-03-12T13:31:32.080Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "formelle-vorpruefung-gesuchunterlagen-1-pruefung-vollstaendig",
+      "option": "formelle-vorpruefung-gesuchunterlagen-1-pruefung-vollstaendig-nein",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "formelle-vorpruefung-gesuchunterlagen-1-pruefung-vollstaendig.formelle-vorpruefung-gesuchunterlagen-1-pruefung-vollstaendig-nicht-beurteilbar-nachforderung-erforderlich",
+    "fields": {
+      "created_at": "2026-03-12T13:31:32.077Z",
+      "modified_at": "2026-03-12T13:31:32.077Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "formelle-vorpruefung-gesuchunterlagen-1-pruefung-vollstaendig",
+      "option": "formelle-vorpruefung-gesuchunterlagen-1-pruefung-vollstaendig-nicht-beurteilbar-nachforderung-erforderlich",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "formelle-vorpruefung-gis-standort-plausibel.formelle-vorpruefung-gis-standort-plausibel-ja",
+    "fields": {
+      "created_at": "2026-03-12T13:31:00.397Z",
+      "modified_at": "2026-03-12T13:31:00.397Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "formelle-vorpruefung-gis-standort-plausibel",
+      "option": "formelle-vorpruefung-gis-standort-plausibel-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "formelle-vorpruefung-gis-standort-plausibel.formelle-vorpruefung-gis-standort-plausibel-nein",
+    "fields": {
+      "created_at": "2026-03-12T13:31:00.395Z",
+      "modified_at": "2026-03-12T13:31:00.395Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "formelle-vorpruefung-gis-standort-plausibel",
+      "option": "formelle-vorpruefung-gis-standort-plausibel-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "formelle-vorpruefung-koordinationspflichtiges-vorhaben.formelle-vorpruefung-koordinationspflichtiges-vorhaben-ja",
+    "fields": {
+      "created_at": "2026-03-12T14:48:21.701Z",
+      "modified_at": "2026-03-12T14:48:21.701Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "formelle-vorpruefung-koordinationspflichtiges-vorhaben",
+      "option": "formelle-vorpruefung-koordinationspflichtiges-vorhaben-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "formelle-vorpruefung-koordinationspflichtiges-vorhaben.formelle-vorpruefung-koordinationspflichtiges-vorhaben-nein",
+    "fields": {
+      "created_at": "2026-03-12T14:48:21.697Z",
+      "modified_at": "2026-03-12T14:48:21.697Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "formelle-vorpruefung-koordinationspflichtiges-vorhaben",
+      "option": "formelle-vorpruefung-koordinationspflichtiges-vorhaben-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "formelle-vorpruefung-mitwirkung-fachstellen-notwendig.formelle-vorpruefung-mitwirkung-fachstellen-notwendig-bund",
+    "fields": {
+      "created_at": "2026-03-12T13:11:06.426Z",
+      "modified_at": "2026-03-12T13:11:06.426Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "formelle-vorpruefung-mitwirkung-fachstellen-notwendig",
+      "option": "formelle-vorpruefung-mitwirkung-fachstellen-notwendig-bund",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "formelle-vorpruefung-mitwirkung-fachstellen-notwendig.formelle-vorpruefung-mitwirkung-fachstellen-notwendig-kanton",
+    "fields": {
+      "created_at": "2026-03-12T13:11:06.424Z",
+      "modified_at": "2026-03-12T13:11:06.424Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "formelle-vorpruefung-mitwirkung-fachstellen-notwendig",
+      "option": "formelle-vorpruefung-mitwirkung-fachstellen-notwendig-kanton",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "formelle-vorpruefung-mitwirkung-fachstellen-notwendig.formelle-vorpruefung-mitwirkung-fachstellen-notwendig-kommunale-fachstellen",
+    "fields": {
+      "created_at": "2026-03-12T13:11:06.421Z",
+      "modified_at": "2026-03-12T13:11:06.421Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "formelle-vorpruefung-mitwirkung-fachstellen-notwendig",
+      "option": "formelle-vorpruefung-mitwirkung-fachstellen-notwendig-kommunale-fachstellen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "formelle-vorpruefung-notwendige-publikationen.formelle-vorpruefung-notwendige-publikationen-kantonal",
+    "fields": {
+      "created_at": "2026-03-12T13:24:16.241Z",
+      "modified_at": "2026-03-12T13:24:16.241Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "formelle-vorpruefung-notwendige-publikationen",
+      "option": "formelle-vorpruefung-notwendige-publikationen-kantonal",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "formelle-vorpruefung-notwendige-publikationen.formelle-vorpruefung-notwendige-publikationen-kommunal",
+    "fields": {
+      "created_at": "2026-03-12T13:24:16.238Z",
+      "modified_at": "2026-03-12T13:24:16.238Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "formelle-vorpruefung-notwendige-publikationen",
+      "option": "formelle-vorpruefung-notwendige-publikationen-kommunal",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "formelle-vorpruefung-privatrechtliche-zustimmung-vorhanden.formelle-vorpruefung-privatrechtliche-zustimmung-vorhanden-ja",
+    "fields": {
+      "created_at": "2026-03-12T13:31:24.519Z",
+      "modified_at": "2026-03-12T13:31:24.519Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "formelle-vorpruefung-privatrechtliche-zustimmung-vorhanden",
+      "option": "formelle-vorpruefung-privatrechtliche-zustimmung-vorhanden-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "formelle-vorpruefung-privatrechtliche-zustimmung-vorhanden.formelle-vorpruefung-privatrechtliche-zustimmung-vorhanden-nein",
+    "fields": {
+      "created_at": "2026-03-12T13:31:24.516Z",
+      "modified_at": "2026-03-12T13:31:24.516Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "formelle-vorpruefung-privatrechtliche-zustimmung-vorhanden",
+      "option": "formelle-vorpruefung-privatrechtliche-zustimmung-vorhanden-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "formelle-vorpruefung-publikation-notwendig.formelle-vorpruefung-publikation-notwendig-ja",
+    "fields": {
+      "created_at": "2026-03-12T14:44:52.084Z",
+      "modified_at": "2026-03-12T14:44:52.084Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "formelle-vorpruefung-publikation-notwendig",
+      "option": "formelle-vorpruefung-publikation-notwendig-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "formelle-vorpruefung-publikation-notwendig.formelle-vorpruefung-publikation-notwendig-nein",
+    "fields": {
+      "created_at": "2026-03-12T14:44:52.080Z",
+      "modified_at": "2026-03-12T14:44:52.080Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "formelle-vorpruefung-publikation-notwendig",
+      "option": "formelle-vorpruefung-publikation-notwendig-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "formelle-vorpruefung-titel-nachvollziehbar.formelle-vorpruefung-titel-nachvollziehbar-ja",
+    "fields": {
+      "created_at": "2026-03-12T13:30:52.724Z",
+      "modified_at": "2026-03-12T13:30:52.724Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "formelle-vorpruefung-titel-nachvollziehbar",
+      "option": "formelle-vorpruefung-titel-nachvollziehbar-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "formelle-vorpruefung-titel-nachvollziehbar.formelle-vorpruefung-titel-nachvollziehbar-nein",
+    "fields": {
+      "created_at": "2026-03-12T13:30:52.722Z",
+      "modified_at": "2026-03-12T13:30:52.722Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "formelle-vorpruefung-titel-nachvollziehbar",
+      "option": "formelle-vorpruefung-titel-nachvollziehbar-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "formelle-vorpruefung-verfahrensart.formelle-vorpruefung-verfahrensart-meldeverfahren",
+    "fields": {
+      "created_at": "2026-03-12T10:38:57.650Z",
+      "modified_at": "2026-03-12T10:38:57.650Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "formelle-vorpruefung-verfahrensart",
+      "option": "formelle-vorpruefung-verfahrensart-meldeverfahren",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "formelle-vorpruefung-verfahrensart.formelle-vorpruefung-verfahrensart-ordentlich",
+    "fields": {
+      "created_at": "2026-03-12T10:38:57.654Z",
+      "modified_at": "2026-03-12T10:38:57.654Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "formelle-vorpruefung-verfahrensart",
+      "option": "formelle-vorpruefung-verfahrensart-ordentlich",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "formelle-vorpruefung-verfahrensart.formelle-vorpruefung-verfahrensart-vereinfacht",
+    "fields": {
+      "created_at": "2026-03-12T10:38:57.652Z",
+      "modified_at": "2026-03-12T10:38:57.652Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "formelle-vorpruefung-verfahrensart",
+      "option": "formelle-vorpruefung-verfahrensart-vereinfacht",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "formelle-vorpruefung-visiere-notwendig.formelle-vorpruefung-visiere-notwendig-ja",
+    "fields": {
+      "created_at": "2026-03-12T13:18:35.152Z",
+      "modified_at": "2026-03-12T13:18:35.152Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "formelle-vorpruefung-visiere-notwendig",
+      "option": "formelle-vorpruefung-visiere-notwendig-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "formelle-vorpruefung-visiere-notwendig.formelle-vorpruefung-visiere-notwendig-nein",
+    "fields": {
+      "created_at": "2026-03-12T13:18:35.148Z",
+      "modified_at": "2026-03-12T13:18:35.148Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "formelle-vorpruefung-visiere-notwendig",
+      "option": "formelle-vorpruefung-visiere-notwendig-nein",
+      "sort": 1
+    }
+  }
+]

@@ -1,0 +1,97 @@
+mutation CreateSubmitTask {
+  saveCompleteWorkflowFormTask(
+    input: { slug: "submit", name: "Gesuch einreichen", addressGroups: "[]" }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateManualWorkItemTask {
+  saveSimpleTask(
+    input: {
+      slug: "create-manual-workitems"
+      name: "Manuelle Aufgaben erfassen"
+      addressGroups: "[]"
+      isMultipleInstance: true
+      meta: "{\"is-manually-completable\":true}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateCompleteCheckTask {
+  saveSimpleTask(
+    input: {
+      slug: "complete-check"
+      name: "Vollständigkeitsprüfung durchführen"
+      addressGroups: "['municipality']|groups"
+      leadTime: 864000 # 10 days
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateRejectFormTask {
+  saveSimpleTask(
+    input: {
+      slug: "reject-form"
+      name: "Gesuch zurückweisen"
+      addressGroups: "['municipality']|groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreatePublicationTask {
+  saveSimpleTask(
+    input: {
+      slug: "publication"
+      name: "Gesuch publizieren"
+      addressGroups: "['municipality']|groups"
+      leadTime: 864000 # 10 days
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateAdditionalDemandTask {
+  saveSimpleTask(
+    input: {
+      slug: "additional-demand"
+      name: "Nachforderung"
+      addressGroups: "['municipality']|groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateSubmitAdditionalDemandTask {
+  saveSimpleTask(
+    input: {
+      slug: "submit-additional-demand"
+      name: "Nachforderung einreichen"
+      addressGroups: "['applicant']|groups"
+      controlGroups: "['municipality']|groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateMakeDecisionTask {
+  saveSimpleTask(
+    input: {
+      slug: "make-decision"
+      name: "Entscheid verfügen"
+      addressGroups: "['municipality']|groups"
+      leadTime: 864000 # 10 days
+    }
+  ) {
+    clientMutationId
+  }
+}

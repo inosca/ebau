@@ -1,0 +1,942 @@
+[
+  {
+    "model": "instance.form",
+    "pk": 41,
+    "fields": {
+      "form_state": 1,
+      "name": "Verfahren nach BGBB / und Abparzellierungsverfahren",
+      "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 42,
+    "fields": {
+      "form_state": 1,
+      "name": "Internes Mitberichtsverfahren BG",
+      "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 43,
+    "fields": {
+      "form_state": 1,
+      "name": "Internes Genehmigungsverfahren",
+      "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 45,
+    "fields": {
+      "form_state": 1,
+      "name": "Mitberichtsverfahren / PGV nach Luftfahrtgesetz",
+      "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 46,
+    "fields": {
+      "form_state": 1,
+      "name": "Mitberichtsverfahren / PGV für militärische Bauten",
+      "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 101,
+    "fields": {
+      "form_state": 1,
+      "name": "Genehmigung Teilrevision Nutzungsplanung",
+      "description": "KOOR-ARE-NP;Koordinationsstelle für Nutzungsplanung Amt für Raumentwicklung",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 102,
+    "fields": {
+      "form_state": 1,
+      "name": "Vorprüfung Teilrevision Nutzungsplanung",
+      "description": "KOOR-ARE-NP;Koordinationsstelle für Nutzungsplanung Amt für Raumentwicklung",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 103,
+    "fields": {
+      "form_state": 1,
+      "name": "Vorprüfung Gesamtrevision Nutzungsplanung",
+      "description": "KOOR-ARE-NP;Koordinationsstelle für Nutzungsplanung Amt für Raumentwicklung",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 104,
+    "fields": {
+      "form_state": 1,
+      "name": "Genehmigung Gesamtrevision Nutzungsplanung",
+      "description": "KOOR-ARE-NP;Koordinationsstelle für Nutzungsplanung Amt für Raumentwicklung",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 105,
+    "fields": {
+      "form_state": 1,
+      "name": "Vorprüfung Quartiergestaltungsplan QGP",
+      "description": "KOOR-ARE-NP;Koordinationsstelle für Nutzungsplanung Amt für Raumentwicklung",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 106,
+    "fields": {
+      "form_state": 1,
+      "name": "Genehmigung Quartiergestaltungsplan QGP",
+      "description": "KOOR-ARE-NP;Koordinationsstelle für Nutzungsplanung Amt für Raumentwicklung",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 107,
+    "fields": {
+      "form_state": 1,
+      "name": "Vorprüfung Quartierplan QP",
+      "description": "KOOR-ARE-NP;Koordinationsstelle für Nutzungsplanung Amt für Raumentwicklung",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 108,
+    "fields": {
+      "form_state": 1,
+      "name": "Genehmigung Quartierplan QP",
+      "description": "KOOR-ARE-NP;Koordinationsstelle für Nutzungsplanung Amt für Raumentwicklung",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 121,
+    "fields": {
+      "form_state": 1,
+      "name": "Reklamegesuch",
+      "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 141,
+    "fields": {
+      "form_state": 1,
+      "name": "Meldung-Solaranlage",
+      "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 161,
+    "fields": {
+      "form_state": 1,
+      "name": "Internes Mitberichtsverfahren NP",
+      "description": "KOOR-ARE-NP;Koordinationsstelle für Nutzungsplanung Amt für Raumentwicklung",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 181,
+    "fields": {
+      "form_state": 1,
+      "name": "PGV Kantonsstrasse (Artikel 30 StrG)",
+      "description": "KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 201,
+    "fields": {
+      "form_state": 1,
+      "name": "PGV Gemeindestrasse (Artikel 30 StrG)",
+      "description": "KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 221,
+    "fields": {
+      "form_state": 1,
+      "name": "PGV Korporationsstrasse (Artikel 30 StrG)",
+      "description": "KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 222,
+    "fields": {
+      "form_state": 1,
+      "name": "PGV vereinfachtes Verfahren (Artikel 31 StrG)",
+      "description": "KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 223,
+    "fields": {
+      "form_state": 1,
+      "name": "PGV öffentliche Gewässer (Artikel 12 WBG)",
+      "description": "KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 224,
+    "fields": {
+      "form_state": 1,
+      "name": "PGV private Gewässer (Artikel 19 WBG)",
+      "description": "KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 225,
+    "fields": {
+      "form_state": 1,
+      "name": "Konzessionsverfahren Regierungsrat für Anlagen bis 1000 kW (Artikel 18 GNG) BD",
+      "description": "KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 241,
+    "fields": {
+      "form_state": 1,
+      "name": "Konzessionsverfahren Landrat für Anlagen ab 1000 kW (Artikel 18 GNG) BD",
+      "description": "KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 242,
+    "fields": {
+      "form_state": 1,
+      "name": "Konzessionsverfahren Baudirektion für Wärmeentnahmen (Artikel 40 GNG) BD",
+      "description": "KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 243,
+    "fields": {
+      "form_state": 1,
+      "name": "Mitberichtsverfahren / PGV nach Starkstromverordnung (EleG)",
+      "description": "KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 244,
+    "fields": {
+      "form_state": 1,
+      "name": "Mitberichtsverfahren / PGV nach Eisenbahngesetz (EBG)",
+      "description": "KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 245,
+    "fields": {
+      "form_state": 1,
+      "name": "Mitberichtsverfahren / PGV nach Nationalstrassengesetz (NSG)",
+      "description": "KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 246,
+    "fields": {
+      "form_state": 1,
+      "name": "Konzessionsverfahren Baudirektion Beanspruchung Kantonsgewässer bis 500 m2 (Artikel 3 ORR)",
+      "description": "KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 247,
+    "fields": {
+      "form_state": 1,
+      "name": "Bewilligungsverfahren für die Beanspruchung von Kantonsgebiet",
+      "description": "KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 248,
+    "fields": {
+      "form_state": 1,
+      "name": "Internes Mitberichtsverfahren BD",
+      "description": "KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 249,
+    "fields": {
+      "form_state": 1,
+      "name": "Reklamegesuch (eingereicht via Baudirektion)",
+      "description": "KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 250,
+    "fields": {
+      "form_state": 1,
+      "name": "Mitberichtsverfahren / PGV nach Seilbahngesetz (SebG)",
+      "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 251,
+    "fields": {
+      "form_state": 1,
+      "name": "Internes Mitberichtsverfahren AfU",
+      "description": "KOOR-AfU;Koordinationsstelle Amt für Umwelt",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 252,
+    "fields": {
+      "form_state": 1,
+      "name": "Internes Mitberichtsverfahren nach Artikel 30 BG Umweltschutz",
+      "description": "KOOR-AfU;Koordinationsstelle Amt für Umwelt",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 253,
+    "fields": {
+      "form_state": 1,
+      "name": "Internes Mitberichtsverfahren / Bewilligungsverfahren gemäss UVP",
+      "description": "KOOR-AfU;Koordinationsstelle Amt für Umwelt",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 254,
+    "fields": {
+      "form_state": 1,
+      "name": "Internes Mitberichtsverfahren ALA",
+      "description": "KOOR-ALA;Koordinationsstelle Amt für Landwirtschaft",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 255,
+    "fields": {
+      "form_state": 1,
+      "name": "Internes Mitberichtsverfahren ALA (Korporationsstrassen mit Subventionierung)",
+      "description": "KOOR-ALA;Koordinationsstelle Amt für Landwirtschaft",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 256,
+    "fields": {
+      "form_state": 1,
+      "name": "Internes Mitberichtsverfahren AfE",
+      "description": "KOOR-AFE;Koordinationsstelle Amt für Energie",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 257,
+    "fields": {
+      "form_state": 1,
+      "name": "Konzessionsverfahren Regierungsrat für Anlagen bis 1000 kW (Artikel 18 GNG) AFE",
+      "description": "KOOR-AFE;Koordinationsstelle Amt für Energie",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 258,
+    "fields": {
+      "form_state": 1,
+      "name": "Konzessionsverfahren Landrat für Anlagen ab 1000 kW (Artikel 18 GNG) AFE",
+      "description": "KOOR-AFE;Koordinationsstelle Amt für Energie",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 259,
+    "fields": {
+      "form_state": 1,
+      "name": "Konzessionsverfahren Baudirektion für Wärmeentnahmen (Artikel 40 GNG) AFE",
+      "description": "KOOR-AFE;Koordinationsstelle Amt für Energie",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 260,
+    "fields": {
+      "form_state": 1,
+      "name": "Internes Mitberichtsverfahren AFJ",
+      "description": "KOOR-AFJ;Koordinationsstelle Amt für Forst und Jagd",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 261,
+    "fields": {
+      "form_state": 1,
+      "name": "Meldung ÖREB Anpassung",
+      "description": "KOOR-ARE-NP;Koordinationsstelle für Nutzungsplanung Amt für Raumentwicklung",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 281,
+    "fields": {
+      "form_state": 1,
+      "name": "Meldung ÖREB Anpassung AFJ",
+      "description": "KOOR-AFJ;Koordinationsstelle Amt für Forst und Jagd",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 282,
+    "fields": {
+      "form_state": 1,
+      "name": "Meldung ÖREB Anpassung AFU",
+      "description": "KOOR-AfU;Koordinationsstelle Amt für Umwelt",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 284,
+    "fields": {
+      "form_state": 1,
+      "name": "Meldung ÖREB Anpassung ARE NP",
+      "description": "KOOR-ARE-NP;Koordinationsstelle für Nutzungsplanung Amt für Raumentwicklung",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 285,
+    "fields": {
+      "form_state": 1,
+      "name": "Meldung ÖREB Anpassung BD",
+      "description": "KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 286,
+    "fields": {
+      "form_state": 1,
+      "name": "Land- und Rechtserwerb",
+      "description": "KOOR-BD;Koordinationsstelle für Landerwerbsgeschäfte Baudirektion",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 287,
+    "fields": {
+      "form_state": 1,
+      "name": "Internes Mitberichtsverfahren SD AfKP",
+      "description": "KOOR-SD;Koordinationsstelle SD",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 288,
+    "fields": {
+      "form_state": 1,
+      "name": "Internes Mitberichtsverfahren SD",
+      "description": "KOOR-SD;Koordinationsstelle SD",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 289,
+    "fields": {
+      "form_state": 1,
+      "name": "Konzessionsverfahren Korporationsgewässer mit Genehmigung durch Regierungsrat (Artikel 15 GNG)",
+      "description": "KOOR-AFE;Koordinationsstelle Amt für Energie",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 290,
+    "fields": {
+      "form_state": 1,
+      "name": "Baumeldung für geringfügige Vorhaben",
+      "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 291,
+    "fields": {
+      "form_state": 1,
+      "name": "Bewilligungsverfahren für die Beanspruchung von Kantonsgebiet SD",
+      "description": "KOOR-SD;Koordinationsstelle SD",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 292,
+    "fields": {
+      "form_state": 1,
+      "name": "Mitberichtsverfahren Bundesstelle",
+      "description": "Bundesamt; BAV",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 293,
+    "fields": {
+      "form_state": 1,
+      "name": "Archivdossier",
+      "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 294,
+    "fields": {
+      "form_state": 1,
+      "name": "Archivdossier AFJ",
+      "description": "KOOR-AFJ;Koordinationsstelle Amt für Forst und Jagd",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 295,
+    "fields": {
+      "form_state": 1,
+      "name": "Meldung Vorhaben AFJ",
+      "description": "KOOR-AFJ;Koordinationsstelle Amt für Forst und Jagd",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 296,
+    "fields": {
+      "form_state": 1,
+      "name": "ÖREB Verfahren Kanton",
+      "description": "KOOR-ARE-NP;Koordinationsstelle für Nutzungsplanung Amt für Raumentwicklung",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 297,
+    "fields": {
+      "form_state": 1,
+      "name": "Gebäudetechnik",
+      "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 298,
+    "fields": {
+      "form_state": 1,
+      "name": "Baubewilligungsverfahren",
+      "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 299,
+    "fields": {
+      "form_state": 1,
+      "name": "Baugesuch-Vorabklärung",
+      "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 300,
+    "fields": {
+      "form_state": 1,
+      "name": "Mitberichtsverfahren Kanton",
+      "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 301,
+    "fields": {
+      "form_state": 1,
+      "name": "Bauverwaltung",
+      "description": "KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 302,
+    "fields": {
+      "form_state": 1,
+      "name": "Gesuch um Bohrbewilligung zur Wasser- oder Wärmeentnahme",
+      "description": "KOOR-AfE;Koordinationsstelle Amt für Energie",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 303,
+    "fields": {
+      "form_state": 1,
+      "name": "Gesuch um Konzession zur Wasser-oder Wärmeentnahme",
+      "description": "KOOR-AfE;Koordinationsstelle Amt für Energie",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 304,
+    "fields": {
+      "form_state": 1,
+      "name": "PGV Gemeindestrasse",
+      "description": "KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 305,
+    "fields": {
+      "form_state": 1,
+      "name": "ÖREB Verfahren Gemeinde",
+      "description": "KOOR-ARE-NP;Koordinationsstelle für Nutzungsplanung Amt für Raumentwicklung",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 306,
+    "fields": {
+      "form_state": 1,
+      "name": "Internes Mitberichtsverfahren AfG",
+      "description": "KOOR-AfG;Koordinationsstelle AfG",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 307,
+    "fields": {
+      "form_state": 1,
+      "name": "Einfache Anfrage",
+      "description": "Einfache Anfrage",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.formstate",
+    "pk": 1,
+    "fields": {
+      "name": "Published"
+    }
+  },
+  {
+    "model": "instance.formstate",
+    "pk": 2,
+    "fields": {
+      "name": "Not published"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 1,
+    "fields": {
+      "name": "new_comm",
+      "sort": 0,
+      "description": "Neu Bearbeitung Leitbehörde"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 21,
+    "fields": {
+      "name": "comm",
+      "sort": 1,
+      "description": "Bearbeitung Leitbehörde"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 22,
+    "fields": {
+      "name": "ext",
+      "sort": 2,
+      "description": "Bearbeitung Koordinationsstelle"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 23,
+    "fields": {
+      "name": "circ",
+      "sort": 4,
+      "description": "In Zirkulation"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 24,
+    "fields": {
+      "name": "redac",
+      "sort": 5,
+      "description": "Zirkulation beendet"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 25,
+    "fields": {
+      "name": "done",
+      "sort": 6,
+      "description": "Zurück bei Gemeinde"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 26,
+    "fields": {
+      "name": "arch",
+      "sort": 8,
+      "description": "Archiviert"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 27,
+    "fields": {
+      "name": "del",
+      "sort": 9,
+      "description": "Gelöscht"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 28,
+    "fields": {
+      "name": "new",
+      "sort": 10,
+      "description": "Neu Erstellt"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 29,
+    "fields": {
+      "name": "nfd",
+      "sort": 11,
+      "description": "Nachforderung Dokumente"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 30,
+    "fields": {
+      "name": "subm",
+      "sort": 12,
+      "description": "Eingereicht bei Gemeinde"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 31,
+    "fields": {
+      "name": "rejected",
+      "sort": 13,
+      "description": "Abgelehnt"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 32,
+    "fields": {
+      "name": "ext_gem",
+      "sort": 3,
+      "description": "Dossier bleibt bei Gemeindebaubehörde"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 33,
+    "fields": {
+      "name": "old",
+      "sort": 14,
+      "description": "Archivdossier"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 34,
+    "fields": {
+      "name": "control",
+      "sort": 7,
+      "description": "Bau- und Einspracheentscheid zugestellt"
+    }
+  },
+  {
+    "model": "instance.instancestatedescription",
+    "pk": 21,
+    "fields": {
+      "description": "Bearbeitung Leitbehörde"
+    }
+  },
+  {
+    "model": "instance.instancestatedescription",
+    "pk": 22,
+    "fields": {
+      "description": "Bearbeitung Koordinationsstelle"
+    }
+  },
+  {
+    "model": "instance.instancestatedescription",
+    "pk": 23,
+    "fields": {
+      "description": "In Zirkulation"
+    }
+  },
+  {
+    "model": "instance.instancestatedescription",
+    "pk": 24,
+    "fields": {
+      "description": "Zirkulation beendet"
+    }
+  },
+  {
+    "model": "instance.instancestatedescription",
+    "pk": 25,
+    "fields": {
+      "description": "Zurück bei Gemeinde"
+    }
+  },
+  {
+    "model": "instance.instancestatedescription",
+    "pk": 26,
+    "fields": {
+      "description": "Archiviert"
+    }
+  },
+  {
+    "model": "instance.instancestatedescription",
+    "pk": 27,
+    "fields": {
+      "description": "Gelöscht"
+    }
+  },
+  {
+    "model": "instance.instancestatedescription",
+    "pk": 28,
+    "fields": {
+      "description": "Neu Erstellt"
+    }
+  },
+  {
+    "model": "instance.instancestatedescription",
+    "pk": 29,
+    "fields": {
+      "description": "Nachforderung Dokumente"
+    }
+  },
+  {
+    "model": "instance.instancestatedescription",
+    "pk": 30,
+    "fields": {
+      "description": "Eingereicht bei Gemeinde"
+    }
+  },
+  {
+    "model": "instance.instancestatedescription",
+    "pk": 31,
+    "fields": {
+      "description": "Abgelehnt"
+    }
+  },
+  {
+    "model": "instance.instancestatedescription",
+    "pk": 32,
+    "fields": {
+      "description": "Dossier bleibt bei Gemeindebaubehörde"
+    }
+  },
+  {
+    "model": "instance.instancestatedescription",
+    "pk": 33,
+    "fields": {
+      "description": "Archivdossier"
+    }
+  }
+]

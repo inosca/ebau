@@ -1,0 +1,467 @@
+[
+  {
+    "model": "user.role",
+    "pk": 1,
+    "fields": {
+      "role_parent": null,
+      "name": "Admin",
+      "group_prefix": null,
+      "slug": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 2,
+    "fields": {
+      "role_parent": null,
+      "name": "Guest",
+      "group_prefix": null,
+      "slug": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 3,
+    "fields": {
+      "role_parent": null,
+      "name": "municipality-lead",
+      "group_prefix": null,
+      "slug": "municipality-lead"
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 4,
+    "fields": {
+      "role_parent": null,
+      "name": "service-lead",
+      "group_prefix": null,
+      "slug": "service-lead"
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 5,
+    "fields": {
+      "role_parent": null,
+      "name": "municipality-admin",
+      "group_prefix": null,
+      "slug": "municipality-admin"
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 6,
+    "fields": {
+      "role_parent": null,
+      "name": "service-admin",
+      "group_prefix": null,
+      "slug": "service-admin"
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 10000,
+    "fields": {
+      "role_parent": null,
+      "name": "support",
+      "group_prefix": null,
+      "slug": "support"
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 10001,
+    "fields": {
+      "role_parent": null,
+      "name": "applicant",
+      "group_prefix": null,
+      "slug": "applicant"
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 20000,
+    "fields": {
+      "role_parent": null,
+      "name": "subservice",
+      "group_prefix": null,
+      "slug": "subservice"
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 20001,
+    "fields": {
+      "role_parent": null,
+      "name": "uso",
+      "group_prefix": null,
+      "slug": "uso"
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 20002,
+    "fields": {
+      "role_parent": null,
+      "name": "geometer",
+      "group_prefix": null,
+      "slug": "geometer"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 1,
+    "fields": {
+      "role": 1,
+      "language": "de",
+      "name": "Admin",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 2,
+    "fields": {
+      "role": 2,
+      "language": "de",
+      "name": "Guest",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 5,
+    "fields": {
+      "role": 3,
+      "language": "de",
+      "name": "Sachbearbeitung Gemeinde",
+      "group_prefix": "Sachbearbeitung"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 6,
+    "fields": {
+      "role": 4,
+      "language": "de",
+      "name": "Sachbearbeitung Fachstelle",
+      "group_prefix": "Sachbearbeitung"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 7,
+    "fields": {
+      "role": 5,
+      "language": "de",
+      "name": "Administration Gemeinde",
+      "group_prefix": "Administration"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 8,
+    "fields": {
+      "role": 6,
+      "language": "de",
+      "name": "Administration Fachstelle",
+      "group_prefix": "Administration"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20000,
+    "fields": {
+      "role": 20000,
+      "language": "de",
+      "name": "Unterfachstelle",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20028,
+    "fields": {
+      "role": 10000,
+      "language": "de",
+      "name": "Support",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20030,
+    "fields": {
+      "role": 10001,
+      "language": "de",
+      "name": "Gesuchsteller",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20031,
+    "fields": {
+      "role": 20001,
+      "language": "de",
+      "name": "Umweltschutzorganisation",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20032,
+    "fields": {
+      "role": 20001,
+      "language": "it",
+      "name": "Organizzazione ambientalista",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20033,
+    "fields": {
+      "role": 1,
+      "language": "it",
+      "name": null,
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20034,
+    "fields": {
+      "role": 2,
+      "language": "it",
+      "name": null,
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20035,
+    "fields": {
+      "role": 3,
+      "language": "it",
+      "name": "Evasione autorità direttiva",
+      "group_prefix": "Evasione"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20036,
+    "fields": {
+      "role": 4,
+      "language": "it",
+      "name": "Evasione servizio",
+      "group_prefix": "Evasione"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20037,
+    "fields": {
+      "role": 5,
+      "language": "it",
+      "name": "Amministrazione autorità direttiva",
+      "group_prefix": "Amministrazione"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20038,
+    "fields": {
+      "role": 6,
+      "language": "it",
+      "name": "Amministrazione servizio",
+      "group_prefix": "Amministrazione"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20039,
+    "fields": {
+      "role": 10000,
+      "language": "it",
+      "name": "Supporto",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20040,
+    "fields": {
+      "role": 10001,
+      "language": "it",
+      "name": "Richiedente",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20041,
+    "fields": {
+      "role": 20000,
+      "language": "it",
+      "name": "Servizio di rango inferiore",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20042,
+    "fields": {
+      "role": 20002,
+      "language": "de",
+      "name": "Geometer",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20043,
+    "fields": {
+      "role": 20002,
+      "language": "it",
+      "name": "Geometra",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 1,
+    "fields": {
+      "slug": "service",
+      "name": "service",
+      "sort": null
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 2,
+    "fields": {
+      "slug": "municipality",
+      "name": "municipality",
+      "sort": null
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 3,
+    "fields": {
+      "slug": "authority-bab",
+      "name": "authority-bab",
+      "sort": null
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 4,
+    "fields": {
+      "slug": "uso",
+      "name": "uso",
+      "sort": null
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 5,
+    "fields": {
+      "slug": "geometer",
+      "name": "geometer",
+      "sort": null
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20000,
+    "fields": {
+      "service_group": 1,
+      "language": "de",
+      "name": "Fachstelle"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20001,
+    "fields": {
+      "service_group": 2,
+      "language": "de",
+      "name": "Gemeinde"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20002,
+    "fields": {
+      "service_group": 3,
+      "language": "de",
+      "name": "Ausserhalb Bauzone"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20003,
+    "fields": {
+      "service_group": 4,
+      "language": "de",
+      "name": "Umweltschutzorganisation"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20004,
+    "fields": {
+      "service_group": 1,
+      "language": "it",
+      "name": "Servizio"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20005,
+    "fields": {
+      "service_group": 2,
+      "language": "it",
+      "name": "Autorità direttrice comune"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20006,
+    "fields": {
+      "service_group": 3,
+      "language": "it",
+      "name": "Fuori dalla zona edificabile"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20007,
+    "fields": {
+      "service_group": 4,
+      "language": "it",
+      "name": "Organizzazione ambientalista"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20008,
+    "fields": {
+      "service_group": 5,
+      "language": "de",
+      "name": "Geometer"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20009,
+    "fields": {
+      "service_group": 5,
+      "language": "it",
+      "name": "Geometra"
+    }
+  }
+]

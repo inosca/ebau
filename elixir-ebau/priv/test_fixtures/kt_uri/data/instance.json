@@ -1,0 +1,92 @@
+[
+  {
+    "model": "instance.instance",
+    "pk": 1,
+    "fields": {
+      "instance_state": 28,
+      "form": 298,
+      "user": 1,
+      "group": 685,
+      "creation_date": "2021-04-16T12:44:42.792Z",
+      "modification_date": "2021-04-16T12:44:42.792Z",
+      "previous_instance_state": 28,
+      "identifier": null,
+      "location": null,
+      "case": "c7e5eef4-4919-4f5d-accc-995d080e1c00",
+      "instance_group": null,
+      "rejection_feedback": null,
+      "copy_source": null
+    }
+  },
+  {
+    "model": "instance.instance",
+    "pk": 2,
+    "fields": {
+      "instance_state": 28,
+      "form": 121,
+      "user": 1,
+      "group": 685,
+      "creation_date": "2021-04-16T12:48:20.891Z",
+      "modification_date": "2021-04-16T12:48:20.891Z",
+      "previous_instance_state": 28,
+      "identifier": null,
+      "location": null,
+      "case": "857ff0e6-9547-46c8-bd44-7258c9fa33e4",
+      "instance_group": null,
+      "rejection_feedback": null,
+      "copy_source": null
+    }
+  },
+  {
+    "model": "instance.instance",
+    "pk": 3,
+    "fields": {
+      "instance_state": 30,
+      "form": 298,
+      "user": 1,
+      "group": 685,
+      "creation_date": "2022-11-03T07:57:09.669Z",
+      "modification_date": "2022-11-03T07:57:09.669Z",
+      "previous_instance_state": 28,
+      "identifier": null,
+      "location": 1,
+      "case": "76357c78-61e1-4cfa-8b2a-30203af5b777",
+      "instance_group": null,
+      "rejection_feedback": null,
+      "copy_source": null
+    }
+  },
+  {
+    "model": "instance.historyentry",
+    "pk": 1,
+    "fields": {
+      "instance": 3,
+      "service": null,
+      "user": 1,
+      "created_at": "2022-11-03T08:02:08.116Z",
+      "title": "Dossier submitted",
+      "body": "",
+      "history_type": "status-change"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 1,
+    "fields": {
+      "title": "Dossier eingereicht",
+      "body": "",
+      "history_entry": 1,
+      "language": "de"
+    }
+  },
+  {
+    "model": "instance.historyentryt",
+    "pk": 2,
+    "fields": {
+      "title": "Dossier envoyé",
+      "body": "",
+      "history_entry": 1,
+      "language": "fr"
+    }
+  }
+]

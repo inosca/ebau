@@ -1,0 +1,594 @@
+[
+  {
+    "model": "caluma_form.form",
+    "pk": "entscheid",
+    "fields": {
+      "created_at": "2025-01-14T09:06:35.677Z",
+      "modified_at": "2025-01-14T09:06:35.677Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Entscheid\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entscheid.entscheid-bemerkungen",
+    "fields": {
+      "created_at": "2025-01-16T15:06:14.943Z",
+      "modified_at": "2025-01-16T15:06:14.943Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entscheid",
+      "question": "entscheid-bemerkungen",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entscheid.entscheid-datum",
+    "fields": {
+      "created_at": "2025-01-16T15:06:02.833Z",
+      "modified_at": "2025-01-16T15:06:02.833Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entscheid",
+      "question": "entscheid-datum",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entscheid.entscheid-entscheid",
+    "fields": {
+      "created_at": "2025-01-16T14:20:17.408Z",
+      "modified_at": "2025-01-16T14:20:17.408Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entscheid",
+      "question": "entscheid-entscheid",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entscheid.entscheid-entscheidtyp-abweisung",
+    "fields": {
+      "created_at": "2025-01-16T14:21:51.529Z",
+      "modified_at": "2025-01-16T14:21:51.529Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entscheid",
+      "question": "entscheid-entscheidtyp-abweisung",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entscheid.entscheid-hinweistext",
+    "fields": {
+      "created_at": "2025-11-06T09:46:06.735Z",
+      "modified_at": "2025-11-06T09:46:06.735Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entscheid",
+      "question": "entscheid-hinweistext",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entscheid.entscheid-verfuegen-submit",
+    "fields": {
+      "created_at": "2025-11-06T11:04:41.579Z",
+      "modified_at": "2025-11-06T11:04:41.579Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entscheid",
+      "question": "entscheid-verfuegen-submit",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "entscheid-entscheid-abschreibung",
+    "fields": {
+      "created_at": "2025-01-16T14:20:17.257Z",
+      "modified_at": "2025-01-16T14:20:17.257Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abschreibung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "entscheid-entscheid-abweisung",
+    "fields": {
+      "created_at": "2025-01-16T14:20:17.236Z",
+      "modified_at": "2025-01-16T14:20:17.236Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abweisung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "entscheid-entscheid-baubewilligung-erteilt",
+    "fields": {
+      "created_at": "2025-01-16T14:20:17.204Z",
+      "modified_at": "2025-01-16T14:20:17.204Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baubewilligung erteilt\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form == \"plangenehmigungsverfahren-bund\"",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "entscheid-entscheid-kenntnisnahme",
+    "fields": {
+      "created_at": "2025-01-16T14:20:17.249Z",
+      "modified_at": "2025-01-16T14:20:17.249Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kenntnisnahme\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form == \"plangenehmigungsverfahren-bund\"",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "entscheid-entscheid-plangenehmigung-erteilt",
+    "fields": {
+      "created_at": "2025-05-02T08:47:56.301Z",
+      "modified_at": "2025-05-02T08:49:55.768Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Plangenehmigung erteilt\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form != \"plangenehmigungsverfahren-bund\"",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "entscheid-entscheid-rueckzug",
+    "fields": {
+      "created_at": "2025-02-04T14:51:14.395Z",
+      "modified_at": "2025-02-04T14:51:14.395Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Rückzug\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "entscheid-entscheid-teilbaubewilligung",
+    "fields": {
+      "created_at": "2025-01-16T14:20:17.224Z",
+      "modified_at": "2025-11-06T09:42:08.530Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Teilbaubewilligung mit teilweiser Abweisung mit/ohne Rückbau\", \"fr\": null, \"it\": null}",
+      "is_hidden": "info.case.root.form == \"plangenehmigungsverfahren-bund\"",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "entscheid-entscheidtyp-abweisung-mit-rueckbau",
+    "fields": {
+      "created_at": "2025-01-16T14:21:51.393Z",
+      "modified_at": "2025-01-16T14:21:51.393Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abweisung mit Rückbau\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "entscheid-entscheidtyp-abweisung-ohne-rueckbau",
+    "fields": {
+      "created_at": "2025-01-16T14:21:51.399Z",
+      "modified_at": "2025-01-16T14:21:51.399Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abweisung ohne Rückbau\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "entscheid-bemerkungen",
+    "fields": {
+      "created_at": "2025-01-16T15:06:14.883Z",
+      "modified_at": "2025-01-16T15:06:14.883Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "entscheid-datum",
+    "fields": {
+      "created_at": "2025-01-16T15:06:02.776Z",
+      "modified_at": "2025-01-16T15:06:02.776Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entscheiddatum\", \"fr\": null, \"it\": null}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "entscheid-entscheid",
+    "fields": {
+      "created_at": "2025-01-16T14:20:17.336Z",
+      "modified_at": "2025-11-06T09:42:08.713Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entscheid\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "entscheid-entscheidtyp-abweisung",
+    "fields": {
+      "created_at": "2025-01-16T14:21:51.457Z",
+      "modified_at": "2025-01-16T14:22:17.706Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entscheidtyp\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "\"entscheid-entscheid\"|answer != \"entscheid-entscheid-abweisung\"\n||\ninfo.case.root.form == \"plangenehmigungsverfahren-bund\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "entscheid-hinweistext",
+    "fields": {
+      "created_at": "2025-11-06T09:46:06.626Z",
+      "modified_at": "2025-11-06T09:48:22.486Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"entscheid-hinweistext\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert\\\">\\n<p>\\nHaben Sie den Entscheid im Modul \\\"Dokumente\\\" in die Kategorie \\\"Alle Beteiligte\\\" verschoben und möchten Sie den Entscheid jetzt verfügen? Dieser Schritt kann nicht rückgängig gemacht werden. \\n</p>\\n<p>\\nHaben Sie einen Teilentscheid (Teilbaubewilligung) verfasst? Dann führen Sie diesen Schritt erst beim <u>letzten</u> Teilentscheid des Verfahrens aus. Vorgängige Teilentscheide sind im Modul \\\"Dokumente\\\" in die Kategorie \\\"Alle Beteiligte\\\" zu verschieben und die Bauherrschaft über das Kommunikationsmodul über den Entscheid zu informieren. \\n</p>\\n<p>\\nHinweis: Bis zum Vorliegen der nötigen technischen Voraussetzungen zur fristauslösenden digitalen Zustellung ist die Baubewilligung der Bauherrschaft zusätzlich physisch per Post zuzustellen. Sämtliche Beilagen und bewilligten Pläne werden digital über das Portal bereitgestellt.\\n</p></div>\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "entscheid-verfuegen-submit",
+    "fields": {
+      "created_at": "2025-11-06T11:04:41.464Z",
+      "modified_at": "2025-11-06T11:11:43.074Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entscheid verfügen\", \"fr\": null, \"it\": null}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Haben Sie den Entscheid im Modul \\\"Dokumente\\\" in die Kategorie \\\"Alle Beteiligte\\\" verschoben und möchten Sie den Entscheid jetzt verfügen? Dieser Schritt kann nicht rückgängig gemacht werden. \\n<br><br>\\nHaben Sie einen Teilentscheid (Teilbaubewilligung) verfasst? Dann führen Sie diesen Schritt erst beim <u>letzten</u> Teilentscheid des Verfahrens aus. Vorgängige Teilentscheide sind im Modul \\\"Dokumente\\\" in die Kategorie \\\"Alle Beteiligte\\\" zu verschieben und die Bauherrschaft über das Kommunikationsmodul über den Entscheid zu informieren. \\n<br><br>\\nHinweis: Bis zum Vorliegen der nötigen technischen Voraussetzungen zur fristauslösenden digitalen Zustellung ist die Baubewilligung der Bauherrschaft zusätzlich physisch per Post zuzustellen. Sämtliche Beilagen und bewilligten Pläne werden digital über das Portal bereitgestellt.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "color": "primary",
+        "action": "complete",
+        "show_validation": false,
+        "validate_on_enter": false
+      },
+      "meta": {
+        "widgetOverride": "decision/submit-button"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "entscheid-entscheid.entscheid-entscheid-abschreibung",
+    "fields": {
+      "created_at": "2025-11-06T09:42:08.736Z",
+      "modified_at": "2025-11-06T09:42:08.736Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "entscheid-entscheid",
+      "option": "entscheid-entscheid-abschreibung",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "entscheid-entscheid.entscheid-entscheid-abweisung",
+    "fields": {
+      "created_at": "2025-11-06T09:42:08.741Z",
+      "modified_at": "2025-11-06T09:42:08.741Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "entscheid-entscheid",
+      "option": "entscheid-entscheid-abweisung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "entscheid-entscheid.entscheid-entscheid-baubewilligung-erteilt",
+    "fields": {
+      "created_at": "2025-11-06T09:42:08.750Z",
+      "modified_at": "2025-11-06T09:42:08.751Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "entscheid-entscheid",
+      "option": "entscheid-entscheid-baubewilligung-erteilt",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "entscheid-entscheid.entscheid-entscheid-kenntnisnahme",
+    "fields": {
+      "created_at": "2025-11-06T09:42:08.731Z",
+      "modified_at": "2025-11-06T09:42:08.731Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "entscheid-entscheid",
+      "option": "entscheid-entscheid-kenntnisnahme",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "entscheid-entscheid.entscheid-entscheid-plangenehmigung-erteilt",
+    "fields": {
+      "created_at": "2025-11-06T09:42:08.755Z",
+      "modified_at": "2025-11-06T09:42:08.755Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "entscheid-entscheid",
+      "option": "entscheid-entscheid-plangenehmigung-erteilt",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "entscheid-entscheid.entscheid-entscheid-rueckzug",
+    "fields": {
+      "created_at": "2025-11-06T09:42:08.724Z",
+      "modified_at": "2025-11-06T09:42:08.724Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "entscheid-entscheid",
+      "option": "entscheid-entscheid-rueckzug",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "entscheid-entscheid.entscheid-entscheid-teilbaubewilligung",
+    "fields": {
+      "created_at": "2025-11-06T09:42:08.746Z",
+      "modified_at": "2025-11-06T09:42:08.746Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "entscheid-entscheid",
+      "option": "entscheid-entscheid-teilbaubewilligung",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "entscheid-entscheidtyp-abweisung.entscheid-entscheidtyp-abweisung-mit-rueckbau",
+    "fields": {
+      "created_at": "2025-01-16T14:22:17.715Z",
+      "modified_at": "2025-01-16T14:22:17.715Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "entscheid-entscheidtyp-abweisung",
+      "option": "entscheid-entscheidtyp-abweisung-mit-rueckbau",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "entscheid-entscheidtyp-abweisung.entscheid-entscheidtyp-abweisung-ohne-rueckbau",
+    "fields": {
+      "created_at": "2025-01-16T14:22:17.711Z",
+      "modified_at": "2025-01-16T14:22:17.711Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "entscheid-entscheidtyp-abweisung",
+      "option": "entscheid-entscheidtyp-abweisung-ohne-rueckbau",
+      "sort": 1
+    }
+  }
+]

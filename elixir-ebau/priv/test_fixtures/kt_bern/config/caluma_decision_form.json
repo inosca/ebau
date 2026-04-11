@@ -1,0 +1,1720 @@
+[
+  {
+    "model": "caluma_form.form",
+    "pk": "decision",
+    "fields": {
+      "created_at": "2022-04-29T06:24:21.909Z",
+      "modified_at": "2022-05-17T15:00:54.504Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Entscheid\", \"fr\": \"Décision\", \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "decision.decision-appeal",
+    "fields": {
+      "created_at": "2023-04-19T13:31:07.015Z",
+      "modified_at": "2023-04-19T13:31:07.015Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "decision",
+      "question": "decision-appeal",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "decision.decision-approval-type",
+    "fields": {
+      "created_at": "2022-04-29T08:53:27.397Z",
+      "modified_at": "2022-04-29T08:53:27.397Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "decision",
+      "question": "decision-approval-type",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "decision.decision-date",
+    "fields": {
+      "created_at": "2022-04-29T08:54:03.475Z",
+      "modified_at": "2022-04-29T08:54:03.475Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "decision",
+      "question": "decision-date",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "decision.decision-decision-assessment",
+    "fields": {
+      "created_at": "2022-04-29T14:03:25.324Z",
+      "modified_at": "2022-04-29T14:03:25.324Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "decision",
+      "question": "decision-decision-assessment",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "decision.decision-geometer",
+    "fields": {
+      "created_at": "2023-12-01T18:46:15.860Z",
+      "modified_at": "2023-12-01T18:46:15.860Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "decision",
+      "question": "decision-geometer",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "decision.decision-info-appeal",
+    "fields": {
+      "created_at": "2023-03-14T13:12:35.695Z",
+      "modified_at": "2023-03-14T13:12:35.695Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "decision",
+      "question": "decision-info-appeal",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "decision.decision-info-appeal-submit",
+    "fields": {
+      "created_at": "2023-03-14T13:19:09.362Z",
+      "modified_at": "2023-03-14T13:19:09.362Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "decision",
+      "question": "decision-info-appeal-submit",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "decision.decision-info-geometer",
+    "fields": {
+      "created_at": "2023-12-01T19:03:57.209Z",
+      "modified_at": "2023-12-01T19:03:57.209Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "decision",
+      "question": "decision-info-geometer",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "decision.decision-info-geometer-documents",
+    "fields": {
+      "created_at": "2023-12-20T17:21:09.296Z",
+      "modified_at": "2023-12-20T17:21:09.297Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "decision",
+      "question": "decision-info-geometer-documents",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "decision.decision-info-missing-geometer",
+    "fields": {
+      "created_at": "2024-05-16T12:48:22.019Z",
+      "modified_at": "2024-05-16T12:48:22.019Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "decision",
+      "question": "decision-info-missing-geometer",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "decision.decision-info-partial",
+    "fields": {
+      "created_at": "2022-05-03T07:30:58.168Z",
+      "modified_at": "2022-05-03T07:30:58.168Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "decision",
+      "question": "decision-info-partial",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "decision.decision-other-description",
+    "fields": {
+      "created_at": "2022-05-18T14:11:35.958Z",
+      "modified_at": "2022-05-18T14:11:35.958Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "decision",
+      "question": "decision-other-description",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "decision.decision-remarks",
+    "fields": {
+      "created_at": "2022-05-02T14:45:36.322Z",
+      "modified_at": "2022-05-02T14:45:36.322Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "decision",
+      "question": "decision-remarks",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "decision.decision-submit",
+    "fields": {
+      "created_at": "2022-05-02T11:49:19.360Z",
+      "modified_at": "2022-05-02T11:49:19.360Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "decision",
+      "question": "decision-submit",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "decision.decision-workflow",
+    "fields": {
+      "created_at": "2022-05-17T15:04:08.078Z",
+      "modified_at": "2022-05-17T15:04:08.078Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "decision",
+      "question": "decision-workflow",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-approval-type-building-permit",
+    "fields": {
+      "created_at": "2022-04-29T08:53:26.527Z",
+      "modified_at": "2023-03-14T16:37:58.399Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baubewilligung\", \"fr\": \"Permis de construire\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {
+        "identifier": "BAUBEWILLIGUNG"
+      },
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-approval-type-building-permit-free",
+    "fields": {
+      "created_at": "2022-04-29T08:53:26.898Z",
+      "modified_at": "2023-03-14T16:37:58.746Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baubewilligungsfrei\", \"fr\": \"Non soumis à l'octroi d'un permis de construire\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {
+        "identifier": "BAUBEWILLIGUNGSFREI"
+      },
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-approval-type-construction-tee-without-restoration",
+    "fields": {
+      "created_at": "2022-04-29T08:53:26.691Z",
+      "modified_at": "2023-03-14T16:37:58.669Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauabschlag ohne Wiederherstellung\", \"fr\": \"Refus du permis de construire sans rétablissement\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {
+        "identifier": "BAUABSCHLAG_OHNE_WHST"
+      },
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-approval-type-construction-tee-with-restoration",
+    "fields": {
+      "created_at": "2022-04-29T08:53:26.792Z",
+      "modified_at": "2023-03-14T16:37:58.672Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauabschlag mit Wiederherstellung\", \"fr\": \"Refus de permis de construire avec rétablissement\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {
+        "identifier": "BAUABSCHLAG_MIT_WHST"
+      },
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-approval-type-deprecation-order-retreat",
+    "fields": {
+      "created_at": "2022-04-29T08:53:26.769Z",
+      "modified_at": "2023-03-14T16:37:58.754Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abschreibungsverfügung (Rückzug)\", \"fr\": \"Radiation du rôle\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {
+        "identifier": "ABSCHREIBUNGSVERFUEGUNG"
+      },
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-approval-type-general-building-permit",
+    "fields": {
+      "created_at": "2022-04-29T08:53:26.552Z",
+      "modified_at": "2023-03-14T16:37:58.443Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Generelle Baubewilligung\", \"fr\": \"Permis de construire général\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {
+        "identifier": "GENERELL"
+      },
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-approval-type-other",
+    "fields": {
+      "created_at": "2022-05-18T14:07:54.117Z",
+      "modified_at": "2023-03-14T16:37:58.801Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": \"Autre\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {
+        "identifier": "ANDERE"
+      },
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-approval-type-overall-building-permit",
+    "fields": {
+      "created_at": "2022-04-29T08:53:26.569Z",
+      "modified_at": "2023-03-14T16:37:58.418Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gesamtbaubewilligung\", \"fr\": \"Permis de construire global\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {
+        "identifier": "GESAMT"
+      },
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-approval-type-partial-building-permit",
+    "fields": {
+      "created_at": "2022-04-29T08:53:26.615Z",
+      "modified_at": "2023-03-14T16:37:58.416Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Teilbaubewilligung\", \"fr\": \"Permis de construire partiel\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {
+        "identifier": "TEILBAUBEWILLIGUNG"
+      },
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-approval-type-partial-building-permit-partial-construction-tee-partial-restoration",
+    "fields": {
+      "created_at": "2022-04-29T08:53:26.932Z",
+      "modified_at": "2023-03-14T16:37:58.687Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Teilweise Baubewilligung mit teilweisem Bauabschlag und teilweiser Wiederherstellung\", \"fr\": \"Permis de construire partiel avec refus partiel du permis de construire et rétablissement partiel\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {
+        "identifier": "TEILWEISE_BAUBEWILLIGUNG_MIT_TEILWEISEM_BAUABSCHLAG_UND_TEILWEISER_WIEDERHERSTELLUNG"
+      },
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-approval-type-project-modification",
+    "fields": {
+      "created_at": "2022-04-29T08:53:26.529Z",
+      "modified_at": "2023-03-14T16:37:58.276Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Projektänderung\", \"fr\": \"Modification du projet\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {
+        "identifier": "PROJEKTAENDERUNG"
+      },
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-approval-type-small-building-permit",
+    "fields": {
+      "created_at": "2022-04-29T08:53:26.665Z",
+      "modified_at": "2023-03-14T16:37:58.439Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kleine Baubewilligung\", \"fr\": \"Petit permis de construire\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {
+        "identifier": "KLEIN"
+      },
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-approval-type-unknown",
+    "fields": {
+      "created_at": "2022-05-10T08:15:38.721Z",
+      "modified_at": "2023-03-14T16:37:58.866Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Unbekannt (eCH / Import)\", \"fr\": \"Inconnu (eCH / Import)\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": true,
+      "meta": {
+        "identifier": "UNBEKANNT"
+      },
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-decision-assessment-accepted",
+    "fields": {
+      "created_at": "2022-04-29T14:03:24.629Z",
+      "modified_at": "2023-03-14T12:04:09.980Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bewilligt\", \"fr\": \"Approuveé\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {
+        "identifier": "accepted"
+      },
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-decision-assessment-appeal-changed",
+    "fields": {
+      "created_at": "2023-03-14T12:04:10.437Z",
+      "modified_at": "2023-06-27T16:22:43.335Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entscheid geändert / aufgehoben\", \"fr\": \"Décision modifiée / annulée\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-decision-assessment-appeal-confirmed",
+    "fields": {
+      "created_at": "2023-03-14T12:04:10.372Z",
+      "modified_at": "2023-06-27T16:22:43.383Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entscheid bestätigt\", \"fr\": \"Décision confirmée\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-decision-assessment-appeal-rejected",
+    "fields": {
+      "created_at": "2023-03-14T12:04:10.445Z",
+      "modified_at": "2023-06-27T16:22:43.372Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entscheid zurückgewiesen\", \"fr\": \"Décision renvoyée\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-decision-assessment-construction-tee",
+    "fields": {
+      "created_at": "2022-05-17T14:38:09.931Z",
+      "modified_at": "2023-03-14T12:04:10.329Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauabschlag\", \"fr\": \"Refus du permis de construire\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {
+        "identifier": "constructionTee"
+      },
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-decision-assessment-denied",
+    "fields": {
+      "created_at": "2022-04-29T14:03:24.560Z",
+      "modified_at": "2023-03-14T12:04:10.011Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abgelehnt\", \"fr\": \"Rejeté\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {
+        "identifier": "denied"
+      },
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-decision-assessment-depreciated",
+    "fields": {
+      "created_at": "2022-04-29T14:03:24.839Z",
+      "modified_at": "2023-03-14T12:04:10.025Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abgeschrieben\", \"fr\": \"Radié\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {
+        "identifier": "writtenOff"
+      },
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-decision-assessment-negative",
+    "fields": {
+      "created_at": "2022-04-29T14:03:24.651Z",
+      "modified_at": "2023-03-14T12:04:09.995Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Negativ\", \"fr\": \"Négative\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {
+        "identifier": "negative"
+      },
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-decision-assessment-not-obligated",
+    "fields": {
+      "created_at": "2022-05-12T07:43:07.573Z",
+      "modified_at": "2023-03-14T12:04:10.236Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht baubewilligungspflichtig\", \"fr\": \"Non soumis à l'octroi d'un permis de construire\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {
+        "identifier": "notObligated"
+      },
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-decision-assessment-obligated",
+    "fields": {
+      "created_at": "2022-05-12T07:43:07.413Z",
+      "modified_at": "2023-03-14T12:04:10.185Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baubewilligungspflichtig\", \"fr\": \"Soumis à l'octroi d'un permis de construire\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {
+        "identifier": "obligated"
+      },
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-decision-assessment-other",
+    "fields": {
+      "created_at": "2022-05-12T07:44:44.027Z",
+      "modified_at": "2023-03-14T12:04:10.265Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anderweitiger Geschäftsabschluss\", \"fr\": \"Autre décision / clôture\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {
+        "identifier": "other"
+      },
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-decision-assessment-positive",
+    "fields": {
+      "created_at": "2022-04-29T14:03:24.875Z",
+      "modified_at": "2023-03-14T12:04:10.028Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Positiv\", \"fr\": \"Positive\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {
+        "identifier": "positive"
+      },
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-decision-assessment-positive-with-reservation",
+    "fields": {
+      "created_at": "2022-04-29T14:03:24.825Z",
+      "modified_at": "2023-03-14T12:04:09.960Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Mit Vorbehalt positiv (Projekt muss angepasst werden)\", \"fr\": \"Positive avec réserve (le projet doit être adapté)\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {
+        "identifier": "conditionallyPositive"
+      },
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-decision-assessment-retreat",
+    "fields": {
+      "created_at": "2022-04-29T14:03:24.806Z",
+      "modified_at": "2023-03-14T12:04:10.263Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Rückzug\", \"fr\": \"Retrait\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {
+        "identifier": "retreat"
+      },
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-geometer-no",
+    "fields": {
+      "created_at": "2023-12-01T18:46:15.751Z",
+      "modified_at": "2023-12-01T18:46:15.751Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "decision-geometer-yes",
+    "fields": {
+      "created_at": "2023-12-01T18:46:15.754Z",
+      "modified_at": "2023-12-01T18:46:15.754Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "decision-appeal",
+    "fields": {
+      "created_at": "2023-04-19T13:31:06.820Z",
+      "modified_at": "2023-04-19T13:31:06.820Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschwerde eingegangen\", \"fr\": \"Recours reçu\", \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": "decision/appeal-button"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "decision-approval-type",
+    "fields": {
+      "created_at": "2022-04-29T08:53:27.134Z",
+      "modified_at": "2023-03-14T16:37:59.127Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entscheidtyp\", \"fr\": \"Type de décision\", \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "'decision-workflow'|answer != 'building-permit' || 'decision-decision-assessment'|answer(null) in [null, 'decision-decision-assessment-appeal-confirmed', 'decision-decision-assessment-appeal-changed', 'decision-decision-assessment-appeal-rejected']",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "decision-date",
+    "fields": {
+      "created_at": "2022-04-29T08:54:03.266Z",
+      "modified_at": "2022-05-02T09:40:25.533Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Datum\", \"fr\": \"Date\", \"it\": null}",
+      "type": "date",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "decision-decision-assessment",
+    "fields": {
+      "created_at": "2022-04-29T14:03:25.080Z",
+      "modified_at": "2023-06-27T16:22:43.621Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entscheid / Beurteilung\", \"fr\": \"Décision / Evaluation\", \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "decision-geometer",
+    "fields": {
+      "created_at": "2023-12-01T18:46:15.805Z",
+      "modified_at": "2024-06-12T07:35:40.671Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nachführungsgeometer\", \"fr\": \"Géomètre conservatrice ou géomètre conservateur\", \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "'decision-workflow'|answer != 'building-permit'",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "decision-info-appeal",
+    "fields": {
+      "created_at": "2023-03-14T13:12:35.450Z",
+      "modified_at": "2023-03-14T13:16:18.173Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hilfetext Beschwerdeverfahren\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\n\t'decision-decision-assessment'|answer in [\n\t\t'decision-decision-assessment-appeal-confirmed',\n\t\t'decision-decision-assessment-appeal-changed',\n\t\t'decision-decision-assessment-appeal-rejected'\n\t]\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"x\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "decision/info-appeal"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "decision-info-appeal-submit",
+    "fields": {
+      "created_at": "2023-03-14T13:19:09.185Z",
+      "modified_at": "2023-06-27T16:22:01.111Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hilfetext Beschwerdeverfahren bestätigen\", \"fr\": \"Hilfetext Beschwerdeverfahren bestätigen\", \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\n\t'decision-decision-assessment'|answer in [\n\t\t'decision-decision-assessment-appeal-confirmed',\n\t\t'decision-decision-assessment-appeal-changed',\n\t\t'decision-decision-assessment-appeal-rejected'\n\t]\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-alert-default uk-margin-remove\\\"><strong>Achtung:</strong> Der Entscheid kann in eBau erst bestätigt werden, wenn das Rechtsverfahren definitiv abgeschlossen ist.</div>\", \"fr\": \"<div class=\\\"uk-alert uk-alert-default uk-margin-remove\\\"><strong>Attention :</strong> la décision ne peut être confirmée dans eBau que lorsque la procédure juridique est définitivement close.</div>\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "decision-info-geometer",
+    "fields": {
+      "created_at": "2023-12-01T19:03:57.161Z",
+      "modified_at": "2024-01-19T12:22:01.027Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hilfetext Nachführungsgeometer\", \"fr\": \"Texte d'aide géomètre conservateur\", \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!('decision-geometer'|answer == 'decision-geometer-no')",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Sind Sie sicher, dass kein Nachführungsgeometer benötigt wird? Einsichtsberechtigungen für den Nachführungsgeometer können nachträglich über das Berechtigungsmodul vergeben werden.\", \"fr\": \"Êtes-vous certain(e) que le recours à la géomètre conservatrice ou au géomètre conservateur n'est pas nécessaire? L'accès aux documents peut lui être accordé a posteriori depuis le module permettant l'octroi d'autorisations.\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": "decision/info-geometer"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "decision-info-geometer-documents",
+    "fields": {
+      "created_at": "2023-12-20T17:21:09.235Z",
+      "modified_at": "2024-01-05T15:49:17.855Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hilfetext Nachführungsgeometer Dokumente\", \"fr\": \"Texte d'aide géomètre conservateur Documents\", \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!('decision-geometer'|answer == 'decision-geometer-yes')",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Haben Sie die für den Nachführungsgeometer erforderlichen Dokumente freigegeben?\\n\\nAnsonsten können Sie unter \\\"Dokumente\\\" dem Nachführungsgeometer die Freigabe erteilen.\", \"fr\": \"Avez-vous débloqué les documents nécessaires afin que la géomètre conservatrice ou le géomètre conservateur puisse y accéder? Si non, vous pouvez le faire sous \\\"Documents\\\".\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": "decision/info-geometer"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "decision-info-missing-geometer",
+    "fields": {
+      "created_at": "2024-05-16T12:48:21.810Z",
+      "modified_at": "2024-06-12T07:38:23.055Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hilfetext fehlende Einbindung Nachführungsgeometer\", \"fr\": \"Hilfetext fehlende Einbindung Nachführungsgeometer\", \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "'decision-workflow'|answer != 'building-permit'",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-margin-remove-bottom uk-alert border-highlight\\\">\\n\\tBauentscheid wurde vor Einführung Geometermodul gefällt. Der Nachführungsgeometer hat deshalb noch keinen Zugang zu diesem Dossier. Einsichtberechtigungen für den Nachführungsgeometer können nachträglich über das Berechtigungsmodul vergeben werden.\\n</div>\", \"fr\": \"<div class=\\\"uk-margin-remove-bottom uk-alert border-highlight\\\">\\n\\tLa décision en matière de construction est antérieure à l’introduction du module destiné aux géomètres. La géomètre conservatrice ou le géomètre conservateur n’a donc pas accès au dossier. L’accès aux documents peut lui être accordé a posteriori depuis le module permettant l’octroi d’autorisations.\\n</div>\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": "decision/info-missing-geometer-involvement"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "decision-info-partial",
+    "fields": {
+      "created_at": "2022-05-03T07:30:57.937Z",
+      "modified_at": "2023-07-04T10:08:35.588Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hilfetext Teilbaubewilligungen\", \"fr\": \"Texte d'aide permis de construire partiel\", \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\n\t'decision-approval-type-partial-building-permit' == 'decision-approval-type'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-alert-default uk-margin-remove\\\">Bei Teilbaubewilligungen wechselt der Status von \\\"In Koordination\\\" nach \\\"Selbstdeklaration (SB1)\\\" erst mit dem definitiven Bauentscheid.</div>\", \"fr\": \"<div class=\\\"uk-alert uk-alert-default uk-margin-remove\\\">Dans le cas des permis de construire partiels, le statut passe de \\\"En cours de coordination\\\" à \\\"Déclaration spontanée (DC1)\\\" uniquement avec l'octroi du permis de construire final.</div>\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "decision-other-description",
+    "fields": {
+      "created_at": "2022-05-18T14:11:35.667Z",
+      "modified_at": "2023-06-27T16:22:15.759Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": \"Description\", \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "'decision-decision-assessment'|answer != 'decision-decision-assessment-other' || ('decision-workflow'|answer == 'building-permit' && 'decision-approval-type'|answer != 'decision-approval-type-other')",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "decision-remarks",
+    "fields": {
+      "created_at": "2022-05-02T14:45:36.107Z",
+      "modified_at": "2022-05-17T15:03:06.273Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungen\", \"fr\": \"Remarques\", \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "'decision-workflow'|answer != 'preliminary-clarification'",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {
+        "widgetOverride": "cf-snippets-textarea"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "decision-submit",
+    "fields": {
+      "created_at": "2022-05-02T11:49:19.157Z",
+      "modified_at": "2023-07-04T10:06:10.714Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entscheid verfügen\", \"fr\": \"Rendre la décision\", \"it\": null}",
+      "type": "action_button",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Haben Sie den Entscheid im Menü \\\"Dokumente\\\" hochgeladen und möchten Sie den Entscheid jetzt verfügen? Dieser Schritt kann nicht rückgängig gemacht werden.\\n<br><br>\\nAnsonsten können Sie unter \\\"Vorlagen\\\" den Entscheid generieren. Nachdem der Entscheid unter \\\"Dokumente\\\" abgelegt wurde, kann dieser verfügt werden.\", \"fr\": \"Vous avez téléchargé la décision dans le menu \\\"Documents\\\" et vous souhaitez maintenant rendre la décision ? Cette étape ne peut pas être annulée.\\n<br><br>\\nSinon, vous pouvez créer la décision sous \\\"Modèles\\\". Une fois que la décision a été déposée sous \\\"Documents\\\", vous pouvez en disposer.\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "color": "primary",
+        "action": "complete",
+        "show_validation": false,
+        "validate_on_enter": false
+      },
+      "meta": {
+        "widgetOverride": "decision/submit-button"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "decision-workflow",
+    "fields": {
+      "created_at": "2022-05-17T15:04:07.868Z",
+      "modified_at": "2022-05-17T15:09:09.003Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Workflow\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": "cf-field/input/hidden"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-approval-type.decision-approval-type-building-permit",
+    "fields": {
+      "created_at": "2023-03-14T16:37:59.212Z",
+      "modified_at": "2023-03-14T16:37:59.212Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "decision-approval-type",
+      "option": "decision-approval-type-building-permit",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-approval-type.decision-approval-type-building-permit-free",
+    "fields": {
+      "created_at": "2023-03-14T16:37:59.160Z",
+      "modified_at": "2023-03-14T16:37:59.160Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "decision-approval-type",
+      "option": "decision-approval-type-building-permit-free",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-approval-type.decision-approval-type-construction-tee-without-restoration",
+    "fields": {
+      "created_at": "2023-03-14T16:37:59.177Z",
+      "modified_at": "2023-03-14T16:37:59.177Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "decision-approval-type",
+      "option": "decision-approval-type-construction-tee-without-restoration",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-approval-type.decision-approval-type-construction-tee-with-restoration",
+    "fields": {
+      "created_at": "2023-03-14T16:37:59.171Z",
+      "modified_at": "2023-03-14T16:37:59.171Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "decision-approval-type",
+      "option": "decision-approval-type-construction-tee-with-restoration",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-approval-type.decision-approval-type-deprecation-order-retreat",
+    "fields": {
+      "created_at": "2023-03-14T16:37:59.166Z",
+      "modified_at": "2023-03-14T16:37:59.166Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "decision-approval-type",
+      "option": "decision-approval-type-deprecation-order-retreat",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-approval-type.decision-approval-type-general-building-permit",
+    "fields": {
+      "created_at": "2023-03-14T16:37:59.194Z",
+      "modified_at": "2023-03-14T16:37:59.194Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "decision-approval-type",
+      "option": "decision-approval-type-general-building-permit",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-approval-type.decision-approval-type-other",
+    "fields": {
+      "created_at": "2023-03-14T16:37:59.147Z",
+      "modified_at": "2023-03-14T16:37:59.147Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "decision-approval-type",
+      "option": "decision-approval-type-other",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-approval-type.decision-approval-type-overall-building-permit",
+    "fields": {
+      "created_at": "2023-03-14T16:37:59.204Z",
+      "modified_at": "2023-03-14T16:37:59.204Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "decision-approval-type",
+      "option": "decision-approval-type-overall-building-permit",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-approval-type.decision-approval-type-partial-building-permit",
+    "fields": {
+      "created_at": "2023-03-14T16:37:59.188Z",
+      "modified_at": "2023-03-14T16:37:59.188Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "decision-approval-type",
+      "option": "decision-approval-type-partial-building-permit",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-approval-type.decision-approval-type-partial-building-permit-partial-construction-tee-partial-restoration",
+    "fields": {
+      "created_at": "2023-03-14T16:37:59.153Z",
+      "modified_at": "2023-03-14T16:37:59.153Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "decision-approval-type",
+      "option": "decision-approval-type-partial-building-permit-partial-construction-tee-partial-restoration",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-approval-type.decision-approval-type-project-modification",
+    "fields": {
+      "created_at": "2023-03-14T16:37:59.183Z",
+      "modified_at": "2023-03-14T16:37:59.183Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "decision-approval-type",
+      "option": "decision-approval-type-project-modification",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-approval-type.decision-approval-type-small-building-permit",
+    "fields": {
+      "created_at": "2023-03-14T16:37:59.200Z",
+      "modified_at": "2023-03-14T16:37:59.200Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "decision-approval-type",
+      "option": "decision-approval-type-small-building-permit",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-approval-type.decision-approval-type-unknown",
+    "fields": {
+      "created_at": "2023-03-14T16:37:59.139Z",
+      "modified_at": "2023-03-14T16:37:59.139Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "decision-approval-type",
+      "option": "decision-approval-type-unknown",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-decision-assessment.decision-decision-assessment-accepted",
+    "fields": {
+      "created_at": "2023-06-27T16:22:43.673Z",
+      "modified_at": "2023-06-27T16:22:43.673Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "decision-decision-assessment",
+      "option": "decision-decision-assessment-accepted",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-decision-assessment.decision-decision-assessment-appeal-changed",
+    "fields": {
+      "created_at": "2023-06-27T16:22:43.633Z",
+      "modified_at": "2023-06-27T16:22:43.633Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "decision-decision-assessment",
+      "option": "decision-decision-assessment-appeal-changed",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-decision-assessment.decision-decision-assessment-appeal-confirmed",
+    "fields": {
+      "created_at": "2023-06-27T16:22:43.636Z",
+      "modified_at": "2023-06-27T16:22:43.636Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "decision-decision-assessment",
+      "option": "decision-decision-assessment-appeal-confirmed",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-decision-assessment.decision-decision-assessment-appeal-rejected",
+    "fields": {
+      "created_at": "2023-06-27T16:22:43.629Z",
+      "modified_at": "2023-06-27T16:22:43.629Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "decision-decision-assessment",
+      "option": "decision-decision-assessment-appeal-rejected",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-decision-assessment.decision-decision-assessment-construction-tee",
+    "fields": {
+      "created_at": "2023-06-27T16:22:43.639Z",
+      "modified_at": "2023-06-27T16:22:43.639Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "decision-decision-assessment",
+      "option": "decision-decision-assessment-construction-tee",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-decision-assessment.decision-decision-assessment-denied",
+    "fields": {
+      "created_at": "2023-06-27T16:22:43.670Z",
+      "modified_at": "2023-06-27T16:22:43.670Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "decision-decision-assessment",
+      "option": "decision-decision-assessment-denied",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-decision-assessment.decision-decision-assessment-depreciated",
+    "fields": {
+      "created_at": "2023-06-27T16:22:43.667Z",
+      "modified_at": "2023-06-27T16:22:43.667Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "decision-decision-assessment",
+      "option": "decision-decision-assessment-depreciated",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-decision-assessment.decision-decision-assessment-negative",
+    "fields": {
+      "created_at": "2023-06-27T16:22:43.660Z",
+      "modified_at": "2023-06-27T16:22:43.660Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "decision-decision-assessment",
+      "option": "decision-decision-assessment-negative",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-decision-assessment.decision-decision-assessment-not-obligated",
+    "fields": {
+      "created_at": "2023-06-27T16:22:43.646Z",
+      "modified_at": "2023-06-27T16:22:43.646Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "decision-decision-assessment",
+      "option": "decision-decision-assessment-not-obligated",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-decision-assessment.decision-decision-assessment-obligated",
+    "fields": {
+      "created_at": "2023-06-27T16:22:43.650Z",
+      "modified_at": "2023-06-27T16:22:43.650Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "decision-decision-assessment",
+      "option": "decision-decision-assessment-obligated",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-decision-assessment.decision-decision-assessment-other",
+    "fields": {
+      "created_at": "2023-06-27T16:22:43.643Z",
+      "modified_at": "2023-06-27T16:22:43.643Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "decision-decision-assessment",
+      "option": "decision-decision-assessment-other",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-decision-assessment.decision-decision-assessment-positive",
+    "fields": {
+      "created_at": "2023-06-27T16:22:43.663Z",
+      "modified_at": "2023-06-27T16:22:43.663Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "decision-decision-assessment",
+      "option": "decision-decision-assessment-positive",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-decision-assessment.decision-decision-assessment-positive-with-reservation",
+    "fields": {
+      "created_at": "2023-06-27T16:22:43.657Z",
+      "modified_at": "2023-06-27T16:22:43.657Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "decision-decision-assessment",
+      "option": "decision-decision-assessment-positive-with-reservation",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-decision-assessment.decision-decision-assessment-retreat",
+    "fields": {
+      "created_at": "2023-06-27T16:22:43.653Z",
+      "modified_at": "2023-06-27T16:22:43.653Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "decision-decision-assessment",
+      "option": "decision-decision-assessment-retreat",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-geometer.decision-geometer-no",
+    "fields": {
+      "created_at": "2024-06-12T07:35:40.680Z",
+      "modified_at": "2024-06-12T07:35:40.680Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "decision-geometer",
+      "option": "decision-geometer-no",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "decision-geometer.decision-geometer-yes",
+    "fields": {
+      "created_at": "2024-06-12T07:35:40.685Z",
+      "modified_at": "2024-06-12T07:35:40.685Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "decision-geometer",
+      "option": "decision-geometer-yes",
+      "sort": 2
+    }
+  }
+]

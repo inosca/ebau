@@ -1,0 +1,390 @@
+[
+  {
+    "model": "user.role",
+    "pk": 1,
+    "fields": {
+      "role_parent": null,
+      "name": "admin",
+      "group_prefix": null,
+      "slug": null
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 3,
+    "fields": {
+      "role_parent": null,
+      "name": "municipality-lead",
+      "group_prefix": null,
+      "slug": "municipality-lead"
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 4,
+    "fields": {
+      "role_parent": null,
+      "name": "service-lead",
+      "group_prefix": null,
+      "slug": "service-lead"
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 5,
+    "fields": {
+      "role_parent": null,
+      "name": "municipality-admin",
+      "group_prefix": null,
+      "slug": "municipality-admin"
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 6,
+    "fields": {
+      "role_parent": null,
+      "name": "service-admin",
+      "group_prefix": null,
+      "slug": "service-admin"
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 7,
+    "fields": {
+      "role_parent": null,
+      "name": "municipality-clerk",
+      "group_prefix": null,
+      "slug": "municipality-clerk"
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 9,
+    "fields": {
+      "role_parent": null,
+      "name": "municipality-read",
+      "group_prefix": null,
+      "slug": "municipality-read"
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 11,
+    "fields": {
+      "role_parent": null,
+      "name": "trusted-service-admin",
+      "group_prefix": null,
+      "slug": "trusted-service-admin"
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 12,
+    "fields": {
+      "role_parent": null,
+      "name": "trusted-service-lead",
+      "group_prefix": null,
+      "slug": "trusted-service-lead"
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 13,
+    "fields": {
+      "role_parent": null,
+      "name": "trusted-service-clerk",
+      "group_prefix": null,
+      "slug": "trusted-service-clerk"
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 14,
+    "fields": {
+      "role_parent": null,
+      "name": "trusted-service-read",
+      "group_prefix": null,
+      "slug": "trusted-service-read"
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 10000,
+    "fields": {
+      "role_parent": null,
+      "name": "support",
+      "group_prefix": null,
+      "slug": "support"
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 10001,
+    "fields": {
+      "role_parent": null,
+      "name": "applicant",
+      "group_prefix": null,
+      "slug": "applicant"
+    }
+  },
+  {
+    "model": "user.role",
+    "pk": 20000,
+    "fields": {
+      "role_parent": null,
+      "name": "subservice",
+      "group_prefix": null,
+      "slug": "subservice"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 1,
+    "fields": {
+      "role": 1,
+      "language": "de",
+      "name": "Admin",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 5,
+    "fields": {
+      "role": 3,
+      "language": "de",
+      "name": "Leitung Gemeinde",
+      "group_prefix": "Leitung"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 6,
+    "fields": {
+      "role": 4,
+      "language": "de",
+      "name": "Leitung externe Fachstelle",
+      "group_prefix": "Leitung"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 7,
+    "fields": {
+      "role": 5,
+      "language": "de",
+      "name": "Administration Gemeinde",
+      "group_prefix": "Administration"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 8,
+    "fields": {
+      "role": 6,
+      "language": "de",
+      "name": "Administration externe Fachstelle",
+      "group_prefix": "Administration"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 9,
+    "fields": {
+      "role": 7,
+      "language": "de",
+      "name": "Sachbearbeitung Gemeinde",
+      "group_prefix": "Sachbearbeitung"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 11,
+    "fields": {
+      "role": 9,
+      "language": "de",
+      "name": "Einsichtsberechtigte Gemeinde",
+      "group_prefix": "Einsichtsberechtigte"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 13,
+    "fields": {
+      "role": 11,
+      "language": "de",
+      "name": "Administration kantonale Fachstelle",
+      "group_prefix": "Administration"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 14,
+    "fields": {
+      "role": 12,
+      "language": "de",
+      "name": "Leitung kantonale Fachstelle",
+      "group_prefix": "Leitung"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 15,
+    "fields": {
+      "role": 13,
+      "language": "de",
+      "name": "Sachbearbeitung kantonale Fachstelle",
+      "group_prefix": "Sachbearbeitung"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 16,
+    "fields": {
+      "role": 14,
+      "language": "de",
+      "name": "Einsichtsberechtigte kantonale Fachstelle",
+      "group_prefix": "Einsichtsberechtigte"
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20000,
+    "fields": {
+      "role": 20000,
+      "language": "de",
+      "name": "Unterfachstelle",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20028,
+    "fields": {
+      "role": 10000,
+      "language": "de",
+      "name": "Support",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.rolet",
+    "pk": 20030,
+    "fields": {
+      "role": 10001,
+      "language": "de",
+      "name": "Gesuchsteller",
+      "group_prefix": null
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 1,
+    "fields": {
+      "slug": "service-cantonal",
+      "name": "service-cantonal",
+      "sort": null
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 2,
+    "fields": {
+      "slug": "municipality",
+      "name": "municipality",
+      "sort": null
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 3,
+    "fields": {
+      "slug": "service-external",
+      "name": "service-external",
+      "sort": null
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 4,
+    "fields": {
+      "slug": "service-afb",
+      "name": "service-afb",
+      "sort": null
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 5,
+    "fields": {
+      "slug": "authority-pgv",
+      "name": "authority-pgv",
+      "sort": null
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 6,
+    "fields": {
+      "slug": "municipality-light",
+      "name": "municipality-light",
+      "sort": null
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20000,
+    "fields": {
+      "service_group": 1,
+      "language": "de",
+      "name": "Kantonale Fachstelle"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20001,
+    "fields": {
+      "service_group": 2,
+      "language": "de",
+      "name": "Gemeinde"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20002,
+    "fields": {
+      "service_group": 3,
+      "language": "de",
+      "name": "Externe Fachstelle"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20003,
+    "fields": {
+      "service_group": 4,
+      "language": "de",
+      "name": "Abteilung für Baubewilligungen"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20004,
+    "fields": {
+      "service_group": 5,
+      "language": "de",
+      "name": "Leitbehörde PGV"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 20005,
+    "fields": {
+      "service_group": 6,
+      "language": "de",
+      "name": "DIBA Light Gemeinde"
+    }
+  }
+]

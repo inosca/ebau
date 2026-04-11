@@ -1,0 +1,352 @@
+[
+  {
+    "model": "gis.gisdatasource",
+    "pk": "b0adfa1a-0196-4570-9cba-7ce7822236ff",
+    "fields": {
+      "description": "kt gr gis configuration",
+      "client": "camac.gis.clients.gr.GrGisClient",
+      "config": [
+        {
+          "identifier": "liegenschaften",
+          "properties": [
+            {
+              "question": "gemeinde",
+              "propertyName": "gdename"
+            }
+          ]
+        },
+        {
+          "identifier": "gebaeudeadressen_av",
+          "properties": [
+            {
+              "mapper": "street_and_housenumber",
+              "question": "street-and-housenumber"
+            },
+            {
+              "question": "egid-nr",
+              "propertyName": "gwr_egid"
+            }
+          ]
+        },
+        {
+          "identifier": "zp_wald_puffer",
+          "properties": [
+            {
+              "forms": [
+                "baugesuch",
+                "baugesuch-v2",
+                "baugesuch-v3",
+                "baugesuch-v4",
+                "baugesuch-v5",
+                "baugesuch-v6"
+              ],
+              "mapper": "near_forest",
+              "question": "waldareal"
+            }
+          ]
+        },
+        {
+          "identifier": "zp_grundnutzung",
+          "properties": [
+            {
+              "forms": [
+                "baugesuch",
+                "baugesuch-v2",
+                "baugesuch-v3",
+                "baugesuch-v4",
+                "baugesuch-v5",
+                "baugesuch-v6"
+              ],
+              "mapper": "ausserhalb_bauzone",
+              "question": "ausserhalb-bauzone",
+              "propertyName": "Kt_Code"
+            },
+            {
+              "forms": [
+                "baugesuch",
+                "baugesuch-v2",
+                "baugesuch-v3",
+                "baugesuch-v4",
+                "baugesuch-v5",
+                "baugesuch-v6"
+              ],
+              "mapper": "in_forest",
+              "question": "waldareal",
+              "propertyName": "Kt_Code"
+            },
+            {
+              "forms": [
+                "baugesuch",
+                "baugesuch-v2",
+                "baugesuch-v3",
+                "baugesuch-v4",
+                "baugesuch-v5",
+                "baugesuch-v6"
+              ],
+              "mapper": "archaeologiezone",
+              "question": "das-bauvorhaben-befindet-sich-in",
+              "propertyName": "Kt_Code"
+            }
+          ]
+        },
+        {
+          "identifier": "kantonales_strassennetz",
+          "properties": [
+            {
+              "forms": [
+                "baugesuch",
+                "baugesuch-v2",
+                "baugesuch-v3",
+                "baugesuch-v4",
+                "baugesuch-v5",
+                "baugesuch-v6"
+              ],
+              "mapper": "yes_or_no",
+              "question": "kantonsstrassen"
+            }
+          ]
+        },
+        {
+          "identifier": "zp_gefahrenzonen",
+          "properties": [
+            {
+              "forms": [
+                "baugesuch",
+                "baugesuch-v2",
+                "baugesuch-v3",
+                "baugesuch-v4",
+                "baugesuch-v5",
+                "baugesuch-v6"
+              ],
+              "mapper": "gefahrenzone",
+              "question": "das-bauvorhaben-befindet-sich-in",
+              "propertyName": "Kt_Code"
+            }
+          ]
+        },
+        {
+          "identifier": "gewaesserschutzbereiche",
+          "properties": [
+            {
+              "forms": [
+                "baugesuch",
+                "baugesuch-v2",
+                "baugesuch-v3",
+                "baugesuch-v4",
+                "baugesuch-v5",
+                "baugesuch-v6"
+              ],
+              "mapper": "bauvorhaben_gewaesser",
+              "question": "das-bauvorhaben-befindet-sich-in",
+              "propertyName": "typ"
+            },
+            {
+              "forms": [
+                "baugesuch",
+                "baugesuch-v2",
+                "baugesuch-v3",
+                "baugesuch-v4",
+                "baugesuch-v5",
+                "baugesuch-v6"
+              ],
+              "mapper": "gewaesserschutzbereich",
+              "question": "art-gewaesserschutzbereich",
+              "propertyName": "typ"
+            },
+            {
+              "forms": [
+                "baugesuch",
+                "baugesuch-v2",
+                "baugesuch-v3",
+                "baugesuch-v4",
+                "baugesuch-v5",
+                "baugesuch-v6"
+              ],
+              "hidden": true,
+              "mapper": "gewaesserschutzbereich",
+              "question": "lageranlagen-gewaesserschutzbereich",
+              "propertyName": "typ"
+            }
+          ]
+        },
+        {
+          "identifier": "grundwasserschutzzonen",
+          "properties": [
+            {
+              "forms": [
+                "baugesuch",
+                "baugesuch-v2",
+                "baugesuch-v3",
+                "baugesuch-v4",
+                "baugesuch-v5",
+                "baugesuch-v6"
+              ],
+              "mapper": "grundwasserschutzzone",
+              "question": "grundwasserschutzzone",
+              "propertyName": "typ"
+            },
+            {
+              "forms": [
+                "baugesuch",
+                "baugesuch-v2",
+                "baugesuch-v3",
+                "baugesuch-v4",
+                "baugesuch-v5",
+                "baugesuch-v6"
+              ],
+              "hidden": true,
+              "mapper": "grundwasserschutzzone",
+              "question": "lageranlagen-grundwasserschutzzone",
+              "propertyName": "typ"
+            }
+          ]
+        },
+        {
+          "identifier": "zp_ortsbild_und_kulturgueterschutzzonen",
+          "properties": [
+            {
+              "forms": [
+                "baugesuch",
+                "baugesuch-v2",
+                "baugesuch-v3",
+                "baugesuch-v4",
+                "baugesuch-v5",
+                "baugesuch-v6"
+              ],
+              "mapper": "archaeologiezone_2",
+              "question": "das-bauvorhaben-befindet-sich-in",
+              "propertyName": "Kt_Code"
+            }
+          ]
+        },
+        {
+          "identifier": "ortschaftsname",
+          "properties": [
+            {
+              "question": "ort-grundstueck",
+              "propertyName": "ortschaftsname"
+            }
+          ]
+        },
+        {
+          "identifier": "naturgefahren_plan_gko",
+          "properties": [
+            {
+              "question": "plan-der-gefahrenkommission",
+              "propertyName": "bezeichnung"
+            }
+          ]
+        }
+      ],
+      "disabled": false,
+      "sort": 0
+    }
+  },
+  {
+    "model": "gis.gisdatasource",
+    "pk": "bacbf788-d1fc-42f7-b8ec-c52ce8dd35ff",
+    "fields": {
+      "description": "coordinates",
+      "client": "camac.gis.clients.param.ParamGisClient",
+      "config": [
+        {
+          "hidden": true,
+          "question": "gis-map",
+          "parameterName": "query"
+        }
+      ],
+      "disabled": false,
+      "sort": 1
+    }
+  },
+  {
+    "model": "gis.gisdatasource",
+    "pk": "e46a2846-76eb-4e4f-99a5-59c86dea47b1",
+    "fields": {
+      "description": "eCH0206",
+      "client": "camac.gis.clients.ech_0206.Ech0206",
+      "config": [
+        {
+          "properties": [
+            {
+              "question": "energie-waermequelle-heizung",
+              "propertyName": "thermotechnicalDeviceForHeating1.energySourceHeating"
+            },
+            {
+              "question": "weitere-energie-waermequelle-heizung",
+              "propertyName": "thermotechnicalDeviceForHeating2.energySourceHeating"
+            },
+            {
+              "question": "waermeerzeuger-heizung",
+              "propertyName": "thermotechnicalDeviceForHeating1.heatGeneratorHeating"
+            },
+            {
+              "question": "weitere-waermeerzeuger-heizung",
+              "propertyName": "thermotechnicalDeviceForHeating2.heatGeneratorHeating"
+            },
+            {
+              "question": "energie-waermequelle-warmwasser",
+              "propertyName": "thermotechnicalDeviceForWarmWater1.energySourceHeating"
+            },
+            {
+              "question": "weitere-energie-waermequelle-warmwasser",
+              "propertyName": "thermotechnicalDeviceForWarmWater2.energySourceHeating"
+            },
+            {
+              "question": "waermeerzeuger-warmwasser",
+              "propertyName": "thermotechnicalDeviceForWarmWater1.heatGeneratorHotWater"
+            },
+            {
+              "question": "weitere-waermeerzeuger-warmwasser",
+              "propertyName": "thermotechnicalDeviceForWarmWater2.heatGeneratorHotWater"
+            }
+          ]
+        },
+        {
+          "properties": [
+            {
+              "question": "amtliche-gebaeudenummer",
+              "propertyName": "officialBuildingNo"
+            }
+          ]
+        },
+        {
+          "properties": [
+            {
+              "question": "gwr-gebaeudevolumen",
+              "propertyName": "volume"
+            }
+          ]
+        },
+        {
+          "properties": [
+            {
+              "question": "energiebezugsflaeche",
+              "propertyName": "energyRelevantSurface"
+            }
+          ]
+        },
+        {
+          "properties": [
+            {
+              "hidden": true,
+              "mapper": "heat_surface",
+              "question": "werden-flaechen-beheizt"
+            }
+          ]
+        },
+        {
+          "properties": [
+            {
+              "hidden": true,
+              "mapper": "warm_water_connection",
+              "question": "ist-ein-warmwasseranschluss-geplant"
+            }
+          ]
+        }
+      ],
+      "disabled": false,
+      "sort": 2
+    }
+  }
+]

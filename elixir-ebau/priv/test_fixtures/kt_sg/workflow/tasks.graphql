@@ -1,0 +1,57 @@
+mutation CreateSubmitTask {
+  saveCompleteWorkflowFormTask(
+    input: {
+      slug: "submit"
+      name: "Gesuch einreichen"
+      addressGroups: "[\"applicant\"]"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFormalExamTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "formal-exam"
+      form: "formelle-vorpruefung"
+      name: "Formelle Vorpüfung"
+      addressGroups: "[\"municipality\"]|groups"
+      controlGroups: "[\"municipality\"]|groups"
+      leadTime: 432000 # 5 days
+      meta: "{\"directLink\":{\"route\":\"cases.detail.task-form\",\"models\":[\"INSTANCE_ID\",\"TASK_SLUG\"]},\"redirectToWorkItemsAfterCompletion\":true}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateMaterialExamTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "material-exam"
+      form: "materielle-pruefung"
+      name: "Materielle Prüfung"
+      addressGroups: "[\"municipality\"]|groups"
+      controlGroups: "[\"municipality\"]|groups"
+      leadTime: 432000 # 5 days
+      meta: "{\"directLink\":{\"route\":\"cases.detail.task-form\",\"models\":[\"INSTANCE_ID\",\"TASK_SLUG\"]},\"redirectToWorkItemsAfterCompletion\":true}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateManualWorkItemTask {
+  saveSimpleTask(
+    input: {
+      slug: "create-manual-workitems"
+      name: "Manuelle Aufgaben erfassen"
+      addressGroups: "[]"
+      isMultipleInstance: true
+      meta: "{\"is-manually-completable\":true}"
+    }
+  ) {
+    clientMutationId
+  }
+}

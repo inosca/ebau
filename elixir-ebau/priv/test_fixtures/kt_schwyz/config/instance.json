@@ -1,0 +1,890 @@
+[
+  {
+    "model": "instance.form",
+    "pk": 1,
+    "fields": {
+      "form_state": 1,
+      "name": "baugesuch-reklamegesuch",
+      "description": "Baugesuch",
+      "family": 1
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 2,
+    "fields": {
+      "form_state": 1,
+      "name": "projektanderung",
+      "description": "Projektänderung zu bewilligtem Baugesuch",
+      "family": 2
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 3,
+    "fields": {
+      "form_state": 1,
+      "name": "vorentscheid-gemass-ss84-pbg",
+      "description": "Vorentscheid gemäss § 84 PBG",
+      "family": 3
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 4,
+    "fields": {
+      "form_state": 1,
+      "name": "vorabklarung",
+      "description": "Vorabklärung",
+      "family": 4
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 5,
+    "fields": {
+      "form_state": 1,
+      "name": "baumeldung-fur-geringfugiges-vorhaben",
+      "description": "Baumeldung für geringfügiges Vorhaben",
+      "family": 5
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 6,
+    "fields": {
+      "form_state": 1,
+      "name": "technische-bewilligung",
+      "description": "Gesuch um technische Bewilligung",
+      "family": 6
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 7,
+    "fields": {
+      "form_state": 1,
+      "name": "konzession-fur-wasserentnahme",
+      "description": "Konzession für Wasserentnahme",
+      "family": 7
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 8,
+    "fields": {
+      "form_state": 1,
+      "name": "plangenehmigungsgesuch",
+      "description": "Plangenehmigungsgesuch",
+      "family": 8
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 9,
+    "fields": {
+      "form_state": 1,
+      "name": "projektgenehmigungsgesuch-gemass-ss15-strag",
+      "description": "Projektgenehmigungsgesuch gemäss § 15 StraG",
+      "family": 9
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 10,
+    "fields": {
+      "form_state": 1,
+      "name": "anlassbewilligungen-verkehrsbewilligungen",
+      "description": "Anlassbewilligungen / Verkehrsbewilligungen",
+      "family": 10
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 11,
+    "fields": {
+      "form_state": 2,
+      "name": "geschaeftskontrolle",
+      "description": "Geschäftskontrolle",
+      "family": 11
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 12,
+    "fields": {
+      "form_state": 1,
+      "name": "vorabklarung-v2",
+      "description": "Vorabklärung",
+      "family": 4
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 13,
+    "fields": {
+      "form_state": 1,
+      "name": "baumeldung-fur-geringfugiges-vorhaben-v2",
+      "description": "Baumeldung für geringfügiges Vorhaben",
+      "family": 5
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 14,
+    "fields": {
+      "form_state": 1,
+      "name": "konzession-fur-wasserentnahme-v2",
+      "description": "Konzession für Wasserentnahme",
+      "family": 7
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 15,
+    "fields": {
+      "form_state": 1,
+      "name": "plangenehmigungsgesuch-v2",
+      "description": "Plangenehmigungsgesuch",
+      "family": 8
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 16,
+    "fields": {
+      "form_state": 1,
+      "name": "projektgenehmigungsgesuch-gemass-ss15-strag-v2",
+      "description": "Projektgenehmigungsgesuch gemäss § 15 StraG",
+      "family": 9
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 17,
+    "fields": {
+      "form_state": 1,
+      "name": "anlassbewilligungen-verkehrsbewilligungen-v2",
+      "description": "Anlassbewilligungen / Verkehrsbewilligungen",
+      "family": 10
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 18,
+    "fields": {
+      "form_state": 1,
+      "name": "baugesuch-reklamegesuch-v2",
+      "description": "Baugesuch",
+      "family": 1
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 19,
+    "fields": {
+      "form_state": 1,
+      "name": "projektanderung-v2",
+      "description": "Projektänderung zu bewilligtem Baugesuch",
+      "family": 2
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 20,
+    "fields": {
+      "form_state": 1,
+      "name": "vorentscheid-gemass-ss84-pbg-v2",
+      "description": "Vorentscheid gemäss § 84 PBG",
+      "family": 3
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 21,
+    "fields": {
+      "form_state": 1,
+      "name": "vorabklarung-v3",
+      "description": "Vorabklärung",
+      "family": 4
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 22,
+    "fields": {
+      "form_state": 1,
+      "name": "baumeldung-fur-geringfugiges-vorhaben-v3",
+      "description": "Baumeldung für geringfügiges Vorhaben",
+      "family": 5
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 23,
+    "fields": {
+      "form_state": 1,
+      "name": "baugesuch-reklamegesuch-v3",
+      "description": "Baugesuch",
+      "family": 1
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 24,
+    "fields": {
+      "form_state": 1,
+      "name": "projektanderung-v3",
+      "description": "Projektänderung zu bewilligtem Baugesuch",
+      "family": 2
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 25,
+    "fields": {
+      "form_state": 1,
+      "name": "vorentscheid-gemass-ss84-pbg-v3",
+      "description": "Vorentscheid gemäss § 84 PBG",
+      "family": 3
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 26,
+    "fields": {
+      "form_state": 1,
+      "name": "baugesuch-reklamegesuch-v4",
+      "description": "Baugesuch",
+      "family": 1
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 27,
+    "fields": {
+      "form_state": 1,
+      "name": "projektanderung-v4",
+      "description": "Projektänderung zu bewilligtem Baugesuch",
+      "family": 2
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 28,
+    "fields": {
+      "form_state": 1,
+      "name": "vorentscheid-gemass-ss84-pbg-v4",
+      "description": "Vorentscheid gemäss § 84 PBG",
+      "family": 3
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 29,
+    "fields": {
+      "form_state": 1,
+      "name": "migriertes-dossier",
+      "description": "Migriertes Dossier",
+      "family": 29
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 30,
+    "fields": {
+      "form_state": 1,
+      "name": "baugesuch-reklamegesuch-v5",
+      "description": "Baugesuch",
+      "family": 1
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 31,
+    "fields": {
+      "form_state": 1,
+      "name": "projektanderung-v5",
+      "description": "Projektänderung zu bewilligtem Baugesuch",
+      "family": 2
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 32,
+    "fields": {
+      "form_state": 1,
+      "name": "vorentscheid-gemass-ss84-pbg-v5",
+      "description": "Vorentscheid gemäss § 84 PBG",
+      "family": 3
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 33,
+    "fields": {
+      "form_state": 1,
+      "name": "vorabklarung-v4",
+      "description": "Vorabklärung",
+      "family": 4
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 34,
+    "fields": {
+      "form_state": 1,
+      "name": "baumeldung-fur-geringfugiges-vorhaben-v4",
+      "description": "Baumeldung für geringfügiges Vorhaben",
+      "family": 5
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 35,
+    "fields": {
+      "form_state": 1,
+      "name": "technische-bewilligung-v2",
+      "description": "Gesuch um technische Bewilligung",
+      "family": 6
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 36,
+    "fields": {
+      "form_state": 1,
+      "name": "konzession-fur-wasserentnahme-v3",
+      "description": "Konzession für Wasserentnahme",
+      "family": 7
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 37,
+    "fields": {
+      "form_state": 1,
+      "name": "anlassbewilligungen-verkehrsbewilligungen-v3",
+      "description": "Anlassbewilligungen / Verkehrsbewilligungen",
+      "family": 10
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 38,
+    "fields": {
+      "form_state": 1,
+      "name": "plangenehmigungsgesuch-v3",
+      "description": "Plangenehmigungsgesuch",
+      "family": 8
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 39,
+    "fields": {
+      "form_state": 1,
+      "name": "projektgenehmigungsgesuch-gemass-ss15-strag-v3",
+      "description": "Projektgenehmigungsgesuch gemäss § 15 StraG",
+      "family": 9
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 40,
+    "fields": {
+      "form_state": 1,
+      "name": "projektanderung-v6",
+      "description": "Projektänderung zu bewilligtem Baugesuch",
+      "family": 2
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 41,
+    "fields": {
+      "form_state": 1,
+      "name": "vorentscheid-gemass-ss84-pbg-v6",
+      "description": "Vorentscheid gemäss § 84 PBG",
+      "family": 3
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 42,
+    "fields": {
+      "form_state": 1,
+      "name": "baugesuch-reklamegesuch-v6",
+      "description": "Baugesuch",
+      "family": 1
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 43,
+    "fields": {
+      "form_state": 1,
+      "name": "baumeldung-fur-geringfugiges-vorhaben-v5",
+      "description": "Baumeldung für geringfügiges Vorhaben",
+      "family": 5
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 44,
+    "fields": {
+      "form_state": 1,
+      "name": "technische-bewilligung-v3",
+      "description": "Gesuch um technische Bewilligung",
+      "family": 6
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 45,
+    "fields": {
+      "form_state": 1,
+      "name": "projektgenehmigungsgesuch-gemass-ss15-strag-v4",
+      "description": "Projektgenehmigungsgesuch gemäss § 15 StraG",
+      "family": 9
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 46,
+    "fields": {
+      "form_state": 1,
+      "name": "vorabklarung-v5",
+      "description": "Vorabklärung",
+      "family": 4
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 47,
+    "fields": {
+      "form_state": 1,
+      "name": "projektanderung-v7",
+      "description": "Projektänderung zu bewilligtem Baugesuch",
+      "family": 2
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 48,
+    "fields": {
+      "form_state": 1,
+      "name": "konzession-fur-wasserentnahme-v4",
+      "description": "Konzession für Wasserentnahme",
+      "family": 7
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 49,
+    "fields": {
+      "form_state": 1,
+      "name": "anlassbewilligungen-verkehrsbewilligungen-v4",
+      "description": "Anlassbewilligungen / Verkehrsbewilligungen",
+      "family": 10
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 50,
+    "fields": {
+      "form_state": 1,
+      "name": "plangenehmigungsgesuch-v4",
+      "description": "Plangenehmigungsgesuch",
+      "family": 8
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 51,
+    "fields": {
+      "form_state": 1,
+      "name": "projektanderung-v8",
+      "description": "Projektänderung zu bewilligtem Baugesuch",
+      "family": 2
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 52,
+    "fields": {
+      "form_state": 1,
+      "name": "vorentscheid-gemass-ss84-pbg-v7",
+      "description": "Vorentscheid gemäss § 84 PBG",
+      "family": 3
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 53,
+    "fields": {
+      "form_state": 1,
+      "name": "baugesuch-reklamegesuch-v7",
+      "description": "Baugesuch",
+      "family": 1
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 54,
+    "fields": {
+      "form_state": 1,
+      "name": "plangenehmigungsgesuch-v5",
+      "description": "Plangenehmigungsgesuch",
+      "family": 8
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 55,
+    "fields": {
+      "form_state": 1,
+      "name": "baugesuch-reklamegesuch-v8",
+      "description": "Baugesuch",
+      "family": 1
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 56,
+    "fields": {
+      "form_state": 1,
+      "name": "projektanderung-v9",
+      "description": "Projektänderung zu bewilligtem Baugesuch",
+      "family": 2
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 57,
+    "fields": {
+      "form_state": 1,
+      "name": "vorentscheid-gemass-ss84-pbg-v8",
+      "description": "Vorentscheid gemäss § 84 PBG",
+      "family": 3
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 58,
+    "fields": {
+      "form_state": 1,
+      "name": "vorentscheid-gemass-ss84-pbg-v9",
+      "description": "Vorentscheid gemäss § 84 PBG",
+      "family": 3
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 59,
+    "fields": {
+      "form_state": 1,
+      "name": "baugesuch-reklamegesuch-v9",
+      "description": "Baugesuch",
+      "family": 1
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 60,
+    "fields": {
+      "form_state": 1,
+      "name": "projektanderung-v10",
+      "description": "Projektänderung zu bewilligtem Baugesuch",
+      "family": 2
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 61,
+    "fields": {
+      "form_state": 1,
+      "name": "technische-bewilligung-v4",
+      "description": "Gesuch um technische Bewilligung",
+      "family": 6
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 62,
+    "fields": {
+      "form_state": 1,
+      "name": "baumeldung-fur-geringfugiges-vorhaben-v6",
+      "description": "Baumeldung für geringfügiges Vorhaben",
+      "family": 5
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 63,
+    "fields": {
+      "form_state": 1,
+      "name": "projektgenehmigungsgesuch-gemass-ss15-strag-v5",
+      "description": "Projektgenehmigungsgesuch gemäss § 16 StraG",
+      "family": 9
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 64,
+    "fields": {
+      "form_state": 1,
+      "name": "konzession-fur-wasserentnahme-v5",
+      "description": "Gesuch für Wasserentnahme",
+      "family": 7
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 66,
+    "fields": {
+      "form_state": 1,
+      "name": "baugesuch-reklamegesuch-v10",
+      "description": "Baugesuch",
+      "family": 1
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 68,
+    "fields": {
+      "form_state": 1,
+      "name": "technische-bewilligung-v5",
+      "description": "Gesuch um technische Bewilligung",
+      "family": 6
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 69,
+    "fields": {
+      "form_state": 1,
+      "name": "projektgenehmigungsgesuch-gemass-ss15-strag-v6",
+      "description": "Projektgenehmigungsgesuch gemäss § 16 StraG",
+      "family": 9
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 70,
+    "fields": {
+      "form_state": 1,
+      "name": "vorentscheid-gemass-ss84-pbg-v10",
+      "description": "Vorentscheid gemäss § 84 PBG",
+      "family": 3
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 71,
+    "fields": {
+      "form_state": 1,
+      "name": "projektanderung-v11",
+      "description": "Projektänderung zu bewilligtem Baugesuch",
+      "family": 2
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 72,
+    "fields": {
+      "form_state": 1,
+      "name": "baugesuch-reklamegesuch-v11",
+      "description": "Baugesuch",
+      "family": 1
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 73,
+    "fields": {
+      "form_state": 1,
+      "name": "vorentscheid-gemass-ss84-pbg-v11",
+      "description": "Vorentscheid gemäss § 84 PBG",
+      "family": 3
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 74,
+    "fields": {
+      "form_state": 1,
+      "name": "projektanderung-v12",
+      "description": "Projektänderung zu bewilligtem Baugesuch",
+      "family": 2
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 75,
+    "fields": {
+      "form_state": 1,
+      "name": "baugesuch-reklamegesuch-v12",
+      "description": "Baugesuch",
+      "family": 1
+    }
+  },
+  {
+    "model": "instance.formstate",
+    "pk": 1,
+    "fields": {
+      "name": "Published"
+    }
+  },
+  {
+    "model": "instance.formstate",
+    "pk": 2,
+    "fields": {
+      "name": "Internal"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 1,
+    "fields": {
+      "name": "new",
+      "sort": 0,
+      "description": "Neu"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 2,
+    "fields": {
+      "name": "subm",
+      "sort": 2,
+      "description": "Eingereicht"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 3,
+    "fields": {
+      "name": "comm",
+      "sort": 3,
+      "description": "Von Leitbehörde angenommen"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 4,
+    "fields": {
+      "name": "ext",
+      "sort": 4,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 5,
+    "fields": {
+      "name": "circ",
+      "sort": 5,
+      "description": "In Zirkulation"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 6,
+    "fields": {
+      "name": "redac",
+      "sort": 6,
+      "description": "Bauentscheid ausstehend"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 7,
+    "fields": {
+      "name": "nfd",
+      "sort": 7,
+      "description": "Nachforderung"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 8,
+    "fields": {
+      "name": "done",
+      "sort": 9,
+      "description": "Entschieden"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 9,
+    "fields": {
+      "name": "denied",
+      "sort": 10,
+      "description": "Abgelehnt"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 10,
+    "fields": {
+      "name": "arch",
+      "sort": 11,
+      "description": "Archiviert"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 11,
+    "fields": {
+      "name": "del",
+      "sort": 12,
+      "description": "Gelöscht"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 12,
+    "fields": {
+      "name": "rejected",
+      "sort": 1,
+      "description": "Zurückgewiesen"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 13,
+    "fields": {
+      "name": "stopped",
+      "sort": 8,
+      "description": "Abgeschrieben"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 16,
+    "fields": {
+      "name": "internal",
+      "sort": 13,
+      "description": "Internes Dossier"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 17,
+    "fields": {
+      "name": "construction-monitoring",
+      "sort": 14,
+      "description": "Im Baubegleitungsprozess"
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 18,
+    "fields": {
+      "name": "instance-completed",
+      "sort": 15,
+      "description": "Verfahren abgeschlossen"
+    }
+  }
+]

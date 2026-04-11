@@ -3,7 +3,8 @@ defmodule Ebau.Legacy.ConfigLoader do
   Loads selected legacy JSON fixture files into current database.
 
   This module is explicit fixture-loading layer for Elixir tests and setup tasks.
-  It reads JSON files from `../django/<application>/config` and `../django/<application>/data`,
+  It reads JSON files from configured legacy fixture root, defaulting to
+  `../django/<application>/config` and `../django/<application>/data`,
   filters down to supported Django models, then bulk-inserts those rows into legacy and Caluma
   tables owned by Elixir app.
 
@@ -187,6 +188,12 @@ defmodule Ebau.Legacy.ConfigLoader do
   end
 
   defp django_root do
+    System.get_env("LEGACY_FIXTURE_ROOT") ||
+      Application.get_env(:ebau, :legacy_fixture_root) ||
+      default_django_root()
+  end
+
+  defp default_django_root do
     Mix.Project.project_file()
     |> Path.dirname()
     |> Path.join("../django")

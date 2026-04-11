@@ -1,0 +1,46 @@
+[
+  {
+    "model": "core.instanceservice",
+    "pk": 2000000,
+    "fields": {
+      "instance": 5,
+      "service": 18,
+      "active": 1,
+      "activation_date": null
+    }
+  },
+  {
+    "model": "core.instanceservice",
+    "pk": 2000001,
+    "fields": {
+      "instance": 7,
+      "service": 18,
+      "active": 1,
+      "activation_date": null
+    }
+  },
+  {
+    "model": "core.staticcontent",
+    "pk": "faq",
+    "fields": {
+      "disable_xss_protection": false,
+      "content": "{\"de\": \"#FAQ\", \"fr\": \"\", \"it\": \"\"}"
+    }
+  },
+  {
+    "model": "core.staticcontent",
+    "pk": "help",
+    "fields": {
+      "disable_xss_protection": false,
+      "content": "{\"de\": \"#Hilfe\", \"fr\": \"\", \"it\": \"\"}"
+    }
+  },
+  {
+    "model": "core.staticcontent",
+    "pk": "news",
+    "fields": {
+      "disable_xss_protection": false,
+      "content": "{\"de\": \"#News\", \"fr\": \"\", \"it\": \"\"}"
+    }
+  }
+]

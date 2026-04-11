@@ -1,0 +1,96 @@
+mutation DemandTask {
+  saveSimpleTask(
+    input: {
+      slug: "addtional-demand"
+      name: "Nachforderung"
+      isMultipleInstance: true
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation InitDemandTask {
+  saveSimpleTask(
+    input: {
+      slug: "init-additional-demand"
+      name: "Neue Nachforderung"
+      meta: "{\"directLink\":{\"route\":\"cases.detail.additional-demand\",\"models\":[\"INSTANCE_ID\"]}}"
+      isMultipleInstance: true
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation SendDemandTask {
+  saveSimpleTask(
+    input: { slug: "send-additional-demand", name: "Nachforderung senden" }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation ReplyDemandTask {
+  saveSimpleTask(input: { slug: "fill-additional-demand", name: "" }) {
+    clientMutationId
+  }
+}
+
+mutation CheckDemandTask {
+  saveSimpleTask(
+    input: { slug: "Check-additional-demand", name: "Nachforderung prüfen" }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation additionalDemandWorkflow {
+  saveWorkflow(
+    input: {
+      slug: "additional-demand"
+      name: "Nachforderung"
+      startTasks: ["init-addtional-demand"]
+      allowForms: ["additional-demand"]
+      isPublished: true
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation sendDemandFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "additional-demand"
+      tasks: ["send-additional-demand"]
+      next: "['fill-additional-demand']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation replyDemandFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "additional-demand"
+      tasks: ["fill-additional-demand"]
+      next: "['check-additional-demand']|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation checkDemandFlow {
+  addWorkflowFlow(
+    input: {
+      workflow: "additional-demand"
+      tasks: ["check-additional-demand"]
+      next: "[]|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}

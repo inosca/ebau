@@ -1,0 +1,93 @@
+[
+  {
+    "model": "instance.form",
+    "pk": 1,
+    "fields": {
+      "form_state": 1,
+      "name": null,
+      "description": null,
+      "family": null
+    }
+  },
+  {
+    "model": "instance.formstate",
+    "pk": 1,
+    "fields": {
+      "name": "Published"
+    }
+  },
+  {
+    "model": "instance.formstate",
+    "pk": 2,
+    "fields": {
+      "name": "Not published"
+    }
+  },
+  {
+    "model": "instance.formt",
+    "pk": 1,
+    "fields": {
+      "form": 1,
+      "language": "de",
+      "name": "Baugesuch",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 1,
+    "fields": {
+      "name": "new",
+      "sort": 0,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 2,
+    "fields": {
+      "name": "subm",
+      "sort": 1,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 3,
+    "fields": {
+      "name": "rejected",
+      "sort": 2,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 1,
+    "fields": {
+      "instance_state": 1,
+      "language": "de",
+      "name": "Neu",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 2,
+    "fields": {
+      "instance_state": 2,
+      "language": "de",
+      "name": "Eingereicht",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 3,
+    "fields": {
+      "instance_state": 3,
+      "language": "de",
+      "name": "Zurückgewiesen",
+      "description": null
+    }
+  }
+]

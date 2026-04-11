@@ -1,0 +1,106 @@
+[
+  {
+    "model": "applicants.applicant",
+    "pk": 5,
+    "fields": {
+      "instance": 5,
+      "user": 1,
+      "invitee": 1,
+      "created": "2023-10-27T08:54:10.511Z",
+      "email": "admin@example.com",
+      "username": "",
+      "role": "ADMIN"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 8,
+    "fields": {
+      "instance": 5,
+      "user": 1,
+      "invitee": 2,
+      "created": "2024-08-16T08:42:29.419Z",
+      "email": "editor@example.com",
+      "username": "",
+      "role": "EDITOR"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 9,
+    "fields": {
+      "instance": 5,
+      "user": 1,
+      "invitee": 3,
+      "created": "2024-08-16T08:42:44.830Z",
+      "email": "readonly@example.com",
+      "username": "",
+      "role": "READ_ONLY"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 11,
+    "fields": {
+      "instance": 7,
+      "user": 1,
+      "invitee": 1,
+      "created": "2026-02-25T13:13:57.101Z",
+      "email": "admin@example.com",
+      "username": "",
+      "role": "ADMIN"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 12,
+    "fields": {
+      "instance": 8,
+      "user": 1,
+      "invitee": 1,
+      "created": "2026-02-25T13:34:04.287Z",
+      "email": "admin@example.com",
+      "username": "",
+      "role": "ADMIN"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 13,
+    "fields": {
+      "instance": 9,
+      "user": 1,
+      "invitee": 1,
+      "created": "2026-02-25T13:46:22.784Z",
+      "email": "admin@example.com",
+      "username": "",
+      "role": "ADMIN"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 14,
+    "fields": {
+      "instance": 10,
+      "user": 1,
+      "invitee": 1,
+      "created": "2026-02-25T13:57:40.182Z",
+      "email": "admin@example.com",
+      "username": "",
+      "role": "ADMIN"
+    }
+  },
+  {
+    "model": "applicants.applicant",
+    "pk": 15,
+    "fields": {
+      "instance": 11,
+      "user": 1,
+      "invitee": 1,
+      "created": "2026-02-25T14:04:45.896Z",
+      "email": "admin@example.com",
+      "username": "",
+      "role": "ADMIN"
+    }
+  }
+]
