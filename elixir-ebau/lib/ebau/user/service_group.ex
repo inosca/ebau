@@ -23,5 +23,13 @@ defmodule Ebau.User.ServiceGroup do
     end
 
     attribute :sort, :integer, allow_nil?: true
+
+    attribute :slug, :string do
+      public? true
+    end
+  end
+
+  identities do
+    identity :unique_slug, [:slug]
   end
 end

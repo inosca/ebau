@@ -55,6 +55,7 @@ defmodule Ebau.User.Service do
     attribute :service_group_id, :integer do
       allow_nil? false
       source :SERVICE_GROUP_ID
+      public? true
     end
   end
 
