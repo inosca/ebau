@@ -114,9 +114,11 @@ In test environment, fixture loading uses vendored files under:
 priv/test_fixtures/
 ```
 
-Vendored fixtures mirror all canton directories matching `kt_*`.
+The vendored fixture set is intentionally minimal. Right now it only contains the
+small SO subset required by the current Elixir test suite.
 
-This avoids making CI depend on a full `../django` checkout just to run Elixir tests.
+This avoids making CI depend on a full `../django` checkout just to run Elixir
+tests without pulling a large fixture dump into this app.
 
 Refresh vendored fixtures with:
 
@@ -141,8 +143,7 @@ For smaller and faster setup, load only selected files:
 setup do
   Ebau.Test.CantonFixtures.load_canton_files!(:so, [
     "user.json",
-    "caluma_workflow.json",
-    "caluma_form.json"
+    "caluma_workflow.json"
   ])
 
   :ok
