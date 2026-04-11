@@ -1,4 +1,13 @@
 defmodule Ebau.Instances.GisLink do
+  @moduledoc """
+  Configurable GIS link templates scoped to a service.
+
+  A GIS link stores a human-readable name and a placeholder URL template such as
+  `https://example.com?x={x}&y={y}`. For a concrete instance, the
+  `gis_link_for_instance` calculation replaces `{x}` and `{y}` with the first
+  available plot coordinates from the instance's Caluma data.
+  """
+
   use Ash.Resource,
     otp_app: :ebau,
     domain: Ebau.Instances,
@@ -46,22 +55,46 @@ defmodule Ebau.Instances.GisLink do
     defaults [:read]
 
     read :read_gis_links do
+      description "Lists GIS link templates visible to the actor's service."
       pagination offset?: true, countable: true, required?: true
     end
 
     read :list_gis_links_for_instance do
-      argument :instance_id, :integer, allow_nil?: false
+      description """
+      Lists GIS link templates and preloads the resolved link for a specific instance.
+
+      The returned records include the `gis_link_for_instance` calculation, which
+      replaces `{x}` and `{y}` in the placeholder URL with the first available
+      plot coordinates of the instance.
+      """
+
+      argument :instance_id, :integer do
+        description "The instance whose plot coordinates should be injected into each GIS link."
+        allow_nil? false
+      end
+
       prepare build(load: [gis_link_for_instance: %{instance_id: arg(:instance_id)}])
     end
 
     create :create_gis_link do
-      # Needed since ember always passes relationship
-      argument :service, :map
+      description """
+      Creates a new GIS link template for the actor's service.
+
+      The frontend still sends a `service` relationship payload, but the action
+      ignores that input and always relates the created record to the actor's service.
+      """
+
+      argument :service, :map do
+        description "Ignored frontend relationship payload; the actor's service is used instead."
+      end
+
       accept [:name, :placeholder]
       change relate_actor(:service, field: :service)
     end
 
-    destroy :destroy_gis_link
+    destroy :destroy_gis_link do
+      description "Deletes a GIS link template."
+    end
   end
 
   postgres do
@@ -71,7 +104,9 @@ defmodule Ebau.Instances.GisLink do
 
   calculations do
     calculate :gis_link_for_instance, :string, Ebau.Instances.Calculations.GisLinkForInstance do
-      argument :instance_id, :integer, allow_nil?: false
+      argument :instance_id, :integer do
+        allow_nil? false
+      end
     end
   end
 

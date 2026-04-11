@@ -1,4 +1,12 @@
 defmodule Ebau.Instances.Calculations.GisLinkForInstance do
+  @moduledoc """
+  Renders a GIS link placeholder for a concrete instance.
+
+  The calculation loads the instance's plot data and substitutes `{x}` with the
+  east coordinate and `{y}` with the north coordinate of the first available plot.
+  If no plot data exists, both placeholders are replaced with empty strings.
+  """
+
   use Ash.Resource.Calculation
 
   @impl true
