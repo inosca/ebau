@@ -19,11 +19,35 @@ defmodule Ebau.Test.CantonFixturesTest do
     assert question_type("is-paper") == "choice"
   end
 
+  test "loads selected kt_so config files into the test database" do
+    assert :ok =
+             CantonFixtures.load_canton_files!(:so, [
+               "user.json",
+               "caluma_workflow.json",
+               "caluma_form.json"
+             ])
+
+    assert role_exists?("municipality-admin")
+    assert exists?("caluma_workflow_workflow", "building-permit")
+    assert exists?("caluma_form_form", "baugesuch")
+  end
+
   defp exists?(table, slug) do
     %{rows: [[count]]} =
       Ecto.Adapters.SQL.query!(
         Repo,
         "select count(*) from #{table} where slug = $1",
+        [slug]
+      )
+
+    count == 1
+  end
+
+  defp role_exists?(slug) do
+    %{rows: [[count]]} =
+      Ecto.Adapters.SQL.query!(
+        Repo,
+        ~S|select count(*) from "ROLE" where "SLUG" = $1|,
         [slug]
       )
 

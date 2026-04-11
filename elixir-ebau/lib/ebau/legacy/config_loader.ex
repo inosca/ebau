@@ -1,7 +1,49 @@
 defmodule Ebau.Legacy.ConfigLoader do
-  @moduledoc false
+  @moduledoc """
+  Loads selected legacy JSON fixture files into current database.
+
+  This module is explicit fixture-loading layer for Elixir tests and setup tasks.
+  It reads JSON files from `../django/<application>/config` and `../django/<application>/data`,
+  filters down to supported Django models, then bulk-inserts those rows into legacy and Caluma
+  tables owned by Elixir app.
+
+  Main use cases:
+
+  - bootstrap selected canton/application config in tests
+  - load real production-like Caluma forms and workflows for integration tests
+  - support explicit `mix ebau.load_config` task
+
+  This loader does **not** aim to be full replacement for Django `loaddata` or
+  `camac_load.py`. It currently supports only subset of models needed by Elixir app.
+
+  Typical usage:
+
+      Ebau.Legacy.ConfigLoader.load_application_config!("kt_so")
+
+      Ebau.Legacy.ConfigLoader.load_application_config!("kt_so", scope: :all)
+
+      Ebau.Legacy.ConfigLoader.load_files!([
+        "/abs/path/to/django/kt_so/config/user.json",
+        "/abs/path/to/django/kt_so/config/caluma_workflow.json",
+        "/abs/path/to/django/kt_so/config/caluma_form.json"
+      ])
+
+  Import order matters. Rows are inserted in dependency-safe order:
+
+  1. `user.role`
+  2. `user.servicegroup`
+  3. `caluma_form.form`
+  4. `caluma_form.question`
+  5. `caluma_workflow.workflow`
+  6. `caluma_form.formquestion`
+  """
 
   alias Ebau.Repo
+
+  @type application :: String.t()
+  @type scope :: :config | :all
+  @type fixture_path :: String.t()
+  @type model :: String.t()
 
   @supported_models [
     "caluma_form.form",
@@ -12,6 +54,21 @@ defmodule Ebau.Legacy.ConfigLoader do
     "user.servicegroup"
   ]
 
+  @doc """
+  Loads fixture files for given Django application into current database.
+
+  By default this loads `config/*.json`. Pass `scope: :all` to include
+  `data/*.json`, and `include_init?: true` to append `init.json` when present.
+
+  ## Examples
+
+      iex> Ebau.Legacy.ConfigLoader.load_application_config!("kt_so")
+      :ok
+
+      iex> Ebau.Legacy.ConfigLoader.load_application_config!("kt_so", scope: :all)
+      :ok
+  """
+  @spec load_application_config!(application(), keyword()) :: :ok
   def load_application_config!(application, opts \\ []) do
     scope = Keyword.get(opts, :scope, :config)
     include_init? = Keyword.get(opts, :include_init?, false)
@@ -21,6 +78,13 @@ defmodule Ebau.Legacy.ConfigLoader do
     |> load_files!()
   end
 
+  @doc """
+  Returns fixture files for given Django application.
+
+  `scope` controls whether only `config/*.json` or both `config/*.json` and
+  `data/*.json` are returned. `include_init?` appends `init.json` when present.
+  """
+  @spec application_files!(application(), scope(), boolean()) :: [fixture_path()]
   def application_files!(application, scope \\ :config, include_init? \\ false) do
     application_dir = Path.join(django_root(), application)
 
@@ -60,8 +124,26 @@ defmodule Ebau.Legacy.ConfigLoader do
     files
   end
 
+  @doc """
+  Returns currently supported Django fixture model names.
+  """
+  @spec supported_models() :: [model()]
   def supported_models, do: @supported_models
 
+  @doc """
+  Loads explicit list of JSON fixture files.
+
+  Files are decoded, filtered to supported models, then inserted into current database.
+
+  ## Examples
+
+      iex> Ebau.Legacy.ConfigLoader.load_files!([
+      ...>   "/abs/path/to/django/kt_so/config/user.json",
+      ...>   "/abs/path/to/django/kt_so/config/caluma_workflow.json"
+      ...> ])
+      :ok
+  """
+  @spec load_files!([fixture_path()]) :: :ok
   def load_files!(paths) do
     entries =
       paths
