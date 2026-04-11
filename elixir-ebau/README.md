@@ -75,6 +75,35 @@ Process.exit(pid, :kill)
 The `mix.exs` file is the `package.json` or `pyproject.toml` equivalent of an Elixir project. The `aliases` function defines a bunch of aliases that you can use
 to make your life slightly easier. One that you might find particularly useful is `mix precommit`.
 
+## Docs
+
+Generate project docs with:
+
+```bash
+mix docs
+```
+
+This writes the generated site to:
+
+```text
+doc/index.html
+```
+
+The docs include:
+
+- module docs from `@moduledoc`
+- action and argument docs from Ash descriptions
+- this `README.md` as the main entry page
+
+On the default branch, GitLab CI publishes the generated docs via GitLab Pages
+under the `elixir-ebau/` subpath so they can coexist with other generated docs in
+the monorepo.
+
+For merge request pipelines, GitLab CI also publishes a preview deployment under a
+merge-request specific path prefix when the GitLab instance supports parallel Pages
+deployments. The Elixir docs still live under the `elixir-ebau/` subpath inside
+that preview.
+
 ## Test fixtures
 
 Some Elixir tests load legacy JSON fixture data that originates from Django canton config.

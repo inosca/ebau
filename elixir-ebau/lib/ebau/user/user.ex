@@ -1,5 +1,7 @@
 defmodule Ebau.User.User do
-  @moduledoc false
+  @moduledoc """
+  User resource.
+  """
   use Ash.Resource,
     otp_app: :ebau,
     domain: Ebau.User,
