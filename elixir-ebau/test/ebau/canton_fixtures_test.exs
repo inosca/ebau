@@ -6,30 +6,26 @@ defmodule Ebau.Test.CantonFixturesTest do
   test "finds canton config json files" do
     files = CantonFixtures.canton_files!(:so)
 
-    assert Enum.any?(files, &String.ends_with?(&1, "/kt_so/config/caluma_form.json"))
+    assert Enum.any?(files, &String.ends_with?(&1, "/kt_so/config/user.json"))
     assert Enum.any?(files, &String.ends_with?(&1, "/kt_so/config/caluma_workflow.json"))
   end
 
   test "loads supported kt_so config fixtures into the test database" do
     assert :ok = CantonFixtures.load_canton_config!(:so)
 
-    assert exists?("caluma_form_form", "allgemeine-informationen")
-    assert exists?("caluma_form_question", "is-paper")
+    assert role_exists?("municipality-admin")
     assert exists?("caluma_workflow_workflow", "building-permit")
-    assert question_type("is-paper") == "choice"
   end
 
   test "loads selected kt_so config files into the test database" do
     assert :ok =
              CantonFixtures.load_canton_files!(:so, [
                "user.json",
-               "caluma_workflow.json",
-               "caluma_form.json"
+               "caluma_workflow.json"
              ])
 
     assert role_exists?("municipality-admin")
     assert exists?("caluma_workflow_workflow", "building-permit")
-    assert exists?("caluma_form_form", "baugesuch")
   end
 
   defp exists?(table, slug) do
@@ -52,16 +48,5 @@ defmodule Ebau.Test.CantonFixturesTest do
       )
 
     count == 1
-  end
-
-  defp question_type(slug) do
-    %{rows: [[type]]} =
-      Ecto.Adapters.SQL.query!(
-        Repo,
-        "select type from caluma_form_question where slug = $1",
-        [slug]
-      )
-
-    type
   end
 end

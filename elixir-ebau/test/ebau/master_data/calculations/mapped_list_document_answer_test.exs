@@ -4,20 +4,10 @@ defmodule Ebau.MasterData.Calculations.MappedListDocumentAnswerTest do
   require Ash.Expr
   require Ash.Query
 
-  alias Ebau.Test.CantonFixtures
-
-  defmodule TestDomain do
-    use Ash.Domain, validate_config_inclusion?: false
-
-    resources do
-      resource Ebau.MasterData.Calculations.MappedListDocumentAnswerTest.TestInstance
-    end
-  end
-
   defmodule TestInstance do
     use Ash.Resource,
       otp_app: :ebau,
-      domain: TestDomain,
+      domain: Ebau.MasterData.Calculations.MappedListDocumentAnswerTest.TestDomain,
       data_layer: AshPostgres.DataLayer,
       extensions: [Ebau.MasterData.Extensions.MasterData]
 
@@ -53,8 +43,35 @@ defmodule Ebau.MasterData.Calculations.MappedListDocumentAnswerTest do
     end
   end
 
+  defmodule TestDomain do
+    use Ash.Domain, validate_config_inclusion?: false
+
+    resources do
+      resource Ebau.MasterData.Calculations.MappedListDocumentAnswerTest.TestInstance do
+        define :get_instance, action: :read, get_by: [:id]
+        define :read_instances, action: :read
+      end
+    end
+  end
+
   setup do
-    CantonFixtures.load_canton_config!(:so)
+    Caluma.Workflow.create_workflow!(%{
+      slug: "building-permit",
+      name: %{"de" => "Building permit"}
+    })
+
+    Caluma.Form.create_form_tree!(
+      %{
+        slug: "baugesuch",
+        name: "Baugesuch",
+        questions: [
+          %{slug: "category", label: "Category", type: :choice},
+          %{slug: "is-paper", label: "Is paper", type: :multiple_choice},
+          %{slug: "ist-papier", label: "Ist Papier", type: :multiple_choice}
+        ]
+      },
+      authorize?: false
+    )
 
     %{instance: matching} =
       create_instance_with_answers(%{
@@ -80,7 +97,7 @@ defmodule Ebau.MasterData.Calculations.MappedListDocumentAnswerTest do
   end
 
   test "loads mapped list answers without loading relationship data", %{matching: matching} do
-    instance = Ash.get!(TestInstance, matching.id)
+    instance = TestDomain.get_instance!(matching.id)
     assert %Ash.NotLoaded{} = instance.case
 
     loaded = Ash.load!(instance, [:category_code, :is_paper?])
@@ -96,9 +113,11 @@ defmodule Ebau.MasterData.Calculations.MappedListDocumentAnswerTest do
     without_answer: without_answer
   } do
     matching_ids =
-      TestInstance
-      |> Ash.Query.filter(Ash.Expr.expr(category_code == 10))
-      |> Ash.read!()
+      TestDomain.read_instances!(
+        query:
+          TestInstance
+          |> Ash.Query.filter(Ash.Expr.expr(category_code == 10))
+      )
       |> Enum.map(& &1.id)
 
     assert matching.id in matching_ids
@@ -112,9 +131,11 @@ defmodule Ebau.MasterData.Calculations.MappedListDocumentAnswerTest do
     without_answer: without_answer
   } do
     matching_ids =
-      TestInstance
-      |> Ash.Query.filter(Ash.Expr.expr(is_paper? == ^[true, false]))
-      |> Ash.read!()
+      TestDomain.read_instances!(
+        query:
+          TestInstance
+          |> Ash.Query.filter(Ash.Expr.expr(is_paper? == ^[true, false]))
+      )
       |> Enum.map(& &1.id)
 
     assert matching.id in matching_ids
@@ -123,20 +144,24 @@ defmodule Ebau.MasterData.Calculations.MappedListDocumentAnswerTest do
   end
 
   test "uses canton-specific question_ids and answer mappings in SQL", %{so_matching: so_matching} do
-    loaded =
-      TestInstance
-      |> Ash.Query.set_context(%{canton: :so})
-      |> Ash.Query.filter(Ash.Expr.expr(id == ^so_matching.id))
-      |> Ash.Query.load([:is_paper?])
-      |> Ash.read_one!()
+    [loaded] =
+      TestDomain.read_instances!(
+        query:
+          TestInstance
+          |> Ash.Query.set_context(%{canton: :so})
+          |> Ash.Query.filter(Ash.Expr.expr(id == ^so_matching.id))
+          |> Ash.Query.load([:is_paper?])
+      )
 
     assert loaded.is_paper? == [true, false]
 
     matching_ids =
-      TestInstance
-      |> Ash.Query.set_context(%{canton: :so})
-      |> Ash.Query.filter(Ash.Expr.expr(is_paper? == ^[true, false]))
-      |> Ash.read!()
+      TestDomain.read_instances!(
+        query:
+          TestInstance
+          |> Ash.Query.set_context(%{canton: :so})
+          |> Ash.Query.filter(Ash.Expr.expr(is_paper? == ^[true, false]))
+      )
       |> Enum.map(& &1.id)
 
     assert so_matching.id in matching_ids
@@ -150,7 +175,7 @@ defmodule Ebau.MasterData.Calculations.MappedListDocumentAnswerTest do
       Caluma.Form.create_document!(%{form: %{slug: "baugesuch"}, case: %{id: case_record.id}})
 
     Enum.each(answers, fn {question_id, value} ->
-      Ash.create!(Caluma.Form.Answer, %{
+      Caluma.Form.create_answer!(%{
         document_id: document.id,
         question_id: question_id,
         value: value

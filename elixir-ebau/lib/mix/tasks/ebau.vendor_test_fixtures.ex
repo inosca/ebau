@@ -1,8 +1,9 @@
 defmodule Mix.Tasks.Ebau.VendorTestFixtures do
-  @shortdoc "Vendors all canton fixture directories into priv/test_fixtures"
+  @shortdoc "Vendors the minimal fixture subset needed by Elixir tests"
 
   @moduledoc """
-  Copies all Django canton fixture directories (`kt_*`) into `priv/test_fixtures`.
+  Copies the minimal Django fixture subset needed by Elixir tests into
+  `priv/test_fixtures`.
 
   This task vendors fixture files needed by Elixir tests so CI does not depend on
   a full `../django` checkout at test runtime.
@@ -12,12 +13,14 @@ defmodule Mix.Tasks.Ebau.VendorTestFixtures do
   1. `LEGACY_FIXTURE_ROOT`
   2. fallback `../django`
 
+  Currently vendored:
+
+  - `kt_so/config/user.json`
+  - `kt_so/config/caluma_workflow.json`
+
   Destination root:
 
       priv/test_fixtures
-
-  All directories matching `kt_*` under source root are copied recursively.
-  Existing vendored canton directories are replaced.
 
   ## Examples
 
@@ -35,27 +38,28 @@ defmodule Mix.Tasks.Ebau.VendorTestFixtures do
     source_root = source_root()
     destination_root = destination_root()
 
-    applications =
-      source_root
-      |> Path.join("kt_*")
-      |> Path.wildcard()
-      |> Enum.filter(&File.dir?/1)
-      |> Enum.sort()
+    File.rm_rf!(destination_root)
 
-    if applications == [] do
-      Mix.raise("no canton fixture directories found under #{source_root}")
-    end
+    Enum.each(vendored_files(), fn relative_path ->
+      source_path = Path.join(source_root, relative_path)
+      destination_path = Path.join(destination_root, relative_path)
 
-    Enum.each(applications, fn application_path ->
-      application = Path.basename(application_path)
-      destination_path = Path.join(destination_root, application)
+      if !File.exists?(source_path) do
+        Mix.raise("fixture file #{source_path} does not exist")
+      end
 
-      File.rm_rf!(destination_path)
-      File.mkdir_p!(destination_root)
-      File.cp_r!(application_path, destination_path)
+      File.mkdir_p!(Path.dirname(destination_path))
+      File.cp!(source_path, destination_path)
 
-      Mix.shell().info("Vendored #{application}")
+      Mix.shell().info("Vendored #{relative_path}")
     end)
+  end
+
+  defp vendored_files do
+    [
+      "kt_so/config/user.json",
+      "kt_so/config/caluma_workflow.json"
+    ]
   end
 
   defp source_root do
