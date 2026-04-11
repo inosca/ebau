@@ -4,6 +4,8 @@ defmodule Ebau.MasterData.Calculations.MappedListDocumentAnswerTest do
   require Ash.Expr
   require Ash.Query
 
+  alias Ebau.Test.CantonFixtures
+
   defmodule TestDomain do
     use Ash.Domain, validate_config_inclusion?: false
 
@@ -52,6 +54,8 @@ defmodule Ebau.MasterData.Calculations.MappedListDocumentAnswerTest do
   end
 
   setup do
+    CantonFixtures.load_canton_config!(:so)
+
     %{instance: matching} =
       create_instance_with_answers(%{
         "category" => "choice-a",

@@ -22,17 +22,29 @@ defmodule Ebau.Test.UserHelper do
         authorize?: false
       )
 
-    service =
-      Ebau.User.create_service!(
-        %{
-          name: "default-service",
-          service_group: %{
-            name: "default-service-group"
-          },
-          groups: [group]
-        },
-        authorize?: false
-      )
+    service_group_slug = get_in(args, [:service_group, :slug]) || "municipality"
+
+    service_attrs =
+      case Ebau.User.get_service_group_by_slug(service_group_slug, authorize?: false) do
+        {:error, _error} ->
+          %{
+            name: "default-service",
+            service_group: %{
+              name: service_group_slug,
+              slug: service_group_slug
+            },
+            groups: [group]
+          }
+
+        {:ok, service_group} ->
+          %{
+            name: "default-service",
+            service_group_id: service_group.id,
+            groups: [group]
+          }
+      end
+
+    service = Ebau.User.create_service!(service_attrs, authorize?: false)
 
     %{
       user: user,

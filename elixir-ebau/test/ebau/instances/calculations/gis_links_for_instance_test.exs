@@ -1,7 +1,11 @@
 defmodule Ebau.Instances.Calculations.GisLinksForInstanceTest do
   use Ebau.DataCase, async: true
 
+  alias Ebau.Test.CantonFixtures
+
   setup do
+    CantonFixtures.load_canton_config!(:so)
+
     actor = Ebau.Test.UserHelper.create_actor!(%{role: %{slug: "municipality-admin"}})
     case_record = Caluma.Workflow.create_case!(%{workflow: %{slug: "building-permit"}})
     instance = Ebau.Instances.create_instance!(%{case: %{id: case_record.id}}, authorize?: false)
