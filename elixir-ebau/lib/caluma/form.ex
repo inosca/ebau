@@ -4,6 +4,7 @@ defmodule Caluma.Form do
 
   resources do
     resource Caluma.Form.Answer do
+      define :create_answer, action: :create
       define :get_answer_by_document_and_question, action: :read, get_by: [:document, :question]
     end
 
