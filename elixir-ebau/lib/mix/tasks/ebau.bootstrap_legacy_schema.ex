@@ -23,10 +23,6 @@ defmodule Mix.Tasks.Ebau.BootstrapLegacySchema do
       |> Path.dirname()
       |> Path.join("priv/repo/legacy_structure.sql")
 
-    if !File.exists?(sql_path) do
-      Mix.raise("legacy schema file not found: #{sql_path}")
-    end
-
     ensure_case_insensitive_collation!()
 
     if legacy_schema_present?() do
@@ -36,36 +32,22 @@ defmodule Mix.Tasks.Ebau.BootstrapLegacySchema do
       filtered_path = filter_psql_meta_commands!(sql_path)
 
       try do
-        args =
-          [
-            "-v",
-            "ON_ERROR_STOP=1"
-          ] ++
-            host_args(repo_config) ++
-            port_args(repo_config) ++
-            user_args(repo_config) ++
-            database_args(repo_config) ++ ["-f", filtered_path]
-
-        env =
-          if password = repo_config[:password] do
-            [{"PGPASSWORD", password}]
-          else
-            []
-          end
-
         Mix.shell().info("Bootstrapping legacy schema from #{sql_path}")
 
-        case System.cmd("psql", args,
-               env: env,
-               into: IO.stream(:stdio, :line),
+        case System.cmd("psql", psql_args(repo_config, filtered_path),
+               env: psql_env(repo_config),
                stderr_to_stdout: true
              ) do
           {_output, 0} ->
             reconcile_legacy_schema!()
             Mix.shell().info("Legacy schema bootstrap complete")
 
-          {_output, status} ->
-            Mix.raise("psql failed while importing legacy schema (exit #{status})")
+          {output, status} ->
+            Mix.raise("""
+            psql failed while importing legacy schema (exit #{status})
+
+            #{tail_output(output)}
+            """)
         end
       after
         File.rm(filtered_path)
@@ -81,10 +63,8 @@ defmodule Mix.Tasks.Ebau.BootstrapLegacySchema do
       and to_regclass('public."ROLE"') is not null
     """
 
-    case Ecto.Adapters.SQL.query(Ebau.Repo, sql, []) do
-      {:ok, %{rows: [[true]]}} -> true
-      _ -> false
-    end
+    %{rows: [[present?]]} = Ecto.Adapters.SQL.query!(Ebau.Repo, sql, [])
+    present?
   end
 
   defp filter_psql_meta_commands!(sql_path) do
@@ -95,12 +75,10 @@ defmodule Mix.Tasks.Ebau.BootstrapLegacySchema do
       )
 
     sql_path
-    |> File.stream!()
-    |> Stream.reject(&String.starts_with?(&1, "\\"))
-    |> Enum.into(File.stream!(filtered_path), fn
-      "CREATE SCHEMA keycloak;\n" -> "CREATE SCHEMA IF NOT EXISTS keycloak;\n"
-      line -> line
-    end)
+    |> File.read!()
+    |> String.replace(~r/^\\.*$\n?/m, "")
+    |> String.replace("CREATE SCHEMA keycloak;\n", "CREATE SCHEMA IF NOT EXISTS keycloak;\n")
+    |> then(&File.write!(filtered_path, &1))
 
     filtered_path
   end
@@ -147,23 +125,40 @@ defmodule Mix.Tasks.Ebau.BootstrapLegacySchema do
     Ecto.Adapters.SQL.query!(Ebau.Repo, sql, [])
   end
 
-  defp host_args(repo_config) do
-    if host = repo_config[:hostname], do: ["-h", host], else: []
+  defp psql_args(repo_config, filtered_path) do
+    [
+      "-q",
+      "-v",
+      "ON_ERROR_STOP=1",
+      "-d",
+      Keyword.fetch!(repo_config, :database)
+    ] ++
+      maybe_arg("-h", repo_config[:hostname]) ++
+      maybe_arg("-p", repo_config[:port]) ++
+      maybe_arg("-U", repo_config[:username]) ++
+      ["-f", filtered_path]
   end
 
-  defp port_args(repo_config) do
-    if port = repo_config[:port], do: ["-p", to_string(port)], else: []
+  defp psql_env(repo_config) do
+    if password = repo_config[:password], do: [{"PGPASSWORD", password}], else: []
   end
 
-  defp user_args(repo_config) do
-    if user = repo_config[:username], do: ["-U", user], else: []
-  end
+  defp maybe_arg(_flag, nil), do: []
+  defp maybe_arg(flag, value), do: [flag, to_string(value)]
 
-  defp database_args(repo_config) do
-    if database = repo_config[:database] do
-      ["-d", database]
-    else
-      Mix.raise("repo database missing in Ebau.Repo config")
+  defp tail_output(output, line_count \\ 80) do
+    case output |> String.trim() |> String.split("\n", trim: true) do
+      [] ->
+        "psql did not produce any output"
+
+      lines ->
+        title =
+          if length(lines) > line_count,
+            do: "--- psql output (last #{line_count} lines) ---",
+            else: "--- psql output ---"
+
+        [title | Enum.take(lines, -line_count)]
+        |> Enum.join("\n")
     end
   end
 end
