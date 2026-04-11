@@ -22,7 +22,6 @@ defmodule Ebau.User.Role do
 
     attribute :slug, :string do
       public? true
-      source :SLUG
     end
 
     attribute :group_prefix, :string do

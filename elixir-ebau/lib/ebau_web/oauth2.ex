@@ -1,29 +1,49 @@
 defmodule EbauWeb.OAuth2 do
+  @moduledoc """
+  Keycloak bearer-token user lookup.
+
+  This module resolves a bearer token via the configured Keycloak userinfo
+  endpoint, extracts the configured email claim, and maps that claim to an
+  existing [`Ebau.User.User`](/home/stephanh/Documents/camac/elixir/elixir-ebau/lib/ebau/user/user.ex)
+  record.
+
+  It reads the Keycloak settings from the `:ebau, :keycloak` application
+  config and caches successful lookups through `EbauWeb.TokenCache`.
+  """
+
   alias Assent.Strategy.OAuth2
 
   defp config do
+    keycloak_config = keycloak_config()
+    auth_url = Keyword.fetch!(keycloak_config, :url)
+    realm = Keyword.fetch!(keycloak_config, :realm)
+
     [
-      client_id: "camac",
-      client_secret: "dont-need",
-      auth_method: :client_secret_post,
-      base_url: "http://ebau-keycloak.localhost/auth/",
-      authorization_params: [scope: "user:read user:write"],
-      user_url:
-        "http://ebau-keycloak.localhost/auth/realms/ebau/protocol/openid-connect/userinfo",
-      redirect_uri: "http://localhost:4000/auth/callback"
+      base_url: auth_url,
+      user_url: "#{auth_url}realms/#{realm}/protocol/openid-connect/userinfo"
     ]
   end
 
-  @spec fetch_user(binary()) :: {:ok, Ebau.User.User.t()} | nil
-  def fetch_user(token) do
-    EbauWeb.TokenCache.fetch(token, fn ->
-      case OAuth2.fetch_user(config(), %{"access_token" => token}) do
-        {:ok, %{"email" => email}} ->
-          Ebau.User.get_user_by_email(email, authorize?: false)
+  @spec fetch_user(binary()) :: {:ok, Ebau.User.User.t()} | {:error, term()}
+  @doc """
+  Fetches the local user for a Keycloak bearer token.
 
-        _ ->
-          nil
+  The token is sent to the Keycloak userinfo endpoint. The configured email
+  claim is then used to look up the matching local user.
+  """
+  def fetch_user(token) do
+    email_claim = keycloak_config() |> Keyword.fetch!(:email_claim)
+
+    EbauWeb.TokenCache.fetch(token, fn ->
+      with {:ok, userinfo} <- OAuth2.fetch_user(config(), %{"access_token" => token}),
+           {:ok, email} <- Map.fetch(userinfo, email_claim) do
+        Ebau.User.get_user_by_email(email, authorize?: false)
+      else
+        :error -> {:error, {:missing_claim, email_claim}}
+        {:error, _reason} = error -> error
       end
     end)
   end
+
+  defp keycloak_config, do: Application.fetch_env!(:ebau, :keycloak)
 end

@@ -49,6 +49,13 @@ config :ebau, EbauWeb.Endpoint,
   http: [port: String.to_integer(System.get_env("PORT", "4000"))],
   url: [path: System.get_env("URL_PREFIX", "/")]
 
+config :ebau, :keycloak,
+  url: System.get_env("KEYCLOAK_URL", "http://ebau-keycloak.localhost/auth/"),
+  realm: System.get_env("KEYCLOAK_REALM", "ebau"),
+  client_id: System.get_env("KEYCLOAK_CLIENT", "camac"),
+  scopes: System.get_env("KEYCLOAK_SCOPES", "openid email"),
+  email_claim: System.get_env("DJANGO_OIDC_EMAIL_CLAIM", "email")
+
 if config_env() == :prod do
   database_url =
     System.get_env("DATABASE_URL") ||
