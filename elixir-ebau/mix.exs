@@ -5,7 +5,7 @@ defmodule Ebau.MixProject do
     [
       app: :ebau,
       version: "0.1.0",
-      elixir: "~> 1.15",
+      elixir: "~> 1.19",
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
@@ -55,7 +55,6 @@ defmodule Ebau.MixProject do
       {:esbuild, "~> 0.10", runtime: Mix.env() == :dev},
       {:gettext, "~> 1.0"},
       {:igniter, "~> 0.6", only: [:dev, :test]},
-      {:jason, "~> 1.2"},
       {:lazy_html, ">= 0.1.0", only: :test},
       {:live_debugger, "~> 0.5", only: [:dev]},
       {:mix_test_interactive, "~> 5.0", only: [:dev, :test], runtime: false},
@@ -88,9 +87,19 @@ defmodule Ebau.MixProject do
   defp aliases do
     [
       setup: ["deps.get", "ecto.setup", "assets.setup", "assets.build"],
-      "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
+      "ecto.setup": [
+        "ecto.create",
+        "ebau.bootstrap_legacy_schema",
+        "ecto.migrate",
+        "run priv/repo/seeds.exs"
+      ],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
-      test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
+      test: [
+        "ecto.create --quiet",
+        "ebau.ensure_legacy_schema",
+        "ecto.migrate --quiet",
+        "test"
+      ],
       "assets.setup": ["esbuild.install --if-missing"],
       "assets.build": ["compile", "esbuild ebau"],
       "assets.deploy": [
