@@ -90,7 +90,7 @@ export class PaginatedQuery extends Resource {
       const pagination = data.meta?.pagination ?? data.meta?.page;
       const hasMore = pagination?.pages
         ? query.page.number < pagination.pages
-        : (parseInt(query.page.offset) + parseInt(query.page.limit)) <
+        : parseInt(query.page.offset) + parseInt(query.page.limit) <
           pagination?.total;
 
       return {

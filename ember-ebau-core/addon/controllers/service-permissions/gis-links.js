@@ -27,11 +27,11 @@ export default class ServicePermissionsStaticKeywordsController extends Controll
   }
 
   gisLinks = paginatedQuery(this, "gis-link", () => ({
-    ...(this.search ? {"filter[name]": { ilike: `%${this.search}%`} } : {}),
+    ...(this.search ? { "filter[name]": { ilike: `%${this.search}%` } } : {}),
     page: {
       offset: this.page,
       limit: 50,
-      count: true
+      count: true,
     },
   }));
 
@@ -44,7 +44,6 @@ export default class ServicePermissionsStaticKeywordsController extends Controll
 
   save = task({ drop: true }, async (event) => {
     event.preventDefault();
-
 
     const gisLink = this.store.createRecord("gis-link", {
       name: this.gisLinkName,

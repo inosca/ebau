@@ -1,4 +1,5 @@
 import ServicePermissionsController from "ember-ebau-core/controllers/service-permissions";
+import ServicePermissionsGISLinksController from "ember-ebau-core/controllers/service-permissions/gis-links";
 import ServicePermissionsInvitationsController from "ember-ebau-core/controllers/service-permissions/invitations";
 import ServicePermissionsOrganisationController from "ember-ebau-core/controllers/service-permissions/organisation";
 import ServicePermissionsPermissionsAddController from "ember-ebau-core/controllers/service-permissions/permissions/add";
@@ -8,6 +9,7 @@ import ServicePermissionsSubServicesAddController from "ember-ebau-core/controll
 import ServicePermissionsSubServicesIndexController from "ember-ebau-core/controllers/service-permissions/sub-services/index";
 import { registerModule } from "ember-ebau-core/modules";
 import ServicePermissionsRoute from "ember-ebau-core/routes/service-permissions";
+import ServicePermissionsGISLinksRoute from "ember-ebau-core/routes/service-permissions/gis-links";
 import ServicePermissionsIndexRoute from "ember-ebau-core/routes/service-permissions/index";
 import ServicePermissionsInvitationsRoute from "ember-ebau-core/routes/service-permissions/invitations";
 import ServicePermissionsOrganisationRoute from "ember-ebau-core/routes/service-permissions/organisation";
@@ -15,20 +17,18 @@ import ServicePermissionsPermissionsRoute from "ember-ebau-core/routes/service-p
 import ServicePermissionsPermissionsAddRoute from "ember-ebau-core/routes/service-permissions/permissions/add";
 import ServicePermissionsPermissionsIndexRoute from "ember-ebau-core/routes/service-permissions/permissions/index";
 import ServicePermissionsStaticKeywordsRoute from "ember-ebau-core/routes/service-permissions/static-keywords";
-import ServicePermissionsStaticKeywordsTemplate from "ember-ebau-core/templates/service-permissions/static-keywords";
-import ServicePermissionsGISLinksRoute from "ember-ebau-core/routes/service-permissions/gis-links";
-import ServicePermissionsGISLinksController from "ember-ebau-core/controllers/service-permissions/gis-links";
-import ServicePermissionsGISLinksTemplate from "ember-ebau-core/templates/service-permissions/gis-links";
 import ServicePermissionsSubServicesRoute from "ember-ebau-core/routes/service-permissions/sub-services";
 import ServicePermissionsSubServicesAddRoute from "ember-ebau-core/routes/service-permissions/sub-services/add";
 import ServicePermissionsSubServicesEditRoute from "ember-ebau-core/routes/service-permissions/sub-services/edit";
 import ServicePermissionsSubServicesIndexRoute from "ember-ebau-core/routes/service-permissions/sub-services/index";
 import ServicePermissionsTemplate from "ember-ebau-core/templates/service-permissions";
+import ServicePermissionsGISLinksTemplate from "ember-ebau-core/templates/service-permissions/gis-links";
 import ServicePermissionsInvitationsTemplate from "ember-ebau-core/templates/service-permissions/invitations";
 import ServicePermissionsOrganisationTemplate from "ember-ebau-core/templates/service-permissions/organisation";
 import ServicePermissionsPermissionsTemplate from "ember-ebau-core/templates/service-permissions/permissions";
 import ServicePermissionsPermissionsAddTemplate from "ember-ebau-core/templates/service-permissions/permissions/add";
 import ServicePermissionsPermissionsIndexTemplate from "ember-ebau-core/templates/service-permissions/permissions/index";
+import ServicePermissionsStaticKeywordsTemplate from "ember-ebau-core/templates/service-permissions/static-keywords";
 import ServicePermissionsSubServicesTemplate from "ember-ebau-core/templates/service-permissions/sub-services";
 import ServicePermissionsSubServicesAddTemplate from "ember-ebau-core/templates/service-permissions/sub-services/add";
 import ServicePermissionsSubServicesEditTemplate from "ember-ebau-core/templates/service-permissions/sub-services/edit";
@@ -69,8 +69,7 @@ export default function register(router, options = {}) {
         ServicePermissionsSubServicesIndexRoute,
       "service-permissions/static-keywords":
         ServicePermissionsStaticKeywordsRoute,
-      "service-permissions/gis-links":
-        ServicePermissionsGISLinksRoute,
+      "service-permissions/gis-links": ServicePermissionsGISLinksRoute,
     },
     controllers: {
       "service-permissions": ServicePermissionsController,
@@ -88,8 +87,7 @@ export default function register(router, options = {}) {
         ServicePermissionsSubServicesIndexController,
       "service-permissions/static-keywords":
         ServicePermissionsStaticKeywordsController,
-      "service-permissions/gis-links":
-        ServicePermissionsGISLinksController,
+      "service-permissions/gis-links": ServicePermissionsGISLinksController,
     },
     templates: {
       "service-permissions": ServicePermissionsTemplate,
@@ -110,8 +108,7 @@ export default function register(router, options = {}) {
         ServicePermissionsSubServicesIndexTemplate,
       "service-permissions/static-keywords":
         ServicePermissionsStaticKeywordsTemplate,
-      "service-permissions/gis-links":
-        ServicePermissionsGISLinksTemplate,
+      "service-permissions/gis-links": ServicePermissionsGISLinksTemplate,
     },
   });
 }

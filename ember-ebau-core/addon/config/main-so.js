@@ -180,7 +180,7 @@ const config = {
       "invitations",
       "organisation",
       "sub-services",
-      { route: "gis-links"},
+      { route: "gis-links" },
       { route: "static-keywords", forServiceSlugs: ["afu"] },
     ],
   },

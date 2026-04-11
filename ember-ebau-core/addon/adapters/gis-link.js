@@ -1,5 +1,5 @@
 import ApplicationAdapter from "./application";
 
-export default class GisLinkAdapter extends AppliationAdapter {
+export default class GisLinkAdapter extends ApplicationAdapter {
   namespace = "/api/v2";
 }
