@@ -9,7 +9,7 @@ defmodule EbauWeb.TokenCache do
   use GenServer
 
   @table :token_cache
-  @cleanup_interval :timer.minutes(5)
+  @cleanup_interval to_timeout(minute: 5)
 
   def start_link(_), do: GenServer.start_link(__MODULE__, [], name: __MODULE__)
 
