@@ -36,7 +36,7 @@ defmodule EbauWeb.ConnCase do
       """
       @spec authenticated_rest_api_conn(Plug.Conn.t(), Ebau.Actor.t()) :: Plug.Conn.t()
       def authenticated_rest_api_conn(conn, actor) do
-        token = valid_token()
+        token = valid_token(actor.user)
         exp = System.system_time(:second) + 3600
 
         :ets.insert(:token_cache, {token, {:ok, actor.user}, exp})
@@ -48,13 +48,13 @@ defmodule EbauWeb.ConnCase do
         |> put_req_header("content-type", "application/vnd.api+json")
       end
 
-      defp valid_token do
+      defp valid_token(user) do
         now = System.system_time(:second)
         jwk = JOSE.JWK.from_oct("test")
 
         {_, token} =
           JOSE.JWT.sign(jwk, %{"alg" => "HS256"}, %{
-            "sub" => "gis-links-test",
+            "sub" => user.username,
             "exp" => now + 3600
           })
           |> JOSE.JWS.compact()

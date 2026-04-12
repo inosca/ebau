@@ -38,5 +38,4 @@ defmodule Ebau.User do
       define :get_service_group_by_slug, action: :read, get_by: [:slug]
     end
   end
-
 end

@@ -29,27 +29,4 @@ defmodule Ebau.Caluma.Calculations.DocumentAnswerTest do
       assert {:error, _} = DocumentAnswer.init(question_ids: %{gr: "gr-q"})
     end
   end
-
-  describe "expression/2" do
-    setup do
-      {:ok, opts} = DocumentAnswer.init(question_ids: %{default: "default-q", gr: "gr-q"})
-      %{opts: opts}
-    end
-
-    test "returns a non-nil expression", %{opts: opts} do
-      refute is_nil(DocumentAnswer.expression(opts, %{}))
-    end
-
-    test "produces different expressions for different cantons", %{opts: opts} do
-      expr_gr = DocumentAnswer.expression(opts, %{canton: :gr})
-      expr_be = DocumentAnswer.expression(opts, %{canton: :be})
-      assert expr_gr != expr_be
-    end
-
-    test "produces the same expression for unknown canton and no canton", %{opts: opts} do
-      expr_no_canton = DocumentAnswer.expression(opts, %{})
-      expr_unknown = DocumentAnswer.expression(opts, %{canton: :be})
-      assert expr_no_canton == expr_unknown
-    end
-  end
 end

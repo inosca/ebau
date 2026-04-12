@@ -18,9 +18,7 @@ defmodule Caluma.Form.Changes.SyncFormTree do
         Map.get(Changeset.get_argument(changeset, :form_spec) || %{}, :questions, [])
 
     Changeset.after_action(changeset, fn _changeset, form ->
-      action_opts = [actor: context.actor, authorize?: false]
-
-      create_questions!(form.slug, questions, action_opts)
+      create_questions!(form.slug, questions, actor: context.actor)
 
       {:ok, form}
     end)

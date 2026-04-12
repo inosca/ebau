@@ -1,4 +1,4 @@
-defmodule Ebau.Instances.Calculations.GisLinksForInstanceTest do
+defmodule Ebau.Instances.Calculations.GisLinkForInstanceTest do
   use Ebau.DataCase, async: true
 
   setup do

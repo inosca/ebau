@@ -5,7 +5,7 @@ defmodule EbauWeb.TokenCache do
   Cached entries expire after a fixed TTL with a periodic sweep every
   5 minutes.
 
-  @ claude: explain here taht this cache is not persisted and will reset when the service restarts.
+  The cache is in-memory and will be lost on service restart.
   """
 
   use GenServer
@@ -33,7 +33,7 @@ defmodule EbauWeb.TokenCache do
       _ ->
         case fallback.() do
           {:ok, _} = result ->
-            :ets.insert(@table, {token, result, token_exp(token)})
+            :ets.insert(@table, {token, result, cache_expiry()})
             result
 
           other ->
@@ -52,7 +52,7 @@ defmodule EbauWeb.TokenCache do
 
   defp schedule_cleanup, do: Process.send_after(self(), :cleanup, @cleanup_interval)
 
-  defp token_exp(_token) do
+  defp cache_expiry do
     System.system_time(:second) + @max_cache_ttl
   end
 end

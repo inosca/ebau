@@ -23,11 +23,16 @@ defmodule EbauWeb.Plugs.KeycloakBearerAuth do
         role: group.role.slug
       })
     else
-      _ ->
+      error ->
+        require Logger
+        Logger.warning("Bearer auth failed: #{inspect(error)}")
+
         conn
-        # @claude: is there not a builtin way to do this? seems quite verbose.
         |> Plug.Conn.put_resp_content_type("application/vnd.api+json")
-        |> Plug.Conn.send_resp(401, JSON.encode!(%{errors: [%{status: "401", title: "Unauthorized"}]}))
+        |> Plug.Conn.send_resp(
+          401,
+          JSON.encode!(%{errors: [%{status: "401", title: "Unauthorized"}]})
+        )
         |> Plug.Conn.halt()
     end
   end

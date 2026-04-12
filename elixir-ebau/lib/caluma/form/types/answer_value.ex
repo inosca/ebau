@@ -8,8 +8,6 @@ defmodule Caluma.Form.Types.AnswerValue do
 
   use Ash.Type
 
-  def graphql_type(_), do: :json
-
   @impl Ash.Type
   def storage_type(_), do: :map
 

@@ -21,7 +21,7 @@ defmodule Ebau.Permissions.InstanceACL do
     otp_app: :ebau,
     domain: Ebau.Permissions,
     data_layer: AshPostgres.DataLayer,
-    authorizers: [Ash.Policy.Authorizer]
+    authorizers: Ash.Policy.Authorizer
 
   postgres do
     table "permissions_instanceacl"

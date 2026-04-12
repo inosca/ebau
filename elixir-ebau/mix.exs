@@ -24,12 +24,12 @@ defmodule Ebau.MixProject do
           Guides: ~r/guides\/.*/
         ],
         groups_for_modules: [
-          "Instances": [Ebau.Instances, ~r/Ebau\.Instances\..*/],
+          Instances: [Ebau.Instances, ~r/Ebau\.Instances\..*/],
           "Master Data": [Ebau.MasterData, ~r/Ebau\.MasterData\..*/],
-          "Permissions": [Ebau.Permissions, ~r/Ebau\.Permissions\..*/],
+          Permissions: [Ebau.Permissions, ~r/Ebau\.Permissions\..*/],
           "User & Auth": [Ebau.User, ~r/Ebau\.User\..*/],
-          "Caluma": [Caluma.Form, Caluma.Workflow, ~r/Caluma\..*/],
-          "Web": [~r/EbauWeb\..*/]
+          Caluma: [Caluma.Form, Caluma.Workflow, ~r/Caluma\..*/],
+          Web: [~r/EbauWeb\..*/]
         ]
       ]
     ]

@@ -120,5 +120,20 @@ defmodule EbauWeb.Instances.GisLinksTest do
 
       assert json_response(conn, 403)
     end
+
+    test "forbids deleting gis links for admins of other services", %{
+      conn: conn,
+      gis_link: gis_link
+    } do
+      other_admin = Ebau.Test.UserHelper.create_actor!(%{role: %{slug: "municipality-admin"}})
+
+      conn =
+        conn
+        |> authenticated_rest_api_conn(other_admin)
+        |> delete(~p"/api/v2/gis-links/#{gis_link.id}")
+
+      # 404 because the read policy filters out links from other services
+      assert json_response(conn, 404)
+    end
   end
 end

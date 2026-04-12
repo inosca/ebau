@@ -1,4 +1,10 @@
 defmodule Ebau.Secrets do
+  @moduledoc """
+  Resolves secrets for AshAuthentication (OIDC and token signing).
+
+  Maps secret paths to values from application config (`:ebau, :keycloak`).
+  """
+
   use AshAuthentication.Secret
 
   alias EbauWeb.Endpoint

@@ -8,7 +8,7 @@ import { confirm } from "ember-uikit";
 import paginatedQuery from "ember-ebau-core/resources/paginated";
 import parseError from "ember-ebau-core/utils/parse-error";
 
-export default class ServicePermissionsStaticKeywordsController extends Controller {
+export default class ServicePermissionsGisLinksController extends Controller {
   pageSize = 50;
 
   @service store;
@@ -73,7 +73,7 @@ export default class ServicePermissionsStaticKeywordsController extends Controll
     }
   });
 
-  delete = task({ drop: true }, async (staticKeyword, event) => {
+  delete = task({ drop: true }, async (gisLink, event) => {
     event.preventDefault();
 
     if (
@@ -86,7 +86,7 @@ export default class ServicePermissionsStaticKeywordsController extends Controll
         },
       )
     ) {
-      await staticKeyword.destroyRecord();
+      await gisLink.destroyRecord();
     }
   });
 }

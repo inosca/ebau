@@ -12,7 +12,7 @@ defmodule Ebau.User.User do
   use Ash.Resource,
     otp_app: :ebau,
     domain: Ebau.User,
-    authorizers: [Ash.Policy.Authorizer],
+    authorizers: Ash.Policy.Authorizer,
     extensions: [AshAuthentication],
     data_layer: AshPostgres.DataLayer
 

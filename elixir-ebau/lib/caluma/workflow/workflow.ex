@@ -1,4 +1,11 @@
 defmodule Caluma.Workflow.Workflow do
+  @moduledoc """
+  Ash resource for a Caluma workflow definition (`caluma_workflow_workflow`).
+
+  Partial clone: only the fields needed by the eBau Elixir app are mapped.
+  See https://github.com/projectcaluma/caluma for the full upstream model.
+  """
+
   use Ash.Resource, domain: Caluma.Workflow, data_layer: AshPostgres.DataLayer
 
   postgres do

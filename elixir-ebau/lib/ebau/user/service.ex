@@ -73,7 +73,10 @@ defmodule Ebau.User.Service do
   relationships do
     has_many :gis_links, Ebau.Instances.GisLink
     has_many :groups, Ebau.User.Group
-    belongs_to :service_group, Ebau.User.ServiceGroup, allow_nil?: false
+
+    belongs_to :service_group, Ebau.User.ServiceGroup,
+      allow_nil?: false,
+      define_attribute?: false
   end
 
   json_api do

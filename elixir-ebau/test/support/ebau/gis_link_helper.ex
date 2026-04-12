@@ -1,4 +1,8 @@
 defmodule Ebau.Test.GisLinkHelper do
+  @moduledoc """
+  Test helper for creating Caluma form trees with plot data for GIS link tests.
+  """
+
   @spec create_caluma_form_and_document(Caluma.Case.Case.t()) :: Caluma.Form.Document.t()
   def create_caluma_form_and_document(case) do
     Caluma.Form.create_form_tree!(
