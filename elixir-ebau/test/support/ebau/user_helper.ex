@@ -1,7 +1,86 @@
 defmodule Ebau.Test.UserHelper do
+  @moduledoc """
+  Test helper for building an eBau actor with all required user-side records.
+
+  `create_actor!/1` creates:
+
+  - a user
+  - a group for that user
+  - a service for that group
+  - a service group when needed
+
+  Returned value matches actor shape used throughout tests:
+
+  ```elixir
+  %{
+    user: Ebau.User.User.t(),
+    group: Ebau.User.Group.t(),
+    service: Ebau.User.Service.t(),
+    role: String.t()
+  }
+  ```
+
+  Defaults:
+
+  - role slug: `"municipality-admin"`
+  - service group slug: `"municipality"`
+
+  If requested service group already exists, helper reuses it. Otherwise it
+  creates it first.
+
+  Examples:
+
+  ```elixir
+  actor = Ebau.Test.UserHelper.create_actor!()
+
+  municipality_admin_actor =
+    Ebau.Test.UserHelper.create_actor!(%{
+      role: %{slug: "municipality-admin"}
+    })
+
+  coordination_actor =
+    Ebau.Test.UserHelper.create_actor!(%{
+      role: %{slug: "service"},
+      service_group: %{slug: "coordination"}
+    })
+  ```
+  """
+
+  @doc """
+  Creates a test actor and returns user, group, service, and role data.
+
+  Supported overrides:
+
+  - `role.slug`
+  - `service_group.slug`
+
+  This helper bypasses authorization for record creation and is intended only
+  for tests.
+
+  ## Examples
+
+  ```elixir
+  actor = Ebau.Test.UserHelper.create_actor!()
+  actor.role
+  #=> "municipality-admin"
+
+  actor =
+    Ebau.Test.UserHelper.create_actor!(%{
+      role: %{slug: "municipality"},
+      service_group: %{slug: "municipality"}
+    })
+
+  actor.role
+  #=> "municipality"
+  ```
+  """
+  @spec create_actor!(map()) :: %{
+          user: Ebau.User.User.t(),
+          group: Ebau.User.Group.t(),
+          service: Ebau.User.Service.t(),
+          role: String.t()
+        }
   def create_actor!(args \\ %{}) do
-    # todo: pre-seed test database with fixtures that we have in user.json etc.
-    # so things like the roles are always fixed
     user =
       Ebau.User.create_user!(
         %{
