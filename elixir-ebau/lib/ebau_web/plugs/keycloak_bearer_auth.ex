@@ -16,7 +16,7 @@ defmodule EbauWeb.Plugs.KeycloakBearerAuth do
          {:ok, user} <- EbauWeb.OAuth2.fetch_user(token),
          {:ok, group} <-
            Ebau.User.get_group_for_actor(group_id, load: [:service, :role], actor: %{user: user}) do
-      Ash.PlugHelpers.set_actor(conn, %{
+      Ash.PlugHelpers.set_actor(conn, %Ebau.Actor{
         user: user,
         group: group,
         service: group.service,
