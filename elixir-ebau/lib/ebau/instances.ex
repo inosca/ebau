@@ -1,4 +1,14 @@
 defmodule Ebau.Instances do
+  @moduledoc """
+  Ash domain for building permit instances and GIS links.
+
+  Provides the code interface for `Ebau.Instances.Instance` (the central
+  permit application entity) and `Ebau.Instances.GisLink` (service-scoped
+  URL templates for GIS viewers).
+
+  Also exposes JSON:API routes for GIS links under `/gis-links`.
+  """
+
   use Ash.Domain,
     otp_app: :ebau,
     extensions: [AshJsonApi.Domain]

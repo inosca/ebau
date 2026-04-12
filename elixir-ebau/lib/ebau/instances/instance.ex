@@ -1,4 +1,20 @@
 defmodule Ebau.Instances.Instance do
+  @moduledoc """
+  The central building permit application entity, backed by the legacy
+  `INSTANCE` table.
+
+  Each instance belongs to a Caluma `Case` (which holds the workflow state)
+  and a Caluma `Document` (which holds the form answers). Access is
+  controlled through `Ebau.Permissions.InstanceACL` records.
+
+  The `Ebau.MasterData.Extensions.MasterData` Spark extension is applied
+  here. It reads the `master_data do ... end` block and generates
+  relationships (for table questions like applicants or plots) and
+  calculations (for scalar answers like street or proposal) at compile time.
+  This gives a typed, uniform interface over canton-specific Caluma
+  question slugs.
+  """
+
   use Ash.Resource,
     otp_app: :ebau,
     domain: Ebau.Instances,

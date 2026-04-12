@@ -1,6 +1,26 @@
 defmodule Ebau.User.UserGroup do
-  @moduledoc false
-  use Ash.Resource, domain: Ebau.User, data_layer: AshPostgres.DataLayer
+  @moduledoc """
+  Join table between users and groups from the legacy `USER_GROUP` table.
+
+  Read-only reference data. Reads are always allowed; writes are
+  forbidden and only used in tests with `authorize?: false`.
+  """
+
+  use Ash.Resource,
+    domain: Ebau.User,
+    data_layer: AshPostgres.DataLayer,
+    authorizers: Ash.Policy.Authorizer
+
+  policies do
+    policy action_type(:read) do
+      authorize_if always()
+    end
+
+    policy action_type([:create, :update, :destroy]) do
+      # Write actions are only used in tests with authorize?: false
+      forbid_if always()
+    end
+  end
 
   postgres do
     table "USER_GROUP"

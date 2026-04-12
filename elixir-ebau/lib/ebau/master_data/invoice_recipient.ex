@@ -1,4 +1,13 @@
 defmodule Ebau.MasterData.InvoiceRecipient do
+  @moduledoc """
+  Fee invoice recipient (Rechnungsempfaenger/in) extracted from a Caluma
+  table question.
+
+  Contains personal details (name, address, contact info) and optional
+  representative/proxy fields. Each row corresponds to one row document
+  under the `rechnungsempfaengerin` table question.
+  """
+
   use Ash.Resource,
     otp_app: :ebau,
     domain: Ebau.MasterData,

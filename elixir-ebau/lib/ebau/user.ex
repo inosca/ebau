@@ -1,5 +1,13 @@
 defmodule Ebau.User do
-  use Ash.Domain, otp_app: :ebau, extensions: [AshJsonApi.Domain]
+  @moduledoc """
+  Ash domain for users, roles, groups, services, and service groups.
+
+  This domain wraps the legacy CAMAC user tables (`USER`, `ROLE`, `GROUP`,
+  `SERVICE`, `SERVICE_GROUP`, `USER_GROUP`). These tables are owned by
+  Django and are not migrated by Ash (they use `migrate? false`).
+  """
+
+  use Ash.Domain, otp_app: :ebau
 
   resources do
     resource Ebau.User.User do
@@ -31,12 +39,4 @@ defmodule Ebau.User do
     end
   end
 
-  json_api do
-    routes do
-      base_route "/users", Ebau.User.User do
-        get :read
-        index :read
-      end
-    end
-  end
 end

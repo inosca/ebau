@@ -1,4 +1,15 @@
 defmodule Ebau.MasterData.TypeOfConstruction do
+  @moduledoc """
+  Building type classification (Gebaeude/Art der Hochbaute) extracted from
+  a Caluma table question.
+
+  Each row corresponds to one row document under the `gebaeude` table
+  question. The raw answer is a choice slug like
+  `typ-des-bauwerks-einfamilienhaus` that maps to a numeric BFS code.
+
+  Used for GWR (federal building register) reporting.
+  """
+
   use Ash.Resource,
     otp_app: :ebau,
     domain: Ebau.MasterData,

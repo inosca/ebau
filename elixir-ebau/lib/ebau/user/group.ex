@@ -1,4 +1,14 @@
 defmodule Ebau.User.Group do
+  @moduledoc """
+  A CAMAC group from the legacy `GROUP` table.
+
+  Groups link users to a role and a service. The active group for a request
+  is determined by the `x-camac-group` header and becomes `actor.group`.
+
+  Readable only by members (users who belong to the group via `UserGroup`).
+  Write actions are forbidden and only used in tests with `authorize?: false`.
+  """
+
   use Ash.Resource,
     domain: Ebau.User,
     data_layer: AshPostgres.DataLayer,
@@ -20,7 +30,7 @@ defmodule Ebau.User.Group do
     end
 
     policy action_type([:create, :update, :destroy]) do
-      # We don't allow creating users. This is only for testing at the moment
+      # Write actions are only used in tests with authorize?: false
       forbid_if always()
     end
   end

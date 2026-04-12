@@ -3,7 +3,7 @@ defmodule Ebau.Caluma.Calculations.CaseMeta do
   Calculation that reads a value from the case's meta JSON field,
   with per-canton key mapping.
 
-  Expects a `keys` option — a map from canton atom to meta key string.
+  Expects a `keys` option, a map from canton atom to meta key string.
   Must include at least a `:default` key.
 
   ## Example

@@ -1,4 +1,11 @@
 defmodule Caluma.Form.Changes.CreateRowDocument do
+  @moduledoc """
+  Ash change that wires up a new row document for a table question.
+
+  Sets the form from the question's `row_form_id`, links the document to the
+  parent answer via `AnswerDocument`, and computes the next sort order.
+  """
+
   use Ash.Resource.Change
 
   @impl true

@@ -1,4 +1,15 @@
 defmodule Ebau.User.Service do
+  @moduledoc """
+  A CAMAC service (Dienststelle) from the legacy `SERVICE` table.
+
+  Services represent organizational units like municipalities or cantonal
+  offices. Each service belongs to a `ServiceGroup` and owns `GisLink`
+  templates. The actor's service is resolved from `actor.group.service_id`.
+
+  Reads require an authenticated actor. Writes are forbidden and only
+  used in tests with `authorize?: false`.
+  """
+
   use Ash.Resource,
     otp_app: :ebau,
     domain: Ebau.User,
@@ -18,7 +29,7 @@ defmodule Ebau.User.Service do
     end
 
     policy action_type(:create) do
-      # We don't allow creating users. This is only for testing at the moment
+      # Write actions are only used in tests with authorize?: false
       forbid_if always()
     end
   end

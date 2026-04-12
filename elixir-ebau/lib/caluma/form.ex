@@ -1,4 +1,15 @@
 defmodule Caluma.Form do
+  @moduledoc """
+  Ash domain for Caluma form resources (forms, questions, documents, answers).
+
+  This is a partial Elixir clone of the Caluma form module. It reads from and
+  writes to the same PostgreSQL tables that the upstream Django Caluma service
+  manages. Only the subset of models needed by the eBau Elixir app is
+  represented here.
+
+  See https://github.com/projectcaluma/caluma for upstream documentation.
+  """
+
   use Ash.Domain,
     otp_app: :ebau
 

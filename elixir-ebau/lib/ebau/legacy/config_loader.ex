@@ -153,29 +153,14 @@ defmodule Ebau.Legacy.ConfigLoader do
 
     {:ok, _result} =
       Repo.transaction(fn ->
-        entries
-        |> Enum.filter(&(&1["model"] == "user.role"))
-        |> import_roles!()
+        groups = Enum.group_by(entries, & &1["model"])
 
-        entries
-        |> Enum.filter(&(&1["model"] == "user.servicegroup"))
-        |> import_service_groups!()
-
-        entries
-        |> Enum.filter(&(&1["model"] == "caluma_form.form"))
-        |> import_forms!()
-
-        entries
-        |> Enum.filter(&(&1["model"] == "caluma_form.question"))
-        |> import_questions!()
-
-        entries
-        |> Enum.filter(&(&1["model"] == "caluma_workflow.workflow"))
-        |> import_workflows!()
-
-        entries
-        |> Enum.filter(&(&1["model"] == "caluma_form.formquestion"))
-        |> import_form_questions!()
+        import_roles!(groups["user.role"] || [])
+        import_service_groups!(groups["user.servicegroup"] || [])
+        import_forms!(groups["caluma_form.form"] || [])
+        import_questions!(groups["caluma_form.question"] || [])
+        import_workflows!(groups["caluma_workflow.workflow"] || [])
+        import_form_questions!(groups["caluma_form.formquestion"] || [])
       end)
 
     :ok
@@ -194,10 +179,16 @@ defmodule Ebau.Legacy.ConfigLoader do
   end
 
   defp default_django_root do
-    Mix.Project.project_file()
-    |> Path.dirname()
-    |> Path.join("../django")
-    |> Path.expand()
+    if Code.ensure_loaded?(Mix.Project) do
+      Mix.Project.project_file()
+      |> Path.dirname()
+      |> Path.join("../django")
+      |> Path.expand()
+    else
+      raise ArgumentError,
+            "no LEGACY_FIXTURE_ROOT env var or :legacy_fixture_root config set, " <>
+              "and Mix is not available in this environment"
+    end
   end
 
   defp import_roles!([]), do: :ok
@@ -299,8 +290,8 @@ defmodule Ebau.Legacy.ConfigLoader do
 
   defp form_row(%{"pk" => slug, "fields" => fields}) do
     %{
-      created_at: timestamp!(fields["created_at"]),
-      modified_at: timestamp!(fields["modified_at"]),
+      created_at: timestamp(fields["created_at"]),
+      modified_at: timestamp(fields["modified_at"]),
       created_by_user: fields["created_by_user"],
       created_by_group: fields["created_by_group"],
       modified_by_user: fields["modified_by_user"],
@@ -317,8 +308,8 @@ defmodule Ebau.Legacy.ConfigLoader do
 
   defp question_row(%{"pk" => slug, "fields" => fields}) do
     %{
-      created_at: timestamp!(fields["created_at"]),
-      modified_at: timestamp!(fields["modified_at"]),
+      created_at: timestamp(fields["created_at"]),
+      modified_at: timestamp(fields["modified_at"]),
       created_by_user: fields["created_by_user"],
       created_by_group: fields["created_by_group"],
       modified_by_user: fields["modified_by_user"],
@@ -348,8 +339,8 @@ defmodule Ebau.Legacy.ConfigLoader do
 
   defp workflow_row(%{"pk" => slug, "fields" => fields}) do
     %{
-      created_at: timestamp!(fields["created_at"]),
-      modified_at: timestamp!(fields["modified_at"]),
+      created_at: timestamp(fields["created_at"]),
+      modified_at: timestamp(fields["modified_at"]),
       created_by_user: fields["created_by_user"],
       created_by_group: fields["created_by_group"],
       modified_by_user: fields["modified_by_user"],
@@ -366,8 +357,8 @@ defmodule Ebau.Legacy.ConfigLoader do
 
   defp form_question_row(%{"pk" => id, "fields" => fields}) do
     %{
-      created_at: timestamp!(fields["created_at"]),
-      modified_at: timestamp!(fields["modified_at"]),
+      created_at: timestamp(fields["created_at"]),
+      modified_at: timestamp(fields["modified_at"]),
       created_by_user: fields["created_by_user"],
       created_by_group: fields["created_by_group"],
       modified_by_user: fields["modified_by_user"],
@@ -379,9 +370,9 @@ defmodule Ebau.Legacy.ConfigLoader do
     }
   end
 
-  defp timestamp!(nil), do: nil
+  defp timestamp(nil), do: nil
 
-  defp timestamp!(value) do
+  defp timestamp(value) do
     case DateTime.from_iso8601(value) do
       {:ok, datetime, _offset} ->
         datetime

@@ -9,16 +9,8 @@ defmodule Ebau.Test.UserHelper do
   - a service for that group
   - a service group when needed
 
-  Returned value matches actor shape used throughout tests:
-
-  ```elixir
-  %{
-    user: Ebau.User.User.t(),
-    group: Ebau.User.Group.t(),
-    service: Ebau.User.Service.t(),
-    role: String.t()
-  }
-  ```
+  Returns an `%Ebau.Actor{}` struct matching the production shape built by
+  `EbauWeb.Plugs.KeycloakBearerAuth`.
 
   Defaults:
 
@@ -74,12 +66,7 @@ defmodule Ebau.Test.UserHelper do
   #=> "municipality"
   ```
   """
-  @spec create_actor!(map()) :: %{
-          user: Ebau.User.User.t(),
-          group: Ebau.User.Group.t(),
-          service: Ebau.User.Service.t(),
-          role: String.t()
-        }
+  @spec create_actor!(map()) :: Ebau.Actor.t()
   def create_actor!(args \\ %{}) do
     user =
       Ebau.User.create_user!(
@@ -125,7 +112,7 @@ defmodule Ebau.Test.UserHelper do
 
     service = Ebau.User.create_service!(service_attrs, authorize?: false)
 
-    %{
+    %Ebau.Actor{
       user: user,
       group: group,
       service: service,

@@ -30,9 +30,8 @@ defmodule Mix.Tasks.Ebau.EnsureLegacySchema do
 
     if missing != [] do
       missing_list =
-        Enum.map(missing, &"  - missing table: #{&1}")
-        |> List.flatten()
-        |> Enum.join("\n")
+        missing
+        |> Enum.map_join("\n", &"  - missing table: #{&1}")
 
       Mix.raise("""
 

@@ -2,14 +2,17 @@ defmodule EbauWeb.TokenCache do
   @moduledoc """
   ETS-based cache for validated bearer tokens. Without this, every API
   request triggers an HTTP round-trip to Keycloak's userinfo endpoint.
-  Cached entries expire based on the token's `exp` claim, with a
-  periodic sweep every 5 minutes.
+  Cached entries expire after a fixed TTL with a periodic sweep every
+  5 minutes.
+
+  @ claude: explain here taht this cache is not persisted and will reset when the service restarts.
   """
 
   use GenServer
 
   @table :token_cache
   @cleanup_interval to_timeout(minute: 5)
+  @max_cache_ttl 300
 
   def start_link(_), do: GenServer.start_link(__MODULE__, [], name: __MODULE__)
 
@@ -49,10 +52,7 @@ defmodule EbauWeb.TokenCache do
 
   defp schedule_cleanup, do: Process.send_after(self(), :cleanup, @cleanup_interval)
 
-  defp token_exp(token) do
-    case JOSE.JWT.peek_payload(token) do
-      %JOSE.JWT{fields: %{"exp" => exp}} when is_integer(exp) -> exp
-      _ -> System.system_time(:second) + 300
-    end
+  defp token_exp(_token) do
+    System.system_time(:second) + @max_cache_ttl
   end
 end

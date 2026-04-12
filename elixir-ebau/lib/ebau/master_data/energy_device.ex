@@ -1,4 +1,13 @@
 defmodule Ebau.MasterData.EnergyDevice do
+  @moduledoc """
+  HVAC/energy system (Gebaeudetechnik) extracted from a Caluma table question.
+
+  Contains the device type. Each row corresponds to one row document under
+  the `gebaeudetechnik` table question.
+
+  Used for GWR (federal building register) reporting.
+  """
+
   use Ash.Resource,
     otp_app: :ebau,
     domain: Ebau.MasterData,

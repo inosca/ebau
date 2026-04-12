@@ -1,4 +1,9 @@
 defmodule Caluma.Form.Changes.SetFormQuestionNaturalKey do
+  @moduledoc """
+  Ash change that sets the composite natural key `"form_id.question_id"` on a
+  `FormQuestion` record, matching the upstream Caluma convention.
+  """
+
   use Ash.Resource.Change
 
   alias Ash.Changeset

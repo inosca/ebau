@@ -1,4 +1,14 @@
 defmodule Ebau.MasterData.Dwelling do
+  @moduledoc """
+  Residential unit (Wohnung) extracted from a Caluma table question.
+
+  Contains details like floor number, location on floor, number of rooms,
+  kitchen facilities, and area. Each row corresponds to one row document
+  under the row dwelling table question.
+
+  Used for GWR (federal building register) reporting.
+  """
+
   use Ash.Resource,
     otp_app: :ebau,
     domain: Ebau.MasterData,

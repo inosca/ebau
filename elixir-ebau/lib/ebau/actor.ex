@@ -46,11 +46,12 @@ defmodule Ebau.Actor do
   """
 
   @type t :: %__MODULE__{
-          user: Ebau.User.User.t() | nil,
-          group: Ebau.User.Group.t() | nil,
-          service: Ebau.User.Service.t() | nil,
-          role: String.t() | nil
+          user: Ebau.User.User.t(),
+          group: Ebau.User.Group.t(),
+          service: Ebau.User.Service.t(),
+          role: String.t()
         }
 
+  @enforce_keys [:user, :group, :service, :role]
   defstruct [:user, :group, :service, :role]
 end

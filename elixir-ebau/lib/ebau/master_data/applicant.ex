@@ -1,4 +1,15 @@
 defmodule Ebau.MasterData.Applicant do
+  @moduledoc """
+  Permit applicant (Bauherr/in) extracted from a Caluma table question.
+
+  Contains personal details (name, address, contact info) and optional
+  representative/proxy fields. Each row corresponds to one row document
+  under the `bauherrin` table question in the Caluma form.
+
+  In Django, this is the `applicants` resolver in
+  `camac.instance.master_data.MasterData`.
+  """
+
   use Ash.Resource,
     otp_app: :ebau,
     domain: Ebau.MasterData,

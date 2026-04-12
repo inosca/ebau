@@ -1,5 +1,4 @@
 defmodule Caluma.Workflow.Workflow do
-  @moduledoc false
   use Ash.Resource, domain: Caluma.Workflow, data_layer: AshPostgres.DataLayer
 
   postgres do
@@ -22,7 +21,7 @@ defmodule Caluma.Workflow.Workflow do
       generated? false
     end
 
-    attribute :name, :map, allow_nil?: false, public?: true
+    attribute :name, Caluma.Form.Types.LocalizedField, allow_nil?: false, public?: true
   end
 
   relationships do

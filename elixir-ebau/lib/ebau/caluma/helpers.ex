@@ -58,6 +58,7 @@ defmodule Ebau.Caluma.Helpers do
   defp get_canton(%{source_context: %{canton: canton}}), do: canton
   defp get_canton(_context), do: nil
 
+  defp convert_to_list(nil), do: []
   defp convert_to_list(ids) when is_binary(ids), do: [ids]
-  defp convert_to_list(ids), do: ids
+  defp convert_to_list(ids) when is_list(ids), do: ids
 end

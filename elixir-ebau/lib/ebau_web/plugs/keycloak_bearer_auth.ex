@@ -25,6 +25,10 @@ defmodule EbauWeb.Plugs.KeycloakBearerAuth do
     else
       _ ->
         conn
+        # @claude: is there not a builtin way to do this? seems quite verbose.
+        |> Plug.Conn.put_resp_content_type("application/vnd.api+json")
+        |> Plug.Conn.send_resp(401, JSON.encode!(%{errors: [%{status: "401", title: "Unauthorized"}]}))
+        |> Plug.Conn.halt()
     end
   end
 end

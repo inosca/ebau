@@ -1,4 +1,22 @@
 defmodule Ebau.Permissions.InstanceACL do
+  @moduledoc """
+  Access control list entry that grants a user access to a specific instance.
+
+  Each record links a user (and optionally a service and role) to an instance
+  with a time-bounded validity window (`start_time` / `end_time`). The
+  `grant_type` and `access_level_id` fields control what kind of access is
+  granted.
+
+  The `:active` read action filters to currently valid ACLs and is used by
+  instance policies to check whether the actor can see a given instance.
+
+  Backed by the Django-managed `permissions_instanceacl` table
+  (`migrate? false`).
+
+  Fore more information look up the documentation in the django permissions
+  application.
+  """
+
   use Ash.Resource,
     otp_app: :ebau,
     domain: Ebau.Permissions,

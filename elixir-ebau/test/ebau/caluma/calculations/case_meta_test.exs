@@ -37,22 +37,20 @@ defmodule Ebau.Caluma.Calculations.CaseMetaTest do
     end
 
     test "uses the canton-specific key when available" do
-      {:ok, opts} = CaseMeta.init(keys: %{default: "dossier-number", gr: "gr-dossier"})
-      expr = CaseMeta.expression(opts, %{canton: :gr})
-      assert inspect(expr) =~ "gr-dossier"
+      keys = %{default: "dossier-number", gr: "gr-dossier"}
+      assert Ebau.Caluma.Helpers.get_canton_value(keys, %{canton: :gr}) == "gr-dossier"
     end
 
     test "uses the default key when no canton-specific mapping exists" do
-      {:ok, opts} = CaseMeta.init(keys: %{default: "dossier-number", gr: "gr-dossier"})
-      expr = CaseMeta.expression(opts, %{canton: :be})
-      assert inspect(expr) =~ "dossier-number"
+      keys = %{default: "dossier-number", gr: "gr-dossier"}
+      assert Ebau.Caluma.Helpers.get_canton_value(keys, %{canton: :be}) == "dossier-number"
     end
 
     test "produces different expressions for different canton contexts" do
       {:ok, opts} = CaseMeta.init(keys: %{default: "dossier-number", gr: "gr-dossier"})
       expr_gr = CaseMeta.expression(opts, %{canton: :gr})
       expr_default = CaseMeta.expression(opts, %{})
-      assert inspect(expr_gr) != inspect(expr_default)
+      assert expr_gr != expr_default
     end
   end
 end

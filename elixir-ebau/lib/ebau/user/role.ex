@@ -1,6 +1,30 @@
 defmodule Ebau.User.Role do
-  @moduledoc false
-  use Ash.Resource, domain: Ebau.User, data_layer: AshPostgres.DataLayer
+  @moduledoc """
+  A CAMAC role from the legacy `ROLE` table.
+
+  Roles define what a user can do (e.g. `municipality-lead`,
+  `municipality-admin`). Each group belongs to exactly one role.
+  The role slug is stored on the `Ebau.Actor` struct as a plain string.
+
+  Read-only reference data. Reads are always allowed; writes are
+  forbidden and only used in tests with `authorize?: false`.
+  """
+
+  use Ash.Resource,
+    domain: Ebau.User,
+    data_layer: AshPostgres.DataLayer,
+    authorizers: Ash.Policy.Authorizer
+
+  policies do
+    policy action_type(:read) do
+      authorize_if always()
+    end
+
+    policy action_type([:create, :update, :destroy]) do
+      # Write actions are only used in tests with authorize?: false
+      forbid_if always()
+    end
+  end
 
   postgres do
     table "ROLE"

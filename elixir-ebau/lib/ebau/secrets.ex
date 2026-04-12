@@ -1,5 +1,4 @@
 defmodule Ebau.Secrets do
-  @moduledoc false
   use AshAuthentication.Secret
 
   alias EbauWeb.Endpoint
@@ -9,7 +8,13 @@ defmodule Ebau.Secrets do
   end
 
   def secret_for(path, Ebau.User.User, _opts, _context) do
-    {:ok, oauth2_secret(List.last(path))}
+    key = List.last(path)
+
+    if key not in [:client_id, :base_url, :authorization_params, :redirect_uri] do
+      raise ArgumentError, "unknown secret path: #{inspect(path)}"
+    end
+
+    {:ok, oauth2_secret(key)}
   end
 
   defp oauth2_secret(:client_id) do

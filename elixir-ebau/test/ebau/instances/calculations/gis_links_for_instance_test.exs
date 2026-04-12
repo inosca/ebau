@@ -2,7 +2,7 @@ defmodule Ebau.Instances.Calculations.GisLinksForInstanceTest do
   use Ebau.DataCase, async: true
 
   setup do
-    Ebau.User.create_role!(%{slug: "municipality-admin"})
+    Ebau.User.create_role!(%{slug: "municipality-admin"}, authorize?: false)
     Caluma.Workflow.create_workflow!(%{slug: "building-permit", name: %{"de" => "workflow"}})
     actor = Ebau.Test.UserHelper.create_actor!(%{role: %{slug: "municipality-admin"}})
     case = Caluma.Workflow.create_case!(%{workflow: %{slug: "building-permit"}})
@@ -10,7 +10,7 @@ defmodule Ebau.Instances.Calculations.GisLinksForInstanceTest do
     doc = Ebau.Test.GisLinkHelper.create_caluma_form_and_document(case)
 
     gis_link =
-      Ebau.Instances.create_gis_link(
+      Ebau.Instances.create_gis_link!(
         %{name: "test", placeholder: "https://example.com?x={x}&y={y}"},
         actor: actor
       )
@@ -59,6 +59,30 @@ defmodule Ebau.Instances.Calculations.GisLinksForInstanceTest do
       Ash.load!(gis_link, [gis_link_for_instance: %{instance_id: instance.id}], actor: actor)
 
     assert gis_link.gis_link_for_instance == "https://example.com?x=456&y=123"
+  end
+
+  test "returns empty coordinates when instance has no plot data", %{
+    actor: actor,
+    gis_link: gis_link
+  } do
+    empty_case = Caluma.Workflow.create_case!(%{workflow: %{slug: "building-permit"}})
+
+    empty_instance =
+      Ebau.Instances.create_instance!(%{case: %{id: empty_case.id}}, authorize?: false)
+
+    Ebau.Permissions.grant_acl_for_instance!(
+      %{instance: %{id: empty_instance.id}, user: %{id: actor.user.id}},
+      authorize?: false
+    )
+
+    gis_link =
+      Ash.load!(
+        gis_link,
+        [gis_link_for_instance: %{instance_id: empty_instance.id}],
+        actor: actor
+      )
+
+    assert gis_link.gis_link_for_instance == "https://example.com?x=&y="
   end
 
   test "denies access to gis links for instances without an ACL", %{

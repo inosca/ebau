@@ -7,6 +7,7 @@ defmodule Ebau.MixProject do
       version: "0.1.0",
       elixir: "~> 1.19",
       elixirc_paths: elixirc_paths(Mix.env()),
+      consolidate_protocols: Mix.env() != :test,
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       deps: deps(),
@@ -14,7 +15,22 @@ defmodule Ebau.MixProject do
       listeners: [Phoenix.CodeReloader],
       docs: [
         main: "readme",
-        extras: ["README.md"]
+        extras: [
+          "README.md",
+          "guides/ash-domains.md",
+          "guides/ash-policies.md"
+        ],
+        groups_for_extras: [
+          Guides: ~r/guides\/.*/
+        ],
+        groups_for_modules: [
+          "Instances": [Ebau.Instances, ~r/Ebau\.Instances\..*/],
+          "Master Data": [Ebau.MasterData, ~r/Ebau\.MasterData\..*/],
+          "Permissions": [Ebau.Permissions, ~r/Ebau\.Permissions\..*/],
+          "User & Auth": [Ebau.User, ~r/Ebau\.User\..*/],
+          "Caluma": [Caluma.Form, Caluma.Workflow, ~r/Caluma\..*/],
+          "Web": [~r/EbauWeb\..*/]
+        ]
       ]
     ]
   end

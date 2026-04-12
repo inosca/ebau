@@ -1,4 +1,11 @@
 defmodule Caluma.Form.Answer do
+  @moduledoc """
+  Ash resource for a Caluma form answer (`caluma_form_answer`).
+
+  Partial clone: only the fields needed by the eBau Elixir app are mapped.
+  See https://github.com/projectcaluma/caluma for the full upstream model.
+  """
+
   use Ash.Resource,
     otp_app: :ebau,
     domain: Caluma.Form,

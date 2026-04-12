@@ -1,4 +1,12 @@
 defmodule Caluma.Form.AnswerDocument do
+  @moduledoc """
+  Ash resource for the Caluma answer–document join table (`caluma_form_answerdocument`).
+
+  Links table-question answers to their row documents. Partial clone: only the
+  fields needed by the eBau Elixir app are mapped.
+  See https://github.com/projectcaluma/caluma for the full upstream model.
+  """
+
   use Ash.Resource,
     otp_app: :ebau,
     domain: Caluma.Form,

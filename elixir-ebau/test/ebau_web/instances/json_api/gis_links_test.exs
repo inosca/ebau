@@ -2,8 +2,8 @@ defmodule EbauWeb.Instances.GisLinksTest do
   use EbauWeb.ConnCase, async: true
 
   setup %{conn: conn} do
-    Ebau.User.create_role!(%{slug: "municipality-admin"})
-    Ebau.User.create_role!(%{slug: "municipality"})
+    Ebau.User.create_role!(%{slug: "municipality-admin"}, authorize?: false)
+    Ebau.User.create_role!(%{slug: "municipality"}, authorize?: false)
 
     actor = Ebau.Test.UserHelper.create_actor!(%{role: %{slug: "municipality-admin"}})
 
@@ -93,6 +93,32 @@ defmodule EbauWeb.Instances.GisLinksTest do
           }
         }
       }
+    end
+  end
+
+  describe "destroy_gis_link" do
+    test "deletes a gis link for municipality admins", %{conn: conn, gis_link: gis_link} do
+      conn
+      |> delete(~p"/api/v2/gis-links/#{gis_link.id}")
+      |> response(200)
+
+      %{"data" => data} =
+        conn
+        |> get(~p"/api/v2/gis-links?page[limit]=5")
+        |> json_response(200)
+
+      refute Enum.any?(data, &(&1["id"] == gis_link.id))
+    end
+
+    test "forbids deleting gis links for non-admins", %{conn: conn, gis_link: gis_link} do
+      not_admin_actor = Ebau.Test.UserHelper.create_actor!(%{role: %{slug: "municipality"}})
+
+      conn =
+        conn
+        |> authenticated_rest_api_conn(not_admin_actor)
+        |> delete(~p"/api/v2/gis-links/#{gis_link.id}")
+
+      assert json_response(conn, 403)
     end
   end
 end

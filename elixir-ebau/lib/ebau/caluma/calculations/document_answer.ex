@@ -3,7 +3,7 @@ defmodule Ebau.Caluma.Calculations.DocumentAnswer do
   Calculation that looks up an answer on a document by question ID,
   with per-canton question ID mapping.
 
-  Expects a `question_ids` option — a map from canton atom to Caluma
+  Expects a `question_ids` option, a map from canton atom to Caluma
   question ID string. Must include at least a `:default` key.
 
   ## Example

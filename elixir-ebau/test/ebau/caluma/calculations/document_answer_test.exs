@@ -43,13 +43,13 @@ defmodule Ebau.Caluma.Calculations.DocumentAnswerTest do
     test "produces different expressions for different cantons", %{opts: opts} do
       expr_gr = DocumentAnswer.expression(opts, %{canton: :gr})
       expr_be = DocumentAnswer.expression(opts, %{canton: :be})
-      assert inspect(expr_gr) != inspect(expr_be)
+      assert expr_gr != expr_be
     end
 
     test "produces the same expression for unknown canton and no canton", %{opts: opts} do
       expr_no_canton = DocumentAnswer.expression(opts, %{})
       expr_unknown = DocumentAnswer.expression(opts, %{canton: :be})
-      assert inspect(expr_no_canton) == inspect(expr_unknown)
+      assert expr_no_canton == expr_unknown
     end
   end
 end

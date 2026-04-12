@@ -1,7 +1,29 @@
 defmodule Ebau.User.ServiceGroup do
+  @moduledoc """
+  A grouping of services from the legacy `SERVICE_GROUP` table.
+
+  Service groups categorize services by type (e.g. municipalities,
+  cantonal offices). Identified by a unique slug.
+
+  Read-only reference data. Reads are always allowed; writes are
+  forbidden and only used in tests with `authorize?: false`.
+  """
+
   use Ash.Resource,
     data_layer: AshPostgres.DataLayer,
-    domain: Ebau.User
+    domain: Ebau.User,
+    authorizers: Ash.Policy.Authorizer
+
+  policies do
+    policy action_type(:read) do
+      authorize_if always()
+    end
+
+    policy action_type([:create, :update, :destroy]) do
+      # Write actions are only used in tests with authorize?: false
+      forbid_if always()
+    end
+  end
 
   postgres do
     repo Ebau.Repo

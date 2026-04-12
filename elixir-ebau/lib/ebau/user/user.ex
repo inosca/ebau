@@ -1,12 +1,19 @@
 defmodule Ebau.User.User do
   @moduledoc """
-  User resource.
+  A CAMAC user from the legacy `USER` table.
+
+  Authenticates via OIDC (Keycloak) using `AshAuthentication`. Users
+  are not created through the Elixir app; they are managed by
+  Keycloak and synced into the `USER` table by Django.
+
+  Users belong to groups via `Ebau.User.UserGroup`. The authenticated
+  user becomes `actor.user` in the `Ebau.Actor` struct.
   """
   use Ash.Resource,
     otp_app: :ebau,
     domain: Ebau.User,
     authorizers: [Ash.Policy.Authorizer],
-    extensions: [AshJsonApi.Resource, AshAuthentication],
+    extensions: [AshAuthentication],
     data_layer: AshPostgres.DataLayer
 
   authentication do
@@ -106,10 +113,6 @@ defmodule Ebau.User.User do
       allow_nil?: false,
       constraints: [max_length: 2],
       source: :LANGUAGE
-  end
-
-  json_api do
-    type "user"
   end
 
   identities do
