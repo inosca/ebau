@@ -71,5 +71,5 @@ service-permissions:
 
   gis-links: "GIS Links"
   gis-links-save-success: "Der GIS Link wurde gespeichert."
-  gis-links-save-error: "Der GIS Link  konnte nicht gespeichert werden."
-  gis-links-delete-confirm: "Möchten Sie den GIS Link  wirklich löschen?"
+  gis-links-save-error: "Der GIS Link konnte nicht gespeichert werden."
+  gis-links-delete-confirm: "Möchten Sie den GIS Link wirklich löschen?"

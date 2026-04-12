@@ -45,6 +45,15 @@ service-permissions:
   invitation-renew-success: "L'invito è stato rinnovato con successo."
   invitation-renew-error: "Non è stato possibile rinnovare l'invito."
 
+  gis-link: ""
+  gis-link-name: ""
+  gis-link-placeholder: ""
+
+  gis-links: ""
+  gis-links-save-success: ""
+  gis-links-save-error: ""
+  gis-links-delete-confirm: ""
+
   sub-services: "Servizi di rango inferiore"
   sub-services-add: "Aggiungi servizio di rango inferiore"
   sub-services-add-warning: ""

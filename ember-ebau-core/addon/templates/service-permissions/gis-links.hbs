@@ -1,6 +1,6 @@
 <form class="uk-form-stacked" {{on "submit" (perform this.save)}}>
   <div class="uk-margin">
-    <label class="uk-form-label uk-text-bold" for="placeholder">
+    <label class="uk-form-label uk-text-bold" for="name">
       {{t "service-permissions.gis-link-name"}}
       <span class="mandatory-asterisk">*</span>
     </label>
@@ -15,7 +15,7 @@
     </div>
   </div>
   <div class="uk-margin">
-    <label class="uk-form-label uk-text-bold" for="name">
+    <label class="uk-form-label uk-text-bold" for="placeholder">
       {{t "service-permissions.gis-link-placeholder"}}
       <span class="mandatory-asterisk">*</span>
     </label>
@@ -66,13 +66,6 @@
         <td>{{row.name}}</td>
         <td>{{row.placeholder}}</td>
         <td class="uk-text-right">
-          <button
-            type="button"
-            class="uk-button uk-button-link"
-            {{on "click" (perform this.edit row)}}
-          >
-            <UkIcon @icon="pencil" />
-          </button>
           <button
             type="button"
             class="uk-button uk-button-link"
