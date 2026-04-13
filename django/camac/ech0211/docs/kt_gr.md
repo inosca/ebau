@@ -51,10 +51,9 @@ Verschiedene Aufgaben werden gemäss Spezifikation direkt in eBau erledigt. Unte
 
 - Der Type `localOrganisationId` enthält unter `organisationId` unsere Organisations id. Organisations ids können über den `/api/v1/public-services/` endpoint abgefragt werden.
 
-- Falls bei einer eCH Meldung ein oder mehrere Dokumenten mitgegeben werden müssen, kann man über den Wert `uuid` ein Dokumente hochgeladen oder referenziert werden.
-  - Vorhandenes Dokument referenzieren: Es muss die UUID eines, auf dem Dokument bereits existierenden, Dokument mitgesendet werden. In diesem Fall versucht eBau **nicht** das Dokument herunterzuladen.
+- Falls bei einer eCH Meldung ein oder mehrere Dokumente mitgegeben werden müssen, kann über den Wert `uuid` ein Dokumente hochgeladen oder referenziert werden.
+  - Vorhandenes Dokument referenzieren: Es muss die UUID eines in eBau bereits existierenden Dokument mitgesendet werden. In diesem Fall versucht eBau **nicht** das Dokument herunterzuladen, eine allenfalls mitgesendete URL wird ignoriert.
   - Neues Dokument mitsenden: Falls die UUID nur aus 0 besteht (00000000-0000-0000-0000-000000000000) versucht eBau das Dokument über die mitgesendete URL herunterzuladen und im Dossier abzulegen.
-
 
 - Der von uns empfangene Typ `task`, um Stellungnahmen anzufordern (Spezifikation 3.2) muss zwingend die Organisations id der einzuladenden Stelle im `extension` Typ enthalten:
 
@@ -66,7 +65,7 @@ Verschiedene Aufgaben werden gemäss Spezifikation direkt in eBau erledigt. Unte
 
   Deprecated: Das bisherige Tag `serviceId` wurde mit `organisationId` ersetzt. `serviceId` wird aber weiterhin unterstützt.
 
-- Bei ausgehenden Dokumenten, welche in ausgehenden Meldungen referenziert werden, gilt zu beachten:
+- Bei Dokumenten, welche in ausgehenden Meldungen referenziert werden, gilt zu beachten:
   - `documentKind` enthält den Namen der `Category`
   - `keywords` enthält alle Tags (zB: `vollmacht-dokument`)
   - `uuid` diese UUID kann in anderen eCH Meldungen referenziert werden
