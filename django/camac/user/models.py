@@ -716,6 +716,9 @@ class Service(core_models.MultilingualModel, models.Model):
         verbose_name=_("Services that perform a specific function"),
     )
     meta = models.JSONField(default=dict, blank=True)
+    uses_ech_api = models.PositiveSmallIntegerField(
+        default=0, verbose_name=_("Using the ECH API?")
+    )
 
     @cached_property
     def addressed_work_items(self):

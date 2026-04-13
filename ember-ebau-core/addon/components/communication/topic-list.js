@@ -12,6 +12,7 @@ export default class CommunicationTopicListComponent extends Component {
   @service store;
   @service intl;
   @service ebauModules;
+  @service session;
 
   get showResponsibleServiceUsers() {
     return !this.args.instanceId && !this.ebauModules.isApplicant;

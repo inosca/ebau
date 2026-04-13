@@ -2040,6 +2040,10 @@ msgstr "Désactivé?"
 msgid "Receive notifications?"
 msgstr "Recevoir des notifications?"
 
+#: camac/user/admin/forms.py camac/user/models.py
+msgid "Using the ECH API?"
+msgstr ""
+
 #: camac/user/admin/inlines.py camac/user/models.py
 msgid "Groups"
 msgstr "Groupes"

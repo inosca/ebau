@@ -2071,6 +2071,10 @@ msgstr "Deaktiviert?"
 msgid "Receive notifications?"
 msgstr "Notifikationen empfangen?"
 
+#: camac/user/admin/forms.py camac/user/models.py
+msgid "Using the ECH API?"
+msgstr "Wird die ECH Schnittstelle benutzt?"
+
 #: camac/user/admin/inlines.py camac/user/models.py
 msgid "Groups"
 msgstr "Gruppen"

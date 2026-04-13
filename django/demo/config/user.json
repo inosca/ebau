@@ -427,7 +427,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "uses_ech_api": 0
     }
   },
   {
@@ -452,7 +453,8 @@
       "notification": 1,
       "responsibility_construction_control": false,
       "department": null,
-      "external_identifier": null
+      "external_identifier": null,
+      "uses_ech_api": 0
     }
   },
   {

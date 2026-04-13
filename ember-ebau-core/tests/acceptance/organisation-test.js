@@ -27,6 +27,7 @@ const DATA = {
   serviceParentId: null,
   slug: null,
   logo: null,
+  usesEchApi: false,
 };
 
 DATA.description = DATA.name;
