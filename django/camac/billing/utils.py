@@ -187,30 +187,7 @@ def get_invoice_text_sz(instance: Instance) -> str:
 
     invoice_text = ""
     if construction_leads:
-        for construction_lead in construction_leads.value:
-            cl_company = construction_lead.get("firma", "")
-            cl_name = construction_lead.get("vorname", "")
-            cl_surname = construction_lead.get("name", "")
-            cl_street = construction_lead.get("strasse", "")
-            cl_plz = construction_lead.get("plz", "")
-            cl_location = construction_lead.get("ort", "")
-
-            if len(construction_leads.value) > 1:
-                # If there are multiple people in the construction lead,
-                # to conserve space on the invoice, we just use one line per person.
-                if cl_company:
-                    invoice_text += f"{cl_company}, "
-                if cl_name or cl_surname:
-                    invoice_text += f"{cl_name} {cl_surname}, "
-                invoice_text += f"{cl_street}, {cl_plz} {cl_location}{newline}"
-            else:
-                # If we only have one person, we dont need to save space.
-                if cl_company:
-                    invoice_text += cl_company + newline
-                if cl_name or cl_surname:
-                    invoice_text += f"{cl_name} {cl_surname}{newline}"
-                invoice_text += cl_street + newline
-                invoice_text += f"{cl_plz} {cl_location}{newline}"
+        invoice_text += _get_construction_leads_invoice_text_sz(construction_leads)
         invoice_text += newline
 
     if description:
@@ -219,6 +196,38 @@ def get_invoice_text_sz(instance: Instance) -> str:
     if location and street:
         invoice_text += 2 * newline
         invoice_text += f"{street.value}, {location.value}"
+
+    return invoice_text
+
+
+def _get_construction_leads_invoice_text_sz(construction_leads) -> str:
+    newline: str = settings.BILLING.wilken.newline_character
+
+    invoice_text = ""
+    for construction_lead in construction_leads.value:
+        cl_company = construction_lead.get("firma", "")
+        cl_name = construction_lead.get("vorname", "")
+        cl_surname = construction_lead.get("name", "")
+        cl_street = construction_lead.get("strasse", "")
+        cl_plz = construction_lead.get("plz", "")
+        cl_location = construction_lead.get("ort", "")
+
+        if len(construction_leads.value) > 1:
+            # If there are multiple people in the construction lead,
+            # to conserve space on the invoice, we just use one line per person.
+            if cl_company:
+                invoice_text += f"{cl_company}, "
+            if cl_name or cl_surname:
+                invoice_text += f"{cl_name} {cl_surname}, "
+            invoice_text += f"{cl_street}, {cl_plz} {cl_location}{newline}"
+        else:
+            # If we only have one person, we dont need to save space.
+            if cl_company:
+                invoice_text += cl_company + newline
+            if cl_name or cl_surname:
+                invoice_text += f"{cl_name} {cl_surname}{newline}"
+            invoice_text += cl_street + newline
+            invoice_text += f"{cl_plz} {cl_location}{newline}"
 
     return invoice_text
 
