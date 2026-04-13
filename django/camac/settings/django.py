@@ -835,6 +835,15 @@ APPLICATIONS = {
         "RPG2_DEMOLITION_PREMIUM_PAYMENT_SERVICE": "zentrale-dienste-are",
         "RPG2_DEMOLITION_PREMIUM_PAYMENT_TASK": "pay-demolition-premium",
         "RPG2_DEMOLITION_PREMIUM_PAYMENT_NOTIFICATION_TEMPLATE": "pay-demolition-premium",
+        "ARE_SERVICES": [
+            "baugesuchszentrale",
+            "are-ortsplanung",
+            "are-kantonale-planung",
+            "are-abteilungsleiter",
+            "rechtsdienst-are",
+            "esp-koordination",
+            "zentrale-dienste-are",
+        ],
     },
     "kt_bern": {
         "SHORT_NAME": "be",
