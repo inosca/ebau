@@ -822,13 +822,17 @@ class CustomDynamicTasks(BaseDynamicTasks):
 
     @register_dynamic_task("maybe-publication")
     def resolve_maybe_publication(self, case, user, prev_work_item, context):
-        tasks = ["create-publication", "create-information-of-neighbors"]
+        tasks = []
         md = MasterData(case)
 
         if md.publication_required:
-            tasks.append("publication")
+            tasks.extend(["fill-publication", "publication"])
+        else:
+            tasks.append("create-publication")
 
         if md.information_of_neighbors_required:
-            tasks.append("information-of-neighbors")
+            tasks.extend(["fill-information-of-neighbors", "information-of-neighbors"])
+        else:
+            tasks.append("create-information-of-neighbors")
 
         return tasks

@@ -112,7 +112,10 @@ MODULE_FORMAL_EXAM = (
 MODULE_HISTORY = STATES_ALL & ~IsServiceGroup(["municipality-light"])
 MODULE_INFORMATION_OF_NEIGHBORS = (
     NO_CORRECTION
-    & RequireWorkItem("create-information-of-neighbors")
+    & (
+        RequireWorkItem("create-information-of-neighbors")
+        | RequireWorkItem("fill-information-of-neighbors")
+    )
     & ~IsServiceGroup(["municipality-light"])
 )
 MODULE_JOURNAL_READ = STATES_ALL & ~IsServiceGroup(["municipality-light"])
@@ -126,7 +129,7 @@ MODULE_PERMISSIONS = (
 )
 MODULE_PUBLICATION = (
     NO_CORRECTION
-    & RequireWorkItem("create-publication")
+    & (RequireWorkItem("create-publication") | RequireWorkItem("fill-publication"))
     & ~IsServiceGroup(["municipality-light"])
 )
 MODULE_REJECTION = RequireInstanceState(["subm", "rejected"]) & ~IsServiceGroup(

@@ -1479,13 +1479,13 @@ def test_after_check_gwr_relevancy(
         (
             True,
             False,
-            ["create-publication", "publication", "create-information-of-neighbors"],
+            ["fill-publication", "publication", "create-information-of-neighbors"],
         ),
         (
             False,
             True,
             [
-                "create-information-of-neighbors",
+                "fill-information-of-neighbors",
                 "information-of-neighbors",
                 "create-publication",
             ],
@@ -1496,8 +1496,8 @@ def test_after_check_gwr_relevancy(
             [
                 "publication",
                 "information-of-neighbors",
-                "create-publication",
-                "create-information-of-neighbors",
+                "fill-publication",
+                "fill-information-of-neighbors",
             ],
         ),
     ],
