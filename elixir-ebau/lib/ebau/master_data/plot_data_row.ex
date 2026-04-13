@@ -16,6 +16,12 @@ defmodule Ebau.MasterData.PlotDataRow do
     data_layer: AshPostgres.DataLayer,
     extensions: [Caluma.Form.Extensions.Document, Ebau.Caluma.Extensions.DocumentBacked]
 
+  postgres do
+    table "caluma_form_document"
+    repo Ebau.Repo
+    migrate? false
+  end
+
   caluma_document do
     field :plot_number, :string, question_ids: %{default: "parzellennummer"}
     field :egrid_number, :string, question_ids: %{default: "e-grid"}

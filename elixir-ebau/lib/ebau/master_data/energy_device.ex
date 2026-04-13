@@ -14,6 +14,12 @@ defmodule Ebau.MasterData.EnergyDevice do
     data_layer: AshPostgres.DataLayer,
     extensions: [Caluma.Form.Extensions.Document, Ebau.Caluma.Extensions.DocumentBacked]
 
+  postgres do
+    table "caluma_form_document"
+    repo Ebau.Repo
+    migrate? false
+  end
+
   caluma_document do
     field :type, :string, question_ids: %{default: "anlagetyp"}
 

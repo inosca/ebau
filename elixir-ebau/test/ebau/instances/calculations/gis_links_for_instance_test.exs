@@ -3,11 +3,61 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstanceTest do
 
   setup do
     Ebau.User.create_role!(%{slug: "municipality-admin"}, authorize?: false)
-    Caluma.Workflow.create_workflow!(%{slug: "building-permit", name: %{"de" => "workflow"}})
+
+    Caluma.Workflow.create_workflow!(%{slug: "building-permit", name: %{"de" => "workflow"}},
+      authorize?: false
+    )
+
     actor = Ebau.Test.UserHelper.create_actor!(%{role: %{slug: "municipality-admin"}})
-    case = Caluma.Workflow.create_case!(%{workflow: %{slug: "building-permit"}})
-    instance = Ebau.Instances.create_instance!(%{case: %{id: case.id}}, authorize?: false)
-    doc = Ebau.Test.GisLinkHelper.create_caluma_form_and_document(case)
+
+    caluma_case =
+      Caluma.Workflow.create_case!(%{workflow: %{slug: "building-permit"}}, authorize?: false)
+
+    instance = Ebau.Instances.create_instance!(%{case: %{id: caluma_case.id}}, authorize?: false)
+
+    Caluma.Form.create_form_tree!(
+      %{
+        slug: "baugesuch",
+        name: "Baugesuch",
+        questions: [
+          %{
+            slug: "parzellen",
+            label: "Grundstücke",
+            type: :table,
+            form: %{
+              slug: "parzelle-tabelle",
+              name: "Grundstück Tabelle"
+            },
+            questions: [
+              %{
+                slug: "lagekoordinaten-nord",
+                label: "Lagekoordinaten - Nord",
+                type: :float
+              },
+              %{
+                slug: "lagekoordinaten-ost",
+                label: "Lagekoordinaten - Ost",
+                type: :float
+              }
+            ]
+          }
+        ]
+      },
+      authorize?: false
+    )
+
+    doc =
+      Caluma.Form.create_document!(%{form: %{slug: "baugesuch"}, case: %{id: caluma_case.id}},
+        authorize?: false
+      )
+
+    Caluma.Form.create_row_document!(
+      doc,
+      %{slug: "parzellen"},
+      [
+        %{question_id: "lagekoordinaten-nord", value: 123},
+        %{question_id: "lagekoordinaten-ost", value: 456}
+      ], authorize?: false)
 
     gis_link =
       Ebau.Instances.create_gis_link!(
@@ -45,10 +95,13 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstanceTest do
     gis_link: gis_link,
     doc: doc
   } do
-    Caluma.Form.create_row_document!(doc, %{slug: "parzellen"}, [
-      %{question_id: "lagekoordinaten-nord", value: 999},
-      %{question_id: "lagekoordinaten-ost", value: 888}
-    ])
+    Caluma.Form.create_row_document!(
+      doc,
+      %{slug: "parzellen"},
+      [
+        %{question_id: "lagekoordinaten-nord", value: 999},
+        %{question_id: "lagekoordinaten-ost", value: 888}
+      ], authorize?: false)
 
     Ebau.Permissions.grant_acl_for_instance!(
       %{instance: %{id: instance.id}, user: %{id: actor.user.id}},
@@ -65,7 +118,8 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstanceTest do
     actor: actor,
     gis_link: gis_link
   } do
-    empty_case = Caluma.Workflow.create_case!(%{workflow: %{slug: "building-permit"}})
+    empty_case =
+      Caluma.Workflow.create_case!(%{workflow: %{slug: "building-permit"}}, authorize?: false)
 
     empty_instance =
       Ebau.Instances.create_instance!(%{case: %{id: empty_case.id}}, authorize?: false)

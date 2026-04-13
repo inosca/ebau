@@ -16,6 +16,12 @@ defmodule Ebau.MasterData.Applicant do
     data_layer: AshPostgres.DataLayer,
     extensions: [Caluma.Form.Extensions.Document, Ebau.Caluma.Extensions.DocumentBacked]
 
+  postgres do
+    table "caluma_form_document"
+    repo Ebau.Repo
+    migrate? false
+  end
+
   caluma_document do
     field :title, :string, question_ids: %{default: "titel"}
     field :last_name, :string, question_ids: %{default: "nachname"}

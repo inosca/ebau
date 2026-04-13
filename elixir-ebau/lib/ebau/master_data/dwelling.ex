@@ -15,6 +15,12 @@ defmodule Ebau.MasterData.Dwelling do
     data_layer: AshPostgres.DataLayer,
     extensions: [Caluma.Form.Extensions.Document, Ebau.Caluma.Extensions.DocumentBacked]
 
+  postgres do
+    table "caluma_form_document"
+    repo Ebau.Repo
+    migrate? false
+  end
+
   caluma_document do
     field :floor_number, :string, question_ids: %{default: "stockwerknummer"}
     field :location_on_floor, :string, question_ids: %{default: "lage"}

@@ -39,6 +39,12 @@ defmodule Ebau.Caluma.Calculations.DocumentAnswer do
   def expression(opts, context) do
     question_ids = Ebau.Caluma.Helpers.get_question_slugs(opts, context)
 
-    expr(first(answers, field: :value, filter: expr(question_id in ^question_ids)))
+    case question_ids do
+      [single_id] ->
+        expr(first(answers, field: :value, filter: expr(question_id == ^single_id)))
+
+      ids ->
+        expr(first(answers, field: :value, filter: expr(question_id in ^ids)))
+    end
   end
 end

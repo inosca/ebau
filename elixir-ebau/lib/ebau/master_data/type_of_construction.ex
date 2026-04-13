@@ -16,6 +16,12 @@ defmodule Ebau.MasterData.TypeOfConstruction do
     data_layer: AshPostgres.DataLayer,
     extensions: [Caluma.Form.Extensions.Document, Ebau.Caluma.Extensions.DocumentBacked]
 
+  postgres do
+    table "caluma_form_document"
+    repo Ebau.Repo
+    migrate? false
+  end
+
   caluma_document do
     field :art_der_hochbaute, :string, question_ids: %{default: "typ-des-bauwerks"}
 

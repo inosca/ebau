@@ -16,9 +16,18 @@ defmodule Ebau.MasterData.Calculations.MappedDocumentAnswer do
     mapping = Ebau.Caluma.Helpers.get_answer_mapping(opts[:mapping], context)
 
     answer_expr =
-      expr(
-        first(case.document.answers, field: :value, filter: expr(question_id in ^question_ids))
-      )
+      case question_ids do
+        [single_id] ->
+          expr(
+            first(case.document.answers,
+              field: :value,
+              filter: expr(question_id == ^single_id)
+            )
+          )
+
+        ids ->
+          expr(first(case.document.answers, field: :value, filter: expr(question_id in ^ids)))
+      end
 
     Enum.reduce(mapping, expr(nil), fn {answer_value, mapped_value}, acc ->
       expr(

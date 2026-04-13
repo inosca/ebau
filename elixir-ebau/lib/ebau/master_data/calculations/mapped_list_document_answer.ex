@@ -53,7 +53,15 @@ defmodule Ebau.MasterData.Calculations.MappedListDocumentAnswer do
   end
 
   defp answer_expr(question_ids) do
-    expr(first(case.document.answers, field: :value, filter: expr(question_id in ^question_ids)))
+    case question_ids do
+      [single_id] ->
+        expr(
+          first(case.document.answers, field: :value, filter: expr(question_id == ^single_id))
+        )
+
+      ids ->
+        expr(first(case.document.answers, field: :value, filter: expr(question_id in ^ids)))
+    end
   end
 
   defp array_item_type({:array, type}), do: type

@@ -1,7 +1,6 @@
 defmodule Ebau.MasterData.Calculations.MappedListDocumentAnswerTest do
   use Ebau.DataCase, async: true
 
-  require Ash.Expr
   require Ash.Query
 
   defmodule TestInstance do
@@ -55,10 +54,13 @@ defmodule Ebau.MasterData.Calculations.MappedListDocumentAnswerTest do
   end
 
   setup do
-    Caluma.Workflow.create_workflow!(%{
-      slug: "building-permit",
-      name: %{"de" => "Building permit"}
-    })
+    Caluma.Workflow.create_workflow!(
+      %{
+        slug: "building-permit",
+        name: %{"de" => "Building permit"}
+      },
+      authorize?: false
+    )
 
     Caluma.Form.create_form_tree!(
       %{
@@ -116,7 +118,7 @@ defmodule Ebau.MasterData.Calculations.MappedListDocumentAnswerTest do
       TestDomain.read_instances!(
         query:
           TestInstance
-          |> Ash.Query.filter(Ash.Expr.expr(category_code == 10))
+          |> Ash.Query.filter(category_code == 10)
       )
       |> Enum.map(& &1.id)
 
@@ -134,7 +136,7 @@ defmodule Ebau.MasterData.Calculations.MappedListDocumentAnswerTest do
       TestDomain.read_instances!(
         query:
           TestInstance
-          |> Ash.Query.filter(Ash.Expr.expr(is_paper? == ^[true, false]))
+          |> Ash.Query.filter(is_paper? == ^[true, false])
       )
       |> Enum.map(& &1.id)
 
@@ -149,7 +151,7 @@ defmodule Ebau.MasterData.Calculations.MappedListDocumentAnswerTest do
         query:
           TestInstance
           |> Ash.Query.set_context(%{canton: :so})
-          |> Ash.Query.filter(Ash.Expr.expr(id == ^so_matching.id))
+          |> Ash.Query.filter(id == ^so_matching.id)
           |> Ash.Query.load([:is_paper?])
       )
 
@@ -160,7 +162,7 @@ defmodule Ebau.MasterData.Calculations.MappedListDocumentAnswerTest do
         query:
           TestInstance
           |> Ash.Query.set_context(%{canton: :so})
-          |> Ash.Query.filter(Ash.Expr.expr(is_paper? == ^[true, false]))
+          |> Ash.Query.filter(is_paper? == ^[true, false])
       )
       |> Enum.map(& &1.id)
 
@@ -168,18 +170,25 @@ defmodule Ebau.MasterData.Calculations.MappedListDocumentAnswerTest do
   end
 
   defp create_instance_with_answers(answers) do
-    case_record = Caluma.Workflow.create_case!(%{workflow: %{slug: "building-permit"}})
+    case_record =
+      Caluma.Workflow.create_case!(%{workflow: %{slug: "building-permit"}}, authorize?: false)
+
     instance = Ebau.Instances.create_instance!(%{case: %{id: case_record.id}}, authorize?: false)
 
     document =
-      Caluma.Form.create_document!(%{form: %{slug: "baugesuch"}, case: %{id: case_record.id}})
+      Caluma.Form.create_document!(%{form: %{slug: "baugesuch"}, case: %{id: case_record.id}},
+        authorize?: false
+      )
 
     Enum.each(answers, fn {question_id, value} ->
-      Caluma.Form.create_answer!(%{
-        document_id: document.id,
-        question_id: question_id,
-        value: value
-      })
+      Caluma.Form.create_answer!(
+        %{
+          document_id: document.id,
+          question_id: question_id,
+          value: value
+        },
+        authorize?: false
+      )
     end)
 
     %{instance: instance, case: case_record, document: document}

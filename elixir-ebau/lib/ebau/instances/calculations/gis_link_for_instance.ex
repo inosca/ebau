@@ -11,11 +11,12 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstance do
 
   @impl true
   def calculate(records, _opts, context) do
+    action_opts = Ash.Context.to_opts(context)
+
     instance =
       Ebau.Instances.get_instance_by_id!(
         context.arguments.instance_id,
-        load: [plot_data: [:coord_north, :coord_east]],
-        actor: context.actor
+        Keyword.put(action_opts, :load, plot_data: [:coord_north, :coord_east])
       )
 
     {x, y} = coordinates(List.first(instance.plot_data))
