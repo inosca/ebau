@@ -145,7 +145,7 @@ def statistics_ag_instance(
         start_date=datetime.date(2025, 1, 1),
         target_deadline_date=datetime.date(2025, 1, 31),
         process_deadline_date=datetime.date(2025, 1, 20),  # completed before target
-        process_deadline_days=15,
+        process_deadline_days=16,
     )
 
     return instance

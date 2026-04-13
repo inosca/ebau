@@ -696,26 +696,26 @@ def test_update_deadline_progression_service_gr(
     [
         # no start date, no processed days
         (None, False, [], None, 0),
-        # all days, 2 processed days
-        ("2025-05-27", False, [], 2, 0),
-        # all days, 6 processed days
-        ("2025-05-23", False, [], 6, 0),
-        # only workdays, 4 processed days
-        ("2025-05-23", True, [], 4, 0),
-        # all days, exluding suspended days, 4 processed days
+        # all days, 3 processed days
+        ("2025-05-27", False, [], 3, 0),
+        # all days, 7 processed days
+        ("2025-05-23", False, [], 7, 0),
+        # only workdays, 5 processed days
+        ("2025-05-23", True, [], 5, 0),
+        # all days, exluding suspended days, 5 processed days
         (
             "2025-05-23",
             False,
             [{"start_date": "2025-05-25", "end_date": "2025-05-27"}],
-            4,
+            5,
             2,  # one weekend and one working day
         ),
-        # only workdays and excluding suspended days, 3 processed days
+        # only workdays and excluding suspended days, 4 processed days
         (
             "2025-05-23",
             True,
             [{"start_date": "2025-05-25", "end_date": "2025-05-27"}],
-            3,
+            4,
             1,  # one working day, weekend excluded
         ),
         # open suspension any day
@@ -723,7 +723,7 @@ def test_update_deadline_progression_service_gr(
             "2025-05-23",
             False,
             [{"start_date": "2025-05-25", "end_date": None}],
-            2,  # 2025-05-23 and 2025-05-24
+            3,  # 2025-05-23 and 2025-05-24 +1 to include the same day
             4,  # 4 days of suspension 2025-05-25 to 2025-05-28
         ),
         # open suspension only workdays
@@ -731,7 +731,7 @@ def test_update_deadline_progression_service_gr(
             "2025-05-23",
             True,
             [{"start_date": "2025-05-25", "end_date": None}],
-            1,  # only working day 2025-05-23
+            2,  # only working day 2025-05-23 +1 to include the same day
             3,  # only 3 days of suspension excluding weekends/holidays
         ),
     ],

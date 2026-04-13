@@ -28,7 +28,7 @@
     datetime.datetime(2025, 2, 5, 0, 0),
     'Admin User',
     'Aarburg',
-    15,
+    16,
   ])
 # ---
 # name: test_statistics_export_ag[Municipality-statistics_ag_instance_by_role-200-2]
@@ -39,7 +39,7 @@
     datetime.datetime(2025, 2, 5, 0, 0),
     'Admin User',
     'Aarburg',
-    15,
+    16,
   ])
 # ---
 # name: test_statistics_export_ag[Service-statistics_ag_instance_afb-200-2]
