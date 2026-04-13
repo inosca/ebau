@@ -97,4 +97,14 @@ export default class PermissionsService extends Service {
   async populateCacheFor(instanceId) {
     await this.#triggerCache(instanceId, true);
   }
+
+  /**
+   * Clears the permissions cache for a given instance.
+   *
+   * @param {Number} instanceId - The ID of the instance to clear the cache for
+   */
+  clearCacheFor(instanceId) {
+    this.#cache.delete(parseInt(instanceId));
+    this.store.peekRecord("instance-permission", instanceId)?.unloadRecord();
+  }
 }
