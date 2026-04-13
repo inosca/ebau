@@ -1,0 +1,31 @@
+.ember-power-select-trigger.uk-select {
+  &.uk-form-danger {
+    color: $form-danger-color;
+    border-color: $form-danger-color;
+  }
+
+  &.uk-form-success {
+    color: $form-success-color;
+    border-color: $form-success-color;
+  }
+}
+
+.ember-flatpickr-input.uk-input {
+  &.uk-form-danger + .uk-input {
+    color: $form-danger-color;
+    border-color: $form-danger-color;
+  }
+
+  &.uk-form-success + .uk-input {
+    color: $form-success-color;
+    border-color: $form-success-color;
+  }
+}
+
+.uk-form-label:has(input[type="checkbox"]) {
+  font-weight: $base-body-font-weight;
+
+  + br {
+    display: none;
+  }
+}

@@ -134,20 +134,20 @@
             {{t "workItems.notifications"}}
           </label>
           <div class="uk-form-controls">
-            <label class="checkbox-label">
+            <label class="uk-form-label">
               <Input
                 @type="checkbox"
                 @checked={{this.workItem.meta.notify-completed}}
-                class="uk-checkbox"
+                class="uk-checkbox uk-margin-small-right"
               />
               {{t "workItems.notifyCompleted"}}
             </label>
             <br />
-            <label class="checkbox-label">
+            <label class="uk-form-label">
               <Input
                 @type="checkbox"
                 @checked={{this.workItem.meta.notify-deadline}}
-                class="uk-checkbox"
+                class="uk-checkbox uk-margin-small-right"
               />
               {{t "workItems.notifyDeadline"}}
             </label>
