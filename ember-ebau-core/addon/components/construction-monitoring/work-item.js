@@ -18,8 +18,11 @@ export default class ConstructionMonitoringWorkItemComponent extends Component {
   get showActionable() {
     if (!("is-actionable-for-control" in this.args.workItem.meta)) return false;
 
-    return this.args.workItem.controllingGroups.includes(
-      String(this.ebauModules.serviceId),
+    return (
+      this.args.workItem.addressedGroups.length > 1 &&
+      this.args.workItem.controllingGroups.includes(
+        String(this.ebauModules.serviceId),
+      )
     );
   }
 
