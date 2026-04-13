@@ -1575,3 +1575,81 @@ def test_dynamic_task_after_submit_ag(
     )
 
     assert tasks == expected_tasks
+
+
+def test_dynamic_task_after_construction_step_item(
+    db,
+    caluma_task_factory,
+    caluma_work_item_factory,
+    construction_monitoring_settings,
+    form_utils: FormUtils,
+):
+    """Test the flow of construction step items based on approval.
+
+    Should forward one step if no approval is needed, or if the approval is given.
+    Otherwise, should return to the previous step.
+    """
+
+    def setup_step(index, needs_approval):
+        meta = {
+            "construction-step": {
+                "next": [],
+                "index": index - 1,
+                "total": 3,
+            },
+            "construction-step-id": "construction-step-test",
+        }
+
+        if needs_approval:
+            meta["construction-step"]["needs-approval"] = (
+                "construction-step-test-is-approved"
+            )
+
+        task = caluma_task_factory(slug=f"task{index}", meta=meta)
+        work_item = caluma_work_item_factory(task=task, meta=meta)
+
+        return work_item, task
+
+    work_item1, task_step_1 = setup_step(1, needs_approval=False)
+    work_item2, task_step_2 = setup_step(2, needs_approval=True)
+    work_item3, task_step_3 = setup_step(3, needs_approval=False)
+
+    # step 1 needs no approval, so should continue to step 2.
+    assert CustomDynamicTasks().resolve_after_construction_step_item(
+        None,
+        None,
+        work_item1,
+        None,
+    ) == [task_step_2.pk]
+
+    # step 2 needs approval and is not approved, so should go back to step 1.
+    assert CustomDynamicTasks().resolve_after_construction_step_item(
+        None,
+        None,
+        work_item2,
+        None,
+    ) == [task_step_1.pk]
+
+    # after approving step 2, it should continue to step 3.
+    form_utils.add_answer(
+        work_item2.document,
+        "construction-step-test-is-approved",
+        "construction-step-test-is-approved-yes",
+    )
+    assert CustomDynamicTasks().resolve_after_construction_step_item(
+        None,
+        None,
+        work_item2,
+        None,
+    ) == [task_step_3.pk]
+
+    # step 3 is the last step, so should not return any next tasks.
+    assert (
+        CustomDynamicTasks().resolve_after_construction_step_item(
+            None,
+            None,
+            work_item3,
+            None,
+        )
+        == []
+    )
