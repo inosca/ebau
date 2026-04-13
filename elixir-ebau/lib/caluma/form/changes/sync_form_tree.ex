@@ -17,8 +17,10 @@ defmodule Caluma.Form.Changes.SyncFormTree do
       Changeset.get_argument(changeset, :questions) ||
         Map.get(Changeset.get_argument(changeset, :form_spec) || %{}, :questions, [])
 
+    action_opts = Ash.Context.to_opts(context)
+
     Changeset.after_action(changeset, fn _changeset, form ->
-      create_questions!(form.slug, questions, actor: context.actor)
+      create_questions!(form.slug, questions, action_opts)
 
       {:ok, form}
     end)

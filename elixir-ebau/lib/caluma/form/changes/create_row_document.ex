@@ -12,13 +12,15 @@ defmodule Caluma.Form.Changes.CreateRowDocument do
   def change(changeset, _opts, context) do
     %{slug: slug} = Ash.Changeset.get_argument(changeset, :question)
     %{id: parent_id} = Ash.Changeset.get_argument(changeset, :document)
+    action_opts = Ash.Context.to_opts(context)
 
-    question = Caluma.Form.get_question_by_slug!(slug, actor: context.actor)
+    question = Caluma.Form.get_question_by_slug!(slug, action_opts)
 
     next_sort =
-      case Caluma.Form.get_answer_by_document_and_question(parent_id, slug,
-             load: [:max_sort, question: [:row_form_id, :slug]],
-             actor: context.actor
+      case Caluma.Form.get_answer_by_document_and_question(
+             parent_id,
+             slug,
+             Keyword.put(action_opts, :load, [:max_sort, question: [:row_form_id, :slug]])
            ) do
         {:ok, answer} ->
           answer.max_sort + 1
