@@ -243,6 +243,7 @@ def test_get_invoice_text_sz(
     instance: Instance = instance_factory(location=location_factory(name="Schwyz"))
 
     lead = {
+        "firma": "Some Ltd.",
         "vorname": "Walter",
         "name": "Weiss",
         "strasse": "Negra Arroyo Lane 308",
@@ -261,6 +262,7 @@ def test_get_invoice_text_sz(
 
     invoice_text: str = get_invoice_text_sz(instance)
     assert invoice_text == (
+        "Some Ltd.~~"
         "Walter Weiss~~"
         "Negra Arroyo Lane 308~~"
         "1093 Albuquerque~~~~"
@@ -274,8 +276,8 @@ def test_get_invoice_text_sz(
     instance.refresh_from_db()
     invoice_text: str = get_invoice_text_sz(instance)
     assert invoice_text == (
-        "Walter Weiss Negra Arroyo Lane 308 1093 Albuquerque~~"
-        "Walter Weiss Negra Arroyo Lane 308 1093 Albuquerque~~~~"
+        "Some Ltd., Walter Weiss, Negra Arroyo Lane 308, 1093 Albuquerque~~"
+        "Some Ltd., Walter Weiss, Negra Arroyo Lane 308, 1093 Albuquerque~~~~"
         "Labor~~~~"
         "Thunstrasse, Bern"
     )
