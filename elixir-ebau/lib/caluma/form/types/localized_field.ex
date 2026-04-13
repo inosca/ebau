@@ -3,7 +3,7 @@ defmodule Caluma.Form.Types.LocalizedField do
   Ash type for localized Caluma fields stored as maps.
 
   Accepts either a localization map directly or a plain string, which is
-  normalized to `%{"de" => value}`.
+  normalized to `%{"de" => value}` (default locale for this Swiss project).
   """
 
   use Ash.Type

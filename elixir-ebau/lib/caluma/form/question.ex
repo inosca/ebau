@@ -9,7 +9,7 @@ defmodule Caluma.Form.Question do
   use Ash.Resource,
     domain: Caluma.Form,
     data_layer: AshPostgres.DataLayer,
-    authorizers: [Ash.Policy.Authorizer]
+    authorizers: Ash.Policy.Authorizer
 
   alias Caluma.Form.Form
   alias Caluma.Form.Validations.ExistingQuestionMatchesSpec
@@ -58,8 +58,18 @@ defmodule Caluma.Form.Question do
         where attribute_equals(:type, :table)
       end
 
+      validate absent(:row_form) do
+        where [negate(attribute_equals(:type, :table))]
+        message "row_form can only be set on :table questions"
+      end
+
       validate present(:sub_form) do
         where attribute_equals(:type, :form)
+      end
+
+      validate absent(:sub_form) do
+        where [negate(attribute_equals(:type, :form))]
+        message "sub_form can only be set on :form questions"
       end
 
       change manage_relationship(:row_form, type: :append)

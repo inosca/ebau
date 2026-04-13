@@ -35,7 +35,7 @@ defmodule Ebau.MasterData do
   relationships (for table questions) and calculations (for scalar answers)
   at compile time.
 
-  Each master data resource uses `Ebau.Caluma.Extensions.DocumentBacked` to
+  Each master data resource uses `Caluma.Form.Extensions.Document` to
   declare its fields. This maps Caluma question slugs to Ash calculations.
 
   See the [Ash Domains guide](ash-domains.html) for general domain usage.

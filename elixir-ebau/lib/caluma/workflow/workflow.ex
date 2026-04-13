@@ -9,7 +9,7 @@ defmodule Caluma.Workflow.Workflow do
   use Ash.Resource,
     domain: Caluma.Workflow,
     data_layer: AshPostgres.DataLayer,
-    authorizers: [Ash.Policy.Authorizer]
+    authorizers: Ash.Policy.Authorizer
 
   postgres do
     table "caluma_workflow_workflow"

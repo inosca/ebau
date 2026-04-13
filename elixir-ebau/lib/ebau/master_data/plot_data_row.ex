@@ -14,7 +14,7 @@ defmodule Ebau.MasterData.PlotDataRow do
     otp_app: :ebau,
     domain: Ebau.MasterData,
     data_layer: AshPostgres.DataLayer,
-    extensions: [Caluma.Form.Extensions.Document, Ebau.Caluma.Extensions.DocumentBacked]
+    extensions: [Caluma.Form.Extensions.Document]
 
   postgres do
     table "caluma_form_document"
@@ -23,15 +23,19 @@ defmodule Ebau.MasterData.PlotDataRow do
   end
 
   caluma_document do
-    field :plot_number, :string, question_ids: %{default: "parzellennummer"}
-    field :egrid_number, :string, question_ids: %{default: "e-grid"}
+    answer :plot_number, :string,
+      question_id: {Ebau.Caluma.CantonResolver, %{default: "parzellennummer"}}
 
-    field :coord_east, :string,
-      question_ids: %{default: "lagekoordinaten-ost", gr: "coordinates-east"}
+    answer :egrid_number, :string, question_id: {Ebau.Caluma.CantonResolver, %{default: "e-grid"}}
 
-    field :coord_north, :string,
-      question_ids: %{default: "lagekoordinaten-nord", gr: "coordinates-north"}
+    answer :coord_east, :string,
+      question_id:
+        {Ebau.Caluma.CantonResolver, %{default: "lagekoordinaten-ost", gr: "coordinates-east"}}
 
-    field :zip, :string, question_ids: %{default: "plz"}
+    answer :coord_north, :string,
+      question_id:
+        {Ebau.Caluma.CantonResolver, %{default: "lagekoordinaten-nord", gr: "coordinates-north"}}
+
+    answer :zip, :string, question_id: {Ebau.Caluma.CantonResolver, %{default: "plz"}}
   end
 end

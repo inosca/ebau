@@ -21,11 +21,7 @@ defmodule Ebau.User.Group do
   end
 
   policies do
-    policy action(:read) do
-      authorize_if relates_to_actor_via(:users, field: :user)
-    end
-
-    policy action(:get_group_for_actor) do
+    policy action_type(:read) do
       authorize_if relates_to_actor_via(:users, field: :user)
     end
 

@@ -10,7 +10,7 @@ defmodule Caluma.Form.Answer do
     otp_app: :ebau,
     domain: Caluma.Form,
     data_layer: AshPostgres.DataLayer,
-    authorizers: [Ash.Policy.Authorizer]
+    authorizers: Ash.Policy.Authorizer
 
   postgres do
     repo Ebau.Repo
@@ -38,6 +38,17 @@ defmodule Caluma.Form.Answer do
     attribute :value, Caluma.Form.Types.AnswerValue do
       public? true
     end
+  end
+
+  calculations do
+    # The `value` column is jsonb. Casting jsonb directly to text yields the
+    # JSON-encoded form (a string `"foo"` becomes the literal `"foo"` with
+    # quotes). Use the `#>> '{}'` operator to extract the root jsonb scalar
+    # as plain text. Typed variants then cast to the desired primitive.
+    calculate :value_string, :string, expr(fragment("(? #>> '{}')", value))
+    calculate :value_integer, :integer, expr(fragment("(? #>> '{}')::integer", value))
+    calculate :value_float, :float, expr(fragment("(? #>> '{}')::double precision", value))
+    calculate :value_boolean, :boolean, expr(fragment("(? #>> '{}')::boolean", value))
   end
 
   aggregates do

@@ -1,32 +1,30 @@
-defmodule Ebau.Caluma.Calculations.CaseMetaTest do
+defmodule Caluma.Workflow.Calculations.CaseMetaTest do
   use ExUnit.Case, async: true
 
-  alias Ebau.Caluma.Calculations.CaseMeta
+  alias Caluma.Workflow.Calculations.CaseMeta
 
   describe "init/1" do
-    test "accepts valid keys with a :default entry" do
-      assert {:ok, _} = CaseMeta.init(keys: %{default: "dossier-number"})
+    test "accepts a plain string key" do
+      assert {:ok, _} = CaseMeta.init(key: "dossier-number")
     end
 
-    test "accepts keys with canton-specific and default entries" do
-      assert {:ok, _} = CaseMeta.init(keys: %{default: "dossier-number", gr: "gr-dossier"})
+    test "accepts a {module, opts} resolver tuple" do
+      assert {:ok, _} =
+               CaseMeta.init(key: {Ebau.Caluma.CantonResolver, %{default: "dossier-number"}})
     end
 
     test "preserves opts through init" do
-      {:ok, opts} = CaseMeta.init(keys: %{default: "dossier-number", gr: "gr-dossier"})
-      assert opts[:keys] == %{default: "dossier-number", gr: "gr-dossier"}
+      resolver = {Ebau.Caluma.CantonResolver, %{default: "dossier-number", gr: "gr-dossier"}}
+      {:ok, opts} = CaseMeta.init(key: resolver)
+      assert opts[:key] == resolver
     end
 
-    test "rejects non-map keys" do
-      assert {:error, _} = CaseMeta.init(keys: "not-a-map")
+    test "rejects nil key" do
+      assert {:error, _} = CaseMeta.init(key: nil)
     end
 
-    test "rejects nil keys" do
-      assert {:error, _} = CaseMeta.init(keys: nil)
-    end
-
-    test "rejects keys without a :default entry" do
-      assert {:error, _} = CaseMeta.init(keys: %{gr: "gr-key"})
+    test "rejects integer key" do
+      assert {:error, _} = CaseMeta.init(key: 42)
     end
   end
 end

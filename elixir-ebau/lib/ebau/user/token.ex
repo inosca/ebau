@@ -3,7 +3,7 @@ defmodule Ebau.User.Token do
   use Ash.Resource,
     otp_app: :ebau,
     domain: Ebau.User,
-    authorizers: [Ash.Policy.Authorizer],
+    authorizers: Ash.Policy.Authorizer,
     extensions: [AshAuthentication.TokenResource],
     data_layer: AshPostgres.DataLayer
 

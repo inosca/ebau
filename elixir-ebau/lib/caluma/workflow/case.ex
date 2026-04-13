@@ -10,7 +10,7 @@ defmodule Caluma.Workflow.Case do
     otp_app: :ebau,
     domain: Caluma.Workflow,
     data_layer: AshPostgres.DataLayer,
-    authorizers: [Ash.Policy.Authorizer]
+    authorizers: Ash.Policy.Authorizer
 
   postgres do
     table "caluma_workflow_case"
@@ -53,7 +53,7 @@ defmodule Caluma.Workflow.Case do
   end
 
   relationships do
-    belongs_to :document, Caluma.Form.Document
+    belongs_to :document, Caluma.Form.Document, domain: Caluma.Form
 
     belongs_to :workflow, Caluma.Workflow.Workflow do
       allow_nil? false

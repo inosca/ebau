@@ -9,6 +9,9 @@ defmodule Caluma.Form.Types.AnswerValue do
   use Ash.Type
 
   @impl Ash.Type
+  # The underlying PostgreSQL column is jsonb, which Ecto maps as :map.
+  # Although the actual values can be any JSON-compatible type (string,
+  # number, boolean, list), :map is the correct Ecto storage type for jsonb.
   def storage_type(_), do: :map
 
   @impl Ash.Type

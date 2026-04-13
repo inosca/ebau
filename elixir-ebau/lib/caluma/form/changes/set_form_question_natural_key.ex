@@ -13,6 +13,10 @@ defmodule Caluma.Form.Changes.SetFormQuestionNaturalKey do
     form_id = Changeset.get_attribute(changeset, :form_id)
     question_id = Changeset.get_attribute(changeset, :question_id)
 
-    Changeset.force_change_attribute(changeset, :id, "#{form_id}.#{question_id}")
+    if is_nil(form_id) or is_nil(question_id) do
+      Changeset.add_error(changeset, "form_id and question_id are required for natural key")
+    else
+      Changeset.force_change_attribute(changeset, :id, "#{form_id}.#{question_id}")
+    end
   end
 end

@@ -6,6 +6,8 @@ defmodule EbauWeb.Plugs.KeycloakBearerAuth do
 
   @behaviour Plug
 
+  require Logger
+
   @impl true
   def init(opts), do: opts
 
@@ -24,7 +26,6 @@ defmodule EbauWeb.Plugs.KeycloakBearerAuth do
       })
     else
       error ->
-        require Logger
         Logger.warning("Bearer auth failed: #{inspect(error)}")
 
         conn

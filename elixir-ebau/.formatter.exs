@@ -20,17 +20,17 @@
     exclude: [:module_directives]
   ],
   excludes: [
-    # Quokka rewrites `!is_nil(...)` inside this Ash expression into `not is_nil(...)`,
-    # which changes semantics because `!` is supported in Ash expressions but `not` is not.
-    "lib/ebau/master_data/calculations/mapped_list_document_answer.ex"
+    # Quokka's :blocks style inverts `if is_nil(x) do nil else body end` into
+    # `if !is_nil(x) do body end`, which breaks Ash expressions (no `!` operator).
+    "lib/caluma/form/calculations/mapped_list_document_answer.ex"
   ],
   inputs: ["*.{heex,ex,exs}", "{config,lib,test}/**/*.{heex,ex,exs}", "priv/*/seeds.exs"],
   locals_without_parens: [
-    master_data: 1,
     table: 3,
     answer: 3,
     mapped_answer: 3,
     mapped_list_answer: 3,
-    case_meta: 3
+    case_meta: 3,
+    via: 3
   ]
 ]

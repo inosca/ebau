@@ -10,7 +10,8 @@ defmodule Caluma.Form.AnswerDocument do
   use Ash.Resource,
     otp_app: :ebau,
     domain: Caluma.Form,
-    data_layer: AshPostgres.DataLayer
+    data_layer: AshPostgres.DataLayer,
+    authorizers: Ash.Policy.Authorizer
 
   alias Caluma.Form.Answer
   alias Caluma.Form.Document
@@ -19,6 +20,16 @@ defmodule Caluma.Form.AnswerDocument do
     table "caluma_form_answerdocument"
     repo Ebau.Repo
     migrate? false
+  end
+
+  policies do
+    policy action_type([:create, :update, :destroy]) do
+      forbid_if always()
+    end
+
+    policy action_type(:read) do
+      authorize_if always()
+    end
   end
 
   actions do

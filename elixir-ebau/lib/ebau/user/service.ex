@@ -71,7 +71,7 @@ defmodule Ebau.User.Service do
   end
 
   relationships do
-    has_many :gis_links, Ebau.Instances.GisLink
+    has_many :gis_links, Ebau.Instances.GisLink, domain: Ebau.Instances
     has_many :groups, Ebau.User.Group
 
     belongs_to :service_group, Ebau.User.ServiceGroup,

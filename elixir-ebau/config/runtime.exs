@@ -36,7 +36,7 @@ if config_env() in [:dev, :prod] do
     ]
 end
 
-if config_env() != :test do
+if config_env() == :dev do
   config :ebau, Ebau.Repo,
     username: System.get_env("DATABASE_USER", "camac"),
     password: System.get_env("DATABASE_PASSWORD", "camac"),

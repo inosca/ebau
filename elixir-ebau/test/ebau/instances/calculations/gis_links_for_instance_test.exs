@@ -57,7 +57,9 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstanceTest do
       [
         %{question_id: "lagekoordinaten-nord", value: 123},
         %{question_id: "lagekoordinaten-ost", value: 456}
-      ], authorize?: false)
+      ],
+      authorize?: false
+    )
 
     gis_link =
       Ebau.Instances.create_gis_link!(
@@ -101,7 +103,9 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstanceTest do
       [
         %{question_id: "lagekoordinaten-nord", value: 999},
         %{question_id: "lagekoordinaten-ost", value: 888}
-      ], authorize?: false)
+      ],
+      authorize?: false
+    )
 
     Ebau.Permissions.grant_acl_for_instance!(
       %{instance: %{id: instance.id}, user: %{id: actor.user.id}},

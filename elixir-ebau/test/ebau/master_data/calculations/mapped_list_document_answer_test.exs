@@ -1,4 +1,4 @@
-defmodule Ebau.MasterData.Calculations.MappedListDocumentAnswerTest do
+defmodule Caluma.Form.Calculations.MappedListDocumentAnswerTest do
   use Ebau.DataCase, async: true
 
   require Ash.Query
@@ -6,9 +6,9 @@ defmodule Ebau.MasterData.Calculations.MappedListDocumentAnswerTest do
   defmodule TestInstance do
     use Ash.Resource,
       otp_app: :ebau,
-      domain: Ebau.MasterData.Calculations.MappedListDocumentAnswerTest.TestDomain,
+      domain: Caluma.Form.Calculations.MappedListDocumentAnswerTest.TestDomain,
       data_layer: AshPostgres.DataLayer,
-      extensions: [Ebau.MasterData.Extensions.MasterData]
+      extensions: [Caluma.Workflow.Extensions.Case]
 
     postgres do
       table "INSTANCE"
@@ -16,17 +16,23 @@ defmodule Ebau.MasterData.Calculations.MappedListDocumentAnswerTest do
       migrate? false
     end
 
-    master_data do
-      mapped_answer :category_code, :integer,
-        question_ids: %{default: "category"},
-        mapping: %{"choice-a" => 10, "choice-b" => 20}
+    caluma_case do
+      through :case
 
-      mapped_list_answer :is_paper?, :boolean,
-        question_ids: %{default: "is-paper", so: "ist-papier"},
-        mapping: %{
-          default: %{"is-paper-yes" => true, "is-paper-no" => false},
-          so: %{"ist-papier-ja" => true, "ist-papier-nein" => false}
-        }
+      caluma_document do
+        mapped_answer :category_code, :integer,
+          question_id: "category",
+          mapping: %{"choice-a" => 10, "choice-b" => 20}
+
+        mapped_list_answer :is_paper?, :boolean,
+          question_id: {Ebau.Caluma.CantonResolver, %{default: "is-paper", so: "ist-papier"}},
+          mapping:
+            {Ebau.Caluma.CantonResolver,
+             %{
+               default: %{"is-paper-yes" => true, "is-paper-no" => false},
+               so: %{"ist-papier-ja" => true, "ist-papier-nein" => false}
+             }}
+      end
     end
 
     attributes do
@@ -46,7 +52,7 @@ defmodule Ebau.MasterData.Calculations.MappedListDocumentAnswerTest do
     use Ash.Domain, validate_config_inclusion?: false
 
     resources do
-      resource Ebau.MasterData.Calculations.MappedListDocumentAnswerTest.TestInstance do
+      resource Caluma.Form.Calculations.MappedListDocumentAnswerTest.TestInstance do
         define :get_instance, action: :read, get_by: [:id]
         define :read_instances, action: :read
       end

@@ -317,6 +317,7 @@ defmodule Ebau.Legacy.ConfigLoader do
       slug: slug,
       label: json_map!(fields["label"]),
       type: fields["type"],
+      # is_required and is_hidden are JEXL expression strings in Caluma, not booleans
       is_required: fields["is_required"] || "false",
       is_hidden: fields["is_hidden"] || "false",
       is_archived: fields["is_archived"] || false,

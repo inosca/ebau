@@ -10,7 +10,8 @@ defmodule Caluma.Form.Document do
     otp_app: :ebau,
     domain: Caluma.Form,
     data_layer: AshPostgres.DataLayer,
-    authorizers: [Ash.Policy.Authorizer]
+    authorizers: Ash.Policy.Authorizer,
+    extensions: [Caluma.Form.Extensions.Document]
 
   postgres do
     table "caluma_form_document"
@@ -29,8 +30,6 @@ defmodule Caluma.Form.Document do
   end
 
   actions do
-    defaults [:read]
-
     create :create_document do
       argument :form, :map do
         allow_nil? false
@@ -60,13 +59,8 @@ defmodule Caluma.Form.Document do
     end
   end
 
-  attributes do
-    uuid_primary_key :id
-  end
-
   relationships do
-    has_one :case, Caluma.Workflow.Case
-    belongs_to :family, Caluma.Form.Document
+    has_one :case, Caluma.Workflow.Case, domain: Caluma.Workflow
 
     belongs_to :form, Caluma.Form.Form do
       allow_nil? false
@@ -74,12 +68,6 @@ defmodule Caluma.Form.Document do
       destination_attribute :slug
       source_attribute :form_id
       attribute_type :string
-    end
-
-    has_many :answers, Caluma.Form.Answer
-
-    has_many :answer_documents, Caluma.Form.AnswerDocument do
-      sort sort: :desc
     end
 
     many_to_many :parent_answers, Caluma.Form.Answer do

@@ -12,7 +12,7 @@ defmodule Caluma.Form.Validations.ExistingFormMatchesSpec do
 
   alias Ash.Changeset
   alias Ash.Error.Changes.InvalidAttribute
-  alias Caluma.Form.Types.LocalizedField
+  alias Caluma.Form.Types.LocalizedFieldHelpers
 
   @impl true
   def validate(changeset, _opts, _context) do
@@ -28,9 +28,9 @@ defmodule Caluma.Form.Validations.ExistingFormMatchesSpec do
   defp validate_optional_field(changeset, :name, value) do
     form = changeset.data
     actual = form.name
-    expected = normalize_localized_field(value)
+    expected = LocalizedFieldHelpers.normalize(value)
 
-    if localized_field_matches?(actual, expected) do
+    if LocalizedFieldHelpers.matches?(actual, expected) do
       :ok
     else
       {:error,
@@ -59,17 +59,4 @@ defmodule Caluma.Form.Validations.ExistingFormMatchesSpec do
        )}
     end
   end
-
-  defp normalize_localized_field(value) do
-    case LocalizedField.cast_input(value, []) do
-      {:ok, normalized_value} -> normalized_value
-      :error -> value
-    end
-  end
-
-  defp localized_field_matches?(actual, expected) when is_map(actual) and is_map(expected) do
-    Enum.all?(expected, fn {locale, value} -> Map.get(actual, locale) == value end)
-  end
-
-  defp localized_field_matches?(actual, expected), do: actual == expected
 end

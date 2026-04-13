@@ -8,7 +8,7 @@ defmodule Caluma.Form.FormQuestion do
   use Ash.Resource,
     domain: Caluma.Form,
     data_layer: AshPostgres.DataLayer,
-    authorizers: [Ash.Policy.Authorizer]
+    authorizers: Ash.Policy.Authorizer
 
   alias Caluma.Form.Changes.SetFormQuestionNaturalKey
   alias Caluma.Form.Validations.ExistingFormQuestionMatchesSpec

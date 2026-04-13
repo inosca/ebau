@@ -28,6 +28,10 @@ defmodule Ebau.Instances.GisLink do
     policy action_type(:create) do
       authorize_if Ebau.User.Policies.IsAdminRole
     end
+
+    policy action_type(:update) do
+      forbid_if always()
+    end
   end
 
   attributes do
@@ -46,6 +50,7 @@ defmodule Ebau.Instances.GisLink do
 
   relationships do
     belongs_to :service, Ebau.User.Service do
+      domain Ebau.User
       allow_nil? false
       attribute_type :integer
     end

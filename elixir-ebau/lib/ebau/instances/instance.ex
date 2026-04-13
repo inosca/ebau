@@ -7,19 +7,18 @@ defmodule Ebau.Instances.Instance do
   and a Caluma `Document` (which holds the form answers). Access is
   controlled through `Ebau.Permissions.InstanceACL` records.
 
-  The `Ebau.MasterData.Extensions.MasterData` Spark extension is applied
-  here. It reads the `master_data do ... end` block and generates
-  relationships (for table questions like applicants or plots) and
-  calculations (for scalar answers like street or proposal) at compile time.
-  This gives a typed, uniform interface over canton-specific Caluma
-  question slugs.
+  The `Caluma.Workflow.Extensions.Case` Spark extension is applied here. It
+  reads the `caluma_case do ... end` block and generates relationships
+  (for table questions like applicants or plots) and calculations (for
+  scalar answers like street or proposal) at compile time. This gives a
+  typed, uniform interface over canton-specific Caluma question slugs.
   """
 
   use Ash.Resource,
     otp_app: :ebau,
     domain: Ebau.Instances,
     data_layer: AshPostgres.DataLayer,
-    extensions: [Ebau.MasterData.Extensions.MasterData],
+    extensions: [Caluma.Workflow.Extensions.Case],
     authorizers: Ash.Policy.Authorizer
 
   postgres do
@@ -28,54 +27,82 @@ defmodule Ebau.Instances.Instance do
     migrate? false
   end
 
-  master_data do
-    # Tables
-    table :plot_data, Ebau.MasterData.PlotDataRow, question_ids: %{default: "parzellen"}
-    table :applicants, Ebau.MasterData.Applicant, question_ids: %{default: "bauherrin"}
-    table :landowners, Ebau.MasterData.Landowner, question_ids: %{default: "grundeigentuemerin"}
+  caluma_case do
+    through :case
 
-    table :project_authors, Ebau.MasterData.ProjectAuthor,
-      question_ids: %{default: "projektverfasserin"}
+    caluma_document do
+      # Tables
+      table :plot_data, Ebau.MasterData.PlotDataRow,
+        question_id: {Ebau.Caluma.CantonResolver, %{default: "parzellen"}}
 
-    table :invoice_recipients, Ebau.MasterData.InvoiceRecipient,
-      question_ids: %{default: "rechnungsempfaengerin"}
+      table :applicants, Ebau.MasterData.Applicant,
+        question_id: {Ebau.Caluma.CantonResolver, %{default: "bauherrin"}}
 
-    table :type_of_construction, Ebau.MasterData.TypeOfConstruction,
-      question_ids: %{default: "gebaeude"}
+      table :landowners, Ebau.MasterData.Landowner,
+        question_id: {Ebau.Caluma.CantonResolver, %{default: "grundeigentuemerin"}}
 
-    table :dwellings, Ebau.MasterData.Dwelling,
-      question_ids: %{default: ["wohnungen", "wohnungen-v2"]}
+      table :project_authors, Ebau.MasterData.ProjectAuthor,
+        question_id: {Ebau.Caluma.CantonResolver, %{default: "projektverfasserin"}}
 
-    table :energy_devices, Ebau.MasterData.EnergyDevice,
-      question_ids: %{default: "gebaeudetechnik"}
+      table :invoice_recipients, Ebau.MasterData.InvoiceRecipient,
+        question_id: {Ebau.Caluma.CantonResolver, %{default: "rechnungsempfaengerin"}}
 
-    # Answers
-    mapped_answer :is_paper, :boolean,
-      question_ids: %{default: "is-paper"},
-      mapping: %{"is-paper-yes" => true, "is-paper-no" => false}
+      table :type_of_construction, Ebau.MasterData.TypeOfConstruction,
+        question_id: {Ebau.Caluma.CantonResolver, %{default: "gebaeude"}}
 
-    answer :proposal, :string, question_ids: %{default: "umschreibung-bauprojekt"}
-    answer :short_proposal, :string, question_ids: %{default: "kurzbeschreibung-bauprojekt"}
-    answer :street, :string, question_ids: %{default: "strasse-flurname"}
-    answer :street_number, :string, question_ids: %{default: "strasse-nummer"}
-    answer :city, :string, question_ids: %{default: "ort"}
-    answer :bfs_number, :string, question_ids: %{default: "gemeindenummer-bfs"}
-    answer :construction_costs, :string, question_ids: %{default: "gesamtkosten"}
+      table :dwellings, Ebau.MasterData.Dwelling,
+        question_id: {Ebau.Caluma.CantonResolver, %{default: ["wohnungen", "wohnungen-v2"]}}
 
-    answer :land_use_planning_land_use, :string,
-      question_ids: %{default: "nutzungsplanung-grundnutzung"}
+      table :energy_devices, Ebau.MasterData.EnergyDevice,
+        question_id: {Ebau.Caluma.CantonResolver, %{default: "gebaeudetechnik"}}
 
-    answer :land_use_additional_determinations, :string,
-      question_ids: %{default: "nutzungsplanung-weitere-festlegungen"}
+      # Answers
+      mapped_answer :is_paper, :boolean,
+        question_id: {Ebau.Caluma.CantonResolver, %{default: "is-paper"}},
+        mapping: %{"is-paper-yes" => true, "is-paper-no" => false}
 
-    answer :land_use_planning_land_use_canton, :string,
-      question_ids: %{default: "nutzungsplanung-grundnutzung-kanton"}
+      answer :proposal, :string,
+        question_id: {Ebau.Caluma.CantonResolver, %{default: "umschreibung-bauprojekt"}}
 
-    answer :national_inventory, :string, question_ids: %{default: "bundesinventare"}
+      answer :short_proposal, :string,
+        question_id: {Ebau.Caluma.CantonResolver, %{default: "kurzbeschreibung-bauprojekt"}}
 
-    # Case meta
-    case_meta :dossier_number, :string, keys: %{default: "dossier-number"}
-    case_meta :submit_date, :string, keys: %{default: "submit-date"}
+      answer :street, :string,
+        question_id: {Ebau.Caluma.CantonResolver, %{default: "strasse-flurname"}}
+
+      answer :street_number, :string,
+        question_id: {Ebau.Caluma.CantonResolver, %{default: "strasse-nummer"}}
+
+      answer :city, :string, question_id: {Ebau.Caluma.CantonResolver, %{default: "ort"}}
+
+      answer :bfs_number, :string,
+        question_id: {Ebau.Caluma.CantonResolver, %{default: "gemeindenummer-bfs"}}
+
+      answer :construction_costs, :string,
+        question_id: {Ebau.Caluma.CantonResolver, %{default: "gesamtkosten"}}
+
+      answer :land_use_planning_land_use, :string,
+        question_id: {Ebau.Caluma.CantonResolver, %{default: "nutzungsplanung-grundnutzung"}}
+
+      answer :land_use_additional_determinations, :string,
+        question_id:
+          {Ebau.Caluma.CantonResolver, %{default: "nutzungsplanung-weitere-festlegungen"}}
+
+      answer :land_use_planning_land_use_canton, :string,
+        question_id:
+          {Ebau.Caluma.CantonResolver, %{default: "nutzungsplanung-grundnutzung-kanton"}}
+
+      answer :national_inventory, :string,
+        question_id: {Ebau.Caluma.CantonResolver, %{default: "bundesinventare"}}
+    end
+
+    meta do
+      attribute :dossier_number, :string,
+        key: {Ebau.Caluma.CantonResolver, %{default: "dossier-number"}}
+
+      attribute :submit_date, :string,
+        key: {Ebau.Caluma.CantonResolver, %{default: "submit-date"}}
+    end
 
     # TODO: Not yet supported by the DSL:
     # - static values (joined_street_and_number)
@@ -129,10 +156,11 @@ defmodule Ebau.Instances.Instance do
   end
 
   relationships do
-    belongs_to :case, Caluma.Workflow.Case
-    has_many :instance_acls, Ebau.Permissions.InstanceACL
+    belongs_to :case, Caluma.Workflow.Case, domain: Caluma.Workflow
+    has_many :instance_acls, Ebau.Permissions.InstanceACL, domain: Ebau.Permissions
 
     has_many :active_instance_acls, Ebau.Permissions.InstanceACL do
+      domain Ebau.Permissions
       read_action :active
     end
   end

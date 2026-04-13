@@ -1,67 +1,65 @@
-defmodule Ebau.MasterData.Calculations.MappedListDocumentAnswer do
+defmodule Caluma.Form.Calculations.MappedListDocumentAnswer do
   @moduledoc """
-  SQL-backed calculation that reads a list-valued Caluma answer and maps each element.
+  SQL-backed calculation that reads a list-valued Caluma answer and maps
+  each element.
 
-  Use `mapped_list_answer` in the `master_data` DSL for multi-select questions.
+  The transformer passes a `relationship` option naming a filtered
+  `has_one` relationship to `Caluma.Form.Answer` (one per declared answer).
+
+  The `mapping` option accepts either a flat `%{string => value}` map or
+  a `{resolver_module, opts}` tuple (see `Caluma.Form.QuestionIdResolver`).
+
   Falls back to `calculate/3` when evaluating already-loaded records in memory.
   """
 
   use Ash.Resource.Calculation
 
-  @impl true
-  defdelegate init(opts), to: Ebau.MasterData.Calculations.DocumentAnswer
+  import Ash.Expr
+
+  alias Caluma.Form.Calculations.DocumentAnswer
 
   @impl true
-  def load(_query, _opts, _context), do: [case: [document: :answers]]
+  def init(opts) do
+    with {:ok, opts} <- DocumentAnswer.init(opts) do
+      case opts[:mapping] do
+        m when is_map(m) -> {:ok, opts}
+        {mod, _} when is_atom(mod) -> {:ok, opts}
+        _ -> {:error, "mapping must be a map or {module, opts} tuple"}
+      end
+    end
+  end
+
+  @impl true
+  def load(_query, opts, _context) do
+    [{opts[:relationship], :value}]
+  end
 
   @impl true
   def expression(opts, context) do
-    question_ids = Ebau.Caluma.Helpers.get_question_slugs(opts, context)
-    mapping = Ebau.Caluma.Helpers.get_answer_mapping(opts[:mapping], context)
-    answer_expr = answer_expr(question_ids)
+    mapping = DocumentAnswer.resolve_mapping(opts[:mapping], context)
+    answer_expr = DocumentAnswer.answer_expr(opts[:relationship], :value)
 
     case array_item_type(context.type) do
-      Ash.Type.Boolean ->
-        boolean_array_expr(answer_expr, mapping)
-
-      Ash.Type.Integer ->
-        integer_array_expr(answer_expr, mapping)
-
-      Ash.Type.Float ->
-        float_array_expr(answer_expr, mapping)
-
-      _ ->
-        string_array_expr(answer_expr, mapping)
+      Ash.Type.Boolean -> boolean_array_expr(answer_expr, mapping)
+      Ash.Type.Integer -> integer_array_expr(answer_expr, mapping)
+      Ash.Type.Float -> float_array_expr(answer_expr, mapping)
+      _ -> string_array_expr(answer_expr, mapping)
     end
   end
 
   @impl true
   def calculate(records, opts, context) do
-    question_ids = Ebau.Caluma.Helpers.get_question_slugs(opts, context)
-    mapping = Ebau.Caluma.Helpers.get_answer_mapping(opts[:mapping], context)
+    rel = opts[:relationship]
+    mapping = DocumentAnswer.resolve_mapping(opts[:mapping], context)
 
     Enum.map(records, fn record ->
-      answer =
-        Enum.find(record.case.document.answers, fn a -> a.question_id in question_ids end)
-
-      case answer do
+      case Map.get(record, rel) do
         nil -> nil
+        %Ash.NotLoaded{} -> nil
         %{value: value} when is_list(value) -> Enum.map(value, &Map.get(mapping, &1))
         %{value: value} -> [Map.get(mapping, value)]
       end
     end)
-  end
-
-  defp answer_expr(question_ids) do
-    case question_ids do
-      [single_id] ->
-        expr(
-          first(case.document.answers, field: :value, filter: expr(question_id == ^single_id))
-        )
-
-      ids ->
-        expr(first(case.document.answers, field: :value, filter: expr(question_id in ^ids)))
-    end
   end
 
   defp array_item_type({:array, type}), do: type
@@ -69,6 +67,8 @@ defmodule Ebau.MasterData.Calculations.MappedListDocumentAnswer do
 
   defp string_array_expr(answer_expr, mapping) do
     expr(
+      # NOTE: Do NOT use `if !is_nil(...)` here — Ash expressions don't
+      # support the `!` operator. Use `is_nil` with nil/else instead.
       if is_nil(^answer_expr) do
         nil
       else

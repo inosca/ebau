@@ -80,18 +80,22 @@ defmodule Ebau.Permissions.InstanceACL do
 
   relationships do
     belongs_to :user, Ebau.User.User do
+      domain Ebau.User
       attribute_type :integer
     end
 
     belongs_to :service, Ebau.User.Service do
+      domain Ebau.User
       attribute_type :integer
     end
 
     belongs_to :role, Ebau.User.Role do
+      domain Ebau.User
       attribute_type :integer
     end
 
     belongs_to :instance, Ebau.Instances.Instance do
+      domain Ebau.Instances
       attribute_type :integer
       allow_nil? false
     end
