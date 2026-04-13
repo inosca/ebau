@@ -7,6 +7,12 @@ defmodule Caluma.Form.Extensions.DocumentTest do
       data_layer: AshPostgres.DataLayer,
       extensions: [Caluma.Form.Extensions.Document],
       domain: nil
+
+    postgres do
+      table "caluma_form_document"
+      repo Ebau.Repo
+      migrate? false
+    end
   end
 
   describe "transformer" do
@@ -43,12 +49,12 @@ defmodule Caluma.Form.Extensions.DocumentTest do
       assert rel.destination == Caluma.Form.Document
     end
 
-    test "sets the postgres table to caluma_form_document" do
-      assert AshPostgres.DataLayer.Info.table(TestResource) == "caluma_form_document"
-    end
-
-    test "sets the postgres repo to Ebau.Repo" do
-      assert AshPostgres.DataLayer.Info.repo(TestResource) == Ebau.Repo
+    test "adds a :row_sort aggregate" do
+      agg = Ash.Resource.Info.aggregate(TestResource, :row_sort)
+      assert agg != nil
+      assert agg.kind == :min
+      assert agg.relationship_path == [:answer_documents]
+      assert agg.field == :sort
     end
   end
 end

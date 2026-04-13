@@ -36,7 +36,7 @@ defmodule Caluma.FormFixtureTest do
 
     assert form.slug == "baugesuch"
 
-    document = Caluma.Form.create_document!(%{form: %{slug: form.slug}})
+    document = Caluma.Form.create_document!(%{form: %{slug: form.slug}}, authorize?: false)
 
     assert document.form_id == "baugesuch"
 

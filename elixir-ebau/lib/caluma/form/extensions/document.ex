@@ -10,7 +10,8 @@ defmodule Caluma.Form.Extensions.Document do
   - `belongs_to :family` (Caluma.Form.Document)
   - `defaults [:read]` action
 
-  Also configures the postgres table and repo.
+  The target resource must define its own `postgres do` block with table, repo,
+  and `migrate? false`.
 
   ## Usage
 
@@ -27,39 +28,14 @@ defmodule Caluma.Form.Extensions.Document do
     transformers: [Caluma.Form.Extensions.Document.Transformer]
 end
 
-defmodule Caluma.Form.Extensions.Document.RowSort do
-  use Ash.Resource.Calculation
-
-  @impl true
-  def expression(_opts, _context) do
-    expr(
-      fragment(
-        "(SELECT min(ad.sort) FROM caluma_form_answerdocument ad WHERE ad.document_id = ?)",
-        id
-      )
-    )
-  end
-end
-
 defmodule Caluma.Form.Extensions.Document.Transformer do
   use Spark.Dsl.Transformer
 
   def transform(dsl_state) do
-    {:ok, dsl_state} = add_postgres(dsl_state)
     {:ok, dsl_state} = add_action(dsl_state)
     {:ok, dsl_state} = add_attribute(dsl_state)
-    {:ok, dsl_state} = add_calculations(dsl_state)
+    {:ok, dsl_state} = add_aggregates(dsl_state)
     {:ok, dsl_state} = add_relationships(dsl_state)
-
-    {:ok, dsl_state}
-  end
-
-  defp add_postgres(dsl_state) do
-    dsl_state =
-      dsl_state
-      |> Spark.Dsl.Transformer.set_option([:postgres], :table, "caluma_form_document")
-      |> Spark.Dsl.Transformer.set_option([:postgres], :repo, Ebau.Repo)
-      |> Spark.Dsl.Transformer.set_option([:postgres], :migrate?, false)
 
     {:ok, dsl_state}
   end
@@ -83,15 +59,16 @@ defmodule Caluma.Form.Extensions.Document.Transformer do
     {:ok, Spark.Dsl.Transformer.add_entity(dsl_state, [:attributes], attr)}
   end
 
-  defp add_calculations(dsl_state) do
-    {:ok, calc} =
-      Ash.Resource.Builder.build_calculation(
+  defp add_aggregates(dsl_state) do
+    {:ok, agg} =
+      Ash.Resource.Builder.build_aggregate(
         :row_sort,
-        :integer,
-        Caluma.Form.Extensions.Document.RowSort
+        :min,
+        :answer_documents,
+        field: :sort
       )
 
-    {:ok, Spark.Dsl.Transformer.add_entity(dsl_state, [:calculations], calc)}
+    {:ok, Spark.Dsl.Transformer.add_entity(dsl_state, [:aggregates], agg)}
   end
 
   defp add_relationships(dsl_state) do
