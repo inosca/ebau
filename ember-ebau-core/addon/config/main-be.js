@@ -28,6 +28,8 @@ export default {
     rejected: 10000,
     circulation: 20004,
     correction: 20007,
+    inProgressInternal: 120002,
+    inProgress: 120001,
   },
   useLocation: false,
   answerSlugs: {
@@ -87,8 +89,8 @@ export default {
     allowedInstanceStates: [
       "circulationInit",
       "circulation",
-      "in-progress",
-      "in-progress-internal",
+      "inProgress",
+      "inProgressInternal",
     ],
   },
   intentSlugs: ["beschreibung-bauvorhaben"],
