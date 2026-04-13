@@ -25,6 +25,8 @@ from camac.dossier_import.messages import (
 from camac.dossier_import.models import DossierImport
 from camac.dossier_import.utils import get_worksheet_headings_and_rows
 
+from .exceptions import InvalidImportDataError
+
 
 def numbers(string):
     if isinstance(string, float) or isinstance(string, int):
@@ -403,7 +405,3 @@ class XlsxFileDossierLoader(DossierLoader):
                 )
             )
         return dossier
-
-
-class InvalidImportDataError(Exception):
-    pass

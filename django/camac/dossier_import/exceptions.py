@@ -1,0 +1,2 @@
+class InvalidImportDataError(Exception):
+    pass
