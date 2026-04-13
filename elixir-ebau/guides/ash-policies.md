@@ -14,7 +14,7 @@ All authorized actions receive an `actor:` option. In eBau, the actor is an
   user: %Ebau.User.User{},
   group: %Ebau.User.Group{},
   service: %Ebau.User.Service{},
-  role: "municipality-admin"
+  role: String.t() # example: "municipality-admin"
 }
 ```
 
@@ -45,18 +45,6 @@ policy action(:list_instances) do
   )
 end
 ```
-
-### Role-based access
-
-Admin-only actions use the `IsAdminRole` simple check:
-
-```elixir
-policy action_type(:create) do
-  authorize_if Ebau.User.Policies.IsAdminRole
-end
-```
-
-This checks `String.ends_with?(actor.role, "-admin")`.
 
 ### Reference data (allow reads, forbid writes)
 
@@ -101,7 +89,14 @@ record creation.
 
 ## Writing a new policy check
 
-For custom logic, implement `Ash.Policy.SimpleCheck`:
+Ash provides two main types of custom policy checks:
+
+- `Ash.Policy.SimpleCheck` — for checks based on the actor/context (evaluated in Elixir)
+- `Ash.Policy.FilterCheck` — for checks that can be expressed as a data-layer filter (pushed to SQL)
+
+See the [Ash policy checks documentation](https://hexdocs.pm/ash/policy-checks.html) for details.
+
+Example `SimpleCheck`:
 
 ```elixir
 defmodule Ebau.User.Policies.IsAdminRole do
@@ -124,3 +119,4 @@ end
 - [Ash policies guide](https://hexdocs.pm/ash/policies.html)
 - [Ash policy checks](https://hexdocs.pm/ash/policy-checks.html)
 - [Ash.Policy.SimpleCheck](https://hexdocs.pm/ash/Ash.Policy.SimpleCheck.html)
+- [Ash.Policy.FilterCheck](https://hexdocs.pm/ash/Ash.Policy.FilterCheck.html)

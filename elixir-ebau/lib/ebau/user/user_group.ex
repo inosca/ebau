@@ -42,8 +42,15 @@ defmodule Ebau.User.UserGroup do
       source :DEFAULT_GROUP
     end
 
-    attribute :user_id, :integer, allow_nil?: false, source: :USER_ID
-    attribute :group_id, :integer, allow_nil?: false, source: :GROUP_ID
+    attribute :user_id, :integer do
+      allow_nil? false
+      source :USER_ID
+    end
+
+    attribute :group_id, :integer do
+      allow_nil? false
+      source :GROUP_ID
+    end
   end
 
   relationships do
