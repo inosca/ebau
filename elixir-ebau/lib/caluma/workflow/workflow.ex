@@ -6,12 +6,25 @@ defmodule Caluma.Workflow.Workflow do
   See https://github.com/projectcaluma/caluma for the full upstream model.
   """
 
-  use Ash.Resource, domain: Caluma.Workflow, data_layer: AshPostgres.DataLayer
+  use Ash.Resource,
+    domain: Caluma.Workflow,
+    data_layer: AshPostgres.DataLayer,
+    authorizers: [Ash.Policy.Authorizer]
 
   postgres do
     table "caluma_workflow_workflow"
     repo Ebau.Repo
     migrate? false
+  end
+
+  policies do
+    policy action_type([:create, :update, :destroy]) do
+      forbid_if always()
+    end
+
+    policy action_type(:read) do
+      authorize_if always()
+    end
   end
 
   actions do

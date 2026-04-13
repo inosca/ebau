@@ -5,7 +5,10 @@ defmodule Caluma.Form.Form do
   This resource represents persisted Caluma forms and exposes a declarative
   form-tree creation action that can build nested form/question structures.
   """
-  use Ash.Resource, domain: Caluma.Form, data_layer: AshPostgres.DataLayer
+  use Ash.Resource,
+    domain: Caluma.Form,
+    data_layer: AshPostgres.DataLayer,
+    authorizers: [Ash.Policy.Authorizer]
 
   alias Caluma.Form.Changes.SyncFormTree
   alias Caluma.Form.Validations.ExistingFormMatchesSpec
@@ -14,6 +17,16 @@ defmodule Caluma.Form.Form do
     table "caluma_form_form"
     repo Ebau.Repo
     migrate? false
+  end
+
+  policies do
+    policy action_type([:create, :update, :destroy]) do
+      forbid_if always()
+    end
+
+    policy action_type(:read) do
+      authorize_if always()
+    end
   end
 
   actions do

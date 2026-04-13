@@ -9,12 +9,23 @@ defmodule Caluma.Workflow.Case do
   use Ash.Resource,
     otp_app: :ebau,
     domain: Caluma.Workflow,
-    data_layer: AshPostgres.DataLayer
+    data_layer: AshPostgres.DataLayer,
+    authorizers: [Ash.Policy.Authorizer]
 
   postgres do
     table "caluma_workflow_case"
     repo Ebau.Repo
     migrate? false
+  end
+
+  policies do
+    policy action_type([:create, :update, :destroy]) do
+      forbid_if always()
+    end
+
+    policy action_type(:read) do
+      authorize_if always()
+    end
   end
 
   attributes do

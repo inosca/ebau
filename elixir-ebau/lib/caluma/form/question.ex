@@ -6,7 +6,10 @@ defmodule Caluma.Form.Question do
   `Caluma.Form.FormQuestion`. This resource exposes a normal create action and an
   explicit compatibility assertion action used by the form-tree builder.
   """
-  use Ash.Resource, domain: Caluma.Form, data_layer: AshPostgres.DataLayer
+  use Ash.Resource,
+    domain: Caluma.Form,
+    data_layer: AshPostgres.DataLayer,
+    authorizers: [Ash.Policy.Authorizer]
 
   alias Caluma.Form.Form
   alias Caluma.Form.Validations.ExistingQuestionMatchesSpec
@@ -18,6 +21,16 @@ defmodule Caluma.Form.Question do
 
     references do
       reference :sub_form, on_delete: :delete
+    end
+  end
+
+  policies do
+    policy action_type([:create, :update, :destroy]) do
+      forbid_if always()
+    end
+
+    policy action_type(:read) do
+      authorize_if always()
     end
   end
 

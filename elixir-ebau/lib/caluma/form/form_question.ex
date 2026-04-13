@@ -5,7 +5,10 @@ defmodule Caluma.Form.FormQuestion do
   This resource stores the question order inside a form and follows upstream
   Caluma's natural key behavior for the primary key.
   """
-  use Ash.Resource, domain: Caluma.Form, data_layer: AshPostgres.DataLayer
+  use Ash.Resource,
+    domain: Caluma.Form,
+    data_layer: AshPostgres.DataLayer,
+    authorizers: [Ash.Policy.Authorizer]
 
   alias Caluma.Form.Changes.SetFormQuestionNaturalKey
   alias Caluma.Form.Validations.ExistingFormQuestionMatchesSpec
@@ -18,6 +21,16 @@ defmodule Caluma.Form.FormQuestion do
     references do
       reference :form, on_delete: :delete
       reference :question, on_delete: :delete
+    end
+  end
+
+  policies do
+    policy action_type([:create, :update, :destroy]) do
+      forbid_if always()
+    end
+
+    policy action_type(:read) do
+      authorize_if always()
     end
   end
 

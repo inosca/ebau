@@ -13,6 +13,10 @@ defmodule Caluma.Workflow do
   use Ash.Domain,
     otp_app: :ebau
 
+  authorization do
+    authorize :by_default
+  end
+
   resources do
     resource Caluma.Workflow.Case do
       define :create_case

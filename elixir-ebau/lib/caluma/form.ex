@@ -13,6 +13,10 @@ defmodule Caluma.Form do
   use Ash.Domain,
     otp_app: :ebau
 
+  authorization do
+    authorize :by_default
+  end
+
   resources do
     resource Caluma.Form.Answer do
       define :create_answer, action: :create
