@@ -72,11 +72,6 @@ defmodule Ebau.User.User do
       authorize_if always()
     end
 
-    policy action(:read) do
-      # Example on how to only allow reading your own user
-      authorize_if expr(id == ^actor(:id))
-    end
-
     policy action_type([:create, :update, :destroy]) do
       # We don't allow creating users. This is only for testing at the moment
       forbid_if always()

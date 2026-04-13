@@ -9,6 +9,10 @@ defmodule Ebau.User do
 
   use Ash.Domain, otp_app: :ebau
 
+  authorization do
+    authorize :by_default
+  end
+
   resources do
     resource Ebau.User.User do
       define :create_user, action: :create

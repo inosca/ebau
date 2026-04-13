@@ -13,6 +13,10 @@ defmodule Ebau.Instances do
     otp_app: :ebau,
     extensions: [AshJsonApi.Domain]
 
+  authorization do
+    authorize :by_default
+  end
+
   resources do
     resource Ebau.Instances.Instance do
       define :get_instance_by_id, action: :read, get_by: [:id]

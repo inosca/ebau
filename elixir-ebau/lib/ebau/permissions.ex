@@ -8,6 +8,10 @@ defmodule Ebau.Permissions do
 
   use Ash.Domain
 
+  authorization do
+    authorize :by_default
+  end
+
   resources do
     resource Ebau.Permissions.InstanceACL do
       define :grant_acl_for_instance, action: :create
