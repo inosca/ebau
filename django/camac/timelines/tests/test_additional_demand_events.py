@@ -86,7 +86,7 @@ def test_additional_demand_event_formtimelines(
 
     # completing the send workitem will create a timeline.
     assert FormTimeline.objects.count() == 0
-    events.post_complete_send_additional_demand_allow_changes(
+    events.post_complete_send_check_additional_demand_allow_changes(
         sender=None, work_item=work_item_send, user=caluma_admin_user
     )
     assert FormTimeline.objects.count() == 1
