@@ -649,6 +649,9 @@ class KeycloakApplySerializer(RestSerializer):
     document = serializers.PrimaryKeyRelatedField(queryset=Document.objects)
 
     def _write_answer(self, document, question_slug, value):
+        if not value:  #  pragma: no cover
+            return
+
         try:
             question = Question.objects.get(pk=question_slug)
         except Question.DoesNotExist:  # pragma: no cover
