@@ -1364,6 +1364,9 @@ def test_submit_send_handler(
     response.content = (
         b"%PDF-1.\ntrailer<</Root<</Pages<</Kids[<</MediaBox[0 0 3 3]>>]>>>>>>"
     )
+    generate_pdf_mock = mocker.patch(
+        "camac.instance.serializers.CalumaInstanceSubmitSerializer._generate_and_store_pdf"
+    )
     mocker.patch.object(requests, "get", return_value=response)
     mocker.patch(
         "camac.ech0211.send_handlers.has_alexandria_create_permission",
@@ -1465,6 +1468,8 @@ def test_submit_send_handler(
 
         assert len(mailoutbox) == 0
         assert Message.objects.count() == 0
+
+        generate_pdf_mock.assert_called_once_with(instance)
     else:
         with pytest.raises(SendHandlerException):
             handler.apply()
