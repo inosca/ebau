@@ -159,7 +159,7 @@ services:
       KEYCLOAK_HOST: http://ebau-keycloak.localhost
       KEYCLOAK_CLIENT: portal
       INTERNAL_URL: http://ember-ebau.localhost
-      EVEN_URL: https://www.energievollzug.ch/project-id/
+      EVEN_URL: https://qa.energievollzug.ch/project-id/
       ENABLE_WATERMARK: true
       WATERMARK: local
     networks:
@@ -171,7 +171,7 @@ services:
       KEYCLOAK_HOST: http://ebau-keycloak.localhost
       KEYCLOAK_CLIENT: camac
       PORTAL_URL: http://ebau-portal.localhost
-      EVEN_URL: https://www.energievollzug.ch/project-id/
+      EVEN_URL: https://qa.energievollzug.ch/project-id/
       ENABLE_WATERMARK: true
       WATERMARK: local
       ALEXANDRIA_MANABI_ALLOWED_MIMETYPES: application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
