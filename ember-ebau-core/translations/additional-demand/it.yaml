@@ -30,6 +30,5 @@ additional-demand:
   formtimeline-link:
     case-timeline-label: "Mostra modifiche al formulario"
     instance-edit-label: "Modifica il dossier"
-    instance-edit-info: |
-      <strong>Nota:</strong> Con «Modifica il dossier» è possibile modificare il modulo e i documenti trasmessi.
+    instance-edit-info:
 

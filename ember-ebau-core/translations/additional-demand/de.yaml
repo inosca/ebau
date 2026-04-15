@@ -30,6 +30,5 @@ additional-demand:
   formtimeline-link:
     case-timeline-label: "Formularänderungen anzeigen"
     instance-edit-label: "Dossier anpassen"
-    instance-edit-info: |
-      <strong>Hinweis:</strong> Über "Dossier anpassen" können Sie das Formular und die eingereichten Dokumente ändern.
+    instance-edit-info:
       
