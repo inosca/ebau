@@ -76,6 +76,10 @@ DJANGO_ADMIN = {
             "django_q.OrmQ",
             "ech0211.Message",
             "user.GeometerChangeTask",
+            "core.ServiceContent",
+        ],
+        "CUSTOMER_MANAGED_MODELS": [
+            "core.ServiceContent",
         ],
     },
     "kt_schwyz": {
