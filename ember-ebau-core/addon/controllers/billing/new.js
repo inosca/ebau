@@ -33,6 +33,10 @@ export default class BillingNewController extends Controller {
 
   taxRates = hasFeature("billing.reducedTaxRate") ? [8.1, 2.6] : [8.1];
 
+  get showSnippets() {
+    return !this.ebauModules.isApplicant;
+  }
+
   get billingTypes() {
     return [
       "by_authority",

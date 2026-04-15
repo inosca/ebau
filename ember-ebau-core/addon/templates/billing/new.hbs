@@ -71,13 +71,20 @@
         {{t "billing.remark"}}
       </label>
       <div class="uk-form-controls">
-        <Textarea
-          @value={{this.newEntry.remark}}
-          id="remark"
-          name="remark"
-          class="uk-input"
-          {{autoresize mode="height"}}
-        />
+        <Snippets
+          @disabled={{or
+            (not this.showSnippets)
+            (not (has-feature "billing.snippets"))
+          }}
+        >
+          <Textarea
+            @value={{this.newEntry.remark}}
+            id="remark"
+            name="remark"
+            class="uk-input"
+            {{autoresize mode="height"}}
+          />
+        </Snippets>
       </div>
     </div>
   {{/if}}

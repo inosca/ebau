@@ -61,6 +61,15 @@ export default class WorkItemDetailNewComponent extends Component {
     disabled: false,
   }));
 
+  @action
+  updateDescription(fi, event) {
+    fi.update(event.target.value);
+  }
+
+  get showSnippets() {
+    return !this.ebauModules.isApplicant;
+  }
+
   get selectedOwnService() {
     return (
       parseInt(this.model.addressedService?.id) ===

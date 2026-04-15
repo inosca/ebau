@@ -95,13 +95,23 @@
 
   <f.input @label={{t "workItems.title"}} @name="title" @required={{true}} />
 
-  <f.input
-    @label={{t "workItems.description"}}
-    @type="textarea"
-    @name="description"
-    {{autoresize mode="height"}}
-  />
-
+  <f.input @name="description" @label={{t "workItems.description"}} as |fi|>
+    <Snippets
+      @disabled={{or
+        (not this.showSnippets)
+        (not (has-feature "workItems.snippets"))
+      }}
+    >
+      <textarea
+        class="uk-textarea uk-input"
+        name="description"
+        id="f-description"
+        value={{fi.value}}
+        {{on "input" (fn this.updateDescription fi)}}
+        {{autoresize mode="height"}}
+      />
+    </Snippets>
+  </f.input>
   <div class="uk-margin">
     <f.input
       @label={{t "workItems.deadline"}}
