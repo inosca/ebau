@@ -29,4 +29,7 @@ additional-demand:
       canceled: "Vorzeitig beendet"
   formtimeline-link:
     case-timeline-label: "Formularänderungen anzeigen"
-    instance-edit-label: "Gesuchsformular bearbeiten"
+    instance-edit-label: "Dossier anpassen"
+    instance-edit-info: |
+      <strong>Hinweis:</strong> Über "Dossier anpassen" können Sie das Formular und die eingereichten Dokumente ändern.
+      

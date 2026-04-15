@@ -27,3 +27,8 @@ additional-demand:
       needs-interaction: "En cours de traitement"
       completed: "Terminé"
       canceled: "Clos prématurément"
+  formtimeline-link:
+    case-timeline-label:
+    instance-edit-label:
+    instance-edit-info:
+    

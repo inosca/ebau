@@ -29,4 +29,7 @@ additional-demand:
       canceled: "Terminata prima del tempo"
   formtimeline-link:
     case-timeline-label: "Mostra modifiche al formulario"
-    instance-edit-label: "Modifica formulario di richiesta"
+    instance-edit-label: "Modifica il dossier"
+    instance-edit-info: |
+      <strong>Nota:</strong> Con «Modifica il dossier» è possibile modificare il modulo e i documenti trasmessi.
+
