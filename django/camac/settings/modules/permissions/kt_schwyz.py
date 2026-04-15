@@ -8,17 +8,19 @@ from camac.settings.env import env
 
 STATES_ALL_INTERNAL = RequireInstanceState(
     [
-        "subm",
-        "comm",
-        "nfd",
-        "circ",
-        "redac",
-        "done",
-        "construction-monitoring",
-        "instance-completed",
-        "arch",
-        "stopped",
-        "internal",
+        # building permit
+        "subm",  # Eingereicht
+        "comm",  # Von Leitbehörde angenommen
+        "nfd",  # Nachforderung
+        "circ",  # In Zirkulation
+        "redac",  # Bauentscheid ausstehend
+        "done",  # Entschieden
+        "construction-monitoring",  # Im Baubegleitungsprozess
+        "instance-completed",  # Verfahren abgeschlossen
+        "arch",  # Archiviert
+        "stopped",  # Abgeschrieben
+        # internal instances
+        "internal",  # Internes Dossier
     ]
 )
 
