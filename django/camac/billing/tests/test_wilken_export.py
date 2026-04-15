@@ -32,32 +32,39 @@ def test_generate_invoices(
     admin_user,
     sz_billing_settings: BillingConfig,
 ) -> None:
-    instance: list[Instance] = instance_factory(
-        form=form_factory(name="baugesuch"), location=location_factory(name="Schwyz")
+    instance: Instance = instance_factory(
+        form=form_factory(name="baugesuch"),
+        location=location_factory(name="Schwyz"),
     )
-    billing_entries: list[BillingV2Entry] = billing_v2_entry_factory.create_batch(
-        2,
+
+    billing_entry_1 = billing_v2_entry_factory.create(
         instance=instance,
-        released_for_clearing=datetime.now(),
+        released_for_clearing=date.today(),
         product_number=DEFAULT_PRODUCT_NUMBER,
+        organization=BillingV2Entry.Organizations.MUNICIPAL,
     )
-    billing_entries.append(
-        billing_v2_entry_factory.create(
-            instance=instance,
-            released_for_clearing=datetime.now(),
-            product_number=None,
-        )
+    billing_entry_2 = billing_v2_entry_factory.create(
+        instance=instance,
+        released_for_clearing=date.today(),
+        product_number=DEFAULT_PRODUCT_NUMBER,
+        organization=BillingV2Entry.Organizations.CANTONAL,
     )
+    billing_entry_3 = billing_v2_entry_factory.create(
+        instance=instance,
+        released_for_clearing=date.today(),
+        product_number=None,
+        organization=None,
+    )
+
+    billing_entries = [billing_entry_1, billing_entry_2, billing_entry_3]
 
     url = reverse("export-invoices")
     response = admin_client.post(url)
-
     assert response.status_code == status.HTTP_403_FORBIDDEN
 
     client = APIClient()
     client.force_authenticate(user=admin_user, token={"azp": "wilken"})
     response = client.post(url)
-
     assert response.status_code == status.HTTP_200_OK
 
     with zipfile.ZipFile(BytesIO(response.getvalue()), "r") as zip_file:
@@ -67,11 +74,19 @@ def test_generate_invoices(
         be.refresh_from_db()
 
     invoice = Invoice.objects.first()
+    assert invoice is not None
     assert invoice.date_completed == date.today()
-    assert invoice.line_items.count() == 2
-    assert billing_entries[0].date_charged == date.today()
-    assert billing_entries[1].date_charged == date.today()
-    assert billing_entries[2].date_charged is None
+
+    line_items = list(invoice.line_items.all())
+    assert len(line_items) == 2
+    assert [li.billing_v2_entry_id for li in line_items] == [
+        billing_entry_2.pk,
+        billing_entry_1.pk,
+    ]
+
+    assert billing_entry_1.date_charged == date.today()
+    assert billing_entry_2.date_charged == date.today()
+    assert billing_entry_3.date_charged is None
 
 
 def test_generate_invoices_empty(
