@@ -489,6 +489,7 @@
       "fachthemen.naturgefahren",
       "fachthemen.verkehr",
       "fachthemen.energie-v2",
+      "fachthemen.energienachweis",
       "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
       "fachthemen.zivilschutz-v3",
       "fachthemen.brandschutz",
@@ -659,6 +660,24 @@
       "personalien.projektverfasser-planer-v3",
       "fachthemen",
       "fachthemen.energie-v2",
+      "fachthemen.bauabfaelle",
+      "gesuchsunterlagen"
+    ],
+    "projektanderung-v13": [
+      "projektanderung",
+      "grundinformationen",
+      "grundinformationen.lokalisierung",
+      "grundinformationen.kategorisierung-v4",
+      "grundinformationen.allgemeine-informationen-zum-vorhaben-v5",
+      "grundinformationen.ausnahmebewilligungen",
+      "grundinformationen.gwr-v2",
+      "personalien",
+      "personalien.grundeigentumerschaft-v2",
+      "personalien.bauherrschaft-v3",
+      "personalien.projektverfasser-planer-v3",
+      "fachthemen",
+      "fachthemen.energie-v2",
+      "fachthemen.energienachweis",
       "fachthemen.bauabfaelle",
       "gesuchsunterlagen"
     ],
@@ -2503,6 +2522,11 @@
         "energie-inbetriebnahme",
         "datenverschnitt-energie"
       ]
+    },
+    "fachthemen.energienachweis": {
+      "title": "Energienachweis",
+      "parent": "fachthemen",
+      "questions": ["energienachweis-betrifft", "projektkennzeichnung-even"]
     },
     "fachthemen.arbeitssicherheit-und-gesundheitsschutz": {
       "title": "Arbeitssicherheit und Gesundheitsschutz",
@@ -7012,6 +7036,28 @@
         "options": ["Erledigt"]
       }
     },
+    "energienachweis-betrifft": {
+      "label": "Das Vorhaben betrifft",
+      "hint": "",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'Neubau' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value || 'Nutzungsänderung' in 'vorhaben-mit-baute'|value",
+      "config": {
+        "options": [
+          "Beheizte oder gekühlte Neu- und Umbauten",
+          "Die Änderung der Gebäudehülle beheizter oder gekühlter Bauten",
+          "Die Installation / Änderung gebäudetechnischer Anlagen (Heizung, Lüftung, Klima- und/oder Kälteanlage)",
+          "Es werden keine energetisch relevanten Bauten / Anlagen erstellt oder verändert"
+        ]
+      }
+    },
+    "projektkennzeichnung-even": {
+      "label": "Projektkennzeichnung EVEN",
+      "type": "text",
+      "required": false,
+      "active-expression": "'Beheizte oder gekühlte Neu- und Umbauten' in 'energienachweis-betrifft'|value || 'Die Änderung der Gebäudehülle beheizter oder gekühlter Bauten' in 'energienachweis-betrifft'|value || 'Die Installation / Änderung gebäudetechnischer Anlagen (Heizung, Lüftung, Klima- und/oder Kälteanlage)' in 'energienachweis-betrifft'|value",
+      "config": {}
+    },
     "arbeitssicherheit-planbesprechung": {
       "label": "Wünschen Sie eine Planbesprechung mit dem Arbeitsinspektorat?",
       "hint": "Falls Sie vor der Gesuchseinreichung eine Besprechung wünschen, können Sie das Arbeitsinspektrorat wie folgt kontaktieren:\n- E-Mail allgemein: arbeitsinspektorat@sz.ch;\n- Gewerbe & Dienstleistung Region Einsiedeln & Ausserschwyz, Erich Steinauer, 041 819 16 31;\n- Gewerbe & Dienstleistung Region Innerschwyz, Stephan Schlegel, 041 819 16 33;\n- Industrielle Betriebe, Werner Scherrer, 041 819 16 30.",
@@ -10291,10 +10337,10 @@
       }
     },
     "info-vorhaben-mit-baute": {
-      "label": "Es ist ein Energienachweis erforderlich.",
+      "label": "Aufgrund Ihrer aktuellen Auswahl ist ein Energienachweis erforderlich<br/><br/>Bitte erstellen Sie den Energienachweis auf EVEN und laden Sie diesen anschliessend bei den Dokumenten hoch.<br/><br/><a href='https://www.energievollzug.ch/SZ/login' target='_blank'>Zur Projektübersicht EVEN wechseln</a><br/><br/>Wenn Sie noch kein EVEN Login haben, bitten wir Sie, sich auf EVEN zu registrieren.",
       "type": "checkbox",
       "required": false,
-      "active-expression": "'vorhaben-mit-baute'|value && !('Abbruch / Rückbau' in 'vorhaben-mit-baute'|value)  && 'baukosten'|value > 250000",
+      "active-expression": "'Neubau' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value || 'Nutzungsänderung' in 'vorhaben-mit-baute'|value",
       "config": {
         "options": ["Vorhanden"]
       }
