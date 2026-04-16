@@ -82,3 +82,9 @@ $ember-power-select-trigger-icon-color: $global-muted-color;
 $ember-power-select-selected-background: $global-primary-background;
 $ember-power-select-highlighted-background: $global-secondary-background;
 $ember-power-select-disabled-background-color: $global-muted-background;
+
+// GIS
+:root {
+  --sg-gis-search-result: #{$global-secondary-background};
+  --sg-gis-plot: #{$global-success-background};
+}

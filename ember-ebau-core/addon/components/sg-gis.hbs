@@ -1,0 +1,81 @@
+{{#unless @disabled}}
+  <PowerSelect
+    @search={{this.search.perform}}
+    @searchEnabled={{true}}
+    @selected={{this.searchResult.value}}
+    @onChange={{this.selectSearchResult}}
+    @placeholder={{t "gis.searchPlaceholder"}}
+    @loadingMessage={{t "gis.loading"}}
+    @searchMessage={{null}}
+    @noMatchesMessage={{t "gis.noMatchesMessage"}}
+    class="uk-margin"
+    aria-label={{t "gis.searchPlaceholder"}}
+    as |option|
+  >
+    {{option.label}}
+  </PowerSelect>
+{{/unless}}
+
+<LeafletMap
+  @lat={{this.center.lat}}
+  @lng={{this.center.lng}}
+  @zoom={{5}}
+  @minZoom={{3}}
+  @maxZoom={{13}}
+  @maxBounds={{this.maxBounds}}
+  @maxBoundsViscosity={{0.8}}
+  @onClick={{this.selectPlot}}
+  @onLoad={{this.initMap}}
+  @onZoom={{this.setZoom}}
+  @crs={{this.crs}}
+  class="uk-width-1-1 uk-height-large uk-border"
+  as |map|
+>
+  {{! Background map }}
+  <map.wms-tile
+    @format="image/png"
+    @version="1.3.0"
+    @layers="daten"
+    @url="https://geodienste.ch/db/av_situationsplan_oereb_0"
+  />
+
+  {{! Other layers }}
+  <map.wms-tile
+    @transparent={{true}}
+    @format="image/png"
+    @version="1.3.0"
+    @layers={{array "Hoheitsgrenzen" "LCSF"}}
+    @url="https://geodienste.ch/db/av_0"
+  />
+
+  {{#if this.searchResult}}
+    <map.geojson
+      @geoJSON={{this.searchResult.geometry}}
+      @style={{this.searchResultStyle}}
+    />
+  {{/if}}
+
+  {{#if this.plot}}
+    <map.geojson
+      @geoJSON={{this.plot.geometry}}
+      @style={{this.plotStyle}}
+      as |layer|
+    >
+      <layer.tooltip @sticky={{true}}>
+        {{this.plot.number}}
+        <strong>({{this.plot.egrid}})</strong>
+      </layer.tooltip>
+    </map.geojson>
+  {{/if}}
+</LeafletMap>
+
+{{#unless @disabled}}
+  <div class="uk-margin-top">
+    <GisApplyButton
+      @document={{@field.document}}
+      @disabled={{not this.plot}}
+      @params={{this.applyParams}}
+      @instanceId={{@context.instanceId}}
+    />
+  </div>
+{{/unless}}

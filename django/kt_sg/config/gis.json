@@ -1,1 +1,26 @@
-[]
+[
+  {
+    "model": "gis.gisdatasource",
+    "pk": "8209ff5b-892a-461f-83bf-182b74164e27",
+    "fields": {
+      "description": "EGRID",
+      "client": "camac.gis.clients.param.ParamGisClient",
+      "config": [
+        {
+          "question": "parzellen.e-grid-nr",
+          "parameterName": "egrid"
+        },
+        {
+          "question": "parzellen.parzellennummer",
+          "parameterName": "number"
+        },
+        {
+          "question": "parzellen.grundbuchkreis",
+          "parameterName": "identDN"
+        }
+      ],
+      "disabled": false,
+      "sort": 1
+    }
+  }
+]
