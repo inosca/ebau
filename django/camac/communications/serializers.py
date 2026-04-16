@@ -79,24 +79,6 @@ def validate_mime_type(file):
         file_content_type, {file_content_type}
     )
 
-    # This is needed because Kt. BE doesn't run on images and has an old version
-    # of libmagic1 (5.30 instead of 5.44) that does not detect any MS office
-    # files that were rendered with the DMS. This is not a problem anywhere else
-    # because newer versions of libmagic1 properly detect those.
-    #
-    # TODO: Remove this as soon as Kt. BE runs on images
-    if (
-        content_type_header not in acceptable_types_from_content
-        and content_type_header in settings.DISABLE_MAGIC_BYTE_CHECK_FOR_MIME_TYPES
-    ):
-        log.debug(
-            f"Content-Type {content_type_header} of file {file.name} does not "
-            f"match the detected file content {file_content_type} but is "
-            "ignored because it's configured in "
-            "`DISABLE_MAGIC_BYTE_CHECK_FOR_MIME_TYPES`."
-        )
-        file_content_type = content_type_header
-
     if content_type_header not in acceptable_types_from_content:
         raise ValidationError(
             gettext(

@@ -4048,11 +4048,6 @@ KEYCLOAK_ALLOWED_CLIENTS = [
     *KEYCLOAK_ADDITIONAL_ALLOWED_CLIENTS,
 ]
 
-# TODO: Remove this as soon as Kt. BE runs on images
-DISABLE_MAGIC_BYTE_CHECK_FOR_MIME_TYPES = env.list(
-    "DISABLE_MAGIC_BYTE_CHECK_FOR_MIME_TYPES", default=[]
-)
-
 SQL_VIEW_MIGRATIONS = [
     # Tuples of (module, migration name)
     ("ech0211", "0003_document_model_views"),
