@@ -92,19 +92,21 @@ def validate_mime_type(file):
         log.debug(
             f"Content-Type {content_type_header} of file {file.name} does not "
             f"match the detected file content {file_content_type} but is "
-            "ignored because it's configured in `DISABLE_MAGIC_BYTE_CHECK_FOR_MIME_TYPES`."
+            "ignored because it's configured in "
+            "`DISABLE_MAGIC_BYTE_CHECK_FOR_MIME_TYPES`."
         )
         file_content_type = content_type_header
 
     if content_type_header not in acceptable_types_from_content:
         raise ValidationError(
             gettext(
-                "Content-Type %(content_type)s does not match detected file content %(file_content_type)s."
-                % {
-                    "content_type": content_type_header,
-                    "file_content_type": file_content_type,
-                }
+                "Content-Type %(content_type)s does not match detected "
+                "file content %(file_content_type)s."
             )
+            % {
+                "content_type": content_type_header,
+                "file_content_type": file_content_type,
+            }
         )
 
 
