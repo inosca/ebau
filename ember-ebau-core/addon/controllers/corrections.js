@@ -24,6 +24,6 @@ export default class CorrectionsController extends Controller {
   );
 
   get isMunicipalityLight() {
-    return this.session.serviceGroup.slug === "municipality-light";
+    return this.session.serviceGroup?.slug === "municipality-light";
   }
 }
