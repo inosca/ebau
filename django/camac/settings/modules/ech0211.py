@@ -42,6 +42,8 @@ class DocumentAPIFeature(enum.Enum):
     DOCUMENTS_DECISION_REMOVE = "documents-decision-remove"
     DOCUMENTS_PUBLICATION_ADD = "documents-publication-add"
     DOCUMENTS_PUBLICATION_REMOVE = "documents-publication-remove"
+    DOCUMENTS_SENSITIVE_ADD = "documents-sensitive-add"
+    DOCUMENTS_SENSITIVE_REMOVE = "documents-sensitive-remove"
     DOCUMENTS_DELETE = "documents-delete"
     CATEGORIES_READ = "categories-read"
 
@@ -461,6 +463,8 @@ ECH0211 = {
             DocumentAPIFeature.DOCUMENTS_DECISION_REMOVE,
             DocumentAPIFeature.DOCUMENTS_PUBLICATION_ADD,
             DocumentAPIFeature.DOCUMENTS_PUBLICATION_REMOVE,
+            DocumentAPIFeature.DOCUMENTS_SENSITIVE_ADD,
+            DocumentAPIFeature.DOCUMENTS_SENSITIVE_REMOVE,
         ],
         "ALLOW_SUBMIT_BY_MUNICIPALITY": True,
         "STATUS_NOTIFICATION_TYPES": [

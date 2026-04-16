@@ -335,7 +335,7 @@ def test_document_create_forbidden(
 
 
 @pytest.mark.freeze_time("2025-11-22")
-@pytest.mark.parametrize("mark_name", ["void", "decision", "publication"])
+@pytest.mark.parametrize("mark_name", ["void", "decision", "publication", "sensitive"])
 @pytest.mark.parametrize("mark_action", ["add", "remove"])
 @pytest.mark.parametrize("has_feature", [True, False])
 @pytest.mark.parametrize("role__name", ["municipality-lead"])
@@ -376,6 +376,11 @@ def test_document_mark_has_feature(
                 DocumentAPIFeature.DOCUMENTS_DECISION_ADD,
                 DocumentAPIFeature.DOCUMENTS_DECISION_REMOVE,
             ]
+        elif mark_name == "sensitive":
+            be_ech0211_settings["DOCUMENT_API_FEATURES"] = [
+                DocumentAPIFeature.DOCUMENTS_SENSITIVE_ADD,
+                DocumentAPIFeature.DOCUMENTS_SENSITIVE_REMOVE,
+            ]
     else:
         be_ech0211_settings["DOCUMENT_API_FEATURES"] = []
 
@@ -410,7 +415,7 @@ def test_document_mark_has_feature(
 
 
 @pytest.mark.freeze_time("2025-11-22")
-@pytest.mark.parametrize("mark_name", ["void", "decision", "publication"])
+@pytest.mark.parametrize("mark_name", ["void", "decision", "publication", "sensitive"])
 @pytest.mark.parametrize("mark_action", ["add", "remove"])
 @pytest.mark.parametrize("role__name", ["municipality-lead"])
 def test_document_mark_camac(
@@ -445,6 +450,11 @@ def test_document_mark_camac(
         be_ech0211_settings["DOCUMENT_API_FEATURES"] = [
             DocumentAPIFeature.DOCUMENTS_DECISION_ADD,
             DocumentAPIFeature.DOCUMENTS_DECISION_REMOVE,
+        ]
+    elif mark_name == "sensitive":
+        be_ech0211_settings["DOCUMENT_API_FEATURES"] = [
+            DocumentAPIFeature.DOCUMENTS_SENSITIVE_ADD,
+            DocumentAPIFeature.DOCUMENTS_SENSITIVE_REMOVE,
         ]
     set_document_backend("camac-ng")
 
@@ -485,7 +495,7 @@ def test_document_mark_camac(
 
 
 @pytest.mark.freeze_time("2025-11-22")
-@pytest.mark.parametrize("mark_name", ["void", "decision", "publication"])
+@pytest.mark.parametrize("mark_name", ["void", "decision", "publication", "sensitive"])
 @pytest.mark.parametrize("mark_action", ["add", "remove"])
 @pytest.mark.parametrize("has_void_mark", [True, False])
 @pytest.mark.parametrize("has_permission", [True, False])
@@ -528,6 +538,11 @@ def test_document_mark_alexandria(
         be_ech0211_settings["DOCUMENT_API_FEATURES"] = [
             DocumentAPIFeature.DOCUMENTS_DECISION_ADD,
             DocumentAPIFeature.DOCUMENTS_DECISION_REMOVE,
+        ]
+    elif mark_name == "sensitive":
+        be_ech0211_settings["DOCUMENT_API_FEATURES"] = [
+            DocumentAPIFeature.DOCUMENTS_SENSITIVE_ADD,
+            DocumentAPIFeature.DOCUMENTS_SENSITIVE_REMOVE,
         ]
 
     mocker.patch(
