@@ -41,7 +41,6 @@ from rest_framework_json_api.views import ReadOnlyModelViewSet
 
 from camac.applicants.models import Applicant
 from camac.caluma.api import CalumaApi
-from camac.caluma.utils import sync_inquiry_deadline
 from camac.constants import kt_uri as ur_constants
 from camac.core.models import InstanceService, PublicationEntry, WorkflowEntry
 from camac.core.utils import canton_aware
@@ -64,7 +63,7 @@ from camac.user.permissions import (
     PublicationPermission,
     permission_aware,
 )
-from camac.utils import DocxRenderer, delay_next_workingday
+from camac.utils import DocxRenderer
 
 from ..utils import get_paper_settings
 from . import (
@@ -529,35 +528,6 @@ class InstanceView(
     def retrieve(self, request, *args, **kwargs):
         instance = self.get_object()
         Trigger.instance_retrieved(None, instance, request.group)
-        return super().retrieve(request, *args, **kwargs)
-
-    def retrieve_for_uso(self, request, *args, **kwargs):
-        instance = self.get_object()
-        service = request.group.service
-        Trigger.instance_retrieved(None, instance, request.group)
-
-        work_items = workflow_models.WorkItem.objects.filter(
-            case__family_id=instance.case.pk,
-            task_id="inquiry",
-            addressed_groups=[service.pk],
-        ).exclude(meta__has_key="retrieved_by_uso")
-
-        for work_item in work_items:
-            # TODO when permission module has been fully rolled out, the meta
-            # property might not be needed anymore
-            work_item.meta["retrieved_by_uso"] = timezone.now().isoformat()
-            work_item.save()
-
-            deadline_answer = work_item.document.answers.filter(
-                question_id=settings.DISTRIBUTION["QUESTIONS"]["DEADLINE"]
-            )
-
-            deadline_answer.update(
-                date=delay_next_workingday(timezone.now() + timedelta(days=7))
-            )
-
-            sync_inquiry_deadline(work_item)
-
         return super().retrieve(request, *args, **kwargs)
 
     @swagger_auto_schema(auto_schema=None)
