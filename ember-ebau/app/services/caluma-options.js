@@ -353,7 +353,8 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
 
       // if there is a config to override the default deadline for specific service groups,
       // check if any of the selected groups is included and return the corresponding deadline.
-      if (customServiceGroupDeadline) {
+      // when multiple groups are selected, we ignore this behavior.
+      if (customServiceGroupDeadline && selectedGroups.length === 1) {
         const customServiceGroupSlugs =
           mainConfig.customDeadlineServiceGroupSlugs ?? [];
         const selectedServiceGroups = await Promise.all(
