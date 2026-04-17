@@ -1,4 +1,4 @@
-import copy
+import copy  # noqa: I001
 import inspect
 import logging
 import os
@@ -9,6 +9,7 @@ from datetime import date, timedelta
 from importlib import import_module, reload
 from pathlib import Path
 from typing import Callable, Literal, Optional
+from uuid import uuid4
 
 import django.db
 import faker
@@ -28,11 +29,22 @@ from caluma.caluma_workflow import (
     models as caluma_workflow_models,
 )
 from caluma.caluma_workflow.api import complete_work_item, skip_work_item
+from celery.contrib.pytest import (  # noqa: F403, F401
+    # These are needed to make celery pytesting work
+    # Check here for why that redundant rename is necesary
+    # https://docs.astral.sh/ruff/rules/unused-import/
+    celery_app as celery_app,
+    celery_config as celery_config,
+    celery_parameters as celery_parameters,
+    celery_enable_logging as celery_enable_logging,
+    use_celery_app_trap as use_celery_app_trap,
+)
 from django.conf import settings as django_settings
 from django.core.cache import cache
 from django.core.management import call_command
 from django.http import FileResponse
 from django.urls import clear_url_caches
+from django.utils.module_loading import import_string
 from django.utils.timezone import make_aware, now
 from factory import Faker
 from factory.base import FactoryMetaClass
@@ -3175,6 +3187,90 @@ def mock_celery(mocker):
 
 
 @pytest.fixture
+def celery_fake_worker(celery_app, mocker):  # noqa: F811,C901
+    """
+    Mock Celery task scheduling and allow running those tasks in tests.
+
+    Example use:
+    >>>    def test_something(..., celery_fake_worker):
+    ...
+    ...        # Trigger code that schedules some tasks
+    ...        ...
+    ...
+    ...        # Run the task
+    ...        celery_fake_worker.run_tasks()
+    ...
+    ...        # Now run the code to check the results
+    ...        ...
+    ...
+    """
+    task_queue = []
+
+    by_id = {}
+
+    class TaskResult:
+        """Mimick the AsyncResult from Celery as closely as needed.
+
+        This represents a *scheduled* task, as well as the result once
+        it's done. We'll try to keep it simple here, and only implement
+        what's needed by our code.
+        """
+
+        def __init__(self, func, args, kwargs):
+            self.func = func
+            self.args = args
+            self.kwargs = kwargs
+            self.id = str(uuid4())
+            by_id[self.id] = self
+            self.status = "PENDING"
+
+        def run(self, raise_errors=True):
+            try:
+                self.result = self.func(*self.args, **self.kwargs)
+                self.status = "SUCCESSFUL"
+            except Exception as exc:  # noqa
+                self.result = exc
+                self.status = "FAILED"
+                if raise_errors:  # pragma: no cover
+                    raise
+
+        def successful(self):
+            return self.status == "SUCCESSFUL"
+
+        def failed(self):
+            return self.status == "FAILED"
+
+    def get_by_id(task_id):
+        return by_id[task_id]
+
+    def mock_delay(self, *args, **kwargs):
+        task = TaskResult(self, args, kwargs)
+        task_queue.append(task)
+        return task
+
+    mocker.patch("celery.Task.delay", mock_delay)
+    mocker.patch("celery.Task.apply_async", mock_delay)
+    mocker.patch("celery.result.AsyncResult", get_by_id)
+
+    class FakeWorker:
+        def run_tasks(self, raise_errors=True):
+            """Execute all queued tasks."""
+            while task_queue:
+                task = task_queue.pop()
+                task.run(raise_errors=raise_errors)
+
+        def inject_task(self, the_task):
+            """Allow test code to inject fake task objects.
+
+            The task objects *should* resemble a Celery AsyncResult object,
+            but at the very least MUST have an `id` property.
+            """
+            by_id[the_task.id] = the_task
+
+    yield FakeWorker()
+
+
+@pytest.fixture
 def create_caluma_publication(
     db, caluma_work_item_factory, form_utils: FormUtils, request
 ):
@@ -3212,24 +3308,6 @@ def create_caluma_publication(
         return work_item
 
     return wrapper
-
-
-@pytest.fixture
-def django_q_sync_mode(settings):
-    """Set Django-Q to Sync mode for the duration of the test case.
-
-    That way, background tasks will run immediately instead of being
-    scheduled, so we can actually test them like normal code.
-    """
-    import django_q.conf
-
-    before = django_q.conf.Conf.SYNC
-    django_q.conf.Conf.SYNC = True
-
-    try:
-        yield
-    finally:
-        django_q.conf.Conf.SYNC = before
 
 
 @pytest.fixture
@@ -3375,12 +3453,6 @@ def _validateable_settings():
     ]
 
 
-def _get_module_settings(setting_name):
-    """Return the settings module as imported for the given module."""
-    origin, name = setting_name.rsplit(".", 1)
-    return getattr(import_module(origin), name)
-
-
 _before_settings = {}
 
 
@@ -3404,12 +3476,12 @@ def ensure_no_leaks(request):
         # we only do the before settings copy once. This is the expensive
         # part of the operation
         _before_settings.update(
-            {s: copy.deepcopy(_get_module_settings(s)) for s in settings_to_check}
+            {s: copy.deepcopy(import_string(s)) for s in settings_to_check}
         )
 
     yield
 
-    after_settings = {s: _get_module_settings(s) for s in settings_to_check}
+    after_settings = {s: import_string(s) for s in settings_to_check}
 
     for s in settings_to_check:
         before = _before_settings[s]

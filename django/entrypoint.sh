@@ -45,7 +45,6 @@ if [ "$#" -lt 1 ]; then
   echo "      --no-loadconfig  to skip the loadconfig step"
   echo "   - gunicorn_k8s      to run the production server without integrated webdav and"
   echo "                       without any implicit setup (loadconfig, migrate)"
-  echo "   - qcluster          to run the django-q service"
   echo "   - celery            to run the celery service"
   echo "   - celerydev         to run the celery service in development mode"
   echo "   - celery-beat       to run the celery beat scheduler"
@@ -91,12 +90,6 @@ case "$1" in
     # K8s mode: All setup (loadconfig, migrate) must be done explicitly
     # in an init task or similar
     run_gunicorn
-    ;;
-  qcluster )
-    exec python manage.py qcluster --pythonpath /app/$APPLICATION
-    ;;
-  qclusterdev )
-    watchmedo auto-restart -d . --recursive -p '*.py' -- python manage.py qcluster --pythonpath /app/$APPLICATION
     ;;
   celery )
     wait-for-it ${REDIS_HOST:-redis}:${REDIS_PORT:-6379}

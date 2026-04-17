@@ -7,6 +7,7 @@ import pytest
 from alexandria.core.models import Document
 from caluma.caluma_workflow.models import Case
 from django.utils import timezone
+from pytest_lazy_fixtures import lf
 
 from camac.dossier_import.domain_logic import (
     get_or_create_ebau_nr,
@@ -77,11 +78,11 @@ def test_undo_import(
 # in order to reuse the general test setup we'll
 # cope with some redundancy with test setup and parametrization.
 @pytest.mark.parametrize(
-    "config",
+    "app",
     [
-        "kt_schwyz",
-        "kt_bern",
-        "kt_so",
+        lf("set_application_sz"),
+        lf("set_application_be"),
+        lf("set_application_so"),
     ],
 )
 def test_perform_reimport(  # noqa: C901
@@ -91,14 +92,18 @@ def test_perform_reimport(  # noqa: C901
     archive_file,
     dossier_import_factory,
     dossier_loader,
-    config,
     dossier_id,
     setup_dossier_writer,
     first_import_file,
     reimport_file,
     freezer,
     tmpdir,
+    app,
+    settings,
+    support_role,
 ):
+    config = settings.APPLICATION_NAME
+
     writer = setup_dossier_writer(config)
     now = timezone.now()
 
@@ -109,6 +114,7 @@ def test_perform_reimport(  # noqa: C901
         source_file=archive_file(first_import_file),
         mime_type=mimetypes.types_map[".zip"],
     )
+
     perform_import(first_import)
 
     imported_dossier = writer.find_existing_instance(
@@ -164,7 +170,6 @@ def test_perform_reimport(  # noqa: C901
 
     # get the imported values from the secondary archive that should have
     # been written to the dossier
-    reimport.source_file.file.seek(0)
     dossier = next(dossier_loader.load_dossiers(reimport), None)
     dossier_dict = dict(
         (field.name, getattr(dossier, field.name))

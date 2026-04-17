@@ -9,11 +9,6 @@ from camac.gis.utils import MergeStrategy, concat_values, merge_table
 class GISBaseClient:
     merge_strategy: MergeStrategy = MergeStrategy.MERGE_FIRST
 
-    @classmethod
-    def is_queue_enabled(cls):
-        # Override in subclass if needed
-        return False
-
     def __init__(self, params: QueryDict):
         self.params = params
 

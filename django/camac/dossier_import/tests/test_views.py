@@ -1,10 +1,9 @@
 import mimetypes
+from types import SimpleNamespace
 
 import pytest
+from celery import states as celery_states
 from django.http import FileResponse
-from django.utils import timezone
-from django_q.brokers import get_broker
-from django_q.signing import SignedPackage
 from pytest_lazy_fixtures import lf
 from rest_framework import status
 from rest_framework.reverse import reverse
@@ -391,12 +390,12 @@ def test_state_transitions(
     action,
     status_before,
     expected_response_code,
-    django_q_sync_mode,
     status_after,
     caluma_case_factory,
     host,
     mailoutbox,
     be_dossier_import_settings,
+    celery_fake_worker,
 ):
     settings.INTERNAL_BASE_URL = f"https://{host}.example.com"
 
@@ -564,67 +563,100 @@ def test_delete_import(
 
 @pytest.mark.parametrize("role__name", ["Support"])
 @pytest.mark.parametrize(
-    "task_state,expected_status",
+    "import_status_before, celery_task_state, expected_status",
     [
-        ("queued", DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS),
-        ("timed-out", DossierImport.IMPORT_STATUS_IMPORT_FAILED),
         (
             DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
+            None,
+            DossierImport.IMPORT_STATUS_IMPORT_FAILED,
+        ),
+        (
+            DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
+            celery_states.STARTED,
             DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
         ),
-        (None, DossierImport.IMPORT_STATUS_IMPORT_FAILED),
-        (DossierImport.IMPORT_STATUS_IMPORTED, DossierImport.IMPORT_STATUS_IMPORTED),
+        (
+            DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
+            celery_states.PENDING,
+            DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
+        ),
+        (
+            DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
+            celery_states.RECEIVED,
+            DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
+        ),
+        (
+            DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
+            celery_states.STARTED,
+            DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
+        ),
+        (
+            DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
+            celery_states.SUCCESS,
+            DossierImport.IMPORT_STATUS_IMPORTED,
+        ),
+        (
+            DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
+            celery_states.FAILURE,
+            DossierImport.IMPORT_STATUS_IMPORT_FAILED,
+        ),
+        (
+            DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
+            celery_states.RETRY,
+            DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
+        ),
+        (
+            DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
+            celery_states.REVOKED,
+            DossierImport.IMPORT_STATUS_IMPORT_FAILED,
+        ),
+        (
+            DossierImport.IMPORT_STATUS_NEW,
+            celery_states.FAILURE,
+            DossierImport.IMPORT_STATUS_NEW,
+        ),
+        (
+            DossierImport.IMPORT_STATUS_IMPORTED,
+            celery_states.SUCCESS,
+            DossierImport.IMPORT_STATUS_IMPORTED,
+        ),
     ],
 )
 def test_import_status(
-    db, admin_client, dossier_import, task_state, expected_status, settings, mocker
+    db,
+    admin_client,
+    dossier_import,
+    import_status_before,
+    celery_task_state,
+    expected_status,
+    settings,
+    celery_fake_worker,
 ):
-    lock = timezone.now()
-    dossier_import.status = DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS
+
+    dossier_import.status = import_status_before
     dossier_import.save()
-    if not task_state:
-        # verify that an in progres status and no task-id results in failed status
+
+    if not celery_task_state:
+        # verify that an in-progres status and no task-id results in failed status
+        # Note: could be different "failed" strings, thus the `in` check
         assert "failed" in dossier_import.update_async_status()
         return
-    if task_state == "queued":
-        lock = lock - timezone.timedelta(2 * settings.Q_CLUSTER["timeout"])
-    task = {
-        "id": "abba1221acab1312",
-        "name": "one-task",
-        "func": "some-func",
-        "args": {},
-    }
-    other_task = {
-        "id": "1234abcd5678efgh",
-        "name": "other-task",
-        "func": "some-func",
-        "args": {},
-    }
-    broker = get_broker()
-    if task_state not in ("timed-out", DossierImport.IMPORT_STATUS_IMPORTED):
-        broker.get_connection().create(
-            key=broker.list_key, payload=SignedPackage.dumps(task), lock=lock
-        )
-    dossier_import.task_id = task["id"]
-    dossier_import.save()
-    broker.get_connection().create(
-        key=broker.list_key,
-        payload=SignedPackage.dumps(other_task),
-        lock=timezone.now(),
+
+    task = SimpleNamespace(
+        id="abba1221acab1312",
+        name="one-task",
+        func="some-func",
+        state=celery_task_state,
+        result=None,
+        args={},
     )
-    if task_state in (
-        DossierImport.IMPORT_STATUS_IMPORT_IN_PROGRESS,
-        DossierImport.IMPORT_STATUS_IMPORTED,
-    ):
-        mocker.patch("camac.dossier_import.models.fetch", return_value=task)
-    dossier_import.update_async_status()
-    dossier_import.status == expected_status
+
+    celery_fake_worker.inject_task(task)
+
+    dossier_import.task_id = task.id
+    dossier_import.save()
+
     resp = admin_client.get(reverse("dossier-import-detail", args=(dossier_import.pk,)))
     assert resp.status_code == status.HTTP_200_OK
     # status is only changed by the update_async_status method if import times out
-    assert (
-        resp.json()["data"]["attributes"]["status"]
-        == DossierImport.IMPORT_STATUS_IMPORT_FAILED
-        if expected_status == "timed-out"
-        else DossierImport.IMPORT_STATUS_IMPORTED
-    )
+    assert resp.json()["data"]["attributes"]["status"] == expected_status

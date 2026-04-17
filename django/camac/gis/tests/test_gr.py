@@ -363,12 +363,14 @@ def test_gr_client(
     admin_client,
     gis_snapshot,
     vcr_config,
+    celery_fake_worker,
     gr_config,
     query,
     form,
     gr_data_sources,
 ):
-    response = admin_client.get(
+
+    response_0 = admin_client.get(
         reverse("gis-data"),
         data={
             "query": json.dumps(query),
@@ -376,5 +378,16 @@ def test_gr_client(
         },
     )
 
-    assert response.status_code == status.HTTP_200_OK
-    assert response.json() == gis_snapshot
+    task_id = response_0.json()["task_id"]
+    celery_fake_worker.run_tasks()
+
+    response_1 = admin_client.get(
+        reverse("gis-data", args=[task_id]),
+        data={
+            "query": json.dumps(query),
+            "form": form,
+        },
+    )
+
+    assert response_1.status_code == status.HTTP_200_OK
+    assert response_1.json() == gis_snapshot

@@ -317,6 +317,7 @@ def test_change_geometer_permission(
     instance_acl_factory,
     access_level_factory,
     caluma_work_item_factory,
+    celery_fake_worker,
 ):
     selected_municipality = service_factory()
     selected_geometer = service_factory()

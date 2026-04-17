@@ -40,8 +40,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1441'
       Content-Type:
@@ -117,8 +115,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1533'
       Content-Type:
@@ -187,8 +183,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1441'
       Content-Type:
@@ -264,8 +258,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1533'
       Content-Type:
@@ -334,8 +326,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1441'
       Content-Type:
@@ -411,8 +401,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1533'
       Content-Type:
@@ -481,8 +469,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1441'
       Content-Type:
@@ -558,8 +544,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1533'
       Content-Type:
@@ -628,8 +612,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1441'
       Content-Type:
@@ -705,8 +687,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1533'
       Content-Type:
@@ -775,8 +755,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1441'
       Content-Type:
@@ -852,8 +830,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1533'
       Content-Type:
@@ -922,8 +898,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1441'
       Content-Type:
@@ -999,8 +973,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1533'
       Content-Type:
@@ -1069,8 +1041,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1441'
       Content-Type:
@@ -1146,8 +1116,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1533'
       Content-Type:
@@ -1216,8 +1184,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1441'
       Content-Type:
@@ -1293,8 +1259,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1533'
       Content-Type:
@@ -1363,8 +1327,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1441'
       Content-Type:
@@ -1440,8 +1402,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1533'
       Content-Type:
@@ -1510,8 +1470,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1441'
       Content-Type:
@@ -1587,8 +1545,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1533'
       Content-Type:
@@ -1657,8 +1613,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1441'
       Content-Type:
@@ -1734,8 +1688,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1533'
       Content-Type:
@@ -1804,8 +1756,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1441'
       Content-Type:
@@ -1881,8 +1831,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1533'
       Content-Type:
@@ -1951,8 +1899,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1441'
       Content-Type:
@@ -2028,8 +1974,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1533'
       Content-Type:
@@ -2098,8 +2042,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1441'
       Content-Type:
@@ -2175,8 +2117,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1533'
       Content-Type:
@@ -2245,8 +2185,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1441'
       Content-Type:
@@ -2322,8 +2260,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1533'
       Content-Type:
@@ -2392,8 +2328,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1441'
       Content-Type:
@@ -2469,8 +2403,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1533'
       Content-Type:
@@ -2539,8 +2471,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1441'
       Content-Type:
@@ -2616,8 +2546,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1533'
       Content-Type:
@@ -2686,8 +2614,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1441'
       Content-Type:
@@ -2763,8 +2689,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1533'
       Content-Type:
@@ -2833,8 +2757,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1441'
       Content-Type:
@@ -2910,8 +2832,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1533'
       Content-Type:
@@ -2980,8 +2900,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1441'
       Content-Type:
@@ -3057,8 +2975,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1533'
       Content-Type:
@@ -3127,8 +3043,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1441'
       Content-Type:
@@ -3204,8 +3118,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1533'
       Content-Type:
@@ -3274,8 +3186,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1441'
       Content-Type:
@@ -3351,8 +3261,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1533'
       Content-Type:
@@ -3421,8 +3329,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1441'
       Content-Type:
@@ -3498,8 +3404,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1533'
       Content-Type:
@@ -3568,8 +3472,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1441'
       Content-Type:
@@ -3645,8 +3547,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1533'
       Content-Type:
@@ -3664,6 +3564,483 @@ interactions:
       - 'TS014419e9=0100bce510de720923d0524e9ebcf73d6c2e87f48a5eb9cd2881c387d6a58e1d398e4e3b0ba482bd27fbe68687cdb83f4479508562c37f54810f3683db3b3c4222f20961f4;
         Path=/; Domain=.www.ag.ch; '
       - TS01975bae=0100bce510c784477ee9b354c98f1cf61e286bd5a05eb9cd2881c387d6a58e1d398e4e3b0b8ca6ee94ec903c1ff6a458911fb0147dc9eafeeedfd17715522c09a22d622577;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2657685.795499999541789293289%2C1241575.649276695214211940765%2C2657687.795499999541789293289%2C1241577.649276695214211940765&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '293'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Seengen\",\"attributes\":{\"OBJECTID\":\"64\",\"GDENR\":\"4208\",\"GEMEINDE\":\"Seengen\",\"GEMEINDEZ\":\"Seengen\",\"GEMEINDEU\":\"Seengen\",\"BZNR\":\"1907\",\"BEZIRK\":\"Lenzburg\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Lenzburg\",\"Geometer\":\"Oliver Flury\",\"Strasse\":\"Dammweg 21\",\"PLZOrt\":\"5600
+        Lenzburg\",\"ID\":\"4208\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"10342936.045435\",\"SHAPE.STLength()\":\"15148.375334\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2780\",\"attributes\":{\"OBJECTID\":\"77892391\",\"FILEID\":\"204\",\"GDENR\":\"4208\",\"GDENRPARZ\":\"420802780\",\"NUMMER\":\"2780\",\"EGRID\":\"CH790595941178\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"7864\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7863.990118\",\"SHAPE.STLength()\":\"355.548041\"}},{\"layerId\":495,\"layerName\":\"BLN
+        - Bundesinventar der Landschaften und Naturdenkm\xE4ler von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Hallwilersee\",\"attributes\":{\"OBJECTID\":\"46\",\"ObjNummer\":\"1303\",\"TeilObjNummer\":\"0\",\"Name\":\"Hallwilersee\",\"Inkraftsetzungsdatum\":\"21.11.1977\",\"Mutationsdatum\":\"Null\",\"TeilObjName\":\"
+        \",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-bln/objectsheets/2017revision/nr1303.pdf\",\"Mutationsgrund\":\"
+        \",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"V\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"18678943.504405\",\"Shape.STLength()\":\"22689.738638\"}},{\"layerId\":497,\"layerName\":\"Landschaftsschutzdekrete
+        (detailliert Legende)\",\"displayFieldName\":\"Dekretsname\",\"value\":\"HSD\",\"attributes\":{\"OBJECTID\":\"317\",\"Dekretsname\":\"HSD\",\"Ausf\xFChrlicher
+        Dekretsname\":\"Dekret zum Schutze der Hallwilerseelandschaft (SAR 787.350)\",\"Zonencode
+        Kanton\":\"5282\",\"Zonenbezeichnung Kanton\":\"Landschaftsschutzzone innerhalb
+        Dekretsgebiet (kant. NP)\",\"Typ in Kantonaler Zone\":\"Schutzzone\",\"Verbindlichkeit\":\"Nutzungsplanfestlegung\",\"Orientierungsinhalt\":\"Null\",\"Geolink\":\"38\",\"Beschlussdatum
+        \xC4nderung\":\"28.08.2007\",\"Rechtsstatus\":\"inKraft\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/38.html\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"191405.121952\",\"Shape.STLength()\":\"2578.874618\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Ao\",\"attributes\":{\"OBJECTID1\":\"164\",\"OBJECTID\":\"152\",\"TYP\":\"Ao\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"13757191.567695\",\"Shape.STLength()\":\"30064.352032\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19684\",\"ID\":\"52497\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Aare Aarau - Brugg\",\"BEARBEITER\":\"Niederer
+        + Pozzi Umwelt AG, 8730 Uznach\",\"DATUM\":\"22.03.2023\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"14252.75966\",\"SHAPE.STLength()\":\"1295.199152\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"20659\",\"attributes\":{\"OBJECTID\":\"20659\",\"GDENR\":\"Seengen
+        4208\",\"HNCode\":\"21\",\"HNBez\":\"Allgemeine Landwirtschaftszonen\",\"KTAAbk\":\"Landwirtschaftszonen\",\"KTCode\":\"2111\",\"KTAbk\":\"AL\",\"KTBez\":\"Allgemeine
+        Landwirtschaftszone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"211101\",\"GDEBez\":\"Landwirtschaftszone\",\"GDEAbk\":\"LWZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2013-000520\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.06.121\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"2609\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2609.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        ES\":\"nein\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"264801.177762\",\"Shape.STLength()\":\"3021.905874\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1683'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:15:38 GMT
+      ETag:
+      - '"ef17c316"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|S_L4HJBPA86LmwGGhbm_Nw==|VR_qZZxoJuXXCSILqQSHDeBA6CDt5B9EzLNM-n2OxYBgTCDyHwLZNMwwwQ3y8WGDUkR2TjU=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:16:38 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce510c108d7a55fd9db5ed6b9169d6d41c438520b8d07b5c2d5cdcc71567127c4a2ed65601a0c9b8db02c86ffeb490e9a6a98;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce510c108d7a55fd9db5ed6b9169d6d41c438520b8d07b5c2d5cdcc71567127c4a2ed65601a0c9b8db02c86ffeb490e9a6a98;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2657666.795499999541789293289%2C1241556.649276695214211940765%2C2657706.795499999541789293289%2C1241596.649276695214211940765&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '293'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="sym-gcm|1|S_L4HJBPA86LmwGGhbm_Nw==|VR_qZZxoJuXXCSILqQSHDeBA6CDt5B9EzLNM-n2OxYBgTCDyHwLZNMwwwQ3y8WGDUkR2TjU=";
+        TS01975bae=0100bce510c108d7a55fd9db5ed6b9169d6d41c438520b8d07b5c2d5cdcc71567127c4a2ed65601a0c9b8db02c86ffeb490e9a6a98;
+        XWAF=1791920065.47873.0000; TS014419e9=0100bce510c108d7a55fd9db5ed6b9169d6d41c438520b8d07b5c2d5cdcc71567127c4a2ed65601a0c9b8db02c86ffeb490e9a6a98
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Seengen\",\"attributes\":{\"OBJECTID\":\"64\",\"GDENR\":\"4208\",\"GEMEINDE\":\"Seengen\",\"GEMEINDEZ\":\"Seengen\",\"GEMEINDEU\":\"Seengen\",\"BZNR\":\"1907\",\"BEZIRK\":\"Lenzburg\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Lenzburg\",\"Geometer\":\"Oliver Flury\",\"Strasse\":\"Dammweg 21\",\"PLZOrt\":\"5600
+        Lenzburg\",\"ID\":\"4208\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"10342936.045435\",\"SHAPE.STLength()\":\"15148.375334\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"2780\",\"attributes\":{\"OBJECTID\":\"80683372\",\"FILEID\":\"204\",\"GDENR\":\"4208\",\"NUMMER\":\"2780\",\"ART\":\"Liegenschaft\",\"ORI\":\"0\",\"Shape\":\"Point\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2780\",\"attributes\":{\"OBJECTID\":\"77892391\",\"FILEID\":\"204\",\"GDENR\":\"4208\",\"GDENRPARZ\":\"420802780\",\"NUMMER\":\"2780\",\"EGRID\":\"CH790595941178\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"7864\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7863.990118\",\"SHAPE.STLength()\":\"355.548041\"}},{\"layerId\":495,\"layerName\":\"BLN
+        - Bundesinventar der Landschaften und Naturdenkm\xE4ler von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Hallwilersee\",\"attributes\":{\"OBJECTID\":\"46\",\"ObjNummer\":\"1303\",\"TeilObjNummer\":\"0\",\"Name\":\"Hallwilersee\",\"Inkraftsetzungsdatum\":\"21.11.1977\",\"Mutationsdatum\":\"Null\",\"TeilObjName\":\"
+        \",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-bln/objectsheets/2017revision/nr1303.pdf\",\"Mutationsgrund\":\"
+        \",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"V\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"18678943.504405\",\"Shape.STLength()\":\"22689.738638\"}},{\"layerId\":497,\"layerName\":\"Landschaftsschutzdekrete
+        (detailliert Legende)\",\"displayFieldName\":\"Dekretsname\",\"value\":\"HSD\",\"attributes\":{\"OBJECTID\":\"317\",\"Dekretsname\":\"HSD\",\"Ausf\xFChrlicher
+        Dekretsname\":\"Dekret zum Schutze der Hallwilerseelandschaft (SAR 787.350)\",\"Zonencode
+        Kanton\":\"5282\",\"Zonenbezeichnung Kanton\":\"Landschaftsschutzzone innerhalb
+        Dekretsgebiet (kant. NP)\",\"Typ in Kantonaler Zone\":\"Schutzzone\",\"Verbindlichkeit\":\"Nutzungsplanfestlegung\",\"Orientierungsinhalt\":\"Null\",\"Geolink\":\"38\",\"Beschlussdatum
+        \xC4nderung\":\"28.08.2007\",\"Rechtsstatus\":\"inKraft\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/38.html\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"191405.121952\",\"Shape.STLength()\":\"2578.874618\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Ao\",\"attributes\":{\"OBJECTID1\":\"164\",\"OBJECTID\":\"152\",\"TYP\":\"Ao\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"13757191.567695\",\"Shape.STLength()\":\"30064.352032\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"Restgef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19632\",\"ID\":\"52292\",\"FARBE\":\"Restgef\xE4hrdung\",\"TEILPROJEKT\":\"Aare
+        Aarau - Brugg\",\"BEARBEITER\":\"Niederer + Pozzi Umwelt AG, 8730 Uznach\",\"DATUM\":\"22.03.2023\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"163.163228\",\"SHAPE.STLength()\":\"65.529518\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19684\",\"ID\":\"52497\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Aare Aarau - Brugg\",\"BEARBEITER\":\"Niederer
+        + Pozzi Umwelt AG, 8730 Uznach\",\"DATUM\":\"22.03.2023\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"14252.75966\",\"SHAPE.STLength()\":\"1295.199152\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"20659\",\"attributes\":{\"OBJECTID\":\"20659\",\"GDENR\":\"Seengen
+        4208\",\"HNCode\":\"21\",\"HNBez\":\"Allgemeine Landwirtschaftszonen\",\"KTAAbk\":\"Landwirtschaftszonen\",\"KTCode\":\"2111\",\"KTAbk\":\"AL\",\"KTBez\":\"Allgemeine
+        Landwirtschaftszone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"211101\",\"GDEBez\":\"Landwirtschaftszone\",\"GDEAbk\":\"LWZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2013-000520\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.06.121\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"2609\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2609.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        ES\":\"nein\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"264801.177762\",\"Shape.STLength()\":\"3021.905874\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1781'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:15:39 GMT
+      ETag:
+      - '"e1db0b28"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|O97ab5chx5DA3ez0V3LmGw==|V11TWfH2mxp9KWy4f7rQmAA6xMWCuLCaip5x1vNJfvgbVkaT1Lq7g4KpR8JuBkLqQlpX0Ck=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:16:38 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce510c108d7a55fd9db5ed6b9169d6d41c438520b8d07b5c2d5cdcc71567127c4a2ed65601a0c9b8db02c86ffeb490e9a6a98;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce510c108d7a55fd9db5ed6b9169d6d41c438520b8d07b5c2d5cdcc71567127c4a2ed65601a0c9b8db02c86ffeb490e9a6a98;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2657685.795499999541789293289%2C1241575.649276695214211940765%2C2657687.795499999541789293289%2C1241577.649276695214211940765&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '293'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Seengen\",\"attributes\":{\"OBJECTID\":\"64\",\"GDENR\":\"4208\",\"GEMEINDE\":\"Seengen\",\"GEMEINDEZ\":\"Seengen\",\"GEMEINDEU\":\"Seengen\",\"BZNR\":\"1907\",\"BEZIRK\":\"Lenzburg\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Lenzburg\",\"Geometer\":\"Oliver Flury\",\"Strasse\":\"Dammweg 21\",\"PLZOrt\":\"5600
+        Lenzburg\",\"ID\":\"4208\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"10342936.045435\",\"SHAPE.STLength()\":\"15148.375334\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2780\",\"attributes\":{\"OBJECTID\":\"77892391\",\"FILEID\":\"204\",\"GDENR\":\"4208\",\"GDENRPARZ\":\"420802780\",\"NUMMER\":\"2780\",\"EGRID\":\"CH790595941178\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"7864\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7863.990118\",\"SHAPE.STLength()\":\"355.548041\"}},{\"layerId\":495,\"layerName\":\"BLN
+        - Bundesinventar der Landschaften und Naturdenkm\xE4ler von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Hallwilersee\",\"attributes\":{\"OBJECTID\":\"46\",\"ObjNummer\":\"1303\",\"TeilObjNummer\":\"0\",\"Name\":\"Hallwilersee\",\"Inkraftsetzungsdatum\":\"21.11.1977\",\"Mutationsdatum\":\"Null\",\"TeilObjName\":\"
+        \",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-bln/objectsheets/2017revision/nr1303.pdf\",\"Mutationsgrund\":\"
+        \",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"V\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"18678943.504405\",\"Shape.STLength()\":\"22689.738638\"}},{\"layerId\":497,\"layerName\":\"Landschaftsschutzdekrete
+        (detailliert Legende)\",\"displayFieldName\":\"Dekretsname\",\"value\":\"HSD\",\"attributes\":{\"OBJECTID\":\"317\",\"Dekretsname\":\"HSD\",\"Ausf\xFChrlicher
+        Dekretsname\":\"Dekret zum Schutze der Hallwilerseelandschaft (SAR 787.350)\",\"Zonencode
+        Kanton\":\"5282\",\"Zonenbezeichnung Kanton\":\"Landschaftsschutzzone innerhalb
+        Dekretsgebiet (kant. NP)\",\"Typ in Kantonaler Zone\":\"Schutzzone\",\"Verbindlichkeit\":\"Nutzungsplanfestlegung\",\"Orientierungsinhalt\":\"Null\",\"Geolink\":\"38\",\"Beschlussdatum
+        \xC4nderung\":\"28.08.2007\",\"Rechtsstatus\":\"inKraft\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/38.html\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"191405.121952\",\"Shape.STLength()\":\"2578.874618\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Ao\",\"attributes\":{\"OBJECTID1\":\"164\",\"OBJECTID\":\"152\",\"TYP\":\"Ao\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"13757191.567695\",\"Shape.STLength()\":\"30064.352032\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19684\",\"ID\":\"52497\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Aare Aarau - Brugg\",\"BEARBEITER\":\"Niederer
+        + Pozzi Umwelt AG, 8730 Uznach\",\"DATUM\":\"22.03.2023\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"14252.75966\",\"SHAPE.STLength()\":\"1295.199152\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"20659\",\"attributes\":{\"OBJECTID\":\"20659\",\"GDENR\":\"Seengen
+        4208\",\"HNCode\":\"21\",\"HNBez\":\"Allgemeine Landwirtschaftszonen\",\"KTAAbk\":\"Landwirtschaftszonen\",\"KTCode\":\"2111\",\"KTAbk\":\"AL\",\"KTBez\":\"Allgemeine
+        Landwirtschaftszone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"211101\",\"GDEBez\":\"Landwirtschaftszone\",\"GDEAbk\":\"LWZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2013-000520\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.06.121\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"2609\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2609.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        ES\":\"nein\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"264801.177762\",\"Shape.STLength()\":\"3021.905874\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1683'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:16:53 GMT
+      ETag:
+      - '"ef17c316"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|CEv-31Z6v98fN2Q7cjRzYw==|Wyrp5fcOps-MipaRm4HpEkpNG0shSy6KWmfM7cEOC5DYT1hFEJPjPT18ialeJkVs_1oWd1w=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:17:53 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce51060d59a47471641a488a5a8a8236ada35b5591613a5bc5b512673dcc465894d3a711e46d99b6a6e03bdd3265e3da9a31f;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce51060d59a47471641a488a5a8a8236ada35b5591613a5bc5b512673dcc465894d3a711e46d99b6a6e03bdd3265e3da9a31f;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2657666.795499999541789293289%2C1241556.649276695214211940765%2C2657706.795499999541789293289%2C1241596.649276695214211940765&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '293'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="sym-gcm|1|CEv-31Z6v98fN2Q7cjRzYw==|Wyrp5fcOps-MipaRm4HpEkpNG0shSy6KWmfM7cEOC5DYT1hFEJPjPT18ialeJkVs_1oWd1w=";
+        TS01975bae=0100bce51060d59a47471641a488a5a8a8236ada35b5591613a5bc5b512673dcc465894d3a711e46d99b6a6e03bdd3265e3da9a31f;
+        XWAF=1791920065.47873.0000; TS014419e9=0100bce51060d59a47471641a488a5a8a8236ada35b5591613a5bc5b512673dcc465894d3a711e46d99b6a6e03bdd3265e3da9a31f
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Seengen\",\"attributes\":{\"OBJECTID\":\"64\",\"GDENR\":\"4208\",\"GEMEINDE\":\"Seengen\",\"GEMEINDEZ\":\"Seengen\",\"GEMEINDEU\":\"Seengen\",\"BZNR\":\"1907\",\"BEZIRK\":\"Lenzburg\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Lenzburg\",\"Geometer\":\"Oliver Flury\",\"Strasse\":\"Dammweg 21\",\"PLZOrt\":\"5600
+        Lenzburg\",\"ID\":\"4208\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"10342936.045435\",\"SHAPE.STLength()\":\"15148.375334\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"2780\",\"attributes\":{\"OBJECTID\":\"80683372\",\"FILEID\":\"204\",\"GDENR\":\"4208\",\"NUMMER\":\"2780\",\"ART\":\"Liegenschaft\",\"ORI\":\"0\",\"Shape\":\"Point\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2780\",\"attributes\":{\"OBJECTID\":\"77892391\",\"FILEID\":\"204\",\"GDENR\":\"4208\",\"GDENRPARZ\":\"420802780\",\"NUMMER\":\"2780\",\"EGRID\":\"CH790595941178\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"7864\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7863.990118\",\"SHAPE.STLength()\":\"355.548041\"}},{\"layerId\":495,\"layerName\":\"BLN
+        - Bundesinventar der Landschaften und Naturdenkm\xE4ler von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Hallwilersee\",\"attributes\":{\"OBJECTID\":\"46\",\"ObjNummer\":\"1303\",\"TeilObjNummer\":\"0\",\"Name\":\"Hallwilersee\",\"Inkraftsetzungsdatum\":\"21.11.1977\",\"Mutationsdatum\":\"Null\",\"TeilObjName\":\"
+        \",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-bln/objectsheets/2017revision/nr1303.pdf\",\"Mutationsgrund\":\"
+        \",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"V\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"18678943.504405\",\"Shape.STLength()\":\"22689.738638\"}},{\"layerId\":497,\"layerName\":\"Landschaftsschutzdekrete
+        (detailliert Legende)\",\"displayFieldName\":\"Dekretsname\",\"value\":\"HSD\",\"attributes\":{\"OBJECTID\":\"317\",\"Dekretsname\":\"HSD\",\"Ausf\xFChrlicher
+        Dekretsname\":\"Dekret zum Schutze der Hallwilerseelandschaft (SAR 787.350)\",\"Zonencode
+        Kanton\":\"5282\",\"Zonenbezeichnung Kanton\":\"Landschaftsschutzzone innerhalb
+        Dekretsgebiet (kant. NP)\",\"Typ in Kantonaler Zone\":\"Schutzzone\",\"Verbindlichkeit\":\"Nutzungsplanfestlegung\",\"Orientierungsinhalt\":\"Null\",\"Geolink\":\"38\",\"Beschlussdatum
+        \xC4nderung\":\"28.08.2007\",\"Rechtsstatus\":\"inKraft\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/38.html\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"191405.121952\",\"Shape.STLength()\":\"2578.874618\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Ao\",\"attributes\":{\"OBJECTID1\":\"164\",\"OBJECTID\":\"152\",\"TYP\":\"Ao\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"13757191.567695\",\"Shape.STLength()\":\"30064.352032\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"Restgef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19632\",\"ID\":\"52292\",\"FARBE\":\"Restgef\xE4hrdung\",\"TEILPROJEKT\":\"Aare
+        Aarau - Brugg\",\"BEARBEITER\":\"Niederer + Pozzi Umwelt AG, 8730 Uznach\",\"DATUM\":\"22.03.2023\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"163.163228\",\"SHAPE.STLength()\":\"65.529518\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19684\",\"ID\":\"52497\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Aare Aarau - Brugg\",\"BEARBEITER\":\"Niederer
+        + Pozzi Umwelt AG, 8730 Uznach\",\"DATUM\":\"22.03.2023\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"14252.75966\",\"SHAPE.STLength()\":\"1295.199152\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"20659\",\"attributes\":{\"OBJECTID\":\"20659\",\"GDENR\":\"Seengen
+        4208\",\"HNCode\":\"21\",\"HNBez\":\"Allgemeine Landwirtschaftszonen\",\"KTAAbk\":\"Landwirtschaftszonen\",\"KTCode\":\"2111\",\"KTAbk\":\"AL\",\"KTBez\":\"Allgemeine
+        Landwirtschaftszone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"211101\",\"GDEBez\":\"Landwirtschaftszone\",\"GDEAbk\":\"LWZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2013-000520\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.06.121\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"2609\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2609.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        ES\":\"nein\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"264801.177762\",\"Shape.STLength()\":\"3021.905874\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1781'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:16:54 GMT
+      ETag:
+      - '"e1db0b28"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|le7q6qknUG_haPE46C40dw==|1Uzs_phpKk8XKjf7g6DBxwN-7vFlzxDRo-7Fx6cI-rJgCn8OnAEsMBOiXYrIyLbI5KCms-I=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:17:54 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce51060d59a47471641a488a5a8a8236ada35b5591613a5bc5b512673dcc465894d3a711e46d99b6a6e03bdd3265e3da9a31f;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce51060d59a47471641a488a5a8a8236ada35b5591613a5bc5b512673dcc465894d3a711e46d99b6a6e03bdd3265e3da9a31f;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2657685.795499999541789293289%2C1241575.649276695214211940765%2C2657687.795499999541789293289%2C1241577.649276695214211940765&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '293'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Seengen\",\"attributes\":{\"OBJECTID\":\"64\",\"GDENR\":\"4208\",\"GEMEINDE\":\"Seengen\",\"GEMEINDEZ\":\"Seengen\",\"GEMEINDEU\":\"Seengen\",\"BZNR\":\"1907\",\"BEZIRK\":\"Lenzburg\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Lenzburg\",\"Geometer\":\"Oliver Flury\",\"Strasse\":\"Dammweg 21\",\"PLZOrt\":\"5600
+        Lenzburg\",\"ID\":\"4208\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"10342936.045435\",\"SHAPE.STLength()\":\"15148.375334\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2780\",\"attributes\":{\"OBJECTID\":\"77892391\",\"FILEID\":\"204\",\"GDENR\":\"4208\",\"GDENRPARZ\":\"420802780\",\"NUMMER\":\"2780\",\"EGRID\":\"CH790595941178\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"7864\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7863.990118\",\"SHAPE.STLength()\":\"355.548041\"}},{\"layerId\":495,\"layerName\":\"BLN
+        - Bundesinventar der Landschaften und Naturdenkm\xE4ler von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Hallwilersee\",\"attributes\":{\"OBJECTID\":\"46\",\"ObjNummer\":\"1303\",\"TeilObjNummer\":\"0\",\"Name\":\"Hallwilersee\",\"Inkraftsetzungsdatum\":\"21.11.1977\",\"Mutationsdatum\":\"Null\",\"TeilObjName\":\"
+        \",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-bln/objectsheets/2017revision/nr1303.pdf\",\"Mutationsgrund\":\"
+        \",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"V\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"18678943.504405\",\"Shape.STLength()\":\"22689.738638\"}},{\"layerId\":497,\"layerName\":\"Landschaftsschutzdekrete
+        (detailliert Legende)\",\"displayFieldName\":\"Dekretsname\",\"value\":\"HSD\",\"attributes\":{\"OBJECTID\":\"317\",\"Dekretsname\":\"HSD\",\"Ausf\xFChrlicher
+        Dekretsname\":\"Dekret zum Schutze der Hallwilerseelandschaft (SAR 787.350)\",\"Zonencode
+        Kanton\":\"5282\",\"Zonenbezeichnung Kanton\":\"Landschaftsschutzzone innerhalb
+        Dekretsgebiet (kant. NP)\",\"Typ in Kantonaler Zone\":\"Schutzzone\",\"Verbindlichkeit\":\"Nutzungsplanfestlegung\",\"Orientierungsinhalt\":\"Null\",\"Geolink\":\"38\",\"Beschlussdatum
+        \xC4nderung\":\"28.08.2007\",\"Rechtsstatus\":\"inKraft\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/38.html\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"191405.121952\",\"Shape.STLength()\":\"2578.874618\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Ao\",\"attributes\":{\"OBJECTID1\":\"164\",\"OBJECTID\":\"152\",\"TYP\":\"Ao\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"13757191.567695\",\"Shape.STLength()\":\"30064.352032\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19684\",\"ID\":\"52497\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Aare Aarau - Brugg\",\"BEARBEITER\":\"Niederer
+        + Pozzi Umwelt AG, 8730 Uznach\",\"DATUM\":\"22.03.2023\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"14252.75966\",\"SHAPE.STLength()\":\"1295.199152\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"20659\",\"attributes\":{\"OBJECTID\":\"20659\",\"GDENR\":\"Seengen
+        4208\",\"HNCode\":\"21\",\"HNBez\":\"Allgemeine Landwirtschaftszonen\",\"KTAAbk\":\"Landwirtschaftszonen\",\"KTCode\":\"2111\",\"KTAbk\":\"AL\",\"KTBez\":\"Allgemeine
+        Landwirtschaftszone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"211101\",\"GDEBez\":\"Landwirtschaftszone\",\"GDEAbk\":\"LWZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2013-000520\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.06.121\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"2609\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2609.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        ES\":\"nein\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"264801.177762\",\"Shape.STLength()\":\"3021.905874\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1683'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:21:39 GMT
+      ETag:
+      - '"ef17c316"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|qVFZmh6Xf01XLUs4QXPiBA==|j3gN0WA-MZPGujSIRbcZKyObCqLzeoAw1LBcFgETMgewX5KpJs0FnVMY_8EhWE2AVMaUPiA=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:22:38 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce510aa86fb2b35c78f1998795ca94e118a9ff6de7ae200349787864804f3e3702c9fd398da5b53c0ead12c336ed89a328389;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce510aa86fb2b35c78f1998795ca94e118a9ff6de7ae200349787864804f3e3702c9fd398da5b53c0ead12c336ed89a328389;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2657666.795499999541789293289%2C1241556.649276695214211940765%2C2657706.795499999541789293289%2C1241596.649276695214211940765&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '293'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="sym-gcm|1|qVFZmh6Xf01XLUs4QXPiBA==|j3gN0WA-MZPGujSIRbcZKyObCqLzeoAw1LBcFgETMgewX5KpJs0FnVMY_8EhWE2AVMaUPiA=";
+        TS01975bae=0100bce510aa86fb2b35c78f1998795ca94e118a9ff6de7ae200349787864804f3e3702c9fd398da5b53c0ead12c336ed89a328389;
+        XWAF=1791920065.47873.0000; TS014419e9=0100bce510aa86fb2b35c78f1998795ca94e118a9ff6de7ae200349787864804f3e3702c9fd398da5b53c0ead12c336ed89a328389
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Seengen\",\"attributes\":{\"OBJECTID\":\"64\",\"GDENR\":\"4208\",\"GEMEINDE\":\"Seengen\",\"GEMEINDEZ\":\"Seengen\",\"GEMEINDEU\":\"Seengen\",\"BZNR\":\"1907\",\"BEZIRK\":\"Lenzburg\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Lenzburg\",\"Geometer\":\"Oliver Flury\",\"Strasse\":\"Dammweg 21\",\"PLZOrt\":\"5600
+        Lenzburg\",\"ID\":\"4208\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"10342936.045435\",\"SHAPE.STLength()\":\"15148.375334\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"2780\",\"attributes\":{\"OBJECTID\":\"80683372\",\"FILEID\":\"204\",\"GDENR\":\"4208\",\"NUMMER\":\"2780\",\"ART\":\"Liegenschaft\",\"ORI\":\"0\",\"Shape\":\"Point\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2780\",\"attributes\":{\"OBJECTID\":\"77892391\",\"FILEID\":\"204\",\"GDENR\":\"4208\",\"GDENRPARZ\":\"420802780\",\"NUMMER\":\"2780\",\"EGRID\":\"CH790595941178\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"7864\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7863.990118\",\"SHAPE.STLength()\":\"355.548041\"}},{\"layerId\":495,\"layerName\":\"BLN
+        - Bundesinventar der Landschaften und Naturdenkm\xE4ler von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Hallwilersee\",\"attributes\":{\"OBJECTID\":\"46\",\"ObjNummer\":\"1303\",\"TeilObjNummer\":\"0\",\"Name\":\"Hallwilersee\",\"Inkraftsetzungsdatum\":\"21.11.1977\",\"Mutationsdatum\":\"Null\",\"TeilObjName\":\"
+        \",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-bln/objectsheets/2017revision/nr1303.pdf\",\"Mutationsgrund\":\"
+        \",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"V\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"18678943.504405\",\"Shape.STLength()\":\"22689.738638\"}},{\"layerId\":497,\"layerName\":\"Landschaftsschutzdekrete
+        (detailliert Legende)\",\"displayFieldName\":\"Dekretsname\",\"value\":\"HSD\",\"attributes\":{\"OBJECTID\":\"317\",\"Dekretsname\":\"HSD\",\"Ausf\xFChrlicher
+        Dekretsname\":\"Dekret zum Schutze der Hallwilerseelandschaft (SAR 787.350)\",\"Zonencode
+        Kanton\":\"5282\",\"Zonenbezeichnung Kanton\":\"Landschaftsschutzzone innerhalb
+        Dekretsgebiet (kant. NP)\",\"Typ in Kantonaler Zone\":\"Schutzzone\",\"Verbindlichkeit\":\"Nutzungsplanfestlegung\",\"Orientierungsinhalt\":\"Null\",\"Geolink\":\"38\",\"Beschlussdatum
+        \xC4nderung\":\"28.08.2007\",\"Rechtsstatus\":\"inKraft\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/38.html\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"191405.121952\",\"Shape.STLength()\":\"2578.874618\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Ao\",\"attributes\":{\"OBJECTID1\":\"164\",\"OBJECTID\":\"152\",\"TYP\":\"Ao\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"13757191.567695\",\"Shape.STLength()\":\"30064.352032\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"Restgef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19632\",\"ID\":\"52292\",\"FARBE\":\"Restgef\xE4hrdung\",\"TEILPROJEKT\":\"Aare
+        Aarau - Brugg\",\"BEARBEITER\":\"Niederer + Pozzi Umwelt AG, 8730 Uznach\",\"DATUM\":\"22.03.2023\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"163.163228\",\"SHAPE.STLength()\":\"65.529518\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"geringe Gef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19684\",\"ID\":\"52497\",\"FARBE\":\"geringe
+        Gef\xE4hrdung\",\"TEILPROJEKT\":\"Aare Aarau - Brugg\",\"BEARBEITER\":\"Niederer
+        + Pozzi Umwelt AG, 8730 Uznach\",\"DATUM\":\"22.03.2023\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"14252.75966\",\"SHAPE.STLength()\":\"1295.199152\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"20659\",\"attributes\":{\"OBJECTID\":\"20659\",\"GDENR\":\"Seengen
+        4208\",\"HNCode\":\"21\",\"HNBez\":\"Allgemeine Landwirtschaftszonen\",\"KTAAbk\":\"Landwirtschaftszonen\",\"KTCode\":\"2111\",\"KTAbk\":\"AL\",\"KTBez\":\"Allgemeine
+        Landwirtschaftszone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"211101\",\"GDEBez\":\"Landwirtschaftszone\",\"GDEAbk\":\"LWZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2013-000520\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.06.121\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"2609\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2609.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        ES\":\"nein\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"264801.177762\",\"Shape.STLength()\":\"3021.905874\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1781'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:21:39 GMT
+      ETag:
+      - '"e1db0b28"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|FXT4ZV15BOlLVQB-YYjNFw==|EcBf_7iLRbbvyFjHKGTWJ7qHQWJA9DhETDcJPz3JmeuDeo-W0PP6JJpGtpOyLu2yCU2q6zI=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:22:39 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce510aa86fb2b35c78f1998795ca94e118a9ff6de7ae200349787864804f3e3702c9fd398da5b53c0ead12c336ed89a328389;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce510aa86fb2b35c78f1998795ca94e118a9ff6de7ae200349787864804f3e3702c9fd398da5b53c0ead12c336ed89a328389;
         path=/geoportal/rest
       Strict-Transport-Security:
       - max-age=16070400; includeSubDomains

@@ -459,8 +459,7 @@ interactions:
       - max-age=0, must-revalidate, no-cache, no-store
       content-disposition:
       - inline
-      content-encoding:
-      - gzip
+      
       expires:
       - Wed, 12 Jun 2024 11:59:16 GMT
       last-modified:

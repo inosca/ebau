@@ -10,7 +10,6 @@ from django.db import transaction
 from django.db.models import Q
 from django.db.models.functions import Collate
 from django.utils import timezone
-from django_q.tasks import async_task
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework import response, status
 from rest_framework.decorators import action
@@ -204,7 +203,7 @@ class ServiceView(MultilangMixin, ModelViewSet):
             geometer_id=request.data["selected_geometer_service_id"],
             status="scheduled",
         )
-        async_task(change_geometer_task, geometer_change_task)
+        change_geometer_task.delay(geometer_change_task)
         return self._task_to_response(geometer_change_task)
 
     @permission_aware

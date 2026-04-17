@@ -34,8 +34,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1024'
       Content-Type:
@@ -123,8 +121,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '2092'
       Content-Type:
@@ -187,8 +183,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1024'
       Content-Type:
@@ -276,8 +270,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '2092'
       Content-Type:
@@ -340,8 +332,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1024'
       Content-Type:
@@ -429,8 +419,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '2092'
       Content-Type:
@@ -493,8 +481,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1024'
       Content-Type:
@@ -582,8 +568,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '2092'
       Content-Type:
@@ -646,8 +630,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1024'
       Content-Type:
@@ -735,8 +717,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '2092'
       Content-Type:
@@ -754,6 +734,504 @@ interactions:
       - 'TS014419e9=0100bce510c48c50da4faaa0faf4e7fe0535d1353c959a1a8b4eada515bdf6e3d9eff9992416f20827206eeaa585edc5dc3c6b6b60e048bba3ee019ed86a2d0c2a67b1a093;
         Path=/; Domain=.www.ag.ch; '
       - TS01975bae=0100bce5106366fd2bd7890ff2274bfc786f8069cd959a1a8b4eada515bdf6e3d9eff99924b85430374875ed0dee566106d824c4ae32a647bff6135240aa31808c744e4ea3;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2643608%2C1241662%2C2643610%2C1241664&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"K\xF6lliken\",\"attributes\":{\"OBJECTID\":\"67\",\"GDENR\":\"4276\",\"GEMEINDE\":\"K\xF6lliken\",\"GEMEINDEZ\":\"K\xF6lliken\",\"GEMEINDEU\":\"Koelliken\",\"BZNR\":\"1910\",\"BEZIRK\":\"Zofingen\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Zofingen\",\"Geometer\":\"Oliver Flury\",\"Strasse\":\"Forstackerstrasse
+        2b\",\"PLZOrt\":\"4800 Zofingen\",\"ID\":\"4276\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"8885832.004058\",\"SHAPE.STLength()\":\"15946.803295\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"1890\",\"attributes\":{\"OBJECTID\":\"77701573\",\"FILEID\":\"124\",\"GDENR\":\"4276\",\"GDENRPARZ\":\"427601890\",\"NUMMER\":\"1890\",\"EGRID\":\"CH267445067554\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"617\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"617.371546\",\"SHAPE.STLength()\":\"103.552912\"}},{\"layerId\":24,\"layerName\":\"AV:
+        Assekuranznummern\",\"displayFieldName\":\"ART\",\"value\":\"Gebaeude\",\"attributes\":{\"OBJECTID\":\"65472122\",\"FILEID\":\"124\",\"GDENR\":\"4276\",\"ART\":\"Gebaeude\",\"ASSNR\":\"754\",\"ORI\":\"15.9\",\"Shape\":\"Point\",\"EGID\":\"613891\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"418252121.725739\",\"Shape.STLength()\":\"942348.004738\"}},{\"layerId\":11,\"layerName\":\"Risikokataster:
+        Konsultationsbereich Gasleitung\",\"displayFieldName\":\"Shape.STArea()\",\"value\":\"71231391.4456356\",\"attributes\":{\"OBJECTID\":\"1\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"71231391.445636\",\"Shape.STLength()\":\"411604.947132\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"10845\",\"attributes\":{\"OBJECTID\":\"10845\",\"GDENR\":\"K\xF6lliken
+        4276\",\"HNCode\":\"13\",\"HNBez\":\"Mischzonen\",\"KTAAbk\":\"Wohn- und Arbeitszonen\",\"KTCode\":\"1321\",\"KTAbk\":\"WA2\",\"KTBez\":\"Wohn-
+        und Arbeitszone 2\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"132101\",\"GDEBez\":\"Wohn-
+        und Arbeitszone WA2\",\"GDEAbk\":\"WA2\",\"GDEZweck\":\"GZ = 0.4 gilt f\xFCr
+        reine Wohnbauten, ansonsten GZ = 0.25\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"0.5\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"0.25\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_III\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2011-001045\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.05.234\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"2052\",\"Geolink_ES\":\"2056\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2052.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        ES\":\"ja\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"11669.442328\",\"Shape.STLength()\":\"901.798954\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1179'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:16:21 GMT
+      ETag:
+      - '"9a2f6a0c"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|BwuQwrk6NbGK6LgJ4SuApA==|hb9ZMybW7ADW1Ouy7TVtY7pfa45H2w4H7y-hXjHSz6p1JK6jxZpbV1VsQSsKR1cFIGo_-qU=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:17:21 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce5101621bc853f544d5eb2188671fa1f8d197c02fc61983d3299de7efe2f44342b750bfce22be81beab79f99a0728a655843;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce5101621bc853f544d5eb2188671fa1f8d197c02fc61983d3299de7efe2f44342b750bfce22be81beab79f99a0728a655843;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2643589%2C1241643%2C2643629%2C1241683&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="sym-gcm|1|BwuQwrk6NbGK6LgJ4SuApA==|hb9ZMybW7ADW1Ouy7TVtY7pfa45H2w4H7y-hXjHSz6p1JK6jxZpbV1VsQSsKR1cFIGo_-qU=";
+        TS01975bae=0100bce5101621bc853f544d5eb2188671fa1f8d197c02fc61983d3299de7efe2f44342b750bfce22be81beab79f99a0728a655843;
+        XWAF=1791920065.47873.0000; TS014419e9=0100bce5101621bc853f544d5eb2188671fa1f8d197c02fc61983d3299de7efe2f44342b750bfce22be81beab79f99a0728a655843
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"K\xF6lliken\",\"attributes\":{\"OBJECTID\":\"67\",\"GDENR\":\"4276\",\"GEMEINDE\":\"K\xF6lliken\",\"GEMEINDEZ\":\"K\xF6lliken\",\"GEMEINDEU\":\"Koelliken\",\"BZNR\":\"1910\",\"BEZIRK\":\"Zofingen\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Zofingen\",\"Geometer\":\"Oliver Flury\",\"Strasse\":\"Forstackerstrasse
+        2b\",\"PLZOrt\":\"4800 Zofingen\",\"ID\":\"4276\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"8885832.004058\",\"SHAPE.STLength()\":\"15946.803295\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"3160\",\"attributes\":{\"OBJECTID\":\"80486594\",\"FILEID\":\"124\",\"GDENR\":\"4276\",\"NUMMER\":\"3160\",\"ART\":\"Liegenschaft\",\"ORI\":\"0\",\"Shape\":\"Point\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"1890\",\"attributes\":{\"OBJECTID\":\"80485652\",\"FILEID\":\"124\",\"GDENR\":\"4276\",\"NUMMER\":\"1890\",\"ART\":\"Liegenschaft\",\"ORI\":\"0\",\"Shape\":\"Point\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"1894\",\"attributes\":{\"OBJECTID\":\"77702830\",\"FILEID\":\"124\",\"GDENR\":\"4276\",\"GDENRPARZ\":\"427601894\",\"NUMMER\":\"1894\",\"EGRID\":\"CH858345740638\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"880\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"879.682011\",\"SHAPE.STLength()\":\"118.689098\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2564\",\"attributes\":{\"OBJECTID\":\"77701557\",\"FILEID\":\"124\",\"GDENR\":\"4276\",\"GDENRPARZ\":\"427602564\",\"NUMMER\":\"2564\",\"EGRID\":\"CH227471450696\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"4289\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"4289.286015\",\"SHAPE.STLength()\":\"673.579809\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"3160\",\"attributes\":{\"OBJECTID\":\"77701898\",\"FILEID\":\"124\",\"GDENR\":\"4276\",\"GDENRPARZ\":\"427603160\",\"NUMMER\":\"3160\",\"EGRID\":\"CH680845067484\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"442\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"442.25879\",\"SHAPE.STLength()\":\"96.850629\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2563\",\"attributes\":{\"OBJECTID\":\"77701939\",\"FILEID\":\"124\",\"GDENR\":\"4276\",\"GDENRPARZ\":\"427602563\",\"NUMMER\":\"2563\",\"EGRID\":\"CH210671457405\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"4385\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"4385.773266\",\"SHAPE.STLength()\":\"805.357701\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"1890\",\"attributes\":{\"OBJECTID\":\"77701573\",\"FILEID\":\"124\",\"GDENR\":\"4276\",\"GDENRPARZ\":\"427601890\",\"NUMMER\":\"1890\",\"EGRID\":\"CH267445067554\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"617\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"617.371546\",\"SHAPE.STLength()\":\"103.552912\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"1368\",\"attributes\":{\"OBJECTID\":\"77701819\",\"FILEID\":\"124\",\"GDENR\":\"4276\",\"GDENRPARZ\":\"427601368\",\"NUMMER\":\"1368\",\"EGRID\":\"CH694574790647\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"5524\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"5524.435357\",\"SHAPE.STLength()\":\"880.4718\"}},{\"layerId\":24,\"layerName\":\"AV:
+        Assekuranznummern\",\"displayFieldName\":\"ART\",\"value\":\"Gebaeude\",\"attributes\":{\"OBJECTID\":\"65471789\",\"FILEID\":\"124\",\"GDENR\":\"4276\",\"ART\":\"Gebaeude\",\"ASSNR\":\"884\",\"ORI\":\"15.9\",\"Shape\":\"Point\",\"EGID\":\"613851\"}},{\"layerId\":24,\"layerName\":\"AV:
+        Assekuranznummern\",\"displayFieldName\":\"ART\",\"value\":\"Gebaeude\",\"attributes\":{\"OBJECTID\":\"65472122\",\"FILEID\":\"124\",\"GDENR\":\"4276\",\"ART\":\"Gebaeude\",\"ASSNR\":\"754\",\"ORI\":\"15.9\",\"Shape\":\"Point\",\"EGID\":\"613891\"}},{\"layerId\":26,\"layerName\":\"AV:
+        Strassenachsen\",\"displayFieldName\":\"STRNAME\",\"value\":\"Safenwilerstrasse\",\"attributes\":{\"FILEID\":\"124\",\"GDENR\":\"4276\",\"ART\":\"Strasse\",\"NUMPRINZIP\":\"ungeradelinks\",\"ISTOFF\":\"ja\",\"STRNAME\":\"Safenwilerstrasse\",\"OBJECTID\":\"15827120\",\"SHAPE\":\"Polyline\",\"SHAPE.STLength()\":\"588.961657\"}},{\"layerId\":81,\"layerName\":\"Kantons-
+        und Nationalstrassennetz\",\"displayFieldName\":\"AxisLabel\",\"value\":\"K235\",\"attributes\":{\"OBJECTID\":\"1821\",\"Netz\":\"Kantonsstrassennetz\",\"StrTyp\":\"HVS\",\"AxisLabel\":\"K235\",\"StrFuehr\":\"offen\",\"SHAPE\":\"Polyline\",\"SHAPE.STLength()\":\"14867.322955\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"418252121.725739\",\"Shape.STLength()\":\"942348.004738\"}},{\"layerId\":500,\"layerName\":\"Risikokataster:
+        Konsultationsbereich Kantonsstrassen\",\"displayFieldName\":\"STRLINIENFUEHR\",\"value\":\"1\",\"attributes\":{\"OBJECTID_1\":\"1\",\"DSV_NR\":\"1\",\"DTV20000\":\"0\",\"STRLINIENFUEHR\":\"1\",\"Shape\":\"Polyline\",\"Shape.STLength()\":\"21949.185607\"}},{\"layerId\":11,\"layerName\":\"Risikokataster:
+        Konsultationsbereich Gasleitung\",\"displayFieldName\":\"Shape.STArea()\",\"value\":\"71231391.4456356\",\"attributes\":{\"OBJECTID\":\"1\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"71231391.445636\",\"Shape.STLength()\":\"411604.947132\"}},{\"layerId\":11922,\"layerName\":\"Eisenbahn\",\"displayFieldName\":\"Verursacher\",\"value\":\"Eisenbahn\",\"attributes\":{\"OBJECTID\":\"1\",\"Verursacher\":\"Eisenbahn\",\"Trennkriterium\":\"\\u003e
+        50'000 GBRT\",\"Ausdehnung der Belastungsfl\xE4che\":\"Die Darstellung ist
+        nicht lagegenau. Massgebend ist der Pr\xFCfperimeter von je 10m seitlich ab
+        Schotterrand.\",\"Belastungsursache\":\"Abrieb von Fahrleitungen und Stromabnehmer,
+        R\xE4dern, Schienen, Bremsbel\xE4gen\",\"Prim\xE4re Schadstoffe\":\"Cu\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"5606602.480012\",\"SHAPE.STLength()\":\"366376.947434\"}},{\"layerId\":11938,\"layerName\":\"Strassen\",\"displayFieldName\":\"Verursacher\",\"value\":\"Strassen\",\"attributes\":{\"OBJECTID\":\"4\",\"Verursacher\":\"Strassen\",\"Trennkriterium\":\"3'001
+        \u2013 20'000 DTV\",\"Ausdehnung der Belastungsfl\xE4che\":\"Die Darstellung
+        ist nicht lagegenau. Massgebend ist der Pr\xFCfperimeter von je 10m seitlich
+        ab Fahrbahnrand.\",\"Belastungsursache\":\"Treibstoffverbrennung, Abgasemission,
+        Abrieb von Strassenbelag, Bremsbelag und Pneu\",\"Prim\xE4re Schadstoffe\":\"Pb,
+        PAK\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"22365578.6883\",\"Shape.STLength()\":\"1493739.41405\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"131212\",\"attributes\":{\"OBJECTID\":\"131212\",\"GDENR\":\"K\xF6lliken
+        4276\",\"HNCode\":\"18\",\"HNBez\":\"Verkehrszonen innerhalb der Bauzonen\",\"KTAAbk\":\"Verkehrszonen
+        (sofern in der Nutzungsplanung abgebildet)\",\"KTCode\":\"1812\",\"KTAbk\":\"VB\",\"KTBez\":\"Bahnfl\xE4che\",\"KTVerb\":\"Orientierungsinhalt\",\"GDECode\":\"181201\",\"GDEBez\":\"Bahnfl\xE4che\",\"GDEAbk\":\"Bahn\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"orientierend\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2011-001045\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.05.234\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"2052\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2052.html\",\"OEREBexport\":\"nein\",\"OEREBexport
+        ES\":\"nein\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"8681.332827\",\"Shape.STLength()\":\"1459.777578\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"10845\",\"attributes\":{\"OBJECTID\":\"10845\",\"GDENR\":\"K\xF6lliken
+        4276\",\"HNCode\":\"13\",\"HNBez\":\"Mischzonen\",\"KTAAbk\":\"Wohn- und Arbeitszonen\",\"KTCode\":\"1321\",\"KTAbk\":\"WA2\",\"KTBez\":\"Wohn-
+        und Arbeitszone 2\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"132101\",\"GDEBez\":\"Wohn-
+        und Arbeitszone WA2\",\"GDEAbk\":\"WA2\",\"GDEZweck\":\"GZ = 0.4 gilt f\xFCr
+        reine Wohnbauten, ansonsten GZ = 0.25\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"0.5\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"0.25\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_III\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2011-001045\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.05.234\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"2052\",\"Geolink_ES\":\"2056\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2052.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        ES\":\"ja\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"11669.442328\",\"Shape.STLength()\":\"901.798954\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '2328'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:16:22 GMT
+      ETag:
+      - '"ca9f556d"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|XxyS9vOHCEmU3SHVMCx4iw==|wD4u_ZI3yY4kIqfPVdXcUxL-meZLMfGTLLJKcvAqNyKYu-yBEOisLI0YcS-z6Q--UY1bp7Q=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:17:22 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce5101621bc853f544d5eb2188671fa1f8d197c02fc61983d3299de7efe2f44342b750bfce22be81beab79f99a0728a655843;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce5101621bc853f544d5eb2188671fa1f8d197c02fc61983d3299de7efe2f44342b750bfce22be81beab79f99a0728a655843;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2643608%2C1241662%2C2643610%2C1241664&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"K\xF6lliken\",\"attributes\":{\"OBJECTID\":\"67\",\"GDENR\":\"4276\",\"GEMEINDE\":\"K\xF6lliken\",\"GEMEINDEZ\":\"K\xF6lliken\",\"GEMEINDEU\":\"Koelliken\",\"BZNR\":\"1910\",\"BEZIRK\":\"Zofingen\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Zofingen\",\"Geometer\":\"Oliver Flury\",\"Strasse\":\"Forstackerstrasse
+        2b\",\"PLZOrt\":\"4800 Zofingen\",\"ID\":\"4276\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"8885832.004058\",\"SHAPE.STLength()\":\"15946.803295\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"1890\",\"attributes\":{\"OBJECTID\":\"77701573\",\"FILEID\":\"124\",\"GDENR\":\"4276\",\"GDENRPARZ\":\"427601890\",\"NUMMER\":\"1890\",\"EGRID\":\"CH267445067554\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"617\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"617.371546\",\"SHAPE.STLength()\":\"103.552912\"}},{\"layerId\":24,\"layerName\":\"AV:
+        Assekuranznummern\",\"displayFieldName\":\"ART\",\"value\":\"Gebaeude\",\"attributes\":{\"OBJECTID\":\"65472122\",\"FILEID\":\"124\",\"GDENR\":\"4276\",\"ART\":\"Gebaeude\",\"ASSNR\":\"754\",\"ORI\":\"15.9\",\"Shape\":\"Point\",\"EGID\":\"613891\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"418252121.725739\",\"Shape.STLength()\":\"942348.004738\"}},{\"layerId\":11,\"layerName\":\"Risikokataster:
+        Konsultationsbereich Gasleitung\",\"displayFieldName\":\"Shape.STArea()\",\"value\":\"71231391.4456356\",\"attributes\":{\"OBJECTID\":\"1\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"71231391.445636\",\"Shape.STLength()\":\"411604.947132\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"10845\",\"attributes\":{\"OBJECTID\":\"10845\",\"GDENR\":\"K\xF6lliken
+        4276\",\"HNCode\":\"13\",\"HNBez\":\"Mischzonen\",\"KTAAbk\":\"Wohn- und Arbeitszonen\",\"KTCode\":\"1321\",\"KTAbk\":\"WA2\",\"KTBez\":\"Wohn-
+        und Arbeitszone 2\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"132101\",\"GDEBez\":\"Wohn-
+        und Arbeitszone WA2\",\"GDEAbk\":\"WA2\",\"GDEZweck\":\"GZ = 0.4 gilt f\xFCr
+        reine Wohnbauten, ansonsten GZ = 0.25\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"0.5\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"0.25\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_III\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2011-001045\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.05.234\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"2052\",\"Geolink_ES\":\"2056\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2052.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        ES\":\"ja\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"11669.442328\",\"Shape.STLength()\":\"901.798954\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1179'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:17:32 GMT
+      ETag:
+      - '"9a2f6a0c"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|ZCKytQtp-PusUESRDiSICA==|ll2nGPyVDg3G7hPkgzZxYAxzFifeaKKtQV9tKC9Mqb9cOONSGYFwvzQ0zcTDkVFttvrOTB4=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:18:31 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce510bbd6eead2b5af044e5602e486c31892423e290bbb49654c29240da2209e15e67ac28249108430cfac43d1261455f2c52;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce510bbd6eead2b5af044e5602e486c31892423e290bbb49654c29240da2209e15e67ac28249108430cfac43d1261455f2c52;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2643589%2C1241643%2C2643629%2C1241683&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="sym-gcm|1|ZCKytQtp-PusUESRDiSICA==|ll2nGPyVDg3G7hPkgzZxYAxzFifeaKKtQV9tKC9Mqb9cOONSGYFwvzQ0zcTDkVFttvrOTB4=";
+        TS01975bae=0100bce510bbd6eead2b5af044e5602e486c31892423e290bbb49654c29240da2209e15e67ac28249108430cfac43d1261455f2c52;
+        XWAF=1791920065.47873.0000; TS014419e9=0100bce510bbd6eead2b5af044e5602e486c31892423e290bbb49654c29240da2209e15e67ac28249108430cfac43d1261455f2c52
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"K\xF6lliken\",\"attributes\":{\"OBJECTID\":\"67\",\"GDENR\":\"4276\",\"GEMEINDE\":\"K\xF6lliken\",\"GEMEINDEZ\":\"K\xF6lliken\",\"GEMEINDEU\":\"Koelliken\",\"BZNR\":\"1910\",\"BEZIRK\":\"Zofingen\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Zofingen\",\"Geometer\":\"Oliver Flury\",\"Strasse\":\"Forstackerstrasse
+        2b\",\"PLZOrt\":\"4800 Zofingen\",\"ID\":\"4276\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"8885832.004058\",\"SHAPE.STLength()\":\"15946.803295\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"3160\",\"attributes\":{\"OBJECTID\":\"80486594\",\"FILEID\":\"124\",\"GDENR\":\"4276\",\"NUMMER\":\"3160\",\"ART\":\"Liegenschaft\",\"ORI\":\"0\",\"Shape\":\"Point\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"1890\",\"attributes\":{\"OBJECTID\":\"80485652\",\"FILEID\":\"124\",\"GDENR\":\"4276\",\"NUMMER\":\"1890\",\"ART\":\"Liegenschaft\",\"ORI\":\"0\",\"Shape\":\"Point\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"1894\",\"attributes\":{\"OBJECTID\":\"77702830\",\"FILEID\":\"124\",\"GDENR\":\"4276\",\"GDENRPARZ\":\"427601894\",\"NUMMER\":\"1894\",\"EGRID\":\"CH858345740638\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"880\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"879.682011\",\"SHAPE.STLength()\":\"118.689098\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2564\",\"attributes\":{\"OBJECTID\":\"77701557\",\"FILEID\":\"124\",\"GDENR\":\"4276\",\"GDENRPARZ\":\"427602564\",\"NUMMER\":\"2564\",\"EGRID\":\"CH227471450696\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"4289\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"4289.286015\",\"SHAPE.STLength()\":\"673.579809\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"3160\",\"attributes\":{\"OBJECTID\":\"77701898\",\"FILEID\":\"124\",\"GDENR\":\"4276\",\"GDENRPARZ\":\"427603160\",\"NUMMER\":\"3160\",\"EGRID\":\"CH680845067484\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"442\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"442.25879\",\"SHAPE.STLength()\":\"96.850629\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2563\",\"attributes\":{\"OBJECTID\":\"77701939\",\"FILEID\":\"124\",\"GDENR\":\"4276\",\"GDENRPARZ\":\"427602563\",\"NUMMER\":\"2563\",\"EGRID\":\"CH210671457405\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"4385\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"4385.773266\",\"SHAPE.STLength()\":\"805.357701\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"1890\",\"attributes\":{\"OBJECTID\":\"77701573\",\"FILEID\":\"124\",\"GDENR\":\"4276\",\"GDENRPARZ\":\"427601890\",\"NUMMER\":\"1890\",\"EGRID\":\"CH267445067554\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"617\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"617.371546\",\"SHAPE.STLength()\":\"103.552912\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"1368\",\"attributes\":{\"OBJECTID\":\"77701819\",\"FILEID\":\"124\",\"GDENR\":\"4276\",\"GDENRPARZ\":\"427601368\",\"NUMMER\":\"1368\",\"EGRID\":\"CH694574790647\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"5524\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"5524.435357\",\"SHAPE.STLength()\":\"880.4718\"}},{\"layerId\":24,\"layerName\":\"AV:
+        Assekuranznummern\",\"displayFieldName\":\"ART\",\"value\":\"Gebaeude\",\"attributes\":{\"OBJECTID\":\"65471789\",\"FILEID\":\"124\",\"GDENR\":\"4276\",\"ART\":\"Gebaeude\",\"ASSNR\":\"884\",\"ORI\":\"15.9\",\"Shape\":\"Point\",\"EGID\":\"613851\"}},{\"layerId\":24,\"layerName\":\"AV:
+        Assekuranznummern\",\"displayFieldName\":\"ART\",\"value\":\"Gebaeude\",\"attributes\":{\"OBJECTID\":\"65472122\",\"FILEID\":\"124\",\"GDENR\":\"4276\",\"ART\":\"Gebaeude\",\"ASSNR\":\"754\",\"ORI\":\"15.9\",\"Shape\":\"Point\",\"EGID\":\"613891\"}},{\"layerId\":26,\"layerName\":\"AV:
+        Strassenachsen\",\"displayFieldName\":\"STRNAME\",\"value\":\"Safenwilerstrasse\",\"attributes\":{\"FILEID\":\"124\",\"GDENR\":\"4276\",\"ART\":\"Strasse\",\"NUMPRINZIP\":\"ungeradelinks\",\"ISTOFF\":\"ja\",\"STRNAME\":\"Safenwilerstrasse\",\"OBJECTID\":\"15827120\",\"SHAPE\":\"Polyline\",\"SHAPE.STLength()\":\"588.961657\"}},{\"layerId\":81,\"layerName\":\"Kantons-
+        und Nationalstrassennetz\",\"displayFieldName\":\"AxisLabel\",\"value\":\"K235\",\"attributes\":{\"OBJECTID\":\"1821\",\"Netz\":\"Kantonsstrassennetz\",\"StrTyp\":\"HVS\",\"AxisLabel\":\"K235\",\"StrFuehr\":\"offen\",\"SHAPE\":\"Polyline\",\"SHAPE.STLength()\":\"14867.322955\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"418252121.725739\",\"Shape.STLength()\":\"942348.004738\"}},{\"layerId\":500,\"layerName\":\"Risikokataster:
+        Konsultationsbereich Kantonsstrassen\",\"displayFieldName\":\"STRLINIENFUEHR\",\"value\":\"1\",\"attributes\":{\"OBJECTID_1\":\"1\",\"DSV_NR\":\"1\",\"DTV20000\":\"0\",\"STRLINIENFUEHR\":\"1\",\"Shape\":\"Polyline\",\"Shape.STLength()\":\"21949.185607\"}},{\"layerId\":11,\"layerName\":\"Risikokataster:
+        Konsultationsbereich Gasleitung\",\"displayFieldName\":\"Shape.STArea()\",\"value\":\"71231391.4456356\",\"attributes\":{\"OBJECTID\":\"1\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"71231391.445636\",\"Shape.STLength()\":\"411604.947132\"}},{\"layerId\":11922,\"layerName\":\"Eisenbahn\",\"displayFieldName\":\"Verursacher\",\"value\":\"Eisenbahn\",\"attributes\":{\"OBJECTID\":\"1\",\"Verursacher\":\"Eisenbahn\",\"Trennkriterium\":\"\\u003e
+        50'000 GBRT\",\"Ausdehnung der Belastungsfl\xE4che\":\"Die Darstellung ist
+        nicht lagegenau. Massgebend ist der Pr\xFCfperimeter von je 10m seitlich ab
+        Schotterrand.\",\"Belastungsursache\":\"Abrieb von Fahrleitungen und Stromabnehmer,
+        R\xE4dern, Schienen, Bremsbel\xE4gen\",\"Prim\xE4re Schadstoffe\":\"Cu\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"5606602.480012\",\"SHAPE.STLength()\":\"366376.947434\"}},{\"layerId\":11938,\"layerName\":\"Strassen\",\"displayFieldName\":\"Verursacher\",\"value\":\"Strassen\",\"attributes\":{\"OBJECTID\":\"4\",\"Verursacher\":\"Strassen\",\"Trennkriterium\":\"3'001
+        \u2013 20'000 DTV\",\"Ausdehnung der Belastungsfl\xE4che\":\"Die Darstellung
+        ist nicht lagegenau. Massgebend ist der Pr\xFCfperimeter von je 10m seitlich
+        ab Fahrbahnrand.\",\"Belastungsursache\":\"Treibstoffverbrennung, Abgasemission,
+        Abrieb von Strassenbelag, Bremsbelag und Pneu\",\"Prim\xE4re Schadstoffe\":\"Pb,
+        PAK\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"22365578.6883\",\"Shape.STLength()\":\"1493739.41405\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"131212\",\"attributes\":{\"OBJECTID\":\"131212\",\"GDENR\":\"K\xF6lliken
+        4276\",\"HNCode\":\"18\",\"HNBez\":\"Verkehrszonen innerhalb der Bauzonen\",\"KTAAbk\":\"Verkehrszonen
+        (sofern in der Nutzungsplanung abgebildet)\",\"KTCode\":\"1812\",\"KTAbk\":\"VB\",\"KTBez\":\"Bahnfl\xE4che\",\"KTVerb\":\"Orientierungsinhalt\",\"GDECode\":\"181201\",\"GDEBez\":\"Bahnfl\xE4che\",\"GDEAbk\":\"Bahn\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"orientierend\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2011-001045\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.05.234\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"2052\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2052.html\",\"OEREBexport\":\"nein\",\"OEREBexport
+        ES\":\"nein\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"8681.332827\",\"Shape.STLength()\":\"1459.777578\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"10845\",\"attributes\":{\"OBJECTID\":\"10845\",\"GDENR\":\"K\xF6lliken
+        4276\",\"HNCode\":\"13\",\"HNBez\":\"Mischzonen\",\"KTAAbk\":\"Wohn- und Arbeitszonen\",\"KTCode\":\"1321\",\"KTAbk\":\"WA2\",\"KTBez\":\"Wohn-
+        und Arbeitszone 2\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"132101\",\"GDEBez\":\"Wohn-
+        und Arbeitszone WA2\",\"GDEAbk\":\"WA2\",\"GDEZweck\":\"GZ = 0.4 gilt f\xFCr
+        reine Wohnbauten, ansonsten GZ = 0.25\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"0.5\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"0.25\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_III\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2011-001045\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.05.234\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"2052\",\"Geolink_ES\":\"2056\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2052.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        ES\":\"ja\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"11669.442328\",\"Shape.STLength()\":\"901.798954\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '2328'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:17:33 GMT
+      ETag:
+      - '"ca9f556d"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|PLrd2cYrXzQjSeo1QkCqZg==|uSwiLuayyRILq7Vb6ENKhlfyzPm0gG2xMipvakwXYWfhA7Jd6cRzGB9fm1hrESlXINRMpLk=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:18:32 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce510bbd6eead2b5af044e5602e486c31892423e290bbb49654c29240da2209e15e67ac28249108430cfac43d1261455f2c52;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce510bbd6eead2b5af044e5602e486c31892423e290bbb49654c29240da2209e15e67ac28249108430cfac43d1261455f2c52;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2643608%2C1241662%2C2643610%2C1241664&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"K\xF6lliken\",\"attributes\":{\"OBJECTID\":\"67\",\"GDENR\":\"4276\",\"GEMEINDE\":\"K\xF6lliken\",\"GEMEINDEZ\":\"K\xF6lliken\",\"GEMEINDEU\":\"Koelliken\",\"BZNR\":\"1910\",\"BEZIRK\":\"Zofingen\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Zofingen\",\"Geometer\":\"Oliver Flury\",\"Strasse\":\"Forstackerstrasse
+        2b\",\"PLZOrt\":\"4800 Zofingen\",\"ID\":\"4276\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"8885832.004058\",\"SHAPE.STLength()\":\"15946.803295\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"1890\",\"attributes\":{\"OBJECTID\":\"77701573\",\"FILEID\":\"124\",\"GDENR\":\"4276\",\"GDENRPARZ\":\"427601890\",\"NUMMER\":\"1890\",\"EGRID\":\"CH267445067554\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"617\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"617.371546\",\"SHAPE.STLength()\":\"103.552912\"}},{\"layerId\":24,\"layerName\":\"AV:
+        Assekuranznummern\",\"displayFieldName\":\"ART\",\"value\":\"Gebaeude\",\"attributes\":{\"OBJECTID\":\"65472122\",\"FILEID\":\"124\",\"GDENR\":\"4276\",\"ART\":\"Gebaeude\",\"ASSNR\":\"754\",\"ORI\":\"15.9\",\"Shape\":\"Point\",\"EGID\":\"613891\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"418252121.725739\",\"Shape.STLength()\":\"942348.004738\"}},{\"layerId\":11,\"layerName\":\"Risikokataster:
+        Konsultationsbereich Gasleitung\",\"displayFieldName\":\"Shape.STArea()\",\"value\":\"71231391.4456356\",\"attributes\":{\"OBJECTID\":\"1\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"71231391.445636\",\"Shape.STLength()\":\"411604.947132\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"10845\",\"attributes\":{\"OBJECTID\":\"10845\",\"GDENR\":\"K\xF6lliken
+        4276\",\"HNCode\":\"13\",\"HNBez\":\"Mischzonen\",\"KTAAbk\":\"Wohn- und Arbeitszonen\",\"KTCode\":\"1321\",\"KTAbk\":\"WA2\",\"KTBez\":\"Wohn-
+        und Arbeitszone 2\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"132101\",\"GDEBez\":\"Wohn-
+        und Arbeitszone WA2\",\"GDEAbk\":\"WA2\",\"GDEZweck\":\"GZ = 0.4 gilt f\xFCr
+        reine Wohnbauten, ansonsten GZ = 0.25\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"0.5\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"0.25\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_III\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2011-001045\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.05.234\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"2052\",\"Geolink_ES\":\"2056\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2052.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        ES\":\"ja\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"11669.442328\",\"Shape.STLength()\":\"901.798954\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1179'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:22:16 GMT
+      ETag:
+      - '"9a2f6a0c"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|L7mVZXN3_9TsyJNecrMgmQ==|9q-69q07qyeBYp1l-0aIJU-WLnd6mRvTDINCKniYPAOFXLkh96Ky436JD5MLrLHZ1qoJexA=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:23:16 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce510fb30bc6468674a2f64f480a75f443c810a3b66e627b7a1c6335b39aeca5c954225bea683d0e01bbf9266675289c6a03a;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce510fb30bc6468674a2f64f480a75f443c810a3b66e627b7a1c6335b39aeca5c954225bea683d0e01bbf9266675289c6a03a;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2643589%2C1241643%2C2643629%2C1241683&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="sym-gcm|1|L7mVZXN3_9TsyJNecrMgmQ==|9q-69q07qyeBYp1l-0aIJU-WLnd6mRvTDINCKniYPAOFXLkh96Ky436JD5MLrLHZ1qoJexA=";
+        TS01975bae=0100bce510fb30bc6468674a2f64f480a75f443c810a3b66e627b7a1c6335b39aeca5c954225bea683d0e01bbf9266675289c6a03a;
+        XWAF=1791920065.47873.0000; TS014419e9=0100bce510fb30bc6468674a2f64f480a75f443c810a3b66e627b7a1c6335b39aeca5c954225bea683d0e01bbf9266675289c6a03a
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"K\xF6lliken\",\"attributes\":{\"OBJECTID\":\"67\",\"GDENR\":\"4276\",\"GEMEINDE\":\"K\xF6lliken\",\"GEMEINDEZ\":\"K\xF6lliken\",\"GEMEINDEU\":\"Koelliken\",\"BZNR\":\"1910\",\"BEZIRK\":\"Zofingen\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Zofingen\",\"Geometer\":\"Oliver Flury\",\"Strasse\":\"Forstackerstrasse
+        2b\",\"PLZOrt\":\"4800 Zofingen\",\"ID\":\"4276\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"8885832.004058\",\"SHAPE.STLength()\":\"15946.803295\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"3160\",\"attributes\":{\"OBJECTID\":\"80486594\",\"FILEID\":\"124\",\"GDENR\":\"4276\",\"NUMMER\":\"3160\",\"ART\":\"Liegenschaft\",\"ORI\":\"0\",\"Shape\":\"Point\"}},{\"layerId\":21,\"layerName\":\"Amtliche
+        Vermessung: Parzellennummern\",\"displayFieldName\":\"NUMMER\",\"value\":\"1890\",\"attributes\":{\"OBJECTID\":\"80485652\",\"FILEID\":\"124\",\"GDENR\":\"4276\",\"NUMMER\":\"1890\",\"ART\":\"Liegenschaft\",\"ORI\":\"0\",\"Shape\":\"Point\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"1894\",\"attributes\":{\"OBJECTID\":\"77702830\",\"FILEID\":\"124\",\"GDENR\":\"4276\",\"GDENRPARZ\":\"427601894\",\"NUMMER\":\"1894\",\"EGRID\":\"CH858345740638\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"880\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"879.682011\",\"SHAPE.STLength()\":\"118.689098\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2564\",\"attributes\":{\"OBJECTID\":\"77701557\",\"FILEID\":\"124\",\"GDENR\":\"4276\",\"GDENRPARZ\":\"427602564\",\"NUMMER\":\"2564\",\"EGRID\":\"CH227471450696\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"4289\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"4289.286015\",\"SHAPE.STLength()\":\"673.579809\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"3160\",\"attributes\":{\"OBJECTID\":\"77701898\",\"FILEID\":\"124\",\"GDENR\":\"4276\",\"GDENRPARZ\":\"427603160\",\"NUMMER\":\"3160\",\"EGRID\":\"CH680845067484\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"442\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"442.25879\",\"SHAPE.STLength()\":\"96.850629\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2563\",\"attributes\":{\"OBJECTID\":\"77701939\",\"FILEID\":\"124\",\"GDENR\":\"4276\",\"GDENRPARZ\":\"427602563\",\"NUMMER\":\"2563\",\"EGRID\":\"CH210671457405\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"4385\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"4385.773266\",\"SHAPE.STLength()\":\"805.357701\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"1890\",\"attributes\":{\"OBJECTID\":\"77701573\",\"FILEID\":\"124\",\"GDENR\":\"4276\",\"GDENRPARZ\":\"427601890\",\"NUMMER\":\"1890\",\"EGRID\":\"CH267445067554\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"617\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"617.371546\",\"SHAPE.STLength()\":\"103.552912\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"1368\",\"attributes\":{\"OBJECTID\":\"77701819\",\"FILEID\":\"124\",\"GDENR\":\"4276\",\"GDENRPARZ\":\"427601368\",\"NUMMER\":\"1368\",\"EGRID\":\"CH694574790647\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"5524\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"5524.435357\",\"SHAPE.STLength()\":\"880.4718\"}},{\"layerId\":24,\"layerName\":\"AV:
+        Assekuranznummern\",\"displayFieldName\":\"ART\",\"value\":\"Gebaeude\",\"attributes\":{\"OBJECTID\":\"65471789\",\"FILEID\":\"124\",\"GDENR\":\"4276\",\"ART\":\"Gebaeude\",\"ASSNR\":\"884\",\"ORI\":\"15.9\",\"Shape\":\"Point\",\"EGID\":\"613851\"}},{\"layerId\":24,\"layerName\":\"AV:
+        Assekuranznummern\",\"displayFieldName\":\"ART\",\"value\":\"Gebaeude\",\"attributes\":{\"OBJECTID\":\"65472122\",\"FILEID\":\"124\",\"GDENR\":\"4276\",\"ART\":\"Gebaeude\",\"ASSNR\":\"754\",\"ORI\":\"15.9\",\"Shape\":\"Point\",\"EGID\":\"613891\"}},{\"layerId\":26,\"layerName\":\"AV:
+        Strassenachsen\",\"displayFieldName\":\"STRNAME\",\"value\":\"Safenwilerstrasse\",\"attributes\":{\"FILEID\":\"124\",\"GDENR\":\"4276\",\"ART\":\"Strasse\",\"NUMPRINZIP\":\"ungeradelinks\",\"ISTOFF\":\"ja\",\"STRNAME\":\"Safenwilerstrasse\",\"OBJECTID\":\"15827120\",\"SHAPE\":\"Polyline\",\"SHAPE.STLength()\":\"588.961657\"}},{\"layerId\":81,\"layerName\":\"Kantons-
+        und Nationalstrassennetz\",\"displayFieldName\":\"AxisLabel\",\"value\":\"K235\",\"attributes\":{\"OBJECTID\":\"1821\",\"Netz\":\"Kantonsstrassennetz\",\"StrTyp\":\"HVS\",\"AxisLabel\":\"K235\",\"StrFuehr\":\"offen\",\"SHAPE\":\"Polyline\",\"SHAPE.STLength()\":\"14867.322955\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"418252121.725739\",\"Shape.STLength()\":\"942348.004738\"}},{\"layerId\":500,\"layerName\":\"Risikokataster:
+        Konsultationsbereich Kantonsstrassen\",\"displayFieldName\":\"STRLINIENFUEHR\",\"value\":\"1\",\"attributes\":{\"OBJECTID_1\":\"1\",\"DSV_NR\":\"1\",\"DTV20000\":\"0\",\"STRLINIENFUEHR\":\"1\",\"Shape\":\"Polyline\",\"Shape.STLength()\":\"21949.185607\"}},{\"layerId\":11,\"layerName\":\"Risikokataster:
+        Konsultationsbereich Gasleitung\",\"displayFieldName\":\"Shape.STArea()\",\"value\":\"71231391.4456356\",\"attributes\":{\"OBJECTID\":\"1\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"71231391.445636\",\"Shape.STLength()\":\"411604.947132\"}},{\"layerId\":11922,\"layerName\":\"Eisenbahn\",\"displayFieldName\":\"Verursacher\",\"value\":\"Eisenbahn\",\"attributes\":{\"OBJECTID\":\"1\",\"Verursacher\":\"Eisenbahn\",\"Trennkriterium\":\"\\u003e
+        50'000 GBRT\",\"Ausdehnung der Belastungsfl\xE4che\":\"Die Darstellung ist
+        nicht lagegenau. Massgebend ist der Pr\xFCfperimeter von je 10m seitlich ab
+        Schotterrand.\",\"Belastungsursache\":\"Abrieb von Fahrleitungen und Stromabnehmer,
+        R\xE4dern, Schienen, Bremsbel\xE4gen\",\"Prim\xE4re Schadstoffe\":\"Cu\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"5606602.480012\",\"SHAPE.STLength()\":\"366376.947434\"}},{\"layerId\":11938,\"layerName\":\"Strassen\",\"displayFieldName\":\"Verursacher\",\"value\":\"Strassen\",\"attributes\":{\"OBJECTID\":\"4\",\"Verursacher\":\"Strassen\",\"Trennkriterium\":\"3'001
+        \u2013 20'000 DTV\",\"Ausdehnung der Belastungsfl\xE4che\":\"Die Darstellung
+        ist nicht lagegenau. Massgebend ist der Pr\xFCfperimeter von je 10m seitlich
+        ab Fahrbahnrand.\",\"Belastungsursache\":\"Treibstoffverbrennung, Abgasemission,
+        Abrieb von Strassenbelag, Bremsbelag und Pneu\",\"Prim\xE4re Schadstoffe\":\"Pb,
+        PAK\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"22365578.6883\",\"Shape.STLength()\":\"1493739.41405\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"131212\",\"attributes\":{\"OBJECTID\":\"131212\",\"GDENR\":\"K\xF6lliken
+        4276\",\"HNCode\":\"18\",\"HNBez\":\"Verkehrszonen innerhalb der Bauzonen\",\"KTAAbk\":\"Verkehrszonen
+        (sofern in der Nutzungsplanung abgebildet)\",\"KTCode\":\"1812\",\"KTAbk\":\"VB\",\"KTBez\":\"Bahnfl\xE4che\",\"KTVerb\":\"Orientierungsinhalt\",\"GDECode\":\"181201\",\"GDEBez\":\"Bahnfl\xE4che\",\"GDEAbk\":\"Bahn\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"orientierend\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2011-001045\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.05.234\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"2052\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2052.html\",\"OEREBexport\":\"nein\",\"OEREBexport
+        ES\":\"nein\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"8681.332827\",\"Shape.STLength()\":\"1459.777578\"}},{\"layerId\":146,\"layerName\":\"Bauzonen:
+        Grundnutzung\",\"displayFieldName\":\"NameNummer\",\"value\":\"10845\",\"attributes\":{\"OBJECTID\":\"10845\",\"GDENR\":\"K\xF6lliken
+        4276\",\"HNCode\":\"13\",\"HNBez\":\"Mischzonen\",\"KTAAbk\":\"Wohn- und Arbeitszonen\",\"KTCode\":\"1321\",\"KTAbk\":\"WA2\",\"KTBez\":\"Wohn-
+        und Arbeitszone 2\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"132101\",\"GDEBez\":\"Wohn-
+        und Arbeitszone WA2\",\"GDEAbk\":\"WA2\",\"GDEZweck\":\"GZ = 0.4 gilt f\xFCr
+        reine Wohnbauten, ansonsten GZ = 0.25\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"0.5\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"0.25\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_III\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2011-001045\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.05.234\",\"UB\":\"\xFCberbaut\",\"KTLabel\":\"Null\",\"Geolink\":\"2052\",\"Geolink_ES\":\"2056\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/2052.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        ES\":\"ja\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"11669.442328\",\"Shape.STLength()\":\"901.798954\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '2328'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:22:17 GMT
+      ETag:
+      - '"ca9f556d"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|2f4lkqIg5ddxiN_phTnNaw==|aKluul3k9pdRIzqbjRI6AJ7qbN82odyMSpN64dISJLV_sjyExRwbnava3oZ_1yCOFNCORjw=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:23:17 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce510fb30bc6468674a2f64f480a75f443c810a3b66e627b7a1c6335b39aeca5c954225bea683d0e01bbf9266675289c6a03a;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce510fb30bc6468674a2f64f480a75f443c810a3b66e627b7a1c6335b39aeca5c954225bea683d0e01bbf9266675289c6a03a;
         path=/geoportal/rest
       Strict-Transport-Security:
       - max-age=16070400; includeSubDomains

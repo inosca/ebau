@@ -4,10 +4,10 @@ import logging
 import os
 import re
 from datetime import timedelta
-from importlib import import_module
 
 import environ
 from deepmerge import always_merger
+from django.utils.module_loading import import_string
 from django.utils.translation import gettext_lazy as _
 
 from camac.constants import kt_bern as be_constants
@@ -117,7 +117,6 @@ INSTALLED_APPS = [
     "camac.alert_message.apps.AlertMessageConfig",
     "sorl.thumbnail",
     "django_clamd",
-    "django_q",
     "django_celery_beat",
     "reversion",
     "rest_framework_xml",
@@ -3823,25 +3822,6 @@ GWR_HOUSING_STAT_BASE_URI = env.str(
 )
 
 
-# Until running tasks can be manually canceled we want a timeout
-DJANGO_Q_TASK_TIMEOUT_HOURS = env.int("DJANGO_Q_TASK_TIMEOUT_HOURS", default=6)
-
-# We use q-cluster for importing.
-# - no retry of failed imports
-# - timeout required because we cannot abort running imports (except killing the worker but that seems excessive)
-# - ack_failures option keeps a clean queue and allows to identify timed out imports
-Q_CLUSTER = {
-    "name": "DjangORM",
-    "workers": 4,
-    "queue_limit": 50,
-    "timeout": DJANGO_Q_TASK_TIMEOUT_HOURS * 60 * 60,
-    "retry": DJANGO_Q_TASK_TIMEOUT_HOURS * 60 * 60 * 2,
-    "ack_failures": True,  # discards failed tasks after timeout
-    "orm": "default",
-    "poll": 1,
-    "sync": env.bool("DJANGO_Q_ENABLE_SYNC", False),
-}
-
 DOSSIER_IMPORT_CLIENT_ID = env.str(
     "DJANGO_DOSSIER_IMPORT_CLIENT_ID", default="dossier-import"
 )
@@ -3893,9 +3873,8 @@ STATICFILES_DIRS += APPLICATIONS[APPLICATION_NAME].get("INCLUDE_STATIC_FILES", [
 def load_module_settings(module_name, application_name=APPLICATION_NAME):
     settings_name = module_name.upper().replace(".", "_")
 
-    module: ModuleConfig | dict = getattr(
-        import_module(f"camac.settings.modules.{module_name.lower()}"),
-        settings_name,
+    module: ModuleConfig | dict = import_string(
+        f"camac.settings.modules.{module_name.lower()}.{settings_name}"
     )
     is_pydantic = isinstance(module, ModuleConfig)
     if is_pydantic:

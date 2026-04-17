@@ -1377,8 +1377,7 @@ interactions:
       - max-age=1800, public
       Connection:
       - keep-alive
-      Content-Encoding:
-      - gzip
+      
       Content-Type:
       - application/json
       Date:

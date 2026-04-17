@@ -161,6 +161,7 @@ def test_sogis_client(
     admin_client,
     gis_snapshot,
     scenario,
+    celery_fake_worker,
     so_data_sources,
     vcr_config,
 ):
@@ -170,6 +171,11 @@ def test_sogis_client(
     )
 
     assert response.status_code == status.HTTP_200_OK
+
+    celery_fake_worker.run_tasks()
+
+    task_id = response.json()["task_id"]
+    response = admin_client.get(reverse("gis-data", args=[task_id]))
 
     checked_data = {
         k: v
@@ -236,13 +242,23 @@ def test_sogis_client_errors(
     admin_client,
     data_source,
     expected_status,
+    celery_fake_worker,
     gis_snapshot,
     vcr_config,
 ):
-    response = admin_client.get(
+    response_0 = admin_client.get(
         reverse("gis-data"),
         data={"x": TEST_SCENARIOS[0]["coords"][0], "y": TEST_SCENARIOS[0]["coords"][1]},
     )
 
-    assert response.status_code == expected_status
-    assert response.json() == gis_snapshot
+    celery_fake_worker.run_tasks()
+
+    task_id = response_0.json()["task_id"]
+
+    response_1 = admin_client.get(
+        reverse("gis-data", args=[task_id]),
+        data={"x": TEST_SCENARIOS[0]["coords"][0], "y": TEST_SCENARIOS[0]["coords"][1]},
+    )
+
+    assert response_1.status_code == expected_status
+    assert response_1.json() == gis_snapshot

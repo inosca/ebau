@@ -609,8 +609,8 @@ def test_set_is_published(
     notification_template_factory,
     service_factory,
     caluma_task_factory,
+    celery_fake_worker,
 ):
-    settings.CELERY_TASK_ALWAYS_EAGER = True
     work_item = caluma_work_item_factory(
         task=caluma_task_factory(slug="fill-publication"),
         status="ready",

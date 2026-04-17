@@ -40,8 +40,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1282'
       Content-Type:
@@ -118,8 +116,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1562'
       Content-Type:
@@ -188,8 +184,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1282'
       Content-Type:
@@ -266,8 +260,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1562'
       Content-Type:
@@ -336,8 +328,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1282'
       Content-Type:
@@ -414,8 +404,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1562'
       Content-Type:
@@ -484,8 +472,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1282'
       Content-Type:
@@ -562,8 +548,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1562'
       Content-Type:
@@ -632,8 +616,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1282'
       Content-Type:
@@ -710,8 +692,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1562'
       Content-Type:
@@ -780,8 +760,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1282'
       Content-Type:
@@ -858,8 +836,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1562'
       Content-Type:
@@ -877,6 +853,492 @@ interactions:
       - 'TS014419e9=0100bce510253d6b08d702cec6164fb3677f2f64b4d2eed8fac32716059a73163390e4b08fc400f21fba2d296d4392e6ac43e121ca0620a34a1ecbb1f93df53224e6b29fa6;
         Path=/; Domain=.www.ag.ch; '
       - TS01975bae=0100bce510367321301daf353a2eb288df7a56ce71d2eed8fac32716059a73163390e4b08f1a2ff7e68a770390d4f83576fa66e857a42c5ec47721366fec35a94cb2b50d47;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2654825%2C1243270%2C2654827%2C1243272&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Seon\",\"attributes\":{\"OBJECTID\":\"73\",\"GDENR\":\"4209\",\"GEMEINDE\":\"Seon\",\"GEMEINDEZ\":\"Seon\",\"GEMEINDEU\":\"Seon\",\"BZNR\":\"1907\",\"BEZIRK\":\"Lenzburg\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Lenzburg\",\"Geometer\":\"Oliver Flury\",\"Strasse\":\"Dammweg 21\",\"PLZOrt\":\"5600
+        Lenzburg\",\"ID\":\"4209\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"9620366.947696\",\"SHAPE.STLength()\":\"14398.720021\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2710\",\"attributes\":{\"OBJECTID\":\"77927655\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420902710\",\"NUMMER\":\"2710\",\"EGRID\":\"CH258305071122\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"11171\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"11170.594811\",\"SHAPE.STLength()\":\"549.312033\"}},{\"layerId\":41,\"layerName\":\"\xDCberlagerte
+        Schutzr\xE4ume f\xFCr Lebensr\xE4ume und Landschaften (ohne Gew\xE4sserraum)\",\"displayFieldName\":\"NameNummer\",\"value\":\"21998\",\"attributes\":{\"OBJECTID\":\"21998\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"52\",\"HNBez\":\"\xDCberlagernde Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTCode\":\"5292\",\"KTAbk\":\"VN\",\"KTBez\":\"Vernetzungszone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"529201\",\"GDEBez\":\"Wildtierkorridor\",\"GDEAbk\":\"WTK\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"GeschNr\":\"BVUARE.13.35\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"S\",\"Geolink\":\"3634\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"794277.270402\",\"SHAPE.STLength()\":\"6244.479989\"}},{\"layerId\":41,\"layerName\":\"\xDCberlagerte
+        Schutzr\xE4ume f\xFCr Lebensr\xE4ume und Landschaften (ohne Gew\xE4sserraum)\",\"displayFieldName\":\"NameNummer\",\"value\":\"22027\",\"attributes\":{\"OBJECTID\":\"22027\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"52\",\"HNBez\":\"\xDCberlagernde Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTCode\":\"5291\",\"KTAbk\":\"HOB\",\"KTBez\":\"Hochstammobstbestand\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"529101\",\"GDEBez\":\"Hochstamm-Obstbaumbestand\",\"GDEAbk\":\"HOB\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"GeschNr\":\"BVUARE.13.35\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"S\",\"Geolink\":\"3634\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"25959.008804\",\"SHAPE.STLength()\":\"685.243792\"}},{\"layerId\":41,\"layerName\":\"\xDCberlagerte
+        Schutzr\xE4ume f\xFCr Lebensr\xE4ume und Landschaften (ohne Gew\xE4sserraum)\",\"displayFieldName\":\"NameNummer\",\"value\":\"37580\",\"attributes\":{\"OBJECTID\":\"37580\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"52\",\"HNBez\":\"\xDCberlagernde Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTCode\":\"5211\",\"KTAbk\":\"LS\",\"KTBez\":\"Landschaftsschutzzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"521101\",\"GDEBez\":\"Landschaftsschutzzone\",\"GDEAbk\":\"LSZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"GeschNr\":\"BVUARE.13.35\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"S\",\"Geolink\":\"3634\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"1009202.878976\",\"SHAPE.STLength()\":\"13714.840206\"}},{\"layerId\":494,\"layerName\":\"Wildtierkorridore:
+        Perimeter und Warter\xE4ume\",\"displayFieldName\":\"WTK_Nr\",\"value\":\"AG-R13\",\"attributes\":{\"OBJECTID\":\"22\",\"WTK_Nr\":\"AG-R13\",\"Zustand\":\"2\",\"Zustand_D\":\"beeintr\xE4chtigt\",\"Zustand_F\":\"perturb\xE9\",\"Lokalitaet\":\"Hallwil\",\"WTK_Typ\":\"Perimeter\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1439222.93314\",\"Shape.STLength()\":\"7154.344276\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"155768\",\"attributes\":{\"OBJECTID\":\"155768\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"21\",\"HNBez\":\"Allgemeine Landwirtschaftszonen\",\"KTAAbk\":\"Landwirtschaftszonen\",\"KTCode\":\"2111\",\"KTAbk\":\"AL\",\"KTBez\":\"Allgemeine
+        Landwirtschaftszone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"211101\",\"GDEBez\":\"Landwirtschaftszone\",\"GDEAbk\":\"Lw\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_III\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"3635\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        ES\":\"ja\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"130379.458994\",\"Shape.STLength()\":\"2969.038624\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1399'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:16:07 GMT
+      ETag:
+      - '"849e0c75"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|xzh9QvTsZTV9eWZXL6REUA==|pwsol9vIxju5bZ95CpOudNUQRAe203m1mwIppC-x_XMLIhptTyg-4l2hvb8WAvpi_T6PPw4=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:17:06 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce51090993bed261fcb1ae5ed6b87c0c099b198a1d051cf37aabcfae1f364e68f91c69587369e43726eeec70c70c802abaa1e;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce51090993bed261fcb1ae5ed6b87c0c099b198a1d051cf37aabcfae1f364e68f91c69587369e43726eeec70c70c802abaa1e;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2654806%2C1243251%2C2654846%2C1243291&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="sym-gcm|1|xzh9QvTsZTV9eWZXL6REUA==|pwsol9vIxju5bZ95CpOudNUQRAe203m1mwIppC-x_XMLIhptTyg-4l2hvb8WAvpi_T6PPw4=";
+        TS01975bae=0100bce51090993bed261fcb1ae5ed6b87c0c099b198a1d051cf37aabcfae1f364e68f91c69587369e43726eeec70c70c802abaa1e;
+        XWAF=1791920065.47873.0000; TS014419e9=0100bce51090993bed261fcb1ae5ed6b87c0c099b198a1d051cf37aabcfae1f364e68f91c69587369e43726eeec70c70c802abaa1e
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Seon\",\"attributes\":{\"OBJECTID\":\"73\",\"GDENR\":\"4209\",\"GEMEINDE\":\"Seon\",\"GEMEINDEZ\":\"Seon\",\"GEMEINDEU\":\"Seon\",\"BZNR\":\"1907\",\"BEZIRK\":\"Lenzburg\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Lenzburg\",\"Geometer\":\"Oliver Flury\",\"Strasse\":\"Dammweg 21\",\"PLZOrt\":\"5600
+        Lenzburg\",\"ID\":\"4209\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"9620366.947696\",\"SHAPE.STLength()\":\"14398.720021\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2709\",\"attributes\":{\"OBJECTID\":\"77928922\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420902709\",\"NUMMER\":\"2709\",\"EGRID\":\"CH920705051148\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"7566\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7566.1464\",\"SHAPE.STLength()\":\"441.283873\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2710\",\"attributes\":{\"OBJECTID\":\"77927655\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420902710\",\"NUMMER\":\"2710\",\"EGRID\":\"CH258305071122\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"11171\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"11170.594811\",\"SHAPE.STLength()\":\"549.312033\"}},{\"layerId\":41,\"layerName\":\"\xDCberlagerte
+        Schutzr\xE4ume f\xFCr Lebensr\xE4ume und Landschaften (ohne Gew\xE4sserraum)\",\"displayFieldName\":\"NameNummer\",\"value\":\"21998\",\"attributes\":{\"OBJECTID\":\"21998\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"52\",\"HNBez\":\"\xDCberlagernde Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTCode\":\"5292\",\"KTAbk\":\"VN\",\"KTBez\":\"Vernetzungszone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"529201\",\"GDEBez\":\"Wildtierkorridor\",\"GDEAbk\":\"WTK\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"GeschNr\":\"BVUARE.13.35\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"S\",\"Geolink\":\"3634\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"794277.270402\",\"SHAPE.STLength()\":\"6244.479989\"}},{\"layerId\":41,\"layerName\":\"\xDCberlagerte
+        Schutzr\xE4ume f\xFCr Lebensr\xE4ume und Landschaften (ohne Gew\xE4sserraum)\",\"displayFieldName\":\"NameNummer\",\"value\":\"22027\",\"attributes\":{\"OBJECTID\":\"22027\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"52\",\"HNBez\":\"\xDCberlagernde Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTCode\":\"5291\",\"KTAbk\":\"HOB\",\"KTBez\":\"Hochstammobstbestand\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"529101\",\"GDEBez\":\"Hochstamm-Obstbaumbestand\",\"GDEAbk\":\"HOB\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"GeschNr\":\"BVUARE.13.35\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"S\",\"Geolink\":\"3634\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"25959.008804\",\"SHAPE.STLength()\":\"685.243792\"}},{\"layerId\":41,\"layerName\":\"\xDCberlagerte
+        Schutzr\xE4ume f\xFCr Lebensr\xE4ume und Landschaften (ohne Gew\xE4sserraum)\",\"displayFieldName\":\"NameNummer\",\"value\":\"37580\",\"attributes\":{\"OBJECTID\":\"37580\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"52\",\"HNBez\":\"\xDCberlagernde Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTCode\":\"5211\",\"KTAbk\":\"LS\",\"KTBez\":\"Landschaftsschutzzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"521101\",\"GDEBez\":\"Landschaftsschutzzone\",\"GDEAbk\":\"LSZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"GeschNr\":\"BVUARE.13.35\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"S\",\"Geolink\":\"3634\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"1009202.878976\",\"SHAPE.STLength()\":\"13714.840206\"}},{\"layerId\":494,\"layerName\":\"Wildtierkorridore:
+        Perimeter und Warter\xE4ume\",\"displayFieldName\":\"WTK_Nr\",\"value\":\"AG-R13\",\"attributes\":{\"OBJECTID\":\"22\",\"WTK_Nr\":\"AG-R13\",\"Zustand\":\"2\",\"Zustand_D\":\"beeintr\xE4chtigt\",\"Zustand_F\":\"perturb\xE9\",\"Lokalitaet\":\"Hallwil\",\"WTK_Typ\":\"Perimeter\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1439222.93314\",\"Shape.STLength()\":\"7154.344276\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"418252121.725739\",\"Shape.STLength()\":\"942348.004738\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"Restgef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19296\",\"ID\":\"24231\",\"FARBE\":\"Restgef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF
+        Colenco AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"28434.136736\",\"SHAPE.STLength()\":\"2654.473337\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"155768\",\"attributes\":{\"OBJECTID\":\"155768\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"21\",\"HNBez\":\"Allgemeine Landwirtschaftszonen\",\"KTAAbk\":\"Landwirtschaftszonen\",\"KTCode\":\"2111\",\"KTAbk\":\"AL\",\"KTBez\":\"Allgemeine
+        Landwirtschaftszone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"211101\",\"GDEBez\":\"Landwirtschaftszone\",\"GDEAbk\":\"Lw\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_III\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"3635\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        ES\":\"ja\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"130379.458994\",\"Shape.STLength()\":\"2969.038624\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1673'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:16:07 GMT
+      ETag:
+      - '"291724bf"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|b7x1YXZaRWQmmSAjq4yUrQ==|r5ItjJXJDuesWxNUklPsppaM9i2eyG31qioVnS94pG_NEghRPH6HIwU613ntcZ-NB1zhrZY=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:17:07 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce51090993bed261fcb1ae5ed6b87c0c099b198a1d051cf37aabcfae1f364e68f91c69587369e43726eeec70c70c802abaa1e;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce51090993bed261fcb1ae5ed6b87c0c099b198a1d051cf37aabcfae1f364e68f91c69587369e43726eeec70c70c802abaa1e;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2654825%2C1243270%2C2654827%2C1243272&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Seon\",\"attributes\":{\"OBJECTID\":\"73\",\"GDENR\":\"4209\",\"GEMEINDE\":\"Seon\",\"GEMEINDEZ\":\"Seon\",\"GEMEINDEU\":\"Seon\",\"BZNR\":\"1907\",\"BEZIRK\":\"Lenzburg\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Lenzburg\",\"Geometer\":\"Oliver Flury\",\"Strasse\":\"Dammweg 21\",\"PLZOrt\":\"5600
+        Lenzburg\",\"ID\":\"4209\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"9620366.947696\",\"SHAPE.STLength()\":\"14398.720021\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2710\",\"attributes\":{\"OBJECTID\":\"77927655\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420902710\",\"NUMMER\":\"2710\",\"EGRID\":\"CH258305071122\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"11171\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"11170.594811\",\"SHAPE.STLength()\":\"549.312033\"}},{\"layerId\":41,\"layerName\":\"\xDCberlagerte
+        Schutzr\xE4ume f\xFCr Lebensr\xE4ume und Landschaften (ohne Gew\xE4sserraum)\",\"displayFieldName\":\"NameNummer\",\"value\":\"21998\",\"attributes\":{\"OBJECTID\":\"21998\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"52\",\"HNBez\":\"\xDCberlagernde Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTCode\":\"5292\",\"KTAbk\":\"VN\",\"KTBez\":\"Vernetzungszone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"529201\",\"GDEBez\":\"Wildtierkorridor\",\"GDEAbk\":\"WTK\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"GeschNr\":\"BVUARE.13.35\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"S\",\"Geolink\":\"3634\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"794277.270402\",\"SHAPE.STLength()\":\"6244.479989\"}},{\"layerId\":41,\"layerName\":\"\xDCberlagerte
+        Schutzr\xE4ume f\xFCr Lebensr\xE4ume und Landschaften (ohne Gew\xE4sserraum)\",\"displayFieldName\":\"NameNummer\",\"value\":\"22027\",\"attributes\":{\"OBJECTID\":\"22027\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"52\",\"HNBez\":\"\xDCberlagernde Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTCode\":\"5291\",\"KTAbk\":\"HOB\",\"KTBez\":\"Hochstammobstbestand\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"529101\",\"GDEBez\":\"Hochstamm-Obstbaumbestand\",\"GDEAbk\":\"HOB\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"GeschNr\":\"BVUARE.13.35\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"S\",\"Geolink\":\"3634\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"25959.008804\",\"SHAPE.STLength()\":\"685.243792\"}},{\"layerId\":41,\"layerName\":\"\xDCberlagerte
+        Schutzr\xE4ume f\xFCr Lebensr\xE4ume und Landschaften (ohne Gew\xE4sserraum)\",\"displayFieldName\":\"NameNummer\",\"value\":\"37580\",\"attributes\":{\"OBJECTID\":\"37580\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"52\",\"HNBez\":\"\xDCberlagernde Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTCode\":\"5211\",\"KTAbk\":\"LS\",\"KTBez\":\"Landschaftsschutzzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"521101\",\"GDEBez\":\"Landschaftsschutzzone\",\"GDEAbk\":\"LSZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"GeschNr\":\"BVUARE.13.35\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"S\",\"Geolink\":\"3634\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"1009202.878976\",\"SHAPE.STLength()\":\"13714.840206\"}},{\"layerId\":494,\"layerName\":\"Wildtierkorridore:
+        Perimeter und Warter\xE4ume\",\"displayFieldName\":\"WTK_Nr\",\"value\":\"AG-R13\",\"attributes\":{\"OBJECTID\":\"22\",\"WTK_Nr\":\"AG-R13\",\"Zustand\":\"2\",\"Zustand_D\":\"beeintr\xE4chtigt\",\"Zustand_F\":\"perturb\xE9\",\"Lokalitaet\":\"Hallwil\",\"WTK_Typ\":\"Perimeter\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1439222.93314\",\"Shape.STLength()\":\"7154.344276\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"155768\",\"attributes\":{\"OBJECTID\":\"155768\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"21\",\"HNBez\":\"Allgemeine Landwirtschaftszonen\",\"KTAAbk\":\"Landwirtschaftszonen\",\"KTCode\":\"2111\",\"KTAbk\":\"AL\",\"KTBez\":\"Allgemeine
+        Landwirtschaftszone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"211101\",\"GDEBez\":\"Landwirtschaftszone\",\"GDEAbk\":\"Lw\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_III\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"3635\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        ES\":\"ja\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"130379.458994\",\"Shape.STLength()\":\"2969.038624\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1399'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:17:18 GMT
+      ETag:
+      - '"849e0c75"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|FOlwMaOvGwWUNPFH2UUpgw==|eb327aQGShj1TSJLKcNT9R76A9HRbsN6Ohj8_M-OnRj-qVTKKMcHGfkgN4b5kOe-izrtJTo=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:18:16 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce510992a2ffab0e9b11371640b54fff82156e83c404e0bd97ae7f1c4cc9bbf2f196760352581ad97bd6ae14a41b2546ec5cc;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce510992a2ffab0e9b11371640b54fff82156e83c404e0bd97ae7f1c4cc9bbf2f196760352581ad97bd6ae14a41b2546ec5cc;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2654806%2C1243251%2C2654846%2C1243291&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="sym-gcm|1|FOlwMaOvGwWUNPFH2UUpgw==|eb327aQGShj1TSJLKcNT9R76A9HRbsN6Ohj8_M-OnRj-qVTKKMcHGfkgN4b5kOe-izrtJTo=";
+        TS01975bae=0100bce510992a2ffab0e9b11371640b54fff82156e83c404e0bd97ae7f1c4cc9bbf2f196760352581ad97bd6ae14a41b2546ec5cc;
+        XWAF=1791920065.47873.0000; TS014419e9=0100bce510992a2ffab0e9b11371640b54fff82156e83c404e0bd97ae7f1c4cc9bbf2f196760352581ad97bd6ae14a41b2546ec5cc
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Seon\",\"attributes\":{\"OBJECTID\":\"73\",\"GDENR\":\"4209\",\"GEMEINDE\":\"Seon\",\"GEMEINDEZ\":\"Seon\",\"GEMEINDEU\":\"Seon\",\"BZNR\":\"1907\",\"BEZIRK\":\"Lenzburg\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Lenzburg\",\"Geometer\":\"Oliver Flury\",\"Strasse\":\"Dammweg 21\",\"PLZOrt\":\"5600
+        Lenzburg\",\"ID\":\"4209\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"9620366.947696\",\"SHAPE.STLength()\":\"14398.720021\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2709\",\"attributes\":{\"OBJECTID\":\"77928922\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420902709\",\"NUMMER\":\"2709\",\"EGRID\":\"CH920705051148\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"7566\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7566.1464\",\"SHAPE.STLength()\":\"441.283873\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2710\",\"attributes\":{\"OBJECTID\":\"77927655\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420902710\",\"NUMMER\":\"2710\",\"EGRID\":\"CH258305071122\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"11171\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"11170.594811\",\"SHAPE.STLength()\":\"549.312033\"}},{\"layerId\":41,\"layerName\":\"\xDCberlagerte
+        Schutzr\xE4ume f\xFCr Lebensr\xE4ume und Landschaften (ohne Gew\xE4sserraum)\",\"displayFieldName\":\"NameNummer\",\"value\":\"21998\",\"attributes\":{\"OBJECTID\":\"21998\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"52\",\"HNBez\":\"\xDCberlagernde Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTCode\":\"5292\",\"KTAbk\":\"VN\",\"KTBez\":\"Vernetzungszone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"529201\",\"GDEBez\":\"Wildtierkorridor\",\"GDEAbk\":\"WTK\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"GeschNr\":\"BVUARE.13.35\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"S\",\"Geolink\":\"3634\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"794277.270402\",\"SHAPE.STLength()\":\"6244.479989\"}},{\"layerId\":41,\"layerName\":\"\xDCberlagerte
+        Schutzr\xE4ume f\xFCr Lebensr\xE4ume und Landschaften (ohne Gew\xE4sserraum)\",\"displayFieldName\":\"NameNummer\",\"value\":\"22027\",\"attributes\":{\"OBJECTID\":\"22027\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"52\",\"HNBez\":\"\xDCberlagernde Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTCode\":\"5291\",\"KTAbk\":\"HOB\",\"KTBez\":\"Hochstammobstbestand\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"529101\",\"GDEBez\":\"Hochstamm-Obstbaumbestand\",\"GDEAbk\":\"HOB\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"GeschNr\":\"BVUARE.13.35\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"S\",\"Geolink\":\"3634\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"25959.008804\",\"SHAPE.STLength()\":\"685.243792\"}},{\"layerId\":41,\"layerName\":\"\xDCberlagerte
+        Schutzr\xE4ume f\xFCr Lebensr\xE4ume und Landschaften (ohne Gew\xE4sserraum)\",\"displayFieldName\":\"NameNummer\",\"value\":\"37580\",\"attributes\":{\"OBJECTID\":\"37580\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"52\",\"HNBez\":\"\xDCberlagernde Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTCode\":\"5211\",\"KTAbk\":\"LS\",\"KTBez\":\"Landschaftsschutzzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"521101\",\"GDEBez\":\"Landschaftsschutzzone\",\"GDEAbk\":\"LSZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"GeschNr\":\"BVUARE.13.35\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"S\",\"Geolink\":\"3634\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"1009202.878976\",\"SHAPE.STLength()\":\"13714.840206\"}},{\"layerId\":494,\"layerName\":\"Wildtierkorridore:
+        Perimeter und Warter\xE4ume\",\"displayFieldName\":\"WTK_Nr\",\"value\":\"AG-R13\",\"attributes\":{\"OBJECTID\":\"22\",\"WTK_Nr\":\"AG-R13\",\"Zustand\":\"2\",\"Zustand_D\":\"beeintr\xE4chtigt\",\"Zustand_F\":\"perturb\xE9\",\"Lokalitaet\":\"Hallwil\",\"WTK_Typ\":\"Perimeter\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1439222.93314\",\"Shape.STLength()\":\"7154.344276\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"418252121.725739\",\"Shape.STLength()\":\"942348.004738\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"Restgef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19296\",\"ID\":\"24231\",\"FARBE\":\"Restgef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF
+        Colenco AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"28434.136736\",\"SHAPE.STLength()\":\"2654.473337\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"155768\",\"attributes\":{\"OBJECTID\":\"155768\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"21\",\"HNBez\":\"Allgemeine Landwirtschaftszonen\",\"KTAAbk\":\"Landwirtschaftszonen\",\"KTCode\":\"2111\",\"KTAbk\":\"AL\",\"KTBez\":\"Allgemeine
+        Landwirtschaftszone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"211101\",\"GDEBez\":\"Landwirtschaftszone\",\"GDEAbk\":\"Lw\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_III\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"3635\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        ES\":\"ja\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"130379.458994\",\"Shape.STLength()\":\"2969.038624\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1673'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:17:19 GMT
+      ETag:
+      - '"291724bf"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|58Zf3gEj3TcW5hpOd1eL8A==|TL9BMMCigEmJE6TlVAXvUvVuWtIRWZ4sXiAHWpbBn5bmh-Az75ZZ-kckJ-v21qhI6jwnOfQ=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:18:18 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce510992a2ffab0e9b11371640b54fff82156e83c404e0bd97ae7f1c4cc9bbf2f196760352581ad97bd6ae14a41b2546ec5cc;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce510992a2ffab0e9b11371640b54fff82156e83c404e0bd97ae7f1c4cc9bbf2f196760352581ad97bd6ae14a41b2546ec5cc;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2654825%2C1243270%2C2654827%2C1243272&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Seon\",\"attributes\":{\"OBJECTID\":\"73\",\"GDENR\":\"4209\",\"GEMEINDE\":\"Seon\",\"GEMEINDEZ\":\"Seon\",\"GEMEINDEU\":\"Seon\",\"BZNR\":\"1907\",\"BEZIRK\":\"Lenzburg\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Lenzburg\",\"Geometer\":\"Oliver Flury\",\"Strasse\":\"Dammweg 21\",\"PLZOrt\":\"5600
+        Lenzburg\",\"ID\":\"4209\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"9620366.947696\",\"SHAPE.STLength()\":\"14398.720021\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2710\",\"attributes\":{\"OBJECTID\":\"77927655\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420902710\",\"NUMMER\":\"2710\",\"EGRID\":\"CH258305071122\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"11171\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"11170.594811\",\"SHAPE.STLength()\":\"549.312033\"}},{\"layerId\":41,\"layerName\":\"\xDCberlagerte
+        Schutzr\xE4ume f\xFCr Lebensr\xE4ume und Landschaften (ohne Gew\xE4sserraum)\",\"displayFieldName\":\"NameNummer\",\"value\":\"21998\",\"attributes\":{\"OBJECTID\":\"21998\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"52\",\"HNBez\":\"\xDCberlagernde Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTCode\":\"5292\",\"KTAbk\":\"VN\",\"KTBez\":\"Vernetzungszone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"529201\",\"GDEBez\":\"Wildtierkorridor\",\"GDEAbk\":\"WTK\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"GeschNr\":\"BVUARE.13.35\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"S\",\"Geolink\":\"3634\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"794277.270402\",\"SHAPE.STLength()\":\"6244.479989\"}},{\"layerId\":41,\"layerName\":\"\xDCberlagerte
+        Schutzr\xE4ume f\xFCr Lebensr\xE4ume und Landschaften (ohne Gew\xE4sserraum)\",\"displayFieldName\":\"NameNummer\",\"value\":\"22027\",\"attributes\":{\"OBJECTID\":\"22027\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"52\",\"HNBez\":\"\xDCberlagernde Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTCode\":\"5291\",\"KTAbk\":\"HOB\",\"KTBez\":\"Hochstammobstbestand\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"529101\",\"GDEBez\":\"Hochstamm-Obstbaumbestand\",\"GDEAbk\":\"HOB\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"GeschNr\":\"BVUARE.13.35\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"S\",\"Geolink\":\"3634\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"25959.008804\",\"SHAPE.STLength()\":\"685.243792\"}},{\"layerId\":41,\"layerName\":\"\xDCberlagerte
+        Schutzr\xE4ume f\xFCr Lebensr\xE4ume und Landschaften (ohne Gew\xE4sserraum)\",\"displayFieldName\":\"NameNummer\",\"value\":\"37580\",\"attributes\":{\"OBJECTID\":\"37580\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"52\",\"HNBez\":\"\xDCberlagernde Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTCode\":\"5211\",\"KTAbk\":\"LS\",\"KTBez\":\"Landschaftsschutzzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"521101\",\"GDEBez\":\"Landschaftsschutzzone\",\"GDEAbk\":\"LSZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"GeschNr\":\"BVUARE.13.35\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"S\",\"Geolink\":\"3634\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"1009202.878976\",\"SHAPE.STLength()\":\"13714.840206\"}},{\"layerId\":494,\"layerName\":\"Wildtierkorridore:
+        Perimeter und Warter\xE4ume\",\"displayFieldName\":\"WTK_Nr\",\"value\":\"AG-R13\",\"attributes\":{\"OBJECTID\":\"22\",\"WTK_Nr\":\"AG-R13\",\"Zustand\":\"2\",\"Zustand_D\":\"beeintr\xE4chtigt\",\"Zustand_F\":\"perturb\xE9\",\"Lokalitaet\":\"Hallwil\",\"WTK_Typ\":\"Perimeter\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1439222.93314\",\"Shape.STLength()\":\"7154.344276\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"155768\",\"attributes\":{\"OBJECTID\":\"155768\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"21\",\"HNBez\":\"Allgemeine Landwirtschaftszonen\",\"KTAAbk\":\"Landwirtschaftszonen\",\"KTCode\":\"2111\",\"KTAbk\":\"AL\",\"KTBez\":\"Allgemeine
+        Landwirtschaftszone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"211101\",\"GDEBez\":\"Landwirtschaftszone\",\"GDEAbk\":\"Lw\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_III\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"3635\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        ES\":\"ja\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"130379.458994\",\"Shape.STLength()\":\"2969.038624\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1399'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:22:02 GMT
+      ETag:
+      - '"849e0c75"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|7es_6iRptqoEIfxXtIK3xQ==|0czTo3n4byS3BY7hDVPJv7hWhuWhsquEMdRwYfxmlFxYvyBYwTIlf4UQZ57yGmIjeaoeG5E=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:23:01 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce5108bd9f0c57d432e7710218daea7f954981c1963ae631f23b73ad204f6a4018724f1bbe540c2c7c10ab5ed45a9a4b9f0ae;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce5108bd9f0c57d432e7710218daea7f954981c1963ae631f23b73ad204f6a4018724f1bbe540c2c7c10ab5ed45a9a4b9f0ae;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2654806%2C1243251%2C2654846%2C1243291&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="sym-gcm|1|7es_6iRptqoEIfxXtIK3xQ==|0czTo3n4byS3BY7hDVPJv7hWhuWhsquEMdRwYfxmlFxYvyBYwTIlf4UQZ57yGmIjeaoeG5E=";
+        TS01975bae=0100bce5108bd9f0c57d432e7710218daea7f954981c1963ae631f23b73ad204f6a4018724f1bbe540c2c7c10ab5ed45a9a4b9f0ae;
+        XWAF=1791920065.47873.0000; TS014419e9=0100bce5108bd9f0c57d432e7710218daea7f954981c1963ae631f23b73ad204f6a4018724f1bbe540c2c7c10ab5ed45a9a4b9f0ae
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Seon\",\"attributes\":{\"OBJECTID\":\"73\",\"GDENR\":\"4209\",\"GEMEINDE\":\"Seon\",\"GEMEINDEZ\":\"Seon\",\"GEMEINDEU\":\"Seon\",\"BZNR\":\"1907\",\"BEZIRK\":\"Lenzburg\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Lenzburg\",\"Geometer\":\"Oliver Flury\",\"Strasse\":\"Dammweg 21\",\"PLZOrt\":\"5600
+        Lenzburg\",\"ID\":\"4209\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"9620366.947696\",\"SHAPE.STLength()\":\"14398.720021\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2709\",\"attributes\":{\"OBJECTID\":\"77928922\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420902709\",\"NUMMER\":\"2709\",\"EGRID\":\"CH920705051148\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"7566\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"7566.1464\",\"SHAPE.STLength()\":\"441.283873\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"2710\",\"attributes\":{\"OBJECTID\":\"77927655\",\"FILEID\":\"201\",\"GDENR\":\"4209\",\"GDENRPARZ\":\"420902710\",\"NUMMER\":\"2710\",\"EGRID\":\"CH258305071122\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"11171\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"11170.594811\",\"SHAPE.STLength()\":\"549.312033\"}},{\"layerId\":41,\"layerName\":\"\xDCberlagerte
+        Schutzr\xE4ume f\xFCr Lebensr\xE4ume und Landschaften (ohne Gew\xE4sserraum)\",\"displayFieldName\":\"NameNummer\",\"value\":\"21998\",\"attributes\":{\"OBJECTID\":\"21998\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"52\",\"HNBez\":\"\xDCberlagernde Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTCode\":\"5292\",\"KTAbk\":\"VN\",\"KTBez\":\"Vernetzungszone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"529201\",\"GDEBez\":\"Wildtierkorridor\",\"GDEAbk\":\"WTK\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"GeschNr\":\"BVUARE.13.35\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"S\",\"Geolink\":\"3634\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"794277.270402\",\"SHAPE.STLength()\":\"6244.479989\"}},{\"layerId\":41,\"layerName\":\"\xDCberlagerte
+        Schutzr\xE4ume f\xFCr Lebensr\xE4ume und Landschaften (ohne Gew\xE4sserraum)\",\"displayFieldName\":\"NameNummer\",\"value\":\"22027\",\"attributes\":{\"OBJECTID\":\"22027\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"52\",\"HNBez\":\"\xDCberlagernde Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTCode\":\"5291\",\"KTAbk\":\"HOB\",\"KTBez\":\"Hochstammobstbestand\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"529101\",\"GDEBez\":\"Hochstamm-Obstbaumbestand\",\"GDEAbk\":\"HOB\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"GeschNr\":\"BVUARE.13.35\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"S\",\"Geolink\":\"3634\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"25959.008804\",\"SHAPE.STLength()\":\"685.243792\"}},{\"layerId\":41,\"layerName\":\"\xDCberlagerte
+        Schutzr\xE4ume f\xFCr Lebensr\xE4ume und Landschaften (ohne Gew\xE4sserraum)\",\"displayFieldName\":\"NameNummer\",\"value\":\"37580\",\"attributes\":{\"OBJECTID\":\"37580\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"52\",\"HNBez\":\"\xDCberlagernde Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTCode\":\"5211\",\"KTAbk\":\"LS\",\"KTBez\":\"Landschaftsschutzzone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"521101\",\"GDEBez\":\"Landschaftsschutzzone\",\"GDEAbk\":\"LSZ\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"NameNummer\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"GeschNr\":\"BVUARE.13.35\",\"Bemerkungen\":\"Null\",\"KTLabel\":\"Null\",\"KTAAbk\":\"S\",\"Geolink\":\"3634\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        GWR\":\"nein\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"1009202.878976\",\"SHAPE.STLength()\":\"13714.840206\"}},{\"layerId\":494,\"layerName\":\"Wildtierkorridore:
+        Perimeter und Warter\xE4ume\",\"displayFieldName\":\"WTK_Nr\",\"value\":\"AG-R13\",\"attributes\":{\"OBJECTID\":\"22\",\"WTK_Nr\":\"AG-R13\",\"Zustand\":\"2\",\"Zustand_D\":\"beeintr\xE4chtigt\",\"Zustand_F\":\"perturb\xE9\",\"Lokalitaet\":\"Hallwil\",\"WTK_Typ\":\"Perimeter\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1439222.93314\",\"Shape.STLength()\":\"7154.344276\"}},{\"layerId\":93,\"layerName\":\"Gew\xE4sserschutzbereich
+        Au\",\"displayFieldName\":\"TYP\",\"value\":\"Au\",\"attributes\":{\"OBJECTID1\":\"45\",\"OBJECTID\":\"6\",\"TYP\":\"Au\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"418252121.725739\",\"Shape.STLength()\":\"942348.004738\"}},{\"layerId\":122,\"layerName\":\"Gefahrenkarte
+        Ist-Zustand\",\"displayFieldName\":\"FARBE\",\"value\":\"Restgef\xE4hrdung\",\"attributes\":{\"OBJECTID\":\"19296\",\"ID\":\"24231\",\"FARBE\":\"Restgef\xE4hrdung\",\"TEILPROJEKT\":\"Seetal/Aabach\",\"BEARBEITER\":\"AF
+        Colenco AG, Baden\",\"DATUM\":\"22.11.2010\",\"Freigabe\":\"1\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"28434.136736\",\"SHAPE.STLength()\":\"2654.473337\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"155768\",\"attributes\":{\"OBJECTID\":\"155768\",\"GDENR\":\"Seon
+        4209\",\"HNCode\":\"21\",\"HNBez\":\"Allgemeine Landwirtschaftszonen\",\"KTAAbk\":\"Landwirtschaftszonen\",\"KTCode\":\"2111\",\"KTAbk\":\"AL\",\"KTBez\":\"Allgemeine
+        Landwirtschaftszone\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"211101\",\"GDEBez\":\"Landwirtschaftszone\",\"GDEAbk\":\"Lw\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"Null\",\"ES\":\"ES_III\",\"ES_aufgest\":\"nein\",\"Strasse\":\"nein\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2020-000006\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.13.35\",\"UB\":\"Null\",\"KTLabel\":\"Null\",\"Geolink\":\"3634\",\"Geolink_ES\":\"3635\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/3634.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        ES\":\"ja\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"130379.458994\",\"Shape.STLength()\":\"2969.038624\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1673'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:22:03 GMT
+      ETag:
+      - '"291724bf"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|rOaxHiQDkw2E-57PdvdZAw==|xXp5mtxZJr_IL94obBnknMooKY9YsqauZaFL36Uop6rMo3UUemxx5WOTxH6guL7OSTfAjjs=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:23:02 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce5108bd9f0c57d432e7710218daea7f954981c1963ae631f23b73ad204f6a4018724f1bbe540c2c7c10ab5ed45a9a4b9f0ae;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce5108bd9f0c57d432e7710218daea7f954981c1963ae631f23b73ad204f6a4018724f1bbe540c2c7c10ab5ed45a9a4b9f0ae;
         path=/geoportal/rest
       Strict-Transport-Security:
       - max-age=16070400; includeSubDomains

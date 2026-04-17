@@ -1,7 +1,7 @@
 import uuid
-from importlib import import_module
 
 from django.db import models
+from django.utils.module_loading import import_string
 from django.utils.translation import gettext_lazy as _
 
 from camac.models import dynamic_default_value
@@ -43,17 +43,10 @@ class GISDataSource(models.Model):
         ordering = ["sort"]
 
     def get_client_cls(self):
-        parts = self.client.split(".")
-        class_name = parts.pop()
-
-        return getattr(import_module(".".join(parts)), class_name)
+        return import_string(self.client)
 
     def get_required_params(self):
         client = self.get_client_cls()
         if hasattr(client, "required_params"):
             return client.required_params
         return client.get_required_params(self)
-
-    def get_is_queue_enabled(self):
-        client_cls = self.get_client_cls()
-        return client_cls.is_queue_enabled()
