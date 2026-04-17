@@ -992,6 +992,70 @@ class ECHDocumentView(
         )
 
     @swagger_auto_schema(
+        method="post",
+        tags=["Documents and files for eCH-0211 clients"],
+        manual_parameters=[group_param],
+        operation_summary="Mark a document as sensitive",
+        operation_description=get_operation_description(is_preview=True),
+        responses={
+            status.HTTP_204_NO_CONTENT: openapi.Response("File was updated"),
+            status.HTTP_400_BAD_REQUEST: openapi.Response("Invalid request"),
+            status.HTTP_403_FORBIDDEN: openapi.Response("Permission denied"),
+        },
+        auto_schema=conditional_factory(
+            SwaggerAutoSchema,
+            lambda: (
+                not is_camac_backend()
+                and DocumentAPIFeature.can(DocumentAPIFeature.DOCUMENTS_SENSITIVE_ADD)
+            ),
+        ),
+    )
+    @swagger_auto_schema(
+        method="delete",
+        tags=["Documents and files for eCH-0211 clients"],
+        manual_parameters=[group_param],
+        operation_summary="Unmark a document as sensitive",
+        operation_description=get_operation_description(is_preview=True),
+        responses={
+            status.HTTP_204_NO_CONTENT: openapi.Response("File was updated"),
+            status.HTTP_400_BAD_REQUEST: openapi.Response("Invalid request"),
+            status.HTTP_403_FORBIDDEN: openapi.Response("Permission denied"),
+        },
+        auto_schema=conditional_factory(
+            SwaggerAutoSchema,
+            lambda: (
+                not is_camac_backend()
+                and DocumentAPIFeature.can(
+                    DocumentAPIFeature.DOCUMENTS_SENSITIVE_REMOVE
+                )
+            ),
+        ),
+    )
+    @action(detail=True, methods=["post", "delete"], url_path="sensitive")
+    def sensitive(self, request, pk=None):
+        is_add = request.method == "POST"
+        if (
+            is_camac_backend()
+            or (
+                is_add
+                and not DocumentAPIFeature.can(
+                    DocumentAPIFeature.DOCUMENTS_SENSITIVE_ADD
+                )
+            )
+            or (
+                not is_add
+                and not DocumentAPIFeature.can(
+                    DocumentAPIFeature.DOCUMENTS_SENSITIVE_REMOVE
+                )
+            )
+        ):
+            raise NotFound()
+
+        return self._update_mark(
+            document=self.get_object(), mark_pk="sensitive", add=is_add
+        )
+
+    @swagger_auto_schema(
         tags=["Documents and files for eCH-0211 clients"],
         manual_parameters=[group_param],
         operation_summary="Delete a document",
