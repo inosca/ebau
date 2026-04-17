@@ -707,6 +707,86 @@ def test_send_inquiry(
     assert new_acl.grant_type == "SERVICE"
 
 
+@pytest.mark.parametrize("instance_state__name", ["circulation"])
+@pytest.mark.parametrize(
+    ("role__name"),
+    ["municipality", "uso"],
+)
+def test_inquiry_gr_uso(
+    db,
+    gr_instance,
+    group_factory,
+    role,
+    active_inquiry_factory,
+    caluma_admin_user,
+    gr_permissions_settings,
+    gr_access_levels,
+    gr_distribution_settings,
+    disable_ech0211_settings,
+    mocker,
+    form_utils: FormUtils,
+):
+    mocker.patch(
+        "camac.caluma.extensions.events.distribution.send_inquiry_notification",
+        return_value=None,
+    )
+    service = group_factory(role=role).service
+    inquiry: WorkItem = active_inquiry_factory(
+        addressed_service=service,
+        deadline=timezone.now() + timedelta(days=20),
+        meta={"reminders": ["2022-11-30T16:00:00.000000+00:00"]},
+    )
+    inquiry.status = inquiry.STATUS_SUSPENDED
+    inquiry.save()
+
+    acls_before = list(gr_instance.acls.all())
+    count_before = len(acls_before)
+
+    workflow_api.resume_work_item(work_item=inquiry, user=caluma_admin_user)
+
+    acls_after = gr_instance.acls.all()
+    assert acls_after.count() == count_before + 1
+    temp_acl = acls_after.exclude(pk__in=acls_before).get()
+
+    assert temp_acl.grant_type == "SERVICE"
+
+    # USO deadline should end at the inquiry deadline.
+    if role.name == "uso":
+        assert temp_acl.access_level.slug == "uso"
+        assert temp_acl.end_time == inquiry.deadline
+    else:
+        assert temp_acl.access_level.slug == "distribution-service"
+        assert temp_acl.end_time is None
+
+    child_work_item = inquiry.child_case.work_items.first()
+    form_utils.add_answer(
+        document=child_work_item.case.document,
+        question="inquiry-answer-status",
+        value=gr_distribution_settings["ANSWERS"]["STATUS"]["POSITIVE"],
+    )
+
+    acls_before = list(gr_instance.acls.all())
+    count_before = len(acls_before)
+    workflow_api.complete_work_item(
+        work_item=inquiry.child_case.work_items.first(), user=caluma_admin_user
+    )
+    acls_after = gr_instance.acls.all()
+
+    # on reply the USO temp ACL should be revoked, and a new unlimited ACL should
+    # be granted.
+    if role.name == "uso":
+        temp_acl.refresh_from_db()
+        assert temp_acl.is_active() is False
+
+        assert acls_after.count() == count_before + 1
+        new_acl = acls_after.exclude(pk__in=[a.pk for a in acls_before]).get()
+        assert new_acl.grant_type == "SERVICE"
+        assert new_acl.access_level.slug == "uso"
+        assert new_acl.end_time is None
+    else:
+        assert acls_after.count() == count_before
+
+
 def test_submitted_so(so_access_levels, so_instance, instance_acl_factory):
     # We test, in other places, the whole calling infra, so here we can
     # get away with just testing the event handler directly
