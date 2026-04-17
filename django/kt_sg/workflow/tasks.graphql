@@ -55,3 +55,43 @@ mutation CreateManualWorkItemTask {
     clientMutationId
   }
 }
+
+mutation CreatePublicationTask {
+  saveSimpleTask(
+    input: {
+      slug: "publication"
+      name: "Dossier publizieren"
+      addressGroups: "[\"municipality\"]|groups"
+      controlGroups: "[\"municipality\"]|groups"
+      leadTime: 604800 # 7 days
+      meta: "{\"is-manually-completable\":true,\"directLink\":{\"route\":\"cases.detail.publication\",\"models\":[\"INSTANCE_ID\",\"public\"]}}"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFillPublicationTask {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "fill-publication"
+      name: "Publikation ausfüllen"
+      form: "publikation"
+      addressGroups: "[\"municipality\"]|groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateNewPublicationTask {
+  saveSimpleTask(
+    input: {
+      slug: "create-publication"
+      name: "Neue Publikation erfassen"
+      addressGroups: "[\"municipality\"]|groups"
+    }
+  ) {
+    clientMutationId
+  }
+}

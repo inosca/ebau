@@ -3226,6 +3226,23 @@ def ag_publication_settings(
 
 
 @pytest.fixture
+def sg_publication_settings(
+    request,
+    settings,
+    publication_settings,
+):
+    """Module-specific settings for publication (canton SG)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=publication_settings,
+        module_name="publication",
+        canton="kt_sg",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def rejection_settings(
     request,
     settings,

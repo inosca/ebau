@@ -54,4 +54,11 @@ export default {
     instanceState: "rejected",
     allowedInstanceStates: ["subm"],
   },
+  publication: {
+    public: {
+      task: "fill-publication",
+      createTask: "create-publication",
+      dateRanges: [["publikation-start", "publikation-ende"]],
+    },
+  },
 };

@@ -20,4 +20,7 @@ export default {
   alexandria: {
     showSearchLinkLabel: true,
   },
+  publication: {
+    showMainForm: true,
+  },
 };

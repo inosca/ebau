@@ -143,4 +143,11 @@ PUBLICATION = {
         ],
         "SHOW_MAIN_FORM": True,
     },
+    "kt_sg": {
+        "ENABLED": True,
+        "SHOW_MAIN_FORM": True,
+        "RANGE_QUESTIONS": {
+            "PUBLIC": [("publikation-start", "publikation-ende")],
+        },
+    },
 }

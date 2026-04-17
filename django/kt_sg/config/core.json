@@ -145,7 +145,7 @@
       "template": "/ember-camac-ng/journal.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 11,
+      "sort": 12,
       "form_group": 1,
       "require_permission": "journal-read"
     }
@@ -161,7 +161,7 @@
       "template": null,
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 12,
+      "sort": 13,
       "form_group": 1,
       "require_permission": "history-read"
     }
@@ -177,7 +177,7 @@
       "template": "/ember-camac-ng/permissions.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 13,
+      "sort": 14,
       "form_group": 1,
       "require_permission": "permissions-read"
     }
@@ -225,7 +225,7 @@
       "template": "/ember-camac-ng/rejection.phtml",
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
-      "sort": 10,
+      "sort": 11,
       "form_group": 1,
       "require_permission": "rejection-read"
     }
@@ -273,9 +273,25 @@
       "template": "/ember-camac-ng/additional-demand.phtml",
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
-      "sort": 9,
+      "sort": 10,
       "form_group": 1,
       "require_permission": "additional-demands-read"
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 14,
+    "fields": {
+      "available_instance_resource": "page",
+      "resource": 2,
+      "name": null,
+      "description": null,
+      "template": "/ember-camac-ng/publication.phtml",
+      "class_field": "menu-category-process",
+      "hidden": 0,
+      "sort": 9,
+      "form_group": 1,
+      "require_permission": "publication-read"
     }
   },
   {
@@ -405,6 +421,16 @@
       "instance_resource": 13,
       "language": "de",
       "name": "Nachforderungen",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 14,
+    "fields": {
+      "instance_resource": 14,
+      "language": "de",
+      "name": "Publikation",
       "description": null
     }
   },
