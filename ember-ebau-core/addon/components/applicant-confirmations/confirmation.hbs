@@ -1,0 +1,42 @@
+<li
+  class="uk-flex uk-flex-middle applicant-confirmations__item"
+  data-test-confirmation={{@confirmation.id}}
+>
+  <div
+    class="uk-text-{{this.statusConfig.color}}
+      uk-flex uk-margin-right applicant-confirmations__item__status"
+  >
+    <FaIcon
+      @icon={{this.statusConfig.icon}}
+      @fixedWidth={{true}}
+      {{uk-tooltip
+        (t (concat "applicant-confirmations.status." @confirmation.status))
+      }}
+    />
+  </div>
+  <div class="uk-width-expand" data-test-confirmation-user>
+    <div>
+      <span class="uk-text-bold">
+        {{@confirmation.displayName}}
+      </span>
+      {{#unless @confirmation.user}}
+        <span
+          class="uk-text-warning uk-text-small uk-margin-left"
+          data-test-confirmation-user-warning
+        >
+          <FaIcon @icon="triangle-exclamation" @fixedWidth={{true}} />
+          {{t "applicant-confirmations.not-registered"}}
+        </span>
+      {{/unless}}
+    </div>
+    <div class="uk-text-meta">{{join ", " @confirmation.roles}}</div>
+  </div>
+  {{#if (not-eq @confirmation.status "pending")}}
+    <div class="uk-text-meta" data-test-confirmation-closed-at>
+      {{t
+        (concat "applicant-confirmations.status." @confirmation.status "-at")
+        date=(format-date @confirmation.closedAt format="datetime")
+      }}
+    </div>
+  {{/if}}
+</li>

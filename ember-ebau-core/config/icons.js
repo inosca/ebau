@@ -12,6 +12,15 @@ module.exports = function () {
       "house-circle-check",
       "newspaper",
       "stamp",
+      "arrow-rotate-left",
+      "chevron-down",
+      "chevron-up",
+      "circle-exclamation",
+      "circle-user",
+      "circle-xmark",
+      "clock",
+      "clock-rotate-left",
+      "triangle-exclamation",
     ],
   };
 };

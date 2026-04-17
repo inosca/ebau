@@ -42,6 +42,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "bestaetigung",
+    "fields": {
+      "created_at": "2026-03-24T16:27:23.805Z",
+      "modified_at": "2026-03-24T16:27:23.805Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Bestätigung\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Baugesuch > Bestätigung\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "durchgefuehrte-voranfragen",
     "fields": {
       "created_at": "2026-03-17T12:32:52.499Z",
@@ -256,6 +274,21 @@
       "modified_by_group": null,
       "form": "baugesuch",
       "question": "allgemeine-informationen",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch.bestaetigung",
+    "fields": {
+      "created_at": "2026-03-24T16:27:45.333Z",
+      "modified_at": "2026-03-24T16:27:45.333Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baugesuch",
+      "question": "bestaetigung",
       "sort": 2
     }
   },
@@ -272,6 +305,36 @@
       "form": "baugesuch",
       "question": "einreichen",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bestaetigung.bestaetigung-komplett",
+    "fields": {
+      "created_at": "2026-03-24T16:32:00.391Z",
+      "modified_at": "2026-03-24T16:32:00.391Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bestaetigung",
+      "question": "bestaetigung-komplett",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bestaetigung.bestaetigung-titel",
+    "fields": {
+      "created_at": "2026-03-25T14:28:20.398Z",
+      "modified_at": "2026-03-25T14:28:20.398Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bestaetigung",
+      "question": "bestaetigung-titel",
+      "sort": 2
     }
   },
   {
@@ -1657,6 +1720,23 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "bestaetigung-komplett-ja",
+    "fields": {
+      "created_at": "2026-03-24T16:32:00.178Z",
+      "modified_at": "2026-03-24T16:32:00.178Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "einreichen-button-eingereicht",
     "fields": {
       "created_at": "2026-02-13T11:34:57.811Z",
@@ -2275,6 +2355,102 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "bestaetigung",
+    "fields": {
+      "created_at": "2026-03-24T16:27:45.239Z",
+      "modified_at": "2026-03-24T16:27:45.239Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bestätigung\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "bestaetigung",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bestaetigung-komplett",
+    "fields": {
+      "created_at": "2026-03-24T16:32:00.285Z",
+      "modified_at": "2026-03-25T12:23:45.213Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bestätigung komplett?\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": "applicant-confirmations/widget"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bestaetigung-titel",
+    "fields": {
+      "created_at": "2026-03-25T14:28:20.301Z",
+      "modified_at": "2026-03-25T14:28:20.301Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bestätigung Titel\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"### Bestätigung\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "datum",
     "fields": {
       "created_at": "2026-03-17T12:38:41.993Z",
@@ -2444,18 +2620,18 @@
     "pk": "einreichen",
     "fields": {
       "created_at": "2026-02-13T11:33:43.580Z",
-      "modified_at": "2026-02-13T11:33:43.580Z",
+      "modified_at": "2026-03-24T16:33:25.324Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Einreichen\", \"fr\": null, \"it\": null}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "!(\"bestaetigung-komplett-ja\" in \"bestaetigung-komplett\"|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -4495,6 +4671,21 @@
       "modified_by_group": null,
       "question": "bauvisiere",
       "option": "bauvisiere-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bestaetigung-komplett.bestaetigung-komplett-ja",
+    "fields": {
+      "created_at": "2026-03-25T12:23:45.229Z",
+      "modified_at": "2026-03-25T12:23:45.229Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "bestaetigung-komplett",
+      "option": "bestaetigung-komplett-ja",
       "sort": 1
     }
   },

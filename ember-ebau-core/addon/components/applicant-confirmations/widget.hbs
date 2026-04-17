@@ -1,0 +1,112 @@
+{{#if this.rounds.isLoading}}
+  <div class="uk-padding uk-text-center">
+    <UkSpinner @ratio={{2}} />
+  </div>
+{{else}}
+  {{#if
+    (await
+      (can
+        "start applicant-confirmation-round"
+        this.currentRound
+        instanceId=@context.instanceId
+      )
+    )
+  }}
+    <DocumentValidityButton
+      @field={{@field}}
+      @context={{@context}}
+      @validateOnEnter={{true}}
+      @showSuccessAlert={{false}}
+      @buttonLabel={{t "applicant-confirmations.start"}}
+      @afterValidate={{this.start.perform}}
+    />
+  {{else if (not this.currentRound.isActive)}}
+    <div class="uk-alert uk-alert-warning">
+      {{t "applicant-confirmations.info-start" htmlSafe=true}}
+      {{#unless @disabled}}
+        {{t "applicant-confirmations.info-start-editable"}}
+      {{/unless}}
+    </div>
+
+    {{#unless @disabled}}
+      <DocumentValidityButton
+        @field={{@field}}
+        @context={{@context}}
+        @validateOnEnter={{true}}
+        @buttonLabel={{t "applicant-confirmations.validate"}}
+        @buttonColor="default"
+      />
+    {{/unless}}
+  {{/if}}
+
+  {{#if (await (can "confirm applicant-confirmation-round" this.currentRound))}}
+    <p>{{t "applicant-confirmations.intro-pending"}}</p>
+  {{/if}}
+
+  {{#if (not-eq this.currentRound.status "completed")}}
+    <p>{{t "applicant-confirmations.intro-general"}}</p>
+  {{/if}}
+
+  {{#if this.currentRound}}
+    <ApplicantConfirmations::Round
+      @round={{this.currentRound}}
+      @index={{this.rounds.records.length}}
+      @refresh={{this.refresh}}
+    />
+  {{/if}}
+
+  {{#if this.previousRounds}}
+    <hr />
+
+    <UkButton @color="link" @onClick={{toggle "showPrevious" this}}>
+      <FaIcon
+        @fixedWidth={{true}}
+        @icon="clock-rotate-left"
+        class="uk-margin-small-right"
+      />
+      {{t "applicant-confirmations.previous"}}
+      <FaIcon
+        @icon="chevron-{{if this.showPrevious 'down' 'up'}}"
+        @fixedWidth={{true}}
+        class="uk-margin-left"
+      />
+    </UkButton>
+
+    {{#if this.showPrevious}}
+      <UkCard @size="small" class="uk-border uk-margin-top" as |Card|>
+        <Card.body>
+          <ul class="uk-list uk-list-divider">
+            {{#each this.previousRounds as |round i|}}
+              <li class="uk-flex">
+                <div class="uk-width-expand">
+                  <p class="uk-text-bold uk-margin-remove">
+                    {{t
+                      "applicant-confirmations.round"
+                      index=(sub this.previousRounds.length i)
+                    }}
+                  </p>
+                  <p class="uk-text-meta uk-margin-remove">
+                    {{format-date round.createdAt format="datetime"}}
+                    -
+                    {{format-date round.closedAt format="datetime"}}
+                  </p>
+                </div>
+                <div class="uk-flex uk-flex-middle">
+                  <span
+                    class="uk-label uk-label-outline uk-label-{{this.statusColor
+                        round.status
+                      }}"
+                  >
+                    {{t
+                      (concat "applicant-confirmations.status." round.status)
+                    }}
+                  </span>
+                </div>
+              </li>
+            {{/each}}
+          </ul>
+        </Card.body>
+      </UkCard>
+    {{/if}}
+  {{/if}}
+{{/if}}

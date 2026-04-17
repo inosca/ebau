@@ -29,7 +29,7 @@
   {{/if}}
 
   <UkButton
-    @color="primary"
+    @color={{or @buttonColor "primary"}}
     @disabled={{or @disabled (not isValid) this.validate.isRunning}}
     @label={{this.buttonLabel}}
     @loading={{this.validate.isRunning}}
