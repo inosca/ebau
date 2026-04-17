@@ -1,5 +1,6 @@
 from camac.permissions.conditions import (
     Always,
+    HasApplicantConfirmationRound,
     HasApplicantRole,
     HasRole,
     RequireInstanceState,
@@ -50,7 +51,11 @@ MODULE_PORTAL_DOCUMENTS_WRITE = (
     RequireWorkItem("submit", "ready") & APPLICANT_WRITE
 ) | MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE
 MODULE_PORTAL_FORM_READ = Always()
-MODULE_PORTAL_FORM_WRITE = RequireWorkItem("submit", "ready") & APPLICANT_WRITE
+MODULE_PORTAL_FORM_WRITE = (
+    RequireWorkItem("submit", "ready")
+    & APPLICANT_WRITE
+    & ~HasApplicantConfirmationRound(["running", "completed"])
+)
 
 ACTION_APPLICANT_CONFIRMATION_ADMIN = RequireWorkItem(
     "submit", "ready"
@@ -58,7 +63,11 @@ ACTION_APPLICANT_CONFIRMATION_ADMIN = RequireWorkItem(
 ACTION_APPLICANT_CONFIRMATION_CONFIRM = RequireWorkItem("submit", "ready")
 
 ACTION_INSTANCE_DELETE = RequireInstanceState(["new"]) & APPLICANT_ADMIN
-ACTION_INSTANCE_SUBMIT = RequireWorkItem("submit", "ready") & APPLICANT_ADMIN
+ACTION_INSTANCE_SUBMIT = (
+    RequireWorkItem("submit", "ready")
+    & APPLICANT_ADMIN
+    & HasApplicantConfirmationRound(["completed"])
+)
 
 # Actual config
 SG_PERMISSIONS_SETTINGS = {

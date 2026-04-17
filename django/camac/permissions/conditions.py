@@ -456,3 +456,36 @@ class RequireDeadline(Check):
 
     def __repr__(self):
         return "RequireDeadline()"
+
+
+@dataclass
+class HasApplicantConfirmationRound(Check):
+    """Permission check for requiring an active applicant confirmation round.
+
+    This will only check whether there is an active round for the main document.
+    """
+
+    status: list[str]
+
+    def apply(self, userinfo, context: PermissionContext):
+        from camac.applicants.models import ApplicantConfirmationRound
+
+        document = context.instance.case.document
+
+        return (
+            ApplicantConfirmationRound.objects.for_document(document)
+            .filter(status__in=self.status)
+            .exists()
+        )
+
+    @property
+    def allow_caching(self):  # pragma: no cover
+        return False
+
+    def __eq__(self, other: Check):  # pragma: no cover
+        return isinstance(other, HasApplicantConfirmationRound) and set(
+            other.status
+        ) == set(self.status)
+
+    def __repr__(self):
+        return f"HasApplicantConfirmationRound({', '.join(sorted(self.status))})"
