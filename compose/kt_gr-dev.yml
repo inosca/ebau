@@ -225,8 +225,6 @@ services:
   redis:
     networks:
       - ebau.localhost
-    environment:
-      - REDIS_PASSWORD=redis
 
   celery:
     <<: *django

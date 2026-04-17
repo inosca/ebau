@@ -326,8 +326,6 @@ services:
       - redis_data:/redis/data
     networks:
       - ebau.localhost
-    environment:
-      - REDIS_PASSWORD=redis
 
   flower:
     image: mher/flower:2.0

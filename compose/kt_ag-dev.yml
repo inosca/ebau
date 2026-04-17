@@ -295,8 +295,6 @@ services:
       - redis_data:/redis/data
     networks:
       - ebau.localhost
-    environment:
-      - REDIS_PASSWORD=redis
 
   housing-stat-proxy:
     networks:
