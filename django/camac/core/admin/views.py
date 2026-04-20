@@ -117,6 +117,8 @@ class ServiceContentAdmin(LocalizedFieldsAdminMixin, EbauAdminMixin, ModelAdmin)
     list_filter = ["service"]
     filter_horizontal = ["forms"]
 
+    autocomplete_fields = ["service"]
+
     @display(description=_("Forms"))
     def get_forms(self, obj):
         return ", ".join(obj.forms.values_list("slug", flat=True)).title()
