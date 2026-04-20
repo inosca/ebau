@@ -2,6 +2,9 @@ DJANGO_ADMIN = {
     "default": {
         "ENABLED_MODELS": [
             "caluma_workflow.Case",
+            "caluma_workflow.Task",
+            "caluma_workflow.TaskFlow",
+            "caluma_workflow.Workflow",
             "caluma_workflow.WorkItem",
             "instance.InstanceState",
             "permissions.AccessLevel",
@@ -91,8 +94,6 @@ DJANGO_ADMIN = {
         "ENABLED_MODELS": [
             "alexandria_core.Category",
             "alexandria_core.Mark",
-            "caluma_workflow.Case",
-            "caluma_workflow.WorkItem",
             "core.InstanceResource",
             "core.Resource",
             "billing.BillingV2EntryTemplate",

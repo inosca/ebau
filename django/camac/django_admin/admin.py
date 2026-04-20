@@ -1,11 +1,9 @@
 from adminsortable2.admin import SortableAdminMixin
 from alexandria.core.models import Category, Mark
-from caluma.caluma_workflow.models import Case, WorkItem
+from caluma.caluma_workflow.models import Case, Task, TaskFlow, Workflow, WorkItem
 from django.contrib.admin import ModelAdmin, display, register
-from django.db.models import JSONField
 from django.utils.html import format_html
 from django_celery_beat import admin as dcb_admin, models as dcb_models
-from django_json_widget.widgets import JSONEditorWidget
 from localized_fields.admin import LocalizedFieldsAdminMixin
 
 from camac.admin import EbauAdminMixin
@@ -18,7 +16,6 @@ class CategoryAdmin(
 ):
     list_display = ["sort", "color_box", "full_name"]
     list_display_links = ["full_name"]
-    formfield_overrides = {JSONField: {"widget": JSONEditorWidget}}
     ordering = ["sort"]
     fields = [
         "slug",
@@ -75,7 +72,6 @@ class CategoryAdmin(
 @register(Mark)
 class MarkAdmin(EbauAdminMixin, LocalizedFieldsAdminMixin, ModelAdmin):
     list_display = ["slug", "name", "description"]
-    formfield_overrides = {JSONField: {"widget": JSONEditorWidget}}
     fields = [
         "slug",
         "name",
@@ -102,7 +98,6 @@ class WorkItemAdmin(EbauAdminMixin, LocalizedFieldsAdminMixin, ModelAdmin):
     ]
     list_filter = ["task__name", "status", "created_at"]
     search_fields = ["case__family__instance__pk"]
-    formfield_overrides = {JSONField: {"widget": JSONEditorWidget}}
     fields = [
         "name",
         "status",
@@ -171,7 +166,6 @@ class WorkItemAdmin(EbauAdminMixin, LocalizedFieldsAdminMixin, ModelAdmin):
 
 @register(Case)
 class CaseAdmin(EbauAdminMixin, LocalizedFieldsAdminMixin, ModelAdmin):
-    formfield_overrides = {JSONField: {"widget": JSONEditorWidget}}
     list_display = [
         "pk",
         "workflow_name",
@@ -205,6 +199,48 @@ class CaseAdmin(EbauAdminMixin, LocalizedFieldsAdminMixin, ModelAdmin):
     @display(ordering="case__family__instance__pk")
     def instance_id(self, obj):
         return obj.family.instance.pk
+
+    def has_add_permission(self, request, obj=None):
+        return False
+
+
+@register(Workflow)
+class WorkflowAdmin(EbauAdminMixin, LocalizedFieldsAdminMixin, ModelAdmin):
+    list_display = ["pk", "name"]
+    exclude = [
+        "created_by_user",
+        "created_by_group",
+        "modified_by_user",
+        "modified_by_group",
+    ]
+
+    def has_add_permission(self, request, obj=None):
+        return False
+
+
+@register(Task)
+class TaskAdmin(EbauAdminMixin, LocalizedFieldsAdminMixin, ModelAdmin):
+    list_display = ["pk", "name", "type"]
+    exclude = [
+        "created_by_user",
+        "created_by_group",
+        "modified_by_user",
+        "modified_by_group",
+    ]
+
+    def has_add_permission(self, request, obj=None):
+        return False
+
+
+@register(TaskFlow)
+class TaskFlowAdmin(EbauAdminMixin, LocalizedFieldsAdminMixin, ModelAdmin):
+    list_display = ["workflow__name", "task__name", "flow__next"]
+    exclude = [
+        "created_by_user",
+        "created_by_group",
+        "modified_by_user",
+        "modified_by_group",
+    ]
 
     def has_add_permission(self, request, obj=None):
         return False

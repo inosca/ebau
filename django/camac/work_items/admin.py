@@ -1,8 +1,6 @@
 from adminsortable2.admin import SortableAdminMixin
 from django.contrib.admin import ModelAdmin, display, register
-from django.db.models import JSONField
 from django.utils.translation import gettext_lazy as _
-from django_json_widget.widgets import JSONEditorWidget
 from localized_fields.admin import LocalizedFieldsAdminMixin
 
 from camac.admin import EbauAdminMixin
@@ -48,7 +46,6 @@ class WorkItemListFilterPresetAdmin(
     ]
     search_fields = ["name"]
     autocomplete_fields = ["services", "service_groups"]
-    formfield_overrides = {JSONField: {"widget": JSONEditorWidget}}
 
     @display(description=_("Services"))
     def get_service_names(self, obj):
