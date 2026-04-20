@@ -89,6 +89,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "check-additional-demand.additional-demand-allow-changes",
+    "fields": {
+      "created_at": "2026-04-14T10:35:15.180Z",
+      "modified_at": "2026-04-14T10:35:15.180Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "check-additional-demand",
+      "question": "additional-demand-allow-changes",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "check-additional-demand.additional-demand-comment",
     "fields": {
       "created_at": "2023-09-07T06:54:36.873Z",
@@ -99,7 +114,7 @@
       "modified_by_group": null,
       "form": "check-additional-demand",
       "question": "additional-demand-comment",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -129,7 +144,7 @@
       "modified_by_group": null,
       "form": "check-additional-demand",
       "question": "additional-demand-deadline",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -144,7 +159,7 @@
       "modified_by_group": null,
       "form": "check-additional-demand",
       "question": "additional-demand-decision",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -159,7 +174,7 @@
       "modified_by_group": null,
       "form": "check-additional-demand",
       "question": "additional-demand-ech0211",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -189,7 +204,7 @@
       "modified_by_group": null,
       "form": "check-additional-demand",
       "question": "additional-demand-files-service",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -430,7 +445,7 @@
     "pk": "additional-demand-allow-changes",
     "fields": {
       "created_at": "2025-11-11T07:31:39.389Z",
-      "modified_at": "2025-11-13T12:26:08.812Z",
+      "modified_at": "2026-04-14T10:38:58.594Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -438,7 +453,7 @@
       "label": "{\"de\": \"Änderungen am Gesuchsformular erlauben\", \"fr\": null, \"it\": \"Consentire modifiche al modulo di richiesta\"}",
       "type": "multiple_choice",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "(info.form == \"check-additional-demand\"\n&& \"additional-demand-decision\"|answer(null) != \"additional-demand-decision-reject\")",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": \"\"}",
@@ -880,8 +895,8 @@
     "model": "caluma_form.questionoption",
     "pk": "additional-demand-allow-changes.additional-demand-allow-changes",
     "fields": {
-      "created_at": "2025-11-13T12:26:08.816Z",
-      "modified_at": "2025-11-13T12:26:08.816Z",
+      "created_at": "2026-04-14T10:38:58.596Z",
+      "modified_at": "2026-04-14T10:38:58.596Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
