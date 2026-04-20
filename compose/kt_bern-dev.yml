@@ -147,6 +147,14 @@ services:
   celery:
     <<: *django
     image: acr.run/camac-ng/camac-ng/django:master
+    build:
+      context: ../django
+      cache_from:
+        - acr.run/camac-ng/camac-ng/django:master
+      args:
+        REQUIREMENTS: requirements-dev.txt
+    profiles:
+      - alexandria
     depends_on:
       - redis
     command: celerydev
