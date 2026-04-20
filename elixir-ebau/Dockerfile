@@ -7,17 +7,15 @@ RUN apt-get update -y && \
   apt-get clean && \
   dpkg --configure -a
 
-COPY . /app/
-
 RUN mix local.hex --force && \
-  mix local.rebar --force && \
-  mix deps.get
+  mix local.rebar --force
 
-WORKDIR /app/
+COPY mix.exs mix.lock ./
+RUN mix deps.get
 
-RUN MIX_OS_DEPS_COMPILE_PARTITION_COUNT=$(($(nproc) / 2)) mix deps.get
+COPY . /app/
 
 EXPOSE 4000
 EXPOSE 4007
 
-CMD ["mix", "phx.server"]
+ENTRYPOINT ["/entrypoint.sh"]

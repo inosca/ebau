@@ -95,21 +95,7 @@ defmodule Ebau.MixProject do
         "sass default --no-source-map --style=compressed",
         "phx.digest"
       ],
-      precommit: ["compile --warnings-as-errors", "deps.unlock --unused", "format", "test"],
-      "phx.server": [&phx_server_with_sass/1]
+      precommit: ["compile --warnings-as-errors", "deps.unlock --unused", "format", "test"]
     ]
-  end
-
-  defp phx_server_with_sass(args) do
-    if Mix.env() == :dev do
-      Mix.Task.run("sass", [
-        "--runtime-config",
-        "default",
-        "--embed-source-map",
-        "--source-map-urls=absolute"
-      ])
-    end
-
-    Mix.Tasks.Phx.Server.run(args)
   end
 end
