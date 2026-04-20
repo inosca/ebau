@@ -155,6 +155,11 @@ WORK_ITEM_LIST = ModuleConfig[WorkItemListConfig](
                 "complete-instance",
             ],
             "service": ["inquiry", "check-inquiries", "check-additional-demand"],
+            "trusted_service": [
+                "inquiry",
+                "check-inquiries",
+                "check-additional-demand",
+            ],
             "coordination": ["inquiry", "check-inquiries", "check-additional-demand"],
         },
         annotations=AnnotationsConfig(
