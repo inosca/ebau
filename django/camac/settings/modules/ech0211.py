@@ -572,6 +572,7 @@ ECH0211 = {
         },
         "SUBMIT_PLANNING_PERMISSION_APPLICATION": {
             "ENABLED": True,
+            "GENERATE_AND_STORE_PDF": True,
             "ALLOWED_ROLES": ["municipality-lead"],
             "FORM_ID": 1,
             "WORKFLOW": "building-permit",

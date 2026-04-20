@@ -1048,6 +1048,10 @@ class SubmitPlanningPermissionApplicationSendHandler(
         submit_serializer._set_submit_date(case, instance)
         submit_serializer._create_history_entry(_("ECH Dossier submitted"))
         submit_serializer._complete_submit_work_item(instance)
+        if settings.ECH0211["SUBMIT_PLANNING_PERMISSION_APPLICATION"].get(
+            "GENERATE_AND_STORE_PDF", False
+        ):
+            submit_serializer._generate_and_store_pdf(instance)
         permissions_events.Trigger.instance_submitted(None, instance)
 
         return instance
