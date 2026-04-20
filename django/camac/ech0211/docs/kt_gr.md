@@ -93,6 +93,9 @@ Verschiedene Aufgaben werden gemäss Spezifikation direkt in eBau erledigt. Unte
 
 - Judgements in `NoticeRuling` werden in eBau wie folgt gemappt:
 
+    - Wenn ein Entscheid über eCH gesendet wird, wird automatisch die GVG auf das Dossier berechtigt, wodurch diese Zugang auf das Dossier erhält.
+    - Wenn die Baubegleitung über eCH abgeschlossen wird, erhält die AIB automatisch Zugang auf das Dossier.
+
   | Judgement | Descision               | Besonderheiten                     |
   | --------- | ----------------------- | ---------------------------------- |
   | 1         | Bewilligt               |                                    |
