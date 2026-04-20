@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-21 11:25+0200\n"
+"POT-Creation-Date: 2026-05-21 13:09+0200\n"
 "PO-Revision-Date: 2025-08-28 10:03+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1880,15 +1880,25 @@ msgstr "Tous les %(total)d prises de position ont été reçues."
 
 #: camac/notification/serializers.py
 #, python-format
-msgid "Notification sent to %(receiver_emails)s%(receiver_type)s (%(subject)s)"
+msgid ""
+"Notification sent to %(receiver_emails)s (%(receiver_type)s) (%(subject)s)"
 msgstr ""
-"Notification envoyée à %(receiver_emails)s%(receiver_type)s (%(subject)s)"
+"Notification envoyée à %(receiver_emails)s (%(receiver_type)s) (%(subject)s)"
 
 #: camac/notification/serializers.py
 #, python-format
-msgid "Notification sent to no receivers%(receiver_type)s (%(subject)s)"
+msgid ""
+"Notification sent to no receivers (%(recipient_services)s,%(receiver_type)s) "
+"(%(subject)s)"
 msgstr ""
-"Notification envoyée à aucun destinataire%(receiver_type)s (%(subject)s)"
+"Notification envoyée à aucun destinataire (%(recipient_services)s, "
+"%(receiver_type)s) (%(subject)s)"
+
+#: camac/notification/serializers.py
+#, python-format
+msgid "Notification sent to no receivers (%(receiver_type)s) (%(subject)s)"
+msgstr ""
+"Notification envoyée à aucun destinataire (%(receiver_type)s) (%(subject)s)"
 
 #: camac/notification/views.py
 msgid "update_purposes has not been provided with the required parameters"

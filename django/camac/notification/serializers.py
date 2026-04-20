@@ -1958,7 +1958,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
 
         if receiver_type:
             with translation.override(language):
-                return f" ({translation.gettext(receiver_type)})"
+                return f" {translation.gettext(receiver_type)}"
 
         return ""
 
@@ -2033,8 +2033,18 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
                     username=settings.APPLICATION.get("SYSTEM_USER")
                 ).first()
 
+            addressed_groups = (
+                validated_data["inquiry"] if "inquiry" in validated_data else []
+            )
+
             self._create_history_entry(
-                instance, subject, body, recipients, recipient_type, user
+                instance,
+                subject,
+                body,
+                recipients,
+                recipient_type,
+                user,
+                addressed_groups,
             )
 
         self._send_mails(emails, connection)
@@ -2045,9 +2055,17 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         return len(emails)
 
     def _create_history_entry(
-        self, instance, subject, body, recipients, recipient_type, user
+        self,
+        instance,
+        subject,
+        body,
+        recipients,
+        recipient_type,
+        user,
+        addressed_groups,
     ):
         if settings.APPLICATION.get("LOG_NOTIFICATIONS"):
+            recipient_services = []
             receiver_emails = self._recipient_log(recipients)
 
             # Don't create history entries for notifications with no receivers (only for SZ)
@@ -2066,11 +2084,16 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             if settings.APPLICATION.get("IS_MULTILINGUAL", False):
                 if receiver_emails:
                     title = translation.gettext_noop(
-                        "Notification sent to %(receiver_emails)s%(receiver_type)s (%(subject)s)"
+                        "Notification sent to %(receiver_emails)s (%(receiver_type)s) (%(subject)s)"
+                    )
+                elif settings.APPLICATION_NAME == "kt_ag":
+                    recipient_services = Service.objects.filter(pk__in=addressed_groups)
+                    title = translation.gettext_noop(
+                        "Notification sent to no receivers (%(recipient_services)s,%(receiver_type)s) (%(subject)s)"
                     )
                 else:
                     title = translation.gettext_noop(
-                        "Notification sent to no receivers%(receiver_type)s (%(subject)s)"
+                        "Notification sent to no receivers (%(receiver_type)s) (%(subject)s)"
                     )
 
             create_history_entry(
@@ -2079,8 +2102,16 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
                 title,
                 lambda lang: {
                     "receiver_emails": receiver_emails,
-                    "receiver_type": self._receiver_type(recipient_type, lang),
+                    "receiver_type": self._receiver_type(recipient_type, lang).strip(),
                     "subject": subject,
+                    "recipient_services": ", ".join(
+                        [
+                            service.trans.get(language=lang).name
+                            for service in recipient_services
+                        ]
+                    )
+                    if recipient_services
+                    else "",
                 },
                 HistoryActionConfig.HISTORY_TYPE_NOTIFICATION,
                 body,
