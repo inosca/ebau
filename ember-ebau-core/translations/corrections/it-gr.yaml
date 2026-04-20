@@ -1,0 +1,3 @@
+corrections:
+  document:
+    description: "Questa funzione consente di apportare piccole correzioni al modulo di domanda (ad es. precisazioni della descrizione dell'opera). Le modifiche sostanziali al modulo devono essere effettuate tramite la richiesta di precisazioni (consentire modifiche al modulo di domanda)."

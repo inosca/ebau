@@ -1,0 +1,3 @@
+corrections:
+  document:
+    description: "Diese Funktion erlaubt es, kleine Korrekturen am Gesuchsformular vorzunehmen (z.B. Präzisierungen des Baubeschriebs). Wesentliche Änderungen am Formular sind über die Nachforderung (Änderungen am Gesuchsformular erlauben) vorzunehmen."

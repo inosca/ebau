@@ -44,9 +44,11 @@ MODULE_PORTAL_ADDITIONAL_DEMAND_CHANGES = (
     APPLICANT_WRITE & HasAdditionalDemandWithFormEdit()
 )
 
-ADDITIONAL_DEMAND_REQUEST_CHANGES = IsServiceGroup(
-    ["municipality", ARE_SERVICE_GROUP]
-) & HasRole(["municipality-lead", "service-lead"])
+ADDITIONAL_DEMAND_REQUEST_CHANGES = (
+    IsServiceGroup(["municipality", ARE_SERVICE_GROUP])
+    & HasRole(["municipality-lead", "service-lead"])
+    & RequireInstanceState(["subm", "init-distribution", "circulation", "decision"])
+)
 
 # Module rules
 #

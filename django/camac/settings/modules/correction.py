@@ -12,6 +12,7 @@ CORRECTION = {
             "subm",
             "init-distribution",
             "circulation",
+            "decision",
         ],
     },
     "kt_so": {

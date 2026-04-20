@@ -79,7 +79,12 @@ export default {
   intentSlugs: ["beschreibung-projektaenderung", "beschreibung-bauvorhaben"],
   correction: {
     instanceState: "correction",
-    allowedInstanceStates: ["subm", "init-distribution", "circulation"],
+    allowedInstanceStates: [
+      "subm",
+      "init-distribution",
+      "circulation",
+      "decision",
+    ],
   },
   publication: {
     public: {
