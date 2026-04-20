@@ -142,12 +142,6 @@ export default class CaseTableComponent extends Component {
 
     if (macroCondition(getOwnConfig().application === "ur")) {
       if (this.isService) {
-        await this.store.query("activation", {
-          instance: instanceIds.join(","),
-          service: this.ebauModules.serviceId,
-          include: "circulation",
-        });
-
         await this.store.query("responsible-service", {
           include: "responsible_user",
           instance: instanceIds.join(","),
