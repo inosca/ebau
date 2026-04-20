@@ -2,3 +2,6 @@ cases:
   filters:
     submitDateAfter: "Eingereicht (von)"
     submitDateBefore: "Eingereicht (bis)"
+  submit:
+    additional-demand-changes:
+      label: "Änderungen speichern"
