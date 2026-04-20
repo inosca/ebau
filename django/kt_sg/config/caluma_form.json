@@ -114,6 +114,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "gebaeude-tabelle",
+    "fields": {
+      "created_at": "2026-04-17T11:26:57.413Z",
+      "modified_at": "2026-04-20T07:25:49.317Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Gebäude Tabelle\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "lage-des-vorhabens",
     "fields": {
       "created_at": "2026-02-11T08:54:29.087Z",
@@ -135,10 +153,10 @@
     "pk": "parzellen-tabelle",
     "fields": {
       "created_at": "2026-03-12T13:17:12.418Z",
-      "modified_at": "2026-03-12T13:17:12.418Z",
+      "modified_at": "2026-04-17T11:52:56.433Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "name": "{\"de\": \"Parzellen Tabelle\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -489,6 +507,51 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "gebaeude-tabelle.egid-nr",
+    "fields": {
+      "created_at": "2026-04-20T07:23:46.955Z",
+      "modified_at": "2026-04-20T07:23:46.955Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-tabelle",
+      "question": "egid-nr",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gebaeude-tabelle.versicherungs-nr",
+    "fields": {
+      "created_at": "2026-04-17T11:28:33.596Z",
+      "modified_at": "2026-04-17T11:28:33.596Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-tabelle",
+      "question": "versicherungs-nr",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "lage-des-vorhabens.gebaeude",
+    "fields": {
+      "created_at": "2026-04-17T11:53:51.111Z",
+      "modified_at": "2026-04-17T11:53:51.111Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "lage-des-vorhabens",
+      "question": "gebaeude",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "lage-des-vorhabens.gefahrenkarte",
     "fields": {
       "created_at": "2026-03-12T13:07:00.608Z",
@@ -514,7 +577,7 @@
       "modified_by_group": null,
       "form": "lage-des-vorhabens",
       "question": "gemeinde",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -529,7 +592,7 @@
       "modified_by_group": null,
       "form": "lage-des-vorhabens",
       "question": "is-paper",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -544,7 +607,7 @@
       "modified_by_group": null,
       "form": "lage-des-vorhabens",
       "question": "lage-des-vorhabens-titel",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -559,7 +622,7 @@
       "modified_by_group": null,
       "form": "lage-des-vorhabens",
       "question": "parzellen",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -574,7 +637,7 @@
       "modified_by_group": null,
       "form": "lage-des-vorhabens",
       "question": "projektaenderung",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -619,7 +682,7 @@
       "modified_by_group": null,
       "form": "lage-des-vorhabens",
       "question": "strasse-und-nr",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -679,7 +742,7 @@
       "modified_by_group": null,
       "form": "parzellen-tabelle",
       "question": "grundbuchkreis",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -759,32 +822,17 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "parzellen-tabelle.plz",
+    "pk": "parzellen-tabelle.parzellen-plz",
     "fields": {
-      "created_at": "2026-03-13T08:35:13.828Z",
-      "modified_at": "2026-03-13T08:35:13.828Z",
+      "created_at": "2026-04-17T12:05:31.129Z",
+      "modified_at": "2026-04-17T12:05:31.129Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "parzellen-tabelle",
-      "question": "plz",
+      "question": "parzellen-plz",
       "sort": 5
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "parzellen-tabelle.versicherungs-nr",
-    "fields": {
-      "created_at": "2026-03-13T08:37:36.981Z",
-      "modified_at": "2026-03-13T08:37:36.981Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "parzellen-tabelle",
-      "question": "versicherungs-nr",
-      "sort": 7
     }
   },
   {
@@ -2583,6 +2631,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "egid-nr",
+    "fields": {
+      "created_at": "2026-04-20T07:23:46.872Z",
+      "modified_at": "2026-04-20T07:26:51.260Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"EGID-Nr.\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "e-grid-nr",
     "fields": {
       "created_at": "2026-03-12T13:19:34.016Z",
@@ -2743,6 +2825,37 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[\"date-after\"]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gebaeude",
+    "fields": {
+      "created_at": "2026-04-17T11:53:51.034Z",
+      "modified_at": "2026-04-17T11:53:51.034Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gebäude\", \"fr\": null, \"it\": null}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": "gebaeude-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
@@ -3532,7 +3645,7 @@
     "pk": "parzellen",
     "fields": {
       "created_at": "2026-03-12T13:17:55.258Z",
-      "modified_at": "2026-03-12T13:20:08.456Z",
+      "modified_at": "2026-04-17T11:47:53.644Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -3548,7 +3661,7 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
-        "columnsToDisplay": ["parzellennummer", "e-grid-nr"]
+        "columnsToDisplay": ["parzellennummer", "grundstueckflaeche"]
       },
       "data_source": null,
       "row_form": "parzellen-tabelle",
@@ -3582,6 +3695,40 @@
       "configuration": {
         "max_length": null,
         "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "parzellen-plz",
+    "fields": {
+      "created_at": "2026-04-17T12:05:31.050Z",
+      "modified_at": "2026-04-17T12:06:12.480Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"PLZ (Postleitzahl)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": 9999,
+        "min_value": 1000
       },
       "meta": {},
       "data_source": null,
@@ -3941,12 +4088,12 @@
     "pk": "strasse-und-nr",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
-      "modified_at": "2026-02-10T16:19:45.719Z",
+      "modified_at": "2026-04-17T08:55:16.804Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Strasse und Nr.\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Strasse und Nr. / Flurname\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "true",
       "is_hidden": "false",
@@ -4074,14 +4221,14 @@
     "pk": "versicherungs-nr",
     "fields": {
       "created_at": "2026-03-13T08:37:36.940Z",
-      "modified_at": "2026-03-13T08:41:19.359Z",
+      "modified_at": "2026-04-20T07:27:15.960Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Versicherungs-Nr.\", \"fr\": null, \"it\": null}",
       "type": "integer",
-      "is_required": "true",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
