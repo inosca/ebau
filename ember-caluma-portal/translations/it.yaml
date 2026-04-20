@@ -16,6 +16,7 @@ global:
   yes: "Sì"
   no: "No"
   stampIcon: "Documento con timbro"
+  applicant: "Richiedente"
 
 nav:
   form: "Modulo"
