@@ -37,14 +37,13 @@ export default class CustomField extends Field {
   get hidden() {
     if (macroCondition(getOwnConfig().application === "gr")) {
       if (["fuer-gvg-freigeben", "info-gvg"].includes(this.question.slug)) {
-        return [
-          "bauanzeige",
-          "bauanzeige-v3",
-          "vorlaeufige-beurteilung",
-          "vorlaeufige-beurteilung-v3",
-          "vorlaeufige-beurteilung-v4",
-          "vorlaeufige-beurteilung-v6",
-        ].includes(this.caseInformation?.value?.form);
+        const formName = this.caseInformation?.value?.form ?? "";
+
+        return (
+          formName.startsWith("bauanzeige") ||
+          formName.startsWith("vorlaeufige-beurteilung") ||
+          formName.startsWith("solaranlage")
+        );
       }
     }
     return super.hidden;
