@@ -29,6 +29,7 @@ services:
 
   django: &django
     build:
+      context: ../django
       args:
         REQUIREMENTS: requirements-dev.txt
     ports:
