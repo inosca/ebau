@@ -2,3 +2,7 @@ cases:
   filters:
     submitDateAfter: "Inoltrato (da)"
     submitDateBefore: "Inoltrato (fino a)"
+  submit:
+    additional-demand-changes:
+      label: "Salva modifiche"
+      
