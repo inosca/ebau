@@ -153,8 +153,6 @@ services:
         - acr.run/camac-ng/camac-ng/django:master
       args:
         REQUIREMENTS: requirements-dev.txt
-    profiles:
-      - alexandria
     depends_on:
       - redis
     command: celerydev
