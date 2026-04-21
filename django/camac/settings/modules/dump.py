@@ -124,6 +124,10 @@ CONSTRUCTION_MONITORING_DUMP_CONFIG = {
     },
 }
 
+PUBLICATION_DUMP_CONFIG = {
+    "caluma_publication_form": generate_form_dump_config(regex=r"^publikation?$"),
+}
+
 DUMP = {
     "default": {
         "CONFIG": {
@@ -486,9 +490,6 @@ DUMP = {
                     regex=r"^(dossierpruefung|mp-|fp-|mp-|bab-)",
                     version=2,
                 ),
-                "caluma_publication_form": generate_form_dump_config(
-                    regex=r"^publikation$"
-                ),
                 "caluma_heat_generator_form": generate_form_dump_config(
                     regex=r"^heat-generator"
                 ),
@@ -506,6 +507,7 @@ DUMP = {
                 # Distribution
                 **DISTRIBUTION_DUMP_CONFIG,
                 **ADDITIONAL_DEMAND_DUMP_CONFIG,
+                **PUBLICATION_DUMP_CONFIG,
             },
             "EXCLUDED_MODELS": [
                 "user.Group",
@@ -706,9 +708,6 @@ DUMP = {
                 "caluma_material_exam_form": generate_form_dump_config(
                     regex=r"^materielle-pruefung"
                 ),
-                "caluma_publication_form": generate_form_dump_config(
-                    regex=r"^publikation?$"
-                ),
                 "caluma_decision_form": generate_form_dump_config(regex=r"^entscheid$"),
                 "caluma_objection_form": generate_form_dump_config(
                     regex=r"^einsprache(n)?"
@@ -724,6 +723,7 @@ DUMP = {
                 **DISTRIBUTION_DUMP_CONFIG,
                 **ADDITIONAL_DEMAND_DUMP_CONFIG,
                 **CONSTRUCTION_MONITORING_DUMP_CONFIG,
+                **PUBLICATION_DUMP_CONFIG,
             },
             "EXCLUDED_MODELS": [
                 "user.Group",
@@ -769,6 +769,7 @@ DUMP = {
                 **DISTRIBUTION_DUMP_CONFIG,
                 **ADDITIONAL_DEMAND_DUMP_CONFIG,
                 **CONSTRUCTION_MONITORING_DUMP_CONFIG,
+                **PUBLICATION_DUMP_CONFIG,
                 # Sync the "core" groups (admin, support, portal) between servers, the rest is treated as data
                 "user_core_groups": {
                     "user.Group": Q(role__name__in=["admin", "applicant", "support"]),
@@ -779,9 +780,6 @@ DUMP = {
                 "billing_templates": {
                     "billing.BillingV2EntryTemplate": Q(services__isnull=True)
                 },
-                "caluma_publication_form": generate_form_dump_config(
-                    regex=r"^publikation$"
-                ),
                 "caluma_information_of_neighbors_form": generate_form_dump_config(
                     regex=r"^nachbarschaftsorientierung$"
                 ),
@@ -823,6 +821,7 @@ DUMP = {
                 ),
                 # Standard modules
                 **ADDITIONAL_DEMAND_DUMP_CONFIG,
+                **PUBLICATION_DUMP_CONFIG,
             },
         },
     },

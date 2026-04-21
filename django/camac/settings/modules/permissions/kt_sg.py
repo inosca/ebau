@@ -31,11 +31,14 @@ MODULE_COMMUNICATIONS = STATES_ALL
 MODULE_DOCUMENTS = STATES_ALL
 MODULE_FORM = STATES_ALL
 MODULE_FORMAL_EXAM = RequireWorkItem("formal-exam") & ROLES_MUNICIPALITY
-MODULE_MATERIAL_EXAM = RequireWorkItem("material-exam") & ROLES_MUNICIPALITY
 MODULE_HISTORY = STATES_ALL
 MODULE_JOURNAL = STATES_ALL
 MODULE_LINKED_INSTANCES = STATES_ALL
+MODULE_MATERIAL_EXAM = RequireWorkItem("material-exam") & ROLES_MUNICIPALITY
 MODULE_PERMISSIONS = STATES_ALL & ROLES_MUNICIPALITY
+MODULE_PUBLICATION = RequireWorkItem("create-publication") | RequireWorkItem(
+    "fill-publication"
+)
 MODULE_REJECTION = RequireInstanceState(["subm", "rejected"])
 MODULE_RESPONSIBLE = STATES_ALL
 MODULE_WORK_ITEMS = STATES_ALL
@@ -115,6 +118,7 @@ SG_PERMISSIONS_SETTINGS = {
             ("permissions-read", MODULE_PERMISSIONS),
             ("permissions-read-any", MODULE_PERMISSIONS),
             ("permissions-revoke-read", MODULE_PERMISSIONS),
+            ("publication-read", MODULE_PUBLICATION),
             ("rejection-read", MODULE_REJECTION),
             ("responsible-read", MODULE_RESPONSIBLE),
             ("responsible-write", MODULE_RESPONSIBLE),

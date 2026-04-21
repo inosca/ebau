@@ -265,6 +265,7 @@ PublicationGR = IsApplication("kt_gr") & ReadOnly
 PublicationSO = IsApplication("kt_so") & AuthenticatedPublication & RequireLoT
 PublicationAG = IsApplication("kt_ag") & AuthenticatedPublication
 PublicationUR = IsApplication("kt_uri") & ReadOnly
+PublicationSG = IsApplication("kt_sg") & AuthenticatedPublication
 PublicationTest = IsApplication("test") & ReadOnly
 
 # If the application is not explicitly configured here, we don't allow any public access
@@ -279,6 +280,7 @@ PublicationPermission = IsPublicAccess & (
             | PublicationUR
             | PublicationSO
             | PublicationAG
+            | PublicationSG
             | PublicationTest
         )
     )
@@ -304,6 +306,7 @@ PublicationPermission = IsPublicAccess & (
             | PublicationGR
             | PublicationSO
             | PublicationAG
+            | PublicationSG
             | PublicationTest
         )
     )

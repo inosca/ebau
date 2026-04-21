@@ -3109,7 +3109,7 @@ APPLICATIONS = {
                 # TODO
             },
             "PRE_COMPLETE": {
-                # TODO
+                "fill-publication": {"complete": ["publication"]},
             },
             "PUBLIC_STATUS": {
                 "USE_SLUGS": True,

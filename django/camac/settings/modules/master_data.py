@@ -115,6 +115,37 @@ SO_PERSONAL_DATA_MAPPING = {
     "representative_po_box": "vertretung-postfach",
 }
 
+SG_PERSONAL_DATA_MAPPING = {
+    "last_name": "nachname",
+    "first_name": "vorname",
+    "street_and_number": "strasse-und-nr",
+    "zip": "plz",
+    "town": "ort",
+    "country": "land",
+    "country_code": (
+        "land",
+        {"value_parser": ("value_mapping", {"mapping": COUNTRIES})},
+    ),
+    "email": "e-mail",
+    "tel": "telefon",
+    "po_box": "postfach",
+    "is_juristic_person": (
+        "juristische-person",
+        {
+            "value_parser": (
+                "value_mapping",
+                {
+                    "mapping": {
+                        "juristische-person-ja": True,
+                        "juristische-person-nein": False,
+                    }
+                },
+            )
+        },
+    ),
+    "juristic_name": "juristische-person-name",
+}
+
 
 MASTER_DATA = {
     "default": {},
@@ -3404,6 +3435,45 @@ MASTER_DATA = {
                 "gemeinde",
                 {"value_parser": "dynamic_option", "prop": "slug"},
             ),
+            "dossier_number": ("case_meta", "dossier-number"),
+            "proposal": ("answer", "beschreibung-bauvorhaben"),
+            "joined_street_and_number": ("static", True),
+            "street": ("answer", "strasse-und-nr"),
+            "plot_data": (
+                "table",
+                "parzellen",
+                {
+                    "column_mapping": {
+                        "plot_number": "parzellennummer",
+                        "egrid_number": "e-grid-nr",
+                        "coord_east": "koordinaten-ost",
+                        "coord_north": "koordinaten-nord",
+                    }
+                },
+            ),
+            "applicants": (
+                "table",
+                "gesuchstellerin",
+                {"column_mapping": SG_PERSONAL_DATA_MAPPING},
+            ),
+            "publication_required": (
+                "answer",
+                "formelle-vorpruefung-publikation-notwendig",
+                {
+                    "document_from_work_item": "formal-exam",
+                    "value_parser": (
+                        "value_mapping",
+                        {
+                            "mapping": {
+                                "formelle-vorpruefung-publikation-notwendig-ja": True,
+                                "formelle-vorpruefung-publikation-notwendig-nein": False,
+                            }
+                        },
+                    ),
+                },
+            ),
+            # That module will be added later on
+            "information_of_neighbors_required": ("static", False),
         },
     },
 }
