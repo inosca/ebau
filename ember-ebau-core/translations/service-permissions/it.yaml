@@ -49,3 +49,18 @@ service-permissions:
   sub-services-add: "Aggiungi servizio di rango inferiore"
   sub-services-add-warning: ""
   publication-reference: "I dati inseriti vengono pubblicati (ad es. nella scheda «Supporto»)"
+
+  static-keyword: ""
+  static-keywords: ""
+  static-keywords-save-success: ""
+  static-keywords-save-error: ""
+  static-keywords-delete-confirm: ""
+  static-keywords-archive-confirm: ""
+  static-keywords-archive: ""
+  static-keywords-unarchive-confirm: ""
+  static-keywords-unarchive: ""
+  static-keywords-already-exists: ""
+
+  static-keywords-active: ""
+  static-keywords-archived: ""
+  static-keywords-all: ""

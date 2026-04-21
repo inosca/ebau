@@ -37,6 +37,7 @@ class Keyword(BaseKeyword):
 
 
 class StaticKeyword(BaseKeyword):
+    is_archived = models.BooleanField(default=False)
     instances = models.ManyToManyField(
         "instance.Instance", blank=True, related_name="static_keywords"
     )
