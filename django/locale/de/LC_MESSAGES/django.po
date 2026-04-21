@@ -430,22 +430,26 @@ msgstr "eBau-Nr. vergeben"
 #: camac/caluma/extensions/events/publication.py
 #: camac/caluma/tests/test_events.py
 #, python-format
-msgid ""
-"Publication created for %(start)s to %(end)s. Published in %(newspaper)s on "
-"%(newspaper_date)s."
-msgstr ""
-"Publikation erstellt von %(start)s bis %(end)s. Publiziert in %(newspaper)s "
-"am %(newspaper_date)s."
+msgid "Publication created for %(start)s to %(end)s in %(newspaper)s."
+msgstr "Publikation erstellt für %(start)s bis %(end)s in %(newspaper)s."
 
 #: camac/caluma/extensions/events/publication.py
 #: camac/caluma/tests/test_events.py
 #, python-format
-msgid ""
-"Publication from %(start)s to %(end)s cancelled. Published in %(newspaper)s "
-"on %(newspaper_date)s."
-msgstr ""
-"Publikation von %(start)s bis %(end)s abgebrochen. Publiziert in "
-"%(newspaper)s am %(newspaper_date)s."
+msgid "Publication cancelled for %(start)s to %(end)s in %(newspaper)s."
+msgstr "Publikation abgebrochen für %(start)s bis %(end)s in %(newspaper)s."
+
+#: camac/caluma/extensions/events/publication.py
+#: camac/caluma/tests/test_events.py
+#, python-format
+msgid "Gazette: %(gazette_date)s."
+msgstr "Amtsblatt: %(gazette_date)s."
+
+#: camac/caluma/extensions/events/publication.py
+#: camac/caluma/tests/test_events.py
+#, python-format
+msgid "Newspaper: %(newspaper_date)s."
+msgstr "Anzeiger: %(newspaper_date)s."
 
 #: camac/caluma/extensions/events/sb.py
 msgid "Send registration form to AWA"
