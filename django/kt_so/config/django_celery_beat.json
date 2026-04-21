@@ -91,7 +91,7 @@
       "clocked": null,
       "args": "[]",
       "kwargs": "{}",
-      "queue": null,
+      "queue": "import",
       "exchange": null,
       "routing_key": null,
       "headers": "{}",
