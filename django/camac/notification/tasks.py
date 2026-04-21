@@ -354,3 +354,67 @@ def send_notification_for_publication_end_legal_submissions(self, workitem_id=No
 
     except Exception as e:  # pragma: no cover
         log.error(f"Failed sending notification for {task_id} workitems: {e}")
+
+
+@shared_task(bind=True)
+def automatic_inquiry_answer_for_expired_uso_inquiries(self):
+    from caluma.caluma_form.api import save_answer
+    from caluma.caluma_form.models import Question
+    from caluma.caluma_user.models import BaseUser
+    from caluma.caluma_workflow.api import complete_work_item
+    from django.conf import settings
+    from django.utils.timezone import now
+
+    from camac.caluma.models import Inquiry
+    from camac.instance.models import Service
+
+    services = list(Service.objects.filter(service_group__slug="uso"))
+    inquiries = (
+        Inquiry.objects.only_pending().addressed_to(services).filter(deadline__lt=now())
+    )
+
+    log.info(
+        f"Processing {len(inquiries)} expired USO inquiries for {len(services)} services"
+    )
+
+    status_question = Question.objects.get(
+        pk=settings.DISTRIBUTION["QUESTIONS"]["STATUS"]
+    )
+    bemerkungen_question = Question.objects.get(
+        pk=settings.DISTRIBUTION["QUESTIONS"]["COMMENTS"]
+    )
+    renounce_answer = settings.DISTRIBUTION["INQUIRY_ANSWER_AUTOMATIC_RENOUNCED"]
+
+    for inquiry in inquiries:
+        try:
+            service = Service.objects.get(pk=inquiry.addressed_groups[0])
+            group = service.groups.first()
+            user = BaseUser(
+                username="service-account-camac-admin", group=str(service.pk)
+            )
+            user.camac_group = str(group.pk)
+
+            fill_inquiry = (
+                inquiry.child_case.work_items.filter(
+                    task_id=settings.DISTRIBUTION["INQUIRY_ANSWER_FILL_TASK"]
+                )
+                .order_by("-created_at")
+                .first()
+            )
+
+            save_answer(
+                document=fill_inquiry.case.document,
+                question=status_question,
+                value=renounce_answer,
+            )
+            save_answer(
+                document=fill_inquiry.case.document,
+                question=bemerkungen_question,
+                value="Die Antwort der Stellungnahme wurde automatisch mit «verzichtet» beantwortet, da die Anfrage durch USO nicht innerhalb der Frist beantwortet wurde. ---- La risposta alla richiesta di presa di posizione è stata automaticamente registrata come «rinunciato», poiché USO non ha risposto alla richiesta entro il termine previsto.",
+            )
+            complete_work_item(fill_inquiry, user)
+            log.info(
+                f"-> Completed fill_inquiry work item {fill_inquiry.pk} to set the answer and complete the inquiry {inquiry.pk}"
+            )
+        except Exception as e:  # pragma: no cover
+            log.error(f"Failed processing inquiry {inquiry.pk}: {e}")

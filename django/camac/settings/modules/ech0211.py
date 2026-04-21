@@ -576,6 +576,7 @@ ECH0211 = {
             "inquiry-answer-status-positive": 1,
             "inquiry-answer-status-not-involved": 3,
             "inquiry-answer-status-renounced": 3,
+            "inquiry-answer-status-automatic-renounced": 3,
             "inquiry-answer-status-claim": 4,
             "inquiry-answer-status-rejected": 4,
             "inquiry-answer-status-negative": 4,

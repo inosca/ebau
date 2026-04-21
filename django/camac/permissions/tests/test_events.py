@@ -753,15 +753,14 @@ def test_send_inquiry(
 
 
 @pytest.mark.parametrize("instance_state__name", ["circulation"])
-@pytest.mark.parametrize(
-    ("role__name"),
-    ["municipality", "uso"],
-)
+@pytest.mark.parametrize(("role__name"), ["municipality", "uso"])
+@pytest.mark.parametrize(("automatic_renounced"), [False, True])
 @pytest.mark.django_db
 def test_inquiry_gr_uso(
     gr_instance,
     group_factory,
     role,
+    automatic_renounced,
     active_inquiry_factory,
     caluma_admin_user,
     gr_permissions_settings,
@@ -804,10 +803,16 @@ def test_inquiry_gr_uso(
         assert temp_acl.end_time is None
 
     child_work_item = inquiry.child_case.work_items.first()
+    resolved_inquiry_answer = (
+        gr_distribution_settings["INQUIRY_ANSWER_AUTOMATIC_RENOUNCED"]
+        if automatic_renounced
+        else gr_distribution_settings["ANSWERS"]["STATUS"]["POSITIVE"]
+    )
+
     form_utils.add_answer(
         document=child_work_item.case.document,
         question="inquiry-answer-status",
-        value=gr_distribution_settings["ANSWERS"]["STATUS"]["POSITIVE"],
+        value=resolved_inquiry_answer,
     )
 
     acls_before = list(gr_instance.acls.all())
@@ -823,11 +828,13 @@ def test_inquiry_gr_uso(
         temp_acl.refresh_from_db()
         assert temp_acl.is_active() is False
 
-        assert acls_after.count() == count_before + 1
-        new_acl = acls_after.exclude(pk__in=[a.pk for a in acls_before]).get()
-        assert new_acl.grant_type == "SERVICE"
-        assert new_acl.access_level.slug == "uso"
-        assert new_acl.end_time is None
+        if automatic_renounced:  # temp revoked, and no new acl given
+            assert acls_after.count() == count_before
+        else:  # new indefinite acl should be given.
+            new_acl = acls_after.exclude(pk__in=[a.pk for a in acls_before]).get()
+            assert new_acl.grant_type == "SERVICE"
+            assert new_acl.access_level.slug == "uso"
+            assert new_acl.end_time is None
     else:
         assert acls_after.count() == count_before
 
