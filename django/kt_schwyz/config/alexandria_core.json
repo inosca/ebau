@@ -1,1 +1,483 @@
-[]
+[
+  {
+    "model": "alexandria_core.category",
+    "pk": "auflagedokumente",
+    "fields": {
+      "created_at": "2026-04-22T15:31:08.090Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2026-04-22T15:31:08.090Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "read": {
+            "visibility": "all"
+          },
+          "public": {
+            "visibility": "all"
+          },
+          "service": {
+            "visibility": "all"
+          },
+          "support": {
+            "visibility": "all"
+          },
+          "applicant": {
+            "visibility": "all"
+          },
+          "municipality": {
+            "visibility": "all"
+          }
+        },
+        "_comment": "Access config provisional - full config follows"
+      },
+      "name": "{\"de\": \"Auflagedokumente\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"video/mp4\", \"video/webm\"]",
+      "color": "#d6b5aa",
+      "parent": null,
+      "sort": 5
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "bauentscheid-und-merkblatter",
+    "fields": {
+      "created_at": "2026-04-22T15:31:08.092Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2026-04-22T15:31:08.092Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "read": {
+            "visibility": "all"
+          },
+          "canton": {
+            "visibility": "all"
+          },
+          "service": {
+            "visibility": "all"
+          },
+          "support": {
+            "visibility": "all"
+          },
+          "municipality": {
+            "visibility": "all"
+          }
+        },
+        "_comment": "Access config provisional - full config follows"
+      },
+      "name": "{\"de\": \"Bauentscheid und Merkblätter\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"video/mp4\", \"video/webm\"]",
+      "color": "#a7c4f6",
+      "parent": null,
+      "sort": 7
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "baukontrolle-und-bauabnahme",
+    "fields": {
+      "created_at": "2026-04-22T15:31:08.096Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2026-04-22T15:31:08.096Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "read": {
+            "visibility": "all"
+          },
+          "canton": {
+            "visibility": "all"
+          },
+          "service": {
+            "visibility": "all"
+          },
+          "support": {
+            "visibility": "all"
+          },
+          "municipality": {
+            "visibility": "all"
+          }
+        },
+        "_comment": "Access config provisional - full config follows"
+      },
+      "name": "{\"de\": \"Baukontrolle und Bauabnahme\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"video/mp4\", \"video/webm\"]",
+      "color": "#c3a4b7",
+      "parent": null,
+      "sort": 9
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "dokumente-dateien-und-anhange",
+    "fields": {
+      "created_at": "2026-04-22T15:31:08.097Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2026-04-22T15:31:08.097Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "service": {
+            "visibility": "service"
+          },
+          "municipality": {
+            "visibility": "service"
+          }
+        },
+        "_comment": "Access config provisional - full config follows"
+      },
+      "name": "{\"de\": \"Dokumente, Dateien und Anhänge\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[]",
+      "color": "#cfd1d7",
+      "parent": null,
+      "sort": 11
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "dokumente-des-gesuchstellers",
+    "fields": {
+      "created_at": "2026-04-22T15:31:08.069Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2026-04-22T15:31:08.069Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "read": {
+            "visibility": "all"
+          },
+          "canton": {
+            "visibility": "all"
+          },
+          "service": {
+            "visibility": "all"
+          },
+          "support": {
+            "visibility": "all"
+          },
+          "applicant": {
+            "visibility": "all"
+          },
+          "municipality": {
+            "visibility": "all"
+          }
+        },
+        "_comment": "Access config provisional - full config follows"
+      },
+      "name": "{\"de\": \"Dokumente des Gesuchstellers\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"video/mp4\", \"video/webm\"]",
+      "color": "#e2cbc8",
+      "parent": null,
+      "sort": 1
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "dokumente-des-gesuchstellers-dokument-grundstucksangaben",
+    "fields": {
+      "created_at": "2026-04-22T15:31:08.074Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2026-04-22T15:31:08.074Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "_is_default_subcategory": false
+      },
+      "name": "{\"de\": \"Grundstücksangaben\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Die Unterlagen sind als pdf-Dokumente hochzuladen. Der Dateiname soll kurz und aussagekräftig sein. Lassen Sie Projektnummern resp. -bezeichnungen, welche Sie für Ihre interne Dokumentablage benötigen, bitte weg.\\n\\nUnter den Begriff *Grundstücksangaben* fallen Gesuchsunterlagen wie z. B. Katasterplan, Grundbuchauszug, Dienstbarkeiten.\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"video/mp4\", \"video/webm\"]",
+      "color": "#a4c3b2",
+      "parent": "dokumente-des-gesuchstellers",
+      "sort": 0
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "dokumente-des-gesuchstellers-dokument-gutachten-nachweise-begrundungen",
+    "fields": {
+      "created_at": "2026-04-22T15:31:08.079Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2026-04-22T15:31:08.079Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "_is_default_subcategory": false
+      },
+      "name": "{\"de\": \"Gutachten, Nachweise, Begründungen\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Die Unterlagen sind als pdf-Dokumente hochzuladen. Der Dateiname soll kurz und aussagekräftig sein.  Lassen Sie Projektnummern resp. -bezeichnungen, welche Sie für Ihre interne Dokumentablage benötigen, bitte weg.\\n\\nUnter die Begriffe *Gutachten, Nachweise, Begründungen* fallen Gesuchsunterlagen wie z. B. Vollmachten, Einverständnis Nachbarn, Nutzungsberechnungen, energetische Nachweise, Lärmschutznachweise, Brandschutznachweise, Durchflussnachweise.\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"video/mp4\", \"video/webm\"]",
+      "color": "#b7b9c9",
+      "parent": "dokumente-des-gesuchstellers",
+      "sort": 1
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "dokumente-des-gesuchstellers-dokument-projektplane-projektbeschrieb",
+    "fields": {
+      "created_at": "2026-04-22T15:31:08.083Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2026-04-22T15:31:08.083Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "_is_default_subcategory": false
+      },
+      "name": "{\"de\": \"Projektpläne und Projektbeschrieb\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Die Unterlagen sind als pdf-Dokumente hochzuladen. Der Dateiname soll kurz und aussagekräftig sein.  Lassen Sie Projektnummern resp. -bezeichnungen, welche Sie für Ihre interne Dokumentablage benötigen, bitte weg.\\n\\nUnter die Begriffe *Projektpläne und Projektbeschrieb* fallen Gesuchsunterlagen wie z. B. Situationspläne, Grundrisse, Schnitt- und Fassadenpläne, Kanalisationspläne, Siedlungsentwässerungspläne, Umgebungspläne, Projektbeschrieb, Planverzeichnis.\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"video/mp4\", \"video/webm\"]",
+      "color": "#e5f6a4",
+      "parent": "dokumente-des-gesuchstellers",
+      "sort": 2
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "dokumente-des-gesuchstellers-dokument-weitere-gesuchsunterlagen",
+    "fields": {
+      "created_at": "2026-04-22T15:31:08.088Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2026-04-22T15:31:08.088Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "_is_default_subcategory": true
+      },
+      "name": "{\"de\": \"Weitere Gesuchsunterlagen\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Die Unterlagen sind als pdf-Dokumente hochzuladen. Der Dateiname soll kurz und aussagekräftig sein.  Lassen Sie Projektnummern resp. -bezeichnungen, welche Sie für Ihre interne Dokumentablage benötigen, bitte weg.\\n\\nUnter den Begriff *Weitere Gesuchsunterlagen* fallen Gesuchsunterlagen wie z. B. Anschlussgesuch Elektrizitätswerk, Anschlussgesuch Gas, Anschlussgesuch Wasser, andere Gesuchsunterlagen.\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"video/mp4\", \"video/webm\"]",
+      "color": "#f3a8c1",
+      "parent": "dokumente-des-gesuchstellers",
+      "sort": 3
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "dokumente-fur-gesuchsteller",
+    "fields": {
+      "created_at": "2026-04-22T15:31:08.095Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2026-04-22T15:31:08.095Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "canton": {
+            "visibility": "all"
+          },
+          "service": {
+            "visibility": "all"
+          },
+          "support": {
+            "visibility": "all"
+          },
+          "applicant": {
+            "visibility": "all"
+          },
+          "municipality": {
+            "visibility": "all"
+          }
+        },
+        "_comment": "Access config provisional - full config follows"
+      },
+      "name": "{\"de\": \"Dokumente für Gesuchsteller\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"video/mp4\", \"video/webm\"]",
+      "color": "#a6f8a6",
+      "parent": null,
+      "sort": 10
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "einsprachen",
+    "fields": {
+      "created_at": "2026-04-22T15:31:08.091Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2026-04-22T15:31:08.091Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "read": {
+            "visibility": "all"
+          },
+          "service": {
+            "visibility": "all"
+          },
+          "support": {
+            "visibility": "all"
+          },
+          "applicant": {
+            "visibility": "all"
+          },
+          "municipality": {
+            "visibility": "all"
+          }
+        },
+        "_comment": "Access config provisional - full config follows"
+      },
+      "name": "{\"de\": \"Einsprachen\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"video/mp4\", \"video/webm\"]",
+      "color": "#ead3e7",
+      "parent": null,
+      "sort": 6
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "interne-ablage-nur-gruppenintern-sichtbar",
+    "fields": {
+      "created_at": "2026-04-22T15:31:08.089Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2026-04-22T15:31:08.090Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "canton": {
+            "visibility": "all"
+          },
+          "service": {
+            "visibility": "service"
+          }
+        },
+        "_comment": "Access config provisional - full config follows"
+      },
+      "name": "{\"de\": \"Interne Ablage (nur gruppenintern sichtbar)\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[]",
+      "color": "#def1a6",
+      "parent": null,
+      "sort": 4
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "interne-ablage-nur-gruppenintern-sichtbar-1",
+    "fields": {
+      "created_at": "2026-04-22T15:31:08.093Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2026-04-22T15:31:08.093Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "support": {
+            "visibility": "all"
+          },
+          "municipality": {
+            "visibility": "all"
+          }
+        },
+        "_comment": "Access config provisional - full config follows"
+      },
+      "name": "{\"de\": \"Interne Ablage (nur gruppenintern sichtbar)\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[]",
+      "color": "#d6b8ea",
+      "parent": null,
+      "sort": 3
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "rechtsmittel",
+    "fields": {
+      "created_at": "2026-04-22T15:31:08.096Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2026-04-22T15:31:08.096Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "read": {
+            "visibility": "all"
+          },
+          "canton": {
+            "visibility": "all"
+          },
+          "service": {
+            "visibility": "all"
+          },
+          "support": {
+            "visibility": "all"
+          },
+          "municipality": {
+            "visibility": "all"
+          }
+        },
+        "_comment": "Access config provisional - full config follows"
+      },
+      "name": "{\"de\": \"Rechtsmittel\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"video/mp4\", \"video/webm\"]",
+      "color": "#e7d5df",
+      "parent": null,
+      "sort": 8
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "schriftenverkehr",
+    "fields": {
+      "created_at": "2026-04-22T15:31:08.094Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2026-04-22T15:31:08.094Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "read": {
+            "visibility": "all"
+          },
+          "canton": {
+            "visibility": "all"
+          },
+          "service": {
+            "visibility": "all"
+          },
+          "support": {
+            "visibility": "all"
+          },
+          "municipality": {
+            "visibility": "all"
+          }
+        },
+        "_comment": "Access config provisional - full config follows"
+      },
+      "name": "{\"de\": \"Schriftenverkehr\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"video/mp4\", \"video/webm\"]",
+      "color": "#ecaedf",
+      "parent": null,
+      "sort": 2
+    }
+  }
+]
