@@ -251,6 +251,13 @@ def test_master_data_is_form_resolver(
             24,
             id="AG",
         ),
+        pytest.param(
+            lf("sg_master_data_settings"),
+            "de",
+            lf("sg_master_data_case"),
+            9,
+            id="SG",
+        ),
     ],
 )
 def test_master_data(

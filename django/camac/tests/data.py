@@ -126,6 +126,24 @@ def ag_personal_row_factory(is_juristic: bool = False) -> dict:
     }
 
 
+def sg_personal_row_factory(is_juristic: bool = False) -> dict:
+    fake = Faker()
+
+    return {
+        "nachname": fake.last_name(),
+        "vorname": fake.first_name(),
+        "strasse-und-nr": fake.street_address(),
+        "plz": str(fake.pyint(min_value=1000, max_value=9999)),
+        "ort": fake.city(),
+        "land": "Schweiz",
+        "e-mail": fake.email(),
+        "telefon": fake.phone_number(),
+        "postfach": str(fake.pyint()),
+        "juristische-person": f"juristische-person-{'ja' if is_juristic else 'nein'}",
+        "name-juristische-person": fake.company() if is_juristic else None,
+    }
+
+
 def so_fill_cantonal_exam(document, form_utils: FormUtils):
     form_utils.add_answer(document, "mp-bab-datum-eingang-arp", date(2025, 2, 13))
     form_utils.add_answer(

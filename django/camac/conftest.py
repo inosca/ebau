@@ -84,6 +84,7 @@ from camac.sanctions import factories as sanction_factories
 from camac.tags import factories as tags_factories
 from camac.tests.data import (
     ag_personal_row_factory,
+    sg_personal_row_factory,
     so_fill_cantonal_exam,
     so_personal_row_factory,
 )
@@ -515,50 +516,54 @@ def unoconv_invalid_mock(requests_mock, settings):
 
 
 @pytest.fixture
-def caluma_config_be(
-    settings, application_settings, use_caluma_form, be_master_data_settings
-):
-    application_settings["CALUMA"] = deepcopy(
-        settings.APPLICATIONS["kt_bern"]["CALUMA"]
-    )
+def _caluma_config_factory(settings, application_settings, request, use_caluma_form):
+    def fn(application_name):
+        short_name = settings.APPLICATIONS[application_name]["SHORT_NAME"]
+        request.getfixturevalue(f"{short_name}_master_data_settings")
+
+        application_settings["CALUMA"] = deepcopy(
+            settings.APPLICATIONS[application_name]["CALUMA"]
+        )
+
+        if application_name == "kt_schwyz":
+            application_settings["FORM_BACKEND"] = "camac-ng"
+
+    return fn
 
 
 @pytest.fixture
-def caluma_config_ur(
-    settings, application_settings, use_caluma_form, ur_master_data_settings
-):
-    application_settings["CALUMA"] = deepcopy(settings.APPLICATIONS["kt_uri"]["CALUMA"])
+def caluma_config_be(_caluma_config_factory):
+    _caluma_config_factory("kt_bern")
 
 
 @pytest.fixture
-def caluma_config_sz(
-    settings, application_settings, use_caluma_form, sz_master_data_settings
-):
-    application_settings["CALUMA"] = deepcopy(
-        settings.APPLICATIONS["kt_schwyz"]["CALUMA"]
-    )
-    application_settings["FORM_BACKEND"] = "camac-ng"
+def caluma_config_ur(_caluma_config_factory):
+    _caluma_config_factory("kt_uri")
 
 
 @pytest.fixture
-def caluma_config_gr(
-    settings, application_settings, use_caluma_form, gr_master_data_settings
-):
-    application_settings["CALUMA"] = deepcopy(settings.APPLICATIONS["kt_gr"]["CALUMA"])
+def caluma_config_sz(_caluma_config_factory):
+    _caluma_config_factory("kt_schwyz")
 
 
 @pytest.fixture
-def caluma_config_so(
-    settings, application_settings, use_caluma_form, so_master_data_settings
-):
-    application_settings["CALUMA"] = deepcopy(settings.APPLICATIONS["kt_so"]["CALUMA"])
+def caluma_config_gr(_caluma_config_factory):
+    _caluma_config_factory("kt_gr")
 
 
 @pytest.fixture
-def caluma_config_ag(
-    settings, application_settings, use_caluma_form, ag_master_data_settings
-):
-    application_settings["CALUMA"] = deepcopy(settings.APPLICATIONS["kt_ag"]["CALUMA"])
+def caluma_config_so(_caluma_config_factory):
+    _caluma_config_factory("kt_so")
+
+
+@pytest.fixture
+def caluma_config_ag(_caluma_config_factory):
+    _caluma_config_factory("kt_ag")
+
+
+@pytest.fixture
+def caluma_config_sg(_caluma_config_factory):
+    _caluma_config_factory("kt_sg")
 
 
 @pytest.fixture
@@ -814,6 +819,23 @@ def caluma_workflow_config_ag(
     workflow.save()
 
     yield workflow
+
+    caluma_workflow_models.Case.objects.all().delete()
+    caluma_workflow_models.Workflow.objects.all().delete()
+
+
+@pytest.fixture
+def caluma_workflow_config_sg(settings, caluma_forms_sg, caluma_config_sg):
+    call_command(
+        "loaddata",
+        settings.ROOT_DIR("kt_sg/config/caluma_workflow.json"),
+        settings.ROOT_DIR("kt_sg/config/caluma_additional_demand.json"),
+    )
+
+    main_workflow = caluma_workflow_models.Workflow.objects.get(pk="building-permit")
+    main_workflow.allow_forms.set(["main-form", "baugesuch"])
+
+    yield main_workflow
 
     caluma_workflow_models.Case.objects.all().delete()
     caluma_workflow_models.Workflow.objects.all().delete()
@@ -1288,6 +1310,43 @@ def caluma_forms_ag(settings, add_general_questions):
 
 
 @pytest.fixture
+def caluma_forms_sg(
+    add_general_questions, caluma_form_factory, caluma_question_factory, settings
+):
+    caluma_form_factory(
+        slug="main-form",
+        meta={"is-main-form": True},
+        name="Baugesuch",
+    )
+
+    for slug in [
+        # Main forms
+        "baugesuch",
+        # Task forms
+        "formelle-vorpruefung",
+        "materielle-pruefung",
+        "publikation",
+    ]:
+        caluma_form_factory(slug=slug)
+
+    # Questions
+    add_general_questions("main-form")
+    caluma_question_factory(
+        slug="gemeinde",
+        type=caluma_form_models.Question.TYPE_DYNAMIC_CHOICE,
+        data_source="Municipalities",
+    )
+    caluma_question_factory(
+        slug="beschreibung-bauvorhaben",
+        type=caluma_form_models.Question.TYPE_TEXT,
+    )
+
+    settings.DATA_SOURCE_CLASSES = [
+        "camac.caluma.extensions.data_sources.Municipalities"
+    ]
+
+
+@pytest.fixture
 def portal_group(application_settings, group_factory):
     group = group_factory()
     application_settings["PORTAL_GROUP"] = group.pk
@@ -1372,6 +1431,11 @@ def so_instance(instance, caluma_workflow_config_so, instance_with_case):
 
 @pytest.fixture
 def ag_instance(instance, caluma_workflow_config_ag, instance_with_case):
+    return instance_with_case(instance)
+
+
+@pytest.fixture
+def sg_instance(instance, caluma_workflow_config_sg, instance_with_case):
     return instance_with_case(instance)
 
 
@@ -2398,6 +2462,56 @@ def ag_master_data_case(
     form_utils.add_answer(decision.document, "entscheid-datum", date(2025, 3, 28))
 
     return ag_instance.case
+
+
+@pytest.fixture
+def sg_master_data_case(
+    db,
+    form_utils: FormUtils,
+    instance_service_factory,
+    master_data_is_visible_mock,
+    multilang,
+    service_factory,
+    sg_instance,
+):
+    sg_instance.case.meta = {
+        "dossier-number": "2026-99",
+        "submit-date": "2026-03-19T17:32:18+0000",
+    }
+    sg_instance.case.save(update_fields=["meta"])
+
+    document = sg_instance.case.document
+
+    form_utils.add_answer(document, "is-paper", "is-paper-no")
+    form_utils.add_answer(document, "beschreibung-bauvorhaben", "Neues EFH")
+    form_utils.add_answer(document, "strasse-und-nr", "Lämmlisbrunnenstrasse 54")
+    form_utils.add_table_answer(
+        document,
+        "parzellen",
+        [
+            {
+                "parzellennummer": "C3111",
+                "e-grid-nummer": "CH738779590758",
+                "koordinaten-ost": 2746641.47,
+                "koordinaten-nord": 1254612.15,
+            }
+        ],
+    )
+    form_utils.add_table_answer(
+        document, "gesuchstellerin", [sg_personal_row_factory()]
+    )
+
+    # Municipality
+    municipality = service_factory(
+        pk=999,
+        trans__name="St.Gallen",
+        trans__language="de",
+        service_group__name="municipality",
+    )
+    form_utils.add_municipality(document, "gemeinde", municipality)
+    instance_service_factory(instance=sg_instance, service=municipality, active=1)
+
+    return sg_instance.case
 
 
 @pytest.fixture

@@ -603,6 +603,42 @@
     'zip': 3000,
   })
 # ---
+# name: test_master_data[SG]
+  dict({
+    'applicants': list([
+      dict({
+        'country': 'Schweiz',
+        'country_code': 'CH',
+        'email': 'coffeythomas@example.net',
+        'first_name': 'Brittney',
+        'is_juristic_person': False,
+        'juristic_name': None,
+        'last_name': 'Mcgee',
+        'po_box': '822',
+        'street_and_number': '132 Mckinney View',
+        'tel': '854.652.3086',
+        'town': 'Williamston',
+        'zip': '6914',
+      }),
+    ]),
+    'dossier_number': '2026-99',
+    'information_of_neighbors_required': False,
+    'joined_street_and_number': True,
+    'municipality_name': 'St.Gallen',
+    'municipality_slug': '999',
+    'plot_data': list([
+      dict({
+        'coord_east': 2746641.47,
+        'coord_north': 1254612.15,
+        'egrid_number': None,
+        'plot_number': 'C3111',
+      }),
+    ]),
+    'proposal': 'Neues EFH',
+    'publication_required': False,
+    'street': 'Lämmlisbrunnenstrasse 54',
+  })
+# ---
 # name: test_master_data[SO]
   dict({
     'applicants': list([

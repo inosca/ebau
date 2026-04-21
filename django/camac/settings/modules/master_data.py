@@ -3470,6 +3470,7 @@ MASTER_DATA = {
                             }
                         },
                     ),
+                    "default": False,
                 },
             ),
             # That module will be added later on

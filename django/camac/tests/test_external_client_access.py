@@ -93,17 +93,6 @@ def test_external_client_access(
 
     request.getfixturevalue(f"set_application_{canton}")
 
-    if canton == "sg":
-        # Currently, SG does not have an `sg_instance` yet as there is neither
-        # form nor workflow defined. As soon as this fixture is defined (this
-        # will happen quite soon), this test will fail and will only pass again
-        # if this whole block is removed and the snapshot generated.
-        # This way we can make sure this test will not be disabled for SG forever.
-        with pytest.raises(pytest.FixtureLookupError):
-            request.getfixturevalue(f"{canton}_instance")
-
-        return
-
     instance = request.getfixturevalue(f"{canton}_instance")
 
     # Load or disable canton specific eCH0211 settings
