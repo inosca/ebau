@@ -31,6 +31,7 @@ export default class CaseHeaderStaticKeywordsComponent extends Component {
   }
 
   staticKeywords = paginatedQuery(this, "static-keyword", () => ({
+    is_archived: false,
     page: {
       size: 10,
       number: this.page,

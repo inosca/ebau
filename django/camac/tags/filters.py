@@ -1,4 +1,4 @@
-from django_filters.rest_framework import FilterSet
+from django_filters.rest_framework import BooleanFilter, FilterSet
 
 from camac.filters import CharMultiValueFilter, NumberFilter, NumberMultiValueFilter
 
@@ -25,6 +25,9 @@ class KeywordFilterSet(FilterSet):
 
 
 class StaticKeywordFilterSet(KeywordFilterSet):
+    service = NumberFilter()
+    is_archived = BooleanFilter()
+
     class Meta:
         model = models.StaticKeyword
-        fields = ("name", "instance_id")
+        fields = ("name", "instance_id", "service", "is_archived")

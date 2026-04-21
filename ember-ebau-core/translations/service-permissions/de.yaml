@@ -56,4 +56,12 @@ service-permissions:
   static-keywords-save-success: "Der Sachverhalt wurde gespeichert."
   static-keywords-save-error: "Der Sachverhalt konnte nicht gespeichert werden."
   static-keywords-delete-confirm: "Möchten Sie den Sachverhalt wirklich löschen?"
+  static-keywords-archive-confirm: "Möchten Sie den Sachverhalt wirklich archivieren?"
+  static-keywords-archive: "Archivieren"
+  static-keywords-unarchive-confirm: "Möchten Sie den Sachverhalt wirklich wiederherstellen?"
+  static-keywords-unarchive: "Wiederherstellen"
   static-keywords-already-exists: "Der Sachverhalt existiert bereits. Wählen Sie eine neue Bezeichnung."
+
+  static-keywords-active: "Aktiv"
+  static-keywords-archived: "Archiviert"
+  static-keywords-all: "Alle"
