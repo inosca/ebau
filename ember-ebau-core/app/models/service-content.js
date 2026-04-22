@@ -1,1 +1,1 @@
-export { default } from "ember-ebau-core/models/static-content";
+export { default } from "ember-ebau-core/models/service-content";
