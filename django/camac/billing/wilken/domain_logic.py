@@ -76,7 +76,7 @@ def generate_models_for_invoice() -> list[Invoice]:
                 date_charged__isnull=True,
                 released_for_clearing__isnull=False,
                 product_number__isnull=False,
-            )
+            ).order_by("organization", "pk")
 
             invoice = create_invoice(instance)
 
