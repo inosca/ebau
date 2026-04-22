@@ -80,6 +80,7 @@ services:
       OAUTHLIB_INSECURE_TRANSPORT: 1
       OIDC_USERINFO_ENDPOINT: http://ebau-keycloak.localhost/auth/realms/ebau/protocol/openid-connect/userinfo
       PERMISSION_CLASSES: camac.caluma.extensions.permissions.CustomPermission
+      REDIS_HOST: valkey
       VALIDATION_CLASSES: camac.caluma.extensions.validations.CustomValidation
       VISIBILITY_CLASSES: camac.caluma.extensions.visibilities.CustomVisibilitySZ
     networks:
@@ -90,7 +91,7 @@ services:
     <<: *django
     image: acr.run/camac-ng/camac-ng/django:master
     depends_on:
-      - redis
+      - valkey
     command: celerydev
     ports: []
 
@@ -105,17 +106,10 @@ services:
     command:
       [
         "celery",
-        "--broker=redis://default:redis@redis:6379/0",
+        "--broker=redis://default:redis@valkey:6379/0",
         "flower",
         "--port=7777",
       ]
-
-  redis:
-    image: redis:8.4
-    volumes:
-      - redis_data:/redis/data
-    networks:
-      - ebau.localhost
 
   ember:
     environment:
@@ -290,6 +284,13 @@ services:
     networks:
       - ebau.localhost
 
+  valkey:
+    image: valkey/valkey:9.0
+    volumes:
+      - valkey_data:/data
+    networks:
+      - ebau.localhost
+
 networks:
   ebau.localhost:
 
@@ -300,4 +301,4 @@ volumes:
   pg16data:
   phpsessions:
   templatefiles:
-  redis_data:
+  valkey_data:
