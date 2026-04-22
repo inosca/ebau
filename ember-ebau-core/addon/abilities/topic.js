@@ -35,7 +35,7 @@ export default class extends Ability {
     }
 
     if (
-      this.session.service.usesEchApi &&
+      this.session.service?.usesEchApi &&
       !hasFeature("communications.creationActivatedForEchApiUsers")
     ) {
       return false;
