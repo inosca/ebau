@@ -205,6 +205,7 @@ services:
       URL_PREFIX: document-merge-service/
     volumes:
       - ../document-merge-service/extensions:/app/document_merge_service/extensions
+      - ../document-merge-service/${APPLICATION}/dump.json:/tmp/document-merge-service/dump.json
     networks:
       - ebau.localhost
     command: devserver
