@@ -53,7 +53,10 @@ WORK_ITEM_LIST = ModuleConfig[WorkItemListConfig](
     kt_so=WorkItemListConfig(
         enabled=True,
         annotations=AnnotationsConfig(
-            description="umschreibung-bauprojekt",
+            description=[
+                "kurzbeschreibung-bauprojekt",
+                "umschreibung-bauprojekt",
+            ],
             applicants=None,
         ),
         available_tasks_include_count=True,
