@@ -656,7 +656,7 @@
       "language": "de",
       "purpose": "Meldung Fristüberschreitung (Fachstelle)",
       "subject": "Meldung Fristüberschreitung (Dossier-Nr. {{DOSSIER_NR}})",
-      "body": "Guten Tag \r\n\r\nHiermit werden Sie darauf aufmerksam gemacht, dass die gesetzte Frist im Dossier Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) abgelaufen ist. Es wird um Stellungnahme gebeten.\r\n\r\n{{INQUIRY_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse\r\n\r\n{{LEITBEHOERDE_NAME_DE}}"
+      "body": "Guten Tag \r\n\r\nHiermit werden Sie darauf aufmerksam gemacht, dass die gesetzte Frist im Dossier Nr. {{DOSSIER_NR}} ({{FORM_NAME_DE}}, {{MUNICIPALITY_DE}}) abgelaufen ist. Es wird um Stellungnahme gebeten.\r\n\r\n{{INQUIRY_LINK}}\r\n\r\nDiese E-Mail wurde automatisch generiert, bitte antworten Sie nicht darauf.\r\n\r\nFreundliche Grüsse"
     }
   },
   {
