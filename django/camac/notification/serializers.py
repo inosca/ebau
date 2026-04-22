@@ -1309,10 +1309,11 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         recipients = []
 
         acl = self.data["metainfo"]["acl"]
-        if not acl or not acl.is_active():
-            # TODO: Log? This should never happen: "ACL created"
-            # event, but no ACL exists or is active?
-            return []  # pragma: no cover
+        if not acl:  # pragma: no cover
+            logger.warning(
+                "Trying to send notification for new ACL, but no ACL object passed. Not sending message"
+            )
+            return []
 
         if acl.user:
             recipients.append({"to": acl.user.email})
