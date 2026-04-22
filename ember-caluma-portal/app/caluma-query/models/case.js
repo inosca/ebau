@@ -176,6 +176,7 @@ export default class CustomCaseModel extends CaseModel {
           questions: [
             "${answerSlugs.municipality}"
             "${answerSlugs.description}"
+            "${answerSlugs.shortDescription}"
             "${answerSlugs.modificationDescription}"
             "${answerSlugs.objectStreet}"
             "${answerSlugs.objectNumber}"
