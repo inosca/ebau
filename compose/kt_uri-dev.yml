@@ -52,7 +52,7 @@ services:
     networks:
       - ebau.localhost
 
-  django:
+  django: &django
     image: acr.run/camac-ng/camac-ng/django:master
     build:
       args:
@@ -61,24 +61,33 @@ services:
       - mailpit
       - garage
     ports:
+      - "5555:5555"
       - "5678:5678"
     volumes:
       - ../django:/app
       - /app/staticfiles # prevent staticfiles from leaking to the host system
     environment:
-      - ENV=development
-      - APPLICATION_ENV=development
-      - KEYCLOAK_URL=http://ebau-keycloak.localhost/auth/
-      - DATABASE_PASSWORD=camac
-      - DATABASE_USER=camac
-      - DJANGO_EMAIL_HOST=mailpit
-      - DJANGO_EMAIL_PORT=1025
-      - OAUTHLIB_INSECURE_TRANSPORT=1
-      - OIDC_USERINFO_ENDPOINT=http://ebau-keycloak.localhost/auth/realms/urec/protocol/openid-connect/userinfo
-      - GWR_FERNET_KEY=GUdwT6yKxqfszrnHC7wyKDmtVZdhjSVQEPnpeJYNLf8=
-      - GWR_HOUSING_STAT_BASE_URI=https://www-r.housing-stat.ch/regbl/api/ech0216/2
-      - DOCUMENT_MERGE_SERVICE_URL=http://document-merge-service:8000/document-merge-service/api/v1/
-      - DJANGO_DEFAULT_FILE_STORAGE=django.core.files.storage.FileSystemStorage
+      ENV: development
+      APPLICATION_ENV: development
+      KEYCLOAK_URL: http://ebau-keycloak.localhost/auth/
+      DATABASE_PASSWORD: camac
+      DATABASE_USER: camac
+      DJANGO_EMAIL_HOST: mailpit
+      DJANGO_EMAIL_PORT: 1025
+      OAUTHLIB_INSECURE_TRANSPORT: 1
+      OIDC_USERINFO_ENDPOINT: http://ebau-keycloak.localhost/auth/realms/urec/protocol/openid-connect/userinfo
+      GWR_FERNET_KEY: GUdwT6yKxqfszrnHC7wyKDmtVZdhjSVQEPnpeJYNLf8=
+      GWR_HOUSING_STAT_BASE_URI: https://www-r.housing-stat.ch/regbl/api/ech0216/2
+      DOCUMENT_MERGE_SERVICE_URL: http://document-merge-service:8000/document-merge-service/api/v1/
+      # Alexandria
+      DJANGO_DEFAULT_FILE_STORAGE: django.core.files.storage.FileSystemStorage
+      ALEXANDRIA_MANABI_DAV_URL_PATH: /webdav
+      TIKA_SERVER_ENDPOINT: http://tika:9998
+      CELERY_RDB_HOST: valkey
+      CELERY_WORKER_CONCURRENCY: 2
+      REDIS_HOST: valkey
+      REDIS_USER: default
+      REDIS_PASSWORD: valkey
     env_file:
       - ../garage/compose-env/dev-ebau.conf
       - ../garage/compose-env/dev-alexandria.conf
@@ -90,6 +99,43 @@ services:
     image: acr.run/camac-ng/camac-ng/ember-caluma-portal:master
     environment:
       ENABLE_WATERMARK: true
+    networks:
+      - ebau.localhost
+
+  celery:
+    <<: *django
+    image: acr.run/camac-ng/camac-ng/django:master
+    build:
+      context: ../django
+      cache_from:
+        - acr.run/camac-ng/camac-ng/django:master
+      args:
+        REQUIREMENTS: requirements-dev.txt
+    depends_on:
+      - valkey
+    profiles:
+      - alexandria
+      - full
+    command: celerydev
+    ports: []
+
+  valkey:
+    image: valkey/valkey:9.1
+    profiles:
+      - alexandria
+      - full
+    volumes:
+      - valkey_data:/data
+    env_file:
+      - ../valkey/valkey-env/valkey.conf
+    networks:
+      - ebau.localhost
+
+  flower:
+    image: mher/flower:2.0
+    environment:
+      BROKER_URL: redis://default:valkey@valkey:6379/0
+      FLOWER_URL_PREFIX: celery-flower
     networks:
       - ebau.localhost
 
