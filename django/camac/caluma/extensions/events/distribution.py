@@ -31,6 +31,7 @@ from django.utils.timezone import now
 
 from camac.caluma.models import Inquiry
 from camac.caluma.utils import (
+    date_to_deadline,
     filter_by_task_base,
     filter_by_workflow_base,
     sync_inquiry_deadline,
@@ -89,6 +90,52 @@ def filter_by_workflow(settings_keys):
 
 def filter_by_task(settings_keys):
     return filter_by_task_base(settings_keys, get_distribution_settings)
+
+
+def recalculate_deadline(work_item, context, user, skip_defaults=False):
+    deadline_question = settings.DISTRIBUTION["QUESTIONS"]["DEADLINE"]
+    default_deadline = _get_default_deadline(settings, work_item).isoformat()
+
+    answers = deepcopy(context.get("answers", {}) if context else {})
+
+    if deadline_override := _get_deadline_override(settings, work_item):
+        # If there's an override (fixed leadtime for certain services) we always
+        # take that deadline
+        answers[deadline_question] = delay_next_workingday(
+            now().date() + timedelta(deadline_override)
+        ).isoformat()
+
+        work_item.deadline = date_to_deadline(
+            datetime.strptime(answers[deadline_question], "%Y-%m-%d").date()
+        )
+        work_item.save(update_fields=["deadline"])
+
+    elif skip_defaults:
+        return
+
+    elif deadline_question not in answers or answers[deadline_question] == "0000-01-01":
+        # If the deadline was not passed from the frontend or the frontend
+        # passed "0000-01-01" we take the default deadline. This will consider
+        # default deadline rules from the rulesets module.
+        #
+        # If the frontend passed "0000-01-01" in the context it's expected that
+        # the defaults vary for the addressed services so the backend needs to
+        # assign the proper defaults.
+        answers[deadline_question] = default_deadline
+
+    for slug, value in answers.items():
+        question = Question.objects.get(pk=slug)
+
+        if question.type == Question.TYPE_DATE:
+            value = datetime.fromisoformat(value).date()
+
+        save_answer(
+            question=question,
+            document=work_item.document,
+            value=value,
+            user=user,
+            context=context,
+        )
 
 
 @on(post_complete_case, raise_exception=True)
@@ -313,40 +360,7 @@ def post_create_inquiry(sender, work_item, user, context=None, **kwargs):
     # suspend work item so it's a draft
     suspend_work_item(work_item=work_item, user=user, context=context)
 
-    deadline_question = settings.DISTRIBUTION["QUESTIONS"]["DEADLINE"]
-    default_deadline = _get_default_deadline(settings, work_item).isoformat()
-
-    answers = deepcopy(context.get("answers", {}) if context else {})
-
-    if deadline_override := _get_deadline_override(settings, work_item):
-        # If there's an override (fixed leadtime for certain services) we always
-        # take that deadline
-        answers[deadline_question] = delay_next_workingday(
-            now().date() + timedelta(deadline_override)
-        ).isoformat()
-    elif deadline_question not in answers or answers[deadline_question] == "0000-01-01":
-        # If the deadline was not passed from the frontend or the frontend
-        # passed "0000-01-01" we take the default deadline. This will consider
-        # default deadline rules from the rulesets module.
-        #
-        # If the frontend passed "0000-01-01" in the context it's expected that
-        # the defaults vary for the addressed services so the backend needs to
-        # assign the proper defaults.
-        answers[deadline_question] = default_deadline
-
-    for slug, value in answers.items():
-        question = Question.objects.get(pk=slug)
-
-        if question.type == Question.TYPE_DATE:
-            value = datetime.fromisoformat(value).date()
-
-        save_answer(
-            question=question,
-            document=work_item.document,
-            value=value,
-            user=user,
-            context=context,
-        )
+    recalculate_deadline(work_item, context, user, skip_defaults=False)
 
     sync_inquiry_deadline(work_item)
 
@@ -398,6 +412,9 @@ def post_resume_inquiry(sender, work_item, user, context=None, **kwargs):
     # ensure that potential child case work-items' deadlines
     # are also synced
     sync_inquiry_deadline(work_item)
+
+    if settings.DISTRIBUTION["RECALCULATE_DEADLINE_BY_SUBMISSION"]:
+        recalculate_deadline(work_item, context, user, skip_defaults=True)
 
     # complete init distribution work item
     init_work_item = work_item.case.work_items.filter(

@@ -36,6 +36,7 @@ DISTRIBUTION = {
         "HISTORY": {},
         "REDO_INQUIRY": {},
         "REDO_DISTRIBUTION": {},
+        "RECALCULATE_DEADLINE_BY_SUBMISSION": False,
         "QUESTIONS": {
             "DEADLINE": "inquiry-deadline",
             "REMARK": "inquiry-remark",
@@ -426,6 +427,7 @@ DISTRIBUTION = {
         "DEFAULT_DEADLINE_LEAD_TIME": 14,
         "INSTANCE_STATE_DISTRIBUTION": "circulation",
         "NOTIFY_ON_CANCELLATION": True,
+        "RECALCULATE_DEADLINE_BY_SUBMISSION": True,
         "QUESTIONS": {
             "STATEMENT": "inquiry-answer-remarks",
             "STATUS": "inquiry-answer-status",
