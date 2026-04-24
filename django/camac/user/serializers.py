@@ -483,6 +483,7 @@ class PublicServiceSerializer(MultilingualSerializer, serializers.ModelSerialize
             "website",
             "service_group",
             "logo",
+            "uses_ech_api",
         )
         resource_name = "public-services"
 
