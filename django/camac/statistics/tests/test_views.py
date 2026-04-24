@@ -5,7 +5,9 @@ from decimal import Decimal
 from unittest.mock import MagicMock
 
 import openpyxl
+import pyexcel
 import pytest
+from caluma.caluma_form.models import Form
 from django.urls import reverse
 from pytest_lazy_fixtures import lf
 from rest_framework import status
@@ -19,6 +21,7 @@ from camac.statistics.views import (
     DossierStatisticsExportView,
     _resolve_template_path,
 )
+from camac.work_items.models import WorkItemTemplate
 
 STATISTICS_URL = reverse("statistics-dossiers")
 WORK_ITEMS_URL = reverse("statistics-work-items")
@@ -161,9 +164,12 @@ def test_copy_template_sheets(
     tmp_path,
     settings,
     mocker,
+    freezer,
     snapshot,
 ):
-    """Verify that it copies extra sheets from a template."""
+    """Verify that it copies extra sheets from a template and adds metadata."""
+    freezer.move_to("2026-08-12")
+
     # minimal template with a "Data" sheet and a "Pivot" sheet.
     tpl_path = tmp_path / "template.xlsx"
     wb = openpyxl.Workbook()
@@ -179,11 +185,19 @@ def test_copy_template_sheets(
         return_value=str(tpl_path),
     )
 
-    response = admin_client.get(STATISTICS_URL)
+    response = admin_client.get(STATISTICS_URL, {"form": "baugesuch"})
     assert response.status_code == status.HTTP_200_OK
 
-    book = parse_xlsx_response(response)
-    assert sorted(book.get_dict().keys()) == snapshot
+    content = b"".join(response.streaming_content)
+    book = pyexcel.get_book(file_content=content, file_type="xlsx")
+    assert sorted(book.to_dict().keys()) == snapshot
+
+    exported_string = "Exportiert am: 12.08.2026"
+
+    result = openpyxl.load_workbook(io.BytesIO(content))
+    assert result["Pivot"].cell(row=2, column=1).value == exported_string
+    assert result["Filter"].cell(row=2, column=1).value != exported_string
+    assert result["Data"].cell(row=2, column=1).value != exported_string
 
 
 @pytest.mark.parametrize(
@@ -321,6 +335,7 @@ def test_filter_sheet(
     """Export with query filters produces a Filter sheet with applied filters."""
     freezer.move_to("2026-04-10")
 
+    Form.objects.filter(slug="baugesuch").update(name={"de": "Baugesuch"})
     caluma_option_factory(slug="test-approved", label="Bewilligt")
     inst_state_id = str(statistics_ag_instance.instance_state_id)
 
@@ -344,9 +359,9 @@ def test_filter_sheet(
 
     # Rows 2-3 are blank, filters start at row 4.
     assert fs.cell(row=4, column=1).value == "Eingabedatum von"
-    assert fs.cell(row=4, column=2).value == "2025-01-01"
+    assert fs.cell(row=4, column=2).value == "01.01.2025"
     assert fs.cell(row=5, column=1).value == "Gesuchstyp"
-    assert fs.cell(row=5, column=2).value == "baugesuch"
+    assert fs.cell(row=5, column=2).value == "Baugesuch"
     assert fs.cell(row=6, column=1).value == "Dossier-Status"
     assert fs.cell(row=6, column=2).value == "In Zirkulation"
     assert fs.cell(row=7, column=1).value == "Bauentscheid"
@@ -361,23 +376,42 @@ def test_filter_sheet(
 def test_filter_sheet_work_items(
     admin_client,
     statistics_ag_instance_afb,
+    caluma_work_item_factory,
+    group,
     freezer,
 ):
     """Work-items export with filters shows them in the Filter sheet."""
     freezer.move_to("2026-04-10")
 
+    template = WorkItemTemplate.objects.create(
+        name="Stellungnahme / Entscheid schreiben",
+        responsibility_rule="NONE",
+    )
+    caluma_work_item_factory(
+        case=statistics_ag_instance_afb.case,
+        task_id="create-manual-workitems",
+        status="completed",
+        addressed_groups=[str(group.service.pk)],
+        meta={"template-id": str(template.pk)},
+    )
+
     response = admin_client.get(
         WORK_ITEMS_URL,
-        {"wi_created_at_after": "2025-01-01", "task": "inquiry"},
+        {
+            "wi_created_at_after": "2025-01-01",
+            "task": f"inquiry,{template.pk},unknown-slug",
+        },
     )
     assert response.status_code == status.HTTP_200_OK
 
-    wb = openpyxl.load_workbook(io.BytesIO(b"".join(response.streaming_content)))
+    content = b"".join(response.streaming_content)
+    wb = openpyxl.load_workbook(io.BytesIO(content))
     assert wb.sheetnames[0] == "Filter"
 
     fs = wb["Filter"]
-    assert fs.cell(row=1, column=1).value == "Übersicht der Filter"
     assert fs.cell(row=4, column=1).value == "Aufgabe"
-    assert fs.cell(row=4, column=2).value == "inquiry"
+    assert fs.cell(row=4, column=2).value == (
+        "Stellungnahme zustellen, Stellungnahme / Entscheid schreiben, unknown-slug"
+    )
     assert fs.cell(row=5, column=1).value == "Aufgabe erstellt von"
-    assert fs.cell(row=5, column=2).value == "2025-01-01"
+    assert fs.cell(row=5, column=2).value == "01.01.2025"

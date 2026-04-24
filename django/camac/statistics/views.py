@@ -1,9 +1,11 @@
 import io
 import os
+import uuid
 from datetime import date, datetime, time, timedelta
 
 import openpyxl
-from caluma.caluma_form.models import Option
+from caluma.caluma_form.models import Form, Option
+from caluma.caluma_workflow.models import Task
 from django.conf import settings
 from django.http import FileResponse
 from django.utils import timezone
@@ -15,12 +17,16 @@ from rest_framework.generics import ListAPIView
 
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.instance.models import Instance, InstanceStateT
+from camac.work_items.models import WorkItemTemplate
 
 from .filters import InstanceFilterBackend, WorkItemFilterBackend
 
 # Translatable strings used in the filter sheet.
 _FILTER_OVERVIEW_TITLE = _("Filter overview")
 _EXPORTED_ON_LABEL = _("Exported on")
+
+_DATE_FORMAT = "DD.MM.YYYY"
+_DATE_STRFTIME = "%d.%m.%Y"
 
 # Maps query parameter names to translatable labels for the filter sheet.
 FILTER_LABELS = [
@@ -143,7 +149,6 @@ class _StatisticsExportBaseView(InstanceQuerysetMixin, ListAPIView):
             col_widths[col_idx - 1] = len(str(value))
 
         _NATIVE_TYPES = (str, int, float, bool, datetime, date, time, timedelta)
-        _DATE_FORMAT = "DD.MM.YYYY"
         num_cols = len(header)
         for row_idx, row in enumerate(rows, start=2):
             for col_idx, value in enumerate(row):
@@ -172,6 +177,19 @@ class _StatisticsExportBaseView(InstanceQuerysetMixin, ListAPIView):
         lang = get_language()
         values = [v.strip() for v in raw_value.split(",") if v.strip()]
 
+        if param.endswith("_after") or param.endswith("_before"):
+            try:
+                return date.fromisoformat(raw_value).strftime(_DATE_STRFTIME)
+            except ValueError:  # pragma: no cover
+                return raw_value
+
+        if param == "form":
+            forms = {
+                form.slug: str(form.name)
+                for form in Form.objects.filter(slug__in=values)
+            }
+            return ", ".join(forms.get(value, value) for value in values)
+
         if param == "instance_state":
             names = list(
                 InstanceStateT.objects.filter(
@@ -186,7 +204,32 @@ class _StatisticsExportBaseView(InstanceQuerysetMixin, ListAPIView):
             labels = [str(opt.label) for opt in options]
             return ", ".join(labels) if labels else raw_value
 
-        return raw_value
+        if param == "task":
+            # values can be either Caluma task slugs or WorkItemTemplate UUIDs
+            # (same dual lookup as in WorkItemFilterBackend.filter_queryset)
+            uuid_values = []
+            slug_values = []
+            for value in values:
+                try:
+                    uuid_values.append(uuid.UUID(value))
+                except ValueError:
+                    slug_values.append(value)
+
+            tasks = {
+                task.slug: str(task.name)
+                for task in Task.objects.filter(slug__in=slug_values)
+            }
+            templates = {
+                str(tpl.pk): tpl.name
+                for tpl in WorkItemTemplate.objects.filter(pk__in=uuid_values)
+            }
+
+            labels = [
+                tasks.get(value) or templates.get(value) or value for value in values
+            ]
+            return ", ".join(labels)
+
+        return raw_value  # pragma: no cover
 
     @staticmethod
     def _collect_applied_filters(request):
@@ -218,10 +261,24 @@ class _StatisticsExportBaseView(InstanceQuerysetMixin, ListAPIView):
         sheet.cell(row=row, column=1, value=str(_EXPORTED_ON_LABEL))
         today = timezone.now().date()
         cell = sheet.cell(row=row, column=2, value=today)
-        cell.number_format = "DD.MM.YYYY"
+        cell.number_format = _DATE_FORMAT
 
         sheet.column_dimensions["A"].width = 30
         sheet.column_dimensions["B"].width = 30
+
+    @staticmethod
+    def _write_template_sheet_metadata(workbook, filters):
+        """Write export metadata into row 2 and 3 of every template sheet."""
+        today = timezone.now().date()
+        created_text = f"{_EXPORTED_ON_LABEL}: {today.strftime('%d.%m.%Y')}"
+        filter_text = "; ".join(f"{label}: {value}" for label, value in filters)
+
+        for sheet_name in workbook.sheetnames:
+            if sheet_name in ("Filter", "Data"):
+                continue
+            sheet = workbook[sheet_name]
+            sheet.cell(row=2, column=1, value=created_text)
+            sheet.cell(row=3, column=1, value=filter_text)
 
     def _build_workbook(self, header, rows, template_path, filters=None):
         """Return a BytesIO buffer with the finished XLSX workbook."""
@@ -232,6 +289,7 @@ class _StatisticsExportBaseView(InstanceQuerysetMixin, ListAPIView):
 
         self._write_data_sheet(workbook, header, rows)
         self._write_filter_sheet(workbook, filters or [])
+        self._write_template_sheet_metadata(workbook, filters or [])
         self._set_pivot_refresh(workbook)
 
         buf = io.BytesIO()

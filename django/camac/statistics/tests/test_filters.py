@@ -107,3 +107,58 @@ def test_work_item_filter_backend(
         request, WorkItem.objects.all(), ["dossier_number"]
     )
     assert result.count() == expected_count
+
+
+@pytest.mark.parametrize("role__name", ["Service"])
+def test_completing_date_filter_excludes_claim_inquiries(
+    rf,
+    group,
+    statistics_ag_instance_afb,
+    ag_distribution_settings,
+    caluma_answer_factory,
+):
+    """Inquiries answered with status `claim` don't satisfy the completing date filter."""
+    instance_qs = Instance.objects.filter(pk=statistics_ag_instance_afb.pk)
+    backend = InstanceFilterBackend()
+    params = {"completing_date_after": "2025-01-01"}
+
+    request = Request(rf.get("/", data=params))
+    request.group = group
+    assert len(backend._filter_instances(request, instance_qs)) == 1
+
+    inquiry = WorkItem.objects.get(
+        task_id=ag_distribution_settings["INQUIRY_TASK"],
+        case__family=statistics_ag_instance_afb.case,
+    )
+    caluma_answer_factory(
+        document=inquiry.child_case.document,
+        question_id=ag_distribution_settings["QUESTIONS"]["STATUS"],
+        value=ag_distribution_settings["ANSWERS"]["STATUS"]["CLAIM"],
+    )
+
+    request = Request(rf.get("/", data=params))
+    request.group = group
+    assert len(backend._filter_instances(request, instance_qs)) == 0
+
+
+@pytest.mark.parametrize("role__name", ["Service"])
+def test_excludes_dossiers_with_pending_inquiries(
+    rf,
+    group,
+    statistics_ag_instance_afb,
+    active_inquiry_factory,
+):
+    """Hide dossiers that still have any pending inquiry to current service."""
+    instance_qs = Instance.objects.filter(pk=statistics_ag_instance_afb.pk)
+    backend = InstanceFilterBackend()
+    request = Request(rf.get("/"))
+    request.group = group
+
+    assert len(backend._filter_instances(request, instance_qs)) == 1
+
+    active_inquiry_factory(
+        for_instance=statistics_ag_instance_afb,
+        addressed_service=group.service,
+        status=WorkItem.STATUS_READY,
+    )
+    assert len(backend._filter_instances(request, instance_qs)) == 0
