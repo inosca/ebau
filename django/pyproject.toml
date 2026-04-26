@@ -77,7 +77,6 @@ env = [
     "APPLICATION=test",
     "APPLICATION_ENV=ci",
     "TEST_SUITE_RUNNING=true",
-    "DJANGO_Q_ENABLE_SYNC=false",
 ]
 filterwarnings = [
     "error::DeprecationWarning",
@@ -238,6 +237,7 @@ omit = [
     "camac/core/management/commands/migrate_caluma_default_answers.py",
     "camac/core/management/commands/migrate_camac_and_caluma_forms_ur.py",
     "camac/core/management/commands/migrate_alexandria_tag_to_mark.py",
+    "camac/document/management/commands/copy_document_categories_to_alexandria.py",
     "camac/alexandria/management/commands/fix_alexandria_instance_document_links.py",
     "camac/alexandria/management/commands/fix_alexandria_created_by.py",
     "camac/alexandria/management/commands/generate_alexandria_documents.py",
@@ -256,7 +256,8 @@ omit = [
     "camac/core/management/commands/change_instance_service_ur.py",
     "camac/core/management/commands/kt_uri_statistic.py",
     "camac/core/management/commands/correction_of_koor_dossiers_ur.py",
-    "camac/core/management/commands/clean_dangling_objects.py",
+    "camac/core/management/commands/gr_clean_dangling_objects.py",
+    "camac/core/management/commands/clean_dangling_alexandria_objects.py",
     "camac/permissions//management/commands/grant_read_permissions_to_tax_administration_if_involved.py",
     "camac/permissions//management/commands/grant_read_permissions_to_geometer_if_selected.py",
     "camac/core/management/commands/migrate_rejection_feedback_ur.py",

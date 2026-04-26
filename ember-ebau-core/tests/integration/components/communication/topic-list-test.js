@@ -22,6 +22,10 @@ module("Integration | Component | communication/topic-list", function (hooks) {
   });
 
   test("it renders topic list", async function (assert) {
+    this.owner.lookup("service:session").service = this.server.create(
+      "service",
+      { usesEchApi: false },
+    );
     this.instance = this.server.create("instance", "withTopics");
 
     await render(
@@ -113,6 +117,10 @@ module("Integration | Component | communication/topic-list", function (hooks) {
   });
 
   test("it links to detail and new", async function (assert) {
+    this.owner.lookup("service:session").service = this.server.create(
+      "service",
+      { usesEchApi: false },
+    );
     this.server.create("communications-topic");
 
     const router = this.owner.lookup("service:router");

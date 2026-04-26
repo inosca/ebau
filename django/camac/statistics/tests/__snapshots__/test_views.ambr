@@ -1,0 +1,137 @@
+# serializer version: 1
+# name: test_copy_template_sheets[Municipality]
+  list([
+    'Data',
+    'Pivot',
+  ])
+# ---
+# name: test_dossier_annotations_all_columns
+  list([
+    'completing_date',
+    'dossier_number',
+    'first_inquiry_date',
+    'form_name',
+    'instance_status',
+    'municipality',
+    'on_time',
+    'parcels',
+    'processing_time',
+    'responsible_user',
+    'submit_date',
+  ])
+# ---
+# name: test_statistics_export_ag[Municipality-statistics_ag_instance-200-2]
+  list([
+    '2025-1',
+    'Baugesuch',
+    '1338',
+    datetime.datetime(2025, 2, 5, 0, 0),
+    'Admin User',
+    'Aarburg',
+    16,
+  ])
+# ---
+# name: test_statistics_export_ag[Municipality-statistics_ag_instance_by_role-200-2]
+  list([
+    '2025-1',
+    'Baugesuch',
+    '1338',
+    datetime.datetime(2025, 2, 5, 0, 0),
+    'Admin User',
+    'Aarburg',
+    16,
+  ])
+# ---
+# name: test_statistics_export_ag[Service-statistics_ag_instance_afb-200-2]
+  list([
+    '2025-1',
+    'Baugesuch',
+    '1338',
+    datetime.datetime(2025, 2, 5, 0, 0),
+    'Admin User',
+    'Aarburg',
+    '',
+    datetime.datetime(2025, 1, 1, 0, 0),
+    datetime.datetime(2025, 1, 30, 0, 0),
+    '',
+  ])
+# ---
+# name: test_statistics_service_afb_deadline_columns[Service]
+  list([
+    list([
+      'Dossier-Nr.',
+      'Gesuchstyp',
+      'Parzellen',
+      'Eingabedatum',
+      'Zuständig',
+      'Gemeinde',
+      'Durchlaufzeit',
+      'Eingegangen',
+      'Abgeschlossen',
+      'Fristgerecht',
+    ]),
+    list([
+      '2025-1',
+      'Baugesuch',
+      '1338',
+      datetime.datetime(2025, 2, 5, 0, 0),
+      'Admin User',
+      'Aarburg',
+      '',
+      datetime.datetime(2025, 1, 1, 0, 0),
+      datetime.datetime(2025, 1, 30, 0, 0),
+      '',
+    ]),
+  ])
+# ---
+# name: test_work_item_annotations_all_columns
+  list([
+    'task_name',
+    'wi_addressed_group',
+    'wi_assigned_user',
+    'wi_closed_at',
+    'wi_created_at',
+    'wi_deadline',
+    'wi_on_time',
+    'wi_processing_time',
+    'wi_status',
+  ])
+# ---
+# name: test_work_items_export[Service]
+  list([
+    list([
+      'Dossier-Nr.',
+      'Gesuchstyp',
+      'Parzellen',
+      'Eingabedatum',
+      'Zuständig',
+      'Gemeinde',
+      'Aufgabe',
+      'Erstellt am',
+      'Frist',
+      'Abgeschlossen am',
+      'Zuständiger Benutzer',
+      'Zuständige Rolle',
+      'Status',
+      'Durchlaufzeit',
+      'Fristgerecht',
+    ]),
+    list([
+      '2025-1',
+      'Baugesuch',
+      '1338',
+      datetime.datetime(2025, 2, 5, 0, 0),
+      'Admin User',
+      'Aarburg',
+      'Stellungnahme zustellen',
+      datetime.datetime(2025, 1, 1, 0, 0),
+      datetime.datetime(2012, 2, 22, 0, 0),
+      datetime.datetime(2025, 1, 30, 0, 0),
+      '',
+      'Darin Shea',
+      'completed',
+      29,
+      0,
+    ]),
+  ])
+# ---

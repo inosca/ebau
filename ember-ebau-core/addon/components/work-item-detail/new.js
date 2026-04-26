@@ -4,25 +4,16 @@ import { macroCondition, getOwnConfig } from "@embroider/macros";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { queryManager } from "ember-apollo-client";
-import { dropTask } from "ember-concurrency";
+import Changeset from "ember-changeset";
+import lookupValidator from "ember-changeset-validations";
+import { task } from "ember-concurrency";
 import { findRecord, query, findAll } from "ember-data-resources";
 import { DateTime } from "luxon";
 
 import mainConfig from "ember-ebau-core/config/main";
 import createWorkItem from "ember-ebau-core/gql/mutations/create-work-item.graphql";
 import allCases from "ember-ebau-core/gql/queries/all-cases.graphql";
-
-class NewWorkItem {
-  @tracked case;
-  @tracked addressedGroups = [];
-  @tracked assignedUsers = [];
-  @tracked title = "";
-  @tracked description = "";
-  @tracked deadline = DateTime.now().plus({ days: 10 }).toJSDate();
-  @tracked notificationCompleted = true;
-  @tracked notificationDeadline = true;
-  @tracked meta = {};
-}
+import WorkItemFormValidations from "ember-ebau-core/validations/work-item-form";
 
 export default class WorkItemDetailNewComponent extends Component {
   @queryManager apollo;
@@ -33,41 +24,70 @@ export default class WorkItemDetailNewComponent extends Component {
   @service ebauModules;
   @service notification;
 
-  @tracked workItem = new NewWorkItem();
   @tracked selectedTemplate = null;
+
+  constructor(...args) {
+    super(...args);
+
+    this.model = new Changeset(
+      {
+        addressedService: null,
+        assignedUser: null,
+        title: "",
+        description: "",
+        deadline: DateTime.now().plus({ days: 10 }).toJSDate(),
+        notifications: [],
+        meta: {},
+      },
+      lookupValidator(WorkItemFormValidations),
+      WorkItemFormValidations,
+    );
+  }
+
+  getValidationClass = (fi) =>
+    fi.isValid ? "uk-form-success" : fi.isInvalid ? "uk-form-danger" : "";
 
   workItemTemplates = findAll(this, "work-item-template", () => ({
     include: "assigned_user",
   }));
 
-  get responsibleService() {
-    return this.services.find((service) =>
-      this.workItem.addressedGroups.includes(service.id),
-    );
+  instance = findRecord(this, "instance", () => [
+    this.args.instanceId,
+    { include: "involved_services", reload: true },
+  ]);
+
+  users = query(this, "public-user", () => ({
+    service: this.args.serviceId,
+    disabled: false,
+  }));
+
+  @action
+  updateDescription(fi, event) {
+    fi.update(event.target.value);
   }
 
-  set responsibleService(service) {
-    this.workItem.addressedGroups = [service.id.toString()];
-
-    if (parseInt(service.id) !== this.args.serviceId) {
-      this.workItem.assignedUsers = [];
-    }
-  }
-
-  get responsibleUser() {
-    return this.users.records?.find((user) =>
-      this.workItem.assignedUsers.includes(user.username),
-    );
-  }
-
-  set responsibleUser(user) {
-    this.workItem.assignedUsers = [user.username];
+  get showSnippets() {
+    return !this.ebauModules.isApplicant;
   }
 
   get selectedOwnService() {
     return (
-      parseInt(this.responsibleService?.id) === parseInt(this.args.serviceId)
+      parseInt(this.model.addressedService?.id) ===
+      parseInt(this.args.serviceId)
     );
+  }
+
+  get notificationOptions() {
+    return [
+      {
+        key: "completed",
+        label: this.intl.t("workItems.notifyCompleted"),
+      },
+      {
+        key: "deadline",
+        label: this.intl.t("workItems.notifyDeadline"),
+      },
+    ];
   }
 
   get services() {
@@ -83,27 +103,14 @@ export default class WorkItemDetailNewComponent extends Component {
     return services;
   }
 
-  instance = findRecord(this, "instance", () => [
-    this.args.instanceId,
-    { include: "involved_services", reload: true },
-  ]);
-
-  users = query(this, "public-user", () => ({
-    service: this.args.serviceId,
-    disabled: false,
-  }));
-
-  @dropTask
-  *createWorkItem(event) {
-    event.preventDefault();
-
-    if (!this.workItem.addressedGroups.length) {
+  createWorkItem = task({ drop: true }, async (model) => {
+    if (!model.isValid) {
       return;
     }
 
     const extra = {
-      ...(this.workItem.assignedUsers.length
-        ? { assignedUsers: this.workItem.assignedUsers }
+      ...(model.assignedUser
+        ? { assignedUsers: [model.assignedUser.username] }
         : {}),
       ...(!this.selectedOwnService
         ? { controllingGroups: [this.args.serviceId.toString()] }
@@ -117,7 +124,7 @@ export default class WorkItemDetailNewComponent extends Component {
     }
 
     try {
-      const caseId = (yield this.apollo.query(
+      const caseId = await this.apollo.query(
         {
           query: allCases,
           variables: {
@@ -126,35 +133,29 @@ export default class WorkItemDetailNewComponent extends Component {
             ],
           },
         },
-        "allCases.edges",
-      ))[0].node.id;
+        "allCases.edges.0.node.id",
+      );
 
-      // Fix until caluma backend runs on python >3.10
-      const deadline = this.workItem.deadline
-        .toISOString()
-        .replace("Z", "+00:00");
-      yield this.apollo.mutate({
+      await this.apollo.mutate({
         mutation: createWorkItem,
         variables: {
           input: {
             case: caseId,
             multipleInstanceTask: "create-manual-workitems",
-            name: this.workItem.title,
-            description: this.workItem.description,
-            addressedGroups: this.workItem.addressedGroups,
-            deadline,
+            name: model.title,
+            description: model.description,
+            addressedGroups: [model.addressedService.id],
+            deadline: model.deadline,
             meta: JSON.stringify({
-              "notify-completed": this.workItem.notificationCompleted,
-              "notify-deadline": this.workItem.notificationDeadline,
+              "notify-completed": model.notifications.includes("completed"),
+              "notify-deadline": model.notifications.includes("deadline"),
               "is-manually-completable": true,
-              ...this.workItem.meta,
+              ...model.meta,
             }),
             ...extra,
           },
         },
       });
-
-      this.workItem = new NewWorkItem();
 
       this.notification.success(this.intl.t("workItems.saveSuccess"));
 
@@ -163,7 +164,7 @@ export default class WorkItemDetailNewComponent extends Component {
       console.error(error);
       this.notification.danger(this.intl.t("workItems.saveError"));
     }
-  }
+  });
 
   @action
   applyTemplate() {
@@ -175,28 +176,28 @@ export default class WorkItemDetailNewComponent extends Component {
     const currentService = rule !== "NONE";
     const bypassResponsible = rule === "NO_USER";
 
-    let assignedUsers = [];
+    let assignedUserId = null;
 
     if (rule === "CURRENT_USER") {
-      assignedUsers = [this.ebauModules.userName];
+      assignedUserId = this.ebauModules.userId;
     } else if (rule === "SPECIFIC_USER") {
-      assignedUsers = [
-        this.selectedTemplate.get("assignedUser.username"),
-      ].filter(Boolean);
+      assignedUserId = this.selectedTemplate.get("assignedUser.id");
     }
 
-    this.workItem.title = this.selectedTemplate.name;
-    this.workItem.description = this.selectedTemplate.description;
-    this.workItem.meta = {
+    this.model.title = this.selectedTemplate.name;
+    this.model.description = this.selectedTemplate.description;
+    this.model.meta = {
       "template-id": this.selectedTemplate.id,
       "bypass-responsible-user": bypassResponsible,
     };
-    this.workItem.deadline = DateTime.now()
+    this.model.deadline = DateTime.now()
       .plus({ days: this.selectedTemplate.leadTime ?? 10 })
       .toJSDate();
-    this.workItem.addressedGroups = currentService
-      ? [this.args.serviceId.toString()]
-      : [];
-    this.workItem.assignedUsers = assignedUsers;
+    this.model.addressedService = currentService
+      ? this.store.peekRecord("public-service", this.args.serviceId)
+      : null;
+    this.model.assignedUser = assignedUserId
+      ? this.store.peekRecord("public-user", assignedUserId)
+      : null;
   }
 }

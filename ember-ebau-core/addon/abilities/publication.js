@@ -29,10 +29,17 @@ export default class PublicationAbility extends Ability {
     );
   }
 
+  /** can create new drafts */
   get canCreate() {
     return this.hasBasePermission && this.model?.status !== "READY";
   }
 
+  /** can submit a draft */
+  get canSubmit() {
+    return this.hasBasePermission && this.model?.status === "READY";
+  }
+
+  /** can cancel/unpublish already completed workitems */
   get canCancel() {
     return (
       this.hasBasePermission &&
@@ -40,5 +47,10 @@ export default class PublicationAbility extends Ability {
       this.model?.status === "COMPLETED" &&
       this.model?.meta["is-published"]
     );
+  }
+
+  /** can delete drafts */
+  get canDelete() {
+    return this.hasBasePermission && this.model?.status === "READY";
   }
 }

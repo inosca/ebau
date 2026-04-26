@@ -1,3 +1,4 @@
+from django.conf import settings
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.viewsets import ViewSet
@@ -88,9 +89,17 @@ class SuspensionReasonViewSet(ViewSet):
 
     def list(self, request):
         reasons = [
-            {"id": c.value, "code": c.value, "label": str(c.label)}
+            {
+                "id": c.value,
+                "code": c.value,
+                "label": deadlines_models.Suspension.get_reason_label(c.value),
+            }
             for c in deadlines_models.Suspension.SuspensionReasonChoices
+            if c.value in settings.DEADLINES.allowed_suspension_reasons
         ]
+        reasons.sort(
+            key=lambda r: settings.DEADLINES.allowed_suspension_reasons.index(r["id"])
+        )
         serializer = self.serializer_class(reasons, many=True)
 
         return Response(

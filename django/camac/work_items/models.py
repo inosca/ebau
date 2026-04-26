@@ -333,10 +333,10 @@ class WorkItemListRowManager(models.Manager["WorkItemListRow"]):
                 Q(suspended_services__contains=[str(service_id)]), Value(False)
             ),
             is_addressed_to_current_service=Coalesce(
-                Q(addressed_service=service_id), Value(False)
+                Q(addressed_groups__contains=[str(service_id)]), Value(False)
             ),
             is_controlled_by_current_service=Coalesce(
-                Q(controlling_service=service_id), Value(False)
+                Q(controlling_groups__contains=[str(service_id)]), Value(False)
             ),
             is_created_by_current_service=Coalesce(
                 Q(created_by_group=service_id), Value(False)

@@ -6,10 +6,7 @@ import { task } from "ember-concurrency";
 import { findAll, query } from "ember-data-resources";
 import { localCopy } from "tracked-toolbox";
 
-import InputErrorComponent from "ember-ebau-core/components/input-error";
-
 export default class RulesetsResponsibleUserRuleEditComponent extends Component {
-  errorComponent = InputErrorComponent;
   validations = {
     municipalities: this.validatePresenceForType("municipalities"),
     applicationTypes: this.validatePresenceForType("application-types"),

@@ -1,4 +1,4 @@
-{{#if this.publications.isRunning}}
+{{#if (or this.publications.isRunning this.refetchPublications.isRunning)}}
   <div class="uk-text-center"><UkSpinner @ratio={{2}} /></div>
 {{else if this.publications.value.length}}
   <UkTab @right={{true}} as |Tab|>
@@ -40,7 +40,20 @@
 
   {{outlet}}
 {{else}}
-  <p class="uk-text-italic uk-text-center">
-    {{t (concat "publication.empty." @model.type)}}
-  </p>
+  <div class="uk-text-center uk-text-muted">
+    <p
+      class="uk-margin-medium uk-margin-medium-top uk-margin-remove-horizontal"
+    >
+      {{t (concat "publication.empty." @model.type)}}
+    </p>
+    <TaskButton
+      class="uk-margin-right"
+      @color="primary"
+      @task={{this.createTask}}
+      @mutation="complete"
+      @filters={{this.filters}}
+      @onSuccess={{this.refreshNavigation}}
+      @label={{t (concat "publication.new." @model.type)}}
+    />
+  </div>
 {{/if}}

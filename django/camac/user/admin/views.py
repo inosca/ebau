@@ -1,11 +1,10 @@
 from django.conf import settings
 from django.contrib.admin import ModelAdmin, action, display, register
 from django.db import transaction
-from django.db.models import JSONField, QuerySet
+from django.db.models import QuerySet
 from django.db.models.functions import Collate
 from django.http import HttpRequest
 from django.utils.translation import gettext_lazy as _
-from django_json_widget.widgets import JSONEditorWidget
 
 from camac.admin import EbauAdminMixin, MultilingualAdminMixin
 from camac.user.admin.filters import DisabledFilter, SubserviceFilter
@@ -159,7 +158,6 @@ class ServiceAdmin(EbauAdminMixin, MultilingualAdminMixin, ModelAdmin):
     search_fields_ml = ["trans__name", "email", "slug"]
     select_related = ["service_group"]
     actions = ["disable", "enable", "disable_notifications", "enable_notifications"]
-    formfield_overrides = {JSONField: {"widget": JSONEditorWidget}}
 
     @display(description=_("Name"))
     def get_name(self, obj):

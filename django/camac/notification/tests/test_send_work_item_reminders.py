@@ -113,8 +113,8 @@ def test_notify_manual_work_item(
     caluma_task_factory,
     support_role,
     settings,
+    celery_fake_worker,
 ):
-    settings.CELERY_TASK_ALWAYS_EAGER = True
     settings.APPLICATION["NOTIFICATIONS"]["PROCESS_DEADLINES_FROM"] = "2020-08-09"
 
     notification_template_expired = notification_template_factory()
@@ -221,5 +221,8 @@ def test_notify_manual_work_item(
 
     send_notification_for_overdue_workitems.delay()
 
+    assert len(mailoutbox) == 0
+    celery_fake_worker.run_tasks()
     assert len(mailoutbox) == 1
+
     assert mailoutbox[0].recipients()[0] == controlling_service.email

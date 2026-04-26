@@ -4,7 +4,13 @@ import { Response } from "miragejs";
 class PermissionManager {
   #permissions = new Map();
 
+  constructor(owner) {
+    this.service = owner.lookup("service:permissions");
+  }
+
   grant(instanceId, permissions) {
+    instanceId = parseInt(instanceId);
+
     if (!this.#permissions.has(instanceId)) {
       this.#permissions.set(instanceId, new Set());
     }
@@ -14,9 +20,13 @@ class PermissionManager {
     permissions.forEach((permission) => {
       cache.add(permission);
     });
+
+    this.service.clearCacheFor(instanceId);
   }
 
   revoke(instanceId, permissions) {
+    instanceId = parseInt(instanceId);
+
     if (!this.#permissions.has(instanceId)) {
       return;
     }
@@ -26,6 +36,8 @@ class PermissionManager {
     permissions.forEach((permission) => {
       cache.delete(permission);
     });
+
+    this.service.clearCacheFor(instanceId);
   }
 
   getResponse(instanceId) {
@@ -37,7 +49,9 @@ class PermissionManager {
           id: String(instanceId),
           type: "instance-permissions",
           attributes: {
-            permissions: [...(this.#permissions.get(instanceId) ?? [])],
+            permissions: [
+              ...(this.#permissions.get(parseInt(instanceId)) ?? []),
+            ],
           },
           relationships: {
             instance: {
@@ -53,7 +67,7 @@ class PermissionManager {
   }
 
   getAll(instanceId) {
-    return this.#permissions.get(instanceId);
+    return this.#permissions.get(parseInt(instanceId));
   }
 }
 
@@ -65,7 +79,7 @@ export default function setupPermissions(
   setupMirage(hooks);
 
   hooks.beforeEach(function () {
-    const manager = new PermissionManager();
+    const manager = new PermissionManager(this.owner);
 
     this.permissions = manager;
 

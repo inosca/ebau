@@ -81,10 +81,8 @@ MODULE_CONSTRUCTION_MONITORING = (
     RequireWorkItem("init-construction-monitoring") & ROLES_NO_READONLY
 )
 MODULE_CORRECTIONS = (
-    (STATES_ALL | RequireInstanceState(["correction"]))
-    & ROLES_NO_READONLY
-    & ~IsServiceGroup(["municipality-light"])
-)
+    STATES_ALL | RequireInstanceState(["correction"])
+) & ROLES_NO_READONLY
 MODULE_DECISION = NO_CORRECTION & (
     (RequireWorkItem("decision") & ROLES_MUNICIPALITY)
     | RequireWorkItem("decision", "completed")
@@ -110,8 +108,13 @@ MODULE_FORMAL_EXAM = (
     & ROLES_MUNICIPALITY
 )
 MODULE_HISTORY = STATES_ALL & ~IsServiceGroup(["municipality-light"])
-MODULE_INFORMATION_OF_NEIGHBORS = NO_CORRECTION & RequireWorkItem(
-    "fill-information-of-neighbors"
+MODULE_INFORMATION_OF_NEIGHBORS = (
+    NO_CORRECTION
+    & (
+        RequireWorkItem("create-information-of-neighbors")
+        | RequireWorkItem("fill-information-of-neighbors")
+    )
+    & ~IsServiceGroup(["municipality-light"])
 )
 MODULE_JOURNAL_READ = STATES_ALL & ~IsServiceGroup(["municipality-light"])
 MODULE_JOURNAL_WRITE = MODULE_JOURNAL_READ & ROLES_NO_READONLY
@@ -122,7 +125,11 @@ MODULE_PERMISSIONS = (
     & HasRole(["municipality-lead"])
     & ~IsServiceGroup(["municipality-light"])
 )
-MODULE_PUBLICATION = NO_CORRECTION & RequireWorkItem("fill-publication")
+MODULE_PUBLICATION = (
+    NO_CORRECTION
+    & (RequireWorkItem("create-publication") | RequireWorkItem("fill-publication"))
+    & ~IsServiceGroup(["municipality-light"])
+)
 MODULE_REJECTION = RequireInstanceState(["subm", "rejected"]) & ~IsServiceGroup(
     ["municipality-light"]
 )
@@ -191,7 +198,13 @@ ACTION_INSTANCE_DELETE = RequireInstanceState(["new"]) & (
     HasApplicantRole(["ADMIN"])
     | (
         IsServiceGroup(
-            ["municipality", "service-cantonal", "service-afb", "authority-pgv"]
+            [
+                "municipality",
+                "municipality-light",
+                "service-cantonal",
+                "service-afb",
+                "authority-pgv",
+            ]
         )
         & IsPaper()
     )

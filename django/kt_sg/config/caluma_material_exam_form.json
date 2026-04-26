@@ -293,7 +293,7 @@
       "modified_by_group": null,
       "form": "materielle-pruefung-form",
       "question": "materielle-pruefung-ausnahmebewilligungen-notwendig",
-      "sort": 5
+      "sort": 4
     }
   },
   {
@@ -308,7 +308,7 @@
       "modified_by_group": null,
       "form": "materielle-pruefung-form",
       "question": "materielle-pruefung-baulicher-zivilschutz-betroffen",
-      "sort": 6
+      "sort": 5
     }
   },
   {
@@ -323,7 +323,7 @@
       "modified_by_group": null,
       "form": "materielle-pruefung-form",
       "question": "materielle-pruefung-bemerkungen",
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -338,7 +338,37 @@
       "modified_by_group": null,
       "form": "materielle-pruefung-form",
       "question": "materielle-pruefung-brandschutz-in-kantonaler-zustaendigkeit",
-      "sort": 7
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-form.materielle-pruefung-dateien",
+    "fields": {
+      "created_at": "2026-04-07T12:09:22.519Z",
+      "modified_at": "2026-04-07T12:09:22.519Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-form",
+      "question": "materielle-pruefung-dateien",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-form.materielle-pruefung-erschliessung-begruendung-bemerkung",
+    "fields": {
+      "created_at": "2026-04-07T15:25:48.060Z",
+      "modified_at": "2026-04-07T15:25:48.060Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-form",
+      "question": "materielle-pruefung-erschliessung-begruendung-bemerkung",
+      "sort": 8
     }
   },
   {
@@ -358,6 +388,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-form.materielle-pruefung-regelbauweise-begruendung-bemerkung",
+    "fields": {
+      "created_at": "2026-04-07T15:25:10.089Z",
+      "modified_at": "2026-04-07T15:25:10.089Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-form",
+      "question": "materielle-pruefung-regelbauweise-begruendung-bemerkung",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "materielle-pruefung-form.materielle-pruefung-regelbauweise-eingehalten",
     "fields": {
       "created_at": "2026-03-19T09:57:56.058Z",
@@ -368,7 +413,7 @@
       "modified_by_group": null,
       "form": "materielle-pruefung-form",
       "question": "materielle-pruefung-regelbauweise-eingehalten",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -383,7 +428,7 @@
       "modified_by_group": null,
       "form": "materielle-pruefung-form",
       "question": "materielle-pruefung-umweltrelevante-themen-in-kantonaler-zustaendigkeit",
-      "sort": 8
+      "sort": 7
     }
   },
   {
@@ -1148,6 +1193,75 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "materielle-pruefung-dateien",
+    "fields": {
+      "created_at": "2026-04-07T12:09:22.430Z",
+      "modified_at": "2026-04-07T12:09:22.430Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dateien\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "alexandria-documents-form",
+        "alexandria-categories": ["intern"],
+        "alexandriaEnableDocumentFilter": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-erschliessung-begruendung-bemerkung",
+    "fields": {
+      "created_at": "2026-04-07T15:25:47.976Z",
+      "modified_at": "2026-04-07T15:26:24.836Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Begründung / Bemerkung\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "\"materielle-pruefung-erschliessung-vorhanden-und-ausreichend\"|answer != \"materielle-pruefung-erschliessung-vorhanden-und-ausreichend-nein\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "materielle-pruefung-erschliessung-vorhanden-und-ausreichend",
     "fields": {
       "created_at": "2026-03-18T15:05:44.312Z",
@@ -1322,6 +1436,40 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-regelbauweise-begruendung-bemerkung",
+    "fields": {
+      "created_at": "2026-04-07T15:25:09.876Z",
+      "modified_at": "2026-04-07T15:26:42.515Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Begründung / Bemerkung\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "\"materielle-pruefung-regelbauweise-eingehalten\"|answer != \"materielle-pruefung-regelbauweise-eingehalten-nein\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,

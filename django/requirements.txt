@@ -22,9 +22,7 @@ django-generic-api-permissions==3.0.1
 django-ipware==7.0.1
 django-json-widget==2.0.3
 django-presigned-url==0.1.1
-# might be able to switch back to main fork https://github.com/Koed00/django-q/issues/735
-django-q2==1.8.0
-django-reversion==5.1.0
+django-reversion==6.1.0
 django-simple-captcha==0.6.3
 django-storages==1.14.6
 # check camac/filter.py MultilingualSearchFilter.filter_queryset before updating
@@ -33,7 +31,7 @@ djangorestframework-jsonapi==8.0.0
 djangorestframework-xml==2.0.0
 docxtpl==0.20.2
 drf-extra-fields==3.7.0
-drf-yasg==1.21.14
+drf-yasg==1.21.15
 ebau-gwr==0.8.3
 gunicorn==23.0.0
 hdbcli==2.25.31

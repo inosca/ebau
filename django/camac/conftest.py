@@ -1,4 +1,4 @@
-import copy
+import copy  # noqa: I001
 import inspect
 import logging
 import os
@@ -8,7 +8,8 @@ from dataclasses import dataclass, field
 from datetime import date, timedelta
 from importlib import import_module, reload
 from pathlib import Path
-from typing import Callable, Optional
+from typing import Callable, Literal, Optional
+from uuid import uuid4
 
 import django.db
 import faker
@@ -28,11 +29,22 @@ from caluma.caluma_workflow import (
     models as caluma_workflow_models,
 )
 from caluma.caluma_workflow.api import complete_work_item, skip_work_item
+from celery.contrib.pytest import (  # noqa: F403, F401
+    # These are needed to make celery pytesting work
+    # Check here for why that redundant rename is necesary
+    # https://docs.astral.sh/ruff/rules/unused-import/
+    celery_app as celery_app,
+    celery_config as celery_config,
+    celery_parameters as celery_parameters,
+    celery_enable_logging as celery_enable_logging,
+    use_celery_app_trap as use_celery_app_trap,
+)
 from django.conf import settings as django_settings
 from django.core.cache import cache
 from django.core.management import call_command
 from django.http import FileResponse
 from django.urls import clear_url_caches
+from django.utils.module_loading import import_string
 from django.utils.timezone import make_aware, now
 from factory import Faker
 from factory.base import FactoryMetaClass
@@ -72,6 +84,7 @@ from camac.sanctions import factories as sanction_factories
 from camac.tags import factories as tags_factories
 from camac.tests.data import (
     ag_personal_row_factory,
+    sg_personal_row_factory,
     so_fill_cantonal_exam,
     so_personal_row_factory,
 )
@@ -503,50 +516,54 @@ def unoconv_invalid_mock(requests_mock, settings):
 
 
 @pytest.fixture
-def caluma_config_be(
-    settings, application_settings, use_caluma_form, be_master_data_settings
-):
-    application_settings["CALUMA"] = deepcopy(
-        settings.APPLICATIONS["kt_bern"]["CALUMA"]
-    )
+def _caluma_config_factory(settings, application_settings, request, use_caluma_form):
+    def fn(application_name):
+        short_name = settings.APPLICATIONS[application_name]["SHORT_NAME"]
+        request.getfixturevalue(f"{short_name}_master_data_settings")
+
+        application_settings["CALUMA"] = deepcopy(
+            settings.APPLICATIONS[application_name]["CALUMA"]
+        )
+
+        if application_name == "kt_schwyz":
+            application_settings["FORM_BACKEND"] = "camac-ng"
+
+    return fn
 
 
 @pytest.fixture
-def caluma_config_ur(
-    settings, application_settings, use_caluma_form, ur_master_data_settings
-):
-    application_settings["CALUMA"] = deepcopy(settings.APPLICATIONS["kt_uri"]["CALUMA"])
+def caluma_config_be(_caluma_config_factory):
+    _caluma_config_factory("kt_bern")
 
 
 @pytest.fixture
-def caluma_config_sz(
-    settings, application_settings, use_caluma_form, sz_master_data_settings
-):
-    application_settings["CALUMA"] = deepcopy(
-        settings.APPLICATIONS["kt_schwyz"]["CALUMA"]
-    )
-    application_settings["FORM_BACKEND"] = "camac-ng"
+def caluma_config_ur(_caluma_config_factory):
+    _caluma_config_factory("kt_uri")
 
 
 @pytest.fixture
-def caluma_config_gr(
-    settings, application_settings, use_caluma_form, gr_master_data_settings
-):
-    application_settings["CALUMA"] = deepcopy(settings.APPLICATIONS["kt_gr"]["CALUMA"])
+def caluma_config_sz(_caluma_config_factory):
+    _caluma_config_factory("kt_schwyz")
 
 
 @pytest.fixture
-def caluma_config_so(
-    settings, application_settings, use_caluma_form, so_master_data_settings
-):
-    application_settings["CALUMA"] = deepcopy(settings.APPLICATIONS["kt_so"]["CALUMA"])
+def caluma_config_gr(_caluma_config_factory):
+    _caluma_config_factory("kt_gr")
 
 
 @pytest.fixture
-def caluma_config_ag(
-    settings, application_settings, use_caluma_form, ag_master_data_settings
-):
-    application_settings["CALUMA"] = deepcopy(settings.APPLICATIONS["kt_ag"]["CALUMA"])
+def caluma_config_so(_caluma_config_factory):
+    _caluma_config_factory("kt_so")
+
+
+@pytest.fixture
+def caluma_config_ag(_caluma_config_factory):
+    _caluma_config_factory("kt_ag")
+
+
+@pytest.fixture
+def caluma_config_sg(_caluma_config_factory):
+    _caluma_config_factory("kt_sg")
 
 
 @pytest.fixture
@@ -808,6 +825,23 @@ def caluma_workflow_config_ag(
 
 
 @pytest.fixture
+def caluma_workflow_config_sg(settings, caluma_forms_sg, caluma_config_sg):
+    call_command(
+        "loaddata",
+        settings.ROOT_DIR("kt_sg/config/caluma_workflow.json"),
+        settings.ROOT_DIR("kt_sg/config/caluma_additional_demand.json"),
+    )
+
+    main_workflow = caluma_workflow_models.Workflow.objects.get(pk="building-permit")
+    main_workflow.allow_forms.set(["main-form", "baugesuch"])
+
+    yield main_workflow
+
+    caluma_workflow_models.Case.objects.all().delete()
+    caluma_workflow_models.Workflow.objects.all().delete()
+
+
+@pytest.fixture
 def caluma_audit(caluma_workflow_config_be, settings):
     for slug in CALUMA_FORM_TYPES_SLUGS:
         caluma_form_models.Form.objects.create(slug=slug)
@@ -863,7 +897,64 @@ def yes_no(boolean, lang):
 
 
 @pytest.fixture
-def caluma_forms_be(settings):
+def add_yes_no_question(caluma_form_question_factory, caluma_question_option_factory):
+    def fn(
+        form_slug: str,
+        question_slug: str,
+        question_type: str,
+        options: list[bool],
+        option_lang: Literal["de", "en"],
+    ):
+        form_question = caluma_form_question_factory(
+            form_id=form_slug,
+            question__pk=question_slug,
+            question__type=question_type,
+            question__is_required="false",
+        )
+
+        for i, option_bool in enumerate(reversed(options)):
+            caluma_question_option_factory(
+                question_id=question_slug,
+                option__pk=f"{question_slug}-{yes_no(option_bool, option_lang)}",
+                option__label="Ja" if option_bool else "Nein",
+                sort=i,
+            )
+
+        return form_question.question
+
+    return fn
+
+
+@pytest.fixture
+def add_general_questions(add_yes_no_question):
+    def fn(form_slug: str) -> None:
+        add_yes_no_question(
+            form_slug,
+            "is-paper",
+            caluma_form_models.Question.TYPE_CHOICE,
+            [True, False],
+            "en",
+        )
+        add_yes_no_question(
+            form_slug,
+            "projektaenderung",
+            caluma_form_models.Question.TYPE_CHOICE,
+            [True, False],
+            "de",
+        )
+        add_yes_no_question(
+            form_slug,
+            "einreichen-button",
+            caluma_form_models.Question.TYPE_MULTIPLE_CHOICE,
+            [True],
+            "de",
+        )
+
+    return fn
+
+
+@pytest.fixture
+def caluma_forms_be(settings, add_general_questions, add_yes_no_question):
     # forms
     caluma_form_models.Form.objects.create(
         slug="main-form",
@@ -903,25 +994,21 @@ def caluma_forms_be(settings):
         type=caluma_form_models.Question.TYPE_FORM,
     )
 
-    for slug, lang in [("is-paper", "en"), ("projektaenderung", "de")]:
-        question = caluma_form_models.Question.objects.create(
-            slug=slug, type=caluma_form_models.Question.TYPE_CHOICE
-        )
-        caluma_form_models.FormQuestion.objects.create(
-            form_id="main-form", question_id=slug
-        )
-        options = [
-            caluma_form_models.Option.objects.create(
-                slug=f"{slug}-{yes(lang)}", label="Ja"
-            ),
-            caluma_form_models.Option.objects.create(
-                slug=f"{slug}-{no(lang)}", label="Nein"
-            ),
-        ]
-        for option in options:
-            caluma_form_models.QuestionOption.objects.create(
-                question=question, option=option
-            )
+    add_general_questions("main-form")
+    add_yes_no_question(
+        "sb1",
+        "einreichen-button-sb1",
+        caluma_form_models.Question.TYPE_MULTIPLE_CHOICE,
+        [True],
+        "de",
+    )
+    add_yes_no_question(
+        "sb2",
+        "einreichen-button-sb2",
+        caluma_form_models.Question.TYPE_MULTIPLE_CHOICE,
+        [True],
+        "de",
+    )
 
     # some question for suggestions
     question = caluma_form_models.Question.objects.create(
@@ -1003,7 +1090,7 @@ def caluma_forms_be(settings):
 
 
 @pytest.fixture
-def caluma_forms_ur(settings):
+def caluma_forms_ur(settings, add_general_questions):
     # forms
     for counter, form in enumerate(["main-form", "oereb", "oereb-verfahren-gemeinde"]):
         caluma_form_models.Form.objects.create(
@@ -1075,25 +1162,7 @@ def caluma_forms_ur(settings):
         "camac.caluma.extensions.data_sources.Municipalities",
     ]
 
-    for slug, lang in [("is-paper", "en"), ("projektaenderung", "de")]:
-        question = caluma_form_models.Question.objects.create(
-            slug=slug, type=caluma_form_models.Question.TYPE_CHOICE
-        )
-        caluma_form_models.FormQuestion.objects.create(
-            form_id="main-form", question_id=slug
-        )
-        options = [
-            caluma_form_models.Option.objects.create(
-                slug=f"{slug}-{yes(lang)}", label="Ja"
-            ),
-            caluma_form_models.Option.objects.create(
-                slug=f"{slug}-{no(lang)}", label="Nein"
-            ),
-        ]
-        for option in options:
-            caluma_form_models.QuestionOption.objects.create(
-                question=question, option=option
-            )
+    add_general_questions("main-form")
 
     # link questions with forms
     for form_id, question_id in FORM_QUESTION_MAP_UR:
@@ -1103,7 +1172,7 @@ def caluma_forms_ur(settings):
 
 
 @pytest.fixture
-def caluma_forms_gr(settings):
+def caluma_forms_gr(settings, add_general_questions):
     # forms
     caluma_form_models.Form.objects.create(
         slug="main-form", meta={"is-main-form": True}, name="Baugesuch"
@@ -1135,25 +1204,7 @@ def caluma_forms_gr(settings):
             form_id="entsorgung", question_id=slug
         )
 
-    for slug, lang in [("is-paper", "en"), ("projektaenderung", "de")]:
-        question = caluma_form_models.Question.objects.create(
-            slug=slug, type=caluma_form_models.Question.TYPE_CHOICE
-        )
-        caluma_form_models.FormQuestion.objects.create(
-            form_id="main-form", question_id=slug
-        )
-        options = [
-            caluma_form_models.Option.objects.create(
-                slug=f"{slug}-{yes(lang)}", label="Ja"
-            ),
-            caluma_form_models.Option.objects.create(
-                slug=f"{slug}-{no(lang)}", label="Nein"
-            ),
-        ]
-        for option in options:
-            caluma_form_models.QuestionOption.objects.create(
-                question=question, option=option
-            )
+    add_general_questions("main-form")
 
     # main form
     caluma_form_models.Question.objects.create(
@@ -1165,7 +1216,7 @@ def caluma_forms_gr(settings):
 
 
 @pytest.fixture
-def caluma_forms_so(settings):
+def caluma_forms_so(settings, add_general_questions):
     # forms
     caluma_form_models.Form.objects.create(
         slug="main-form", meta={"is-main-form": True}, name="Baugesuch"
@@ -1193,25 +1244,7 @@ def caluma_forms_so(settings):
         "camac.caluma.extensions.data_sources.Municipalities"
     ]
 
-    for slug, lang in [("is-paper", "en"), ("projektaenderung", "de")]:
-        question = caluma_form_models.Question.objects.create(
-            slug=slug, type=caluma_form_models.Question.TYPE_CHOICE
-        )
-        caluma_form_models.FormQuestion.objects.create(
-            form_id="main-form", question_id=slug
-        )
-        options = [
-            caluma_form_models.Option.objects.create(
-                slug=f"{slug}-{yes(lang)}", label="Ja"
-            ),
-            caluma_form_models.Option.objects.create(
-                slug=f"{slug}-{no(lang)}", label="Nein"
-            ),
-        ]
-        for option in options:
-            caluma_form_models.QuestionOption.objects.create(
-                question=question, option=option
-            )
+    add_general_questions("main-form")
 
     caluma_form_models.Question.objects.create(
         slug="beschreibung-bauvorhaben", type=caluma_form_models.Question.TYPE_TEXT
@@ -1219,7 +1252,7 @@ def caluma_forms_so(settings):
 
 
 @pytest.fixture
-def caluma_forms_ag(settings, caluma_form_factory):
+def caluma_forms_ag(settings, add_general_questions):
     caluma_form_models.Form.objects.create(
         slug="main-form", meta={"is-main-form": True}, name="Baugesuch"
     )
@@ -1269,29 +1302,48 @@ def caluma_forms_ag(settings, caluma_form_factory):
         "camac.caluma.extensions.data_sources.Municipalities"
     ]
 
-    for slug, lang in [("is-paper", "en"), ("projektaenderung", "de")]:
-        question = caluma_form_models.Question.objects.create(
-            slug=slug, type=caluma_form_models.Question.TYPE_CHOICE
-        )
-        caluma_form_models.FormQuestion.objects.create(
-            form_id="main-form", question_id=slug
-        )
-        options = [
-            caluma_form_models.Option.objects.create(
-                slug=f"{slug}-{yes(lang)}", label="Ja"
-            ),
-            caluma_form_models.Option.objects.create(
-                slug=f"{slug}-{no(lang)}", label="Nein"
-            ),
-        ]
-        for option in options:
-            caluma_form_models.QuestionOption.objects.create(
-                question=question, option=option
-            )
+    add_general_questions("main-form")
 
     caluma_form_models.Question.objects.create(
         slug="beschreibung-bauvorhaben", type=caluma_form_models.Question.TYPE_TEXT
     )
+
+
+@pytest.fixture
+def caluma_forms_sg(
+    add_general_questions, caluma_form_factory, caluma_question_factory, settings
+):
+    caluma_form_factory(
+        slug="main-form",
+        meta={"is-main-form": True},
+        name="Baugesuch",
+    )
+
+    for slug in [
+        # Main forms
+        "baugesuch",
+        # Task forms
+        "formelle-vorpruefung",
+        "materielle-pruefung",
+        "publikation",
+    ]:
+        caluma_form_factory(slug=slug)
+
+    # Questions
+    add_general_questions("main-form")
+    caluma_question_factory(
+        slug="gemeinde",
+        type=caluma_form_models.Question.TYPE_DYNAMIC_CHOICE,
+        data_source="Municipalities",
+    )
+    caluma_question_factory(
+        slug="beschreibung-bauvorhaben",
+        type=caluma_form_models.Question.TYPE_TEXT,
+    )
+
+    settings.DATA_SOURCE_CLASSES = [
+        "camac.caluma.extensions.data_sources.Municipalities"
+    ]
 
 
 @pytest.fixture
@@ -1379,6 +1431,11 @@ def so_instance(instance, caluma_workflow_config_so, instance_with_case):
 
 @pytest.fixture
 def ag_instance(instance, caluma_workflow_config_ag, instance_with_case):
+    return instance_with_case(instance)
+
+
+@pytest.fixture
+def sg_instance(instance, caluma_workflow_config_sg, instance_with_case):
     return instance_with_case(instance)
 
 
@@ -2408,6 +2465,56 @@ def ag_master_data_case(
 
 
 @pytest.fixture
+def sg_master_data_case(
+    db,
+    form_utils: FormUtils,
+    instance_service_factory,
+    master_data_is_visible_mock,
+    multilang,
+    service_factory,
+    sg_instance,
+):
+    sg_instance.case.meta = {
+        "dossier-number": "2026-99",
+        "submit-date": "2026-03-19T17:32:18+0000",
+    }
+    sg_instance.case.save(update_fields=["meta"])
+
+    document = sg_instance.case.document
+
+    form_utils.add_answer(document, "is-paper", "is-paper-no")
+    form_utils.add_answer(document, "beschreibung-bauvorhaben", "Neues EFH")
+    form_utils.add_answer(document, "strasse-und-nr", "Lämmlisbrunnenstrasse 54")
+    form_utils.add_table_answer(
+        document,
+        "parzellen",
+        [
+            {
+                "parzellennummer": "C3111",
+                "e-grid-nummer": "CH738779590758",
+                "koordinaten-ost": 2746641.47,
+                "koordinaten-nord": 1254612.15,
+            }
+        ],
+    )
+    form_utils.add_table_answer(
+        document, "gesuchstellerin", [sg_personal_row_factory()]
+    )
+
+    # Municipality
+    municipality = service_factory(
+        pk=999,
+        trans__name="St.Gallen",
+        trans__language="de",
+        service_group__name="municipality",
+    )
+    form_utils.add_municipality(document, "gemeinde", municipality)
+    instance_service_factory(instance=sg_instance, service=municipality, active=1)
+
+    return sg_instance.case
+
+
+@pytest.fixture
 def ur_master_data_case(
     db,
     ur_instance,
@@ -3194,6 +3301,90 @@ def mock_celery(mocker):
 
 
 @pytest.fixture
+def celery_fake_worker(celery_app, mocker):  # noqa: F811,C901
+    """
+    Mock Celery task scheduling and allow running those tasks in tests.
+
+    Example use:
+    >>>    def test_something(..., celery_fake_worker):
+    ...
+    ...        # Trigger code that schedules some tasks
+    ...        ...
+    ...
+    ...        # Run the task
+    ...        celery_fake_worker.run_tasks()
+    ...
+    ...        # Now run the code to check the results
+    ...        ...
+    ...
+    """
+    task_queue = []
+
+    by_id = {}
+
+    class TaskResult:
+        """Mimick the AsyncResult from Celery as closely as needed.
+
+        This represents a *scheduled* task, as well as the result once
+        it's done. We'll try to keep it simple here, and only implement
+        what's needed by our code.
+        """
+
+        def __init__(self, func, args, kwargs):
+            self.func = func
+            self.args = args
+            self.kwargs = kwargs
+            self.id = str(uuid4())
+            by_id[self.id] = self
+            self.status = "PENDING"
+
+        def run(self, raise_errors=True):
+            try:
+                self.result = self.func(*self.args, **self.kwargs)
+                self.status = "SUCCESSFUL"
+            except Exception as exc:  # noqa
+                self.result = exc
+                self.status = "FAILED"
+                if raise_errors:  # pragma: no cover
+                    raise
+
+        def successful(self):
+            return self.status == "SUCCESSFUL"
+
+        def failed(self):
+            return self.status == "FAILED"
+
+    def get_by_id(task_id):
+        return by_id[task_id]
+
+    def mock_delay(self, *args, **kwargs):
+        task = TaskResult(self, args, kwargs)
+        task_queue.append(task)
+        return task
+
+    mocker.patch("celery.Task.delay", mock_delay)
+    mocker.patch("celery.Task.apply_async", mock_delay)
+    mocker.patch("celery.result.AsyncResult", get_by_id)
+
+    class FakeWorker:
+        def run_tasks(self, raise_errors=True):
+            """Execute all queued tasks."""
+            while task_queue:
+                task = task_queue.pop()
+                task.run(raise_errors=raise_errors)
+
+        def inject_task(self, the_task):
+            """Allow test code to inject fake task objects.
+
+            The task objects *should* resemble a Celery AsyncResult object,
+            but at the very least MUST have an `id` property.
+            """
+            by_id[the_task.id] = the_task
+
+    yield FakeWorker()
+
+
+@pytest.fixture
 def create_caluma_publication(
     db, caluma_work_item_factory, form_utils: FormUtils, request
 ):
@@ -3234,25 +3425,7 @@ def create_caluma_publication(
 
 
 @pytest.fixture
-def django_q_sync_mode(settings):
-    """Set Django-Q to Sync mode for the duration of the test case.
-
-    That way, background tasks will run immediately instead of being
-    scheduled, so we can actually test them like normal code.
-    """
-    import django_q.conf
-
-    before = django_q.conf.Conf.SYNC
-    django_q.conf.Conf.SYNC = True
-
-    try:
-        yield
-    finally:
-        django_q.conf.Conf.SYNC = before
-
-
-@pytest.fixture
-def fake_request(rf, admin_user, group):
+def fake_request(rf, admin_user, group, request_mock):
     request = rf.request()
     request.user = admin_user
     request.group = group
@@ -3394,12 +3567,6 @@ def _validateable_settings():
     ]
 
 
-def _get_module_settings(setting_name):
-    """Return the settings module as imported for the given module."""
-    origin, name = setting_name.rsplit(".", 1)
-    return getattr(import_module(origin), name)
-
-
 _before_settings = {}
 
 
@@ -3423,12 +3590,12 @@ def ensure_no_leaks(request):
         # we only do the before settings copy once. This is the expensive
         # part of the operation
         _before_settings.update(
-            {s: copy.deepcopy(_get_module_settings(s)) for s in settings_to_check}
+            {s: copy.deepcopy(import_string(s)) for s in settings_to_check}
         )
 
     yield
 
-    after_settings = {s: _get_module_settings(s) for s in settings_to_check}
+    after_settings = {s: import_string(s) for s in settings_to_check}
 
     for s in settings_to_check:
         before = _before_settings[s]

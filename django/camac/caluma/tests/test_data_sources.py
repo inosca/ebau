@@ -3,12 +3,14 @@ from collections import namedtuple
 import pytest
 from caluma.caluma_form import models as caluma_form_models
 from caluma.caluma_form.factories import QuestionFactory
+from django.core.cache import cache
 
 from camac.tests.data import so_personal_row_factory
 from camac.tests.form_utils import FormUtils
 
 from ..extensions.countries import COUNTRIES
 from ..extensions.data_sources import (
+    Applicants,
     Attachments,
     Authorities,
     Buildings,
@@ -492,30 +494,6 @@ def test_preliminary_clarfication_targets_so(
     assert data[4][1]["de"] == "Procap"
 
 
-def test_preliminary_clarfication_targets_sg(
-    db, caluma_admin_user, service_factory, application_settings
-):
-    application_settings["SHORT_NAME"] = "sg"
-
-    service_factory(
-        trans__name="AfU",
-        trans__language="de",
-        service_group__slug="service",
-    )
-    service_factory(
-        trans__name="Koordinationsstelle Bau",
-        trans__language="de",
-        service_group__slug="coordination",
-    )
-
-    data = PreliminaryClarificationTargets().get_data(caluma_admin_user, None, None)
-
-    assert data[0][1]["de"] == "Andere"
-    assert data[1][1]["de"] == "Örtliche Baubehörde"
-    assert data[2][1]["de"] == "AfU"
-    assert data[3][1]["de"] == "Koordinationsstelle Bau"
-
-
 def test_buildings(
     db, caluma_admin_user, caluma_question_factory, so_instance, form_utils: FormUtils
 ):
@@ -699,3 +677,46 @@ def test_sanctions(
         assert len(data) == 1 and data[0][0] is None
     else:
         assert len(data) == expected_count
+
+
+def test_applicants(db, instance_factory, applicant_factory, django_assert_num_queries):
+    instance = instance_factory()
+    ds = Applicants()
+
+    # Clear all pre-existing applicants
+    instance.involved_applicants.all().delete()
+
+    a1 = applicant_factory(
+        instance=instance,
+        invitee=None,
+        email="test@example.com",
+    )
+    a2 = applicant_factory(
+        instance=instance,
+        invitee__name="John",
+        invitee__surname="Doe",
+    )
+    a3 = applicant_factory(
+        instance=instance,
+        invitee__name="Jane",
+        invitee__surname="Doe",
+    )
+
+    context = None
+    with django_assert_num_queries(0):
+        assert ds.get_data(None, None, context) == []
+
+    cache.clear()
+    context = {}
+    with django_assert_num_queries(0):
+        assert ds.get_data(None, None, context) == []
+
+    cache.clear()
+    context = {"instanceId": instance.pk}
+    with django_assert_num_queries(1):
+        assert ds.get_data(None, None, context) == [
+            # Jane comes before John because of alphabetic ordering
+            [str(a3.pk), "Jane Doe"],
+            [str(a2.pk), "John Doe"],
+            [str(a1.pk), "test@example.com"],
+        ]

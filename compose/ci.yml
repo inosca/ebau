@@ -82,15 +82,6 @@ services:
     networks:
       - ebau.localhost
 
-  django-q:
-    <<: *django
-    command: qcluster
-    ports: []
-    depends_on:
-      - db
-    networks:
-      - ebau.localhost
-
   ember:
     image: acr.run/camac-ng/camac-ng/ember:${CI_COMMIT_REF_SLUG:-master}
     build:

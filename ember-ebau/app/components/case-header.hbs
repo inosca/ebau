@@ -6,6 +6,8 @@
     (and
       (has-feature "cases.showNoApplicantRegisteredWarning")
       this.showNoApplicantRegisteredWarningForInstance
+      (not this.compact)
+      (not @fullscreen)
     )
   }}
     <div
@@ -80,14 +82,14 @@
                   {{if
                     deadlineDate
                     (format-date deadlineDate format="date")
-                    (t "deadlines.deadline.noEndDate")
+                    (t "deadlines.deadline.noTargetDeadlineDate")
                   }}
                 </s>
               {{else}}
                 {{if
                   deadlineDate
                   (format-date deadlineDate format="date")
-                  (t "deadlines.deadline.noEndDate")
+                  (t "deadlines.deadline.noTargetDeadlineDate")
                 }}
               {{/if}}
             {{/let}}

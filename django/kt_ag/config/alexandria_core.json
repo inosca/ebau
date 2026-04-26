@@ -533,7 +533,7 @@
       },
       "name": "{\"de\": \"Alle Beteiligten\", \"fr\": \"\", \"it\": \"Tutte le parti coinvolte\"}",
       "description": "{\"de\": \"Hier werden von der Gemeinde Dokumente hochgeladen, welche für alle am Verfahren beteiligten Rollen einsehbar sein sollen (z.B. Verfahrensprogramm, Bauentscheid). Gesuchstellenden werden diese Dokumente im eBau-Portal unter *Rückmeldungen* angezeigt.\", \"fr\": \"\", \"it\": \"Qui il comune carica i documenti che devono essere consultabili per tutte le parti coinvolte (ad es. programma della procedura, decisione edilizia). Le persone richiedenti possono visualizzare questi documenti nel portale eBau al menu *Riscontri*.\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\", \"image/vnd.dwg\", \".dwg\", \"application/x-zip-compressed\", \"application/zip-compressed\", \"application/x-zip\", \"application/zip\"]",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#CB68C1",
       "parent": null,
       "sort": 3
@@ -1047,7 +1047,7 @@
       },
       "name": "{\"de\": \"Kantonale Stellen\", \"fr\": \"\", \"it\": \"Tutti Cantone\"}",
       "description": "{\"de\": \"Diese Kategorie dient dem Dokumentenaustausch zwischen kantonalen Fachstellen. Alle kantonalen Fachstellen haben Zugriff auf hier hochgeladene Dokumente.\", \"fr\": \"\", \"it\": \"Questa categoria serve allo scambio di documenti tra i servizi cantonali. Tutti i servizi cantonali hanno accesso ai documenti caricati.\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\", \"image/vnd.dwg\", \".dwg\", \"application/x-zip-compressed\", \"application/zip-compressed\", \"application/x-zip\", \"application/zip\"]",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#66CFC9",
       "parent": null,
       "sort": 5
@@ -1421,7 +1421,7 @@
       },
       "name": "{\"de\": \"Gesuchsunterlagen\", \"fr\": \"\", \"it\": \"Allegati alla domanda\"}",
       "description": "{\"de\": \"Diese Dokumente wurden vom Gesuchstellenden hochgeladen und sind für alle am Verfahren beteiligten Behörden einsehbar.\", \"fr\": \"\", \"it\": \"Questi documenti vengono caricati dalle persone richiedenti e possono essere consultati da tutte le autorità coinvolte nella procedura.\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\", \"image/vnd.dwg\", \".dwg\", \"application/x-zip-compressed\", \"application/zip-compressed\", \"application/x-zip\", \"application/zip\"]",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#9CDD69",
       "parent": null,
       "sort": 1
@@ -1440,7 +1440,7 @@
       "metainfo": {},
       "name": "{\"de\": \"Brandschutz (Feuerpolizei)\", \"fr\": \"\", \"it\": \"Protezione antincendio (polizia del fuoco)\"}",
       "description": "{\"de\": \"Unter die Begriffe Brandschutz (Feuerpolizei) fallen alle für die feuerpolizeiliche Bewilligung notwendigen Gesuchsunterlagen (Situationsplan, Brandschutzpläne [Grundriss, Schnitte, Fassaden etc.], Brandschutzkonzept, evtl. VKF-Zulassungen, Leistungserklärungen etc.).\", \"fr\": \"\", \"it\": \"Con «Protezione antincendio (polizia del fuoco)» si intende tutta la documentazione di domanda necessaria per il permesso di polizia del fuoco (piano di situazione, piani antincendio [pianta, sezione, facciate, ecc.], strategia antincendio, ev. omologazioni AICAA, dichiarazioni di prestazione, ecc.).\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\", \"image/vnd.dwg\", \".dwg\", \"application/x-zip-compressed\", \"application/zip-compressed\", \"application/x-zip\", \"application/zip\"]",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#9CDD69",
       "parent": "beilagen-zum-gesuch",
       "sort": 3
@@ -1478,7 +1478,7 @@
       "metainfo": {},
       "name": "{\"de\": \"Grundstücksangaben, Projektpläne und -beschrieb\", \"fr\": \"\", \"it\": \"Indicazioni relative al fondo, piani di progetto e descrizione del progetto\"}",
       "description": "{\"de\": \"Unter die Begriffe Situationspläne, Projektpläne, Projektbeschrieb, Grundstücksangaben fallen Gesuchsunterlagen wie z.B. Kartenausschnitt 1:25'000, Grundbuchauszug und Situationsplan 1:500 oder 1:1'000, Aufnahmepläne (Grundrisse, Schnitte, Ansichten, Längen- und Querprofile, Normalprofile) und fachgerechte Projektpläne (Grundrisse, Schnitte, Ansichten, Längen- und Querprofile, Normalprofile), Umgebungspläne, Kanalisationsplan, Baubeschrieb etc.\", \"fr\": \"\", \"it\": \"Con «piani di situazione», «piani di progetto», «descrizione del progetto», «indicazioni relative al fondo» si intende la documentazione di domanda come ad es. l'estratto della carta in scala 1:25'000, l'estratto del registro fondiario e il piano di situazione in scala 1:500 o 1:1'000, i piani di rilievo (piante, sezioni, viste, profili longitudinali e trasversali, profili normali) e i piani di progetto professionali (piante, sezioni, viste, profili longitudinali e trasversali, profili normali), i piani delle aree circostanti, il piano delle canalizzazioni, la descrizione della costruzione, ecc.\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\", \"image/vnd.dwg\", \".dwg\", \"application/x-zip-compressed\", \"application/zip-compressed\", \"application/x-zip\", \"application/zip\"]",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#9CDD69",
       "parent": "beilagen-zum-gesuch",
       "sort": 1
@@ -1497,7 +1497,7 @@
       "metainfo": {},
       "name": "{\"de\": \"Gutachten, Nachweise, Begründungen\", \"fr\": \"\", \"it\": \"Perizie, prove, motivazioni\"}",
       "description": "{\"de\": \"Unter die Begriffe \\\"Gutachten, Nachweise, Begründungen\\\" fallen Gesuchsunterlagen wie z.B. Fotodokumentation der bestehenden Baute/Anlage, Formulare zu Zusatzgesuchen (Rodungsgesuch) etc.\", \"fr\": \"\", \"it\": \"Con «Perizie, prove, motivazioni» si intende la documentazione di domanda come ad es. le fotografie delle costruzioni/degli impianti esistenti, i moduli relativi a domande supplementari (domanda di dissodamento), ecc.\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\", \"image/vnd.dwg\", \".dwg\", \"application/x-zip-compressed\", \"application/zip-compressed\", \"application/x-zip\", \"application/zip\"]",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#9CDD69",
       "parent": "beilagen-zum-gesuch",
       "sort": 2
@@ -1516,7 +1516,7 @@
       "metainfo": {},
       "name": "{\"de\": \"Weitere Gesuchsunterlagen\", \"fr\": \"\", \"it\": \"Altra documentazione di domanda\"}",
       "description": "{\"de\": \"Unter den Begriff \\\"weitere Gesuchsunterlagen\\\" fallen Gesuchsunterlagen wie z.B. detaillierte Berechnungen der anzuwenden Nutzungsziffern, Lärmschutznachweise, Energienachweise, Bericht zur Umweltvertäglichkeitsprüfung (UVP), Bodenkundliches Fachgutachten, Vorprüfungsentscheid der Gebäudeversicherung.\", \"fr\": \"\", \"it\": \"Con «Altra documentazione di domanda» si intende la documentazione di domanda come ad es. i calcoli dettagliati degli indici di utilizzazione che dovranno essere applicati, gli attestati di protezione fonica, i certificati energetici, il rapporto relativo all'esame dell'impatto sull'ambiente (EIA), la perizia pedologica, la decisione dell'Assicurazione fabbricati relativa all'esame preliminare.\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\", \"image/vnd.dwg\", \".dwg\", \"application/x-zip-compressed\", \"application/zip-compressed\", \"application/x-zip\", \"application/zip\"]",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#9CDD69",
       "parent": "beilagen-zum-gesuch",
       "sort": 4
@@ -2199,7 +2199,7 @@
       },
       "name": "{\"de\": \"Beteiligte Behörden\", \"fr\": \"\", \"it\": \"Autorità coinvolte\"}",
       "description": "{\"de\": \"Hier werden die von den beteiligten Behörden erfassten Dokumente (z.B. Verfügungen, Amts- und Fachberichte, Stellungnahmen) hochgeladen. Diese Dokumente sind nur für die am Verfahren beteiligten Behörden sichtbar, nicht aber für die Gesuchstellenden.\", \"fr\": \"\", \"it\": \"Qui vengono caricati i documenti compilati dalle autorità coinvolte (ad es. decisioni, rapporti ufficiali e tecnici, prese di posizione). Questi documenti sono visibili solo per le autorità coinvolte nella procedura, ma non per le persone richiedenti.\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\", \"image/vnd.dwg\", \".dwg\", \"application/x-zip-compressed\", \"application/zip-compressed\", \"application/x-zip\", \"application/zip\"]",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-outlook\", \".msg\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#8791EC",
       "parent": null,
       "sort": 4
@@ -2587,7 +2587,7 @@
       },
       "name": "{\"de\": \"Intern\", \"fr\": \"\", \"it\": \"A uso interno\"}",
       "description": "{\"de\": \"Hier werden Dokumente hochgeladen, welche nur innerhalb der eigenen Organisation (ohne Unterfachstellen) sichtbar sein sollen. In diesem Ordner bestehen keine Einschränkungen hinsichtlich der erlaubten Dateiformate.\", \"fr\": \"\", \"it\": \"Qui vengono caricati i documenti che devono essere visibili solo all'interno della propria organizzazione (senza servizi di rango inferiore). In questa cartella non vi sono limitazioni per quanto riguarda i formati di file ammessi.\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\", \"image/vnd.dwg\", \".dwg\", \"application/x-zip-compressed\", \"application/zip-compressed\", \"application/x-zip\", \"application/zip\"]",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#DB8B72",
       "parent": null,
       "sort": 6
@@ -2948,7 +2948,7 @@
       },
       "name": "{\"de\": \"Unterlagenergänzung\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Ergänzungen zu den Gesuchsunterlagen\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\", \"image/vnd.dwg\", \".dwg\", \"application/x-zip-compressed\", \"application/zip-compressed\", \"application/x-zip\", \"application/zip\"]",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"image/vnd.dwg\", \".dwg\"]",
       "color": "#9CDD69",
       "parent": null,
       "sort": 2

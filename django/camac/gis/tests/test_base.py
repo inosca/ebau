@@ -35,6 +35,7 @@ def test_process_data_source(db, gis_data_source):
 def test_view_structure(
     db,
     admin_client,
+    celery_fake_worker,
     gis_data_source_factory,
     mocker,
     caluma_question_factory,
@@ -64,10 +65,25 @@ def test_view_structure(
 
     gis_data_source_factory()
 
-    mocker.patch("camac.gis.views.get_client", return_value=FakeClient)
+    gis_client_mock = mocker.patch(
+        "camac.gis.tasks._get_client", return_value=FakeClient
+    )
     mocker.patch("camac.gis.models.GISDataSource.get_required_params", return_value=[])
 
-    response = admin_client.get(reverse("gis-data"))
+    # TODO: call counts
+    assert gis_client_mock.call_count == 0
 
+    # First round - tasks were only scheduled
+    response = admin_client.get(reverse("gis-data"))
+    assert response.status_code == status.HTTP_200_OK
+    data = response.json()
+
+    # Run the task
+    celery_fake_worker.run_tasks(raise_errors=True)
+
+    assert gis_client_mock.call_count == 1
+
+    # Second round - tasks should be completed now and have data
+    response = admin_client.get(reverse("gis-data", args=[data["task_id"]]))
     assert response.status_code == status.HTTP_200_OK
     assert response.json() == gis_snapshot

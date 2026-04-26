@@ -60,6 +60,12 @@
     'post:/ech/v1/send/',
   ])
 # ---
+# name: test_external_client_access[support-sg-external-client]
+  list([
+    'get:/api/redoc/',
+    'get:/api/swagger/',
+  ])
+# ---
 # name: test_external_client_access[support-so-external-client]
   list([
     'get:/api/redoc/',

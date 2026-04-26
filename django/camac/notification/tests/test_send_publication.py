@@ -35,6 +35,7 @@ def test_notify_publication_start(
     settings,
     caluma_workflow_config_gr,
     support_role,
+    celery_fake_worker,
 ):
     expected_outbox = (
         1
@@ -47,7 +48,6 @@ def test_notify_publication_start(
         )
         else 0
     )
-    settings.CELERY_TASK_ALWAYS_EAGER = True
 
     notification_template = notification_template_factory()
     publication_settings["PUBLISH_QUESTION"] = "oeffentliche-auflage"
@@ -135,7 +135,10 @@ def test_notify_publication_start(
     # run a second time to make sure no duplicate notifications are sent
     send_notification_for_publication.delay(workitem_id=workitem_id)
 
+    assert len(mailoutbox) == 0
+    celery_fake_worker.run_tasks()
     assert len(mailoutbox) == expected_outbox
+
     if expected_outbox:
         work_item.refresh_from_db()
         assert work_item.meta.get("publication_start_notification_sent_at") is not None
@@ -189,9 +192,8 @@ def test_send_notification_for_publication_end_legal_submissions(
     settings,
     caluma_workflow_config_gr,
     support_role,
+    celery_fake_worker,
 ):
-    settings.CELERY_TASK_ALWAYS_EAGER = True
-
     instance.case = caluma_case_factory()
     instance.save()
     instance.case.meta["is-bab"] = is_bab
@@ -287,7 +289,10 @@ def test_send_notification_for_publication_end_legal_submissions(
         workitem_id=workitem_id
     )
 
+    assert len(mailoutbox) == 0
+    celery_fake_worker.run_tasks()
     assert len(mailoutbox) == expected_outbox
+
     if expected_outbox:
         work_item.refresh_from_db()
         assert work_item.meta.get("publication_end_notification_sent_at") is not None

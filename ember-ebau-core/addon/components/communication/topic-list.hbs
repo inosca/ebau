@@ -35,7 +35,13 @@
       </div>
     {{/if}}
   </div>
-  {{#if (and @instanceId (await (can "create topic" instanceId=@instanceId)))}}
+  {{#if
+    (and
+      @instanceId
+      (await (can "create topic" instanceId=@instanceId))
+      (not this.activeServiceUsesEchApi)
+    )
+  }}
     <LinkTo
       @route={{module-route "communications" "new"}}
       class="uk-button uk-button-primary"

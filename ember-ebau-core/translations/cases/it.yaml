@@ -41,8 +41,6 @@ cases:
     street: "Via/toponimo"
     submitDate: "Inoltrato il"
     user: "Creato da"
-    bab: "BIB/BAB"
-    bab-placeholder: ""
 
   filter: "Cerca dossier"
   filters:
@@ -133,6 +131,8 @@ cases:
     withCantonalParticipation: "Con partecipazione del Cantone"
     suspended: "Dossier sospesi"
     suspended-placeholder: ""
+    bab: "BIB/BAB"
+    bab-placeholder: ""
 
   miscellaneous:
     linkInstance: "Collega dossier"

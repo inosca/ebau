@@ -20,7 +20,6 @@
       <f.input
         @label={{t "deadlines.deadline.property.startDate"}}
         @name="startDate"
-        @errorComponent={{component "input-error"}}
         as |fi|
       >
         <div data-test-deadlines-deadline-start-date-input>
@@ -31,7 +30,6 @@
         @name="type"
         @label={{t "deadlines.deadline.property.type"}}
         @required={{true}}
-        @errorComponent={{component "input-error"}}
         as |fi|
       >
         <PowerSelect
@@ -58,7 +56,6 @@
         <f.input
           @label={{t "deadlines.deadline.property.processDeadlineDate"}}
           @name="processDeadlineDate"
-          @errorComponent={{component "input-error"}}
           as |fi|
         >
           <div data-test-deadlines-deadline-process-deadline-date-input>

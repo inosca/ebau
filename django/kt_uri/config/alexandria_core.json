@@ -1,1 +1,533 @@
-[]
+[
+  {
+    "model": "alexandria_core.category",
+    "pk": "dokumente-afj",
+    "fields": {
+      "created_at": "2026-04-24T08:44:12.629Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2026-04-24T08:44:12.629Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "support": {
+            "visibility": "all"
+          },
+          "oereb_api": {
+            "visibility": "all"
+          }
+        },
+        "_comment": "Access config provisional - full config follows"
+      },
+      "name": "{\"de\": \"Dokumente AFJ\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Dokumente der KOOR AFJ\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"text/plain\", \"application/octet-stream\"]",
+      "color": "hsl(13 7% 40%)",
+      "parent": null,
+      "sort": 10
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "dokumente-afu",
+    "fields": {
+      "created_at": "2026-04-24T08:44:12.632Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2026-04-24T08:44:12.632Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "support": {
+            "visibility": "all"
+          }
+        },
+        "_comment": "Access config provisional - full config follows"
+      },
+      "name": "{\"de\": \"Dokumente AfU\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Dokumente der AfU Gruppen\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[]",
+      "color": "hsl(278 74% 40%)",
+      "parent": null,
+      "sort": 1
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "dokumente-are",
+    "fields": {
+      "created_at": "2026-04-24T08:44:12.631Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2026-04-24T08:44:12.631Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "support": {
+            "visibility": "all"
+          }
+        },
+        "_comment": "Access config provisional - full config follows"
+      },
+      "name": "{\"de\": \"Dokumente ARE\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Dokumente der ARE Gruppen\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[]",
+      "color": "hsl(180 79% 40%)",
+      "parent": null,
+      "sort": 0
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "dokumente-fachstellen-gemeinde",
+    "fields": {
+      "created_at": "2026-04-24T08:44:12.623Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2026-04-24T08:44:12.623Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "service": {
+            "visibility": "all"
+          },
+          "support": {
+            "visibility": "all"
+          },
+          "oereb_api": {
+            "visibility": "all"
+          },
+          "commission": {
+            "visibility": "all"
+          },
+          "municipality": {
+            "visibility": "all"
+          },
+          "trusted_service": {
+            "visibility": "all"
+          },
+          "building_commission": {
+            "visibility": "all"
+          }
+        },
+        "_comment": "Access config provisional - full config follows"
+      },
+      "name": "{\"de\": \"Dokumente Fachstellen Gemeinde\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Dokumente von Gemeindefachstellen\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "hsl(201 97% 40%)",
+      "parent": null,
+      "sort": 5
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "dokumente-fachstellen-kanton-bund",
+    "fields": {
+      "created_at": "2026-04-24T08:44:12.622Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2026-04-24T08:44:12.622Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "service": {
+            "visibility": "all"
+          },
+          "support": {
+            "visibility": "all"
+          },
+          "oereb_api": {
+            "visibility": "all"
+          },
+          "commission": {
+            "visibility": "all"
+          },
+          "coordination": {
+            "visibility": "all"
+          },
+          "municipality": {
+            "visibility": "all"
+          },
+          "trusted_service": {
+            "visibility": "all"
+          },
+          "building_commission": {
+            "visibility": "all"
+          }
+        },
+        "_comment": "Access config provisional - full config follows"
+      },
+      "name": "{\"de\": \"Dokumente Fachstellen Kanton / Bund\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Rückmeldungen von Fachstellen und Koordinationsstellen (z.B. Stellungnahme)\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "hsl(177 76% 40%)",
+      "parent": null,
+      "sort": 4
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "dokumente-gesuchsteller",
+    "fields": {
+      "created_at": "2026-04-24T08:44:12.613Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2026-04-24T08:44:12.613Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "service": {
+            "visibility": "all"
+          },
+          "support": {
+            "visibility": "all"
+          },
+          "applicant": {
+            "visibility": "all"
+          },
+          "oereb_api": {
+            "visibility": "all"
+          },
+          "commission": {
+            "visibility": "all"
+          },
+          "coordination": {
+            "visibility": "all"
+          },
+          "municipality": {
+            "visibility": "all"
+          },
+          "trusted_service": {
+            "visibility": "all"
+          },
+          "building_commission": {
+            "visibility": "all"
+          },
+          "organization_readonly": {
+            "visibility": "all"
+          }
+        },
+        "_comment": "Access config provisional - full config follows"
+      },
+      "name": "{\"de\": \"Dokumente Gesuchsteller\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Dokumente vom Gesuchsteller\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "hsl(30 54% 40%)",
+      "parent": null,
+      "sort": 3
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "dokumente-gesuchsteller-dokument-grundstucksangaben",
+    "fields": {
+      "created_at": "2026-04-24T08:44:12.615Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2026-04-24T08:44:12.615Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "_is_default_subcategory": false
+      },
+      "name": "{\"de\": \"Grundstücksangaben\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "hsl(257 6% 40%)",
+      "parent": "dokumente-gesuchsteller",
+      "sort": 0
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "dokumente-gesuchsteller-dokument-gutachten-nachweise-begrundungen",
+    "fields": {
+      "created_at": "2026-04-24T08:44:12.617Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2026-04-24T08:44:12.617Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "_is_default_subcategory": false
+      },
+      "name": "{\"de\": \"Gutachten, Nachweise, Begründungen\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "hsl(0 1% 40%)",
+      "parent": "dokumente-gesuchsteller",
+      "sort": 1
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "dokumente-gesuchsteller-dokument-projektplane-projektbeschrieb",
+    "fields": {
+      "created_at": "2026-04-24T08:44:12.618Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2026-04-24T08:44:12.618Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "_is_default_subcategory": false
+      },
+      "name": "{\"de\": \"Projektpläne und Projektbeschrieb\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "hsl(229 35% 40%)",
+      "parent": "dokumente-gesuchsteller",
+      "sort": 2
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "dokumente-gesuchsteller-dokument-weitere-gesuchsunterlagen",
+    "fields": {
+      "created_at": "2026-04-24T08:44:12.619Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2026-04-24T08:44:12.619Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "_is_default_subcategory": true
+      },
+      "name": "{\"de\": \"Weitere Gesuchsunterlagen\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "hsl(282 5% 40%)",
+      "parent": "dokumente-gesuchsteller",
+      "sort": 3
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "dokumente-leitbehorde",
+    "fields": {
+      "created_at": "2026-04-24T08:44:12.624Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2026-04-24T08:44:12.624Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "service": {
+            "visibility": "all"
+          },
+          "support": {
+            "visibility": "all"
+          },
+          "oereb_api": {
+            "visibility": "all"
+          },
+          "commission": {
+            "visibility": "all"
+          },
+          "coordination": {
+            "visibility": "all"
+          },
+          "municipality": {
+            "visibility": "all"
+          },
+          "trusted_service": {
+            "visibility": "all"
+          },
+          "building_commission": {
+            "visibility": "all"
+          }
+        },
+        "_comment": "Access config provisional - full config follows"
+      },
+      "name": "{\"de\": \"Dokumente Leitbehörde\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Baubewilligungen, Verfügungen usw.\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "hsl(144 45% 40%)",
+      "parent": null,
+      "sort": 6
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "gebuhren",
+    "fields": {
+      "created_at": "2026-04-24T08:44:12.626Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2026-04-24T08:44:12.627Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "support": {
+            "visibility": "all"
+          },
+          "oereb_api": {
+            "visibility": "all"
+          },
+          "coordination": {
+            "visibility": "all"
+          },
+          "municipality": {
+            "visibility": "all"
+          }
+        },
+        "_comment": "Access config provisional - full config follows"
+      },
+      "name": "{\"de\": \"Gebühren\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/msword\"]",
+      "color": "hsl(307 63% 40%)",
+      "parent": null,
+      "sort": 8
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "interne-dokumente",
+    "fields": {
+      "created_at": "2026-04-24T08:44:12.621Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2026-04-24T08:44:12.621Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "service": {
+            "visibility": "service"
+          },
+          "support": {
+            "visibility": "all"
+          },
+          "applicant": {
+            "visibility": "all"
+          },
+          "oereb_api": {
+            "visibility": "all"
+          },
+          "coordination": {
+            "visibility": "service"
+          },
+          "municipality": {
+            "visibility": "service"
+          },
+          "trusted_service": {
+            "visibility": "service"
+          }
+        },
+        "_comment": "Access config provisional - full config follows"
+      },
+      "name": "{\"de\": \"Interne Dokumente\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Private Ablage für jeden Service\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[]",
+      "color": "hsl(222 16% 40%)",
+      "parent": null,
+      "sort": 2
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "lisag",
+    "fields": {
+      "created_at": "2026-04-24T08:44:12.628Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2026-04-24T08:44:12.628Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "support": {
+            "visibility": "all"
+          },
+          "oereb_api": {
+            "visibility": "all"
+          },
+          "municipality": {
+            "visibility": "all"
+          }
+        },
+        "_comment": "Access config provisional - full config follows"
+      },
+      "name": "{\"de\": \"Lisag\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Nutzungsplandokumente, ITF Dateien\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"text/plain\", \"application/octet-stream\", \"application/zip\", \"application/x-zip-compressed\", \"multipart/x-zip\", \"text/xml\"]",
+      "color": "hsl(269 54% 40%)",
+      "parent": null,
+      "sort": 9
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "nachforderung",
+    "fields": {
+      "created_at": "2026-04-24T08:44:12.630Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2026-04-24T08:44:12.630Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "support": {
+            "visibility": "all"
+          },
+          "applicant": {
+            "visibility": "all"
+          }
+        },
+        "_comment": "Access config provisional - full config follows"
+      },
+      "name": "{\"de\": \"Nachforderung\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Nachgeforderte Dokumente\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"text/plain\", \"application/octet-stream\"]",
+      "color": "hsl(47 34% 40%)",
+      "parent": null,
+      "sort": 11
+    }
+  },
+  {
+    "model": "alexandria_core.category",
+    "pk": "rechtsmitteldokumente",
+    "fields": {
+      "created_at": "2026-04-24T08:44:12.625Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_at": "2026-04-24T08:44:12.625Z",
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "metainfo": {
+        "access": {
+          "support": {
+            "visibility": "all"
+          },
+          "oereb_api": {
+            "visibility": "all"
+          },
+          "coordination": {
+            "visibility": "all"
+          },
+          "municipality": {
+            "visibility": "all"
+          }
+        },
+        "_comment": "Access config provisional - full config follows"
+      },
+      "name": "{\"de\": \"Rechtsmitteldokumente\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Einsprachen, Entscheid von Beschwerdeinstanz\", \"fr\": \"\", \"it\": \"\"}",
+      "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\"]",
+      "color": "hsl(137 14% 40%)",
+      "parent": null,
+      "sort": 7
+    }
+  }
+]

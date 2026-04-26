@@ -15,7 +15,10 @@ def migrate_copied_instances(apps, schema_editor):
 
 
 class Migration(migrations.Migration):
-    dependencies = [("instance", "0040_alter_instancestate_options")]
+    dependencies = [
+        ("caluma_form", "0032_auto_20200220_1311"),
+        ("instance", "0040_alter_instancestate_options"),
+    ]
 
     operations = [
         migrations.AddField(

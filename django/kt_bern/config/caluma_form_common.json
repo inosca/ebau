@@ -289,6 +289,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "8-freigabequittung.gemeindespezifischer-inhalt",
+    "fields": {
+      "created_at": "2026-04-15T08:58:37.612Z",
+      "modified_at": "2026-04-15T08:58:37.612Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "8-freigabequittung",
+      "question": "gemeindespezifischer-inhalt",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "8-freigabequittung.hinweis-gemeinde-moutier",
     "fields": {
       "created_at": "2025-10-23T12:22:21.552Z",
@@ -2789,6 +2804,40 @@
         "widgetOverride": "cf-field/input/powerselect"
       },
       "data_source": "Municipalities",
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gemeindespezifischer-inhalt",
+    "fields": {
+      "created_at": "2026-04-15T08:58:37.568Z",
+      "modified_at": "2026-04-15T08:58:37.568Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gemeindespezifischer Inhalt\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": "service-content"
+      },
+      "data_source": null,
       "row_form": null,
       "sub_form": null,
       "source": null,

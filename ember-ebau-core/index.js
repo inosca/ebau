@@ -18,6 +18,16 @@ module.exports = {
   name: require("./package").name,
 
   included(...args) {
+    const app = this._findHost(this);
+
+    app.options["ember-validated-form"] = {
+      theme: "uikit",
+      defaults: {
+        error: "ember-ebau-core/components/validated-form/custom-error",
+        label: "ember-ebau-core/components/validated-form/custom-label",
+      },
+    };
+
     this._super.included.apply(this, args);
 
     this.import("node_modules/proj4/dist/proj4.js");

@@ -15,12 +15,16 @@ from camac.user.factories import GroupFactory, UserFactory
         (
             models.Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_MANUAL.value,
             models.Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_MANUAL.value,
-            models.Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_MANUAL.label,
+            models.Suspension.get_reason_label(
+                models.Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_MANUAL
+            ),
         ),
         (
             models.Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_ADDITIONAL_DEMAND.value,
             models.Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_ADDITIONAL_DEMAND.value,
-            models.Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_ADDITIONAL_DEMAND.label,
+            models.Suspension.get_reason_label(
+                models.Suspension.SuspensionReasonChoices.SUSPENSION_TYPE_ADDITIONAL_DEMAND
+            ),
         ),
     ],
 )
@@ -577,6 +581,7 @@ def test_suspension_deletion_and_update_gr(
     [
         ("ok", False),
         ("date_order", _("End date can not be before start date.")),
+        ("reason_not_allowed", _("Suspension reason is not valid.")),
     ],
 )
 def test_suspension_save_validation_gr(
@@ -639,6 +644,13 @@ def test_suspension_save_validation_gr(
             "reason-text": test_case,
             "start_date": "2023-02-10",
             "end_date": "2023-02-09",
+        }
+    elif test_case == "reason_not_allowed":
+        post_attributes = {
+            "reason": "request_project_change_suspension",
+            "reason-text": test_case,
+            "start_date": "2023-02-02",
+            "end_date": "2023-02-03",
         }
 
     data = {

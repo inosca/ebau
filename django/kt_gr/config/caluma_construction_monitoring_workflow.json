@@ -178,7 +178,20 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['after-construction-step', 'construction-step-rohbauabnahme-kontrollieren-geometer']|tasks"
+      "next": "['after-construction-step-item']|tasks"
+    }
+  },
+  {
+    "model": "caluma_workflow.flow",
+    "pk": "a53b5b04-7140-4cbe-9fa2-2c7cc1ad2b66",
+    "fields": {
+      "created_at": "2023-10-27T15:32:55.837Z",
+      "modified_at": "2023-10-27T15:32:55.837Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "next": "['after-construction-step']|tasks"
     }
   },
   {
@@ -792,12 +805,12 @@
         "construction-step": {
           "next": ["construction-step-schlussabnahme-gebaeude"],
           "index": 2,
-          "total": 3,
-          "needs-approval": "construction-step-rohbauabnahme-is-approved"
+          "total": 3
         },
-        "construction-step-id": "construction-step-rohbauabnahme"
+        "construction-step-id": "construction-step-rohbauabnahme",
+        "is-actionable-for-control": false
       },
-      "address_groups": "['geometer']|groups",
+      "address_groups": "['geometer', 'municipality']|groups",
       "control_groups": "['municipality']|groups",
       "is_archived": false,
       "form": "construction-step-rohbau-kontrollieren-geometer",
@@ -1439,6 +1452,22 @@
       "workflow": "construction-stage",
       "task": "construction-step-rohbauabnahme-kontrollieren",
       "flow": "a53b5b04-7140-4cbe-9fa2-2c7cc1ad2b65",
+      "redoable": null
+    }
+  },
+  {
+    "model": "caluma_workflow.taskflow",
+    "pk": "c54e5338-0586-42c0-bec6-3fc1f1ced295",
+    "fields": {
+      "created_at": "2023-10-27T15:32:55.838Z",
+      "modified_at": "2023-10-27T15:32:55.838Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "workflow": "construction-stage",
+      "task": "construction-step-rohbauabnahme-kontrollieren-geometer",
+      "flow": "a53b5b04-7140-4cbe-9fa2-2c7cc1ad2b66",
       "redoable": null
     }
   },

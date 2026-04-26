@@ -5,9 +5,7 @@
   <div class="uk-margin">
     <label class="uk-form-label uk-text-bold" for="email">
       {{t "service-permissions.email"}}
-      <span class="uk-text-danger">
-        *
-      </span>
+      <span class="mandatory-asterisk">*</span>
     </label>
     <div class="uk-form-controls">
       <Input
@@ -22,9 +20,7 @@
   <div class="uk-margin">
     <label class="uk-form-label uk-text-bold" for="group">
       {{t "service-permissions.group"}}
-      <span class="uk-text-danger">
-        *
-      </span>
+      <span class="mandatory-asterisk">*</span>
     </label>
     <PowerSelect
       @options={{sort-by "name" this.groups.records}}

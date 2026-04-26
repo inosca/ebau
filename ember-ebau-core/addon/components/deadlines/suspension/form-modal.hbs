@@ -20,7 +20,6 @@
       <f.input
         @label={{t "deadlines.suspension.property.startDate"}}
         @name="startDate"
-        @errorComponent={{component "input-error"}}
         as |fi|
       >
         <div data-test-suspension-start-date-input>
@@ -35,7 +34,6 @@
       <f.input
         @label={{t "deadlines.suspension.property.endDate"}}
         @name="endDate"
-        @errorComponent={{component "input-error"}}
         as |fi|
       >
         <div data-test-suspension-end-date-input>
@@ -52,7 +50,6 @@
           @name="reason"
           @label={{t "deadlines.suspension.property.reason"}}
           @required={{true}}
-          @errorComponent={{component "input-error"}}
           as |fi|
         >
           <PowerSelect
@@ -74,14 +71,23 @@
         </f.input>
       {{/if}}
       <f.input
-        @errorComponent="input-error"
         @name="remark"
         @label={{t "deadlines.suspension.property.remark"}}
-        @type="textarea"
-        @rows="3"
-        required
-        data-test-suspension-remark-input
-      />
+        @required={{true}}
+        as |fi|
+      >
+        <Snippets @disabled={{not (has-feature "deadlines.snippets")}}>
+          <textarea
+            class="uk-textarea uk-input"
+            name="remark"
+            id="f-remark"
+            value={{fi.value}}
+            data-test-suspension-remark-input
+            {{on "input" (fn this.updateRemark fi)}}
+            {{autoresize mode="height"}}
+          />
+        </Snippets>
+      </f.input>
     </modal.body>
     <modal.footer>
       <div class="uk-align-left">

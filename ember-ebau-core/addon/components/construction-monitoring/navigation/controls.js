@@ -36,6 +36,8 @@ export default class ConstructionMonitoringNavigationControlsComponent extends C
             },
           },
         });
+        // fetch construction stages to get newly created stage.
+        yield this.constructionMonitoring.refetchConstructionStages();
       } else {
         // Start construction-monitoring process
         yield this.apollo.mutate({

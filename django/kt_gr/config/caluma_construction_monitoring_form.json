@@ -984,21 +984,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "construction-step-rohbau-kontrollieren-geometer.construction-step-rohbau-kontrollieren-geometer-is-approved",
-    "fields": {
-      "created_at": "2025-01-24T13:38:50.257Z",
-      "modified_at": "2025-01-24T13:38:50.257Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "construction-step-rohbau-kontrollieren-geometer",
-      "question": "construction-step-rohbau-kontrollieren-geometer-is-approved",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "construction-step-schlussabnahme-gebaeude.construction-step-schlussabnahme-gebaeude-bemerkungen",
     "fields": {
       "created_at": "2024-01-17T09:51:15.532Z",
@@ -1646,40 +1631,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Alle Auflagen die bis zum jetzigen Zeitpunkt erledigt werden konnten, wurden erledigt.\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "construction-step-rohbau-kontrollieren-geometer-is-approved-ja",
-    "fields": {
-      "created_at": "2025-01-24T13:38:49.948Z",
-      "modified_at": "2025-01-24T13:38:49.948Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Ja (in Ordnung)\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "construction-step-rohbau-kontrollieren-geometer-is-approved-nein",
-    "fields": {
-      "created_at": "2025-01-24T13:38:49.961Z",
-      "modified_at": "2025-01-24T13:38:49.961Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Nein (Abnahme mit Abweichungen)\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -2934,37 +2885,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "construction-step-rohbau-kontrollieren-geometer-is-approved",
-    "fields": {
-      "created_at": "2025-01-24T13:38:50.109Z",
-      "modified_at": "2025-01-24T13:38:50.109Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Abnahmeergebnis\", \"fr\": null, \"it\": null}",
-      "type": "choice",
-      "is_required": "true",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "construction-steps",
     "fields": {
       "created_at": "2025-01-16T12:34:14.807Z",
@@ -3957,10 +3877,10 @@
     "pk": "schnurgeruestabnahme-durch",
     "fields": {
       "created_at": "2025-01-16T12:34:14.807Z",
-      "modified_at": "2025-01-16T12:34:14.807Z",
+      "modified_at": "2026-03-30T08:30:22.136Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Wer führt die Schnurgerüstabnahme durch?\", \"fr\": null, \"it\": null}",
       "type": "choice",
@@ -3972,7 +3892,9 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "widgetOverride": "construction-monitoring-geometer-choice"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -4190,36 +4112,6 @@
       "modified_by_group": null,
       "question": "construction-step-rohbauabnahme-melden-bestaetigung",
       "option": "construction-step-rohbauabnahme-melden-bestaetigung-text",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "construction-step-rohbau-kontrollieren-geometer-is-approved.construction-step-rohbau-kontrollieren-geometer-is-approved-ja",
-    "fields": {
-      "created_at": "2025-01-24T13:38:50.130Z",
-      "modified_at": "2025-01-24T13:38:50.130Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "construction-step-rohbau-kontrollieren-geometer-is-approved",
-      "option": "construction-step-rohbau-kontrollieren-geometer-is-approved-ja",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "construction-step-rohbau-kontrollieren-geometer-is-approved.construction-step-rohbau-kontrollieren-geometer-is-approved-nein",
-    "fields": {
-      "created_at": "2025-01-24T13:38:50.123Z",
-      "modified_at": "2025-01-24T13:38:50.123Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "construction-step-rohbau-kontrollieren-geometer-is-approved",
-      "option": "construction-step-rohbau-kontrollieren-geometer-is-approved-nein",
       "sort": 1
     }
   },
@@ -4602,11 +4494,11 @@
     "model": "caluma_form.questionoption",
     "pk": "schnurgeruestabnahme-durch.schnurgeruestabnahme-durch-gemeinde",
     "fields": {
-      "created_at": "2025-01-16T12:34:14.807Z",
-      "modified_at": "2025-01-16T12:34:14.807Z",
-      "created_by_user": "admin",
+      "created_at": "2026-03-30T08:30:22.147Z",
+      "modified_at": "2026-03-30T08:30:22.147Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "schnurgeruestabnahme-durch",
       "option": "schnurgeruestabnahme-durch-gemeinde",
@@ -4617,11 +4509,11 @@
     "model": "caluma_form.questionoption",
     "pk": "schnurgeruestabnahme-durch.schnurgeruestabnahme-durch-geometer",
     "fields": {
-      "created_at": "2025-01-16T12:34:14.807Z",
-      "modified_at": "2025-01-16T12:34:14.807Z",
-      "created_by_user": "admin",
+      "created_at": "2026-03-30T08:30:22.144Z",
+      "modified_at": "2026-03-30T08:30:22.144Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "schnurgeruestabnahme-durch",
       "option": "schnurgeruestabnahme-durch-geometer",

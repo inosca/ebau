@@ -34,6 +34,13 @@ export default class extends Ability {
       return false;
     }
 
+    if (
+      this.session.service?.usesEchApi &&
+      !hasFeature("communications.creationActivatedForEchApiUsers")
+    ) {
+      return false;
+    }
+
     if (this.permissions.fullyEnabled) {
       return await this.permissions.hasAll(
         this.instanceId,

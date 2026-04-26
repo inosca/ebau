@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-30 12:58+0200\n"
+"POT-Creation-Date: 2026-04-09 10:50+0200\n"
 "PO-Revision-Date: 2025-08-28 10:03+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -30,7 +30,7 @@ msgstr "Administration"
 msgid "Title / Message Preview"
 msgstr ""
 
-#: camac/alert_message/models.py
+#: camac/alert_message/models.py camac/settings/modules/statistics.py
 msgid "Created at"
 msgstr ""
 
@@ -250,6 +250,7 @@ msgid "eBau number"
 msgstr "N° eBau"
 
 #: camac/billing/serializers.py camac/instance/export/serializers.py
+#: camac/settings/modules/statistics.py
 msgid "Instance number"
 msgstr "Dossier numéro"
 
@@ -259,6 +260,7 @@ msgid "Address"
 msgstr "Adresse"
 
 #: camac/billing/serializers.py camac/instance/export/serializers.py
+#: camac/settings/modules/statistics.py
 msgid "Parcels"
 msgstr "Parcelles"
 
@@ -301,6 +303,7 @@ msgstr "Autorité directrice"
 #: camac/caluma/extensions/data_sources.py
 #: camac/instance/document_merge_service.py
 #: camac/instance/export/serializers.py camac/notification/serializers.py
+#: camac/settings/modules/statistics.py
 msgid "Municipality"
 msgstr "Municipalité"
 
@@ -686,6 +689,14 @@ msgid "Inquiry claim suspension"
 msgstr ""
 
 #: camac/deadlines/models.py
+msgid "Incomplete suspension"
+msgstr ""
+
+#: camac/deadlines/models.py
+msgid "Request project change suspension"
+msgstr ""
+
+#: camac/deadlines/models.py
 msgid "Manual suspension"
 msgstr ""
 
@@ -716,6 +727,11 @@ msgstr ""
 #: camac/deadlines/serializers.py
 #: camac/deadlines/tests/test_model_suspensions.py
 msgid "End date can not be before start date."
+msgstr ""
+
+#: camac/deadlines/serializers.py
+#: camac/deadlines/tests/test_model_suspensions.py
+msgid "Suspension reason is not valid."
 msgstr ""
 
 #: camac/document/filters.py
@@ -914,15 +930,19 @@ msgid ""
 "%(entries)s"
 msgstr ""
 
-#: camac/dossier_import/models.py
-#, python-format
-msgid ""
-"The import took more than %(timeout)i seconds to complete and timed out."
-msgstr "L'importation a depassé %(timeout)i seconds et est cedée."
-
 #: camac/dossier_import/serializers.py camac/instance/serializers.py
 msgid "No location assigned."
 msgstr "Location n'a pas été attribuée."
+
+#: camac/dossier_import/utils.py
+msgid ""
+"The dossiers.xlsx file was likely written in 'Strict Open XML' mode, which "
+"is not yet supported. Please save the dossiers.xlsx file in the normal Excel "
+"file format"
+msgstr ""
+"Le fichier dossiers.xlsx a probablement été enregistré au format \"Strict "
+"Open XML\". Ce format ne peut pas être traité actuellement. Veuillez "
+"enregistrer la liste Excel en tant que classeur Excel normal (*.xlsx)."
 
 #: camac/dossier_import/validation.py
 msgid "To start an import please upload a file."
@@ -1166,13 +1186,13 @@ msgstr ""
 msgid "Cache for key %(key)s does not exist"
 msgstr ""
 
-#: camac/gis/utils.py
-msgid "Coordinates must be floats"
-msgstr ""
-
-#: camac/gis/views.py
+#: camac/gis/tasks.py
 #, python-format
 msgid "Required parameter %(parameter)s was not passed"
+msgstr ""
+
+#: camac/gis/utils.py
+msgid "Coordinates must be floats"
 msgstr ""
 
 #: camac/instance/document_merge_service.py
@@ -1196,7 +1216,7 @@ msgid "Keywords"
 msgstr "Mots-clés"
 
 #: camac/instance/document_merge_service.py
-#: camac/instance/export/serializers.py
+#: camac/instance/export/serializers.py camac/settings/modules/statistics.py
 msgid "Responsible"
 msgstr "Personne requérante"
 
@@ -1250,7 +1270,7 @@ msgstr ""
 msgid "Draft"
 msgstr "Brouillon"
 
-#: camac/instance/document_merge_service.py
+#: camac/instance/document_merge_service.py camac/settings/modules/deadlines.py
 msgid "Additional demand"
 msgstr ""
 
@@ -1295,15 +1315,15 @@ msgstr "Evaluation"
 msgid "Involved Departments"
 msgstr "Office spécialisé impliquée"
 
-#: camac/instance/export/serializers.py
+#: camac/instance/export/serializers.py camac/settings/modules/statistics.py
 msgid "Application Type"
 msgstr "Type de demande"
 
-#: camac/instance/export/serializers.py
+#: camac/instance/export/serializers.py camac/settings/modules/statistics.py
 msgid "Submission Date"
 msgstr "Date de réception"
 
-#: camac/instance/export/serializers.py
+#: camac/instance/export/serializers.py camac/settings/modules/statistics.py
 msgid "Status"
 msgstr "État"
 
@@ -1844,6 +1864,14 @@ msgstr "Demande de complément incomplète"
 msgid "Dossier corrected"
 msgstr "Dossier corrigé"
 
+#: camac/settings/modules/deadlines.py
+msgid "Negative inquiry claim suspension"
+msgstr ""
+
+#: camac/settings/modules/deadlines.py
+msgid "Other suspension"
+msgstr ""
+
 #: camac/settings/modules/distribution.py
 msgid "Circulation completed"
 msgstr "Procédure de circulation close"
@@ -1885,6 +1913,43 @@ msgstr ""
 msgid "Instance completed by resubmission"
 msgstr "Dossier complété par une nouvelle soumission"
 
+#: camac/settings/modules/statistics.py
+msgid "Task name"
+msgstr ""
+
+#: camac/settings/modules/statistics.py
+msgid "Deadline"
+msgstr ""
+
+#: camac/settings/modules/statistics.py
+msgid "Closed at"
+msgstr ""
+
+#: camac/settings/modules/statistics.py camac/work_items/admin.py
+#: camac/work_items/models.py
+msgid "Assigned user"
+msgstr ""
+
+#: camac/settings/modules/statistics.py
+msgid "Addressed group"
+msgstr ""
+
+#: camac/settings/modules/statistics.py
+msgid "Processing time"
+msgstr "Durée de traitement"
+
+#: camac/settings/modules/statistics.py
+msgid "On time"
+msgstr "Dans les délais"
+
+#: camac/settings/modules/statistics.py
+msgid "First inquiry date"
+msgstr ""
+
+#: camac/settings/modules/statistics.py
+msgid "Completing date"
+msgstr ""
+
 #: camac/settings/modules/withdrawal.py
 msgid "Instance withdrawn"
 msgstr ""
@@ -1896,6 +1961,10 @@ msgstr ""
 #: camac/settings/modules/withdrawal.py
 msgid "Withdrawal requested"
 msgstr "Retrait du dossier demandé"
+
+#: camac/statistics/apps.py
+msgid "Statistics"
+msgstr ""
 
 #: camac/templates/admin/base.html
 msgid "Back to CAMAC admin"
@@ -1964,6 +2033,10 @@ msgstr "Désactivé?"
 #: camac/user/admin/forms.py camac/user/models.py
 msgid "Receive notifications?"
 msgstr "Recevoir des notifications?"
+
+#: camac/user/admin/forms.py camac/user/models.py
+msgid "Using the ECH API?"
+msgstr ""
 
 #: camac/user/admin/inlines.py camac/user/models.py
 msgid "Groups"
@@ -2182,10 +2255,6 @@ msgstr "Il y a plusieurs utilisateurs avec cette adresse e-mail"
 #: camac/user/serializers.py
 msgid "User is already in group"
 msgstr "L'utilisateur est déjà dans ce groupe"
-
-#: camac/work_items/admin.py camac/work_items/models.py
-msgid "Assigned user"
-msgstr ""
 
 #: camac/work_items/apps.py
 msgid "Work items"

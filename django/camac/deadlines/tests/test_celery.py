@@ -28,7 +28,7 @@ def test_task_update_deadlines(
         process_deadline_date=date(2026, 5, 20),
         process_deadline_date_override=True,
         total_days_of_suspension=0,
-        process_deadline_days=0,
+        process_deadline_days=1,
     )
     suspension_factory(
         deadline=deadline1,
@@ -44,7 +44,7 @@ def test_task_update_deadlines(
         process_deadline_date=date(2026, 5, 20),
         process_deadline_date_override=True,
         total_days_of_suspension=0,
-        process_deadline_days=0,
+        process_deadline_days=1,
     )
     suspension_factory(
         deadline=deadline2,
@@ -60,7 +60,7 @@ def test_task_update_deadlines(
         process_deadline_date=date(2026, 5, 20),
         process_deadline_date_override=True,
         total_days_of_suspension=2,
-        process_deadline_days=1,
+        process_deadline_days=2,
     )
     suspension_factory(
         deadline=deadline3,
@@ -68,9 +68,9 @@ def test_task_update_deadlines(
         end_date=None,
     )
 
-    assert deadline1.process_deadline_days == 0
-    assert deadline2.process_deadline_days == 0
-    assert deadline3.process_deadline_days == 1
+    assert deadline1.process_deadline_days == 1
+    assert deadline2.process_deadline_days == 1
+    assert deadline3.process_deadline_days == 2
     assert deadline1.total_days_of_suspension == 0
     assert deadline2.total_days_of_suspension == 0
     assert deadline3.total_days_of_suspension == 2
@@ -79,9 +79,9 @@ def test_task_update_deadlines(
     deadline1.refresh_from_db()
     deadline2.refresh_from_db()
 
-    assert deadline1.process_deadline_days == 7
-    assert deadline2.process_deadline_days == 5
-    assert deadline3.process_deadline_days == 1
+    assert deadline1.process_deadline_days == 8
+    assert deadline2.process_deadline_days == 6
+    assert deadline3.process_deadline_days == 2
     assert deadline1.total_days_of_suspension == 1
     assert deadline2.total_days_of_suspension == 3
     assert deadline3.total_days_of_suspension == 2

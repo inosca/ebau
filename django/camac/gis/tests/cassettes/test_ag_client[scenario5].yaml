@@ -41,8 +41,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -116,8 +114,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -187,8 +183,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -262,8 +256,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -333,8 +325,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -408,8 +398,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -479,8 +467,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -554,8 +540,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -625,8 +609,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -700,8 +682,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -771,8 +751,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -846,8 +824,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -917,8 +893,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -992,8 +966,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -1063,8 +1035,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -1138,8 +1108,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -1209,8 +1177,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -1284,8 +1250,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -1355,8 +1319,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -1430,8 +1392,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -1501,8 +1461,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -1576,8 +1534,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -1647,8 +1603,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -1722,8 +1676,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -1793,8 +1745,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -1868,8 +1818,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -1939,8 +1887,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -2014,8 +1960,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -2085,8 +2029,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -2160,8 +2102,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -2231,8 +2171,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -2306,8 +2244,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -2377,8 +2313,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -2452,8 +2386,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -2523,8 +2455,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -2598,8 +2528,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -2669,8 +2597,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -2744,8 +2670,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -2815,8 +2739,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -2890,8 +2812,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1439'
       Content-Type:
@@ -2909,6 +2829,468 @@ interactions:
       - 'TS014419e9=0100bce510faa694fb80653ffb27db04e1284fb938057ff495012542afc3c3f6bbe24bbc1ff62e04835a1c90b16a2da9e3c6963c3bace697a82fb06c5cb04b6c70edeb849a;
         Path=/; Domain=.www.ag.ch; '
       - TS01975bae=0100bce51044d86352f1f03bf568a8c8c437b22ca8057ff495012542afc3c3f6bbe24bbc1f5d9e7270b33016a1aa3caf152aeaa72573fbe434d10546e34eab1b124e4f8752;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2670200%2C1242282%2C2670202%2C1242284&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Unterlunkhofen\",\"attributes\":{\"OBJECTID\":\"61\",\"GDENR\":\"4079\",\"GEMEINDE\":\"Unterlunkhofen\",\"GEMEINDEZ\":\"Unterlunkhofen\",\"GEMEINDEU\":\"Unterlunkhofen\",\"BZNR\":\"1903\",\"BEZIRK\":\"Bremgarten\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Bremgarten\",\"Geometer\":\"Marco Portmann\",\"Strasse\":\"Zugerstrasse
+        14\",\"PLZOrt\":\"5620 Bremgarten\",\"ID\":\"4079\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"4487606.054656\",\"SHAPE.STLength()\":\"15900.510936\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"5\",\"attributes\":{\"OBJECTID\":\"77818523\",\"FILEID\":\"56\",\"GDENR\":\"4079\",\"GDENRPARZ\":\"407900005\",\"NUMMER\":\"5\",\"EGRID\":\"CH191592795045\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"445478\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"445477.802754\",\"SHAPE.STLength()\":\"7226.773047\"}},{\"layerId\":45,\"layerName\":\"Auengebiete
+        von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Rottenschwiler
+        Moos\",\"attributes\":{\"OBJECTID\":\"66\",\"ObjNummer\":\"91\",\"Name\":\"Rottenschwiler
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-auen/objectsheets/2017revision/nr91.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"15.11.1992\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"\",\"Typ\":\"3\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"769774.903749\",\"Shape.STLength()\":\"4808.88207\"}},{\"layerId\":47,\"layerName\":\"Bundesinventar
+        der Wasser- und Zugvogelreservate von internationaler und nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Reuss:
+        Bremgarten - Zufikon bis Br\xFCcke von Rottenschwil (AG)\",\"attributes\":{\"OBJECTID\":\"57\",\"WV_VERSION\":\"23.09.2015\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1184548.419862\",\"SHAPE.STLength()\":\"11899.449938\",\"ObjNummer\":\"106\",\"Name\":\"Reuss:
+        Bremgarten - Zufikon bis Br\xFCcke von Rottenschwil (AG)\",\"Teilgebiet\":\"II\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-vogelreservate/objectsheets/2023revision/nr106.pdf\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"Null\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"TeilObjNummer\":\"2\",\"Schutzkategorie\":\"29\",\"Obj_GISFlaeche\":\"274.200012\",\"Schutzebene\":\"N\"}},{\"layerId\":495,\"layerName\":\"BLN
+        - Bundesinventar der Landschaften und Naturdenkm\xE4ler von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Reusslandschaft\",\"attributes\":{\"OBJECTID\":\"48\",\"ObjNummer\":\"1305\",\"TeilObjNummer\":\"0\",\"Name\":\"Reusslandschaft\",\"Inkraftsetzungsdatum\":\"21.11.1977\",\"Mutationsdatum\":\"Null\",\"TeilObjName\":\"
+        \",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-bln/objectsheets/2017revision/nr1305.pdf\",\"Mutationsgrund\":\"
+        \",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"V\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"63136835.268977\",\"Shape.STLength()\":\"99488.83168\"}},{\"layerId\":497,\"layerName\":\"Landschaftsschutzdekrete
+        (detailliert Legende)\",\"displayFieldName\":\"Dekretsname\",\"value\":\"RTD\",\"attributes\":{\"OBJECTID\":\"308\",\"Dekretsname\":\"RTD\",\"Ausf\xFChrlicher
+        Dekretsname\":\"Dekret \xFCber den Schutz der Landschaft und die Nutzung im
+        Gebiet der Reusstalsanierung (SAR 787.330) \",\"Zonencode Kanton\":\"5283\",\"Zonenbezeichnung
+        Kanton\":\"Wasserzone innerhalb Dekretsgebiet (kant. NP)\",\"Typ in Kantonaler
+        Zone\":\"Wasser\",\"Verbindlichkeit\":\"Nutzungsplanfestlegung\",\"Orientierungsinhalt\":\"Null\",\"Geolink\":\"40\",\"Beschlussdatum
+        \xC4nderung\":\"06.03.2018\",\"Rechtsstatus\":\"inKraft\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/40.html\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1086087.80355\",\"Shape.STLength()\":\"33569.57642\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Reuss\",\"attributes\":{\"OBJECTID\":\"39762\",\"NAME\":\"Reuss\",\"SBREITE\":\"Null\",\"BNUM\":\"4.00.000\",\"KLASSE\":\"Null\",\"BUFF_DIST\":\"15\",\"ART\":\"Fluss\",\"FAKTOR\":\"Null\",\"NAT_GSB\":\"Null\",\"GEWR_BREITE\":\"Null\",\"GEWR_RADIUS\":\"Null\",\"Bauzone\":\"Null\",\"GEWR_TYP\":\"Null\",\"RECHT\":\"BauG\",\"KEY\":\"Null\",\"AbschLength\":\"Null\",\"GDENR\":\"4079\",\"GEMEINDEZ\":\"Unterlunkhofen\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"424666.515622\",\"Shape.STLength()\":\"7136.502023\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1612'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:15:42 GMT
+      ETag:
+      - '"91e8f84b"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|byz0LUD4C3gJZ3mkGif3TA==|pHQhYqQRs0OXDBgpoGgeKbDo5qaUZXJb9au0tq6alfaXRvOellvRZRnlWmd-nXYYaHfS-PU=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:16:42 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce5103e41fe7e63cd42b348a0d56c0e9914a434c1bbe648bbf142bf9d8da59da619ec2fce9841b8186cfa3e6b9d4bfbcd1517;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce5103e41fe7e63cd42b348a0d56c0e9914a434c1bbe648bbf142bf9d8da59da619ec2fce9841b8186cfa3e6b9d4bfbcd1517;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2670181%2C1242263%2C2670221%2C1242303&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="sym-gcm|1|byz0LUD4C3gJZ3mkGif3TA==|pHQhYqQRs0OXDBgpoGgeKbDo5qaUZXJb9au0tq6alfaXRvOellvRZRnlWmd-nXYYaHfS-PU=";
+        TS01975bae=0100bce5103e41fe7e63cd42b348a0d56c0e9914a434c1bbe648bbf142bf9d8da59da619ec2fce9841b8186cfa3e6b9d4bfbcd1517;
+        XWAF=1791920065.47873.0000; TS014419e9=0100bce5103e41fe7e63cd42b348a0d56c0e9914a434c1bbe648bbf142bf9d8da59da619ec2fce9841b8186cfa3e6b9d4bfbcd1517
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Unterlunkhofen\",\"attributes\":{\"OBJECTID\":\"61\",\"GDENR\":\"4079\",\"GEMEINDE\":\"Unterlunkhofen\",\"GEMEINDEZ\":\"Unterlunkhofen\",\"GEMEINDEU\":\"Unterlunkhofen\",\"BZNR\":\"1903\",\"BEZIRK\":\"Bremgarten\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Bremgarten\",\"Geometer\":\"Marco Portmann\",\"Strasse\":\"Zugerstrasse
+        14\",\"PLZOrt\":\"5620 Bremgarten\",\"ID\":\"4079\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"4487606.054656\",\"SHAPE.STLength()\":\"15900.510936\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"5\",\"attributes\":{\"OBJECTID\":\"77818523\",\"FILEID\":\"56\",\"GDENR\":\"4079\",\"GDENRPARZ\":\"407900005\",\"NUMMER\":\"5\",\"EGRID\":\"CH191592795045\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"445478\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"445477.802754\",\"SHAPE.STLength()\":\"7226.773047\"}},{\"layerId\":45,\"layerName\":\"Auengebiete
+        von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Rottenschwiler
+        Moos\",\"attributes\":{\"OBJECTID\":\"66\",\"ObjNummer\":\"91\",\"Name\":\"Rottenschwiler
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-auen/objectsheets/2017revision/nr91.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"15.11.1992\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"\",\"Typ\":\"3\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"769774.903749\",\"Shape.STLength()\":\"4808.88207\"}},{\"layerId\":47,\"layerName\":\"Bundesinventar
+        der Wasser- und Zugvogelreservate von internationaler und nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Reuss:
+        Bremgarten - Zufikon bis Br\xFCcke von Rottenschwil (AG)\",\"attributes\":{\"OBJECTID\":\"57\",\"WV_VERSION\":\"23.09.2015\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1184548.419862\",\"SHAPE.STLength()\":\"11899.449938\",\"ObjNummer\":\"106\",\"Name\":\"Reuss:
+        Bremgarten - Zufikon bis Br\xFCcke von Rottenschwil (AG)\",\"Teilgebiet\":\"II\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-vogelreservate/objectsheets/2023revision/nr106.pdf\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"Null\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"TeilObjNummer\":\"2\",\"Schutzkategorie\":\"29\",\"Obj_GISFlaeche\":\"274.200012\",\"Schutzebene\":\"N\"}},{\"layerId\":495,\"layerName\":\"BLN
+        - Bundesinventar der Landschaften und Naturdenkm\xE4ler von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Reusslandschaft\",\"attributes\":{\"OBJECTID\":\"48\",\"ObjNummer\":\"1305\",\"TeilObjNummer\":\"0\",\"Name\":\"Reusslandschaft\",\"Inkraftsetzungsdatum\":\"21.11.1977\",\"Mutationsdatum\":\"Null\",\"TeilObjName\":\"
+        \",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-bln/objectsheets/2017revision/nr1305.pdf\",\"Mutationsgrund\":\"
+        \",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"V\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"63136835.268977\",\"Shape.STLength()\":\"99488.83168\"}},{\"layerId\":497,\"layerName\":\"Landschaftsschutzdekrete
+        (detailliert Legende)\",\"displayFieldName\":\"Dekretsname\",\"value\":\"RTD\",\"attributes\":{\"OBJECTID\":\"308\",\"Dekretsname\":\"RTD\",\"Ausf\xFChrlicher
+        Dekretsname\":\"Dekret \xFCber den Schutz der Landschaft und die Nutzung im
+        Gebiet der Reusstalsanierung (SAR 787.330) \",\"Zonencode Kanton\":\"5283\",\"Zonenbezeichnung
+        Kanton\":\"Wasserzone innerhalb Dekretsgebiet (kant. NP)\",\"Typ in Kantonaler
+        Zone\":\"Wasser\",\"Verbindlichkeit\":\"Nutzungsplanfestlegung\",\"Orientierungsinhalt\":\"Null\",\"Geolink\":\"40\",\"Beschlussdatum
+        \xC4nderung\":\"06.03.2018\",\"Rechtsstatus\":\"inKraft\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/40.html\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1086087.80355\",\"Shape.STLength()\":\"33569.57642\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Reuss\",\"attributes\":{\"OBJECTID\":\"39762\",\"NAME\":\"Reuss\",\"SBREITE\":\"Null\",\"BNUM\":\"4.00.000\",\"KLASSE\":\"Null\",\"BUFF_DIST\":\"15\",\"ART\":\"Fluss\",\"FAKTOR\":\"Null\",\"NAT_GSB\":\"Null\",\"GEWR_BREITE\":\"Null\",\"GEWR_RADIUS\":\"Null\",\"Bauzone\":\"Null\",\"GEWR_TYP\":\"Null\",\"RECHT\":\"BauG\",\"KEY\":\"Null\",\"AbschLength\":\"Null\",\"GDENR\":\"4079\",\"GEMEINDEZ\":\"Unterlunkhofen\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"424666.515622\",\"Shape.STLength()\":\"7136.502023\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1612'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:15:43 GMT
+      ETag:
+      - '"91e8f84b"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|xkFjJaqsWkC-i8VTsO4s2Q==|lJElNUjhmPAVKKDhebi3b6-lN-faJhZ5X-pdXx4eIfJ8tGw0s_hq7yt3zVL3xfCBkNf_lnc=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:16:43 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce5103e41fe7e63cd42b348a0d56c0e9914a434c1bbe648bbf142bf9d8da59da619ec2fce9841b8186cfa3e6b9d4bfbcd1517;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce5103e41fe7e63cd42b348a0d56c0e9914a434c1bbe648bbf142bf9d8da59da619ec2fce9841b8186cfa3e6b9d4bfbcd1517;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2670200%2C1242282%2C2670202%2C1242284&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Unterlunkhofen\",\"attributes\":{\"OBJECTID\":\"61\",\"GDENR\":\"4079\",\"GEMEINDE\":\"Unterlunkhofen\",\"GEMEINDEZ\":\"Unterlunkhofen\",\"GEMEINDEU\":\"Unterlunkhofen\",\"BZNR\":\"1903\",\"BEZIRK\":\"Bremgarten\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Bremgarten\",\"Geometer\":\"Marco Portmann\",\"Strasse\":\"Zugerstrasse
+        14\",\"PLZOrt\":\"5620 Bremgarten\",\"ID\":\"4079\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"4487606.054656\",\"SHAPE.STLength()\":\"15900.510936\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"5\",\"attributes\":{\"OBJECTID\":\"77818523\",\"FILEID\":\"56\",\"GDENR\":\"4079\",\"GDENRPARZ\":\"407900005\",\"NUMMER\":\"5\",\"EGRID\":\"CH191592795045\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"445478\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"445477.802754\",\"SHAPE.STLength()\":\"7226.773047\"}},{\"layerId\":45,\"layerName\":\"Auengebiete
+        von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Rottenschwiler
+        Moos\",\"attributes\":{\"OBJECTID\":\"66\",\"ObjNummer\":\"91\",\"Name\":\"Rottenschwiler
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-auen/objectsheets/2017revision/nr91.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"15.11.1992\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"\",\"Typ\":\"3\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"769774.903749\",\"Shape.STLength()\":\"4808.88207\"}},{\"layerId\":47,\"layerName\":\"Bundesinventar
+        der Wasser- und Zugvogelreservate von internationaler und nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Reuss:
+        Bremgarten - Zufikon bis Br\xFCcke von Rottenschwil (AG)\",\"attributes\":{\"OBJECTID\":\"57\",\"WV_VERSION\":\"23.09.2015\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1184548.419862\",\"SHAPE.STLength()\":\"11899.449938\",\"ObjNummer\":\"106\",\"Name\":\"Reuss:
+        Bremgarten - Zufikon bis Br\xFCcke von Rottenschwil (AG)\",\"Teilgebiet\":\"II\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-vogelreservate/objectsheets/2023revision/nr106.pdf\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"Null\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"TeilObjNummer\":\"2\",\"Schutzkategorie\":\"29\",\"Obj_GISFlaeche\":\"274.200012\",\"Schutzebene\":\"N\"}},{\"layerId\":495,\"layerName\":\"BLN
+        - Bundesinventar der Landschaften und Naturdenkm\xE4ler von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Reusslandschaft\",\"attributes\":{\"OBJECTID\":\"48\",\"ObjNummer\":\"1305\",\"TeilObjNummer\":\"0\",\"Name\":\"Reusslandschaft\",\"Inkraftsetzungsdatum\":\"21.11.1977\",\"Mutationsdatum\":\"Null\",\"TeilObjName\":\"
+        \",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-bln/objectsheets/2017revision/nr1305.pdf\",\"Mutationsgrund\":\"
+        \",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"V\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"63136835.268977\",\"Shape.STLength()\":\"99488.83168\"}},{\"layerId\":497,\"layerName\":\"Landschaftsschutzdekrete
+        (detailliert Legende)\",\"displayFieldName\":\"Dekretsname\",\"value\":\"RTD\",\"attributes\":{\"OBJECTID\":\"308\",\"Dekretsname\":\"RTD\",\"Ausf\xFChrlicher
+        Dekretsname\":\"Dekret \xFCber den Schutz der Landschaft und die Nutzung im
+        Gebiet der Reusstalsanierung (SAR 787.330) \",\"Zonencode Kanton\":\"5283\",\"Zonenbezeichnung
+        Kanton\":\"Wasserzone innerhalb Dekretsgebiet (kant. NP)\",\"Typ in Kantonaler
+        Zone\":\"Wasser\",\"Verbindlichkeit\":\"Nutzungsplanfestlegung\",\"Orientierungsinhalt\":\"Null\",\"Geolink\":\"40\",\"Beschlussdatum
+        \xC4nderung\":\"06.03.2018\",\"Rechtsstatus\":\"inKraft\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/40.html\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1086087.80355\",\"Shape.STLength()\":\"33569.57642\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Reuss\",\"attributes\":{\"OBJECTID\":\"39762\",\"NAME\":\"Reuss\",\"SBREITE\":\"Null\",\"BNUM\":\"4.00.000\",\"KLASSE\":\"Null\",\"BUFF_DIST\":\"15\",\"ART\":\"Fluss\",\"FAKTOR\":\"Null\",\"NAT_GSB\":\"Null\",\"GEWR_BREITE\":\"Null\",\"GEWR_RADIUS\":\"Null\",\"Bauzone\":\"Null\",\"GEWR_TYP\":\"Null\",\"RECHT\":\"BauG\",\"KEY\":\"Null\",\"AbschLength\":\"Null\",\"GDENR\":\"4079\",\"GEMEINDEZ\":\"Unterlunkhofen\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"424666.515622\",\"Shape.STLength()\":\"7136.502023\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1612'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:16:58 GMT
+      ETag:
+      - '"91e8f84b"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|DNHY1zMTZxY3V1T7xw3M9w==|4IKVmGb0xJUoyjfA8Z4m6LLo6DI4TY3AmkIsUWEV7FM4QDyqPmfYuQJ2dcGFdL4bHmg6_ds=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:17:58 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce5108b31f4b1b888b3b9fd95221e4d820e7bdc89db42a5bacef9c214670b8e0bb505e53264ef41743453a8f079347320ad36;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce5108b31f4b1b888b3b9fd95221e4d820e7bdc89db42a5bacef9c214670b8e0bb505e53264ef41743453a8f079347320ad36;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2670181%2C1242263%2C2670221%2C1242303&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="sym-gcm|1|DNHY1zMTZxY3V1T7xw3M9w==|4IKVmGb0xJUoyjfA8Z4m6LLo6DI4TY3AmkIsUWEV7FM4QDyqPmfYuQJ2dcGFdL4bHmg6_ds=";
+        TS01975bae=0100bce5108b31f4b1b888b3b9fd95221e4d820e7bdc89db42a5bacef9c214670b8e0bb505e53264ef41743453a8f079347320ad36;
+        XWAF=1791920065.47873.0000; TS014419e9=0100bce5108b31f4b1b888b3b9fd95221e4d820e7bdc89db42a5bacef9c214670b8e0bb505e53264ef41743453a8f079347320ad36
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Unterlunkhofen\",\"attributes\":{\"OBJECTID\":\"61\",\"GDENR\":\"4079\",\"GEMEINDE\":\"Unterlunkhofen\",\"GEMEINDEZ\":\"Unterlunkhofen\",\"GEMEINDEU\":\"Unterlunkhofen\",\"BZNR\":\"1903\",\"BEZIRK\":\"Bremgarten\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Bremgarten\",\"Geometer\":\"Marco Portmann\",\"Strasse\":\"Zugerstrasse
+        14\",\"PLZOrt\":\"5620 Bremgarten\",\"ID\":\"4079\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"4487606.054656\",\"SHAPE.STLength()\":\"15900.510936\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"5\",\"attributes\":{\"OBJECTID\":\"77818523\",\"FILEID\":\"56\",\"GDENR\":\"4079\",\"GDENRPARZ\":\"407900005\",\"NUMMER\":\"5\",\"EGRID\":\"CH191592795045\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"445478\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"445477.802754\",\"SHAPE.STLength()\":\"7226.773047\"}},{\"layerId\":45,\"layerName\":\"Auengebiete
+        von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Rottenschwiler
+        Moos\",\"attributes\":{\"OBJECTID\":\"66\",\"ObjNummer\":\"91\",\"Name\":\"Rottenschwiler
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-auen/objectsheets/2017revision/nr91.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"15.11.1992\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"\",\"Typ\":\"3\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"769774.903749\",\"Shape.STLength()\":\"4808.88207\"}},{\"layerId\":47,\"layerName\":\"Bundesinventar
+        der Wasser- und Zugvogelreservate von internationaler und nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Reuss:
+        Bremgarten - Zufikon bis Br\xFCcke von Rottenschwil (AG)\",\"attributes\":{\"OBJECTID\":\"57\",\"WV_VERSION\":\"23.09.2015\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1184548.419862\",\"SHAPE.STLength()\":\"11899.449938\",\"ObjNummer\":\"106\",\"Name\":\"Reuss:
+        Bremgarten - Zufikon bis Br\xFCcke von Rottenschwil (AG)\",\"Teilgebiet\":\"II\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-vogelreservate/objectsheets/2023revision/nr106.pdf\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"Null\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"TeilObjNummer\":\"2\",\"Schutzkategorie\":\"29\",\"Obj_GISFlaeche\":\"274.200012\",\"Schutzebene\":\"N\"}},{\"layerId\":495,\"layerName\":\"BLN
+        - Bundesinventar der Landschaften und Naturdenkm\xE4ler von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Reusslandschaft\",\"attributes\":{\"OBJECTID\":\"48\",\"ObjNummer\":\"1305\",\"TeilObjNummer\":\"0\",\"Name\":\"Reusslandschaft\",\"Inkraftsetzungsdatum\":\"21.11.1977\",\"Mutationsdatum\":\"Null\",\"TeilObjName\":\"
+        \",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-bln/objectsheets/2017revision/nr1305.pdf\",\"Mutationsgrund\":\"
+        \",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"V\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"63136835.268977\",\"Shape.STLength()\":\"99488.83168\"}},{\"layerId\":497,\"layerName\":\"Landschaftsschutzdekrete
+        (detailliert Legende)\",\"displayFieldName\":\"Dekretsname\",\"value\":\"RTD\",\"attributes\":{\"OBJECTID\":\"308\",\"Dekretsname\":\"RTD\",\"Ausf\xFChrlicher
+        Dekretsname\":\"Dekret \xFCber den Schutz der Landschaft und die Nutzung im
+        Gebiet der Reusstalsanierung (SAR 787.330) \",\"Zonencode Kanton\":\"5283\",\"Zonenbezeichnung
+        Kanton\":\"Wasserzone innerhalb Dekretsgebiet (kant. NP)\",\"Typ in Kantonaler
+        Zone\":\"Wasser\",\"Verbindlichkeit\":\"Nutzungsplanfestlegung\",\"Orientierungsinhalt\":\"Null\",\"Geolink\":\"40\",\"Beschlussdatum
+        \xC4nderung\":\"06.03.2018\",\"Rechtsstatus\":\"inKraft\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/40.html\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1086087.80355\",\"Shape.STLength()\":\"33569.57642\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Reuss\",\"attributes\":{\"OBJECTID\":\"39762\",\"NAME\":\"Reuss\",\"SBREITE\":\"Null\",\"BNUM\":\"4.00.000\",\"KLASSE\":\"Null\",\"BUFF_DIST\":\"15\",\"ART\":\"Fluss\",\"FAKTOR\":\"Null\",\"NAT_GSB\":\"Null\",\"GEWR_BREITE\":\"Null\",\"GEWR_RADIUS\":\"Null\",\"Bauzone\":\"Null\",\"GEWR_TYP\":\"Null\",\"RECHT\":\"BauG\",\"KEY\":\"Null\",\"AbschLength\":\"Null\",\"GDENR\":\"4079\",\"GEMEINDEZ\":\"Unterlunkhofen\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"424666.515622\",\"Shape.STLength()\":\"7136.502023\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1612'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:16:59 GMT
+      ETag:
+      - '"91e8f84b"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|4D4_Pjb37LJg0OredytYzg==|wOJI6tW7CEex6hy_nGSDBSHp6iRT94tbGgPC9E2qVSb6NNp7EieRlt_GwylbvWFVHn3kl_E=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:17:59 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce5108b31f4b1b888b3b9fd95221e4d820e7bdc89db42a5bacef9c214670b8e0bb505e53264ef41743453a8f079347320ad36;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce5108b31f4b1b888b3b9fd95221e4d820e7bdc89db42a5bacef9c214670b8e0bb505e53264ef41743453a8f079347320ad36;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2670200%2C1242282%2C2670202%2C1242284&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Unterlunkhofen\",\"attributes\":{\"OBJECTID\":\"61\",\"GDENR\":\"4079\",\"GEMEINDE\":\"Unterlunkhofen\",\"GEMEINDEZ\":\"Unterlunkhofen\",\"GEMEINDEU\":\"Unterlunkhofen\",\"BZNR\":\"1903\",\"BEZIRK\":\"Bremgarten\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Bremgarten\",\"Geometer\":\"Marco Portmann\",\"Strasse\":\"Zugerstrasse
+        14\",\"PLZOrt\":\"5620 Bremgarten\",\"ID\":\"4079\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"4487606.054656\",\"SHAPE.STLength()\":\"15900.510936\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"5\",\"attributes\":{\"OBJECTID\":\"77818523\",\"FILEID\":\"56\",\"GDENR\":\"4079\",\"GDENRPARZ\":\"407900005\",\"NUMMER\":\"5\",\"EGRID\":\"CH191592795045\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"445478\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"445477.802754\",\"SHAPE.STLength()\":\"7226.773047\"}},{\"layerId\":45,\"layerName\":\"Auengebiete
+        von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Rottenschwiler
+        Moos\",\"attributes\":{\"OBJECTID\":\"66\",\"ObjNummer\":\"91\",\"Name\":\"Rottenschwiler
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-auen/objectsheets/2017revision/nr91.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"15.11.1992\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"\",\"Typ\":\"3\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"769774.903749\",\"Shape.STLength()\":\"4808.88207\"}},{\"layerId\":47,\"layerName\":\"Bundesinventar
+        der Wasser- und Zugvogelreservate von internationaler und nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Reuss:
+        Bremgarten - Zufikon bis Br\xFCcke von Rottenschwil (AG)\",\"attributes\":{\"OBJECTID\":\"57\",\"WV_VERSION\":\"23.09.2015\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1184548.419862\",\"SHAPE.STLength()\":\"11899.449938\",\"ObjNummer\":\"106\",\"Name\":\"Reuss:
+        Bremgarten - Zufikon bis Br\xFCcke von Rottenschwil (AG)\",\"Teilgebiet\":\"II\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-vogelreservate/objectsheets/2023revision/nr106.pdf\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"Null\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"TeilObjNummer\":\"2\",\"Schutzkategorie\":\"29\",\"Obj_GISFlaeche\":\"274.200012\",\"Schutzebene\":\"N\"}},{\"layerId\":495,\"layerName\":\"BLN
+        - Bundesinventar der Landschaften und Naturdenkm\xE4ler von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Reusslandschaft\",\"attributes\":{\"OBJECTID\":\"48\",\"ObjNummer\":\"1305\",\"TeilObjNummer\":\"0\",\"Name\":\"Reusslandschaft\",\"Inkraftsetzungsdatum\":\"21.11.1977\",\"Mutationsdatum\":\"Null\",\"TeilObjName\":\"
+        \",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-bln/objectsheets/2017revision/nr1305.pdf\",\"Mutationsgrund\":\"
+        \",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"V\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"63136835.268977\",\"Shape.STLength()\":\"99488.83168\"}},{\"layerId\":497,\"layerName\":\"Landschaftsschutzdekrete
+        (detailliert Legende)\",\"displayFieldName\":\"Dekretsname\",\"value\":\"RTD\",\"attributes\":{\"OBJECTID\":\"308\",\"Dekretsname\":\"RTD\",\"Ausf\xFChrlicher
+        Dekretsname\":\"Dekret \xFCber den Schutz der Landschaft und die Nutzung im
+        Gebiet der Reusstalsanierung (SAR 787.330) \",\"Zonencode Kanton\":\"5283\",\"Zonenbezeichnung
+        Kanton\":\"Wasserzone innerhalb Dekretsgebiet (kant. NP)\",\"Typ in Kantonaler
+        Zone\":\"Wasser\",\"Verbindlichkeit\":\"Nutzungsplanfestlegung\",\"Orientierungsinhalt\":\"Null\",\"Geolink\":\"40\",\"Beschlussdatum
+        \xC4nderung\":\"06.03.2018\",\"Rechtsstatus\":\"inKraft\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/40.html\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1086087.80355\",\"Shape.STLength()\":\"33569.57642\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Reuss\",\"attributes\":{\"OBJECTID\":\"39762\",\"NAME\":\"Reuss\",\"SBREITE\":\"Null\",\"BNUM\":\"4.00.000\",\"KLASSE\":\"Null\",\"BUFF_DIST\":\"15\",\"ART\":\"Fluss\",\"FAKTOR\":\"Null\",\"NAT_GSB\":\"Null\",\"GEWR_BREITE\":\"Null\",\"GEWR_RADIUS\":\"Null\",\"Bauzone\":\"Null\",\"GEWR_TYP\":\"Null\",\"RECHT\":\"BauG\",\"KEY\":\"Null\",\"AbschLength\":\"Null\",\"GDENR\":\"4079\",\"GEMEINDEZ\":\"Unterlunkhofen\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"424666.515622\",\"Shape.STLength()\":\"7136.502023\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1612'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:21:43 GMT
+      ETag:
+      - '"91e8f84b"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|GEVAgcpnrPq0x-pYCovBPg==|Kl97CByRm52xeJp1qPvoaSDqHzqs0lYmE7UMtGBeybRQXCnPFmmIIVOvB41vG6Fp6SDVgjo=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:22:43 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce5106f23b379d0fc5275b4f66370fd034523ae414fb4ed0bcde16dccf9042e44b4485aea661182e0462097c5220e5211195f;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce5106f23b379d0fc5275b4f66370fd034523ae414fb4ed0bcde16dccf9042e44b4485aea661182e0462097c5220e5211195f;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2670181%2C1242263%2C2670221%2C1242303&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="sym-gcm|1|GEVAgcpnrPq0x-pYCovBPg==|Kl97CByRm52xeJp1qPvoaSDqHzqs0lYmE7UMtGBeybRQXCnPFmmIIVOvB41vG6Fp6SDVgjo=";
+        TS01975bae=0100bce5106f23b379d0fc5275b4f66370fd034523ae414fb4ed0bcde16dccf9042e44b4485aea661182e0462097c5220e5211195f;
+        XWAF=1791920065.47873.0000; TS014419e9=0100bce5106f23b379d0fc5275b4f66370fd034523ae414fb4ed0bcde16dccf9042e44b4485aea661182e0462097c5220e5211195f
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Unterlunkhofen\",\"attributes\":{\"OBJECTID\":\"61\",\"GDENR\":\"4079\",\"GEMEINDE\":\"Unterlunkhofen\",\"GEMEINDEZ\":\"Unterlunkhofen\",\"GEMEINDEU\":\"Unterlunkhofen\",\"BZNR\":\"1903\",\"BEZIRK\":\"Bremgarten\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Bremgarten\",\"Geometer\":\"Marco Portmann\",\"Strasse\":\"Zugerstrasse
+        14\",\"PLZOrt\":\"5620 Bremgarten\",\"ID\":\"4079\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"4487606.054656\",\"SHAPE.STLength()\":\"15900.510936\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"5\",\"attributes\":{\"OBJECTID\":\"77818523\",\"FILEID\":\"56\",\"GDENR\":\"4079\",\"GDENRPARZ\":\"407900005\",\"NUMMER\":\"5\",\"EGRID\":\"CH191592795045\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"445478\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"445477.802754\",\"SHAPE.STLength()\":\"7226.773047\"}},{\"layerId\":45,\"layerName\":\"Auengebiete
+        von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Rottenschwiler
+        Moos\",\"attributes\":{\"OBJECTID\":\"66\",\"ObjNummer\":\"91\",\"Name\":\"Rottenschwiler
+        Moos\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-auen/objectsheets/2017revision/nr91.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"15.11.1992\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"\",\"Typ\":\"3\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"769774.903749\",\"Shape.STLength()\":\"4808.88207\"}},{\"layerId\":47,\"layerName\":\"Bundesinventar
+        der Wasser- und Zugvogelreservate von internationaler und nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Reuss:
+        Bremgarten - Zufikon bis Br\xFCcke von Rottenschwil (AG)\",\"attributes\":{\"OBJECTID\":\"57\",\"WV_VERSION\":\"23.09.2015\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"1184548.419862\",\"SHAPE.STLength()\":\"11899.449938\",\"ObjNummer\":\"106\",\"Name\":\"Reuss:
+        Bremgarten - Zufikon bis Br\xFCcke von Rottenschwil (AG)\",\"Teilgebiet\":\"II\",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-vogelreservate/objectsheets/2023revision/nr106.pdf\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"Null\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"TeilObjNummer\":\"2\",\"Schutzkategorie\":\"29\",\"Obj_GISFlaeche\":\"274.200012\",\"Schutzebene\":\"N\"}},{\"layerId\":495,\"layerName\":\"BLN
+        - Bundesinventar der Landschaften und Naturdenkm\xE4ler von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"Reusslandschaft\",\"attributes\":{\"OBJECTID\":\"48\",\"ObjNummer\":\"1305\",\"TeilObjNummer\":\"0\",\"Name\":\"Reusslandschaft\",\"Inkraftsetzungsdatum\":\"21.11.1977\",\"Mutationsdatum\":\"Null\",\"TeilObjName\":\"
+        \",\"RefObjBlatt\":\"https://data.geo.admin.ch/ch.bafu.bundesinventare-bln/objectsheets/2017revision/nr1305.pdf\",\"Mutationsgrund\":\"
+        \",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"V\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"63136835.268977\",\"Shape.STLength()\":\"99488.83168\"}},{\"layerId\":497,\"layerName\":\"Landschaftsschutzdekrete
+        (detailliert Legende)\",\"displayFieldName\":\"Dekretsname\",\"value\":\"RTD\",\"attributes\":{\"OBJECTID\":\"308\",\"Dekretsname\":\"RTD\",\"Ausf\xFChrlicher
+        Dekretsname\":\"Dekret \xFCber den Schutz der Landschaft und die Nutzung im
+        Gebiet der Reusstalsanierung (SAR 787.330) \",\"Zonencode Kanton\":\"5283\",\"Zonenbezeichnung
+        Kanton\":\"Wasserzone innerhalb Dekretsgebiet (kant. NP)\",\"Typ in Kantonaler
+        Zone\":\"Wasser\",\"Verbindlichkeit\":\"Nutzungsplanfestlegung\",\"Orientierungsinhalt\":\"Null\",\"Geolink\":\"40\",\"Beschlussdatum
+        \xC4nderung\":\"06.03.2018\",\"Rechtsstatus\":\"inKraft\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/40.html\",\"OEREBexport\":\"ja\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"1086087.80355\",\"Shape.STLength()\":\"33569.57642\"}},{\"layerId\":75,\"layerName\":\"Gew\xE4sserraum\",\"displayFieldName\":\"NAME\",\"value\":\"Reuss\",\"attributes\":{\"OBJECTID\":\"39762\",\"NAME\":\"Reuss\",\"SBREITE\":\"Null\",\"BNUM\":\"4.00.000\",\"KLASSE\":\"Null\",\"BUFF_DIST\":\"15\",\"ART\":\"Fluss\",\"FAKTOR\":\"Null\",\"NAT_GSB\":\"Null\",\"GEWR_BREITE\":\"Null\",\"GEWR_RADIUS\":\"Null\",\"Bauzone\":\"Null\",\"GEWR_TYP\":\"Null\",\"RECHT\":\"BauG\",\"KEY\":\"Null\",\"AbschLength\":\"Null\",\"GDENR\":\"4079\",\"GEMEINDEZ\":\"Unterlunkhofen\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"424666.515622\",\"Shape.STLength()\":\"7136.502023\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1612'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:21:43 GMT
+      ETag:
+      - '"91e8f84b"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|d8xvQ-FyNF4hYEm3odftgg==|j5hvlOeZGeqLnEn6P-rwzKJXncH9RG6es5Qy6HXTyWeobDE28y49CGIGyh1Q9K7cFJdZP5w=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:22:43 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce5106f23b379d0fc5275b4f66370fd034523ae414fb4ed0bcde16dccf9042e44b4485aea661182e0462097c5220e5211195f;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce5106f23b379d0fc5275b4f66370fd034523ae414fb4ed0bcde16dccf9042e44b4485aea661182e0462097c5220e5211195f;
         path=/geoportal/rest
       Strict-Transport-Security:
       - max-age=16070400; includeSubDomains

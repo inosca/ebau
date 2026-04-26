@@ -8,6 +8,14 @@ from camac.gis.models import GISDataSource
 
 
 @pytest.fixture
+def vcr_config():
+    # also match on body to avoid egrid response mismatch due to the out of order threaded handling
+    return {
+        "match_on": ["method", "scheme", "host", "port", "path", "query", "body"],
+    }
+
+
+@pytest.fixture
 def be_data_sources(
     caluma_question_factory,
     caluma_question_option_factory,
@@ -82,16 +90,29 @@ def test_be_client(
     admin_client,
     gis_snapshot,
     vcr_config,
+    celery_fake_worker,
     egrids,
     be_data_sources,
     settings,
 ):
     # TODO: Update testing when sync=True works for testing, django_q sync=True is still broken.
     settings.BE_GIS_ENABLE_QUEUE = False
+    # Without this, threads may run out-of-order and cause VCRpy to return
+    # the wrong data (or fail)
     settings.GIS_REQUESTS_BATCH_SIZE = 1
 
-    response = admin_client.get(
+    response_0 = admin_client.get(
         reverse("gis-data"),
+        data={
+            "egrids": egrids,
+        },
+    )
+    task_id = response_0.json()["task_id"]
+
+    celery_fake_worker.run_tasks()
+
+    response = admin_client.get(
+        reverse("gis-data", args=[task_id]),
         data={
             "egrids": egrids,
         },
@@ -110,23 +131,60 @@ def test_be_client(
     ],
 )
 @pytest.mark.vcr(allow_playback_repeats=True)
+@pytest.mark.parametrize(
+    "run_task, expected_result",
+    [
+        (True, status.HTTP_400_BAD_REQUEST),
+        (False, status.HTTP_202_ACCEPTED),
+    ],
+)
 def test_be_client_error(
     db,
     admin_client,
     gis_snapshot,
     vcr_config,
-    egrids,
+    celery_fake_worker,
     be_data_sources,
     settings,
+    egrids,
+    run_task,
+    expected_result,
 ):
-    settings.BE_GIS_ENABLE_QUEUE = False
+    # Without this, threads may run out-of-order and cause VCRpy to return
+    # the wrong data (or fail)
+    settings.GIS_REQUESTS_BATCH_SIZE = 1
 
-    response = admin_client.get(
+    response_0 = admin_client.get(
         reverse("gis-data"),
         data={
             "egrids": egrids,
         },
     )
+    task_id = response_0.json()["task_id"]
 
-    assert response.status_code == status.HTTP_400_BAD_REQUEST
-    assert response.json() == gis_snapshot
+    # Run the task - and we expect the task to fail, as we want
+    # to check the error reporting state afterwards
+    if run_task:
+        celery_fake_worker.run_tasks(raise_errors=False)
+
+    response = admin_client.get(
+        reverse("gis-data", args=[task_id]),
+        data={
+            "egrids": egrids,
+        },
+    )
+
+    assert response.status_code == expected_result
+
+    if expected_result == status.HTTP_400_BAD_REQUEST:
+        error_data = response.json()
+
+        # Before snapshot: This needs to be the same structure as
+        # when processed by Celery in the actual background task.
+        assert "detail" in error_data
+        assert isinstance(error_data["detail"], str)
+        assert error_data == gis_snapshot
+
+    else:
+        # 202 has no data - task is just simply not scheduled yet
+        assert response.content == b""

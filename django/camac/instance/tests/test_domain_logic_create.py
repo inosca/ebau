@@ -324,29 +324,26 @@ def test_instance_generate_identifier_so_exceptions(
 
 
 @pytest.mark.parametrize(
-    "has_source,is_modification,expected_count,expected_type",
+    "has_source,was_rejected,expected_count,expected_type",
     [
         (False, False, 0, None),
         (False, True, 0, None),
-        (
-            True,
-            False,
-            1,
-            FormTimeline.Type.SUBMIT_AFTER_REJECTION.value,
-        ),
-        (True, True, 1, FormTimeline.Type.PROJECT_CHANGE.value),
+        (True, False, 1, FormTimeline.Type.PROJECT_CHANGE.value),
+        (True, True, 1, FormTimeline.Type.SUBMIT_AFTER_REJECTION.value),
     ],
 )
 def test_instance_create_source_timeline(
     db,
     caluma_case_factory,
     instance_factory,
+    instance_state_factory,
     gr_instance,
     has_source,
-    is_modification,
+    was_rejected,
     expected_count,
     expected_type,
     timelines_settings,
+    rejection_settings,
     set_application_gr,
 ):
     timelines_settings.enabled = True
@@ -354,10 +351,16 @@ def test_instance_create_source_timeline(
     source_instance = (
         instance_factory(case=caluma_case_factory()) if has_source else None
     )
+    if was_rejected and source_instance:
+        source_instance.instance_state = instance_state_factory(
+            name=rejection_settings["INSTANCE_STATE"]
+        )
+        source_instance.save()
+
     CreateInstanceLogic.initialize_camac(
         gr_instance,
         source_instance=source_instance,
-        is_modification=is_modification,
+        is_modification=not was_rejected,
         is_paper=False,
         extend_validity_for=None,
         case=None,

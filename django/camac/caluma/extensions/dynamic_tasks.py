@@ -419,8 +419,8 @@ class CustomDynamicTasks(BaseDynamicTasks):
             "distribution",
             "audit",
             "publication",
-            "fill-publication",
-            "information-of-neighbors",
+            "create-publication",
+            "create-information-of-neighbors",
             "legal-submission",
         ]
 
@@ -634,6 +634,29 @@ class CustomDynamicTasks(BaseDynamicTasks):
             settings.CONSTRUCTION_MONITORING["COMPLETE_CONSTRUCTION_MONITORING_TASK"],
         ]
 
+    @register_dynamic_task("after-construction-step-item")
+    def resolve_after_construction_step_item(
+        self, case: object, user: object, prev_work_item: object, context: dict
+    ) -> List[str]:
+        """Resolve the next task within a construction step."""
+        step_id = prev_work_item.meta["construction-step-id"]
+        current_index = prev_work_item.meta.get("construction-step").get("index")
+
+        result_index = (
+            current_index + 1
+            if construction_step_can_continue(prev_work_item)
+            else current_index - 1
+        )
+
+        next_task = Task.objects.filter(
+            **{
+                "meta__construction-step-id": step_id,
+                "meta__construction-step__index": result_index,
+            }
+        ).first()
+
+        return [next_task.pk] if next_task else []
+
     @register_dynamic_task("after-construction-step")
     def resolve_after_construction_step(
         self, case: object, user: object, prev_work_item: object, context: dict
@@ -814,9 +837,13 @@ class CustomDynamicTasks(BaseDynamicTasks):
         md = MasterData(case)
 
         if md.publication_required:
-            tasks.extend(["publication", "fill-publication"])
+            tasks.extend(["fill-publication", "publication"])
+        else:
+            tasks.append("create-publication")
 
         if md.information_of_neighbors_required:
-            tasks.extend(["information-of-neighbors", "fill-information-of-neighbors"])
+            tasks.extend(["fill-information-of-neighbors", "information-of-neighbors"])
+        else:
+            tasks.append("create-information-of-neighbors")
 
         return tasks

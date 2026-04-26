@@ -1,6 +1,8 @@
 import Controller from "@ember/controller";
+import { assert } from "@ember/debug";
+import { action } from "@ember/object";
 import { service } from "@ember/service";
-import { queryManager } from "ember-apollo-client";
+import { queryManager, getObservable } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
 import { DateTime, Interval } from "luxon";
 import { trackedTask } from "reactiveweb/ember-concurrency";
@@ -13,6 +15,7 @@ export default class PublicationController extends Controller {
   @service notification;
   @service intl;
   @service ebauModules;
+  @service router;
 
   @queryManager apollo;
 
@@ -24,14 +27,49 @@ export default class PublicationController extends Controller {
     return mainConfig.publication[this.model.type];
   }
 
+  get createTask() {
+    assert(
+      `A 'createTask' must be defined for type "${this.model.type}".`,
+      this.#config.createTask,
+    );
+    return this.#config.createTask;
+  }
+
+  get instanceId() {
+    return this.ebauModules.instanceId;
+  }
+
   get variables() {
     const { task, dateRanges } = this.#config;
+    assert(`A 'task' must be defined for type "${this.model.type}".`, task);
 
     return {
-      instanceId: this.ebauModules.instanceId,
+      instanceId: this.instanceId,
       task,
       dateQuestions: dateRanges.flat(),
     };
+  }
+
+  get filters() {
+    return [
+      { addressedGroups: [String(this.ebauModules.serviceId)] },
+      {
+        caseMetaValue: [{ key: "camac-instance-id", value: this.instanceId }],
+      },
+    ];
+  }
+
+  @action
+  async refreshNavigation() {
+    await this.refetchPublications.perform();
+    this.router.refresh(
+      this.ebauModules.resolveModuleRoute("publication", "index"),
+    );
+  }
+
+  @dropTask
+  *refetchPublications() {
+    yield getObservable(this.publications.value).refetch();
   }
 
   @dropTask

@@ -139,7 +139,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "'create-information-of-neighbors'|task"
+      "next": "'information-of-neighbors'|task"
     }
   },
   {
@@ -191,7 +191,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "'information-of-neighbors'|task"
+      "next": "'create-information-of-neighbors'|task"
     }
   },
   {
@@ -217,7 +217,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "'information-of-neighbors'|task"
+      "next": "'create-information-of-neighbors'|task"
     }
   },
   {
@@ -243,7 +243,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "'create-information-of-neighbors'|task"
+      "next": "'information-of-neighbors'|task"
     }
   },
   {
@@ -256,7 +256,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "'create-information-of-neighbors'|task"
+      "next": "'information-of-neighbors'|task"
     }
   },
   {
@@ -334,7 +334,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "'information-of-neighbors'|task"
+      "next": "'create-information-of-neighbors'|task"
     }
   },
   {
@@ -709,13 +709,13 @@
     "model": "caluma_workflow.task",
     "pk": "information-of-neighbors",
     "fields": {
-      "created_at": "2021-08-30T10:29:48.993Z",
-      "modified_at": "2021-08-30T10:29:48.993Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_at": "2025-02-25T08:45:00.884Z",
+      "modified_at": "2025-02-25T08:45:00.884Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "name": "{\"de\": \"Nachbarschaftsorientierung\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Neue Nachbarschaftsorientierung erstellen\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "complete_task_form",
       "meta": {},
@@ -979,7 +979,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "workflow": "migrated",
-      "task": "create-information-of-neighbors",
+      "task": "information-of-neighbors",
       "flow": "71e4db71-f7ad-42ce-b94e-0471ddff8d42",
       "redoable": null
     }
@@ -995,7 +995,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "workflow": "preliminary-clarification",
-      "task": "information-of-neighbors",
+      "task": "create-information-of-neighbors",
       "flow": "434a4895-d5e9-4845-aaab-f6b0eb084f0f",
       "redoable": null
     }
@@ -1075,7 +1075,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "workflow": "migrated",
-      "task": "information-of-neighbors",
+      "task": "create-information-of-neighbors",
       "flow": "8a5c5a85-4d01-413c-8a29-ffd8cfb0de90",
       "redoable": null
     }
@@ -1123,7 +1123,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "workflow": "preliminary-clarification",
-      "task": "create-information-of-neighbors",
+      "task": "information-of-neighbors",
       "flow": "60e9a775-7e64-4f2d-beea-e8c5677521bd",
       "redoable": null
     }
@@ -1139,7 +1139,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "workflow": "building-permit",
-      "task": "information-of-neighbors",
+      "task": "create-information-of-neighbors",
       "flow": "96b54a5b-2b3e-4d5e-bf21-b54175ab10dd",
       "redoable": null
     }
@@ -1155,7 +1155,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "workflow": "building-permit",
-      "task": "create-information-of-neighbors",
+      "task": "information-of-neighbors",
       "flow": "d2ceacda-7648-4c46-b1f1-ee35573414c7",
       "redoable": null
     }
@@ -1384,11 +1384,11 @@
       "is_archived": false,
       "allow_all_forms": false,
       "start_tasks": [
+        "create-information-of-neighbors",
         "create-manual-workitems",
+        "create-publication",
         "decision",
-        "ebau-number",
-        "fill-publication",
-        "information-of-neighbors"
+        "ebau-number"
       ],
       "allow_forms": ["migriertes-dossier"]
     }

@@ -253,15 +253,15 @@
         'country': dict({
           'countryNameShort': 'ch',
         }),
-        'houseNumber': '39444',
-        'street': 'Fischer Islands',
-        'swissZipCode': '8769',
-        'town': 'North Jacobfort',
+        'houseNumber': '719',
+        'street': 'Julie Field',
+        'swissZipCode': '1330',
+        'town': 'New Jeffrey',
       }),
       'identification': dict({
         'isOrganisation': True,
         'organisationIdentification': dict({
-          'organisationName': 'Pacheco Group',
+          'organisationName': 'Hayden PLC',
         }),
         'personIdentification': None,
       }),

@@ -8,6 +8,7 @@ from camac.instance.models import Instance
 from camac.instance.utils import get_provider_services
 from camac.permissions import api as permissions_api
 from camac.permissions.models import AccessLevel, InstanceACL
+from camac.rulesets.utils import assign_responsible_user
 from camac.user.models import Service, ServiceRelation
 from camac.user.utils import get_support_role
 
@@ -63,6 +64,10 @@ class InstanceSubmissionHandlerMixin:
         if CalumaApi().is_paper(instance):
             # Paper dossiers get the lead authority ACL upon creation, so no need to do it here.
             # See InstanceCreationHandlerMixin.instance_created()
+
+            # We have to do the assignement here manually because the ACL was already granted
+            # and otherwise the responsible user will not be assigned after submission.
+            assign_responsible_user(instance, instance.responsible_service())
             return
 
         self.manager.grant(

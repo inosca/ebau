@@ -182,6 +182,7 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
     )
     notification = CamacBooleanField(default=True)
     disabled = CamacBooleanField(default=False)
+    uses_ech_api = CamacBooleanField(default=False)
     responsibility_construction_control = BooleanField(default=False)
 
     def get_users(self, obj):
@@ -423,6 +424,7 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
             "logo",
             "slug",
             "department",
+            "uses_ech_api",
         )
         read_only_fields = (
             "users",
@@ -481,6 +483,7 @@ class PublicServiceSerializer(MultilingualSerializer, serializers.ModelSerialize
             "website",
             "service_group",
             "logo",
+            "uses_ech_api",
         )
         resource_name = "public-services"
 
@@ -647,6 +650,9 @@ class KeycloakApplySerializer(RestSerializer):
     document = serializers.PrimaryKeyRelatedField(queryset=Document.objects)
 
     def _write_answer(self, document, question_slug, value):
+        if not value:  #  pragma: no cover
+            return
+
         try:
             question = Question.objects.get(pk=question_slug)
         except Question.DoesNotExist:  # pragma: no cover
@@ -656,7 +662,7 @@ class KeycloakApplySerializer(RestSerializer):
             question=question,
             document=document,
             user=self.context["request"].caluma_info.context.user,
-            value=int(value) if question.type == Question.TYPE_INTEGER else value,
+            value=int(value) if question.type == Question.TYPE_INTEGER else str(value),
         )
 
         return True

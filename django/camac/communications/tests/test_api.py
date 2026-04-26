@@ -7,13 +7,13 @@ the corresponding test modules.
 
 import io
 import json
-import logging
-from mimetypes import guess_extension
+from contextlib import nullcontext as no_exception
 
 import pytest
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.urls import reverse
 from rest_framework import status
+from rest_framework.exceptions import ValidationError
 
 from camac.communications.models import (
     CommunicationsAttachment,
@@ -369,42 +369,6 @@ def test_mime_type_validation(
     assert response.status_code == status.HTTP_400_BAD_REQUEST
 
 
-@pytest.mark.parametrize("content_type", MS_OFFICE_MIME_TYPES)
-def test_ignore_mime_type_validation_for_ms_office(
-    caplog,
-    content_type,
-    mocker,
-    settings,
-):
-    settings.DISABLE_MAGIC_BYTE_CHECK_FOR_MIME_TYPES = MS_OFFICE_MIME_TYPES
-
-    raw_file = django_file("no-thumbnail.txt")
-    filename = f"testfile{guess_extension(content_type)}"
-
-    file = InMemoryUploadedFile(
-        file=raw_file,
-        name=filename,
-        content_type=content_type,
-        size=raw_file.size,
-        charset="utf8",
-        field_name="irrelevant",
-    )
-
-    mocker.patch(
-        "camac.communications.serializers.magic.from_buffer",
-        return_value="application/octet-stream",
-    )
-
-    with caplog.at_level(logging.DEBUG, "camac.communications.serializers"):
-        validate_mime_type(file)
-
-    assert (
-        f"Content-Type {content_type} of file {filename} does not match the "
-        "detected file content application/octet-stream but is ignored because "
-        "it's configured in `DISABLE_MAGIC_BYTE_CHECK_FOR_MIME_TYPES`."
-    ) in caplog.messages
-
-
 @pytest.mark.parametrize(
     "role__name,expected_status,expected_count",
     [
@@ -557,3 +521,37 @@ def test_validation_of_display_name_by_message_creation(
         pk=resp.json()["data"]["id"]
     ).attachments.all():
         assert attachment.file_attachment.name.endswith(corrected_display_name)
+
+
+@pytest.mark.parametrize(
+    "content_type, expectation",
+    [
+        ("application/x-zip-compressed", no_exception()),
+        ("application/zip-compressed", no_exception()),
+        ("application/x-zip", no_exception()),
+        ("application/zip", no_exception()),
+        ("application/x-not-a-zip-archive", pytest.raises(ValidationError)),
+    ],
+)
+def test_validate_mime_type_alternative_mime_for_zip(
+    caplog,
+    content_type,
+    expectation,
+    mocker,
+    settings,
+):
+
+    raw_file = django_file("simple-archive.zip")
+    filename = "testfile.zip"
+
+    file = InMemoryUploadedFile(
+        file=raw_file,
+        name=filename,
+        content_type=content_type,
+        size=raw_file.size,
+        charset="utf8",
+        field_name="irrelevant",
+    )
+
+    with expectation:
+        validate_mime_type(file)

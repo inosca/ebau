@@ -153,6 +153,7 @@ class ResourceSerializer(serializers.ModelSerializer, MultilingualSerializer):
                 "/ember-camac-ng/rulesets.phtml": "/rulesets",
                 "/ember-camac-ng/merge-municipality.phtml": "merge-municipality",
                 "/ember-camac-ng/bab-statistics-export.phtml": "/bab-statistics-export",
+                "/ember-camac-ng/statistics-export.phtml": "/statistics-export",
             }
             return type_mapping.get(obj.template)
 

@@ -85,6 +85,7 @@ export default {
   publication: {
     public: {
       task: "fill-publication",
+      createTask: "create-publication",
       dateRanges: [
         [
           "beginn-publikationsorgan-gemeinde",
@@ -98,6 +99,7 @@ export default {
     },
     neighbors: {
       task: "fill-information-of-neighbors",
+      createTask: "create-information-of-neighbors",
       dateRanges: [
         [
           "nachbarschaftsorientierung-beginn",

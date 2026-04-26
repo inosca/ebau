@@ -261,18 +261,28 @@ def test_ech0206_client(
     gis_snapshot,
     vcr_config,
     ech0206__config,
+    celery_fake_worker,
     query_x,
     query_y,
     ech0206_data_sources,
 ):
     query = {"markers": [{"x": query_x, "y": query_y}], "geometry": "POINT"}
-    response = admin_client.get(
+    task_response = admin_client.get(
         reverse("gis-data"),
         data={
             "query": json.dumps(query),
             "form": "baugesuch",
         },
     )
+
+    assert task_response.status_code == status.HTTP_200_OK
+
+    task_id = task_response.json()["task_id"]
+
+    # let "celery" process the task
+    celery_fake_worker.run_tasks()
+
+    response = admin_client.get(reverse("gis-data", args=[task_id]))
 
     assert response.status_code == status.HTTP_200_OK
     assert response.json() == gis_snapshot

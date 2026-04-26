@@ -1,10 +1,15 @@
 import json
+from pathlib import Path
 
 import pytest
 from django.core.serializers.json import DjangoJSONEncoder
 
+from camac.dossier_import.exceptions import InvalidImportDataError
 from camac.dossier_import.loaders import XlsxFileDossierLoader
-from camac.dossier_import.utils import get_similar_value
+from camac.dossier_import.utils import (
+    get_similar_value,
+    get_worksheet_headings_and_rows,
+)
 from camac.dossier_import.validation import TargetStatus, validate_extra_columns
 
 existing_columns = [e.value for e in XlsxFileDossierLoader.Column]
@@ -76,3 +81,18 @@ def to_sorted_json(data):  # pragma: no cover
         ensure_ascii=False,
         cls=DjangoJSONEncoder,
     )
+
+
+def test_strict_open_xml_mode():
+    """Ensure we detect "Strict Open XML" mode files.
+
+    These cannot be parsed by openpyxl. Once they can, this test will
+    fail and we can then change it to check for correct contents, or
+    just simply drop it.
+    """
+    file = Path(__file__).parent / "data/dossiers-strict-for-import-test.xlsx"
+    fh = file.open("rb")
+    with pytest.raises(InvalidImportDataError) as exc:
+        get_worksheet_headings_and_rows(fh)
+
+    assert exc.match("Strict Open XML")

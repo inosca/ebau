@@ -29,6 +29,7 @@ services:
 
   django: &django
     build:
+      context: ../django
       args:
         REQUIREMENTS: requirements-dev.txt
     ports:
@@ -62,7 +63,6 @@ services:
       DJANGO_EMAIL_HOST: mailpit
       DJANGO_EMAIL_PORT: 1025
       DJANGO_MEDIA_ROOT: /var/lib/camac/media
-      DJANGO_Q_ENABLE_SYNC: ${DJANGO_Q_ENABLE_SYNC:-false}
       DJANGO_UNOCONV_URL: http://unoconv:3000
       DOCUMENT_MERGE_SERVICE_URL: http://document-merge-service:8000/api/v1/
       DYNAMIC_GROUPS_CLASSES: camac.caluma.extensions.dynamic_groups.CustomDynamicGroups
@@ -80,18 +80,36 @@ services:
       OAUTHLIB_INSECURE_TRANSPORT: 1
       OIDC_USERINFO_ENDPOINT: http://ebau-keycloak.localhost/auth/realms/ebau/protocol/openid-connect/userinfo
       PERMISSION_CLASSES: camac.caluma.extensions.permissions.CustomPermission
+      REDIS_HOST: valkey
       VALIDATION_CLASSES: camac.caluma.extensions.validations.CustomValidation
       VISIBILITY_CLASSES: camac.caluma.extensions.visibilities.CustomVisibilitySZ
     networks:
       - ebau.localhost
     command: devserver
 
-  # repeat definition here because otherwise prod settings are applied
-  django-q:
+  celery:
     <<: *django
     image: acr.run/camac-ng/camac-ng/django:master
-    command: qclusterdev
+    depends_on:
+      - valkey
+    command: celerydev
     ports: []
+
+  flower:
+    image: mher/flower:2.0
+    environment:
+      FLOWER_URL_PREFIX: "/celery-flower/"
+    ports:
+      - "7777:7777"
+    networks:
+      - ebau.localhost
+    command:
+      [
+        "celery",
+        "--broker=redis://default:redis@valkey:6379/0",
+        "flower",
+        "--port=7777",
+      ]
 
   ember:
     environment:
@@ -181,6 +199,7 @@ services:
       URL_PREFIX: document-merge-service/
     volumes:
       - ../document-merge-service/extensions:/app/document_merge_service/extensions
+      - ../document-merge-service/${APPLICATION}/dump.json:/tmp/document-merge-service/dump.json
     networks:
       - ebau.localhost
     command: devserver
@@ -266,6 +285,13 @@ services:
     networks:
       - ebau.localhost
 
+  valkey:
+    image: valkey/valkey:9.0
+    volumes:
+      - valkey_data:/data
+    networks:
+      - ebau.localhost
+
 networks:
   ebau.localhost:
 
@@ -276,3 +302,4 @@ volumes:
   pg16data:
   phpsessions:
   templatefiles:
+  valkey_data:

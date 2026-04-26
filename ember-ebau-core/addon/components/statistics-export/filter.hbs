@@ -1,0 +1,364 @@
+<div>
+  <div class="uk-width-1-3">
+    <label
+      class="uk-form-label uk-text-bold"
+      for="statistics-filter__export-type"
+    >
+      {{t "statistics-export.filter.export-type"}}
+    </label>
+    <div class="uk-form-controls">
+      <PowerSelect
+        id="statistics-filter__export-type"
+        @allowClear={{true}}
+        @options={{this.exportTypes}}
+        @selected={{this.selectedExportType}}
+        @placeholder={{t "statistics-export.generate.export-type-placeholder"}}
+        @onChange={{this.selectExportType}}
+        @renderInPlace={{true}}
+        class="uk-select"
+        as |opt|
+      >
+        {{opt.label}}
+      </PowerSelect>
+    </div>
+  </div>
+
+  {{#if this._filter.exportType}}
+    <hr />
+    <div class="uk-grid uk-grid-small" uk-grid>
+      {{#if (includes "submitDateAfter" this.availableFilters)}}
+        <div class="uk-width-1-3">
+          <label class="uk-form-label uk-text-bold" for="submit-date-after">
+            {{t "statistics-export.filter.submit-date-after"}}
+          </label>
+          <div class="uk-form-controls">
+            <Datepicker
+              id="submit-date-after"
+              @value={{this._filter.submitDateAfter}}
+              @maxDate={{this._filter.submitDateBefore}}
+              @onChange={{fn this.updateDateFilter "submitDateAfter"}}
+            />
+          </div>
+        </div>
+      {{/if}}
+      {{#if (includes "submitDateBefore" this.availableFilters)}}
+        <div class="uk-width-1-3">
+          <label class="uk-form-label uk-text-bold" for="submit-date-before">
+            {{t "statistics-export.filter.submit-date-before"}}
+          </label>
+          <div class="uk-form-controls">
+            <Datepicker
+              id="submit-date-before"
+              @value={{this._filter.submitDateBefore}}
+              @minDate={{this._filter.submitDateAfter}}
+              @onChange={{fn this.updateDateFilter "submitDateBefore"}}
+            />
+          </div>
+        </div>
+      {{/if}}
+
+      {{#if (includes "firstInquiryDateAfter" this.availableFilters)}}
+        <div class="uk-width-1-3">
+          <label
+            class="uk-form-label uk-text-bold"
+            for="first-inquiry-date-after"
+          >
+            {{t "statistics-export.filter.first-inquiry-date-after"}}
+          </label>
+          <div class="uk-form-controls">
+            <Datepicker
+              id="first-inquiry-date-after"
+              @value={{this._filter.firstInquiryDateAfter}}
+              @maxDate={{this._filter.firstInquiryDateBefore}}
+              @onChange={{fn this.updateDateFilter "firstInquiryDateAfter"}}
+            />
+          </div>
+        </div>
+      {{/if}}
+      {{#if (includes "firstInquiryDateBefore" this.availableFilters)}}
+        <div class="uk-width-1-3">
+          <label
+            class="uk-form-label uk-text-bold"
+            for="first-inquiry-date-before"
+          >
+            {{t "statistics-export.filter.first-inquiry-date-before"}}
+          </label>
+          <div class="uk-form-controls">
+            <Datepicker
+              id="first-inquiry-date-before"
+              @value={{this._filter.firstInquiryDateBefore}}
+              @minDate={{this._filter.firstInquiryDateAfter}}
+              @onChange={{fn this.updateDateFilter "firstInquiryDateBefore"}}
+            />
+          </div>
+        </div>
+      {{/if}}
+      {{#if (includes "completingDateAfter" this.availableFilters)}}
+        <div class="uk-width-1-3">
+          <label class="uk-form-label uk-text-bold" for="completing-date-after">
+            {{t "statistics-export.filter.completing-date-after"}}
+          </label>
+          <div class="uk-form-controls">
+            <Datepicker
+              id="completing-date-after"
+              @value={{this._filter.completingDateAfter}}
+              @maxDate={{this._filter.completingDateBefore}}
+              @onChange={{fn this.updateDateFilter "completingDateAfter"}}
+            />
+          </div>
+        </div>
+      {{/if}}
+      {{#if (includes "completingDateBefore" this.availableFilters)}}
+        <div class="uk-width-1-3">
+          <label
+            class="uk-form-label uk-text-bold"
+            for="completing-date-before"
+          >
+            {{t "statistics-export.filter.completing-date-before"}}
+          </label>
+          <div class="uk-form-controls">
+            <Datepicker
+              id="completing-date-before"
+              @value={{this._filter.completingDateBefore}}
+              @minDate={{this._filter.completingDateAfter}}
+              @onChange={{fn this.updateDateFilter "completingDateBefore"}}
+            />
+          </div>
+        </div>
+      {{/if}}
+
+      {{#if (includes "wiCreatedAtAfter" this.availableFilters)}}
+        <div class="uk-width-1-3">
+          <label class="uk-form-label uk-text-bold" for="wi-created-at-after">
+            {{t "statistics-export.filter.wi-created-at-after"}}
+          </label>
+          <div class="uk-form-controls">
+            <Datepicker
+              id="wi-created-at-after"
+              @value={{this._filter.wiCreatedAtAfter}}
+              @maxDate={{this._filter.wiCreatedAtBefore}}
+              @onChange={{fn this.updateDateFilter "wiCreatedAtAfter"}}
+            />
+          </div>
+        </div>
+      {{/if}}
+      {{#if (includes "wiCreatedAtBefore" this.availableFilters)}}
+        <div class="uk-width-1-3">
+          <label class="uk-form-label uk-text-bold" for="wi-created-at-before">
+            {{t "statistics-export.filter.wi-created-at-before"}}
+          </label>
+          <div class="uk-form-controls">
+            <Datepicker
+              id="wi-created-at-before"
+              @value={{this._filter.wiCreatedAtBefore}}
+              @minDate={{this._filter.wiCreatedAtAfter}}
+              @onChange={{fn this.updateDateFilter "wiCreatedAtBefore"}}
+            />
+          </div>
+        </div>
+      {{/if}}
+      {{#if (includes "wiClosedAtAfter" this.availableFilters)}}
+        <div class="uk-width-1-3">
+          <label class="uk-form-label uk-text-bold" for="wi-closed-at-after">
+            {{t "statistics-export.filter.wi-closed-at-after"}}
+          </label>
+          <div class="uk-form-controls">
+            <Datepicker
+              id="wi-closed-at-after"
+              @value={{this._filter.wiClosedAtAfter}}
+              @maxDate={{this._filter.wiClosedAtBefore}}
+              @onChange={{fn this.updateDateFilter "wiClosedAtAfter"}}
+            />
+          </div>
+        </div>
+      {{/if}}
+      {{#if (includes "wiClosedAtBefore" this.availableFilters)}}
+        <div class="uk-width-1-3">
+          <label class="uk-form-label uk-text-bold" for="wi-closed-at-before">
+            {{t "statistics-export.filter.wi-closed-at-before"}}
+          </label>
+          <div class="uk-form-controls">
+            <Datepicker
+              id="wi-closed-at-before"
+              @value={{this._filter.wiClosedAtBefore}}
+              @minDate={{this._filter.wiClosedAtAfter}}
+              @onChange={{fn this.updateDateFilter "wiClosedAtBefore"}}
+            />
+          </div>
+        </div>
+      {{/if}}
+
+      {{#if (includes "form" this.availableFilters)}}
+        <div class="uk-width-1-3">
+          <label
+            class="uk-form-label uk-text-bold"
+            for="statistics-filter__form"
+          >
+            {{t "statistics-export.filter.form"}}
+          </label>
+          <div class="uk-form-controls">
+            <PowerSelectMultiple
+              id="statistics-filter__form"
+              @searchEnabled={{true}}
+              @searchField="name"
+              @allowClear={{true}}
+              @options={{this.forms.value}}
+              @selected={{this.selectedForm}}
+              @noMatchesMessage={{t "global.noMatch"}}
+              @onChange={{this.selectForm}}
+              @renderInPlace={{true}}
+              class="uk-select"
+              as |opt|
+            >
+              {{opt.name}}
+            </PowerSelectMultiple>
+          </div>
+        </div>
+      {{/if}}
+
+      {{#if (includes "instanceState" this.availableFilters)}}
+        <div class="uk-width-1-3">
+          <label
+            class="uk-form-label uk-text-bold"
+            for="statistics-filter__instance-state"
+          >
+            {{t "statistics-export.filter.instance-state"}}
+          </label>
+          <div class="uk-form-controls">
+            <PowerSelectMultiple
+              id="statistics-filter__instance-state"
+              @searchEnabled={{true}}
+              @searchField="name"
+              @allowClear={{true}}
+              @options={{this.instanceStates.records}}
+              @selected={{this.selectedInstanceState}}
+              @noMatchesMessage={{t "global.noMatch"}}
+              @onChange={{this.selectInstanceState}}
+              @renderInPlace={{true}}
+              class="uk-select"
+              as |opt|
+            >
+              {{opt.name}}
+            </PowerSelectMultiple>
+          </div>
+        </div>
+      {{/if}}
+
+      {{#if (includes "task" this.availableFilters)}}
+        <div class="uk-width-1-3">
+          <label
+            class="uk-form-label uk-text-bold"
+            for="statistics-filter__task"
+          >
+            {{t "statistics-export.filter.task"}}
+          </label>
+          <div class="uk-form-controls">
+            <PowerSelectMultiple
+              id="statistics-filter__task"
+              @searchEnabled={{true}}
+              @searchField="label"
+              @allowClear={{true}}
+              @options={{this.availableTaskOptions}}
+              @selected={{this.selectedTask}}
+              @noMatchesMessage={{t "global.noMatch"}}
+              @onChange={{this.selectTask}}
+              @renderInPlace={{true}}
+              class="uk-select"
+              as |opt|
+            >
+              {{opt.label}}
+            </PowerSelectMultiple>
+          </div>
+        </div>
+      {{/if}}
+
+      {{#if (includes "role" this.availableFilters)}}
+        <div class="uk-width-1-3">
+          <label
+            class="uk-form-label uk-text-bold"
+            for="statistics-filter__role"
+          >
+            {{t "statistics-export.filter.role"}}
+          </label>
+          <div class="uk-form-controls">
+            <PowerSelect
+              id="statistics-filter__role"
+              @allowClear={{false}}
+              @options={{this.roleOptions}}
+              @selected={{this.selectedRole}}
+              @onChange={{this.selectRole}}
+              @renderInPlace={{true}}
+              class="uk-select"
+              as |opt|
+            >
+              {{opt.label}}
+            </PowerSelect>
+          </div>
+        </div>
+      {{/if}}
+
+      {{#if (includes "decision" this.availableFilters)}}
+        <div class="uk-width-1-3">
+          <label
+            class="uk-form-label uk-text-bold"
+            for="statistics-filter__decision"
+          >
+            {{t "statistics-export.filter.decision"}}
+          </label>
+          <div class="uk-form-controls">
+            <PowerSelect
+              id="statistics-filter__decision"
+              @searchEnabled={{true}}
+              @searchField="label"
+              @allowClear={{true}}
+              @options={{this.decisionOptions.value}}
+              @selected={{this.selectedDecision}}
+              @noMatchesMessage={{t "global.noMatch"}}
+              @onChange={{this.selectDecision}}
+              @renderInPlace={{true}}
+              class="uk-select"
+              as |opt|
+            >
+              {{opt.label}}
+            </PowerSelect>
+          </div>
+        </div>
+      {{/if}}
+
+      {{#if (includes "involved" this.availableFilters)}}
+        <div class="uk-width-1-3">
+          <label
+            class="uk-form-label uk-text-bold"
+            for="statistics-filter__involved"
+          >
+            {{t "statistics-export.filter.involved"}}
+          </label>
+          <div class="uk-form-controls">
+            <PowerSelect
+              id="statistics-filter__involved"
+              @allowClear={{true}}
+              @options={{this.involvedOptions}}
+              @selected={{this.selectedInvolved}}
+              @onChange={{this.selectInvolved}}
+              @renderInPlace={{true}}
+              class="uk-select"
+              as |opt|
+            >
+              {{opt.label}}
+            </PowerSelect>
+          </div>
+        </div>
+      {{/if}}
+    </div>
+  {{/if}}
+
+  <div class="uk-margin-small">
+    <button
+      type="button"
+      class="uk-button uk-button-default"
+      {{on "click" this.resetFilter}}
+    >
+      {{t "global.reset"}}
+    </button>
+  </div>
+</div>

@@ -1,3 +1,5 @@
+from datetime import date
+
 import pytest
 from caluma.caluma_workflow.api import suspend_case
 from caluma.caluma_workflow.models import Case, Task, WorkItem
@@ -95,8 +97,24 @@ def test_reject_instance(
     mailoutbox,
     allow_revert,
     caluma_work_item_factory,
+    deadlines_settings,
+    instance_deadline_factory,
+    mocker,
 ):
+    mocker.patch(
+        "camac.deadlines.models.InstanceDeadline.trigger_side_effect",
+        return_value=False,
+    )
+    deadlines_settings.enabled = True
     instance_state_factory(name=rejection_settings["INSTANCE_STATE"])
+
+    deadline = instance_deadline_factory(
+        instance=be_instance.case.family.instance,
+        service=be_instance.responsible_service(filter="municipality"),
+        start_date=date(2025, 1, 1),
+        process_deadline_date=None,
+    )
+    assert deadline.process_deadline_date is None
 
     work_item = caluma_work_item_factory(
         case=be_instance.case,
@@ -139,12 +157,12 @@ def test_reject_instance(
 
     assert work_item.status == WorkItem.STATUS_COMPLETED
     assert be_instance.instance_state.name == rejection_settings["INSTANCE_STATE"]
-    assert (
-        be_instance.history.filter(history_type=HistoryActionConfig.HISTORY_TYPE_STATUS)
-        .latest("created_at")
-        .get_trans_attr("title")
-        == "Dossier zurückgewiesen"
-    )
+    history_entry = be_instance.history.filter(
+        history_type=HistoryActionConfig.HISTORY_TYPE_STATUS
+    ).latest("created_at")
+    assert history_entry.get_trans_attr("title") == "Dossier zurückgewiesen"
+    deadline.refresh_from_db()
+    assert deadline.process_deadline_date == history_entry.created_at.date()
     assert Message.objects.count() == 1
     assert len(mailoutbox) == 1
     assert notification_template.subject in mailoutbox[0].subject
@@ -162,7 +180,15 @@ def test_revert_instance_rejection(
     rejection_settings,
     notification_template,
     mailoutbox,
+    deadlines_settings,
+    instance_deadline_factory,
+    mocker,
 ):
+    mocker.patch(
+        "camac.deadlines.models.InstanceDeadline.trigger_side_effect",
+        return_value=False,
+    )
+    deadlines_settings.enabled = True
     rejection_settings["NOTIFICATIONS"] = {
         "REVERTED": [
             {
@@ -171,6 +197,13 @@ def test_revert_instance_rejection(
             }
         ]
     }
+
+    deadline = instance_deadline_factory(
+        instance=be_instance.case.family.instance,
+        service=be_instance.responsible_service(filter="municipality"),
+        start_date=date(2025, 1, 1),
+    )
+    assert deadline.process_deadline_date is not None
 
     suspend_case(be_instance.case, caluma_admin_user)
 
@@ -190,6 +223,8 @@ def test_revert_instance_rejection(
         .get_trans_attr("title")
         == "Rückweisung aufgehoben"
     )
+    deadline.refresh_from_db()
+    assert deadline.process_deadline_date is None
     assert Message.objects.count() == 1
     assert len(mailoutbox) == 1
     assert notification_template.subject in mailoutbox[0].subject

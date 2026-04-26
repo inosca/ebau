@@ -12,9 +12,15 @@ export default class CommunicationTopicListComponent extends Component {
   @service store;
   @service intl;
   @service ebauModules;
+  @service session;
 
   get showResponsibleServiceUsers() {
     return !this.args.instanceId && !this.ebauModules.isApplicant;
+  }
+
+  get activeServiceUsesEchApi() {
+    const instance = this.store.peekRecord("instance", this.args.instanceId);
+    return instance?.activeService?.get("usesEchApi");
   }
 
   @tracked responsiblePerson;

@@ -1,15 +1,13 @@
 import functools
 import json
-from datetime import datetime, timedelta
+from datetime import datetime
 
 import pytest
 import pytz
 from caluma.caluma_form import models as caluma_form_models
-from caluma.caluma_form.factories import AnswerFactory
 from caluma.caluma_workflow import api as workflow_api, models as caluma_workflow_models
 from django.urls import reverse
-from django.utils.timezone import make_aware, now
-from freezegun import freeze_time
+from django.utils.timezone import make_aware
 from pytest_lazy_fixtures import lf, lfc
 from rest_framework import status
 
@@ -21,8 +19,6 @@ from camac.instance import domain_logic, serializers
 from camac.instance.filters import CaseBabFilter, CaseSuspendedFilter
 from camac.instance.models import FormField, Instance, InstanceGroup, InstanceState
 from camac.permissions import api as permissions_api
-from camac.permissions.events.core import Trigger
-from camac.permissions.models import InstanceACL
 from camac.tests.form_utils import FormUtils
 
 
@@ -136,123 +132,6 @@ def test_instance_list_for_uso_gr(
 
     assert response.status_code == status.HTTP_200_OK
     assert len(response.json()["data"]) == expected_count
-
-
-@pytest.mark.freeze_time("2023-12-01")
-@pytest.mark.parametrize("role__name,instance__user", [("uso", lf("admin_user"))])
-@pytest.mark.parametrize("access_level__slug", ["uso"])
-def test_instance_detail_uso(
-    admin_client,
-    instance,
-    gr_instance,
-    caluma_case_factory,
-    access_level,
-    caluma_work_item_factory,
-    distribution_settings,
-    gr_permissions_settings,
-    settings,
-):
-    settings.APPLICATION_NAME = "kt_gr"
-    distribution_case = caluma_case_factory(
-        workflow_id="inquiry", family=gr_instance.case
-    )
-    deadline_date = "2023-12-02"
-    work_item = caluma_work_item_factory(
-        task_id="inquiry",
-        addressed_groups=[gr_instance.group.service.pk],
-        deadline=make_aware(datetime.strptime(deadline_date, "%Y-%m-%d")),
-    )
-    distribution_case.work_items.add(work_item)
-
-    AnswerFactory(
-        question_id="inquiry-deadline", document=work_item.document, date=deadline_date
-    )
-    # Permission Trigger - grant recipient service the required permissions
-    Trigger.inquiry_sent(None, gr_instance, work_item)
-
-    acl1 = InstanceACL.objects.filter(
-        instance=gr_instance, service=gr_instance.group.service
-    ).first()
-
-    url = reverse("instance-detail", args=[instance.pk])
-    response = admin_client.get(url)
-    assert response.status_code == status.HTTP_200_OK
-    work_item.refresh_from_db()
-    first_fetch = now()
-    # when USOs fetch for the first time, deadline and meta are updated
-    assert work_item.meta.get("retrieved_by_uso") == first_fetch.isoformat()
-    assert work_item.deadline == now() + timedelta(days=7)
-
-    acl1.refresh_from_db()
-    assert acl1.revoked_by_event == "dossier-retrieved"
-    assert acl1.revoked_at == now()
-
-    active_acls = InstanceACL.currently_active().filter(
-        instance=gr_instance, service=gr_instance.group.service
-    )
-    assert active_acls.count() == 1
-    acl2 = active_acls.first()
-    assert acl2.created_by_event == "dossier-retrieved"
-    assert acl2.end_time == now() + timedelta(days=7)
-
-    # when fetching again later, deadline does not change anymore
-    with freeze_time("2023-12-03"):
-        admin_client.get(url)
-        work_item.refresh_from_db()
-        acl2.refresh_from_db()
-        assert work_item.meta.get("retrieved_by_uso") == first_fetch.isoformat()
-        assert work_item.deadline == first_fetch + timedelta(days=7)
-        assert acl2.end_time == first_fetch + timedelta(days=7)
-
-        Trigger.inquiry_completed(None, gr_instance, work_item)
-        acl2.refresh_from_db()
-        assert acl2.revoked_by_event == "inquiry-completed"
-        assert acl2.revoked_at == now()
-
-        active_acls = InstanceACL.currently_active().filter(
-            instance=gr_instance, service=gr_instance.group.service
-        )
-        assert active_acls.count() == 1
-        acl3 = active_acls.first()
-        assert acl3.created_by_event == "inquiry-completed"
-        assert not acl3.end_time
-
-
-@pytest.mark.freeze_time("2023-12-25")
-@pytest.mark.parametrize("role__name,instance__user", [("uso", lf("admin_user"))])
-@pytest.mark.parametrize("access_level__slug", ["uso"])
-def test_instance_detail_uso_deadline_delay(
-    admin_client,
-    instance,
-    gr_instance,
-    caluma_case_factory,
-    access_level,
-    caluma_work_item_factory,
-    gr_distribution_settings,
-    set_application_gr,
-):
-    distribution_case = caluma_case_factory(
-        workflow_id="inquiry", family=gr_instance.case
-    )
-    deadline_date = "2023-12-26"
-    work_item = caluma_work_item_factory(
-        task_id="inquiry",
-        addressed_groups=[gr_instance.group.service.pk],
-        deadline=make_aware(datetime.strptime(deadline_date, "%Y-%m-%d")),
-    )
-    distribution_case.work_items.add(work_item)
-    AnswerFactory(
-        question_id="inquiry-deadline", document=work_item.document, date=deadline_date
-    )
-
-    url = reverse("instance-detail", args=[instance.pk])
-    response = admin_client.get(url)
-    assert response.status_code == status.HTTP_200_OK
-
-    work_item.refresh_from_db()
-
-    # 1 extra day counted for new_years_day
-    assert work_item.deadline == now() + timedelta(days=8)
 
 
 @pytest.mark.parametrize("role__name,instance__user", [("Applicant", lf("admin_user"))])
@@ -545,7 +424,7 @@ def test_instance_plot_egrid_filter(
     "plot,expected_count",
     [
         ("CH9", 0),
-        ("4", 1),
+        ("4", 0),
         ("ch967722307039  ", 0),
         (" 420", 1),
         ("7899", 0),

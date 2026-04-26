@@ -27,10 +27,19 @@ L.CRS.EPSG2056 = new L.Proj.CRS(
 function addLabel(feature) {
   let label;
   if (feature.geometry.type === "Point") {
-    label = feature.properties.label.split("(")[0];
+    label = feature.properties.label.split("(")[0].trim();
   } else {
-    const [city, , plot] = feature.properties.label.split("(")[0].split(" ");
-    label = [city, plot].join(" ");
+    switch (feature.properties.layer_name) {
+      case "Grundstück":
+        label = feature.properties.label.trim().match(/\d+$/)[0]; // matches only the last number in the Grundstück label
+        break;
+      case "Gemeinde":
+        label = feature.properties.label.trim();
+        break;
+      default:
+        label = feature.properties.label;
+        break;
+    }
   }
   return { label, ...feature };
 }
@@ -51,7 +60,7 @@ export default class GrGisComponent extends Component {
   maxZoom = 20;
   wmsLayerMaxZoom = 25;
   searchUrl =
-    "/maps/search?limit=30&partitionlimit=5&interface=desktop&lang=de&query=";
+    "/maps/search?limit=100&partitionlimit=5&interface=desktop&lang=de&query=";
 
   get drawPoints() {
     return this.markers.map((point) => ({ lat: point.lat, lng: point.lng }));
@@ -87,7 +96,7 @@ export default class GrGisComponent extends Component {
     const responseJson = yield response.json();
     const features = responseJson.features
       .filter((f) =>
-        ["Amtliche_Vermessung_farbig", "Administrative_Einteilungen"].includes(
+        ["Gemeinde", "Adresse AV", "Grundstück"].includes(
           f.properties.layer_name,
         ),
       )
@@ -97,20 +106,18 @@ export default class GrGisComponent extends Component {
     return [
       {
         groupName: this.intl.t("gis.groups.addresses"),
-        options: features.filter((f) =>
-          f.properties.label.trim().endsWith("(Adresse AV)"),
+        options: features.filter(
+          (f) => f.properties.layer_name === "Adresse AV",
         ),
       },
       {
         groupName: this.intl.t("gis.groups.municipalities"),
-        options: features.filter((f) =>
-          f.properties.label.trim().endsWith("(Gemeinde)"),
-        ),
+        options: features.filter((f) => f.properties.layer_name === "Gemeinde"),
       },
       {
         groupName: this.intl.t("gis.groups.plots"),
-        options: features.filter((f) =>
-          f.properties.label.trim().endsWith("(Grundstück)"),
+        options: features.filter(
+          (f) => f.properties.layer_name === "Grundstück",
         ),
       },
     ].filter((group) => !!group.options.length);

@@ -16,7 +16,7 @@ cases:
     processDuration: "Durchlaufzeit"
     decisionDate: "Entscheiddatum"
     dossierCreated: "Dossier angenommen / erfasst"
-    dossierNumber: "Dossier-Nr"
+    dossierNumber: "Dossier-Nr."
     form: "Verfahren"
     inquiryCreated: "Eingangsdatum"
     instanceFormDescription: "Verfahren"

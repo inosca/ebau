@@ -444,6 +444,56 @@ def so_appeal_settings(
 
 
 @pytest.fixture
+def applicants_settings(
+    request,
+    settings,
+):
+    """Module-specific settings for applicants (default)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=None,
+        module_name="applicants",
+        canton=None,
+        disable=False,
+    )
+
+
+@pytest.fixture
+def disable_applicants_settings(
+    request,
+    settings,
+    applicants_settings,
+):
+    """Disable the applicants module completely."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=applicants_settings,
+        module_name="applicants",
+        canton=None,
+        disable=True,
+    )
+
+
+@pytest.fixture
+def sg_applicants_settings(
+    request,
+    settings,
+    applicants_settings,
+):
+    """Module-specific settings for applicants (canton SG)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=applicants_settings,
+        module_name="applicants",
+        canton="kt_sg",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def bab_settings(
     request,
     settings,
@@ -3176,6 +3226,23 @@ def ag_publication_settings(
 
 
 @pytest.fixture
+def sg_publication_settings(
+    request,
+    settings,
+    publication_settings,
+):
+    """Module-specific settings for publication (canton SG)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=publication_settings,
+        module_name="publication",
+        canton="kt_sg",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def rejection_settings(
     request,
     settings,
@@ -3506,6 +3573,242 @@ def sg_service_settings(
         request=request,
         base_fixture=service_settings,
         module_name="service",
+        canton="kt_sg",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def statistics_settings(
+    request,
+    settings,
+):
+    """Module-specific settings for statistics (default)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=None,
+        module_name="statistics",
+        canton=None,
+        disable=False,
+    )
+
+
+@pytest.fixture
+def disable_statistics_settings(
+    request,
+    settings,
+    statistics_settings,
+):
+    """Disable the statistics module completely."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=statistics_settings,
+        module_name="statistics",
+        canton=None,
+        disable=True,
+    )
+
+
+@pytest.fixture
+def ag_statistics_settings(
+    request,
+    settings,
+    statistics_settings,
+):
+    """Module-specific settings for statistics (canton AG)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=statistics_settings,
+        module_name="statistics",
+        canton="kt_ag",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def submit_settings(
+    request,
+    settings,
+):
+    """Module-specific settings for submit (default)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=None,
+        module_name="submit",
+        canton=None,
+        disable=False,
+    )
+
+
+@pytest.fixture
+def disable_submit_settings(
+    request,
+    settings,
+    submit_settings,
+):
+    """Disable the submit module completely."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=submit_settings,
+        module_name="submit",
+        canton=None,
+        disable=True,
+    )
+
+
+@pytest.fixture
+def demo_submit_settings(
+    request,
+    settings,
+    submit_settings,
+):
+    """Module-specific settings for submit (canton DEMO)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=submit_settings,
+        module_name="submit",
+        canton="demo",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def test_submit_settings(
+    request,
+    settings,
+    submit_settings,
+):
+    """Module-specific settings for submit (canton TEST)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=submit_settings,
+        module_name="submit",
+        canton="test",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def sz_submit_settings(
+    request,
+    settings,
+    submit_settings,
+):
+    """Module-specific settings for submit (canton SZ)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=submit_settings,
+        module_name="submit",
+        canton="kt_schwyz",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def be_submit_settings(
+    request,
+    settings,
+    submit_settings,
+):
+    """Module-specific settings for submit (canton BE)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=submit_settings,
+        module_name="submit",
+        canton="kt_bern",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def so_submit_settings(
+    request,
+    settings,
+    submit_settings,
+):
+    """Module-specific settings for submit (canton SO)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=submit_settings,
+        module_name="submit",
+        canton="kt_so",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def ur_submit_settings(
+    request,
+    settings,
+    submit_settings,
+):
+    """Module-specific settings for submit (canton UR)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=submit_settings,
+        module_name="submit",
+        canton="kt_uri",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def gr_submit_settings(
+    request,
+    settings,
+    submit_settings,
+):
+    """Module-specific settings for submit (canton GR)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=submit_settings,
+        module_name="submit",
+        canton="kt_gr",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def ag_submit_settings(
+    request,
+    settings,
+    submit_settings,
+):
+    """Module-specific settings for submit (canton AG)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=submit_settings,
+        module_name="submit",
+        canton="kt_ag",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def sg_submit_settings(
+    request,
+    settings,
+    submit_settings,
+):
+    """Module-specific settings for submit (canton SG)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=submit_settings,
+        module_name="submit",
         canton="kt_sg",
         disable=False,
     )

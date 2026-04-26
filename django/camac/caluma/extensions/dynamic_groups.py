@@ -127,6 +127,30 @@ class CustomDynamicGroups(BaseDynamicGroups):
 
     @register_dynamic_group("geometer")
     def resolve_geometer(self, task, case, user, prev_work_item, context, **kwargs):
+        # the geometer in construction monitoring work items can resolve to
+        # the responsible service based on a form question answer.
+        construction_settings = settings.CONSTRUCTION_MONITORING
+        if (
+            construction_settings
+            and construction_settings.get("GEOMETER_MUNICIPALITY")
+            and prev_work_item
+            and prev_work_item.meta.get("construction-step")
+        ):
+            construction_monitoring_geometer_config = construction_settings.get(
+                "GEOMETER_MUNICIPALITY"
+            )
+            if plan_work_item := prev_work_item.case.work_items.filter(
+                task_id=construction_settings[
+                    "CONSTRUCTION_STEP_PLAN_CONSTRUCTION_STAGE_TASK"
+                ]
+            ).first():
+                if plan_work_item.document.answers.filter(
+                    question_id=construction_monitoring_geometer_config["QUESTION"],
+                    value=construction_monitoring_geometer_config["ANSWER"],
+                ).exists():
+                    return self._get_responsible_service(case, "municipality", context)
+
+        # otherwise resolve geometer normally.
         geometers = instance_utils.get_municipality_provider_services(
             case.family.instance, ServiceRelation.FUNCTION_GEOMETER
         )

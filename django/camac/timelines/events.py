@@ -42,9 +42,9 @@ def post_complete_fill_additional_demand_form_timelines(
 
 
 @on(post_complete_work_item, raise_exception=True)
-@filter_additional_demand_event("SEND_TASK")
+@filter_additional_demand_event(["SEND_TASK", "CHECK_TASK"])
 @transaction.atomic
-def post_complete_send_additional_demand_allow_changes(
+def post_complete_send_check_additional_demand_allow_changes(
     sender, work_item, user, context=None, **kwargs
 ):
     """Set meta flag to allow changes on the additional demand form.

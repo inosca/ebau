@@ -2,7 +2,11 @@
   <div class="uk-text-center"><UkSpinner @ratio={{2}} /></div>
 {{else if this.instance.record}}
   <div class="uk-child-width-1-2" uk-grid>
-    {{#if (has-feature "corrections.correctForm")}}
+    {{#if
+      (and
+        (has-feature "corrections.correctForm") (not this.isMunicipalityLight)
+      )
+    }}
       <div>
         <Corrections::Document @instance={{this.instance.record}} />
       </div>
@@ -12,7 +16,11 @@
         <Corrections::WithdrawInstance @instance={{this.instance.record}} />
       </div>
     {{/if}}
-    {{#if (has-feature "corrections.changeForm")}}
+    {{#if
+      (and
+        (has-feature "corrections.changeForm") (not this.isMunicipalityLight)
+      )
+    }}
       <div>
         <Corrections::ChangeForm @instance={{this.instance.record}} />
       </div>

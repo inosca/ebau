@@ -30,136 +30,121 @@
     </div>
   </form>
 
-  <div class="uk-margin-top uk-margin-bottom master-data-divider" />
+  <hr />
 {{/if}}
 
-<form class="uk-form-stacked" {{on "submit" (perform this.createWorkItem)}}>
+<ValidatedForm
+  @model={{this.model}}
+  @on-submit={{this.createWorkItem.perform}}
+  class="uk-form-stacked"
+  as |f|
+>
   <div class="uk-margin">
-    <label class="uk-form-label uk-text-bold">
-      {{t "workItems.responsible"}}
-      <span class="uk-text-danger">*</span>
-    </label>
-    <div class="uk-form-controls">
-      <PowerSelect
-        @required={{true}}
-        @searchEnabled={{true}}
-        @searchField="name"
-        @renderInPlace={{true}}
-        @options={{this.services}}
-        @selected={{this.responsibleService}}
-        @noMatchesMessage={{t "global.noMatch"}}
-        @onChange={{fn (mut this.responsibleService)}}
-        as |service|
-      >
-        {{service.name}}
-      </PowerSelect>
-    </div>
+    <f.input
+      @label={{t "workItems.responsible"}}
+      @name="addressedService"
+      @required={{true}}
+      as |fi|
+    >
+      <div class="uk-form-controls">
+        <PowerSelect
+          @required={{true}}
+          @searchEnabled={{true}}
+          @searchField="name"
+          @renderInPlace={{true}}
+          @options={{this.services}}
+          @selected={{fi.value}}
+          @noMatchesMessage={{t "global.noMatch"}}
+          @onChange={{fi.update}}
+          @onClose={{fi.setDirty}}
+          class="uk-select {{this.getValidationClass fi}}"
+          as |service|
+        >
+          {{service.name}}
+        </PowerSelect>
+      </div>
+    </f.input>
   </div>
 
   {{#if this.selectedOwnService}}
     <div class="uk-margin">
-      <label class="uk-form-label uk-text-bold">
-        {{t "workItems.assignedUser"}}
-      </label>
-      <div class="uk-form-controls">
-        <PowerSelect
-          @searchEnabled={{true}}
-          @searchField="fullName"
-          @renderInPlace={{true}}
-          @options={{this.users.records}}
-          @selected={{this.responsibleUser}}
-          @noMatchesMessage={{t "global.noMatch"}}
-          @onChange={{fn (mut this.responsibleUser)}}
-          as |user|
-        >
-          {{user.fullName}}
-        </PowerSelect>
-      </div>
+      <f.input
+        @label={{t "workItems.assignedUser"}}
+        @name="assignedUser"
+        as |fi|
+      >
+        <div class="uk-form-controls">
+          <PowerSelect
+            @searchEnabled={{true}}
+            @searchField="fullName"
+            @renderInPlace={{true}}
+            @options={{this.users.records}}
+            @selected={{fi.value}}
+            @noMatchesMessage={{t "global.noMatch"}}
+            @onChange={{fi.update}}
+            @onClose={{fi.setDirty}}
+            class="uk-select {{this.getValidationClass fi}}"
+            as |user|
+          >
+            {{user.fullName}}
+          </PowerSelect>
+        </div>
+      </f.input>
     </div>
   {{/if}}
 
-  <div class="uk-margin">
-    <label class="uk-form-label uk-text-bold">
-      {{t "workItems.title"}}
-      <span class="uk-text-danger">*</span>
-    </label>
-    <div class="uk-form-controls">
-      <Input
-        @type="text"
-        @value={{mut this.workItem.title}}
-        name="title"
-        id="title"
-        required={{true}}
-        class="uk-input"
-      />
-    </div>
-  </div>
+  <f.input @label={{t "workItems.title"}} @name="title" @required={{true}} />
 
-  <div class="uk-margin">
-    <label class="uk-form-label uk-text-bold">
-      {{t "workItems.description"}}
-    </label>
-    <div class="uk-form-controls">
-      <Textarea
-        @value={{this.workItem.description}}
+  <f.input @name="description" @label={{t "workItems.description"}} as |fi|>
+    <Snippets
+      @disabled={{or
+        (not this.showSnippets)
+        (not (has-feature "workItems.snippets"))
+      }}
+    >
+      <textarea
+        class="uk-textarea uk-input"
         name="description"
-        id="description"
-        class="uk-textarea"
+        id="f-description"
+        value={{fi.value}}
+        {{on "input" (fn this.updateDescription fi)}}
         {{autoresize mode="height"}}
       />
-    </div>
-  </div>
-
+    </Snippets>
+  </f.input>
   <div class="uk-margin">
-    <label class="uk-form-label uk-text-bold">
-      {{t "workItems.deadline"}}
-      <span class="uk-text-danger">*</span>
-    </label>
-    <div class="uk-form-controls">
+    <f.input
+      @label={{t "workItems.deadline"}}
+      @name="deadline"
+      @required={{true}}
+      as |fi|
+    >
       <Datepicker
         id="deadline"
-        required={{true}}
-        @value={{this.workItem.deadline}}
-        @onChange={{fn (mut this.workItem.deadline)}}
+        @value={{fi.value}}
+        @onChange={{fi.update}}
+        class={{this.getValidationClass fi}}
       />
-    </div>
+    </f.input>
   </div>
 
-  <div class="uk-margin">
-    <label class="uk-form-label uk-text-bold">
-      {{t "workItems.notifications"}}
-    </label>
-    <div class="uk-form-controls">
-      <label>
-        <Input
-          @type="checkbox"
-          @checked={{this.workItem.notificationCompleted}}
-          class="uk-checkbox"
-        />
-        {{t "workItems.notifyCompleted"}}
-      </label>
-      <br />
-      <label>
-        <Input
-          @type="checkbox"
-          @checked={{this.workItem.notificationDeadline}}
-          class="uk-checkbox"
-        />
-        {{t "workItems.notifyDeadline"}}
-      </label>
-    </div>
-  </div>
+  <f.input
+    @type="checkboxGroup"
+    @label={{t "workItems.notifications"}}
+    @name="notifications"
+    @options={{this.notificationOptions}}
+  />
 
-  <div>
-    <LinkTo
-      @route={{concat @baseRoute ".index"}}
-      class="uk-button uk-button-default"
-    >
-      {{t "global.cancel"}}
-    </LinkTo>
+  <LinkTo
+    @route={{concat @baseRoute ".index"}}
+    class="uk-button uk-button-default"
+  >
+    {{t "global.cancel"}}
+  </LinkTo>
 
-    <button class="uk-button uk-button-primary" type="submit">
-      {{t "global.save"}}
-    </button>
-  </div>
-</form>
+  <f.submit
+    @label={{t "global.save"}}
+    @disabled={{f.loading}}
+    @loading={{f.loading}}
+  />
+</ValidatedForm>

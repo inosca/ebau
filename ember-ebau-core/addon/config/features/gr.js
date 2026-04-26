@@ -62,5 +62,9 @@ export default {
   instanceSupport: true,
   alexandria: {
     originalDocumentFilename: true,
+    showCategoryColumn: true,
+  },
+  gis: {
+    v3: true,
   },
 };

@@ -51,7 +51,7 @@
   <div class="uk-margin">
     <label class="uk-form-label uk-text-bold" for="text">
       {{t "billing.position"}}
-      <span class="uk-text-danger">*</span>
+      <span class="mandatory-asterisk">*</span>
     </label>
     <div class="uk-form-controls">
       <Input
@@ -71,13 +71,20 @@
         {{t "billing.remark"}}
       </label>
       <div class="uk-form-controls">
-        <Textarea
-          @value={{this.newEntry.remark}}
-          id="remark"
-          name="remark"
-          class="uk-input"
-          {{autoresize mode="height"}}
-        />
+        <Snippets
+          @disabled={{or
+            (not this.showSnippets)
+            (not (has-feature "billing.snippets"))
+          }}
+        >
+          <Textarea
+            @value={{this.newEntry.remark}}
+            id="remark"
+            name="remark"
+            class="uk-input"
+            {{autoresize mode="height"}}
+          />
+        </Snippets>
       </div>
     </div>
   {{/if}}
@@ -120,7 +127,7 @@
     <div class="uk-margin">
       <label class="uk-form-label uk-text-bold" for="product-number">
         {{t "billing.product-number"}}
-        <span class="uk-text-danger">*</span>
+        <span class="mandatory-asterisk">*</span>
       </label>
       <div class="uk-form-controls">
         <select
@@ -147,7 +154,7 @@
   <div class="uk-margin">
     <label class="uk-form-label uk-text-bold" for="calculation">
       {{t "billing.calculation"}}
-      <span class="uk-text-danger">*</span>
+      <span class="mandatory-asterisk">*</span>
     </label>
     <div class="uk-form-controls">
       <select
@@ -173,7 +180,7 @@
     <div class="uk-margin">
       <label class="uk-form-label uk-text-bold" for="hours">
         {{t "billing.hours"}}
-        <span class="uk-text-danger">*</span>
+        <span class="mandatory-asterisk">*</span>
       </label>
       <div class="uk-form-controls">
         <Input
@@ -191,7 +198,7 @@
     <div class="uk-margin">
       <label class="uk-form-label uk-text-bold" for="hourly-rate">
         {{t "billing.hourly-rate"}}
-        <span class="uk-text-danger">*</span>
+        <span class="mandatory-asterisk">*</span>
       </label>
       <div class="uk-form-controls">
         <Input
@@ -211,7 +218,7 @@
     <div class="uk-margin">
       <label class="uk-form-label uk-text-bold" for="percentage">
         {{t "billing.percentage"}}
-        <span class="uk-text-danger">*</span>
+        <span class="mandatory-asterisk">*</span>
       </label>
       <div class="uk-form-controls">
         <Input
@@ -237,7 +244,7 @@
         {{else if (eq this.newEntry.calculation "percentage")}}
           {{t "billing.of-amount"}}
         {{/if}}
-        <span class="uk-text-danger">*</span>
+        <span class="mandatory-asterisk">*</span>
       </label>
       <div class="uk-form-controls">
         <div class="uk-inline uk-width-1">
@@ -273,7 +280,7 @@
   <div class="uk-margin">
     <label class="uk-form-label uk-text-bold" for="tax-mode">
       {{t "billing.tax-mode"}}
-      <span class="uk-text-danger">*</span>
+      <span class="mandatory-asterisk">*</span>
     </label>
     <div class="uk-form-controls uk-flex">
       <select
@@ -332,7 +339,7 @@
     <div class="uk-margin">
       <label class="uk-form-label uk-text-bold" for="organization">
         {{t "billing.billing-type"}}
-        <span class="uk-text-danger">*</span>
+        <span class="mandatory-asterisk">*</span>
       </label>
       <div class="uk-form-controls uk-flex">
         <select

@@ -7,15 +7,18 @@ export default {
     displayService: true,
     applyConstructionCosts: true,
     remark: true,
+    snippets: true,
   },
   communications: {
     enabled: true,
     snippets: true,
+    creationActivatedForEchApiUsers: false,
   },
   deadlines: {
     enabled: true,
     useEndDate: false,
     manualSuspensionReason: false,
+    snippets: true,
   },
   permissions: {
     applicantRoles: true,
@@ -58,6 +61,7 @@ export default {
   workItems: {
     cancel: true,
     v2: true,
+    snippets: true,
   },
   withdrawal: {
     light: true,
@@ -71,4 +75,7 @@ export default {
   support: true,
   staticFaq: true,
   instanceSupport: true,
+  journal: {
+    snippets: true,
+  },
 };

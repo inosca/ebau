@@ -81,7 +81,6 @@ services:
       DJANGO_INTERNAL_BASE_URL: http://ember-ebau.localhost
       DJANGO_MEDIA_ROOT: /var/lib/camac/media
       DJANGO_TEMPFILE_DOWNLOAD_URL: /tmp
-      DJANGO_Q_ENABLE_SYNC: ${DJANGO_Q_ENABLE_SYNC:-false}
       DOCUMENT_MERGE_SERVICE_URL: http://document-merge-service:8000/document-merge-service/api/v1/
       ENABLE_HISTORICAL_API: true
       ENV: dev # needed for manabi dev mode
@@ -116,18 +115,6 @@ services:
     stdin_open: true
     command: devserver
 
-  django-q:
-    <<: *django
-    image: acr.run/camac-ng/camac-ng/django:master
-    build:
-      context: ../django
-      cache_from:
-        - acr.run/camac-ng/camac-ng/django:master
-      args:
-        REQUIREMENTS: requirements-dev.txt
-    command: qclusterdev
-    ports: []
-
   celery:
     <<: *django
     image: acr.run/camac-ng/camac-ng/django:master
@@ -159,7 +146,7 @@ services:
       KEYCLOAK_HOST: http://ebau-keycloak.localhost
       KEYCLOAK_CLIENT: portal
       INTERNAL_URL: http://ember-ebau.localhost
-      EVEN_URL: https://www.energievollzug.ch/project-id/
+      EVEN_URL: https://qa.energievollzug.ch/project-id/
       ENABLE_WATERMARK: true
       WATERMARK: local
     networks:
@@ -171,7 +158,7 @@ services:
       KEYCLOAK_HOST: http://ebau-keycloak.localhost
       KEYCLOAK_CLIENT: camac
       PORTAL_URL: http://ebau-portal.localhost
-      EVEN_URL: https://www.energievollzug.ch/project-id/
+      EVEN_URL: https://qa.energievollzug.ch/project-id/
       ENABLE_WATERMARK: true
       WATERMARK: local
       ALEXANDRIA_MANABI_ALLOWED_MIMETYPES: application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
@@ -308,8 +295,6 @@ services:
       - redis_data:/redis/data
     networks:
       - ebau.localhost
-    environment:
-      - REDIS_PASSWORD=redis
 
   housing-stat-proxy:
     networks:

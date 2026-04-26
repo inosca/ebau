@@ -1,69 +1,50 @@
-{{#unless @disabled}}
-  <DocumentValidity
-    @document={{@field.document}}
-    @validateOnEnter={{@validateOnEnter}}
-    as |isValid validateFn|
-  >
-    {{#if this.invalidFields.length}}
-      <div class="uk-alert uk-alert-danger uk-animation-fade">
-        <div class="uk-flex-inline uk-flex-middle uk-text-bold">
-          <UkIcon @icon="warning" class="uk-margin-small-right" />
-          {{t "document-validity-button.error"}}
-        </div>
-        <ul class="uk-list uk-list-disc">
-          {{#each this.invalidFields as |invalidField|}}
-            <li>
-              <LinkTo
-                @query={{hash displayedForm=invalidField.fieldset.form.slug}}
-              >{{invalidField.question.raw.label}}</LinkTo>
-            </li>
-          {{/each}}
-        </ul>
+<DocumentValidity
+  @document={{@field.document}}
+  @validateOnEnter={{and (not @disabled) @validateOnEnter}}
+  as |isValid validateFn|
+>
+  {{#if this.showError}}
+    <div class="uk-alert uk-alert-danger uk-animation-fade">
+      <div class="uk-flex-inline uk-flex-middle uk-text-bold">
+        <UkIcon @icon="warning" class="uk-margin-small-right" />
+        {{t "document-validity-button.error"}}
       </div>
-    {{else if
-      (and
-        isValid (gt this.validate.performCount 0) (not this.validate.isRunning)
-      )
-    }}
-      <div class="uk-alert uk-alert-success uk-animation-fade">
-        <div class="uk-flex-inline uk-flex-middle uk-text-bold">
-          <UkIcon @icon="check" class="uk-margin-small-right" />
-          {{t "document-validity-button.success"}}
-        </div>
+      <ul class="uk-list uk-list-disc">
+        {{#each this.invalidFields as |invalidField|}}
+          <li>
+            <LinkTo
+              @query={{hash displayedForm=invalidField.fieldset.form.slug}}
+            >{{invalidField.question.raw.label}}</LinkTo>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+  {{else if this.showSuccess}}
+    <div class="uk-alert uk-alert-success uk-animation-fade">
+      <div class="uk-flex-inline uk-flex-middle uk-text-bold">
+        <UkIcon @icon="check" class="uk-margin-small-right" />
+        {{t "document-validity-button.success"}}
       </div>
-    {{/if}}
+    </div>
+  {{/if}}
 
-    <UkButton
-      @color="primary"
-      @disabled={{or
-        (not isValid)
-        this.validate.isRunning
-        this.session.isSupport
-        (if
-          @requiredPermissions
-          (has-all-permissions
-            @context.instanceId @requiredPermissions invert=true
-          )
-          false
-        )
-      }}
-      @label={{this.buttonLabel}}
-      @loading={{this.validate.isRunning}}
-      @onClick={{perform this.validate validateFn}}
-    />
+  <UkButton
+    @color={{or @buttonColor "primary"}}
+    @disabled={{or @disabled (not isValid) this.validate.isRunning}}
+    @label={{this.buttonLabel}}
+    @loading={{this.validate.isRunning}}
+    @onClick={{fn this.validate.perform validateFn}}
+  />
 
-    {{#if @showLoadingHint}}
-      {{#if this.validate.isRunning}}
-        <span class="uk-text-muted uk-margin-small-left uk-animation-fade">{{t
-            "document-validity-button.loading"
-          }}</span>
-      {{/if}}
-    {{/if}}
+  {{#if (and @showLoadingHint this.validate.isRunning)}}
+    <span class="uk-text-muted uk-margin-small-left uk-animation-fade">
+      {{t "document-validity-button.loading"}}
+    </span>
+  {{/if}}
 
-    {{#if @buttonHintText}}
-      <div class="uk-alert">
-        {{@buttonHintText}}
-      </div>
-    {{/if}}
-  </DocumentValidity>
-{{/unless}}
+  {{#if @buttonHintText}}
+    <div class="uk-alert">
+      {{@buttonHintText}}
+    </div>
+  {{/if}}
+</DocumentValidity>

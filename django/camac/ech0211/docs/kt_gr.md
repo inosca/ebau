@@ -51,6 +51,10 @@ Verschiedene Aufgaben werden gemäss Spezifikation direkt in eBau erledigt. Unte
 
 - Der Type `localOrganisationId` enthält unter `organisationId` unsere Organisations id. Organisations ids können über den `/api/v1/public-services/` endpoint abgefragt werden.
 
+- Falls bei einer eCH Meldung ein oder mehrere Dokumente mitgegeben werden müssen, kann über den Wert `uuid` ein Dokumente hochgeladen oder referenziert werden.
+  - Vorhandenes Dokument referenzieren: Es muss die UUID eines in eBau bereits existierenden Dokument mitgesendet werden. In diesem Fall versucht eBau **nicht** das Dokument herunterzuladen, eine allenfalls mitgesendete URL wird ignoriert.
+  - Neues Dokument mitsenden: Falls die UUID nur aus 0 besteht (00000000-0000-0000-0000-000000000000) versucht eBau das Dokument über die mitgesendete URL herunterzuladen und im Dossier abzulegen.
+
 - Der von uns empfangene Typ `task`, um Stellungnahmen anzufordern (Spezifikation 3.2) muss zwingend die Organisations id der einzuladenden Stelle im `extension` Typ enthalten:
 
   ```xml
@@ -61,11 +65,10 @@ Verschiedene Aufgaben werden gemäss Spezifikation direkt in eBau erledigt. Unte
 
   Deprecated: Das bisherige Tag `serviceId` wurde mit `organisationId` ersetzt. `serviceId` wird aber weiterhin unterstützt.
 
-- Der eCH-Standard forciert, dass bei den meisten Meldungen ein `document` mitgeschickt wird. Dieses `document` wird (mit Ausnahme von `accompanyingReport`) von eBau ignoriert. Dokumente werden über unsere API hoch- und heruntergeladen. Beim Hochladen werden sie bereits einer `Instance`, sowie einer oder mehreren `AttachmentSection` zugewiesen. Somit sind Dokumente in eCH Meldungen, die von eBau erhalten werden, redundant und werden ignoriert.
-
-  Bei ausgehenden Meldungen werden die Dokumente jedoch korrekt abgefüllt. Dabei gilt zu beachten:
+- Bei Dokumenten, welche in ausgehenden Meldungen referenziert werden, gilt zu beachten:
   - `documentKind` enthält den Namen der `Category`
   - `keywords` enthält alle Tags (zB: `vollmacht-dokument`)
+  - `uuid` diese UUID kann in anderen eCH Meldungen referenziert werden
 
 - In einer `application` wird immer der Status `6701` gesetzt. Der korrekte Status aus dem eBau findet sich unter `namedMetaData.status`. Bei einer `statusNotification` wird immer der Status `in progress` gesetzt. Der korrekte Status findet sich im `remark`.
 
@@ -89,6 +92,9 @@ Verschiedene Aufgaben werden gemäss Spezifikation direkt in eBau erledigt. Unte
 - 4.2 Bauverfahren abschliessen: Bei Voranfragen wird der Prozess mit einem Entscheid (bzw. fachlich einer Beurteilung) abgeschlossen. "close dossier" hat entgegen der Spezifikation für Voranfragen also keine Bedeutung. Stattdessen wird der Prozess mit "notice ruling" abgeschlossen (siehe Kap. 3.2).
 
 - Judgements in `NoticeRuling` werden in eBau wie folgt gemappt:
+
+    - Wenn ein Entscheid über eCH gesendet wird, wird automatisch die GVG auf das Dossier berechtigt, wodurch diese Zugang auf das Dossier erhält.
+    - Wenn die Baubegleitung über eCH abgeschlossen wird, erhält die AIB automatisch Zugang auf das Dossier.
 
   | Judgement | Descision               | Besonderheiten                     |
   | --------- | ----------------------- | ---------------------------------- |

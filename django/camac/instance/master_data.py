@@ -337,7 +337,7 @@ class MasterData(object):
         if not document:
             # Requested document likely is from a workitem that may not have
             # started yet, and that's ok
-            return None
+            return kwargs.get("default", None)
 
         struc = self._get_structure(document)
         field = self._get_first_field_from_lookup_list(lookup, struc)

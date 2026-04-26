@@ -5,9 +5,11 @@ from django.contrib.admin import AdminSite
 from django.contrib.admin.utils import lookup_spawns_duplicates
 from django.core.exceptions import FieldDoesNotExist
 from django.db import models
+from django.db.models import JSONField
 from django.db.models.constants import LOOKUP_SEP
 from django.utils.text import smart_split, unescape_string_literal
 from django.utils.translation import get_language, gettext as _
+from django_json_widget.widgets import JSONEditorWidget
 
 
 class DjangoAdminSite(AdminSite):
@@ -17,6 +19,8 @@ class DjangoAdminSite(AdminSite):
 
 
 class EbauAdminMixin:
+    formfield_overrides = {JSONField: {"widget": JSONEditorWidget}}
+
     def has_module_permission(self, request):
         if not settings.DJANGO_ADMIN:
             return False

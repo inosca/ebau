@@ -1,0 +1,48 @@
+applicant-confirmations:
+  intro-pending: |-
+    Bitte prüfen Sie die Angaben im Formular und bestätigen Sie deren
+    Korrektheit.
+  intro-general: |-
+    Sobald alle unter "Personalien" erfassten Personen die Angaben bestätigt
+    haben, kann das Gesuch der zuständigen Behörde übermittelt werden.
+  info-start: |-
+    <strong>Achtung:</strong> Die Bestätigung kann nur von Administrator/innen
+    ausgelöst werden.
+  info-start-editable: |-
+    Als Mitbearbeiter/in können Sie jedoch die Vollständigkeit des Gesuchs
+    prüfen.
+
+  cancel: Runde abbrechen
+  cancel-success: Runde erfolgreich abgebrochen
+  cancel-error: Fehler beim Abbrechen der Runde
+
+  confirm: Bestätigen
+  confirm-success: Erfolgreich bestätigt
+  confirm-error: Fehler beim Bestätigen
+
+  invalidate: Runde aufheben
+  invalidate-success: Runde erfolgreich aufgehoben
+  invalidate-error: Fehler beim Aufheben der Runde
+
+  start: Bestätigung starten
+  start-success: Bestätigung erfolgreich gestartet
+  start-error: Fehler beim Starten der Bestätigung
+
+  not-registered: Benutzer noch nicht registriert
+  previous: Vergangene Runden
+  round: "{index}. Bestätigungsrunde"
+  started-at: Gestartet am {date}
+  validate: Vollständigkeit prüfen
+
+  status:
+    running: Offen
+    completed: Abgeschlossen
+
+    pending: Ausstehend
+    canceled: Abgebrochen
+    confirmed: Bestätigt
+    invalidated: Aufgehoben
+
+    canceled-at: abgebrochen am {date}
+    confirmed-at: bestätigt am {date}
+    invalidated-at: aufgehoben am {date}

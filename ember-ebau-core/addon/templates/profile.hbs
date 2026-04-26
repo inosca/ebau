@@ -17,32 +17,12 @@
     @label={{t "profile.last-name"}}
     @disabled={{true}}
   />
-  <f.input
-    @errorComponent={{this.errorComponent}}
-    @name="title"
-    @label={{t "profile.title"}}
-  />
-  <f.input
-    @errorComponent={{this.errorComponent}}
-    @name="position"
-    @label={{t "profile.position"}}
-  />
-  <f.input
-    @errorComponent={{this.errorComponent}}
-    @name="phone"
-    @label={{t "profile.phone"}}
-  />
-  <f.input
-    @errorComponent={{this.errorComponent}}
-    @name="mobile"
-    @label={{t "profile.mobile"}}
-  />
+  <f.input @name="title" @label={{t "profile.title"}} />
+  <f.input @name="position" @label={{t "profile.position"}} />
+  <f.input @name="phone" @label={{t "profile.phone"}} />
+  <f.input @name="mobile" @label={{t "profile.mobile"}} />
   {{#if (has-feature "profile.showDivision")}}
-    <f.input
-      @errorComponent={{this.errorComponent}}
-      @name="division"
-      @label={{t "profile.division"}}
-    />
+    <f.input @name="division" @label={{t "profile.division"}} />
   {{/if}}
   <f.submit
     @disabled={{or f.model.isInvalid f.model.isPristine this.save.isRunning}}

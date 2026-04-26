@@ -167,6 +167,10 @@ CONSTRUCTION_MONITORING = {
         "ENABLED": env.bool("CONSTRUCTION_MONITORING_ENABLED", default=False),
         "PREVIOUS_INSTANCE_STATE": "decision",
         "CONSTRUCTION_MONITORING_INSTANCE_STATE": "construction-acceptance",
+        "GEOMETER_MUNICIPALITY": {
+            "QUESTION": "schnurgeruestabnahme-durch",
+            "ANSWER": "schnurgeruestabnahme-durch-gemeinde",
+        },
         "NOTIFICATIONS": {
             "construction-step-baufreigabe": [
                 {"template_slug": "baubegleitung", "recipient_types": ["applicant"]}

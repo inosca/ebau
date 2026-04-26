@@ -16,6 +16,7 @@ global:
   yes: "Oui"
   no: "Non"
   stampIcon: "Document avec cachet"
+  applicant: "Requérant/e"
 
 nav:
   form: "Formulaire"

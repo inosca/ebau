@@ -7,12 +7,19 @@ export default class PublicationIndexRoute extends Route {
   @service router;
   @service ebauModules;
 
-  redirect() {
+  redirect(_, transition) {
     next(async () => {
       // eslint-disable-next-line ember/no-controller-access-in-routes
-      const publications = await this.controllerFor(
+      const controller = this.controllerFor(
         this.ebauModules.resolveModuleRoute("publication", "publication"),
-      ).publications;
+      );
+
+      // this only happens when deleting publication drafts
+      if (transition.from?.name === "publication.edit") {
+        await controller.refetchPublications.perform();
+      }
+
+      const publications = await controller.publications;
       const latest = decodeId(publications?.[publications.length - 1]?.node.id);
 
       if (latest) {

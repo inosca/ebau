@@ -10,9 +10,7 @@
     <div class="uk-margin">
       <label class="uk-form-label uk-text-bold" for="name">
         {{t "service-permissions.name"}}
-        <span class="uk-text-danger">
-          *
-        </span>
+        <span class="mandatory-asterisk">*</span>
       </label>
       <div class="uk-form-controls uk-flex">
         <Input
@@ -59,9 +57,7 @@
     <div class="uk-margin">
       <label class="uk-form-label uk-text-bold" for="email">
         {{t "service-permissions.email"}}
-        <span class="uk-text-danger">
-          *
-        </span>
+        <span class="mandatory-asterisk">*</span>
       </label>
       <div class="uk-form-controls">
         <Input
@@ -126,9 +122,7 @@
       <label class="uk-form-label uk-text-bold" for="city">
         {{t "service-permissions.city"}}
         {{#if @requireCity}}
-          <span class="uk-text-danger">
-            *
-          </span>
+          <span class="mandatory-asterisk">*</span>
         {{/if}}
       </label>
       <div class="uk-form-controls">

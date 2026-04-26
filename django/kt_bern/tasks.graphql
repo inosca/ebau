@@ -63,21 +63,6 @@ mutation CreateAuditTask {
   }
 }
 
-mutation CreatePublicationTask {
-  saveSimpleTask(
-    input: {
-      slug: "publication"
-      name: "Dossier publizieren"
-      addressGroups: "['municipality']|groups"
-      controlGroups: "['municipality']|groups"
-      leadTime: 864000 # 10 days
-      meta: "{\"is-manually-completable\":true}"
-    }
-  ) {
-    clientMutationId
-  }
-}
-
 mutation CreateInformationOfNeighborsTask {
   saveCompleteTaskFormTask(
     input: {
@@ -97,6 +82,21 @@ mutation CreateNewInformationOfNeighborsTask {
       slug: "create-information-of-neighbors"
       name: "Neue Nachbarschaftsorientierung erstellen"
       addressGroups: "['municipality']|groups"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreatePublicationTask {
+  saveSimpleTask(
+    input: {
+      slug: "publication"
+      name: "Dossier publizieren"
+      addressGroups: "['municipality']|groups"
+      controlGroups: "['municipality']|groups"
+      leadTime: 864000 # 10 days
+      meta: "{\"is-manually-completable\":true}"
     }
   ) {
     clientMutationId

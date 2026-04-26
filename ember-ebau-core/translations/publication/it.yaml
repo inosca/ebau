@@ -13,6 +13,22 @@ publication:
     public: "Nuova pubblicazione"
     neighbors: "Nuova informazione dei vicini"
 
+  submit:
+    public: “Condividi”
+    neighbors: “Condividi”
+
+  submitConfirm:
+    public: “Vuoi davvero condividere la pubblicazione?”
+    neighbors: “Vuoi davvero condividere l'orientamento del vicinato?”
+
+  deleteConfirm:
+    public: “Vuoi davvero eliminare la bozza?”
+    neighbors: “Vuoi davvero eliminare la bozza?”
+
+  delete:
+    public: “Elimina pubblicazione”
+    neighbors: “Elimina orientamento di vicinato”
+
   cancelConfirm:
     public: "Desidera davvero annullare la pubblicazione?"
     neighbors: "Desidera davvero annullare l'informazione dei vicini?"

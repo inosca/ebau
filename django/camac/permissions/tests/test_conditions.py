@@ -2,9 +2,10 @@ import pytest
 from caluma.caluma_workflow.models import WorkItem
 from django.utils import timezone
 
-from camac.applicants.models import ROLE_CHOICES
+from camac.applicants.models import ROLE_CHOICES, ApplicantConfirmationRound
 from camac.permissions.conditions import (
     HasAdditionalDemandWithFormEdit,
+    HasApplicantConfirmationRound,
     HasApplicantRole,
     IsPaper,
     IsServiceGroup,
@@ -190,3 +191,41 @@ def test_has_additional_demand_with_form_edit(
         HasAdditionalDemandWithFormEdit().apply(userinfo, PermissionContext(instance))
         == expected_result
     )
+
+
+def test_has_applicant_confirmation_round(
+    db,
+    applicant_confirmation_round_factory,
+    caluma_case_factory,
+    instance_factory,
+    userinfo,
+):
+    main_instance = instance_factory(case=caluma_case_factory())
+    main_document = main_instance.case.document
+
+    other_instance = instance_factory(case=caluma_case_factory())
+    other_document = other_instance.case.document
+
+    applicant_confirmation_round_factory(
+        document=main_document,
+        status=ApplicantConfirmationRound.Status.COMPLETED,
+    )
+    applicant_confirmation_round_factory(
+        document=other_document,
+        status=ApplicantConfirmationRound.Status.INVALIDATED,
+    )
+
+    invalidated = HasApplicantConfirmationRound(
+        [ApplicantConfirmationRound.Status.INVALIDATED]
+    )
+    active = HasApplicantConfirmationRound(
+        [
+            ApplicantConfirmationRound.Status.COMPLETED,
+            ApplicantConfirmationRound.Status.RUNNING,
+        ]
+    )
+
+    assert not invalidated.apply(userinfo, PermissionContext(main_instance))
+    assert invalidated.apply(userinfo, PermissionContext(other_instance))
+    assert active.apply(userinfo, PermissionContext(main_instance))
+    assert not active.apply(userinfo, PermissionContext(other_instance))

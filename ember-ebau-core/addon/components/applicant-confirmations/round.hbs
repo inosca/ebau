@@ -1,0 +1,67 @@
+<UkCard @size="small" class="uk-border" as |Card|>
+  <Card.header class="uk-flex uk-flex-middle">
+    <div class="uk-width-expand">
+      <h4 class="uk-text-bold uk-margin-remove">
+        {{t "applicant-confirmations.round" index=@index}}
+      </h4>
+      <span class="uk-text-meta">
+        {{t
+          "applicant-confirmations.started-at"
+          date=(format-date @round.createdAt format="datetime")
+        }}
+      </span>
+    </div>
+    <div>
+      <span
+        class="uk-label uk-label-{{this.statusColor}}
+          {{if (eq @round.status 'running') 'uk-label-outline'}}"
+      >
+        {{t (concat "applicant-confirmations.status." @round.status)}}
+      </span>
+    </div>
+  </Card.header>
+
+  <Card.body>
+    <ul class="uk-list uk-list-divider applicant-confirmations">
+      {{#each @round.confirmations as |confirmation|}}
+        <ApplicantConfirmations::Confirmation @confirmation={{confirmation}} />
+      {{/each}}
+    </ul>
+  </Card.body>
+
+  {{#let
+    (await (can "confirm applicant-confirmation-round" @round))
+    (await (can "cancel applicant-confirmation-round" @round))
+    (await (can "invalidate applicant-confirmation-round" @round))
+    as |canConfirm canCancel canInvalidate|
+  }}
+    {{#if (or canConfirm canCancel canInvalidate)}}
+      <Card.footer class="uk-text-center">
+        {{#if canConfirm}}
+          <UkButton
+            @color="primary"
+            @label={{t "applicant-confirmations.confirm"}}
+            @loading={{this.confirm.isRunning}}
+            @onClick={{this.confirm.perform}}
+          />
+        {{/if}}
+        {{#if canCancel}}
+          <UkButton
+            @color="default"
+            @label={{t "applicant-confirmations.cancel"}}
+            @loading={{this.cancel.isRunning}}
+            @onClick={{this.cancel.perform}}
+          />
+        {{/if}}
+        {{#if canInvalidate}}
+          <UkButton
+            @color="default"
+            @label={{t "applicant-confirmations.invalidate"}}
+            @loading={{this.invalidate.isRunning}}
+            @onClick={{this.invalidate.perform}}
+          />
+        {{/if}}
+      </Card.footer>
+    {{/if}}
+  {{/let}}
+</UkCard>

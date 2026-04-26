@@ -44,6 +44,8 @@ services:
       - pg15data:/var/lib/postgresql/data
     networks:
       - ebau.localhost
+    ports:
+      - "5432:5432"
 
   django: &django
     user: ${UID}
@@ -80,7 +82,6 @@ services:
       DJANGO_INTERNAL_BASE_URL: http://ember-ebau.localhost
       DJANGO_MEDIA_ROOT: /var/lib/camac/media
       DJANGO_TEMPFILE_DOWNLOAD_URL: /tmp
-      DJANGO_Q_ENABLE_SYNC: ${DJANGO_Q_ENABLE_SYNC:-false}
       DOCUMENT_MERGE_SERVICE_URL: http://document-merge-service:8000/document-merge-service/api/v1/
       ENABLE_HISTORICAL_API: true
       ENABLE_TOKEN_EXCHANGE: ${ENABLE_TOKEN_EXCHANGE:-false}
@@ -325,8 +326,6 @@ services:
       - redis_data:/redis/data
     networks:
       - ebau.localhost
-    environment:
-      - REDIS_PASSWORD=redis
 
   flower:
     image: mher/flower:2.0
@@ -344,6 +343,33 @@ services:
         "--port=7777",
       ]
 
+  elixir:
+    build:
+      context: ../elixir-ebau
+      args:
+        APPLICATION: ${APPLICATION}
+    # We cache _build, deps and language server folders to prevent having to recompile
+    # the entire project everytime. However, if you use the container to develop
+    # you don't have formatting (run `mix format` in the container for that) and you don't
+    # have any language server integration in your editor (which is highly recommended).
+    volumes:
+      - ../elixir-ebau/entrypoint.sh:/entrypoint.sh
+      - ../elixir-ebau:/app # mounting the source code
+      - elixir-ebau_build:/app/_build # caching the _build folder to a local volume
+      - elixir-ebau_dependencies:/app/deps # caching the dependencies to a local volume
+      - elixir-ebau_language-server:/app/.elixir_ls # caching the language server to a local volume
+    networks:
+      - ebau.localhost
+    depends_on:
+      - db
+    environment:
+      - APPLICATION=${APPLICATION}
+      - DATABASE_PASSWORD=camac
+      - DATABASE_USER=camac
+      - DATABASE_NAME=${APPLICATION}
+      - DATABASE_HOST=db
+      - URL_PREFIX=/elixir
+
 networks:
   ebau.localhost:
 
@@ -354,3 +380,6 @@ volumes:
   redis_data:
   minio_data:
     driver: local
+  elixir-ebau_build:
+  elixir-ebau_dependencies:
+  elixir-ebau_language-server:

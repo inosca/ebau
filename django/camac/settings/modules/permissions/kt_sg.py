@@ -1,9 +1,11 @@
 from camac.permissions.conditions import (
     Always,
+    HasApplicantConfirmationRound,
     HasApplicantRole,
     HasRole,
     RequireInstanceState,
     RequireWorkItem,
+    Static,
 )
 from camac.permissions.switcher import PERMISSION_MODE
 
@@ -29,11 +31,14 @@ MODULE_COMMUNICATIONS = STATES_ALL
 MODULE_DOCUMENTS = STATES_ALL
 MODULE_FORM = STATES_ALL
 MODULE_FORMAL_EXAM = RequireWorkItem("formal-exam") & ROLES_MUNICIPALITY
-MODULE_MATERIAL_EXAM = RequireWorkItem("material-exam") & ROLES_MUNICIPALITY
 MODULE_HISTORY = STATES_ALL
 MODULE_JOURNAL = STATES_ALL
 MODULE_LINKED_INSTANCES = STATES_ALL
+MODULE_MATERIAL_EXAM = RequireWorkItem("material-exam") & ROLES_MUNICIPALITY
 MODULE_PERMISSIONS = STATES_ALL & ROLES_MUNICIPALITY
+MODULE_PUBLICATION = RequireWorkItem("create-publication") | RequireWorkItem(
+    "fill-publication"
+)
 MODULE_REJECTION = RequireInstanceState(["subm", "rejected"])
 MODULE_RESPONSIBLE = STATES_ALL
 MODULE_WORK_ITEMS = STATES_ALL
@@ -49,10 +54,23 @@ MODULE_PORTAL_DOCUMENTS_WRITE = (
     RequireWorkItem("submit", "ready") & APPLICANT_WRITE
 ) | MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE
 MODULE_PORTAL_FORM_READ = Always()
-MODULE_PORTAL_FORM_WRITE = RequireWorkItem("submit", "ready") & APPLICANT_WRITE
+MODULE_PORTAL_FORM_WRITE = (
+    RequireWorkItem("submit", "ready")
+    & APPLICANT_WRITE
+    & ~HasApplicantConfirmationRound(["running", "completed"])
+)
+
+ACTION_APPLICANT_CONFIRMATION_ADMIN = RequireWorkItem(
+    "submit", "ready"
+) & HasApplicantRole(["ADMIN"])
+ACTION_APPLICANT_CONFIRMATION_CONFIRM = RequireWorkItem("submit", "ready")
 
 ACTION_INSTANCE_DELETE = RequireInstanceState(["new"]) & APPLICANT_ADMIN
-ACTION_INSTANCE_SUBMIT = RequireWorkItem("submit", "ready") & APPLICANT_ADMIN
+ACTION_INSTANCE_SUBMIT = (
+    RequireWorkItem("submit", "ready")
+    & APPLICANT_ADMIN
+    & HasApplicantConfirmationRound(["completed"])
+)
 
 # Actual config
 SG_PERMISSIONS_SETTINGS = {
@@ -61,6 +79,11 @@ SG_PERMISSIONS_SETTINGS = {
         "applicant": [
             ("additional-demands-read", MODULE_PORTAL_ADDITIONAL_DEMANDS_READ),
             ("additional-demands-write", MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE),
+            ("applicant-confirmation-cancel", ACTION_APPLICANT_CONFIRMATION_ADMIN),
+            ("applicant-confirmation-confirm", ACTION_APPLICANT_CONFIRMATION_CONFIRM),
+            ("applicant-confirmation-invalidate", ACTION_APPLICANT_CONFIRMATION_ADMIN),
+            ("applicant-confirmation-read", Static()),
+            ("applicant-confirmation-start", ACTION_APPLICANT_CONFIRMATION_ADMIN),
             ("applicant-add", MODULE_PORTAL_APPLICANTS),
             ("applicant-read", MODULE_PORTAL_APPLICANTS),
             ("applicant-remove", MODULE_PORTAL_APPLICANTS),
@@ -78,6 +101,7 @@ SG_PERMISSIONS_SETTINGS = {
         "lead-authority": [
             ("additional-demands-read", MODULE_ADDITIONAL_DEMANDS),
             ("additional-demands-write", MODULE_ADDITIONAL_DEMANDS),
+            ("applicant-confirmation-read", Static()),
             ("communications-convert-to-document", MODULE_COMMUNICATIONS),
             ("communications-read", MODULE_COMMUNICATIONS),
             ("communications-write", MODULE_COMMUNICATIONS),
@@ -94,6 +118,7 @@ SG_PERMISSIONS_SETTINGS = {
             ("permissions-read", MODULE_PERMISSIONS),
             ("permissions-read-any", MODULE_PERMISSIONS),
             ("permissions-revoke-read", MODULE_PERMISSIONS),
+            ("publication-read", MODULE_PUBLICATION),
             ("rejection-read", MODULE_REJECTION),
             ("responsible-read", MODULE_RESPONSIBLE),
             ("responsible-write", MODULE_RESPONSIBLE),
@@ -106,6 +131,7 @@ SG_PERMISSIONS_SETTINGS = {
             ("form-read", MODULE_FORM),
         ],
         "support": [
+            ("applicant-confirmation-read", Static()),
             ("applicant-add", Always()),
             ("applicant-read", Always()),
             ("applicant-remove", Always()),

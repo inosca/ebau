@@ -10,6 +10,7 @@ from django.conf import settings
 from django.core.cache import cache
 from django.utils.translation import gettext as _, gettext_noop, override
 
+from camac.applicants.models import Applicant
 from camac.caluma.models import Inquiry
 from camac.caluma.utils import find_answer
 from camac.core.models import Authority
@@ -383,13 +384,11 @@ class Landowners(BaseDataSource):
 
 
 class PreliminaryClarificationTargets(BaseDataSource):
-    info = "List of services that can be selected for preliminary clarifications in Kt. SO & SG"
+    info = (
+        "List of services that can be selected for preliminary clarifications in Kt. SO"
+    )
 
-    @canton_aware
-    def filter_services(self, services):  # pragma: no cover
-        raise NotImplementedError()
-
-    def filter_services_so(self, services):
+    def filter_services(self, services):
         return services.filter(
             service_group__slug__in=[
                 "service-cantonal",
@@ -397,9 +396,6 @@ class PreliminaryClarificationTargets(BaseDataSource):
                 "service-bab",
             ],
         )
-
-    def filter_services_sg(self, services):
-        return services.filter(service_group__slug__in=["coordination", "service"])
 
     @data_source_cache(timeout=3600)
     def get_data(self, user, question, context):
@@ -508,3 +504,28 @@ class Sanctions(BaseDataSource):
             return [generic_sanction]
 
         return sanctions
+
+
+class Applicants(BaseDataSource):
+    info = "All involved applicants"
+
+    @data_source_cache(timeout=5)
+    def get_data(self, user, question, context: dict) -> list[list[str, str]]:
+        if not context or "instanceId" not in context:
+            return []
+
+        applicants = (
+            Applicant.objects.filter(instance_id=context["instanceId"])
+            .select_related("invitee")
+            .order_by("invitee__name", "invitee__surname", "email")
+        )
+
+        return [
+            [
+                str(applicant.pk),
+                applicant.invitee.get_full_name()
+                if applicant.invitee
+                else applicant.email,
+            ]
+            for applicant in applicants
+        ]

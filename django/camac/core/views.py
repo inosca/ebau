@@ -420,11 +420,15 @@ class ResourceView(ReadOnlyModelViewSet):
 
     def get_queryset_ag(self):
         # In Kt. AG, "light" municipalities should not see the global GWR resource
+        # and the statistics export.
         # If we have more use cases for dynamic resource visibility, extract this
         # into something more generic.
         service = self.request.group.service
         if service and service.service_group.name == "municipality-light":
-            return self._get_queryset().exclude(template__contains="gwr-global")
+            return self._get_queryset().exclude(
+                Q(template__contains="gwr-global")
+                | Q(template__contains="statistics-export")
+            )
         return self._get_queryset()
 
 

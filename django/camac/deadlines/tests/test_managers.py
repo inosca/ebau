@@ -6,6 +6,8 @@ from caluma.caluma_workflow.models import Task, WorkItem
 from django.utils.timezone import make_aware
 
 from camac.constants.kt_gr import ARE_SERVICE_GROUP
+from camac.core.models import HistoryActionConfig
+from camac.core.utils import create_history_entry
 from camac.deadlines import models as deadlines_models
 from camac.tests.form_utils import FormUtils
 
@@ -232,28 +234,31 @@ def test_update_deadline_instance_meta(
 )
 @pytest.mark.parametrize("has_start_date", [True, False])
 @pytest.mark.parametrize(
-    "responsible,has_publication,publication_date,inquiry_date,simplified,formal_completed,expected_date",
+    "form_id,responsible,has_publication,publication_date,inquiry_date,simplified,formal_completed,expected_date",
     [
         # responsible, formal exam not completed, no date
-        (True, True, "2025-05-01", None, False, False, None),
+        ("baugesuch", True, True, "2025-05-01", None, False, False, None),
         # responsible, not simplified, date set to publication date
-        (True, True, "2025-05-01", None, False, True, "2025-05-01"),
+        ("baugesuch", True, True, "2025-05-01", None, False, True, "2025-05-01"),
         # responsible, simplified, date set to submit date
-        (True, True, "2025-05-01", None, True, True, "2025-12-31"),
+        ("baugesuch", True, True, "2025-05-01", None, True, True, "2025-12-31"),
         # responsible, date empty as no publication date is known
-        (True, True, None, "2025-05-01", False, True, None),
+        ("baugesuch", True, True, None, "2025-05-01", False, True, None),
+        # responsible, bauanzeige/solaranlage always starts at submit date
+        ("solaranlage", True, True, None, "2025-05-01", False, True, "2025-12-31"),
+        ("bauanzeige", True, True, None, "2025-05-01", False, True, "2025-12-31"),
         # responsible, date submit date as no publication workitem exists
-        (True, False, None, "2025-05-01", False, True, "2025-12-31"),
+        ("baugesuch", True, False, None, "2025-05-01", False, True, "2025-12-31"),
         # responsible, simplified, date set to submit date
-        (True, True, None, "2025-05-01", True, True, "2025-12-31"),
+        ("baugesuch", True, True, None, "2025-05-01", True, True, "2025-12-31"),
         # inquired, no date as no inquiry date is known
-        (False, True, "2025-05-01", None, False, True, None),
+        ("baugesuch", False, True, "2025-05-01", None, False, True, None),
         # inquired, date set to inquiry date
-        (False, True, "2025-05-01", None, True, True, None),
+        ("baugesuch", False, True, "2025-05-01", None, True, True, None),
         # inquired, date set to inquiry date
-        (False, True, None, "2025-05-01", False, True, "2025-05-01"),
+        ("baugesuch", False, True, None, "2025-05-01", False, True, "2025-05-01"),
         # inquired, simplified, date set to inquiry date even when simplified
-        (False, True, None, "2025-05-01", True, True, "2025-05-01"),
+        ("baugesuch", False, True, None, "2025-05-01", True, True, "2025-05-01"),
     ],
 )
 def test_update_deadline_startdate_gr(
@@ -264,6 +269,7 @@ def test_update_deadline_startdate_gr(
     service_factory,
     caluma_work_item_factory,
     has_start_date,
+    form_id,
     responsible,
     has_publication,
     publication_date,
@@ -282,6 +288,8 @@ def test_update_deadline_startdate_gr(
     """Test the api to update the start date of a deadline for a GR instance."""
     gr_instance.case.meta["submit-date"] = "2025-12-31"
     gr_instance.case.save()
+    gr_instance.case.family.document.form.pk = form_id
+    gr_instance.case.family.document.form.save()
 
     mocker.patch(
         "camac.instance.models.Instance.responsible_service",
@@ -688,26 +696,26 @@ def test_update_deadline_progression_service_gr(
     [
         # no start date, no processed days
         (None, False, [], None, 0),
-        # all days, 2 processed days
-        ("2025-05-27", False, [], 2, 0),
-        # all days, 6 processed days
-        ("2025-05-23", False, [], 6, 0),
-        # only workdays, 4 processed days
-        ("2025-05-23", True, [], 4, 0),
-        # all days, exluding suspended days, 4 processed days
+        # all days, 3 processed days
+        ("2025-05-27", False, [], 3, 0),
+        # all days, 7 processed days
+        ("2025-05-23", False, [], 7, 0),
+        # only workdays, 5 processed days
+        ("2025-05-23", True, [], 5, 0),
+        # all days, exluding suspended days, 5 processed days
         (
             "2025-05-23",
             False,
             [{"start_date": "2025-05-25", "end_date": "2025-05-27"}],
-            4,
+            5,
             2,  # one weekend and one working day
         ),
-        # only workdays and excluding suspended days, 3 processed days
+        # only workdays and excluding suspended days, 4 processed days
         (
             "2025-05-23",
             True,
             [{"start_date": "2025-05-25", "end_date": "2025-05-27"}],
-            3,
+            4,
             1,  # one working day, weekend excluded
         ),
         # open suspension any day
@@ -715,7 +723,7 @@ def test_update_deadline_progression_service_gr(
             "2025-05-23",
             False,
             [{"start_date": "2025-05-25", "end_date": None}],
-            2,  # 2025-05-23 and 2025-05-24
+            3,  # 2025-05-23 and 2025-05-24 +1 to include the same day
             4,  # 4 days of suspension 2025-05-25 to 2025-05-28
         ),
         # open suspension only workdays
@@ -723,7 +731,7 @@ def test_update_deadline_progression_service_gr(
             "2025-05-23",
             True,
             [{"start_date": "2025-05-25", "end_date": None}],
-            1,  # only working day 2025-05-23
+            2,  # only working day 2025-05-23 +1 to include the same day
             3,  # only 3 days of suspension excluding weekends/holidays
         ),
     ],
@@ -776,11 +784,12 @@ def test_update_deadline_progression_days_gr(
 
 @pytest.mark.freeze_time("2025-05-29")
 @pytest.mark.parametrize(
-    "service_group__name,role__name,has_open_suspension",
+    "service_group__name,role__name,has_open_suspension,is_rejected",
     [
-        ("municipality", "municipality-lead", False),
-        ("service-afb", "service-lead", True),
-        ("service-afb", "service-lead", False),
+        ("municipality", "municipality-lead", False, False),
+        ("municipality", "municipality-lead", False, True),
+        ("service-afb", "service-lead", True, False),
+        ("service-afb", "service-lead", False, False),
     ],
 )
 def test_update_deadline_enddate_ag(
@@ -791,6 +800,7 @@ def test_update_deadline_enddate_ag(
     deadline_type_factory,
     caluma_work_item_factory,
     caluma_document_factory,
+    instance_state_factory,
     service_factory,
     suspension_factory,
     ag_deadlines_settings,
@@ -798,6 +808,7 @@ def test_update_deadline_enddate_ag(
     ag_distribution_settings,
     set_application_ag,
     has_open_suspension,
+    is_rejected,
     application_settings,
     disable_deadline_side_effects,
     mocker,
@@ -808,6 +819,21 @@ def test_update_deadline_enddate_ag(
 
     now = datetime.now().date()
     decision_date = date(2025, 2, 2)
+    rejection_date = None
+    if is_rejected:
+        rejected_state = instance_state_factory(name="rejected")
+        ag_instance.instance_state = rejected_state
+        ag_instance.save(update_fields=["instance_state"])
+
+        create_history_entry(
+            instance=ag_instance,
+            text="Dossier zurückgewiesen",
+            history_type=HistoryActionConfig.HISTORY_TYPE_STATUS,
+            user=None,
+        )
+        entry = ag_instance.history.latest("created_at")
+        rejection_date = entry.created_at.date()
+
     mocker.patch(
         "camac.instance.models.Instance.responsible_service",
         return_value=service
@@ -855,9 +881,14 @@ def test_update_deadline_enddate_ag(
         )
 
     if service.service_group.name == "municipality":
-        assert deadline._get_enddate_responsible() == decision_date, (
-            "End date should be the decision date for responsible service"
-        )
+        if is_rejected:
+            assert deadline._get_enddate_responsible() == rejection_date, (
+                "End date should be the rejection date for responsible service if rejected"
+            )
+        else:
+            assert deadline._get_enddate_responsible() == decision_date, (
+                "End date should be the decision date for responsible service"
+            )
     elif has_open_suspension:
         assert deadline._get_enddate_inquired() is None, (
             "End date should be None for inquired service with open suspension"

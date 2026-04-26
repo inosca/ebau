@@ -448,8 +448,8 @@ def test_dynamic_task_after_inquiries_completed(
                 "distribution",
                 "audit",
                 "publication",
-                "fill-publication",
-                "information-of-neighbors",
+                "create-publication",
+                "create-information-of-neighbors",
                 "legal-submission",
             },
         ),
@@ -459,8 +459,8 @@ def test_dynamic_task_after_inquiries_completed(
                 "distribution",
                 "audit",
                 "publication",
-                "fill-publication",
-                "information-of-neighbors",
+                "create-publication",
+                "create-information-of-neighbors",
                 "legal-submission",
                 "appeal",
             },
@@ -1475,16 +1475,28 @@ def test_after_check_gwr_relevancy(
 @pytest.mark.parametrize(
     "publication_required,information_of_neighbors_required,expected_tasks",
     [
-        (False, False, []),
-        (True, False, ["publication", "fill-publication"]),
-        (False, True, ["information-of-neighbors", "fill-information-of-neighbors"]),
+        (False, False, ["create-publication", "create-information-of-neighbors"]),
+        (
+            True,
+            False,
+            ["fill-publication", "publication", "create-information-of-neighbors"],
+        ),
+        (
+            False,
+            True,
+            [
+                "fill-information-of-neighbors",
+                "information-of-neighbors",
+                "create-publication",
+            ],
+        ),
         (
             True,
             True,
             [
                 "publication",
-                "fill-publication",
                 "information-of-neighbors",
+                "fill-publication",
                 "fill-information-of-neighbors",
             ],
         ),
@@ -1643,3 +1655,37 @@ def test_resolve_maybe_trigger_billing(
             assert trigger_billing_items.exists()
         else:
             assert not trigger_billing_items.exists()
+
+
+@pytest.mark.parametrize("can_continue, expected_index", [(True, 2), (False, 0)])
+def test_resolve_after_construction_step_item(
+    db,
+    caluma_task_factory,
+    caluma_work_item_factory,
+    mocker,
+    can_continue,
+    expected_index,
+):
+    step_id = "construction-step-1"
+
+    next_task = caluma_task_factory(
+        meta={
+            "construction-step-id": step_id,
+            "construction-step": {"index": expected_index},
+        }
+    )
+    prev_work_item = caluma_work_item_factory(
+        meta={
+            "construction-step-id": step_id,
+            "construction-step": {"index": 1},
+        }
+    )
+
+    mocker.patch(
+        "camac.caluma.extensions.dynamic_tasks.construction_step_can_continue",
+        return_value=can_continue,
+    )
+
+    assert CustomDynamicTasks().resolve_after_construction_step_item(
+        None, None, prev_work_item, {}
+    ) == [next_task.pk]

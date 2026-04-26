@@ -16,6 +16,7 @@ global:
   yes: "Ja"
   no: "Nein"
   stampIcon: "Dokument mit Stempel"
+  applicant: "Gesuchsteller"
 
 nav:
   form: "Formular"

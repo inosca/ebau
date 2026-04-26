@@ -29,4 +29,6 @@ additional-demand:
       canceled: "Vorzeitig beendet"
   formtimeline-link:
     case-timeline-label: "Formularänderungen anzeigen"
-    instance-edit-label: "Gesuchsformular bearbeiten"
+    instance-edit-label: "Dossier anpassen"
+    instance-edit-info:
+      

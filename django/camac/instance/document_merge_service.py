@@ -1,6 +1,5 @@
 import json
 import re
-from importlib import import_module
 from os.path import splitext
 
 import requests
@@ -14,6 +13,7 @@ from django.conf import settings
 from django.core.files.base import ContentFile
 from django.core.serializers.json import DjangoJSONEncoder
 from django.db.models import OuterRef
+from django.utils.module_loading import import_string
 from django.utils.text import slugify
 from django.utils.timezone import get_current_timezone, localtime
 from django.utils.translation import get_language, gettext as _
@@ -762,8 +762,8 @@ class DMSVisitor:
         }
 
     def _matching_dynamic_options(self, answer, document, question):
-        data_source = getattr(
-            import_module("camac.caluma.extensions.data_sources"), question.data_source
+        data_source = import_string(
+            f"camac.caluma.extensions.data_sources.{question.data_source}"
         )()
         if not isinstance(answer, list):
             answer = [answer]

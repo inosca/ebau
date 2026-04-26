@@ -40,8 +40,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1511'
       Content-Type:
@@ -116,8 +114,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1645'
       Content-Type:
@@ -186,8 +182,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1511'
       Content-Type:
@@ -262,8 +256,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1645'
       Content-Type:
@@ -332,8 +324,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1511'
       Content-Type:
@@ -408,8 +398,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1645'
       Content-Type:
@@ -478,8 +466,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1511'
       Content-Type:
@@ -554,8 +540,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1645'
       Content-Type:
@@ -624,8 +608,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1511'
       Content-Type:
@@ -700,8 +682,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1645'
       Content-Type:
@@ -770,8 +750,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1511'
       Content-Type:
@@ -846,8 +824,6 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
       Content-Length:
       - '1645'
       Content-Type:
@@ -865,6 +841,462 @@ interactions:
       - 'TS014419e9=0100bce51047d669b812c3112d49d6462bfa6e743c7f0de207d27d1179281932660b0e694c51d9e5507dc2c675dac55905afcf29bf250a8fee6a633288e525caf7f7c23d69;
         Path=/; Domain=.www.ag.ch; '
       - TS01975bae=0100bce5102d564f695028956454c05b231b6259d67f0de207d27d1179281932660b0e694c9d07458cc7541d75e80d2631c97435c3b0da77aa826072af4558b649f07e60c1;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2663424%2C1247036%2C2663426%2C1247038&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Niederwil\",\"attributes\":{\"OBJECTID\":\"91\",\"GDENR\":\"4072\",\"GEMEINDE\":\"Niederwil\",\"GEMEINDEZ\":\"Niederwil
+        (AG)\",\"GEMEINDEU\":\"Niederwil\",\"BZNR\":\"1903\",\"BEZIRK\":\"Bremgarten\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Bremgarten\",\"Geometer\":\"Marco Portmann\",\"Strasse\":\"Zugerstrasse
+        14\",\"PLZOrt\":\"5620 Bremgarten\",\"ID\":\"4072\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"6147876.259663\",\"SHAPE.STLength()\":\"12591.076572\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"630\",\"attributes\":{\"OBJECTID\":\"77915823\",\"FILEID\":\"164\",\"GDENR\":\"4072\",\"GDENRPARZ\":\"407200630\",\"NUMMER\":\"630\",\"EGRID\":\"CH228174155023\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"531599\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"531599.46332\",\"SHAPE.STLength()\":\"4010.369763\"}},{\"layerId\":36,\"layerName\":\"Arch\xE4ologische
+        Fundstellen nach Typ, mit Denkmalschutz\",\"displayFieldName\":\"FST_SIGNAT\",\"value\":\"52(B)12\",\"attributes\":{\"OBJECTID\":\"423\",\"FST_SIGNAT\":\"52(B)12\",\"ID\":\"4769\",\"KATDENKMAL\":\"B0\",\"KATEGORIE\":\"B\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"3848.263417\",\"SHAPE.STLength()\":\"219.908918\",\"Text_Gemeinde\":\"Null\",\"Gem_2000\":\"Niederwil\",\"Denkmalschutz\":\"0\"}},{\"layerId\":42,\"layerName\":\"Naturschutzgebiet
+        von kant. Bedeutung (NkB) Richtplan L 2.5\",\"displayFieldName\":\"RPKAP_KL\",\"value\":\"l25\",\"attributes\":{\"OBJECTID\":\"241\",\"NKB_ID\":\"Null\",\"KIN_AREAL\":\"Null\",\"RPKAP_KL\":\"l25\",\"RPKAP_LG\":\"L
+        2.5 Naturschutzgebiete von kantonaler Bedeutung (NkB)\",\"KATEGORIE\":\"Festsetzung\",\"RP_AUSSAGE\":\"Naturschutzgebiet
+        von kant. Bedeutung (NkB)\",\"FlurnameAV\":\"Ruetermoos\",\"NKBNr\":\"204\",\"RPTEXT\":\"http://www.ag.ch//richtplan-l25\",\"RPDETAILLISTE\":\"http://www.ag.ch//richtplan-l25-detailliste\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"81795.697995\",\"Shape.STLength()\":\"1280.669038\"}},{\"layerId\":44,\"layerName\":\"Bundesinventar
+        der Flachmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"R\xFCtermoos\",\"attributes\":{\"OBJECTID\":\"927\",\"ObjNummer\":\"2768\",\"Name\":\"R\xFCtermoos\",\"RefObjBlatt\":\"https://api3.geo.admin.ch/featureattachments/ch.bafu.bundesinventare-flachmoore/objectsheets/2025revision/nr2768.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.10.1994\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"31254.485998\",\"Shape.STLength()\":\"860.500047\"}},{\"layerId\":491,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: ortsfeste Objekte\",\"displayFieldName\":\"Name\",\"value\":\"R\xFCtermoos\",\"attributes\":{\"OBJECTID\":\"174\",\"ObjNummer\":\"AG525\",\"Name\":\"R\xFCtermoos\",\"RefObjBlatt\":\"https://api3.geo.admin.ch/featureattachments/ch.bafu.bundesinventare-amphibien/objectsheets/2025revision/ag525.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"\",\"Bereich\":\"A\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"74515.235032\",\"SHAPE.STLength()\":\"1223.431168\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"S\",\"attributes\":{\"OBJECTID\":\"23947\",\"GDENR\":\"Niederwil
+        (AG) 4072\",\"HNCode\":\"31\",\"HNBez\":\"Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTAAbk\":\"Schutzzonen\",\"KTCode\":\"3112\",\"KTAbk\":\"S\",\"KTBez\":\"Streuwiese
+        / Feuchtstandort\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"311201\",\"GDEBez\":\"Feuchtgebiete
+        mit offenen Wasserfl\xE4chen\",\"GDEAbk\":\"FSOW\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"S\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2009-000098\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.06.86\",\"UB\":\"Null\",\"KTLabel\":\"S\",\"Geolink\":\"1617\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/1617.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        ES\":\"nein\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"27790.164919\",\"Shape.STLength()\":\"967.933933\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1676'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:15:55 GMT
+      ETag:
+      - '"4af3b6ef"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|zMD3oAW6bWdVRqSVWSheuA==|wIRTtV9y0ibXk3-UsMRbEUfzCViCbnFE4GGYsQvhlPvt2qR39q2Jv3nC7aeuhgVfabuZvSk=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:16:55 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce510b998f6ec3f8726493daf5dcd475e86c133762c5a8049b8e8f2a386dcff27f70d4e789958a037fde74f3e58da79d0be4b;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce510b998f6ec3f8726493daf5dcd475e86c133762c5a8049b8e8f2a386dcff27f70d4e789958a037fde74f3e58da79d0be4b;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2663405%2C1247017%2C2663445%2C1247057&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="sym-gcm|1|zMD3oAW6bWdVRqSVWSheuA==|wIRTtV9y0ibXk3-UsMRbEUfzCViCbnFE4GGYsQvhlPvt2qR39q2Jv3nC7aeuhgVfabuZvSk=";
+        TS01975bae=0100bce510b998f6ec3f8726493daf5dcd475e86c133762c5a8049b8e8f2a386dcff27f70d4e789958a037fde74f3e58da79d0be4b;
+        XWAF=1791920065.47873.0000; TS014419e9=0100bce510b998f6ec3f8726493daf5dcd475e86c133762c5a8049b8e8f2a386dcff27f70d4e789958a037fde74f3e58da79d0be4b
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Niederwil\",\"attributes\":{\"OBJECTID\":\"91\",\"GDENR\":\"4072\",\"GEMEINDE\":\"Niederwil\",\"GEMEINDEZ\":\"Niederwil
+        (AG)\",\"GEMEINDEU\":\"Niederwil\",\"BZNR\":\"1903\",\"BEZIRK\":\"Bremgarten\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Bremgarten\",\"Geometer\":\"Marco Portmann\",\"Strasse\":\"Zugerstrasse
+        14\",\"PLZOrt\":\"5620 Bremgarten\",\"ID\":\"4072\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"6147876.259663\",\"SHAPE.STLength()\":\"12591.076572\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"630\",\"attributes\":{\"OBJECTID\":\"77915823\",\"FILEID\":\"164\",\"GDENR\":\"4072\",\"GDENRPARZ\":\"407200630\",\"NUMMER\":\"630\",\"EGRID\":\"CH228174155023\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"531599\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"531599.46332\",\"SHAPE.STLength()\":\"4010.369763\"}},{\"layerId\":36,\"layerName\":\"Arch\xE4ologische
+        Fundstellen nach Typ, mit Denkmalschutz\",\"displayFieldName\":\"FST_SIGNAT\",\"value\":\"52(B)12\",\"attributes\":{\"OBJECTID\":\"423\",\"FST_SIGNAT\":\"52(B)12\",\"ID\":\"4769\",\"KATDENKMAL\":\"B0\",\"KATEGORIE\":\"B\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"3848.263417\",\"SHAPE.STLength()\":\"219.908918\",\"Text_Gemeinde\":\"Null\",\"Gem_2000\":\"Niederwil\",\"Denkmalschutz\":\"0\"}},{\"layerId\":42,\"layerName\":\"Naturschutzgebiet
+        von kant. Bedeutung (NkB) Richtplan L 2.5\",\"displayFieldName\":\"RPKAP_KL\",\"value\":\"l25\",\"attributes\":{\"OBJECTID\":\"241\",\"NKB_ID\":\"Null\",\"KIN_AREAL\":\"Null\",\"RPKAP_KL\":\"l25\",\"RPKAP_LG\":\"L
+        2.5 Naturschutzgebiete von kantonaler Bedeutung (NkB)\",\"KATEGORIE\":\"Festsetzung\",\"RP_AUSSAGE\":\"Naturschutzgebiet
+        von kant. Bedeutung (NkB)\",\"FlurnameAV\":\"Ruetermoos\",\"NKBNr\":\"204\",\"RPTEXT\":\"http://www.ag.ch//richtplan-l25\",\"RPDETAILLISTE\":\"http://www.ag.ch//richtplan-l25-detailliste\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"81795.697995\",\"Shape.STLength()\":\"1280.669038\"}},{\"layerId\":44,\"layerName\":\"Bundesinventar
+        der Flachmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"R\xFCtermoos\",\"attributes\":{\"OBJECTID\":\"927\",\"ObjNummer\":\"2768\",\"Name\":\"R\xFCtermoos\",\"RefObjBlatt\":\"https://api3.geo.admin.ch/featureattachments/ch.bafu.bundesinventare-flachmoore/objectsheets/2025revision/nr2768.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.10.1994\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"31254.485998\",\"Shape.STLength()\":\"860.500047\"}},{\"layerId\":491,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: ortsfeste Objekte\",\"displayFieldName\":\"Name\",\"value\":\"R\xFCtermoos\",\"attributes\":{\"OBJECTID\":\"174\",\"ObjNummer\":\"AG525\",\"Name\":\"R\xFCtermoos\",\"RefObjBlatt\":\"https://api3.geo.admin.ch/featureattachments/ch.bafu.bundesinventare-amphibien/objectsheets/2025revision/ag525.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"\",\"Bereich\":\"A\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"74515.235032\",\"SHAPE.STLength()\":\"1223.431168\"}},{\"layerId\":61,\"layerName\":\"Waldgrenze\",\"displayFieldName\":\"Gemeinde\",\"value\":\"Niederwil
+        (AG)\",\"attributes\":{\"OBJECTID\":\"7344830\",\"FILEID\":\"164\",\"GDENR\":\"4072\",\"Gemeinde\":\"Niederwil
+        (AG)\",\"Rechtskrft\":\"20190930\",\"Status\":\"gueltig\",\"LinArt\":\"ausgezogen\",\"ArtWG\":\"ausserhalb_Bauzonen\",\"Code\":\"1\",\"Bezeich\":\"4072\",\"Verbindl\":\"Nutzungsplanfestlegung\",\"NWaldstr\":\"nein\",\"Geolink\":\"75\",\"OEREBexport\":\"ja\",\"Shape\":\"Polyline\",\"Shape.STLength()\":\"972.16387\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"S\",\"attributes\":{\"OBJECTID\":\"23947\",\"GDENR\":\"Niederwil
+        (AG) 4072\",\"HNCode\":\"31\",\"HNBez\":\"Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTAAbk\":\"Schutzzonen\",\"KTCode\":\"3112\",\"KTAbk\":\"S\",\"KTBez\":\"Streuwiese
+        / Feuchtstandort\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"311201\",\"GDEBez\":\"Feuchtgebiete
+        mit offenen Wasserfl\xE4chen\",\"GDEAbk\":\"FSOW\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"S\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2009-000098\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.06.86\",\"UB\":\"Null\",\"KTLabel\":\"S\",\"Geolink\":\"1617\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/1617.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        ES\":\"nein\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"27790.164919\",\"Shape.STLength()\":\"967.933933\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1816'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:15:58 GMT
+      ETag:
+      - '"5fdba566"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|HUSlKjcj-Dmw5WRJHIn1Ew==|LyyDW53K-HBMpPd2fVChLVMtUqlfWiiROUwa7Kz39r_AdlJOide-xjBOGfcYmEuSetLXaWE=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:16:56 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce510b998f6ec3f8726493daf5dcd475e86c133762c5a8049b8e8f2a386dcff27f70d4e789958a037fde74f3e58da79d0be4b;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce510b998f6ec3f8726493daf5dcd475e86c133762c5a8049b8e8f2a386dcff27f70d4e789958a037fde74f3e58da79d0be4b;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2663424%2C1247036%2C2663426%2C1247038&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Niederwil\",\"attributes\":{\"OBJECTID\":\"91\",\"GDENR\":\"4072\",\"GEMEINDE\":\"Niederwil\",\"GEMEINDEZ\":\"Niederwil
+        (AG)\",\"GEMEINDEU\":\"Niederwil\",\"BZNR\":\"1903\",\"BEZIRK\":\"Bremgarten\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Bremgarten\",\"Geometer\":\"Marco Portmann\",\"Strasse\":\"Zugerstrasse
+        14\",\"PLZOrt\":\"5620 Bremgarten\",\"ID\":\"4072\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"6147876.259663\",\"SHAPE.STLength()\":\"12591.076572\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"630\",\"attributes\":{\"OBJECTID\":\"77915823\",\"FILEID\":\"164\",\"GDENR\":\"4072\",\"GDENRPARZ\":\"407200630\",\"NUMMER\":\"630\",\"EGRID\":\"CH228174155023\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"531599\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"531599.46332\",\"SHAPE.STLength()\":\"4010.369763\"}},{\"layerId\":36,\"layerName\":\"Arch\xE4ologische
+        Fundstellen nach Typ, mit Denkmalschutz\",\"displayFieldName\":\"FST_SIGNAT\",\"value\":\"52(B)12\",\"attributes\":{\"OBJECTID\":\"423\",\"FST_SIGNAT\":\"52(B)12\",\"ID\":\"4769\",\"KATDENKMAL\":\"B0\",\"KATEGORIE\":\"B\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"3848.263417\",\"SHAPE.STLength()\":\"219.908918\",\"Text_Gemeinde\":\"Null\",\"Gem_2000\":\"Niederwil\",\"Denkmalschutz\":\"0\"}},{\"layerId\":42,\"layerName\":\"Naturschutzgebiet
+        von kant. Bedeutung (NkB) Richtplan L 2.5\",\"displayFieldName\":\"RPKAP_KL\",\"value\":\"l25\",\"attributes\":{\"OBJECTID\":\"241\",\"NKB_ID\":\"Null\",\"KIN_AREAL\":\"Null\",\"RPKAP_KL\":\"l25\",\"RPKAP_LG\":\"L
+        2.5 Naturschutzgebiete von kantonaler Bedeutung (NkB)\",\"KATEGORIE\":\"Festsetzung\",\"RP_AUSSAGE\":\"Naturschutzgebiet
+        von kant. Bedeutung (NkB)\",\"FlurnameAV\":\"Ruetermoos\",\"NKBNr\":\"204\",\"RPTEXT\":\"http://www.ag.ch//richtplan-l25\",\"RPDETAILLISTE\":\"http://www.ag.ch//richtplan-l25-detailliste\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"81795.697995\",\"Shape.STLength()\":\"1280.669038\"}},{\"layerId\":44,\"layerName\":\"Bundesinventar
+        der Flachmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"R\xFCtermoos\",\"attributes\":{\"OBJECTID\":\"927\",\"ObjNummer\":\"2768\",\"Name\":\"R\xFCtermoos\",\"RefObjBlatt\":\"https://api3.geo.admin.ch/featureattachments/ch.bafu.bundesinventare-flachmoore/objectsheets/2025revision/nr2768.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.10.1994\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"31254.485998\",\"Shape.STLength()\":\"860.500047\"}},{\"layerId\":491,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: ortsfeste Objekte\",\"displayFieldName\":\"Name\",\"value\":\"R\xFCtermoos\",\"attributes\":{\"OBJECTID\":\"174\",\"ObjNummer\":\"AG525\",\"Name\":\"R\xFCtermoos\",\"RefObjBlatt\":\"https://api3.geo.admin.ch/featureattachments/ch.bafu.bundesinventare-amphibien/objectsheets/2025revision/ag525.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"\",\"Bereich\":\"A\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"74515.235032\",\"SHAPE.STLength()\":\"1223.431168\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"S\",\"attributes\":{\"OBJECTID\":\"23947\",\"GDENR\":\"Niederwil
+        (AG) 4072\",\"HNCode\":\"31\",\"HNBez\":\"Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTAAbk\":\"Schutzzonen\",\"KTCode\":\"3112\",\"KTAbk\":\"S\",\"KTBez\":\"Streuwiese
+        / Feuchtstandort\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"311201\",\"GDEBez\":\"Feuchtgebiete
+        mit offenen Wasserfl\xE4chen\",\"GDEAbk\":\"FSOW\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"S\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2009-000098\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.06.86\",\"UB\":\"Null\",\"KTLabel\":\"S\",\"Geolink\":\"1617\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/1617.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        ES\":\"nein\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"27790.164919\",\"Shape.STLength()\":\"967.933933\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1676'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:17:09 GMT
+      ETag:
+      - '"4af3b6ef"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|3dT2xx3mde4Rbl_s_dfXvQ==|3ZdiqO-z_Te4lXVUes1fMWnp17l7tFBY79RSBE3W1jX9bCA4VfwAeB8ntese9ADbBaPFJZI=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:18:08 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce510b2306770845af4e5f737765a7d77aa616369a7be99559c0b8f4bbac205b68640da305e3df735f56740ffffcc283587f4;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce510b2306770845af4e5f737765a7d77aa616369a7be99559c0b8f4bbac205b68640da305e3df735f56740ffffcc283587f4;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2663405%2C1247017%2C2663445%2C1247057&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="sym-gcm|1|3dT2xx3mde4Rbl_s_dfXvQ==|3ZdiqO-z_Te4lXVUes1fMWnp17l7tFBY79RSBE3W1jX9bCA4VfwAeB8ntese9ADbBaPFJZI=";
+        TS01975bae=0100bce510b2306770845af4e5f737765a7d77aa616369a7be99559c0b8f4bbac205b68640da305e3df735f56740ffffcc283587f4;
+        XWAF=1791920065.47873.0000; TS014419e9=0100bce510b2306770845af4e5f737765a7d77aa616369a7be99559c0b8f4bbac205b68640da305e3df735f56740ffffcc283587f4
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Niederwil\",\"attributes\":{\"OBJECTID\":\"91\",\"GDENR\":\"4072\",\"GEMEINDE\":\"Niederwil\",\"GEMEINDEZ\":\"Niederwil
+        (AG)\",\"GEMEINDEU\":\"Niederwil\",\"BZNR\":\"1903\",\"BEZIRK\":\"Bremgarten\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Bremgarten\",\"Geometer\":\"Marco Portmann\",\"Strasse\":\"Zugerstrasse
+        14\",\"PLZOrt\":\"5620 Bremgarten\",\"ID\":\"4072\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"6147876.259663\",\"SHAPE.STLength()\":\"12591.076572\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"630\",\"attributes\":{\"OBJECTID\":\"77915823\",\"FILEID\":\"164\",\"GDENR\":\"4072\",\"GDENRPARZ\":\"407200630\",\"NUMMER\":\"630\",\"EGRID\":\"CH228174155023\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"531599\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"531599.46332\",\"SHAPE.STLength()\":\"4010.369763\"}},{\"layerId\":36,\"layerName\":\"Arch\xE4ologische
+        Fundstellen nach Typ, mit Denkmalschutz\",\"displayFieldName\":\"FST_SIGNAT\",\"value\":\"52(B)12\",\"attributes\":{\"OBJECTID\":\"423\",\"FST_SIGNAT\":\"52(B)12\",\"ID\":\"4769\",\"KATDENKMAL\":\"B0\",\"KATEGORIE\":\"B\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"3848.263417\",\"SHAPE.STLength()\":\"219.908918\",\"Text_Gemeinde\":\"Null\",\"Gem_2000\":\"Niederwil\",\"Denkmalschutz\":\"0\"}},{\"layerId\":42,\"layerName\":\"Naturschutzgebiet
+        von kant. Bedeutung (NkB) Richtplan L 2.5\",\"displayFieldName\":\"RPKAP_KL\",\"value\":\"l25\",\"attributes\":{\"OBJECTID\":\"241\",\"NKB_ID\":\"Null\",\"KIN_AREAL\":\"Null\",\"RPKAP_KL\":\"l25\",\"RPKAP_LG\":\"L
+        2.5 Naturschutzgebiete von kantonaler Bedeutung (NkB)\",\"KATEGORIE\":\"Festsetzung\",\"RP_AUSSAGE\":\"Naturschutzgebiet
+        von kant. Bedeutung (NkB)\",\"FlurnameAV\":\"Ruetermoos\",\"NKBNr\":\"204\",\"RPTEXT\":\"http://www.ag.ch//richtplan-l25\",\"RPDETAILLISTE\":\"http://www.ag.ch//richtplan-l25-detailliste\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"81795.697995\",\"Shape.STLength()\":\"1280.669038\"}},{\"layerId\":44,\"layerName\":\"Bundesinventar
+        der Flachmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"R\xFCtermoos\",\"attributes\":{\"OBJECTID\":\"927\",\"ObjNummer\":\"2768\",\"Name\":\"R\xFCtermoos\",\"RefObjBlatt\":\"https://api3.geo.admin.ch/featureattachments/ch.bafu.bundesinventare-flachmoore/objectsheets/2025revision/nr2768.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.10.1994\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"31254.485998\",\"Shape.STLength()\":\"860.500047\"}},{\"layerId\":491,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: ortsfeste Objekte\",\"displayFieldName\":\"Name\",\"value\":\"R\xFCtermoos\",\"attributes\":{\"OBJECTID\":\"174\",\"ObjNummer\":\"AG525\",\"Name\":\"R\xFCtermoos\",\"RefObjBlatt\":\"https://api3.geo.admin.ch/featureattachments/ch.bafu.bundesinventare-amphibien/objectsheets/2025revision/ag525.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"\",\"Bereich\":\"A\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"74515.235032\",\"SHAPE.STLength()\":\"1223.431168\"}},{\"layerId\":61,\"layerName\":\"Waldgrenze\",\"displayFieldName\":\"Gemeinde\",\"value\":\"Niederwil
+        (AG)\",\"attributes\":{\"OBJECTID\":\"7344830\",\"FILEID\":\"164\",\"GDENR\":\"4072\",\"Gemeinde\":\"Niederwil
+        (AG)\",\"Rechtskrft\":\"20190930\",\"Status\":\"gueltig\",\"LinArt\":\"ausgezogen\",\"ArtWG\":\"ausserhalb_Bauzonen\",\"Code\":\"1\",\"Bezeich\":\"4072\",\"Verbindl\":\"Nutzungsplanfestlegung\",\"NWaldstr\":\"nein\",\"Geolink\":\"75\",\"OEREBexport\":\"ja\",\"Shape\":\"Polyline\",\"Shape.STLength()\":\"972.16387\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"S\",\"attributes\":{\"OBJECTID\":\"23947\",\"GDENR\":\"Niederwil
+        (AG) 4072\",\"HNCode\":\"31\",\"HNBez\":\"Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTAAbk\":\"Schutzzonen\",\"KTCode\":\"3112\",\"KTAbk\":\"S\",\"KTBez\":\"Streuwiese
+        / Feuchtstandort\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"311201\",\"GDEBez\":\"Feuchtgebiete
+        mit offenen Wasserfl\xE4chen\",\"GDEAbk\":\"FSOW\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"S\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2009-000098\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.06.86\",\"UB\":\"Null\",\"KTLabel\":\"S\",\"Geolink\":\"1617\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/1617.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        ES\":\"nein\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"27790.164919\",\"Shape.STLength()\":\"967.933933\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1816'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:17:09 GMT
+      ETag:
+      - '"5fdba566"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|u4uIWhFn4vfJh-I87Ldy2A==|GKP4KFdE5oz3_MWzNFLUDmR2AqQXpGcCxfbo3jBAH0OODStxmhx92Jagr64VqAdx3YIX_TA=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:18:09 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce510b2306770845af4e5f737765a7d77aa616369a7be99559c0b8f4bbac205b68640da305e3df735f56740ffffcc283587f4;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce510b2306770845af4e5f737765a7d77aa616369a7be99559c0b8f4bbac205b68640da305e3df735f56740ffffcc283587f4;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2663424%2C1247036%2C2663426%2C1247038&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Niederwil\",\"attributes\":{\"OBJECTID\":\"91\",\"GDENR\":\"4072\",\"GEMEINDE\":\"Niederwil\",\"GEMEINDEZ\":\"Niederwil
+        (AG)\",\"GEMEINDEU\":\"Niederwil\",\"BZNR\":\"1903\",\"BEZIRK\":\"Bremgarten\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Bremgarten\",\"Geometer\":\"Marco Portmann\",\"Strasse\":\"Zugerstrasse
+        14\",\"PLZOrt\":\"5620 Bremgarten\",\"ID\":\"4072\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"6147876.259663\",\"SHAPE.STLength()\":\"12591.076572\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"630\",\"attributes\":{\"OBJECTID\":\"77915823\",\"FILEID\":\"164\",\"GDENR\":\"4072\",\"GDENRPARZ\":\"407200630\",\"NUMMER\":\"630\",\"EGRID\":\"CH228174155023\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"531599\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"531599.46332\",\"SHAPE.STLength()\":\"4010.369763\"}},{\"layerId\":36,\"layerName\":\"Arch\xE4ologische
+        Fundstellen nach Typ, mit Denkmalschutz\",\"displayFieldName\":\"FST_SIGNAT\",\"value\":\"52(B)12\",\"attributes\":{\"OBJECTID\":\"423\",\"FST_SIGNAT\":\"52(B)12\",\"ID\":\"4769\",\"KATDENKMAL\":\"B0\",\"KATEGORIE\":\"B\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"3848.263417\",\"SHAPE.STLength()\":\"219.908918\",\"Text_Gemeinde\":\"Null\",\"Gem_2000\":\"Niederwil\",\"Denkmalschutz\":\"0\"}},{\"layerId\":42,\"layerName\":\"Naturschutzgebiet
+        von kant. Bedeutung (NkB) Richtplan L 2.5\",\"displayFieldName\":\"RPKAP_KL\",\"value\":\"l25\",\"attributes\":{\"OBJECTID\":\"241\",\"NKB_ID\":\"Null\",\"KIN_AREAL\":\"Null\",\"RPKAP_KL\":\"l25\",\"RPKAP_LG\":\"L
+        2.5 Naturschutzgebiete von kantonaler Bedeutung (NkB)\",\"KATEGORIE\":\"Festsetzung\",\"RP_AUSSAGE\":\"Naturschutzgebiet
+        von kant. Bedeutung (NkB)\",\"FlurnameAV\":\"Ruetermoos\",\"NKBNr\":\"204\",\"RPTEXT\":\"http://www.ag.ch//richtplan-l25\",\"RPDETAILLISTE\":\"http://www.ag.ch//richtplan-l25-detailliste\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"81795.697995\",\"Shape.STLength()\":\"1280.669038\"}},{\"layerId\":44,\"layerName\":\"Bundesinventar
+        der Flachmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"R\xFCtermoos\",\"attributes\":{\"OBJECTID\":\"927\",\"ObjNummer\":\"2768\",\"Name\":\"R\xFCtermoos\",\"RefObjBlatt\":\"https://api3.geo.admin.ch/featureattachments/ch.bafu.bundesinventare-flachmoore/objectsheets/2025revision/nr2768.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.10.1994\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"31254.485998\",\"Shape.STLength()\":\"860.500047\"}},{\"layerId\":491,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: ortsfeste Objekte\",\"displayFieldName\":\"Name\",\"value\":\"R\xFCtermoos\",\"attributes\":{\"OBJECTID\":\"174\",\"ObjNummer\":\"AG525\",\"Name\":\"R\xFCtermoos\",\"RefObjBlatt\":\"https://api3.geo.admin.ch/featureattachments/ch.bafu.bundesinventare-amphibien/objectsheets/2025revision/ag525.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"\",\"Bereich\":\"A\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"74515.235032\",\"SHAPE.STLength()\":\"1223.431168\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"S\",\"attributes\":{\"OBJECTID\":\"23947\",\"GDENR\":\"Niederwil
+        (AG) 4072\",\"HNCode\":\"31\",\"HNBez\":\"Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTAAbk\":\"Schutzzonen\",\"KTCode\":\"3112\",\"KTAbk\":\"S\",\"KTBez\":\"Streuwiese
+        / Feuchtstandort\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"311201\",\"GDEBez\":\"Feuchtgebiete
+        mit offenen Wasserfl\xE4chen\",\"GDEAbk\":\"FSOW\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"S\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2009-000098\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.06.86\",\"UB\":\"Null\",\"KTLabel\":\"S\",\"Geolink\":\"1617\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/1617.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        ES\":\"nein\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"27790.164919\",\"Shape.STLength()\":\"967.933933\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1676'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:21:55 GMT
+      ETag:
+      - '"4af3b6ef"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|ogP45nwNZsN9UPHduoeZVQ==|tnSpLRpeMQGKwc9axZIvtER-WNMe3wfdkTu-Zqo6dPrMpjS2z6vn8bZKCIBFvRzDZl1tlD4=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:22:54 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce5100f6dc75cfe3d11a614312806aa8419d174983e53fce9695436f519a6f468a7c6b540915d6808c258734a0f4200cc5c3e;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce5100f6dc75cfe3d11a614312806aa8419d174983e53fce9695436f519a6f468a7c6b540915d6808c258734a0f4200cc5c3e;
+        path=/geoportal/rest
+      Strict-Transport-Security:
+      - max-age=16070400; includeSubDomains
+      Vary:
+      - Origin
+      X-Content-Type-Options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: geometry=2663405%2C1247017%2C2663445%2C1247057&layers=all&tolerance=0&mapExtent=2608986%2C1211613%2C2690520%2C1288912&geometryType=esriGeometryEnvelope&imageDisplay=10%2C10%2C96&returnGeometry=false&f=json
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '205'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Cookie:
+      - AGS_ROLES="sym-gcm|1|ogP45nwNZsN9UPHduoeZVQ==|tnSpLRpeMQGKwc9axZIvtER-WNMe3wfdkTu-Zqo6dPrMpjS2z6vn8bZKCIBFvRzDZl1tlD4=";
+        TS01975bae=0100bce5100f6dc75cfe3d11a614312806aa8419d174983e53fce9695436f519a6f468a7c6b540915d6808c258734a0f4200cc5c3e;
+        XWAF=1791920065.47873.0000; TS014419e9=0100bce5100f6dc75cfe3d11a614312806aa8419d174983e53fce9695436f519a6f468a7c6b540915d6808c258734a0f4200cc5c3e
+      User-Agent:
+      - python-requests/2.32.5
+    method: POST
+    uri: https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer/identify
+  response:
+    body:
+      string: "{\"results\":[{\"layerId\":1,\"layerName\":\"Gemeinden (Einzelfl\xE4chen)\",\"displayFieldName\":\"GEMEINDE\",\"value\":\"Niederwil\",\"attributes\":{\"OBJECTID\":\"91\",\"GDENR\":\"4072\",\"GEMEINDE\":\"Niederwil\",\"GEMEINDEZ\":\"Niederwil
+        (AG)\",\"GEMEINDEU\":\"Niederwil\",\"BZNR\":\"1903\",\"BEZIRK\":\"Bremgarten\",\"KTNR\":\"19\",\"KANTON\":\"Aargau\",\"Stand\":\"AV93\",\"StandBund\":\"cadastre93\",\"Datenmodell\":\"DM01AVAG25LV95\",\"NFKreis\":\"Nachf\xFChrungsgeometer
+        Kreis Bremgarten\",\"Geometer\":\"Marco Portmann\",\"Strasse\":\"Zugerstrasse
+        14\",\"PLZOrt\":\"5620 Bremgarten\",\"ID\":\"4072\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"6147876.259663\",\"SHAPE.STLength()\":\"12591.076572\"}},{\"layerId\":22,\"layerName\":\"AV:
+        Parzellen\",\"displayFieldName\":\"NUMMER\",\"value\":\"630\",\"attributes\":{\"OBJECTID\":\"77915823\",\"FILEID\":\"164\",\"GDENR\":\"4072\",\"GDENRPARZ\":\"407200630\",\"NUMMER\":\"630\",\"EGRID\":\"CH228174155023\",\"ART\":\"Liegenschaft\",\"FLAECHE\":\"531599\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"531599.46332\",\"SHAPE.STLength()\":\"4010.369763\"}},{\"layerId\":36,\"layerName\":\"Arch\xE4ologische
+        Fundstellen nach Typ, mit Denkmalschutz\",\"displayFieldName\":\"FST_SIGNAT\",\"value\":\"52(B)12\",\"attributes\":{\"OBJECTID\":\"423\",\"FST_SIGNAT\":\"52(B)12\",\"ID\":\"4769\",\"KATDENKMAL\":\"B0\",\"KATEGORIE\":\"B\",\"Shape\":\"Polygon\",\"SHAPE.STArea()\":\"3848.263417\",\"SHAPE.STLength()\":\"219.908918\",\"Text_Gemeinde\":\"Null\",\"Gem_2000\":\"Niederwil\",\"Denkmalschutz\":\"0\"}},{\"layerId\":42,\"layerName\":\"Naturschutzgebiet
+        von kant. Bedeutung (NkB) Richtplan L 2.5\",\"displayFieldName\":\"RPKAP_KL\",\"value\":\"l25\",\"attributes\":{\"OBJECTID\":\"241\",\"NKB_ID\":\"Null\",\"KIN_AREAL\":\"Null\",\"RPKAP_KL\":\"l25\",\"RPKAP_LG\":\"L
+        2.5 Naturschutzgebiete von kantonaler Bedeutung (NkB)\",\"KATEGORIE\":\"Festsetzung\",\"RP_AUSSAGE\":\"Naturschutzgebiet
+        von kant. Bedeutung (NkB)\",\"FlurnameAV\":\"Ruetermoos\",\"NKBNr\":\"204\",\"RPTEXT\":\"http://www.ag.ch//richtplan-l25\",\"RPDETAILLISTE\":\"http://www.ag.ch//richtplan-l25-detailliste\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"81795.697995\",\"Shape.STLength()\":\"1280.669038\"}},{\"layerId\":44,\"layerName\":\"Bundesinventar
+        der Flachmoore von nationaler Bedeutung\",\"displayFieldName\":\"Name\",\"value\":\"R\xFCtermoos\",\"attributes\":{\"OBJECTID\":\"927\",\"ObjNummer\":\"2768\",\"Name\":\"R\xFCtermoos\",\"RefObjBlatt\":\"https://api3.geo.admin.ch/featureattachments/ch.bafu.bundesinventare-flachmoore/objectsheets/2025revision/nr2768.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.10.1994\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"31254.485998\",\"Shape.STLength()\":\"860.500047\"}},{\"layerId\":491,\"layerName\":\"Bundesinventar
+        der Amphibienlaichgebiete von nationaler Bedeutung: ortsfeste Objekte\",\"displayFieldName\":\"Name\",\"value\":\"R\xFCtermoos\",\"attributes\":{\"OBJECTID\":\"174\",\"ObjNummer\":\"AG525\",\"Name\":\"R\xFCtermoos\",\"RefObjBlatt\":\"https://api3.geo.admin.ch/featureattachments/ch.bafu.bundesinventare-amphibien/objectsheets/2025revision/ag525.pdf\",\"DesignatType\":\"NDA\",\"IUCNCategory\":\"IV\",\"Inkraftsetzungsdatum\":\"01.08.2001\",\"Mutationsdatum\":\"Null\",\"Mutationsgrund\":\"\",\"Bereich\":\"A\",\"SHAPE\":\"Polygon\",\"SHAPE.STArea()\":\"74515.235032\",\"SHAPE.STLength()\":\"1223.431168\"}},{\"layerId\":61,\"layerName\":\"Waldgrenze\",\"displayFieldName\":\"Gemeinde\",\"value\":\"Niederwil
+        (AG)\",\"attributes\":{\"OBJECTID\":\"7344830\",\"FILEID\":\"164\",\"GDENR\":\"4072\",\"Gemeinde\":\"Niederwil
+        (AG)\",\"Rechtskrft\":\"20190930\",\"Status\":\"gueltig\",\"LinArt\":\"ausgezogen\",\"ArtWG\":\"ausserhalb_Bauzonen\",\"Code\":\"1\",\"Bezeich\":\"4072\",\"Verbindl\":\"Nutzungsplanfestlegung\",\"NWaldstr\":\"nein\",\"Geolink\":\"75\",\"OEREBexport\":\"ja\",\"Shape\":\"Polyline\",\"Shape.STLength()\":\"972.16387\"}},{\"layerId\":147,\"layerName\":\"Kulturlandplan:
+        zusammengefasste Legende (6 Kategorien)\",\"displayFieldName\":\"NameNummer\",\"value\":\"S\",\"attributes\":{\"OBJECTID\":\"23947\",\"GDENR\":\"Niederwil
+        (AG) 4072\",\"HNCode\":\"31\",\"HNBez\":\"Schutzzonen f\xFCr Lebensr\xE4ume
+        und Landschaften\",\"KTAAbk\":\"Schutzzonen\",\"KTCode\":\"3112\",\"KTAbk\":\"S\",\"KTBez\":\"Streuwiese
+        / Feuchtstandort\",\"KTVerb\":\"Nutzungsplanfestlegung\",\"GDECode\":\"311201\",\"GDEBez\":\"Feuchtgebiete
+        mit offenen Wasserfl\xE4chen\",\"GDEAbk\":\"FSOW\",\"GDEZweck\":\"Null\",\"GDEVerb\":\"Nutzungsplanfestlegung\",\"AZmin\":\"Null\",\"AZmax\":\"Null\",\"BMZmin\":\"Null\",\"BMZmax\":\"Null\",\"GFZmin\":\"Null\",\"GFZmax\":\"Null\",\"UEZmin\":\"Null\",\"UEZmax\":\"Null\",\"GZ\":\"Null\",\"WNZ\":\"Null\",\"NameNummer\":\"S\",\"ES\":\"keine_ES\",\"ES_aufgest\":\"nein\",\"Strasse\":\"Null\",\"Rechtsstatus\":\"inKraft\",\"RRBNr\":\"2009-000098\",\"Bemerkung\":\"Null\",\"GeschNr\":\"BVUARE.06.86\",\"UB\":\"Null\",\"KTLabel\":\"S\",\"Geolink\":\"1617\",\"Geolink_ES\":\"Null\",\"Link\":\"https://oereblex.ag.ch/api/geolinks/1617.html\",\"OEREBexport\":\"ja\",\"OEREBexport
+        ES\":\"nein\",\"OEREBexport GWR\":\"nein\",\"Shape\":\"Polygon\",\"Shape.STArea()\":\"27790.164919\",\"Shape.STLength()\":\"967.933933\"}}]}"
+    headers:
+      Access-Control-Allow-Headers:
+      - '*'
+      Cache-Control:
+      - must-revalidate,max-age=0,public
+      Connection:
+      - Keep-Alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1816'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Thu, 09 Apr 2026 13:21:55 GMT
+      ETag:
+      - '"5fdba566"'
+      Keep-Alive:
+      - timeout=5, max=100
+      Set-Cookie:
+      - AGS_ROLES="sym-gcm|1|gTC9bFZc3BqGpRDmBO0LbA==|01OmAwrtlYfzVyqSMP0BHntvnCbrd6DtCd-KYIJRMJVyaJSk75_eNuyGvZY0tbxGzfNyGaw=";
+        Version=1; Max-Age=60; Expires=Thu, 09 Apr 2026 13:22:55 GMT; Path=/geoportal/rest;
+        HttpOnly
+      - XWAF=1791920065.47873.0000; path=/; Httponly; Secure
+      - TS014419e9=0100bce5100f6dc75cfe3d11a614312806aa8419d174983e53fce9695436f519a6f468a7c6b540915d6808c258734a0f4200cc5c3e;
+        Path=/; Domain=.www.ag.ch
+      - TS01975bae=0100bce5100f6dc75cfe3d11a614312806aa8419d174983e53fce9695436f519a6f468a7c6b540915d6808c258734a0f4200cc5c3e;
         path=/geoportal/rest
       Strict-Transport-Security:
       - max-age=16070400; includeSubDomains

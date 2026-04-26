@@ -16,6 +16,7 @@ export default class ServiceModel extends Model {
   @attr("boolean") notification;
   @attr("boolean") responsibilityConstructionControl;
   @attr("boolean") disabled;
+  @attr("boolean") usesEchApi;
 
   @hasMany("user", { inverse: "service", async: true }) users;
   @hasMany("activation", { inverse: "service", async: true }) activations;

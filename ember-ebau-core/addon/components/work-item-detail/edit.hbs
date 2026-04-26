@@ -117,7 +117,7 @@
         <div class="uk-margin">
           <label class="uk-form-label uk-text-bold">
             {{t "workItems.deadline"}}
-            <span class="uk-text-danger">*</span>
+            <span class="mandatory-asterisk">*</span>
           </label>
           <div class="uk-form-controls">
             <Datepicker
@@ -134,20 +134,20 @@
             {{t "workItems.notifications"}}
           </label>
           <div class="uk-form-controls">
-            <label class="checkbox-label">
+            <label class="uk-form-label">
               <Input
                 @type="checkbox"
                 @checked={{this.workItem.meta.notify-completed}}
-                class="uk-checkbox"
+                class="uk-checkbox uk-margin-small-right"
               />
               {{t "workItems.notifyCompleted"}}
             </label>
             <br />
-            <label class="checkbox-label">
+            <label class="uk-form-label">
               <Input
                 @type="checkbox"
                 @checked={{this.workItem.meta.notify-deadline}}
-                class="uk-checkbox"
+                class="uk-checkbox uk-margin-small-right"
               />
               {{t "workItems.notifyDeadline"}}
             </label>
@@ -167,12 +167,7 @@
           {{t "global.save"}}
         </button>
 
-        {{#if
-          (and
-            (has-feature "workItems.cancel")
-            (can "cancel work-item" this.workItem)
-          )
-        }}
+        {{#if (can "cancel work-item" this.workItem)}}
           <button
             class="uk-button uk-button-danger uk-float-right"
             type="button"

@@ -40,9 +40,6 @@ module.exports = function (defaults) {
     fingerprint: {
       extensions: ["js", "css", "map"],
     },
-    "ember-validated-form": {
-      theme: "uikit",
-    },
     babel: {
       plugins: [
         require.resolve("ember-concurrency/async-arrow-task-transform"),

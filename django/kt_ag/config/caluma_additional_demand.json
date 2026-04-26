@@ -354,7 +354,9 @@
         "max_length": null,
         "min_length": null
       },
-      "meta": {},
+      "meta": {
+        "widgetOverride": "cf-snippets-textarea"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,

@@ -83,7 +83,6 @@ services:
       DJANGO_EMAIL_PORT: 1025
       DJANGO_MEDIA_ROOT: /var/lib/camac/media
       DJANGO_TEMPFILE_DOWNLOAD_URL: /tmp
-      DJANGO_Q_ENABLE_SYNC: ${DJANGO_Q_ENABLE_SYNC:-false}
       DOCUMENT_MERGE_SERVICE_URL: http://document-merge-service:8000/document-merge-service/api/v1/
       ENABLE_HISTORICAL_API: "true"
       ENV: development
@@ -145,18 +144,6 @@ services:
     command: webdav
     ports: []
 
-  django-q:
-    <<: *django
-    image: acr.run/camac-ng/camac-ng/django:master
-    build:
-      context: ../django
-      cache_from:
-        - acr.run/camac-ng/camac-ng/django:master
-      args:
-        REQUIREMENTS: requirements-dev.txt
-    command: qclusterdev
-    ports: []
-
   celery:
     <<: *django
     image: acr.run/camac-ng/camac-ng/django:master
@@ -166,12 +153,26 @@ services:
         - acr.run/camac-ng/camac-ng/django:master
       args:
         REQUIREMENTS: requirements-dev.txt
-    profiles:
-      - alexandria
     depends_on:
       - redis
     command: celerydev
     ports: []
+
+  flower:
+    image: mher/flower:2.0
+    environment:
+      FLOWER_URL_PREFIX: "/celery-flower/"
+    ports:
+      - "7777:7777"
+    networks:
+      - ebau.localhost
+    command:
+      [
+        "celery",
+        "--broker=redis://default:redis@redis:6379/0",
+        "flower",
+        "--port=7777",
+      ]
 
   ember-camac-ng:
     user: nginx:nginx
@@ -313,12 +314,8 @@ services:
     image: redis:8.4
     volumes:
       - redis_data:/redis/data
-    profiles:
-      - alexandria
     networks:
       - ebau.localhost
-    environment:
-      - REDIS_PASSWORD=redis
 
 networks:
   ebau.localhost:

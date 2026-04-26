@@ -1,3 +1,4 @@
+from caluma.caluma_form.models import Document
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.db.models import Q
@@ -66,3 +67,86 @@ class ApplicantSerializer(serializers.ModelSerializer, InstanceEditableMixin):
         model = models.Applicant
         fields = ("user", "instance", "invitee", "created", "email", "role", "username")
         read_only_fields = ("user", "invitee", "created", "username")
+
+
+class ApplicantConfirmationSerializer(serializers.ModelSerializer):
+    user = relations.SerializerMethodResourceRelatedField(
+        model=get_user_model(),
+        read_only=True,
+    )
+    roles = serializers.SerializerMethodField()
+    display_name = serializers.SerializerMethodField()
+
+    def get_user(self, confirmation):
+        return confirmation.user
+
+    def get_roles(self, confirmation):
+        return confirmation.roles
+
+    def get_display_name(self, confirmation):
+        return confirmation.display_name
+
+    included_serializers = {
+        "round": "camac.applicants.serializers.ApplicantConfirmationRoundSerializer",
+    }
+
+    class Meta:
+        model = models.ApplicantConfirmation
+        fields = (
+            "applicant",
+            "user",
+            "round",
+            "status",
+            "roles",
+            "display_name",
+            "created_at",
+            "closed_at",
+        )
+        read_only_fields = (
+            "applicant",
+            "user",
+            "round",
+            "status",
+            "roles",
+            "display_name",
+            "created_at",
+            "closed_at",
+        )
+
+
+class ApplicantConfirmationRoundSerializer(serializers.ModelSerializer):
+    document = relations.ResourceRelatedField(
+        required=True,
+        write_only=True,
+        queryset=Document.objects,
+    )
+
+    def create(self, validated_data):
+        return models.ApplicantConfirmationRound.objects.start_for_document(
+            validated_data["document"],
+            self.context["request"],
+        )
+
+    included_serializers = {
+        "confirmations": "camac.applicants.serializers.ApplicantConfirmationSerializer",
+    }
+
+    class Meta:
+        model = models.ApplicantConfirmationRound
+        fields = (
+            "document",
+            "instance",
+            "confirmations",
+            "step",
+            "status",
+            "created_at",
+            "closed_at",
+        )
+        read_only_fields = (
+            "instance",
+            "confirmations",
+            "step",
+            "status",
+            "created_at",
+            "closed_at",
+        )

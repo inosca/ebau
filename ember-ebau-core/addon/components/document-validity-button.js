@@ -1,11 +1,9 @@
 import { service } from "@ember/service";
 import Component from "@glimmer/component";
-import { dropTask } from "ember-concurrency";
+import { task } from "ember-concurrency";
 
 export default class DocumentValidityButtonComponent extends Component {
   @service session;
-
-  type = "button";
 
   get invalidFields() {
     return this.args.field.document.fields.filter(
@@ -17,11 +15,25 @@ export default class DocumentValidityButtonComponent extends Component {
     return this.args.buttonLabel ?? this.args.field.question.raw.label;
   }
 
-  @dropTask
-  *validate(validateFn) {
-    const isValid = yield validateFn();
-    if (isValid !== false && this.args?.afterValidate) {
-      yield this.args?.afterValidate?.perform();
-    }
+  get showError() {
+    return this.invalidFields.length > 0;
   }
+
+  get showSuccess() {
+    return (
+      !this.showError &&
+      (this.args.showSuccessAlert ?? true) &&
+      this.validate.performCount > 0 &&
+      !this.validate.isRunning
+    );
+  }
+
+  validate = task({ drop: true }, async (validateFn) => {
+    const isValid = await validateFn();
+    const afterValidateFn = this.args.afterValidate;
+
+    if (isValid && afterValidateFn) {
+      await afterValidateFn();
+    }
+  });
 }

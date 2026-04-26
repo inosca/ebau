@@ -11,6 +11,9 @@ from django.utils.translation import gettext_lazy as _
 from localized_fields.fields import LocalizedCharField
 
 from camac.caluma.models import Inquiry
+from camac.constants import kt_gr as gr_constants
+from camac.core.models import HistoryActionConfig
+from camac.core.translations import get_translations
 from camac.core.utils import canton_aware
 from camac.deadlines.mixins import DeadlinePermissionMixin
 from camac.instance.master_data import MasterData
@@ -213,7 +216,18 @@ class Suspension(models.Model):
             "inquiry_claim_suspension",
             _("Inquiry claim suspension"),
         )
-        SUSPENSION_TYPE_MANUAL = "manual_suspension", _("Manual suspension")
+        SUSPENSION_TYPE_INCOMPLETE = (
+            "incomplete_suspension",
+            _("Incomplete suspension"),
+        )
+        SUSPENSION_TYPE_REQUEST_PROJECT_CHANGE = (
+            "request_project_change_suspension",
+            _("Request project change suspension"),
+        )
+        SUSPENSION_TYPE_MANUAL = (
+            "manual_suspension",
+            _("Manual suspension"),
+        )
 
     id = models.UUIDField(
         primary_key=True, default=uuid_extensions.uuid7, editable=False
@@ -266,13 +280,22 @@ class Suspension(models.Model):
         if _fields_have_changed(old, self, ["start_date", "end_date"]):
             self.deadline.trigger_side_effect()
 
+    @staticmethod
+    def get_reason_label(reason: str) -> str:
+        """Get the translated label for a given suspension reason."""
+
+        return settings.DEADLINES.suspension_translation_overrides.get(
+            reason,
+            Suspension.SuspensionReasonChoices(reason).label,
+        )
+
     @property
     def reason_formatted(self) -> str:
         """Format the reason for the suspension.
 
         Return the translated label of the suspension reason choice.
         """
-        return Suspension.SuspensionReasonChoices(self.reason).label
+        return Suspension.get_reason_label(self.reason)
 
     @property
     def author_formatted(self) -> str:
@@ -593,9 +616,22 @@ class InstanceDeadline(models.Model):
             total_days += 1
             tmp_date += timedelta(days=1)
 
-        return total_days
+        return total_days + 1
 
     def _get_enddate_responsible(self) -> Optional[datetime]:
+        if self.instance.instance_state.name == settings.REJECTION["INSTANCE_STATE"]:
+            rejected_translations = set(get_translations("Instance rejected").values())
+            rejected_entry = (
+                self.instance.history.filter(
+                    trans__title__in=rejected_translations,
+                    history_type=HistoryActionConfig.HISTORY_TYPE_STATUS,
+                )
+                .order_by("-created_at")
+                .distinct()
+            ).first()
+
+            return rejected_entry.created_at.date() if rejected_entry else None
+
         decision_date = MasterData(self.instance.case).decision_date
 
         return (
@@ -654,33 +690,41 @@ class InstanceDeadline(models.Model):
         If the formal exam is simplified, the start date is set to the submission date.
         Otherwise, it is set to the publication date.
         """
-        work_item = (
-            WorkItem.objects.filter(
-                case__family__instance=self.instance,
-                task__slug="formal-exam",
-            )
-            .order_by("-created_at")
-            .first()
-        )
-        if work_item:
-            if work_item.status != WorkItem.STATUS_COMPLETED:
-                # If the formal exam work item is not yet completed, do not set a start date
-                return None
-
-            verfahrensart_answer = (
-                work_item.document.answers.filter(question="verfahrensart").first()
-                if work_item
-                else None
-            )
-            is_simplified = (
-                verfahrensart_answer
-                and verfahrensart_answer.value
-                == "verfahrensart-vereinfachtes-baubewilligungsverfahren"
-            )
-        else:
-            # If no formal exam work item exists for the case, assume simplified,
-            # using the submit date as start date.
+        if self.instance.case.family.document.form.pk in [
+            *gr_constants.BAUANZEIGE_FORMS,
+            *gr_constants.SOLARANLAGE_FORMS,
+        ]:
+            # Bauanzeige and solaranlage have a formal exam, but the start
+            # date should always be set to the submission date anyway.
             is_simplified = True
+        else:
+            work_item = (
+                WorkItem.objects.filter(
+                    case__family__instance=self.instance,
+                    task__slug="formal-exam",
+                )
+                .order_by("-created_at")
+                .first()
+            )
+            if work_item:
+                if work_item.status != WorkItem.STATUS_COMPLETED:
+                    # If the formal exam work item is not yet completed, do not set a start date
+                    return None
+
+                verfahrensart_answer = (
+                    work_item.document.answers.filter(question="verfahrensart").first()
+                    if work_item
+                    else None
+                )
+                is_simplified = (
+                    verfahrensart_answer
+                    and verfahrensart_answer.value
+                    == "verfahrensart-vereinfachtes-baubewilligungsverfahren"
+                )
+            else:
+                # If no formal exam work item exists for the case, assume simplified,
+                # using the submit date as start date.
+                is_simplified = True
 
         if is_simplified:
             return self._get_submit_date()

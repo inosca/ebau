@@ -3,3 +3,7 @@ additional-demand:
     <div class="uk-alert">
     <strong>Nota:</strong> La richiesta di precisazioni viene inviata direttamente ai richiedenti. I documenti supplementari devono essere inoltrati all'autorità direttiva (comune o UST-GR) tramite circolazione.
     </div>
+  formtimeline-link:
+    instance-edit-info: |
+      <strong>Nota:</strong> Con «Modifica il dossier» è possibile modificare il modulo e i documenti trasmessi.
+

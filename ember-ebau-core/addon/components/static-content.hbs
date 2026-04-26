@@ -30,6 +30,7 @@
       class="markdown-content"
       @markdown={{or this.data.value.content}}
       @extensions={{unless this.data.value.disableXssProtection "DOMPurify"}}
+      @openLinksInNewWindow={{true}}
     />
   </div>
 {{/if}}

@@ -98,22 +98,12 @@ docker-compose exec django python manage.py import_dossiers from_session 1234567
 
 ## Debugging Dossier Imports
 
-In order to debug the domain-logic functions that are called by the respective actions on import you need to run the `async_tasks`
-in the same process as the request is processed.
+In order to debug the domain-logic functions that are called by the respective actions on import you need to run the tasks in the same process as the request is processed.
 
-This can be achieved by settings the environment variable `DJANGO_Q_ENABLE_SYNC=true` and attaching to the django container or running tests.
-You may now set breakpoints in the scope of those functions and get dropped to a pdb shell (this requires that the container is run with the
-options `tty` and `stdin_open` (docker run flags `-ti`).
+This is best done via the management command `import_dossiers`, which runs
+the same code as the Celery task, but without scheduling in the background.
 
-`docker compose attach django`
+For a rough overview of the task's progress, you can check
+[Flower](http://ebau.localhost/celery-flower/)
 
-In order to maintain consistency with testing async_tasks `Q_CLUSTER['sync']` is set to false for tests
-in pytest's `ini_options.env` so changing the environment for developping and debugging will not mess with tests.
 
-The code triggering async_tasks will schedule the task but not actually run the test due to tests running
-in a transaction.
-
-You can't override `settings.Q_CLUSTER['sync']` in fixtures or testfunctions at will. It won't be effective for activating
-sync mode for tests. If you want tests to run in sync mode, you need to change the setting in `django/pyproject.toml`.
-NOTE: Calling the task at the call site with `async_task(sync=True)` does not run the task in sync mode (according to the docs
-it "simulates" task execution).

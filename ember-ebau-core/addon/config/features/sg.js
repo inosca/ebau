@@ -17,4 +17,10 @@ export default {
   rejection: {
     revert: true,
   },
+  alexandria: {
+    showSearchLinkLabel: true,
+  },
+  publication: {
+    showMainForm: true,
+  },
 };

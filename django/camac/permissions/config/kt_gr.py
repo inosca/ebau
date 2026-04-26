@@ -1,15 +1,12 @@
-from datetime import timedelta
-
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
-from django.utils import timezone
 
 from camac.constants import kt_gr as gr_constants
 from camac.instance.models import Instance
 from camac.permissions import api as permissions_api, models as permissions_models
 from camac.permissions.events.core import EmptyEventHandler
 from camac.permissions.models import InstanceACL
-from camac.user.models import Group, Service
+from camac.user.models import Service
 
 from .common import (
     ApplicantsEventHandlerMixin,
@@ -103,14 +100,15 @@ class PermissionEventHandlerGR(
             )
 
     def inquiry_sent(self, instance: Instance, work_item: WorkItem):
-        # USOs have 7 days to open an instance after being invited.
         for addr in work_item.addressed_groups:
             addr_service = Service.objects.get(pk=addr)
             access_level = "distribution-service"
             ends_at = None
+
+            # USO ACL should end when the inquiry deadline is over (20 days).
             if "uso" in addr_service.groups.values_list("role__name", flat=True):
                 access_level = "uso"
-                ends_at = timezone.now() + timedelta(days=7)
+                ends_at = work_item.deadline
 
             self.manager.grant(
                 instance,
@@ -137,32 +135,6 @@ class PermissionEventHandlerGR(
                     service=service,
                     event_name="inquiry-completed",
                 )
-
-    def instance_retrieved(self, instance: Instance, group: Group):
-        # USOs have 7 days to reply to an inquiry after they first accessed the instance.
-        if group.role.name != "uso":  # pragma: no cover
-            return
-
-        deadline = timezone.now() + timedelta(days=7)
-
-        # revoke all existing ACLs
-        invite_acls = InstanceACL.currently_active().filter(
-            instance=instance,
-            service_id=group.service.pk,
-            created_by_event="inquiry-sent",
-        )
-        if invite_acls.exists():
-            for invite_acl in invite_acls:
-                self.manager.revoke(invite_acl, event_name="dossier-retrieved")
-            # grant a new ACL that expires in 7 days
-            self.manager.grant(
-                instance,
-                grant_type="SERVICE",
-                access_level="uso",
-                service=group.service,
-                event_name="dossier-retrieved",
-                ends_at=deadline,
-            )
 
     def gvg_work_item_created(self, work_item: WorkItem):
         if (

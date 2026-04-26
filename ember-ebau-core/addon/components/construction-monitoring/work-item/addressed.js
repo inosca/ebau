@@ -9,14 +9,12 @@ export default class ConstructionMonitoringWorkItemAddressedComponent extends Co
   instance = this.store.peekRecord("instance", this.ebauModules.instanceId);
 
   #addressedGroups = trackedFunction(this, async () => {
-    const isActionableForControl =
-      this.args.workItem.meta?.["is-actionable-for-control"];
     const addressedGroups = (this.args.workItem?.addressedGroups ?? []).filter(
       (group) => group !== "applicant",
     );
 
     // ignore group resolution when the workitem is not actionable for control.
-    if (isActionableForControl === undefined) {
+    if (this.isActionableForControl === undefined) {
       return addressedGroups;
     }
 
@@ -39,21 +37,37 @@ export default class ConstructionMonitoringWorkItemAddressedComponent extends Co
       .filter((group) => {
         const serviceGroupSlug = group.get("serviceGroup.slug");
 
-        // if the active service group has taken over control,
-        // only show that group as addressed.
-        if (isActionableForControl) {
-          return serviceGroupSlug === activeServiceGroup.slug;
+        if (resolvedGroups.length > 1) {
+          // if the active service group has taken over control,
+          // only show that group as addressed.
+          if (this.isActionableForControl) {
+            return serviceGroupSlug === activeServiceGroup.slug;
+          }
+
+          // otherwise show all, except the active service group,
+          // since they are not actually addressed unless they would
+          // take over control.
+          return serviceGroupSlug !== activeServiceGroup.slug;
         }
 
-        // otherwise show all, except the active service group,
-        // since they are not actually addressed unless they would
-        // take over control.
-        return serviceGroupSlug !== activeServiceGroup.slug;
+        return true;
       })
       .map((group) => group.id);
   });
 
   get addressedGroups() {
     return this.#addressedGroups.value ?? [];
+  }
+
+  get isActionableForControl() {
+    return this.args.workItem.meta?.["is-actionable-for-control"];
+  }
+
+  get hasApplicant() {
+    return this.args.workItem?.addressedGroups?.includes("applicant");
+  }
+
+  get isAddressedToApplicant() {
+    return !this.isActionableForControl && this.hasApplicant;
   }
 }

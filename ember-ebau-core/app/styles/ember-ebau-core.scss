@@ -1,6 +1,6 @@
 @use "sass:color";
 
-$mandatory-asterisk-color: $global-muted-color !default;
+$mandatory-asterisk-color: $text-danger-color !default;
 $custom-muted-color-dark: color.adjust(
   $global-muted-background,
   $lightness: -15%
@@ -10,6 +10,7 @@ $custom-muted-color-light: color.adjust(
   $lightness: -5%
 );
 
+@import "modules/applicant-confirmations";
 @import "modules/dossier-import";
 @import "modules/deadlines";
 @import "components/filters/select";
@@ -32,6 +33,7 @@ $custom-muted-color-light: color.adjust(
 @import "components/eeba-confirmation";
 @import "components/notification";
 @import "alexandria";
+@import "form-validation";
 
 .multi-line-text {
   overflow-wrap: break-word;
@@ -51,16 +53,47 @@ tr[role="link"] {
   min-width: 16px;
 }
 
-.uk-label.uk-label-muted {
-  background-color: $custom-muted-color-light;
-  color: $text-muted-color;
+.uk-border {
+  border: 1px solid $global-border;
 }
 
 .border-highlight {
   border-left: 4px solid $global-danger-background;
 }
 
-// increase specificity to override uk-text-muted
-span.cf-label__mandatory-asterisk.uk-text-muted {
+.mandatory-asterisk,
+.cf-label__mandatory-asterisk {
   color: $mandatory-asterisk-color !important;
+}
+
+.uk-label {
+  &.uk-label-muted {
+    background-color: $custom-muted-color-light;
+    color: $text-muted-color;
+  }
+
+  &.uk-label-outline {
+    background-color: transparent;
+    border: 1px solid $label-background;
+
+    &.uk-label-success {
+      color: $label-success-background;
+      border-color: $label-success-background;
+    }
+
+    &.uk-label-warning {
+      color: $label-warning-background;
+      border-color: $label-warning-background;
+    }
+
+    &.uk-label-danger {
+      color: $label-danger-background;
+      border-color: $label-danger-background;
+    }
+
+    &.uk-label-muted {
+      color: $text-muted-color;
+      border-color: $text-muted-color;
+    }
+  }
 }

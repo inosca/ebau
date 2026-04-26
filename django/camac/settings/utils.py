@@ -1,10 +1,10 @@
 import copy
 import re
-from importlib import import_module
 from typing import List
 
 from deepmerge import always_merger
 from django.conf import settings
+from django.utils.module_loading import import_string
 
 from camac.settings.ebau_schema import ModuleApplicationConfig, ModuleConfig
 
@@ -30,10 +30,8 @@ def generate_module_settings(
     # uses a fixture that implies be_foo_module_settings,     then those two settings
     # objects should be the same (but of course with the be_ config as content).
 
-    settings_module = f"camac.settings.modules.{module_name.lower()}"
-    original_settings = getattr(
-        import_module(settings_module),
-        module_name.upper(),
+    original_settings = import_string(
+        f"camac.settings.modules.{module_name.lower()}.{module_name.upper()}"
     )
 
     # Validation: There are only ever allowed to be two module fixtures per
@@ -139,9 +137,11 @@ def get_all_modules():
 def get_enabled_cantons_for_module(
     module_name: str, ignore_enabled_value: bool = False
 ) -> List[str]:
-    settings_module = import_module(f"camac.settings.modules.{module_name}")
 
-    cantons_config: dict | ModuleConfig = getattr(settings_module, module_name.upper())
+    cantons_config: dict | ModuleConfig = import_string(
+        f"camac.settings.modules.{module_name}.{module_name.upper()}"
+    )
+
     is_pydantic = isinstance(cantons_config, ModuleConfig)
 
     cantons = iter(cantons_config) if is_pydantic else cantons_config.items()
@@ -162,8 +162,13 @@ def get_enabled_modules_for_canton(
     all_modules = get_all_modules()
 
     for module_name in all_modules:
-        settings_module = import_module(f"camac.settings.modules.{module_name}")
-        config: dict | ModuleConfig = getattr(settings_module, module_name.upper(), {})
+        config: dict | ModuleConfig = import_string(
+            f"camac.settings.modules.{module_name}.{module_name.upper()}"
+        )
+
+        config = import_string(
+            f"camac.settings.modules.{module_name}.{module_name.upper()}"
+        )
         is_pydantic = isinstance(config, ModuleConfig)
         canton_config = (
             getattr(config, canton) if is_pydantic else config.get(canton, {})

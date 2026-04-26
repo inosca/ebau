@@ -29,12 +29,24 @@ def param_data_source(gis_data_source_factory, caluma_question_factory):
     )
 
 
-def test_param_client(db, admin_client, param_data_source, gis_snapshot):
+def test_param_client(
+    db, admin_client, param_data_source, gis_snapshot, celery_fake_worker
+):
     response = admin_client.get(
         reverse("gis-data"), data={"x": 2607160.642708333, "y": 1228434.884375}
     )
 
     assert response.status_code == status.HTTP_200_OK
+    assert "task_id" in response.json()
+
+    celery_fake_worker.run_tasks()
+
+    task_id = response.json()["task_id"]
+
+    response = admin_client.get(
+        reverse("gis-data", args=[task_id]),
+        data={"x": 2607160.642708333, "y": 1228434.884375},
+    )
     assert response.json() == gis_snapshot
 
 

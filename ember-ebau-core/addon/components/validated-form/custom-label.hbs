@@ -1,0 +1,6 @@
+<label class="uk-form-label" for={{@inputId}} ...attributes>
+  {{yield}}{{@label}}
+  {{#if (and @label @required)}}
+    <span class="mandatory-asterisk">*</span>
+  {{/if}}
+</label>

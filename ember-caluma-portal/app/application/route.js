@@ -6,12 +6,14 @@ import AdditionalDemandFormTimelineLinkComponent from "ember-ebau-core/component
 import AgGisComponent from "ember-ebau-core/components/ag-gis";
 import AGInquiryServiceGroupWarningComponent from "ember-ebau-core/components/ag-inquiry-service-group-warning";
 import AlexandriaDocumentsFormComponent from "ember-ebau-core/components/alexandria-documents-form";
+import ApplicantConfirmationsWidgetComponent from "ember-ebau-core/components/applicant-confirmations/widget";
 import CalculatedPublicationDateComponent from "ember-ebau-core/components/calculated-publication-date";
 import CamacAdditionalDemandFilesComponent from "ember-ebau-core/components/camac-additional-demand-files";
 import CamacSchnurgeruestabnahmeFilesComponent from "ember-ebau-core/components/camac-schnurgeruestabnahme-files";
 import CfSnippetsTextComponent from "ember-ebau-core/components/cf-snippets-text";
 import CfSnippetsTextareaComponent from "ember-ebau-core/components/cf-snippets-textarea";
 import CheckHintNewAddressNeededComponent from "ember-ebau-core/components/check-hint-new-address-needed";
+import ConstructionMonitoringGeometerChoiceComponent from "ember-ebau-core/components/construction-monitoring-geometer-choice";
 import CoordinatesPlaceholderComponent from "ember-ebau-core/components/coordinates-placeholder";
 import DecisionAppealButtonComponent from "ember-ebau-core/components/decision/appeal-button";
 import DecisionInfoAppealComponent from "ember-ebau-core/components/decision/info-appeal";
@@ -356,6 +358,18 @@ export default class ApplicationRoute extends Route {
       label: "Hinweis neue Adresse notwendig",
       component: "check-hint-new-address-needed",
       componentClass: CheckHintNewAddressNeededComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Baubegleitung Geometer Auswahl",
+      component: "construction-monitoring-geometer-choice",
+      componentClass: ConstructionMonitoringGeometerChoiceComponent,
+      type: "ChoiceQuestion",
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Bestätigung Gesuchsteller",
+      component: "applicant-confirmations/widget",
+      componentClass: ApplicantConfirmationsWidgetComponent,
+      type: "MultipleChoiceQuestion",
     });
   }
 }

@@ -33,8 +33,7 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
+      
       Content-Length:
       - '892'
       Content-Type:
@@ -136,8 +135,7 @@ interactions:
       - must-revalidate,max-age=0,public
       Connection:
       - Keep-Alive
-      Content-Encoding:
-      - gzip
+      
       Content-Length:
       - '2172'
       Content-Type:

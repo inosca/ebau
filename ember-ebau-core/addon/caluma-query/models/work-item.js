@@ -56,19 +56,25 @@ export default class CustomWorkItemModel extends WorkItemModel {
       .includes(parseInt(this.ebauModules.serviceId));
   }
 
+  get addressedServices() {
+    if (!this.addressedGroups.length) return [];
+
+    return this.addressedGroups.map((group) => {
+      if (!parseInt(group)) {
+        return {
+          name: this.intl.t(`global.${group}`),
+          id: group,
+        };
+      }
+
+      return this.store
+        .peekAll(this.ebauModules.storeServiceName)
+        .find((service) => parseInt(service.id) === parseInt(group));
+    });
+  }
+
   get addressedService() {
-    if (!this.addressedGroups.length) return null;
-
-    if (!parseInt(this.addressedGroups[0])) {
-      return {
-        name: this.intl.t(`global.${this.addressedGroups[0]}`),
-        id: this.addressedGroups[0],
-      };
-    }
-
-    return this.store
-      .peekAll(this.ebauModules.storeServiceName)
-      .find((service) => this.addressedGroups.includes(service.id));
+    return this.addressedServices[0];
   }
 
   get closedByUser() {
@@ -104,7 +110,9 @@ export default class CustomWorkItemModel extends WorkItemModel {
   }
 
   get isAddressedToCurrentService() {
-    return parseInt(this.addressedService?.id) === this.ebauModules.serviceId;
+    return this.addressedServices.some(
+      (service) => parseInt(service?.id) === this.ebauModules.serviceId,
+    );
   }
 
   get isAssignedToCurrentUser() {
@@ -116,7 +124,9 @@ export default class CustomWorkItemModel extends WorkItemModel {
   }
 
   get isControlledByCurrentService() {
-    return parseInt(this.controllingGroups[0]) === this.ebauModules.serviceId;
+    return this.controllingGroups.some(
+      (group) => parseInt(group) === this.ebauModules.serviceId,
+    );
   }
 
   get isReady() {
@@ -369,9 +379,7 @@ export default class CustomWorkItemModel extends WorkItemModel {
     // Only the addressed group should have a direct link if the work item is
     // not a manual work item
     if (
-      !this.raw.addressedGroups
-        .map(String)
-        .includes(String(this.ebauModules.serviceId)) &&
+      !this.isAddressedToCurrentService &&
       this.raw.task.slug !== "create-manual-workitems"
     ) {
       return null;

@@ -13,6 +13,22 @@ publication:
     public: "Neue Publikation"
     neighbors: "Neue Nachbarschaftsorientierung"
 
+  submit:
+    public: "Freigeben"
+    neighbors: "Freigeben"
+
+  submitConfirm:
+    public: "Wollen Sie die Publikation wirklich freigeben?"
+    neighbors: "Wollen Sie die Nachbarschaftsorientierung wirklich freigeben?"
+
+  deleteConfirm:
+    public: "Wollen Sie den Entwurf wirklich löschen?"
+    neighbors: "Wollen Sie den Entwurf wirklich löschen?"
+
+  delete:
+    public: "Publikation löschen"
+    neighbors: "Nachbarschaftsorientierung löschen"
+
   cancelConfirm:
     public: "Wollen Sie die Publikation wirklich abbrechen?"
     neighbors: "Wollen Sie die Nachbarschaftsorientierung wirklich abbrechen?"

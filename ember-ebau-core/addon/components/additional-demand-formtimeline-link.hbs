@@ -11,6 +11,16 @@
   {{/if}}
 
   {{#if (and (not @disabled) this.ebauModules.isPortal this.timelineId)}}
+    {{#let
+      (maybe-translate
+        "additional-demand.formtimeline-link.instance-edit-info" htmlSafe=true
+      )
+      as |hint|
+    }}
+      {{#if hint}}
+        <p class="uk-alert">{{hint}}</p>
+      {{/if}}
+    {{/let}}
     <LinkTo
       @route="instances.edit.form"
       @model={{this.calumaForm}}
