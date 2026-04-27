@@ -1,6 +1,24 @@
 [
   {
     "model": "caluma_form.form",
+    "pk": "abstellplaetze-v7",
+    "fields": {
+      "created_at": "2026-04-27T11:38:08.622Z",
+      "modified_at": "2026-04-27T11:38:08.622Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Abstellplätze\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Bauwerk > Abstellplätze (v7)\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "baugesuch-generell-v7",
     "fields": {
       "created_at": "2026-04-23T09:19:08.125Z",
@@ -50,7 +68,7 @@
     "pk": "baugesuch-v7",
     "fields": {
       "created_at": "2026-04-23T09:18:36.971Z",
-      "modified_at": "2026-04-23T09:18:48.814Z",
+      "modified_at": "2026-04-27T15:11:51.897Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
       "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
@@ -66,6 +84,42 @@
       "is_published": false,
       "is_archived": false,
       "source": "baugesuch-v6"
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "bauwerk-v7",
+    "fields": {
+      "created_at": "2026-04-27T11:03:15.020Z",
+      "modified_at": "2026-04-27T11:03:28.730Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Bauwerk\", \"fr\": \"Ouvrage\", \"it\": null}",
+      "description": "{\"de\": \"Baugesuch > Bauwerk (v7)\", \"fr\": \"Baugesuch > Bauwerk (v7)\", \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": "bauwerk-v5"
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "dokumente-v7",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.150Z",
+      "modified_at": "2026-04-27T14:16:41.888Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Dokumente\", \"fr\": \"Documents\", \"it\": null}",
+      "description": "{\"de\": \"Baugesuch > Dokumente (v7)\", \"fr\": \"Baugesuch > Dokumente (v7)\", \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": "dokumente-v5"
     }
   },
   {
@@ -89,6 +143,99 @@
       "is_published": false,
       "is_archived": false,
       "source": "vorabklaerung-vollstaendig-v6"
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "wohnen-v7",
+    "fields": {
+      "created_at": "2026-04-27T13:55:30.730Z",
+      "modified_at": "2026-04-27T13:55:43.739Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Wohnen\", \"fr\": \"Habitation\", \"it\": null}",
+      "description": "{\"de\": \"Baugesuch > Bauwerk > Wohnen (v7)\", \"fr\": \"Baugesuch > Bauwerk > Wohnen (v7)\", \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": "wohnen-v5"
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abstellplaetze-v7.abstellplaetze-fuer-fahrraeder-und-motorfahrraeder-v7",
+    "fields": {
+      "created_at": "2026-04-27T14:10:28.362Z",
+      "modified_at": "2026-04-27T14:10:28.362Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abstellplaetze-v7",
+      "question": "abstellplaetze-fuer-fahrraeder-und-motorfahrraeder-v7",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abstellplaetze-v7.anzahl-abstellplaetze-fur-motorfahrzeuge-v7",
+    "fields": {
+      "created_at": "2026-04-27T14:07:38.419Z",
+      "modified_at": "2026-04-27T14:07:38.419Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abstellplaetze-v7",
+      "question": "anzahl-abstellplaetze-fur-motorfahrzeuge-v7",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abstellplaetze-v7.auto-oder-fahrradabstellplaetze-v7",
+    "fields": {
+      "created_at": "2026-04-27T14:03:44.385Z",
+      "modified_at": "2026-04-27T14:03:44.385Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abstellplaetze-v7",
+      "question": "auto-oder-fahrradabstellplaetze-v7",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abstellplaetze-v7.davon-in-garagen-oder-einstellhallen-v7",
+    "fields": {
+      "created_at": "2026-04-27T14:09:11.319Z",
+      "modified_at": "2026-04-27T14:09:11.319Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abstellplaetze-v7",
+      "question": "davon-in-garagen-oder-einstellhallen-v7",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abstellplaetze-v7.davon-ueberdacht-v7",
+    "fields": {
+      "created_at": "2026-04-27T14:11:38.325Z",
+      "modified_at": "2026-04-27T14:11:38.325Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abstellplaetze-v7",
+      "question": "davon-ueberdacht-v7",
+      "sort": 1
     }
   },
   {
@@ -123,17 +270,17 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "baugesuch-generell-v7.bauwerk-v5",
+    "pk": "baugesuch-generell-v7.bauwerk-v7",
     "fields": {
-      "created_at": "2026-04-23T09:19:08.143Z",
-      "modified_at": "2026-04-23T09:19:08.143Z",
+      "created_at": "2026-04-27T13:28:22.578Z",
+      "modified_at": "2026-04-27T13:28:22.578Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": null,
       "modified_by_group": null,
       "form": "baugesuch-generell-v7",
-      "question": "bauwerk-v5",
-      "sort": 5
+      "question": "bauwerk-v7",
+      "sort": 6
     }
   },
   {
@@ -153,16 +300,16 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "baugesuch-generell-v7.dokumente-v5",
+    "pk": "baugesuch-generell-v7.dokumente-v7",
     "fields": {
-      "created_at": "2026-04-23T09:19:08.147Z",
-      "modified_at": "2026-04-23T09:19:08.147Z",
+      "created_at": "2026-04-27T14:19:05.170Z",
+      "modified_at": "2026-04-27T14:19:05.170Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": null,
       "modified_by_group": null,
       "form": "baugesuch-generell-v7",
-      "question": "dokumente-v5",
+      "question": "dokumente-v7",
       "sort": 3
     }
   },
@@ -178,7 +325,7 @@
       "modified_by_group": null,
       "form": "baugesuch-generell-v7",
       "question": "grundstueck-v5",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -193,7 +340,7 @@
       "modified_by_group": null,
       "form": "baugesuch-generell-v7",
       "question": "nutzung-bauvorhaben-v6",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -208,7 +355,7 @@
       "modified_by_group": null,
       "form": "baugesuch-generell-v7",
       "question": "spezialformulare-v5",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -243,17 +390,17 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "baugesuch-mit-uvp-v7.bauwerk-v5",
+    "pk": "baugesuch-mit-uvp-v7.bauwerk-v7",
     "fields": {
-      "created_at": "2026-04-23T09:19:38.145Z",
-      "modified_at": "2026-04-23T09:19:38.145Z",
+      "created_at": "2026-04-27T13:27:57.857Z",
+      "modified_at": "2026-04-27T13:27:57.857Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": null,
       "modified_by_group": null,
       "form": "baugesuch-mit-uvp-v7",
-      "question": "bauwerk-v5",
-      "sort": 5
+      "question": "bauwerk-v7",
+      "sort": 6
     }
   },
   {
@@ -273,16 +420,16 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "baugesuch-mit-uvp-v7.dokumente-v5",
+    "pk": "baugesuch-mit-uvp-v7.dokumente-v7",
     "fields": {
-      "created_at": "2026-04-23T09:19:38.150Z",
-      "modified_at": "2026-04-23T09:19:38.150Z",
+      "created_at": "2026-04-27T14:18:30.470Z",
+      "modified_at": "2026-04-27T14:18:30.470Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": null,
       "modified_by_group": null,
       "form": "baugesuch-mit-uvp-v7",
-      "question": "dokumente-v5",
+      "question": "dokumente-v7",
       "sort": 3
     }
   },
@@ -298,7 +445,7 @@
       "modified_by_group": null,
       "form": "baugesuch-mit-uvp-v7",
       "question": "grundstueck-v5",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -313,7 +460,7 @@
       "modified_by_group": null,
       "form": "baugesuch-mit-uvp-v7",
       "question": "nutzung-bauvorhaben-v6",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -328,7 +475,7 @@
       "modified_by_group": null,
       "form": "baugesuch-mit-uvp-v7",
       "question": "spezialformulare-v5",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -363,17 +510,17 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "baugesuch-v7.bauwerk-v5",
+    "pk": "baugesuch-v7.bauwerk-v7",
     "fields": {
-      "created_at": "2026-04-23T09:18:36.984Z",
-      "modified_at": "2026-04-23T09:18:36.984Z",
+      "created_at": "2026-04-27T11:20:42.025Z",
+      "modified_at": "2026-04-27T11:20:42.025Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": null,
       "modified_by_group": null,
       "form": "baugesuch-v7",
-      "question": "bauwerk-v5",
-      "sort": 5
+      "question": "bauwerk-v7",
+      "sort": 6
     }
   },
   {
@@ -393,16 +540,16 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "baugesuch-v7.dokumente-v5",
+    "pk": "baugesuch-v7.dokumente-v7",
     "fields": {
-      "created_at": "2026-04-23T09:18:36.987Z",
-      "modified_at": "2026-04-23T09:18:36.987Z",
+      "created_at": "2026-04-27T14:17:47.328Z",
+      "modified_at": "2026-04-27T14:17:47.328Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": null,
       "modified_by_group": null,
       "form": "baugesuch-v7",
-      "question": "dokumente-v5",
+      "question": "dokumente-v7",
       "sort": 3
     }
   },
@@ -418,7 +565,7 @@
       "modified_by_group": null,
       "form": "baugesuch-v7",
       "question": "grundstueck-v5",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -433,7 +580,7 @@
       "modified_by_group": null,
       "form": "baugesuch-v7",
       "question": "nutzung-bauvorhaben-v6",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -448,7 +595,2152 @@
       "modified_by_group": null,
       "form": "baugesuch-v7",
       "question": "spezialformulare-v5",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauwerk-v7.abstellplaetze-v7",
+    "fields": {
+      "created_at": "2026-04-27T12:15:48.293Z",
+      "modified_at": "2026-04-27T12:15:48.293Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauwerk-v7",
+      "question": "abstellplaetze-v7",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauwerk-v7.brandschutz-v3",
+    "fields": {
+      "created_at": "2026-04-27T11:03:15.050Z",
+      "modified_at": "2026-04-27T11:03:15.050Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "bauwerk-v7",
+      "question": "brandschutz-v3",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauwerk-v7.energie",
+    "fields": {
+      "created_at": "2026-04-27T11:03:15.074Z",
+      "modified_at": "2026-04-27T11:03:15.074Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "bauwerk-v7",
+      "question": "energie",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauwerk-v7.gewaesserschutz-bauten-im-grundwasser-v2",
+    "fields": {
+      "created_at": "2026-04-27T11:03:15.072Z",
+      "modified_at": "2026-04-27T11:03:15.072Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "bauwerk-v7",
+      "question": "gewaesserschutz-bauten-im-grundwasser-v2",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauwerk-v7.gewaesserschutz-gewerbe-industrie",
+    "fields": {
+      "created_at": "2026-04-27T11:03:15.064Z",
+      "modified_at": "2026-04-27T11:03:15.064Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "bauwerk-v7",
+      "question": "gewaesserschutz-gewerbe-industrie",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauwerk-v7.gewaesserschutz-grundstueckentwaesserung-v2",
+    "fields": {
+      "created_at": "2026-04-27T11:03:15.070Z",
+      "modified_at": "2026-04-27T11:03:15.070Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "bauwerk-v7",
+      "question": "gewaesserschutz-grundstueckentwaesserung-v2",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauwerk-v7.gewaesserschutz-wassergefaehrdende-fluessigkeiten-v2",
+    "fields": {
+      "created_at": "2026-04-27T11:03:15.067Z",
+      "modified_at": "2026-04-27T11:03:15.067Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "bauwerk-v7",
+      "question": "gewaesserschutz-wassergefaehrdende-fluessigkeiten-v2",
       "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauwerk-v7.wohnen-v7",
+    "fields": {
+      "created_at": "2026-04-27T13:57:21.117Z",
+      "modified_at": "2026-04-27T13:57:21.117Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauwerk-v7",
+      "question": "wohnen-v7",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.anschluss-sammelkanaele-vorfluter-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.216Z",
+      "modified_at": "2026-04-27T14:16:29.216Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "anschluss-sammelkanaele-vorfluter-dokument-begruendung-v5",
+      "sort": 109
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.anschluss-sammelkanaele-vorfluter-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.214Z",
+      "modified_at": "2026-04-27T14:16:29.214Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "anschluss-sammelkanaele-vorfluter-dokument-v5",
+      "sort": 110
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.ausnahmegesuch-energie-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.364Z",
+      "modified_at": "2026-04-27T14:16:29.364Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "ausnahmegesuch-energie-dokument-begruendung-v5",
+      "sort": 37
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.ausnahmegesuch-energie-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.363Z",
+      "modified_at": "2026-04-27T14:16:29.363Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "ausnahmegesuch-energie-dokument-v5",
+      "sort": 38
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.ausnuetzung-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.186Z",
+      "modified_at": "2026-04-27T14:16:29.186Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "ausnuetzung-dokument-begruendung-v5",
+      "sort": 123
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.ausnuetzung-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.184Z",
+      "modified_at": "2026-04-27T14:16:29.184Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "ausnuetzung-dokument-v5",
+      "sort": 124
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.auszug-konsultationsbereichskarte-stoerfallverordnung-kt-bern-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.317Z",
+      "modified_at": "2026-04-27T14:16:29.317Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "auszug-konsultationsbereichskarte-stoerfallverordnung-kt-bern-begruendung-v5",
+      "sort": 65
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.auszug-konsultationsbereichskarte-stoerfallverordnung-kt-bern-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.315Z",
+      "modified_at": "2026-04-27T14:16:29.315Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "auszug-konsultationsbereichskarte-stoerfallverordnung-kt-bern-v5",
+      "sort": 66
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.baugrunduntersuchung-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.351Z",
+      "modified_at": "2026-04-27T14:16:29.351Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "baugrunduntersuchung-dokument-begruendung-v5",
+      "sort": 45
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.baugrunduntersuchung-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.350Z",
+      "modified_at": "2026-04-27T14:16:29.350Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "baugrunduntersuchung-dokument-v5",
+      "sort": 46
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.berechnungen-abstellplaetze-dokument-begruendung-v7",
+    "fields": {
+      "created_at": "2026-04-27T14:23:06.127Z",
+      "modified_at": "2026-04-27T14:23:06.127Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "berechnungen-abstellplaetze-dokument-begruendung-v7",
+      "sort": 125
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.berechnungen-abstellplaetze-dokument-v7",
+    "fields": {
+      "created_at": "2026-04-27T14:21:27.596Z",
+      "modified_at": "2026-04-27T14:21:27.596Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "berechnungen-abstellplaetze-dokument-v7",
+      "sort": 127
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.beschrieb-der-lueftung-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.286Z",
+      "modified_at": "2026-04-27T14:16:29.286Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "beschrieb-der-lueftung-dokument-begruendung-v5",
+      "sort": 81
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.beschrieb-der-lueftung-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.284Z",
+      "modified_at": "2026-04-27T14:16:29.284Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "beschrieb-der-lueftung-dokument-v5",
+      "sort": 82
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.bestaetigung-hydrogeo-begleitung-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.341Z",
+      "modified_at": "2026-04-27T14:16:29.341Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "bestaetigung-hydrogeo-begleitung-dokument-begruendung-v5",
+      "sort": 51
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.bestaetigung-hydrogeo-begleitung-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.339Z",
+      "modified_at": "2026-04-27T14:16:29.339Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "bestaetigung-hydrogeo-begleitung-dokument-v5",
+      "sort": 52
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.betriebskonzept-gastgewerbe-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.282Z",
+      "modified_at": "2026-04-27T14:16:29.282Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "betriebskonzept-gastgewerbe-dokument-begruendung-v5",
+      "sort": 83
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.betriebskonzept-gastgewerbe-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.279Z",
+      "modified_at": "2026-04-27T14:16:29.279Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "betriebskonzept-gastgewerbe-dokument-v5",
+      "sort": 84
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.bodenschutzkonzept-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.381Z",
+      "modified_at": "2026-04-27T14:16:29.381Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "bodenschutzkonzept-dokument-begruendung-v5",
+      "sort": 27
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.bodenschutzkonzept-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.379Z",
+      "modified_at": "2026-04-27T14:16:29.379Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "bodenschutzkonzept-dokument-v5",
+      "sort": 28
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.brandschutzkonzept-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.224Z",
+      "modified_at": "2026-04-27T14:16:29.224Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "brandschutzkonzept-dokument-begruendung-v5",
+      "sort": 105
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.brandschutzkonzept-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.222Z",
+      "modified_at": "2026-04-27T14:16:29.222Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "brandschutzkonzept-dokument-v5",
+      "sort": 106
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.brandschutzplan-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.227Z",
+      "modified_at": "2026-04-27T14:16:29.227Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "brandschutzplan-dokument-begruendung-v5",
+      "sort": 103
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.brandschutzplan-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.226Z",
+      "modified_at": "2026-04-27T14:16:29.226Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "brandschutzplan-dokument-v5",
+      "sort": 104
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.dokumente-infotext-bauprofile",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.158Z",
+      "modified_at": "2026-04-27T14:16:29.158Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "dokumente-infotext-bauprofile",
+      "sort": 137
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.dokumente-platzhalter",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.416Z",
+      "modified_at": "2026-04-27T14:16:29.416Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "dokumente-platzhalter",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.energiedokumente-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.358Z",
+      "modified_at": "2026-04-27T14:16:29.358Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "energiedokumente-dokument-begruendung-v5",
+      "sort": 41
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.energiedokumente-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.356Z",
+      "modified_at": "2026-04-27T14:16:29.356Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "energiedokumente-dokument-v5",
+      "sort": 42
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.entsorgungskonzept-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.378Z",
+      "modified_at": "2026-04-27T14:16:29.378Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "entsorgungskonzept-dokument-begruendung-v5",
+      "sort": 29
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.entsorgungskonzept-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.376Z",
+      "modified_at": "2026-04-27T14:16:29.376Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "entsorgungskonzept-dokument-v5",
+      "sort": 30
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.entwaesserung-oberflaechengewaesser-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.325Z",
+      "modified_at": "2026-04-27T14:16:29.325Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "entwaesserung-oberflaechengewaesser-dokument-begruendung-v5",
+      "sort": 61
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.entwaesserung-oberflaechengewaesser-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.323Z",
+      "modified_at": "2026-04-27T14:16:29.323Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "entwaesserung-oberflaechengewaesser-dokument-v5",
+      "sort": 62
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.entwaesserung-ueber-mischwasserkanal-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.328Z",
+      "modified_at": "2026-04-27T14:16:29.328Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "entwaesserung-ueber-mischwasserkanal-dokument-begruendung-v5",
+      "sort": 59
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.entwaesserung-ueber-mischwasserkanal-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.326Z",
+      "modified_at": "2026-04-27T14:16:29.326Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "entwaesserung-ueber-mischwasserkanal-dokument-v5",
+      "sort": 60
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.entwaesserung-ueber-regenwasserkanal-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.321Z",
+      "modified_at": "2026-04-27T14:16:29.321Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "entwaesserung-ueber-regenwasserkanal-dokument-begruendung-v5",
+      "sort": 63
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.entwaesserung-ueber-regenwasserkanal-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.319Z",
+      "modified_at": "2026-04-27T14:16:29.319Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "entwaesserung-ueber-regenwasserkanal-dokument-v5",
+      "sort": 64
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.erdwaermensondendimensionierung-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.251Z",
+      "modified_at": "2026-04-27T14:16:29.251Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "erdwaermensondendimensionierung-dokument-begruendung-v5",
+      "sort": 93
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.erdwaermensondendimensionierung-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.247Z",
+      "modified_at": "2026-04-27T14:16:29.247Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "erdwaermensondendimensionierung-dokument-v5",
+      "sort": 94
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.fassadenplan-reklamestandort-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.401Z",
+      "modified_at": "2026-04-27T14:16:29.401Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "fassadenplan-reklamestandort-dokument-begruendung-v5",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.fassadenplan-reklamestandort-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.400Z",
+      "modified_at": "2026-04-27T14:16:29.400Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "fassadenplan-reklamestandort-dokument-v5",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.formular-andere-thermoaktive-elemente-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.239Z",
+      "modified_at": "2026-04-27T14:16:29.239Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "formular-andere-thermoaktive-elemente-dokument-begruendung-v5",
+      "sort": 97
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.formular-andere-thermoaktive-elemente-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.236Z",
+      "modified_at": "2026-04-27T14:16:29.236Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "formular-andere-thermoaktive-elemente-dokument-v5",
+      "sort": 98
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.gefahrengutachten-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.399Z",
+      "modified_at": "2026-04-27T14:16:29.399Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "gefahrengutachten-dokument-begruendung-v5",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.gefahrengutachten-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.398Z",
+      "modified_at": "2026-04-27T14:16:29.398Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "gefahrengutachten-dokument-v5",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.geschossflaechen-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.196Z",
+      "modified_at": "2026-04-27T14:16:29.196Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "geschossflaechen-dokument-begruendung-v5",
+      "sort": 117
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.geschossflaechen-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.193Z",
+      "modified_at": "2026-04-27T14:16:29.193Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "geschossflaechen-dokument-v5",
+      "sort": 118
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.gesuch-ausnahmebewilligung-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.355Z",
+      "modified_at": "2026-04-27T14:16:29.355Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "gesuch-ausnahmebewilligung-dokument-begruendung-v5",
+      "sort": 43
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.gesuch-ausnahmebewilligung-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.353Z",
+      "modified_at": "2026-04-27T14:16:29.353Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "gesuch-ausnahmebewilligung-dokument-v5",
+      "sort": 44
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.gesuch-erleichterung-waermeschutz-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.361Z",
+      "modified_at": "2026-04-27T14:16:29.361Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "gesuch-erleichterung-waermeschutz-dokument-begruendung-v5",
+      "sort": 39
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.gesuch-erleichterung-waermeschutz-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.359Z",
+      "modified_at": "2026-04-27T14:16:29.359Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "gesuch-erleichterung-waermeschutz-dokument-v5",
+      "sort": 40
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.gesuch-zur-ausnahme-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.368Z",
+      "modified_at": "2026-04-27T14:16:29.368Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "gesuch-zur-ausnahme-dokument-begruendung-v5",
+      "sort": 35
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.gesuch-zur-ausnahme-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.366Z",
+      "modified_at": "2026-04-27T14:16:29.366Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "gesuch-zur-ausnahme-dokument-v5",
+      "sort": 36
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.gewaesserschutz-landwirtschaft-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.338Z",
+      "modified_at": "2026-04-27T14:16:29.338Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "gewaesserschutz-landwirtschaft-dokument-begruendung-v5",
+      "sort": 53
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.gewaesserschutz-landwirtschaft-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.336Z",
+      "modified_at": "2026-04-27T14:16:29.336Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "gewaesserschutz-landwirtschaft-dokument-v5",
+      "sort": 54
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.gruenflaeche-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.189Z",
+      "modified_at": "2026-04-27T14:16:29.189Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "gruenflaeche-dokument-begruendung-v5",
+      "sort": 121
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.gruenflaeche-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.188Z",
+      "modified_at": "2026-04-27T14:16:29.188Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "gruenflaeche-dokument-v5",
+      "sort": 122
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.grundriss-angabe-bodenflaeche-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.290Z",
+      "modified_at": "2026-04-27T14:16:29.290Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "grundriss-angabe-bodenflaeche-dokument-begruendung-v5",
+      "sort": 79
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.grundriss-angabe-bodenflaeche-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.288Z",
+      "modified_at": "2026-04-27T14:16:29.288Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "grundriss-angabe-bodenflaeche-dokument-v5",
+      "sort": 80
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.grundriss-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.307Z",
+      "modified_at": "2026-04-27T14:16:29.307Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "grundriss-dokument-begruendung-v5",
+      "sort": 71
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.grundriss-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.305Z",
+      "modified_at": "2026-04-27T14:16:29.305Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "grundriss-dokument-v5",
+      "sort": 72
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.grundstuecksentwaesserungsplan-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.164Z",
+      "modified_at": "2026-04-27T14:16:29.164Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "grundstuecksentwaesserungsplan-dokument-begruendung-v5",
+      "sort": 135
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.grundstuecksentwaesserungsplan-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.161Z",
+      "modified_at": "2026-04-27T14:16:29.161Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "grundstuecksentwaesserungsplan-dokument-v5",
+      "sort": 136
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.hydrogeo-gutachten-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.264Z",
+      "modified_at": "2026-04-27T14:16:29.264Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "hydrogeo-gutachten-dokument-begruendung-v5",
+      "sort": 89
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.hydrogeo-gutachten-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.261Z",
+      "modified_at": "2026-04-27T14:16:29.261Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "hydrogeo-gutachten-dokument-v5",
+      "sort": 90
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.hydrogeologische-begleitung-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.258Z",
+      "modified_at": "2026-04-27T14:16:29.258Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "hydrogeologische-begleitung-dokument-begruendung-v5",
+      "sort": 91
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.hydrogeologische-begleitung-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.255Z",
+      "modified_at": "2026-04-27T14:16:29.255Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "hydrogeologische-begleitung-dokument-v5",
+      "sort": 92
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.inanspruchnahme-boden-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.211Z",
+      "modified_at": "2026-04-27T14:16:29.211Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "inanspruchnahme-boden-dokument-begruendung-v5",
+      "sort": 111
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.inanspruchnahme-boden-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.209Z",
+      "modified_at": "2026-04-27T14:16:29.209Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "inanspruchnahme-boden-dokument-v5",
+      "sort": 112
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.infotext-pflichtdokumente-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.415Z",
+      "modified_at": "2026-04-27T14:16:29.415Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "infotext-pflichtdokumente-v5",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.kanalisationskatasterplan-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.331Z",
+      "modified_at": "2026-04-27T14:16:29.331Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "kanalisationskatasterplan-dokument-begruendung-v5",
+      "sort": 57
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.kanalisationskatasterplan-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.329Z",
+      "modified_at": "2026-04-27T14:16:29.329Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "kanalisationskatasterplan-dokument-v5",
+      "sort": 58
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.kataster-werkleitungsplaene-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.409Z",
+      "modified_at": "2026-04-27T14:16:29.409Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "kataster-werkleitungsplaene-dokument-begruendung-v5",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.kataster-werkleitungsplaene-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.407Z",
+      "modified_at": "2026-04-27T14:16:29.407Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "kataster-werkleitungsplaene-dokument-v5",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.kurzbericht-risikoermittlung-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.313Z",
+      "modified_at": "2026-04-27T14:16:29.313Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "kurzbericht-risikoermittlung-dokument-begruendung-v5",
+      "sort": 67
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.kurzbericht-risikoermittlung-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.312Z",
+      "modified_at": "2026-04-27T14:16:29.312Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "kurzbericht-risikoermittlung-dokument-v5",
+      "sort": 68
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.meldeblatt-fuer-terrainveraenderungen-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.384Z",
+      "modified_at": "2026-04-27T14:16:29.384Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "meldeblatt-fuer-terrainveraenderungen-dokument-begruendung-v5",
+      "sort": 25
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.meldeblatt-fuer-terrainveraenderungen-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.382Z",
+      "modified_at": "2026-04-27T14:16:29.382Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "meldeblatt-fuer-terrainveraenderungen-dokument-v5",
+      "sort": 26
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.nachweis-anforderungen-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.371Z",
+      "modified_at": "2026-04-27T14:16:29.371Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "nachweis-anforderungen-dokument-begruendung-v5",
+      "sort": 33
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.nachweis-anforderungen-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.370Z",
+      "modified_at": "2026-04-27T14:16:29.370Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "nachweis-anforderungen-dokument-v5",
+      "sort": 34
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.nachweis-raumakustik-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.406Z",
+      "modified_at": "2026-04-27T14:16:29.406Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "nachweis-raumakustik-dokument-begruendung-v5",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.nachweis-raumakustik-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.405Z",
+      "modified_at": "2026-04-27T14:16:29.405Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "nachweis-raumakustik-dokument-v5",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.plaene-fumoir-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.298Z",
+      "modified_at": "2026-04-27T14:16:29.298Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "plaene-fumoir-dokument-begruendung-v5",
+      "sort": 75
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.plaene-fumoir-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.296Z",
+      "modified_at": "2026-04-27T14:16:29.296Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "plaene-fumoir-dokument-v5",
+      "sort": 76
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.plaene-gewaesserschutz-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.348Z",
+      "modified_at": "2026-04-27T14:16:29.348Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "plaene-gewaesserschutz-dokument-begruendung-v5",
+      "sort": 47
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.plaene-gewaesserschutz-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.346Z",
+      "modified_at": "2026-04-27T14:16:29.346Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "plaene-gewaesserschutz-dokument-v5",
+      "sort": 48
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.plane-gastgewerbebetrieb-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.294Z",
+      "modified_at": "2026-04-27T14:16:29.294Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "plane-gastgewerbebetrieb-dokument-begruendung-v5",
+      "sort": 77
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.plane-gastgewerbebetrieb-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.293Z",
+      "modified_at": "2026-04-27T14:16:29.293Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "plane-gastgewerbebetrieb-dokument-v5",
+      "sort": 78
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.plan-temporaere-definitive-flaeche-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.389Z",
+      "modified_at": "2026-04-27T14:16:29.389Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "plan-temporaere-definitive-flaeche-dokument-begruendung-v5",
+      "sort": 21
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.plan-temporaere-definitive-flaeche-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.387Z",
+      "modified_at": "2026-04-27T14:16:29.387Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "plan-temporaere-definitive-flaeche-dokument-v5",
+      "sort": 22
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.qualitaetssicherungskonzept-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.231Z",
+      "modified_at": "2026-04-27T14:16:29.231Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "qualitaetssicherungskonzept-dokument-begruendung-v5",
+      "sort": 101
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.qualitaetssicherungskonzept-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.229Z",
+      "modified_at": "2026-04-27T14:16:29.229Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "qualitaetssicherungskonzept-dokument-v5",
+      "sort": 102
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.regierungsratsbeschluss-bauinventar-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.201Z",
+      "modified_at": "2026-04-27T14:16:29.201Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "regierungsratsbeschluss-bauinventar-dokument-begruendung-v5",
+      "sort": 115
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.regierungsratsbeschluss-bauinventar-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.198Z",
+      "modified_at": "2026-04-27T14:16:29.198Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "regierungsratsbeschluss-bauinventar-dokument-v5",
+      "sort": 116
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.rodungsgesuchsformular-bafu-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.391Z",
+      "modified_at": "2026-04-27T14:16:29.391Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "rodungsgesuchsformular-bafu-dokument-begruendung-v5",
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.rodungsgesuchsformular-bafu-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.390Z",
+      "modified_at": "2026-04-27T14:16:29.390Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "rodungsgesuchsformular-bafu-dokument-v5",
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.rodungs-und-ersatzaufforstungsplan-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.396Z",
+      "modified_at": "2026-04-27T14:16:29.396Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "rodungs-und-ersatzaufforstungsplan-dokument-begruendung-v5",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.rodungs-und-ersatzaufforstungsplan-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.395Z",
+      "modified_at": "2026-04-27T14:16:29.395Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "rodungs-und-ersatzaufforstungsplan-dokument-v5",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.rueckbau-checkliste-selbstdeklaration-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.375Z",
+      "modified_at": "2026-04-27T14:16:29.375Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "rueckbau-checkliste-selbstdeklaration-dokument-begruendung-v5",
+      "sort": 31
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.rueckbau-checkliste-selbstdeklaration-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.373Z",
+      "modified_at": "2026-04-27T14:16:29.373Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "rueckbau-checkliste-selbstdeklaration-dokument-v5",
+      "sort": 32
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.schnitt-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.310Z",
+      "modified_at": "2026-04-27T14:16:29.310Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "schnitt-dokument-begruendung-v5",
+      "sort": 69
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.schnitt-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.309Z",
+      "modified_at": "2026-04-27T14:16:29.309Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "schnitt-dokument-v5",
+      "sort": 70
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.schnittplan-gewaesserschutz-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.344Z",
+      "modified_at": "2026-04-27T14:16:29.344Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "schnittplan-gewaesserschutz-dokument-begruendung-v5",
+      "sort": 49
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.schnittplan-gewaesserschutz-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.342Z",
+      "modified_at": "2026-04-27T14:16:29.342Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "schnittplan-gewaesserschutz-dokument-v5",
+      "sort": 50
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.schutzraum-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.276Z",
+      "modified_at": "2026-04-27T14:16:29.276Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "schutzraum-dokument-begruendung-v5",
+      "sort": 85
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.schutzraum-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.273Z",
+      "modified_at": "2026-04-27T14:16:29.273Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "schutzraum-dokument-v5",
+      "sort": 86
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.sicherungsleistung-befreit-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.270Z",
+      "modified_at": "2026-04-27T14:16:29.270Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "sicherungsleistung-befreit-dokument-begruendung-v5",
+      "sort": 87
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.sicherungsleistung-befreit-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.267Z",
+      "modified_at": "2026-04-27T14:16:29.267Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "sicherungsleistung-befreit-dokument-v5",
+      "sort": 88
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.sicherungsmassnahme-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.179Z",
+      "modified_at": "2026-04-27T14:16:29.179Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "sicherungsmassnahme-dokument-begruendung-v5",
+      "sort": 129
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.sicherungsmassnahme-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.176Z",
+      "modified_at": "2026-04-27T14:16:29.176Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "sicherungsmassnahme-dokument-v5",
+      "sort": 130
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.situationsplan-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.302Z",
+      "modified_at": "2026-04-27T14:16:29.302Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "situationsplan-dokument-begruendung-v5",
+      "sort": 73
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.situationsplan-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.299Z",
+      "modified_at": "2026-04-27T14:16:29.299Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "situationsplan-dokument-v5",
+      "sort": 74
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.situationsplan-grabflaeche-strassenterrainflaeche-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.413Z",
+      "modified_at": "2026-04-27T14:16:29.413Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "situationsplan-grabflaeche-strassenterrainflaeche-dokument-begruendung-v5",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.situationsplan-grabflaeche-strassenterrainflaeche-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.411Z",
+      "modified_at": "2026-04-27T14:16:29.411Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "situationsplan-grabflaeche-strassenterrainflaeche-dokument-v5",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.skizze-der-reklame-mit-farbangaben-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.404Z",
+      "modified_at": "2026-04-27T14:16:29.404Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "skizze-der-reklame-mit-farbangaben-dokument-begruendung-v5",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.skizze-der-reklame-mit-farbangaben-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.402Z",
+      "modified_at": "2026-04-27T14:16:29.402Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "skizze-der-reklame-mit-farbangaben-dokument-v5",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.sondenmodell-mit-datenblatt-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.245Z",
+      "modified_at": "2026-04-27T14:16:29.245Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "sondenmodell-mit-datenblatt-dokument-begruendung-v5",
+      "sort": 95
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.sondenmodell-mit-datenblatt-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.242Z",
+      "modified_at": "2026-04-27T14:16:29.242Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "sondenmodell-mit-datenblatt-dokument-v5",
+      "sort": 96
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.ueberbauung-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.192Z",
+      "modified_at": "2026-04-27T14:16:29.192Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "ueberbauung-dokument-begruendung-v5",
+      "sort": 119
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.ueberbauung-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.190Z",
+      "modified_at": "2026-04-27T14:16:29.190Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "ueberbauung-dokument-v5",
+      "sort": 120
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.uebersichtsplan-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.394Z",
+      "modified_at": "2026-04-27T14:16:29.394Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "uebersichtsplan-dokument-begruendung-v5",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.uebersichtsplan-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.392Z",
+      "modified_at": "2026-04-27T14:16:29.392Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "uebersichtsplan-dokument-v5",
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.versickerungsanlagen-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.334Z",
+      "modified_at": "2026-04-27T14:16:29.334Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "versickerungsanlagen-dokument-begruendung-v5",
+      "sort": 55
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.versickerungsanlagen-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.332Z",
+      "modified_at": "2026-04-27T14:16:29.332Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "versickerungsanlagen-dokument-v5",
+      "sort": 56
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.vertrag-zum-bauinventar-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.206Z",
+      "modified_at": "2026-04-27T14:16:29.206Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "vertrag-zum-bauinventar-dokument-begruendung-v5",
+      "sort": 113
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.vertrag-zum-bauinventar-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.204Z",
+      "modified_at": "2026-04-27T14:16:29.204Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "vertrag-zum-bauinventar-dokument-v5",
+      "sort": 114
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.verwertung-von-abgetragenem-boden-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.386Z",
+      "modified_at": "2026-04-27T14:16:29.386Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "verwertung-von-abgetragenem-boden-dokument-begruendung-v5",
+      "sort": 23
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.verwertung-von-abgetragenem-boden-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.385Z",
+      "modified_at": "2026-04-27T14:16:29.385Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "verwertung-von-abgetragenem-boden-dokument-v5",
+      "sort": 24
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.vollmacht-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.169Z",
+      "modified_at": "2026-04-27T14:16:29.169Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "vollmacht-dokument-begruendung-v5",
+      "sort": 133
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.vollmacht-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.166Z",
+      "modified_at": "2026-04-27T14:16:29.166Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "vollmacht-dokument-v5",
+      "sort": 134
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.vorabklaerung-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.174Z",
+      "modified_at": "2026-04-27T14:16:29.174Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "vorabklaerung-dokument-begruendung-v5",
+      "sort": 131
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.vorabklaerung-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.172Z",
+      "modified_at": "2026-04-27T14:16:29.172Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "vorabklaerung-dokument-v5",
+      "sort": 132
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.weitere-angaben-regeneration-ews-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.233Z",
+      "modified_at": "2026-04-27T14:16:29.233Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "weitere-angaben-regeneration-ews-dokument-begruendung-v5",
+      "sort": 99
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.weitere-angaben-regeneration-ews-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.232Z",
+      "modified_at": "2026-04-27T14:16:29.232Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "weitere-angaben-regeneration-ews-dokument-v5",
+      "sort": 100
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.zustimmung-der-anstoesser-dokument-begruendung-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.221Z",
+      "modified_at": "2026-04-27T14:16:29.221Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "zustimmung-der-anstoesser-dokument-begruendung-v5",
+      "sort": 107
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-v7.zustimmung-der-anstoesser-dokument-v5",
+    "fields": {
+      "created_at": "2026-04-27T14:16:29.218Z",
+      "modified_at": "2026-04-27T14:16:29.218Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "dokumente-v7",
+      "question": "zustimmung-der-anstoesser-dokument-v5",
+      "sort": 108
     }
   },
   {
@@ -498,31 +2790,31 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "vorabklaerung-vollstaendig-v7.bauwerk-v5",
+    "pk": "vorabklaerung-vollstaendig-v7.bauwerk-v7",
     "fields": {
-      "created_at": "2026-04-23T09:20:11.211Z",
-      "modified_at": "2026-04-23T09:20:11.211Z",
+      "created_at": "2026-04-27T13:28:47.372Z",
+      "modified_at": "2026-04-27T13:28:47.372Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": null,
       "modified_by_group": null,
       "form": "vorabklaerung-vollstaendig-v7",
-      "question": "bauwerk-v5",
-      "sort": 5
+      "question": "bauwerk-v7",
+      "sort": 6
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "vorabklaerung-vollstaendig-v7.dokumente-v5",
+    "pk": "vorabklaerung-vollstaendig-v7.dokumente-v7",
     "fields": {
-      "created_at": "2026-04-23T09:20:11.215Z",
-      "modified_at": "2026-04-23T09:20:11.215Z",
+      "created_at": "2026-04-27T14:19:37.659Z",
+      "modified_at": "2026-04-27T14:19:37.659Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_user": null,
       "modified_by_group": null,
       "form": "vorabklaerung-vollstaendig-v7",
-      "question": "dokumente-v5",
+      "question": "dokumente-v7",
       "sort": 3
     }
   },
@@ -538,7 +2830,7 @@
       "modified_by_group": null,
       "form": "vorabklaerung-vollstaendig-v7",
       "question": "grundstueck-v5",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -553,7 +2845,7 @@
       "modified_by_group": null,
       "form": "vorabklaerung-vollstaendig-v7",
       "question": "nutzung-bauvorhaben-v6",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -568,7 +2860,559 @@
       "modified_by_group": null,
       "form": "vorabklaerung-vollstaendig-v7",
       "question": "spezialformulare-v5",
-      "sort": 4
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "wohnen-v7.hauptnutzflaechen-in-quadratmeter-uebrige-v5",
+    "fields": {
+      "created_at": "2026-04-27T13:55:30.743Z",
+      "modified_at": "2026-04-27T13:55:30.743Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "wohnen-v7",
+      "question": "hauptnutzflaechen-in-quadratmeter-uebrige-v5",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "wohnen-v7.hauptnutzflaechen-in-quadratmeter-wohnen-v5",
+    "fields": {
+      "created_at": "2026-04-27T13:55:30.740Z",
+      "modified_at": "2026-04-27T13:55:30.740Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "wohnen-v7",
+      "question": "hauptnutzflaechen-in-quadratmeter-wohnen-v5",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "wohnen-v7.wohnungen-titel",
+    "fields": {
+      "created_at": "2026-04-27T13:55:30.735Z",
+      "modified_at": "2026-04-27T13:55:30.735Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "wohnen-v7",
+      "question": "wohnungen-titel",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "wohnen-v7.wohnungen-v5",
+    "fields": {
+      "created_at": "2026-04-27T13:55:30.746Z",
+      "modified_at": "2026-04-27T13:55:30.746Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "form": "wohnen-v7",
+      "question": "wohnungen-v5",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "auto-oder-fahrradabstellplaetze-v7-ja",
+    "fields": {
+      "created_at": "2026-04-27T14:03:44.246Z",
+      "modified_at": "2026-04-27T14:04:18.814Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "auto-oder-fahrradabstellplaetze-v7-nein",
+    "fields": {
+      "created_at": "2026-04-27T14:03:44.243Z",
+      "modified_at": "2026-04-27T14:04:18.817Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": \"Non\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "berechnungen-abstellplaetze-dokument-v7-ja",
+    "fields": {
+      "created_at": "2026-04-27T14:21:27.417Z",
+      "modified_at": "2026-04-27T14:22:23.820Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hochgeladen\", \"fr\": \"Téléchargé\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "berechnungen-abstellplaetze-dokument-v7-nein",
+    "fields": {
+      "created_at": "2026-04-27T14:21:27.419Z",
+      "modified_at": "2026-04-27T14:22:23.823Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nicht erforderlich\", \"fr\": \"Pas nécessaire\", \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abstellplaetze-fuer-fahrraeder-und-motorfahrraeder-v7",
+    "fields": {
+      "created_at": "2026-04-27T14:10:28.307Z",
+      "modified_at": "2026-04-27T14:10:39.402Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abstellplätze für Fahrräder und Motorfahrräder\", \"fr\": \"Places de stationnement pour bicyclettes et cyclomoteurs\", \"it\": null}",
+      "type": "integer",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "!(\n  'auto-oder-fahrradabstellplaetze-v7-ja' == 'auto-oder-fahrradabstellplaetze-v7'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abstellplaetze-v7",
+    "fields": {
+      "created_at": "2026-04-27T12:15:48.239Z",
+      "modified_at": "2026-04-27T12:36:01.224Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abstellplätze\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "('nutzungsart'|answer([])|length) == 0",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "abstellplaetze-v7",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "anzahl-abstellplaetze-fur-motorfahrzeuge-v7",
+    "fields": {
+      "created_at": "2026-04-27T14:07:38.363Z",
+      "modified_at": "2026-04-27T14:07:50.165Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl Abstellplätze für Motorfahrzeuge\", \"fr\": \"Nombre de places de stationnement pour véhicules à moteur\", \"it\": null}",
+      "type": "integer",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "!(\n  'auto-oder-fahrradabstellplaetze-v7-ja' == 'auto-oder-fahrradabstellplaetze-v7'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "auto-oder-fahrradabstellplaetze-v7",
+    "fields": {
+      "created_at": "2026-04-27T14:03:44.328Z",
+      "modified_at": "2026-04-27T14:04:18.886Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Autoabstellplätze für Fahrzeuge oder Fahrradabstellplätze?\", \"fr\": \"Places de stationnement pour voitures ou cycles?\", \"it\": null}",
+      "type": "choice",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes') && ['nutzungsart-wohnen', 'nutzungsart-gewerbe'] intersects 'nutzungsart'|answer",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Nach Art. 15 BauG sind beim Bau von Mehrfamilienhäusern Abstellräume und Aufenthaltsbereiche im Freien sowie Kinderspielplätze zu erstellen. Wenn durch ein Bauvorhaben ein Parkplatzbedarf verursacht wird ist auf dem Grundstück, oder in seiner Nähe, eine ausreichende Anzahl Abstellplätze für Motorfahrzeuge, Fahrräder und Motorfahrräder zu erstellen (Art. 16 BauG). Art. 42ff BauV regelt die Details und die Berechnungsgrundlagen.\\n\\n[Abstellplaetze Abstellräume Spielplätze Städte und Agglomerationen ab 01.08.2014](</assets/downloads/Abstellplaetze Abstellraeume Spielplaetze Staedte und Agglomerationen ab 01.08.2014 (Vorlage).xls>)  \\n[Abstellplätze Abstellräume Spielplätze übriger Kanton ab 01.08.2014](</assets/downloads/Abstellplaetze Abstellraeume Spielplaetze Uebriger Kanton ab 01.08.2014 (Vorlage).xls>)\", \"fr\": \"Selon l'article 15 LC, les réduits et les aires de loisirs à l’extérieur ainsi que les places de jeux pour enfants doivent être prévus lors de la construction d’immeubles à plusieurs logements. Si un projet de construction entraîne un besoin de places de stationnement, un nombre suffisant de places de stationnement pour véhicules à moteur, bicyclettes et motocyclettes doit être aménagé sur le bien-fonds ou à proximité (art. 16 LC). Les articles 42 ss OC règlent les modalités et les bases de calcul.\\n\\n[Espaces de stationnement Réduits Places de jeux Villes et agglomérations à partir du 01.08.2014](</assets/downloads/Espaces de stationnement Réduits Places de jeux Villes et agglomérations à partir du 01.08.2014 (modèle)-fr.xls>)  \\n[Espaces de stationnement Réduits Places de jeux Territoire hors des agglomérations à partir du 01.08.2014](</assets/downloads/Espaces de stationnement Réduits Places de jeux Territoire hors des agglomérations à partir du 01.08.2014 (modèle)-fr.xls>)\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bauwerk-v7",
+    "fields": {
+      "created_at": "2026-04-27T11:20:41.959Z",
+      "modified_at": "2026-04-27T11:21:00.429Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauwerk\", \"fr\": \"Ouvrage\", \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "bauwerk-v7",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "berechnungen-abstellplaetze-dokument-begruendung-v7",
+    "fields": {
+      "created_at": "2026-04-27T14:23:06.071Z",
+      "modified_at": "2026-04-27T14:23:30.267Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Begründung\", \"fr\": \"Justification\", \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "!('berechnungen-abstellplaetze-dokument-v7-nein' in 'berechnungen-abstellplaetze-dokument-v7'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {
+        "documentCategory": "bauwerk-allgemein"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "berechnungen-abstellplaetze-dokument-v7",
+    "fields": {
+      "created_at": "2026-04-27T14:21:27.546Z",
+      "modified_at": "2026-04-27T14:22:23.895Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Berechnungen Abstellplätze\", \"fr\": \"Calcul du nombre de places de stationnement\", \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "!('auto-oder-fahrradabstellplaetze-v7-ja' == 'auto-oder-fahrradabstellplaetze-v7'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "vertical": "true",
+        "documentCategory": "bauwerk-allgemein"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "davon-in-garagen-oder-einstellhallen-v7",
+    "fields": {
+      "created_at": "2026-04-27T14:09:11.232Z",
+      "modified_at": "2026-04-27T14:09:19.567Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Davon in Garagen oder Einstellhallen\", \"fr\": \"Dont places dans des garages ou parkings souterrains\", \"it\": null}",
+      "type": "integer",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "!(\n  'auto-oder-fahrradabstellplaetze-v7-ja' == 'auto-oder-fahrradabstellplaetze-v7'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "davon-ueberdacht-v7",
+    "fields": {
+      "created_at": "2026-04-27T14:11:38.267Z",
+      "modified_at": "2026-04-27T14:11:38.267Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Davon überdacht\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "!('vorabklaerung' in form || 'is-paper'|answer == 'is-paper-yes')",
+      "is_hidden": "!(\n  'auto-oder-fahrradabstellplaetze-v7-ja' == 'auto-oder-fahrradabstellplaetze-v7'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "dokumente-v7",
+    "fields": {
+      "created_at": "2026-04-27T14:17:47.264Z",
+      "modified_at": "2026-04-27T14:17:55.621Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dokumente\", \"fr\": \"Documents\", \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "be-documents-form",
+        "attachment-section": "'is-paper'|answer == 'is-paper-yes'? 13 : 1"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "dokumente-v7",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "wohnen-v7",
+    "fields": {
+      "created_at": "2026-04-27T13:57:21.062Z",
+      "modified_at": "2026-04-27T13:57:31.275Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wohnen\", \"fr\": \"Habitation\", \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!( 'nutzungsart-wohnen' in 'nutzungsart'|answer )",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\", \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "wohnen-v7",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "auto-oder-fahrradabstellplaetze-v7.auto-oder-fahrradabstellplaetze-v7-ja",
+    "fields": {
+      "created_at": "2026-04-27T14:04:18.891Z",
+      "modified_at": "2026-04-27T14:04:18.891Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "auto-oder-fahrradabstellplaetze-v7",
+      "option": "auto-oder-fahrradabstellplaetze-v7-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "auto-oder-fahrradabstellplaetze-v7.auto-oder-fahrradabstellplaetze-v7-nein",
+    "fields": {
+      "created_at": "2026-04-27T14:04:18.889Z",
+      "modified_at": "2026-04-27T14:04:18.889Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "auto-oder-fahrradabstellplaetze-v7",
+      "option": "auto-oder-fahrradabstellplaetze-v7-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "berechnungen-abstellplaetze-dokument-v7.berechnungen-abstellplaetze-dokument-v7-ja",
+    "fields": {
+      "created_at": "2026-04-27T14:22:23.898Z",
+      "modified_at": "2026-04-27T14:22:23.898Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "berechnungen-abstellplaetze-dokument-v7",
+      "option": "berechnungen-abstellplaetze-dokument-v7-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "berechnungen-abstellplaetze-dokument-v7.berechnungen-abstellplaetze-dokument-v7-nein",
+    "fields": {
+      "created_at": "2026-04-27T14:22:23.897Z",
+      "modified_at": "2026-04-27T14:22:23.897Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "modified_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "modified_by_group": null,
+      "question": "berechnungen-abstellplaetze-dokument-v7",
+      "option": "berechnungen-abstellplaetze-dokument-v7-nein",
+      "sort": 1
     }
   }
 ]

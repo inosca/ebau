@@ -944,7 +944,13 @@ MASTER_DATA = {
                 "datum-schnurgeruestabnahme",
                 {"value_key": "date"},
             ),
-            "parking_lots": ("answer", "anzahl-abstellplaetze-fur-motorfahrzeuge"),
+            "parking_lots": (
+                "answer",
+                [
+                    "anzahl-abstellplaetze-fur-motorfahrzeuge",  # v1 form
+                    "anzahl-abstellplaetze-fur-motorfahrzeuge-v7",  # v7 form
+                ],
+            ),
             "final_approval_date": (
                 "answer",
                 "datum-schlussabnahme",
