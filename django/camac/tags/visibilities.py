@@ -1,11 +1,12 @@
 from generic_permissions.visibilities import filter_queryset_for
 
-from camac.tags.models import Keyword
+from camac.tags.models import Keyword, StaticKeyword
 from camac.user.permissions import get_role_name
 
 
 class TagsVisibility:
     @filter_queryset_for(Keyword)
+    @filter_queryset_for(StaticKeyword)
     def filter_keywords(self, queryset, request):
         role = get_role_name(request.group)
 
