@@ -49,6 +49,7 @@ def test_document_merge_service_snapshot(
         "config/caluma_form_v4.json",
         "config/caluma_form_v5.json",
         "config/caluma_form_v6.json",
+        "config/caluma_form_v7.json",
         "config/caluma_form_sb2.json",
         "config/caluma_form_sb1_v2.json",
         "config/caluma_audit_form.json",

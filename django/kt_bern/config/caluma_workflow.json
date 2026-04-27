@@ -1351,15 +1351,18 @@
         "baugesuch-generell-v3",
         "baugesuch-generell-v5",
         "baugesuch-generell-v6",
+        "baugesuch-generell-v7",
         "baugesuch-mit-uvp",
         "baugesuch-mit-uvp-v2",
         "baugesuch-mit-uvp-v3",
         "baugesuch-mit-uvp-v5",
         "baugesuch-mit-uvp-v6",
+        "baugesuch-mit-uvp-v7",
         "baugesuch-v2",
         "baugesuch-v3",
         "baugesuch-v5",
         "baugesuch-v6",
+        "baugesuch-v7",
         "migriertes-dossier",
         "verlaengerung-geltungsdauer"
       ]
@@ -1458,6 +1461,7 @@
         "vorabklaerung-vollstaendig-v4",
         "vorabklaerung-vollstaendig-v5",
         "vorabklaerung-vollstaendig-v6",
+        "vorabklaerung-vollstaendig-v7",
         "zutrittsermaechtigung-v3"
       ]
     }
