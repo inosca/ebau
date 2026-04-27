@@ -1792,6 +1792,23 @@ def ag_dms_settings(
 
 
 @pytest.fixture
+def sz_dms_settings(
+    request,
+    settings,
+    dms_settings,
+):
+    """Module-specific settings for dms (canton SZ)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=dms_settings,
+        module_name="dms",
+        canton="kt_schwyz",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def dossier_import_settings(
     request,
     settings,

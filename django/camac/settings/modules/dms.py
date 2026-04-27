@@ -540,4 +540,5 @@ DMS = {
             "form": _("Form"),
         },
     },
+    "kt_schwyz": {"ENABLED": True},
 }
