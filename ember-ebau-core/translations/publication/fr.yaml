@@ -14,12 +14,12 @@ publication:
     neighbors: "Novelle communication aux voisin(e)s"
 
   submit:
-    public: "Partager"
-    neighbors: "Partager"
+    public: "Autoriser"
+    neighbors: "Autoriser"
 
   submitConfirm:
-    public: "Voulez-vous vraiment partager la publication ?"
-    neighbors: "Voulez-vous vraiment partager l'orientation du voisinage ?"
+    public: "Voulez-vous vraiment autoriser la publication ?"
+    neighbors: "Voulez-vous vraiment autoriser l'orientation du voisinage ?"
 
   deleteConfirm:
     public: "Voulez-vous vraiment supprimer le brouillon ?"
