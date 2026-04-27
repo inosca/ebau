@@ -1176,9 +1176,6 @@ def test_dms_placeholders_ag(
         assert fallback_result[ir_prop] == fallback_result[a_prop]
 
 
-# Currently failing, but once it's configured properly, we need to revisit this
-# test and fix it (thus, strict=True)
-@pytest.mark.xfail(reason="SZ has no dms settings right now", strict=True)
 @pytest.mark.parametrize("role__name", ["Gemeinde"])
 def test_dms_placeholders_sz(
     db,
@@ -1187,8 +1184,9 @@ def test_dms_placeholders_sz(
     sz_instance,
     sz_dms_settings,
     sz_placeholders_settings,
+    set_application_sz,
     snapshot,
-):  # pragma: no cover
+):
     response = admin_client.get(
         reverse("instance-dms-placeholders", args=[sz_instance.pk])
     )

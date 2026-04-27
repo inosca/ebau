@@ -21073,7 +21073,7 @@
     'ZUSTAENDIG_TITEL': '',
   })
 # ---
-# name: test_dms_placeholders_sz[Placholders response for kt_schwyz]
+# name: test_dms_placeholders_sz[Gemeinde]
   dict({
     'field_bauherrschaft': list([
       dict({
