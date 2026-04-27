@@ -2,6 +2,7 @@
 # name: test_copy_template_sheets[Municipality]
   list([
     'Data',
+    'Filter',
     'Pivot',
   ])
 # ---
@@ -130,7 +131,7 @@
       '',
       'Darin Shea',
       'completed',
-      29,
+      30,
       0,
     ]),
   ])

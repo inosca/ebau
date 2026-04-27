@@ -17,12 +17,14 @@ from django.db.models import (
     OuterRef,
     Q,
     Subquery,
+    UUIDField,
     Value,
     When,
 )
 from django.db.models.fields.json import KeyTextTransform
 from django.db.models.functions import (
     Cast,
+    Coalesce,
     Concat,
     NullIf,
     Replace,
@@ -38,6 +40,7 @@ from camac.instance.export.filters import StringAggSubquery
 from camac.instance.models import Instance, InstanceStateT
 from camac.responsible.models import ResponsibleService
 from camac.user.models import ServiceT, User
+from camac.work_items.models import WorkItemTemplate
 
 
 def split_query_param(request, param):
@@ -144,11 +147,27 @@ class FirstInquiryDateFilter(DFDateFilter):
         return qs.filter(pk__in=list(matching_instance_pks))
 
 
+def _exclude_claim_inquiries(qs):
+    """Exclude inquiries answered with status "claim" (Unterlagenergänzung)."""
+    status_question = settings.DISTRIBUTION.get("QUESTIONS", {}).get("STATUS")
+    claim_value = (
+        settings.DISTRIBUTION.get("ANSWERS", {}).get("STATUS", {}).get("CLAIM")
+    )
+    if not status_question or not claim_value:
+        return qs
+
+    return qs.exclude(
+        child_case__document__answers__question_id=status_question,
+        child_case__document__answers__value=claim_value,
+    )
+
+
 class CompletingDateFilter(DFDateFilter):
     """Filter instances by the date of the last completed inquiry for a service.
 
     Uses closed_at of the latest completed/skipped inquiry addressed to the
-    given service for each instance.
+    given service for each instance. Inquiries answered with status "claim"
+    (Unterlagenergänzung) are excluded.
     """
 
     def __init__(self, *args, service_id=None, **kwargs):
@@ -162,8 +181,11 @@ class CompletingDateFilter(DFDateFilter):
         # Find instances where the latest completed inquiry (by closed_at)
         # addressed to the requesting service satisfies the date condition.
         matching_instance_pks = (
-            Inquiry.objects.addressed_to(self.service_id)
-            .for_status(WorkItem.STATUS_COMPLETED, WorkItem.STATUS_SKIPPED)
+            _exclude_claim_inquiries(
+                Inquiry.objects.addressed_to(self.service_id).for_status(
+                    WorkItem.STATUS_COMPLETED, WorkItem.STATUS_SKIPPED
+                )
+            )
             .filter(closed_at__isnull=False)
             .values("case__family__instance__pk")
             .annotate(
@@ -342,10 +364,16 @@ class _BaseFilterBackend(BaseFilterBackend):
         )
 
     def annotate_completing_date(self, service_id):
-        """Date when the last inquiry from the service was completed."""
+        """Date when the last inquiry from the service was completed.
+
+        Inquiries answered with status claim are ignored.
+        """
         return Subquery(
-            Inquiry.objects.addressed_to(service_id)
-            .for_status(WorkItem.STATUS_COMPLETED, WorkItem.STATUS_SKIPPED)
+            _exclude_claim_inquiries(
+                Inquiry.objects.addressed_to(service_id).for_status(
+                    WorkItem.STATUS_COMPLETED, WorkItem.STATUS_SKIPPED
+                )
+            )
             .filter(
                 case__family__instance=OuterRef(self._instance_pk_ref),
                 closed_at__isnull=False,
@@ -437,6 +465,15 @@ class _BaseFilterBackend(BaseFilterBackend):
         queryset = InvolvedFilter(service_id=current_service).filter(
             queryset, request.query_params.get("involved")
         )
+
+        # exclude dossiers that still have any pending inquiry addressed
+        # to the current service
+        pending_inquiries = (
+            Inquiry.objects.addressed_to(current_service)
+            .only_pending()
+            .filter(case__family__instance=OuterRef("pk"))
+        )
+        queryset = queryset.exclude(Exists(pending_inquiries))
 
         return list(queryset.order_by().values_list("pk", flat=True).distinct())
 
@@ -543,7 +580,7 @@ class WorkItemFilterBackend(_BaseFilterBackend):
         return _DateDiffDays(
             Cast("closed_at", output_field=DateField()),
             Cast("created_at", output_field=DateField()),
-        )
+        ) + Value(1)
 
     def annotate_wi_on_time(self):
         """Whether the work item was closed before or on its deadline (1) or not (0).
@@ -562,10 +599,25 @@ class WorkItemFilterBackend(_BaseFilterBackend):
             output_field=IntegerField(),
         )
 
+    def annotate_task_name(self):
+        """Resolve the task name, preferring the manual template name."""
+        return Coalesce(
+            Subquery(
+                WorkItemTemplate.objects.filter(
+                    pk=Cast(
+                        KeyTextTransform("template-id", OuterRef("meta")),
+                        output_field=UUIDField(),
+                    ),
+                ).values("name")[:1]
+            ),
+            F(f"task__name__{get_language()}"),
+            output_field=CharField(),
+        )
+
     def _work_item_annotations(self, requested_columns=None):
         """Return the dict of work-item-level annotation kwargs."""
         available = {
-            "task_name": lambda: F(f"task__name__{get_language()}"),
+            "task_name": lambda: self.annotate_task_name(),
             "wi_created_at": lambda: Cast("created_at__date", DateField()),
             "wi_deadline": lambda: Cast("deadline__date", DateField()),
             "wi_closed_at": lambda: Cast("closed_at__date", DateField()),
