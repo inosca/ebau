@@ -42,7 +42,7 @@
       class="uk-button uk-button-default
         {{if (eq this.filter 'active') 'uk-button-primary'}}"
       type="button"
-      {{on "click" (fn (mut this.filter) "active")}}
+      {{on "click" (fn this.setFilter "active")}}
     >
       {{t "service-permissions.static-keywords-active"}}
     </button>
@@ -50,7 +50,7 @@
       class="uk-button uk-button-default
         {{if (eq this.filter 'archived') 'uk-button-primary'}}"
       type="button"
-      {{on "click" (fn (mut this.filter) "archived")}}
+      {{on "click" (fn this.setFilter "archived")}}
     >
       {{t "service-permissions.static-keywords-archived"}}
     </button>
@@ -58,7 +58,7 @@
       class="uk-button uk-button-default
         {{if (eq this.filter 'all') 'uk-button-primary'}}"
       type="button"
-      {{on "click" (fn (mut this.filter) "all")}}
+      {{on "click" (fn this.setFilter "all")}}
     >
       {{t "service-permissions.static-keywords-all"}}
     </button>
