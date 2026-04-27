@@ -681,6 +681,11 @@ def test_so_set_is_published_creates_history_entry(
         label="",
         type=Question.TYPE_TEXT,
     )
+    caluma_question_factory(
+        slug="publikation-amtsblatt",
+        label="",
+        type=Question.TYPE_TEXT,
+    )
     mock_data = {
         "start": "start",
         "end": "end",
