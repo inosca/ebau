@@ -59,7 +59,7 @@ DJANGO_ADMIN = {
         ],
         "CUSTOMER_MANAGED_MODELS": [
             "gis.GISDataSource",
-            "deadlines.DeadlineType",
+            # "deadlines.DeadlineType",
             "work_items.WorkItemListFilterPreset",
             "work_items.WorkItemTemplate",
         ],

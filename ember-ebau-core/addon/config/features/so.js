@@ -79,7 +79,7 @@ export default {
     staticKeywords: true,
   },
   deadlines: {
-    enabled: true,
+    enabled: false,
     useEndDate: true,
   },
 };

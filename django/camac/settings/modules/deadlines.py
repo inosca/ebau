@@ -21,6 +21,5 @@ DEADLINES = ModuleConfig[DeadlinesConfig](
             "manual_suspension": _("Other suspension"),
         },
     ),
-    kt_so=DeadlinesConfig(enabled=True),
     kt_ag=DeadlinesConfig(enabled=True),
 )
