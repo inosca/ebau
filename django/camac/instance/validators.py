@@ -177,19 +177,7 @@ class FormDataValidator:
             self.active_question_cache[question] = True
             return True
 
-        dep_questions = self.jexl.analyze(
-            expression, partial(ExtractTransformSubjectAnalyzer, transforms=["value"])
-        )
-        active = False
-        try:
-            active = self._check_questions_active(dep_questions) and self.jexl.evaluate(
-                expression, {"form": self.instance.form.family.name}
-            )
-        except TypeError:
-            # A TypeError is raised if a question is not filled. It then tries
-            # to e.g compare None < 250 which can't work
-            pass
-
+        active = self.is_active_expression(expression)
         self.active_question_cache[question] = active
         return active
 
@@ -346,3 +334,18 @@ class FormDataValidator:
         relevant_data.append(bauherrschaft)
 
         return relevant_data
+
+    def is_active_expression(self, expression: str):
+        dep_questions = self.jexl.analyze(
+            expression, partial(ExtractTransformSubjectAnalyzer, transforms=["value"])
+        )
+        active = False
+        try:
+            active = self._check_questions_active(dep_questions) and self.jexl.evaluate(
+                expression, {"form": self.instance.form.family.name}
+            )
+        except TypeError:
+            # A TypeError is raised if a question is not filled. It then tries
+            # to e.g compare None < 250 which can't work
+            pass
+        return active
