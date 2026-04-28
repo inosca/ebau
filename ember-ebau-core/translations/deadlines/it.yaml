@@ -1,43 +1,44 @@
 deadlines:
   title:
-    suspensions:
-    deadlines:
+    suspensions: "Sospensioni"
+    deadlines: "Procedure"
   action:
     deadline:
-      edit:
+      edit: "Modifica procedura"
     suspension:
-      create:
-      edit:
+      create: "Nuova sospensione"
+      edit: "Modifica sospensione"
   deadline:
-    instanceSuspended:
+    instanceSuspended: "Dossier attualmente sospeso"
     property:
-      startDate:
-      processDeadlineDate:
-      targetDeadlineDate:
-      type:
-    saveSuccess:
-    saveError:
-    processDurationText:
-    noProcessDeadlineDate:
-    noTargetDeadlineDate:
+      startDate: "Inizio termine"
+      processDeadlineDate: "Fine procedura"
+      targetDeadlineDate: "Scadenza"
+      type: "Tipo"
+    saveSuccess: "Procedura salvata"
+    saveError: "Errore durante il salvataggio della procedura"
+    processDurationText: "{count} {count, plural, one {Giorno} other {Giorni}}"
+    noProcessDeadlineDate: "In sospeso"
+    noTargetDeadlineDate: "Nessuna scadenza"   
     detail:
-      noResult:
-      startDate:
-      totalDaysOfSuspension:
-      endDate:
-      processDuration:
-      processDeadlineDate:
-      targetDeadlineDate:
+      noResult: "Nessun risultato trovato"
+      startDate: "Inizio termine"
+      totalDaysOfSuspension: "Giorni sospesi dall’inizio"
+      endDate: "Termine effettivo"
+      processDuration: "Durata"
+      processDeadlineDate: "Fine procedura"
+      targetDeadlineDate: "Scadenza"
   suspension:
     property:
-      startDate:
-      endDate:
-      reason:
-      remark:
-      author:
-    saveSuccess:
-    saveError:
-    confirmDelete:
-    deleteSuccess:
+      startDate: "Sospensione da"
+      endDate: "Sospensione fino a"
+      reason: "Motivo"
+      remark: "Osservazione"
+      author: "Autore"
+    saveSuccess: "Sospensione salvata"
+    saveError: "Errore durante il salvataggio della sospensione"
+    confirmDelete: "Vuole davvero cancellare la sospensione?"
+    deleteSuccess: "Sospensione cancellata"
     list:
-      empty:
+      empty: "Non ci sono sospensioni."
+      

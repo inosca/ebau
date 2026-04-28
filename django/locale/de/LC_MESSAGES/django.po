@@ -724,11 +724,11 @@ msgstr "Manuelle Sistierung"
 
 #: camac/deadlines/models.py
 msgid "Process deadline date override"
-msgstr ""
+msgstr "Frist Überschreitung"
 
 #: camac/deadlines/models.py
 msgid "If set, the process deadline date is manually set and not calculated."
-msgstr ""
+msgstr "Wenn festgelegt, ist die Frist manuell gesetzt und nicht berechnet."
 
 #: camac/deadlines/models.py
 msgid "Process deadline days"
