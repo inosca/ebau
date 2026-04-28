@@ -492,7 +492,7 @@ msgstr "Presentare presa di posizione in merito al ricorso"
 #: camac/caluma/tests/test_deadlines.py camac/deadlines/models.py
 #: camac/deadlines/tests/test_model_suspensions.py
 msgid "Automatic"
-msgstr ""
+msgstr "Automatico"
 
 #: camac/communications/serializers.py
 msgid "Missing Content-Type header"
@@ -645,103 +645,110 @@ msgstr "Contenuti del modulo specifici del comune"
 
 #: camac/deadlines/admin.py camac/deadlines/models.py
 msgid "Form types"
-msgstr ""
+msgstr "Tipi di modulo"
 
 #: camac/deadlines/admin.py
 msgid "All forms"
-msgstr ""
+msgstr "Tutti i moduli"
 
 #: camac/deadlines/models.py
 msgid ""
 "List of form IDs this deadline type applies to. If empty, applies to all "
 "forms."
 msgstr ""
+"Elenco dei tipi di modulo a cui viene applicato questo tipo di scadenza. Se "
+"in bianco, vale per tutti i moduli."
 
 #: camac/deadlines/models.py camac/work_items/models.py
 msgid "Lead time in days"
-msgstr ""
+msgstr "Tempo di attesa in giorni"
 
 #: camac/deadlines/models.py
 msgid "Is default"
-msgstr ""
+msgstr "Valore standard"
 
 #: camac/deadlines/models.py
 msgid "Exclude weekends"
-msgstr ""
+msgstr "Escludere i fine settimana"
 
 #: camac/deadlines/models.py
 msgid "If enabled, weekends are not counted towards deadlines."
 msgstr ""
+"Se l'opzione è attivata, i fine settimana non vengono conteggiati per le "
+"scadenze."
 
 #: camac/deadlines/models.py
 msgid "Exclude public holidays"
-msgstr ""
+msgstr "Escludere i giorni festivi"
 
 #: camac/deadlines/models.py
 msgid "If enabled, public holidays are not counted towards deadlines."
 msgstr ""
+"Se l'opzione è attivata, i giorni festivi non vengono conteggiati per le "
+"scadenze."
 
 #: camac/deadlines/models.py
 msgid "Deadline type"
-msgstr ""
+msgstr "Tipo di sospensione"
 
 #: camac/deadlines/models.py
 msgid "Deadline types"
-msgstr ""
+msgstr "Tipi di sospensione"
 
 #: camac/deadlines/models.py
 msgid "Additional demand suspension"
-msgstr ""
+msgstr "Sospensione della richiesta di precisazioni"
 
 #: camac/deadlines/models.py
 msgid "Inquiry claim suspension"
-msgstr ""
+msgstr "Presa di posizione sospensione"
 
 #: camac/deadlines/models.py
 msgid "Incomplete suspension"
-msgstr ""
+msgstr "Domanda incompleta"
 
 #: camac/deadlines/models.py
 msgid "Request project change suspension"
-msgstr ""
+msgstr "Richiesta di modifica del progetto"
 
 #: camac/deadlines/models.py
 msgid "Manual suspension"
-msgstr ""
+msgstr "Sospensione manuale"
 
 #: camac/deadlines/models.py
 msgid "Process deadline date override"
-msgstr ""
+msgstr "Superamento della scadenza"
 
 #: camac/deadlines/models.py
 msgid "If set, the process deadline date is manually set and not calculated."
 msgstr ""
+"Se specificato, la scadenza viene inserita manualmente e non calcolata."
 
 #: camac/deadlines/models.py
 msgid "Process deadline days"
-msgstr ""
+msgstr "Scadenze elaborate"
 
 #: camac/deadlines/models.py
 msgid "The number of days processed since the start date."
-msgstr ""
+msgstr "Numero di giorni dalla data di inizio."
 
 #: camac/deadlines/models.py
 msgid "Instance deadline"
-msgstr ""
+msgstr "Scadenza dossier"
 
 #: camac/deadlines/models.py
 msgid "Instance deadlines"
-msgstr ""
+msgstr "Scadenze dossier"
 
 #: camac/deadlines/serializers.py
 #: camac/deadlines/tests/test_model_suspensions.py
 msgid "End date can not be before start date."
-msgstr ""
+msgstr "La data di fine non può essere anteriore alla data di inizio."
 
 #: camac/deadlines/serializers.py
 #: camac/deadlines/tests/test_model_suspensions.py
 msgid "Suspension reason is not valid."
-msgstr ""
+msgstr "Motivo della sospensione invalido."
 
 #: camac/document/filters.py
 msgid ""
@@ -1277,7 +1284,7 @@ msgstr "Bozza"
 
 #: camac/instance/document_merge_service.py camac/settings/modules/deadlines.py
 msgid "Additional demand"
-msgstr ""
+msgstr "Richiesta di precisazioni"
 
 #: camac/instance/document_merge_service.py
 #, python-format
@@ -1875,11 +1882,11 @@ msgstr "Dossier corretto"
 
 #: camac/settings/modules/deadlines.py
 msgid "Negative inquiry claim suspension"
-msgstr ""
+msgstr "Richiesta negativa"
 
 #: camac/settings/modules/deadlines.py
 msgid "Other suspension"
-msgstr ""
+msgstr "Altro"
 
 #: camac/settings/modules/distribution.py
 msgid "Circulation completed"
@@ -1899,7 +1906,7 @@ msgstr "Ricevuta"
 
 #: camac/settings/modules/dms.py
 msgid "Form"
-msgstr ""
+msgstr "Modulo"
 
 #: camac/settings/modules/ech0211.py
 msgid "Inquiry sent"

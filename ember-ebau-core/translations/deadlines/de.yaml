@@ -9,7 +9,7 @@ deadlines:
       create: "Neue Sistierung"
       edit: "Sistierung bearbeiten"
   deadline:
-    instanceSuspended: "Dossier ist aktuell sistiert."
+    instanceSuspended: "Dossier ist aktuell sistiert"
     property:
       startDate: "Start Frist"
       processDeadlineDate: "Verfahrensende"
@@ -18,8 +18,8 @@ deadlines:
     saveSuccess: "Verfahren erfolgreich gespeichert"
     saveError: "Fehler beim Speichern des Verfahrens"
     processDurationText: "{count} {count, plural, one {Tag} other {Tage}}"
-    noProcessDeadlineDate: "ausstehend"
-    noTargetDeadlineDate: "noch keine Frist"
+    noProcessDeadlineDate: "Ausstehend"
+    noTargetDeadlineDate: "Noch keine Frist"
     detail:
       noResult: "Keine Ergebnisse gefunden"
       startDate: "Start Frist"
