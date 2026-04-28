@@ -72,6 +72,9 @@ export default {
   changeGeometer: {
     enabled: false,
   },
+  gis: {
+    v3: true,
+  },
   support: true,
   staticFaq: true,
   instanceSupport: true,
