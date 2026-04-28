@@ -66,8 +66,7 @@ export default class WorkItemsGlobalController extends Controller {
   }));
 
   taskOptions = query(this, "work-item-list-task-option", () => {
-    // eslint-disable-next-line no-unused-vars
-    const { task = null, ...filters } = this.filters;
+    const { task, ...filters } = this.filters;
 
     return filters;
   });
