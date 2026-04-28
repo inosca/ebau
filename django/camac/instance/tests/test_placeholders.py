@@ -1,6 +1,7 @@
 from datetime import date, datetime
 from unittest.mock import Mock
 
+import factory
 import faker
 import pytest
 from alexandria.core.factories import (
@@ -1168,24 +1169,57 @@ def test_dms_placeholders_ag(
 
 
 @pytest.mark.parametrize("role__name", ["Gemeinde"])
+@pytest.mark.freeze_time("2020-12-20")
 def test_dms_placeholders_sz(
     db,
     admin_client,
+    group,
     sz_master_data_case,
     sz_instance,
     sz_dms_settings,
     sz_placeholders_settings,
     set_application_sz,
+    application_settings,
+    publication_entry_factory,
+    workflow_entry_factory,
+    workflow_item,
     snapshot,
 ):
+
+    placeholders = ["publication_date", "publications"]
+
+    # Publication
+    #
+    # Create two publications to verify that only the first is used for `publication_date`.
+    # The workflow_entry is created by domain logic in `PublicationEntrySerializer` method
+    # `finalize_publication` when a publication is created.
+    # MasterData.publication_date relies on the workflow_entry.
+    workflow_item.pk = application_settings["WORKFLOW_ITEMS"]["PUBLICATION"]
+    workflow_item.save()
+    workflow_entry_factory.create_batch(
+        2,
+        instance=sz_instance,
+        workflow_date=factory.Iterator(  # HINT: the Iterator ensures that two distinct objects are created
+            [
+                publication_entry_factory(
+                    is_published=True, instance=sz_instance
+                ).publication_date
+                for _ in range(2)
+            ]
+        ),
+        group=group.pk,
+        workflow_item=workflow_item,
+    )
+
     response = admin_client.get(
         reverse("instance-dms-placeholders", args=[sz_instance.pk])
     )
     assert response.status_code == status.HTTP_200_OK
     assert response.json() == snapshot
     case_fn = getattr(str, sz_placeholders_settings["PLACEHOLDER_CASE"])
-    for key in response.json().keys():
-        assert key == case_fn(key)
+
+    for placeholder in placeholders:
+        assert case_fn(placeholder) in response.json().keys()
 
 
 @pytest.mark.parametrize(

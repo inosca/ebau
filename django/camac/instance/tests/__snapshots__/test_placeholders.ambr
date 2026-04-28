@@ -10322,6 +10322,45 @@
         ]),
       }),
     }),
+    'publication_date': dict({
+      'aliases': list([
+        dict({
+          'de': 'publication_date',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Startdatum der Publikation im Publikationsorgan der Gemeinde',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'publications': dict({
+      'aliases': list([
+        dict({
+          'de': 'publications',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Publikationsinformationen mit Amtsblattnummer, Start- und Enddatum',
+      }),
+      'nested_aliases': dict({
+        'calendar_week': list([
+          dict({
+            'de': 'calendar_week',
+          }),
+        ]),
+        'date': list([
+          dict({
+            'de': 'date',
+          }),
+        ]),
+        'end_date': list([
+          dict({
+            'de': 'end_date',
+          }),
+        ]),
+      }),
+    }),
   })
 # ---
 # name: test_dms_placeholders_docs[kt_sg]
@@ -18677,6 +18716,12 @@
     'field_vertreter_mit_vollmacht[].vertreter_titel',
     'field_vertreter_mit_vollmacht[].vertreter_vorname',
     'field_vertreter_mit_vollmacht[].vorname',
+    'publication_date',
+    'publications',
+    'publications[]',
+    'publications[].calendar_week',
+    'publications[].date',
+    'publications[].end_date',
   ])
 # ---
 # name: test_dms_placeholders_empty[Municipality]
@@ -21181,6 +21226,20 @@
     'field_standort_spezialbezeichnung': '',
     'field_vertreter_mit_vollmacht': list([
     ]),
+    'publication_date': '27. Oktober 2011',
+    'publications': list([
+      dict({
+        'calendar_week': 39,
+        'date': '27.09.2001',
+        'end_date': '27.04.1993',
+      }),
+      dict({
+        'calendar_week': 43,
+        'date': '27.10.2011',
+        'end_date': '19.12.2014',
+      }),
+    ]),
+    'publikationsdatum': '27. Oktober 2011',
   })
 # ---
 # name: test_dms_placeholders_ur[Sekretariat der Gemeindebaubeh\xf6rde]

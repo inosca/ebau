@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-19 17:29+0100\n"
+"POT-Creation-Date: 2026-04-29 17:41+0200\n"
 "PO-Revision-Date: 2025-05-09 15:48+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2749,6 +2749,10 @@ msgstr "ZUSTAENDIG_ABTEILUNG"
 #: camac/instance/placeholders/serializers.py
 msgid "Division of the responsible employee"
 msgstr "Abteilung des/r zuständigen/r Mitarbeiter/in"
+
+#: camac/instance/placeholders/serializers.py
+msgid "All publications with start, end and week number"
+msgstr "Publikationsinformationen mit Amtsblattnummer, Start- und Enddatum"
 
 #: camac/instance/placeholders/serializers.py
 msgid "FIELD_BAUHERRSCHAFT"
