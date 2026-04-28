@@ -2,6 +2,8 @@ import { select, confirm, checkbox } from "@inquirer/prompts";
 import { execa } from "execa";
 import calver from "calver";
 import chalk from "chalk";
+import process from "process";
+import dotenv from "dotenv/config";
 
 const warn = chalk.bold.hex("#FFA500");
 const error = chalk.bold.red;
@@ -38,6 +40,21 @@ async function getLatest(canton, limit = 10) {
   }
 }
 
+function getDefaultCanton() {
+  const special = {
+    kt_bern: "be",
+    kt_schwyz: "sz",
+    kt_uri: "ur",
+  };
+  const applicationName = process.env.APPLICATION;
+
+  if (!applicationName) {
+    return null;
+  }
+
+  return special[applicationName] ?? applicationName.replace(/^kt_/, "");
+}
+
 const canton = await select({
   message: "Select a canton",
   choices: [
@@ -49,6 +66,7 @@ const canton = await select({
     { value: "ag", name: "Aargau" },
     { value: "sg", name: "St.Gallen" },
   ],
+  default: getDefaultCanton(),
 });
 
 const latest10 = await getLatest(canton);
