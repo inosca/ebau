@@ -313,10 +313,11 @@ class GeometerHandlerMixin:
             ServiceRelation.FUNCTION_GEOMETER,
         ).first()
 
-        self.manager.grant(
-            instance,
-            grant_type="SERVICE",
-            access_level="geometer",
-            service=geometer_service,
-            event_name="formal-exam-completed",
-        )
+        if geometer_service:
+            self.manager.grant(
+                instance,
+                grant_type="SERVICE",
+                access_level="geometer",
+                service=geometer_service,
+                event_name="formal-exam-completed",
+            )
