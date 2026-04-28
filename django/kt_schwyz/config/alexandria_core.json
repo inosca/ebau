@@ -3,10 +3,10 @@
     "model": "alexandria_core.category",
     "pk": "auflagedokumente",
     "fields": {
-      "created_at": "2026-04-22T15:31:08.090Z",
+      "created_at": "2026-04-29T08:49:34.271Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2026-04-22T15:31:08.090Z",
+      "modified_at": "2026-04-29T08:49:34.271Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -35,7 +35,7 @@
       "name": "{\"de\": \"Auflagedokumente\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"video/mp4\", \"video/webm\"]",
-      "color": "#d6b5aa",
+      "color": "hsl(115 44% 40%)",
       "parent": null,
       "sort": 5
     }
@@ -44,10 +44,10 @@
     "model": "alexandria_core.category",
     "pk": "bauentscheid-und-merkblatter",
     "fields": {
-      "created_at": "2026-04-22T15:31:08.092Z",
+      "created_at": "2026-04-29T08:49:34.273Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2026-04-22T15:31:08.092Z",
+      "modified_at": "2026-04-29T08:49:34.273Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -73,7 +73,7 @@
       "name": "{\"de\": \"Bauentscheid und Merkblätter\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"video/mp4\", \"video/webm\"]",
-      "color": "#a7c4f6",
+      "color": "hsl(218 13% 40%)",
       "parent": null,
       "sort": 7
     }
@@ -82,10 +82,10 @@
     "model": "alexandria_core.category",
     "pk": "baukontrolle-und-bauabnahme",
     "fields": {
-      "created_at": "2026-04-22T15:31:08.096Z",
+      "created_at": "2026-04-29T08:49:34.277Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2026-04-22T15:31:08.096Z",
+      "modified_at": "2026-04-29T08:49:34.277Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -111,7 +111,7 @@
       "name": "{\"de\": \"Baukontrolle und Bauabnahme\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"video/mp4\", \"video/webm\"]",
-      "color": "#c3a4b7",
+      "color": "hsl(308 13% 40%)",
       "parent": null,
       "sort": 9
     }
@@ -120,10 +120,10 @@
     "model": "alexandria_core.category",
     "pk": "dokumente-dateien-und-anhange",
     "fields": {
-      "created_at": "2026-04-22T15:31:08.097Z",
+      "created_at": "2026-04-29T08:49:34.278Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2026-04-22T15:31:08.097Z",
+      "modified_at": "2026-04-29T08:49:34.278Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -139,8 +139,8 @@
       },
       "name": "{\"de\": \"Dokumente, Dateien und Anhänge\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[]",
-      "color": "#cfd1d7",
+      "allowed_mime_types": null,
+      "color": "hsl(85 30% 40%)",
       "parent": null,
       "sort": 11
     }
@@ -149,10 +149,10 @@
     "model": "alexandria_core.category",
     "pk": "dokumente-des-gesuchstellers",
     "fields": {
-      "created_at": "2026-04-22T15:31:08.069Z",
+      "created_at": "2026-04-29T08:49:34.251Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2026-04-22T15:31:08.069Z",
+      "modified_at": "2026-04-29T08:49:34.251Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -181,7 +181,7 @@
       "name": "{\"de\": \"Dokumente des Gesuchstellers\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"video/mp4\", \"video/webm\"]",
-      "color": "#e2cbc8",
+      "color": "hsl(112 87% 40%)",
       "parent": null,
       "sort": 1
     }
@@ -190,10 +190,10 @@
     "model": "alexandria_core.category",
     "pk": "dokumente-des-gesuchstellers-dokument-grundstucksangaben",
     "fields": {
-      "created_at": "2026-04-22T15:31:08.074Z",
+      "created_at": "2026-04-29T08:49:34.256Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2026-04-22T15:31:08.074Z",
+      "modified_at": "2026-04-29T08:49:34.256Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -202,7 +202,7 @@
       "name": "{\"de\": \"Grundstücksangaben\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Die Unterlagen sind als pdf-Dokumente hochzuladen. Der Dateiname soll kurz und aussagekräftig sein. Lassen Sie Projektnummern resp. -bezeichnungen, welche Sie für Ihre interne Dokumentablage benötigen, bitte weg.\\n\\nUnter den Begriff *Grundstücksangaben* fallen Gesuchsunterlagen wie z. B. Katasterplan, Grundbuchauszug, Dienstbarkeiten.\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"video/mp4\", \"video/webm\"]",
-      "color": "#a4c3b2",
+      "color": "hsl(139 83% 40%)",
       "parent": "dokumente-des-gesuchstellers",
       "sort": 0
     }
@@ -211,10 +211,10 @@
     "model": "alexandria_core.category",
     "pk": "dokumente-des-gesuchstellers-dokument-gutachten-nachweise-begrundungen",
     "fields": {
-      "created_at": "2026-04-22T15:31:08.079Z",
+      "created_at": "2026-04-29T08:49:34.260Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2026-04-22T15:31:08.079Z",
+      "modified_at": "2026-04-29T08:49:34.260Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -223,7 +223,7 @@
       "name": "{\"de\": \"Gutachten, Nachweise, Begründungen\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Die Unterlagen sind als pdf-Dokumente hochzuladen. Der Dateiname soll kurz und aussagekräftig sein.  Lassen Sie Projektnummern resp. -bezeichnungen, welche Sie für Ihre interne Dokumentablage benötigen, bitte weg.\\n\\nUnter die Begriffe *Gutachten, Nachweise, Begründungen* fallen Gesuchsunterlagen wie z. B. Vollmachten, Einverständnis Nachbarn, Nutzungsberechnungen, energetische Nachweise, Lärmschutznachweise, Brandschutznachweise, Durchflussnachweise.\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"video/mp4\", \"video/webm\"]",
-      "color": "#b7b9c9",
+      "color": "hsl(17 36% 40%)",
       "parent": "dokumente-des-gesuchstellers",
       "sort": 1
     }
@@ -232,10 +232,10 @@
     "model": "alexandria_core.category",
     "pk": "dokumente-des-gesuchstellers-dokument-projektplane-projektbeschrieb",
     "fields": {
-      "created_at": "2026-04-22T15:31:08.083Z",
+      "created_at": "2026-04-29T08:49:34.264Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2026-04-22T15:31:08.083Z",
+      "modified_at": "2026-04-29T08:49:34.264Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -244,7 +244,7 @@
       "name": "{\"de\": \"Projektpläne und Projektbeschrieb\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Die Unterlagen sind als pdf-Dokumente hochzuladen. Der Dateiname soll kurz und aussagekräftig sein.  Lassen Sie Projektnummern resp. -bezeichnungen, welche Sie für Ihre interne Dokumentablage benötigen, bitte weg.\\n\\nUnter die Begriffe *Projektpläne und Projektbeschrieb* fallen Gesuchsunterlagen wie z. B. Situationspläne, Grundrisse, Schnitt- und Fassadenpläne, Kanalisationspläne, Siedlungsentwässerungspläne, Umgebungspläne, Projektbeschrieb, Planverzeichnis.\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"video/mp4\", \"video/webm\"]",
-      "color": "#e5f6a4",
+      "color": "hsl(60 28% 40%)",
       "parent": "dokumente-des-gesuchstellers",
       "sort": 2
     }
@@ -253,10 +253,10 @@
     "model": "alexandria_core.category",
     "pk": "dokumente-des-gesuchstellers-dokument-weitere-gesuchsunterlagen",
     "fields": {
-      "created_at": "2026-04-22T15:31:08.088Z",
+      "created_at": "2026-04-29T08:49:34.269Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2026-04-22T15:31:08.088Z",
+      "modified_at": "2026-04-29T08:49:34.269Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -265,7 +265,7 @@
       "name": "{\"de\": \"Weitere Gesuchsunterlagen\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Die Unterlagen sind als pdf-Dokumente hochzuladen. Der Dateiname soll kurz und aussagekräftig sein.  Lassen Sie Projektnummern resp. -bezeichnungen, welche Sie für Ihre interne Dokumentablage benötigen, bitte weg.\\n\\nUnter den Begriff *Weitere Gesuchsunterlagen* fallen Gesuchsunterlagen wie z. B. Anschlussgesuch Elektrizitätswerk, Anschlussgesuch Gas, Anschlussgesuch Wasser, andere Gesuchsunterlagen.\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"video/mp4\", \"video/webm\"]",
-      "color": "#f3a8c1",
+      "color": "hsl(86 86% 40%)",
       "parent": "dokumente-des-gesuchstellers",
       "sort": 3
     }
@@ -274,10 +274,10 @@
     "model": "alexandria_core.category",
     "pk": "dokumente-fur-gesuchsteller",
     "fields": {
-      "created_at": "2026-04-22T15:31:08.095Z",
+      "created_at": "2026-04-29T08:49:34.276Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2026-04-22T15:31:08.095Z",
+      "modified_at": "2026-04-29T08:49:34.276Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -303,7 +303,7 @@
       "name": "{\"de\": \"Dokumente für Gesuchsteller\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"video/mp4\", \"video/webm\"]",
-      "color": "#a6f8a6",
+      "color": "hsl(317 39% 40%)",
       "parent": null,
       "sort": 10
     }
@@ -312,10 +312,10 @@
     "model": "alexandria_core.category",
     "pk": "einsprachen",
     "fields": {
-      "created_at": "2026-04-22T15:31:08.091Z",
+      "created_at": "2026-04-29T08:49:34.272Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2026-04-22T15:31:08.091Z",
+      "modified_at": "2026-04-29T08:49:34.272Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -341,7 +341,7 @@
       "name": "{\"de\": \"Einsprachen\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"video/mp4\", \"video/webm\"]",
-      "color": "#ead3e7",
+      "color": "hsl(171 40% 40%)",
       "parent": null,
       "sort": 6
     }
@@ -350,10 +350,10 @@
     "model": "alexandria_core.category",
     "pk": "interne-ablage-nur-gruppenintern-sichtbar",
     "fields": {
-      "created_at": "2026-04-22T15:31:08.089Z",
+      "created_at": "2026-04-29T08:49:34.270Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2026-04-22T15:31:08.090Z",
+      "modified_at": "2026-04-29T08:49:34.270Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -369,8 +369,8 @@
       },
       "name": "{\"de\": \"Interne Ablage (nur gruppenintern sichtbar)\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[]",
-      "color": "#def1a6",
+      "allowed_mime_types": null,
+      "color": "hsl(345 48% 40%)",
       "parent": null,
       "sort": 4
     }
@@ -379,10 +379,10 @@
     "model": "alexandria_core.category",
     "pk": "interne-ablage-nur-gruppenintern-sichtbar-1",
     "fields": {
-      "created_at": "2026-04-22T15:31:08.093Z",
+      "created_at": "2026-04-29T08:49:34.274Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2026-04-22T15:31:08.093Z",
+      "modified_at": "2026-04-29T08:49:34.274Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -398,8 +398,8 @@
       },
       "name": "{\"de\": \"Interne Ablage (nur gruppenintern sichtbar)\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[]",
-      "color": "#d6b8ea",
+      "allowed_mime_types": null,
+      "color": "hsl(222 44% 40%)",
       "parent": null,
       "sort": 3
     }
@@ -408,10 +408,10 @@
     "model": "alexandria_core.category",
     "pk": "rechtsmittel",
     "fields": {
-      "created_at": "2026-04-22T15:31:08.096Z",
+      "created_at": "2026-04-29T08:49:34.276Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2026-04-22T15:31:08.096Z",
+      "modified_at": "2026-04-29T08:49:34.276Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -437,7 +437,7 @@
       "name": "{\"de\": \"Rechtsmittel\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"video/mp4\", \"video/webm\"]",
-      "color": "#e7d5df",
+      "color": "hsl(323 27% 40%)",
       "parent": null,
       "sort": 8
     }
@@ -446,10 +446,10 @@
     "model": "alexandria_core.category",
     "pk": "schriftenverkehr",
     "fields": {
-      "created_at": "2026-04-22T15:31:08.094Z",
+      "created_at": "2026-04-29T08:49:34.275Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2026-04-22T15:31:08.094Z",
+      "modified_at": "2026-04-29T08:49:34.275Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -475,7 +475,7 @@
       "name": "{\"de\": \"Schriftenverkehr\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "allowed_mime_types": "[\"image/png\", \"image/jpeg\", \"application/pdf\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"video/mp4\", \"video/webm\"]",
-      "color": "#ecaedf",
+      "color": "hsl(60 91% 40%)",
       "parent": null,
       "sort": 2
     }

@@ -310,6 +310,23 @@ def ur_alexandria_settings(
 
 
 @pytest.fixture
+def sz_alexandria_settings(
+    request,
+    settings,
+    alexandria_settings,
+):
+    """Module-specific settings for alexandria (canton SZ)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=alexandria_settings,
+        module_name="alexandria",
+        canton="kt_schwyz",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def sg_alexandria_settings(
     request,
     settings,
