@@ -39,6 +39,7 @@ import PublicationStartDateComponent from "ember-ebau-core/components/publicatio
 import QrCodeComponent from "ember-ebau-core/components/qr-code";
 import ServiceContentComponent from "ember-ebau-core/components/service-content";
 import ShowIfInquiryQuestionHasValue from "ember-ebau-core/components/show-if-inquiry-question-has-value";
+import SoCorrectionBauherrinWarningComponent from "ember-ebau-core/components/so-correction-bauherrin-warning";
 import SoGisComponent from "ember-ebau-core/components/so-gis";
 import SubmitInstanceComponent from "ember-ebau-core/components/submit-instance";
 import UrGisComponent from "ember-ebau-core/components/ur-gis";
@@ -235,6 +236,11 @@ export default class ApplicationRoute extends Route {
       label: "GIS-Karte (Kt. SO)",
       component: "so-gis",
       componentClass: SoGisComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Korrekturhinweis Bauherrschaft (Kt. SO)",
+      component: "so-correction-bauherrin-warning",
+      componentClass: SoCorrectionBauherrinWarningComponent,
     });
     this.calumaOptions.registerComponentOverride({
       label: "Datum Anzeiger und Datum Amtsblatt (Kt. SO)",
