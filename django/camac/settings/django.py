@@ -1045,13 +1045,29 @@ APPLICATIONS = {
                 "information-of-neighbors",
                 "ebau-number",
                 "decision",
+                "geometer",
+                # TODO: Remove inquiry and inquiry-answer from Kt. BE form permissions
+                # config as soon as permissions module is activated. They will be checked
+                # through the generic caluma permissions (has_caluma_form_edit_permission)
+                # and through the distribution specific permission checks (as for the
+                # other cantons). The existing form permission checks, always allowed
+                # read and write of the inquiry and inquiry answer forms.
                 "inquiry",
                 "inquiry-answer",
-                "geometer",
             ],
+            # Note: legal-submissions, additional-demands, checked through
+            # default permission check in caluma permission layer
             "FORM_PERMISSIONS_MAPPING": {
                 "form-sb1-v2-read": "form-sb1-read",
                 "form-sb1-v2-write": "form-sb1-write",
+                "form-ebau-number-write": "assign-ebau-number-write",
+                "form-dossierpruefung-write": "audit-write",
+                "form-publikation-write": "publication-write",
+                "form-information-of-neighbors-write": "information-of-neighbors-write",
+                "form-decision-write": "decision-write",
+                "form-geometer-write": "geometer-write",
+                # TODO: "form-legal-submissions-write": "legal-submissions-write",
+                # TODO: "form-appeal-write": "appeal-write",
             },
             "SUBMIT_TASKS": ["submit"],
             "REPORT_TASK": "sb1",

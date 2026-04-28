@@ -479,6 +479,57 @@ PERMISSIONS_BY_ACCESSLEVEL = {
             AdminPermission: (_has_documents_write_permission, [1, 5, 6, 7]),
             ReadPermission: (_allow_always, [3, 14]),
         },
+        "lead-authority": {
+            AdminBeforeDecisionPermission: (
+                _has_documents_write_permission,
+                [3, 12, 13, 14],
+            ),
+            AdminServiceBeforeDecisionPermission: (
+                _has_documents_write_permission,
+                [2],
+            ),
+            AdminInternalPermission: (_has_documents_write_permission, [4]),
+            ReadPermission: (_allow_always, [1, 5, 6, 7, 8, 10, 11]),
+            ReadInternalPermission: (_allow_always, [4]),
+        },
+        "involved-authority": {
+            ReadPermission: (_allow_always, [1, 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 14]),
+            ReadInternalPermission: (_allow_always, [4]),
+            AdminInternalPermission: (_has_documents_write_permission, [4]),
+        },
+        "distribution-service": {
+            ReadPermission: (_allow_always, [1, 2, 3, 5, 6, 7, 8, 10, 11, 13, 12, 14]),
+            ReadInternalPermission: (_allow_always, [4]),
+            AdminServiceRunningInquiryPermission: (
+                _has_documents_write_permission,
+                [2],
+            ),
+            AdminInternalPermission: (_has_documents_write_permission, [4]),
+        },
+        "construction-control": {
+            ReadPermission: (_allow_always, [1, 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 14]),
+            ReadInternalPermission: (_allow_always, [4]),
+            AdminServicePermission: (_has_documents_write_permission, [2, 3]),
+            AdminPermission: (_has_documents_write_permission, [10, 11]),
+            AdminInternalPermission: (_has_documents_write_permission, [4]),
+        },
+        "involved-construction-control": {
+            ReadPermission: (_allow_always, [1, 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 14]),
+            ReadInternalPermission: (_allow_always, [4]),
+            AdminServicePermission: (_has_documents_write_permission, [2, 3]),
+            AdminPermission: (_has_documents_write_permission, [10, 11]),
+            AdminInternalPermission: (_has_documents_write_permission, [4]),
+        },
+        "support": {
+            ReadPermission: (
+                _allow_always,
+                [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14],
+            ),
+            AdminPermission: (
+                _has_documents_write_permission,
+                [1, 2, 3, 4, 5, 6, 7, 10, 11, 12, 13, 14],
+            ),
+        },
     },
     "kt_schwyz": {
         "read": {

@@ -124,7 +124,7 @@ def test_unsubscribe_responsible_service_removes_correct_services(
     assert InstanceService.objects.all().count() == instance_services_count_after
 
 
-@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize("role__name", ["municipality-lead"])
 @pytest.mark.parametrize(
     "access_level_name,expected_status",
     [

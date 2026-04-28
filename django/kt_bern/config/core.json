@@ -45752,7 +45752,7 @@
       "hidden": 0,
       "sort": 5,
       "form_group": 40000,
-      "require_permission": "responsibilities-read"
+      "require_permission": "responsible-read"
     }
   },
   {
@@ -45896,7 +45896,7 @@
       "hidden": 0,
       "sort": 5,
       "form_group": 40000,
-      "require_permission": "responsibilities-read"
+      "require_permission": "responsible-read"
     }
   },
   {
@@ -46120,7 +46120,7 @@
       "hidden": 0,
       "sort": 24,
       "form_group": 40000,
-      "require_permission": "revisionhistory-read"
+      "require_permission": "revision-history-read"
     }
   },
   {
@@ -46136,7 +46136,7 @@
       "hidden": 0,
       "sort": 10,
       "form_group": 40000,
-      "require_permission": "changelog-read"
+      "require_permission": "revision-history-read"
     }
   },
   {
@@ -46152,7 +46152,7 @@
       "hidden": 0,
       "sort": 13,
       "form_group": 40000,
-      "require_permission": "changelog-read"
+      "require_permission": "revision-history-read"
     }
   },
   {
@@ -46168,7 +46168,7 @@
       "hidden": 0,
       "sort": 7,
       "form_group": 40000,
-      "require_permission": "changelog-read"
+      "require_permission": "revision-history-read"
     }
   },
   {
@@ -46216,7 +46216,7 @@
       "hidden": 0,
       "sort": 0,
       "form_group": 40000,
-      "require_permission": "corrections-read"
+      "require_permission": "support-read"
     }
   },
   {
@@ -46296,7 +46296,7 @@
       "hidden": 0,
       "sort": 20,
       "form_group": 40000,
-      "require_permission": "lead-authority-read"
+      "require_permission": "change-lead-authority-read"
     }
   },
   {
@@ -46312,7 +46312,7 @@
       "hidden": 0,
       "sort": 8,
       "form_group": 40000,
-      "require_permission": "construction-control-read"
+      "require_permission": "change-construction-control-read"
     }
   },
   {
@@ -46328,7 +46328,7 @@
       "hidden": 0,
       "sort": 21,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "change-construction-control-read"
     }
   },
   {
@@ -46344,7 +46344,7 @@
       "hidden": 0,
       "sort": 4,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "change-lead-authority-read"
     }
   },
   {
@@ -46376,7 +46376,7 @@
       "hidden": 0,
       "sort": 5,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "change-construction-control-read"
     }
   },
   {
