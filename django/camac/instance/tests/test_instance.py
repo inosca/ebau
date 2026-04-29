@@ -1657,7 +1657,7 @@ def test_instance_export_detail(
     )
     add_field(name="bohrungsdaten", value="Bezeichnung")
     add_field(name="kategorie-des-vorhabens", value=["Anlage(n)", "Baute(n)"])
-    add_field(name="baugeruest-errichtet-am", value="2019-20-19")
+    add_field(name="baugeruest-errichtet-am", value="2019-02-19")
     add_field(
         name="punkte", value=[{"lat": 47.02433179952733, "lng": 8.634144559228435}]
     )

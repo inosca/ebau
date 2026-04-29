@@ -443,7 +443,7 @@
       "hint": "",
       "type": "table",
       "required": true,
-      "active-expression": "'baugeruest-errichtet-am'|value == '2019-20-19'",
+      "active-expression": "'baugeruest-errichtet-am'|value == '2019-02-19'",
       "config": {
         "columns": [
           {
