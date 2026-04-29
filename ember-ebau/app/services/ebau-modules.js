@@ -89,7 +89,7 @@ export default class CustomEbauModulesService extends EbauModulesService {
     return this.session.language;
   }
 
-  redirectToCaseWorkItems() {
+  redirectToCaseWorkItems = () => {
     this.router
       .transitionTo("cases.detail.work-items", this.instanceId)
       .then(() => {
@@ -99,17 +99,17 @@ export default class CustomEbauModulesService extends EbauModulesService {
         // data on the case (e.g dossier number) is up-to-date
         getOwner(this).lookup("controller:cases.detail").cases.refresh();
       });
-  }
+  };
 
-  redirectToInstance(instanceId) {
+  redirectToInstance = (instanceId) => {
     this.router
       .transitionTo("cases.detail.index", instanceId)
       .then(() => this.router.refresh());
-  }
+  };
 
-  redirectToInstanceForm(instanceId) {
+  redirectToInstanceForm = (instanceId) => {
     this.router
       .transitionTo("cases.detail.form", instanceId)
       .then(() => this.router.refresh());
-  }
+  };
 }

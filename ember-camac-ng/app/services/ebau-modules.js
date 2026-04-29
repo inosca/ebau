@@ -65,23 +65,23 @@ export default class CustomEbauModulesService extends EbauModulesService {
     return this.shoebox.content.language;
   }
 
-  redirectToCaseWorkItems() {
+  redirectToCaseWorkItems = () => {
     window.location.replace(
       `/index/redirect-to-instance-resource/instance-id/${this.instanceId}`,
     );
-  }
+  };
 
-  redirectToInstance(instanceId) {
+  redirectToInstance = (instanceId) => {
     window.location.replace(
       `/index/redirect-to-instance-resource/instance-id/${instanceId}`,
     );
-  }
+  };
 
-  redirectToInstanceForm(instanceId) {
+  redirectToInstanceForm = (instanceId) => {
     window.location.replace(
       `/index/redirect-to-instance-resource/instance-id/${instanceId}/form`,
     );
-  }
+  };
 
   // careful: only works in ember-camac-ng!
   // for modern apps use task.meta.directLink instead
