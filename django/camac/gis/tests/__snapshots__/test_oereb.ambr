@@ -1,0 +1,53 @@
+# serializer version: 1
+# name: test_oereb_client[be_oereb_config-CH968746351115]
+  dict({
+    'gemeinde': dict({
+      'displayValue': 'Bern',
+      'hidden': False,
+      'label': 'Gemeinde',
+      'value': '99',
+    }),
+    'kbs': dict({
+      'displayValue': 'Nein',
+      'hidden': False,
+      'label': 'Belasteter Standort?',
+      'value': 'kbs-nein',
+    }),
+    'parzellennummer': dict({
+      'hidden': False,
+      'label': 'Parzellennummer',
+      'value': '637',
+    }),
+    'zonenplan': dict({
+      'hidden': False,
+      'label': 'Zonenplan',
+      'value': 'Aaretalschutzgebiet, Festlegung der Bebauung mittels spezieller Vorschriften, Strassenbaulinie (ST), UeO Scheuerrain / Sulgenrain, Wohnzone (W), seitliche und rückwärtige Baulinie (SR)',
+    }),
+  })
+# ---
+# name: test_oereb_client[sg_oereb_config-CH538777599655]
+  dict({
+    'gemeinde': dict({
+      'displayValue': 'St.Gallen',
+      'hidden': False,
+      'label': 'Gemeinde',
+      'value': '99',
+    }),
+    'kbs': dict({
+      'displayValue': 'Ja',
+      'hidden': False,
+      'label': 'Belasteter Standort?',
+      'value': 'kbs-ja',
+    }),
+    'parzellennummer': dict({
+      'hidden': False,
+      'label': 'Parzellennummer',
+      'value': 'F2180',
+    }),
+    'zonenplan': dict({
+      'hidden': False,
+      'label': 'Zonenplan',
+      'value': 'BauG Grünzone Erholung, BauG Grünzone Freihaltung, BauG Landwirtschaftszone, BauG Skiabfahrts- und Skiübungsgelände, BauG Wohnzone W2, BauG Wohnzone W3, BauG Zone für öffentliche Bauten und Anlagen, Hinweis Wald',
+    }),
+  })
+# ---

@@ -3723,6 +3723,9 @@ AG_GIS_BASE_URL = env.str(
     default="https://www.ag.ch/geoportal/rest/services/afb_gischeck_diba/MapServer",
 )
 
+# ÖREB extract API (currently only SG)
+OEREB_URL = env.str("OEREB_URL", default="https://oereb.geo.sg.ch/ktsg/wsgi/oereb")
+
 DOCUMENT_MERGE_SERVICE_URL = build_url(
     env.str("DOCUMENT_MERGE_SERVICE_URL", "http://document-merge-service:8000/api/v1/")
 )

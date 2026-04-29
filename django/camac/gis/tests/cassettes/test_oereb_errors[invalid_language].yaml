@@ -1,0 +1,32 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.5
+    method: GET
+    uri: https://oereb.geo.sg.ch/ktsg/wsgi/oereb/extract/json?EGRID=CH538777599655&LANG=fr
+  response:
+    body:
+      string: "<html>\n <head>\n  <title>400 Bad Request</title>\n </head>\n <body>\n
+        \ <h1>400 Bad Request</h1>\n  The server could not comply with the request
+        since it is either malformed or otherwise incorrect.<br/><br/>\nRequested
+        language is not available. Following languages are configured: [&#x27;de&#x27;].
+        The requested language was: fr.\n\n\n </body>\n</html>"
+    headers:
+      content-length:
+      - '343'
+      content-type:
+      - text/html; charset=UTF-8
+      date:
+      - Thu, 30 Apr 2026 13:09:40 GMT
+    status:
+      code: 400
+      message: Bad Request
+version: 1

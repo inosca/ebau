@@ -1,0 +1,24 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.5
+    method: GET
+    uri: https://oereb.geo.sg.ch/ktsg/wsgi/oereb/extract/json?EGRID=CH968746351115&LANG=de
+  response:
+    body:
+      string: ''
+    headers:
+      date:
+      - Thu, 30 Apr 2026 13:09:39 GMT
+    status:
+      code: 204
+      message: No Content
+version: 1
