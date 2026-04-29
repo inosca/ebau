@@ -52,7 +52,9 @@
         "standort-der-warmepumpe",
         "punkte",
         "meta",
-        "art-der-nutzung"
+        "art-der-nutzung",
+        "baukosten",
+        "baugeruest-errichtet-am"
       ]
     },
     "personalien": {

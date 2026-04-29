@@ -1456,6 +1456,8 @@ def test_instance_submit_sz(
     add_field(name="anlagen-mit-erheblichen-schadstoffemissionen", value="Ja")
     add_field(name="anlagen-mit-erheblichen-schadstoffemissionen-welche", value="Test")
     add_field(name="gwr", value=[{"name": "Name", "wohnungen": [{"stockwerk": "1OG"}]}])
+    add_field(name="baukosten", value=1)
+    add_field(name="baugeruest-errichtet-am", value="2026-04-29")
     add_field(
         name="punkte", value=[[{"lat": 47.02433179952733, "lng": 8.634144559228435}]]
     )
