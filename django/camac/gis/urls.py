@@ -4,7 +4,7 @@ from camac.gis import views
 
 urlpatterns = [
     re_path(
-        r"^data/(?:(?P<task_id>[\w-]+)/)?$",
+        r"^data(?:/(?P<task_id>[\w-]+))?/?$",
         views.GISDataView.as_view(),
         name="gis-data",
     ),

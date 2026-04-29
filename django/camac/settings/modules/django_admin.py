@@ -122,6 +122,7 @@ DJANGO_ADMIN = {
             "alexandria_core.Mark",
             "core.InstanceResource",
             "core.Resource",
+            "gis.GISDataSource",
             "notification.NotificationTemplate",
         ],
     },

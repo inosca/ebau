@@ -20,6 +20,7 @@ gis:
   apply-error: Die GIS-Daten der Parzelle konnten nicht abgefragt werden.
   apply-answer-error: Die GIS-Daten zur Frage "{label}" konnten nicht übernommen werden.
   point-error: Die Parzelle konnte nicht ausgewählt werden.
+  bounds-error: Die Auswahl liegt ausserhalb der Kantonsgrenzen.
   select: Auswählen
   search-error: Die Suche ist fehlgeschlagen
   row-count: "(Zeile {count})"

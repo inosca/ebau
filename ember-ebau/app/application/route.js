@@ -29,6 +29,7 @@ import PublicationDateKantonsamtsblattComponent from "ember-ebau-core/components
 import PublicationFillEndDateComponent from "ember-ebau-core/components/publication-fill-end-date";
 import PublicationStartDateComponent from "ember-ebau-core/components/publication-start-date";
 import QrCodeComponent from "ember-ebau-core/components/qr-code";
+import SgGisComponent from "ember-ebau-core/components/sg-gis";
 import ShowIfInquiryQuestionHasValue from "ember-ebau-core/components/show-if-inquiry-question-has-value";
 import SoGisComponent from "ember-ebau-core/components/so-gis";
 import SubmitInstanceComponent from "ember-ebau-core/components/submit-instance";
@@ -79,6 +80,11 @@ export default class ApplicationRoute extends Route {
       label: "GIS-Karte (Kt. AG)",
       component: "ag-gis",
       componentClass: AgGisComponent,
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "GIS-Karte (Kt. SG)",
+      component: "sg-gis",
+      componentClass: SgGisComponent,
     });
     this.calumaOptions.registerComponentOverride({
       label: "Eeba Link",

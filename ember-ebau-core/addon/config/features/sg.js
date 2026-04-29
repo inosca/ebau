@@ -23,4 +23,8 @@ export default {
   publication: {
     showMainForm: true,
   },
+  gis: {
+    // TODO: remove this as soon as backend is fixed
+    v3: true,
+  },
 };

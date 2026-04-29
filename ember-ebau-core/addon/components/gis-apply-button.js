@@ -24,12 +24,10 @@ export default class GisApplyButtonComponent extends Component {
     if (this.args.disabled) return;
 
     try {
-      const params = [
-        ...Object.entries(this.args.params),
-        ["instance", this.args.instanceId],
-      ]
-        .map(([key, value]) => `${key}=${value}`)
-        .join("&");
+      const params = new URLSearchParams({
+        ...this.args.params,
+        instance: this.args.instanceId,
+      }).toString();
 
       this.args.onGetData?.();
 

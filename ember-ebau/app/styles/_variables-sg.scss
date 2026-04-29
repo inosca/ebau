@@ -86,3 +86,9 @@ $ember-power-select-disabled-background-color: $global-muted-background;
 // Navigation badges
 $navbar-badge-color: $global-secondary-background;
 $sidebar-badge-color: $global-secondary-background;
+
+// GIS
+:root {
+  --sg-gis-search-result: #{$global-secondary-background};
+  --sg-gis-plot: #{$global-success-background};
+}

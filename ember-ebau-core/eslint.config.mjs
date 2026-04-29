@@ -23,6 +23,7 @@ export default [
     },
     rules: {
       "ember/no-runloop": "warn",
+      "no-unused-vars": ["error", { ignoreRestSiblings: true }],
     },
   },
 ];
