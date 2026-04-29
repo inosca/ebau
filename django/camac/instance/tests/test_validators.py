@@ -114,22 +114,22 @@ def test_form_data_validator_validate_deactivation(
          ┌───────────────────────────────┐                        ┌───────────────────────────────┐
          │  Question 0 / FormField 0     │                        │  Question 1 / FormField 1     │
          │  value: 'Yes', active: True   │                        │  value: 'No', active: True    │
-         |  active-expr: None            |                        |  active-expr: None            |
+         │  active-expr: None            │                        │  active-expr: None            │
          └───────────────┬───────────────┘                        └─────────────┬─────────────────┘
-                         |                                                      |
+                         │                                                      │
     ┌────────────────────┴────────────────────────┐     ┌───────────────────────┴─────────────────────┐
     │  Question 2 / FormField 2                   │     │  Question 3 / FormField 3                   │
     │  value: 'Yes', active: True                 │     │  value: 'Yes', active: False                │
-    |  active-expr: "'Yes' == 'question-0'|value  │     |  active-expr: "'Yes' == 'question-1'|value  │
+    │  active-expr: "'Yes' == 'question-0'|value  │     │  active-expr: "'Yes' == 'question-1'|value  │
     └────────────────────┬────────────────────────┘     └───────────────────────┬─────────────────────┘
-                         |                                                      |
+                         │                                                      │
                          └───────────────────────────┬──────────────────────────┘
                                                      │
                        ┌─────────────────────────────┴──────────────────────────────────┐
                        │  Question 4 / FormField 4                                      │
                        │  value: None, active: False, required: True                    │
-                       |  active-expr:                                                  |
-                       |  "'Yes' == 'question-2'|value && 'Yes' == 'question-3'|value"  |
+                       │  active-expr:                                                  │
+                       │  "'Yes' == 'question-2'|value && 'Yes' == 'question-3'|value"  │
                        └────────────────────────────────────────────────────────────────┘
     """
     settings.FORM_CONFIG = FORM_CONFIG
