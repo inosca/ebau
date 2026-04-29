@@ -6,6 +6,7 @@ CORRECTION = {
         "ALLOWED_INSTANCE_STATES": ["subm"],
         "ALLOWED_WITH_PENDING_INQUIRIES": False,
         "HISTORY_ENTRY": _("Dossier corrected"),
+        "REGENERATE_PDF_ON_CORRECTION": False,
     },
     "kt_gr": {
         "ENABLED": True,
@@ -15,6 +16,7 @@ CORRECTION = {
             "circulation",
             "decision",
         ],
+        "REGENERATE_PDF_ON_CORRECTION": True,
         "ALLOWED_WITH_PENDING_INQUIRIES": True,
     },
     "kt_so": {

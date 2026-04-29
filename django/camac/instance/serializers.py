@@ -1359,6 +1359,26 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         if settings.TIMELINES.enabled:
             FormTimeline.objects.close_open_timelines(instance=instance)
 
+    def _regenerate_and_store_pdf(self, instance):
+        # store a new form export
+        created = self._generate_and_store_pdf(instance)
+
+        # mark previous form exports as void.
+        if isinstance(created, alexandria_models.Document):
+            previous = (
+                instance.alexandria_instance_documents.filter(
+                    **{
+                        "document__metainfo__system-generated": True,
+                        "document__title": created.title,
+                    }
+                )
+                .exclude(document__pk=created.pk)  # exclude newly created document
+                .exclude(document__marks__pk="void")  # exclude already void documents
+            )
+
+            for instance_doc in previous:
+                instance_doc.document.marks.add("void")
+
     def _generate_and_store_pdf(
         self, instance, form_slug=None
     ) -> alexandria_models.Document | Attachment | None:
@@ -3065,7 +3085,7 @@ class CalumaInstanceAppealSerializer(serializers.Serializer):
         resource_name = "instance-appeals"
 
 
-class CalumaInstanceCorrectionSerializer(serializers.Serializer):
+class CalumaInstanceCorrectionSerializer(CalumaInstanceSubmitSerializer):
     def validate(self, data):
         if (
             not settings.CORRECTION["ALLOWED_WITH_PENDING_INQUIRIES"]
@@ -3112,6 +3132,9 @@ class CalumaInstanceCorrectionSerializer(serializers.Serializer):
                     instance=instance, timeline_type=FormTimeline.Type.CORRECTION
                 )
 
+            if settings.CORRECTION["REGENERATE_PDF_ON_CORRECTION"]:
+                self._regenerate_and_store_pdf(instance)
+
             for config in settings.APPLICATION["NOTIFICATIONS"].get(
                 "DOSSIERKORREKTUR", []
             ):  # pragma: no cover
@@ -3128,9 +3151,6 @@ class CalumaInstanceCorrectionSerializer(serializers.Serializer):
             )
 
         return instance
-
-    class Meta:
-        resource_name = "instance-corrections"
 
 
 class CalumaInstanceAdditionalDemandChangesSubmitSerializer(
@@ -3151,27 +3171,7 @@ class CalumaInstanceAdditionalDemandChangesSubmitSerializer(
     @transaction.atomic
     def update(self, instance, validated_data):
         if settings.ADDITIONAL_DEMAND.get("APPLICANT_CORRECTION_FORMEXPORT", False):
-            # store a new form export
-            created = self._generate_and_store_pdf(instance, None)
-
-            # mark previous form exports as void.
-            if isinstance(created, alexandria_models.Document):
-                previous = (
-                    instance.alexandria_instance_documents.filter(
-                        **{
-                            "document__metainfo__system-generated": True,
-                            "document__title": created.title,
-                        }
-                    )
-                    .exclude(document__pk=created.pk)  # exclude newly created document
-                    .exclude(
-                        document__marks__pk="void"
-                    )  # exclude already void documents
-                )
-
-                for instance_doc in previous:
-                    instance_doc.document.marks.add("void")
-                    instance_doc.document.save()
+            self._regenerate_and_store_pdf(instance)
 
         return instance
 
