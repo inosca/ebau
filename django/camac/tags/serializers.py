@@ -19,5 +19,5 @@ class KeywordSerializer(VisibilitySerializerMixin, serializers.ModelSerializer):
 class StaticKeywordSerializer(VisibilitySerializerMixin, serializers.ModelSerializer):
     class Meta:
         model = models.StaticKeyword
-        fields = ("name", "service", "instances")
+        fields = ("name", "service", "instances", "is_archived")
         resource_name = "static-keywords"

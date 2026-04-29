@@ -23,7 +23,7 @@
     />
   </div>
 </form>
-<div class="uk-grid-small uk-margin-large-top" uk-grid>
+<div class="uk-flex uk-margin-large-top">
   <div class="uk-width-expand">
     <div class="uk-search uk-search-default uk-width-1-1">
       <span uk-search-icon></span>
@@ -37,6 +37,32 @@
       />
     </div>
   </div>
+  <div class="uk-button-group uk-flex">
+    <button
+      class="uk-button uk-button-default
+        {{if (eq this.filter 'active') 'uk-button-primary'}}"
+      type="button"
+      {{on "click" (fn (mut this.filter) "active")}}
+    >
+      {{t "service-permissions.static-keywords-active"}}
+    </button>
+    <button
+      class="uk-button uk-button-default
+        {{if (eq this.filter 'archived') 'uk-button-primary'}}"
+      type="button"
+      {{on "click" (fn (mut this.filter) "archived")}}
+    >
+      {{t "service-permissions.static-keywords-archived"}}
+    </button>
+    <button
+      class="uk-button uk-button-default
+        {{if (eq this.filter 'all') 'uk-button-primary'}}"
+      type="button"
+      {{on "click" (fn (mut this.filter) "all")}}
+    >
+      {{t "service-permissions.static-keywords-all"}}
+    </button>
+  </div>
 </div>
 <table class="uk-table uk-table-striped uk-table-middle">
   <thead>
@@ -47,15 +73,75 @@
   <tbody>
     {{#each this.staticKeywords.records as |row|}}
       <tr>
-        <td>{{row.name}}</td>
-        <td class="uk-text-right">
+        <td>
+          {{#if (eq this.editRow.id row.id)}}
+            <div class="uk-flex">
+              <div class="uk-form-controls uk-margin-small-right uk-width-1-1">
+                <Input
+                  id="static-keyword-edit"
+                  class="uk-input"
+                  required
+                  @type="text"
+                  @value={{row.name}}
+                />
+              </div>
+              <button
+                type="button"
+                class="uk-button uk-button-link uk-margin-small-right"
+                {{on "click" (perform this.saveEdit row)}}
+              >
+                <UkIcon @icon="check" />
+              </button>
+              <button
+                type="button"
+                class="uk-button uk-button-link"
+                {{on "click" (fn (mut this.editRow) null)}}
+              >
+                <UkIcon @icon="close" />
+              </button>
+            </div>
+          {{else}}
+            <span>
+              {{row.name}}
+            </span>
+          {{/if}}
+        </td>
+        <td class="uk-flex uk-flex-right">
           <button
             type="button"
-            class="uk-button uk-button-link"
-            {{on "click" (perform this.delete row)}}
+            class="uk-button uk-button-link uk-margin-small-right"
+            {{on "click" (fn (mut this.editRow) row)}}
           >
-            <UkIcon @icon="trash" />
+            <UkIcon @icon="pencil" />
           </button>
+          {{#if row.instances.length}}
+            {{#if row.isArchived}}
+              <button
+                type="button"
+                class="uk-button uk-button-link"
+                {{on "click" (perform this.toggleArchive row false)}}
+              >
+                <UkIcon @icon="eye" />
+              </button>
+            {{else}}
+              <button
+                type="button"
+                class="uk-button uk-button-link"
+                {{on "click" (perform this.toggleArchive row true)}}
+              >
+                <UkIcon @icon="eye-slash" />
+              </button>
+            {{/if}}
+
+          {{else}}
+            <button
+              type="button"
+              class="uk-button uk-button-link"
+              {{on "click" (perform this.delete row)}}
+            >
+              <UkIcon @icon="trash" />
+            </button>
+          {{/if}}
         </td>
       </tr>
     {{else}}

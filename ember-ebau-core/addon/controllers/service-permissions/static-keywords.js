@@ -17,6 +17,8 @@ export default class ServicePermissionsStaticKeywordsController extends Controll
   @tracked page = 1;
   @tracked staticKeywordName;
   @tracked search = "";
+  @tracked editRow;
+  @tracked filter = "active";
 
   @action
   updatePage() {
@@ -27,6 +29,10 @@ export default class ServicePermissionsStaticKeywordsController extends Controll
 
   staticKeywords = paginatedQuery(this, "static-keyword", () => ({
     search: this.search,
+    service: this.session.service.id,
+    ...(this.filter === "all"
+      ? {}
+      : { is_archived: this.filter === "archived" }),
     page: {
       number: this.page,
       size: 20,
@@ -94,6 +100,56 @@ export default class ServicePermissionsStaticKeywordsController extends Controll
       )
     ) {
       await staticKeyword.destroyRecord();
+    }
+  });
+
+  toggleArchive = task(
+    { drop: true },
+    async (staticKeyword, shouldArchive, event) => {
+      event.preventDefault();
+
+      const info = this.intl.t(
+        shouldArchive
+          ? "service-permissions.static-keywords-archive-confirm"
+          : "service-permissions.static-keywords-unarchive-confirm",
+      );
+      const ok = this.intl.t(
+        shouldArchive
+          ? "service-permissions.static-keywords-archive"
+          : "service-permissions.static-keywords-unarchive",
+      );
+
+      if (
+        await confirm(info, {
+          i18n: {
+            ok,
+          },
+        })
+      ) {
+        staticKeyword.isArchived = shouldArchive;
+        await staticKeyword.save();
+        await this.staticKeywords.retry();
+      }
+    },
+  );
+
+  saveEdit = task({ drop: true }, async (staticKeyword, event) => {
+    event.preventDefault();
+
+    try {
+      await this.editRow.save();
+      this.editRow = null;
+
+      this.notification.success(
+        this.intl.t("service-permissions.static-keywords-save-success"),
+      );
+    } catch (error) {
+      this.notification.danger(
+        parseError(error, false) ??
+          this.intl.t("service-permissions.static-keywords-save-error"),
+      );
+
+      staticKeyword.rollbackAttributes();
     }
   });
 }
