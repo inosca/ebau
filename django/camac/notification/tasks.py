@@ -80,6 +80,7 @@ def send_notification_for_overdue_workitems(self):
                     "meta__notify-deadline": True,
                     "meta__deadline_notification_sent_at__isnull": True,
                     "deadline__range": [cut_off_date, now],
+                    "closed_at__isnull": True,
                 }
             )
             log.info(
