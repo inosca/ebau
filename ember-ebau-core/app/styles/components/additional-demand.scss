@@ -21,14 +21,13 @@
   }
 
   .print-table-container {
-    display: table !important;
+    display: inline !important;
     width: 100% !important;
-    border-collapse: collapse !important;
-    table-layout: auto;
     margin-left: 0 !important;
   }
 
   .print-table-row {
-    display: table-row !important;
+    display: inline;
+    width: 100%;
   }
 }
