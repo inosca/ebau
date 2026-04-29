@@ -27,7 +27,10 @@ from camac.caluma.utils import (
     find_answer,
     work_item_by_addressed_service_condition,
 )
-from camac.core.translations import get_translations_canton_aware
+from camac.core.translations import (
+    get_available_languages,
+    get_translations_canton_aware,
+)
 from camac.tags.models import Keyword
 from camac.user.models import Service, User
 from camac.utils import build_url, clean_join, get_dict_item
@@ -51,9 +54,39 @@ class AliasedMixin:
     DRF serializer field mixin for handling aliased placeholders.
 
     Aliases are generally translated and can be used to access the same field
-    under different names in the respective language.
+    under different names in the respective language. To override this behaviour
+    set kwarg `static_translations` to True.
 
     Nested aliases are used to access fields of nested objects.
+
+    Parameters:
+    aliases (list | None): A list of aliases for the field.
+    nested_aliases (dict[str, list[str]] | None): A dictionary of
+        aliases for the fields objects' attribute names. Double nesting is supported
+        by dot path notation.
+
+        Example:
+        {
+            # single nesting
+            'attr1': ['attr1_alias1', 'attr1_alias2'],
+            # double nesting
+            'attr2.attr1': ['attr1_alias1', 'attr1_alias2'],
+            'attr2.attr2': ['attr2_alias1']
+            }
+        }
+
+    description (str | None): Description displayed in user facing docs.
+    is_collection (bool): Whether the field is a collection of values. Collections
+        should be iterated over when used in templates and the docs should indicate
+        this by suffixing the placeholder with `[]`. E. g. `some_list_of_values[]`.
+        `is_collection` is set to True if at least one nested alias is provided.
+    static_translations (bool): In some cases translation of aliases is not
+        desired (looking at you kt_schwyz). Here's how you do it: in the serializer
+        field, that inherits from AliasedMixin, set `enforce_untranslated` to
+        `True` and add the alias as a **regular string** to the list of aliases. The
+        result will still add the aliases to the translation dictionary with all
+        configured languages, the value however is static and respects casting the
+        case as configured.
     """
 
     def __init__(
@@ -62,38 +95,16 @@ class AliasedMixin:
         nested_aliases: dict[str, list[str]] | None = None,
         description: str = None,
         is_collection: bool = False,
+        static_translations: bool = False,
         *args,
         **kwargs,
     ):
-        """Initialize DRF field for aliased placeholder fields.
-
-        Parameters:
-        aliases (list | None): A list of aliases for the field.
-        nested_aliases (dict[str, list[str]] | None): A dictionary of
-            aliases for the fields objects' attribute names. Double nesting is supported
-            by dot path notation.
-
-            Example:
-            {
-                # single nesting
-                'attr1': ['attr1_alias1', 'attr1_alias2'],
-                # double nesting
-                'attr2.attr1': ['attr1_alias1', 'attr1_alias2'],
-                'attr2.attr2': ['attr2_alias1']
-                }
-            }
-
-        description (str | None): Description displayed in user facing docs.
-        is_collection (bool): Whether the field is a collection of values. Collections
-            should be iterated over when used in templates and the docs should indicate
-            this by suffixing the placeholder with `[]`. E. g. `some_list_of_values[]`.
-            `is_collection` is set to True if at least one nested alias is provided.
-        """
         super().__init__(*args, **kwargs)
         self._aliases = aliases or []
         self._nested_aliases = nested_aliases or {}
         self.description = description
         self.is_collection = is_collection or len(self._nested_aliases) > 0
+        self.static_translations = static_translations
 
     @property
     def aliases(self):
@@ -103,8 +114,8 @@ class AliasedMixin:
     def nested_aliases(self):
         return self._nested_aliases
 
-    @staticmethod
     def _get_alias_translations(
+        self,
         alias: str | dict[Literal["default", *settings.APPLICATIONS.keys()], str],
         flat: bool = False,
     ) -> dict[Literal[*dict(settings.LANGUAGES).keys()], str] | list[str]:
@@ -131,12 +142,20 @@ class AliasedMixin:
 
         """
         if flat:
+            if self.static_translations:
+                return set([to_configured_case(alias)])
+
             return set(
                 [
                     to_configured_case(alias_t)
                     for alias_t in get_translations_canton_aware(alias).values()
                 ]
             )
+
+        if self.static_translations:
+            return {
+                lang: to_configured_case(alias) for lang, _ in get_available_languages()
+            }
 
         return {
             lang: to_configured_case(alias_t)
