@@ -72,21 +72,21 @@ def send_notification_for_overdue_workitems(self):
             cut_off_date = process_deadlines_from
             log.info(f"Use configured value for process_deadlines_from: {cut_off_date}")
 
-    log.info(
-        f"Send notifications for overdue WorkItems in range {cut_off_date} to {now}. Task last run at: {task.last_run_at or 'Never'}."
-    )
-
     for task_id in config.keys():
         try:
-            for work_item in WorkItem.objects.filter(
+            work_items = WorkItem.objects.filter(
                 **{
                     "task": task_id,
                     "meta__notify-deadline": True,
                     "meta__deadline_notification_sent_at__isnull": True,
                     "deadline__range": [cut_off_date, now],
-                    "closed_at__isnull": True,
                 }
-            ):
+            )
+            log.info(
+                f"Send notifications for {work_items.count()} overdue WorkItems ({task_id}) in range {cut_off_date} to {now}. Task last run at: {task.last_run_at or 'Never'}."
+            )
+
+            for work_item in work_items:
                 try:
                     instance_id = get_instance_id(work_item)
                     notification = config[task_id]
