@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-27 09:52+0200\n"
+"POT-Creation-Date: 2026-06-02 16:45+0200\n"
 "PO-Revision-Date: 2025-05-26 15:56+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2770,6 +2770,30 @@ msgstr ""
 msgid ""
 "All publications with start, end, week number and journal number (defaults "
 "to week number)."
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Total amount billed by municipality"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Total amount billed by canton"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Total amount billed"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Total unbilled amount by municipality"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Total unbilled amount billed by canton"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Total unbilled amount"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py

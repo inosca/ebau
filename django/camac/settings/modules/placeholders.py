@@ -140,7 +140,17 @@ PLACEHOLDERS = {
             "VERRECHNET_AM",
         ],
     },
-    "kt_schwyz": {"ENABLED": True, "PLACEHOLDER_CASE": "lower"},
     "kt_sg": {"ENABLED": True},
+    "kt_schwyz": {
+        "ENABLED": True,
+        "PLACEHOLDER_CASE": "lower",
+        "BILLING_ENTRY_FIELDS": [
+            "POSITION",
+            "BETRAG",
+            "VERRECHNET_AM",
+            "ART",
+            "BEMERKUNG",
+        ],
+    },
     "test": {"ENABLED": True},
 }

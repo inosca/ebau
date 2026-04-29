@@ -13,6 +13,7 @@ from django.utils.timezone import now
 from django.utils.translation import get_language, gettext_noop as _
 from rest_framework import serializers
 
+from camac.billing.models import BillingV2Entry
 from camac.caluma.api import CalumaApi
 from camac.constants import kt_gr as gr_constants, kt_uri as ur_constants
 from camac.core.translations import get_translations_canton_aware
@@ -2364,6 +2365,46 @@ class SzDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         description=_(
             "All publications with start, end, week number and journal number (defaults to week number)."
         ),
+        static_translations=True,
+    )
+    billing_total_kommunal = fields.BillingEntriesField(
+        only_for_organization=BillingV2Entry.Organizations.MUNICIPAL,
+        total=True,
+        aliases=["BILLING_TOTAL_KOMMUNAL"],
+        description=_("Total amount billed by municipality"),
+        static_translations=True,
+    )
+    billing_total_kanton = fields.BillingEntriesField(
+        only_for_organization=BillingV2Entry.Organizations.CANTONAL,
+        total=True,
+        aliases=["BILLING_TOTAL_KANTON"],
+        description=_("Total amount billed by canton"),
+        static_translations=True,
+    )
+    billing_total = fields.BillingEntriesField(
+        total=True,
+        aliases=["BILLING_TOTAL"],
+        description=_("Total amount billed"),
+        static_translations=True,
+    )
+    billing_total_uncharged_kommunal = fields.BillingEntriesField(
+        only_for_organization=BillingV2Entry.Organizations.MUNICIPAL,
+        aliases=["BILLING_TOTAL_UNCHARGED_KOMMUNAL"],
+        description=_("Total unbilled amount by municipality"),
+        total=True,
+        static_translations=True,
+    )
+    billing_total_uncharged_kanton = fields.BillingEntriesField(
+        only_for_organization=BillingV2Entry.Organizations.CANTONAL,
+        aliases=["BILLING_TOTAL_UNCHARGED_KANTON"],
+        description=_("Total unbilled amount billed by canton"),
+        total=True,
+        static_translations=True,
+    )
+    billing_total_uncharged = fields.BillingEntriesField(
+        aliases=["BILLING_TOTAL_UNCHARGED"],
+        description=_("Total unbilled amount"),
+        total=True,
         static_translations=True,
     )
     date_dossiervollstandig = fields.MasterDataField(

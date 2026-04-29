@@ -10411,6 +10411,78 @@
 # ---
 # name: test_dms_placeholders_docs[kt_schwyz]
   dict({
+    'billing_total': dict({
+      'aliases': list([
+        dict({
+          'de': 'billing_total',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Aufwand Total',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'billing_total_kanton': dict({
+      'aliases': list([
+        dict({
+          'de': 'billing_total_kanton',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Aufwand Kanton',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'billing_total_kommunal': dict({
+      'aliases': list([
+        dict({
+          'de': 'billing_total_kommunal',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Aufwand Gemeinde',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'billing_total_uncharged': dict({
+      'aliases': list([
+        dict({
+          'de': 'billing_total_uncharged',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Unverrechneter Aufwand Total',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'billing_total_uncharged_kanton': dict({
+      'aliases': list([
+        dict({
+          'de': 'billing_total_uncharged_kanton',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Unverrechneter Aufwand Kanton',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'billing_total_uncharged_kommunal': dict({
+      'aliases': list([
+        dict({
+          'de': 'billing_total_uncharged_kommunal',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Unverrechneter Aufwand Gemeinde',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'date_dossiereingang': dict({
       'aliases': list([
         dict({
@@ -19430,6 +19502,12 @@
 # ---
 # name: test_dms_placeholders_docs_available_placeholders[set_application_sz]
   list([
+    'billing_total',
+    'billing_total_kanton',
+    'billing_total_kommunal',
+    'billing_total_uncharged',
+    'billing_total_uncharged_kanton',
+    'billing_total_uncharged_kommunal',
     'date_dossiereingang',
     'date_dossiervollstandig',
     'date_start_zirkulation',
@@ -21972,9 +22050,15 @@
 # ---
 # name: test_dms_placeholders_sz[Gemeinde]
   dict({
-    'date_dossiereingang': '15.10.2020',
-    'date_dossiervollstandig': '26.10.2020',
-    'date_start_zirkulation': '06.11.2020',
+    'billing_total': '1’110.00',
+    'billing_total_kanton': '666.00',
+    'billing_total_kommunal': '444.00',
+    'billing_total_uncharged': '1’110.00',
+    'billing_total_uncharged_kanton': '666.00',
+    'billing_total_uncharged_kommunal': '444.00',
+    'date_dossiereingang': '14.10.2020',
+    'date_dossiervollstandig': '25.10.2020',
+    'date_start_zirkulation': '05.11.2020',
     'field_bauherrschaft': list([
       dict({
         'ADDRESS': 'Teststrasse 3, 5678 Musterdorf',
@@ -22086,7 +22170,7 @@
     'publications': list([
       dict({
         'calendar_week': 39,
-        'date': '28.09.2001',
+        'date': '27.09.2001',
         'end_date': '27.04.1993',
         'journal_number': 39,
       }),

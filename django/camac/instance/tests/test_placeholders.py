@@ -1,4 +1,5 @@
 from datetime import date, datetime
+from decimal import Decimal
 from unittest.mock import Mock
 
 import factory
@@ -1200,7 +1201,7 @@ def test_publication_journal_number_override_sz(
 
 
 @pytest.mark.parametrize("role__name", ["Gemeinde"])
-@pytest.mark.freeze_time("2020-12-20 10:00")
+@pytest.mark.freeze_time("2020-12-20")
 def test_dms_placeholders_sz(
     db,
     admin_client,
@@ -1215,10 +1216,25 @@ def test_dms_placeholders_sz(
     workflow_entry_factory,
     workflow_item,
     responsible_service,
+    billing_v2_entry_factory,
     snapshot,
 ):
 
     placeholders = ["responsible_person", "publication_date", "publications"]
+    placeholders = ["publication_date", "publications"]
+    # Add required placeholders here for verification they exist
+    # in the response
+    placeholders = [
+        "responsible_person",
+        "publication_date",
+        "publications",
+        "billing_total_kommunal",
+        "billing_total_kanton",
+        "billing_total",
+        "billing_total_uncharged_kommunal",
+        "billing_total_uncharged_kanton",
+        "billing_total_uncharged",
+    ]
 
     # Publication
     #
@@ -1241,6 +1257,36 @@ def test_dms_placeholders_sz(
         ),
         group=group.pk,
         workflow_item=workflow_item,
+    )
+
+    ## Setup billing
+    billing_v2_entry_factory(
+        instance=sz_instance,
+        is_flat=True,
+        final_rate=Decimal(111),
+        date_charged="2020-04-13",
+        organization=billing_v2_entry_factory._meta.model.Organizations.MUNICIPAL,
+    )
+    billing_v2_entry_factory(
+        instance=sz_instance,
+        is_flat=True,
+        final_rate=Decimal(222),
+        organization=billing_v2_entry_factory._meta.model.Organizations.CANTONAL,
+        date_charged="2020-04-13",
+    )
+    billing_v2_entry_factory(
+        instance=sz_instance,
+        is_flat=True,
+        final_rate=Decimal(333),
+        organization=billing_v2_entry_factory._meta.model.Organizations.MUNICIPAL,
+        date_charged=None,
+    )
+    billing_v2_entry_factory(
+        instance=sz_instance,
+        is_flat=True,
+        final_rate=Decimal(444),
+        organization=billing_v2_entry_factory._meta.model.Organizations.CANTONAL,
+        date_charged=None,
     )
 
     ## Setup construction control dates:
