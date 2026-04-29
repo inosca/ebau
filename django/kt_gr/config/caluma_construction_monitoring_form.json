@@ -201,10 +201,10 @@
     "pk": "construction-step-plan-construction-stage",
     "fields": {
       "created_at": "2025-01-16T12:34:14.807Z",
-      "modified_at": "2025-01-16T12:34:14.807Z",
+      "modified_at": "2026-04-27T13:00:45.734Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "name": "{\"de\": \"Baubegleitung planen\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -830,21 +830,6 @@
       "form": "construction-step-kanalisationsabnahme-melden",
       "question": "construction-step-kanalisationsabnahme-melden-bestaetigung",
       "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "construction-step-plan-construction-stage.adressvergabe-hint",
-    "fields": {
-      "created_at": "2026-03-25T16:21:35.988Z",
-      "modified_at": "2026-03-25T16:21:35.988Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "construction-step-plan-construction-stage",
-      "question": "adressvergabe-hint",
-      "sort": 3
     }
   },
   {
@@ -2030,37 +2015,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "adressvergabe-hint",
-    "fields": {
-      "created_at": "2026-03-25T16:21:35.933Z",
-      "modified_at": "2026-03-25T16:21:35.933Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Adressvergabe hint\", \"fr\": null, \"it\": null}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "!(\"construction-step-adressvergabe\" in \"construction-steps\"|answer([]))",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"<div class=\\\"uk-alert border-highlight uk-margin-remove-bottom\\\">\\n    <strong>Hinweis:</strong> Mit dem Auslösen der Adressvergabe startet der Workflow zur Prüfung und Festlegung einer neuen Adresse. Zuerst wird der Gemeindegeometer, danach die Gebäudeversicherung (GVG) einbezogen.\\n    </div>\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "bauabhnahme-durchgefuehrt",
     "fields": {
       "created_at": "2023-10-11T08:55:31.962Z",
@@ -2888,7 +2842,7 @@
     "pk": "construction-steps",
     "fields": {
       "created_at": "2025-01-16T12:34:14.807Z",
-      "modified_at": "2026-03-30T12:33:29.897Z",
+      "modified_at": "2026-04-27T13:06:46.393Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -2899,7 +2853,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"**Hinweis:** Mit dem Auslösen der Adressvergabe startet der Workflow zur Prüfung und Festlegung einer neuen Adresse. Zuerst wird der Gemeindegeometer, danach die Gebäudeversicherung (GVG) einbezogen.\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"**Adressvergabe:** Mit dem Auslösen der Adressvergabe startet der Prozess zur Prüfung und Festlegung einer neuen Adresse. Im Prozess wird zuerst der Gemeindegeometer, danach die Gebäudeversicherung (GVG) einbezogen. Nach Abschluss des Freigabeprozesses wird die neue Adresse direkt in die Stammdaten übernommen.\\n\\n**Baufreigabe:** Mit der Baufreigabe bestätigt die Gemeinde, dass mit den Bauarbeiten gestartet werden darf. Sie erfolgt in der Regel erst, wenn alle dafür erforderlichen Voraussetzungen erfüllt sind und keine offenen Punkte mehr entgegenstehen. Nach der Planung der Aufgabe wird den Gesuchstellenden eine Aufgabe zur Meldung der Baufreigabe zugewiesen. Alternativ kann die Gemeinde die Bearbeitung selbst übernehmen und die Meldung im Namen des Gesuchstellenden erfassen.\\n\\n**Baubeginn melden:** Mit diesem Schritt wird der effektive Start der Bauarbeiten erfasst. Den Gesuchstellenden wird dafür eine Aufgabe eröffnet. Alternativ kann die Gemeinde die Meldung im Namen der Gesuchstellenden erfassen.\\n\\n**Kanalisationsabnahme:** Mit der Kanalisationsabnahme wird geprüft, ob die ausgeführten Entwässerungsanlagen den Vorgaben entsprechen. Anschlüsse an öffentliche Entsorgungsanlagen werden vor dem Eindecken kontrolliert, damit die Gemeinde die korrekte Ausführung vor dem Zuschütten überprüfen kann. Den Gesuchstellenden wird dazu eine Aufgabe eröffnet. Im Prozess wird zusätzlich die Frage angezeigt, ob alle Auflagen, die bis zum aktuellen Zeitpunkt erfüllt werden konnten, erledigt wurden. Die Abnahme wird durch die Gemeinde durchgeführt.\\n\\n\\n**Schnurgerüstabnahme:** Mit der Schnurgerüstabnahme wird überprüft, ob Lage und Höhenfixpunkte des Bauvorhabens korrekt ausgesteckt wurden. Die Gemeinde kontrolliert mindestens das Schnurgerüst und die Höhenfixpunkte. Den Gesuchstellenden wird dazu eine Aufgabe zur Meldung «Bereit zur Schnurgerüstabnahme» eröffnet. Im Prozess bestätigen die Gesuchstellenden, dass alle Auflagen, die bis zu diesem Zeitpunkt erfüllt werden mussten, erledigt wurden. Für die Durchführung der Kontrolle wird die Aufgabe im eBau-Prozess dem beauftragten Geometer zugewiesen. Ist die Abnahme nicht erfolgreich, wird den Gesuchstellenden erneut eine Aufgabe zur Bereinigung eröffnet. Bei erfolgreicher Abnahme wird die Gemeinde informiert.\\n\\n**Einmessung im offenen Graben:** Mit diesem Schritt wird geprüft, ob eine Einmessung im offenen Graben erforderlich ist. Die Gesuchstellenden melden über eBau, ob eine Einmessung nötig ist. Falls eine Einmessung erforderlich ist, wird der Geometer direkt beauftragt. Die Einmessung wird für die Nachführung des Leitungskatasters erfasst. Abschliessend wird die Gemeinde informiert.\\n\\n**Rohbauabnahme:** Mit der Rohbauabnahme wird der Bauzustand nach Fertigstellung des Rohbaus geprüft. Den Gesuchstellenden wird dazu eine Aufgabe zur Meldung «Bereit zur Abnahme» eröffnet. Im Prozess bestätigen die Gesuchstellenden, dass alle Auflagen, die bis zu diesem Zeitpunkt erfüllt werden mussten, erledigt wurden. Anschliessend wird die Abnahme durch die Gemeinde durchgeführt. Ist die Abnahme nicht erfolgreich, wird den Gesuchstellenden mit «Nein. Abnahme mit Abweichungen» erneut eine Aufgabe zur Bereinigung eröffnet. Bei erfolgreicher Abnahme wird der Schritt abgeschlossen.\\n\\n**Schlussabnahme (Gebäude):** Mit der Schlussabnahme wird geprüft, ob das Gebäude vollständig und bewilligungskonform erstellt wurde. Den Gesuchstellenden wird dazu eine Aufgabe zur Meldung «Bereit zur Abnahme » eröffnet. Im Prozess bestätigen die Gesuchstellenden, dass alle Auflagen, die bis zu diesem Zeitpunkt erfüllt werden mussten, erledigt wurden. Anschliessend wird die Abnahme durch die Gemeinde durchgeführt. Ist die Abnahme nicht erfolgreich, wird den Gesuchstellenden mit «Nein. Abnahme mit Abweichungen» erneut eine Aufgabe zur Bereinigung eröffnet. Bei erfolgreicher Abnahme bildet dieser Schritt den abschliessenden Kontrollschritt vor der Nutzung oder dem Verfahrensabschluss.\\n\\n**Schlussabnahme (Teil-/Gesamtprojekt):** Mit der Schlussabnahme wird geprüft, ob ein Teilprojekt oder das Gesamtprojekt vollständig und entsprechend den Vorgaben umgesetzt wurde. Den Gesuchstellenden wird dazu eine Aufgabe zur Meldung «Bereit zur Abnahme» eröffnet. Im Workflow bestätigen die Gesuchstellenden, dass alle Auflagen, die bis zu diesem Zeitpunkt erfüllt werden mussten, erledigt wurden. Anschliessend wird die Abnahme durch die Gemeinde durchgeführt. Ist die Abnahme nicht erfolgreich, wird den Gesuchstellenden mit «Nein. Abnahme mit Abweichungen» erneut eine Aufgabe zur Bereinigung eröffnet. Bei erfolgreicher Abnahme dient dieser Schritt dem formellen Abschluss der baulichen Umsetzung im jeweiligen Projektumfang.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
@@ -4269,8 +4223,8 @@
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-adressvergabe",
     "fields": {
-      "created_at": "2026-03-30T12:33:29.916Z",
-      "modified_at": "2026-03-30T12:33:29.916Z",
+      "created_at": "2026-04-27T13:06:46.410Z",
+      "modified_at": "2026-04-27T13:06:46.410Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -4284,8 +4238,8 @@
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-baubeginn",
     "fields": {
-      "created_at": "2026-03-30T12:33:29.913Z",
-      "modified_at": "2026-03-30T12:33:29.913Z",
+      "created_at": "2026-04-27T13:06:46.407Z",
+      "modified_at": "2026-04-27T13:06:46.407Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -4299,8 +4253,8 @@
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-baufreigabe",
     "fields": {
-      "created_at": "2026-03-30T12:33:29.915Z",
-      "modified_at": "2026-03-30T12:33:29.915Z",
+      "created_at": "2026-04-27T13:06:46.408Z",
+      "modified_at": "2026-04-27T13:06:46.408Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -4314,8 +4268,8 @@
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-einmessung",
     "fields": {
-      "created_at": "2026-03-30T12:33:29.910Z",
-      "modified_at": "2026-03-30T12:33:29.910Z",
+      "created_at": "2026-04-27T13:06:46.406Z",
+      "modified_at": "2026-04-27T13:06:46.406Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -4329,8 +4283,8 @@
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-kanalisationsabnahme",
     "fields": {
-      "created_at": "2026-03-30T12:33:29.912Z",
-      "modified_at": "2026-03-30T12:33:29.912Z",
+      "created_at": "2026-04-27T13:06:46.407Z",
+      "modified_at": "2026-04-27T13:06:46.407Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -4344,8 +4298,8 @@
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-rohbauabnahme",
     "fields": {
-      "created_at": "2026-03-30T12:33:29.906Z",
-      "modified_at": "2026-03-30T12:33:29.906Z",
+      "created_at": "2026-04-27T13:06:46.403Z",
+      "modified_at": "2026-04-27T13:06:46.403Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -4359,8 +4313,8 @@
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-schlussabnahme-gebaeude",
     "fields": {
-      "created_at": "2026-03-30T12:33:29.903Z",
-      "modified_at": "2026-03-30T12:33:29.903Z",
+      "created_at": "2026-04-27T13:06:46.399Z",
+      "modified_at": "2026-04-27T13:06:46.399Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -4374,8 +4328,8 @@
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-schlussabnahme-projekt",
     "fields": {
-      "created_at": "2026-03-30T12:33:29.901Z",
-      "modified_at": "2026-03-30T12:33:29.901Z",
+      "created_at": "2026-04-27T13:06:46.397Z",
+      "modified_at": "2026-04-27T13:06:46.397Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -4389,8 +4343,8 @@
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-schnurgeruestabnahme",
     "fields": {
-      "created_at": "2026-03-30T12:33:29.908Z",
-      "modified_at": "2026-03-30T12:33:29.908Z",
+      "created_at": "2026-04-27T13:06:46.405Z",
+      "modified_at": "2026-04-27T13:06:46.405Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -4404,8 +4358,8 @@
     "model": "caluma_form.questionoption",
     "pk": "construction-steps.construction-step-zwischenkontrolle",
     "fields": {
-      "created_at": "2026-03-30T12:33:29.905Z",
-      "modified_at": "2026-03-30T12:33:29.905Z",
+      "created_at": "2026-04-27T13:06:46.401Z",
+      "modified_at": "2026-04-27T13:06:46.401Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
