@@ -4,6 +4,7 @@ CORRECTION = {
     "default": {
         "INSTANCE_STATE": "correction",
         "ALLOWED_INSTANCE_STATES": ["subm"],
+        "ALLOWED_WITH_PENDING_INQUIRIES": False,
         "HISTORY_ENTRY": _("Dossier corrected"),
     },
     "kt_gr": {
@@ -14,6 +15,7 @@ CORRECTION = {
             "circulation",
             "decision",
         ],
+        "ALLOWED_WITH_PENDING_INQUIRIES": True,
     },
     "kt_so": {
         "ENABLED": True,

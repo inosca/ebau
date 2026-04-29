@@ -3067,7 +3067,10 @@ class CalumaInstanceAppealSerializer(serializers.Serializer):
 
 class CalumaInstanceCorrectionSerializer(serializers.Serializer):
     def validate(self, data):
-        if Inquiry.objects.for_instance(self.instance).only_pending().exists():
+        if (
+            not settings.CORRECTION["ALLOWED_WITH_PENDING_INQUIRIES"]
+            and Inquiry.objects.for_instance(self.instance).only_pending().exists()
+        ):
             raise exceptions.ValidationError(
                 _("The Dossier can't be correct because there are running inquiries.")
             )
