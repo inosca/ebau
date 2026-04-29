@@ -1167,23 +1167,6 @@ def disable_deadlines_settings(
 
 
 @pytest.fixture
-def so_deadlines_settings(
-    request,
-    settings,
-    deadlines_settings,
-):
-    """Module-specific settings for deadlines (canton SO)."""
-    yield from generate_module_settings(
-        settings=settings,
-        request=request,
-        base_fixture=deadlines_settings,
-        module_name="deadlines",
-        canton="kt_so",
-        disable=False,
-    )
-
-
-@pytest.fixture
 def gr_deadlines_settings(
     request,
     settings,

@@ -7,6 +7,7 @@ from camac.permissions.conditions import (
     IsPaper,
     IsServiceGroup,
     IsUnversionedForm,
+    Never,
     RequireInstanceState,
     RequireWorkItem,
 )
@@ -169,12 +170,14 @@ MODULE_PORTAL_CONSTRUCTION_MONITORING_WRITE = (
 )
 
 MODULE_DEADLINES_SUSPENSION = (
-    STATES_ALL
+    Never()
+    & STATES_ALL
     & IsServiceGroup(["municipality", "service-bab"])
     & HasRole(["municipality-lead", "service-lead"])
 )
 MODULE_DEADLINES_DEADLINE = (
-    STATES_ALL
+    Never()
+    & STATES_ALL
     & IsServiceGroup(["municipality", "service-bab"])
     & HasRole(["municipality-lead", "service-lead"])
 )
