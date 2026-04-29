@@ -99,6 +99,7 @@ def test_reject_instance(
     caluma_work_item_factory,
     deadlines_settings,
     instance_deadline_factory,
+    suspension_factory,
     mocker,
 ):
     mocker.patch(
@@ -114,7 +115,13 @@ def test_reject_instance(
         start_date=date(2025, 1, 1),
         process_deadline_date=None,
     )
+    open_suspension = suspension_factory(
+        deadline=deadline,
+        start_date=date(2025, 1, 1),
+        end_date=None,
+    )
     assert deadline.process_deadline_date is None
+    assert open_suspension.end_date is None
 
     work_item = caluma_work_item_factory(
         case=be_instance.case,
@@ -162,7 +169,9 @@ def test_reject_instance(
     ).latest("created_at")
     assert history_entry.get_trans_attr("title") == "Dossier zurückgewiesen"
     deadline.refresh_from_db()
+    open_suspension.refresh_from_db()
     assert deadline.process_deadline_date == history_entry.created_at.date()
+    assert open_suspension.end_date == history_entry.created_at.date()
     assert Message.objects.count() == 1
     assert len(mailoutbox) == 1
     assert notification_template.subject in mailoutbox[0].subject

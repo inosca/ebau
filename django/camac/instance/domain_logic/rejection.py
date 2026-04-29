@@ -124,6 +124,10 @@ class RejectionLogic:
         # have to trigger the update after creating the history entry.
         if settings.DEADLINES:
             for deadline in instance.deadlines.all():
+                # close all open suspensions.
+                for suspension in deadline.suspensions.only_open():
+                    suspension.complete()
+
                 deadline.update_progression()
 
         # send notifications to applicant and municipality
