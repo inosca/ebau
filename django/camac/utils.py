@@ -379,6 +379,11 @@ def should_notify_on_manual_workitems(work_item) -> bool:
     )
 
 
+def send_only_for_einfache_anfrage(work_item) -> bool:
+    # UR: Check if the form is "Einfache Anfrage".
+    return work_item.case.document.form.slug == "einfache-anfrage"
+
+
 def retry(fn, number_of_tries=2, sleep_between_tries=0):
     """Retry the given function a given amount of times.
 

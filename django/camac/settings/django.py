@@ -15,7 +15,11 @@ from camac.constants.kt_uri import KOOR_SERVICE_IDS as URI_KOOR_SERVICE_IDS
 from camac.settings.ebau_schema import ModuleApplicationConfig, ModuleConfig
 from camac.settings.env import ROOT_DIR, env
 from camac.timelines.utils import is_additional_demand_with_changes
-from camac.utils import build_url, should_notify_on_manual_workitems
+from camac.utils import (
+    build_url,
+    send_only_for_einfache_anfrage,
+    should_notify_on_manual_workitems,
+)
 
 # We need to import the caluma settings after we merge os.environ with our
 # local .env file otherwise caluma tries to get it's settings from it's own env
@@ -1465,6 +1469,18 @@ APPLICATIONS = {
                                 "involved_in_distribution",
                             ],
                         },
+                    },
+                    {
+                        "event": "completed",
+                        "notification": {
+                            "template_slug": "5-eroeffnung-stellungnahme-vorentscheid",
+                            "recipient_types": [
+                                "municipality_users",
+                            ],
+                        },
+                        "condition": lambda work_item: send_only_for_einfache_anfrage(
+                            work_item
+                        ),
                     },
                 ],
                 "geometer": [

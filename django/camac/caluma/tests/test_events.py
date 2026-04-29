@@ -33,6 +33,9 @@ from camac.caluma.extensions.events.general import post_decision_ur
 from camac.caluma.utils import save_answer
 from camac.instance.models import HistoryActionConfig, HistoryEntry, HistoryEntryT
 from camac.tests.form_utils import FormUtils
+from camac.utils import (
+    send_only_for_einfache_anfrage,
+)
 
 
 @pytest.mark.parametrize("expected_value", ["is-paper-yes", "is-paper-no"])
@@ -1472,6 +1475,56 @@ def test_post_complete_caluma_workflow_notifications(
         == "4-3-zirkulation-abgeschlossen"
     )
     assert send_notification_mock.call_args[0][0]["recipient_types"] == ["applicant"]
+
+
+def test_post_complete_caluma_workflow_notifications_for_einfache_anfrage(
+    db,
+    application_settings,
+    ur_instance,
+    caluma_document_factory,
+    caluma_work_item_factory,
+    mocker,
+):
+    ur_instance.case.document.form = caluma_form_models.Form.objects.get(
+        slug="einfache-anfrage"
+    )
+    ur_instance.case.document.save()
+    application_settings["CALUMA"]["CALUMA_WORKFLOW_NOTIFICATIONS"] = {
+        "decision": [
+            {
+                "event": "completed",
+                "notification": {
+                    "template_slug": "5-eroeffnung-stellungnahme-vorentscheid",
+                    "recipient_types": [
+                        "municipality_users",
+                    ],
+                },
+                "condition": lambda work_item: send_only_for_einfache_anfrage(
+                    work_item
+                ),
+            }
+        ]
+    }
+    work_item = caluma_work_item_factory(
+        task_id="decision",
+        document=caluma_document_factory(),
+        case=ur_instance.case,
+    )
+    send_notification_mock = mocker.patch(
+        "camac.caluma.extensions.events.caluma_workflow_notifications.send_notification"
+    )
+
+    post_complete_caluma_workflow_notifications(
+        sender=None, work_item=work_item, user=None, context={}
+    )
+    send_notification_mock.assert_called()
+    assert (
+        send_notification_mock.call_args[0][0]["template_slug"]
+        == "5-eroeffnung-stellungnahme-vorentscheid"
+    )
+    assert send_notification_mock.call_args[0][0]["recipient_types"] == [
+        "municipality_users"
+    ]
 
 
 def test_complete_rejection_work_item(
