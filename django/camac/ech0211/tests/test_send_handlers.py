@@ -401,6 +401,135 @@ def test_notice_ruling_send_handler(
 
 
 @pytest.mark.freeze_time("2022-06-03")
+@pytest.mark.parametrize("instance_state_name", ["circulation", "decision"])
+def test_notice_ruling_send_handler_ag_declined(
+    instance_state_name,
+    admin_user,
+    application_settings,
+    ag_alexandria_settings,
+    ag_decision_settings,
+    ag_ech0211_settings,
+    caluma_admin_user,
+    caluma_document_factory,
+    ech_instance_ag,
+    instance_state_factory,
+    mock_request_get,
+    mocked_request_object,
+    mocker,
+    multilang,
+    service_factory,
+    set_application_ag,
+    settings,
+):
+    """A declined NoticeRuling for kt_ag must not suspend the case."""
+
+    call_command(
+        "loaddata",
+        settings.ROOT_DIR("kt_ag/config/caluma_form.json"),
+        settings.ROOT_DIR("kt_ag/config/caluma_form_common.json"),
+        settings.ROOT_DIR("kt_ag/config/caluma_decision_form.json"),
+    )
+
+    category = CategoryFactory(slug="alle-beteiligten")
+    mark = MarkFactory(slug="decision")
+    ag_ech0211_settings["NOTICE_RULING"]["ALEXANDRIA_CATEGORY"] = category.slug
+    ag_ech0211_settings["NOTICE_RULING"]["ALEXANDRIA_MARK"] = mark.pk
+
+    mocker.patch(
+        "camac.ech0211.send_handlers.has_alexandria_create_permission",
+        return_value=True,
+    )
+    mocker.patch(
+        "camac.ech0211.send_handlers.has_alexandria_move_permission",
+        return_value=True,
+    )
+    mocker.patch(
+        "camac.alexandria.extensions.visibilities.CustomVisibility.filter_queryset_for_document",
+        side_effect=lambda queryset, request: queryset,
+    )
+    mocker.patch(
+        "camac.caluma.extensions.events.decision.send_mail_without_request",
+        return_value=None,
+    )
+    mocker.patch(
+        "camac.caluma.extensions.dynamic_tasks.CustomDynamicTasks.resolve_after_decision_ag",
+        return_value=[],
+    )
+    service_factory(slug="afb")
+
+    state = instance_state_factory(name=instance_state_name)
+    instance_state_factory(name="rejected")
+    instance_state_factory(name="to-finish")
+    ech_instance_ag.instance_state = state
+    ech_instance_ag.previous_instance_state = state
+    ech_instance_ag.save()
+
+    group = admin_user.groups.first()
+    group.service = ech_instance_ag.responsible_service()
+    group.save()
+
+    decision_work_item = ech_instance_ag.case.work_items.get(
+        task_id=ag_decision_settings["TASK"], status=WorkItem.STATUS_READY
+    )
+    # replace the generated document with one based on the actual form
+    decision_work_item.document = caluma_document_factory(form_id="entscheid")
+    decision_work_item.save()
+
+    # cancel child case so the work item can be completed
+    if decision_work_item.child_case:
+        workflow_api.cancel_case(
+            case=decision_work_item.child_case,
+            user=caluma_admin_user,
+        )
+
+    suspend_case_spy = mocker.spy(workflow_api, "suspend_case")
+
+    data = CreateFromDocument(xml_data("notice_ruling"))
+    data.eventNotice.decisionRuling.judgement = ECH_JUDGEMENT_DECLINED
+    data.eventNotice.planningPermissionApplicationIdentification.dossierIdentification = str(
+        ech_instance_ag.pk
+    )
+
+    handler = NoticeRulingSendHandler(
+        data=data,
+        queryset=Instance.objects,
+        user=admin_user,
+        group=group,
+        auth_header=None,
+        caluma_user=caluma_admin_user,
+        request=mocked_request_object,
+    )
+
+    handler.apply()
+
+    ech_instance_ag.refresh_from_db()
+    decision_work_item.refresh_from_db()
+    ech_instance_ag.case.refresh_from_db()
+
+    # case must not be suspended in kt_ag
+    suspend_case_spy.assert_not_called()
+    assert ech_instance_ag.case.status != "suspended"
+
+    # decision and date answers must be saved on the decision document.
+    assert (
+        decision_work_item.document.answers.get(
+            question_id=ag_decision_settings["QUESTIONS"]["DECISION"]
+        ).value
+        == ag_decision_settings["ANSWERS"]["DECISION"]["REJECTED"]
+    )
+    assert (
+        decision_work_item.document.answers.get(
+            question_id=ag_decision_settings["QUESTIONS"]["DATE"]
+        ).date
+        == data.eventNotice.decisionRuling.date.date()
+    )
+
+    # AG moves the instance to the to-finish state
+    assert ech_instance_ag.instance_state.name == "to-finish"
+    assert Message.objects.count() >= 1
+
+
+@pytest.mark.freeze_time("2022-06-03")
 @pytest.mark.parametrize(
     "service_exists,instance_state_name,has_permission,success",
     [

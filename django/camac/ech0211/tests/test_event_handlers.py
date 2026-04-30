@@ -1,6 +1,6 @@
 import pytest
 from alexandria.core.factories import CategoryFactory, DocumentFactory, FileFactory
-from caluma.caluma_form.models import Question
+from caluma.caluma_form.models import Option, Question
 from caluma.caluma_workflow.models import WorkItem
 
 from camac.constants.kt_bern import (
@@ -522,3 +522,43 @@ def test_accompanying_report_event_handler_extension(
         assert "<documentsAvailable>true</documentsAvailable>" in message.body
     else:
         assert "<documentsAvailable>false</documentsAvailable>" in message.body
+
+
+@pytest.mark.freeze_time("2022-06-03")
+def test_accompanying_report_event_handler_answer_extension_ag(
+    db,
+    set_application_ag,
+    ag_ech0211_settings,
+    ag_distribution_settings,
+    ech_instance_ag,
+    active_inquiry_factory,
+    caluma_answer_factory,
+    service,
+    service_factory,
+    multilang,
+):
+    inviting_service = service_factory()
+    Option.objects.update_or_create(
+        slug=ag_distribution_settings["ANSWERS"]["STATUS"]["NEGATIVE"],
+        defaults={"label": {"de": "Ablehnung"}},
+    )
+
+    inquiry = active_inquiry_factory(
+        for_instance=ech_instance_ag,
+        addressed_service=service,
+        status=WorkItem.STATUS_COMPLETED,
+        closed_by_group=service.pk,
+        controlling_service=inviting_service,
+    )
+    caluma_answer_factory(
+        document=inquiry.child_case.document,
+        question_id=ag_distribution_settings["QUESTIONS"]["STATUS"],
+        value=ag_distribution_settings["ANSWERS"]["STATUS"]["NEGATIVE"],
+    )
+
+    eh = event_handlers.AccompanyingReportEventHandler(ech_instance_ag, inquiry=inquiry)
+    eh.run()
+
+    assert Message.objects.count() == 1
+    message = Message.objects.first()
+    assert "<answer>Ablehnung</answer>" in message.body

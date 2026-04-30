@@ -329,7 +329,7 @@ class NoticeRulingSendHandler(
         ).document
         return decision_document
 
-    def apply(self):
+    def apply(self):  # noqa: C901
         if settings.APPLICATION["DOCUMENT_BACKEND"] == "alexandria":
             decision_mark = alexandria_models.Mark.objects.get(
                 pk=settings.ECH0211["NOTICE_RULING"]["ALEXANDRIA_MARK"]
@@ -371,7 +371,8 @@ class NoticeRulingSendHandler(
 
         if judgement == ECH_JUDGEMENT_DECLINED:
             # reject instance
-            self.instance.set_instance_state("rejected", self.user)
+            if settings.APPLICATION_NAME != "kt_ag":
+                self.instance.set_instance_state("rejected", self.user)
 
             # question *may* be hidden here if it's not a building-permit,
             # but we don't care and fill anyway
@@ -389,8 +390,34 @@ class NoticeRulingSendHandler(
                 group_pk=self.group.pk,
             )
 
-            # suspend case
-            workflow_api.suspend_case(case=case, user=self.caluma_user)
+            if settings.APPLICATION_NAME != "kt_ag":
+                # suspend case (in AG: must not close due to specific workflow)
+                workflow_api.suspend_case(case=case, user=self.caluma_user)
+
+            if settings.APPLICATION_NAME == "kt_ag":
+                decision_document = self._get_decision_document(case)
+                save_answer(
+                    document=decision_document,
+                    question=Question.objects.get(
+                        slug=settings.DECISION["QUESTIONS"]["DECISION"]
+                    ),
+                    value=decision,
+                )
+                save_answer(
+                    document=decision_document,
+                    question=Question.objects.get(
+                        slug="entscheid-entscheidtyp-abweisung"
+                    ),
+                    value="entscheid-entscheidtyp-abweisung-ohne-rueckbau",
+                )
+                save_answer(
+                    document=decision_document,
+                    question=Question.objects.get(
+                        slug=settings.DECISION["QUESTIONS"]["DATE"]
+                    ),
+                    date=self.data.eventNotice.decisionRuling.date.date(),
+                )
+                self.complete_work_item(settings.DECISION["TASK"])
         else:
             for slug in settings.ECH0211["NOTICE_RULING"].get(
                 "SKIP_TASKS_ON_APPROVAL", []

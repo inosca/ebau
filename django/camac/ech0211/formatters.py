@@ -9,7 +9,7 @@ from typing import Union
 
 import pyxb
 from alexandria.core.models import Document
-from caluma.caluma_form.models import Question
+from caluma.caluma_form.models import Option, Question
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.db.models import QuerySet
@@ -685,8 +685,10 @@ def accompanying_report(
 
     ar_settings = settings.ECH0211["ACCOMPANYING_REPORT"]
 
-    if ar_settings.get("EXTENSION_MAPPING") or ar_settings.get(
-        "ENABLE_ORGANISATION_EXTENSION"
+    if (
+        ar_settings.get("EXTENSION_MAPPING")
+        or ar_settings.get("ENABLE_ORGANISATION_EXTENSION")
+        or ar_settings.get("ENABLE_ANSWER_EXTENSION")
     ):
         # Add xml tags to extension attribute
         xml_dom = xml.dom.minidom.getDOMImplementation()
@@ -724,6 +726,15 @@ def accompanying_report(
                 xml_value = xml_doc.createTextNode(value)
                 xml_element.appendChild(xml_value)
                 report.extension._appendWildcardElement(value=xml_element)
+
+        if ar_settings.get("ENABLE_ANSWER_EXTENSION") and status.value:
+            option = Option.objects.filter(slug=status.value).first()
+            label = (
+                option.label.translate() if option and option.label else status.value
+            )
+            xml_element = xml_doc.createElement("answer")
+            xml_element.appendChild(xml_doc.createTextNode(label))
+            report.extension._appendWildcardElement(value=xml_element)
 
     return report
 
