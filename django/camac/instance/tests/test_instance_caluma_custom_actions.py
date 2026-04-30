@@ -491,13 +491,20 @@ def test_correction(
     instance_state_factory,
     has_inquiry,
     expected_status,
+    correction_settings,
+    mocker,
     timelines_settings,
 ):
     timelines_settings.enabled = True
+    correction_settings["REGENERATE_PDF_ON_CORRECTION"] = True
     instance_state_factory(name="correction")
     instance_state = instance_state_factory(name="subm")
     be_instance.instance_state = instance_state
     be_instance.save()
+
+    regenerate_pdf = mocker.patch(
+        "camac.instance.serializers.CalumaInstanceCorrectionSerializer._regenerate_and_store_pdf"
+    )
 
     assert FormTimeline.objects.count() == 0
 
@@ -510,6 +517,7 @@ def test_correction(
 
     if expected_status == status.HTTP_200_OK:
         be_instance.refresh_from_db()
+        regenerate_pdf.assert_not_called()
 
         timeline = FormTimeline.objects.filter(
             instance=be_instance, timeline_type=FormTimeline.Type.CORRECTION
@@ -525,6 +533,8 @@ def test_correction(
 
         assert response.status_code == expected_status
         assert be_instance.instance_state.name == "subm"
+        assert regenerate_pdf.call_count == 1
+        assert regenerate_pdf.call_args.args[0].pk == be_instance.pk
 
         timeline.refresh_from_db()
         assert timeline.end_date is not None
