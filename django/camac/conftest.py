@@ -3591,9 +3591,7 @@ def _validateable_settings():
     """
     from camac.settings.utils import get_all_modules
 
-    settings_modules = [
-        f"camac.settings.modules.{mod}.{mod.upper()}" for mod in get_all_modules()
-    ]
+    settings_modules = list(get_all_modules().values())
 
     return settings_modules + [
         "camac.settings.django.APPLICATIONS",

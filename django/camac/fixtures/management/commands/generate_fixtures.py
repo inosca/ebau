@@ -52,16 +52,25 @@ class Command(BaseCommand):
         ]
 
         modules = {
-            module_name: default_fixture_config
+            settings_name: [
+                {
+                    "module_name": settings_name.lower(),
+                    "import_path": import_path,
+                    **conf,
+                }
+                for conf in default_fixture_config
+            ]
             + [
                 {
                     "prefix": f"{settings.APPLICATIONS[canton]['SHORT_NAME']}_",
                     "canton": canton,
                     "disable": False,
+                    "module_name": settings_name.lower(),
+                    "import_path": import_path,
                 }
-                for canton in get_enabled_cantons_for_module(module_name, True)
+                for canton in get_enabled_cantons_for_module(import_path, True)
             ]
-            for module_name in get_all_modules()
+            for settings_name, import_path in get_all_modules().items()
         }
 
         template = self.engine.get_template("settings_fixtures.py.j2")

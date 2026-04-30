@@ -3,23 +3,31 @@ import pytest
 from camac.settings.utils import (
     get_all_modules,
     get_enabled_cantons_for_module,
-    get_enabled_modules_for_canton,
 )
 
 
-def test_get_all_modules(mocker):
-    class FakeModule:
-        distribution = None
-        not_a_module = None
+def test_get_all_modules(mocker, settings):
+    settings.MODULE_SETTINGS_REGISTRY = {
+        # intentionally unsorted
+        "PERMISSIONS_ALEXANDRIA": "camac.settings.modules.permissions.alexandria",
+        "DISTRIBUTION": "camac.settings.modules.distribution",
+    }
 
-    mocker.patch("camac.settings.utils.settings_modules", FakeModule)
-
-    assert get_all_modules() == ["distribution"]
+    assert get_all_modules() == {
+        # We expect the result here to be sorted, to ensure the generated
+        # settings fixtures are in a predictable order
+        "DISTRIBUTION": "camac.settings.modules.distribution",
+        "PERMISSIONS_ALEXANDRIA": "camac.settings.modules.permissions.alexandria",
+    }
 
 
 def test_get_enabled_cantons_for_module(mocker):
+    distribution_settings = "camac.settings.modules.distribution.DISTRIBUTION"
+    permissions_alexandria_settings = (
+        "camac.settings.modules.permissions.alexandria.PERMISSIONS_ALEXANDRIA"
+    )
     mocker.patch(
-        "camac.settings.modules.distribution.DISTRIBUTION",
+        distribution_settings,
         {
             "default": {"ENABLED": True},
             "kt_bern": {"ENABLED": True},
@@ -27,34 +35,26 @@ def test_get_enabled_cantons_for_module(mocker):
         },
     )
 
-    assert get_enabled_cantons_for_module("distribution") == ["kt_bern"]
-    assert set(get_enabled_cantons_for_module("distribution", True)) == set(
-        ["kt_bern", "kt_gr"]
-    )
-
-
-def test_get_enabled_modules_for_canton(mocker):
     mocker.patch(
-        "camac.settings.utils.get_all_modules",
-        return_value=["distribution", "dms"],
-    )
-    mocker.patch(
-        "camac.settings.modules.distribution.DISTRIBUTION",
+        permissions_alexandria_settings,
         {
-            "default": {},
+            "default": {"ENABLED": True},
             "kt_bern": {"ENABLED": True},
             "kt_gr": {"RANDOM_SETTING": True},
         },
     )
-    mocker.patch(
-        "camac.settings.modules.dms.DMS",
-        {"default": {}},
+
+    assert get_enabled_cantons_for_module(distribution_settings) == ["kt_bern"]
+    assert set(get_enabled_cantons_for_module(distribution_settings, True)) == set(
+        ["kt_bern", "kt_gr"]
     )
 
-    assert get_enabled_modules_for_canton("kt_bern") == ["distribution"]
-    assert get_enabled_modules_for_canton("kt_bern", True) == ["distribution"]
-    assert get_enabled_modules_for_canton("kt_gr") == []
-    assert get_enabled_modules_for_canton("kt_gr", True) == ["distribution"]
+    assert get_enabled_cantons_for_module(permissions_alexandria_settings) == [
+        "kt_bern"
+    ]
+    assert set(
+        get_enabled_cantons_for_module(permissions_alexandria_settings, True)
+    ) == set(["kt_bern", "kt_gr"])
 
 
 @pytest.mark.parametrize("_", [1, 2])
