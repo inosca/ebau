@@ -7,6 +7,7 @@ from caluma.caluma_workflow import api as workflow_api
 from caluma.caluma_workflow.api import skip_work_item
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
+from django.utils.translation import gettext as _
 from rest_framework.exceptions import ValidationError
 
 from camac.caluma.extensions.events.general import get_caluma_setting
@@ -325,10 +326,13 @@ class KtBernDossierWriter(DossierWriter):
                     Message(
                         level=Severity.ERROR.value,
                         code=MessageCodes.WORKFLOW_SKIP_ITEM_FAILED.value,
-                        detail=(
-                            f"Skip work item with task_id {task_id} failed with "
-                            f"{DossierWriter.ConfigurationError(e)}."
-                        ),
+                        detail=_(
+                            "Skip work item with task_id %(task_id)s failed with %(error)s."
+                        )
+                        % {
+                            "task_id": task_id,
+                            "error": DossierWriter.ConfigurationError(e),
+                        },
                     )
                 )
                 continue
@@ -370,7 +374,7 @@ class KtBernDossierWriter(DossierWriter):
             Message(
                 level=Severity.DEBUG.value,
                 code=MessageCodes.SET_WORKFLOW_STATE.value,
-                detail=f"Workflow state set to {target_state}.",
+                detail=_("Workflow state set to %(state)s.") % {"state": target_state},
             )
         )
         return messages
@@ -392,7 +396,14 @@ class KtBernDossierWriter(DossierWriter):
                 Message(
                     level=Severity.WARNING.value,
                     code=MessageCodes.FIELD_VALIDATION_ERROR.value,
-                    detail=f"Failed to write {value} to {ebau_number_slug} for dossier {instance}",
+                    detail=_(
+                        "Failed to write %(value)s to %(target)s for dossier %(dossier)s"
+                    )
+                    % {
+                        "value": value,
+                        "target": ebau_number_slug,
+                        "dossier": instance,
+                    },
                 )
             )
             return
@@ -410,7 +421,14 @@ class KtBernDossierWriter(DossierWriter):
                 Message(
                     level=Severity.WARNING.value,
                     code=MessageCodes.FIELD_VALIDATION_ERROR.value,
-                    detail=f"Failed to write '{exists_slug}-yes' to {exists_slug} for dossier {instance}",
+                    detail=_(
+                        "Failed to write %(value)s to %(target)s for dossier %(dossier)s"
+                    )
+                    % {
+                        "value": f"'{exists_slug}-yes'",
+                        "target": exists_slug,
+                        "dossier": instance,
+                    },
                 )
             )
             return
