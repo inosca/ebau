@@ -31,22 +31,28 @@ export default class ConstructionMonitoringAbility extends Ability {
     return !this.ebauModules.isReadOnlyRole && isReady && isAddressed;
   }
 
+  async grAllowedToSkip() {
+    const instance = this.store.peekRecord(
+      "instance",
+      this.ebauModules.instanceId,
+    );
+    const instanceState = await instance.instanceState;
+
+    if (
+      [
+        mainConfig.instanceStates.subm,
+        mainConfig.instanceStates["init-distribution"],
+        mainConfig.instanceStates.circulation,
+        mainConfig.instanceStates.decision,
+      ].includes(parseInt(instanceState.id))
+    ) {
+      return false;
+    }
+  }
+
   async canSkip() {
     if (macroCondition(getOwnConfig().application === "gr")) {
-      const instance = this.store.peekRecord(
-        "instance",
-        this.ebauModules.instanceId,
-      );
-      const instanceState = await instance.instanceState;
-
-      if (
-        [
-          mainConfig.instanceStates.subm,
-          mainConfig.instanceStates["init-distribution"],
-          mainConfig.instanceStates.circulation,
-          mainConfig.instanceStates.decision,
-        ].includes(parseInt(instanceState.id))
-      ) {
+      if (!(await this.grAllowedToSkip())) {
         return false;
       }
     }
@@ -55,6 +61,12 @@ export default class ConstructionMonitoringAbility extends Ability {
   }
 
   async canComplete() {
+    if (macroCondition(getOwnConfig().application === "gr")) {
+      if (!(await this.grAllowedToSkip())) {
+        return false;
+      }
+    }
+
     const workItem = this.constructionMonitoring.controls.complete;
     const isReady = workItem?.status === "READY";
     const isAddressed = workItem?.addressedGroups
