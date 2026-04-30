@@ -85,7 +85,11 @@ class FieldWriter(ABC):
                 Message(
                     level=Severity.WARNING.value,
                     code=MessageCodes.WRITING_READ_ONLY_FIELD.value,
-                    detail=f"Ignoring {self.owner.delete_keyword} on field {self.target} (readonly).",
+                    detail=_("Ignoring %(keyword)s on field %(target)s (readonly).")
+                    % {
+                        "keyword": self.owner.delete_keyword,
+                        "target": self.target,
+                    },
                 )
             )
         return False
@@ -110,7 +114,7 @@ class CamacNgAnswerWriter(FieldWriter):
                             level=Severity.INFO.value,
                             code=MessageCodes.VALUE_DELETED.value,
                             field=self.target,
-                            detail="Value deleted",
+                            detail=_("Value deleted"),
                         )
                     )
             return
@@ -307,7 +311,10 @@ class CalumaAnswerWriter(FieldWriter):
                         Message(
                             level=Severity.WARNING.value,
                             code=MessageCodes.INCONSISTENT_WORKFLOW_STATE.value,
-                            detail=f"Missing {self.task} work item, cannot write {self.target}",
+                            detail=_(
+                                "Missing %(task)s work item, cannot write %(target)s"
+                            )
+                            % {"task": self.task, "target": self.target},
                         )
                     )
                     return
@@ -324,7 +331,8 @@ class CalumaAnswerWriter(FieldWriter):
                         Message(
                             level=Severity.WARNING.value,
                             code=MessageCodes.DELETION_HAS_NO_EFFECT.value,
-                            detail=f"Deleting {self.target} without effect",
+                            detail=_("Deleting %(target)s without effect")
+                            % {"target": self.target},
                         )
                     )
                     return
@@ -363,7 +371,8 @@ class CalumaAnswerWriter(FieldWriter):
                     Message(
                         level=Severity.WARNING.value,
                         code=MessageCodes.FIELD_VALIDATION_ERROR.value,
-                        detail=f"Failed to write {value} to {self.target}: {v}",
+                        detail=_("Failed to write %(value)s to %(target)s: %(error)s")
+                        % {"value": value, "target": self.target, "error": v},
                     )
                 )
                 return
@@ -388,14 +397,18 @@ class BuildingAuthorityRowWriter(CalumaAnswerWriter):
                 Message(
                     level=Severity.WARNING.value,
                     code=MessageCodes.INCONSISTENT_WORKFLOW_STATE.value,
-                    detail=(
-                        "Missing building-authority work item, cannot write ",
-                        f"{self.target}. Dossier state {dossier._meta.target_state} ",
-                    ),
+                    detail=_(
+                        "Missing %(task)s work item, cannot write %(target)s. Dossier state %(state)s."
+                    )
+                    % {
+                        "task": "building-authority",
+                        "target": self.target,
+                        "state": dossier._meta.target_state,
+                    },
                 )
             )
             return
-        table_answer, _ = Answer.objects.update_or_create(
+        table_answer, _created = Answer.objects.update_or_create(
             question_id="baukontrolle-realisierung-table",
             document=work_item.document,
         )
@@ -428,7 +441,15 @@ class BuildingAuthorityRowWriter(CalumaAnswerWriter):
                 Message(
                     level=Severity.WARNING.value,
                     code=MessageCodes.FIELD_VALIDATION_ERROR.value,
-                    detail=f"Failed to write {value} to {self.target} for dossier {instance}: {e}",
+                    detail=_(
+                        "Failed to write %(value)s to %(target)s for dossier %(dossier)s: %(error)s"
+                    )
+                    % {
+                        "value": value,
+                        "target": self.target,
+                        "dossier": instance,
+                        "error": e,
+                    },
                 )
             )
             return
@@ -511,7 +532,15 @@ class CalumaListAnswerWriter(FieldWriter):
                             Message(
                                 level=Severity.WARNING.value,
                                 code=MessageCodes.FIELD_VALIDATION_ERROR.value,
-                                detail=f"Failed to write {value} for field {field_name} to {self.target} for dossier {instance}.",
+                                detail=_(
+                                    "Failed to write %(value)s for field %(field)s to %(target)s for dossier %(dossier)s."
+                                )
+                                % {
+                                    "value": value,
+                                    "field": field_name,
+                                    "target": self.target,
+                                    "dossier": instance,
+                                },
                             )
                         )
                         continue
@@ -520,7 +549,15 @@ class CalumaListAnswerWriter(FieldWriter):
                             Message(
                                 level=Severity.WARNING.value,
                                 code=MessageCodes.UNHANDLED_EXCEPTION.value,
-                                detail=f"Failed to write {value} for field {field_name} to {self.target} for dossier {instance}.",
+                                detail=_(
+                                    "Failed to write %(value)s for field %(field)s to %(target)s for dossier %(dossier)s."
+                                )
+                                % {
+                                    "value": value,
+                                    "field": field_name,
+                                    "target": self.target,
+                                    "dossier": instance,
+                                },
                             )
                         )
                         continue
@@ -597,14 +634,14 @@ class EbauNumberWriter(FieldWriter):
 
         dossier = self.context.get("dossier")
         if not dossier.submit_date:
-            detail = (
-                f"Failed to write {value} to {self.target} for dossier {instance}",
-            )
             dossier._meta.errors.append(
                 Message(
                     level=Severity.WARNING.value,
                     code=MessageCodes.FIELD_VALIDATION_ERROR.value,
-                    detail=detail,
+                    detail=_(
+                        "Failed to write %(value)s to %(target)s for dossier %(dossier)s"
+                    )
+                    % {"value": value, "target": self.target, "dossier": instance},
                 )
             )
             return
@@ -811,7 +848,8 @@ class DossierWriter:
                     Message(
                         level=Severity.ERROR.value,
                         code=MessageCodes.MISSING_REQUIRED_VALUE_ERROR.value,
-                        detail=f"missing values in required fields: {dossier._meta.missing}",
+                        detail=_("missing values in required fields: %(fields)s")
+                        % {"fields": dossier._meta.missing},
                     )
                 )
                 dossier_summary.status = DOSSIER_IMPORT_STATUS_ERROR
@@ -824,7 +862,7 @@ class DossierWriter:
                 Message(
                     level=Severity.DEBUG.value,
                     code=MessageCodes.INSTANCE_CREATED.value,
-                    detail=f"Instance created with ID:  {instance.pk}",
+                    detail=_("Instance created with ID:  %(id)s") % {"id": instance.pk},
                 )
             )
 
@@ -851,7 +889,7 @@ class DossierWriter:
             Message(
                 level=Severity.DEBUG.value,
                 code=MessageCodes.FORM_DATA_WRITTEN.value,
-                detail="Form data written.",
+                detail=_("Form data written."),
             )
         )
         # update the current dossier's status based on messages
@@ -1033,7 +1071,12 @@ class DossierWriter:
             Message(
                 level=Severity.INFO.value,
                 code=MessageCodes.ATTACHMENT_CREATED.value,
-                detail=f"{doc.title} ({doc.get_latest_original().mime_type}) in section {category.name.translate()}",
+                detail=_("%(filename)s (%(mime_type)s) in section %(section)s")
+                % {
+                    "filename": doc.title,
+                    "mime_type": doc.get_latest_original().mime_type,
+                    "section": category.name.translate(),
+                },
             )
         )
         return messages
@@ -1086,7 +1129,10 @@ class DossierWriter:
                     Message(
                         level=Severity.ERROR.value,
                         code=MessageCodes.UNHANDLED_EXCEPTION,
-                        detail=f"Something went wrong replacing '{filename}' with error: {e}",
+                        detail=_(
+                            "Something went wrong replacing '%(filename)s' with error: %(error)s"
+                        )
+                        % {"filename": filename, "error": e},
                     )
                 )
                 return messages
@@ -1117,7 +1163,12 @@ class DossierWriter:
             Message(
                 level=Severity.INFO.value,
                 code=MessageCodes.ATTACHMENT_CREATED.value,
-                detail=f"{attachment.name} ({attachment.mime_type}) in section {'{name} ({attachment_section_id})'.format(**att_sec)}",
+                detail=_("%(filename)s (%(mime_type)s) in section %(section)s")
+                % {
+                    "filename": attachment.name,
+                    "mime_type": attachment.mime_type,
+                    "section": "{name} ({attachment_section_id})".format(**att_sec),
+                },
             )
         )
         return messages

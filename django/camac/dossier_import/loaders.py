@@ -239,10 +239,16 @@ class XlsxFileDossierLoader(DossierLoader):
                             level=Severity.ERROR.value,
                             field=key,
                             code=MessageCodes.FIELD_VALIDATION_ERROR.value,
-                            detail=(
-                                f"{date} is not valid for field {key}. Allowed format: "
-                                f"{datetime.strftime(datetime.now(), self.date_format)}"
-                            ),
+                            detail=_(
+                                "%(value)s is not valid for field %(field)s. Allowed format: %(format)s"
+                            )
+                            % {
+                                "value": date,
+                                "field": key,
+                                "format": datetime.strftime(
+                                    datetime.now(), self.date_format
+                                ),
+                            },
                         )
                     )
                     date = date

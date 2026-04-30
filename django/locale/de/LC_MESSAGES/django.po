@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-24 14:35+0200\n"
+"POT-Creation-Date: 2026-04-29 12:17+0200\n"
 "PO-Revision-Date: 2025-10-08 13:26+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -869,6 +869,50 @@ msgstr ""
 msgid "Specifying an \"attachments\" filter is mandatory!"
 msgstr "Der \"attachments\" Filter ist obligatorisch!"
 
+#: camac/dossier_import/config/kt_ag.py
+#, python-format
+msgid "Failed to write %(value)s: %(error)s"
+msgstr "Konnte %(value)s nicht schreiben: %(error)s"
+
+#: camac/dossier_import/config/kt_ag.py
+#: camac/dossier_import/config/kt_ag_sap_migration/dossier_import/dossier_writer.py
+#: camac/dossier_import/config/kt_bern.py camac/dossier_import/config/kt_gr.py
+#: camac/dossier_import/config/kt_schwyz.py
+#: camac/dossier_import/config/kt_so.py
+#, python-format
+msgid "Skip work item with task_id %(task_id)s failed with %(error)s."
+msgstr ""
+"Überspringen des Work Items mit task_id %(task_id)s ist fehlgeschlagen: "
+"%(error)s."
+
+#: camac/dossier_import/config/kt_ag.py
+#: camac/dossier_import/config/kt_ag_sap_migration/dossier_import/dossier_writer.py
+#: camac/dossier_import/config/kt_bern.py camac/dossier_import/config/kt_gr.py
+#: camac/dossier_import/config/kt_schwyz.py
+#: camac/dossier_import/config/kt_so.py
+#, python-format
+msgid "Workflow state set to %(state)s."
+msgstr "Workflow-Status auf %(state)s gesetzt."
+
+#: camac/dossier_import/config/kt_ag_sap_migration/dossier_import/dossier_writer.py
+#, python-format
+msgid ""
+"Error when inviting AfB and preparation of appropriate tasks: %(error)s."
+msgstr ""
+"Fehler beim Einladen des AfB und Vorbereiten der entsprechenden Aufgaben: "
+"%(error)s."
+
+#: camac/dossier_import/config/kt_bern.py camac/dossier_import/writers.py
+#, python-format
+msgid "Failed to write %(value)s to %(target)s for dossier %(dossier)s"
+msgstr "Konnte %(value)s nicht in %(target)s für Dossier %(dossier)s schreiben"
+
+#: camac/dossier_import/loaders.py
+#, python-format
+msgid "%(value)s is not valid for field %(field)s. Allowed format: %(format)s"
+msgstr ""
+"%(value)s ist für Feld %(field)s ungültig. Erlaubtes Format: %(format)s"
+
 #: camac/dossier_import/loaders.py
 #, python-format
 msgid ""
@@ -1077,6 +1121,15 @@ msgstr ""
 
 #: camac/dossier_import/writers.py
 #, python-format
+msgid "Ignoring %(keyword)s on field %(target)s (readonly)."
+msgstr "%(keyword)s im Feld %(target)s wird ignoriert (schreibgeschützt)."
+
+#: camac/dossier_import/writers.py
+msgid "Value deleted"
+msgstr "Wert gelöscht"
+
+#: camac/dossier_import/writers.py
+#, python-format
 msgid ""
 "Deleting %(target)s has no effect because work item %(task)s does not exist. "
 "Skipping."
@@ -1086,9 +1139,50 @@ msgstr ""
 
 #: camac/dossier_import/writers.py
 #, python-format
+msgid "Missing %(task)s work item, cannot write %(target)s"
+msgstr ""
+"Arbeitsschritt %(task)s fehlt, %(target)s kann nicht geschrieben werden"
+
+#: camac/dossier_import/writers.py
+#, python-format
+msgid "Deleting %(target)s without effect"
+msgstr "%(target)s ohne Auswirkung gelöscht"
+
+#: camac/dossier_import/writers.py
+#, python-format
 msgid "Value \"%(value)s\" in field %(target)s is too long (max: %(max)s)"
 msgstr ""
 "Wert \"%(value)s\" im Feld %(target)s ist zu lang (maximal %(max)s Zeichen)"
+
+#: camac/dossier_import/writers.py
+#, python-format
+msgid "Failed to write %(value)s to %(target)s: %(error)s"
+msgstr "Konnte %(value)s nicht in %(target)s schreiben: %(error)s"
+
+#: camac/dossier_import/writers.py
+#, python-format
+msgid ""
+"Missing %(task)s work item, cannot write %(target)s. Dossier state %(state)s."
+msgstr ""
+"Arbeitsschritt %(task)s fehlt, %(target)s kann nicht geschrieben werden. "
+"Dossierstatus %(state)s."
+
+#: camac/dossier_import/writers.py
+#, python-format
+msgid ""
+"Failed to write %(value)s to %(target)s for dossier %(dossier)s: %(error)s"
+msgstr ""
+"Konnte %(value)s nicht in %(target)s für Dossier %(dossier)s schreiben: "
+"%(error)s"
+
+#: camac/dossier_import/writers.py
+#, python-format
+msgid ""
+"Failed to write %(value)s for field %(field)s to %(target)s for dossier "
+"%(dossier)s."
+msgstr ""
+"Konnte %(value)s für Feld %(field)s nicht in %(target)s für Dossier "
+"%(dossier)s schreiben."
 
 #: camac/dossier_import/writers.py
 msgid "No responsible service, cannot set responsible user"
@@ -1113,12 +1207,36 @@ msgstr "Konnte verantwortliche Person nicht schreiben: {detail}"
 
 #: camac/dossier_import/writers.py
 #, python-format
+msgid "missing values in required fields: %(fields)s"
+msgstr "fehlende Werte in Pflichtfeldern: %(fields)s"
+
+#: camac/dossier_import/writers.py
+#, python-format
+msgid "Instance created with ID:  %(id)s"
+msgstr "Dossier mit ID %(id)s erstellt"
+
+#: camac/dossier_import/writers.py
+msgid "Form data written."
+msgstr "Formulardaten geschrieben."
+
+#: camac/dossier_import/writers.py
+#, python-format
 msgid ""
 "Unallowed mime type for file \"%(filename)s\" (%(mime_type)s) - the file was "
 "not imported"
 msgstr ""
 "Unerlaubter Dateityp der Datei \"%(filename)s\" (%(mime_type)s) - die Datei "
 "wurde nicht importiert"
+
+#: camac/dossier_import/writers.py
+#, python-format
+msgid "%(filename)s (%(mime_type)s) in section %(section)s"
+msgstr "%(filename)s (%(mime_type)s) in Abschnitt %(section)s"
+
+#: camac/dossier_import/writers.py
+#, python-format
+msgid "Something went wrong replacing '%(filename)s' with error: %(error)s"
+msgstr "Beim Ersetzen von '%(filename)s' ist ein Fehler aufgetreten: %(error)s"
 
 #: camac/ech0211/send_handlers.py
 msgid "ECH Dossier submitted"

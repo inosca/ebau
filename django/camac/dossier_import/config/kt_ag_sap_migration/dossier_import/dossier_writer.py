@@ -19,6 +19,7 @@ from codetiming import Timer
 from django.conf import settings
 from django.db.utils import IntegrityError
 from django.utils import timezone
+from django.utils.translation import gettext as _
 
 from camac.applicants.models import ROLE_CHOICES, Applicant
 from camac.caluma.extensions.events.general import get_caluma_setting
@@ -2091,7 +2092,10 @@ class KtAargauDossierWriter(DossierWriter):
             log.warning(e, exc_info=True)
             self._add_warning(
                 MessageCodes.INCONSISTENT_WORKFLOW_STATE,
-                f"Error when inviting AfB and preparation of appropriate tasks: {e}.",
+                _(
+                    "Error when inviting AfB and preparation of appropriate tasks: %(error)s."
+                )
+                % {"error": e},
                 dossier,
             )
 
@@ -2187,10 +2191,13 @@ class KtAargauDossierWriter(DossierWriter):
                     Message(
                         level=Severity.ERROR.value,
                         code=MessageCodes.WORKFLOW_SKIP_ITEM_FAILED.value,
-                        detail=(
-                            f"Skip work item with task_id {task_id} failed with "
-                            f"{DossierWriter.ConfigurationError(e)}."
-                        ),
+                        detail=_(
+                            "Skip work item with task_id %(task_id)s failed with %(error)s."
+                        )
+                        % {
+                            "task_id": task_id,
+                            "error": DossierWriter.ConfigurationError(e),
+                        },
                     )
                 )
                 continue
@@ -2217,7 +2224,7 @@ class KtAargauDossierWriter(DossierWriter):
             Message(
                 level=Severity.DEBUG.value,
                 code=MessageCodes.SET_WORKFLOW_STATE.value,
-                detail=f"Workflow state set to {target_state}.",
+                detail=_("Workflow state set to %(state)s.") % {"state": target_state},
             )
         )
 

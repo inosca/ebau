@@ -13,6 +13,7 @@ from caluma.caluma_workflow.api import skip_work_item
 from caluma.caluma_workflow.models import Case, WorkItem
 from django.conf import settings
 from django.utils import timezone
+from django.utils.translation import gettext as _
 
 from camac.caluma.extensions.data_sources import Municipalities
 from camac.caluma.extensions.events.general import get_caluma_setting
@@ -213,7 +214,8 @@ class Transform(FieldWriter):
                 Message(
                     level=Severity.WARNING.value,
                     code=MessageCodes.FIELD_VALIDATION_ERROR.value,
-                    detail=f"Failed to write {value}: {e}",
+                    detail=_("Failed to write %(value)s: %(error)s")
+                    % {"value": value, "error": e},
                 )
             )
 
@@ -257,7 +259,8 @@ class MultipleTargetsWriter(FieldWriter):
                     Message(
                         level=Severity.WARNING.value,
                         code=MessageCodes.UNHANDLED_EXCEPTION.value,
-                        detail=f"Failed to write {value}: {error}",
+                        detail=_("Failed to write %(value)s: %(error)s")
+                        % {"value": value, "error": error},
                     )
                 )
 
@@ -606,10 +609,13 @@ class KtAargauDossierWriter(DossierWriter):
                     Message(
                         level=Severity.ERROR.value,
                         code=MessageCodes.WORKFLOW_SKIP_ITEM_FAILED.value,
-                        detail=(
-                            f"Skip work item with task_id {task_id} failed with "
-                            f"{DossierWriter.ConfigurationError(e)}."
-                        ),
+                        detail=_(
+                            "Skip work item with task_id %(task_id)s failed with %(error)s."
+                        )
+                        % {
+                            "task_id": task_id,
+                            "error": DossierWriter.ConfigurationError(e),
+                        },
                     )
                 )
                 continue
@@ -638,7 +644,7 @@ class KtAargauDossierWriter(DossierWriter):
             Message(
                 level=Severity.DEBUG.value,
                 code=MessageCodes.SET_WORKFLOW_STATE.value,
-                detail=f"Workflow state set to {target_state}.",
+                detail=_("Workflow state set to %(state)s.") % {"state": target_state},
             )
         )
 
