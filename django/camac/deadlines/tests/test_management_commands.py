@@ -44,7 +44,7 @@ def test_management_command_deadline_progression(
 
     assert len(caplog.messages) == (1 if has_stdout else 0)
     deadline.refresh_from_db()
-    assert deadline.process_deadline_days == 6
+    assert deadline.process_deadline_days == 5
 
 
 @pytest.mark.freeze_time("2025-05-28")

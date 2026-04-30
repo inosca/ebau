@@ -326,7 +326,7 @@ class Suspension(models.Model):
         tmp_date = start
 
         suspension_dates = []
-        while tmp_date < end:
+        while tmp_date <= end:
             # Ignore weekends and public holidays if configured to do so
             if self.deadline.exclude_suspension_date(tmp_date):
                 tmp_date += timedelta(days=1)
@@ -483,8 +483,9 @@ class InstanceDeadline(models.Model):
         If no deadline exists, it will be created.
 
         The total days of suspension will be calculated based on the existing
-        suspensions for the instance and service. Closed suspensions are calculated
-        by end-start date, while open suspensions are calculated by now-start date.
+        suspensions for the instance and service. Closed suspensions include both
+        start and end date, while open suspensions are calculated up to and
+        including today.
 
         If no start date is set on the deadline, the progress will be unset.
         Otherwise, the progress is recalculated and saved only if changed.
@@ -580,7 +581,7 @@ class InstanceDeadline(models.Model):
         # process deadline date (or today if no process deadline date is set).
         if self.start_date and offset_date:
             suspension_dates = [
-                d for d in suspension_dates if self.start_date <= d < offset_date
+                d for d in suspension_dates if self.start_date <= d <= offset_date
             ]
 
         # only return unique suspension dates, no overlapping
@@ -602,7 +603,7 @@ class InstanceDeadline(models.Model):
 
         suspension_dates = self.get_suspension_dates()
         total_days = 0
-        while tmp_date < offset_date:
+        while tmp_date <= offset_date:
             # If the current day is in the suspension dates, skip it
             if tmp_date in suspension_dates:
                 tmp_date += timedelta(days=1)
@@ -616,7 +617,7 @@ class InstanceDeadline(models.Model):
             total_days += 1
             tmp_date += timedelta(days=1)
 
-        return total_days + 1
+        return total_days
 
     def _get_enddate_responsible(self) -> Optional[datetime]:
         if self.instance.instance_state.name == settings.REJECTION["INSTANCE_STATE"]:
@@ -766,7 +767,6 @@ class InstanceDeadline(models.Model):
         # Ignore the already suspended days.
         # Take into account weekends and public holidays if configured to do so.
         lead_time = self.deadline_type.lead_time if self.deadline_type else 0
-        total_lead_days = 0
         while lead_time > 0:
             # If the lead day to add is already in the suspension dates,
             # skip it and continue to the next day.
@@ -782,7 +782,6 @@ class InstanceDeadline(models.Model):
                 continue
 
             process_deadline_date += timedelta(days=1)
-            total_lead_days += 1
             lead_time -= 1
 
         # Add the total days of suspension that are not overlapping
