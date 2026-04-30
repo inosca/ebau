@@ -890,10 +890,9 @@
           "index": 1,
           "total": 2
         },
-        "construction-step-id": "construction-step-schlussabnahme-gebaeude",
-        "is-actionable-for-control": false
+        "construction-step-id": "construction-step-schlussabnahme-gebaeude"
       },
-      "address_groups": "['municipality', 'applicant']|groups",
+      "address_groups": "['municipality']|groups",
       "control_groups": "['municipality']|groups",
       "is_archived": false,
       "form": "construction-step-schlussabnahme-gebaeude",
