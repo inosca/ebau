@@ -12,7 +12,6 @@ from django.db.models import (
     F,
     Func,
     IntegerField,
-    Max,
     Min,
     OuterRef,
     Q,
@@ -178,7 +177,7 @@ class CompletingDateFilter(DFDateFilter):
         if value in EMPTY_VALUES or self.service_id is None:
             return qs
 
-        # Find instances where the latest completed inquiry (by closed_at)
+        # Find instances where the earliest completed inquiry (by closed_at)
         # addressed to the requesting service satisfies the date condition.
         matching_instance_pks = (
             _exclude_claim_inquiries(
@@ -189,7 +188,7 @@ class CompletingDateFilter(DFDateFilter):
             .filter(closed_at__isnull=False)
             .values("case__family__instance__pk")
             .annotate(
-                completing_date=Max("closed_at__date"),
+                completing_date=Min("closed_at__date"),
             )
             .filter(**{f"completing_date__{self.lookup_expr}": value})
             .values_list("case__family__instance__pk", flat=True)
@@ -364,7 +363,7 @@ class _BaseFilterBackend(BaseFilterBackend):
         )
 
     def annotate_completing_date(self, service_id):
-        """Date when the last inquiry from the service was completed.
+        """Date when the first inquiry from the service was completed.
 
         Inquiries answered with status claim are ignored.
         """
@@ -379,7 +378,7 @@ class _BaseFilterBackend(BaseFilterBackend):
                 closed_at__isnull=False,
             )
             .annotate(completion_date=Cast("closed_at__date", DateField()))
-            .order_by("-completion_date")
+            .order_by("completion_date")
             .values("completion_date")[:1],
             output_field=DateField(),
         )
@@ -466,14 +465,19 @@ class _BaseFilterBackend(BaseFilterBackend):
             queryset, request.query_params.get("involved")
         )
 
-        # exclude dossiers that still have any pending inquiry addressed
-        # to the current service
-        pending_inquiries = (
-            Inquiry.objects.addressed_to(current_service)
-            .only_pending()
-            .filter(case__family__instance=OuterRef("pk"))
+        # Exclude dossiers that still have any pending inquiry addressed to
+        # the current service, but only when filtering by completing date.
+        completing_date_filter_active = any(
+            request.query_params.get(param)
+            for param in ("completing_date_after", "completing_date_before")
         )
-        queryset = queryset.exclude(Exists(pending_inquiries))
+        if completing_date_filter_active:
+            pending_inquiries = (
+                Inquiry.objects.addressed_to(current_service)
+                .only_pending()
+                .filter(case__family__instance=OuterRef("pk"))
+            )
+            queryset = queryset.exclude(Exists(pending_inquiries))
 
         return list(queryset.order_by().values_list("pk", flat=True).distinct())
 
