@@ -443,7 +443,7 @@ def test_submit_create_acl_be(
         assert acl.get().is_active()
 
 
-@pytest.mark.parametrize("role__name", ["Municipality", "Support"])
+@pytest.mark.parametrize("role__name", ["municipality-lead", "support"])
 @pytest.mark.parametrize("service_type", ["municipality", "construction_control"])
 def test_change_responsible_service(
     db,
@@ -456,12 +456,19 @@ def test_change_responsible_service(
     instance_acl_factory,
     be_permissions_settings,
     instance_service_factory,
+    instance_state_factory,
     service_type,
     mocker,
 ):
     be_permissions_settings["EVENT_HANDLER"] = (
         "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
     )
+
+    be_instance.instance_state = instance_state_factory(
+        name="subm" if service_type == "municipality" else "sb1"
+    )
+    be_instance.save()
+
     new_responsible = service_factory()
 
     old_responsible = be_instance.instance_services.get(active=1).service

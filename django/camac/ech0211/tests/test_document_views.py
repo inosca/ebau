@@ -11,6 +11,7 @@ from syrupy.filters import paths
 from camac.document import permissions
 from camac.document.models import AttachmentSection
 from camac.ech0211.models import ECH0211Document
+from camac.permissions.switcher import PERMISSION_MODE
 from camac.settings.modules.ech0211 import DocumentAPIFeature
 from camac.utils import get_dict_item
 
@@ -360,7 +361,7 @@ def test_document_create_forbidden(
     }
 
 
-@pytest.mark.freeze_time("2025-11-22")
+@pytest.mark.freeze_time("2026-11-22")
 @pytest.mark.parametrize("mark_name", ["void", "decision", "publication", "sensitive"])
 @pytest.mark.parametrize("mark_action", ["add", "remove"])
 @pytest.mark.parametrize("has_feature", [True, False])
@@ -375,15 +376,23 @@ def test_document_mark_has_feature(
     alexandria_document_factory,
     alexandria_mark_factory,
     alexandria_category_factory,
+    instance_acl_factory,
+    instance_state_factory,
     be_instance,
     admin_user,
     be_ech0211_settings,
     set_document_backend,
     be_permissions_settings,
+    # TODO: Use alexandria permissions settings fixture
+    # be_permissions_alexandria_settings,
     be_access_levels,
     be_alexandria_settings,
     role,
 ):
+    # TODO: Set permissions mode to full as soon as alexandria permissions
+    # settings fixture is used.
+    be_permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.OFF
+
     set_document_backend("alexandria")
     mark = alexandria_mark_factory(pk=mark_name)
     if has_feature:
@@ -411,8 +420,18 @@ def test_document_mark_has_feature(
         be_ech0211_settings["DOCUMENT_API_FEATURES"] = []
 
     user_service = admin_user.get_default_group().service
+    instance_acl_factory(
+        instance=be_instance,
+        service=user_service,
+        access_level_id="lead-authority",
+        grant_type="SERVICE",
+    )
+
+    be_instance.instance_state = instance_state_factory(name="subm")
+    be_instance.save()
+
     alexandria_category_factory(
-        slug="intern",
+        slug="alle-beteiligten",
         metainfo={
             "access": {
                 "service": {"visibility": "service"},
@@ -421,7 +440,7 @@ def test_document_mark_has_feature(
         },
     )
     alexandria_doc = alexandria_document_factory(
-        category_id="intern",
+        category_id="alle-beteiligten",
         metainfo={"camac-instance-id": be_instance.pk},
         created_by_user=admin_client.user.pk,
         created_by_group=user_service.pk,
