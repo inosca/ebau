@@ -21,11 +21,10 @@ def _include_special_service(instance, service_name):
     """
     Check if a 'special' service should be included in the given instance.
 
-    In Kt. GR, two 'special' services can be given access by ticking a checkbox
-    in the workflow:
+    In Kt. GR, two 'special' services can be given access by ticking a checkbox in the decision form:
 
-    - Gebäudeversicherung Graubünden (GVG) in the decision form
-    - Amt für Immobilienbewertung (AIB) in the construction acceptance form
+    - Gebäudeversicherung Graubünden (GVG)
+    - Amt für Immobilienbewertung (AIB)
 
     This method returns true if one of those services is supposed to be included
     in a specific dossier.
@@ -49,7 +48,12 @@ def _include_special_service(instance, service_name):
         task_id = settings.DECISION["TASK"]
         question_id = "fuer-gvg-freigeben"
     elif service_name == gr_constants.AIB_SERVICE_SLUG:
-        task_id = "construction-acceptance"
+        task_id = (
+            settings.DECISION["TASK"]
+            if settings.CONSTRUCTION_MONITORING
+            and settings.CONSTRUCTION_MONITORING.get("ENABLED", False)
+            else "construction-acceptance"
+        )
         question_id = "fuer-aib-freigeben"
     else:  # pragma: no cover
         raise RuntimeError(
@@ -97,6 +101,17 @@ class PermissionEventHandlerGR(
                 grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
                 access_level=permissions_models.AccessLevel.objects.get(pk="read"),
                 service=Service.objects.get(slug=gr_constants.GVG_SERVICE_SLUG),
+            )
+        if (
+            settings.CONSTRUCTION_MONITORING
+            and settings.CONSTRUCTION_MONITORING.get("ENABLED", False)
+            and should_include_aib(instance)
+        ):
+            self.manager.grant(
+                instance,
+                grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+                access_level=permissions_models.AccessLevel.objects.get(pk="read"),
+                service=Service.objects.get(slug=gr_constants.AIB_SERVICE_SLUG),
             )
 
     def inquiry_sent(self, instance: Instance, work_item: WorkItem):
@@ -159,7 +174,10 @@ class PermissionEventHandlerGR(
                     )
 
     def instance_completed(self, instance: Instance):
-        if should_include_aib(instance):
+        if (
+            not settings.CONSTRUCTION_MONITORING
+            or not settings.CONSTRUCTION_MONITORING.get("ENABLED", False)
+        ) and should_include_aib(instance):
             self.manager.grant(
                 instance,
                 grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,

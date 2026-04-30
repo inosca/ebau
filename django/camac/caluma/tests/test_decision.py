@@ -1,7 +1,7 @@
 import pytest
 from caluma.caluma_core.events import send_event
 from caluma.caluma_form.factories import FormFactory
-from caluma.caluma_form.models import Form, Question
+from caluma.caluma_form.models import Form
 from caluma.caluma_workflow.api import (
     cancel_work_item,
     complete_work_item,
@@ -86,14 +86,8 @@ def test_complete_decision(
         status=WorkItem.STATUS_COMPLETED,
         document=caluma_document_factory(form_id="decision"),
     )
-    decision_question = caluma_question_factory(
-        slug=decision_settings["QUESTIONS"]["DECISION"],
-        label="Entscheid",
-        type=Question.TYPE_TEXT,
-    )
-
     work_item.document.answers.create(
-        question=decision_question,
+        question_id=decision_settings["QUESTIONS"]["DECISION"],
         value=decision_settings["ANSWERS"]["DECISION"][decision],
     )
 

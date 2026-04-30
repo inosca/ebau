@@ -717,6 +717,7 @@ def caluma_workflow_config_gr(
         settings.ROOT_DIR("kt_gr/config/caluma_additional_demand.json"),
         settings.ROOT_DIR("kt_gr/config/caluma_appeal_form.json"),
         settings.ROOT_DIR("kt_gr/config/caluma_objection_form.json"),
+        settings.ROOT_DIR("kt_gr/config/caluma_decision_form.json"),
         settings.ROOT_DIR("kt_gr/config/caluma_construction_monitoring_form.json"),
         settings.ROOT_DIR("kt_gr/config/caluma_construction_monitoring_workflow.json"),
     )
