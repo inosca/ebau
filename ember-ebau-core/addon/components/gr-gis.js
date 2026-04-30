@@ -176,10 +176,9 @@ export default class GrGisComponent extends Component {
 
   @action
   updateDragged(point, e) {
-    const location = e.target._latlng;
-    this.markers
-      .removeAt(point)
-      .insertAt(point, { lat: location.lat, lng: location.lng });
+    const { lat, lng } = e.target.getLatLng();
+    this.markers[point] = { lat, lng };
+    this.markers = [...this.markers];
   }
 
   @action
@@ -216,7 +215,7 @@ export default class GrGisComponent extends Component {
     const targetZoom = this.maxZoom - 1;
 
     // center the map on the selected point(s)
-    await this.centerMap(targetZoom);
+    await this.centerMap(currentZoom);
     // zoom to preferred zoom level for the canvas image
     await this.zoomToLevel(targetZoom, false);
     // create canvas image and upload/replace in alexandria
@@ -253,9 +252,9 @@ export default class GrGisComponent extends Component {
       // when only one marker is available (sw==ne), center the map on sw
       // to prevent invalid bounds error on fit.
       if (sw.equals(ne)) {
-        this.map.setView(sw, targetZoom);
+        this.map.setView(sw, targetZoom, { animate: false });
       } else {
-        this.map.fitBounds(centerBounds, { padding: [20, 20] });
+        this.map.fitBounds(this.markers, { padding: [20, 20], animate: false });
       }
     });
   }
@@ -264,20 +263,27 @@ export default class GrGisComponent extends Component {
     let zoomTimeout = false;
 
     return new Promise((resolve) => {
-      const currentZoom = this.map.getZoom();
-      if (currentZoom === targetZoom) {
-        return resolve(targetZoom);
-      }
-
-      // fallback if the zoomend event is not triggered
       zoomTimeout = setTimeout(() => {
         return resolve(targetZoom);
       }, 3000);
 
-      this.map.once("zoomend", () => {
+      // add a small timeout to the promise resolve, to ensure the map is
+      //  fully rendered before proceeding with the canvas creation.
+      const doResolve = () => {
         clearTimeout(zoomTimeout);
+        if (!animate) {
+          return setTimeout(() => resolve(targetZoom), 500);
+        }
+
         return resolve(targetZoom);
-      });
+      };
+
+      const currentZoom = this.map.getZoom();
+      if (currentZoom === targetZoom) {
+        return doResolve();
+      }
+
+      this.map.once("zoomend", doResolve);
 
       return this.map.setZoom(targetZoom, { animate });
     });
