@@ -1,22 +1,5 @@
 [
   {
-    "model": "caluma_form.answer",
-    "pk": "2fdcc8c0-60f2-46ba-996f-aec2b9d4e767",
-    "fields": {
-      "created_at": "2024-01-19T07:58:15.653Z",
-      "modified_at": "2024-01-19T07:58:15.653Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": "admin",
-      "modified_by_group": null,
-      "question": "fuer-aib-freigeben",
-      "value": ["fuer-aib-freigeben-ja"],
-      "meta": {},
-      "document": null,
-      "date": null
-    }
-  },
-  {
     "model": "caluma_form.form",
     "pk": "construction-monitoring",
     "fields": {
@@ -1896,23 +1879,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "fuer-aib-freigeben-ja",
-    "fields": {
-      "created_at": "2024-01-03T07:25:55.246Z",
-      "modified_at": "2024-08-28T12:24:52.198Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Dossier für Amt für Immobilienbewertung (AIB) freigeben\", \"fr\": null, \"it\": \"Rilascia il dossier per l'Ufficio per le valutazioni immobiliari (UVI)\"}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "im-leitungskataster-erfasst-ja",
     "fields": {
       "created_at": "2025-01-20T15:24:59.373Z",
@@ -3668,39 +3634,6 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "fuer-aib-freigeben",
-    "fields": {
-      "created_at": "2024-01-03T07:25:55.409Z",
-      "modified_at": "2024-09-11T14:58:39.312Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Dossier für Amt für Immobilienbewertung (AIB) freigeben\", \"fr\": null, \"it\": \"Rilascia il dossier per l'Ufficio per le valutazioni immobiliari (UVI)\"}",
-      "type": "multiple_choice",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "hideLabel": true
-      },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": "2fdcc8c0-60f2-46ba-996f-aec2b9d4e767",
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
     "pk": "hinweis-maengel",
     "fields": {
       "created_at": "2023-11-06T13:47:36.888Z",
@@ -3749,37 +3682,6 @@
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "info-aib",
-    "fields": {
-      "created_at": "2024-01-10T14:29:04.233Z",
-      "modified_at": "2024-09-11T14:58:41.425Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Info AIB\", \"fr\": null, \"it\": \"Info UVI\"}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"**Bitte beachten:** nach Art. 4 Abs. 1 und 2 des Gesetzes über die amtlichen Immobilienbewertungen (IBG) haben Gemeinden das AIB über Bauabnahmen zu informieren.\\n<style>[data-question-slug=\\\"info-aib\\\"], [data-question-slug=\\\"info-aib\\\"] p { margin-bottom: 0 !important;}</style>\", \"fr\": \"\", \"it\": \"**Si prega di osservare che** secondo l'art. 4 cpv. 1 e 2 della legge sulle valutazioni immobiliari ufficiali (LVI), i comuni devono informare l'UVI in merito a collaudi avvenuti.\\n<style>[data-question-slug=\\\"info-aib\\\"], [data-question-slug=\\\"info-aib\\\"] p { margin-bottom: 0 !important;}</style>\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -4396,21 +4298,6 @@
       "modified_by_group": null,
       "question": "einmessung-erforderlich",
       "option": "einmessung-erforderlich-nein",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "fuer-aib-freigeben.fuer-aib-freigeben-ja",
-    "fields": {
-      "created_at": "2024-01-03T07:25:55.419Z",
-      "modified_at": "2024-01-03T07:25:55.419Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "fuer-aib-freigeben",
-      "option": "fuer-aib-freigeben-ja",
       "sort": 1
     }
   },

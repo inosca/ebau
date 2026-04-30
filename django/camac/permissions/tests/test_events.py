@@ -266,6 +266,7 @@ def test_decision_event_handler_gr(
     gr_permissions_settings,
     gr_distribution_settings,
     gr_construction_monitoring_settings,
+    gr_decision_settings,
     instance_state_factory,
     settings,
     application_settings,
@@ -280,6 +281,7 @@ def test_decision_event_handler_gr(
     mocker.patch("camac.notification.utils.send_mail")
     settings.APPLICATION_NAME = "kt_gr"
     gvg_service = service_factory(slug=gr_constants.GVG_SERVICE_SLUG)
+    aib_service = service_factory(slug=gr_constants.AIB_SERVICE_SLUG)
 
     for task_id in [
         "submit",
@@ -291,14 +293,28 @@ def test_decision_event_handler_gr(
             user=caluma_admin_user,
         )
 
-    if checkbox_checked:
-        caluma_answer_factory(
-            document=gr_instance.case.work_items.filter(task_id="decision")
-            .first()
-            .document,
-            question__slug="fuer-gvg-freigeben",
-            value=["fuer-gvg-freigeben-ja"],
-        )
+    decision_doc = (
+        gr_instance.case.work_items.filter(task_id="decision").first().document
+    )
+    decision_doc.answers.create(
+        question_id="decision-date",
+        date=timezone.now().date(),
+    )
+    decision_doc.answers.create(
+        question_id="decision-decision",
+        value=gr_decision_settings["ANSWERS"]["DECISION"]["OTHER"],
+    )
+    gvg_answer = decision_doc.answers.get(
+        question__slug="fuer-gvg-freigeben",
+    )
+    gvg_answer.value = ["fuer-gvg-freigeben-ja"] if checkbox_checked else []
+    gvg_answer.save()
+    aib_answer = decision_doc.answers.get(
+        question__slug="fuer-aib-freigeben",
+    )
+    aib_answer.value = ["fuer-aib-freigeben-ja"] if checkbox_checked else []
+    aib_answer.save()
+
     access_level_factory(slug="read")
     instance_state_factory(name="finished")
 
@@ -310,10 +326,13 @@ def test_decision_event_handler_gr(
     )
 
     acls = InstanceACL.objects.filter(instance=gr_instance)
-    assert acls.count() == expected_count
+    assert acls.count() == expected_count * 2
 
     gvg_acl = acls.filter(service=gvg_service)
     assert gvg_acl.count() == expected_count
+
+    aib_acl = acls.filter(service=aib_service)
+    assert aib_acl.count() == expected_count
 
 
 @pytest.mark.freeze_time("2022-06-03")
@@ -872,7 +891,7 @@ def test_involve_gvg_aib_gr(
     if gvg_answer:
         caluma_answer_factory(
             document=work_item_decision.document,
-            question__slug="fuer-gvg-freigeben",
+            question=Question.objects.get(slug="fuer-gvg-freigeben"),
             value=["fuer-gvg-freigeben-ja"],
         )
 

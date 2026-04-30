@@ -670,7 +670,6 @@ def test_send_submit_gr(
     caluma_question_factory(slug="material-question-exam")
     caluma_question_factory(slug="complete-material-exam")
     caluma_question_factory(slug="oeffentliche-auflage")
-    caluma_question_factory(slug="fuer-gvg-freigeben")
     call_command(
         "loaddata",
         settings.ROOT_DIR("kt_gr/config/caluma_form.json"),

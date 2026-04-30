@@ -217,15 +217,6 @@ def test_dms_placeholders_gr(
         status=WorkItem.STATUS_COMPLETED,
         document=caluma_document_factory(form_id="decision"),
     )
-    decision_question = caluma_question_factory(
-        slug="decision-decision", type=Question.TYPE_CHOICE
-    )
-    decision_date_question = caluma_question_factory(
-        slug="decision-date", type=Question.TYPE_DATE
-    )
-    Option.objects.create(slug="decision-decision-approved", label="Bewilligt")
-    caluma_form_question_factory(form_id="decision", question=decision_question)
-    caluma_form_question_factory(form_id="decision", question=decision_date_question)
     decision_work_item.document.answers.create(
         question_id="decision-decision",
         value="decision-decision-approved",
