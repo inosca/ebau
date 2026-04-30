@@ -75,5 +75,9 @@
 				</ns11:document>
 			</documents>
 		</ns2:directive>
+		<ns2:extension>
+			<!-- Dossierkorrektur für Gesuchsteller aktivieren (true/false) (Nur aktiv für KT GR) -->
+			<allowFormChanges>false</allowFormChanges>
+		</ns2:extension>
 	</ns2:eventRequest>
 </ns2:delivery>
