@@ -465,45 +465,45 @@ def test_update_deadline_startdate_ag(
             "2025-05-01",
             30,
             [
-                # closed suspension of 14 days
+                # closed suspension of 15 days
                 {"start_date": "2025-05-01", "end_date": "2025-05-15"},
                 # suspensions outside of the deadline range is ignored
                 {"start_date": "2021-01-01", "end_date": "2021-01-15"},
                 {"start_date": "2027-01-01", "end_date": "2027-01-15"},
             ],
-            14,  # total suspension days
-            "2025-06-14",  # lead time of 30 + 14 suspension days
+            15,  # total suspension days
+            "2025-06-15",  # lead time of 30 + 15 suspension days
         ),
         (
             False,
             "2025-05-01",
             30,
             [
-                # closed suspension of 7 days
+                # closed suspension of 8 days
                 {"start_date": "2025-05-01", "end_date": "2025-05-8"},
-                # closed suspension of 2 days
+                # closed suspension of 3 days
                 {"start_date": "2025-05-10", "end_date": "2025-05-12"},
             ],
-            9,  # total suspension days
-            "2025-06-09",  # lead time of 30 + 9 suspension days
+            11,  # total suspension days
+            "2025-06-11",  # lead time of 30 + 11 suspension days
         ),
         (
             False,
             "2024-12-20",
             30,
             [
-                # closed suspension of 15 days
+                # closed suspension of 16 days
                 {"start_date": "2024-12-22", "end_date": "2025-01-06"},
             ],
-            15,
-            "2025-02-03",  # lead time of 30 + 15 suspension days
+            16,  # total suspension days
+            "2025-02-04",  # lead time of 30 + 16 suspension days
         ),
         (
             True,  # Exclude non-working days
             "2024-12-20",
             30,
             [
-                # closed suspension of 15 days
+                # closed suspension of 16 days
                 #
                 # minus 5 weekend days:
                 # - 2024-12-22 - Sunday
@@ -517,20 +517,20 @@ def test_update_deadline_startdate_ag(
                 # - 2024-12-26 - St. Stephen's Day
                 # - 2025-01-01 - New Year's Day
                 #
-                # == 7 suspension days
+                # == 8 suspension days
                 {"start_date": "2024-12-22", "end_date": "2025-01-06"},
                 # add a overlapping suspension just to test that it does not
                 # change the result
                 {"start_date": "2024-12-28", "end_date": "2025-01-04"},
             ],
-            7,  # total suspension workdays
+            8,  # total suspension workdays
             # 11 non-working days in lead time outside the suspension overlap:
             # [2024-12-21, 2025-01-11, 2025-01-12, 2025-01-18, 2025-01-19,
             # 2025-01-25, 2025-01-26, 2025-02-01, 2025-02-02, 2025-02-08,
             # 2025-02-09]
             #
-            # total lead time of 30 + 15 suspension days + 11 non-working days
-            "2025-02-14",
+            # total lead time of 30 + 8 suspension workdays + 11 non-working days
+            "2025-02-15",
         ),
     ],
 )
@@ -700,39 +700,39 @@ def test_update_deadline_progression_service_gr(
         ("2025-05-27", False, [], 3, 0),
         # all days, 7 processed days
         ("2025-05-23", False, [], 7, 0),
-        # only workdays, 5 processed days
-        ("2025-05-23", True, [], 5, 0),
-        # all days, exluding suspended days, 5 processed days
+        # only workdays, 4 processed days (2025-05-29 is public holiday)
+        ("2025-05-23", True, [], 4, 0),
+        # all days, excluding suspended days, 4 processed days
         (
             "2025-05-23",
             False,
             [{"start_date": "2025-05-25", "end_date": "2025-05-27"}],
-            5,
-            2,  # one weekend and one working day
+            4,
+            3,
         ),
-        # only workdays and excluding suspended days, 4 processed days
+        # only workdays and excluding suspended days, 2 processed days
         (
             "2025-05-23",
             True,
             [{"start_date": "2025-05-25", "end_date": "2025-05-27"}],
-            4,
-            1,  # one working day, weekend excluded
+            2,  # 2025-05-23, 2025-05-28; 2025-05-29 is public holiday
+            2,
         ),
         # open suspension any day
         (
             "2025-05-23",
             False,
             [{"start_date": "2025-05-25", "end_date": None}],
-            3,  # 2025-05-23 and 2025-05-24 +1 to include the same day
-            4,  # 4 days of suspension 2025-05-25 to 2025-05-28
+            2,  # 2025-05-23, 2025-05-24
+            5,  # 2025-05-25 to 2025-05-29, inclusive
         ),
         # open suspension only workdays
         (
             "2025-05-23",
             True,
             [{"start_date": "2025-05-25", "end_date": None}],
-            2,  # only working day 2025-05-23 +1 to include the same day
-            3,  # only 3 days of suspension excluding weekends/holidays
+            1,  # 2025-05-23
+            3,  # 2025-05-26 to 2025-05-28, weekend/holiday excluded
         ),
     ],
 )

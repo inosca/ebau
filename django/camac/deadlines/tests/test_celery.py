@@ -5,83 +5,92 @@ import pytest
 from camac.deadlines.tasks import update_deadlines
 
 
-@pytest.mark.freeze_time("2025-05-28")
+@pytest.mark.freeze_time("2026-04-24")
 def test_task_update_deadlines(
     db,
     instance_deadline_factory,
+    deadline_type_factory,
     suspension_factory,
     service_factory,
-    gr_instance,
-    gr_deadlines_settings,
+    so_instance,
+    deadlines_settings,
     disable_deadline_side_effects,
+    set_application_so,
 ):
+    deadlines_settings.enabled = True
+
     """Test deadline progression update through the celery task."""
     service1 = service_factory()
     service2 = service_factory()
     service3 = service_factory()
 
-    # deadline with closed suspension
-    deadline1 = instance_deadline_factory(
-        instance=gr_instance,
-        service=service1,
-        start_date=date(2025, 5, 20),
-        process_deadline_date=date(2026, 5, 20),
-        process_deadline_date_override=True,
-        total_days_of_suspension=0,
-        process_deadline_days=1,
-    )
-    suspension_factory(
-        deadline=deadline1,
-        start_date=date(2025, 5, 25),
-        end_date=date(2025, 5, 26),
+    deadline_type = deadline_type_factory(
+        lead_time=40,
+        exclude_weekends=True,
+        exclude_public_holidays=True,
     )
 
-    # deadline with open suspension
-    deadline2 = instance_deadline_factory(
-        instance=gr_instance,
-        service=service2,
-        start_date=date(2025, 5, 20),
+    # deadline without suspension
+    deadline1 = instance_deadline_factory(
+        instance=so_instance,
+        service=service1,
+        start_date=date(2026, month=4, day=13),
         process_deadline_date=date(2026, 5, 20),
-        process_deadline_date_override=True,
         total_days_of_suspension=0,
-        process_deadline_days=1,
+        process_deadline_days=0,
+        deadline_type=deadline_type,
+    )
+
+    # deadline with closed suspension
+    deadline2 = instance_deadline_factory(
+        instance=so_instance,
+        service=service2,
+        start_date=date(2026, month=4, day=13),
+        process_deadline_date=date(2026, 5, 20),
+        total_days_of_suspension=0,
+        process_deadline_days=0,
+        deadline_type=deadline_type,
     )
     suspension_factory(
         deadline=deadline2,
-        start_date=date(2025, 5, 25),
-        end_date=None,
+        start_date=date(2026, 4, 14),
+        end_date=date(2026, 4, 15),
     )
 
-    # closed deadline
+    # deadline with open suspension
     deadline3 = instance_deadline_factory(
-        instance=gr_instance,
+        instance=so_instance,
         service=service3,
-        start_date=date(2025, 5, 20),
+        start_date=date(2026, month=4, day=13),
         process_deadline_date=date(2026, 5, 20),
-        process_deadline_date_override=True,
-        total_days_of_suspension=2,
-        process_deadline_days=2,
+        total_days_of_suspension=0,
+        process_deadline_days=0,
+        deadline_type=deadline_type,
     )
     suspension_factory(
         deadline=deadline3,
-        start_date=date(2025, 5, 25),
+        start_date=date(2026, 4, 14),
         end_date=None,
     )
 
-    assert deadline1.process_deadline_days == 1
-    assert deadline2.process_deadline_days == 1
-    assert deadline3.process_deadline_days == 2
+    assert deadline1.process_deadline_days == 0
+    assert deadline2.process_deadline_days == 0
+    assert deadline3.process_deadline_days == 0
     assert deadline1.total_days_of_suspension == 0
     assert deadline2.total_days_of_suspension == 0
-    assert deadline3.total_days_of_suspension == 2
+    assert deadline3.total_days_of_suspension == 0
 
     update_deadlines()
     deadline1.refresh_from_db()
     deadline2.refresh_from_db()
+    deadline3.refresh_from_db()
 
-    assert deadline1.process_deadline_days == 8
-    assert deadline2.process_deadline_days == 6
-    assert deadline3.process_deadline_days == 2
-    assert deadline1.total_days_of_suspension == 1
-    assert deadline2.total_days_of_suspension == 3
-    assert deadline3.total_days_of_suspension == 2
+    assert deadline1.process_deadline_days == 10
+    assert deadline2.process_deadline_days == 8
+    assert deadline3.process_deadline_days == 1
+    assert deadline1.total_days_of_suspension == 0
+    assert deadline2.total_days_of_suspension == 2
+    assert deadline3.total_days_of_suspension == 9
+    assert deadline1.target_deadline_date == date(2026, 6, 9)
+    assert deadline2.target_deadline_date == date(2026, 6, 11)
+    assert deadline3.target_deadline_date == date(2026, 6, 20)
