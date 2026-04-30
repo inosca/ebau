@@ -190,7 +190,7 @@
       'attributes': dict({
         'created-at': '2025-11-22T01:00:00+01:00',
         'description': 'Choice impact wide yourself win reflect. Important form result college cold relate. Avoid generation nearly laugh.',
-        'mime-type': 'text/css',
+        'mime-type': 'model/mesh',
         'size': 5,
         'title': 'Clifford Smith',
       }),
@@ -213,6 +213,17 @@
         'instance': dict({
           'data': dict({
             'type': 'instances',
+          }),
+        }),
+        'marks': dict({
+          'data': list([
+            dict({
+              'id': 'void',
+              'type': 'marks',
+            }),
+          ]),
+          'meta': dict({
+            'count': 1,
           }),
         }),
       }),

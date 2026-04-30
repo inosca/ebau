@@ -318,5 +318,5 @@ class ECH0211AlexandriaDocumentSerializer(serializers.ModelSerializer):
 
     class Meta:
         resource_name = "ech0211-documents"
-        fields = DOCUMENT_FIELDS
+        fields = DOCUMENT_FIELDS + ["marks"]
         model = models.ECH0211AlexandriaDocument

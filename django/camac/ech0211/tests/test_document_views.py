@@ -44,6 +44,7 @@ def test_document_details(
     alexandria_document_factory,
     alexandria_file_factory,
     alexandria_category_factory,
+    alexandria_mark_factory,
     be_instance,
     attachment_factory,
     admin_user,
@@ -100,6 +101,9 @@ def test_document_details(
         created_by_user=admin_client.user.pk,
         created_by_group=user_service.pk,
     )
+
+    void_mark = alexandria_mark_factory(pk="void")
+    alexandria_doc.marks.add(void_mark)
 
     # we want the attachment / document to have a file, so the test
     # represents that aspect as well
@@ -180,6 +184,17 @@ def test_document_details(
         "included.0.relationships": _t(dict),
         "included.0.relationships.parent.data": _v(None),
     }
+
+    if document_backend == "alexandria":
+        checks.update(
+            {
+                "data.relationships.marks.meta.count": _t(int),
+                "data.relationships.marks.data": _t(list),
+                "data.relationships.marks.data.0.id": _v("void"),
+                "data.relationships.marks.data.0.type": _v("marks"),
+            }
+        )
+
     for path, check in checks.items():
         val = get_dict_item(ech_doc, path, list_lookups=True, default=None)
         check(val, path)
@@ -195,9 +210,20 @@ def test_document_details(
         )
     # In the snapshot, we don't want to compare DB identifiers either. The
     # Download URL also contains IDs as well as possible signatures, so can't
-    # snapshot these either
+    # snapshot these either.
     assert ech_doc == snapshot(
-        exclude=lambda prop, path: prop in ("id", "download-url")
+        exclude=lambda prop, path: (
+            prop == "download-url"
+            # The marks ID is static so we can keep that, other id's should be removed.
+            or (
+                prop == "id"
+                and not any(
+                    segment[0] == "marks"
+                    for segment in path
+                    if isinstance(segment, tuple) and segment
+                )
+            )
+        )
     )
 
 
