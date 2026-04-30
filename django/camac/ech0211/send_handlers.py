@@ -751,6 +751,22 @@ class TaskSendHandler(AlexandriaDocumentMixin, BaseSendHandler):
             ),
         )
 
+        # check extension to allow dossierkorrektur and save as an answer in the form.
+        if settings.TIMELINES.enabled:
+            elements = (
+                self.data.eventRequest.extension.wildcardElements()
+                if self.data.eventRequest.extension
+                else []
+            )
+            el = next((el for el in elements if el.tagName == "allowFormChanges"), None)
+
+            if el and el.firstChild.value.strip() == "true":
+                save_answer(
+                    document=additional_demand_send.document,
+                    question=Question.objects.get(pk="additional-demand-allow-changes"),
+                    value=["additional-demand-allow-changes"],
+                )
+
         # store alexandria documents and link to additional demand document
         self.convert_xml_to_alexandria_documents(
             self.data.eventRequest.directive.documents.document,

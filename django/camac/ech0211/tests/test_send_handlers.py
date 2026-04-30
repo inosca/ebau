@@ -23,6 +23,7 @@ from camac.ech0211.tests.utils import xml_data
 from camac.instance.document_merge_service import DMSHandler
 from camac.instance.models import Instance, InstanceState
 from camac.permissions import api as permissions_api
+from camac.timelines.models import FormTimeline
 
 from ..constants import (
     ECH_JUDGEMENT_APPROVED,
@@ -832,6 +833,7 @@ def test_task_send_handler_no_permission(
         ("wrong_state", False),
         ("no_access", False),
         ("ok", True),
+        ("ok_dossierkorrektur", True),
     ],
 )
 @pytest.mark.parametrize(
@@ -849,6 +851,7 @@ def test_task_send_claim_handler(
     gr_additional_demand_settings,
     gr_permissions_settings,
     gr_ech0211_settings,
+    gr_timelines_settings,
     application_settings,
     mocker,
     mailoutbox,
@@ -928,7 +931,16 @@ def test_task_send_claim_handler(
     request.group = group
     request.role = group.role
     xml = xml_data("claim")
+    if test_case == "ok_dossierkorrektur":
+        xml = xml.replace(
+            "<allowFormChanges>false</allowFormChanges>",
+            "<allowFormChanges>true</allowFormChanges>",
+        )
     data = CreateFromDocument(xml)
+
+    # no form timelines should exist before applying the handler.
+    assert FormTimeline.objects.count() == 0
+
     handler = TaskSendHandler(
         data=data,
         queryset=Instance.objects,
@@ -974,6 +986,21 @@ def test_task_send_claim_handler(
         assert ech_answer and ech_answer.value == "true", (
             "additional demand work item ech answer should be created"
         )
+
+        # check if the form timeline has been created.
+        if test_case == "ok_dossierkorrektur":
+            assert FormTimeline.objects.count() == 1
+            timeline = FormTimeline.objects.first()
+            timeline_case_pks = set(
+                [str(pk) for pk in timeline.cases.values_list("pk", flat=True)]
+            )
+            assert (
+                set(fill_work_item.case.family.meta.get("additional-demand-changes"))
+                == timeline_case_pks
+            )
+        else:
+            assert FormTimeline.objects.count() == 0
+            assert not fill_work_item.case.family.meta.get("additional-demand-changes")
 
 
 @pytest.mark.freeze_time("2022-06-03")

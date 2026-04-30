@@ -7,6 +7,7 @@ echo "---------------------------"
 
 ebau_nr="2024-1"
 dossier_id="5"
+allow_form_changes="false"
 
 for i in "${!ech0211_credentials[@]}"
 do
@@ -72,6 +73,10 @@ xml_payload=$(cat <<EOF
                 </ns11:document>
             </documents>
         </ns2:directive>
+		<ns2:extension>
+			<!-- Dossierkorrektur für Gesuchsteller aktivieren (true/false) -->
+			<allowFormChanges>${allow_form_changes}</allowFormChanges>
+		</ns2:extension>
     </ns2:eventRequest>
 </ns2:delivery>
 EOF
