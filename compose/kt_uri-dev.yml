@@ -12,6 +12,7 @@ services:
       - ../proxy/docker-entrypoint.d/90-nameserver.sh:/docker-entrypoint.d/90-nameserver.sh:ro
     depends_on:
       - mailpit
+      - garage
     ports:
       - "80:80"
     networks:
@@ -57,6 +58,7 @@ services:
         REQUIREMENTS: requirements-dev.txt
     depends_on:
       - mailpit
+      - garage
     ports:
       - "5555:5555"
       - "5678:5678"
@@ -76,6 +78,9 @@ services:
       - GWR_FERNET_KEY=GUdwT6yKxqfszrnHC7wyKDmtVZdhjSVQEPnpeJYNLf8=
       - GWR_HOUSING_STAT_BASE_URI=https://www-r.housing-stat.ch/regbl/api/ech0216/2
       - DOCUMENT_MERGE_SERVICE_URL=http://document-merge-service:8000/document-merge-service/api/v1/
+    env_file:
+      - ../garage/compose-env/dev-ebau.conf
+      - ../garage/compose-env/dev-alexandria.conf
     networks:
       - ebau.localhost
     command: devserver
@@ -139,6 +144,8 @@ services:
       - DATABASE_OPTIONS=options=-c search_path=dms
       - URL_PREFIX=document-merge-service/
       - EXTENSIONS_ARGUMENTS=DJANGO_API=http://django
+    env_file:
+      - ../garage/compose-env/dev-dms.conf
     user: "${UID:?Set UID env variable to your user id}"
     volumes:
       - ../document-merge-service/uwsgi.ini:/app/uwsgi.ini:ro
@@ -147,8 +154,38 @@ services:
       - ../document-merge-service/${APPLICATION}/dump.json:/tmp/document-merge-service/dump.json
     command: devserver
 
+  garage:
+    build:
+      context: ../garage
+    volumes:
+      - garage_meta:/var/lib/garage/meta/
+      - garage_data:/var/lib/garage/data/
+    env_file:
+      - ../garage/compose-env/dev-garage.conf
+    networks:
+      - ebau.localhost
+
+  garage-webui:
+    image: khairul169/garage-webui:latest
+    restart: unless-stopped
+    volumes:
+      - ../garage/garage.toml:/etc/garage.toml:ro
+    ports:
+      - 3909:3909
+    environment:
+      API_BASE_URL: "http://garage:3903"
+      S3_ENDPOINT_URL: "http://garage:3900"
+    networks:
+      - ebau.localhost
+    depends_on:
+      - garage
+
 networks:
   ebau.localhost:
 
 volumes:
   pg15data:
+  garage_meta:
+    driver: local
+  garage_data:
+    driver: local

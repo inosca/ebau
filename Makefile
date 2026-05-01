@@ -309,7 +309,7 @@ update-lockfile:
 
 
 .PHONY: watch-templatefiles
-watch-templatefiles: # Upload DMS templates to minio on change
+watch-templatefiles: # Upload DMS templates to the local S3
 	@if command -v inotifywait >/dev/null; then \
 		while inotifywait -e close_write document-merge-service/${APPLICATION}/templatefiles; do make update-templatefiles; done; \
 	else \
@@ -318,8 +318,9 @@ watch-templatefiles: # Upload DMS templates to minio on change
 	fi
 
 .PHONY: update-templatefiles
-update-templatefiles: # Upload DMS templates to minio
-	@docker compose run --rm --no-deps mc -u
+update-templatefiles: # Upload DMS templates to the local S3
+	@docker compose exec document-merge-service python manage.py upload_local_templates -s '/tmp/document-merge-service/templatefiles/*.docx'
+	@docker compose exec document-merge-service python manage.py upload_local_templates -s '/tmp/document-merge-service/templatefiles/*.xlsx'
 
 .PHONY: prettier-check
 prettier-check: # Check formatting of yml and config files with prettier

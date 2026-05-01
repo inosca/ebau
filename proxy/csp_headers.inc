@@ -36,7 +36,7 @@
 # - $csp_header_php          - PHP parts of the application, if used
 # - $csp_header_django       - Django with UI (django admin, graphql)
 # - $csp_header_internal     - Internal area (canton/municipality/etc)
-# - $csp_header_restricted   - Fully restricted (file downloads / minio etc)
+# - $csp_header_restricted   - Fully restricted (file downloads / s3 etc)
 
 # Define optional variables
 # =========================

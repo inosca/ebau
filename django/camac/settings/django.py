@@ -3289,17 +3289,21 @@ if (
     storage_options = {
         "access_key": env.str(
             "EBAU_S3_ACCESS_KEY_ID",
-            default=default("minio", require_if(is_s3_storage)),
+            default=default("GKbef634011e4e34a013f8fa19", require_if(is_s3_storage)),
         ),
         "secret_key": env.str(
             "EBAU_S3_SECRET_ACCESS_KEY",
-            default=default("minio123", require_if(is_s3_storage)),
+            default=default(
+                "7475cc947a168c97fd8e1cf4f1b1c763568fefa03d88e7d5d4696afdee0092c0",
+                require_if(is_s3_storage),
+            ),
         ),
         "endpoint_url": env.str(
             "EBAU_S3_ENDPOINT_URL",
             default=default("http://ember-ebau.localhost", require_if(is_s3_storage)),
         ),
         "bucket_name": env.str("EBAU_STORAGE_BUCKET_NAME", default="ebau-media"),
+        "region_name": env.str("EBAU_S3_REGION_NAME", default=None),
     }
 
     if EBAU_ENABLE_AT_REST_ENCRYPTION:

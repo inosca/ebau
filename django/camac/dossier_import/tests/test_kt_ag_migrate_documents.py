@@ -14,7 +14,7 @@ from camac.dossier_import.config.kt_ag_sap_migration.dossier_import.dossier_clas
 from camac.dossier_import.dossier_classes import Dossier
 
 
-@pytest.mark.skip(reason="only runnable with local containers for minio and redis")
+@pytest.mark.skip(reason="only runnable with local containers for s3 and redis")
 def test_import_from_s3(db, setup_dossier_import_ag):  # pragma: no cover
     DevEbauDocumentClient().initialize_infrastructure()
 

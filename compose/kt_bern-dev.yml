@@ -108,7 +108,9 @@ services:
       TIKA_SERVER_ENDPOINT: "http://tika:9998"
       CELERY_RDB_HOST: redis
       CELERY_WORKER_CONCURRENCY: 1
-
+    env_file:
+      - ../garage/compose-env/dev-ebau.conf
+      - ../garage/compose-env/dev-alexandria.conf
     networks:
       - ebau.localhost
     tty: true
@@ -267,6 +269,8 @@ services:
       URL_PREFIX: document-merge-service/
       # Env variables used in document-merge-service/extensions:
       EXTENSIONS_ARGUMENTS: DJANGO_API=http://django,APPLICATION=${APPLICATION}
+    env_file:
+      - ../garage/compose-env/dev-dms.conf
     user: "${UID:?Set UID env variable to your user id}"
     volumes:
       - ../document-merge-service/extensions:/app/document_merge_service/extensions
@@ -274,34 +278,31 @@ services:
       - ../document-merge-service/${APPLICATION}/dump.json:/tmp/document-merge-service/dump.json
     command: devserver
 
-  minio:
-    image: minio/minio:RELEASE.2025-09-07T16-13-09Z
+  garage:
+    build:
+      context: ../garage
     volumes:
-      - minio_data:/data
-    environment:
-      MINIO_ROOT_USER: minio
-      MINIO_ROOT_PASSWORD: minio123
-    profiles:
-      - alexandria
+      - garage_meta:/var/lib/garage/meta/
+      - garage_data:/var/lib/garage/data/
+    env_file:
+      - ../garage/compose-env/dev-garage.conf
     networks:
       - ebau.localhost
-    command: server data --console-address ":9090"
 
-  mc:
-    image: minio/mc:RELEASE.2025-08-13T08-35-41Z
-    depends_on:
-      - minio
-    restart: on-failure:5
-    environment:
-      MINIO_ROOT_USER: minio
-      MINIO_ROOT_PASSWORD: minio123
+  garage-webui:
+    image: khairul169/garage-webui:latest
+    restart: unless-stopped
     volumes:
-      - ../mc/entrypoint.sh:/entrypoint.sh
-    entrypoint: /entrypoint.sh
-    profiles:
-      - alexandria
+      - ../garage/garage.toml:/etc/garage.toml:ro
+    ports:
+      - 3909:3909
+    environment:
+      API_BASE_URL: "http://garage:3903"
+      S3_ENDPOINT_URL: "http://garage:3900"
     networks:
       - ebau.localhost
+    depends_on:
+      - garage
 
   tika:
     image: apache/tika:3.2.3.0-full
@@ -327,5 +328,7 @@ volumes:
   phpsessions:
   templatefiles:
   redis_data:
-  minio_data:
+  garage_meta:
+    driver: local
+  garage_data:
     driver: local
