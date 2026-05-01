@@ -2432,6 +2432,2214 @@
     }
   },
   {
+    "model": "user.group",
+    "pk": 264,
+    "fields": {
+      "role": 6,
+      "service": 76,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 265,
+    "fields": {
+      "role": 7,
+      "service": 76,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 266,
+    "fields": {
+      "role": 6,
+      "service": 130,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 267,
+    "fields": {
+      "role": 7,
+      "service": 130,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 268,
+    "fields": {
+      "role": 6,
+      "service": 131,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 269,
+    "fields": {
+      "role": 7,
+      "service": 131,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 270,
+    "fields": {
+      "role": 6,
+      "service": 132,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 271,
+    "fields": {
+      "role": 7,
+      "service": 132,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 272,
+    "fields": {
+      "role": 6,
+      "service": 133,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 273,
+    "fields": {
+      "role": 7,
+      "service": 133,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 274,
+    "fields": {
+      "role": 6,
+      "service": 134,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 275,
+    "fields": {
+      "role": 7,
+      "service": 134,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 276,
+    "fields": {
+      "role": 6,
+      "service": 135,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 277,
+    "fields": {
+      "role": 7,
+      "service": 135,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 278,
+    "fields": {
+      "role": 6,
+      "service": 136,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 279,
+    "fields": {
+      "role": 7,
+      "service": 136,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 280,
+    "fields": {
+      "role": 6,
+      "service": 137,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 281,
+    "fields": {
+      "role": 7,
+      "service": 137,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 282,
+    "fields": {
+      "role": 6,
+      "service": 138,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 283,
+    "fields": {
+      "role": 7,
+      "service": 138,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 284,
+    "fields": {
+      "role": 6,
+      "service": 139,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 285,
+    "fields": {
+      "role": 7,
+      "service": 139,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 286,
+    "fields": {
+      "role": 6,
+      "service": 140,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 287,
+    "fields": {
+      "role": 7,
+      "service": 140,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 288,
+    "fields": {
+      "role": 6,
+      "service": 141,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 289,
+    "fields": {
+      "role": 7,
+      "service": 141,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 290,
+    "fields": {
+      "role": 6,
+      "service": 142,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 291,
+    "fields": {
+      "role": 7,
+      "service": 142,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 292,
+    "fields": {
+      "role": 6,
+      "service": 143,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 293,
+    "fields": {
+      "role": 7,
+      "service": 143,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 294,
+    "fields": {
+      "role": 6,
+      "service": 144,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 295,
+    "fields": {
+      "role": 7,
+      "service": 144,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 296,
+    "fields": {
+      "role": 6,
+      "service": 145,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 297,
+    "fields": {
+      "role": 7,
+      "service": 145,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 298,
+    "fields": {
+      "role": 6,
+      "service": 146,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 299,
+    "fields": {
+      "role": 7,
+      "service": 146,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 300,
+    "fields": {
+      "role": 6,
+      "service": 147,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 301,
+    "fields": {
+      "role": 7,
+      "service": 147,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 302,
+    "fields": {
+      "role": 6,
+      "service": 148,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 303,
+    "fields": {
+      "role": 7,
+      "service": 148,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 304,
+    "fields": {
+      "role": 6,
+      "service": 149,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 305,
+    "fields": {
+      "role": 7,
+      "service": 149,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 306,
+    "fields": {
+      "role": 6,
+      "service": 150,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 307,
+    "fields": {
+      "role": 7,
+      "service": 150,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 308,
+    "fields": {
+      "role": 6,
+      "service": 151,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 309,
+    "fields": {
+      "role": 7,
+      "service": 151,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 310,
+    "fields": {
+      "role": 6,
+      "service": 152,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 311,
+    "fields": {
+      "role": 7,
+      "service": 152,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 312,
+    "fields": {
+      "role": 6,
+      "service": 153,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 313,
+    "fields": {
+      "role": 7,
+      "service": 153,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 314,
+    "fields": {
+      "role": 6,
+      "service": 154,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 315,
+    "fields": {
+      "role": 7,
+      "service": 154,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 316,
+    "fields": {
+      "role": 6,
+      "service": 155,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 317,
+    "fields": {
+      "role": 7,
+      "service": 155,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 318,
+    "fields": {
+      "role": 6,
+      "service": 156,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 319,
+    "fields": {
+      "role": 7,
+      "service": 156,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 320,
+    "fields": {
+      "role": 6,
+      "service": 157,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 321,
+    "fields": {
+      "role": 7,
+      "service": 157,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 322,
+    "fields": {
+      "role": 6,
+      "service": 158,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 323,
+    "fields": {
+      "role": 7,
+      "service": 158,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 324,
+    "fields": {
+      "role": 6,
+      "service": 159,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 325,
+    "fields": {
+      "role": 7,
+      "service": 159,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 326,
+    "fields": {
+      "role": 6,
+      "service": 160,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 327,
+    "fields": {
+      "role": 7,
+      "service": 160,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 328,
+    "fields": {
+      "role": 6,
+      "service": 161,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 329,
+    "fields": {
+      "role": 7,
+      "service": 161,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 330,
+    "fields": {
+      "role": 6,
+      "service": 162,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 331,
+    "fields": {
+      "role": 7,
+      "service": 162,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 332,
+    "fields": {
+      "role": 6,
+      "service": 163,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 333,
+    "fields": {
+      "role": 7,
+      "service": 163,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 334,
+    "fields": {
+      "role": 6,
+      "service": 164,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 335,
+    "fields": {
+      "role": 7,
+      "service": 164,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 336,
+    "fields": {
+      "role": 6,
+      "service": 165,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 337,
+    "fields": {
+      "role": 7,
+      "service": 165,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 338,
+    "fields": {
+      "role": 6,
+      "service": 166,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 339,
+    "fields": {
+      "role": 7,
+      "service": 166,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 340,
+    "fields": {
+      "role": 6,
+      "service": 167,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 341,
+    "fields": {
+      "role": 7,
+      "service": 167,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 342,
+    "fields": {
+      "role": 6,
+      "service": 168,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 343,
+    "fields": {
+      "role": 7,
+      "service": 168,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 344,
+    "fields": {
+      "role": 6,
+      "service": 169,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 345,
+    "fields": {
+      "role": 7,
+      "service": 169,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 346,
+    "fields": {
+      "role": 6,
+      "service": 170,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 347,
+    "fields": {
+      "role": 7,
+      "service": 170,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 348,
+    "fields": {
+      "role": 6,
+      "service": 171,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 349,
+    "fields": {
+      "role": 7,
+      "service": 171,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 350,
+    "fields": {
+      "role": 6,
+      "service": 172,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 351,
+    "fields": {
+      "role": 7,
+      "service": 172,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 352,
+    "fields": {
+      "role": 6,
+      "service": 173,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 353,
+    "fields": {
+      "role": 7,
+      "service": 173,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 354,
+    "fields": {
+      "role": 6,
+      "service": 174,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 355,
+    "fields": {
+      "role": 7,
+      "service": 174,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 356,
+    "fields": {
+      "role": 6,
+      "service": 175,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 357,
+    "fields": {
+      "role": 7,
+      "service": 175,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 358,
+    "fields": {
+      "role": 6,
+      "service": 176,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 359,
+    "fields": {
+      "role": 7,
+      "service": 176,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 360,
+    "fields": {
+      "role": 6,
+      "service": 177,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 361,
+    "fields": {
+      "role": 7,
+      "service": 177,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 362,
+    "fields": {
+      "role": 6,
+      "service": 178,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 363,
+    "fields": {
+      "role": 7,
+      "service": 178,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 364,
+    "fields": {
+      "role": 6,
+      "service": 179,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 365,
+    "fields": {
+      "role": 7,
+      "service": 179,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 366,
+    "fields": {
+      "role": 6,
+      "service": 180,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 367,
+    "fields": {
+      "role": 7,
+      "service": 180,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 368,
+    "fields": {
+      "role": 6,
+      "service": 181,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 369,
+    "fields": {
+      "role": 7,
+      "service": 181,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 370,
+    "fields": {
+      "role": 6,
+      "service": 182,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 371,
+    "fields": {
+      "role": 7,
+      "service": 182,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 372,
+    "fields": {
+      "role": 6,
+      "service": 183,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 373,
+    "fields": {
+      "role": 7,
+      "service": 183,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 374,
+    "fields": {
+      "role": 6,
+      "service": 184,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 375,
+    "fields": {
+      "role": 7,
+      "service": 184,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 376,
+    "fields": {
+      "role": 6,
+      "service": 185,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 377,
+    "fields": {
+      "role": 7,
+      "service": 185,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 378,
+    "fields": {
+      "role": 6,
+      "service": 186,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 379,
+    "fields": {
+      "role": 7,
+      "service": 186,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 380,
+    "fields": {
+      "role": 6,
+      "service": 187,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 381,
+    "fields": {
+      "role": 7,
+      "service": 187,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 382,
+    "fields": {
+      "role": 6,
+      "service": 188,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 383,
+    "fields": {
+      "role": 7,
+      "service": 188,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 384,
+    "fields": {
+      "role": 6,
+      "service": 189,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 385,
+    "fields": {
+      "role": 7,
+      "service": 189,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 386,
+    "fields": {
+      "role": 6,
+      "service": 190,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 387,
+    "fields": {
+      "role": 7,
+      "service": 190,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 388,
+    "fields": {
+      "role": 6,
+      "service": 191,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 389,
+    "fields": {
+      "role": 7,
+      "service": 191,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 390,
+    "fields": {
+      "role": 6,
+      "service": 192,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 391,
+    "fields": {
+      "role": 7,
+      "service": 192,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 392,
+    "fields": {
+      "role": 6,
+      "service": 193,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 393,
+    "fields": {
+      "role": 7,
+      "service": 193,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 394,
+    "fields": {
+      "role": 6,
+      "service": 194,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 395,
+    "fields": {
+      "role": 7,
+      "service": 194,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 396,
+    "fields": {
+      "role": 6,
+      "service": 195,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 397,
+    "fields": {
+      "role": 7,
+      "service": 195,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 398,
+    "fields": {
+      "role": 6,
+      "service": 196,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 399,
+    "fields": {
+      "role": 7,
+      "service": 196,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 400,
+    "fields": {
+      "role": 6,
+      "service": 197,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
+    "model": "user.group",
+    "pk": 401,
+    "fields": {
+      "role": 7,
+      "service": 197,
+      "disabled": 0,
+      "name": null,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
     "model": "user.groupt",
     "pk": 4,
     "fields": {
@@ -3948,6 +6156,1386 @@
       "group": 155,
       "language": "de",
       "name": "Sachbearbeitung Koordinationsstelle Bau",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 264,
+    "fields": {
+      "group": 264,
+      "language": "de",
+      "name": "Administration KSB Koordinationsstelle Bau",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 265,
+    "fields": {
+      "group": 265,
+      "language": "de",
+      "name": "Sachbearbeitung KSB Koordinationsstelle Bau",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 266,
+    "fields": {
+      "group": 266,
+      "language": "de",
+      "name": "Administration AFU-BS-AR Abfall und Rohstoffe",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 267,
+    "fields": {
+      "group": 267,
+      "language": "de",
+      "name": "Sachbearbeitung AFU-BS-AR Abfall und Rohstoffe",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 268,
+    "fields": {
+      "group": 268,
+      "language": "de",
+      "name": "Administration AFU-BS-BA Boden und Altlasten",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 269,
+    "fields": {
+      "group": 269,
+      "language": "de",
+      "name": "Sachbearbeitung AFU-BS-BA Boden und Altlasten",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 270,
+    "fields": {
+      "group": 270,
+      "language": "de",
+      "name": "Administration AFU-BS-LW Landwirtschaftlicher Umweltschutz",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 271,
+    "fields": {
+      "group": 271,
+      "language": "de",
+      "name": "Sachbearbeitung AFU-BS-LW Landwirtschaftlicher Umweltschutz",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 272,
+    "fields": {
+      "group": 272,
+      "language": "de",
+      "name": "Administration AFU-IG-B1 Betriebe 1",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 273,
+    "fields": {
+      "group": 273,
+      "language": "de",
+      "name": "Sachbearbeitung AFU-IG-B1 Betriebe 1",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 274,
+    "fields": {
+      "group": 274,
+      "language": "de",
+      "name": "Administration AFU-IG-B2 Betriebe 2",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 275,
+    "fields": {
+      "group": 275,
+      "language": "de",
+      "name": "Sachbearbeitung AFU-IG-B2 Betriebe 2",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 276,
+    "fields": {
+      "group": 276,
+      "language": "de",
+      "name": "Administration AFU-IG-LU Luftqualität",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 277,
+    "fields": {
+      "group": 277,
+      "language": "de",
+      "name": "Sachbearbeitung AFU-IG-LU Luftqualität",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 278,
+    "fields": {
+      "group": 278,
+      "language": "de",
+      "name": "Administration AFU-RU-RD Rechtsdienst",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 279,
+    "fields": {
+      "group": 279,
+      "language": "de",
+      "name": "Sachbearbeitung AFU-RU-RD Rechtsdienst",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 280,
+    "fields": {
+      "group": 280,
+      "language": "de",
+      "name": "Administration AFU-RU-UVP UVP und Planbeurteilung",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 281,
+    "fields": {
+      "group": 281,
+      "language": "de",
+      "name": "Sachbearbeitung AFU-RU-UVP UVP und Planbeurteilung",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 282,
+    "fields": {
+      "group": 282,
+      "language": "de",
+      "name": "Administration AFU-RU-NIS NIS Fachstelle",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 283,
+    "fields": {
+      "group": 283,
+      "language": "de",
+      "name": "Sachbearbeitung AFU-RU-NIS NIS Fachstelle",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 284,
+    "fields": {
+      "group": 284,
+      "language": "de",
+      "name": "Administration AREG-BAB Bauen ausserhalb Bauzonen",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 285,
+    "fields": {
+      "group": 285,
+      "language": "de",
+      "name": "Sachbearbeitung AREG-BAB Bauen ausserhalb Bauzonen",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 286,
+    "fields": {
+      "group": 286,
+      "language": "de",
+      "name": "Administration AREG-KP Kantonale Planung",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 287,
+    "fields": {
+      "group": 287,
+      "language": "de",
+      "name": "Sachbearbeitung AREG-KP Kantonale Planung",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 288,
+    "fields": {
+      "group": 288,
+      "language": "de",
+      "name": "Administration AREG-OP Ortsplanung",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 289,
+    "fields": {
+      "group": 289,
+      "language": "de",
+      "name": "Sachbearbeitung AREG-OP Ortsplanung",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 290,
+    "fields": {
+      "group": 290,
+      "language": "de",
+      "name": "Administration AREG-VM Vermessung",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 291,
+    "fields": {
+      "group": 291,
+      "language": "de",
+      "name": "Sachbearbeitung AREG-VM Vermessung",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 292,
+    "fields": {
+      "group": 292,
+      "language": "de",
+      "name": "Administration AREG-GI-GSM Geoservice-Management",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 293,
+    "fields": {
+      "group": 293,
+      "language": "de",
+      "name": "Sachbearbeitung AREG-GI-GSM Geoservice-Management",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 294,
+    "fields": {
+      "group": 294,
+      "language": "de",
+      "name": "Administration AREG-ZD Zentrale Dienste",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 295,
+    "fields": {
+      "group": 295,
+      "language": "de",
+      "name": "Sachbearbeitung AREG-ZD Zentrale Dienste",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 296,
+    "fields": {
+      "group": 296,
+      "language": "de",
+      "name": "Administration TBA-MUP-SP Spezialprojekte mit Fachstelle Immissionen",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 297,
+    "fields": {
+      "group": 297,
+      "language": "de",
+      "name": "Sachbearbeitung TBA-MUP-SP Spezialprojekte mit Fachstelle Immissionen",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 298,
+    "fields": {
+      "group": 298,
+      "language": "de",
+      "name": "Administration TBA-MUP-VP Verkehrsplanung mit Fachstelle Fuss- und Veloverkehr",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 299,
+    "fields": {
+      "group": 299,
+      "language": "de",
+      "name": "Sachbearbeitung TBA-MUP-VP Verkehrsplanung mit Fachstelle Fuss- und Veloverkehr",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 300,
+    "fields": {
+      "group": 300,
+      "language": "de",
+      "name": "Administration TBA-SUK-KB Kunstbauten",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 301,
+    "fields": {
+      "group": 301,
+      "language": "de",
+      "name": "Sachbearbeitung TBA-SUK-KB Kunstbauten",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 302,
+    "fields": {
+      "group": 302,
+      "language": "de",
+      "name": "Administration TBA-SUK-SN Strassenbau Neuhaus",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 303,
+    "fields": {
+      "group": 303,
+      "language": "de",
+      "name": "Sachbearbeitung TBA-SUK-SN Strassenbau Neuhaus",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 304,
+    "fields": {
+      "group": 304,
+      "language": "de",
+      "name": "Administration TBA-SUK-SB Strassenbau St. Gallen",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 305,
+    "fields": {
+      "group": 305,
+      "language": "de",
+      "name": "Sachbearbeitung TBA-SUK-SB Strassenbau St. Gallen",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 306,
+    "fields": {
+      "group": 306,
+      "language": "de",
+      "name": "Administration TBA-SI-EB Erhaltungsplanung+Bewilligungen",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 307,
+    "fields": {
+      "group": 307,
+      "language": "de",
+      "name": "Sachbearbeitung TBA-SI-EB Erhaltungsplanung+Bewilligungen",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 308,
+    "fields": {
+      "group": 308,
+      "language": "de",
+      "name": "Administration TBA-KI Kantonsingenieur-Büro",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 309,
+    "fields": {
+      "group": 309,
+      "language": "de",
+      "name": "Sachbearbeitung TBA-KI Kantonsingenieur-Büro",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 310,
+    "fields": {
+      "group": 310,
+      "language": "de",
+      "name": "Administration TBA-GG Grundstückgeschäfte",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 311,
+    "fields": {
+      "group": 311,
+      "language": "de",
+      "name": "Sachbearbeitung TBA-GG Grundstückgeschäfte",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 312,
+    "fields": {
+      "group": 312,
+      "language": "de",
+      "name": "Administration AWE-EK Energie und Klima",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 313,
+    "fields": {
+      "group": 313,
+      "language": "de",
+      "name": "Sachbearbeitung AWE-EK Energie und Klima",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 314,
+    "fields": {
+      "group": 314,
+      "language": "de",
+      "name": "Administration AWE-GG-AW Abwasser",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 315,
+    "fields": {
+      "group": 315,
+      "language": "de",
+      "name": "Sachbearbeitung AWE-GG-AW Abwasser",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 316,
+    "fields": {
+      "group": 316,
+      "language": "de",
+      "name": "Administration AWE-GG-GW Grundwasser",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 317,
+    "fields": {
+      "group": 317,
+      "language": "de",
+      "name": "Sachbearbeitung AWE-GG-GW Grundwasser",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 318,
+    "fields": {
+      "group": 318,
+      "language": "de",
+      "name": "Administration AWE-GG-WK Wasserkraft",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 319,
+    "fields": {
+      "group": 319,
+      "language": "de",
+      "name": "Sachbearbeitung AWE-GG-WK Wasserkraft",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 320,
+    "fields": {
+      "group": 320,
+      "language": "de",
+      "name": "Administration AWE-RH Rhein",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 321,
+    "fields": {
+      "group": 321,
+      "language": "de",
+      "name": "Sachbearbeitung AWE-RH Rhein",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 322,
+    "fields": {
+      "group": 322,
+      "language": "de",
+      "name": "Administration AWE-WN-GG Gemeindegewässer",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 323,
+    "fields": {
+      "group": 323,
+      "language": "de",
+      "name": "Sachbearbeitung AWE-WN-GG Gemeindegewässer",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 324,
+    "fields": {
+      "group": 324,
+      "language": "de",
+      "name": "Administration AWE-WN-KG Kantonsgewässer",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 325,
+    "fields": {
+      "group": 325,
+      "language": "de",
+      "name": "Sachbearbeitung AWE-WN-KG Kantonsgewässer",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 326,
+    "fields": {
+      "group": 326,
+      "language": "de",
+      "name": "Administration AWE-WN-NG Naturgefahren",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 327,
+    "fields": {
+      "group": 327,
+      "language": "de",
+      "name": "Sachbearbeitung AWE-WN-NG Naturgefahren",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 328,
+    "fields": {
+      "group": 328,
+      "language": "de",
+      "name": "Administration GS-RA-T1 Team 1",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 329,
+    "fields": {
+      "group": 329,
+      "language": "de",
+      "name": "Sachbearbeitung GS-RA-T1 Team 1",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 330,
+    "fields": {
+      "group": 330,
+      "language": "de",
+      "name": "Administration GS-RA-T2 Team 2",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 331,
+    "fields": {
+      "group": 331,
+      "language": "de",
+      "name": "Sachbearbeitung GS-RA-T2 Team 2",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 332,
+    "fields": {
+      "group": 332,
+      "language": "de",
+      "name": "Administration AfKU-AR Archäologie",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 333,
+    "fields": {
+      "group": 333,
+      "language": "de",
+      "name": "Sachbearbeitung AfKU-AR Archäologie",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 334,
+    "fields": {
+      "group": 334,
+      "language": "de",
+      "name": "Administration AfKU-KDP Denkmalpflege",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 335,
+    "fields": {
+      "group": 335,
+      "language": "de",
+      "name": "Sachbearbeitung AfKU-KDP Denkmalpflege",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 336,
+    "fields": {
+      "group": 336,
+      "language": "de",
+      "name": "Administration AVSV-Lab Kantonales Labor",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 337,
+    "fields": {
+      "group": 337,
+      "language": "de",
+      "name": "Sachbearbeitung AVSV-Lab Kantonales Labor",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 338,
+    "fields": {
+      "group": 338,
+      "language": "de",
+      "name": "Administration AVSV-LMI Lebensmittelinspektorat",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 339,
+    "fields": {
+      "group": 339,
+      "language": "de",
+      "name": "Sachbearbeitung AVSV-LMI Lebensmittelinspektorat",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 340,
+    "fields": {
+      "group": 340,
+      "language": "de",
+      "name": "Administration AVSV-VET Veterinärdienst",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 341,
+    "fields": {
+      "group": 341,
+      "language": "de",
+      "name": "Sachbearbeitung AVSV-VET Veterinärdienst",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 342,
+    "fields": {
+      "group": 342,
+      "language": "de",
+      "name": "Administration GS-KtsAPO Kantonsapotheke",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 343,
+    "fields": {
+      "group": 343,
+      "language": "de",
+      "name": "Sachbearbeitung GS-KtsAPO Kantonsapotheke",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 344,
+    "fields": {
+      "group": 344,
+      "language": "de",
+      "name": "Administration AfMZ-BVS Infrastruktur Zivilschutz",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 345,
+    "fields": {
+      "group": 345,
+      "language": "de",
+      "name": "Sachbearbeitung AfMZ-BVS Infrastruktur Zivilschutz",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 346,
+    "fields": {
+      "group": 346,
+      "language": "de",
+      "name": "Administration GVSG-BS Brandschutz",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 347,
+    "fields": {
+      "group": 347,
+      "language": "de",
+      "name": "Sachbearbeitung GVSG-BS Brandschutz",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 348,
+    "fields": {
+      "group": 348,
+      "language": "de",
+      "name": "Administration GVSG-PN Prävention Naturgefahren",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 349,
+    "fields": {
+      "group": 349,
+      "language": "de",
+      "name": "Sachbearbeitung GVSG-PN Prävention Naturgefahren",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 350,
+    "fields": {
+      "group": 350,
+      "language": "de",
+      "name": "Administration KAPO-VEPO-VT Verkehrstechnik",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 351,
+    "fields": {
+      "group": 351,
+      "language": "de",
+      "name": "Sachbearbeitung KAPO-VEPO-VT Verkehrstechnik",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 352,
+    "fields": {
+      "group": 352,
+      "language": "de",
+      "name": "Administration KAPO-SIPO-SIWAS Sicherheitsfirmen, Waffen,  Sprengstoffe",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 353,
+    "fields": {
+      "group": 353,
+      "language": "de",
+      "name": "Sachbearbeitung KAPO-SIPO-SIWAS Sicherheitsfirmen, Waffen,  Sprengstoffe",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 354,
+    "fields": {
+      "group": 354,
+      "language": "de",
+      "name": "Administration StVA-SCH Schiffahrt",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 355,
+    "fields": {
+      "group": 355,
+      "language": "de",
+      "name": "Sachbearbeitung StVA-SCH Schiffahrt",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 356,
+    "fields": {
+      "group": 356,
+      "language": "de",
+      "name": "Administration ANJF-F Fischerei",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 357,
+    "fields": {
+      "group": 357,
+      "language": "de",
+      "name": "Sachbearbeitung ANJF-F Fischerei",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 358,
+    "fields": {
+      "group": 358,
+      "language": "de",
+      "name": "Administration ANJF-J Jagd",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 359,
+    "fields": {
+      "group": 359,
+      "language": "de",
+      "name": "Sachbearbeitung ANJF-J Jagd",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 360,
+    "fields": {
+      "group": 360,
+      "language": "de",
+      "name": "Administration ANJF-NL Natur- und Landschaftschutz",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 361,
+    "fields": {
+      "group": 361,
+      "language": "de",
+      "name": "Sachbearbeitung ANJF-NL Natur- und Landschaftschutz",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 362,
+    "fields": {
+      "group": 362,
+      "language": "de",
+      "name": "Administration AWA-Insp Arbeitsinspektorat",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 363,
+    "fields": {
+      "group": 363,
+      "language": "de",
+      "name": "Sachbearbeitung AWA-Insp Arbeitsinspektorat",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 364,
+    "fields": {
+      "group": 364,
+      "language": "de",
+      "name": "Administration AWA-Stao Standortförderung",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 365,
+    "fields": {
+      "group": 365,
+      "language": "de",
+      "name": "Sachbearbeitung AWA-Stao Standortförderung",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 366,
+    "fields": {
+      "group": 366,
+      "language": "de",
+      "name": "Administration KFA-WP Waldrecht und Planung",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 367,
+    "fields": {
+      "group": 367,
+      "language": "de",
+      "name": "Sachbearbeitung KFA-WP Waldrecht und Planung",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 368,
+    "fields": {
+      "group": 368,
+      "language": "de",
+      "name": "Administration AöV Amt für öffentlichen Verkehr",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 369,
+    "fields": {
+      "group": 369,
+      "language": "de",
+      "name": "Sachbearbeitung AöV Amt für öffentlichen Verkehr",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 370,
+    "fields": {
+      "group": 370,
+      "language": "de",
+      "name": "Administration LwA-SV/BR Strukturverbesserung / Bodenrecht",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 371,
+    "fields": {
+      "group": 371,
+      "language": "de",
+      "name": "Sachbearbeitung LwA-SV/BR Strukturverbesserung / Bodenrecht",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 372,
+    "fields": {
+      "group": 372,
+      "language": "de",
+      "name": "Administration SUVA Schweizerische Unfallversicherungsanstalt",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 373,
+    "fields": {
+      "group": 373,
+      "language": "de",
+      "name": "Sachbearbeitung SUVA Schweizerische Unfallversicherungsanstalt",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 374,
+    "fields": {
+      "group": 374,
+      "language": "de",
+      "name": "Administration agriss Stiftung AgriSicherheit Schweiz",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 375,
+    "fields": {
+      "group": 375,
+      "language": "de",
+      "name": "Sachbearbeitung agriss Stiftung AgriSicherheit Schweiz",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 376,
+    "fields": {
+      "group": 376,
+      "language": "de",
+      "name": "Administration ASTRA Bundesamt für Strassen",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 377,
+    "fields": {
+      "group": 377,
+      "language": "de",
+      "name": "Sachbearbeitung ASTRA Bundesamt für Strassen",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 378,
+    "fields": {
+      "group": 378,
+      "language": "de",
+      "name": "Administration ESTI Eidgenössisches Starkstrominspektorat",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 379,
+    "fields": {
+      "group": 379,
+      "language": "de",
+      "name": "Sachbearbeitung ESTI Eidgenössisches Starkstrominspektorat",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 380,
+    "fields": {
+      "group": 380,
+      "language": "de",
+      "name": "Administration BAFU Bundesamt für Umwelt",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 381,
+    "fields": {
+      "group": 381,
+      "language": "de",
+      "name": "Sachbearbeitung BAFU Bundesamt für Umwelt",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 382,
+    "fields": {
+      "group": 382,
+      "language": "de",
+      "name": "Administration SBB Schweizerische Bundesbahnen",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 383,
+    "fields": {
+      "group": 383,
+      "language": "de",
+      "name": "Sachbearbeitung SBB Schweizerische Bundesbahnen",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 384,
+    "fields": {
+      "group": 384,
+      "language": "de",
+      "name": "Administration BAZL Bundesamt für Zivilluftfahrt",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 385,
+    "fields": {
+      "group": 385,
+      "language": "de",
+      "name": "Sachbearbeitung BAZL Bundesamt für Zivilluftfahrt",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 386,
+    "fields": {
+      "group": 386,
+      "language": "de",
+      "name": "Administration BAV Bundesamt für Verkehr",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 387,
+    "fields": {
+      "group": 387,
+      "language": "de",
+      "name": "Sachbearbeitung BAV Bundesamt für Verkehr",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 388,
+    "fields": {
+      "group": 388,
+      "language": "de",
+      "name": "Administration BFE Bundesamt für Energie",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 389,
+    "fields": {
+      "group": 389,
+      "language": "de",
+      "name": "Sachbearbeitung BFE Bundesamt für Energie",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 390,
+    "fields": {
+      "group": 390,
+      "language": "de",
+      "name": "Administration EJPD Eidgenössischens Justiz und Polizei Departement",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 391,
+    "fields": {
+      "group": 391,
+      "language": "de",
+      "name": "Sachbearbeitung EJPD Eidgenössischens Justiz und Polizei Departement",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 392,
+    "fields": {
+      "group": 392,
+      "language": "de",
+      "name": "Administration VBS Eidgenösssiches Departement für Verteidigung, Bevölkerungsschutz und Sport",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 393,
+    "fields": {
+      "group": 393,
+      "language": "de",
+      "name": "Sachbearbeitung VBS Eidgenösssiches Departement für Verteidigung, Bevölkerungsschutz und Sport",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 394,
+    "fields": {
+      "group": 394,
+      "language": "de",
+      "name": "Administration ESO-18 Kreis 18",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 395,
+    "fields": {
+      "group": 395,
+      "language": "de",
+      "name": "Sachbearbeitung ESO-18 Kreis 18",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 396,
+    "fields": {
+      "group": 396,
+      "language": "de",
+      "name": "Administration ESO-19 Kreis 19",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 397,
+    "fields": {
+      "group": 397,
+      "language": "de",
+      "name": "Sachbearbeitung ESO-19 Kreis 19",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 398,
+    "fields": {
+      "group": 398,
+      "language": "de",
+      "name": "Administration SOB Schweizerische Südostbahn",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 399,
+    "fields": {
+      "group": 399,
+      "language": "de",
+      "name": "Sachbearbeitung SOB Schweizerische Südostbahn",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 400,
+    "fields": {
+      "group": 400,
+      "language": "de",
+      "name": "Administration AB Appenzeller Bahnen",
+      "city": null
+    }
+  },
+  {
+    "model": "user.groupt",
+    "pk": 401,
+    "fields": {
+      "group": 401,
+      "language": "de",
+      "name": "Sachbearbeitung AB Appenzeller Bahnen",
       "city": null
     }
   },
@@ -6088,6 +9676,1774 @@
     }
   },
   {
+    "model": "user.service",
+    "pk": 130,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 76,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 131,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 77,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 132,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 78,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 133,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 79,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 134,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 80,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 135,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 81,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 136,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 82,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 137,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 83,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 138,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 84,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 139,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 85,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 140,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 86,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 141,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 87,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 142,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 88,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 143,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 89,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 144,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 90,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 145,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 91,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 146,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 92,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 147,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 93,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 148,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 94,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 149,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 95,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 150,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 96,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 151,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 97,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 152,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 98,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 153,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 99,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 154,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 100,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 155,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 101,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 156,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 102,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 157,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 103,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 158,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 104,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 159,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 105,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 160,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 106,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 161,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 107,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 162,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 108,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 163,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 109,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 164,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 110,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 165,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 111,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 166,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 112,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 167,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 113,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 168,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 114,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 169,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 115,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 170,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 116,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 171,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 117,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 172,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 118,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 173,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 119,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 174,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 120,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 175,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 121,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 176,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 122,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 177,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 123,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 178,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 124,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 179,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 125,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 180,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 126,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 181,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 127,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 182,
+    "fields": {
+      "slug": null,
+      "service_group": 3,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 128,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 183,
+    "fields": {
+      "slug": null,
+      "service_group": 4,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 129,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 184,
+    "fields": {
+      "slug": null,
+      "service_group": 4,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 130,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 185,
+    "fields": {
+      "slug": null,
+      "service_group": 5,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 131,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 186,
+    "fields": {
+      "slug": null,
+      "service_group": 5,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 132,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 187,
+    "fields": {
+      "slug": null,
+      "service_group": 5,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 133,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 188,
+    "fields": {
+      "slug": null,
+      "service_group": 5,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 134,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 189,
+    "fields": {
+      "slug": null,
+      "service_group": 5,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 135,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 190,
+    "fields": {
+      "slug": null,
+      "service_group": 5,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 136,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 191,
+    "fields": {
+      "slug": null,
+      "service_group": 5,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 137,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 192,
+    "fields": {
+      "slug": null,
+      "service_group": 5,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 138,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 193,
+    "fields": {
+      "slug": null,
+      "service_group": 5,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 139,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 194,
+    "fields": {
+      "slug": null,
+      "service_group": 5,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 140,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 195,
+    "fields": {
+      "slug": null,
+      "service_group": 5,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 141,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 196,
+    "fields": {
+      "slug": null,
+      "service_group": 5,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 142,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 197,
+    "fields": {
+      "slug": null,
+      "service_group": 5,
+      "service_parent": null,
+      "name": null,
+      "description": null,
+      "sort": 143,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "email@example.ch",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 1,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
     "model": "user.servicegroup",
     "pk": 1,
     "fields": {
@@ -6109,8 +11465,26 @@
     "model": "user.servicegroup",
     "pk": 3,
     "fields": {
-      "slug": "service",
-      "name": "service",
+      "slug": "service-cantonal",
+      "name": "service-cantonal",
+      "sort": null
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 4,
+    "fields": {
+      "slug": "service-external",
+      "name": "service-external",
+      "sort": null
+    }
+  },
+  {
+    "model": "user.servicegroup",
+    "pk": 5,
+    "fields": {
+      "slug": "service-federal",
+      "name": "service-federal",
       "sort": null
     }
   },
@@ -6138,7 +11512,25 @@
     "fields": {
       "service_group": 3,
       "language": "de",
-      "name": "Fachstelle"
+      "name": "Kantonale Fachstelle"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 4,
+    "fields": {
+      "service_group": 4,
+      "language": "de",
+      "name": "Externe Fachstelle"
+    }
+  },
+  {
+    "model": "user.servicegroupt",
+    "pk": 5,
+    "fields": {
+      "service_group": 5,
+      "language": "de",
+      "name": "Bundesstelle"
     }
   },
   {
@@ -7047,8 +12439,824 @@
     "fields": {
       "service": 76,
       "language": "de",
-      "name": "Koordinationsstelle Bau",
-      "description": "Koordinationsstelle Bau",
+      "name": "KSB Koordinationsstelle Bau",
+      "description": "KSB Koordinationsstelle Bau",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 130,
+    "fields": {
+      "service": 130,
+      "language": "de",
+      "name": "AFU-BS-AR Abfall und Rohstoffe",
+      "description": "AFU-BS-AR Abfall und Rohstoffe",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 131,
+    "fields": {
+      "service": 131,
+      "language": "de",
+      "name": "AFU-BS-BA Boden und Altlasten",
+      "description": "AFU-BS-BA Boden und Altlasten",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 132,
+    "fields": {
+      "service": 132,
+      "language": "de",
+      "name": "AFU-BS-LW Landwirtschaftlicher Umweltschutz",
+      "description": "AFU-BS-LW Landwirtschaftlicher Umweltschutz",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 133,
+    "fields": {
+      "service": 133,
+      "language": "de",
+      "name": "AFU-IG-B1 Betriebe 1",
+      "description": "AFU-IG-B1 Betriebe 1",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 134,
+    "fields": {
+      "service": 134,
+      "language": "de",
+      "name": "AFU-IG-B2 Betriebe 2",
+      "description": "AFU-IG-B2 Betriebe 2",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 135,
+    "fields": {
+      "service": 135,
+      "language": "de",
+      "name": "AFU-IG-LU Luftqualität",
+      "description": "AFU-IG-LU Luftqualität",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 136,
+    "fields": {
+      "service": 136,
+      "language": "de",
+      "name": "AFU-RU-RD Rechtsdienst",
+      "description": "AFU-RU-RD Rechtsdienst",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 137,
+    "fields": {
+      "service": 137,
+      "language": "de",
+      "name": "AFU-RU-UVP UVP und Planbeurteilung",
+      "description": "AFU-RU-UVP UVP und Planbeurteilung",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 138,
+    "fields": {
+      "service": 138,
+      "language": "de",
+      "name": "AFU-RU-NIS NIS Fachstelle",
+      "description": "AFU-RU-NIS NIS Fachstelle",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 139,
+    "fields": {
+      "service": 139,
+      "language": "de",
+      "name": "AREG-BAB Bauen ausserhalb Bauzonen",
+      "description": "AREG-BAB Bauen ausserhalb Bauzonen",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 140,
+    "fields": {
+      "service": 140,
+      "language": "de",
+      "name": "AREG-KP Kantonale Planung",
+      "description": "AREG-KP Kantonale Planung",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 141,
+    "fields": {
+      "service": 141,
+      "language": "de",
+      "name": "AREG-OP Ortsplanung",
+      "description": "AREG-OP Ortsplanung",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 142,
+    "fields": {
+      "service": 142,
+      "language": "de",
+      "name": "AREG-VM Vermessung",
+      "description": "AREG-VM Vermessung",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 143,
+    "fields": {
+      "service": 143,
+      "language": "de",
+      "name": "AREG-GI-GSM Geoservice-Management",
+      "description": "AREG-GI-GSM Geoservice-Management",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 144,
+    "fields": {
+      "service": 144,
+      "language": "de",
+      "name": "AREG-ZD Zentrale Dienste",
+      "description": "AREG-ZD Zentrale Dienste",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 145,
+    "fields": {
+      "service": 145,
+      "language": "de",
+      "name": "TBA-MUP-SP Spezialprojekte mit Fachstelle Immissionen",
+      "description": "TBA-MUP-SP Spezialprojekte mit Fachstelle Immissionen",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 146,
+    "fields": {
+      "service": 146,
+      "language": "de",
+      "name": "TBA-MUP-VP Verkehrsplanung mit Fachstelle Fuss- und Veloverkehr",
+      "description": "TBA-MUP-VP Verkehrsplanung mit Fachstelle Fuss- und Veloverkehr",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 147,
+    "fields": {
+      "service": 147,
+      "language": "de",
+      "name": "TBA-SUK-KB Kunstbauten",
+      "description": "TBA-SUK-KB Kunstbauten",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 148,
+    "fields": {
+      "service": 148,
+      "language": "de",
+      "name": "TBA-SUK-SN Strassenbau Neuhaus",
+      "description": "TBA-SUK-SN Strassenbau Neuhaus",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 149,
+    "fields": {
+      "service": 149,
+      "language": "de",
+      "name": "TBA-SUK-SB Strassenbau St. Gallen",
+      "description": "TBA-SUK-SB Strassenbau St. Gallen",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 150,
+    "fields": {
+      "service": 150,
+      "language": "de",
+      "name": "TBA-SI-EB Erhaltungsplanung+Bewilligungen",
+      "description": "TBA-SI-EB Erhaltungsplanung+Bewilligungen",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 151,
+    "fields": {
+      "service": 151,
+      "language": "de",
+      "name": "TBA-KI Kantonsingenieur-Büro",
+      "description": "TBA-KI Kantonsingenieur-Büro",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 152,
+    "fields": {
+      "service": 152,
+      "language": "de",
+      "name": "TBA-GG Grundstückgeschäfte",
+      "description": "TBA-GG Grundstückgeschäfte",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 153,
+    "fields": {
+      "service": 153,
+      "language": "de",
+      "name": "AWE-EK Energie und Klima",
+      "description": "AWE-EK Energie und Klima",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 154,
+    "fields": {
+      "service": 154,
+      "language": "de",
+      "name": "AWE-GG-AW Abwasser",
+      "description": "AWE-GG-AW Abwasser",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 155,
+    "fields": {
+      "service": 155,
+      "language": "de",
+      "name": "AWE-GG-GW Grundwasser",
+      "description": "AWE-GG-GW Grundwasser",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 156,
+    "fields": {
+      "service": 156,
+      "language": "de",
+      "name": "AWE-GG-WK Wasserkraft",
+      "description": "AWE-GG-WK Wasserkraft",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 157,
+    "fields": {
+      "service": 157,
+      "language": "de",
+      "name": "AWE-RH Rhein",
+      "description": "AWE-RH Rhein",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 158,
+    "fields": {
+      "service": 158,
+      "language": "de",
+      "name": "AWE-WN-GG Gemeindegewässer",
+      "description": "AWE-WN-GG Gemeindegewässer",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 159,
+    "fields": {
+      "service": 159,
+      "language": "de",
+      "name": "AWE-WN-KG Kantonsgewässer",
+      "description": "AWE-WN-KG Kantonsgewässer",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 160,
+    "fields": {
+      "service": 160,
+      "language": "de",
+      "name": "AWE-WN-NG Naturgefahren",
+      "description": "AWE-WN-NG Naturgefahren",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 161,
+    "fields": {
+      "service": 161,
+      "language": "de",
+      "name": "GS-RA-T1 Team 1",
+      "description": "GS-RA-T1 Team 1",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 162,
+    "fields": {
+      "service": 162,
+      "language": "de",
+      "name": "GS-RA-T2 Team 2",
+      "description": "GS-RA-T2 Team 2",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 163,
+    "fields": {
+      "service": 163,
+      "language": "de",
+      "name": "AfKU-AR Archäologie",
+      "description": "AfKU-AR Archäologie",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 164,
+    "fields": {
+      "service": 164,
+      "language": "de",
+      "name": "AfKU-KDP Denkmalpflege",
+      "description": "AfKU-KDP Denkmalpflege",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 165,
+    "fields": {
+      "service": 165,
+      "language": "de",
+      "name": "AVSV-Lab Kantonales Labor",
+      "description": "AVSV-Lab Kantonales Labor",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 166,
+    "fields": {
+      "service": 166,
+      "language": "de",
+      "name": "AVSV-LMI Lebensmittelinspektorat",
+      "description": "AVSV-LMI Lebensmittelinspektorat",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 167,
+    "fields": {
+      "service": 167,
+      "language": "de",
+      "name": "AVSV-VET Veterinärdienst",
+      "description": "AVSV-VET Veterinärdienst",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 168,
+    "fields": {
+      "service": 168,
+      "language": "de",
+      "name": "GS-KtsAPO Kantonsapotheke",
+      "description": "GS-KtsAPO Kantonsapotheke",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 169,
+    "fields": {
+      "service": 169,
+      "language": "de",
+      "name": "AfMZ-BVS Infrastruktur Zivilschutz",
+      "description": "AfMZ-BVS Infrastruktur Zivilschutz",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 170,
+    "fields": {
+      "service": 170,
+      "language": "de",
+      "name": "GVSG-BS Brandschutz",
+      "description": "GVSG-BS Brandschutz",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 171,
+    "fields": {
+      "service": 171,
+      "language": "de",
+      "name": "GVSG-PN Prävention Naturgefahren",
+      "description": "GVSG-PN Prävention Naturgefahren",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 172,
+    "fields": {
+      "service": 172,
+      "language": "de",
+      "name": "KAPO-VEPO-VT Verkehrstechnik",
+      "description": "KAPO-VEPO-VT Verkehrstechnik",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 173,
+    "fields": {
+      "service": 173,
+      "language": "de",
+      "name": "KAPO-SIPO-SIWAS Sicherheitsfirmen, Waffen,  Sprengstoffe",
+      "description": "KAPO-SIPO-SIWAS Sicherheitsfirmen, Waffen,  Sprengstoffe",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 174,
+    "fields": {
+      "service": 174,
+      "language": "de",
+      "name": "StVA-SCH Schiffahrt",
+      "description": "StVA-SCH Schiffahrt",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 175,
+    "fields": {
+      "service": 175,
+      "language": "de",
+      "name": "ANJF-F Fischerei",
+      "description": "ANJF-F Fischerei",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 176,
+    "fields": {
+      "service": 176,
+      "language": "de",
+      "name": "ANJF-J Jagd",
+      "description": "ANJF-J Jagd",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 177,
+    "fields": {
+      "service": 177,
+      "language": "de",
+      "name": "ANJF-NL Natur- und Landschaftschutz",
+      "description": "ANJF-NL Natur- und Landschaftschutz",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 178,
+    "fields": {
+      "service": 178,
+      "language": "de",
+      "name": "AWA-Insp Arbeitsinspektorat",
+      "description": "AWA-Insp Arbeitsinspektorat",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 179,
+    "fields": {
+      "service": 179,
+      "language": "de",
+      "name": "AWA-Stao Standortförderung",
+      "description": "AWA-Stao Standortförderung",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 180,
+    "fields": {
+      "service": 180,
+      "language": "de",
+      "name": "KFA-WP Waldrecht und Planung",
+      "description": "KFA-WP Waldrecht und Planung",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 181,
+    "fields": {
+      "service": 181,
+      "language": "de",
+      "name": "AöV Amt für öffentlichen Verkehr",
+      "description": "AöV Amt für öffentlichen Verkehr",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 182,
+    "fields": {
+      "service": 182,
+      "language": "de",
+      "name": "LwA-SV/BR Strukturverbesserung / Bodenrecht",
+      "description": "LwA-SV/BR Strukturverbesserung / Bodenrecht",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 183,
+    "fields": {
+      "service": 183,
+      "language": "de",
+      "name": "SUVA Schweizerische Unfallversicherungsanstalt",
+      "description": "SUVA Schweizerische Unfallversicherungsanstalt",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 184,
+    "fields": {
+      "service": 184,
+      "language": "de",
+      "name": "agriss Stiftung AgriSicherheit Schweiz",
+      "description": "agriss Stiftung AgriSicherheit Schweiz",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 185,
+    "fields": {
+      "service": 185,
+      "language": "de",
+      "name": "ASTRA Bundesamt für Strassen",
+      "description": "ASTRA Bundesamt für Strassen",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 186,
+    "fields": {
+      "service": 186,
+      "language": "de",
+      "name": "ESTI Eidgenössisches Starkstrominspektorat",
+      "description": "ESTI Eidgenössisches Starkstrominspektorat",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 187,
+    "fields": {
+      "service": 187,
+      "language": "de",
+      "name": "BAFU Bundesamt für Umwelt",
+      "description": "BAFU Bundesamt für Umwelt",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 188,
+    "fields": {
+      "service": 188,
+      "language": "de",
+      "name": "SBB Schweizerische Bundesbahnen",
+      "description": "SBB Schweizerische Bundesbahnen",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 189,
+    "fields": {
+      "service": 189,
+      "language": "de",
+      "name": "BAZL Bundesamt für Zivilluftfahrt",
+      "description": "BAZL Bundesamt für Zivilluftfahrt",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 190,
+    "fields": {
+      "service": 190,
+      "language": "de",
+      "name": "BAV Bundesamt für Verkehr",
+      "description": "BAV Bundesamt für Verkehr",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 191,
+    "fields": {
+      "service": 191,
+      "language": "de",
+      "name": "BFE Bundesamt für Energie",
+      "description": "BFE Bundesamt für Energie",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 192,
+    "fields": {
+      "service": 192,
+      "language": "de",
+      "name": "EJPD Eidgenössischens Justiz und Polizei Departement",
+      "description": "EJPD Eidgenössischens Justiz und Polizei Departement",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 193,
+    "fields": {
+      "service": 193,
+      "language": "de",
+      "name": "VBS Eidgenösssiches Departement für Verteidigung, Bevölkerungsschutz und Sport",
+      "description": "VBS Eidgenösssiches Departement für Verteidigung, Bevölkerungsschutz und Sport",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 194,
+    "fields": {
+      "service": 194,
+      "language": "de",
+      "name": "ESO-18 Kreis 18",
+      "description": "ESO-18 Kreis 18",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 195,
+    "fields": {
+      "service": 195,
+      "language": "de",
+      "name": "ESO-19 Kreis 19",
+      "description": "ESO-19 Kreis 19",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 196,
+    "fields": {
+      "service": 196,
+      "language": "de",
+      "name": "SOB Schweizerische Südostbahn",
+      "description": "SOB Schweizerische Südostbahn",
+      "city": null,
+      "department": null
+    }
+  },
+  {
+    "model": "user.servicet",
+    "pk": 197,
+    "fields": {
+      "service": 197,
+      "language": "de",
+      "name": "AB Appenzeller Bahnen",
+      "description": "AB Appenzeller Bahnen",
       "city": null,
       "department": null
     }
