@@ -223,6 +223,9 @@ def get_support_role() -> Role | None:
 
 
 def get_tax_administration() -> Service | None:
-    return Service.objects.filter(
-        slug=settings.APPLICATION.get("TAX_ADMINISTRATION")
-    ).first()
+    tax_admin_slug = settings.APPLICATION.get("TAX_ADMINISTRATION")
+
+    if not tax_admin_slug:
+        return None
+
+    return Service.objects.filter(slug=tax_admin_slug).first()
