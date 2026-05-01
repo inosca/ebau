@@ -4725,7 +4725,7 @@
     "fields": {
       "group": 12,
       "language": "de",
-      "name": "Administration Gemeinde Berg (SG)",
+      "name": "Administration Gemeinde Berg",
       "city": null
     }
   },
@@ -4735,7 +4735,7 @@
     "fields": {
       "group": 13,
       "language": "de",
-      "name": "Sachbearbeitung Gemeinde Berg (SG)",
+      "name": "Sachbearbeitung Gemeinde Berg",
       "city": null
     }
   },
@@ -4905,7 +4905,7 @@
     "fields": {
       "group": 30,
       "language": "de",
-      "name": "Administration Gemeinde Au (SG)",
+      "name": "Administration Gemeinde Au",
       "city": null
     }
   },
@@ -4915,7 +4915,7 @@
     "fields": {
       "group": 31,
       "language": "de",
-      "name": "Sachbearbeitung Gemeinde Au (SG)",
+      "name": "Sachbearbeitung Gemeinde Au",
       "city": null
     }
   },
@@ -5105,7 +5105,7 @@
     "fields": {
       "group": 50,
       "language": "de",
-      "name": "Administration Gemeinde Marbach (SG)",
+      "name": "Administration Gemeinde Marbach",
       "city": null
     }
   },
@@ -5115,7 +5115,7 @@
     "fields": {
       "group": 51,
       "language": "de",
-      "name": "Sachbearbeitung Gemeinde Marbach (SG)",
+      "name": "Sachbearbeitung Gemeinde Marbach",
       "city": null
     }
   },
@@ -5125,7 +5125,7 @@
     "fields": {
       "group": 52,
       "language": "de",
-      "name": "Administration Gemeinde Oberriet (SG)",
+      "name": "Administration Gemeinde Oberriet",
       "city": null
     }
   },
@@ -5135,7 +5135,7 @@
     "fields": {
       "group": 53,
       "language": "de",
-      "name": "Sachbearbeitung Gemeinde Oberriet (SG)",
+      "name": "Sachbearbeitung Gemeinde Oberriet",
       "city": null
     }
   },
@@ -5165,7 +5165,7 @@
     "fields": {
       "group": 56,
       "language": "de",
-      "name": "Administration Gemeinde Rüthi (SG)",
+      "name": "Administration Gemeinde Rüthi",
       "city": null
     }
   },
@@ -5175,7 +5175,7 @@
     "fields": {
       "group": 57,
       "language": "de",
-      "name": "Sachbearbeitung Gemeinde Rüthi (SG)",
+      "name": "Sachbearbeitung Gemeinde Rüthi",
       "city": null
     }
   },
@@ -5185,7 +5185,7 @@
     "fields": {
       "group": 58,
       "language": "de",
-      "name": "Administration Gemeinde Buchs (SG)",
+      "name": "Administration Gemeinde Buchs",
       "city": null
     }
   },
@@ -5195,7 +5195,7 @@
     "fields": {
       "group": 59,
       "language": "de",
-      "name": "Sachbearbeitung Gemeinde Buchs (SG)",
+      "name": "Sachbearbeitung Gemeinde Buchs",
       "city": null
     }
   },
@@ -5485,7 +5485,7 @@
     "fields": {
       "group": 88,
       "language": "de",
-      "name": "Administration Gemeinde Benken (SG)",
+      "name": "Administration Gemeinde Benken",
       "city": null
     }
   },
@@ -5495,7 +5495,7 @@
     "fields": {
       "group": 89,
       "language": "de",
-      "name": "Sachbearbeitung Gemeinde Benken (SG)",
+      "name": "Sachbearbeitung Gemeinde Benken",
       "city": null
     }
   },
@@ -5645,7 +5645,7 @@
     "fields": {
       "group": 104,
       "language": "de",
-      "name": "Administration Gemeinde Eschenbach (SG)",
+      "name": "Administration Gemeinde Eschenbach",
       "city": null
     }
   },
@@ -5655,7 +5655,7 @@
     "fields": {
       "group": 105,
       "language": "de",
-      "name": "Sachbearbeitung Gemeinde Eschenbach (SG)",
+      "name": "Sachbearbeitung Gemeinde Eschenbach",
       "city": null
     }
   },
@@ -5765,7 +5765,7 @@
     "fields": {
       "group": 116,
       "language": "de",
-      "name": "Administration Gemeinde Kirchberg (SG)",
+      "name": "Administration Gemeinde Kirchberg",
       "city": null
     }
   },
@@ -5775,7 +5775,7 @@
     "fields": {
       "group": 117,
       "language": "de",
-      "name": "Sachbearbeitung Gemeinde Kirchberg (SG)",
+      "name": "Sachbearbeitung Gemeinde Kirchberg",
       "city": null
     }
   },
@@ -6025,7 +6025,7 @@
     "fields": {
       "group": 142,
       "language": "de",
-      "name": "Administration Gemeinde Zuzwil (SG)",
+      "name": "Administration Gemeinde Zuzwil",
       "city": null
     }
   },
@@ -6035,7 +6035,7 @@
     "fields": {
       "group": 143,
       "language": "de",
-      "name": "Sachbearbeitung Gemeinde Zuzwil (SG)",
+      "name": "Sachbearbeitung Gemeinde Zuzwil",
       "city": null
     }
   },
@@ -6045,7 +6045,7 @@
     "fields": {
       "group": 144,
       "language": "de",
-      "name": "Administration Gemeinde Wil (SG)",
+      "name": "Administration Gemeinde Wil",
       "city": null
     }
   },
@@ -6055,7 +6055,7 @@
     "fields": {
       "group": 145,
       "language": "de",
-      "name": "Sachbearbeitung Gemeinde Wil (SG)",
+      "name": "Sachbearbeitung Gemeinde Wil",
       "city": null
     }
   },
@@ -6065,7 +6065,7 @@
     "fields": {
       "group": 146,
       "language": "de",
-      "name": "Administration Gemeinde Andwil (SG)",
+      "name": "Administration Gemeinde Andwil",
       "city": null
     }
   },
@@ -6075,7 +6075,7 @@
     "fields": {
       "group": 147,
       "language": "de",
-      "name": "Sachbearbeitung Gemeinde Andwil (SG)",
+      "name": "Sachbearbeitung Gemeinde Andwil",
       "city": null
     }
   },
@@ -6105,7 +6105,7 @@
     "fields": {
       "group": 150,
       "language": "de",
-      "name": "Administration Gemeinde Gossau (SG)",
+      "name": "Administration Gemeinde Gossau",
       "city": null
     }
   },
@@ -6115,7 +6115,7 @@
     "fields": {
       "group": 151,
       "language": "de",
-      "name": "Sachbearbeitung Gemeinde Gossau (SG)",
+      "name": "Sachbearbeitung Gemeinde Gossau",
       "city": null
     }
   },
@@ -11587,8 +11587,8 @@
     "fields": {
       "service": 5,
       "language": "de",
-      "name": "Gemeinde Berg (SG)",
-      "description": "Gemeinde Berg (SG)",
+      "name": "Gemeinde Berg",
+      "description": "Gemeinde Berg",
       "city": null,
       "department": null
     }
@@ -11695,8 +11695,8 @@
     "fields": {
       "service": 14,
       "language": "de",
-      "name": "Gemeinde Au (SG)",
-      "description": "Gemeinde Au (SG)",
+      "name": "Gemeinde Au",
+      "description": "Gemeinde Au",
       "city": null,
       "department": null
     }
@@ -11815,8 +11815,8 @@
     "fields": {
       "service": 24,
       "language": "de",
-      "name": "Gemeinde Marbach (SG)",
-      "description": "Gemeinde Marbach (SG)",
+      "name": "Gemeinde Marbach",
+      "description": "Gemeinde Marbach",
       "city": null,
       "department": null
     }
@@ -11827,8 +11827,8 @@
     "fields": {
       "service": 25,
       "language": "de",
-      "name": "Gemeinde Oberriet (SG)",
-      "description": "Gemeinde Oberriet (SG)",
+      "name": "Gemeinde Oberriet",
+      "description": "Gemeinde Oberriet",
       "city": null,
       "department": null
     }
@@ -11851,8 +11851,8 @@
     "fields": {
       "service": 27,
       "language": "de",
-      "name": "Gemeinde Rüthi (SG)",
-      "description": "Gemeinde Rüthi (SG)",
+      "name": "Gemeinde Rüthi",
+      "description": "Gemeinde Rüthi",
       "city": null,
       "department": null
     }
@@ -11863,8 +11863,8 @@
     "fields": {
       "service": 28,
       "language": "de",
-      "name": "Gemeinde Buchs (SG)",
-      "description": "Gemeinde Buchs (SG)",
+      "name": "Gemeinde Buchs",
+      "description": "Gemeinde Buchs",
       "city": null,
       "department": null
     }
@@ -12043,8 +12043,8 @@
     "fields": {
       "service": 43,
       "language": "de",
-      "name": "Gemeinde Benken (SG)",
-      "description": "Gemeinde Benken (SG)",
+      "name": "Gemeinde Benken",
+      "description": "Gemeinde Benken",
       "city": null,
       "department": null
     }
@@ -12139,8 +12139,8 @@
     "fields": {
       "service": 51,
       "language": "de",
-      "name": "Gemeinde Eschenbach (SG)",
-      "description": "Gemeinde Eschenbach (SG)",
+      "name": "Gemeinde Eschenbach",
+      "description": "Gemeinde Eschenbach",
       "city": null,
       "department": null
     }
@@ -12211,8 +12211,8 @@
     "fields": {
       "service": 57,
       "language": "de",
-      "name": "Gemeinde Kirchberg (SG)",
-      "description": "Gemeinde Kirchberg (SG)",
+      "name": "Gemeinde Kirchberg",
+      "description": "Gemeinde Kirchberg",
       "city": null,
       "department": null
     }
@@ -12367,8 +12367,8 @@
     "fields": {
       "service": 70,
       "language": "de",
-      "name": "Gemeinde Zuzwil (SG)",
-      "description": "Gemeinde Zuzwil (SG)",
+      "name": "Gemeinde Zuzwil",
+      "description": "Gemeinde Zuzwil",
       "city": null,
       "department": null
     }
@@ -12379,8 +12379,8 @@
     "fields": {
       "service": 71,
       "language": "de",
-      "name": "Gemeinde Wil (SG)",
-      "description": "Gemeinde Wil (SG)",
+      "name": "Gemeinde Wil",
+      "description": "Gemeinde Wil",
       "city": null,
       "department": null
     }
@@ -12391,8 +12391,8 @@
     "fields": {
       "service": 72,
       "language": "de",
-      "name": "Gemeinde Andwil (SG)",
-      "description": "Gemeinde Andwil (SG)",
+      "name": "Gemeinde Andwil",
+      "description": "Gemeinde Andwil",
       "city": null,
       "department": null
     }
@@ -12415,8 +12415,8 @@
     "fields": {
       "service": 74,
       "language": "de",
-      "name": "Gemeinde Gossau (SG)",
-      "description": "Gemeinde Gossau (SG)",
+      "name": "Gemeinde Gossau",
+      "description": "Gemeinde Gossau",
       "city": null,
       "department": null
     }
