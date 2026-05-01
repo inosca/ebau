@@ -48,6 +48,8 @@ export default class ConstructionMonitoringAbility extends Ability {
     ) {
       return false;
     }
+
+    return true;
   }
 
   async canSkip() {
@@ -61,17 +63,17 @@ export default class ConstructionMonitoringAbility extends Ability {
   }
 
   async canComplete() {
-    if (macroCondition(getOwnConfig().application === "gr")) {
-      if (!(await this.grAllowedToSkip())) {
-        return false;
-      }
-    }
-
     const workItem = this.constructionMonitoring.controls.complete;
     const isReady = workItem?.status === "READY";
     const isAddressed = workItem?.addressedGroups
       .map((id) => parseInt(id))
       .includes(parseInt(this.ebauModules.serviceId));
+
+    if (macroCondition(getOwnConfig().application === "gr")) {
+      if (!(await this.grAllowedToSkip())) {
+        return false;
+      }
+    }
 
     if (this.permissions.fullyEnabled) {
       return (
