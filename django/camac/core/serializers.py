@@ -103,6 +103,7 @@ class PublicationEntrySerializer(serializers.ModelSerializer):
             "instance",
             "publication_date",
             "publication_end_date",
+            "publication_journal_number",
             "is_published",
             "description",
         )

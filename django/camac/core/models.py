@@ -3233,6 +3233,9 @@ class PublicationEntry(models.Model):
     note = models.FloatField(db_column="NOTE", blank=True, null=True)
     publication_date = models.DateTimeField(db_column="PUBLICATION_DATE")
     publication_end_date = models.DateTimeField()
+    publication_journal_number = models.IntegerField(
+        db_column="PUBLICATION_JOURNAL_NUMBER", blank=True, null=True
+    )
     is_published = models.PositiveSmallIntegerField(db_column="IS_PUBLISHED")
     text = models.TextField(db_column="TEXT", blank=True, null=True)
     type = models.ForeignKey(
