@@ -38,19 +38,9 @@
 # - $csp_header_internal     - Internal area (canton/municipality/etc)
 # - $csp_header_restricted   - Fully restricted (file downloads / s3 etc)
 
-# Define optional variables
-# =========================
-if ($csp_portal_allow_inline_style ~ "^$")   { set $csp_portal_allow_inline_style "false"; }
-if ($csp_internal_allow_inline_style ~ "^$") { set $csp_internal_allow_inline_style "false"; }
-if ($csp_use_google_fonts ~ "^$")            { set $csp_use_google_fonts "false"; }
-if ($csp_enable_swagger ~ "^$")              { set $csp_enable_swagger "false"; }
-if ($csp_use_font_data_url ~ "^$")           { set $csp_use_font_data_url "false"; }
-if ($csp_php_allow_unsafe_eval ~ "^$")       { set $csp_php_allow_unsafe_eval "false"; }
-if ($csp_php_allow_localhost_scripts ~ "^$") { set $csp_php_allow_localhost_scripts "false"; }
-if ($csp_external_connect_sources ~ "^$")    { set $csp_external_connect_sources ""; }
-if ($csp_external_img_sources ~ "^$")        { set $csp_external_img_sources ""; }
-if ($csp_external_style_sources ~ "^$")      { set $csp_external_style_sources ""; }
-if ($csp_external_frame_sources ~ "^$")      { set $csp_external_frame_sources ""; }
+# Defaults
+# ========
+# Include conf.d/csp_headers_default.inc before setting any overrides.
 
 # Intermediates
 # =============

@@ -11,6 +11,7 @@ services:
     volumes:
       - ../proxy/kt_sg.conf:/etc/nginx/conf.d/default.conf.in:ro
       - ../proxy/csp_headers.inc:/etc/nginx/conf.d/csp_headers.inc:ro
+      - ../proxy/csp_headers_default.inc:/etc/nginx/conf.d/csp_headers_default.inc:ro
       - ../proxy/docker-entrypoint.d/90-nameserver.sh:/docker-entrypoint.d/90-nameserver.sh:ro
       - djangomedia:/var/lib/camac/media:ro
       - djangotmpmedia:/tmp/camac/tmpfiles:ro
