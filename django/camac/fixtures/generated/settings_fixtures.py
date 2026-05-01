@@ -1454,6 +1454,23 @@ def ag_distribution_settings(
 
 
 @pytest.fixture
+def sg_distribution_settings(
+    request,
+    settings,
+    distribution_settings,
+):
+    """Module-specific settings for distribution (canton SG)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=distribution_settings,
+        module_name="distribution",
+        canton="kt_sg",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def demo_distribution_settings(
     request,
     settings,

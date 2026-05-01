@@ -1,3 +1,5 @@
+import json
+
 import pyexcel
 from django.conf import settings
 from django.core.management.base import BaseCommand
@@ -246,6 +248,7 @@ class Command(BaseCommand):
             raw_name = row[1].strip()
             name = f"{prefix} {raw_name}" if prefix else raw_name
             slug = row[2] or None
+            meta = json.loads(row[11]) if row[11] else {}
 
             service_data = dict(
                 service_parent=None,
@@ -263,6 +266,7 @@ class Command(BaseCommand):
                 responsibility_construction_control=0,
                 disabled=int(row[9] or 0),
                 external_identifier=row[10] or None,
+                meta=meta,
             )
 
             existing = None

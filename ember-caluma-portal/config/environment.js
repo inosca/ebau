@@ -84,6 +84,8 @@ module.exports = function (environment) {
     new: 1,
     subm: 2,
     rejected: 3,
+    "init-distribution": 4,
+    distribution: 5,
   };
   const appConfig = {
     demo: {
@@ -613,7 +615,12 @@ module.exports = function (environment) {
       defaultInstanceStateCategory: "all",
       instanceStateCategories: {
         all: [],
-        pending: [instanceStatesSg.new, instanceStatesSg.subm],
+        pending: [
+          instanceStatesSg.new,
+          instanceStatesSg.subm,
+          instanceStatesSg["init-distribution"],
+          instanceStatesSg.distribution,
+        ],
         decided: [],
         done: [instanceStatesSg.rejected],
       },

@@ -3149,10 +3149,22 @@ APPLICATIONS = {
             "USE_LOCATION": False,
             "SAVE_DOSSIER_NUMBER_IN_CALUMA": True,
             "SIMPLE_WORKFLOW": {
-                # TODO
+                "material-exam": {
+                    "history_text": _("Material exam performed"),
+                },
+                "formal-exam": {
+                    "next_instance_state": "init-distribution",
+                    "history_text": _("Formal exam performed"),
+                },
+                "init-distribution": {
+                    "next_instance_state": "distribution",
+                    "history_text": _("Circulation started"),
+                },
             },
             "PRE_COMPLETE": {
                 "fill-publication": {"complete": ["publication"]},
+                "check-inquiry": {"cancel": ["revise-inquiry"]},
+                "revise-inquiry": {"cancel": ["check-inquiry"]},
             },
             "PUBLIC_STATUS": {
                 "USE_SLUGS": True,

@@ -15,6 +15,15 @@ distribution:
   own-cantonal-services: "Eigene Fachstellen"
   non-cantonal-services: "Ausserkantonale Fachstellen"
 
+  # SG
+  coordination-service: "Koordinationsstelle"
+  own-subservices: "Eigene Unterfachstellen"
+  bud: "Bau- und Umweltdepartement"
+  di: "Departement des Innern"
+  sjd: "Sicherheits- und Justizdepartement"
+  gd: "Gesundheitsdepartement"
+  services-federal: "Bundesstellen"
+
   send-answer: "Antwort senden"
   release-for-review: "Zur Überprüfung freigeben"
   released-for-review: "Zur Überprüfung freigegeben am"

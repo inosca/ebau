@@ -69,6 +69,7 @@ export default {
   },
   distribution: {
     deadlineRules: true,
+    showAllServices: true,
   },
   changeGeometer: {
     enabled: false,

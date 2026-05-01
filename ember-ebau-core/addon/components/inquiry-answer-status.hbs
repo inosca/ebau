@@ -1,5 +1,10 @@
 {{! template-lint-disable require-input-label }}
-<select class="uk-select" disabled={{@disabled}} {{on "change" this.change}}>
+<select
+  class="uk-select {{if @disabled 'uk-disabled'}}"
+  disabled={{@disabled}}
+  name={{@field.pk}}
+  {{on "change" this.change}}
+>
   <option disabled selected={{not @vield.value}}></option>
   {{#each this.options as |opt|}}
     {{#if (and opt.disabled (eq opt.slug @field.value))}}

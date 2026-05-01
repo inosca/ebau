@@ -556,5 +556,66 @@ DISTRIBUTION = {
         },
         "ALWAYS_CREATE_INQUIRY_CHECK_WORK_ITEM": True,
     },
+    "kt_sg": {
+        "ENABLED": True,
+        "INSTANCE_STATE_DISTRIBUTION": "distribution",
+        "INQUIRY_ANSWER_CHECK_TASK": "check-inquiry",
+        "INQUIRY_ANSWER_REVISE_TASK": "revise-inquiry",
+        "INQUIRY_ANSWER_ALTER_TASK": "alter-inquiry",
+        "HISTORY": {
+            "COMPLETE_DISTRIBUTION": _("Circulation completed"),
+            "SKIP_DISTRIBUTION": _("Circulation skipped"),
+            "REDO_DISTRIBUTION": _("Circulation reopened"),
+        },
+        "REDO_INQUIRY": {
+            "REOPEN_TASKS": ["check-inquiry", "revise-inquiry"],
+            "COMPLETE_TASKS": ["revise-inquiry"],
+        },
+        "AVAILABLE_SERVICES_FOR_INQUIRY": {
+            "authority": [
+                {
+                    "include": [
+                        (
+                            "service_groups",
+                            [
+                                "coordination",
+                                "municipality",
+                                "service-external",
+                                "service-federal",
+                            ],
+                        )
+                    ]
+                },
+            ],
+            "coordination": [
+                {
+                    "include": [
+                        (
+                            "service_groups",
+                            [
+                                "municipality",
+                                "service-cantonal",
+                                "service-external",
+                                "service-federal",
+                            ],
+                        )
+                    ]
+                }
+            ],
+            "service-cantonal": [
+                {
+                    "include": [
+                        (
+                            "service_groups",
+                            [
+                                "service-external",
+                                "service-federal",
+                            ],
+                        )
+                    ]
+                }
+            ],
+        },
+    },
     "demo": {"ENABLED": True},
 }

@@ -27,4 +27,8 @@ export default {
     // TODO: remove this as soon as backend is fixed
     v3: true,
   },
+  distribution: {
+    showAllServices: true,
+    fourEyesPrinciple: true,
+  },
 };

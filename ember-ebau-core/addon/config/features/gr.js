@@ -68,4 +68,7 @@ export default {
   gis: {
     v3: true,
   },
+  distribution: {
+    showAllServices: true,
+  },
 };

@@ -10,6 +10,8 @@ export default {
     new: 1,
     subm: 2,
     rejected: 3,
+    "init-distribution": 4,
+    distribution: 5,
   },
   gwr: {
     cantonAbbreviation: "SG",
