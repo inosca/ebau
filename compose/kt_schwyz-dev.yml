@@ -83,6 +83,9 @@ services:
       REDIS_HOST: valkey
       VALIDATION_CLASSES: camac.caluma.extensions.validations.CustomValidation
       VISIBILITY_CLASSES: camac.caluma.extensions.visibilities.CustomVisibilitySZ
+    env_file:
+      - ../garage/compose-env/dev-ebau.conf
+      - ../garage/compose-env/dev-alexandria.conf
     networks:
       - ebau.localhost
     command: devserver
@@ -175,7 +178,7 @@ services:
     depends_on:
       - cache
       - db
-      - minio
+      - garage
     environment:
       CACHE_LOCATION: cache:11211
       DATABASE_HOST: db
@@ -183,11 +186,6 @@ services:
       DATABASE_PASSWORD: camac
       DATABASE_USER: camac
       DATABASE_OPTIONS: "options=-c search_path=dms"
-      DMS_S3_ACCESS_KEY_ID: minio
-      DMS_S3_ENDPOINT_URL: http://minio:9000
-      DMS_S3_SECRET_ACCESS_KEY: minio123
-      DMS_S3_SIGNATURE_VERSION: s3v4
-      DMS_STORAGE_BUCKET_NAME: dms-media
       DOCXTEMPLATE_JINJA_EXTENSIONS: ""
       ENV: dev
       EXTENSIONS_ARGUMENTS: DJANGO_API=http://django
@@ -197,6 +195,8 @@ services:
       OIDC_VERIFY_SSL: true
       REQUIRE_AUTHENTICATION: true
       URL_PREFIX: document-merge-service/
+    env_file:
+      - ../garage/compose-env/dev-dms.conf
     volumes:
       - ../document-merge-service/extensions:/app/document_merge_service/extensions
       - ../document-merge-service/${APPLICATION}/dump.json:/tmp/document-merge-service/dump.json
@@ -236,20 +236,6 @@ services:
     environment:
       MP_WEBROOT: mailpit
 
-  mc:
-    image: minio/mc:RELEASE.2025-08-13T08-35-41Z
-    depends_on:
-      - minio
-    environment:
-      MINIO_ROOT_PASSWORD: minio123
-      MINIO_ROOT_USER: minio
-    volumes:
-      - ../mc/entrypoint.sh:/entrypoint.sh
-    networks:
-      - ebau.localhost
-    entrypoint: /entrypoint.sh
-    restart: on-failure
-
   metabase:
     image: metabase/metabase:v0.58.1
     depends_on:
@@ -266,17 +252,31 @@ services:
     networks:
       - ebau.localhost
 
-  minio:
-    image: minio/minio:RELEASE.2025-09-07T16-13-09Z
-    environment:
-      MINIO_ROOT_USER: minio
-      MINIO_ROOT_PASSWORD: minio123
-      MINIO_BROWSER_REDIRECT_URL: http://ebau.localhost/minio/ui
+  garage:
+    build:
+      context: ../garage
     volumes:
-      - minio_data:/data:rw
+      - garage_meta:/var/lib/garage/meta/
+      - garage_data:/var/lib/garage/data/
+    env_file:
+      - ../garage/compose-env/dev-garage.conf
     networks:
       - ebau.localhost
-    command: server data --console-address ":9090"
+
+  garage-webui:
+    image: khairul169/garage-webui:latest
+    restart: unless-stopped
+    volumes:
+      - ../garage/garage.toml:/etc/garage.toml:ro
+    ports:
+      - 3909:3909
+    environment:
+      API_BASE_URL: "http://garage:3903"
+      S3_ENDPOINT_URL: "http://garage:3900"
+    networks:
+      - ebau.localhost
+    depends_on:
+      - garage
 
   unoconv:
     image: zrrrzzt/docker-unoconv-webservice:8.9.4
@@ -298,8 +298,11 @@ networks:
 volumes:
   djangomedia:
   djangotmpmedia:
-  minio_data:
   pg16data:
   phpsessions:
   templatefiles:
   valkey_data:
+  garage_meta:
+    driver: local
+  garage_data:
+    driver: local

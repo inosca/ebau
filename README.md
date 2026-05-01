@@ -139,7 +139,6 @@ After, you should be able to use to the following services:
 - [ebau.localhost/django/admin/](http://ebau.localhost/django/admin/) - Django admin interface
 - [ebau-keycloak.localhost/auth](http://ebau-keycloak.localhost/auth/) - IAM solution
 - [ember-ebau.localhost/mailpit/](http://ember-ebau.localhost/mailpit/) - Mailpit UI
-- [ember-ebau.localhost/minio/ui/](http://ember-ebau.localhost/minio/ui/) - MinIO Admin UI
 
 #### Sysctl caveat
 

@@ -113,26 +113,44 @@ services:
       - "8000:8000"
     depends_on:
       - db
-      - minio
+      - garage
     environment:
       - DATABASE_PASSWORD=camac
       - ALLOWED_HOSTS=*
       - OIDC_OP_USER_ENDPOINT=http://ebau-keycloak.localhost/auth/realms/ebau/protocol/openid-connect/userinfo
-      - MINIO_STORAGE_ENDPOINT=ember-ebau.localhost
-      - MINIO_STORAGE_SECRET_KEY=minio123
     networks:
       - ebau.localhost
 
-  minio:
+  garage:
+    build:
+      context: ../garage
+    volumes:
+      - garage_meta:/var/lib/garage/meta/
+      - garage_data:/var/lib/garage/data/
+    env_file:
+      - ../garage/compose-env/dev-garage.conf
+    networks:
+      - ebau.localhost
+
+  garage-webui:
+    image: khairul169/garage-webui:latest
+    restart: unless-stopped
+    volumes:
+      - ../garage/garage.toml:/etc/garage.toml:ro
+    ports:
+      - 3909:3909
     environment:
-      - MINIO_SECRET_KEY=minio123
+      API_BASE_URL: "http://garage:3903"
+      S3_ENDPOINT_URL: "http://garage:3900"
     networks:
       - ebau.localhost
-
-  mc:
-    networks:
-      - ebau.localhost
+    depends_on:
+      - garage
 
 
 networks:
   ebau.localhost:
+  garage_meta:
+    driver: local
+  garage_data:
+    driver: local

@@ -14,6 +14,6 @@ def topic_with_admin_involved(admin_user, communications_topic, role):
 
 
 @pytest.fixture
-def use_alexandria_backend(application_settings, minio_mock, settings):
+def use_alexandria_backend(application_settings, s3_mock, settings):
     application_settings["DOCUMENT_BACKEND"] = "alexandria"
     settings.STORAGES["default"]["BACKEND"] = "storages.backends.s3.S3Storage"

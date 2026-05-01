@@ -2991,7 +2991,7 @@ def gql():
 
 
 @pytest.fixture
-def minio_mock(mocker):
+def s3_mock(mocker):
     mocker.patch("storages.backends.s3.S3Storage.save")
     mocker.patch("storages.backends.s3.S3Storage.open")
     SsecGlobalS3Storage.save.return_value = "name-of-the-file"
@@ -3073,7 +3073,7 @@ def form_utils() -> FormUtils:
 @pytest.fixture(autouse=True)
 def _default_file_storage_backend(settings):
     # This is needed that alexandria file factories don't try to upload
-    # something to a possibly non-existent minio container in tests. Also, we
+    # something to a possibly non-existent s3 container in tests. Also, we
     # explicitly disable encryption.
     settings.STORAGES["default"] = {
         "BACKEND": "django.core.files.storage.FileSystemStorage"
