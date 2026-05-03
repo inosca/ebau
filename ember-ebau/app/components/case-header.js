@@ -3,6 +3,7 @@ import { service } from "@ember/service";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { dropTask } from "ember-concurrency";
+import { query } from "ember-data-resources";
 import mainConfig from "ember-ebau-core/config/main";
 import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 import { trackedFunction } from "reactiveweb/function";
@@ -105,4 +106,8 @@ export default class CaseHeaderComponent extends Component {
       this.notification.danger(this.intl.t("dms.download-export-error"));
     }
   }
+
+  gisLinksForInstance = query(this, "gis-link", () => ({
+    instanceId: this.args.case?.instanceId,
+  }));
 }
