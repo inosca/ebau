@@ -14,6 +14,10 @@ services:
       - ../proxy/docker-entrypoint.d/90-nameserver.sh:/docker-entrypoint.d/90-nameserver.sh:ro
       - djangomedia:/var/lib/camac/media:ro
       - djangotmpmedia:/tmp/camac/tmpfiles:ro
+    # Required so the nginx upstream can resolve `host.docker.internal` to the
+    # host machine on Linux (already works out-of-the-box on macOS/Windows).
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     depends_on:
       - django
       - document-merge-service
