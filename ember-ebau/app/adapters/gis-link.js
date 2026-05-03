@@ -1,1 +1,5 @@
-export { default } from "ember-ebau-core/adapters/gis-link";
+import ApplicationAdapter from "./application";
+
+export default class GisLinkAdapter extends ApplicationAdapter {
+  namespace = "api/v2";
+}
