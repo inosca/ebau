@@ -13,6 +13,7 @@ defmodule Ebau.MixProject do
       deps: deps(),
       compilers: [:phoenix_live_view] ++ Mix.compilers(),
       listeners: [Phoenix.CodeReloader],
+      elixirc_options: [module_definition: :interpreted, ignore_already_consolidated: true],
       docs: [
         main: "readme",
         extras: [
@@ -31,7 +32,8 @@ defmodule Ebau.MixProject do
           Caluma: [Caluma.Form, Caluma.Workflow, ~r/Caluma\..*/],
           Web: [~r/EbauWeb\..*/]
         ]
-      ]
+      ],
+      usage_rules: usage_rules()
     ]
   end
 
@@ -72,6 +74,7 @@ defmodule Ebau.MixProject do
       {:dart_sass, "~> 0.7", only: [:dev]},
       {:dns_cluster, "~> 0.2.0"},
       {:ecto_sql, "~> 3.13"},
+      {:elixir_uikit, "~> 0.7.2"},
       {:esbuild, "~> 0.10", runtime: Mix.env() == :dev},
       {:ex_doc, "~> 0.38", only: :dev, runtime: false},
       {:gettext, "~> 1.0"},
@@ -88,6 +91,7 @@ defmodule Ebau.MixProject do
       {:phoenix_live_dashboard, "~> 0.8.3"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:phoenix_live_view, "~> 1.1.0"},
+      {:phoenix_test, "~> 0.8", only: :test, runtime: false},
       {:picosat_elixir, "~> 0.2"},
       {:postgrex, ">= 0.0.0"},
       {:quokka, "~> 2.11", only: [:dev, :test], runtime: false},
@@ -149,5 +153,27 @@ defmodule Ebau.MixProject do
     end
 
     Mix.Tasks.Phx.Server.run(args)
+  end
+
+  defp usage_rules do
+    [
+      file: "CLAUDE.md",
+      usage_rules: ["usage_rules:all"],
+      skills: [
+        location: ".claude/skills",
+        build: [
+          "ash-framework": [
+            description:
+              "Use this skill working with Ash Framework or any of its extensions. Always consult this when making any domain changes, features or fixes.",
+            usage_rules: [:ash, ~r/^ash_/]
+          ],
+          "phoenix-framework": [
+            description:
+              "Use this skill working with Phoenix Framework. Consult this when working with the web layer, controllers, views, liveviews etc.",
+            usage_rules: [:phoenix, ~r/^phoenix_/]
+          ],
+        ]
+      ]
+    ]
   end
 end
