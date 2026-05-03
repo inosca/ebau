@@ -24,9 +24,8 @@ defmodule Ebau.Instances do
     end
 
     resource Ebau.Instances.GisLink do
-      define :list_gis_links_for_instance, args: [:instance_id]
       define :create_gis_link
-      define :read_gis_links
+      define :read_gis_links, args: [:instance_id]
     end
   end
 

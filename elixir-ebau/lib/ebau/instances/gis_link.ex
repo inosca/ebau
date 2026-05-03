@@ -65,24 +65,14 @@ defmodule Ebau.Instances.GisLink do
       pagination do
         offset? true
         countable true
-        required? true
+        required? false
       end
 
       prepare build(sort: :name)
-    end
-
-    read :list_gis_links_for_instance do
-      description """
-      Lists GIS link templates and preloads the resolved link for a specific instance.
-
-      The returned records include the `gis_link_for_instance` calculation, which
-      replaces `{x}` and `{y}` in the placeholder URL with the first available
-      plot coordinates of the instance.
-      """
 
       argument :instance_id, :integer do
         description "The instance whose plot coordinates should be injected into each GIS link."
-        allow_nil? false
+        public? true
       end
 
       prepare build(load: [gis_link_for_instance: %{instance_id: arg(:instance_id)}])
@@ -117,12 +107,16 @@ defmodule Ebau.Instances.GisLink do
   calculations do
     calculate :gis_link_for_instance, :string, Ebau.Instances.Calculations.GisLinkForInstance do
       argument :instance_id, :integer do
-        allow_nil? false
+        allow_nil? true
       end
+
+      public? true
     end
   end
 
   json_api do
     type "gis-links"
+    field_names :dasherize
+    argument_names :camelize
   end
 end
