@@ -171,7 +171,7 @@ defmodule Ebau.MixProject do
             description:
               "Use this skill working with Phoenix Framework. Consult this when working with the web layer, controllers, views, liveviews etc.",
             usage_rules: [:phoenix, ~r/^phoenix_/]
-          ],
+          ]
         ]
       ]
     ]
