@@ -8,7 +8,7 @@
 import Config
 
 config :ash_json_api,
-  show_public_calculations_when_loaded?: false,
+  show_public_calculations_when_loaded?: true,
   authorize_update_destroy_with_error?: true
 
 # Configure the mailer
