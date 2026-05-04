@@ -255,8 +255,6 @@ services:
       - ebau.localhost
 
   garage:
-    build:
-      context: ../garage
     volumes:
       - garage_meta:/var/lib/garage/meta/
       - garage_data:/var/lib/garage/data/
@@ -300,11 +298,11 @@ networks:
 volumes:
   djangomedia:
   djangotmpmedia:
+  garage_data:
+    driver: local
+  garage_meta:
+    driver: local
   pg16data:
   phpsessions:
   templatefiles:
   valkey_data:
-  garage_meta:
-    driver: local
-  garage_data:
-    driver: local

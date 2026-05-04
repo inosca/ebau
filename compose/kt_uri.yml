@@ -122,6 +122,13 @@ services:
       - ../document-merge-service/kt_uri/templatefiles:/var/lib/document-merge-service/media
       - ../document-merge-service/kt_uri/dump.json:/tmp/document-merge-service/dump.json
 
+  garage:
+    image: acr.run/camac-ng/camac-ng/garage:${CI_COMMIT_TAG:-master}
+    build:
+      context: ../garage
+      cache_from:
+        - acr.run/camac-ng/camac-ng/garage:${CI_COMMIT_TAG:-master}
+
 volumes:
   pgdata:
   djangomedia:

@@ -157,8 +157,6 @@ services:
     command: devserver
 
   garage:
-    build:
-      context: ../garage
     volumes:
       - garage_meta:/var/lib/garage/meta/
       - garage_data:/var/lib/garage/data/
@@ -186,8 +184,8 @@ networks:
   ebau.localhost:
 
 volumes:
-  pg15data:
   garage_meta:
     driver: local
   garage_data:
     driver: local
+  pg15data:

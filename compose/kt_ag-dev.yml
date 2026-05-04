@@ -234,8 +234,6 @@ services:
     command: devserver
 
   garage:
-    build:
-      context: ../garage
     volumes:
       - garage_meta:/var/lib/garage/meta/
       - garage_data:/var/lib/garage/data/
