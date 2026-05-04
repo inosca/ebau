@@ -55,7 +55,7 @@ def applicant_permissions_module(permissions_settings, access_level_factory):
     access_level_factory(slug="support", applicable_area="ANY")
 
     # Bern already does the "right" thing
-    mod = "camac.permissions.config.kt_bern.GeneralPermissionEventHandlerBE"
+    mod = "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
 
     permissions_settings["EVENT_HANDLER"] = mod
     permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.CHECKING

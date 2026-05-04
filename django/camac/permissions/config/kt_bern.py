@@ -21,10 +21,18 @@ from .common import (
 
 
 class PermissionEventHandlerBE(
+    ApplicantsEventHandlerMixin,
+    InstanceSubmissionHandlerMixin,
+    ChangeResponsibleServiceHandlerMixin,
+    DistributionHandlerMixin,
+    InstanceCreationHandlerMixin,
+    InstanceCopyHandlerMixin,
     # EmptyEventHandler needs to be last!
     EmptyEventHandler,
 ):
     def decision_decreed(self, instance: Instance):
+        super().decision_decreed(instance)
+
         decision = instance.case.work_items.filter(
             task_id="decision",
             status__in=[WorkItem.STATUS_COMPLETED, WorkItem.STATUS_SKIPPED],
@@ -40,8 +48,11 @@ class PermissionEventHandlerBE(
             return
 
         self._grant_geometer_if_needed(decision, instance)
+        self._grant_construction_control(instance)
 
     def instance_submitted(self, instance: Instance):
+        super().instance_submitted(instance)
+
         if instance.case.document.form.slug not in [
             "heat-generator",
             "heat-generator-v2",
@@ -133,19 +144,3 @@ class PermissionEventHandlerBE(
             event_name="geometer-changed",
         )
         return instance_acls.count()
-
-
-class GeneralPermissionEventHandlerBE(
-    ApplicantsEventHandlerMixin,
-    InstanceSubmissionHandlerMixin,
-    ChangeResponsibleServiceHandlerMixin,
-    DistributionHandlerMixin,
-    InstanceCreationHandlerMixin,
-    InstanceCopyHandlerMixin,
-    PermissionEventHandlerBE,
-    # EmptyEventHandler needs to be last!
-    EmptyEventHandler,
-):
-    def decision_decreed(self, instance: Instance):
-        super().decision_decreed(instance)
-        self._grant_construction_control(instance)

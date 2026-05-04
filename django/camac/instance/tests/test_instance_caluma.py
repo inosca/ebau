@@ -3423,6 +3423,7 @@ def test_copy_rejected_instance(
         assert new_instance.copy_source == so_instance
 
 
+@pytest.mark.parametrize("role__name", ["Applicant"])
 @pytest.mark.parametrize("instance_state__name", ["rejected"])
 def test_copy_rejected_extend_validity_instance(
     db,
@@ -3430,6 +3431,7 @@ def test_copy_rejected_extend_validity_instance(
     admin_user,
     applicant_factory,
     instance_state_factory,
+    role_factory,
     be_access_levels,
     be_instance,
 ):
@@ -3442,6 +3444,8 @@ def test_copy_rejected_extend_validity_instance(
     be_instance.case.save()
 
     instance_state_factory(name="new")
+    # support gets access to every instance upon creation
+    role_factory(name="Support")
 
     role = ROLE_CHOICES.ADMIN.value
     applicant_factory(instance=be_instance, invitee=admin_user, role=role)
