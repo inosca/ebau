@@ -1,56 +1,54 @@
 defmodule Ebau.Instances.Calculations.GisLinkForInstance do
   @moduledoc """
-  Renders a GIS link placeholder for a concrete instance.
+  Renders a GIS link URL for a concrete instance.
 
-  The calculation loads the instance's plot data and substitutes `{x}` with the
-  east coordinate and `{y}` with the north coordinate of the first available plot.
-  If no plot data exists, both placeholders are replaced with empty strings.
+  Sets the `c` query parameter on the configured placeholder URL to the
+  truncated east/north coordinates of the instance's first plot. Returns nil
+  when no instance_id is supplied; uses empty coordinates when the instance
+  has no plot data.
   """
 
   use Ash.Resource.Calculation
 
-  # If no instance_id argument is supplied we can't load anything so we just return
-  # the records and the link will be nil
   @impl true
   def calculate(records, _opts, %{arguments: %{instance_id: nil}}) do
-    Enum.map(records, fn _record -> nil end)
+    Enum.map(records, fn _ -> nil end)
   end
 
-  @impl true
   def calculate(records, _opts, context) do
-    action_opts = Ash.Context.to_opts(context)
-
     instance =
       Ebau.Instances.get_instance_by_id!(
         context.arguments.instance_id,
-        Keyword.put(action_opts, :load, plot_data: [:coord_north, :coord_east])
+        Keyword.put(Ash.Context.to_opts(context), :load, plot_data: [:coord_north, :coord_east])
       )
 
-    {x, y} =
-      instance.plot_data
-      |> List.first()
-      |> coordinates()
-
-    Enum.map(records, fn record -> replace_coordinates(record.placeholder, x, y) end)
+    coords = first_plot_coords(instance.plot_data)
+    Enum.map(records, &set_coordinate_param(&1.placeholder, coords))
   end
 
-  defp replace_coordinates(placeholder, x, y) do
-    uri = URI.parse(placeholder)
+  defp first_plot_coords([plot | _]),
+    do: "#{coord_int(plot.coord_east)},#{coord_int(plot.coord_north)}"
+
+  defp first_plot_coords([]), do: ","
+
+  defp coord_int(value) when is_binary(value) do
+    case Float.parse(value) do
+      {float, _rest} -> trunc(float)
+      :error -> ""
+    end
+  end
+
+  defp coord_int(_), do: ""
+
+  defp set_coordinate_param(url, coords) do
+    uri = URI.parse(url)
 
     query =
       (uri.query || "")
       |> URI.decode_query()
-      |> Map.put("c", "#{x},#{y}")
+      |> Map.put("c", coords)
       |> URI.encode_query()
 
     URI.to_string(%{uri | query: query})
-  end
-
-  defp coordinates(nil), do: {"", ""}
-
-  defp coordinates(plot) do
-    x = plot.coord_east |> String.to_float() |> trunc() |> to_string()
-    y = plot.coord_north |> String.to_float() |> trunc() |> to_string()
-    {x, y}
   end
 end

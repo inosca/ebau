@@ -2,10 +2,10 @@ defmodule Ebau.Instances.GisLink do
   @moduledoc """
   Configurable GIS link templates scoped to a service.
 
-  A GIS link stores a human-readable name and a placeholder URL template such as
-  `https://example.com?x={x}&y={y}`. For a concrete instance, the
-  `gis_link_for_instance` calculation replaces `{x}` and `{y}` with the first
-  available plot coordinates from the instance's Caluma data.
+  A GIS link stores a human-readable name and a base URL such as
+  `https://example.com?c=0,0`. For a concrete instance, the
+  `gis_link_for_instance` calculation overwrites the `c` query parameter
+  with the first available plot's east/north coordinates.
   """
 
   use Ash.Resource,
