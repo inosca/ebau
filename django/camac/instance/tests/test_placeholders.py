@@ -24,7 +24,10 @@ from pytest_lazy_fixtures import lf
 from rest_framework import status
 
 from camac.instance.placeholders.fields import MasterDataField
-from camac.instance.placeholders.serializers import DMSPlaceholdersSerializer
+from camac.instance.placeholders.serializers import (
+    DMSPlaceholdersSerializer,
+    SzDMSPlaceholdersSerializer,
+)
 from camac.instance.placeholders.utils import (
     format_gis_center_coordinates,
     get_tel_and_email,
@@ -1166,6 +1169,29 @@ def test_dms_placeholders_ag(
         assert result[ir_prop] != result[a_prop]
         # Make sure fallback is used if invoice recipient is not available
         assert fallback_result[ir_prop] == fallback_result[a_prop]
+
+
+@pytest.mark.parametrize(
+    "publication_entry__publication_date,publication_entry__is_published",
+    [(datetime(2026, 1, 30, tzinfo=timezone.timezone.utc), True)],
+)
+@pytest.mark.parametrize("role__name", ["Canton"])
+@pytest.mark.parametrize(
+    "publication_entry__publication_journal_number, expected_output",
+    [
+        (3, 3),
+        (None, 5),
+    ],
+)
+def test_publication_journal_number_override_sz(
+    db,
+    publication_entry,
+    admin_client,
+    sz_instance,
+    expected_output,
+):
+    serializer = SzDMSPlaceholdersSerializer(sz_instance)
+    assert serializer.data["PUBLICATIONS"][0]["JOURNAL_NUMBER"] == expected_output
 
 
 @pytest.mark.parametrize("role__name", ["Gemeinde"])

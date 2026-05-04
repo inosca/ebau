@@ -10341,14 +10341,9 @@
         }),
       ]),
       'description': dict({
-        'de': 'Publikationsinformationen mit Amtsblattnummer, Start- und Enddatum',
+        'de': 'Alle Amtsblattpublikationen mit Publikationsdatum, Publikationsende, KW-Nummer und Amtsblattnummer (ist gleich KW, wenn nicht anders angegeben)',
       }),
       'nested_aliases': dict({
-        'calendar_week': list([
-          dict({
-            'de': 'calendar_week',
-          }),
-        ]),
         'date': list([
           dict({
             'de': 'date',
@@ -10357,6 +10352,14 @@
         'end_date': list([
           dict({
             'de': 'end_date',
+          }),
+        ]),
+        'journal_number': list([
+          dict({
+            'de': 'journal_number',
+          }),
+          dict({
+            'de': 'calendar_week',
           }),
         ]),
       }),
@@ -18722,6 +18725,7 @@
     'publications[].calendar_week',
     'publications[].date',
     'publications[].end_date',
+    'publications[].journal_number',
   ])
 # ---
 # name: test_dms_placeholders_empty[Municipality]
@@ -21232,11 +21236,13 @@
         'calendar_week': 39,
         'date': '27.09.2001',
         'end_date': '27.04.1993',
+        'journal_number': 39,
       }),
       dict({
         'calendar_week': 43,
         'date': '27.10.2011',
         'end_date': '19.12.2014',
+        'journal_number': 43,
       }),
     ]),
     'publikationsdatum': '27. Oktober 2011',

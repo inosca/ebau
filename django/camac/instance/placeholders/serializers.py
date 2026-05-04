@@ -2331,11 +2331,18 @@ class SzDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
     publications = fields.AliasedMethodField(
         aliases=["PUBLICATIONS"],
         nested_aliases={
-            "calendar_week": ["CALENDAR_WEEK"],
+            # `calendar_week` is used as a proxy for journal number and
+            # may be overridden by the user. In that case `calendar_week`
+            # will differ from the actual calendar week number.
+            # TODO: remove `CALENDAR_WEEK` alias when no production template
+            # uses it.
+            "journal_number": ["JOURNAL_NUMBER", "CALENDAR_WEEK"],
             "date": ["DATE"],
             "end_date": ["END_DATE"],
         },
-        description=_("All publications with start, end and week number"),
+        description=_(
+            "All publications with start, end, week number and journal number (defaults to week number)."
+        ),
         static_translations=True,
     )
     field_bauherrschaft = fields.MasterDataPersonObjectField(
@@ -2433,7 +2440,8 @@ class SzDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
                     "end_date": compact_human_readable_date(
                         publication.publication_end_date
                     ),
-                    "calendar_week": publication.publication_date.isocalendar()[1],
+                    "journal_number": publication.publication_journal_number
+                    or publication.publication_date.isocalendar()[1],
                 }
             )
 
