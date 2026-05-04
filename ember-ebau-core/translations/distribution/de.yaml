@@ -8,6 +8,12 @@ distribution:
   municipal-services: "Fachstellen Gemeinde"
   cantonal-services: "Fachstellen Kanton"
   coordination-services: "Koordinationsstellen"
+  authority-bab: "Ausserhalb Bauzone"
+  services-cantonal: "Kantonale Fachstellen"
+  services-extra-cantonal: "Ausserkantonale Fachstellen"
+  services-external: "Externe Fachstellen"
+  own-cantonal-services: "Eigene Fachstellen"
+  non-cantonal-services: "Ausserkantonale Fachstellen"
 
   send-answer: "Antwort senden"
   release-for-review: "Zur Überprüfung freigeben"
@@ -29,4 +35,7 @@ distribution:
     deadline-expired: "Achtung: Die Bearbeitungsfrist für das Dossier ist überschritten."
 
 # Override default text of @projectcaluma/ember-distribution
-"caluma.distribution.inquiry.sent-at": "Startdatum"
+caluma:
+  distribution:
+    inquiry:
+      sent-at: "Startdatum"

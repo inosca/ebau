@@ -1,4 +1,5 @@
 distribution:
+  all: "Tutti"
   districts: "RSTAs"
   municipalities: "Comuni"
   services: "Uffici/servizi"
@@ -7,6 +8,12 @@ distribution:
   municipal-services: "Servizi del comune"
   cantonal-services: "Servizi del Cantone"
   coordination-services: "Servizi di coordinamento"
+  authority-bab: "Fuori dalla zona edificabile"
+  services-cantonal: "Servizi cantonali"
+  services-extra-cantonal: "Servizi fuori Cantone"
+  services-external: ""
+  own-cantonal-services: ""
+  non-cantonal-services: ""
 
   send-answer: "Invia risposta"
   release-for-review: "Rilascia per la verifica"
@@ -17,9 +24,20 @@ distribution:
   revise: "Rielabora"
   closed-by: "Verificato da"
 
+  inquiry-deadline-input:
+    disabled-hint: "Se l'Ufficio per lo sviluppo del territorio o un'altra organizzazione ambientalista vengono invitati a partecipare alla circolazione non è possibile impostare una scadenza manuale, vengono invece usate le scadenze proposte dal sistema."
+    deadlines-hint: ""
+
   inquiry-hint:
     open-suspensions: "Attenzione: Il fascicolo è attualmente sospeso."
     deadline-expired: "Attenzione: Il termine di elaborazione del fascicolo è scaduto."
 
 # Override default text of @projectcaluma/ember-distribution
-"caluma.distribution.inquiry.sent-at": "Data di inizio"
+caluma:
+  distribution:
+    inquiry:
+      sent-at: "Data di inizio"
+    edit:
+      edit-sent: '<b>Attenzione:</b> il destinatario non viene informato della modifica della presa di posizione. Una nuova presa di posizione deve essere richiesta con il simbolo "+".'
+    reopen-inquiry:
+      confirm: 'Riaprire davvero la richiesta? L''organizzazione interessata verrà informata e la presa di posizione precedente verrà ripristinata.<br /><br /><span uk-icon="icon: info" class="uk-text-warning"></span> Suggerimento: per richiedere un''ulteriore presa di posizione, utilizzare invece il simbolo “+”. In questo modo si conserva lo storico delle risposte precedenti.'
