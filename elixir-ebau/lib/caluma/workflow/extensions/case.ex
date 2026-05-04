@@ -145,44 +145,18 @@ defmodule Caluma.Workflow.Extensions.Case.Transformer do
     {:ok, dsl_state}
   end
 
-  # -- Expression builders based on `through` --
-  #
-  # When through is nil, resource IS the case: doc_id is `document_id`
-  # When through is :case, resource HAS a case: doc_id is `<through>.document_id`
+  # When `through` is nil, the resource IS the case, so the parent's document FK
+  # is `document_id` directly. Otherwise, traverse `<through>.document_id`.
+  defp parent_doc_id_ref(nil), do: %Ash.Query.Ref{attribute: :document_id}
 
-  defp doc_id_expr(nil), do: Ash.Expr.expr(document_id)
-
-  defp doc_id_expr(through) do
-    Ash.Expr.expr(^%Ash.Query.Ref{relationship_path: [through], attribute: :document_id})
-  end
-
-  defp document_path(nil), do: [:document]
-  defp document_path(through), do: [through, :document]
-
-  defp table_filter_expr(through, [single_id]) do
-    document_id_ref = %Ash.Query.Ref{relationship_path: document_path(through), attribute: :id}
-
-    Ash.Expr.expr(
-      family.id == parent(^document_id_ref) and
-        exists(answer_documents, answer.question_id == ^single_id)
-    )
-  end
-
-  defp table_filter_expr(through, question_ids) do
-    document_id_ref = %Ash.Query.Ref{relationship_path: document_path(through), attribute: :id}
-
-    Ash.Expr.expr(
-      family.id == parent(^document_id_ref) and
-        exists(answer_documents, answer.question_id in ^question_ids)
-    )
-  end
+  defp parent_doc_id_ref(through),
+    do: %Ash.Query.Ref{relationship_path: [through], attribute: :document_id}
 
   defp answer_relationship_name(name), do: :"_#{name}_answer"
 
   defp add_answer_relationship(dsl, rel_name, question_id, through) do
     source = Spark.Dsl.Transformer.get_persisted(dsl, :module)
     slugs = AnswerTransformer.all_question_slugs(question_id)
-    parent_doc_id = doc_id_expr(through)
 
     {:ok, rel} =
       Ash.Resource.Builder.build_relationship(:has_one, rel_name, Caluma.Form.Answer,
@@ -192,17 +166,11 @@ defmodule Caluma.Workflow.Extensions.Case.Transformer do
     rel_with_filter = %{
       rel
       | source: source,
-        filter: answer_filter_expr(parent_doc_id, slugs)
+        filter: Caluma.Form.AnswerFilters.answer_filter(parent_doc_id_ref(through), slugs)
     }
 
     Spark.Dsl.Transformer.add_entity(dsl, [:relationships], rel_with_filter)
   end
-
-  defp answer_filter_expr(parent_doc_id, [single_id]),
-    do: Ash.Expr.expr(document_id == parent(^parent_doc_id) and question_id == ^single_id)
-
-  defp answer_filter_expr(parent_doc_id, slugs),
-    do: Ash.Expr.expr(document_id == parent(^parent_doc_id) and question_id in ^slugs)
 
   defp add_calc(dsl, name, type, mod, opts) do
     {:ok, calc} = Ash.Resource.Builder.build_calculation(name, type, {mod, opts})
@@ -261,7 +229,8 @@ defmodule Caluma.Workflow.Extensions.Case.Transformer do
         rel_with_filter = %{
           rel
           | source: source,
-            filter: table_filter_expr(through, question_ids)
+            filter:
+              Caluma.Form.AnswerFilters.table_filter(parent_doc_id_ref(through), question_ids)
         }
 
         Spark.Dsl.Transformer.add_entity(dsl, [:relationships], rel_with_filter)

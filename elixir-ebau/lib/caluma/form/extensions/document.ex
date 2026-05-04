@@ -389,7 +389,9 @@ defmodule Caluma.Form.Extensions.Document.AnswerTransformer do
     Spark.Dsl.Transformer.add_entity(dsl, [:calculations], calc)
   end
 
-  # The resource IS the document, so an answer's `document_id` matches `parent(id)`.
+  # The resource IS the document, so the parent's primary key is `id`.
+  @parent_doc_id_ref %Ash.Query.Ref{attribute: :id}
+
   defp add_answer_relationship(dsl, rel_name, question_id) do
     source = Spark.Dsl.Transformer.get_persisted(dsl, :module)
     slugs = all_question_slugs(question_id)
@@ -399,16 +401,14 @@ defmodule Caluma.Form.Extensions.Document.AnswerTransformer do
         no_attributes?: true
       )
 
-    rel_with_filter = %{rel | source: source, filter: answer_filter_expr(slugs)}
+    rel_with_filter = %{
+      rel
+      | source: source,
+        filter: Caluma.Form.AnswerFilters.answer_filter(@parent_doc_id_ref, slugs)
+    }
 
     Spark.Dsl.Transformer.add_entity(dsl, [:relationships], rel_with_filter)
   end
-
-  defp answer_filter_expr([single_id]),
-    do: Ash.Expr.expr(document_id == parent(id) and question_id == ^single_id)
-
-  defp answer_filter_expr(slugs),
-    do: Ash.Expr.expr(document_id == parent(id) and question_id in ^slugs)
 
   defp answer_relationship_name(name), do: :"_#{name}_answer"
 
@@ -421,23 +421,13 @@ defmodule Caluma.Form.Extensions.Document.AnswerTransformer do
         sort: [min_answer_document_sort: :asc]
       )
 
-    rel_with_filter = %{rel | source: source, filter: table_filter_expr(question_ids)}
+    rel_with_filter = %{
+      rel
+      | source: source,
+        filter: Caluma.Form.AnswerFilters.table_filter(@parent_doc_id_ref, question_ids)
+    }
 
     Spark.Dsl.Transformer.add_entity(dsl, [:relationships], rel_with_filter)
-  end
-
-  defp table_filter_expr([single_id]) do
-    Ash.Expr.expr(
-      family.id == parent(id) and
-        exists(answer_documents, answer.question_id == ^single_id)
-    )
-  end
-
-  defp table_filter_expr(question_ids) do
-    Ash.Expr.expr(
-      family.id == parent(id) and
-        exists(answer_documents, answer.question_id in ^question_ids)
-    )
   end
 
   @doc false
