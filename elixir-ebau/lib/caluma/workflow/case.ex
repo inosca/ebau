@@ -24,7 +24,7 @@ defmodule Caluma.Workflow.Case do
     end
 
     policy action_type(:read) do
-      authorize_if always()
+      authorize_if {Ebau.Policies.Checks.HasActiveInstanceACL, via: []}
     end
   end
 
@@ -61,5 +61,7 @@ defmodule Caluma.Workflow.Case do
       attribute_type :string
       destination_attribute :slug
     end
+
+    has_one :instance, Ebau.Instances.Instance, domain: Ebau.Instances
   end
 end

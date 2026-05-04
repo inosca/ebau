@@ -25,7 +25,7 @@ defmodule Caluma.Form.Document do
     end
 
     policy action_type(:read) do
-      authorize_if always()
+      authorize_if {Ebau.Policies.Checks.HasActiveInstanceACL, via: [:family, :case]}
     end
   end
 
@@ -37,8 +37,7 @@ defmodule Caluma.Form.Document do
 
       argument :case, :map
 
-      # this is only required because the family_id has a DEFAULT of gen_random_uuid() in postgres
-      change set_attribute(:family_id, nil)
+      change Caluma.Form.Changes.SetRootFamily
       change manage_relationship(:form, type: :append)
       change manage_relationship(:case, type: :append)
     end

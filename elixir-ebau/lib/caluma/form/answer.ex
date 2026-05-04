@@ -24,7 +24,7 @@ defmodule Caluma.Form.Answer do
     end
 
     policy action_type(:read) do
-      authorize_if always()
+      authorize_if {Ebau.Policies.Checks.HasActiveInstanceACL, via: [:document, :family, :case]}
     end
   end
 

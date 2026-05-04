@@ -44,6 +44,10 @@ defmodule Ebau.MasterData do
   use Ash.Domain,
     otp_app: :ebau
 
+  authorization do
+    authorize :by_default
+  end
+
   resources do
     resource Ebau.MasterData.PlotDataRow
     resource Ebau.MasterData.Applicant

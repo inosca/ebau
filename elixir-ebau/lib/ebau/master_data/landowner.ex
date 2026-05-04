@@ -11,6 +11,7 @@ defmodule Ebau.MasterData.Landowner do
     otp_app: :ebau,
     domain: Ebau.MasterData,
     data_layer: AshPostgres.DataLayer,
+    authorizers: Ash.Policy.Authorizer,
     extensions: [
       Caluma.Form.Extensions.Document,
       Ebau.MasterData.PersonFields
@@ -20,5 +21,15 @@ defmodule Ebau.MasterData.Landowner do
     table "caluma_form_document"
     repo Ebau.Repo
     migrate? false
+  end
+
+  policies do
+    policy action_type([:create, :update, :destroy]) do
+      forbid_if always()
+    end
+
+    policy action_type(:read) do
+      authorize_if {Ebau.Policies.Checks.HasActiveInstanceACL, via: [:family, :case]}
+    end
   end
 end
