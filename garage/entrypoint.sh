@@ -1,6 +1,7 @@
 #!/bin/sh
 set -eu
 
+# Required environment variables:
 [ -n "${GARAGE_ACCESS_KEY_ID:-}" ] || { echo "Missing GARAGE_ACCESS_KEY_ID"; exit 1; }
 [ -n "${GARAGE_SECRET_KEY:-}" ]    || { echo "Missing GARAGE_SECRET_KEY"; exit 1; }
 [ -n "${GARAGE_KEY_NAME:-}" ]      || { echo "Missing GARAGE_KEY_NAME"; exit 1; }
@@ -8,6 +9,10 @@ set -eu
 ACCESS_KEY_ID="$GARAGE_ACCESS_KEY_ID"
 SECRET_KEY="$GARAGE_SECRET_KEY"
 KEY_NAME="$GARAGE_KEY_NAME"
+
+# Optional environment variables:
+CLUSTER_NAME=${GARAGE_CLUSTER_NAME:-dev}
+CLUSTER_CAPACITY=${GARAGE_CLUSTER_CAPACITY:-10G}
 
 garage server &
 SERVER_PID=$!
@@ -24,7 +29,7 @@ NODE_ID=${RAW_NODE_ID%%@*}
 bootstrap()
 {
 	echo "Applying layout for node '$NODE_ID'..."
-	garage layout assign -z dev -c 10G "$NODE_ID" || true
+	garage layout assign -z "$CLUSTER_NAME" -c "$CLUSTER_CAPACITY" "$NODE_ID" || true
 	garage layout apply --version 1 || true
 
 	echo "Importing known key..."
