@@ -80,8 +80,9 @@ defmodule Caluma.Form.Question do
       description """
       Asserts that an existing question is compatible with a form-tree occurrence.
 
-      This action does not mutate the question. It is used when a form tree
-      references an already-defined question slug and wants to assert compatibility.
+      Pure assertion — does not mutate the question. Each provided argument is
+      compared against the corresponding question attribute; omitted (or `nil`)
+      arguments are skipped.
       """
 
       argument :question, :struct do
@@ -119,12 +120,15 @@ defmodule Caluma.Form.Question do
         description "Expected sub form slug for an existing `:form` question."
       end
 
-      validate present([:question, :type])
-      validate ExistingQuestionMatchesSpec
+      validate {ExistingQuestionMatchesSpec, field: :type}
+      validate {ExistingQuestionMatchesSpec, field: :label}
+      validate {ExistingQuestionMatchesSpec, field: :is_hidden}
+      validate {ExistingQuestionMatchesSpec, field: :configuration}
+      validate {ExistingQuestionMatchesSpec, field: :meta}
+      validate {ExistingQuestionMatchesSpec, field: :row_form_id}
+      validate {ExistingQuestionMatchesSpec, field: :sub_form_id}
 
-      run fn _input, _context ->
-        :ok
-      end
+      run fn _input, _context -> :ok end
     end
   end
 

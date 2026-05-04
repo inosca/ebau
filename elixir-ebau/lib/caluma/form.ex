@@ -42,7 +42,7 @@ defmodule Caluma.Form do
 
     resource Caluma.Form.FormQuestion do
       define :create_form_question
-      define :assert_form_question_compatible
+      define :assert_form_question_compatible, args: [:form_question, :sort]
 
       define :get_form_question_by_form_and_question,
         action: :read,
@@ -51,7 +51,7 @@ defmodule Caluma.Form do
 
     resource Caluma.Form.Question do
       define :create_question
-      define :assert_question_compatible
+      define :assert_question_compatible, args: [:question]
       define :get_question_by_slug, action: :read, get_by: [:slug]
     end
   end

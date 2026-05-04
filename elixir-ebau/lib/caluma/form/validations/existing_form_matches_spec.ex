@@ -1,62 +1,55 @@
 defmodule Caluma.Form.Validations.ExistingFormMatchesSpec do
   @moduledoc """
-  Validates that an already persisted form matches a provided form-tree spec.
+  Validates that one attribute on the existing form matches the corresponding
+  action argument.
 
-  Used by `Caluma.Form.apply_form_tree` before attaching or checking nested
-  questions. Only fields present in incoming spec are compared. For localized
-  fields like `name`, caller may provide either plain string or localization map;
-  comparison only checks locales present in provided input.
+  Used by `Caluma.Form.apply_form_tree`. Apply once per field via the `field:`
+  option. A `nil` argument is treated as "no expectation" and skipped.
+
+  For the localized `:name` field, comparison considers only locales present
+  in the provided value.
   """
 
   use Ash.Resource.Validation
 
   alias Ash.Changeset
   alias Ash.Error.Changes.InvalidAttribute
-  alias Caluma.Form.Types.LocalizedFieldHelpers
+  alias Caluma.Form.Validations.SpecMatcher
+
+  @localized_fields [:name]
 
   @impl true
-  def validate(changeset, _opts, _context) do
-    form_spec = Changeset.get_argument(changeset, :form_spec) || %{}
-
-    with :ok <- validate_optional_field(changeset, :name, Map.get(form_spec, :name)) do
-      validate_optional_field(changeset, :meta, Map.get(form_spec, :meta))
+  def init(opts) do
+    case opts[:field] do
+      field when is_atom(field) and not is_nil(field) -> {:ok, opts}
+      _ -> {:error, "field option is required (atom)"}
     end
   end
 
-  defp validate_optional_field(_changeset, _field, nil), do: :ok
+  @impl true
+  def validate(changeset, opts, _context) do
+    field = opts[:field]
 
-  defp validate_optional_field(changeset, :name, value) do
-    form = changeset.data
-    actual = form.name
-    expected = LocalizedFieldHelpers.normalize(value)
+    case Changeset.get_argument(changeset, field) do
+      nil ->
+        :ok
 
-    if LocalizedFieldHelpers.matches?(actual, expected) do
-      :ok
-    else
-      {:error,
-       InvalidAttribute.exception(
-         field: :name,
-         value: value,
-         message:
-           "form #{inspect(form.slug)} already exists with name #{inspect(actual)}, got #{inspect(expected)}"
-       )}
-    end
-  end
+      value ->
+        form = changeset.data
 
-  defp validate_optional_field(changeset, field, value) do
-    form = changeset.data
-    actual = Map.fetch!(form, field)
+        case SpecMatcher.compare(form, field, value, localized?: field in @localized_fields) do
+          :ok ->
+            :ok
 
-    if actual == value do
-      :ok
-    else
-      {:error,
-       InvalidAttribute.exception(
-         field: field,
-         value: value,
-         message:
-           "form #{inspect(form.slug)} already exists with #{field}=#{inspect(actual)}, got #{inspect(value)}"
-       )}
+          {:mismatch, actual, expected} ->
+            {:error,
+             InvalidAttribute.exception(
+               field: field,
+               value: value,
+               message:
+                 "form #{inspect(form.slug)} already exists with #{field}=#{inspect(actual)}, got #{inspect(expected)}"
+             )}
+        end
     end
   end
 end

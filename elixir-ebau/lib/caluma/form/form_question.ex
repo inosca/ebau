@@ -52,6 +52,8 @@ defmodule Caluma.Form.FormQuestion do
     action :assert_form_question_compatible do
       description """
       Asserts that an existing form-question join is compatible with a form-tree occurrence.
+
+      Pure assertion — does not mutate the join row.
       """
 
       argument :form_question, :struct do
@@ -64,12 +66,9 @@ defmodule Caluma.Form.FormQuestion do
         allow_nil? false
       end
 
-      validate present([:form_question, :sort])
-      validate ExistingFormQuestionMatchesSpec
+      validate {ExistingFormQuestionMatchesSpec, field: :sort}
 
-      run fn _input, _context ->
-        :ok
-      end
+      run fn _input, _context -> :ok end
     end
   end
 

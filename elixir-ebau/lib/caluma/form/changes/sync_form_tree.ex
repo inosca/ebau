@@ -13,10 +13,7 @@ defmodule Caluma.Form.Changes.SyncFormTree do
 
   @impl true
   def change(changeset, _opts, context) do
-    questions =
-      Changeset.get_argument(changeset, :questions) ||
-        Map.get(Changeset.get_argument(changeset, :form_spec) || %{}, :questions, [])
-
+    questions = Changeset.get_argument(changeset, :questions) || []
     action_opts = Ash.Context.to_opts(context)
 
     Changeset.after_action(changeset, fn _changeset, form ->
@@ -57,7 +54,7 @@ defmodule Caluma.Form.Changes.SyncFormTree do
       if existing_form do
         Caluma.Form.apply_form_tree!(
           existing_form,
-          %{form_spec: nested_form_attrs},
+          Map.take(nested_form_attrs, [:name, :meta, :questions]),
           action_opts
         )
       else
@@ -67,7 +64,8 @@ defmodule Caluma.Form.Changes.SyncFormTree do
 
     if existing_question do
       Caluma.Form.assert_question_compatible!(
-        assert_question_input(existing_question, question_spec, type, nested_form_slug),
+        existing_question,
+        assert_question_input(question_spec, type, nested_form_slug),
         action_opts
       )
     else
@@ -103,7 +101,8 @@ defmodule Caluma.Form.Changes.SyncFormTree do
 
     if existing_form_question do
       Caluma.Form.assert_form_question_compatible!(
-        %{form_question: existing_form_question, sort: sort},
+        existing_form_question,
+        sort,
         action_opts
       )
     else
@@ -128,10 +127,9 @@ defmodule Caluma.Form.Changes.SyncFormTree do
     |> put_nested_form_relationship(type, nested_form_slug)
   end
 
-  defp assert_question_input(question, question_spec, type, nested_form_slug) do
+  defp assert_question_input(question_spec, type, nested_form_slug) do
     question_spec
     |> Map.take([:label, :is_hidden, :configuration, :meta])
-    |> Map.put(:question, question)
     |> Map.put(:type, type)
     |> put_nested_form_id(type, nested_form_slug)
   end

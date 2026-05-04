@@ -91,20 +91,29 @@ defmodule Caluma.Form.Form do
       description """
       Applies a form tree to an existing form.
 
-      The existing form itself must match the provided root attributes. Missing
-      nested descendants are created, while existing descendants are checked for
-      compatibility.
+      The existing form itself must match the provided arguments. Missing
+      nested descendants are created, while existing descendants are checked
+      for compatibility.
       """
 
       require_atomic? false
       accept []
 
-      argument :form_spec, :map do
-        description "Raw nested form spec from a declarative form tree."
-        allow_nil? false
+      argument :name, Caluma.Form.Types.LocalizedField do
+        description "Expected name for the existing form, if provided."
       end
 
-      validate ExistingFormMatchesSpec
+      argument :meta, :map do
+        description "Expected metadata for the existing form, if provided."
+      end
+
+      argument :questions, {:array, :map} do
+        description "Ordered nested question specs to attach to the form."
+        default []
+      end
+
+      validate {ExistingFormMatchesSpec, field: :name}
+      validate {ExistingFormMatchesSpec, field: :meta}
       change SyncFormTree
     end
   end
