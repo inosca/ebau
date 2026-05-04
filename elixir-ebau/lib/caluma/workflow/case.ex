@@ -62,6 +62,6 @@ defmodule Caluma.Workflow.Case do
       destination_attribute :slug
     end
 
-    has_one :instance, Ebau.Instances.Instance, domain: Ebau.Instances
+    has_one :instance, Ebau.Instances.Instance
   end
 end

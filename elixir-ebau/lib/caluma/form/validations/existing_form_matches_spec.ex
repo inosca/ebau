@@ -16,8 +16,6 @@ defmodule Caluma.Form.Validations.ExistingFormMatchesSpec do
   alias Ash.Error.Changes.InvalidAttribute
   alias Caluma.Form.Validations.SpecMatcher
 
-  @localized_fields [:name]
-
   @impl true
   def init(opts) do
     case opts[:field] do
@@ -37,7 +35,7 @@ defmodule Caluma.Form.Validations.ExistingFormMatchesSpec do
       value ->
         form = changeset.data
 
-        case SpecMatcher.compare(form, field, value, localized?: field in @localized_fields) do
+        case SpecMatcher.compare(form, field, value) do
           :ok ->
             :ok
 

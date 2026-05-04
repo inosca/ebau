@@ -16,10 +16,10 @@ defmodule Caluma.Form.Changes.SetRootFamily do
 
   @impl true
   def change(changeset, _opts, _context) do
-    id = Changeset.get_attribute(changeset, :id) || Ash.UUID.generate()
-
-    changeset
-    |> Changeset.force_change_attribute(:id, id)
-    |> Changeset.force_change_attribute(:family_id, id)
+    Changeset.force_change_attribute(
+      changeset,
+      :family_id,
+      Changeset.get_attribute(changeset, :id)
+    )
   end
 end

@@ -17,8 +17,6 @@ defmodule Caluma.Form.Validations.ExistingQuestionMatchesSpec do
   alias Ash.Error.Action.InvalidArgument
   alias Caluma.Form.Validations.SpecMatcher
 
-  @localized_fields [:label]
-
   @impl true
   def supports(_opts), do: [Ash.ActionInput]
 
@@ -41,9 +39,7 @@ defmodule Caluma.Form.Validations.ExistingQuestionMatchesSpec do
       value ->
         question = ActionInput.get_argument(input, :question)
 
-        case SpecMatcher.compare(question, field, value,
-               localized?: field in @localized_fields
-             ) do
+        case SpecMatcher.compare(question, field, value) do
           :ok ->
             :ok
 

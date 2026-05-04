@@ -15,6 +15,7 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstance do
     Enum.map(records, fn _ -> nil end)
   end
 
+  @impl true
   def calculate(records, _opts, context) do
     instance =
       Ebau.Instances.get_instance_by_id!(
@@ -22,18 +23,16 @@ defmodule Ebau.Instances.Calculations.GisLinkForInstance do
         Keyword.put(Ash.Context.to_opts(context), :load, plot_data: [:coord_north, :coord_east])
       )
 
-    coords = first_plot_coords(instance.plot_data)
+    coords = first_plot_coords(List.first(instance.plot_data))
     Enum.map(records, &set_coordinate_param(&1.placeholder, coords))
   end
 
-  defp first_plot_coords([plot | _]),
-    do: "#{coord_int(plot.coord_east)},#{coord_int(plot.coord_north)}"
-
-  defp first_plot_coords([]), do: ","
+  defp first_plot_coords(nil), do: ","
+  defp first_plot_coords(plot), do: "#{coord_int(plot.coord_east)},#{coord_int(plot.coord_north)}"
 
   defp coord_int(value) when is_binary(value) do
     case Float.parse(value) do
-      {float, _rest} -> trunc(float)
+      {float, _rest} -> Integer.to_string(trunc(float))
       :error -> ""
     end
   end
