@@ -3383,35 +3383,52 @@ SEQUENCE_NAMESPACES_SIZE = 1000000
 SEQUENCE_NAMESPACES = {}
 
 
+# Redis
+REDIS_HOST = env.str("REDIS_HOST", default="redis")
+REDIS_PORT = env.int("REDIS_PORT", default=6379)
+REDIS_USER = env.str("REDIS_USER", default="default")
+REDIS_PASSWORD = env.str("REDIS_PASSWORD", default="redis")
+
 # Cache
 # https://docs.djangoproject.com/en/1.11/ref/settings/#caches
 
+_DEFAULT_CACHE_BACKEND = "django.core.cache.backends.memcached.PyMemcacheCache"
+_DEFAULT_CACHE_LOCATION = "127.0.0.1:11211"
+_DEFAULT_CACHE_OPTIONS = {
+    # Wait max 100ms for a connection to the cache
+    "connect_timeout": 0.1,
+    # Wait max 100ms for a response by the cache
+    "timeout": 0.1,
+    # Sets TCP_NODELAY to improve performance
+    "no_delay": True,
+    # Treat cache exceptions as cache misses (only in production)
+    "ignore_exc": default(False, True),
+    # For further description of the configured options and more
+    # available options, see the pymemcached documentation:
+    # https://pymemcache.readthedocs.io/en/latest/apidoc/pymemcache.client.base.html
+}
+
+if env.bool("DJANGO_USE_REDIS_CACHE", default=False):  # pragma: no cover
+    _DEFAULT_CACHE_BACKEND = "django.core.cache.backends.redis.RedisCache"
+    _DEFAULT_CACHE_LOCATION = f"redis://{REDIS_USER}:{REDIS_PASSWORD}@{REDIS_HOST}:{REDIS_PORT}/2"  # gitleaks:allow
+    _DEFAULT_CACHE_OPTIONS = {
+        # Wait max 100ms for a connection to the cache
+        "socket_connect_timeout": 0.1,
+        # Wait max 100ms for a response by the cache
+        "socket_timeout": 0.1,
+        # Options are forwarded to redis.ConnectionPool.from_url();
+        # see redis-py docs for available options:
+        # https://redis.readthedocs.io/en/stable/connections.html
+    }
+
 CACHES = {
     "default": {
-        "BACKEND": env.str(
-            "DJANGO_CACHE_BACKEND",
-            default="django.core.cache.backends.memcached.PyMemcacheCache",
-        ),
+        "BACKEND": env.str("DJANGO_CACHE_BACKEND", default=_DEFAULT_CACHE_BACKEND),
         # Note: If we change the cache to something non-tcp, we'll need to
         # update the entrpyoint script to reflect that! As long as it's
         # of the format host:port, it should work though
-        "LOCATION": env.str("DJANGO_CACHE_LOCATION", default="127.0.0.1:11211"),
-        "OPTIONS": env.dict(
-            "DJANGO_CACHE_OPTIONS",
-            default={
-                # Wait max 100ms for a connection to the cache
-                "connect_timeout": 0.1,
-                # Wait max 100ms for a response by the cache
-                "timeout": 0.1,
-                # Sets TCP_NODELAY to improve performance
-                "no_delay": True,
-                # Treat cache exceptions as cache misses (only in production)
-                "ignore_exc": default(False, True),
-                # For further description of the configured options and more
-                # available options, see the pymemcached documentation:
-                # https://pymemcache.readthedocs.io/en/latest/apidoc/pymemcache.client.base.html
-            },
-        ),
+        "LOCATION": env.str("DJANGO_CACHE_LOCATION", default=_DEFAULT_CACHE_LOCATION),
+        "OPTIONS": env.dict("DJANGO_CACHE_OPTIONS", default=_DEFAULT_CACHE_OPTIONS),
     }
 }
 
@@ -4014,10 +4031,6 @@ ALEXANDRIA_DMS_URL = env.str(
 
 
 # Celery
-REDIS_HOST = env.str("REDIS_HOST", default="redis")
-REDIS_PORT = env.int("REDIS_PORT", default=6379)
-REDIS_USER = env.str("REDIS_USER", default="default")
-REDIS_PASSWORD = env.str("REDIS_PASSWORD", default="redis")
 CELERY_BROKER_URL = env.str(
     "CELERY_BROKER_URL",
     default=f"redis://{REDIS_USER}:{REDIS_PASSWORD}@{REDIS_HOST}:{REDIS_PORT}/0",  # gitleaks:allow

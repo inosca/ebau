@@ -1,10 +1,4 @@
 services:
-  cache:
-    image: memcached:1.6-alpine
-    user: memcache:memcache
-    networks:
-      - ebau.localhost
-
   proxy:
     image: nginxinc/nginx-unprivileged:1.29-alpine
     user: nginx:nginx
@@ -48,7 +42,7 @@ services:
   django: &django
     user: ${UID}
     depends_on:
-      - cache
+      - redis
       - db
       - document-merge-service
       - mailpit
@@ -72,13 +66,13 @@ services:
       DATABASE_NAME: ${APPLICATION}
       DATABASE_PASSWORD: camac
       DATABASE_USER: camac
-      DJANGO_CACHE_LOCATION: cache:11211
       DJANGO_DEFAULT_FILE_STORAGE: storages.backends.s3.S3Storage
       DJANGO_EMAIL_HOST: mailpit
       DJANGO_EMAIL_PORT: 1025
       DJANGO_INTERNAL_BASE_URL: http://ember-ebau.localhost
       DJANGO_MEDIA_ROOT: /var/lib/camac/media
       DJANGO_TEMPFILE_DOWNLOAD_URL: /tmp
+      DJANGO_USE_REDIS_CACHE: true
       DOCUMENT_MERGE_SERVICE_URL: http://document-merge-service:8000/document-merge-service/api/v1/
       ENABLE_HISTORICAL_API: true
       ENV: dev # needed for manabi dev mode
@@ -196,7 +190,7 @@ services:
   document-merge-service:
     user: ${UID}
     depends_on:
-      - cache
+      - redis
       - db
       - garage
     networks:
@@ -206,7 +200,9 @@ services:
     security_opt:
       - apparmor:unconfined
     environment:
-      CACHE_LOCATION: cache:11211
+      CACHE_BACKEND: django.core.cache.backends.redis.RedisCache
+      CACHE_LOCATION: redis://default:redis@redis:6379/3
+      CACHE_OPTIONS: socket_connect_timeout=0.1,socket_timeout=0.1
       DATABASE_HOST: db
       DATABASE_NAME: ${APPLICATION}
       DATABASE_PASSWORD: camac
@@ -251,6 +247,9 @@ services:
       - redis_data:/redis/data
     networks:
       - ebau.localhost
+    ports:
+      # Only needed in dev environments to use RedisInsight for debugging
+      - "6379:6379"
 
   garage:
     build:
