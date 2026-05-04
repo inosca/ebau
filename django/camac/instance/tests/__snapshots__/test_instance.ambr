@@ -1,29 +1,5 @@
 # serializer version: 1
-# name: test_instance_list[Applicant-admin_user-18-1-editable0-new]
-  list([
-    'forms',
-    'groups',
-    'instance-states',
-    'locations',
-    'public-services',
-    'services',
-    'services',
-    'users',
-  ])
-# ---
 # name: test_instance_list[Applicant-admin_user-19-1-editable0-new]
-  list([
-    'forms',
-    'groups',
-    'instance-states',
-    'locations',
-    'public-services',
-    'services',
-    'services',
-    'users',
-  ])
-# ---
-# name: test_instance_list[Canton-user-18-1-editable2-new]
   list([
     'forms',
     'groups',
@@ -47,18 +23,6 @@
     'users',
   ])
 # ---
-# name: test_instance_list[Municipality-user-17-1-editable3-new]
-  list([
-    'forms',
-    'groups',
-    'instance-states',
-    'locations',
-    'public-services',
-    'services',
-    'services',
-    'users',
-  ])
-# ---
 # name: test_instance_list[Municipality-user-18-1-editable3-new]
   list([
     'forms',
@@ -71,31 +35,7 @@
     'users',
   ])
 # ---
-# name: test_instance_list[Reader-user-18-1-editable1-new]
-  list([
-    'forms',
-    'groups',
-    'instance-states',
-    'locations',
-    'public-services',
-    'services',
-    'services',
-    'users',
-  ])
-# ---
 # name: test_instance_list[Reader-user-19-1-editable1-new]
-  list([
-    'forms',
-    'groups',
-    'instance-states',
-    'locations',
-    'public-services',
-    'services',
-    'services',
-    'users',
-  ])
-# ---
-# name: test_instance_list[Service-user-17-1-editable4-new]
   list([
     'forms',
     'groups',
