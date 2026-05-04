@@ -399,14 +399,16 @@ defmodule Caluma.Form.Extensions.Document.AnswerTransformer do
         no_attributes?: true
       )
 
-    rel_with_filter = %{
-      rel
-      | source: source,
-        filter: Ash.Expr.expr(document_id == parent(id) and question_id in ^slugs)
-    }
+    rel_with_filter = %{rel | source: source, filter: answer_filter_expr(slugs)}
 
     Spark.Dsl.Transformer.add_entity(dsl, [:relationships], rel_with_filter)
   end
+
+  defp answer_filter_expr([single_id]),
+    do: Ash.Expr.expr(document_id == parent(id) and question_id == ^single_id)
+
+  defp answer_filter_expr(slugs),
+    do: Ash.Expr.expr(document_id == parent(id) and question_id in ^slugs)
 
   defp answer_relationship_name(name), do: :"_#{name}_answer"
 
@@ -419,17 +421,23 @@ defmodule Caluma.Form.Extensions.Document.AnswerTransformer do
         sort: [min_answer_document_sort: :asc]
       )
 
-    rel_with_filter = %{
-      rel
-      | source: source,
-        filter:
-          Ash.Expr.expr(
-            family.id == parent(id) and
-              exists(answer_documents, answer.question_id in ^question_ids)
-          )
-    }
+    rel_with_filter = %{rel | source: source, filter: table_filter_expr(question_ids)}
 
     Spark.Dsl.Transformer.add_entity(dsl, [:relationships], rel_with_filter)
+  end
+
+  defp table_filter_expr([single_id]) do
+    Ash.Expr.expr(
+      family.id == parent(id) and
+        exists(answer_documents, answer.question_id == ^single_id)
+    )
+  end
+
+  defp table_filter_expr(question_ids) do
+    Ash.Expr.expr(
+      family.id == parent(id) and
+        exists(answer_documents, answer.question_id in ^question_ids)
+    )
   end
 
   @doc false
