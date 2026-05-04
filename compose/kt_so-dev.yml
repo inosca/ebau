@@ -279,6 +279,7 @@ services:
     volumes:
       - garage_meta:/var/lib/garage/meta/
       - garage_data:/var/lib/garage/data/
+      - ../garage/garage.toml:/etc/garage.toml:ro
     env_file:
       - ../garage/compose-env/dev-garage.conf
     networks:
