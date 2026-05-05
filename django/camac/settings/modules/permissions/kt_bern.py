@@ -761,7 +761,7 @@ GEOMETER_RW = (
 # TODO: Portal view of communications and additional-demands mirror internal area
 # TODO: Mirrored applicant view (for support)
 BE_PERMISSIONS_SETTINGS = {
-    "PERMISSION_MODE": PERMISSION_MODE.OFF,
+    "PERMISSION_MODE": PERMISSION_MODE.FULL,
     "MIGRATED_ROLE_PERMISSIONS": env.list("MIGRATED_ROLE_PERMISSIONS", default=[]),
     "ACCESS_LEVELS": {
         "geometer": [

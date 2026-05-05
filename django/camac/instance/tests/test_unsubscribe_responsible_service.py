@@ -10,10 +10,10 @@ from camac.permissions.switcher import PERMISSION_MODE
 @pytest.mark.parametrize(
     "role__name,is_active,expected_result",
     [
-        ("Municipality", 0, status.HTTP_204_NO_CONTENT),
-        ("Municipality", 1, status.HTTP_403_FORBIDDEN),
-        ("Support", 1, status.HTTP_204_NO_CONTENT),
-        ("Support", 0, status.HTTP_204_NO_CONTENT),
+        ("municipality-lead", 0, status.HTTP_204_NO_CONTENT),
+        ("municipality-lead", 1, status.HTTP_403_FORBIDDEN),
+        ("support", 1, status.HTTP_204_NO_CONTENT),
+        ("support", 0, status.HTTP_204_NO_CONTENT),
     ],
 )
 def test_unsubscribe_responsible_service(
@@ -21,12 +21,14 @@ def test_unsubscribe_responsible_service(
     application_settings,
     admin_client,
     be_instance,
+    role,
     be_permissions_settings,
     instance_service_factory,
     is_active,
     expected_result,
     instance_acl_factory,
     access_level_factory,
+    instance_state_factory,
     service_factory,
 ):
     application_settings["SHORT_NAME"] = "be"
@@ -34,22 +36,35 @@ def test_unsubscribe_responsible_service(
         "camac.permissions.config.kt_bern.PermissionEventHandlerBE"
     )
     access_level_factory(slug="lead-authority")
-    old_responsible = be_instance.instance_services.get(active=1).service
-    old_responsible.service_group.name = "lead-authority"
-    old_responsible.service_group.save()
+    access_level_factory(slug="involved-authority")
 
-    instance_service_factory(
-        instance=be_instance,
-        service=service_factory(),
-        active=0,
+    be_instance.instance_state = instance_state_factory(name="subm")
+    be_instance.save()
+
+    service = admin_client.user.groups.first().service
+    # make sure that no other instance services are around for test
+    be_instance.instance_services.all().delete()
+
+    instance_service = instance_service_factory(
+        instance=be_instance, service=service, active=is_active
     )
 
     instance_acl_factory(
-        instance=be_instance, access_level_id="lead-authority", service=old_responsible
+        instance=be_instance,
+        access_level_id="lead-authority" if is_active else "involved-authority",
+        service=service,
     )
-    instance_service_factory(
-        service=be_instance.group.service, instance=be_instance, active=is_active
-    )
+
+    if role.name == "support":
+        access_level_factory(slug="support")
+        instance_acl_factory(
+            instance=be_instance,
+            access_level_id="support",
+            service=service,
+        )
+        # support isn't the lead authority / involved lead authority
+        instance_service.service = service_factory()
+        instance_service.save()
 
     response = admin_client.post(
         reverse("instance-unsubscribe-responsible-service", args=[be_instance.pk]),
