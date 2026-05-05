@@ -26,6 +26,9 @@ export default {
     exportExcel: true,
     downloadFormAsPdf: true,
   },
+  permissions: {
+    applicantRoles: true,
+  },
   servicePermissions: {
     hasConstructionControl: true,
   },
