@@ -43,7 +43,7 @@ dev_reset()
 }
 
 # shellcheck disable=SC1091
-APPLICATION=$(. ./.env && echo "$APPLICATION")
+APPLICATION=$(export $(grep -v '^UID=' .env | xargs) && echo "$APPLICATION")
 APPLICATION_INI=php/$APPLICATION/configs/application.ini
 PROXY_CONFIG=proxy/$APPLICATION.conf
 readonly APPLICATION APPLICATION_INI PROXY_CONFIG
