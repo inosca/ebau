@@ -94,6 +94,14 @@ class ResponsibleServiceUserFilter(CharFilter):
                 ).values("instance")
             )
 
+        if value.lower() == "own":
+            current_user = self.parent.request.user.pk
+            return qs.filter(
+                # restrict to current service and current user from request
+                responsible_services__service=current_service,
+                responsible_services__responsible_user=current_user,
+            )
+
         return qs.filter(
             # restrict to current service
             responsible_services__service=current_service,

@@ -173,10 +173,12 @@ export default {
     service: {
       pending: { instanceState: ["20004"], inquiryState: "pending" },
       paper: { paper: "1" },
+      own: { responsibleServiceUser: "own" },
     },
     "construction-control": {
       pending: { instanceState: ["20011", "20013", "20014"] },
       paper: { paper: "1" },
+      own: { responsibleServiceUser: "own" },
     },
     municipality: {
       pending: {
@@ -191,6 +193,7 @@ export default {
         ],
       },
       paper: { paper: "1" },
+      own: { responsibleServiceUser: "own" },
     },
   },
   availableOrderings: {

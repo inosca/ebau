@@ -198,6 +198,15 @@ export default class CaseFilterComponent extends Component {
 
     return [
       ...users,
+      // Check for "own" filter key in presets to also add "-own" option
+      ...("own" in this.presets
+        ? [
+            {
+              id: "own",
+              fullName: this.intl.t("cases.filters.responsibleServiceUser-own"),
+            },
+          ]
+        : []),
       {
         id: "nobody",
         fullName: this.intl.t("cases.filters.responsibleServiceUser-nobody"),

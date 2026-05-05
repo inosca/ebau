@@ -112,6 +112,7 @@ cases:
     responsibleMunicipality-placeholder: ""
     responsibleMunicipality: "Autorità direttrice competente"
     responsibleServiceUser-nobody: "Nessuno"
+    responsibleServiceUser-own: ""
     responsibleServiceUser-placeholder: ""
     responsibleServiceUser: "Persona responsabile"
     service-placeholder: ""
@@ -195,6 +196,7 @@ cases:
   presets:
     pending: "Pendenze"
     paper: "Tutti i dossier cartacei"
+    own: ""
 
   appeal:
     only: "Solo procedure di ricorso"

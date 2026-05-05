@@ -109,6 +109,7 @@ cases:
     responsibleMunicipality-placeholder: "Tous les autorités directrices"
     responsibleMunicipality: "Autorité directrice compétente "
     responsibleServiceUser-nobody: "Aucun"
+    responsibleServiceUser-own: "Personnel"
     responsibleServiceUser-placeholder: "Tous les collaboratrices compétentes / collaborateurs compétents"
     responsibleServiceUser: "Collaboratrice compétente / collaborateur compétent"
     service-placeholder: ""
@@ -187,6 +188,7 @@ cases:
   presets:
     pending: "Affaires en cours"
     paper: "Tous les dossiers papier"
+    own: "Mes dossiers"
 
   appeal:
     only: "Procédure de recours uniquement"

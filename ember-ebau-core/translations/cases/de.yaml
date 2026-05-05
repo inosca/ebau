@@ -118,6 +118,7 @@ cases:
     responsibleMunicipality-placeholder: ""
     responsibleMunicipality: "Zuständige Leitbehörde"
     responsibleServiceUser-nobody: "Niemand"
+    responsibleServiceUser-own: "Eigene"
     responsibleServiceUser-placeholder: ""
     responsibleServiceUser: "Verantwortliche Person"
     service-placeholder: ""
@@ -205,6 +206,7 @@ cases:
   presets:
     pending: "Pendenzen"
     paper: "Alle Papierdossiers"
+    own: "Eigene Dossiers"
 
   appeal:
     only: "Nur Beschwerdeverfahren"
