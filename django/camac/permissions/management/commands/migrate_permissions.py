@@ -541,6 +541,15 @@ class Command(BaseCommand):
             # TODO: Some geometer ACLs still slip through here, which shouldn't
             # happen (PROD data): Are these manually-created or automatic?
         ).exclude(end_time__lte=timezone.now())
+
+        # Canton-specific access levels to exclude, due to using system-granted
+        # instance acls for certain access levels before migrating fully
+        # to the permissions module.
+        if exclude_access_levels := settings.PERMISSIONS.get(
+            "MIGRATION_EXCLUDE_ACCESS_LEVELS", []
+        ):
+            qs = qs.exclude(access_level_id__in=exclude_access_levels)
+
         for acl in self._iter_qs(qs, instance_prefix="instance"):
             aclstate = STATE_ACTIVE if acl.is_active() else STATE_REVOKED
             virtual_acl = ACL(
