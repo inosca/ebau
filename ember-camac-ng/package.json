@@ -69,7 +69,7 @@
     "broccoli-asset-rev": "3.0.0",
     "broccoli-stew": "3.0.0",
     "concurrently": "9.1.0",
-    "ember-alexandria": "10.13.1",
+    "ember-alexandria": "10.13.2",
     "ember-apollo-client": "5.0.0",
     "ember-auto-import": "2.11.1",
     "ember-autoresize-modifier": "0.7.0",
