@@ -16,6 +16,13 @@ corrections:
     confirm: ""
     error: ""
 
+  copy:
+    title: ""
+    description: ""
+    button: ""
+    confirm: ""
+    error: ""
+
   document:
     title: "Correggi dossier"
     description: "Questa funzione permette di apportare piccole correzioni al modulo di domanda (ad es. precisazione della descrizione dell'opera)."

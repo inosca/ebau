@@ -48,6 +48,15 @@ export default class InstanceAbility extends Ability {
     );
   }
 
+  // BE
+  async canCopy() {
+    if (this.permissions.fullyEnabled) {
+      return await this.permissions.hasAll(this.model?.id, "instance-copy");
+    }
+
+    return false;
+  }
+
   get canArchive() {
     return (
       (this.ebauModules.isSupportRole ||

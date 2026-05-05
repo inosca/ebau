@@ -46,6 +46,11 @@
         <Corrections::ArchiveInstance @instance={{this.instance.record}} />
       </div>
     {{/if}}
+    {{#if (has-feature "corrections.copyInstance")}}
+      <div>
+        <Corrections::CopyInstance @instance={{this.instance.record}} />
+      </div>
+    {{/if}}
     {{#if
       (and
         (has-feature "corrections.deleteInternalInstance")

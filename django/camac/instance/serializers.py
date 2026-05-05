@@ -3085,6 +3085,29 @@ class CalumaInstanceAppealSerializer(serializers.Serializer):
         resource_name = "instance-appeals"
 
 
+class CalumaInstanceCopySerializer(serializers.Serializer):
+    @transaction.atomic
+    def update(self, instance, validated_data):
+        user = self.context["request"].user
+        caluma_user = self.context["request"].caluma_info.context.user
+
+        new_instance = copy_instance(
+            instance=instance,
+            group=self.context["request"].group,
+            user=user,
+            caluma_user=caluma_user,
+            skip_submit=True,
+            new_meta={"is-copy": True},
+        )
+
+        create_history_entry(new_instance, user, gettext_noop("Instance copy created"))
+
+        return new_instance
+
+    class Meta:
+        resource_name = "instance-copies"
+
+
 class CalumaInstanceCorrectionSerializer(CalumaInstanceSubmitSerializer):
     def validate(self, data):
         if (

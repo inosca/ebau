@@ -1688,6 +1688,10 @@ msgid "Appeal received"
 msgstr "È stato presentato ricorso"
 
 #: camac/instance/serializers.py
+msgid "Instance copy created"
+msgstr ""
+
+#: camac/instance/serializers.py
 msgid "The Dossier can't be correct because there are running inquiries."
 msgstr ""
 "Il dossier non può essere corretto poiché sono già state richieste delle "

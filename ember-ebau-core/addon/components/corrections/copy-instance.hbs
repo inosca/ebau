@@ -1,0 +1,13 @@
+{{#if this.isVisible}}
+  <p class="uk-text-large">{{t "corrections.copy.title"}}</p>
+  <p>{{t "corrections.copy.description" htmlSafe=true}}</p>
+  <UkButton
+    @color="primary"
+    @label={{t "corrections.copy.button"}}
+    @onClick={{perform this.copyInstance}}
+    @disabled={{or
+      this.copyInstance.isRunning
+      (await (cannot "copy instance" @instance))
+    }}
+  />
+{{/if}}

@@ -45,6 +45,7 @@ export default {
   },
   corrections: {
     archiveInstance: true,
+    copyInstance: true,
     changeDossierNumber: true,
     changeForm: true,
     convertModification: true,
