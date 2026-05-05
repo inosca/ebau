@@ -6,10 +6,14 @@ distribution:
   subservices: "Offices régionaux spécialisés"
   external-services: ""
   municipal-services: ""
+  cantonal-services: ""
   coordination-services: "Centres de coordination"
-  communal-council: "Conseillers municipaux"
-  communal-service-point: "Services communaux"
-  infrastructure-communal-correspondence: "Installations d'infrastructure En suspens des communes"
+  authority-bab: ""
+  services-cantonal: ""
+  services-extra-cantonal: ""
+  services-external: ""
+  own-cantonal-services: ""
+  non-cantonal-services: ""
 
   send-answer: "Envoyer la réponse"
   release-for-review: "Valider pour contrôle"
@@ -20,10 +24,17 @@ distribution:
   revise: "Réviser"
   closed-by: "Contrôlé par"
 
+  inquiry-deadline-input:
+    disabled-hint: ""
+    deadlines-hint: ""
+
   inquiry-hint:
     open-suspensions: ""
     deadline-expired: ""
 
 # Override default text of @projectcaluma/ember-distribution
-"caluma.distribution.inquiry.sent-at": "Date de début"
-"caluma.distribution.inquiry.closed-at": "Contrôlé le"
+caluma:
+  distribution:
+    inquiry:
+      sent-at: "Date de début"
+      closed-at: "Contrôlé le"

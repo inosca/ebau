@@ -2,6 +2,7 @@ distribution:
   inquiry-deadline-input:
     disabled-hint: "Es wurde eine Fachstelle zur Teilnahme an der Zirkulation eingeladen, für die keine manuelle Frist festgelegt werden kann; stattdessen wird die im System hinterlegte Frist verwendet."
 
+# Override default text of @projectcaluma/ember-distribution
 caluma:
   distribution:
     reopen-inquiry:

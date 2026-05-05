@@ -1,3 +1,8 @@
+distribution:
+  inquiry-deadline-input:
+    disabled-hint: "Wenn das Amt für Raumentwicklung oder eine Umweltschutzorganisation zur Teilnahme an der Zirkulation eingeladen wird, kann keine manuelle Frist festgelegt werden; stattdessen werden die im System hinterlegten Fristen verwendet."
+
+# Override default text of @projectcaluma/ember-distribution
 caluma:
   distribution:
     edit:
@@ -6,7 +11,3 @@ caluma:
         der Stellungnahme informiert. Eine neue Stellungnahme ist mit dem "+" Symbol anzufordern.'
     reopen-inquiry:
       confirm: 'Anfrage wirklich wiedereröffnen? Dabei wird die betroffene Organisation benachrichtigt und die bisherige Stellungnahme zurückgesetzt.<br /><br /><span uk-icon="icon: info" class="uk-text-warning"></span> Tipp: Verwenden Sie stattdessen das „+“ Symbol, um eine weitere Stellungnahme anzufordern. So bleibt der Verlauf der bisherigen Antworten erhalten.'
-
-distribution:
-  inquiry-deadline-input:
-    disabled-hint: "Wenn das Amt für Raumentwicklung oder eine Umweltschutzorganisation zur Teilnahme an der Zirkulation eingeladen wird, kann keine manuelle Frist festgelegt werden; stattdessen werden die im System hinterlegten Fristen verwendet."
