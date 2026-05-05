@@ -39,17 +39,18 @@ ADDITIONAL_DEMAND = {
         "NOTIFICATIONS": {
             "ACCEPTED": [
                 {
-                    "recipient_types": ["additional_demand_inviter"],
+                    "recipient_types": ["applicant"],
+                    "template_slug": "additional-demand-decision-accept",
+                },
+                {
+                    "recipient_types": ["additional_demand_accept_gr"],
                     "template_slug": "additional-demand-decision-accept",
                     "condition": lambda work_item: (
                         not is_additional_demand_with_changes(work_item)
                     ),
                 },
                 {
-                    "recipient_types": [
-                        "additional_demand_inviter",
-                        "involved_in_distribution",
-                    ],
+                    "recipient_types": ["additional_demand_accept_gr"],
                     "template_slug": "additional-demand-decision-accept-with-changes",
                     "condition": lambda work_item: is_additional_demand_with_changes(
                         work_item
@@ -58,8 +59,14 @@ ADDITIONAL_DEMAND = {
             ],
             "REJECTED": [
                 {
-                    "recipient_types": ["applicant"],
+                    "recipient_types": ["applicant", "additional_demand_reject_gr"],
                     "template_slug": "additional-demand-decision-reject",
+                }
+            ],
+            "CANCELLED": [
+                {
+                    "recipient_types": ["applicant", "additional_demand_cancel_gr"],
+                    "template_slug": "additional-demand-cancelled",
                 }
             ],
         },

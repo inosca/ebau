@@ -3,6 +3,7 @@ CANTON_SERVICE_GROUP = "service"
 MUNICIPALITY_SERVICE_GROUP = "municipality"
 
 # Services that receive "special" notifications after decision / acceptance
+ARE_SERVICE_SLUG = "are"
 GVG_SERVICE_SLUG = "gvg"
 AIB_SERVICE_SLUG = "aib"
 

@@ -139,6 +139,48 @@
       
   '''
 # ---
+# name: test_notification_caluma_placeholders_additional_demand[additional-demand-user@example.com-Municipality]
+  '''
+  Hinweis: Diese Nachricht wurde von einem Testsystem versendet.
+  Sie dient nur zu Testzwecken und kann ignoriert werden.
+  
+  
+          BASE_URL: http://ebau.localhost
+          ADDITIONAL_DEMAND_SENDER_NAME_DE: Leitbehörde DE
+          ADDITIONAL_DEMAND_SENDER_NAME_FR: Municipalité FR
+          ADDITIONAL_DEMAND_SENDER_NAME_IT: Autorità IT
+  
+      
+  '''
+# ---
+# name: test_notification_caluma_placeholders_additional_demand[other-task-user@example.com-Municipality]
+  '''
+  Hinweis: Diese Nachricht wurde von einem Testsystem versendet.
+  Sie dient nur zu Testzwecken und kann ignoriert werden.
+  
+  
+          BASE_URL: http://ebau.localhost
+          ADDITIONAL_DEMAND_SENDER_NAME_DE: 
+          ADDITIONAL_DEMAND_SENDER_NAME_FR: 
+          ADDITIONAL_DEMAND_SENDER_NAME_IT: 
+  
+      
+  '''
+# ---
+# name: test_notification_caluma_placeholders_additional_demand[send-additional-demand-user@example.com-Municipality]
+  '''
+  Hinweis: Diese Nachricht wurde von einem Testsystem versendet.
+  Sie dient nur zu Testzwecken und kann ignoriert werden.
+  
+  
+          BASE_URL: http://ebau.localhost
+          ADDITIONAL_DEMAND_SENDER_NAME_DE: Leitbehörde DE
+          ADDITIONAL_DEMAND_SENDER_NAME_FR: Municipalité FR
+          ADDITIONAL_DEMAND_SENDER_NAME_IT: Autorità IT
+  
+      
+  '''
+# ---
 # name: test_notification_template_merge[Canton-identifier-{{identifier}}-200]
   '''
   

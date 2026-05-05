@@ -1115,6 +1115,95 @@ def test_notification_caluma_placeholders(
     snapshot.assert_match(body)
 
 
+@pytest.mark.parametrize(
+    "user__email,role__name", [("user@example.com", "Municipality")]
+)
+@pytest.mark.parametrize(
+    "work_item_task",
+    [("send-additional-demand"), ("additional-demand"), ("other-task")],
+)
+def test_notification_caluma_placeholders_additional_demand(
+    db,
+    application_settings,
+    settings,
+    admin_client,
+    caluma_case_factory,
+    caluma_work_item_factory,
+    service_t_factory,
+    service,
+    gr_instance,
+    notification_template,
+    work_item_task,
+    mailoutbox,
+    snapshot,
+    multilang,
+    gr_additional_demand_settings,
+):
+    application_settings["INTERNAL_FRONTEND"] = "camac"
+    settings.INTERNAL_BASE_URL = "http://ebau.localhost"
+    notification_template.body = """
+        BASE_URL: {{BASE_URL}}
+        ADDITIONAL_DEMAND_SENDER_NAME_DE: {{ADDITIONAL_DEMAND_SENDER_NAME_DE}}
+        ADDITIONAL_DEMAND_SENDER_NAME_FR: {{ADDITIONAL_DEMAND_SENDER_NAME_FR}}
+        ADDITIONAL_DEMAND_SENDER_NAME_IT: {{ADDITIONAL_DEMAND_SENDER_NAME_IT}}
+
+    """
+    notification_template.save()
+
+    service.trans.all().delete()
+    service_t_factory(language="de", service=service, name="Leitbehörde DE")
+    service_t_factory(language="fr", service=service, name="Municipalité FR")
+    service_t_factory(language="it", service=service, name="Autorità IT")
+
+    parent_case = caluma_case_factory(family=gr_instance.case.family)
+    workitem = caluma_work_item_factory(
+        case=parent_case,
+        task_id="send-additional-demand",
+    )
+    parent_work_item = caluma_work_item_factory(
+        task_id="additional-demand",
+        case=caluma_case_factory(family=gr_instance.case.family),
+        child_case=parent_case,
+        controlling_groups=[str(service.pk)],
+    )
+    other_work_item = caluma_work_item_factory(
+        task_id="other-task",
+        case=caluma_case_factory(family=gr_instance.case.family),
+        controlling_groups=[str(service.pk)],
+    )
+
+    if work_item_task == "send-additional-demand":
+        target_work_item = workitem
+    elif work_item_task == "additional-demand":
+        target_work_item = parent_work_item
+    else:
+        target_work_item = other_work_item
+
+    data = {
+        "data": {
+            "type": "notification-template-sendmails",
+            "attributes": {
+                "template-slug": notification_template.slug,
+                "recipient-types": ["applicant"],
+            },
+            "relationships": {
+                "instance": {"data": {"type": "instances", "id": gr_instance.pk}},
+                "work-item": {
+                    "data": {"type": "work-items", "id": target_work_item.pk}
+                },
+            },
+        }
+    }
+
+    response = admin_client.post(reverse("notificationtemplate-sendmail"), data=data)
+
+    assert response.status_code == status.HTTP_204_NO_CONTENT
+    assert len(mailoutbox) == 1
+
+    body = mailoutbox[0].body
+    snapshot.assert_match(body)
+
+
 @pytest.mark.parametrize("use_static_user", [True, False])
 def test_notification_template_merge_without_context(
     db,
@@ -1812,13 +1901,21 @@ def test_notification_additional_demand(
     inviter = service_factory()
     active_inquiry_factory(gr_instance, service, inviter)
     case = caluma_case_factory()
-    caluma_work_item_factory(addressed_groups=[str(service.pk)], child_case=case)
-    work_item = caluma_work_item_factory(case=case)
+    caluma_work_item_factory(
+        addressed_groups=[str(service.pk)],
+        controlling_groups=[str(service.pk)],
+        child_case=case,
+    )
+    work_item = caluma_work_item_factory(
+        addressed_groups=[str(service.pk)],
+        controlling_groups=[str(service.pk)],
+        case=case,
+    )
 
     serializer = serializers.NotificationTemplateSendmailSerializer(
         data={
             "template_slug": notification_template.slug,
-            "recipient_types": ["work_item_addressed"],
+            "recipient_types": [],
             "notification_template": {
                 "type": "notification-templates",
                 "id": notification_template.pk,
@@ -1834,42 +1931,46 @@ def test_notification_additional_demand(
     assert serializer._get_recipients_additional_demand_inviter(gr_instance) == [
         {"to": inviter.email}
     ]
-    assert serializer._get_recipients_additional_demand_sender(gr_instance) == [
+    assert serializer._get_recipients_work_item_controlling(gr_instance) == [
         {"to": service.email}
     ]
 
 
 @pytest.mark.parametrize(
-    "sender,is_bab,are_involved,expected_leitbehoerde,expected_sender,expected_are",
+    (
+        "sender",
+        "inquired_by",
+        "is_bab",
+        "expected_send",
+        "expected_reply",
+        "has_controlling_group",
+    ),
     [
-        # Sent by lead authority, they always get an email as sender,
-        # but not as leitbehoerde because they are already the sender.
-        # ARE only gets an email when BaB and involved.
-        ("lead", False, False, [], ["lead@example.ch"], []),
-        ("lead", False, True, [], ["lead@example.ch"], []),
-        ("lead", True, False, [], ["lead@example.ch"], []),
-        ("lead", True, True, [], ["lead@example.ch"], ["are@example.ch"]),
-        # Sent by ARE, the lead authority gets an email.
-        # ARE gets an email as sender.
-        # ARE does not get a separate email, even when BaB and involved.
-        ("are", False, False, ["lead@example.ch"], ["are@example.ch"], []),
-        ("are", False, True, ["lead@example.ch"], ["are@example.ch"], []),
-        ("are", True, False, ["lead@example.ch"], ["are@example.ch"], []),
-        ("are", True, True, ["lead@example.ch"], ["are@example.ch"], []),
-        # Sent by other service, lead authority always gets an email.
-        # Sender also always gets an email.
-        # ARE only gets an email when BaB and involved.
-        ("other", False, False, ["lead@example.ch"], ["other@example.ch"], []),
-        ("other", False, True, ["lead@example.ch"], ["other@example.ch"], []),
-        ("other", True, False, ["lead@example.ch"], ["other@example.ch"], []),
-        (
-            "other",
-            True,
-            True,
-            ["lead@example.ch"],
-            ["other@example.ch"],
-            ["are@example.ch"],
-        ),
+        # in BiB, responsible service sending should not be notified.
+        ("lead", None, False, [], [], True),
+        # In BiB, other services sending should notify the lead.
+        ("are", "lead", False, ["lead@example.ch"], [], True),
+        ("are", "other", False, ["lead@example.ch"], [], True),
+        ("other", "lead", False, ["lead@example.ch"], [], True),
+        ("other", "are", False, ["lead@example.ch"], [], True),
+        ("other", "other", False, ["lead@example.ch"], [], True),
+        ("other", None, False, ["lead@example.ch"], [], True),
+        # In BaB, responsible service sending should not be notified.
+        ("lead", None, True, [], [], True),
+        # In BaB, ARE sending when inquired by lead should notify lead.
+        ("are", "lead", True, ["lead@example.ch"], [], True),
+        # In BaB, ARE sending when inquired by other service should notify lead.
+        ("are", "other", True, ["lead@example.ch"], [], True),
+        # In BaB, other service inquired by lead should not notify anyone.
+        ("other", "lead", True, ["lead@example.ch"], [], True),
+        # In BaB, other service inquired by ARE should notify lead and ARE.
+        # but the reply/reject should not be sent.
+        ("other", "are", True, ["are@example.ch", "lead@example.ch"], [], True),
+        # In BaB, other service inquired by other service should notify lead.
+        # but the reply/reject should not be sent.
+        ("other", "other", True, ["lead@example.ch"], [], True),
+        # edge case no controlling group, no recipients
+        ("other", "other", False, [], [], False),
     ],
 )
 def test_notification_additional_demand_gr(
@@ -1883,10 +1984,10 @@ def test_notification_additional_demand_gr(
     group_factory,
     sender,
     is_bab,
-    are_involved,
-    expected_leitbehoerde,
-    expected_sender,
-    expected_are,
+    inquired_by,
+    expected_send,
+    expected_reply,
+    has_controlling_group,
     user_group,
     gr_additional_demand_settings,
 ):
@@ -1900,10 +2001,26 @@ def test_notification_additional_demand_gr(
     other_service = group_factory(
         service=service_factory(email="other@example.ch")
     ).service
+    extra_service = service_factory()
+    receiver_service = group_factory(
+        service=service_factory(email="receiver@example.ch")
+    ).service
 
-    if are_involved:
-        active_inquiry_factory(gr_instance, service_are)
-    active_inquiry_factory(gr_instance, other_service)
+    if sender == "are":
+        if inquired_by == "lead":
+            active_inquiry_factory(gr_instance, service_are, lead_service)
+        elif inquired_by == "other":
+            active_inquiry_factory(gr_instance, other_service, lead_service)
+            active_inquiry_factory(gr_instance, service_are, other_service)
+    elif sender == "other":
+        if inquired_by == "are":
+            active_inquiry_factory(gr_instance, service_are, lead_service)
+            active_inquiry_factory(gr_instance, other_service, service_are)
+        elif inquired_by == "lead":
+            active_inquiry_factory(gr_instance, other_service, lead_service)
+        elif inquired_by == "other":
+            active_inquiry_factory(gr_instance, extra_service, lead_service)
+            active_inquiry_factory(gr_instance, other_service, extra_service)
 
     if sender == "lead":
         sender_service = lead_service
@@ -1912,9 +2029,19 @@ def test_notification_additional_demand_gr(
     else:
         sender_service = other_service
 
-    case = caluma_case_factory()
-    caluma_work_item_factory(addressed_groups=[str(sender_service.pk)], child_case=case)
-    work_item = caluma_work_item_factory(case=case)
+    case = caluma_case_factory(family=gr_instance.case.family)
+    controlling_groups = [str(sender_service.pk)] if has_controlling_group else []
+    caluma_work_item_factory(
+        addressed_groups=[str(receiver_service.pk)],
+        controlling_groups=controlling_groups,
+        child_case=case,
+    )
+    work_item = caluma_work_item_factory(
+        case=case,
+        task_id=gr_additional_demand_settings["TASK"],
+        addressed_groups=[str(receiver_service.pk)],
+        controlling_groups=controlling_groups,
+    )
 
     notification_template = notification_template_factory()
 
@@ -1937,25 +2064,16 @@ def test_notification_additional_demand_gr(
     assert (
         sorted(
             r["to"]
-            for r in serializer._get_recipients_additional_demand_leitbehoerde(
-                gr_instance
-            )
+            for r in serializer._get_recipients_additional_demand_send_gr(gr_instance)
         )
-        == expected_leitbehoerde
+        == expected_send
     )
     assert (
         sorted(
             r["to"]
-            for r in serializer._get_recipients_additional_demand_sender(gr_instance)
+            for r in serializer._get_recipients_additional_demand_reply_gr(gr_instance)
         )
-        == expected_sender
-    )
-    assert (
-        sorted(
-            r["to"]
-            for r in serializer._get_recipients_additional_demand_are_bab(gr_instance)
-        )
-        == expected_are
+        == expected_reply
     )
 
 

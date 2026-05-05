@@ -11,7 +11,7 @@
       "phone": null,
       "disabled": 0,
       "language": "de",
-      "last_login": "2026-03-11T08:53:44.896Z",
+      "last_login": "2026-05-05T08:43:42.895Z",
       "address": null,
       "city": null,
       "zip": null,
@@ -137,7 +137,7 @@
       "zip": null,
       "city": null,
       "address": null,
-      "email": null,
+      "email": "sachbearbeitung-are@example.ch",
       "website": null
     }
   },
@@ -681,7 +681,7 @@
       "zip": null,
       "city": null,
       "address": null,
-      "email": null,
+      "email": "sachbearbeitung-chur@example.ch",
       "website": null
     }
   },
@@ -713,7 +713,7 @@
       "zip": null,
       "city": null,
       "address": null,
-      "email": null,
+      "email": "sachbearbeitung-churwalden@example.ch",
       "website": null
     }
   },
@@ -3401,7 +3401,7 @@
       "zip": null,
       "city": null,
       "address": null,
-      "email": null,
+      "email": "sachbearbeitung-aev@example.ch",
       "website": null
     }
   },
@@ -3625,7 +3625,7 @@
       "zip": null,
       "city": null,
       "address": null,
-      "email": null,
+      "email": "sachbearbeitung-anu@example.com",
       "website": null
     }
   },
@@ -4041,7 +4041,7 @@
       "zip": null,
       "city": null,
       "address": null,
-      "email": null,
+      "email": "sachbearbeitung-pronatura@example.ch",
       "website": null
     }
   },
@@ -9306,6 +9306,17 @@
     }
   },
   {
+    "model": "user.usergroup",
+    "pk": 15,
+    "fields": {
+      "user": 1,
+      "group": 10225,
+      "default_group": 0,
+      "created_at": "2026-05-05T08:43:51.932Z",
+      "created_by": 1
+    }
+  },
+  {
     "model": "user.servicerelation",
     "pk": 1,
     "fields": {
@@ -9328,7 +9339,7 @@
       "zip": null,
       "city": null,
       "address": null,
-      "email": "email@example.ch",
+      "email": "org-are@example.ch",
       "website": null,
       "logo": "",
       "disabled": 0,
@@ -9770,7 +9781,7 @@
       "zip": null,
       "city": null,
       "address": null,
-      "email": "email@example.ch",
+      "email": "org-chur@example.ch",
       "website": null,
       "logo": "",
       "disabled": 0,
@@ -9796,7 +9807,7 @@
       "zip": null,
       "city": null,
       "address": null,
-      "email": "email@example.ch",
+      "email": "org-churwalden@example.ch",
       "website": null,
       "logo": "",
       "disabled": 0,
@@ -11980,7 +11991,7 @@
       "zip": null,
       "city": null,
       "address": null,
-      "email": "email@example.ch",
+      "email": "org-aev@example.ch",
       "website": null,
       "logo": "",
       "disabled": 0,
@@ -12162,7 +12173,7 @@
       "zip": null,
       "city": null,
       "address": null,
-      "email": "email@example.ch",
+      "email": "org-anu@example.ch",
       "website": null,
       "logo": "",
       "disabled": 0,
@@ -12500,7 +12511,7 @@
       "zip": null,
       "city": null,
       "address": null,
-      "email": "pro.natura@example.com",
+      "email": "org-pronatura@example.ch",
       "website": null,
       "logo": "",
       "disabled": 0,
