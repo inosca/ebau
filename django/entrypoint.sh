@@ -9,10 +9,18 @@ clear_cache() {
   # to be run *after* loadconfig
   # if cache is set to redis, the backend wants an URL redis://, but wait-for-it
   # cannot deal with that. it needs plain host:port syntax.
-  #
+  case "${DJANGO_USE_REDIS_CACHE:-false}" in
+    true)
+      cache_location="${REDIS_HOST:-redis}:${REDIS_PORT:-6379}"
+      ;;
+    *)
+      cache_location="${DJANGO_CACHE_LOCATION#*://}"
+      ;;
+  esac
+
   # If the cache is not available, we treat this as a "recoverable" issue and
   # continue anyway, thus the "|| true"
-  wait-for-it "${DJANGO_CACHE_LOCATION#*://}" -- ./manage.py clear_cache || true
+  wait-for-it "$cache_location" -- ./manage.py clear_cache || true
 }
 
 migrate() {

@@ -49,8 +49,12 @@ css-watch: ## Watch the sass files and create the css when they change
 	@cd camac/configuration/public/css/; make watch
 
 .PHONY: clear-cache
-clear-cache: ## Clear memcache
-	docker compose exec cache sh -c "echo flush_all | nc localhost 11211"
+clear-cache: ## Clear memcache or redis (only django and DMS cache)
+	@if docker compose config|grep -q memcache; then \
+		docker compose exec cache sh -c "echo flush_all | nc localhost 11211"; \
+	else \
+		docker compose exec redis sh -c "redis-cli -n 4 flushdb && redis-cli -n 3 flushdb"; \
+	fi
 
 .PHONY: dumpconfig
 dumpconfig: ## Dump the current camac and caluma configuration
