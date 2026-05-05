@@ -299,6 +299,9 @@
                 "permission": "delete"
               }
             ]
+          },
+          "geometer": {
+            "visibility": "all"
           }
         }
       },
@@ -553,6 +556,32 @@
                 "condition": {
                   "~InstanceState": ["finished", "new", "rejected"]
                 },
+                "permission": "delete"
+              }
+            ]
+          },
+          "geometer": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "marks",
+                  "files"
+                ],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
                 "permission": "delete"
               }
             ]
@@ -938,6 +967,9 @@
                 "permission": "delete"
               }
             ]
+          },
+          "geometer": {
+            "visibility": "all"
           }
         }
       },
@@ -1768,6 +1800,40 @@
                 },
                 "permission": "create"
               },
+              {
+                "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
+          "geometer": {
+            "visibility": "service",
+            "permissions": [
               {
                 "scope": "Service",
                 "fields": [
@@ -2679,6 +2745,9 @@
                 "permission": "delete"
               }
             ]
+          },
+          "geometer": {
+            "visibility": "all"
           }
         }
       },

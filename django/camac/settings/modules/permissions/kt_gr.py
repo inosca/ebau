@@ -378,6 +378,8 @@ GR_PERMISSIONS_SETTINGS = {
             ("communications-read", MODULE_COMMUNICATIONS),
             ("communications-write", MODULE_COMMUNICATIONS),
             ("dms-generate-read", MODULE_DMS_GENERATE),
+            ("documents-read", MODULE_DOCUMENTS),
+            ("documents-write", MODULE_DOCUMENTS),
             ("form-read", MODULE_FORM),
             (
                 "instance-download-form-as-pdf",
