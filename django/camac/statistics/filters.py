@@ -1,4 +1,5 @@
 import datetime as dt
+from functools import lru_cache
 
 from caluma.caluma_form.models import Answer, DynamicOption
 from caluma.caluma_workflow.models import Case as CalumaCase, WorkItem
@@ -38,8 +39,14 @@ from camac.deadlines.models import InstanceDeadline
 from camac.instance.export.filters import StringAggSubquery
 from camac.instance.models import Instance, InstanceStateT
 from camac.responsible.models import ResponsibleService
-from camac.user.models import ServiceT, User
+from camac.user.models import Service, ServiceT, User
 from camac.work_items.models import WorkItemTemplate
+
+
+@lru_cache
+def get_inquiry_service_id():
+    """Return service ID of the AfB service (kt_ag)."""
+    return Service.objects.filter(slug="afb").values_list("pk", flat=True).first()
 
 
 def split_query_param(request, param):
@@ -435,6 +442,7 @@ class _BaseFilterBackend(BaseFilterBackend):
         ``WHERE pk IN (...)`` instead of a deeply-nested subquery.
         """
         current_service = request.group.service_id
+        inquiry_service = get_inquiry_service_id()
 
         queryset = SubmitDateFilter(lookup_expr="gte").filter(
             queryset, request.query_params.get("submit_date_after")
@@ -450,30 +458,30 @@ class _BaseFilterBackend(BaseFilterBackend):
             queryset, split_query_param(request, "decision")
         )
         queryset = FirstInquiryDateFilter(
-            lookup_expr="gte", service_id=current_service
+            lookup_expr="gte", service_id=inquiry_service
         ).filter(queryset, request.query_params.get("first_inquiry_date_after"))
         queryset = FirstInquiryDateFilter(
-            lookup_expr="lte", service_id=current_service
+            lookup_expr="lte", service_id=inquiry_service
         ).filter(queryset, request.query_params.get("first_inquiry_date_before"))
         queryset = CompletingDateFilter(
-            lookup_expr="gte", service_id=current_service
+            lookup_expr="gte", service_id=inquiry_service
         ).filter(queryset, request.query_params.get("completing_date_after"))
         queryset = CompletingDateFilter(
-            lookup_expr="lte", service_id=current_service
+            lookup_expr="lte", service_id=inquiry_service
         ).filter(queryset, request.query_params.get("completing_date_before"))
         queryset = InvolvedFilter(service_id=current_service).filter(
             queryset, request.query_params.get("involved")
         )
 
         # Exclude dossiers that still have any pending inquiry addressed to
-        # the current service, but only when filtering by completing date.
+        # the inquiry service, but only when filtering by completing date.
         completing_date_filter_active = any(
             request.query_params.get(param)
             for param in ("completing_date_after", "completing_date_before")
         )
         if completing_date_filter_active:
             pending_inquiries = (
-                Inquiry.objects.addressed_to(current_service)
+                Inquiry.objects.addressed_to(inquiry_service)
                 .only_pending()
                 .filter(case__family__instance=OuterRef("pk"))
             )
@@ -481,8 +489,14 @@ class _BaseFilterBackend(BaseFilterBackend):
 
         return list(queryset.order_by().values_list("pk", flat=True).distinct())
 
-    def _dossier_annotations(self, service_id, requested_columns=None):
+    def _dossier_annotations(
+        self,
+        service_id,
+        inquiry_service_id,
+        requested_columns=None,
+    ):
         """Return the dict of dossier-level annotation kwargs."""
+
         available_annotations = {
             "dossier_number": lambda: self.annotate_dossier_number(),
             "form_name": lambda: self.annotate_type(),
@@ -491,8 +505,12 @@ class _BaseFilterBackend(BaseFilterBackend):
             "responsible_user": lambda: self.annotate_responsible_user(service_id),
             "municipality": lambda: self.annotate_municipality(),
             "instance_status": lambda: self.annotate_instance_status(),
-            "first_inquiry_date": lambda: self.annotate_first_inquiry_date(service_id),
-            "completing_date": lambda: self.annotate_completing_date(service_id),
+            "first_inquiry_date": lambda: self.annotate_first_inquiry_date(
+                inquiry_service_id
+            ),
+            "completing_date": lambda: self.annotate_completing_date(
+                inquiry_service_id
+            ),
             "processing_time": lambda: self.annotate_processing_time(service_id),
             "on_time": lambda: self.annotate_on_time(service_id),
         }
@@ -517,6 +535,7 @@ class InstanceFilterBackend(_BaseFilterBackend):
 
     def filter_queryset(self, request, queryset, requested_annotations):
         current_service = request.group.service_id
+        inquiry_service = get_inquiry_service_id()
         requested_columns = requested_annotations
 
         allowed_pks = self._filter_instances(request, queryset)
@@ -531,7 +550,13 @@ class InstanceFilterBackend(_BaseFilterBackend):
                 "case__family_id",
                 "case__document_id",
             )
-            .annotate(**self._dossier_annotations(current_service, requested_columns))
+            .annotate(
+                **self._dossier_annotations(
+                    current_service,
+                    inquiry_service,
+                    requested_columns,
+                )
+            )
         )
 
 
@@ -686,7 +711,9 @@ class WorkItemFilterBackend(_BaseFilterBackend):
             )
             .select_related("task", "case")
             .annotate(
-                **self._dossier_annotations(current_service, requested_columns),
+                **self._dossier_annotations(
+                    current_service, current_service, requested_columns
+                ),
                 **self._work_item_annotations(requested_columns),
             )
         )

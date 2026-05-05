@@ -5,8 +5,44 @@ from caluma.caluma_workflow.models import WorkItem
 from django.utils.timezone import make_aware
 
 from camac.deadlines.factories import DeadlineTypeFactory, InstanceDeadlineFactory
+from camac.settings.utils import generate_module_settings
+from camac.statistics.filters import get_inquiry_service_id
 from camac.tests.form_utils import FormUtils
 from camac.user.factories import ServiceFactory, ServiceGroupFactory
+
+
+@pytest.fixture(autouse=True)
+def _clear_inquiry_service_cache():
+    """Reset the lru_cache between tests."""
+    get_inquiry_service_id.cache_clear()
+    yield
+    get_inquiry_service_id.cache_clear()
+
+
+@pytest.fixture
+def statistics_settings(request, settings):
+    """Module-specific settings for statistics (default)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=None,
+        module_name="statistics",
+        canton=None,
+        disable=False,
+    )
+
+
+@pytest.fixture(autouse=True)
+def ag_statistics_settings(request, settings, statistics_settings):
+    """Module-specific settings for statistics (canton AG)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=statistics_settings,
+        module_name="statistics",
+        canton="kt_ag",
+        disable=False,
+    )
 
 
 @pytest.fixture
@@ -142,7 +178,7 @@ def statistics_ag_instance_afb(
     """AG instance for service-afb statistics export with deadline columns."""
 
     service_group = ServiceGroupFactory(slug="service-afb")
-    afb_service = ServiceFactory(service_group=service_group)
+    afb_service = ServiceFactory(service_group=service_group, slug="afb")
     group.service = afb_service
     group.save()
 
