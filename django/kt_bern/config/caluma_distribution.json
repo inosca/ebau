@@ -653,11 +653,11 @@
       "description": "{\"de\": null, \"fr\": null, \"it\": null}",
       "type": "simple",
       "meta": {
-        "is-manually-completable": true,
         "directLink": {
           "route": "instance-resource-name=distribution",
           "models": []
-        }
+        },
+        "is-manually-completable": true
       },
       "address_groups": "info.prev_work_item.controlling_groups",
       "control_groups": "info.prev_work_item.controlling_groups",

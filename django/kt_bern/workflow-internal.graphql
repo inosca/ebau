@@ -1,3 +1,8 @@
+# WARNING: Deprecated!
+# Those forms got moved to `workflow-preliminary-clarification` as v3.
+# This workflow remains only as a historical record, since we won't
+# migrate existing cases to the new workflow.
+
 mutation CreateInternalWorkflow {
   saveWorkflow(
     input: {
