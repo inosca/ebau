@@ -746,21 +746,21 @@
                 "permission": "create"
               },
               {
-                "scope": "All",
                 "fields": ["metainfo", "title", "category", "files"],
                 "condition": {
                   "AdditionalDemandChanges": true
                 },
-                "permission": "create"
+                "permission": "create",
+                "scope": "All"
               },
               {
                 "marks": ["void"],
-                "scope": "All",
                 "fields": ["marks"],
                 "condition": {
                   "AdditionalDemandChanges": true
                 },
-                "permission": "update"
+                "permission": "update",
+                "scope": "All"
               },
               {
                 "scope": "All",
@@ -1618,7 +1618,7 @@
       "created_at": "2020-08-04T13:24:00.708Z",
       "created_by_user": null,
       "created_by_group": null,
-      "modified_at": "2026-03-23T14:11:38.006Z",
+      "modified_at": "2024-08-28T12:24:54.818Z",
       "modified_by_user": null,
       "modified_by_group": null,
       "metainfo": {
@@ -1780,26 +1780,6 @@
           "municipality-lead": {
             "visibility": "service",
             "permissions": [
-              {
-                "scope": "Applicant",
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "tags",
-                  "files"
-                ],
-                "condition": {
-                  "~InstanceState": [
-                    "rejected",
-                    "finished",
-                    "construction-acceptance"
-                  ]
-                },
-                "permission": "create"
-              },
               {
                 "scope": "Service",
                 "fields": [
@@ -2743,6 +2723,18 @@
                   "IsExternalClient": true
                 },
                 "permission": "delete"
+              },
+              {
+                "scope": "Applicant",
+                "fields": ["category"],
+                "condition": {
+                  "~InstanceState": [
+                    "rejected",
+                    "finished",
+                    "construction-acceptance"
+                  ]
+                },
+                "permission": "update"
               }
             ]
           },
