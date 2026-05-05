@@ -1979,6 +1979,7 @@ def test_tags_filter(admin_client, admin_user, instance_factory):
 )
 def test_responsible_service_filters(
     admin_client,
+    admin_user,
     user,
     user_factory,
     instance,
@@ -2047,6 +2048,27 @@ def test_responsible_service_filters(
 
     # other_user of other_service is responsible, so not visible to "service"
     response = admin_client.get(url, data={"responsible_service_user": other_user.pk})
+    data = response.json()["data"]
+    assert len(data) == 0
+
+    # assign admin_user (the user for admin_client) as responsible user
+    responsible_service.responsible_user = admin_user
+    responsible_service.save()
+
+    # admin_user making the request is responsible user for instance
+    response = admin_client.get(url, data={"responsible_service_user": "own"})
+    data = response.json()["data"]
+    # other_instance has other_user (and other_service) as responsible so "own" should not return it
+    assert len(data) == 1
+    assert int(data[0]["id"]) == instance.pk
+
+    # assign other_user as responsible on instance under current service
+    instance.responsible_services.filter(
+        service=service, responsible_user=admin_user
+    ).update(responsible_user=other_user)
+
+    # "own" should now return nothing
+    response = admin_client.get(url, data={"responsible_service_user": "own"})
     data = response.json()["data"]
     assert len(data) == 0
 
