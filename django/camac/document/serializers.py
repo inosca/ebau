@@ -5,6 +5,7 @@ from pathlib import Path
 from django.conf import settings
 from django.core.exceptions import SuspiciousFileOperation
 from django.core.files import utils
+from django.urls import reverse
 from django.utils.translation import gettext as _
 from django_clamd.validators import validate_file_infection
 from inflection import dasherize, underscore
@@ -71,6 +72,20 @@ class AttachmentSectionSerializer(
         fields = ("name", "description")
 
 
+class MultiBackendFileField(serializers.FileField):
+    """
+    Specialisation for the FileField, so we can overrule the download location.
+
+    This explicitly sets the URL to the attachment-download endpoint. Otherwise,
+    if we're using S3 as a storage backend, it would point directly to the S3
+    service, which we do not want
+    """
+
+    def to_representation(self, value):
+        # This way, it works for both S3 and File storage backends
+        return reverse("attachment-download", args=[value])
+
+
 class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
     serializer_related_field = FormDataResourceRelatedField
 
@@ -81,6 +96,8 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         queryset=models.AttachmentSection.objects, many=True
     )
     webdav_link = serializers.SerializerMethodField()
+    path = MultiBackendFileField()
+
     included_serializers = {
         "user": "camac.user.serializers.UserSerializer",
         "instance": "camac.instance.serializers.InstanceSerializer",

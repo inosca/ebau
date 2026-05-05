@@ -337,7 +337,8 @@ class AttachmentView(
         # - ValueError: document holds an empty file
         # - FileNotFoundError: path not found
         # - EngineError: sorl-thumbnail engine throws an error
-        except (AttributeError, ValueError, FileNotFoundError, EngineError):
+        # - TypeError: No data in S3 bucket
+        except (TypeError, AttributeError, ValueError, FileNotFoundError, EngineError):
             raise exceptions.NotFound()
 
     @action(methods=["post"], detail=True)
