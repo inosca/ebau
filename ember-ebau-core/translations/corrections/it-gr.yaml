@@ -1,3 +1,6 @@
 corrections:
   document:
-    description: "Questa funzione consente di apportare piccole correzioni al modulo di domanda (ad es. precisazioni della descrizione dell'opera). Le modifiche sostanziali al modulo devono essere effettuate tramite la richiesta di precisazioni (consentire modifiche al modulo di domanda)."
+    description: "La funzione «Correggi dossier» consente al Comune di apportare piccole correzioni al modulo di richiesta (ad es. precisazioni della descrizione del progetto). Le modifiche sostanziali devono essere effettuate dai richiedenti nel modulo tramite una richiesta di precisazioni (Consentire modifiche al modulo di richiesta)."
+    description-applicant-correction: "Per consentire ai richiedenti di modificare i dati nel formulario della domanda, create una richiesta di precisazioni con l’opzione «Consentire modifiche al modulo di richiesta»."
+    link-applicant-correction: "Richiesta di precisazioni"
+    
