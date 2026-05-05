@@ -554,7 +554,7 @@
               {
                 "scope": "Service",
                 "condition": {
-                  "~InstanceState": ["finished", "new", "rejected"]
+                  "InstanceState": ["construction-acceptance"]
                 },
                 "permission": "delete"
               }
