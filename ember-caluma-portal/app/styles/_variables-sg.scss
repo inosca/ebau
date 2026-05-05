@@ -1,11 +1,22 @@
+// WARNING: This file is mirrored with `ember-ebau/app/styles/_variables-sg.scss`.
+// If you change something here it **must** be changed in that file as well!
+
 @use "sass:color";
 @import "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap";
+@import "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300..700&display=swap";
 
 // Features
 $enable-form-whitespace-correction: true;
 
 // Font
-$global-font-family: "Space Grotesk", sans-serif;
+$global-font-family: "IBM Plex Sans", sans-serif;
+$base-heading-font-family: "Space Grotesk", sans-serif;
+$base-strong-font-weight: 600;
+
+body {
+  font-optical-sizing: auto;
+  font-variation-settings: "wdth" 100;
+}
 
 // SG main colors (only darkgreen is the primary color)
 $sg-darkgreen: rgb(3 51 48);
