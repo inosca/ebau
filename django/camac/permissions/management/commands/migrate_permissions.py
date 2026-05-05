@@ -470,8 +470,6 @@ class Command(BaseCommand):
                 state=STATE_ACTIVE,
                 type=permission_models.GRANT_CHOICES.USER.value,
                 user_id=app.invitee_id,
-                #
-                created_by_event="applicant_added",
                 start_time=app.created,
                 metainfo={"related-applicant-id": app.pk},
             )
@@ -590,7 +588,7 @@ class Command(BaseCommand):
                 user_id=acl.user_id,
                 service_id=acl.service_id,
                 role_id=acl.role_id,
-                created_by_event=acl.created_by_event,
+                created_by_event="permissions-migration",
                 grant_type=acl.type,
                 access_level_id=acl.access_level,
                 metainfo={**acl.metainfo, "migrated_at": timezone.now().isoformat()},
