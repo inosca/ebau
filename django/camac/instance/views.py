@@ -219,6 +219,7 @@ class InstanceView(
                     "default": MilestonesSerializer,
                 },
                 "appeal": serializers.CalumaInstanceAppealSerializer,
+                "copy": serializers.CalumaInstanceCopySerializer,
                 "default": serializers.CalumaInstanceSerializer,
                 "correction": serializers.CalumaInstanceCorrectionSerializer,
                 "additional_demand_changes_submit": serializers.CalumaInstanceAdditionalDemandChangesSubmitSerializer,
@@ -487,6 +488,11 @@ class InstanceView(
             in settings.APPEAL["INSTANCE_STATES_AFTER_DECISION"]
             and not instance.case.meta.get("has-appeal")
             and not instance.case.meta.get("is-appeal")
+        )
+
+    def has_object_copy_permission(self, instance):
+        return permissions_api.PermissionManager.from_request(self.request).has_all(
+            instance, "instance-copy"
         )
 
     @permission_aware
@@ -1035,6 +1041,13 @@ class InstanceView(
         if not settings.APPEAL:
             raise NotFound()
 
+        return self._custom_serializer_action(
+            request, pk, status_code=status.HTTP_201_CREATED
+        )
+
+    @swagger_auto_schema(auto_schema=None)
+    @action(methods=["post"], detail=True)
+    def copy(self, request, pk):
         return self._custom_serializer_action(
             request, pk, status_code=status.HTTP_201_CREATED
         )

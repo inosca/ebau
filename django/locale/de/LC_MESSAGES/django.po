@@ -1714,6 +1714,10 @@ msgid "Appeal received"
 msgstr "Beschwerde eingegangen"
 
 #: camac/instance/serializers.py
+msgid "Instance copy created"
+msgstr "Kopie des Dossiers erstellt"
+
+#: camac/instance/serializers.py
 msgid "The Dossier can't be correct because there are running inquiries."
 msgstr ""
 "Das Dossier kann nicht korrigiert werden, da bereits Stellungahmen "

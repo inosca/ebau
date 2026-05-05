@@ -373,6 +373,14 @@ INSTANCE_CORRECT_CONDITION = RequireInstanceState(
 )
 ACTION_INSTANCE_CORRECT = INSTANCE_CORRECT_CONDITION & ROLES_INTERNAL_LEAD
 
+ACTION_SUPPORT_INSTANCE_COPY = RequireInstanceState(
+    [
+        "archived",
+        "evaluated",
+        "finished_internal",
+        "finished",
+    ]
+)
 
 # Portal permissions
 
@@ -1139,6 +1147,7 @@ BE_PERMISSIONS_SETTINGS = {
                 "instance-convert-to-building-permit",
                 PORTAL_INSTANCE_CONVERT_TO_BUILDING_PERMIT_CONDITION,
             ),
+            ("instance-copy", ACTION_SUPPORT_INSTANCE_COPY),
             ("instance-correct", INSTANCE_CORRECT_CONDITION),
             (
                 "instance-create-modification",

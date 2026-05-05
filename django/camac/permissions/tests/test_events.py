@@ -998,7 +998,9 @@ def test_decided_involve_geometer_sz(
 
 
 @pytest.mark.parametrize("permission_mode", [PERMISSION_MODE.FULL, PERMISSION_MODE.OFF])
-@pytest.mark.parametrize("new_meta_flag", ["is-appeal", "is-rejected-appeal", None])
+@pytest.mark.parametrize(
+    "new_meta_flag", ["is-appeal", "is-rejected-appeal", "is-copy", None]
+)
 @pytest.mark.parametrize("role__name", ["municipality-lead"])
 @pytest.mark.parametrize("instance_state__name", ["subm", "new"])
 def test_copy_be(
@@ -1098,7 +1100,7 @@ def test_copy_be(
     )
 
     expected_acl_copies = InstanceACL.currently_active().filter(instance=be_instance)
-    if new_meta_flag in ["is-appeal", "is-rejected-appeal"]:
+    if new_meta_flag in ["is-appeal", "is-rejected-appeal", "is-copy"]:
         expected_acl_copies = [
             lead_authority_acl,
             involved_lead_authority_acl,

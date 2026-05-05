@@ -57,6 +57,7 @@ export default {
   },
   corrections: {
     archiveInstance: false,
+    copyInstance: false,
     changeDossierNumber: false,
     changeForm: false,
     convertModification: false,
