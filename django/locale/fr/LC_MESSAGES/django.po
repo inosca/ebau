@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-29 12:17+0200\n"
+"POT-Creation-Date: 2026-05-01 09:45+0200\n"
 "PO-Revision-Date: 2025-08-28 10:03+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1254,6 +1254,18 @@ msgstr ""
 msgid "An error occured while fetching data from the AGIS API."
 msgstr ""
 
+#: camac/gis/clients/oereb.py
+#, python-format
+msgid "Error %(code)s while fetching data from the OEREB API"
+msgstr "Erreur %(code)s lors de la récupération des données depuis l'API RDPPF"
+
+#: camac/gis/clients/oereb.py
+#, python-format
+msgid "No OEREB data for EGRID %(egrid)s. Plot may be outside of the canton."
+msgstr ""
+"Aucune donnée RDPPF n'a été trouvée pour le N° E-GRID %(egrid)s. La parcelle "
+"se trouve peut-être en dehors du canton."
+
 #: camac/gis/clients/sogis.py
 #, python-format
 msgid "Error %(code)s while fetching data from the geo.so.ch API"
@@ -1286,6 +1298,10 @@ msgstr ""
 #: camac/gis/models.py
 msgid "Federal GIS Switzerland"
 msgstr ""
+
+#: camac/gis/models.py
+msgid "OEREB"
+msgstr "RDPPF"
 
 #: camac/gis/serializers.py
 #, python-format

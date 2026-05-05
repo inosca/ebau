@@ -55,3 +55,12 @@ class GISBaseClient:
             value = concat_values(data[question], value)
 
         data[question] = value
+
+    class Meta:
+        schema = None
+        """JSON schema used to validate the `config` field of a `GISDataSource`
+        in the Django admin.
+
+        Set to `None` to skip validation, otherwise provide a JSON schema dict
+        compatible with the spec at https://json-schema.org/.
+        """

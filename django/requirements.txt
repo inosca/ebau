@@ -38,6 +38,7 @@ hdbcli==2.25.31
 holidays==0.80
 Jinja2==3.1.6
 jsonpath-ng==1.7.0
+jsonschema==4.26.0
 jwcrypto==1.5.6
 lxml==6.0.1
 manabi==2.0.1

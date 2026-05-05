@@ -3,22 +3,64 @@
     "model": "gis.gisdatasource",
     "pk": "8209ff5b-892a-461f-83bf-182b74164e27",
     "fields": {
-      "description": "EGRID",
-      "client": "camac.gis.clients.param.ParamGisClient",
-      "config": [
-        {
-          "question": "parzellen.e-grid-nr",
-          "parameterName": "egrid"
-        },
-        {
-          "question": "parzellen.parzellennummer",
-          "parameterName": "number"
-        },
-        {
-          "question": "parzellen.grundbuchkreis",
-          "parameterName": "identDN"
-        }
-      ],
+      "description": "ÖREB",
+      "client": "camac.gis.clients.oereb.OerebGisClient",
+      "config": {
+        "concerned_themes": [
+          {
+            "theme": [
+              "ch.BelasteteStandorte",
+              "ch.BelasteteStandorteMilitaer",
+              "ch.BelasteteStandorteZivileFlugplaetze",
+              "ch.BelasteteStandorteOeffentlicherVerkehr"
+            ],
+            "question": "kbs"
+          }
+        ],
+        "realestate_properties": [
+          {
+            "cast": "municipality_bfs_to_dynamic_option",
+            "property": "MunicipalityCode",
+            "question": "gemeinde"
+          },
+          {
+            "property": "EGRID",
+            "question": "parzellen.e-grid-nr"
+          },
+          {
+            "property": "Number",
+            "question": "parzellen.parzellennummer"
+          },
+          {
+            "property": "IdentDN",
+            "question": "parzellen.grundbuchkreis"
+          },
+          {
+            "property": "LandRegistryArea",
+            "question": "parzellen.grundstueckflaeche"
+          }
+        ],
+        "restriction_on_landownership_collections": [
+          {
+            "theme": "ch.Nutzungsplanung",
+            "question": "zonenplan"
+          },
+          {
+            "theme": [
+              "ch.Grundwasserschutzzonen",
+              "ch.Grundwasserschutzareale"
+            ],
+            "question": "gewaesserschutzbereich"
+          },
+          {
+            "theme": [
+              "ch.SG.KantonaleSondernutzungsplaene",
+              "ch.SG.KomSondernutzungsplaene"
+            ],
+            "question": "sondernutzungsplan"
+          }
+        ]
+      },
       "disabled": false,
       "sort": 1
     }

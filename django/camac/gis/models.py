@@ -21,6 +21,7 @@ class GISDataSource(models.Model):
     CLIENT_KT_AG = "camac.gis.clients.ag.AgGisClient"
     CLIENT_ECH_0206 = "camac.gis.clients.ech_0206.Ech0206"
     CLIENT_BEGIS = "camac.gis.clients.begis.BeGisClient"
+    CLIENT_OEREB = "camac.gis.clients.oereb.OerebGisClient"
 
     CLIENT_CHOICES = [
         (CLIENT_SOGIS, _("GIS Canton Solothurn")),
@@ -30,6 +31,7 @@ class GISDataSource(models.Model):
         (CLIENT_PARAM, _("Parameter")),
         (CLIENT_ECH_0206, _("Ech0206")),
         (CLIENT_ADMIN, _("Federal GIS Switzerland")),
+        (CLIENT_OEREB, _("OEREB")),
     ]
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)

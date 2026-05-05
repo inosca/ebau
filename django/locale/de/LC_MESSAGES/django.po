@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-29 12:17+0200\n"
+"POT-Creation-Date: 2026-05-01 09:45+0200\n"
 "PO-Revision-Date: 2025-10-08 13:26+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1296,6 +1296,18 @@ msgid "An error occured while fetching data from the AGIS API."
 msgstr ""
 "Beim Abrufen der Daten von der AGIS Schnittstelle ist ein Fehler aufgetreten."
 
+#: camac/gis/clients/oereb.py
+#, python-format
+msgid "Error %(code)s while fetching data from the OEREB API"
+msgstr "Fehler %(code)s beim Abrufen der Daten von der ÖREB Schnittstelle"
+
+#: camac/gis/clients/oereb.py
+#, python-format
+msgid "No OEREB data for EGRID %(egrid)s. Plot may be outside of the canton."
+msgstr ""
+"Keine ÖREB Daten für die E-GRID-Nr. %(egrid)s gefunden. Die Parzelle könnte "
+"ausserhalb des Kantons liegen."
+
 #: camac/gis/clients/sogis.py
 #, python-format
 msgid "Error %(code)s while fetching data from the geo.so.ch API"
@@ -1328,6 +1340,10 @@ msgstr ""
 #: camac/gis/models.py
 msgid "Federal GIS Switzerland"
 msgstr "Geoportal des Bundes"
+
+#: camac/gis/models.py
+msgid "OEREB"
+msgstr "ÖREB"
 
 #: camac/gis/serializers.py
 #, python-format

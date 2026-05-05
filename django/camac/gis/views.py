@@ -76,15 +76,29 @@ class GISDataView(ListAPIView):
                 # in django/camac/caluma/extensions/data_sources.py
                 caluma_user = self.request.caluma_info.context.user
                 data_source = get_data_sources(dic=True)[question.data_source]()
-                mapped = {
-                    label[get_language()]: str(slug)
+                options = {
+                    str(slug): label[get_language()]
                     for slug, label in data_source.get_data(
                         caluma_user, question, context
                     )
                 }
 
-                labeled_data[question_slug]["value"] = mapped.get(value)
-                labeled_data[question_slug]["displayValue"] = value
+                if isinstance(value, dict) and "key" in value:
+                    # If the value is a dictionary with a `key` property, we can
+                    # use said key to determine the respective label
+                    option_key = value["key"]
+                    option_label = options.get(option_key)
+                else:
+                    # Otherwise assume the passed value is a label of an option
+                    # in the current language and assign the actual value based
+                    # on that
+                    options_by_label = {v: k for k, v in options.items()}
+
+                    option_key = options_by_label.get(value)
+                    option_label = value
+
+                labeled_data[question_slug]["value"] = option_key
+                labeled_data[question_slug]["displayValue"] = option_label
 
         return labeled_data
 

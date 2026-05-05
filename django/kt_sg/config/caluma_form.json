@@ -537,6 +537,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "lage-des-vorhabens.baugrubenumschliessung-fundation-bohrungen",
+    "fields": {
+      "created_at": "2026-05-01T08:14:11.280Z",
+      "modified_at": "2026-05-01T08:14:11.280Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "lage-des-vorhabens",
+      "question": "baugrubenumschliessung-fundation-bohrungen",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "lage-des-vorhabens.gebaeude",
     "fields": {
       "created_at": "2026-04-17T11:53:51.111Z",
@@ -547,7 +562,7 @@
       "modified_by_group": null,
       "form": "lage-des-vorhabens",
       "question": "gebaeude",
-      "sort": 5
+      "sort": 10
     }
   },
   {
@@ -562,7 +577,7 @@
       "modified_by_group": null,
       "form": "lage-des-vorhabens",
       "question": "gefahrenkarte",
-      "sort": 3
+      "sort": 8
     }
   },
   {
@@ -577,7 +592,22 @@
       "modified_by_group": null,
       "form": "lage-des-vorhabens",
       "question": "gemeinde",
-      "sort": 8
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "lage-des-vorhabens.gewaesserschutzbereich",
+    "fields": {
+      "created_at": "2026-04-29T15:06:57.352Z",
+      "modified_at": "2026-04-29T15:06:57.352Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "lage-des-vorhabens",
+      "question": "gewaesserschutzbereich",
+      "sort": 4
     }
   },
   {
@@ -592,7 +622,7 @@
       "modified_by_group": null,
       "form": "lage-des-vorhabens",
       "question": "is-paper",
-      "sort": 10
+      "sort": 15
     }
   },
   {
@@ -607,7 +637,22 @@
       "modified_by_group": null,
       "form": "lage-des-vorhabens",
       "question": "karte",
-      "sort": 11
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "lage-des-vorhabens.kbs",
+    "fields": {
+      "created_at": "2026-04-29T15:06:37.155Z",
+      "modified_at": "2026-04-29T15:06:37.155Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "lage-des-vorhabens",
+      "question": "kbs",
+      "sort": 2
     }
   },
   {
@@ -622,7 +667,37 @@
       "modified_by_group": null,
       "form": "lage-des-vorhabens",
       "question": "lage-des-vorhabens-titel",
-      "sort": 12
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "lage-des-vorhabens.naturgefahr",
+    "fields": {
+      "created_at": "2026-05-01T08:15:48.611Z",
+      "modified_at": "2026-05-01T08:15:48.611Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "lage-des-vorhabens",
+      "question": "naturgefahr",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "lage-des-vorhabens.neophyten",
+    "fields": {
+      "created_at": "2026-05-01T08:14:38.946Z",
+      "modified_at": "2026-05-01T08:14:38.946Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "lage-des-vorhabens",
+      "question": "neophyten",
+      "sort": 3
     }
   },
   {
@@ -637,7 +712,7 @@
       "modified_by_group": null,
       "form": "lage-des-vorhabens",
       "question": "parzellen",
-      "sort": 6
+      "sort": 11
     }
   },
   {
@@ -652,7 +727,7 @@
       "modified_by_group": null,
       "form": "lage-des-vorhabens",
       "question": "projektaenderung",
-      "sort": 9
+      "sort": 14
     }
   },
   {
@@ -667,7 +742,7 @@
       "modified_by_group": null,
       "form": "lage-des-vorhabens",
       "question": "sondernutzungsplan",
-      "sort": 2
+      "sort": 7
     }
   },
   {
@@ -682,7 +757,7 @@
       "modified_by_group": null,
       "form": "lage-des-vorhabens",
       "question": "strassenklassierung",
-      "sort": 1
+      "sort": 6
     }
   },
   {
@@ -697,7 +772,7 @@
       "modified_by_group": null,
       "form": "lage-des-vorhabens",
       "question": "strasse-und-nr",
-      "sort": 7
+      "sort": 12
     }
   },
   {
@@ -712,7 +787,7 @@
       "modified_by_group": null,
       "form": "lage-des-vorhabens",
       "question": "zonenplan",
-      "sort": 4
+      "sort": 9
     }
   },
   {
@@ -1749,6 +1824,40 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "baugrubenumschliessung-fundation-bohrungen-ja",
+    "fields": {
+      "created_at": "2026-05-01T08:14:11.069Z",
+      "modified_at": "2026-05-01T08:14:11.069Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "baugrubenumschliessung-fundation-bohrungen-nein",
+    "fields": {
+      "created_at": "2026-05-01T08:14:11.056Z",
+      "modified_at": "2026-05-01T08:14:11.056Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "bauvisiere-ja",
     "fields": {
       "created_at": "2026-03-12T12:54:58.228Z",
@@ -1875,6 +1984,125 @@
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kbs-ja",
+    "fields": {
+      "created_at": "2026-04-29T15:06:36.965Z",
+      "modified_at": "2026-04-29T15:06:36.965Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "kbs-nein",
+    "fields": {
+      "created_at": "2026-04-29T15:06:36.957Z",
+      "modified_at": "2026-04-29T15:06:36.957Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "naturgefahr-keine",
+    "fields": {
+      "created_at": "2026-05-01T08:15:48.380Z",
+      "modified_at": "2026-05-01T08:15:48.380Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Keine Gefahr (weiss)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "naturgefahr-unbekannt",
+    "fields": {
+      "created_at": "2026-05-01T08:15:48.375Z",
+      "modified_at": "2026-05-01T08:15:48.375Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gefahr unbekannt (grün)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "naturgefahr-vorhanden",
+    "fields": {
+      "created_at": "2026-05-01T08:15:48.377Z",
+      "modified_at": "2026-05-01T08:15:48.377Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gefahr vorhanden (rot, blau, gelb, gelb/weiss)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "neophyten-ja",
+    "fields": {
+      "created_at": "2026-05-01T08:14:38.735Z",
+      "modified_at": "2026-05-01T08:14:38.735Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "neophyten-nein",
+    "fields": {
+      "created_at": "2026-05-01T08:14:38.744Z",
+      "modified_at": "2026-05-01T08:14:38.744Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
@@ -2201,6 +2429,37 @@
       "label": "{\"de\": \"Voraussichtlicher Baubeginn\", \"fr\": null, \"it\": null}",
       "type": "date",
       "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "baugrubenumschliessung-fundation-bohrungen",
+    "fields": {
+      "created_at": "2026-05-01T08:14:11.178Z",
+      "modified_at": "2026-05-01T08:14:11.178Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Baugrubenumschliessung, Fundation, Bohrungen\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -3054,6 +3313,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "gewaesserschutzbereich",
+    "fields": {
+      "created_at": "2026-04-29T15:06:57.256Z",
+      "modified_at": "2026-04-29T15:06:57.256Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gewässerschutzbereich / Grundwasserschutzzonen / - areale\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "grundbuchkreis",
     "fields": {
       "created_at": "2026-03-13T08:36:00.921Z",
@@ -3359,6 +3652,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "kbs",
+    "fields": {
+      "created_at": "2026-04-29T15:06:37.054Z",
+      "modified_at": "2026-04-29T15:06:37.054Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist das Grundstück im Kataster der belasteten Standorte eingetragen?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "kontaktperson",
     "fields": {
       "created_at": "2026-03-17T12:38:06.621Z",
@@ -3647,6 +3971,68 @@
         "max_length": null,
         "min_length": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "naturgefahr",
+    "fields": {
+      "created_at": "2026-05-01T08:15:48.495Z",
+      "modified_at": "2026-05-01T08:15:48.495Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Naturgefahr\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "neophyten",
+    "fields": {
+      "created_at": "2026-05-01T08:14:38.842Z",
+      "modified_at": "2026-05-01T08:14:38.842Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist der Aushub mit invasiven Neophyten oder sonst wie belastet?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -4845,6 +5231,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "baugrubenumschliessung-fundation-bohrungen.baugrubenumschliessung-fundation-bohrungen-ja",
+    "fields": {
+      "created_at": "2026-05-01T08:14:11.193Z",
+      "modified_at": "2026-05-01T08:14:11.193Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "baugrubenumschliessung-fundation-bohrungen",
+      "option": "baugrubenumschliessung-fundation-bohrungen-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "baugrubenumschliessung-fundation-bohrungen.baugrubenumschliessung-fundation-bohrungen-nein",
+    "fields": {
+      "created_at": "2026-05-01T08:14:11.188Z",
+      "modified_at": "2026-05-01T08:14:11.188Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "baugrubenumschliessung-fundation-bohrungen",
+      "option": "baugrubenumschliessung-fundation-bohrungen-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "bauvisiere.bauvisiere-ja",
     "fields": {
       "created_at": "2026-03-12T13:05:20.563Z",
@@ -4960,6 +5376,111 @@
       "modified_by_group": null,
       "question": "juristische-person",
       "option": "juristische-person-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kbs.kbs-ja",
+    "fields": {
+      "created_at": "2026-04-29T15:06:37.068Z",
+      "modified_at": "2026-04-29T15:06:37.068Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kbs",
+      "option": "kbs-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "kbs.kbs-nein",
+    "fields": {
+      "created_at": "2026-04-29T15:06:37.064Z",
+      "modified_at": "2026-04-29T15:06:37.064Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kbs",
+      "option": "kbs-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "naturgefahr.naturgefahr-keine",
+    "fields": {
+      "created_at": "2026-05-01T08:15:48.508Z",
+      "modified_at": "2026-05-01T08:15:48.508Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "naturgefahr",
+      "option": "naturgefahr-keine",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "naturgefahr.naturgefahr-unbekannt",
+    "fields": {
+      "created_at": "2026-05-01T08:15:48.501Z",
+      "modified_at": "2026-05-01T08:15:48.501Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "naturgefahr",
+      "option": "naturgefahr-unbekannt",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "naturgefahr.naturgefahr-vorhanden",
+    "fields": {
+      "created_at": "2026-05-01T08:15:48.505Z",
+      "modified_at": "2026-05-01T08:15:48.505Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "naturgefahr",
+      "option": "naturgefahr-vorhanden",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "neophyten.neophyten-ja",
+    "fields": {
+      "created_at": "2026-05-01T08:14:38.852Z",
+      "modified_at": "2026-05-01T08:14:38.852Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "neophyten",
+      "option": "neophyten-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "neophyten.neophyten-nein",
+    "fields": {
+      "created_at": "2026-05-01T08:14:38.848Z",
+      "modified_at": "2026-05-01T08:14:38.848Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "neophyten",
+      "option": "neophyten-nein",
       "sort": 1
     }
   },
