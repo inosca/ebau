@@ -20,6 +20,7 @@
       <f.input
         @label={{t "deadlines.suspension.property.startDate"}}
         @name="startDate"
+        @required={{true}}
         as |fi|
       >
         <div data-test-suspension-start-date-input>
@@ -73,7 +74,6 @@
       <f.input
         @name="remark"
         @label={{t "deadlines.suspension.property.remark"}}
-        @required={{true}}
         as |fi|
       >
         <Snippets @disabled={{not (has-feature "deadlines.snippets")}}>
