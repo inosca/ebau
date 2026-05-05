@@ -293,7 +293,7 @@ class Command(BaseCommand):
             filters = settings.PERMISSIONS.get("MIGRATION_FILTERS", {}).get(
                 "construction_control", Q()
             )
-            self._build_permissions_from_instance_service(
+            yield from self._build_permissions_from_instance_service(
                 construction_control, involved_construction_control, filters
             )
         else:  # not settings.APPLICATION.get("USE_INSTANCE_SERVICE")
