@@ -1209,15 +1209,27 @@ BE_PERMISSIONS_SETTINGS = {
         "DISTRIBUTION_INVITEE": "distribution-service",
         "CONSTRUCTION_CONTROL": "construction-control",
         "CONSTRUCTION_CONTROL_INVOLVED": "involved-construction-control",
+        "SUPPORT": "support",
         # TODO refactor somehow to something more explicit
     },
+    "MIGRATION_EXCLUDE_ACCESS_LEVELS": [
+        # Access levels that should be excluded when evaluating ACLs to
+        # create / revoke during migration. In canton BE the geometer
+        # and read access levels can be granted manually or by the system
+        # and have been released well before the migration.
+        "geometer",
+        "read",
+    ],
     "MIGRATION_FILTERS": {
         # Specific filters for being more exact about what data to fetch,
         # where neccessary
         "municipality": Q(
-            Q(service__service_group__name="municipality")
-            | Q(service__service_group__name="district")
+            service__service_group__name__in=[
+                "municipality",
+                "district",
+                "lead-service",
+            ]
         ),
-        "construction_control": Q(service__service_group__name="consruction-control"),
+        "construction_control": Q(service__service_group__name="construction-control"),
     },
 }
