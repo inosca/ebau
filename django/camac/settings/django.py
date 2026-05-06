@@ -3142,7 +3142,15 @@ APPLICATIONS = {
         "CALUMA": {
             "MANUAL_WORK_ITEM_TASK": "create-manual-workitems",
             "SUBMIT_TASKS": ["submit"],
-            "FORM_PERMISSIONS": ["main"],
+            "FORM_PERMISSIONS": [
+                "main",
+                "formelle-vorpruefung",
+                "materielle-pruefung",
+            ],
+            "FORM_PERMISSIONS_MAPPING": {
+                "form-formelle-vorpruefung-write": "formal-exam-write",
+                "form-materielle-pruefung-write": "material-exam-write",
+            },
             "HAS_PROJECT_CHANGE": True,
             "CREATE_IN_PROCESS": False,
             "GENERATE_IDENTIFIER": True,

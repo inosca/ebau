@@ -153,6 +153,7 @@
           "route": "cases.detail.task-form",
           "models": ["INSTANCE_ID", "TASK_SLUG"]
         },
+        "writePermissionKey": "formal-exam-write",
         "redirectToWorkItemsAfterCompletion": true
       },
       "address_groups": "[\"municipality\"]|groups",
@@ -182,6 +183,7 @@
           "route": "cases.detail.task-form",
           "models": ["INSTANCE_ID", "TASK_SLUG"]
         },
+        "writePermissionKey": "material-exam-write",
         "redirectToWorkItemsAfterCompletion": true
       },
       "address_groups": "[\"municipality\"]|groups",

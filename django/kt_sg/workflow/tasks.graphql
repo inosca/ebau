@@ -19,7 +19,7 @@ mutation CreateFormalExamTask {
       addressGroups: "[\"municipality\"]|groups"
       controlGroups: "[\"municipality\"]|groups"
       leadTime: 432000 # 5 days
-      meta: "{\"directLink\":{\"route\":\"cases.detail.task-form\",\"models\":[\"INSTANCE_ID\",\"TASK_SLUG\"]},\"redirectToWorkItemsAfterCompletion\":true}"
+      meta: "{\"directLink\":{\"route\":\"cases.detail.task-form\",\"models\":[\"INSTANCE_ID\",\"TASK_SLUG\"]},\"redirectToWorkItemsAfterCompletion\":true, \"writePermissionKey\": \"formal-exam-write\"}"
     }
   ) {
     clientMutationId
@@ -35,7 +35,7 @@ mutation CreateMaterialExamTask {
       addressGroups: "[\"municipality\"]|groups"
       controlGroups: "[\"municipality\"]|groups"
       leadTime: 432000 # 5 days
-      meta: "{\"directLink\":{\"route\":\"cases.detail.task-form\",\"models\":[\"INSTANCE_ID\",\"TASK_SLUG\"]},\"redirectToWorkItemsAfterCompletion\":true}"
+      meta: "{\"directLink\":{\"route\":\"cases.detail.task-form\",\"models\":[\"INSTANCE_ID\",\"TASK_SLUG\"]},\"redirectToWorkItemsAfterCompletion\":true, \"writePermissionKey\": \"material-exam-write\"}"
     }
   ) {
     clientMutationId
