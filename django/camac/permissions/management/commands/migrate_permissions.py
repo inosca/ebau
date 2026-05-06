@@ -293,7 +293,7 @@ class Command(BaseCommand):
             filters = settings.PERMISSIONS.get("MIGRATION_FILTERS", {}).get(
                 "construction_control", Q()
             )
-            self._build_permissions_from_instance_service(
+            yield from self._build_permissions_from_instance_service(
                 construction_control, involved_construction_control, filters
             )
         else:  # not settings.APPLICATION.get("USE_INSTANCE_SERVICE")
@@ -470,8 +470,6 @@ class Command(BaseCommand):
                 state=STATE_ACTIVE,
                 type=permission_models.GRANT_CHOICES.USER.value,
                 user_id=app.invitee_id,
-                #
-                created_by_event="applicant_added",
                 start_time=app.created,
                 metainfo={"related-applicant-id": app.pk},
             )
@@ -541,6 +539,15 @@ class Command(BaseCommand):
             # TODO: Some geometer ACLs still slip through here, which shouldn't
             # happen (PROD data): Are these manually-created or automatic?
         ).exclude(end_time__lte=timezone.now())
+
+        # Canton-specific access levels to exclude, due to using system-granted
+        # instance acls for certain access levels before migrating fully
+        # to the permissions module.
+        if exclude_access_levels := settings.PERMISSIONS.get(
+            "MIGRATION_EXCLUDE_ACCESS_LEVELS", []
+        ):
+            qs = qs.exclude(access_level_id__in=exclude_access_levels)
+
         for acl in self._iter_qs(qs, instance_prefix="instance"):
             aclstate = STATE_ACTIVE if acl.is_active() else STATE_REVOKED
             virtual_acl = ACL(
@@ -581,7 +588,7 @@ class Command(BaseCommand):
                 user_id=acl.user_id,
                 service_id=acl.service_id,
                 role_id=acl.role_id,
-                created_by_event=acl.created_by_event,
+                created_by_event="permissions-migration",
                 grant_type=acl.type,
                 access_level_id=acl.access_level,
                 metainfo={**acl.metainfo, "migrated_at": timezone.now().isoformat()},
