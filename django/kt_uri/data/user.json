@@ -3392,6 +3392,22 @@
     }
   },
   {
+    "model": "user.group",
+    "pk": 1118,
+    "fields": {
+      "role": 4,
+      "service": 675,
+      "disabled": 0,
+      "name": "Amt für Umwelt Fachbereiche Wasserkraft und Fischerei",
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": null,
+      "website": null
+    }
+  },
+  {
     "model": "user.grouplocation",
     "pk": 1,
     "fields": {
@@ -9445,6 +9461,32 @@
       "city": null,
       "address": null,
       "email": "even@example.com",
+      "website": null,
+      "logo": "",
+      "disabled": 0,
+      "notification": 0,
+      "responsibility_construction_control": false,
+      "department": null,
+      "external_identifier": null,
+      "meta": {},
+      "uses_ech_api": 0
+    }
+  },
+  {
+    "model": "user.service",
+    "pk": 675,
+    "fields": {
+      "slug": "afu-fachbereiche-wasserkraft-und-fischerei",
+      "service_group": 62,
+      "service_parent": null,
+      "name": "AfU - Fachbereiche Wasserkraft und Fischerei",
+      "description": null,
+      "sort": 187,
+      "phone": null,
+      "zip": null,
+      "city": null,
+      "address": null,
+      "email": "afu-fachbereiche-wasserkraft-und-fischerei@example.com",
       "website": null,
       "logo": "",
       "disabled": 0,
