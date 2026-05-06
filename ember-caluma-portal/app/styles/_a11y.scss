@@ -12,7 +12,7 @@ changes, it must be adjusted in all of the following files:
 .uk-tab > .uk-active > a,
 .uk-nav > .uk-active > a,
 .uk-navbar-nav > .uk-active > a {
-  font-weight: 700;
+  font-weight: $base-strong-font-weight;
 }
 
 // add a bolder active border

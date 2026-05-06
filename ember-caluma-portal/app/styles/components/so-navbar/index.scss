@@ -72,7 +72,7 @@ $navbar-border-color: $navbar-hover-color;
 
       > div:first-child {
         line-height: $global-font-size;
-        font-weight: 700;
+        font-weight: $base-strong-font-weight;
       }
 
       > div:last-child {
