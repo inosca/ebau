@@ -23,6 +23,7 @@ from camac.instance.models import Instance
 from camac.notification.serializers import NotificationTemplateSendmailSerializer
 from camac.permissions.api import PermissionManager
 from camac.relations import FormDataResourceRelatedField
+from camac.request_cache import cache_on_request
 from camac.user.permissions import permission_aware
 from camac.user.relations import (
     CurrentUserFormDataResourceRelatedField,
@@ -41,10 +42,14 @@ class AttachmentSectionSerializer(
     permission_names = serializers.SerializerMethodField()
     description = core_serializers.MultilingualField()
 
-    def get_permission_names(self, instance):
-        section_permissions = permissions.SectionPermissions(
+    @cache_on_request
+    def _section_permissions(self):
+        return permissions.SectionPermissions(
             PermissionManager.from_request(self.context["request"])
         )
+
+    def get_permission_names(self, instance):
+        section_permissions = self._section_permissions()
 
         permission_classes = section_permissions.get_permissions(
             instance,  # instance is the section, don't get confused
@@ -83,8 +88,14 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         "service": "camac.user.serializers.ServiceSerializer",
     }
 
+    @cache_on_request
+    def _section_permissions(self):
+        return permissions.SectionPermissions(
+            PermissionManager.from_request(self.context["request"])
+        )
+
     def get_webdav_link(self, instance):
-        section_permissions = permissions.SectionPermissions(self.permissions_manager())
+        section_permissions = self._section_permissions()
 
         view = self.context["view"]
         group = self.context["request"].group
