@@ -1,10 +1,12 @@
-from caluma.caluma_core.events import on
+from caluma.caluma_core.events import filter_events, on
 from caluma.caluma_workflow.events import post_complete_work_item
+from django.conf import settings
 from django.db import transaction
 from django.utils.module_loading import import_string
 
 from camac.core.utils import create_history_entry
 from camac.notification.utils import send_mail_without_request
+from camac.permissions.events import core as permissions_events
 from camac.user.models import User
 
 from .general import get_caluma_setting, get_instance
@@ -65,3 +67,22 @@ def post_complete_simple_workflow(sender, work_item, user, context, **kwargs):
             create_history_entry(instance, camac_user, history_text)
 
         send_notification(notification, context, instance.pk, user, work_item)
+
+
+@on(post_complete_work_item, raise_exception=True)
+@filter_events(
+    lambda work_item: (
+        work_item.task.slug == "construction-acceptance"
+        and settings.APPLICATION_NAME == "kt_gr"
+    )
+)
+def post_complete_construction_acceptance_gr(
+    sender, work_item, user, context, **kwargs
+):
+    """For Kt. GR send the instance_completed event.
+
+    Sent after completing construction-acceptance, when construction monitoring
+    is not enabled.
+    """
+
+    permissions_events.Trigger.instance_completed(None, work_item.case.family.instance)

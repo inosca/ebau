@@ -45,7 +45,27 @@ export default class CustomField extends Field {
           formName.startsWith("solaranlage")
         );
       }
+
+      if (["fuer-aib-freigeben", "info-aib"].includes(this.question.slug)) {
+        const formName = this.caseInformation?.value?.form ?? "";
+        const workItemForm = this.fieldset.form.slug;
+
+        if (workItemForm === "decision") {
+          return !(
+            formName.startsWith("bauanzeige") ||
+            formName.startsWith("vorlaeufige-beurteilung") ||
+            formName.startsWith("solaranlage")
+          );
+        }
+
+        return (
+          formName.startsWith("bauanzeige") ||
+          formName.startsWith("vorlaeufige-beurteilung") ||
+          formName.startsWith("solaranlage")
+        );
+      }
     }
+
     return super.hidden;
   }
 
