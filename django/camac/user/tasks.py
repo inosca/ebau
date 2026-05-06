@@ -12,7 +12,7 @@ from camac.constants import kt_bern as be_constants
 from camac.instance import models as instance_models
 from camac.permissions.events import core as permissions_events
 from camac.permissions.models import InstanceACL
-from camac.user.models import ServiceRelation
+from camac.user.models import GeometerChangeTask, ServiceRelation
 
 caluma_api = CalumaApi()
 log = getLogger(__name__)
@@ -48,7 +48,7 @@ def _should_perform_geometer_change_for_instance(instance, selected_municipality
 
 
 @shared_task
-def change_geometer_task(task):
+def change_geometer_task(task_id):
     """
     Task to change the geometer.
 
@@ -58,6 +58,8 @@ def change_geometer_task(task):
     This implies removing the old geometer's instance ACLs and granting new
     ACLs to the new geometer as well.
     """
+
+    task = GeometerChangeTask.objects.get(pk=task_id)
     task.status = "running"
     task.save()
 
