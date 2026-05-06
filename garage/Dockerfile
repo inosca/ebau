@@ -6,7 +6,7 @@ FROM dxflrs/garage:v2.3.0 AS base
 # the server.
 FROM alpine:3
 
-COPY --from=base /garage /garage
+COPY --from=base /garage /usr/local/bin/garage
 COPY garage.toml /etc/garage.toml
 COPY entrypoint.sh /entrypoint.sh
 

@@ -29,7 +29,7 @@ See `proxy/kt_gr.conf` for both examples.
 
 ## Local CLI access
 
-    alias garage='docker exec -ti compose-garage-1 /garage'
+    alias garage='docker exec -ti compose-garage-1 garage'
     garage status
 
 ## check web UI
