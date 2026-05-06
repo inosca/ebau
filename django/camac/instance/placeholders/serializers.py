@@ -1682,6 +1682,7 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
     lifts = fields.MasterDataField(
         aliases=[_("LIFTS")],
         description=_("Lifts"),
+        is_collection=True,
         nested_aliases={
             "system_type": [_("SYSTEM_TYPE")],
             "new_or_existing": [_("NEW_OR_EXISTING")],
@@ -1696,11 +1697,13 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
     building_distances = fields.MasterDataField(
         aliases=[_("BUILDING_DISTANCES")],
         description=_("Distances between adjacent buildings"),
+        is_collection=True,
         nested_aliases={"side": [_("SIDE")], "distance": [_("DISTANCE")]},
     )
     hazardous_substances = fields.MasterDataField(
         aliases=[_("HAZARDOUS_SUBSTANCES")],
         description=_("Hazardous substances"),
+        is_collection=True,
         nested_aliases={
             "material": [_("MATERIAL")],
             "material_group": [_("MATERIAL_GROUP")],
@@ -1710,6 +1713,7 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
     ventilation_systems = fields.MasterDataField(
         aliases=[_("VENTILATION_SYSTEMS")],
         description=_("Ventilation systems"),
+        is_collection=True,
         nested_aliases={
             "system_type": [_("TYPE")],
             "air_volume": [_("AIR_VOLUME")],
@@ -1719,6 +1723,7 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
     rooms_with_more_than_50_persons = fields.MasterDataField(
         aliases=[_("ROOMS_WITH_MORE_THAN_50_PERSONS")],
         description=_("List of rooms with more than 50 persons"),
+        is_collection=True,
         nested_aliases={
             "room": [_("ROOM")],
             "number_of_persons": [_("NUMBER_OF_PERSONS")],
@@ -1731,6 +1736,7 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
     solar_panels = fields.MasterDataField(
         aliases=[_("SOLAR_PANELS")],
         description=_("Solar panels"),
+        is_collection=True,
         nested_aliases={
             "type": [_("TYPE")],
             "energy_storage": [_("ENERGY_STORAGE")],
@@ -1771,6 +1777,7 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
     fire_protection_systems = fields.MasterDataField(
         aliases=[_("FIRE_PROTECTION_SYSTEMS")],
         description=_("Fire protection systems"),
+        is_collection=True,
         nested_aliases={
             "type": [_("TYPE")],
             "new_or_existing": [_("NEW_OR_EXISTING")],
@@ -1779,6 +1786,7 @@ class BeDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
     heating_systems = fields.MasterDataField(
         aliases=[_("HEATING_SYSTEMS")],
         description=_("Heating systems"),
+        is_collection=True,
         nested_aliases={
             "type": [_("TYPE")],
             "power": [_("POWER")],
@@ -1946,6 +1954,7 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
     )
     publikation = fields.PublicationField(
         aliases=[_("PUBLICATION")],
+        is_collection=True,
         nested_aliases={
             "NAME": [_("NAME")],
             "EMAIL": [_("EMAIL")],
@@ -2003,6 +2012,7 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         ],
         only_own=False,
         aliases=[_("PUBLICATION_ORGAN")],
+        is_collection=True,
         nested_aliases={
             "NAME": [_("NAME")],
             "EMAIL": [_("EMAIL")],
@@ -2192,6 +2202,7 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         source="bab_suspensions",
         aliases=[_("CANTONAL_EXAM_SUSPENSIONS")],
         description=_("Cantonal exam suspensions"),
+        is_collection=True,
         nested_aliases={
             "start": [_("SUSPENDED_FROM")],
             "start_timestamp": [_("SUSPENDED_FROM_TIMESTAMP")],
@@ -2215,6 +2226,7 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         source="bab_journal",
         aliases=[_("CANTONAL_EXAM_JOURNAL")],
         description=_("Cantonal exam journal"),
+        is_collection=True,
         nested_aliases={
             "date": [_("JOURNAL_ENTRY_DATE")],
             "date_timestamp": [_("JOURNAL_ENTRY_DATE_TIMESTAMP")],
@@ -2242,6 +2254,7 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         source="bab_protected_objects",
         aliases=[_("CANTONAL_EXAM_PROTECTED_OBJECTS")],
         description=_("Cantonal exam protected objects"),
+        is_collection=True,
         nested_aliases={
             "description": [_("PROTECTED_OBJECTS_DESIGNATION")],
             "decision_number": [_("PROTECTED_OBJECTS_DECISION_NUMBER")],
@@ -2340,6 +2353,7 @@ class SzDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             "date": ["DATE"],
             "end_date": ["END_DATE"],
         },
+        is_collection=True,
         description=_(
             "All publications with start, end, week number and journal number (defaults to week number)."
         ),
@@ -2425,6 +2439,7 @@ class SzDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         source="plot_data",
         aliases=[_("FIELD_PARZELLEN")],
         description=_("Project plot data (egrid ID/plot nr)"),
+        is_collection=True,
         nested_aliases={"plot_number": [_("NUMBER")], "egrid_number": [_("EGRID")]},
     )
     field_projektverfasser_planer = fields.MasterDataPersonObjectField(

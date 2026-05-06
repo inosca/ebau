@@ -1,5 +1,6 @@
 import base64
 import copy
+import enum
 from abc import ABC, abstractmethod
 from io import BytesIO
 from itertools import chain
@@ -76,13 +77,12 @@ class AliasedMixin:
         }
 
     description (str | None): Description displayed in user facing docs.
-    is_collection (bool): Whether the field is a collection of values. Collections
-        should be iterated over when used in templates and the docs should indicate
-        this by suffixing the placeholder with `[]`. E. g. `some_list_of_values[]`.
-        `is_collection` is set to True if at least one nested alias is provided.
+    is_collection (bool): Whether the field is a collection of values and should be
+        rendered as an iterable of values or objects. This is reflected in docs by
+        suffixing the placeholder with `[]`. E. g. `some_list_of_values[]`.
     static_translations (bool): In some cases translation of aliases is not
         desired (looking at you kt_schwyz). Here's how you do it: in the serializer
-        field, that inherits from AliasedMixin, set `enforce_untranslated` to
+        field, that inherits from AliasedMixin, set `static_translations` to
         `True` and add the alias as a **regular string** to the list of aliases. The
         result will still add the aliases to the translation dictionary with all
         configured languages, the value however is static and respects casting the
@@ -103,7 +103,7 @@ class AliasedMixin:
         self._aliases = aliases or []
         self._nested_aliases = nested_aliases or {}
         self.description = description
-        self.is_collection = is_collection or len(self._nested_aliases) > 0
+        self.is_collection = is_collection
         self.static_translations = static_translations
 
     @property
@@ -215,11 +215,16 @@ class AliasedMixin:
             ]
         )
 
-        # add collections with a trailing []
+        COLLECTION_MARK = "[]"
+
+        # Add collections with trailing COLLECTION_MARK. Otherwise consider the value
+        # of a field with nested_aliases as  a regular object, that may hold both
+        # literal values and collections.
         if self.is_collection or len(self.nested_aliases):
+            as_collection = COLLECTION_MARK if self.is_collection else ""
             available_placeholders.update(
                 [
-                    f"{translated_alias}[]"
+                    f"{translated_alias}{as_collection}"
                     for translated_alias in chain(
                         *[
                             self._get_alias_translations(alias, flat=True)
@@ -237,7 +242,7 @@ class AliasedMixin:
         for alias in names:
             # NOTE: Nested aliases like `nested.prefix.alias` are only added
             # added in their addition to `nested[].prefix[].alias`
-            if not alias.endswith("]"):
+            if self.is_collection and COLLECTION_MARK not in alias:
                 continue
 
             nested_base = alias
@@ -254,7 +259,7 @@ class AliasedMixin:
                 if "." in nested_name:
                     # NOTE: The middle part of the nested placeholder is not translated
                     prefix, nested_name = nested_name.split(".")
-                    base_prefix = f"{nested_base}.{prefix}[]"
+                    base_prefix = f"{nested_base}.{prefix}{COLLECTION_MARK}"
 
                     nested_names.add(base_prefix)
 
@@ -386,7 +391,7 @@ class CurrentUserField(UserField):
 
 class BillingEntriesField(AliasedMixin, serializers.ReadOnlyField):
     def __init__(self, own=False, total=False, only_not_charged=False, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__(is_collection=not total, **kwargs)
 
         self.own = own
         self.total = total
@@ -729,7 +734,9 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
             else {}
         )
 
-        super().__init__(nested_aliases=nested_aliases, **kwargs)
+        super().__init__(
+            nested_aliases=nested_aliases, is_collection=join_by is None, **kwargs
+        )
 
         self.only_own = only_own
         self.props = props
@@ -876,7 +883,7 @@ class InquiriesField(AliasedMixin, serializers.ReadOnlyField):
 
 class LegalSubmissionField(AliasedMixin, serializers.ReadOnlyField):
     def __init__(self, type=None, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+        super().__init__(*args, is_collection=True, **kwargs)
 
         self.type = type
 
@@ -1002,8 +1009,9 @@ class LegalSubmissionField(AliasedMixin, serializers.ReadOnlyField):
 class LegalClaimantsField(AliasedMixin, serializers.ReadOnlyField):
     def __init__(self, type=None, *args, **kwargs):
         super().__init__(
-            nested_aliases={"ADDRESS": [_("ADDRESS")], "NAME": [_("NAME")]},
             *args,
+            nested_aliases={"ADDRESS": [_("ADDRESS")], "NAME": [_("NAME")]},
+            is_collection=True,
             **kwargs,
         )
 
@@ -1205,14 +1213,22 @@ class MasterDataPersonObjectField(MasterDataField):
         "REPRESENTATIVE_EMAIL": [_("REPRESENTATIVE_EMAIL")],
     }
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, is_collection=True, **kwargs)
+
     def to_representation(self, value):
         return [parse_person_row(row, self.nested_aliases.keys()) for row in value]
 
 
 class InformationOfNeighborsField(AliasedMixin, serializers.ReadOnlyField):
+    class TypeChoices(enum.StrEnum):
+        LINK = "link"
+        QR_CODE = "qr_code"
+        NEIGHBORS = "neighbors"
+
     def __init__(
         self,
-        type,
+        type: TypeChoices,
         **kwargs,
     ):
         nested_aliases = (
@@ -1221,11 +1237,12 @@ class InformationOfNeighborsField(AliasedMixin, serializers.ReadOnlyField):
                 "ADDRESS_2": [_("ADDRESS_2")],
                 "NAME": [_("NAME")],
             }
-            if type == "neighbors"
+            if type == self.TypeChoices.NEIGHBORS
             else {}
         )
 
         super().__init__(
+            is_collection=type == self.TypeChoices.NEIGHBORS,
             nested_aliases=nested_aliases,
             **kwargs,
         )
@@ -1250,12 +1267,12 @@ class InformationOfNeighborsField(AliasedMixin, serializers.ReadOnlyField):
         if not work_item:
             return None
 
-        if self.type in ["link", "qr_code"]:
+        if self.type in [self.TypeChoices.LINK, self.TypeChoices.QR_CODE]:
             return build_url(
                 settings.PUBLIC_BASE_URL,
                 f"/public-instances/{instance.pk}/form?key={str(work_item.document.pk)[:7]}",
             )
-        elif self.type == "neighbors":
+        elif self.type == self.TypeChoices.NEIGHBORS:
             table = work_item.document.answers.filter(
                 question_id=settings.PUBLICATION["NEIGHBORS_TABLE_QUESTION"]
             ).first()
@@ -1272,14 +1289,14 @@ class InformationOfNeighborsField(AliasedMixin, serializers.ReadOnlyField):
         return None  # pragma: no cover
 
     def to_representation(self, value):
-        if value and self.type == "qr_code":
+        if value and self.type == self.TypeChoices.QR_CODE:
             data = BytesIO()
             img = qrcode.make(value)
             img.save(data, "PNG")
             data_b64 = base64.b64encode(data.getvalue())
             return f"data:image/png;base64,{data_b64.decode('utf-8')}"
 
-        elif self.type == "neighbors":
+        elif self.type == self.TypeChoices.NEIGHBORS:
             return [
                 {
                     "NAME": get_person_name(person),
@@ -1348,13 +1365,14 @@ class AlexandriaDocumentField(AliasedMixin, serializers.ReadOnlyField):
 
     def __init__(
         self,
+        *args,
         mark=None,
         category=None,
         include_child_categories=False,
-        *args,
+        is_collection=True,
         **kwargs,
     ):
-        super().__init__(*args, **kwargs)
+        super().__init__(*args, is_collection=is_collection, **kwargs)
 
         self.mark = mark
         self.category = category
@@ -1426,6 +1444,9 @@ class AlexandriaDocumentField(AliasedMixin, serializers.ReadOnlyField):
 class AlexandriaSimpleDocumentField(AlexandriaDocumentField):
     nested_aliases = {}
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, is_collection=False, **kwargs)
+
     def to_representation(self, documents):
         return ",\n".join(
             [
@@ -1450,7 +1471,7 @@ class AlexandriaSimpleDocumentField(AlexandriaDocumentField):
 
 class KeywordsField(AliasedMixin, serializers.ReadOnlyField):
     def __init__(self, join_by=", ", *args, **kwargs):
-        super().__init__(**kwargs)
+        super().__init__(is_collection=False, **kwargs)
         self.join_by = join_by
 
     def to_representation(self, value):
