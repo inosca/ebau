@@ -7,9 +7,13 @@ export default class extends Ability {
 
   async canEdit() {
     if (this.permissions.fullyEnabled) {
+      const permission =
+        this.writePermissionKey ??
+        `form-${this.model.document.form.slug}-write`;
+
       const hasNewPermission = await this.permissions.hasAll(
         this.ebauModules.instanceId,
-        `form-${this.model.document.form.slug}-write`,
+        permission,
       );
 
       if (hasNewPermission) {

@@ -2,7 +2,12 @@
   <CfContent
     @documentId={{decode-id this.workItem.value.document.id}}
     @disabled={{await
-      (cannot "edit task-form" this.workItem.value task=@model)
+      (cannot
+        "edit task-form"
+        this.workItem.value
+        task=@model
+        writePermissionKey=this.workItem.value.task.meta.writePermissionKey
+      )
     }}
     @context={{hash
       instanceId=this.ebauModules.instanceId
