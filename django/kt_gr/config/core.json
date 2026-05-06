@@ -2420,6 +2420,46 @@
     }
   },
   {
+    "model": "core.rroleacl",
+    "pk": 23000002,
+    "fields": {
+      "resource": 20006,
+      "role": 20002
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 23000003,
+    "fields": {
+      "resource": 14000007,
+      "role": 20002
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 23000004,
+    "fields": {
+      "resource": 14000003,
+      "role": 20002
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 23000005,
+    "fields": {
+      "resource": 14000004,
+      "role": 20002
+    }
+  },
+  {
+    "model": "core.rroleacl",
+    "pk": 23000006,
+    "fields": {
+      "resource": 14000005,
+      "role": 20002
+    }
+  },
+  {
     "model": "core.resource",
     "pk": 20006,
     "fields": {
