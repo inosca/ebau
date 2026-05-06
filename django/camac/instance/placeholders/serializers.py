@@ -5,16 +5,18 @@ import re
 from collections import OrderedDict
 from typing import Literal
 
-from caluma.caluma_form.models import Answer
+import inflection
+from caluma.caluma_form.models import Answer, AnswerDocument, Question
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
-from django.db.models import Exists, OuterRef
+from django.db.models import Exists, OuterRef, Q
 from django.utils.timezone import now
 from django.utils.translation import get_language, gettext_noop as _
 from rest_framework import serializers
 
 from camac.billing.models import BillingV2Entry
 from camac.caluma.api import CalumaApi
+from camac.caluma.utils import get_answer_display_value
 from camac.constants import kt_gr as gr_constants, kt_uri as ur_constants
 from camac.core.translations import get_translations_canton_aware
 from camac.document.models import Attachment
@@ -2449,6 +2451,212 @@ class SzDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         static_translations=True,
         description=_("Location"),
     )
+    date_bau_einspracheentscheid = fields.MasterDataField(
+        aliases=["DATE_BAU_EINSPRACHEENTSCHEID"],
+        description=_("Decision date"),
+        source="decision_date",
+        parser=compact_human_readable_date,
+        static_translations=True,
+    )
+    bauverwaltung = fields.AliasedMethodField(
+        aliases=["BAUVERWALTUNG"],
+        description=_("Building authority"),
+        static_translations=True,
+        nested_aliases={
+            # Approval procedure
+            ### Sitzung Baukommission
+            "bewilligungsverfahren_sitzung_baukommission": [
+                "BEWILLIGUNGSVERFAHREN_SITZUNG_BAUKOMMISSION"
+            ],
+            "bewilligungsverfahren_sitzung_baukommission.bewilligungsverfahren_sitzung_baukommission_datum": [
+                "BEWILLIGUNGSVERFAHREN_SITZUNG_BAUKOMMISSION_DATUM"
+            ],
+            "bewilligungsverfahren_sitzung_baukommission.bewilligungsverfahren_sitzung_baukommission_nr": [
+                "BEWILLIGUNGSVERFAHREN_SITZUNG_BAUKOMMISSION_NR"
+            ],
+            "bewilligungsverfahren_sitzung_baukommission.bewilligungsverfahren_sitzung_baukommission_bemerkung": [
+                "BEWILLIGUNGSVERFAHREN_SITZUNG_BAUKOMMISSION_BEMERKUNG"
+            ],
+            ### Permit
+            "bewilligungsverfahren_datum_gesamtentscheid": [
+                "BEWILLIGUNGSVERFAHREN_DATUM_GESAMTENTSCHEID",
+            ],
+            "bewilligungsverfahren_gr_sitzung_beschluss": [
+                "BEWILLIGUNGSVERFAHREN_GR_SITZUNG_BESCHLUSS"
+            ],
+            "bewilligungsverfahren_gr_sitzung_bewilligungsdatum": [
+                "BEWILLIGUNGSVERFAHREN_GR_SITZUNG_BEWILLIGUNGSDATUM"
+            ],
+            "bewilligungsverfahren_gr_sitzung_datum": [
+                "BEWILLIGUNGSVERFAHREN_GR_SITZUNG_DATUM"
+            ],
+            "bewilligungsverfahren_abschreibung": [
+                "BEWILLIGUNGSVERFAHREN_ABSCHREIBUNG",
+            ],
+            "bewilligungsverfahren_bewilligung_antrag_um_verlaengerung": [
+                "BEWILLIGUNGSVERFAHREN_BEWILLIGUNG_ANTRAG_UM_VERLAENGERUNG",
+            ],
+            "bewilligungsverfahren_bewilligung_bis": [
+                "BEWILLIGUNGSVERFAHREN_BEWILLIGUNG_BIS",
+            ],
+            "bewilligungsverfahren_bewilligung_gueltig_von": [
+                "BEWILLIGUNGSVERFAHREN_BEWILLIGUNG_GUELTIG_VON",
+            ],
+            "bewilligungsverfahren_bewilligung_verlaengerung_bis": [
+                "BEWILLIGUNGSVERFAHREN_BEWILLIGUNG_VERLAENGERUNG_BIS",
+            ],
+            "bewilligungsverfahren_gr_sitzung_beschlussergebnis": [
+                "BEWILLIGUNGSVERFAHREN_GR_SITZUNG_BESCHLUSSERGEBNIS",
+            ],
+            "bewilligungsverfahren_gr_sitzung_beschwerdefrist": [
+                "BEWILLIGUNGSVERFAHREN_GR_SITZUNG_BESCHWERDEFRIST",
+            ],
+            "bewilligungsverfahren_gr_sitzung_datum_bauentscheid": [
+                "BEWILLIGUNGSVERFAHREN_GR_SITZUNG_DATUM_BAUENTSCHEID",
+            ],
+            "bewilligungsverfahren_gr_sitzung_nummer": [
+                "BEWILLIGUNGSVERFAHREN_GR_SITZUNG_NUMMER",
+            ],
+            "bewilligungsverfahren_gr_sitzung_versand": [
+                "BEWILLIGUNGSVERFAHREN_GR_SITZUNG_VERSAND",
+            ],
+            "bewilligungsverfahren_rueckzug": [
+                "BEWILLIGUNGSVERFAHREN_RUECKZUG",
+            ],
+            ## Block: Suspensions (Sistierung)
+            "bewilligungsverfahren_sistierung": ["BEWILLIGUNGSVERFAHREN_SISTIERUNG"],
+            "bewilligungsverfahren_sistierung.bewilligungsverfahren_sistierung_bemerkung": [
+                "BEWILLIGUNGSVERFAHREN_SISTIERUNG_BEMERKUNG"
+            ],
+            "bewilligungsverfahren_sistierung.bewilligungsverfahren_sistierung_bis": [
+                "BEWILLIGUNGSVERFAHREN_SISTIERUNG_BIS"
+            ],
+            "bewilligungsverfahren_sistierung.bewilligungsverfahren_sistierung_von": [
+                "BEWILLIGUNGSVERFAHREN_SISTIERUNG_VON"
+            ],
+            ## Block: Appeals
+            "beschwerdeverfahren": ["BESCHWERDEVERFAHREN"],
+            "beschwerdeverfahren.beschwerdeverfahren_weiterzug_durch": [
+                "BESCHWERDEVERFAHREN_WEITERZUG_DURCH"
+            ],
+            "beschwerdeverfahren.beschwerdeverfahren_weiterzug_durch_beschwerdegegner": [
+                "BESCHWERDEVERFAHREN_WEITERZUG_DURCH_BESCHWERDEGEGNER"
+            ],
+            "beschwerdeverfahren.beschwerdeverfahren_augenschein": [
+                "BESCHWERDEVERFAHREN_AUGENSCHEIN"
+            ],
+            "beschwerdeverfahren.beschwerdeverfahren_bemerkung": [
+                "BESCHWERDEVERFAHREN_BEMERKUNG"
+            ],
+            "beschwerdeverfahren.beschwerdeverfahren_beschwerdefuehrer": [
+                "BESCHWERDEVERFAHREN_BESCHWERDEFUEHRER"
+            ],
+            "beschwerdeverfahren.beschwerdeverfahren_betreff": [
+                "BESCHWERDEVERFAHREN_BETREFF"
+            ],
+            "beschwerdeverfahren.beschwerdeverfahren_duplik_eingereicht": [
+                "BESCHWERDEVERFAHREN_DUPLIK_EINGEREICHT"
+            ],
+            "beschwerdeverfahren.beschwerdeverfahren_ende_sistierung": [
+                "BESCHWERDEVERFAHREN_ENDE_SISTIERUNG"
+            ],
+            "beschwerdeverfahren.beschwerdeverfahren_entscheid_art": [
+                "BESCHWERDEVERFAHREN_ENTSCHEID_ART"
+            ],
+            "beschwerdeverfahren.beschwerdeverfahren_entscheid_datum": [
+                "BESCHWERDEVERFAHREN_ENTSCHEID_DATUM"
+            ],
+            "beschwerdeverfahren.beschwerdeverfahren_entscheid_nr": [
+                "BESCHWERDEVERFAHREN_ENTSCHEID_NR"
+            ],
+            "beschwerdeverfahren.beschwerdeverfahren_entscheidbehoerde": [
+                "BESCHWERDEVERFAHREN_ENTSCHEIDBEHOERDE"
+            ],
+            "beschwerdeverfahren.beschwerdeverfahren_frist_duplik": [
+                "BESCHWERDEVERFAHREN_FRIST_DUPLIK"
+            ],
+            "beschwerdeverfahren.beschwerdeverfahren_frist_replik": [
+                "BESCHWERDEVERFAHREN_FRIST_REPLIK"
+            ],
+            "beschwerdeverfahren.beschwerdeverfahren_frist_vernehmlassung": [
+                "BESCHWERDEVERFAHREN_FRIST_VERNEHMLASSUNG"
+            ],
+            "beschwerdeverfahren.beschwerdeverfahren_geschaeft_nr": [
+                "BESCHWERDEVERFAHREN_GESCHAEFT_NR"
+            ],
+            "beschwerdeverfahren.beschwerdeverfahren_rechtskraeftig_per": [
+                "BESCHWERDEVERFAHREN_RECHTSKRAEFTIG_PER"
+            ],
+            "beschwerdeverfahren.beschwerdeverfahren_replik_eingereicht": [
+                "BESCHWERDEVERFAHREN_REPLIK_EINGEREICHT"
+            ],
+            "beschwerdeverfahren.beschwerdeverfahren_start_sistierung": [
+                "BESCHWERDEVERFAHREN_START_SISTIERUNG"
+            ],
+            "beschwerdeverfahren.beschwerdeverfahren_vernehmlassung_erledigt": [
+                "BESCHWERDEVERFAHREN_VERNEHMLASSUNG_ERLEDIGT"
+            ],
+            # Construction regulations control
+            "baukontrolle_baugespannkontrolle_bemerkungen": [
+                "BAUKONTROLLE_BAUGESPANNKONTROLLE_BEMERKUNGEN"
+            ],
+            "baukontrolle_baugespannkontrolle_datum": [
+                "BAUKONTROLLE_BAUGESPANNKONTROLLE_DATUM"
+            ],  #
+            ## Subsection: notice dates 3rd parties
+            "baukontrolle_realisierung_geometer": [
+                "BAUKONTROLLE_REALISIERUNG_GEOMETER"
+            ],
+            "baukontrolle_realisierung_werke": ["BAUKONTROLLE_REALISIERUNG_WERKE"],
+            "baukontrolle_realisierung_liegenschaftsschaetzung": [
+                "BAUKONTROLLE_REALISIERUNG_LIEGENSCHAFTSSCHAETZUNG"
+            ],
+            ## Block: project execution
+            "baukontrolle_realisierung_table": ["BAUKONTROLLE_REALISIERUNG_TABLE"],
+            "baukontrolle_realisierung_table.baukontrolle_realisierung_abschreibung_bauetappe": [
+                "BAUKONTROLLE_REALISIERUNG_ABSCHREIBUNG_BAUETAPPE"
+            ],
+            "baukontrolle_realisierung_table.baukontrolle_realisierung_baubeginn": [
+                "BAUKONTROLLE_REALISIERUNG_BAUBEGINN"
+            ],
+            "baukontrolle_realisierung_table.baukontrolle_realisierung_bauende": [
+                "BAUKONTROLLE_REALISIERUNG_BAUENDE"
+            ],
+            "baukontrolle_realisierung_table.baukontrolle_realisierung_baufreigabe": [
+                "BAUKONTROLLE_REALISIERUNG_BAUFREIGABE"
+            ],
+            "baukontrolle_realisierung_table.baukontrolle_realisierung_bemerkungen": [
+                "BAUKONTROLLE_REALISIERUNG_BEMERKUNGEN"
+            ],
+            "baukontrolle_realisierung_table.baukontrolle_realisierung_beschreibung": [
+                "BAUKONTROLLE_REALISIERUNG_BESCHREIBUNG"
+            ],
+            "baukontrolle_realisierung_table.baukontrolle_realisierung_bezugsbewilligung": [
+                "BAUKONTROLLE_REALISIERUNG_BEZUGSBEWILLIGUNG"
+            ],
+            "baukontrolle_realisierung_table.baukontrolle_realisierung_fertigstellung": [
+                "BAUKONTROLLE_REALISIERUNG_FERTIGSTELLUNG"
+            ],
+            "baukontrolle_realisierung_table.baukontrolle_realisierung_kanalisationsabnahme": [
+                "BAUKONTROLLE_REALISIERUNG_KANALISATIONSABNAHME"
+            ],
+            "baukontrolle_realisierung_table.baukontrolle_realisierung_meldung_baubeginn": [
+                "BAUKONTROLLE_REALISIERUNG_MELDUNG_BAUBEGINN"
+            ],
+            "baukontrolle_realisierung_table.baukontrolle_realisierung_rohbauabnahme": [
+                "BAUKONTROLLE_REALISIERUNG_ROHBAUABNAHME"
+            ],
+            "baukontrolle_realisierung_table.baukontrolle_realisierung_schlussabnahme": [
+                "BAUKONTROLLE_REALISIERUNG_SCHLUSSABNAHME"
+            ],
+            "baukontrolle_realisierung_table.baukontrolle_realisierung_schnurgeruestabnahme": [
+                "BAUKONTROLLE_REALISIERUNG_SCHNURGERUESTABNAHME"
+            ],
+            "baukontrolle_realisierung_table.baukontrolle_realisierung_voraussichtliche_baudauer": [
+                "BAUKONTROLLE_REALISIERUNG_VORAUSSICHTLICHE_BAUDAUER"
+            ],
+        },
+    )
     field_bauherrschaft = fields.MasterDataPersonObjectField(
         source="applicants",
         aliases=[_("FIELD_BAUHERRSCHAFT")],
@@ -2551,6 +2759,52 @@ class SzDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             )
 
         return publications
+
+    def get_bauverwaltung(self, instance):
+        if not settings.APPLICATION.get("INSTANCE_MERGE_CONFIG"):
+            return {}
+
+        work_item_qs = instance.case.work_items.filter(
+            task_id=settings.APPLICATION["INSTANCE_MERGE_CONFIG"]["BAUVERWALTUNG"][
+                "TASK_SLUG"
+            ]
+        )
+
+        if not work_item_qs.exists():  # pragma: no cover
+            return {}
+
+        document = work_item_qs.first().document
+        answers = {
+            inflection.underscore(answer.question.slug): get_answer_display_value(
+                answer, option_separator="\n"
+            )
+            for answer in document.answers.filter(
+                Q(value__isnull=False) | Q(date__isnull=False)
+            )
+        }
+
+        # loop over table questions in sub form questions
+        for question in Question.objects.filter(
+            type=Question.TYPE_TABLE,
+            forms__in=document.form.questions.filter(type=Question.TYPE_FORM).values(
+                "sub_form"
+            ),
+        ):
+            question_answers = []
+            # loop over table rows in table question
+            for row in AnswerDocument.objects.filter(
+                answer__question_id=question.slug, document__family=document
+            ):
+                row_answers = {}
+                # loop over answers in table row to format the answer
+                for answer in row.document.answers.all():
+                    row_answers[inflection.underscore(answer.question.slug)] = (
+                        get_answer_display_value(answer, option_separator="\n")
+                    )
+                question_answers.append(row_answers)
+            answers[inflection.underscore(question.slug)] = question_answers
+
+        return answers
 
     class Meta:
         exclude = list(DMSPlaceholdersSerializer._declared_fields.keys())

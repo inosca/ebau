@@ -10411,6 +10411,338 @@
 # ---
 # name: test_dms_placeholders_docs[kt_schwyz]
   dict({
+    'bauverwaltung': dict({
+      'aliases': list([
+        dict({
+          'de': 'bauverwaltung',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Bauverwaltung',
+      }),
+      'nested_aliases': dict({
+        'baukontrolle_baugespannkontrolle_bemerkungen': list([
+          dict({
+            'de': 'baukontrolle_baugespannkontrolle_bemerkungen',
+          }),
+        ]),
+        'baukontrolle_baugespannkontrolle_datum': list([
+          dict({
+            'de': 'baukontrolle_baugespannkontrolle_datum',
+          }),
+        ]),
+        'baukontrolle_realisierung_geometer': list([
+          dict({
+            'de': 'baukontrolle_realisierung_geometer',
+          }),
+        ]),
+        'baukontrolle_realisierung_liegenschaftsschaetzung': list([
+          dict({
+            'de': 'baukontrolle_realisierung_liegenschaftsschaetzung',
+          }),
+        ]),
+        'baukontrolle_realisierung_table': list([
+          dict({
+            'de': 'baukontrolle_realisierung_table',
+          }),
+        ]),
+        'baukontrolle_realisierung_table.baukontrolle_realisierung_abschreibung_bauetappe': list([
+          dict({
+            'de': 'baukontrolle_realisierung_abschreibung_bauetappe',
+          }),
+        ]),
+        'baukontrolle_realisierung_table.baukontrolle_realisierung_baubeginn': list([
+          dict({
+            'de': 'baukontrolle_realisierung_baubeginn',
+          }),
+        ]),
+        'baukontrolle_realisierung_table.baukontrolle_realisierung_bauende': list([
+          dict({
+            'de': 'baukontrolle_realisierung_bauende',
+          }),
+        ]),
+        'baukontrolle_realisierung_table.baukontrolle_realisierung_baufreigabe': list([
+          dict({
+            'de': 'baukontrolle_realisierung_baufreigabe',
+          }),
+        ]),
+        'baukontrolle_realisierung_table.baukontrolle_realisierung_bemerkungen': list([
+          dict({
+            'de': 'baukontrolle_realisierung_bemerkungen',
+          }),
+        ]),
+        'baukontrolle_realisierung_table.baukontrolle_realisierung_beschreibung': list([
+          dict({
+            'de': 'baukontrolle_realisierung_beschreibung',
+          }),
+        ]),
+        'baukontrolle_realisierung_table.baukontrolle_realisierung_bezugsbewilligung': list([
+          dict({
+            'de': 'baukontrolle_realisierung_bezugsbewilligung',
+          }),
+        ]),
+        'baukontrolle_realisierung_table.baukontrolle_realisierung_fertigstellung': list([
+          dict({
+            'de': 'baukontrolle_realisierung_fertigstellung',
+          }),
+        ]),
+        'baukontrolle_realisierung_table.baukontrolle_realisierung_kanalisationsabnahme': list([
+          dict({
+            'de': 'baukontrolle_realisierung_kanalisationsabnahme',
+          }),
+        ]),
+        'baukontrolle_realisierung_table.baukontrolle_realisierung_meldung_baubeginn': list([
+          dict({
+            'de': 'baukontrolle_realisierung_meldung_baubeginn',
+          }),
+        ]),
+        'baukontrolle_realisierung_table.baukontrolle_realisierung_rohbauabnahme': list([
+          dict({
+            'de': 'baukontrolle_realisierung_rohbauabnahme',
+          }),
+        ]),
+        'baukontrolle_realisierung_table.baukontrolle_realisierung_schlussabnahme': list([
+          dict({
+            'de': 'baukontrolle_realisierung_schlussabnahme',
+          }),
+        ]),
+        'baukontrolle_realisierung_table.baukontrolle_realisierung_schnurgeruestabnahme': list([
+          dict({
+            'de': 'baukontrolle_realisierung_schnurgeruestabnahme',
+          }),
+        ]),
+        'baukontrolle_realisierung_table.baukontrolle_realisierung_voraussichtliche_baudauer': list([
+          dict({
+            'de': 'baukontrolle_realisierung_voraussichtliche_baudauer',
+          }),
+        ]),
+        'baukontrolle_realisierung_werke': list([
+          dict({
+            'de': 'baukontrolle_realisierung_werke',
+          }),
+        ]),
+        'beschwerdeverfahren': list([
+          dict({
+            'de': 'beschwerdeverfahren',
+          }),
+        ]),
+        'beschwerdeverfahren.beschwerdeverfahren_augenschein': list([
+          dict({
+            'de': 'beschwerdeverfahren_augenschein',
+          }),
+        ]),
+        'beschwerdeverfahren.beschwerdeverfahren_bemerkung': list([
+          dict({
+            'de': 'beschwerdeverfahren_bemerkung',
+          }),
+        ]),
+        'beschwerdeverfahren.beschwerdeverfahren_beschwerdefuehrer': list([
+          dict({
+            'de': 'beschwerdeverfahren_beschwerdefuehrer',
+          }),
+        ]),
+        'beschwerdeverfahren.beschwerdeverfahren_betreff': list([
+          dict({
+            'de': 'beschwerdeverfahren_betreff',
+          }),
+        ]),
+        'beschwerdeverfahren.beschwerdeverfahren_duplik_eingereicht': list([
+          dict({
+            'de': 'beschwerdeverfahren_duplik_eingereicht',
+          }),
+        ]),
+        'beschwerdeverfahren.beschwerdeverfahren_ende_sistierung': list([
+          dict({
+            'de': 'beschwerdeverfahren_ende_sistierung',
+          }),
+        ]),
+        'beschwerdeverfahren.beschwerdeverfahren_entscheid_art': list([
+          dict({
+            'de': 'beschwerdeverfahren_entscheid_art',
+          }),
+        ]),
+        'beschwerdeverfahren.beschwerdeverfahren_entscheid_datum': list([
+          dict({
+            'de': 'beschwerdeverfahren_entscheid_datum',
+          }),
+        ]),
+        'beschwerdeverfahren.beschwerdeverfahren_entscheid_nr': list([
+          dict({
+            'de': 'beschwerdeverfahren_entscheid_nr',
+          }),
+        ]),
+        'beschwerdeverfahren.beschwerdeverfahren_entscheidbehoerde': list([
+          dict({
+            'de': 'beschwerdeverfahren_entscheidbehoerde',
+          }),
+        ]),
+        'beschwerdeverfahren.beschwerdeverfahren_frist_duplik': list([
+          dict({
+            'de': 'beschwerdeverfahren_frist_duplik',
+          }),
+        ]),
+        'beschwerdeverfahren.beschwerdeverfahren_frist_replik': list([
+          dict({
+            'de': 'beschwerdeverfahren_frist_replik',
+          }),
+        ]),
+        'beschwerdeverfahren.beschwerdeverfahren_frist_vernehmlassung': list([
+          dict({
+            'de': 'beschwerdeverfahren_frist_vernehmlassung',
+          }),
+        ]),
+        'beschwerdeverfahren.beschwerdeverfahren_geschaeft_nr': list([
+          dict({
+            'de': 'beschwerdeverfahren_geschaeft_nr',
+          }),
+        ]),
+        'beschwerdeverfahren.beschwerdeverfahren_rechtskraeftig_per': list([
+          dict({
+            'de': 'beschwerdeverfahren_rechtskraeftig_per',
+          }),
+        ]),
+        'beschwerdeverfahren.beschwerdeverfahren_replik_eingereicht': list([
+          dict({
+            'de': 'beschwerdeverfahren_replik_eingereicht',
+          }),
+        ]),
+        'beschwerdeverfahren.beschwerdeverfahren_start_sistierung': list([
+          dict({
+            'de': 'beschwerdeverfahren_start_sistierung',
+          }),
+        ]),
+        'beschwerdeverfahren.beschwerdeverfahren_vernehmlassung_erledigt': list([
+          dict({
+            'de': 'beschwerdeverfahren_vernehmlassung_erledigt',
+          }),
+        ]),
+        'beschwerdeverfahren.beschwerdeverfahren_weiterzug_durch': list([
+          dict({
+            'de': 'beschwerdeverfahren_weiterzug_durch',
+          }),
+        ]),
+        'beschwerdeverfahren.beschwerdeverfahren_weiterzug_durch_beschwerdegegner': list([
+          dict({
+            'de': 'beschwerdeverfahren_weiterzug_durch_beschwerdegegner',
+          }),
+        ]),
+        'bewilligungsverfahren_abschreibung': list([
+          dict({
+            'de': 'bewilligungsverfahren_abschreibung',
+          }),
+        ]),
+        'bewilligungsverfahren_bewilligung_antrag_um_verlaengerung': list([
+          dict({
+            'de': 'bewilligungsverfahren_bewilligung_antrag_um_verlaengerung',
+          }),
+        ]),
+        'bewilligungsverfahren_bewilligung_bis': list([
+          dict({
+            'de': 'bewilligungsverfahren_bewilligung_bis',
+          }),
+        ]),
+        'bewilligungsverfahren_bewilligung_gueltig_von': list([
+          dict({
+            'de': 'bewilligungsverfahren_bewilligung_gueltig_von',
+          }),
+        ]),
+        'bewilligungsverfahren_bewilligung_verlaengerung_bis': list([
+          dict({
+            'de': 'bewilligungsverfahren_bewilligung_verlaengerung_bis',
+          }),
+        ]),
+        'bewilligungsverfahren_datum_gesamtentscheid': list([
+          dict({
+            'de': 'bewilligungsverfahren_datum_gesamtentscheid',
+          }),
+        ]),
+        'bewilligungsverfahren_gr_sitzung_beschluss': list([
+          dict({
+            'de': 'bewilligungsverfahren_gr_sitzung_beschluss',
+          }),
+        ]),
+        'bewilligungsverfahren_gr_sitzung_beschlussergebnis': list([
+          dict({
+            'de': 'bewilligungsverfahren_gr_sitzung_beschlussergebnis',
+          }),
+        ]),
+        'bewilligungsverfahren_gr_sitzung_beschwerdefrist': list([
+          dict({
+            'de': 'bewilligungsverfahren_gr_sitzung_beschwerdefrist',
+          }),
+        ]),
+        'bewilligungsverfahren_gr_sitzung_bewilligungsdatum': list([
+          dict({
+            'de': 'bewilligungsverfahren_gr_sitzung_bewilligungsdatum',
+          }),
+        ]),
+        'bewilligungsverfahren_gr_sitzung_datum': list([
+          dict({
+            'de': 'bewilligungsverfahren_gr_sitzung_datum',
+          }),
+        ]),
+        'bewilligungsverfahren_gr_sitzung_datum_bauentscheid': list([
+          dict({
+            'de': 'bewilligungsverfahren_gr_sitzung_datum_bauentscheid',
+          }),
+        ]),
+        'bewilligungsverfahren_gr_sitzung_nummer': list([
+          dict({
+            'de': 'bewilligungsverfahren_gr_sitzung_nummer',
+          }),
+        ]),
+        'bewilligungsverfahren_gr_sitzung_versand': list([
+          dict({
+            'de': 'bewilligungsverfahren_gr_sitzung_versand',
+          }),
+        ]),
+        'bewilligungsverfahren_rueckzug': list([
+          dict({
+            'de': 'bewilligungsverfahren_rueckzug',
+          }),
+        ]),
+        'bewilligungsverfahren_sistierung': list([
+          dict({
+            'de': 'bewilligungsverfahren_sistierung',
+          }),
+        ]),
+        'bewilligungsverfahren_sistierung.bewilligungsverfahren_sistierung_bemerkung': list([
+          dict({
+            'de': 'bewilligungsverfahren_sistierung_bemerkung',
+          }),
+        ]),
+        'bewilligungsverfahren_sistierung.bewilligungsverfahren_sistierung_bis': list([
+          dict({
+            'de': 'bewilligungsverfahren_sistierung_bis',
+          }),
+        ]),
+        'bewilligungsverfahren_sistierung.bewilligungsverfahren_sistierung_von': list([
+          dict({
+            'de': 'bewilligungsverfahren_sistierung_von',
+          }),
+        ]),
+        'bewilligungsverfahren_sitzung_baukommission': list([
+          dict({
+            'de': 'bewilligungsverfahren_sitzung_baukommission',
+          }),
+        ]),
+        'bewilligungsverfahren_sitzung_baukommission.bewilligungsverfahren_sitzung_baukommission_bemerkung': list([
+          dict({
+            'de': 'bewilligungsverfahren_sitzung_baukommission_bemerkung',
+          }),
+        ]),
+        'bewilligungsverfahren_sitzung_baukommission.bewilligungsverfahren_sitzung_baukommission_datum': list([
+          dict({
+            'de': 'bewilligungsverfahren_sitzung_baukommission_datum',
+          }),
+        ]),
+        'bewilligungsverfahren_sitzung_baukommission.bewilligungsverfahren_sitzung_baukommission_nr': list([
+          dict({
+            'de': 'bewilligungsverfahren_sitzung_baukommission_nr',
+          }),
+        ]),
+      }),
+    }),
     'billing_total': dict({
       'aliases': list([
         dict({
@@ -10479,6 +10811,18 @@
       ]),
       'description': dict({
         'de': 'Unverrechneter Aufwand Gemeinde',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'date_bau_einspracheentscheid': dict({
+      'aliases': list([
+        dict({
+          'de': 'date_bau_einspracheentscheid',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Datum des Bauentscheids',
       }),
       'nested_aliases': dict({
       }),
@@ -19514,12 +19858,82 @@
 # ---
 # name: test_dms_placeholders_docs_available_placeholders[set_application_sz]
   list([
+    'bauverwaltung',
+    'bauverwaltung.baukontrolle_baugespannkontrolle_bemerkungen',
+    'bauverwaltung.baukontrolle_baugespannkontrolle_datum',
+    'bauverwaltung.baukontrolle_realisierung_geometer',
+    'bauverwaltung.baukontrolle_realisierung_liegenschaftsschaetzung',
+    'bauverwaltung.baukontrolle_realisierung_table',
+    'bauverwaltung.baukontrolle_realisierung_table[]',
+    'bauverwaltung.baukontrolle_realisierung_table[].baukontrolle_realisierung_abschreibung_bauetappe',
+    'bauverwaltung.baukontrolle_realisierung_table[].baukontrolle_realisierung_baubeginn',
+    'bauverwaltung.baukontrolle_realisierung_table[].baukontrolle_realisierung_bauende',
+    'bauverwaltung.baukontrolle_realisierung_table[].baukontrolle_realisierung_baufreigabe',
+    'bauverwaltung.baukontrolle_realisierung_table[].baukontrolle_realisierung_bemerkungen',
+    'bauverwaltung.baukontrolle_realisierung_table[].baukontrolle_realisierung_beschreibung',
+    'bauverwaltung.baukontrolle_realisierung_table[].baukontrolle_realisierung_bezugsbewilligung',
+    'bauverwaltung.baukontrolle_realisierung_table[].baukontrolle_realisierung_fertigstellung',
+    'bauverwaltung.baukontrolle_realisierung_table[].baukontrolle_realisierung_kanalisationsabnahme',
+    'bauverwaltung.baukontrolle_realisierung_table[].baukontrolle_realisierung_meldung_baubeginn',
+    'bauverwaltung.baukontrolle_realisierung_table[].baukontrolle_realisierung_rohbauabnahme',
+    'bauverwaltung.baukontrolle_realisierung_table[].baukontrolle_realisierung_schlussabnahme',
+    'bauverwaltung.baukontrolle_realisierung_table[].baukontrolle_realisierung_schnurgeruestabnahme',
+    'bauverwaltung.baukontrolle_realisierung_table[].baukontrolle_realisierung_voraussichtliche_baudauer',
+    'bauverwaltung.baukontrolle_realisierung_werke',
+    'bauverwaltung.beschwerdeverfahren',
+    'bauverwaltung.beschwerdeverfahren[]',
+    'bauverwaltung.beschwerdeverfahren[].beschwerdeverfahren_augenschein',
+    'bauverwaltung.beschwerdeverfahren[].beschwerdeverfahren_bemerkung',
+    'bauverwaltung.beschwerdeverfahren[].beschwerdeverfahren_beschwerdefuehrer',
+    'bauverwaltung.beschwerdeverfahren[].beschwerdeverfahren_betreff',
+    'bauverwaltung.beschwerdeverfahren[].beschwerdeverfahren_duplik_eingereicht',
+    'bauverwaltung.beschwerdeverfahren[].beschwerdeverfahren_ende_sistierung',
+    'bauverwaltung.beschwerdeverfahren[].beschwerdeverfahren_entscheid_art',
+    'bauverwaltung.beschwerdeverfahren[].beschwerdeverfahren_entscheid_datum',
+    'bauverwaltung.beschwerdeverfahren[].beschwerdeverfahren_entscheid_nr',
+    'bauverwaltung.beschwerdeverfahren[].beschwerdeverfahren_entscheidbehoerde',
+    'bauverwaltung.beschwerdeverfahren[].beschwerdeverfahren_frist_duplik',
+    'bauverwaltung.beschwerdeverfahren[].beschwerdeverfahren_frist_replik',
+    'bauverwaltung.beschwerdeverfahren[].beschwerdeverfahren_frist_vernehmlassung',
+    'bauverwaltung.beschwerdeverfahren[].beschwerdeverfahren_geschaeft_nr',
+    'bauverwaltung.beschwerdeverfahren[].beschwerdeverfahren_rechtskraeftig_per',
+    'bauverwaltung.beschwerdeverfahren[].beschwerdeverfahren_replik_eingereicht',
+    'bauverwaltung.beschwerdeverfahren[].beschwerdeverfahren_start_sistierung',
+    'bauverwaltung.beschwerdeverfahren[].beschwerdeverfahren_vernehmlassung_erledigt',
+    'bauverwaltung.beschwerdeverfahren[].beschwerdeverfahren_weiterzug_durch',
+    'bauverwaltung.beschwerdeverfahren[].beschwerdeverfahren_weiterzug_durch_beschwerdegegner',
+    'bauverwaltung.bewilligungsverfahren_abschreibung',
+    'bauverwaltung.bewilligungsverfahren_bewilligung_antrag_um_verlaengerung',
+    'bauverwaltung.bewilligungsverfahren_bewilligung_bis',
+    'bauverwaltung.bewilligungsverfahren_bewilligung_gueltig_von',
+    'bauverwaltung.bewilligungsverfahren_bewilligung_verlaengerung_bis',
+    'bauverwaltung.bewilligungsverfahren_datum_gesamtentscheid',
+    'bauverwaltung.bewilligungsverfahren_gr_sitzung_beschluss',
+    'bauverwaltung.bewilligungsverfahren_gr_sitzung_beschlussergebnis',
+    'bauverwaltung.bewilligungsverfahren_gr_sitzung_beschwerdefrist',
+    'bauverwaltung.bewilligungsverfahren_gr_sitzung_bewilligungsdatum',
+    'bauverwaltung.bewilligungsverfahren_gr_sitzung_datum',
+    'bauverwaltung.bewilligungsverfahren_gr_sitzung_datum_bauentscheid',
+    'bauverwaltung.bewilligungsverfahren_gr_sitzung_nummer',
+    'bauverwaltung.bewilligungsverfahren_gr_sitzung_versand',
+    'bauverwaltung.bewilligungsverfahren_rueckzug',
+    'bauverwaltung.bewilligungsverfahren_sistierung',
+    'bauverwaltung.bewilligungsverfahren_sistierung[]',
+    'bauverwaltung.bewilligungsverfahren_sistierung[].bewilligungsverfahren_sistierung_bemerkung',
+    'bauverwaltung.bewilligungsverfahren_sistierung[].bewilligungsverfahren_sistierung_bis',
+    'bauverwaltung.bewilligungsverfahren_sistierung[].bewilligungsverfahren_sistierung_von',
+    'bauverwaltung.bewilligungsverfahren_sitzung_baukommission',
+    'bauverwaltung.bewilligungsverfahren_sitzung_baukommission[]',
+    'bauverwaltung.bewilligungsverfahren_sitzung_baukommission[].bewilligungsverfahren_sitzung_baukommission_bemerkung',
+    'bauverwaltung.bewilligungsverfahren_sitzung_baukommission[].bewilligungsverfahren_sitzung_baukommission_datum',
+    'bauverwaltung.bewilligungsverfahren_sitzung_baukommission[].bewilligungsverfahren_sitzung_baukommission_nr',
     'billing_total',
     'billing_total_kanton',
     'billing_total_kommunal',
     'billing_total_uncharged',
     'billing_total_uncharged_kanton',
     'billing_total_uncharged_kommunal',
+    'date_bau_einspracheentscheid',
     'date_dossiereingang',
     'date_dossiervollstandig',
     'date_start_zirkulation',
@@ -22063,12 +22477,33 @@
 # ---
 # name: test_dms_placeholders_sz[Gemeinde]
   dict({
+    'bauverwaltung': dict({
+      'baukontrolle_realisierung_table': list([
+      ]),
+      'beschwerdeverfahren': list([
+        dict({
+          'beschwerdeverfahren_weiterzug_durch': 'Beschwerdegegner',
+        }),
+      ]),
+      'bewilligungsverfahren_gr_sitzung_beschluss': 'foo',
+      'bewilligungsverfahren_gr_sitzung_bewilligungsdatum': '13.07.2010',
+      'bewilligungsverfahren_gr_sitzung_datum': '26.09.1990',
+      'bewilligungsverfahren_sistierung': list([
+      ]),
+      'bewilligungsverfahren_sitzung_baukommission': list([
+        dict({
+          'bewilligungsverfahren_sitzung_baukommission_bemerkung': 'Foo Bar',
+          'bewilligungsverfahren_sitzung_baukommission_nr': 78,
+        }),
+      ]),
+    }),
     'billing_total': '1’110.00',
     'billing_total_kanton': '666.00',
     'billing_total_kommunal': '444.00',
     'billing_total_uncharged': '1’110.00',
     'billing_total_uncharged_kanton': '666.00',
     'billing_total_uncharged_kommunal': '444.00',
+    'date_bau_einspracheentscheid': '13.07.2010',
     'date_dossiereingang': '14.10.2020',
     'date_dossiervollstandig': '25.10.2020',
     'date_start_zirkulation': '05.11.2020',

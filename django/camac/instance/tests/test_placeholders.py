@@ -1209,6 +1209,7 @@ def test_dms_placeholders_sz(
     sz_master_data_case,
     sz_instance,
     sz_dms_settings,
+    sz_distribution_settings,
     sz_placeholders_settings,
     set_application_sz,
     application_settings,
@@ -1217,6 +1218,10 @@ def test_dms_placeholders_sz(
     workflow_item,
     responsible_service,
     billing_v2_entry_factory,
+    caluma_workflow_config_sz,
+    caluma_work_item_factory,
+    caluma_document_factory,
+    form_utils: FormUtils,
     snapshot,
 ):
 
@@ -1318,6 +1323,67 @@ def test_dms_placeholders_sz(
     placeholders.append("identifier")
     sz_instance.identifier = "X-12-34-5678"
     sz_instance.save()
+
+    # Setup building-authority placeholders:
+    #
+    # Sections:
+    #  - Permit (Bewillingungsverfahren)
+    #  - Appeal (Beschwerdeverfahren)
+    #  - Construction regulations control (Baukontrolle)
+    placeholders.extend(["bauverwaltung", "date_bau_einspracheentscheid"])
+
+    application_settings["INSTANCE_MERGE_CONFIG"] = {
+        "BAUVERWALTUNG": {
+            "TASK_SLUG": "building-authority",
+        }
+    }
+
+    caluma_work_item_factory(
+        case=sz_instance.case,
+        status=WorkItem.STATUS_COMPLETED,
+        task_id=sz_distribution_settings["DISTRIBUTION_INIT_TASK"],
+        closed_at=faker.Faker().past_datetime(tzinfo=timezone.timezone.utc).isoformat(),
+    )
+    work_item = caluma_work_item_factory(
+        case=sz_instance.case,
+        status=WorkItem.STATUS_READY,
+        task_id="building-authority",
+    )
+
+    work_item.document = caluma_document_factory(form_id="bauverwaltung")
+    work_item.save()
+    form_utils.add_answer(
+        work_item.document, "bewilligungsverfahren-gr-sitzung-beschluss", "foo"
+    )
+    form_utils.add_table_answer(
+        work_item.document,
+        "beschwerdeverfahren",
+        [
+            {
+                "beschwerdeverfahren-weiterzug-durch": "beschwerdeverfahren-weiterzug-durch-beschwerdegegner"
+            }
+        ],
+    )
+    form_utils.add_answer(
+        work_item.document,
+        "bewilligungsverfahren-gr-sitzung-bewilligungsdatum",
+        faker.Faker().past_datetime(tzinfo=timezone.timezone.utc).date().isoformat(),
+    )
+    form_utils.add_answer(
+        work_item.document,
+        "bewilligungsverfahren-gr-sitzung-datum",
+        faker.Faker().past_datetime(tzinfo=timezone.timezone.utc).date().isoformat(),
+    )
+    form_utils.add_table_answer(
+        work_item.document,
+        "bewilligungsverfahren-sitzung-baukommission",
+        [
+            {
+                "bewilligungsverfahren-sitzung-baukommission-nr": 78,
+                "bewilligungsverfahren-sitzung-baukommission-bemerkung": "Foo Bar",
+            }
+        ],
+    )
 
     response = admin_client.get(
         reverse("instance-dms-placeholders", args=[sz_instance.pk])
