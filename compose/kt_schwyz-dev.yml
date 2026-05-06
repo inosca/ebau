@@ -34,7 +34,6 @@ services:
       args:
         REQUIREMENTS: requirements-dev.txt
     ports:
-      - "5555:5555"
       - "5678:5678"
     volumes:
       - djangomedia:/var/lib/camac/media
