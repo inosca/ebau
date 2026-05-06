@@ -14,14 +14,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -54,14 +46,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -93,14 +77,6 @@
     'geometer': list([
     ]),
     'information-of-neighbors': list([
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -135,14 +111,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -174,14 +142,6 @@
     'geometer': list([
     ]),
     'information-of-neighbors': list([
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -215,14 +175,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -254,14 +206,6 @@
     'geometer': list([
     ]),
     'information-of-neighbors': list([
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -295,14 +239,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -334,14 +270,6 @@
     'geometer': list([
     ]),
     'information-of-neighbors': list([
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -375,14 +303,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -414,14 +334,6 @@
     'geometer': list([
     ]),
     'information-of-neighbors': list([
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -456,14 +368,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -495,14 +399,6 @@
     'geometer': list([
     ]),
     'information-of-neighbors': list([
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -538,14 +434,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -580,14 +468,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -619,14 +499,6 @@
     'geometer': list([
     ]),
     'information-of-neighbors': list([
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -660,14 +532,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -699,14 +563,6 @@
     'geometer': list([
     ]),
     'information-of-neighbors': list([
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -741,14 +597,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -780,14 +628,6 @@
     'geometer': list([
     ]),
     'information-of-neighbors': list([
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -821,14 +661,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -860,14 +692,6 @@
     'geometer': list([
     ]),
     'information-of-neighbors': list([
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -901,14 +725,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -940,14 +756,6 @@
     'geometer': list([
     ]),
     'information-of-neighbors': list([
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -981,14 +789,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -1020,14 +820,6 @@
     'geometer': list([
     ]),
     'information-of-neighbors': list([
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -1062,14 +854,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -1101,14 +885,6 @@
     'geometer': list([
     ]),
     'information-of-neighbors': list([
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -1144,14 +920,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -1185,14 +953,6 @@
     'geometer': list([
     ]),
     'information-of-neighbors': list([
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -1230,14 +990,6 @@
     'information-of-neighbors': list([
       'read',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -1273,14 +1025,6 @@
     'information-of-neighbors': list([
       'read',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -1315,14 +1059,6 @@
     ]),
     'information-of-neighbors': list([
       'read',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -1362,14 +1098,6 @@
     'information-of-neighbors': list([
       'read',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -1404,14 +1132,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -1445,14 +1165,6 @@
     ]),
     'information-of-neighbors': list([
       'read',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -1489,14 +1201,6 @@
     'information-of-neighbors': list([
       'read',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -1532,14 +1236,6 @@
     'information-of-neighbors': list([
       'read',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -1574,14 +1270,6 @@
     ]),
     'information-of-neighbors': list([
       'read',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -1619,14 +1307,6 @@
     'information-of-neighbors': list([
       'read',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -1661,14 +1341,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
     ]),
     'nfd': list([
@@ -1701,14 +1373,6 @@
     ]),
     'information-of-neighbors': list([
       'read',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -1744,14 +1408,6 @@
     ]),
     'information-of-neighbors': list([
       'read',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -1789,14 +1445,6 @@
     ]),
     'information-of-neighbors': list([
       'read',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -1836,14 +1484,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -1875,14 +1515,6 @@
       'write',
     ]),
     'information-of-neighbors': list([
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -1918,14 +1550,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -1959,14 +1583,6 @@
       'write',
     ]),
     'information-of-neighbors': list([
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -2003,14 +1619,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -2044,14 +1652,6 @@
       'write',
     ]),
     'information-of-neighbors': list([
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -2087,14 +1687,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -2128,14 +1720,6 @@
       'write',
     ]),
     'information-of-neighbors': list([
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -2171,14 +1755,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -2212,14 +1788,6 @@
       'write',
     ]),
     'information-of-neighbors': list([
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -2255,14 +1823,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -2296,14 +1856,6 @@
       'write',
     ]),
     'information-of-neighbors': list([
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -2340,14 +1892,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -2381,14 +1925,6 @@
       'write',
     ]),
     'information-of-neighbors': list([
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -2426,14 +1962,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -2470,14 +1998,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -2511,14 +2031,6 @@
       'write',
     ]),
     'information-of-neighbors': list([
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -2554,14 +2066,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -2595,14 +2099,6 @@
       'write',
     ]),
     'information-of-neighbors': list([
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -2639,14 +2135,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -2680,14 +2168,6 @@
       'write',
     ]),
     'information-of-neighbors': list([
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -2723,14 +2203,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -2764,14 +2236,6 @@
       'write',
     ]),
     'information-of-neighbors': list([
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -2807,14 +2271,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -2848,14 +2304,6 @@
       'write',
     ]),
     'information-of-neighbors': list([
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -2891,14 +2339,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -2932,14 +2372,6 @@
       'write',
     ]),
     'information-of-neighbors': list([
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -2976,14 +2408,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -3017,14 +2441,6 @@
       'write',
     ]),
     'information-of-neighbors': list([
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -3062,14 +2478,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -3105,14 +2513,6 @@
       'write',
     ]),
     'information-of-neighbors': list([
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -3150,14 +2550,6 @@
     'geometer': list([
     ]),
     'information-of-neighbors': list([
-      'read',
-      'write',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
       'read',
       'write',
     ]),
@@ -3200,14 +2592,6 @@
       'read',
       'write',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -3243,14 +2627,6 @@
     'geometer': list([
     ]),
     'information-of-neighbors': list([
-      'read',
-      'write',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
       'read',
       'write',
     ]),
@@ -3297,14 +2673,6 @@
       'read',
       'write',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -3340,14 +2708,6 @@
     'geometer': list([
     ]),
     'information-of-neighbors': list([
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -3385,14 +2745,6 @@
     'information-of-neighbors': list([
       'read',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -3428,14 +2780,6 @@
     ]),
     'information-of-neighbors': list([
       'read',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -3473,14 +2817,6 @@
     'information-of-neighbors': list([
       'read',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -3516,14 +2852,6 @@
     'geometer': list([
     ]),
     'information-of-neighbors': list([
-      'read',
-      'write',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
       'read',
       'write',
     ]),
@@ -3568,14 +2896,6 @@
       'read',
       'write',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -3611,14 +2931,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
     ]),
     'nfd': list([
@@ -3651,14 +2963,6 @@
     'geometer': list([
     ]),
     'information-of-neighbors': list([
-      'read',
-      'write',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
       'read',
       'write',
     ]),
@@ -3697,14 +3001,6 @@
     'geometer': list([
     ]),
     'information-of-neighbors': list([
-      'read',
-      'write',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
       'read',
       'write',
     ]),
@@ -3748,14 +3044,6 @@
       'read',
       'write',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -3796,14 +3084,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -3838,14 +3118,6 @@
     'geometer': list([
     ]),
     'information-of-neighbors': list([
-      'read',
-      'write',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
       'read',
       'write',
     ]),
@@ -3888,14 +3160,6 @@
       'read',
       'write',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -3931,14 +3195,6 @@
     'geometer': list([
     ]),
     'information-of-neighbors': list([
-      'read',
-      'write',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
       'read',
       'write',
     ]),
@@ -3985,14 +3241,6 @@
       'read',
       'write',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -4028,14 +3276,6 @@
     'geometer': list([
     ]),
     'information-of-neighbors': list([
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -4073,14 +3313,6 @@
     'information-of-neighbors': list([
       'read',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -4116,14 +3348,6 @@
     ]),
     'information-of-neighbors': list([
       'read',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -4161,14 +3385,6 @@
     'information-of-neighbors': list([
       'read',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -4204,14 +3420,6 @@
     'geometer': list([
     ]),
     'information-of-neighbors': list([
-      'read',
-      'write',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
       'read',
       'write',
     ]),
@@ -4256,14 +3464,6 @@
       'read',
       'write',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -4299,14 +3499,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
     ]),
     'nfd': list([
@@ -4339,14 +3531,6 @@
     'geometer': list([
     ]),
     'information-of-neighbors': list([
-      'read',
-      'write',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
       'read',
       'write',
     ]),
@@ -4385,14 +3569,6 @@
     'geometer': list([
     ]),
     'information-of-neighbors': list([
-      'read',
-      'write',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
       'read',
       'write',
     ]),
@@ -4436,14 +3612,6 @@
       'read',
       'write',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -4484,14 +3652,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -4525,14 +3685,6 @@
     ]),
     'information-of-neighbors': list([
       'read',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -4569,14 +3721,6 @@
     'information-of-neighbors': list([
       'read',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -4611,14 +3755,6 @@
     ]),
     'information-of-neighbors': list([
       'read',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -4658,14 +3794,6 @@
     'information-of-neighbors': list([
       'read',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -4700,14 +3828,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -4741,14 +3861,6 @@
     ]),
     'information-of-neighbors': list([
       'read',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -4785,14 +3897,6 @@
     'information-of-neighbors': list([
       'read',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -4828,14 +3932,6 @@
     'information-of-neighbors': list([
       'read',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -4870,14 +3966,6 @@
     ]),
     'information-of-neighbors': list([
       'read',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -4915,14 +4003,6 @@
     'information-of-neighbors': list([
       'read',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -4957,14 +4037,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
     ]),
     'nfd': list([
@@ -4997,14 +4069,6 @@
     ]),
     'information-of-neighbors': list([
       'read',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -5040,14 +4104,6 @@
     ]),
     'information-of-neighbors': list([
       'read',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -5085,14 +4141,6 @@
     ]),
     'information-of-neighbors': list([
       'read',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -5132,14 +4180,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -5173,14 +4213,6 @@
     ]),
     'information-of-neighbors': list([
       'read',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -5217,14 +4249,6 @@
     'information-of-neighbors': list([
       'read',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -5259,14 +4283,6 @@
     ]),
     'information-of-neighbors': list([
       'read',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -5306,14 +4322,6 @@
     'information-of-neighbors': list([
       'read',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -5348,14 +4356,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -5389,14 +4389,6 @@
     ]),
     'information-of-neighbors': list([
       'read',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -5433,14 +4425,6 @@
     'information-of-neighbors': list([
       'read',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -5476,14 +4460,6 @@
     'information-of-neighbors': list([
       'read',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -5518,14 +4494,6 @@
     ]),
     'information-of-neighbors': list([
       'read',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -5563,14 +4531,6 @@
     'information-of-neighbors': list([
       'read',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -5605,14 +4565,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
     ]),
     'nfd': list([
@@ -5645,14 +4597,6 @@
     ]),
     'information-of-neighbors': list([
       'read',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -5688,14 +4632,6 @@
     ]),
     'information-of-neighbors': list([
       'read',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -5733,14 +4669,6 @@
     ]),
     'information-of-neighbors': list([
       'read',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -5780,14 +4708,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -5819,14 +4739,6 @@
     ]),
     'information-of-neighbors': list([
       'read',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -5861,14 +4773,6 @@
     'information-of-neighbors': list([
       'read',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -5901,14 +4805,6 @@
     ]),
     'information-of-neighbors': list([
       'read',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -5946,14 +4842,6 @@
     'information-of-neighbors': list([
       'read',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -5984,14 +4872,6 @@
     'geometer': list([
     ]),
     'information-of-neighbors': list([
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -6024,14 +4904,6 @@
     ]),
     'information-of-neighbors': list([
       'read',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -6066,14 +4938,6 @@
     'information-of-neighbors': list([
       'read',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -6106,14 +4970,6 @@
     ]),
     'information-of-neighbors': list([
       'read',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -6148,14 +5004,6 @@
     'information-of-neighbors': list([
       'read',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -6189,14 +5037,6 @@
     'information-of-neighbors': list([
       'read',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -6228,14 +5068,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
     ]),
     'nfd': list([
@@ -6266,14 +5098,6 @@
     ]),
     'information-of-neighbors': list([
       'read',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -6308,14 +5132,6 @@
     'information-of-neighbors': list([
       'read',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -6348,14 +5164,6 @@
     ]),
     'information-of-neighbors': list([
       'read',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -6390,14 +5198,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -6429,14 +5229,6 @@
     ]),
     'information-of-neighbors': list([
       'read',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -6471,14 +5263,6 @@
     'information-of-neighbors': list([
       'read',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -6511,14 +5295,6 @@
     ]),
     'information-of-neighbors': list([
       'read',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -6556,14 +5332,6 @@
     'information-of-neighbors': list([
       'read',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -6594,14 +5362,6 @@
     'geometer': list([
     ]),
     'information-of-neighbors': list([
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -6634,14 +5394,6 @@
     ]),
     'information-of-neighbors': list([
       'read',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -6676,14 +5428,6 @@
     'information-of-neighbors': list([
       'read',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -6716,14 +5460,6 @@
     ]),
     'information-of-neighbors': list([
       'read',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -6758,14 +5494,6 @@
     'information-of-neighbors': list([
       'read',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -6799,14 +5527,6 @@
     'information-of-neighbors': list([
       'read',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -6838,14 +5558,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
     ]),
     'nfd': list([
@@ -6876,14 +5588,6 @@
     ]),
     'information-of-neighbors': list([
       'read',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -6918,14 +5622,6 @@
     'information-of-neighbors': list([
       'read',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -6958,14 +5654,6 @@
     ]),
     'information-of-neighbors': list([
       'read',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
     ]),
     'main': list([
       'read',
@@ -7000,14 +5688,6 @@
     ]),
     'information-of-neighbors': list([
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
     ]),
@@ -7040,14 +5720,6 @@
     'geometer': list([
     ]),
     'information-of-neighbors': list([
-      'read',
-      'write',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
       'read',
       'write',
     ]),
@@ -7095,14 +5767,6 @@
       'read',
       'write',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
       'write',
@@ -7144,14 +5808,6 @@
     'geometer': list([
     ]),
     'information-of-neighbors': list([
-      'read',
-      'write',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
       'read',
       'write',
     ]),
@@ -7199,14 +5855,6 @@
       'read',
       'write',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
       'write',
@@ -7248,14 +5896,6 @@
     'geometer': list([
     ]),
     'information-of-neighbors': list([
-      'read',
-      'write',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
       'read',
       'write',
     ]),
@@ -7303,14 +5943,6 @@
       'read',
       'write',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
       'write',
@@ -7352,14 +5984,6 @@
     'geometer': list([
     ]),
     'information-of-neighbors': list([
-      'read',
-      'write',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
       'read',
       'write',
     ]),
@@ -7407,14 +6031,6 @@
       'read',
       'write',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
       'write',
@@ -7456,14 +6072,6 @@
     'geometer': list([
     ]),
     'information-of-neighbors': list([
-      'read',
-      'write',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
       'read',
       'write',
     ]),
@@ -7511,14 +6119,6 @@
       'read',
       'write',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
       'write',
@@ -7560,14 +6160,6 @@
     'geometer': list([
     ]),
     'information-of-neighbors': list([
-      'read',
-      'write',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
       'read',
       'write',
     ]),
@@ -7615,14 +6207,6 @@
       'read',
       'write',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
       'write',
@@ -7664,14 +6248,6 @@
     'geometer': list([
     ]),
     'information-of-neighbors': list([
-      'read',
-      'write',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
       'read',
       'write',
     ]),
@@ -7719,14 +6295,6 @@
       'read',
       'write',
     ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
-      'read',
-      'write',
-    ]),
     'main': list([
       'read',
       'write',
@@ -7768,14 +6336,6 @@
     'geometer': list([
     ]),
     'information-of-neighbors': list([
-      'read',
-      'write',
-    ]),
-    'inquiry': list([
-      'read',
-      'write',
-    ]),
-    'inquiry-answer': list([
       'read',
       'write',
     ]),
