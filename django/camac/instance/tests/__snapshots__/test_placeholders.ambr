@@ -9566,6 +9566,42 @@
 # ---
 # name: test_dms_placeholders_docs[kt_schwyz]
   dict({
+    'date_dossiereingang': dict({
+      'aliases': list([
+        dict({
+          'de': 'date_dossiereingang',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Datum «Dossiereingang» (Gemeinde)',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'date_dossiervollstandig': dict({
+      'aliases': list([
+        dict({
+          'de': 'date_dossiervollstandig',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Datum «Dossier vollständig»',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'date_start_zirkulation': dict({
+      'aliases': list([
+        dict({
+          'de': 'date_start_zirkulation',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Datum «Start Zirkulation» (Dossiereingang Kanton)',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'field_bauherrschaft': dict({
       'aliases': list([
         dict({
@@ -18582,6 +18618,9 @@
 # ---
 # name: test_dms_placeholders_docs_available_placeholders[set_application_sz]
   list([
+    'date_dossiereingang',
+    'date_dossiervollstandig',
+    'date_start_zirkulation',
     'field_bauherrschaft',
     'field_bauherrschaft[]',
     'field_bauherrschaft[].adresse',
@@ -21124,6 +21163,9 @@
 # ---
 # name: test_dms_placeholders_sz[Gemeinde]
   dict({
+    'date_dossiereingang': '15.10.2020',
+    'date_dossiervollstandig': '26.10.2020',
+    'date_start_zirkulation': '06.11.2020',
     'field_bauherrschaft': list([
       dict({
         'ADDRESS': 'Teststrasse 3, 5678 Musterdorf',
@@ -21234,7 +21276,7 @@
     'publications': list([
       dict({
         'calendar_week': 39,
-        'date': '27.09.2001',
+        'date': '28.09.2001',
         'end_date': '27.04.1993',
         'journal_number': 39,
       }),
