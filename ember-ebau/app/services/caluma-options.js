@@ -1,5 +1,4 @@
 import { service } from "@ember/service";
-import { getOwnConfig } from "@embroider/macros";
 import CalumaOptionsService from "@projectcaluma/ember-core/services/caluma-options";
 import { INQUIRY_STATUS } from "@projectcaluma/ember-distribution/config";
 import mainConfig from "ember-ebau-core/config/main";
@@ -70,6 +69,10 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     "inquiry-answer-forward",
   ];
   static distributionInfoQuestionsAG = ["inquiry-answer-status"];
+  static distributionInfoQuestionsSG = [
+    "inquiry-answer-subject",
+    "inquiry-answer-status",
+  ];
 
   @cantonAware
   static distributionStatusMapping = {};
@@ -116,6 +119,14 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
       icon: "question",
       color: "emphasis",
     },
+  };
+  static distributionStatusMappingSG = {
+    "inquiry-answer-status-positive": INQUIRY_STATUS.POSITIVE,
+    "inquiry-answer-status-negative": INQUIRY_STATUS.NEGATIVE,
+    "inquiry-answer-status-approved": INQUIRY_STATUS.POSITIVE,
+    "inquiry-answer-status-rejected": INQUIRY_STATUS.NEGATIVE,
+    "inquiry-answer-status-written-off": INQUIRY_STATUS.NEGATIVE,
+    "inquiry-answer-status-not-involved": INQUIRY_STATUS.POSITIVE,
   };
 
   @cantonAware
@@ -218,6 +229,20 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     };
   }
 
+  get distributionServiceGroupsSG() {
+    return {
+      subservice: { label: "distribution.own-subservices" },
+      coordination: { label: "distribution.coordination-service" },
+      "service-cantonal?distribution-group=bud": { label: "distribution.bud" },
+      "service-cantonal?distribution-group=di": { label: "distribution.di" },
+      "service-cantonal?distribution-group=gd": { label: "distribution.gd" },
+      "service-cantonal?distribution-group=sjd": { label: "distribution.sjd" },
+      "service-external": { label: "distribution.services-external" },
+      "service-federal": { label: "distribution.services-federal" },
+      municipality: { label: "distribution.municipalities" },
+    };
+  }
+
   @cantonAware
   get distributionDefaultServiceGroups() {
     return ["suggestions"];
@@ -235,34 +260,123 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     return ["subservice"];
   }
 
-  static distributionButtons = {
-    "fill-inquiry": {
-      color: "primary",
-      label: "distribution.send-answer",
-      status: "caluma.distribution.answer.buttons.compose.status",
-      willCompleteInquiry: true,
-    },
-  };
+  get distributionButtons() {
+    if (hasFeature("distribution.fourEyesPrinciple")) {
+      // Copied from SZ logic in ember-camac-ng/app/services/caluma-options.js
+      return {
+        "fill-inquiry": {
+          color: "primary",
+          label: "distribution.release-for-review",
+          status: "caluma.distribution.answer.buttons.compose.status",
+        },
+        "check-inquiry": {
+          color: "primary",
+          label: "distribution.confirm",
+          // Having this work item ready triggers a custom status so the user is
+          // aware that the inquiry needs to be confirmed.
+          status: {
+            label: "caluma.distribution.answer.buttons.confirm.status",
+            color: { addressed: "muted", controlling: "emphasis" },
+            icon: "user",
+          },
+          willCompleteInquiry: true,
+        },
+        "revise-inquiry": {
+          color: "default",
+          label: "distribution.revise",
+        },
+        "alter-inquiry": {
+          color: "primary",
+          label: "distribution.release-adjustment-for-review",
+          status: "caluma.distribution.answer.buttons.adjust.status",
+        },
+      };
+    }
+
+    return {
+      "fill-inquiry": {
+        color: "primary",
+        label: "distribution.send-answer",
+        status: "caluma.distribution.answer.buttons.compose.status",
+        willCompleteInquiry: true,
+      },
+    };
+  }
 
   @cantonAware
   static distributionDefaultLeadTime = 30;
   static distributionDefaultLeadTimeAG = 14;
   static distributionDefaultLeadTimeGR = 14;
 
+  get distributionDetails() {
+    if (!hasFeature("distribution.fourEyesPrinciple")) {
+      return null;
+    }
+
+    return (inquiry) => {
+      // Copied from SZ logic in ember-camac-ng/app/services/caluma-options.js
+      const releasedForReviewWorkItem = inquiry.childCase.workItems.edges
+        .map((workItem) => workItem.node)
+        .filter(
+          (workItem) =>
+            ["fill-inquiry", "alter-inquiry"].includes(workItem.task.slug) &&
+            workItem.status === "COMPLETED",
+        )
+        .sort((a, b) => a.closedAt - b.closedAt)
+        .reverse()[0];
+
+      return [
+        {
+          label: "caluma.distribution.inquiry.sent-at",
+          value: inquiry.childCase?.createdAt,
+          type: "date",
+        },
+        {
+          label: "caluma.distribution.inquiry.assigned-user",
+          value: inquiry.assignedUsers,
+          type: "user",
+        },
+        {
+          label: "distribution.released-for-review",
+          value: releasedForReviewWorkItem?.closedAt,
+          type: "date",
+        },
+        {
+          label: "distribution.released-for-review-by",
+          value: releasedForReviewWorkItem?.closedByUser,
+          type: "user",
+        },
+        {
+          label: "caluma.distribution.inquiry.closed-at",
+          value: inquiry.closedAt,
+          type: "date",
+        },
+        {
+          label: "distribution.closed-by",
+          value: inquiry.closedByUser,
+          type: "user",
+        },
+      ];
+    };
+  }
+
   @cached
   get distribution() {
+    const detailsFn = this.distributionDetails;
+
     return {
       ui: {
         readonly: this.session.isReadOnlyRole,
         new: {
-          showAllServices: ["ag", "gr"].includes(getOwnConfig().application),
+          showAllServices: hasFeature("distribution.showAllServices"),
         },
       },
       inquiry: {
         answer: {
           infoQuestions: CustomCalumaOptionsService.distributionInfoQuestions,
-          buttons: CustomCalumaOptionsService.distributionButtons,
+          buttons: this.distributionButtons,
           statusMapping: CustomCalumaOptionsService.distributionStatusMapping,
+          ...(detailsFn ? { details: detailsFn } : {}),
         },
       },
       new: {
@@ -288,23 +402,35 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     };
   }
 
+  #getGroupFilters(type) {
+    if (type === "subservice") {
+      return { service_parent: this.ebauModules.serviceId };
+    } else if (type === "suggestions") {
+      return { suggestion_for_instance: this.currentInstanceId };
+    } else if (type.includes("?")) {
+      const [serviceGroup, metaQuery] = type.split("?");
+      const [key, value] = metaQuery.split("=");
+
+      return {
+        service_group_name: serviceGroup,
+        meta: JSON.stringify({ key, value }),
+        has_parent: false,
+      };
+    }
+
+    return {
+      service_group_name: type.split(";").join(","),
+      has_parent: false,
+    };
+  }
+
   async fetchTypedGroups(types, search) {
     return await types.reduce(async (typed, type) => {
-      const filters =
-        type === "subservice"
-          ? { service_parent: this.ebauModules.serviceId }
-          : type === "suggestions"
-            ? { suggestion_for_instance: this.currentInstanceId }
-            : {
-                service_group_name: type.split(";").join(","),
-                has_parent: false,
-              };
-
       const result = await this.store.query("public-service", {
         search,
         exclude_own_service: true,
         available_in_distribution_for_instance: this.currentInstanceId,
-        ...filters,
+        ...this.#getGroupFilters(type),
       });
 
       return { ...(await typed), [type]: result };

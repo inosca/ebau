@@ -829,6 +829,7 @@ DUMP = {
                 ),
                 # Standard modules
                 **ADDITIONAL_DEMAND_DUMP_CONFIG,
+                **DISTRIBUTION_DUMP_CONFIG,
                 **PUBLICATION_DUMP_CONFIG,
             },
             "EXCLUDED_MODELS": [

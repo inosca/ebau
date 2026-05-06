@@ -18,6 +18,7 @@ from camac.billing.views import BillingV2EntryViewset
 from camac.caluma.api import CalumaApi
 from camac.constants import kt_uri as uri_constants
 from camac.core.utils import canton_aware
+from camac.document.filters import RESTJSONFilter
 from camac.filters import CharMultiValueFilter, NumberMultiValueFilter
 from camac.instance import utils as instance_utils
 from camac.instance.models import Instance
@@ -71,6 +72,7 @@ class PublicServiceFilterSet(FilterSet):
     )
 
     has_billing_entries = BooleanFilter(method="_filter_has_billing_entries")
+    meta = RESTJSONFilter()
 
     def _get_public_services_base(self, queryset, name, value):
         if not value:

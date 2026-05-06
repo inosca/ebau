@@ -10,7 +10,15 @@ from camac.permissions.conditions import (
 from camac.permissions.switcher import PERMISSION_MODE
 
 # Instance state rules
-STATES_ALL = RequireInstanceState(["new", "subm", "rejected"])
+STATES_ALL = RequireInstanceState(
+    [
+        "new",
+        "subm",
+        "rejected",
+        "init-distribution",
+        "distribution",
+    ]
+)
 
 # Role rules
 APPLICANT_ADMIN = HasApplicantRole(["ADMIN", "EDITOR"])
@@ -28,13 +36,18 @@ ROLES_MUNICIPALITY = HasRole(["municipality-lead"])
 # 4. Other
 MODULE_ADDITIONAL_DEMANDS = RequireWorkItem("init-additional-demand")
 MODULE_COMMUNICATIONS = STATES_ALL
+MODULE_DISTRIBUTION = RequireWorkItem("distribution")
 MODULE_DOCUMENTS = STATES_ALL
 MODULE_FORM = STATES_ALL
-MODULE_FORMAL_EXAM = RequireWorkItem("formal-exam") & ROLES_MUNICIPALITY
+MODULE_FORMAL_EXAM = (
+    RequireWorkItem("formal-exam") & ROLES_MUNICIPALITY
+) | RequireWorkItem("formal-exam", "completed")
 MODULE_HISTORY = STATES_ALL
 MODULE_JOURNAL = STATES_ALL
 MODULE_LINKED_INSTANCES = STATES_ALL
-MODULE_MATERIAL_EXAM = RequireWorkItem("material-exam") & ROLES_MUNICIPALITY
+MODULE_MATERIAL_EXAM = (
+    RequireWorkItem("material-exam") & ROLES_MUNICIPALITY
+) | RequireWorkItem("material-exam", "completed")
 MODULE_PERMISSIONS = STATES_ALL & ROLES_MUNICIPALITY
 MODULE_PUBLICATION = RequireWorkItem("create-publication") | RequireWorkItem(
     "fill-publication"
@@ -96,7 +109,21 @@ SG_PERMISSIONS_SETTINGS = {
             ("instance-submit", ACTION_INSTANCE_SUBMIT),
         ],
         "distribution-service": [
+            ("communications-read", MODULE_COMMUNICATIONS),
+            ("communications-write", MODULE_COMMUNICATIONS),
+            ("distribution-read", MODULE_DISTRIBUTION),
+            ("documents-read", MODULE_DOCUMENTS),
+            ("documents-write", MODULE_DOCUMENTS),
             ("form-read", MODULE_FORM),
+            ("formal-exam-read", MODULE_FORMAL_EXAM),
+            ("material-exam-read", MODULE_MATERIAL_EXAM),
+            ("history-read", MODULE_HISTORY),
+            ("journal-read", MODULE_JOURNAL),
+            ("journal-write", MODULE_JOURNAL),
+            ("linked-instances-read", MODULE_LINKED_INSTANCES),
+            ("responsible-read", MODULE_RESPONSIBLE),
+            ("responsible-write", MODULE_RESPONSIBLE),
+            ("work-items-read", MODULE_WORK_ITEMS),
         ],
         "lead-authority": [
             ("additional-demands-read", MODULE_ADDITIONAL_DEMANDS),
@@ -105,6 +132,7 @@ SG_PERMISSIONS_SETTINGS = {
             ("communications-convert-to-document", MODULE_COMMUNICATIONS),
             ("communications-read", MODULE_COMMUNICATIONS),
             ("communications-write", MODULE_COMMUNICATIONS),
+            ("distribution-read", MODULE_DISTRIBUTION),
             ("documents-read", MODULE_DOCUMENTS),
             ("documents-write", MODULE_DOCUMENTS),
             ("form-read", MODULE_FORM),

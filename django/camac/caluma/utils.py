@@ -225,7 +225,7 @@ def get_additional_inquiries_filters(group: Group) -> Expression | Subquery | Q:
                     )
                 ),
             )
-        case "kt_bern":
+        case "kt_bern" | "kt_sg":
             # Inquiries in which the current service is not involved (addressed or controlling)
             # are only visible if they are not addressed to subservices or if the current
             # service is the parent service of the addressed subservice.
