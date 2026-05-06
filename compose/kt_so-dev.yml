@@ -328,18 +328,10 @@ services:
   flower:
     image: mher/flower:2.0
     environment:
-      FLOWER_URL_PREFIX: "/celery-flower/"
-    ports:
-      - "7777:7777"
+      BROKER_URL: redis://default:redis@redis:6379/0
+      FLOWER_URL_PREFIX: celery-flower
     networks:
       - ebau.localhost
-    command:
-      [
-        "celery",
-        "--broker=redis://default:redis@redis:6379/0",
-        "flower",
-        "--port=7777",
-      ]
 
   elixir:
     build:
