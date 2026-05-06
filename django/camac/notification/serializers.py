@@ -234,9 +234,15 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     current_service_fr = serializers.SerializerMethodField()
     current_service_it = serializers.SerializerMethodField()
     current_service_description = serializers.SerializerMethodField()
-    date_dossiervollstandig = serializers.SerializerMethodField()
-    date_dossiereingang = serializers.SerializerMethodField()
-    date_start_zirkulation = serializers.SerializerMethodField()
+    date_dossiervollstandig = (
+        serializers.SerializerMethodField()
+    )  # DEPRECATED: GL-292 | Use SzDMSPlaceholdersSerializer
+    date_dossiereingang = (
+        serializers.SerializerMethodField()
+    )  # DEPRECATED: GL-292 | Use SzDMSPlaceholdersSerializer
+    date_start_zirkulation = (
+        serializers.SerializerMethodField()
+    )  # DEPRECATED: GL-292 | Use SzDMSPlaceholdersSerializer
     date_bau_einspracheentscheid = serializers.SerializerMethodField()
     billing_total_kommunal = serializers.SerializerMethodField()
     billing_total_kanton = serializers.SerializerMethodField()
@@ -650,18 +656,24 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             return self.format_date(entry.workflow_date)
         return "---"
 
-    def get_date_dossiervollstandig(self, instance):
+    def get_date_dossiervollstandig(
+        self, instance
+    ):  # DEPRECATED: GL-292 | Use SzDMSPlaceholdersSerializer
         return self._get_workflow_entry_date(
             instance,
             settings.APPLICATION.get("WORKFLOW_ITEMS", {}).get("INSTANCE_COMPLETE"),
         )
 
-    def get_date_dossiereingang(self, instance):
+    def get_date_dossiereingang(
+        self, instance
+    ):  # DEPRECATED: GL-292 | Use SzDMSPlaceholdersSerializer
         return self._get_workflow_entry_date(
             instance, settings.APPLICATION.get("WORKFLOW_ITEMS", {}).get("SUBMIT")
         )
 
-    def get_date_start_zirkulation(self, instance):
+    def get_date_start_zirkulation(
+        self, instance
+    ):  # DEPRECATED: GL-292 | Use SzDMSPlaceholdersSerializer
         if not settings.DISTRIBUTION:
             return "---"
 
