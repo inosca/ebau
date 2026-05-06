@@ -1021,6 +1021,7 @@
         'warmwater_heat_generator': None,
       }),
     ]),
+    'circulation_start': None,
     'city': None,
     'completion_date': None,
     'construction_costs': 129000,
@@ -1048,6 +1049,7 @@
     'dossier_number': None,
     'energy_pv_total_power': None,
     'final_approval_date': None,
+    'instance_complete': None,
     'joined_street_and_number': True,
     'landowners': list([
     ]),
@@ -1149,6 +1151,7 @@
         'warmwater_heat_generator': 7650,
       }),
     ]),
+    'circulation_start': None,
     'city': None,
     'completion_date': None,
     'construction_costs': 129000,
@@ -1176,6 +1179,7 @@
     'dossier_number': None,
     'energy_pv_total_power': None,
     'final_approval_date': None,
+    'instance_complete': None,
     'joined_street_and_number': True,
     'landowners': list([
     ]),

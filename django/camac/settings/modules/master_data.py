@@ -351,6 +351,8 @@ MASTER_DATA = {
             "zip": ("static", None),
             "submit_date": ("first_workflow_entry", [10]),
             "publication_date": ("first_workflow_entry", [15]),
+            "instance_complete": ("first_workflow_entry", [14]),
+            "circulation_start": ("first_workflow_entry", [44]),
             "decision_date": (
                 "answer",
                 "bewilligungsverfahren-gr-sitzung-bewilligungsdatum",
