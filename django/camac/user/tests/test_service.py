@@ -418,7 +418,7 @@ def test_change_geometer_task(
         status="scheduled",
     )
 
-    change_geometer_task(task=geometer_change_task)
+    change_geometer_task(geometer_change_task.pk)
 
     assert (
         str(selected_geometer.pk)
@@ -432,7 +432,13 @@ def test_change_geometer_task(
         def save(*args, **kwargs): ...
 
     fake_task = FakeTask()
-    change_geometer_task(task=fake_task)
+
+    mocker.patch(
+        "camac.user.models.GeometerChangeTask.objects.get",
+        return_value=fake_task,
+    )
+
+    change_geometer_task(task_id="doesn't matter")
     assert fake_task.status == "failed"
 
 
@@ -530,7 +536,7 @@ def test_instance_selection_for_geometer_change(
         status="scheduled",
     )
 
-    change_geometer_task(task=geometer_change_task)
+    change_geometer_task(task_id=geometer_change_task.pk)
 
     assert (
         InstanceACL.currently_active()
@@ -564,7 +570,7 @@ def test_instance_selection_for_geometer_change(
         status="scheduled",
     )
 
-    change_geometer_task(task=geometer_change_task)
+    change_geometer_task(task_id=geometer_change_task.pk)
 
     assert (
         InstanceACL.currently_active()

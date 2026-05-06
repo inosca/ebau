@@ -198,13 +198,13 @@ class ServiceView(MultilangMixin, ModelViewSet):
         if tasks.exists():
             return response.Response(status=status.HTTP_400_BAD_REQUEST, data=[])
 
-        geometer_change_task = GeometerChangeTask.objects.create(
+        task = GeometerChangeTask.objects.create(
             municipality_id=pk,
             geometer_id=request.data["selected_geometer_service_id"],
             status="scheduled",
         )
-        change_geometer_task.delay(geometer_change_task)
-        return self._task_to_response(geometer_change_task)
+        change_geometer_task.delay(task.pk)
+        return self._task_to_response(task)
 
     @permission_aware
     @action(methods=["GET"], detail=False, url_path="check-change-geometer-status")
