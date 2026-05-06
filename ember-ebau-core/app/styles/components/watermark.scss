@@ -11,7 +11,7 @@ $watermark-background-color: #a9a9a9 !default;
   line-height: 30px;
   letter-spacing: 1px;
   color: #fff;
-  font-weight: bold;
+  font-weight: $base-strong-font-weight;
   transform: rotate(-45deg);
   background-color: $watermark-background-color;
   text-transform: uppercase;
