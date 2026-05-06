@@ -103,6 +103,9 @@
               }
             ]
           },
+          "geometer": {
+            "visibility": "all"
+          },
           "applicant": {
             "visibility": "all"
           },
@@ -299,9 +302,6 @@
                 "permission": "delete"
               }
             ]
-          },
-          "geometer": {
-            "visibility": "all"
           }
         }
       },
@@ -518,6 +518,32 @@
               }
             ]
           },
+          "geometer": {
+            "visibility": "all",
+            "permissions": [
+              {
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "marks",
+                  "files"
+                ],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
           "applicant": {
             "visibility": "all"
           },
@@ -556,32 +582,6 @@
                 "condition": {
                   "InstanceState": ["construction-acceptance"]
                 },
-                "permission": "delete"
-              }
-            ]
-          },
-          "geometer": {
-            "visibility": "all",
-            "permissions": [
-              {
-                "permission": "create"
-              },
-              {
-                "scope": "Service",
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "tags",
-                  "marks",
-                  "files"
-                ],
-                "permission": "update"
-              },
-              {
-                "scope": "Service",
                 "permission": "delete"
               }
             ]
@@ -735,6 +735,9 @@
               }
             ]
           },
+          "geometer": {
+            "visibility": "all"
+          },
           "applicant": {
             "visibility": "all",
             "permissions": [
@@ -746,21 +749,21 @@
                 "permission": "create"
               },
               {
+                "scope": "All",
                 "fields": ["metainfo", "title", "category", "files"],
                 "condition": {
                   "AdditionalDemandChanges": true
                 },
-                "permission": "create",
-                "scope": "All"
+                "permission": "create"
               },
               {
                 "marks": ["void"],
+                "scope": "All",
                 "fields": ["marks"],
                 "condition": {
                   "AdditionalDemandChanges": true
                 },
-                "permission": "update",
-                "scope": "All"
+                "permission": "update"
               },
               {
                 "scope": "All",
@@ -967,9 +970,6 @@
                 "permission": "delete"
               }
             ]
-          },
-          "geometer": {
-            "visibility": "all"
           }
         }
       },
@@ -1709,6 +1709,40 @@
               }
             ]
           },
+          "geometer": {
+            "visibility": "service",
+            "permissions": [
+              {
+                "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
           "subservice": {
             "visibility": "service",
             "permissions": [
@@ -1778,40 +1812,6 @@
             ]
           },
           "municipality-lead": {
-            "visibility": "service",
-            "permissions": [
-              {
-                "scope": "Service",
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "metainfo",
-                  "category",
-                  "tags",
-                  "files"
-                ],
-                "permission": "create"
-              },
-              {
-                "scope": "Service",
-                "fields": [
-                  "title",
-                  "description",
-                  "date",
-                  "category",
-                  "tags",
-                  "files"
-                ],
-                "permission": "update"
-              },
-              {
-                "scope": "Service",
-                "permission": "delete"
-              }
-            ]
-          },
-          "geometer": {
             "visibility": "service",
             "permissions": [
               {
@@ -2517,6 +2517,9 @@
               }
             ]
           },
+          "geometer": {
+            "visibility": "all"
+          },
           "applicant": {
             "visibility": "all",
             "permissions": [
@@ -2737,9 +2740,6 @@
                 "permission": "update"
               }
             ]
-          },
-          "geometer": {
-            "visibility": "all"
           }
         }
       },
