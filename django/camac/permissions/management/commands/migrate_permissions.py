@@ -8,11 +8,25 @@ from logging import getLogger
 from typing import Optional
 
 import tqdm
+from caluma.caluma_form.models import Answer
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
 from django.core.management.base import BaseCommand
 from django.db import transaction
-from django.db.models import Q
+from django.db.models import (
+    Case,
+    CharField,
+    DateTimeField,
+    Exists,
+    F,
+    OuterRef,
+    Q,
+    Subquery,
+    Value,
+    When,
+)
+from django.db.models.fields.json import KeyTextTransform
+from django.db.models.functions import Cast, Coalesce, Greatest, NullIf
 from django.utils import timezone
 
 from camac.applicants import models as applicants_models
@@ -293,8 +307,31 @@ class Command(BaseCommand):
             filters = settings.PERMISSIONS.get("MIGRATION_FILTERS", {}).get(
                 "construction_control", Q()
             )
+            annotations = {}
+
+            if decision_task := settings.PERMISSIONS.get("MIGRATION_DECISION_TASK"):
+                # On instance services the activation date is only set during
+                # a change of the responsible service.
+                # When completing the decision work-item, the construction
+                # control is set initially. This is also reflected on the start
+                # time of the granted construction control acl.
+                annotations = {
+                    "start_time": Subquery(
+                        WorkItem.objects.filter(
+                            task_id=decision_task,
+                            status__in=[
+                                WorkItem.STATUS_COMPLETED,
+                                WorkItem.STATUS_SKIPPED,
+                            ],
+                            case__family__instance=OuterRef("instance"),
+                        ).values("closed_at")[:1]
+                    )
+                }
             yield from self._build_permissions_from_instance_service(
-                construction_control, involved_construction_control, filters
+                construction_control,
+                involved_construction_control,
+                filters,
+                annotations,
             )
         else:  # not settings.APPLICATION.get("USE_INSTANCE_SERVICE")
             qs = Instance.objects.all()
@@ -329,7 +366,7 @@ class Command(BaseCommand):
                 )
 
     def _build_permissions_from_instance_service(
-        self, level_active, level_inactive, is_filter
+        self, level_active, level_inactive, is_filter, annotations={}
     ):
         make_lead_acl = partial(
             ACL,
@@ -347,16 +384,22 @@ class Command(BaseCommand):
         # Instance Services map quite nicely. TODO: Only responsible services,
         # or only of a certain service group?
         instance_services = InstanceService.objects.filter(is_filter)
+        if annotations:
+            instance_services = instance_services.annotate(**annotations)
 
         is_iter = self._iter_qs(instance_services, "instance")
         log.info(f"    Checking {is_iter.total} instance services")
         for instance_service in is_iter:
             build_fn = make_lead_acl if instance_service.active else make_involved_acl
+
+            start_time = instance_service.activation_date
+            if not start_time and hasattr(instance_service, "start_time"):
+                start_time = instance_service.start_time
+
             yield build_fn(
                 instance_id=instance_service.instance_id,
                 service_id=instance_service.service_id,
-                #
-                start_time=instance_service.activation_date or timezone.now(),
+                start_time=start_time or timezone.now(),
                 metainfo={"instance-service-id": instance_service.pk},
             )
 
@@ -368,8 +411,61 @@ class Command(BaseCommand):
         filters = settings.PERMISSIONS.get("MIGRATION_FILTERS", {}).get(
             "municipality", Q()
         )
+
+        annotations = {}
+        if submit_task := settings.PERMISSIONS.get("MIGRATION_SUBMIT_TASK"):
+            # On instance services the activation date is only set during
+            # a change of the responsible service.
+            # On paper instances, the start time of the granted lead authority
+            # acl should correspond to the creation of the instance.
+            # On regular instances, the start time of the granted lead authority
+            # acl should correspond to the submit date of the instance (the
+            # completion of the submit work-item, or if not available the
+            # case meta submit date).
+            is_paper = Exists(
+                Answer.objects.filter(
+                    document__case__family__instance=OuterRef("instance"),
+                    question_id="is-paper",
+                    value="is-paper-yes",
+                )
+            )
+
+            work_item_submit_date = Subquery(
+                WorkItem.objects.filter(
+                    task_id=submit_task,
+                    status__in=[WorkItem.STATUS_COMPLETED, WorkItem.STATUS_SKIPPED],
+                    case__family__instance=OuterRef("instance"),
+                ).values("closed_at")[:1]
+            )
+            meta_submit_date = Cast(
+                NullIf(
+                    KeyTextTransform(
+                        "submit-date", "instance__case__meta", output_field=CharField()
+                    ),
+                    Value(""),
+                ),
+                output_field=DateTimeField(),
+            )
+
+            annotations = {
+                "start_time": Case(
+                    When(is_paper, then=F("instance__creation_date")),
+                    default=Coalesce(
+                        # If no completed submit work-item exists (due to
+                        # workflow migration) we fall back to the submit
+                        # date of the case meta / instance creation date.
+                        work_item_submit_date,
+                        # For imported instances, the submit date might be
+                        # earlier the creation date of the instance. Since
+                        # access is only possible once the instance is created,
+                        # we use the instance creation date in those cases.
+                        Greatest(meta_submit_date, F("instance__creation_date")),
+                    ),
+                )
+            }
+
         yield from self._build_permissions_from_instance_service(
-            level_active, level_inactive, filters
+            level_active, level_inactive, filters, annotations
         )
 
         if not settings.APPLICATION.get("USE_INSTANCE_SERVICE"):
@@ -408,7 +504,9 @@ class Command(BaseCommand):
         log.info(f"    Adding support to {inst_iter.total} instances")
 
         for inst in inst_iter:
-            yield support_acl(instance_id=inst.pk, start_time=inst.creation_date)
+            yield support_acl(
+                instance_id=inst.pk, start_time=inst.creation_date or timezone.now()
+            )
 
     def _build_distribution_permissions(self, access_level, ignore_uso=False):
         make_acl = partial(
@@ -426,10 +524,22 @@ class Command(BaseCommand):
             )
             return
 
-        wi_iter = self._iter_qs(
-            Inquiry.objects.only_active(),
-            "case__family__instance",
+        active_inquiries = Inquiry.objects.only_active()
+        inquiries_qs = active_inquiries.filter(
+            # Only select inquiry, if there is no other inquiry
+            # on that instance, addressed to the same service, that
+            # was sent earlier (i.e. only select the earliest sent
+            # inquiry for a particular service).
+            ~Exists(
+                active_inquiries.filter(
+                    addressed_groups=OuterRef("addressed_groups"),
+                    case__family=OuterRef("case__family"),
+                    child_case__created_at__lt=OuterRef("child_case__created_at"),
+                )
+            )
         )
+
+        wi_iter = self._iter_qs(inquiries_qs, "case__family__instance")
         log.info(f"    Checking {wi_iter.total} work items")
 
         uso_ids = set(
@@ -440,16 +550,19 @@ class Command(BaseCommand):
                 ),
             )
         )
+
         for workitem in wi_iter:
             # Probably never multiple, but it's a list and we want to be clean
             for service_id in workitem.addressed_groups:
                 if ignore_uso and service_id in uso_ids:
                     continue
+
                 yield make_acl(
                     instance_id=workitem.case.family.instance.pk,
                     service_id=service_id,
-                    #
-                    start_time=workitem.created_at or timezone.now(),
+                    # The inquiry child case is created when an inquiry is sent,
+                    # which is the moment the addressed service is granted access
+                    start_time=workitem.child_case.created_at or timezone.now(),
                     metainfo={"work-item-id": str(workitem.pk)},
                 )
 
