@@ -168,7 +168,6 @@ services:
 
   garage-webui:
     image: khairul169/garage-webui:latest
-    restart: unless-stopped
     volumes:
       - ../garage/garage.toml:/etc/garage.toml:ro
     ports:
