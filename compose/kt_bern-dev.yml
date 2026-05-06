@@ -281,11 +281,10 @@ services:
     command: devserver
 
   garage:
-    build:
-      context: ../garage
     volumes:
       - garage_meta:/var/lib/garage/meta/
       - garage_data:/var/lib/garage/data/
+      - ../garage/garage.toml:/etc/garage.toml:ro
     env_file:
       - ../garage/compose-env/dev-garage.conf
     networks:
@@ -293,7 +292,6 @@ services:
 
   garage-webui:
     image: khairul169/garage-webui:latest
-    restart: unless-stopped
     volumes:
       - ../garage/garage.toml:/etc/garage.toml:ro
     ports:

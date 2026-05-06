@@ -50,6 +50,13 @@ services:
       args:
         APPLICATION: ${APPLICATION}
 
+  garage:
+    image: acr.run/camac-ng/camac-ng/garage:${CI_COMMIT_TAG:-master}
+    build:
+      context: ../garage
+      cache_from:
+        - acr.run/camac-ng/camac-ng/garage:${CI_COMMIT_TAG:-master}
+
   keycloak:
     image: acr.run/camac-ng/camac-ng/keycloak:${CI_COMMIT_TAG:-master}
     build:

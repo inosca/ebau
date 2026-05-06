@@ -18,9 +18,6 @@ bind_addr = "[::]:3902"
 root_domain = ".garage.localhost"
 index = "index.html"
 
-[k2v_api]
-api_bind_addr = "[::]:3904"
-
 [admin]
 api_bind_addr = "[::]:3903"
 admin_token = "S0LX8I1y8gyTaNB4BvsonAxm4UJhRhnF6eJwidR0I7o="
