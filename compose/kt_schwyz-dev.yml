@@ -84,6 +84,7 @@ services:
       REDIS_HOST: valkey
       VALIDATION_CLASSES: camac.caluma.extensions.validations.CustomValidation
       VISIBILITY_CLASSES: camac.caluma.extensions.visibilities.CustomVisibilitySZ
+      DJANGO_DEFAULT_FILE_STORAGE: django.core.files.storage.FileSystemStorage
     env_file:
       - ../garage/compose-env/dev-ebau.conf
       - ../garage/compose-env/dev-alexandria.conf

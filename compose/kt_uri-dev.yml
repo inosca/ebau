@@ -79,6 +79,7 @@ services:
       - GWR_FERNET_KEY=GUdwT6yKxqfszrnHC7wyKDmtVZdhjSVQEPnpeJYNLf8=
       - GWR_HOUSING_STAT_BASE_URI=https://www-r.housing-stat.ch/regbl/api/ech0216/2
       - DOCUMENT_MERGE_SERVICE_URL=http://document-merge-service:8000/document-merge-service/api/v1/
+      - DJANGO_DEFAULT_FILE_STORAGE=django.core.files.storage.FileSystemStorage
     env_file:
       - ../garage/compose-env/dev-ebau.conf
       - ../garage/compose-env/dev-alexandria.conf
