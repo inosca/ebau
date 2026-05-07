@@ -1,1 +1,306 @@
-[]
+[
+  {
+    "model": "permissions.instanceacl",
+    "pk": 12,
+    "fields": {
+      "instance": 1,
+      "access_level": "support",
+      "user": null,
+      "service": null,
+      "service_group": null,
+      "role": 10000,
+      "token": null,
+      "start_time": "2020-03-06T11:10:26.099Z",
+      "end_time": null,
+      "created_by_user": null,
+      "revoked_by_user": null,
+      "created_by_service": null,
+      "revoked_by_service": null,
+      "created_by_event": "permissions-migration",
+      "revoked_by_event": null,
+      "grant_type": "ROLE",
+      "created_at": "2026-05-07T09:36:10.567Z",
+      "revoked_at": null,
+      "metainfo": {
+        "migrated_at": "2026-05-07T09:36:10.566833+00:00"
+      }
+    }
+  },
+  {
+    "model": "permissions.instanceacl",
+    "pk": 13,
+    "fields": {
+      "instance": 4,
+      "access_level": "support",
+      "user": null,
+      "service": null,
+      "service_group": null,
+      "role": 10000,
+      "token": null,
+      "start_time": "2025-11-27T09:31:13.091Z",
+      "end_time": null,
+      "created_by_user": null,
+      "revoked_by_user": null,
+      "created_by_service": null,
+      "revoked_by_service": null,
+      "created_by_event": "permissions-migration",
+      "revoked_by_event": null,
+      "grant_type": "ROLE",
+      "created_at": "2026-05-07T09:36:10.567Z",
+      "revoked_at": null,
+      "metainfo": {
+        "migrated_at": "2026-05-07T09:36:10.566976+00:00"
+      }
+    }
+  },
+  {
+    "model": "permissions.instanceacl",
+    "pk": 14,
+    "fields": {
+      "instance": 3,
+      "access_level": "applicant",
+      "user": 2,
+      "service": null,
+      "service_group": null,
+      "role": null,
+      "token": null,
+      "start_time": "2021-03-31T12:32:53.893Z",
+      "end_time": null,
+      "created_by_user": null,
+      "revoked_by_user": null,
+      "created_by_service": null,
+      "revoked_by_service": null,
+      "created_by_event": "permissions-migration",
+      "revoked_by_event": null,
+      "grant_type": "USER",
+      "created_at": "2026-05-07T09:36:10.567Z",
+      "revoked_at": null,
+      "metainfo": {
+        "migrated_at": "2026-05-07T09:36:10.567023+00:00",
+        "related-applicant-id": 3
+      }
+    }
+  },
+  {
+    "model": "permissions.instanceacl",
+    "pk": 15,
+    "fields": {
+      "instance": 3,
+      "access_level": "support",
+      "user": null,
+      "service": null,
+      "service_group": null,
+      "role": 10000,
+      "token": null,
+      "start_time": "2021-03-31T12:32:53.885Z",
+      "end_time": null,
+      "created_by_user": null,
+      "revoked_by_user": null,
+      "created_by_service": null,
+      "revoked_by_service": null,
+      "created_by_event": "permissions-migration",
+      "revoked_by_event": null,
+      "grant_type": "ROLE",
+      "created_at": "2026-05-07T09:36:10.567Z",
+      "revoked_at": null,
+      "metainfo": {
+        "migrated_at": "2026-05-07T09:36:10.567063+00:00"
+      }
+    }
+  },
+  {
+    "model": "permissions.instanceacl",
+    "pk": 16,
+    "fields": {
+      "instance": 2,
+      "access_level": "applicant",
+      "user": 2,
+      "service": null,
+      "service_group": null,
+      "role": null,
+      "token": null,
+      "start_time": "2020-03-06T11:13:35.909Z",
+      "end_time": null,
+      "created_by_user": null,
+      "revoked_by_user": null,
+      "created_by_service": null,
+      "revoked_by_service": null,
+      "created_by_event": "permissions-migration",
+      "revoked_by_event": null,
+      "grant_type": "USER",
+      "created_at": "2026-05-07T09:36:10.567Z",
+      "revoked_at": null,
+      "metainfo": {
+        "migrated_at": "2026-05-07T09:36:10.567099+00:00",
+        "related-applicant-id": 2
+      }
+    }
+  },
+  {
+    "model": "permissions.instanceacl",
+    "pk": 17,
+    "fields": {
+      "instance": 4,
+      "access_level": "applicant",
+      "user": 2,
+      "service": null,
+      "service_group": null,
+      "role": null,
+      "token": null,
+      "start_time": "2025-11-27T09:31:13.096Z",
+      "end_time": null,
+      "created_by_user": null,
+      "revoked_by_user": null,
+      "created_by_service": null,
+      "revoked_by_service": null,
+      "created_by_event": "permissions-migration",
+      "revoked_by_event": null,
+      "grant_type": "USER",
+      "created_at": "2026-05-07T09:36:10.567Z",
+      "revoked_at": null,
+      "metainfo": {
+        "migrated_at": "2026-05-07T09:36:10.567136+00:00",
+        "related-applicant-id": 4
+      }
+    }
+  },
+  {
+    "model": "permissions.instanceacl",
+    "pk": 18,
+    "fields": {
+      "instance": 3,
+      "access_level": "lead-authority",
+      "user": null,
+      "service": 2,
+      "service_group": null,
+      "role": null,
+      "token": null,
+      "start_time": "2026-05-07T09:36:10.555Z",
+      "end_time": null,
+      "created_by_user": null,
+      "revoked_by_user": null,
+      "created_by_service": null,
+      "revoked_by_service": null,
+      "created_by_event": "permissions-migration",
+      "revoked_by_event": null,
+      "grant_type": "SERVICE",
+      "created_at": "2026-05-07T09:36:10.567Z",
+      "revoked_at": null,
+      "metainfo": {
+        "migrated_at": "2026-05-07T09:36:10.567170+00:00",
+        "instance-service-id": 17000003
+      }
+    }
+  },
+  {
+    "model": "permissions.instanceacl",
+    "pk": 19,
+    "fields": {
+      "instance": 2,
+      "access_level": "support",
+      "user": null,
+      "service": null,
+      "service_group": null,
+      "role": 10000,
+      "token": null,
+      "start_time": "2020-03-06T11:13:35.906Z",
+      "end_time": null,
+      "created_by_user": null,
+      "revoked_by_user": null,
+      "created_by_service": null,
+      "revoked_by_service": null,
+      "created_by_event": "permissions-migration",
+      "revoked_by_event": null,
+      "grant_type": "ROLE",
+      "created_at": "2026-05-07T09:36:10.567Z",
+      "revoked_at": null,
+      "metainfo": {
+        "migrated_at": "2026-05-07T09:36:10.567205+00:00"
+      }
+    }
+  },
+  {
+    "model": "permissions.instanceacl",
+    "pk": 20,
+    "fields": {
+      "instance": 2,
+      "access_level": "lead-authority",
+      "user": null,
+      "service": 2,
+      "service_group": null,
+      "role": null,
+      "token": null,
+      "start_time": "2026-05-07T09:36:10.555Z",
+      "end_time": null,
+      "created_by_user": null,
+      "revoked_by_user": null,
+      "created_by_service": null,
+      "revoked_by_service": null,
+      "created_by_event": "permissions-migration",
+      "revoked_by_event": null,
+      "grant_type": "SERVICE",
+      "created_at": "2026-05-07T09:36:10.567Z",
+      "revoked_at": null,
+      "metainfo": {
+        "migrated_at": "2026-05-07T09:36:10.567240+00:00",
+        "instance-service-id": 150000
+      }
+    }
+  },
+  {
+    "model": "permissions.instanceacl",
+    "pk": 21,
+    "fields": {
+      "instance": 1,
+      "access_level": "applicant",
+      "user": 2,
+      "service": null,
+      "service_group": null,
+      "role": null,
+      "token": null,
+      "start_time": "2020-03-06T11:10:26.112Z",
+      "end_time": null,
+      "created_by_user": null,
+      "revoked_by_user": null,
+      "created_by_service": null,
+      "revoked_by_service": null,
+      "created_by_event": "permissions-migration",
+      "revoked_by_event": null,
+      "grant_type": "USER",
+      "created_at": "2026-05-07T09:36:10.567Z",
+      "revoked_at": null,
+      "metainfo": {
+        "migrated_at": "2026-05-07T09:36:10.567275+00:00",
+        "related-applicant-id": 1
+      }
+    }
+  },
+  {
+    "model": "permissions.instanceacl",
+    "pk": 22,
+    "fields": {
+      "instance": 3,
+      "access_level": "construction-control",
+      "user": null,
+      "service": 3,
+      "service_group": null,
+      "role": null,
+      "token": null,
+      "start_time": "2026-05-07T09:36:10.563Z",
+      "end_time": null,
+      "created_by_user": null,
+      "revoked_by_user": null,
+      "created_by_service": null,
+      "revoked_by_service": null,
+      "created_by_event": "permissions-migration",
+      "revoked_by_event": null,
+      "grant_type": "SERVICE",
+      "created_at": "2026-05-07T09:36:10.567Z",
+      "revoked_at": null,
+      "metainfo": {
+        "migrated_at": "2026-05-07T09:36:10.567311+00:00",
+        "instance-service-id": 17000004
+      }
+    }
+  }
+]
