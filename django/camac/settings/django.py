@@ -1055,14 +1055,6 @@ APPLICATIONS = {
                 "ebau-number",
                 "decision",
                 "geometer",
-                # TODO: Remove inquiry and inquiry-answer from Kt. BE form permissions
-                # config as soon as permissions module is activated. They will be checked
-                # through the generic caluma permissions (has_caluma_form_edit_permission)
-                # and through the distribution specific permission checks (as for the
-                # other cantons). The existing form permission checks, always allowed
-                # read and write of the inquiry and inquiry answer forms.
-                "inquiry",
-                "inquiry-answer",
             ],
             # Note: legal-submissions, additional-demands, checked through
             # default permission check in caluma permission layer
