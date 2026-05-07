@@ -159,8 +159,13 @@ class CalumaApi:
             "importiertes-dossier",
         ]
 
-    def is_submitted(self, instance, document):
-        """Return true if instance got submitted by the applicant."""
+    def is_post_submit(self, instance, document):
+        """
+        Return true if submit work item was completed or skipped.
+
+        Submit work item is completed when instance gets submitted by the applicant.
+        Submit work item is skipped when instance is appealed or copied.
+        """
         is_root_document = instance.case.document.pk == document.pk
 
         work_item = None
@@ -172,7 +177,10 @@ class CalumaApi:
 
         if not work_item:  # pragma: no cover
             return False
-        return work_item.status == caluma_workflow_models.WorkItem.STATUS_COMPLETED
+        return work_item.status in (
+            caluma_workflow_models.WorkItem.STATUS_COMPLETED,
+            caluma_workflow_models.WorkItem.STATUS_SKIPPED,
+        )
 
     def is_ech_submitted(self, instance):
         return instance.case.meta.get("ech0211-submitted", False)

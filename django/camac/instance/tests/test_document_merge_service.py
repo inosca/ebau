@@ -676,7 +676,7 @@ def test_print_meta_attributes(
 
 
 @pytest.mark.parametrize(
-    "check_validity_for_draft,is_valid,is_submitted,expected_draft_output",
+    "check_validity_for_draft,is_valid,is_post_submit,expected_draft_output",
     [
         # no validity check and form was submitted
         (False, False, True, ""),
@@ -695,7 +695,7 @@ def test_is_draft(
     group,
     check_validity_for_draft,
     is_valid,
-    is_submitted,
+    is_post_submit,
     expected_draft_output,
     mocker,
 ):
@@ -713,7 +713,9 @@ def test_is_draft(
         "caluma.caluma_form.validators.DocumentValidator.validate",
         side_effect=CustomValidationError("Not valid") if not is_valid else None,
     )
-    mocker.patch("camac.caluma.api.CalumaApi.is_submitted", return_value=is_submitted)
+    mocker.patch(
+        "camac.caluma.api.CalumaApi.is_post_submit", return_value=is_post_submit
+    )
 
     data = DMSHandler().get_data(
         be_instance, be_instance.case.document, BaseUser(), group.service

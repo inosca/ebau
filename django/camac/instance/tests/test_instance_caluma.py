@@ -53,13 +53,6 @@ def mock_public_status(mocker):
     )
 
 
-@pytest.fixture
-def mock_generate_and_store_pdf(mocker):
-    mocker.patch(
-        "camac.instance.serializers.CalumaInstanceSubmitSerializer._generate_and_store_pdf"
-    )
-
-
 @pytest.mark.freeze_time("2019-05-02")
 @pytest.mark.parametrize("service_group__name", ["municipality"])
 @pytest.mark.parametrize("instance_state__name", ["new"])

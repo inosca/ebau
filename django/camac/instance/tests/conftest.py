@@ -124,3 +124,8 @@ def sz_master_data_case_gwr_v2(sz_master_data_case, form_field_factory):
     )
 
     return sz_instance.case
+
+
+@pytest.fixture
+def mock_generate_and_store_pdf(mocker):
+    return mocker.patch("camac.instance.serializers.generate_and_store_pdf")

@@ -366,7 +366,7 @@ class DMSHandler:
         ):
             is_draft = not visitor.is_valid()
         else:
-            is_draft = not caluma_api.is_submitted(instance, document)
+            is_draft = not caluma_api.is_post_submit(instance, document)
 
         return {
             **self.get_meta_data(instance, document, service),

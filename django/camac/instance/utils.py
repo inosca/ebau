@@ -3,6 +3,8 @@ from datetime import datetime
 from itertools import chain
 from typing import Set, Union
 
+from alexandria.core import models as alexandria_models
+from alexandria.core.api import create_document_file as create_alexandria_document_file
 from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.models import Question
 from caluma.caluma_user.models import OIDCUser
@@ -16,8 +18,11 @@ from django.utils.translation import gettext as _
 
 from camac.caluma.api import CalumaApi
 from camac.constants import kt_bern as bern_constants
+from camac.document.models import Attachment, AttachmentSection
 from camac.instance.models import Instance
 from camac.user.models import Group, Service, ServiceRelation, User
+
+from . import document_merge_service
 
 
 def get_lead_authority(service):
@@ -225,6 +230,62 @@ def fill_ebau_number(
 
     # Complete work item
     complete_work_item(work_item=work_item, user=caluma_user)
+
+
+def get_pdf_section(instance, form_slug):
+    form_name = form_slug.upper() if form_slug else "MAIN"
+
+    if settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng":
+        section_type = "PAPER" if CalumaApi().is_paper(instance) else "DEFAULT"
+        return settings.APPLICATION["STORE_PDF"]["SECTION"][form_name][section_type]
+
+    return settings.APPLICATION["STORE_PDF"]["CATEGORY"][form_name]
+
+
+def generate_and_store_pdf(
+    instance, request, form_slug=None
+) -> alexandria_models.Document | Attachment | None:
+    if not settings.APPLICATION.get("STORE_PDF", False):  # pragma: no cover
+        return
+
+    pdf = document_merge_service.DMSHandler().generate_pdf(
+        instance.pk, request, form_slug
+    )
+
+    target_lookup = get_pdf_section(instance, form_slug)
+    if settings.APPLICATION["DOCUMENT_BACKEND"] == "alexandria":
+        document, file = create_alexandria_document_file(
+            user=request.user.pk,
+            group=request.group.service_id,
+            category=alexandria_models.Category.objects.get(pk=target_lookup),
+            document_title=pdf.name,
+            file_name=pdf.name,
+            file_content=pdf,
+            mime_type=pdf.content_type,
+            file_size=pdf.size,
+            additional_document_attributes={
+                "metainfo": {
+                    "camac-instance-id": str(instance.pk),
+                    "system-generated": True,
+                },
+            },
+        )
+        for mark in settings.ALEXANDRIA["MARK_VISIBILITY"].get("SENSITIVE", []):
+            document.marks.add(mark)
+
+        return document
+    else:
+        attachment_section = AttachmentSection.objects.get(pk=target_lookup)
+        return attachment_section.attachments.create(
+            instance=instance,
+            path=pdf,
+            name=pdf.name,
+            size=pdf.size,
+            mime_type=pdf.content_type,
+            user=request.user,
+            group=request.group,
+            question="dokument-weitere-gesuchsunterlagen",
+        )
 
 
 def geometer_cadastral_survey_is_necessary(answer):

@@ -6,7 +6,6 @@ from logging import getLogger
 from typing import Literal
 
 from alexandria.core import models as alexandria_models
-from alexandria.core.api import create_document_file as create_alexandria_document_file
 from caluma.caluma_form import models as form_models
 from caluma.caluma_form.api import save_answer
 from caluma.caluma_form.validators import CustomValidationError, DocumentValidator
@@ -45,7 +44,7 @@ from camac.core.utils import (
     generate_sort_key,
 )
 from camac.deadlines import models as deadlines_models
-from camac.document.models import Attachment, AttachmentSection
+from camac.document.models import Attachment
 from camac.ech0211.signals import (
     change_responsibility,
     instance_submitted,
@@ -59,6 +58,7 @@ from camac.instance.utils import (
     be_should_prevent_process_step_for_deactivated_municipality,
     copy_instance,
     fill_ebau_number,
+    generate_and_store_pdf,
     get_changeable_forms,
 )
 from camac.notification.utils import send_mail, send_mail_without_request
@@ -85,7 +85,7 @@ from camac.user.serializers import CurrentGroupDefault, CurrentServiceDefault
 from camac.utils import get_unversioned_slug
 
 from ..utils import clean_join, get_paper_settings
-from . import document_merge_service, domain_logic, models, validators
+from . import domain_logic, models, validators
 
 SUBMIT_DATE_FORMAT = "%Y-%m-%dT%H:%M:%S%z"
 COMPLETE_PRELIMINARY_CLARIFICATION_SLUGS_BE = [
@@ -1333,15 +1333,6 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 group=1,
             )
 
-    def _get_pdf_section(self, instance, form_slug):
-        form_name = form_slug.upper() if form_slug else "MAIN"
-
-        if settings.APPLICATION["DOCUMENT_BACKEND"] == "camac-ng":
-            section_type = "PAPER" if CalumaApi().is_paper(instance) else "DEFAULT"
-            return settings.APPLICATION["STORE_PDF"]["SECTION"][form_name][section_type]
-
-        return settings.APPLICATION["STORE_PDF"]["CATEGORY"][form_name]
-
     def _init_deadline(self, instance):
         deadlines_settings: DeadlinesConfig | None = settings.DEADLINES
         if not deadlines_settings or not deadlines_settings.enabled:  # pragma: no cover
@@ -1382,49 +1373,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
     def _generate_and_store_pdf(
         self, instance, form_slug=None
     ) -> alexandria_models.Document | Attachment | None:
-        if not settings.APPLICATION.get("STORE_PDF", False):  # pragma: no cover
-            return
-
-        request = self.context["request"]
-
-        pdf = document_merge_service.DMSHandler().generate_pdf(
-            instance.pk, request, form_slug
-        )
-
-        target_lookup = self._get_pdf_section(instance, form_slug)
-        if settings.APPLICATION["DOCUMENT_BACKEND"] == "alexandria":
-            document, file = create_alexandria_document_file(
-                user=request.user.pk,
-                group=request.group.service_id,
-                category=alexandria_models.Category.objects.get(pk=target_lookup),
-                document_title=pdf.name,
-                file_name=pdf.name,
-                file_content=pdf,
-                mime_type=pdf.content_type,
-                file_size=pdf.size,
-                additional_document_attributes={
-                    "metainfo": {
-                        "camac-instance-id": str(instance.pk),
-                        "system-generated": True,
-                    },
-                },
-            )
-            for mark in settings.ALEXANDRIA["MARK_VISIBILITY"].get("SENSITIVE", []):
-                document.marks.add(mark)
-
-            return document
-        else:
-            attachment_section = AttachmentSection.objects.get(pk=target_lookup)
-            return attachment_section.attachments.create(
-                instance=instance,
-                path=pdf,
-                name=pdf.name,
-                size=pdf.size,
-                mime_type=pdf.content_type,
-                user=request.user,
-                group=request.group,
-                question="dokument-weitere-gesuchsunterlagen",
-            )
+        return generate_and_store_pdf(instance, self.context["request"], form_slug)
 
     def _update_rejected_instance(self, instance):
         caluma_api = CalumaApi()
@@ -3067,6 +3016,10 @@ class CalumaInstanceAppealSerializer(serializers.Serializer):
 
             instance.set_instance_state("finished", user)
 
+        # Generate the PDF for the appeal copy, use "MAIN" form.
+        # Called after fill_ebau_number / identifier assignment
+        generate_and_store_pdf(new_instance, self.context["request"])
+
         # Add history entry to source instance
         create_history_entry(instance, user, gettext_noop("Appeal received"))
 
@@ -3101,7 +3054,8 @@ class CalumaInstanceCopySerializer(serializers.Serializer):
         )
 
         create_history_entry(new_instance, user, gettext_noop("Instance copy created"))
-
+        # Generate the PDF for the copy, use "MAIN" form.
+        generate_and_store_pdf(new_instance, self.context["request"])
         return new_instance
 
     class Meta:
