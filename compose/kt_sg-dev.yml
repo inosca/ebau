@@ -275,6 +275,14 @@ services:
     depends_on:
       - garage
 
+  flower:
+    image: mher/flower:2.0
+    environment:
+      BROKER_URL: redis://default:redis@redis:6379/0
+      FLOWER_URL_PREFIX: celery-flower
+    networks:
+      - ebau.localhost
+
 networks:
   ebau.localhost:
 
