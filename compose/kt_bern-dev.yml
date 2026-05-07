@@ -144,6 +144,7 @@ services:
       DJANGO_DOCUMENT_BACKEND: alexandria
     profiles:
       - alexandria
+      - full
     command: webdav
     ports: []
 
@@ -298,6 +299,7 @@ services:
   tika:
     image: apache/tika:3.2.3.0-full
     profiles:
+      - full
       - alexandria
     networks:
       - ebau.localhost
