@@ -46584,7 +46584,7 @@
       "hidden": 1,
       "sort": 4,
       "form_group": 40000,
-      "require_permission": null
+      "require_permission": "documents-read"
     }
   },
   {
