@@ -143,6 +143,7 @@ def test_instance_copy_with_permissions_module_be(
     instance_acl_factory,
     settings,
     multilang,
+    mock_generate_and_store_pdf,
     be_ech0211_settings,
 ):
     settings.APPLICATION_NAME = "kt_bern"
@@ -252,6 +253,10 @@ def test_instance_copy_with_permissions_module_be(
             service=lead_authority_service,
             access_level_id="lead-authority",
         ).exists()
+
+        mock_generate_and_store_pdf.assert_called_once()
+        called_instance = mock_generate_and_store_pdf.call_args[0][0]
+        assert called_instance.pk == new_instance.pk
 
         history = new_instance.history.exclude(history_type="notification").last()
         assert (

@@ -258,6 +258,7 @@ def test_instance_appeal(
     instance_for_appeal,
     instance_state_name,
     mailoutbox,
+    mock_generate_and_store_pdf,
     multilang,
     notification_template,
     previous_instance_state_name,
@@ -301,6 +302,9 @@ def test_instance_appeal(
         )
 
         assert new_instance.instance_state.name == "circulation_init"
+        mock_generate_and_store_pdf.assert_called_once()
+        called_instance = mock_generate_and_store_pdf.call_args[0][0]
+        assert called_instance.pk == new_instance.pk
 
         assert len(mailoutbox) == 1
         assert notification_template.subject in mailoutbox[0].subject
@@ -351,6 +355,7 @@ def test_instance_appeal_so(
     instance_for_appeal_so,
     instance_state_name,
     mailoutbox,
+    mock_generate_and_store_pdf,
     multilang,
     notification_template,
     previous_instance_state_name,
@@ -396,6 +401,9 @@ def test_instance_appeal_so(
         assert new_instance.case.meta["is-bab"] is True
 
         assert new_instance.instance_state.name == "init-distribution"
+        mock_generate_and_store_pdf.assert_called_once()
+        called_instance = mock_generate_and_store_pdf.call_args[0][0]
+        assert called_instance.pk == new_instance.pk
 
         assert len(mailoutbox) == 1
         assert notification_template.subject in mailoutbox[0].subject
