@@ -49,11 +49,15 @@ css-watch: ## Watch the sass files and create the css when they change
 	@cd camac/configuration/public/css/; make watch
 
 .PHONY: clear-cache
-clear-cache: ## Clear memcache or redis (only django and DMS cache)
+clear-cache: ## Clear memcache, redis or valkey (only django (DB #2) and DMS cache (DB #3))
 	@if docker compose config|grep -q memcache; then \
 		docker compose exec cache sh -c "echo flush_all | nc localhost 11211"; \
+	elif docker compose config --services | grep -qx valkey; then \
+		docker compose exec valkey sh -c "valkey-cli -n 2 flushdb && valkey-cli -n 3 flushdb"; \
+	elif docker compose config --services | grep -qx redis; then \
+		docker compose exec redis sh -c "redis-cli -n 2 flushdb && redis-cli -n 3 flushdb"; \
 	else \
-		docker compose exec redis sh -c "redis-cli -n 4 flushdb && redis-cli -n 3 flushdb"; \
+		printf '\033[33m⚠️  No known cache backend (memcache, valkey, redis) found in docker compose config. Skipping.\033[0m\n'; \
 	fi
 
 .PHONY: dumpconfig
