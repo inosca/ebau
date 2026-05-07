@@ -17,7 +17,7 @@ from .common import (
 )
 
 
-def _include_special_service(instance, service_name):
+def _should_include_special_service(instance, service_name):
     """
     Check if a 'special' service should be included in the given instance.
 
@@ -32,29 +32,30 @@ def _include_special_service(instance, service_name):
     if settings.APPLICATION_NAME != "kt_gr":
         return False
 
+    forms_no_construction_monitoring = [
+        *gr_constants.BAUANZEIGE_FORMS,
+        *gr_constants.SOLARANLAGE_FORMS,
+        *gr_constants.VORLAEUFIGE_BEURTEILUNG_FORMS,
+    ]
+    is_special_form = (
+        instance.case.document.form.slug in forms_no_construction_monitoring
+    )
+
     if service_name == gr_constants.GVG_SERVICE_SLUG:
-        # GVG can only be included in "building permit"-type decisions
-        # TODO(GR): replace this once preliminary clarification workflow
-        # has been introduced
-        forms_no_construction_monitoring = [
-            *gr_constants.BAUANZEIGE_FORMS,
-            *gr_constants.SOLARANLAGE_FORMS,
-            *gr_constants.VORLAEUFIGE_BEURTEILUNG_FORMS,
-        ]
-        if (
-            instance.case.document.form.slug in forms_no_construction_monitoring
-        ):  # pragma: no cover
+        if is_special_form:
             return False
-        task_id = settings.DECISION["TASK"]
+
         question_id = "fuer-gvg-freigeben"
+        task_id = settings.DECISION["TASK"]
+
     elif service_name == gr_constants.AIB_SERVICE_SLUG:
-        task_id = (
-            settings.DECISION["TASK"]
-            if settings.CONSTRUCTION_MONITORING
-            and settings.CONSTRUCTION_MONITORING.get("ENABLED", False)
-            else "construction-acceptance"
-        )
         question_id = "fuer-aib-freigeben"
+        task_id = (
+            "construction-acceptance"
+            if not is_special_form
+            else settings.DECISION["TASK"]
+        )
+
     else:  # pragma: no cover
         raise RuntimeError(
             f"unknown special service {service_name}, expected '{gr_constants.GVG_SERVICE_SLUG}' or '{gr_constants.AIB_SERVICE_SLUG}'"
@@ -69,21 +70,31 @@ def _include_special_service(instance, service_name):
         status=WorkItem.STATUS_COMPLETED,
     ).first()
 
-    if not work_item:  # pragma: no cover
-        return False
+    if work_item:
+        answer = work_item.document.answers.filter(question_id=question_id).first()
 
-    answer = work_item.document.answers.filter(question_id=question_id).first()
-    if not answer:
-        return False
-    return f"{question_id}-ja" in answer.value
+        return answer and f"{question_id}-ja" in answer.value
+
+    return False
 
 
 def should_include_gvg(instance):
-    return _include_special_service(instance, gr_constants.GVG_SERVICE_SLUG)
+    return _should_include_special_service(instance, gr_constants.GVG_SERVICE_SLUG)
 
 
 def should_include_aib(instance):
-    return _include_special_service(instance, gr_constants.AIB_SERVICE_SLUG)
+    return _should_include_special_service(instance, gr_constants.AIB_SERVICE_SLUG)
+
+
+def _is_special_service_included(instance, special_service_slug):
+    return (
+        InstanceACL.currently_active()
+        .filter(
+            instance=instance,
+            service__slug=special_service_slug,
+        )
+        .exists()
+    )
 
 
 class PermissionEventHandlerGR(
@@ -96,23 +107,10 @@ class PermissionEventHandlerGR(
 ):
     def decision_decreed(self, instance: Instance):
         if should_include_gvg(instance):
-            self.manager.grant(
-                instance,
-                grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
-                access_level=permissions_models.AccessLevel.objects.get(pk="read"),
-                service=Service.objects.get(slug=gr_constants.GVG_SERVICE_SLUG),
-            )
-        if (
-            settings.CONSTRUCTION_MONITORING
-            and settings.CONSTRUCTION_MONITORING.get("ENABLED", False)
-            and should_include_aib(instance)
-        ):
-            self.manager.grant(
-                instance,
-                grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
-                access_level=permissions_models.AccessLevel.objects.get(pk="read"),
-                service=Service.objects.get(slug=gr_constants.AIB_SERVICE_SLUG),
-            )
+            self.include_special_service(instance, gr_constants.GVG_SERVICE_SLUG)
+
+        if should_include_aib(instance):
+            self.include_special_service(instance, gr_constants.AIB_SERVICE_SLUG)
 
     def inquiry_sent(self, instance: Instance, work_item: WorkItem):
         for addr in work_item.addressed_groups:
@@ -174,13 +172,14 @@ class PermissionEventHandlerGR(
                     )
 
     def instance_completed(self, instance: Instance):
-        if (
-            not settings.CONSTRUCTION_MONITORING
-            or not settings.CONSTRUCTION_MONITORING.get("ENABLED", False)
-        ) and should_include_aib(instance):
+        if should_include_aib(instance):
+            self.include_special_service(instance, gr_constants.AIB_SERVICE_SLUG)
+
+    def include_special_service(self, instance, special_service_slug):
+        if not _is_special_service_included(instance, special_service_slug):
             self.manager.grant(
                 instance,
                 grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
                 access_level=permissions_models.AccessLevel.objects.get(pk="read"),
-                service=Service.objects.get(slug=gr_constants.AIB_SERVICE_SLUG),
+                service=Service.objects.get(slug=special_service_slug),
             )

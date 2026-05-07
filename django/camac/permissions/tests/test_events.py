@@ -335,13 +335,14 @@ def test_decision_event_handler_gr(
     )
 
     acls = InstanceACL.objects.filter(instance=gr_instance)
-    assert acls.count() == expected_count * 2
+    assert acls.count() == expected_count
 
     gvg_acl = acls.filter(service=gvg_service)
     assert gvg_acl.count() == expected_count
 
+    # aib checkbox should be checked in construction-acceptance, unless solaranlage.
     aib_acl = acls.filter(service=aib_service)
-    assert aib_acl.count() == expected_count
+    assert aib_acl.count() == 0
 
 
 @pytest.mark.freeze_time("2022-06-03")
@@ -861,13 +862,67 @@ def test_completed_involve_tax_administration_sz(
 
 
 @pytest.mark.parametrize(
-    ("is_ech", "gvg_answer", "aib_answer", "expected"),
+    (
+        "is_ech",
+        "dossier_type",
+        "gvg_answer",
+        "aib_answer",
+        "aib_workitem",
+        "expected",
+    ),
     [
-        (False, False, False, []),
-        (False, True, False, ["gvg"]),
-        (False, False, True, ["aib"]),
-        (False, True, True, ["aib", "gvg"]),
-        (True, False, False, ["aib", "gvg"]),
+        # No checkboxes checked, no involvement.
+        (False, "baugesuch", False, False, "construction", []),
+        (False, "baugesuch", False, False, "decision", []),
+        # eCH, no checkboxes, always involved.
+        (
+            True,
+            "baugesuch",
+            False,
+            False,
+            "construction",
+            ["aib", "gvg"],
+        ),
+        # baugesuch: gvg and aib checked, and involved
+        (
+            False,
+            "baugesuch",
+            True,
+            True,
+            "construction",
+            ["aib", "gvg"],
+        ),
+        # baugesuch: gvg and aib checked, but aib in wrong form, so only gvg included
+        (
+            False,
+            "baugesuch",
+            True,
+            True,
+            "decision",
+            ["gvg"],
+        ),
+        # Solaranlage:
+        # - aib only checked in decision form, so ignored
+        # - gvg should not be included for solaranlage
+        (
+            False,
+            "solaranlage-v6",
+            True,
+            True,
+            "construction",
+            [],
+        ),
+        # Solaranlage:
+        # - aib checked in decision form, so included
+        # - gvg should not be included for solaranlage
+        (
+            False,
+            "solaranlage-v6",
+            True,
+            True,
+            "decision",
+            ["aib"],
+        ),
     ],
 )
 def test_involve_gvg_aib_gr(
@@ -877,8 +932,10 @@ def test_involve_gvg_aib_gr(
     caluma_work_item_factory,
     access_level_factory,
     is_ech,
+    dossier_type,
     gvg_answer,
     aib_answer,
+    aib_workitem,
     expected,
     gr_instance,
     gr_decision_settings,
@@ -889,6 +946,9 @@ def test_involve_gvg_aib_gr(
     if is_ech:
         gr_instance.case.meta["ech0211-submitted"] = True
         gr_instance.case.save()
+
+    gr_instance.case.document.form.slug = dossier_type
+    gr_instance.case.document.form.save()
 
     gvg_service = service_factory.create(slug=gr_constants.GVG_SERVICE_SLUG)
     aib_service = service_factory.create(slug=gr_constants.AIB_SERVICE_SLUG)
@@ -913,7 +973,9 @@ def test_involve_gvg_aib_gr(
 
     if aib_answer:
         caluma_answer_factory(
-            document=work_item_construction.document,
+            document=work_item_construction.document
+            if aib_workitem == "construction"
+            else work_item_decision.document,
             question=Question.objects.get(slug="fuer-aib-freigeben"),
             value=["fuer-aib-freigeben-ja"],
         )
