@@ -700,6 +700,26 @@
     }
   },
   {
+    "model": "instance.form",
+    "pk": 308,
+    "fields": {
+      "form_state": 1,
+      "name": "Gesuch um Abbruchprämie",
+      "description": "Gesuch um Abbruchprämie",
+      "family": null
+    }
+  },
+  {
+    "model": "instance.form",
+    "pk": 309,
+    "fields": {
+      "form_state": 1,
+      "name": "Antrag auf Auszahlung",
+      "description": "Antrag auf Auszahlung",
+      "family": null
+    }
+  },
+  {
     "model": "instance.formstate",
     "pk": 1,
     "fields": {

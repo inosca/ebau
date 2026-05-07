@@ -1,6 +1,24 @@
 [
   {
     "model": "caluma_form.form",
+    "pk": "abbruchpraemie",
+    "fields": {
+      "created_at": "2026-05-06T15:32:06.659Z",
+      "modified_at": "2026-05-06T15:32:06.659Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Abbruchprämie\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "allgemeine-informationen-bgbb-abparzellierung",
     "fields": {
       "created_at": "2023-11-07T10:34:19.079Z",
@@ -55,6 +73,29 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "antrag-auf-auszahlung",
+    "fields": {
+      "created_at": "2026-05-06T16:31:24.389Z",
+      "modified_at": "2026-05-06T16:40:18.549Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Antrag auf Auszahlung\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {
+        "category": "building-permit",
+        "is-creatable": true,
+        "is-main-form": true,
+        "camac-form-id": 309
+      },
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "arbeitssicherheit",
     "fields": {
       "created_at": "2020-10-19T13:00:48.241Z",
@@ -90,6 +131,42 @@
         "camac-form-id": 293
       },
       "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "aussenflaechen-angaben-zum-abbruchobjekt",
+    "fields": {
+      "created_at": "2026-05-06T16:03:11.277Z",
+      "modified_at": "2026-05-06T16:03:11.277Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Aussenflächen und Anlagen: Angaben zum Abbruchobjekt\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "auszahlung-abbruchpraemie",
+    "fields": {
+      "created_at": "2026-05-06T14:33:27.032Z",
+      "modified_at": "2026-05-06T14:33:27.032Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Auszahlung Abbruchprämie\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -434,6 +511,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "dokumente-abbruchpraemie",
+    "fields": {
+      "created_at": "2026-05-06T16:16:38.716Z",
+      "modified_at": "2026-05-06T16:16:38.716Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"dokumente-abbruchprämie\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "dokumente-bohrbewilligung",
     "fields": {
       "created_at": "2022-09-27T12:55:00.701Z",
@@ -464,6 +559,24 @@
       "description": "{\"de\": \"Dokumente Gebäudetechnik\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "dokumente-gesuch-um-abbruchpraemie",
+    "fields": {
+      "created_at": "2026-05-06T15:12:49.297Z",
+      "modified_at": "2026-05-06T15:12:49.297Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"dokumente-gesuch-um-abbruchpraemie\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
       "is_archived": false,
       "source": null
     }
@@ -650,6 +763,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "gebaeude-angaben-zum-abbruchobjekt",
+    "fields": {
+      "created_at": "2026-05-06T15:41:22.364Z",
+      "modified_at": "2026-05-06T15:41:22.364Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Gebäude: Angaben zum Abbruchobjekt\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "gebaeude-tabelle",
     "fields": {
       "created_at": "2020-10-19T12:40:29.693Z",
@@ -734,6 +865,29 @@
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "gesuch-um-abbruchpraemie",
+    "fields": {
+      "created_at": "2026-05-06T14:03:24.542Z",
+      "modified_at": "2026-05-06T14:17:36.618Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "name": "{\"de\": \"Gesuch um Abbruchprämie\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {
+        "category": "building-permit",
+        "is-creatable": true,
+        "is-main-form": true,
+        "camac-form-id": 308
+      },
+      "is_published": true,
       "is_archived": false,
       "source": null
     }
@@ -2019,6 +2173,81 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "abbruchpraemie.aussenflaechen-und-anlagen",
+    "fields": {
+      "created_at": "2026-05-06T16:12:09.913Z",
+      "modified_at": "2026-05-06T16:12:09.913Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abbruchpraemie",
+      "question": "aussenflaechen-und-anlagen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abbruchpraemie.gebaeude-angaben-zum-abbruchobjekt",
+    "fields": {
+      "created_at": "2026-05-06T16:02:24.600Z",
+      "modified_at": "2026-05-06T16:02:24.600Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abbruchpraemie",
+      "question": "gebaeude-angaben-zum-abbruchobjekt",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abbruchpraemie.gesuchsnummer",
+    "fields": {
+      "created_at": "2026-05-06T15:33:35.859Z",
+      "modified_at": "2026-05-06T15:33:35.859Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abbruchpraemie",
+      "question": "gesuchsnummer",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abbruchpraemie.haben-sie-bereits-ein-baugesuch-fuer-den-abbruch-eingereicht",
+    "fields": {
+      "created_at": "2026-05-06T15:33:20.092Z",
+      "modified_at": "2026-05-06T15:33:20.092Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abbruchpraemie",
+      "question": "haben-sie-bereits-ein-baugesuch-fuer-den-abbruch-eingereicht",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abbruchpraemie.hinweis-abbruch",
+    "fields": {
+      "created_at": "2026-05-06T15:36:12.644Z",
+      "modified_at": "2026-05-06T15:36:12.644Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abbruchpraemie",
+      "question": "hinweis-abbruch",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "allgemeine-informationen-bgbb-abparzellierung.allgemeine-informationen-bgbb",
     "fields": {
       "created_at": "2023-11-07T10:50:33.795Z",
@@ -2060,6 +2289,66 @@
       "form": "allgemeine-informationen-meldung-gebaeudetechnik",
       "question": "allgemeine-information-gebaeudetechnik",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "antrag-auf-auszahlung.auszahlung-abbruchpraemie",
+    "fields": {
+      "created_at": "2026-05-06T16:31:53.612Z",
+      "modified_at": "2026-05-06T16:31:53.612Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "antrag-auf-auszahlung",
+      "question": "auszahlung-abbruchpraemie",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "antrag-auf-auszahlung.dokumente-gesuch-um-abbruchpraemie",
+    "fields": {
+      "created_at": "2026-05-06T16:42:34.909Z",
+      "modified_at": "2026-05-06T16:42:34.909Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "antrag-auf-auszahlung",
+      "question": "dokumente-gesuch-um-abbruchpraemie",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "antrag-auf-auszahlung.einreichen",
+    "fields": {
+      "created_at": "2026-05-06T16:32:20.865Z",
+      "modified_at": "2026-05-06T16:32:20.865Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "antrag-auf-auszahlung",
+      "question": "einreichen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "antrag-auf-auszahlung.personalien",
+    "fields": {
+      "created_at": "2026-05-06T16:31:33.411Z",
+      "modified_at": "2026-05-06T16:31:33.411Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "antrag-auf-auszahlung",
+      "question": "personalien",
+      "sort": 4
     }
   },
   {
@@ -3560,6 +3849,246 @@
       "form": "archivdossier",
       "question": "projektdaten",
       "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "aussenflaechen-angaben-zum-abbruchobjekt.abzubrechende-flaeche-m",
+    "fields": {
+      "created_at": "2026-05-06T16:08:37.184Z",
+      "modified_at": "2026-05-06T16:08:37.184Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "aussenflaechen-angaben-zum-abbruchobjekt",
+      "question": "abzubrechende-flaeche-m",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "aussenflaechen-angaben-zum-abbruchobjekt.abzubrechende-stuetzmauer",
+    "fields": {
+      "created_at": "2026-05-06T16:09:10.857Z",
+      "modified_at": "2026-05-06T16:09:10.857Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "aussenflaechen-angaben-zum-abbruchobjekt",
+      "question": "abzubrechende-stuetzmauer",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "aussenflaechen-angaben-zum-abbruchobjekt.beschreibung-aussenflaeche",
+    "fields": {
+      "created_at": "2026-05-06T16:08:04.886Z",
+      "modified_at": "2026-05-06T16:08:04.886Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "aussenflaechen-angaben-zum-abbruchobjekt",
+      "question": "beschreibung-aussenflaeche",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "aussenflaechen-angaben-zum-abbruchobjekt.bezeichnungnutzung-abzubrechende-anlage",
+    "fields": {
+      "created_at": "2026-05-06T16:07:36.114Z",
+      "modified_at": "2026-05-06T16:07:36.114Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "aussenflaechen-angaben-zum-abbruchobjekt",
+      "question": "bezeichnungnutzung-abzubrechende-anlage",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "aussenflaechen-angaben-zum-abbruchobjekt.breite-m",
+    "fields": {
+      "created_at": "2026-05-06T16:09:45.703Z",
+      "modified_at": "2026-05-06T16:09:45.703Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "aussenflaechen-angaben-zum-abbruchobjekt",
+      "question": "breite-m",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "aussenflaechen-angaben-zum-abbruchobjekt.davon-wird-rekultiviert-m",
+    "fields": {
+      "created_at": "2026-05-06T16:08:52.617Z",
+      "modified_at": "2026-05-06T16:08:52.617Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "aussenflaechen-angaben-zum-abbruchobjekt",
+      "question": "davon-wird-rekultiviert-m",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "aussenflaechen-angaben-zum-abbruchobjekt.hoehe-m",
+    "fields": {
+      "created_at": "2026-05-06T16:09:54.580Z",
+      "modified_at": "2026-05-06T16:09:54.580Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "aussenflaechen-angaben-zum-abbruchobjekt",
+      "question": "hoehe-m",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "aussenflaechen-angaben-zum-abbruchobjekt.ist-die-abzubrechende-baute-lediglich-mit-seilbahn-oder-helikopter-zugaenglich",
+    "fields": {
+      "created_at": "2026-05-06T16:10:55.150Z",
+      "modified_at": "2026-05-06T16:10:55.150Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "aussenflaechen-angaben-zum-abbruchobjekt",
+      "question": "ist-die-abzubrechende-baute-lediglich-mit-seilbahn-oder-helikopter-zugaenglich",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "aussenflaechen-angaben-zum-abbruchobjekt.laenge-m",
+    "fields": {
+      "created_at": "2026-05-06T16:09:35.356Z",
+      "modified_at": "2026-05-06T16:09:35.356Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "aussenflaechen-angaben-zum-abbruchobjekt",
+      "question": "laenge-m",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "aussenflaechen-angaben-zum-abbruchobjekt.material-stuetzmauer",
+    "fields": {
+      "created_at": "2026-05-06T16:10:35.573Z",
+      "modified_at": "2026-05-06T16:10:35.573Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "aussenflaechen-angaben-zum-abbruchobjekt",
+      "question": "material-stuetzmauer",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "aussenflaechen-angaben-zum-abbruchobjekt.parcel-number",
+    "fields": {
+      "created_at": "2026-05-06T16:05:48.464Z",
+      "modified_at": "2026-05-06T16:05:48.464Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "aussenflaechen-angaben-zum-abbruchobjekt",
+      "question": "parcel-number",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "aussenflaechen-angaben-zum-abbruchobjekt.zugehoeriges-gebaeude",
+    "fields": {
+      "created_at": "2026-05-06T16:05:41.624Z",
+      "modified_at": "2026-05-06T16:05:41.624Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "aussenflaechen-angaben-zum-abbruchobjekt",
+      "question": "zugehoeriges-gebaeude",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "auszahlung-abbruchpraemie.ebau-nr-dossiernummer",
+    "fields": {
+      "created_at": "2026-05-06T14:40:45.349Z",
+      "modified_at": "2026-05-06T14:40:45.349Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "auszahlung-abbruchpraemie",
+      "question": "ebau-nr-dossiernummer",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "auszahlung-abbruchpraemie.gebaeude-anlageeigentuemerin-eigentuemergemeinschaft-stockwerkeigentum",
+    "fields": {
+      "created_at": "2026-05-06T14:53:44.646Z",
+      "modified_at": "2026-05-06T14:53:44.646Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "auszahlung-abbruchpraemie",
+      "question": "gebaeude-anlageeigentuemerin-eigentuemergemeinschaft-stockwerkeigentum",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "auszahlung-abbruchpraemie.hinweis-stockwerkeigentuemerschaft",
+    "fields": {
+      "created_at": "2026-05-06T14:54:16.180Z",
+      "modified_at": "2026-05-06T14:54:16.180Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "auszahlung-abbruchpraemie",
+      "question": "hinweis-stockwerkeigentuemerschaft",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "auszahlung-abbruchpraemie.zahlungsverbindung",
+    "fields": {
+      "created_at": "2026-05-06T14:42:58.293Z",
+      "modified_at": "2026-05-06T14:42:58.293Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "auszahlung-abbruchpraemie",
+      "question": "zahlungsverbindung",
+      "sort": 3
     }
   },
   {
@@ -5079,6 +5608,81 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "dokumente-abbruchpraemie.angaben-ueber-andere-zugesprochene-finanzhilfen-oder-beitraege-im-zusammenhang-mit-dem-vorgesehenen-abbruch",
+    "fields": {
+      "created_at": "2026-05-06T16:19:09.899Z",
+      "modified_at": "2026-05-06T16:19:09.899Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-abbruchpraemie",
+      "question": "angaben-ueber-andere-zugesprochene-finanzhilfen-oder-beitraege-im-zusammenhang-mit-dem-vorgesehenen-abbruch",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-abbruchpraemie.fotodokumentation-und-andere-zweckdienliche-unterlagen-zb-abbruchofferte",
+    "fields": {
+      "created_at": "2026-05-06T16:18:00.024Z",
+      "modified_at": "2026-05-06T16:18:00.024Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-abbruchpraemie",
+      "question": "fotodokumentation-und-andere-zweckdienliche-unterlagen-zb-abbruchofferte",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-abbruchpraemie.nachvollziehbare-flaechen-und-volumenberechnung-mit-vermassten-plaenen",
+    "fields": {
+      "created_at": "2026-05-06T16:17:45.363Z",
+      "modified_at": "2026-05-06T16:17:45.363Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-abbruchpraemie",
+      "question": "nachvollziehbare-flaechen-und-volumenberechnung-mit-vermassten-plaenen",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-abbruchpraemie.offerten-fuer-den-abbruch",
+    "fields": {
+      "created_at": "2026-05-06T16:18:26.292Z",
+      "modified_at": "2026-05-06T16:18:26.292Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-abbruchpraemie",
+      "question": "offerten-fuer-den-abbruch",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-abbruchpraemie.situationsplan-mit-angabe-der-grundflaechen-der-zum-rueckbau-vorgesehenen-gebaeude-undoder-anlage",
+    "fields": {
+      "created_at": "2026-05-06T16:17:32.876Z",
+      "modified_at": "2026-05-06T16:17:32.876Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-abbruchpraemie",
+      "question": "situationsplan-mit-angabe-der-grundflaechen-der-zum-rueckbau-vorgesehenen-gebaeude-undoder-anlage",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "dokumente.bemerkungen-dokumente",
     "fields": {
       "created_at": "2021-04-30T13:22:11.445Z",
@@ -5255,6 +5859,36 @@
       "form": "dokumente-gebaeudetechnik",
       "question": "bemerkungen-dokumente",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-gesuch-um-abbruchpraemie.fotodokumentation-rekultivierte-flaechen",
+    "fields": {
+      "created_at": "2026-05-06T15:15:25.614Z",
+      "modified_at": "2026-05-06T15:15:25.614Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-gesuch-um-abbruchpraemie",
+      "question": "fotodokumentation-rekultivierte-flaechen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "dokumente-gesuch-um-abbruchpraemie.vollmacht-eigentuemergemeinschaft",
+    "fields": {
+      "created_at": "2026-05-06T15:13:55.579Z",
+      "modified_at": "2026-05-06T15:13:55.579Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "dokumente-gesuch-um-abbruchpraemie",
+      "question": "vollmacht-eigentuemergemeinschaft",
+      "sort": 2
     }
   },
   {
@@ -6065,6 +6699,171 @@
       "form": "gastgewerbe-lebensmittel",
       "question": "gastgewerbe-titel",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gebaeude-angaben-zum-abbruchobjekt.bauweise",
+    "fields": {
+      "created_at": "2026-05-06T15:59:22.893Z",
+      "modified_at": "2026-05-06T15:59:22.893Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-angaben-zum-abbruchobjekt",
+      "question": "bauweise",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gebaeude-angaben-zum-abbruchobjekt.beschreibung-abbruch",
+    "fields": {
+      "created_at": "2026-05-06T15:52:56.647Z",
+      "modified_at": "2026-05-06T15:52:56.647Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-angaben-zum-abbruchobjekt",
+      "question": "beschreibung-abbruch",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gebaeude-angaben-zum-abbruchobjekt.davon-unterirdisch-m",
+    "fields": {
+      "created_at": "2026-05-06T15:58:29.764Z",
+      "modified_at": "2026-05-06T15:58:29.764Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-angaben-zum-abbruchobjekt",
+      "question": "davon-unterirdisch-m",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gebaeude-angaben-zum-abbruchobjekt.davon-wird-rekultiviert-m",
+    "fields": {
+      "created_at": "2026-05-06T15:58:08.007Z",
+      "modified_at": "2026-05-06T15:58:08.007Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-angaben-zum-abbruchobjekt",
+      "question": "davon-wird-rekultiviert-m",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gebaeude-angaben-zum-abbruchobjekt.egid",
+    "fields": {
+      "created_at": "2026-05-06T15:41:59.840Z",
+      "modified_at": "2026-05-06T15:41:59.840Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-angaben-zum-abbruchobjekt",
+      "question": "egid",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gebaeude-angaben-zum-abbruchobjekt.gebaeude-bezeichnung",
+    "fields": {
+      "created_at": "2026-05-06T15:41:42.318Z",
+      "modified_at": "2026-05-06T15:41:42.318Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-angaben-zum-abbruchobjekt",
+      "question": "gebaeude-bezeichnung",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gebaeude-angaben-zum-abbruchobjekt.gebaeudeflaeche-m",
+    "fields": {
+      "created_at": "2026-05-06T15:57:52.103Z",
+      "modified_at": "2026-05-06T15:57:52.103Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-angaben-zum-abbruchobjekt",
+      "question": "gebaeudeflaeche-m",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gebaeude-angaben-zum-abbruchobjekt.gebaeudevolumen-m",
+    "fields": {
+      "created_at": "2026-05-06T15:58:19.319Z",
+      "modified_at": "2026-05-06T15:58:19.319Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-angaben-zum-abbruchobjekt",
+      "question": "gebaeudevolumen-m",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gebaeude-angaben-zum-abbruchobjekt.material",
+    "fields": {
+      "created_at": "2026-05-06T15:59:38.504Z",
+      "modified_at": "2026-05-06T15:59:38.504Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-angaben-zum-abbruchobjekt",
+      "question": "material",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gebaeude-angaben-zum-abbruchobjekt.parcel-number",
+    "fields": {
+      "created_at": "2026-05-06T15:42:09.833Z",
+      "modified_at": "2026-05-06T15:42:09.833Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-angaben-zum-abbruchobjekt",
+      "question": "parcel-number",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gebaeude-angaben-zum-abbruchobjekt.typ-der-baute",
+    "fields": {
+      "created_at": "2026-05-06T15:51:19.350Z",
+      "modified_at": "2026-05-06T15:51:19.350Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-angaben-zum-abbruchobjekt",
+      "question": "typ-der-baute",
+      "sort": 9
     }
   },
   {
@@ -7610,6 +8409,81 @@
       "form": "geometer-tasks",
       "question": "geometer-tasks-remarks",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gesuch-um-abbruchpraemie.abbruchpraemie",
+    "fields": {
+      "created_at": "2026-05-06T15:34:23.551Z",
+      "modified_at": "2026-05-06T15:34:23.551Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gesuch-um-abbruchpraemie",
+      "question": "abbruchpraemie",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gesuch-um-abbruchpraemie.dokumente-abbruchpraemie",
+    "fields": {
+      "created_at": "2026-05-06T16:20:44.852Z",
+      "modified_at": "2026-05-06T16:20:44.852Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gesuch-um-abbruchpraemie",
+      "question": "dokumente-abbruchpraemie",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gesuch-um-abbruchpraemie.einreichen",
+    "fields": {
+      "created_at": "2026-05-06T16:26:06.106Z",
+      "modified_at": "2026-05-06T16:26:06.106Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gesuch-um-abbruchpraemie",
+      "question": "einreichen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gesuch-um-abbruchpraemie.lokalisierung",
+    "fields": {
+      "created_at": "2026-05-06T15:31:48.059Z",
+      "modified_at": "2026-05-06T15:31:48.059Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gesuch-um-abbruchpraemie",
+      "question": "lokalisierung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gesuch-um-abbruchpraemie.personalien",
+    "fields": {
+      "created_at": "2026-05-06T14:32:24.770Z",
+      "modified_at": "2026-05-06T14:32:24.770Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gesuch-um-abbruchpraemie",
+      "question": "personalien",
+      "sort": 5
     }
   },
   {
@@ -16542,6 +17416,23 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "angaben-ueber-andere-zugesprochene-finanzhilfen-oder-beitraege-im-zusammenhang-mit-dem-vorgesehenen-abbruch-ja",
+    "fields": {
+      "created_at": "2026-05-06T16:19:09.814Z",
+      "modified_at": "2026-05-06T16:19:09.814Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Angaben über andere zugesprochene Finanzhilfen oder Beiträge im Zusammenhang mit dem vorgesehenen Abbruch\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "angaben-zu-haustechnischen-anlagen-ja",
     "fields": {
       "created_at": "2021-06-17T11:29:22.749Z",
@@ -19721,6 +20612,91 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "bauweise-leicht",
+    "fields": {
+      "created_at": "2026-05-06T15:59:22.678Z",
+      "modified_at": "2026-05-06T15:59:22.678Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"leicht\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bauweise-leicht-massiv",
+    "fields": {
+      "created_at": "2026-05-06T15:59:22.682Z",
+      "modified_at": "2026-05-06T15:59:22.682Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"leicht / massiv\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bauweise-massiv",
+    "fields": {
+      "created_at": "2026-05-06T15:59:22.691Z",
+      "modified_at": "2026-05-06T15:59:22.691Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"massiv\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bauweise-massiv-stahlbau",
+    "fields": {
+      "created_at": "2026-05-06T15:59:22.680Z",
+      "modified_at": "2026-05-06T15:59:22.680Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"massiv / Stahlbau\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bauweise-stahlbau",
+    "fields": {
+      "created_at": "2026-05-06T15:59:22.685Z",
+      "modified_at": "2026-05-06T15:59:22.685Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Stahlbau\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "bedachung-andere",
     "fields": {
       "created_at": "2020-09-19T09:39:58.854Z",
@@ -20971,6 +21947,91 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Landwirtschaftliche Bauten: Aufbereitung, Lagerung, Verkauf\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bezeichnungnutzung-abzubrechende-anlage-andere",
+    "fields": {
+      "created_at": "2026-05-06T16:07:35.931Z",
+      "modified_at": "2026-05-06T16:07:35.931Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bezeichnungnutzung-abzubrechende-anlage-belag",
+    "fields": {
+      "created_at": "2026-05-06T16:07:35.910Z",
+      "modified_at": "2026-05-06T16:07:35.910Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Strassen, Vor- und Lagerplätze - Belag\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bezeichnungnutzung-abzubrechende-anlage-beton",
+    "fields": {
+      "created_at": "2026-05-06T16:07:35.908Z",
+      "modified_at": "2026-05-06T16:07:35.908Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Strassen, Vor- und Lagerplätze - Beton\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bezeichnungnutzung-abzubrechende-anlage-betonsteine-verbundsteine",
+    "fields": {
+      "created_at": "2026-05-06T16:07:35.923Z",
+      "modified_at": "2026-05-06T16:07:35.923Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Strassen, Vor- und Lagerplätze - Betonsteine (Verbundsteine)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "bezeichnungnutzung-abzubrechende-anlage-stuetzmauern",
+    "fields": {
+      "created_at": "2026-05-06T16:07:35.922Z",
+      "modified_at": "2026-05-06T16:07:35.922Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Stützmauern\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -22883,6 +23944,23 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "form-type-antrag-auf-auszahlung",
+    "fields": {
+      "created_at": "2020-10-30T07:24:12.116Z",
+      "modified_at": "2023-02-03T13:52:39.398Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Antrag auf Auszahlung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": true,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "form-type-archiv",
     "fields": {
       "created_at": "2020-10-30T13:24:54.836Z",
@@ -23164,6 +24242,23 @@
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Genehmigung Gesamtrevision Nutzungsplanung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": true,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "form-type-gesuch-um-abbruchpraemie",
+    "fields": {
+      "created_at": "2020-10-30T07:24:12.116Z",
+      "modified_at": "2023-02-03T13:52:39.398Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gesuch um Abbruchprämie\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": true,
       "meta": {},
@@ -24141,6 +25236,23 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "fotodokumentation-rekultivierte-flaechen-ja",
+    "fields": {
+      "created_at": "2026-05-06T15:15:25.521Z",
+      "modified_at": "2026-05-06T15:15:25.521Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fotodokumentation rekultivierte Flächen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "fotodokumentation-spezialgesuche-ja",
     "fields": {
       "created_at": "2021-04-09T15:12:20.286Z",
@@ -24150,6 +25262,23 @@
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Fotodokumentation\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "fotodokumentation-und-andere-zweckdienliche-unterlagen-zb-abbruchofferte-ja",
+    "fields": {
+      "created_at": "2026-05-06T16:17:59.931Z",
+      "modified_at": "2026-05-06T16:17:59.931Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fotodokumentation und andere zweckdienliche Unterlagen (z.B. Abbruchofferte)\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -24235,6 +25364,40 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Tief (Pfählung)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gebaeude-anlageeigentuemerin-eigentuemergemeinschaft-stockwerkeigentum-stockwerk-ja",
+    "fields": {
+      "created_at": "2026-05-06T14:53:44.540Z",
+      "modified_at": "2026-05-06T14:53:44.540Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gebaeude-anlageeigentuemerin-eigentuemergemeinschaft-stockwerkeigentum-stockwerk-nein",
+    "fields": {
+      "created_at": "2026-05-06T14:53:44.542Z",
+      "modified_at": "2026-05-06T14:53:44.542Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -25204,6 +26367,40 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Projektabschluss wurde im GWR nachgeführt\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "haben-sie-bereits-ein-baugesuch-fuer-den-abbruch-eingereicht-ja",
+    "fields": {
+      "created_at": "2026-05-06T15:33:19.992Z",
+      "modified_at": "2026-05-06T15:33:19.992Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "haben-sie-bereits-ein-baugesuch-fuer-den-abbruch-eingereicht-nein",
+    "fields": {
+      "created_at": "2026-05-06T15:33:19.987Z",
+      "modified_at": "2026-05-06T15:33:19.987Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -26615,6 +27812,40 @@
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "ist-die-abzubrechende-baute-lediglich-mit-seilbahn-oder-helikopter-zugaenglich-ja",
+    "fields": {
+      "created_at": "2026-05-06T16:10:55.046Z",
+      "modified_at": "2026-05-06T16:10:55.046Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "ist-die-abzubrechende-baute-lediglich-mit-seilbahn-oder-helikopter-zugaenglich-nein",
+    "fields": {
+      "created_at": "2026-05-06T16:10:55.044Z",
+      "modified_at": "2026-05-06T16:10:55.044Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -28629,6 +29860,23 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "nachvollziehbare-flaechen-und-volumenberechnung-mit-vermassten-plaenen-ja",
+    "fields": {
+      "created_at": "2026-05-06T16:17:45.270Z",
+      "modified_at": "2026-05-06T16:17:45.270Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nachvollziehbare Flächen- und Volumenberechnung (mit vermassten Plänen)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "neben-kulturobjekt-ja",
     "fields": {
       "created_at": "2020-10-27T10:31:55.538Z",
@@ -29302,6 +30550,23 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Waldreservate\", \"fr\": null, \"it\": null}",
       "is_hidden": "!(\"form-type-oereb\" == \"form-type\"|answer)",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "offerten-fuer-den-abbruch-ja",
+    "fields": {
+      "created_at": "2026-05-06T16:18:26.201Z",
+      "modified_at": "2026-05-06T16:18:26.201Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Offerte(n) für den Abbruch\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -30695,6 +31960,23 @@
       "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Situationsplan mit vermasster Lage aller Bohrungen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "situationsplan-mit-angabe-der-grundflaechen-der-zum-rueckbau-vorgesehenen-gebaeude-undoder-anlage-ja",
+    "fields": {
+      "created_at": "2026-05-06T16:17:32.790Z",
+      "modified_at": "2026-05-06T16:17:32.790Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Situationsplan mit Angabe der Grundflächen der zum Rückbau vorgesehenen Gebäude und/oder Anlage\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -32633,6 +33915,142 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Thermische Solaranlage\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "typ-der-baute-andere",
+    "fields": {
+      "created_at": "2026-05-06T15:50:35.900Z",
+      "modified_at": "2026-05-06T15:51:19.206Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "typ-der-baute-betoniert",
+    "fields": {
+      "created_at": "2026-05-06T15:51:19.205Z",
+      "modified_at": "2026-05-06T15:51:19.205Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"betonierte Tiefbauten (z.B. Güllegruben, Löschwasser- und Rückhaltebecken, Swimmingpools, usw.)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "typ-der-baute-betonierte-tiefbauten-zb-guellegruben-loeschwasser-und-rueckhaltebecken-swimmingpools-usw",
+    "fields": {
+      "created_at": "2026-05-06T15:50:35.918Z",
+      "modified_at": "2026-05-06T15:50:35.918Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"betonierte Tiefbauten (z.B. Güllegruben, Löschwasser- und Rückhaltebecken, Swimmingpools, usw.)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "typ-der-baute-fabrikhallen",
+    "fields": {
+      "created_at": "2026-05-06T15:51:19.199Z",
+      "modified_at": "2026-05-06T15:51:19.199Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gebäude für industrielle, handwerkliche oder landwirtschaftliche Zwecke (z.B. Fabrikhallen, Werkstätten, Ställe, usw.)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "typ-der-baute-gastronomie",
+    "fields": {
+      "created_at": "2026-05-06T15:51:19.195Z",
+      "modified_at": "2026-05-06T15:51:19.196Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gebäude, das für den Aufenthalt oder die Unterbringung von Personen bestimmt ist (z. B. Wohnhaus, Beherbergungsbetrieb, Gastronomie, Schule, usw.)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "typ-der-baute-gebaeude-fuer-industrielle-handwerkliche-oder-landwirtschaftliche-zwecke-zb-fabrikhallen-werkstaetten-staelle-usw",
+    "fields": {
+      "created_at": "2026-05-06T15:50:35.908Z",
+      "modified_at": "2026-05-06T15:50:35.908Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gebäude für industrielle, handwerkliche oder landwirtschaftliche Zwecke (z.B. Fabrikhallen, Werkstätten, Ställe, usw.)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "typ-der-baute-leichtbauten",
+    "fields": {
+      "created_at": "2026-05-06T15:51:19.200Z",
+      "modified_at": "2026-05-06T15:51:19.200Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Leichtbauten (Lager-/Zwischenlagergebäude, Schuppen, Scheunen, Remisen, Depots, Silos, Treibhäuser, Garagen, usw.)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "typ-der-baute-leichtbauten-lager-zwischenlagergebaeude-schuppen-scheunen-remisen-depots-silos-treibhaeuser-garagen-usw",
+    "fields": {
+      "created_at": "2026-05-06T15:50:35.914Z",
+      "modified_at": "2026-05-06T15:50:35.914Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Leichtbauten (Lager-/Zwischenlagergebäude, Schuppen, Scheunen, Remisen, Depots, Silos, Treibhäuser, Garagen, usw.)\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -34868,6 +36286,23 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "vollmacht-eigentuemergemeinschaft-ja",
+    "fields": {
+      "created_at": "2026-05-06T15:13:55.491Z",
+      "modified_at": "2026-05-06T15:13:55.491Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vollmacht Eigentümergemeinschaft\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "vorhaben-dauer-befristet",
     "fields": {
       "created_at": "2020-10-21T12:44:35.892Z",
@@ -36471,6 +37906,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "abbruchpraemie",
+    "fields": {
+      "created_at": "2026-05-06T15:34:23.499Z",
+      "modified_at": "2026-05-06T15:34:23.499Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abbruchprämie\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "abbruchpraemie",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "abnahme-rohbau",
     "fields": {
       "created_at": "2021-11-29T07:41:45.891Z",
@@ -36808,6 +38274,71 @@
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abzubrechende-flaeche-m",
+    "fields": {
+      "created_at": "2026-05-06T16:08:37.144Z",
+      "modified_at": "2026-05-06T16:08:37.144Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abzubrechende Fläche (m²)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abzubrechende-stuetzmauer",
+    "fields": {
+      "created_at": "2026-05-06T16:09:10.763Z",
+      "modified_at": "2026-05-06T16:14:33.782Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abzubrechende Stützmauer\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"#### Abzubrechende Stützmauer\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -38230,6 +39761,37 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "angaben-ueber-andere-zugesprochene-finanzhilfen-oder-beitraege-im-zusammenhang-mit-dem-vorgesehenen-abbruch",
+    "fields": {
+      "created_at": "2026-05-06T16:19:09.857Z",
+      "modified_at": "2026-05-06T16:30:38.095Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Angaben über andere zugesprochene Finanzhilfen oder Beiträge im Zusammenhang mit dem vorgesehenen Abbruch\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -40772,6 +42334,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "aussenflaechen-und-anlagen",
+    "fields": {
+      "created_at": "2026-05-06T16:11:42.466Z",
+      "modified_at": "2026-05-06T16:11:42.466Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Aussenflächen und Anlagen\", \"fr\": null, \"it\": null}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": "aussenflaechen-angaben-zum-abbruchobjekt",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "auswahl-angaben-gebauedetechnik",
     "fields": {
       "created_at": "2021-11-22T17:10:49.889Z",
@@ -40856,6 +42449,37 @@
       "data_source": null,
       "row_form": null,
       "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "auszahlung-abbruchpraemie",
+    "fields": {
+      "created_at": "2026-05-06T14:56:02.683Z",
+      "modified_at": "2026-05-06T14:56:02.683Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Auszahlung Abbruchprämie\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "auszahlung-abbruchpraemie",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -41456,6 +43080,37 @@
         "milestone": "notice-to-liegenschaftsschaetzung",
         "widgetOverride": "milestone-values"
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bauweise",
+    "fields": {
+      "created_at": "2026-05-06T15:59:22.792Z",
+      "modified_at": "2026-05-06T15:59:22.792Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauweise\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -43360,6 +45015,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "beschreibung-abbruch",
+    "fields": {
+      "created_at": "2026-05-06T15:52:56.590Z",
+      "modified_at": "2026-05-06T15:52:56.590Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\"typ-der-baute\"|answer == \"typ-der-baute-andere\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "beschreibung-anfrage",
     "fields": {
       "created_at": "2023-11-07T09:37:48.856Z",
@@ -43478,6 +45167,40 @@
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beschreibung-aussenflaeche",
+    "fields": {
+      "created_at": "2026-05-06T16:08:04.830Z",
+      "modified_at": "2026-05-06T16:08:25.376Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\"bezeichnungnutzung-abzubrechende-anlage\"|answer == \"bezeichnungnutzung-abzubrechende-anlage-andere\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -45306,6 +47029,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "bezeichnungnutzung-abzubrechende-anlage",
+    "fields": {
+      "created_at": "2026-05-06T16:07:36.018Z",
+      "modified_at": "2026-05-06T16:07:36.018Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bezeichnung/Nutzung abzubrechende Anlage\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "bezugsbewilligung",
     "fields": {
       "created_at": "2021-11-29T07:43:25.982Z",
@@ -45774,6 +47528,40 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "brandschutz-zivilschutz",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "breite-m",
+    "fields": {
+      "created_at": "2026-05-06T16:09:45.652Z",
+      "modified_at": "2026-05-06T16:09:45.652Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Breite (m)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -47039,6 +48827,74 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "davon-unterirdisch-m",
+    "fields": {
+      "created_at": "2026-05-06T15:58:29.702Z",
+      "modified_at": "2026-05-06T15:58:29.702Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"davon unterirdisch (m³)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "davon-wird-rekultiviert-m",
+    "fields": {
+      "created_at": "2026-05-06T15:58:07.944Z",
+      "modified_at": "2026-05-06T15:58:07.944Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"davon wird rekultiviert (m²)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "decision-gemeinde",
     "fields": {
       "created_at": "2024-07-15T12:55:44.525Z",
@@ -47236,6 +49092,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "dokumente-abbruchpraemie",
+    "fields": {
+      "created_at": "2026-05-06T16:20:44.808Z",
+      "modified_at": "2026-05-06T16:20:44.808Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"dokumente-abbruchprämie\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "be-documents-form",
+        "attachment-section": "12000000"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "dokumente-abbruchpraemie",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "dokumente-bohrbewilligung",
     "fields": {
       "created_at": "2022-09-27T13:37:23.262Z",
@@ -47295,6 +49185,40 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "dokumente-gebaeudetechnik",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "dokumente-gesuch-um-abbruchpraemie",
+    "fields": {
+      "created_at": "2026-05-06T15:17:12.362Z",
+      "modified_at": "2026-05-06T15:17:12.362Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Dokumente\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "be-documents-form",
+        "attachment-section": "12000000"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "dokumente-gesuch-um-abbruchpraemie",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -47576,6 +49500,40 @@
       "type": "textarea",
       "is_required": "false",
       "is_hidden": "\"wasseranschluss-bestehend\" != \"wasseranschluss\"|answer",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "ebau-nr-dossiernummer",
+    "fields": {
+      "created_at": "2026-05-06T14:40:45.301Z",
+      "modified_at": "2026-05-06T14:40:45.301Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"eBau-Nr. / Dossiernummer\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -50308,6 +52266,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "fotodokumentation-rekultivierte-flaechen",
+    "fields": {
+      "created_at": "2026-05-06T15:15:25.572Z",
+      "modified_at": "2026-05-06T15:22:17.464Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fotodokumentation rekultivierte Flächen\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "fotodokumentation-spezialgesuche",
     "fields": {
       "created_at": "2021-04-09T15:12:20.396Z",
@@ -50329,6 +52318,37 @@
       "meta": {
         "hideLabel": true
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "fotodokumentation-und-andere-zweckdienliche-unterlagen-zb-abbruchofferte",
+    "fields": {
+      "created_at": "2026-05-06T16:17:59.973Z",
+      "modified_at": "2026-05-06T16:25:01.308Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fotodokumentation und andere zweckdienliche Unterlagen (z.B. Abbruchofferte)\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -50702,6 +52722,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "gebaeude-angaben-zum-abbruchobjekt",
+    "fields": {
+      "created_at": "2026-05-06T16:02:24.531Z",
+      "modified_at": "2026-05-06T16:12:41.287Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gebäude\", \"fr\": null, \"it\": null}",
+      "type": "table",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": "gebaeude-angaben-zum-abbruchobjekt",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "gebaeude-anlage",
     "fields": {
       "created_at": "2021-11-26T13:23:33.540Z",
@@ -50717,6 +52768,71 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gebaeude-anlageeigentuemerin-eigentuemergemeinschaft-stockwerkeigentum",
+    "fields": {
+      "created_at": "2026-05-06T14:53:44.595Z",
+      "modified_at": "2026-05-06T14:53:44.595Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Handelt es sich bei der Gebäude-/Anlageeigentümer/in um eine Eigentümergemeinschaft (Stockwerkeigentum, Erben- oder Betriebsgemeinschaft usw.)\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gebaeude-bezeichnung",
+    "fields": {
+      "created_at": "2026-05-06T15:41:42.251Z",
+      "modified_at": "2026-05-06T15:41:42.251Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gebäude / Bezeichnung\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"z.B. MFH A\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
@@ -50754,6 +52870,40 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"###Gebäudedaten\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gebaeudeflaeche-m",
+    "fields": {
+      "created_at": "2026-05-06T15:57:52.043Z",
+      "modified_at": "2026-05-06T15:57:52.043Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gebäudefläche (m²)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -51019,6 +53169,40 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gebaeudevolumen-m",
+    "fields": {
+      "created_at": "2026-05-06T15:58:19.256Z",
+      "modified_at": "2026-05-06T15:58:19.256Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gebäudevolumen (m³)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -51747,6 +53931,40 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "einreichen-bohrgesuch-konzession",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gesuchsnummer",
+    "fields": {
+      "created_at": "2026-05-06T15:33:35.815Z",
+      "modified_at": "2026-05-06T15:33:55.244Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gesuchsnummer\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "!(\"haben-sie-bereits-ein-baugesuch-fuer-den-abbruch-eingereicht\"|answer == \"haben-sie-bereits-ein-baugesuch-fuer-den-abbruch-eingereicht-ja\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -52530,6 +54748,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "haben-sie-bereits-ein-baugesuch-fuer-den-abbruch-eingereicht",
+    "fields": {
+      "created_at": "2026-05-06T15:33:20.044Z",
+      "modified_at": "2026-05-06T15:33:20.044Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Haben Sie bereits ein Baugesuch für den Abbruch eingereicht?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "has-representative",
     "fields": {
       "created_at": "2020-08-28T14:48:43.932Z",
@@ -53007,6 +55256,37 @@
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"**Formular**\\n[EN-3 Heizung und Warmwasser](https://www.endk.ch/de/fachleute-1/energienachweis/energienachweis-muken-2008/ftw-simplelayout-filelistingblock/EN-3.pdf/download)\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hinweis-abbruch",
+    "fields": {
+      "created_at": "2026-05-06T15:36:12.603Z",
+      "modified_at": "2026-05-06T15:36:32.013Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"hinweis-abbruch\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\"haben-sie-bereits-ein-baugesuch-fuer-den-abbruch-eingereicht\"|answer == \"haben-sie-bereits-ein-baugesuch-fuer-den-abbruch-eingereicht-nein\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Falls Sie den Abbruch ausführen möchten, reichen Sie bitte dafür ein Baugesuch ein. Andernfalls können Sie auf diesem Weg den Anspruch und die allfällige Höhe der Abbruchprämie abklären lassen.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -53929,6 +56209,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "hinweis-stockwerkeigentuemerschaft",
+    "fields": {
+      "created_at": "2026-05-06T14:54:16.135Z",
+      "modified_at": "2026-05-06T15:24:59.755Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"hinweis-stockwerkeigentuemerschaft\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\"gebaeude-anlageeigentuemerin-eigentuemergemeinschaft-stockwerkeigentum\"|answer == \"gebaeude-anlageeigentuemerin-eigentuemergemeinschaft-stockwerkeigentum-stockwerk-ja\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Von der Eigentümergemeinschaft muss eine Vollmacht beigelegt werden, die das AGR berechtigt, die vollständige Abbruchprämie der oben aufgeführten Person auszuzahlen. Die Aufteilung der Abbruchprämie ist Sache der Eigentümergemeinschaft.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "hinweis-thema-bab",
     "fields": {
       "created_at": "2020-11-08T15:50:33.109Z",
@@ -54223,6 +56534,40 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "hoehe-m",
+    "fields": {
+      "created_at": "2026-05-06T16:09:54.532Z",
+      "modified_at": "2026-05-06T16:09:54.532Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Höhe (m)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
@@ -55131,6 +57476,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "ist-die-abzubrechende-baute-lediglich-mit-seilbahn-oder-helikopter-zugaenglich",
+    "fields": {
+      "created_at": "2026-05-06T16:10:55.099Z",
+      "modified_at": "2026-05-06T16:15:58.646Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist die abzubrechende Baute lediglich mit Seilbahn oder Helikopter zugänglich?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Bei der Beurteilung der Verkehrslage wird abgestützt auf die gesamtschweizerische Anleitung für die Schätzung des landwirtschaftlichen Ertragswertes vom 31. Januar 2018, Anhang zur Verordnung über das bäuerliche Bodenrecht (VBB) vom 4. Oktober 1993, Ziffer 2 Verkehrslage von Böden und Ökonomiegebäuden.\\n\\nDie Anleitung legt für die Verkehrslage von Böden und Ökonomiegebäuden Noten fest anhand der Qualität der Zufahrt (ganzjährige Befahrbarkeit des schlechtesten Stückes):\\n\\n- mit Lastwagen befahrbare Strasse: Note 4\\n- nur mit Traktor oder Transporter befahrbarer Weg: Note 3\\n- Seilbahn: Note 2\\n- Fuss- oder Saumweg: Note 1\\n\\nVorhaben, die der Note 3 und 4 zugerechnet werden, können pauschal berechnet werden. Für Vorhaben mit Verkehrslage Note 1 und 2 ist eine Abbruchofferte erforderlich.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "ist-die-solaranlage-mit-einem-abstand-von-mamimal-20-cm-und-parallel-zur-fassade-angeordnet",
     "fields": {
       "created_at": "2025-11-05T10:19:18.219Z",
@@ -55913,6 +58289,40 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "laenge-m",
+    "fields": {
+      "created_at": "2026-05-06T16:09:35.314Z",
+      "modified_at": "2026-05-06T16:09:35.314Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Länge (m)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -57265,6 +59675,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "material",
+    "fields": {
+      "created_at": "2026-05-06T15:59:38.438Z",
+      "modified_at": "2026-05-06T15:59:38.438Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Material\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "material-boeden",
     "fields": {
       "created_at": "2020-09-19T10:22:26.467Z",
@@ -57413,6 +59857,40 @@
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"#### INFO\\nArt. 13 V3 zum ArG\\nDecken und Wände Decken und Wände im Innern der Gebäude sollen so beschaffen sein, dass sie leicht gereinigt werden können und sich möglichst wenig Staub und Schmutz darauf ablagern.\\n\\nBitte deklarieren Sie im vorgegeben Feld die Art und Beschaffenheit der Wandverkleidungen.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "material-stuetzmauer",
+    "fields": {
+      "created_at": "2026-05-06T16:10:35.532Z",
+      "modified_at": "2026-05-06T16:10:35.532Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Material\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
@@ -58329,6 +60807,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "nachvollziehbare-flaechen-und-volumenberechnung-mit-vermassten-plaenen",
+    "fields": {
+      "created_at": "2026-05-06T16:17:45.317Z",
+      "modified_at": "2026-05-06T16:25:05.471Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nachvollziehbare Flächen- und Volumenberechnung (mit vermassten Plänen)\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "natur-landschaft",
     "fields": {
       "created_at": "2020-11-04T18:19:03.893Z",
@@ -59168,6 +61677,37 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "oereb-verfahren-gemeinde-form",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "offerten-fuer-den-abbruch",
+    "fields": {
+      "created_at": "2026-05-06T16:18:26.249Z",
+      "modified_at": "2026-05-06T16:30:29.680Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Offerte(n) für den Abbruch\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "[\"ist-die-abzubrechende-baute-lediglich-mit-seilbahn-oder-helikopter-zugaenglich-ja\"] intersects \"aussenflaechen-und-anlagen\"|answer|mapby(\"ist-die-abzubrechende-baute-lediglich-mit-seilbahn-oder-helikopter-zugaenglich\")|debug",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -62615,6 +65155,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "situationsplan-mit-angabe-der-grundflaechen-der-zum-rueckbau-vorgesehenen-gebaeude-undoder-anlage",
+    "fields": {
+      "created_at": "2026-05-06T16:17:32.832Z",
+      "modified_at": "2026-05-06T16:25:07.983Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Situationsplan mit Angabe der Grundflächen der zum Rückbau vorgesehenen Gebäude und/oder Anlage\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "solaranlage-art-des-gesuchs",
     "fields": {
       "created_at": "2022-09-12T13:01:27.496Z",
@@ -65221,6 +67792,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "typ-der-baute",
+    "fields": {
+      "created_at": "2026-05-06T15:51:19.259Z",
+      "modified_at": "2026-05-06T15:51:19.259Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Typ der Baute\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "typ-der-solaranlage",
     "fields": {
       "created_at": "2020-10-21T12:21:04.829Z",
@@ -66537,6 +69139,37 @@
         "max_length": null,
         "min_length": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "vollmacht-eigentuemergemeinschaft",
+    "fields": {
+      "created_at": "2026-05-06T15:13:55.536Z",
+      "modified_at": "2026-05-06T15:14:40.467Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vollmacht Eigentümergemeinschaft\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "!(\"gebaeude-anlageeigentuemerin-eigentuemergemeinschaft-stockwerkeigentum\"|answer|debug == \"gebaeude-anlageeigentuemerin-eigentuemergemeinschaft-stockwerkeigentum-stockwerk-ja\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -67959,6 +70592,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "zahlungsverbindung",
+    "fields": {
+      "created_at": "2026-05-06T14:42:58.244Z",
+      "modified_at": "2026-05-06T14:42:58.244Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zahlungsverbindung\", \"fr\": null, \"it\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "zeitaufwand",
     "fields": {
       "created_at": "2020-11-15T19:18:53.087Z",
@@ -68108,6 +70775,40 @@
         "action": "complete",
         "show_validation": false,
         "validate_on_enter": false
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zugehoeriges-gebaeude",
+    "fields": {
+      "created_at": "2026-05-06T16:05:41.551Z",
+      "modified_at": "2026-05-06T16:05:41.551Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zugehöriges Gebäude\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
       },
       "meta": {},
       "data_source": null,
@@ -68905,6 +71606,21 @@
       "question": "angaben-dieselbetankungsanlagen",
       "option": "angaben-dieselbetankungsanlagen-teilweise-ueberdacht",
       "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "angaben-ueber-andere-zugesprochene-finanzhilfen-oder-beitraege-im-zusammenhang-mit-dem-vorgesehenen-abbruch.angaben-ueber-andere-zugesprochene-finanzhilfen-oder-beitraege-im-zusammenhang-mit-dem-vorgesehenen-abbruch-ja",
+    "fields": {
+      "created_at": "2026-05-06T16:30:38.099Z",
+      "modified_at": "2026-05-06T16:30:38.099Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "angaben-ueber-andere-zugesprochene-finanzhilfen-oder-beitraege-im-zusammenhang-mit-dem-vorgesehenen-abbruch",
+      "option": "angaben-ueber-andere-zugesprochene-finanzhilfen-oder-beitraege-im-zusammenhang-mit-dem-vorgesehenen-abbruch-ja",
+      "sort": 1
     }
   },
   {
@@ -71774,6 +74490,81 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "bauweise.bauweise-leicht",
+    "fields": {
+      "created_at": "2026-05-06T15:59:22.812Z",
+      "modified_at": "2026-05-06T15:59:22.812Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bauweise",
+      "option": "bauweise-leicht",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bauweise.bauweise-leicht-massiv",
+    "fields": {
+      "created_at": "2026-05-06T15:59:22.810Z",
+      "modified_at": "2026-05-06T15:59:22.810Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bauweise",
+      "option": "bauweise-leicht-massiv",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bauweise.bauweise-massiv",
+    "fields": {
+      "created_at": "2026-05-06T15:59:22.807Z",
+      "modified_at": "2026-05-06T15:59:22.807Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bauweise",
+      "option": "bauweise-massiv",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bauweise.bauweise-massiv-stahlbau",
+    "fields": {
+      "created_at": "2026-05-06T15:59:22.803Z",
+      "modified_at": "2026-05-06T15:59:22.803Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bauweise",
+      "option": "bauweise-massiv-stahlbau",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bauweise.bauweise-stahlbau",
+    "fields": {
+      "created_at": "2026-05-06T15:59:22.798Z",
+      "modified_at": "2026-05-06T15:59:22.798Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bauweise",
+      "option": "bauweise-stahlbau",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "bedachung.bedachung-andere",
     "fields": {
       "created_at": "2021-01-28T08:29:56.409Z",
@@ -72850,6 +75641,81 @@
       "question": "bewilligungsgrund",
       "option": "bewilligungsgrund-5002",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bezeichnungnutzung-abzubrechende-anlage.bezeichnungnutzung-abzubrechende-anlage-andere",
+    "fields": {
+      "created_at": "2026-05-06T16:07:36.024Z",
+      "modified_at": "2026-05-06T16:07:36.024Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bezeichnungnutzung-abzubrechende-anlage",
+      "option": "bezeichnungnutzung-abzubrechende-anlage-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bezeichnungnutzung-abzubrechende-anlage.bezeichnungnutzung-abzubrechende-anlage-belag",
+    "fields": {
+      "created_at": "2026-05-06T16:07:36.032Z",
+      "modified_at": "2026-05-06T16:07:36.032Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bezeichnungnutzung-abzubrechende-anlage",
+      "option": "bezeichnungnutzung-abzubrechende-anlage-belag",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bezeichnungnutzung-abzubrechende-anlage.bezeichnungnutzung-abzubrechende-anlage-beton",
+    "fields": {
+      "created_at": "2026-05-06T16:07:36.036Z",
+      "modified_at": "2026-05-06T16:07:36.036Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bezeichnungnutzung-abzubrechende-anlage",
+      "option": "bezeichnungnutzung-abzubrechende-anlage-beton",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bezeichnungnutzung-abzubrechende-anlage.bezeichnungnutzung-abzubrechende-anlage-betonsteine-verbundsteine",
+    "fields": {
+      "created_at": "2026-05-06T16:07:36.029Z",
+      "modified_at": "2026-05-06T16:07:36.029Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bezeichnungnutzung-abzubrechende-anlage",
+      "option": "bezeichnungnutzung-abzubrechende-anlage-betonsteine-verbundsteine",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "bezeichnungnutzung-abzubrechende-anlage.bezeichnungnutzung-abzubrechende-anlage-stuetzmauern",
+    "fields": {
+      "created_at": "2026-05-06T16:07:36.039Z",
+      "modified_at": "2026-05-06T16:07:36.039Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "bezeichnungnutzung-abzubrechende-anlage",
+      "option": "bezeichnungnutzung-abzubrechende-anlage-stuetzmauern",
+      "sort": 5
     }
   },
   {
@@ -74504,6 +77370,21 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "form-type.form-type-antrag-auf-auszahlung",
+    "fields": {
+      "created_at": "2025-11-19T18:58:32.858Z",
+      "modified_at": "2025-11-19T18:58:32.858Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "form-type",
+      "option": "form-type-antrag-auf-auszahlung",
+      "sort": 67
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "form-type.form-type-archiv",
     "fields": {
       "created_at": "2025-11-19T18:58:32.817Z",
@@ -74725,6 +77606,21 @@
       "question": "form-type",
       "option": "form-type-gesamtrevision-np",
       "sort": 68
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "form-type.form-type-gesuch-um-abbruchpraemie",
+    "fields": {
+      "created_at": "2025-11-19T18:58:32.858Z",
+      "modified_at": "2025-11-19T18:58:32.858Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "form-type",
+      "option": "form-type-gesuch-um-abbruchpraemie",
+      "sort": 66
     }
   },
   {
@@ -75554,6 +78450,21 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "fotodokumentation-rekultivierte-flaechen.fotodokumentation-rekultivierte-flaechen-ja",
+    "fields": {
+      "created_at": "2026-05-06T15:22:17.466Z",
+      "modified_at": "2026-05-06T15:22:17.466Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "fotodokumentation-rekultivierte-flaechen",
+      "option": "fotodokumentation-rekultivierte-flaechen-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "fotodokumentation-spezialgesuche.fotodokumentation-spezialgesuche-ja",
     "fields": {
       "created_at": "2021-04-27T07:53:31.375Z",
@@ -75564,6 +78475,21 @@
       "modified_by_group": null,
       "question": "fotodokumentation-spezialgesuche",
       "option": "fotodokumentation-spezialgesuche-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "fotodokumentation-und-andere-zweckdienliche-unterlagen-zb-abbruchofferte.fotodokumentation-und-andere-zweckdienliche-unterlagen-zb-abbruchofferte-ja",
+    "fields": {
+      "created_at": "2026-05-06T16:25:01.312Z",
+      "modified_at": "2026-05-06T16:25:01.312Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "fotodokumentation-und-andere-zweckdienliche-unterlagen-zb-abbruchofferte",
+      "option": "fotodokumentation-und-andere-zweckdienliche-unterlagen-zb-abbruchofferte-ja",
       "sort": 1
     }
   },
@@ -75640,6 +78566,36 @@
       "question": "fundationsart",
       "option": "fundationsart-tief",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gebaeude-anlageeigentuemerin-eigentuemergemeinschaft-stockwerkeigentum.gebaeude-anlageeigentuemerin-eigentuemergemeinschaft-stockwerkeigentum-stockwerk-ja",
+    "fields": {
+      "created_at": "2026-05-06T14:53:44.601Z",
+      "modified_at": "2026-05-06T14:53:44.601Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "gebaeude-anlageeigentuemerin-eigentuemergemeinschaft-stockwerkeigentum",
+      "option": "gebaeude-anlageeigentuemerin-eigentuemergemeinschaft-stockwerkeigentum-stockwerk-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gebaeude-anlageeigentuemerin-eigentuemergemeinschaft-stockwerkeigentum.gebaeude-anlageeigentuemerin-eigentuemergemeinschaft-stockwerkeigentum-stockwerk-nein",
+    "fields": {
+      "created_at": "2026-05-06T14:53:44.599Z",
+      "modified_at": "2026-05-06T14:53:44.599Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "gebaeude-anlageeigentuemerin-eigentuemergemeinschaft-stockwerkeigentum",
+      "option": "gebaeude-anlageeigentuemerin-eigentuemergemeinschaft-stockwerkeigentum-stockwerk-nein",
+      "sort": 1
     }
   },
   {
@@ -76449,6 +79405,36 @@
       "modified_by_group": null,
       "question": "gwr-status-nachfuehren",
       "option": "gwr-status-nachfuehren-bauende",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "haben-sie-bereits-ein-baugesuch-fuer-den-abbruch-eingereicht.haben-sie-bereits-ein-baugesuch-fuer-den-abbruch-eingereicht-ja",
+    "fields": {
+      "created_at": "2026-05-06T15:33:20.051Z",
+      "modified_at": "2026-05-06T15:33:20.051Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "haben-sie-bereits-ein-baugesuch-fuer-den-abbruch-eingereicht",
+      "option": "haben-sie-bereits-ein-baugesuch-fuer-den-abbruch-eingereicht-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "haben-sie-bereits-ein-baugesuch-fuer-den-abbruch-eingereicht.haben-sie-bereits-ein-baugesuch-fuer-den-abbruch-eingereicht-nein",
+    "fields": {
+      "created_at": "2026-05-06T15:33:20.049Z",
+      "modified_at": "2026-05-06T15:33:20.049Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "haben-sie-bereits-ein-baugesuch-fuer-den-abbruch-eingereicht",
+      "option": "haben-sie-bereits-ein-baugesuch-fuer-den-abbruch-eingereicht-nein",
       "sort": 1
     }
   },
@@ -77635,6 +80621,36 @@
       "question": "is-paper",
       "option": "is-paper-yes",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "ist-die-abzubrechende-baute-lediglich-mit-seilbahn-oder-helikopter-zugaenglich.ist-die-abzubrechende-baute-lediglich-mit-seilbahn-oder-helikopter-zugaenglich-ja",
+    "fields": {
+      "created_at": "2026-05-06T16:15:58.650Z",
+      "modified_at": "2026-05-06T16:15:58.650Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "ist-die-abzubrechende-baute-lediglich-mit-seilbahn-oder-helikopter-zugaenglich",
+      "option": "ist-die-abzubrechende-baute-lediglich-mit-seilbahn-oder-helikopter-zugaenglich-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "ist-die-abzubrechende-baute-lediglich-mit-seilbahn-oder-helikopter-zugaenglich.ist-die-abzubrechende-baute-lediglich-mit-seilbahn-oder-helikopter-zugaenglich-nein",
+    "fields": {
+      "created_at": "2026-05-06T16:15:58.649Z",
+      "modified_at": "2026-05-06T16:15:58.649Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "ist-die-abzubrechende-baute-lediglich-mit-seilbahn-oder-helikopter-zugaenglich",
+      "option": "ist-die-abzubrechende-baute-lediglich-mit-seilbahn-oder-helikopter-zugaenglich-nein",
+      "sort": 1
     }
   },
   {
@@ -79259,6 +82275,21 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "nachvollziehbare-flaechen-und-volumenberechnung-mit-vermassten-plaenen.nachvollziehbare-flaechen-und-volumenberechnung-mit-vermassten-plaenen-ja",
+    "fields": {
+      "created_at": "2026-05-06T16:25:05.474Z",
+      "modified_at": "2026-05-06T16:25:05.474Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "nachvollziehbare-flaechen-und-volumenberechnung-mit-vermassten-plaenen",
+      "option": "nachvollziehbare-flaechen-und-volumenberechnung-mit-vermassten-plaenen-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "neben-kulturobjekt.neben-kulturobjekt-ja",
     "fields": {
       "created_at": "2020-10-27T12:24:45.358Z",
@@ -79810,6 +82841,21 @@
       "question": "oereb-thema",
       "option": "oereb-thema-war",
       "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "offerten-fuer-den-abbruch.offerten-fuer-den-abbruch-ja",
+    "fields": {
+      "created_at": "2026-05-06T16:30:29.683Z",
+      "modified_at": "2026-05-06T16:30:29.683Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "offerten-fuer-den-abbruch",
+      "option": "offerten-fuer-den-abbruch-ja",
+      "sort": 1
     }
   },
   {
@@ -81099,6 +84145,21 @@
       "modified_by_group": null,
       "question": "situationsplan-bohrungen",
       "option": "situationsplan-bohrungen-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "situationsplan-mit-angabe-der-grundflaechen-der-zum-rueckbau-vorgesehenen-gebaeude-undoder-anlage.situationsplan-mit-angabe-der-grundflaechen-der-zum-rueckbau-vorgesehenen-gebaeude-undoder-anlage-ja",
+    "fields": {
+      "created_at": "2026-05-06T16:25:07.986Z",
+      "modified_at": "2026-05-06T16:25:07.986Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "situationsplan-mit-angabe-der-grundflaechen-der-zum-rueckbau-vorgesehenen-gebaeude-undoder-anlage",
+      "option": "situationsplan-mit-angabe-der-grundflaechen-der-zum-rueckbau-vorgesehenen-gebaeude-undoder-anlage-ja",
       "sort": 1
     }
   },
@@ -82840,6 +85901,81 @@
       "question": "typ-der-analage",
       "option": "typ-der-analage-thermisch",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "typ-der-baute.typ-der-baute-andere",
+    "fields": {
+      "created_at": "2026-05-06T15:51:19.263Z",
+      "modified_at": "2026-05-06T15:51:19.263Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "typ-der-baute",
+      "option": "typ-der-baute-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "typ-der-baute.typ-der-baute-betoniert",
+    "fields": {
+      "created_at": "2026-05-06T15:51:19.264Z",
+      "modified_at": "2026-05-06T15:51:19.264Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "typ-der-baute",
+      "option": "typ-der-baute-betoniert",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "typ-der-baute.typ-der-baute-fabrikhallen",
+    "fields": {
+      "created_at": "2026-05-06T15:51:19.266Z",
+      "modified_at": "2026-05-06T15:51:19.266Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "typ-der-baute",
+      "option": "typ-der-baute-fabrikhallen",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "typ-der-baute.typ-der-baute-gastronomie",
+    "fields": {
+      "created_at": "2026-05-06T15:51:19.267Z",
+      "modified_at": "2026-05-06T15:51:19.267Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "typ-der-baute",
+      "option": "typ-der-baute-gastronomie",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "typ-der-baute.typ-der-baute-leichtbauten",
+    "fields": {
+      "created_at": "2026-05-06T15:51:19.265Z",
+      "modified_at": "2026-05-06T15:51:19.265Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "typ-der-baute",
+      "option": "typ-der-baute-leichtbauten",
+      "sort": 3
     }
   },
   {
@@ -84775,6 +87911,21 @@
       "question": "verwendung",
       "option": "verwendung-warmwasser",
       "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "vollmacht-eigentuemergemeinschaft.vollmacht-eigentuemergemeinschaft-ja",
+    "fields": {
+      "created_at": "2026-05-06T15:14:40.471Z",
+      "modified_at": "2026-05-06T15:14:40.471Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": "admin",
+      "modified_by_group": null,
+      "question": "vollmacht-eigentuemergemeinschaft",
+      "option": "vollmacht-eigentuemergemeinschaft-ja",
+      "sort": 1
     }
   },
   {

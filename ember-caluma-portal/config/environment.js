@@ -354,6 +354,8 @@ module.exports = function (environment) {
             "proposal-declaration",
             "bohrbewilligung-waermeentnahme",
             "konzession-waermeentnahme",
+            "gesuch-um-abbruchpraemie",
+            "antrag-auf-auszahlung",
           ],
         },
         {
