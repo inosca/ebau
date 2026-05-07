@@ -42,7 +42,7 @@ services:
   django: &django
     user: ${UID}
     depends_on:
-      - redis
+      - valkey
       - db
       - document-merge-service
       - mailpit
@@ -79,6 +79,7 @@ services:
       LANGUAGES: de
       OAUTHLIB_INSECURE_TRANSPORT: 1
       PYTHONDONTWRITEBYTECODE: 1
+      REDIS_HOST: valkey
       # OIDC
       KEYCLOAK_URL: http://ebau-keycloak.localhost/auth/
       OIDC_USERINFO_ENDPOINT: http://ebau-keycloak.localhost/auth/realms/ebau/protocol/openid-connect/userinfo
@@ -189,7 +190,7 @@ services:
   document-merge-service:
     user: ${UID}
     depends_on:
-      - redis
+      - valkey
       - db
       - garage
     networks:
@@ -200,7 +201,7 @@ services:
       - apparmor:unconfined
     environment:
       CACHE_BACKEND: django.core.cache.backends.redis.RedisCache
-      CACHE_LOCATION: redis://default:redis@redis:6379/3
+      CACHE_LOCATION: redis://default:redis@valkey:6379/3
       CACHE_OPTIONS: socket_connect_timeout=0.1,socket_timeout=0.1
       DATABASE_HOST: db
       DATABASE_NAME: ${APPLICATION}
@@ -240,10 +241,10 @@ services:
     networks:
       - ebau.localhost
 
-  redis:
-    image: redis:8.4
+  valkey:
+    image: valkey/valkey:9.0
     volumes:
-      - redis_data:/redis/data
+      - valkey_data:/data
     networks:
       - ebau.localhost
     ports:
@@ -281,7 +282,7 @@ volumes:
   pg18data:
   djangomedia:
   djangotmpmedia:
-  redis_data:
+  valkey_data:
   garage_meta:
     driver: local
   garage_data:
