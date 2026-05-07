@@ -121,6 +121,13 @@ services:
     <<: *django
     command: celery-beat
 
+  garage:
+    image: acr.run/camac-ng/camac-ng/garage:${CI_COMMIT_TAG:-master}
+    build:
+      context: ../garage
+      cache_from:
+        - acr.run/camac-ng/camac-ng/garage:${CI_COMMIT_TAG:-master}
+
 volumes:
   pg15data:
   redis_data:
