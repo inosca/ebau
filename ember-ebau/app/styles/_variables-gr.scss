@@ -17,6 +17,11 @@ $global-link-hover-color: $global-primary-background;
 $watermark-background-color: #f0506e;
 $mandatory-asterisk-color: #f0506e;
 
+// increase alexandria side-nav width to fit longer category names.
+.alexandria-container .side-nav .category-nav {
+  width: 335px;
+}
+
 span.subnav-header {
   &__label {
     &--read-only {

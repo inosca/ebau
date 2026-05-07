@@ -20,4 +20,9 @@ span.cf-label__mandatory-asterisk.uk-text-muted {
   color: #f0506e !important;
 }
 
+// increase alexandria side-nav width to fit longer category names.
+.alexandria-container .side-nav .category-nav {
+  width: 335px;
+}
+
 @import "base.scss";
