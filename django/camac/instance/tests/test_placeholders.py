@@ -1195,7 +1195,7 @@ def test_publication_journal_number_override_sz(
 
 
 @pytest.mark.parametrize("role__name", ["Gemeinde"])
-@pytest.mark.freeze_time("2020-12-20")
+@pytest.mark.freeze_time("2020-12-20 10:00")
 def test_dms_placeholders_sz(
     db,
     admin_client,
@@ -1235,6 +1235,32 @@ def test_dms_placeholders_sz(
         ),
         group=group.pk,
         workflow_item=workflow_item,
+    )
+
+    ## Setup construction control dates:
+    placeholders.extend(
+        ["date_dossiervollstandig", "date_dossiereingang", "date_start_zirkulation"]
+    )
+
+    today = make_aware(datetime.now())
+
+    # submit_date
+    workflow_entry_factory(
+        instance=sz_instance,
+        workflow_date=today - timezone.timedelta(days=66),
+        workflow_item__pk=application_settings["WORKFLOW_ITEMS"]["SUBMIT"],
+    )
+    # instance_complete
+    workflow_entry_factory(
+        workflow_item__pk=application_settings["WORKFLOW_ITEMS"]["INSTANCE_COMPLETE"],
+        instance=sz_instance,
+        workflow_date=today - timezone.timedelta(days=55),
+    )
+    # circulation_start
+    workflow_entry_factory(
+        workflow_item__pk=application_settings["WORKFLOW_ITEMS"]["START_CIRC"],
+        instance=sz_instance,
+        workflow_date=today - timezone.timedelta(days=44),
     )
 
     response = admin_client.get(

@@ -2345,6 +2345,30 @@ class SzDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         ),
         static_translations=True,
     )
+    date_dossiervollstandig = fields.MasterDataField(
+        aliases=["DATE_DOSSIERVOLLSTANDIG"],
+        description=_("Date instance completed"),
+        source="instance_complete",
+        parser=compact_human_readable_date,
+        help_text=_("DATE_DOSSIERVOLLSTANDIG_HELP_TEXT"),
+        static_translations=True,
+    )
+    date_dossiereingang = fields.MasterDataField(
+        aliases=["DATE_DOSSIEREINGANG"],
+        description=_("Submit date"),
+        help_text=_("DATE_DOSSIEREINGANG_HELP_TEXT"),
+        source="submit_date",
+        parser=compact_human_readable_date,
+        static_translations=True,
+    )
+    date_start_zirkulation = fields.MasterDataField(
+        aliases=["DATE_START_ZIRKULATION"],
+        description=_("Circulation start date"),
+        help_text=_("DATE_START_ZIRKULATION_HELP_TEXT"),
+        source="circulation_start",
+        parser=compact_human_readable_date,
+        static_translations=True,
+    )
     field_bauherrschaft = fields.MasterDataPersonObjectField(
         source="applicants",
         aliases=[_("FIELD_BAUHERRSCHAFT")],

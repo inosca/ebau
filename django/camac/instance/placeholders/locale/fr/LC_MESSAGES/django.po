@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-04 12:33+0200\n"
+"POT-Creation-Date: 2026-05-06 13:39+0200\n"
 "PO-Revision-Date: 2024-10-09 13:46+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2756,6 +2756,30 @@ msgstr ""
 msgid ""
 "All publications with start, end, week number and journal number (defaults "
 "to week number)."
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Date instance completed"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "DATE_DOSSIERVOLLSTANDIG_HELP_TEXT"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Submit date"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "DATE_DOSSIEREINGANG_HELP_TEXT"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "Circulation start date"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
+msgid "DATE_START_ZIRKULATION_HELP_TEXT"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
