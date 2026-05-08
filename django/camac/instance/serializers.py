@@ -3150,6 +3150,8 @@ class CalumaInstanceAdditionalDemandChangesSubmitSerializer(
         if settings.ADDITIONAL_DEMAND.get("APPLICANT_CORRECTION_FORMEXPORT", False):
             self._regenerate_and_store_pdf(instance)
 
+        instance.update_bab_status()
+
         return instance
 
 
