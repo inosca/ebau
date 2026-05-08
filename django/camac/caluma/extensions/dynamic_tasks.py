@@ -369,37 +369,48 @@ class CustomDynamicTasks(BaseDynamicTasks):
         if str(Service.objects.get(slug="afb").pk) not in addressed_groups:
             return []
 
-        existing_work_item = case.work_items.filter(
+        inquiry_answer = (
+            prev_work_item.document.answers.filter(question_id="inquiry-answer-status")
+            .values_list("value", flat=True)
+            .first()
+        )
+
+        if inquiry_answer == "inquiry-answer-status-not-involved":
+            return []
+
+        existing_work_item = case.family.work_items.filter(
             task_id="trigger-billing",
             status=WorkItem.STATUS_READY,
             addressed_groups=addressed_groups,
         )
-        if not existing_work_item.exists():
-            created_work_items = create_work_items(
-                tasks=[Task.objects.get(pk="trigger-billing")],
-                # the "trigger-billing" work item should be created in the main case
-                # instead of the distribution child case, so that is not cancelled when
-                # the distribution is finished. That's why we need to create the work
-                # item manually.
-                case=case.family,
+        if existing_work_item.exists():
+            return []
+
+        created_work_items = create_work_items(
+            tasks=[Task.objects.get(pk="trigger-billing")],
+            # the "trigger-billing" work item should be created in the main case
+            # instead of the distribution child case, so that is not cancelled when
+            # the distribution is finished. That's why we need to create the work
+            # item manually.
+            case=case.family,
+            user=user,
+            context=context,
+        )
+
+        if len(created_work_items) > 0:
+            work_item = created_work_items[0]
+            if case.family.document.form_id == "anfrage":
+                work_item.deadline = date_to_deadline(now().date() + timedelta(days=30))
+                work_item.save(update_fields=["deadline"])
+
+            send_event(
+                post_create_work_item,
+                sender="post_complete_work_item",
+                work_item=work_item,
                 user=user,
                 context=context,
             )
-            if len(created_work_items) > 0:
-                work_item = created_work_items[0]
-                if case.family.document.form_id == "anfrage":
-                    work_item.deadline = date_to_deadline(
-                        now().date() + timedelta(days=30)
-                    )
-                    work_item.save(update_fields=["deadline"])
 
-                send_event(
-                    post_create_work_item,
-                    sender="post_complete_work_item",
-                    work_item=work_item,
-                    user=user,
-                    context=context,
-                )
         return []
 
     @register_dynamic_task("after-ebau-number")

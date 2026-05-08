@@ -1589,79 +1589,103 @@ def test_dynamic_task_after_submit_ag(
     assert tasks == expected_tasks
 
 
-def test_dynamic_task_after_construction_step_item(
+@pytest.mark.parametrize(
+    "inquiry_answer, afb_in_addressed_groups, existing_work_item, should_create_work_item",
+    [
+        ("inquiry-answer-status-not-involved", True, False, False),
+        ("inquiry-answer-status-positive", True, False, True),
+        ("inquiry-answer-status-positive", True, True, False),
+        ("inquiry-answer-status-positive", False, False, False),
+    ],
+)
+def test_resolve_maybe_trigger_billing(
+    db,
+    ag_instance,
+    service_factory,
+    caluma_work_item_factory,
+    caluma_answer_factory,
+    caluma_admin_user,
+    inquiry_answer,
+    afb_in_addressed_groups,
+    existing_work_item,
+    should_create_work_item,
+    mocker,
+):
+    afb = service_factory(slug="afb")
+    addressed_groups = [str(afb.pk)] if afb_in_addressed_groups else []
+
+    parent_work_item = caluma_work_item_factory(
+        case=ag_instance.case,
+        addressed_groups=addressed_groups,
+    )
+
+    caluma_answer_factory(
+        document=parent_work_item.document,
+        question_id="inquiry-answer-status",
+        value=inquiry_answer,
+    )
+
+    if existing_work_item:
+        caluma_work_item_factory(
+            case=ag_instance.case.family,
+            task_id="trigger-billing",
+            status="ready",
+            addressed_groups=addressed_groups,
+        )
+
+    mock_send_event = mocker.patch("camac.caluma.extensions.dynamic_tasks.send_event")
+
+    result = CustomDynamicTasks().resolve_maybe_trigger_billing(
+        ag_instance.case, caluma_admin_user, parent_work_item, None
+    )
+
+    assert result == []
+
+    trigger_billing_items = ag_instance.case.family.work_items.filter(
+        task_id="trigger-billing",
+        status="ready",
+        addressed_groups=addressed_groups,
+    )
+
+    if should_create_work_item:
+        assert trigger_billing_items.exists()
+        assert mock_send_event.called
+    else:
+        if existing_work_item:
+            assert trigger_billing_items.exists()
+        else:
+            assert not trigger_billing_items.exists()
+
+
+@pytest.mark.parametrize("can_continue, expected_index", [(True, 2), (False, 0)])
+def test_resolve_after_construction_step_item(
     db,
     caluma_task_factory,
     caluma_work_item_factory,
-    construction_monitoring_settings,
-    form_utils: FormUtils,
+    mocker,
+    can_continue,
+    expected_index,
 ):
-    """Test the flow of construction step items based on approval.
+    step_id = "construction-step-1"
 
-    Should forward one step if no approval is needed, or if the approval is given.
-    Otherwise, should return to the previous step.
-    """
-
-    def setup_step(index, needs_approval):
-        meta = {
-            "construction-step": {
-                "next": [],
-                "index": index - 1,
-                "total": 3,
-            },
-            "construction-step-id": "construction-step-test",
+    next_task = caluma_task_factory(
+        meta={
+            "construction-step-id": step_id,
+            "construction-step": {"index": expected_index},
         }
-
-        if needs_approval:
-            meta["construction-step"]["needs-approval"] = (
-                "construction-step-test-is-approved"
-            )
-
-        task = caluma_task_factory(slug=f"task{index}", meta=meta)
-        work_item = caluma_work_item_factory(task=task, meta=meta)
-
-        return work_item, task
-
-    work_item1, task_step_1 = setup_step(1, needs_approval=False)
-    work_item2, task_step_2 = setup_step(2, needs_approval=True)
-    work_item3, task_step_3 = setup_step(3, needs_approval=False)
-
-    # step 1 needs no approval, so should continue to step 2.
-    assert CustomDynamicTasks().resolve_after_construction_step_item(
-        None,
-        None,
-        work_item1,
-        None,
-    ) == [task_step_2.pk]
-
-    # step 2 needs approval and is not approved, so should go back to step 1.
-    assert CustomDynamicTasks().resolve_after_construction_step_item(
-        None,
-        None,
-        work_item2,
-        None,
-    ) == [task_step_1.pk]
-
-    # after approving step 2, it should continue to step 3.
-    form_utils.add_answer(
-        work_item2.document,
-        "construction-step-test-is-approved",
-        "construction-step-test-is-approved-yes",
     )
-    assert CustomDynamicTasks().resolve_after_construction_step_item(
-        None,
-        None,
-        work_item2,
-        None,
-    ) == [task_step_3.pk]
-
-    # step 3 is the last step, so should not return any next tasks.
-    assert (
-        CustomDynamicTasks().resolve_after_construction_step_item(
-            None,
-            None,
-            work_item3,
-            None,
-        )
-        == []
+    prev_work_item = caluma_work_item_factory(
+        meta={
+            "construction-step-id": step_id,
+            "construction-step": {"index": 1},
+        }
     )
+
+    mocker.patch(
+        "camac.caluma.extensions.dynamic_tasks.construction_step_can_continue",
+        return_value=can_continue,
+    )
+
+    assert CustomDynamicTasks().resolve_after_construction_step_item(
+        None, None, prev_work_item, {}
+    ) == [next_task.pk]
