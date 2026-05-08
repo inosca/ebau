@@ -79,6 +79,7 @@ loadconfig-camac: ## Load the camac configuration
 .PHONY: loadconfig-dms
 loadconfig-dms: ## Load the DMS configuration
 	@if docker compose config|grep -q document-merge-service; then \
+		make update-templatefiles; \
 		docker compose exec document-merge-service python manage.py loaddata /tmp/document-merge-service/dump.json; \
 	fi
 
