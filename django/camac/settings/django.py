@@ -4047,7 +4047,7 @@ GENERIC_PERMISSIONS_BYPASS_VISIBILITIES = {
     "alexandria_core.Document": ["marks", "files", "category"],
     "alexandria_core.File": ["original", "renderings", "document"],
 }
-ALEXANDRIA_USE_MANABI = True
+ALEXANDRIA_USE_MANABI = env.bool("ALEXANDRIA_USE_MANABI", default=True)
 ALEXANDRIA_ENABLE_PDF_CONVERSION = True
 ALEXANDRIA_ENABLE_CONTENT_SEARCH = env.bool(
     "ALEXANDRIA_ENABLE_CONTENT_SEARCH", default=True

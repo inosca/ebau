@@ -34,6 +34,7 @@ services:
       args:
         REQUIREMENTS: requirements-dev.txt
     ports:
+      - "5555:5555"
       - "5678:5678"
     volumes:
       - djangomedia:/var/lib/camac/media
@@ -75,7 +76,8 @@ services:
       GWR_FERNET_KEY: GUdwT6yKxqfszrnHC7wyKDmtVZdhjSVQEPnpeJYNLf8=
       GWR_HOUSING_STAT_BASE_URI: https://www-r.housing-stat.ch/regbl/api/ech0216/2
       KEYCLOAK_URL: http://ebau-keycloak.localhost/auth/
-      MANABI_ENABLE: False
+      MANABI_ENABLE: "false"
+      ALEXANDRIA_USE_MANABI: "false"
       META_FIELDS: camac-instance-id,ebau-number,submit-date
       OAUTHLIB_INSECURE_TRANSPORT: 1
       OIDC_USERINFO_ENDPOINT: http://ebau-keycloak.localhost/auth/realms/ebau/protocol/openid-connect/userinfo
@@ -84,6 +86,7 @@ services:
       VALIDATION_CLASSES: camac.caluma.extensions.validations.CustomValidation
       VISIBILITY_CLASSES: camac.caluma.extensions.visibilities.CustomVisibilitySZ
       DJANGO_DEFAULT_FILE_STORAGE: django.core.files.storage.FileSystemStorage
+      # ALEXANDRIA_MANABI_DAV_URL_PATH: /webdav
     env_file:
       - ../garage/compose-env/dev-ebau.conf
       - ../garage/compose-env/dev-alexandria.conf
@@ -102,7 +105,7 @@ services:
   flower:
     image: mher/flower:2.0
     environment:
-      BROKER_URL: redis://default:redis@valkey:6379/0
+      BROKER_URL: redis://default:valkey@valkey:6379/0
       FLOWER_URL_PREFIX: celery-flower
     networks:
       - ebau.localhost

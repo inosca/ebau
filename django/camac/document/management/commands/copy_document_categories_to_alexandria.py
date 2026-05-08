@@ -80,7 +80,9 @@ class Command(BaseCommand):
             slug=slug,
             name=name,
             description=description,
-            allowed_mime_types=section.allowed_mime_types,
+            # allowed mime types: If the list is empty, we set it to
+            # None to avoid disallowing everything
+            allowed_mime_types=section.allowed_mime_types or None,
             color=self._randcolor(),
             parent=None,
             sort=section.sort,

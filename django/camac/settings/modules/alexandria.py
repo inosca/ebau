@@ -90,6 +90,34 @@ ALEXANDRIA = {
             "GEOMETER": ["geometer"],
         },
     },
+    "kt_uri": {
+        # Initial minimum configuration
+        "ENABLED": True,
+        "USE_V2_PERMISSIONS": True,
+        # This base permission from the top-level permission module is required in order
+        # to do any write actions in alexandria. We explicitly don't use
+        # "documents-write" that already exists in order to avoid collisions
+        # with the permission checks of the legacy documents module in the
+        # transition / migration period.
+        "V2_BASE_PERMISSION": "alexandria-write",
+        "PERMISSION_KEY": {
+            "USE_ROLE_PERMISSIONS_MAPPING": True,
+        },
+    },
+    "kt_schwyz": {
+        # Initial minimum configuration
+        "ENABLED": True,
+        "USE_V2_PERMISSIONS": True,
+        # This base permission from the top-level permission module is required in order
+        # to do any write actions in alexandria. We explicitly don't use
+        # "documents-write" that already exists in order to avoid collisions
+        # with the permission checks of the legacy documents module in the
+        # transition / migration period.
+        "V2_BASE_PERMISSION": "alexandria-write",
+        "PERMISSION_KEY": {
+            "USE_ROLE_PERMISSIONS_MAPPING": True,
+        },
+    },
     "kt_sg": {
         "ENABLED": True,
         "USE_V2_PERMISSIONS": True,
