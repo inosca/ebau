@@ -18,4 +18,4 @@ COPY . /app/
 EXPOSE 4000
 EXPOSE 4007
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["bash", "/app/entrypoint.sh"]
