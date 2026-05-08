@@ -478,7 +478,7 @@
     "model": "core.remberlist",
     "pk": 2,
     "fields": {
-      "instance_states": "1,2"
+      "instance_states": "1,2,3,4,5"
     }
   },
   {
