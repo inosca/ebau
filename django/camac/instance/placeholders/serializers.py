@@ -2320,6 +2320,31 @@ class SoDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
 
 
 class SzDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
+    publication_date = fields.MasterDataField(
+        aliases=["PUBLICATION_DATE"],
+        description=_(
+            "Start date of the publication in the publication organ of the municipality"
+        ),
+        parser=human_readable_date,
+        static_translations=True,
+    )
+    publications = fields.AliasedMethodField(
+        aliases=["PUBLICATIONS"],
+        nested_aliases={
+            # `calendar_week` is used as a proxy for journal number and
+            # may be overridden by the user. In that case `calendar_week`
+            # will differ from the actual calendar week number.
+            # TODO: remove `CALENDAR_WEEK` alias when no production template
+            # uses it.
+            "journal_number": ["JOURNAL_NUMBER", "CALENDAR_WEEK"],
+            "date": ["DATE"],
+            "end_date": ["END_DATE"],
+        },
+        description=_(
+            "All publications with start, end, week number and journal number (defaults to week number)."
+        ),
+        static_translations=True,
+    )
     field_bauherrschaft = fields.MasterDataPersonObjectField(
         source="applicants",
         aliases=[_("FIELD_BAUHERRSCHAFT")],
@@ -2403,6 +2428,24 @@ class SzDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("FIELD_VERTRETER_MIT_VOLLMACHT")],
         description=_("Name and address of legal representatives."),
     )
+
+    def get_publications(self, instance):
+        publications = []
+        for publication in instance.publication_entries.filter(is_published=1).order_by(
+            "publication_date"
+        ):
+            publications.append(
+                {
+                    "date": compact_human_readable_date(publication.publication_date),
+                    "end_date": compact_human_readable_date(
+                        publication.publication_end_date
+                    ),
+                    "journal_number": publication.publication_journal_number
+                    or publication.publication_date.isocalendar()[1],
+                }
+            )
+
+        return publications
 
     class Meta:
         exclude = list(DMSPlaceholdersSerializer._declared_fields.keys())

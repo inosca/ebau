@@ -203,8 +203,12 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     activations = serializers.SerializerMethodField()
     billing_entries = BillingEntryMergeSerializer(many=True)
     answer_period_date = serializers.SerializerMethodField()
-    publication_date = serializers.SerializerMethodField()
-    publications = serializers.SerializerMethodField()
+    publication_date = (
+        serializers.SerializerMethodField()
+    )  # DEPRECATED: GL-292 | Use SzDMSPlaceholdersSerializer
+    publications = (
+        serializers.SerializerMethodField()
+    )  # DEPRECATED: GL-292 | Use SzDMSPlaceholdersSerializer
     instance_id = serializers.IntegerField()
     public_dossier_link = serializers.SerializerMethodField()
     internal_dossier_link = serializers.SerializerMethodField()
@@ -372,7 +376,9 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         answer_period_date = date.today() + timedelta(days=settings.MERGE_ANSWER_PERIOD)
         return answer_period_date.strftime(settings.SHORT_DATE_FORMAT)
 
-    def get_publication_date(self, instance):
+    def get_publication_date(
+        self, instance
+    ):  # DEPRECATED: GL-292 | Use SzDMSPlaceholdersSerializer
         publication_entry = instance.publication_entries.first()
 
         return (
@@ -381,21 +387,20 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             or ""
         )
 
-    def get_publications(self, instance):
+    def get_publications(
+        self, instance
+    ):  # DEPRECATED: GL-292 | Use SzDMSPlaceholdersSerializer
         publications = []
 
         for publication in instance.publication_entries.filter(is_published=1).order_by(
             "publication_date"
         ):
-            if publication.publication_journal_number is None:
-                amtsblattnummer = publication.publication_date.isocalendar()[1]
-            else:
-                amtsblattnummer = publication.publication_journal_number
             publications.append(
                 {
                     "date": self.format_date(publication.publication_date),
                     "end_date": self.format_date(publication.publication_end_date),
-                    "calendar_week": amtsblattnummer,
+                    "calendar_week": publication.publication_journal_number
+                    or publication.publication_date.isocalendar()[1],
                 }
             )
 

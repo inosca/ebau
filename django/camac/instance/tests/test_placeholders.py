@@ -1,6 +1,7 @@
 from datetime import date, datetime
 from unittest.mock import Mock
 
+import factory
 import faker
 import pytest
 from alexandria.core.factories import (
@@ -23,7 +24,10 @@ from pytest_lazy_fixtures import lf
 from rest_framework import status
 
 from camac.instance.placeholders.fields import MasterDataField
-from camac.instance.placeholders.serializers import DMSPlaceholdersSerializer
+from camac.instance.placeholders.serializers import (
+    DMSPlaceholdersSerializer,
+    SzDMSPlaceholdersSerializer,
+)
 from camac.instance.placeholders.utils import (
     format_gis_center_coordinates,
     get_tel_and_email,
@@ -1167,25 +1171,81 @@ def test_dms_placeholders_ag(
         assert fallback_result[ir_prop] == fallback_result[a_prop]
 
 
+@pytest.mark.parametrize(
+    "publication_entry__publication_date,publication_entry__is_published",
+    [(datetime(2026, 1, 30, tzinfo=timezone.timezone.utc), True)],
+)
+@pytest.mark.parametrize("role__name", ["Canton"])
+@pytest.mark.parametrize(
+    "publication_entry__publication_journal_number, expected_output",
+    [
+        (3, 3),
+        (None, 5),
+    ],
+)
+def test_publication_journal_number_override_sz(
+    db,
+    publication_entry,
+    admin_client,
+    sz_instance,
+    expected_output,
+):
+    serializer = SzDMSPlaceholdersSerializer(sz_instance)
+    assert serializer.data["PUBLICATIONS"][0]["JOURNAL_NUMBER"] == expected_output
+
+
 @pytest.mark.parametrize("role__name", ["Gemeinde"])
+@pytest.mark.freeze_time("2020-12-20")
 def test_dms_placeholders_sz(
     db,
     admin_client,
+    group,
     sz_master_data_case,
     sz_instance,
     sz_dms_settings,
     sz_placeholders_settings,
     set_application_sz,
+    application_settings,
+    publication_entry_factory,
+    workflow_entry_factory,
+    workflow_item,
     snapshot,
 ):
+
+    placeholders = ["publication_date", "publications"]
+
+    # Publication
+    #
+    # Create two publications to verify that only the first is used for `publication_date`.
+    # The workflow_entry is created by domain logic in `PublicationEntrySerializer` method
+    # `finalize_publication` when a publication is created.
+    # MasterData.publication_date relies on the workflow_entry.
+    workflow_item.pk = application_settings["WORKFLOW_ITEMS"]["PUBLICATION"]
+    workflow_item.save()
+    workflow_entry_factory.create_batch(
+        2,
+        instance=sz_instance,
+        workflow_date=factory.Iterator(  # HINT: the Iterator ensures that two distinct objects are created
+            [
+                publication_entry_factory(
+                    is_published=True, instance=sz_instance
+                ).publication_date
+                for _ in range(2)
+            ]
+        ),
+        group=group.pk,
+        workflow_item=workflow_item,
+    )
+
     response = admin_client.get(
         reverse("instance-dms-placeholders", args=[sz_instance.pk])
     )
     assert response.status_code == status.HTTP_200_OK
     assert response.json() == snapshot
     case_fn = getattr(str, sz_placeholders_settings["PLACEHOLDER_CASE"])
-    for key in response.json().keys():
-        assert key == case_fn(key)
+
+    for placeholder in placeholders:
+        assert case_fn(placeholder) in response.json().keys()
 
 
 @pytest.mark.parametrize(
