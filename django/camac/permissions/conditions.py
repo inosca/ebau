@@ -479,6 +479,28 @@ class IsServiceGroup(Check):
 
 
 @dataclass
+class IsService(Check):
+    """Permission check for requiring any service of a given list of service slugs."""
+
+    required_service_slugs: List[str]
+    allow_caching: bool = True
+
+    def apply(self, userinfo, context: PermissionContext):
+        if not userinfo.service:
+            return False
+
+        return userinfo.service.slug in self.required_service_slugs
+
+    def __eq__(self, other: Check):  # pragma: no cover
+        return isinstance(other, IsService) and set(
+            other.required_service_slugs
+        ) == set(self.required_service_slugs)
+
+    def __repr__(self):
+        return f"IsService({', '.join(sorted(self.required_service_slugs))})"
+
+
+@dataclass
 class RequireDeadline(Check):
     """Permission check for requiring a instance deadline for the service."""
 

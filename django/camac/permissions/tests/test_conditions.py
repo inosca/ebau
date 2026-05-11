@@ -10,6 +10,7 @@ from camac.permissions.conditions import (
     IsCreatedByService,
     IsModification,
     IsPaper,
+    IsService,
     IsServiceGroup,
     IsWorkflow,
     PermissionContext,
@@ -150,6 +151,22 @@ def test_is_service_group(db, expected_result, has_service, userinfo):
         userinfo.service = None
 
     assert IsServiceGroup(["foo", "bar"]).apply(userinfo, None) == expected_result
+
+
+@pytest.mark.parametrize(
+    "has_service,service__slug,expected_result",
+    [
+        (True, "foo", True),
+        (True, "bar", True),
+        (True, "baz", False),
+        (False, "foo", False),
+    ],
+)
+def test_is_service(db, expected_result, has_service, userinfo):
+    if not has_service:
+        userinfo.service = None
+
+    assert IsService(["foo", "bar"]).apply(userinfo, None) == expected_result
 
 
 @pytest.mark.parametrize(
