@@ -7,10 +7,13 @@ import mainConfig from "ember-ebau-core/config/main";
 
 export default class SoCorrectionBauherrinWarningComponent extends Component {
   @service store;
+  @service session;
 
   isInCorrection = trackedFunction(this, async () => {
     const instanceId = this.args.context?.instanceId;
-    if (!instanceId) return false;
+    if (!instanceId || !this.session.isInternal) {
+      return false;
+    }
 
     const instance =
       this.store.peekRecord("instance", instanceId) ??
