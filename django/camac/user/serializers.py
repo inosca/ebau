@@ -329,6 +329,9 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
         old_department = instance.get_trans_attr("department")
         new_department = validated_data.get("department", old_department)
 
+        old_disabled = instance.disabled
+        new_disabled = validated_data.get("disabled", old_disabled)
+
         if settings.APPLICATION.get("IS_MULTILINGUAL"):
             validated_data.pop("name", None)
             validated_data.pop("description", None)
@@ -336,6 +339,9 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
             validated_data.pop("department", None)
 
         instance = super().update(instance, validated_data)
+
+        # Deactivate / reactivate all subservice groups
+        instance.groups.filter(role__slug="subservice").update(disabled=new_disabled)
 
         language = get_language()
         # If a new service translation will be created for the language, perform

@@ -104,6 +104,7 @@ def test_service_update(
                 "description": "new service name",
                 "city": "new city name",
                 "department": "new department name",
+                "disabled": True,
             },
         }
     }
@@ -114,6 +115,7 @@ def test_service_update(
     if status_code == status.HTTP_200_OK:
         service.refresh_from_db()
         assert service.get_name() == "new service name"
+        assert service.disabled == 1
         if role_t.group_prefix:
             assert (
                 service.groups.first().get_name()
