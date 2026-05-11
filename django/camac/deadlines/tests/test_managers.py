@@ -323,8 +323,14 @@ def test_update_deadline_startdate_gr(
         wi.created_at = make_aware(
             datetime.combine(date.fromisoformat(inquiry_date), time(12, 0))
         )
-
         wi.save()
+        wi_fill = caluma_work_item_factory(
+            case=wi.child_case,
+            task=Task.objects.get(slug="fill-inquiry"),
+            addressed_groups=[str(service.pk)],
+        )
+        wi_fill.created_at = wi.created_at
+        wi_fill.save()
 
     wi = caluma_work_item_factory(
         case=gr_instance.case,
@@ -414,6 +420,14 @@ def test_update_deadline_startdate_ag(
             datetime.combine(date.fromisoformat(inquiry_date), time(12, 0))
         )
         wi.save()
+
+        wi_fill = caluma_work_item_factory(
+            case=wi.child_case,
+            task=Task.objects.get(slug="fill-inquiry"),
+            addressed_groups=[str(service.pk)],
+        )
+        wi_fill.created_at = wi.created_at
+        wi_fill.save()
 
     deadline = instance_deadline_factory(
         instance=ag_instance,
