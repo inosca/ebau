@@ -420,25 +420,25 @@ msgstr "Attribution d'un numéro eBau"
 #: camac/caluma/tests/test_events.py
 #, python-format
 msgid "Publication created for %(start)s to %(end)s in %(newspaper)s."
-msgstr "Article publié du %(start)s au %(end)s dans %(newspaper)s."
+msgstr ""
 
 #: camac/caluma/extensions/events/publication.py
 #: camac/caluma/tests/test_events.py
 #, python-format
 msgid "Publication cancelled for %(start)s to %(end)s in %(newspaper)s."
-msgstr "Publication interrompue entre %(start)s et %(end)s dans %(newspaper)s."
+msgstr ""
 
 #: camac/caluma/extensions/events/publication.py
 #: camac/caluma/tests/test_events.py
 #, python-format
 msgid "Gazette: %(gazette_date)s."
-msgstr "Journal officiel : %(gazette_date)s."
+msgstr ""
 
 #: camac/caluma/extensions/events/publication.py
 #: camac/caluma/tests/test_events.py
 #, python-format
 msgid "Newspaper: %(newspaper_date)s."
-msgstr "Journal : %(newspaper_date)s."
+msgstr ""
 
 #: camac/caluma/extensions/events/sb.py
 msgid "Send registration form to AWA"
