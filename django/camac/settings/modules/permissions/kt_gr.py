@@ -399,7 +399,6 @@ GR_PERMISSIONS_SETTINGS = {
                 "instance-download-form-as-pdf",
                 ACTION_INSTANCE_DOWNLOAD_FORM_AS_PDF,
             ),
-            ("linked-instances-read", MODULE_LINKED_INSTANCES),
             ("work-items-read", MODULE_WORK_ITEMS),
         ],
         "geometer": [
