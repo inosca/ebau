@@ -428,7 +428,15 @@ class Buildings(BaseDataSource):
         if not context:  # pragma: no cover
             return []
 
-        document = Document.objects.get(case__instance__pk=context.get("instanceId"))
+        instance_id = context.get("instanceId")
+        if not instance_id:  # pragma: no cover
+            return []
+
+        cache_key = f"data_source_{type(self).__name__}_{instance_id}"
+        return cache.get_or_set(cache_key, lambda: self._get_data(instance_id), 5)
+
+    def _get_data(self, instance_id):
+        document = Document.objects.get(case__instance__pk=instance_id)
         buildings = find_answer(document, "gebaeude")
 
         return (
