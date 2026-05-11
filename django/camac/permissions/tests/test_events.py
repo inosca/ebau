@@ -14,6 +14,7 @@ from camac.constants import kt_gr as gr_constants
 from camac.instance.models import Instance, InstanceState
 from camac.instance.utils import copy_instance
 from camac.permissions import api as permissions_api, events, exceptions
+from camac.permissions.events.core import Trigger
 from camac.permissions.models import InstanceACL
 from camac.permissions.switcher import PERMISSION_MODE
 from camac.tests.form_utils import FormUtils
@@ -1238,4 +1239,66 @@ def test_geometer_changed_event(
         InstanceACL.currently_active()
         .filter(service=selected_geometer, access_level="geometer")
         .exists()
+    )
+
+
+def test_inquiry_sent_event(
+    db,
+    be_instance,
+    service,
+    be_permissions_settings,
+    active_inquiry_factory,
+    access_level_factory,
+):
+    access_level = access_level_factory(slug="distribution-service")
+
+    inquiry_1 = active_inquiry_factory(
+        for_instance=be_instance,
+        addressed_service=service,
+    )
+
+    assert (
+        InstanceACL.currently_active()
+        .filter(
+            access_level=access_level,
+            service=service,
+            instance=be_instance,
+        )
+        .count()
+        == 0
+    )
+
+    # Addressed service of inquiry is granted access
+    # (distribution service acl)
+    Trigger.inquiry_sent(None, be_instance, inquiry_1)
+
+    assert (
+        InstanceACL.currently_active()
+        .filter(
+            access_level=access_level,
+            service=service,
+            instance=be_instance,
+        )
+        .count()
+        == 1
+    )
+
+    inquiry_2 = active_inquiry_factory(
+        for_instance=be_instance,
+        addressed_service=service,
+    )
+
+    # The acl isn't granted another time for the second inquiry for the
+    # same addressed service
+    Trigger.inquiry_sent(None, be_instance, inquiry_2)
+
+    assert (
+        InstanceACL.currently_active()
+        .filter(
+            access_level=access_level,
+            service=service,
+            instance=be_instance,
+        )
+        .count()
+        == 1
     )

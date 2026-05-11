@@ -206,8 +206,23 @@ class ChangeResponsibleServiceHandlerMixin:
 
 class DistributionHandlerMixin:
     def inquiry_sent(self, instance: Instance, work_item):
+        distribution_acl_services = (
+            InstanceACL.currently_active()
+            .filter(
+                access_level="distribution-service",
+                instance=instance,
+            )
+            .values_list("service", flat=True)
+        )
+
         for addr in work_item.addressed_groups:
             addr_service = Service.objects.get(pk=addr)
+
+            # Services that have previously already received an inquiry (and
+            # the associated access to the instance) are ignored.
+            if addr_service.pk in distribution_acl_services:
+                continue
+
             self.manager.grant(
                 instance,
                 grant_type="SERVICE",
