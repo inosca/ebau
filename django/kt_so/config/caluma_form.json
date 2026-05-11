@@ -52979,7 +52979,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"Es ist ein [Meldeformular bzw. ein Gesuch für Lageranlagen / Umschlagplätze](https://formulare.so.ch/bjdafu_inter/start.do?wfjs_enabled=true&wfjs_orig_req=%2Fstart.do%3Fgeneralid%3DLagerungWassergefahr&vid=8e87f4c1f359c194&wfjs_orig_req=%2Fstart.do%3Fgeneralid%3DLagerungWassergefahr&vid=8e87f4c1f359c194#) einzureichen\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"Das Formular zur Meldung von [Lageranlagen für wassergefährdende Flüssigkeiten](https://my.so.ch/ExternalServices/Prestations/BJDAFU-LagerungWassergefahr/Form.aspx) ist einzureichen\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
