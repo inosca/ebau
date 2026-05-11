@@ -127,7 +127,7 @@
       },
       "name": "{\"de\": \"Alle Beteiligten\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Hier werden von der Gemeinde Dokumente hochgeladen, welche für alle am Verfahren beteiligten Rollen (Insbesondere für Gesuchstellende für Dokumente in Verbindung mit Nachforderungen) einsehbar sind. Für Gesuchstellende werden diese Dokumente im eBau-Portal unter *Rückmeldungen* angezeigt. Im Text zur Nachforderung referenziert die nachfordernde Behörde auf das entsprechende Dokument unter Rückmeldungen.\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"video/mp4\", \"video/x-msvideo\", \"video/webm\", \"video/mpeg\"]",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"video/mp4\", \"video/webm\", \"video/mpeg\"]",
       "color": "#CB68C1",
       "parent": null,
       "sort": 10
@@ -268,7 +268,7 @@
       },
       "name": "{\"de\": \"Beilagen zum Gesuch\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"video/mp4\", \"video/x-msvideo\", \"video/webm\", \"video/mpeg\"]",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"video/mp4\", \"video/webm\", \"video/mpeg\"]",
       "color": "#7FC241",
       "parent": null,
       "sort": 1
@@ -287,7 +287,7 @@
       "metainfo": {},
       "name": "{\"de\": \"Grundstücksangaben\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Unter die Begriffe *Grundstücksangaben und Projektbeschrieb* fallen Gesuchsunterlagen wie z. B. Katasterplan (z. B. ÖREB-Kataster), Grundbuchauszug, Dienstbarkeiten, Projektbeschrieb.\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"video/mp4\", \"video/x-msvideo\", \"video/webm\", \"video/mpeg\"]",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"video/mp4\", \"video/webm\", \"video/mpeg\"]",
       "color": "#7FC241",
       "parent": "beilagen-zum-gesuch",
       "sort": 4
@@ -306,7 +306,7 @@
       "metainfo": {},
       "name": "{\"de\": \"Gutachten, Nachweise, Begründungen\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Unter die Begriffe *Gutachten, Nachweise, Begründungen, Ausnahmebegehren* fallen Gesuchsunterlagen wie z. B. Vollmachten, Einverständnis Nachbarn, Nutzungsberechnungen, Energietechnische Massnahmennachweis (EMN), Lärmschutznachweise, Brandschutznachweise.\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"video/mp4\", \"video/x-msvideo\", \"video/webm\", \"video/mpeg\"]",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"video/mp4\", \"video/webm\", \"video/mpeg\"]",
       "color": "#7FC241",
       "parent": "beilagen-zum-gesuch",
       "sort": 3
@@ -325,7 +325,7 @@
       "metainfo": {},
       "name": "{\"de\": \"Projektpläne, Projektbeschrieb\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Unter den Begriff *Projektpläne* fallen Gesuchsunterlagen wie z. B. Situationsplan (Art. 12 und 13 BewD), Projektpläne (Art. 14 BewD) wie Grundrisse, Schnitt- und Fassadenpläne, Umgebungsgestaltungspläne, Kanalisationspläne, Siedlungsentwässerungspläne.\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"video/mp4\", \"video/x-msvideo\", \"video/webm\", \"video/mpeg\"]",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"video/mp4\", \"video/webm\", \"video/mpeg\"]",
       "color": "#7FC241",
       "parent": "beilagen-zum-gesuch",
       "sort": 2
@@ -344,7 +344,7 @@
       "metainfo": {},
       "name": "{\"de\": \"Weitere Gesuchsunterlagen\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"Unter den Begriff *Weitere Gesuchsunterlagen* fallen Dokumentunterlagen wie z. B. Formulare - Anschluss Elektrizität, Anschluss Gemeinschaftsantenne, Anschluss Gas, Anschluss Wasser, Wasser- / Abwasserinstallationen und andere Gesuchsunterlagen\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"video/mp4\", \"video/x-msvideo\", \"video/webm\", \"video/mpeg\"]",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"video/mp4\", \"video/webm\", \"video/mpeg\"]",
       "color": "#7FC241",
       "parent": "beilagen-zum-gesuch",
       "sort": 1
@@ -485,7 +485,7 @@
       },
       "name": "{\"de\": \"Beschwerden\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"video/mp4\", \"video/x-msvideo\", \"video/webm\", \"video/mpeg\"]",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#FF7800",
       "parent": null,
       "sort": 5
@@ -720,7 +720,7 @@
       },
       "name": "{\"de\": \"Beteiligte Behörden\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"video/mp4\", \"video/x-msvideo\", \"video/webm\", \"video/mpeg\"]",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"video/mp4\", \"video/webm\", \"video/mpeg\"]",
       "color": "#00A99D",
       "parent": null,
       "sort": 2
@@ -829,7 +829,7 @@
       },
       "name": "{\"de\": \"Einsprachen\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"video/mp4\", \"video/x-msvideo\", \"video/webm\", \"video/mpeg\"]",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\"]",
       "color": "#E1B422",
       "parent": null,
       "sort": 4
@@ -933,7 +933,7 @@
       },
       "name": "{\"de\": \"Fachstellen\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\", \"video/mp4\", \"video/x-msvideo\", \"video/webm\", \"video/mpeg\"]",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\", \"video/mp4\", \"video/webm\", \"video/mpeg\"]",
       "color": "#00C2FF",
       "parent": null,
       "sort": 6
@@ -1172,7 +1172,7 @@
       },
       "name": "{\"de\": \"Intern\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\", \"video/mp4\", \"video/x-msvideo\", \"video/webm\", \"video/mpeg\"]",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\", \"video/mp4\", \"video/webm\", \"video/mpeg\"]",
       "color": "#689BD0",
       "parent": null,
       "sort": 7
@@ -1399,7 +1399,7 @@
       },
       "name": "{\"de\": \"Intern (mit Unterfachstellen)\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\", \"video/mp4\", \"video/x-msvideo\", \"video/webm\", \"video/mpeg\"]",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\", \"video/mp4\", \"video/webm\", \"video/mpeg\"]",
       "color": "#024A91",
       "parent": null,
       "sort": 8
@@ -1649,7 +1649,7 @@
       },
       "name": "{\"de\": \"Nachforderung\", \"fr\": \"\", \"it\": \"\"}",
       "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"video/mp4\", \"video/x-msvideo\", \"video/webm\", \"video/mpeg\"]",
+      "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"video/mp4\", \"video/webm\", \"video/mpeg\"]",
       "color": "#EE1D23",
       "parent": null,
       "sort": 3
