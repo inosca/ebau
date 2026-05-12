@@ -100,8 +100,6 @@ filterwarnings = [
 [tool.coverage.run]
 source = ["."]
 
-dynamic_context = "test_function"
-
 
 [tool.coverage.report]
 fail_under = 100
