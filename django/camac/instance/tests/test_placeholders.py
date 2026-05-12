@@ -19,7 +19,7 @@ from caluma.caluma_workflow.models import WorkItem
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.timezone import make_aware
-from django.utils.translation import gettext_noop as _, override
+from django.utils.translation import gettext_lazy as _, override
 from pytest_lazy_fixtures import lf
 from rest_framework import status
 
@@ -1356,7 +1356,7 @@ def test_get_koordinaten(coord_east, coord_north, expected, mocker):
         pytest.param(True, id="is_collection: append [] to placholder name"),
         pytest.param(
             False,
-            id="~is_collection: no [] appended to placeholder name, unless nested_aliases given",
+            id="~is_collection: no [] appended to placeholder name",
         ),
     ],
 )
@@ -1370,17 +1370,42 @@ def test_aliased_placeholder_field(
     snapshot,
 ):
     testfields = ["test_literal_field", "test_list_field", "test_nested_field"]
+    testfields = testfields + [field_name + "_untransl" for field_name in testfields]
 
     class PlaceholderTestSerializer(DMSPlaceholdersSerializer):
-        test_literal_field = MasterDataField(aliases=[_("TEST_CAT"), _("TEST_BAT")])
+        test_literal_field = MasterDataField(
+            aliases=[_("TEST_CAT"), _("TEST_BAT")], static_translations=False
+        )
+        test_literal_field_untransl = MasterDataField(
+            aliases=["TEST_CAT", "TEST_BAT"], static_translations=True
+        )
         test_list_field = MasterDataField(
             aliases=[_("TEST_LIST_CATS"), _("TEST_LIST_BATS")],
-            is_collection=is_collection,
+            static_translations=False,
+            is_collection=True,
+        )
+        test_list_field_untransl = MasterDataField(
+            aliases=["TEST_LIST_CATS", "TEST_LIST_BATS"],
+            static_translations=True,
+            is_collection=True,
         )
         test_nested_field = MasterDataField(
-            aliases=[_("TEST_CAT_OBJECTS"), _("TEST_BAT_OBJECTS")],
+            aliases=[
+                _("TEST_CAT_OBJECTS") if is_collection else _("TEST_CAT"),
+                _("TEST_BAT_OBJECTS") if is_collection else _("TEST_BAT"),
+            ],
             is_collection=is_collection,
-            nested_aliases={"NAME": [_("TEST_CAT")], "NESTED.NAME": [_("TEST_BAT")]},
+            static_translations=False,
+            nested_aliases={"NAME": ["TEST_CAT"], "NESTED.NAME": ["TEST_BAT"]},
+        )
+        test_nested_field_untransl = MasterDataField(
+            aliases=[
+                "TEST_CAT_OBJECTS" if is_collection else "TEST_CAT",
+                "TEST_BAT_OBJECTS" if is_collection else "TEST_BAT",
+            ],
+            is_collection=is_collection,
+            static_translations=True,
+            nested_aliases={"NAME": ["TEST_CAT"], "NESTED.NAME": ["TEST_BAT"]},
         )
 
         class Meta:
@@ -1390,8 +1415,11 @@ def test_aliased_placeholder_field(
     serializer = PlaceholderTestSerializer(
         instance=sz_master_data_case.instance, context={"request": fake_request}
     )
-
+    docs = {}
+    placeholders = {}
     for field_name in testfields:
         field = serializer.fields[field_name]
-        assert field.get_docs() == snapshot
-        assert field.make_placeholders() == snapshot
+        docs[field_name] = field.get_docs()
+        placeholders[field_name] = field.make_placeholders()
+    assert docs == snapshot
+    assert placeholders == snapshot
