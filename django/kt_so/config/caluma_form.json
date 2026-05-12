@@ -14665,6 +14665,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "personalien.korrektur-bauherrin-hinweis",
+    "fields": {
+      "created_at": "2026-04-28T00:00:00Z",
+      "modified_at": "2026-04-28T00:00:00Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien",
+      "question": "korrektur-bauherrin-hinweis",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "personalien.personalien-meldung",
     "fields": {
       "created_at": "2025-02-27T08:08:24.172Z",
@@ -14675,7 +14690,7 @@
       "modified_by_group": null,
       "form": "personalien",
       "question": "personalien-meldung",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -14690,7 +14705,7 @@
       "modified_by_group": null,
       "form": "personalien",
       "question": "personalien-titel",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -56491,6 +56506,39 @@
         "min_length": null
       },
       "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "korrektur-bauherrin-hinweis",
+    "fields": {
+      "created_at": "2026-04-28T00:00:00Z",
+      "modified_at": "2026-04-28T00:00:00Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Korrekturhinweis Bauherrschaft\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "so-correction-bauherrin-warning"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
