@@ -1,4 +1,6 @@
 service-permissions:
+  website-placeholder: "https://gr.ch"
+
   sub-services-add-warning: |-
     <b>Hinweis:</b> Beachten Sie, dass nur gemeindeeigene Organisationen als Unterfachstelle eröffnet werden dürfen. 
     Kantonale Fachstellen und externe Fachstellen welche generell alle Gemeinden betreffen, 
