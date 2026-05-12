@@ -490,10 +490,10 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {
+        "hideLabel": true,
         "widgetOverride": "alexandria-documents-form",
         "alexandria-categories": ["nachforderung"],
-        "alexandriaEnableDocumentFilter": true,
-        "hideLabel": true
+        "alexandriaEnableDocumentFilter": true
       },
       "data_source": null,
       "row_form": null,
