@@ -9,7 +9,24 @@ from camac.permissions import api as permissions_api
 from camac.permissions.models import InstanceACL
 from camac.tests.form_utils import FormUtils
 from camac.user.models import GeometerChangeTask, Service, ServiceRelation
-from camac.user.tasks import change_geometer_task
+from camac.user.tasks import _try_get_task, change_geometer_task
+
+
+@pytest.mark.django_db
+def test_try_get_invalid_task(service_factory):
+    geometer_change_task = GeometerChangeTask.objects.create(
+        municipality_id=service_factory().pk,
+        geometer_id=service_factory().pk,
+        status="scheduled",
+    )
+
+    # Fetching existing ID should work
+    assert _try_get_task(geometer_change_task.pk) == geometer_change_task
+
+    # Fetching non-existing ID should fail after timeout work
+    with pytest.raises(GeometerChangeTask.DoesNotExist):
+        # Let's just wait for 1 second here instead of 5
+        _try_get_task(geometer_change_task.pk + 1, timeout_seconds=1)
 
 
 @pytest.mark.parametrize(
