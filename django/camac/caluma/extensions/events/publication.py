@@ -66,20 +66,26 @@ def so_post_save_publication_create_history_entry(
     publication_ende = find_answer(instance.document, "publikation-ende")
     publication_newspaper = find_answer(instance.document, "publikation-organ")
     publication_newspaper_date = find_answer(instance.document, "publikation-anzeiger")
+    publication_gazette_date = find_answer(instance.document, "publikation-amtsblatt")
 
-    text = (
-        _(
-            "Publication created for %(start)s to %(end)s. Published in %(newspaper)s on %(newspaper_date)s."
-        )
+    text_parts = [
+        _("Publication created for %(start)s to %(end)s in %(newspaper)s.")
         if instance.meta.get("is-published")
-        else _(
-            "Publication from %(start)s to %(end)s cancelled. Published in %(newspaper)s on %(newspaper_date)s."
-        )
-    ) % {
+        else _("Publication cancelled for %(start)s to %(end)s in %(newspaper)s."),
+    ]
+
+    if publication_gazette_date:
+        text_parts.append(_("Gazette: %(gazette_date)s."))
+
+    if publication_newspaper_date:
+        text_parts.append(_("Newspaper: %(newspaper_date)s."))
+
+    text = ((" ").join(text_parts)) % {
         "start": publication_start,
         "end": publication_ende,
         "newspaper": publication_newspaper,
         "newspaper_date": publication_newspaper_date,
+        "gazette_date": publication_gazette_date,
     }
 
     create_history_entry(

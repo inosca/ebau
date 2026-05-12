@@ -685,16 +685,23 @@ def test_so_set_is_published_creates_history_entry(
         label="",
         type=Question.TYPE_TEXT,
     )
+    caluma_question_factory(
+        slug="publikation-amtsblatt",
+        label="",
+        type=Question.TYPE_TEXT,
+    )
     mock_data = {
         "start": "start",
         "end": "end",
         "newspaper": "newspaper",
-        "newspaper_date": "publication-date",
+        "newspaper_date": "publication-newspaper-date",
+        "gazette_date": "publication-gazette-date",
     }
     save_answer(work_item.document, "publikation-start", mock_data["start"])
     save_answer(work_item.document, "publikation-ende", mock_data["end"])
     save_answer(work_item.document, "publikation-organ", mock_data["newspaper"])
     save_answer(work_item.document, "publikation-anzeiger", mock_data["newspaper_date"])
+    save_answer(work_item.document, "publikation-amtsblatt", mock_data["gazette_date"])
 
     assert not HistoryEntry.objects.exists()
 
@@ -703,11 +710,12 @@ def test_so_set_is_published_creates_history_entry(
     assert HistoryEntry.objects.count() == 1
     he = HistoryEntry.objects.first()
     text = (
-        _(
-            "Publication created for %(start)s to %(end)s. Published in %(newspaper)s on %(newspaper_date)s."
-        )
-        % mock_data
-    )
+        _("Publication created for %(start)s to %(end)s in %(newspaper)s.")
+        + " "
+        + _("Gazette: %(gazette_date)s.")
+        + " "
+        + _("Newspaper: %(newspaper_date)s.")
+    ) % mock_data
     assert he.trans.first().title == text
 
     work_item.meta["is-published"] = False
@@ -721,11 +729,12 @@ def test_so_set_is_published_creates_history_entry(
     )
     he = HistoryEntry.objects.order_by("-created_at").first()
     text = (
-        _(
-            "Publication from %(start)s to %(end)s cancelled. Published in %(newspaper)s on %(newspaper_date)s."
-        )
-        % mock_data
-    )
+        _("Publication cancelled for %(start)s to %(end)s in %(newspaper)s.")
+        + " "
+        + _("Gazette: %(gazette_date)s.")
+        + " "
+        + _("Newspaper: %(newspaper_date)s.")
+    ) % mock_data
     assert he.trans.first().title == text
 
 
