@@ -26,7 +26,6 @@ lint: ## Lint the project
 
 .PHONY: test
 test: ## Test the project
-	@env
 	@touch .env
 	@python manage.py compilemessages &> /dev/null
 	@pytest -vv --cov --cov-report term --cov-report xml:artifacts/cobertura.xml --record-mode=none -n 8 --dist worksteal --junitxml=artifacts/junit.xml
