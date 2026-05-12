@@ -9,8 +9,7 @@ pre-commit==4.6.0
 psutil==7.0.0
 pydocstyle==6.3.0
 pytest==8.4.2
-# Not updated because incompatible with whichtest.py
-pytest-cov==5.0.0
+pytest-cov==7.1.0
 pytest-django==4.11.1
 pytest-env==1.2.0
 pytest-factoryboy==2.8.1
