@@ -201,7 +201,7 @@ services:
       - apparmor:unconfined
     environment:
       CACHE_BACKEND: django.core.cache.backends.redis.RedisCache
-      CACHE_LOCATION: redis://default:redis@valkey:6379/3
+      CACHE_LOCATION: redis://default:redis@valkey:6379/3 # gitleaks: allow
       CACHE_OPTIONS: socket_connect_timeout=0.1,socket_timeout=0.1
       DATABASE_HOST: db
       DATABASE_NAME: ${APPLICATION}
@@ -278,7 +278,7 @@ services:
   flower:
     image: mher/flower:2.0
     environment:
-      BROKER_URL: redis://default:redis@redis:6379/0
+      BROKER_URL: redis://default:redis@redis:6379/0 # gitleaks: allow
       FLOWER_URL_PREFIX: celery-flower
     networks:
       - ebau.localhost
