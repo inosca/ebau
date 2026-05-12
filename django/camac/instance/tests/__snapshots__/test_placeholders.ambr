@@ -324,8 +324,6 @@
     'GEMEINDE_EMAIL': 'williamsmonica@example.org',
     'GEMEINDE_NAME_ADRESSE': 'Gemeinde Aarburg, East Danielle',
     'GEMEINDE_ORT': 'East Danielle',
-    'GEMEINDE_SERVICE_CONTENT': '',
-    'GEMEINDE_SERVICE_INHALT': '',
     'GEMEINDE_TELEFON': '',
     'GEMEINDE_WEBSEITE': '',
     'GESUCHSTELLER': 'Winters, Anthony and Good, Brian Hall',
@@ -687,7 +685,6 @@
     'CONSTRUCTION_COSTS': 199000,
     'CONSTRUCTION_GROUP': 'Ja',
     'CONSTRUCTION_GROUP_DESIGNATION': 'Test Baugruppe',
-    'CONTENU_SERVICE_COMMUNE': '',
     'CONTRACT': 'Ja',
     'CONTRACT_START': '1. Februar 2022',
     'CONTRAT': 'Ja',
@@ -971,8 +968,6 @@
     'GEMEINDE_EMAIL': 'austin22@example.com',
     'GEMEINDE_NAME_ADRESSE': 'Gemeinde Burgdorf, Vaughanland',
     'GEMEINDE_ORT': 'Vaughanland',
-    'GEMEINDE_SERVICE_CONTENT': '',
-    'GEMEINDE_SERVICE_INHALT': '',
     'GEMEINDE_TELEFON': '',
     'GESCHOSSFLAECHE': '',
     'GESUCHSTELLER': 'ACME AG, Max Mustermann',
@@ -2407,22 +2402,6 @@
         'de': 'Ort der Gemeinde',
         'fr': 'Lieu de la commune',
         'it': 'Località del comune',
-      }),
-      'nested_aliases': dict({
-      }),
-    }),
-    'GEMEINDE_SERVICE_CONTENT': dict({
-      'aliases': list([
-        dict({
-          'de': 'GEMEINDE_SERVICE_INHALT',
-          'fr': 'CONTENU_SERVICE_COMMUNE',
-          'it': 'COMUNE_SERVIZIO_CONTENUTO',
-        }),
-      ]),
-      'description': dict({
-        'de': 'Service content for the municipality',
-        'fr': 'Service content for the municipality',
-        'it': 'Service content for the municipality',
       }),
       'nested_aliases': dict({
       }),
@@ -3990,18 +3969,6 @@
       ]),
       'description': dict({
         'de': 'Ort der Gemeinde',
-      }),
-      'nested_aliases': dict({
-      }),
-    }),
-    'GEMEINDE_SERVICE_CONTENT': dict({
-      'aliases': list([
-        dict({
-          'de': 'GEMEINDE_SERVICE_INHALT',
-        }),
-      ]),
-      'description': dict({
-        'de': 'Service content for the municipality',
       }),
       'nested_aliases': dict({
       }),
@@ -5813,20 +5780,6 @@
       'description': dict({
         'de': 'Ort der Gemeinde',
         'fr': 'Lieu de la commune',
-      }),
-      'nested_aliases': dict({
-      }),
-    }),
-    'GEMEINDE_SERVICE_CONTENT': dict({
-      'aliases': list([
-        dict({
-          'de': 'GEMEINDE_SERVICE_INHALT',
-          'fr': 'CONTENU_SERVICE_COMMUNE',
-        }),
-      ]),
-      'description': dict({
-        'de': 'Service content for the municipality',
-        'fr': 'Service content for the municipality',
       }),
       'nested_aliases': dict({
       }),
@@ -10723,18 +10676,6 @@
       'nested_aliases': dict({
       }),
     }),
-    'GEMEINDE_SERVICE_CONTENT': dict({
-      'aliases': list([
-        dict({
-          'de': 'GEMEINDE_SERVICE_INHALT',
-        }),
-      ]),
-      'description': dict({
-        'de': 'Service content for the municipality',
-      }),
-      'nested_aliases': dict({
-      }),
-    }),
     'GEMEINDE_TELEFON': dict({
       'aliases': list([
         dict({
@@ -13032,18 +12973,6 @@
       'nested_aliases': dict({
       }),
     }),
-    'GEMEINDE_SERVICE_CONTENT': dict({
-      'aliases': list([
-        dict({
-          'de': 'GEMEINDE_SERVICE_INHALT',
-        }),
-      ]),
-      'description': dict({
-        'de': 'Service content for the municipality',
-      }),
-      'nested_aliases': dict({
-      }),
-    }),
     'GEMEINDE_TELEFON': dict({
       'aliases': list([
         dict({
@@ -14676,18 +14605,6 @@
       'nested_aliases': dict({
       }),
     }),
-    'GEMEINDE_SERVICE_CONTENT': dict({
-      'aliases': list([
-        dict({
-          'de': 'GEMEINDE_SERVICE_INHALT',
-        }),
-      ]),
-      'description': dict({
-        'de': 'Service content for the municipality',
-      }),
-      'nested_aliases': dict({
-      }),
-    }),
     'GEMEINDE_TELEFON': dict({
       'aliases': list([
         dict({
@@ -15916,22 +15833,6 @@
       'nested_aliases': dict({
       }),
     }),
-    'GEMEINDE_SERVICE_CONTENT': dict({
-      'aliases': list([
-        dict({
-          'de': 'GEMEINDE_SERVICE_INHALT',
-          'fr': 'CONTENU_SERVICE_COMMUNE',
-          'it': 'COMUNE_SERVIZIO_CONTENUTO',
-        }),
-      ]),
-      'description': dict({
-        'de': 'Service content for the municipality',
-        'fr': 'Service content for the municipality',
-        'it': 'Service content for the municipality',
-      }),
-      'nested_aliases': dict({
-      }),
-    }),
     'GEMEINDE_TELEFON': dict({
       'aliases': list([
         dict({
@@ -17007,7 +16908,6 @@
     'GEMEINDE_EMAIL',
     'GEMEINDE_NAME_ADRESSE',
     'GEMEINDE_ORT',
-    'GEMEINDE_SERVICE_INHALT',
     'GEMEINDE_TELEFON',
     'GEMEINDE_WEBSEITE',
     'GESUCHSTELLER',
@@ -17242,7 +17142,6 @@
     'COMMUNICATION_AUX_VOISINS_CODE_QR',
     'COMMUNICATION_AUX_VOISINS_LIEN',
     'CONSERVABLE',
-    'CONTENU_SERVICE_COMMUNE',
     'CONTRAT',
     'CONTRAT_DATE',
     'COORDONEE',
@@ -17370,7 +17269,6 @@
     'GEMEINDE_EMAIL',
     'GEMEINDE_NAME_ADRESSE',
     'GEMEINDE_ORT',
-    'GEMEINDE_SERVICE_INHALT',
     'GEMEINDE_TELEFON',
     'GESCHOSSFLAECHE',
     'GESUCHSTELLER',
@@ -18469,7 +18367,6 @@
     'GEMEINDE_EMAIL',
     'GEMEINDE_NAME_ADRESSE',
     'GEMEINDE_ORT',
-    'GEMEINDE_SERVICE_INHALT',
     'GEMEINDE_TELEFON',
     'GEMEINDE_WAPPEN',
     'GEMEINDE_WEBSEITE',
@@ -18869,7 +18766,6 @@
     'CONSTRUCTION_COSTS': '',
     'CONSTRUCTION_GROUP': '',
     'CONSTRUCTION_GROUP_DESIGNATION': '',
-    'CONTENU_SERVICE_COMMUNE': '',
     'CONTRACT': '',
     'CONTRACT_START': '',
     'CONTRAT': '',
@@ -18962,8 +18858,6 @@
     'GEMEINDE_EMAIL': '',
     'GEMEINDE_NAME_ADRESSE': '',
     'GEMEINDE_ORT': '',
-    'GEMEINDE_SERVICE_CONTENT': '',
-    'GEMEINDE_SERVICE_INHALT': '',
     'GEMEINDE_TELEFON': '',
     'GESCHOSSFLAECHE': '',
     'GESUCHSTELLER': '',
@@ -20857,8 +20751,6 @@
     'GEMEINDE_EMAIL': 'lortega@example.org',
     'GEMEINDE_NAME_ADRESSE': 'Gemeinde Allen Mathis, North April',
     'GEMEINDE_ORT': 'North April',
-    'GEMEINDE_SERVICE_CONTENT': '',
-    'GEMEINDE_SERVICE_INHALT': '',
     'GEMEINDE_TELEFON': '',
     'GEMEINDE_WAPPEN': 'data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABkAGQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDxyiiiv3E8wKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA//ZiVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAIAAAD/gAIDAAAA6ElEQVR4nO3QwQkAIRDAwNX+az6uBfMSYaaCkDXzDWf27YCXmBWYFZgVmBWYFZgVmBWYFZgVmBWYFZgVmBWYFZgVmBWYFZgVmBWYFZgVmBWYFZgVmBWYFZgVmBWYFZgVmBWYFZgVmBWYFZgVmBWYFZgVmBWYFZgVmBWYFZgVmBWYFZgVmBWYFZgVmBWYFZgVmBWYFZgVmBWYFZgVmBWYFZgVmBWYFZgVmBWYFZgVmBWYFZgVmBWYFZgVmBWYFZgVmBWYFZgVmBWYFZgVmBWYFZgVmBWYFZgVmBWYFZgVmBWYFZgVmBWYFfwSzwHGtnN1wwAAAABJRU5ErkJggg==',
     'GEMEINDE_WEBSEITE': 'https://gemeinde.ch',
