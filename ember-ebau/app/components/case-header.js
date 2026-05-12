@@ -47,7 +47,7 @@ export default class CaseHeaderComponent extends Component {
     return (
       this.args?.case?.modificationDescription ||
       (hasFeature("instanceHeader.shortIntent")
-        ? this.args?.case?.shortIntent
+        ? (this.args?.case?.shortIntent ?? this.args?.case?.intent)
         : this.args?.case?.intent) ||
       "-"
     );
