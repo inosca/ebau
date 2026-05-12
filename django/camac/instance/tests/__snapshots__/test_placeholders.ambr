@@ -10517,6 +10517,18 @@
         ]),
       }),
     }),
+    'responsible_person': dict({
+      'aliases': list([
+        dict({
+          'de': 'responsible_person',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Name des/r zuständigen/r Mitarbeiter/in',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
   })
 # ---
 # name: test_dms_placeholders_docs[kt_sg]
@@ -18813,6 +18825,7 @@
     'publications[].date',
     'publications[].end_date',
     'publications[].journal_number',
+    'responsible_person',
   ])
 # ---
 # name: test_dms_placeholders_empty[Municipality]
@@ -21331,6 +21344,7 @@
       }),
     ]),
     'publikationsdatum': '27. Oktober 2011',
+    'responsible_person': 'Brittany Chapman',
   })
 # ---
 # name: test_dms_placeholders_ur[Sekretariat der Gemeindebaubeh\xf6rde]

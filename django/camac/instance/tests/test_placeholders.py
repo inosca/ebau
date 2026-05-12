@@ -1210,10 +1210,11 @@ def test_dms_placeholders_sz(
     publication_entry_factory,
     workflow_entry_factory,
     workflow_item,
+    responsible_service,
     snapshot,
 ):
 
-    placeholders = ["publication_date", "publications"]
+    placeholders = ["responsible_person", "publication_date", "publications"]
 
     # Publication
     #
