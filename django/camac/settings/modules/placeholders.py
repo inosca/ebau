@@ -141,5 +141,6 @@ PLACEHOLDERS = {
         ],
     },
     "kt_schwyz": {"ENABLED": True, "PLACEHOLDER_CASE": "lower"},
+    "kt_sg": {"ENABLED": True},
     "test": {"ENABLED": True},
 }

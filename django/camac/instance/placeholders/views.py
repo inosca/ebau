@@ -11,6 +11,7 @@ from camac.instance.placeholders.serializers import (
     BeDMSPlaceholdersSerializer,
     DMSPlaceholdersSerializer,
     GrDMSPlaceholdersSerializer,
+    SgDMSPlaceholdersSerializer,
     SoDMSPlaceholdersSerializer,
     SzDMSPlaceholdersSerializer,
     UrDMSPlaceholdersSerializer,
@@ -22,20 +23,20 @@ class DMSPlaceholdersDocsView(RetrieveAPIView):
     renderer_classes = [JSONRenderer]
 
     def get_serializer_class(self):
-        if settings.APPLICATION_NAME == "kt_ag":  # pragma: todo cover
-            return AgDMSPlaceholdersSerializer
-        if settings.APPLICATION_NAME == "kt_bern":
-            return BeDMSPlaceholdersSerializer
-        elif settings.APPLICATION_NAME == "kt_gr":  # pragma: todo cover
-            return GrDMSPlaceholdersSerializer
-        elif settings.APPLICATION_NAME == "kt_so":  # pragma: todo cover
-            return SoDMSPlaceholdersSerializer
-        elif settings.APPLICATION_NAME == "kt_uri":  # pragma: todo cover
-            return UrDMSPlaceholdersSerializer
-        elif settings.APPLICATION_NAME == "kt_schwyz":
-            return SzDMSPlaceholdersSerializer
+        serializer_mapping = {
+            "kt_ag": AgDMSPlaceholdersSerializer,
+            "kt_bern": BeDMSPlaceholdersSerializer,
+            "kt_gr": GrDMSPlaceholdersSerializer,
+            "kt_schwyz": SzDMSPlaceholdersSerializer,
+            "kt_sg": SgDMSPlaceholdersSerializer,
+            "kt_so": SoDMSPlaceholdersSerializer,
+            "kt_uri": UrDMSPlaceholdersSerializer,
+        }
 
-        return DMSPlaceholdersSerializer  # pragma: no cover
+        return serializer_mapping.get(
+            settings.APPLICATION_NAME,
+            DMSPlaceholdersSerializer,
+        )
 
     def get_field_docs(self):
         serializer = self.get_serializer_class()

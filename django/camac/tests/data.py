@@ -130,7 +130,7 @@ def sg_personal_row_factory(is_juristic: bool = False) -> dict:
     fake = Faker()
 
     return {
-        "nachname": fake.last_name(),
+        "name": fake.last_name(),
         "vorname": fake.first_name(),
         "strasse-und-nr": fake.street_address(),
         "plz": str(fake.pyint(min_value=1000, max_value=9999)),
@@ -140,7 +140,7 @@ def sg_personal_row_factory(is_juristic: bool = False) -> dict:
         "telefon": fake.phone_number(),
         "postfach": str(fake.pyint()),
         "juristische-person": f"juristische-person-{'ja' if is_juristic else 'nein'}",
-        "name-juristische-person": fake.company() if is_juristic else None,
+        "juristische-person-name": fake.company() if is_juristic else None,
     }
 
 

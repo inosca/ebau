@@ -931,6 +931,7 @@ def test_dms_placeholders_docs(
         lf("set_application_gr"),
         lf("set_application_so"),
         lf("set_application_sz"),
+        lf("set_application_sg"),
     ],
 )
 def test_dms_placeholders_docs_available_placeholders(

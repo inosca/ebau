@@ -43,6 +43,7 @@ MODULE_DECISION = (RequireWorkItem("decision") & ROLES_MUNICIPALITY) | RequireWo
     "decision", "completed"
 )
 MODULE_DISTRIBUTION = RequireWorkItem("distribution")
+MODULE_DMS_GENERATE = STATES_ALL
 MODULE_DOCUMENTS = STATES_ALL
 MODULE_FORM = STATES_ALL
 MODULE_FORMAL_EXAM = (
@@ -120,6 +121,7 @@ SG_PERMISSIONS_SETTINGS = {
             ("communications-write", MODULE_COMMUNICATIONS),
             ("decision-read", MODULE_DECISION),
             ("distribution-read", MODULE_DISTRIBUTION),
+            ("dms-generate-read", MODULE_DMS_GENERATE),
             ("documents-read", MODULE_DOCUMENTS),
             ("documents-write", MODULE_DOCUMENTS),
             ("form-read", MODULE_FORM),
@@ -143,6 +145,7 @@ SG_PERMISSIONS_SETTINGS = {
             ("communications-write", MODULE_COMMUNICATIONS),
             ("decision-read", MODULE_DECISION),
             ("distribution-read", MODULE_DISTRIBUTION),
+            ("dms-generate-read", MODULE_DMS_GENERATE),
             ("documents-read", MODULE_DOCUMENTS),
             ("documents-write", MODULE_DOCUMENTS),
             ("form-read", MODULE_FORM),

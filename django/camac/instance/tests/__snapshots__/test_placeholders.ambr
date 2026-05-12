@@ -10653,18 +10653,6 @@
       'nested_aliases': dict({
       }),
     }),
-    'DESCRIPTION_MODIFICATION': dict({
-      'aliases': list([
-        dict({
-          'de': 'BESCHREIBUNG_PROJEKTAENDERUNG',
-        }),
-      ]),
-      'description': dict({
-        'de': 'Projektänderung',
-      }),
-      'nested_aliases': dict({
-      }),
-    }),
     'DOSSIER_NUMBER': dict({
       'aliases': list([
         dict({
@@ -11243,53 +11231,6 @@
       'nested_aliases': dict({
       }),
     }),
-    'NEBENBESTIMMUNGEN': dict({
-      'aliases': list([
-        dict({
-          'de': 'NEBENBESTIMMUNGEN',
-        }),
-        dict({
-          'de': 'EIGENE_NEBENBESTIMMUNGEN',
-        }),
-      ]),
-      'description': dict({
-        'de': 'Eigene Nebenbestimmungen',
-      }),
-      'nested_aliases': dict({
-      }),
-    }),
-    'NEBENBESTIMMUNGEN_MAPPED': dict({
-      'aliases': list([
-        dict({
-          'de': 'NEBENBESTIMMUNGEN_MAPPED',
-        }),
-      ]),
-      'description': None,
-      'nested_aliases': dict({
-        'FACHSTELLE': list([
-          dict({
-            'de': 'FACHSTELLE',
-          }),
-        ]),
-        'TEXT': list([
-          dict({
-            'de': 'TEXT',
-          }),
-        ]),
-      }),
-    }),
-    'ORT': dict({
-      'aliases': list([
-        dict({
-          'de': 'ORT',
-        }),
-      ]),
-      'description': dict({
-        'de': 'Der Ort des Bauvorhabens',
-      }),
-      'nested_aliases': dict({
-      }),
-    }),
     'PARZELLE': dict({
       'aliases': list([
         dict({
@@ -11386,21 +11327,6 @@
       'nested_aliases': dict({
       }),
     }),
-    'STELLUNGNAHME': dict({
-      'aliases': list([
-        dict({
-          'de': 'STELLUNGNAHME',
-        }),
-        dict({
-          'de': 'EIGENE_STELLUNGNAHMEN',
-        }),
-      ]),
-      'description': dict({
-        'de': 'Eigene Stellungnahmen',
-      }),
-      'nested_aliases': dict({
-      }),
-    }),
     'STRASSE': dict({
       'aliases': list([
         dict({
@@ -11457,38 +11383,6 @@
         ]),
       }),
     }),
-    'ZIRKULATION_FACHSTELLEN': dict({
-      'aliases': list([
-        dict({
-          'de': 'ZIRKULATION_FACHSTELLEN',
-        }),
-      ]),
-      'description': dict({
-        'de': 'In Dossier involvierte Fachstellen',
-      }),
-      'nested_aliases': dict({
-        'BEANTWORTET': list([
-          dict({
-            'de': 'BEANTWORTET',
-          }),
-        ]),
-        'ERSTELLT': list([
-          dict({
-            'de': 'ERSTELLT',
-          }),
-        ]),
-        'FRIST': list([
-          dict({
-            'de': 'FRIST',
-          }),
-        ]),
-        'NAME': list([
-          dict({
-            'de': 'NAME',
-          }),
-        ]),
-      }),
-    }),
     'ZIRKULATION_GEMEINDEN': dict({
       'aliases': list([
         dict({
@@ -11517,38 +11411,6 @@
         'NAME': list([
           dict({
             'de': 'NAME',
-          }),
-        ]),
-      }),
-    }),
-    'ZIRKULATION_RUECKMELDUNGEN': dict({
-      'aliases': list([
-        dict({
-          'de': 'ZIRKULATION_RUECKMELDUNGEN',
-        }),
-      ]),
-      'description': dict({
-        'de': 'Stellungnahmen und Nebenbestimmungen der eingeladenen Fachstellen',
-      }),
-      'nested_aliases': dict({
-        'ANTWORT': list([
-          dict({
-            'de': 'ANTWORT',
-          }),
-        ]),
-        'NEBENBESTIMMUNGEN': list([
-          dict({
-            'de': 'NEBENBESTIMMUNGEN',
-          }),
-        ]),
-        'STELLUNGNAHME': list([
-          dict({
-            'de': 'STELLUNGNAHME',
-          }),
-        ]),
-        'VON': list([
-          dict({
-            'de': 'VON',
           }),
         ]),
       }),
@@ -18265,6 +18127,107 @@
     'ZIRKULATION_RUECKMELDUNGEN[].VON',
     'ZONENPLAN',
     'ZUSTAENDIG_NAME',
+  ])
+# ---
+# name: test_dms_placeholders_docs_available_placeholders[set_application_sg]
+  list([
+    'ADRESSE',
+    'ALLE_GESUCHSTELLER',
+    'ALLE_GESUCHSTELLER_NAME_ADRESSE',
+    'ALLE_GRUNDEIGENTUEMER',
+    'ALLE_GRUNDEIGENTUEMER_NAME_ADRESSE',
+    'ALLE_PROJEKTVERFASSER',
+    'ALLE_PROJEKTVERFASSER_NAME_ADRESSE',
+    'BAUEINGABE_DATUM',
+    'BAUENTSCHEID_DATUM',
+    'BESCHREIBUNG_BAUVORHABEN',
+    'DOSSIER_NUMMER',
+    'DOSSIER_TYP',
+    'EBAU_URL',
+    'EIGENE_GEBUEHREN',
+    'EIGENE_GEBUEHREN[]',
+    'EIGENE_GEBUEHREN[].BETRAG',
+    'EIGENE_GEBUEHREN[].POSITION',
+    'EIGENE_GEBUEHREN_TOTAL',
+    'FACHSTELLEN_KANTONAL',
+    'FACHSTELLEN_KANTONAL[]',
+    'FACHSTELLEN_KANTONAL[].BEANTWORTET',
+    'FACHSTELLEN_KANTONAL[].ERSTELLT',
+    'FACHSTELLEN_KANTONAL[].FRIST',
+    'FACHSTELLEN_KANTONAL[].NAME',
+    'GEBUEHREN',
+    'GEBUEHREN[]',
+    'GEBUEHREN[].BETRAG',
+    'GEBUEHREN[].POSITION',
+    'GEBUEHREN_TOTAL',
+    'GEBUEHREN_TOTAL_NICHT_VERRECHNET',
+    'GEMEINDE',
+    'GEMEINDE_ADRESSE',
+    'GEMEINDE_EMAIL',
+    'GEMEINDE_NAME_ADRESSE',
+    'GEMEINDE_ORT',
+    'GEMEINDE_TELEFON',
+    'GEMEINDE_WEBSEITE',
+    'GESUCHSTELLER',
+    'GESUCHSTELLER_ADRESSE_1',
+    'GESUCHSTELLER_ADRESSE_2',
+    'GESUCHSTELLER_NAME_ADRESSE',
+    'GRUNDEIGENTUEMER',
+    'GRUNDEIGENTUEMER_ADRESSE_1',
+    'GRUNDEIGENTUEMER_ADRESSE_2',
+    'GRUNDEIGENTUEMER_NAME_ADRESSE',
+    'HEUTE',
+    'JURISTISCHER_NAME',
+    'KOORDINATEN',
+    'LEITBEHOERDE_ADRESSE_1',
+    'LEITBEHOERDE_ADRESSE_2',
+    'LEITBEHOERDE_EMAIL',
+    'LEITBEHOERDE_NAME',
+    'LEITBEHOERDE_NAME_ADRESSE',
+    'LEITBEHOERDE_NAME_KURZ',
+    'LEITBEHOERDE_STADT',
+    'LEITBEHOERDE_TELEFON',
+    'LEITBEHOERDE_WEBSEITE',
+    'MEINE_ORGANISATION_ADRESSE_1',
+    'MEINE_ORGANISATION_ADRESSE_2',
+    'MEINE_ORGANISATION_EMAIL',
+    'MEINE_ORGANISATION_NAME',
+    'MEINE_ORGANISATION_NAME_ADRESSE',
+    'MEINE_ORGANISATION_NAME_KURZ',
+    'MEINE_ORGANISATION_ORT',
+    'MEINE_ORGANISATION_TELEFON',
+    'MEINE_ORGANISATION_WEBSEITE',
+    'PARZELLE',
+    'PROJEKTVERFASSER',
+    'PROJEKTVERFASSER_ADRESSE_1',
+    'PROJEKTVERFASSER_ADRESSE_2',
+    'PROJEKTVERFASSER_NAME_ADRESSE',
+    'PUBLIKATION_LINK',
+    'PUBLIKATION_TEXT',
+    'SPRACHE',
+    'STATUS',
+    'STRASSE',
+    'ZIRKULATION_ALLE',
+    'ZIRKULATION_ALLE[]',
+    'ZIRKULATION_ALLE[].BEANTWORTET',
+    'ZIRKULATION_ALLE[].ERSTELLT',
+    'ZIRKULATION_ALLE[].FRIST',
+    'ZIRKULATION_ALLE[].NAME',
+    'ZIRKULATION_ANGEFORDERT',
+    'ZIRKULATION_ANGEFORDERT[]',
+    'ZIRKULATION_ANGEFORDERT[].BEANTWORTET',
+    'ZIRKULATION_ANGEFORDERT[].ERSTELLT',
+    'ZIRKULATION_ANGEFORDERT[].FRIST',
+    'ZIRKULATION_ANGEFORDERT[].NAME',
+    'ZIRKULATION_GEMEINDEN',
+    'ZIRKULATION_GEMEINDEN[]',
+    'ZIRKULATION_GEMEINDEN[].BEANTWORTET',
+    'ZIRKULATION_GEMEINDEN[].ERSTELLT',
+    'ZIRKULATION_GEMEINDEN[].FRIST',
+    'ZIRKULATION_GEMEINDEN[].NAME',
+    'ZUSTAENDIG_EMAIL',
+    'ZUSTAENDIG_NAME',
+    'ZUSTAENDIG_TELEFON',
   ])
 # ---
 # name: test_dms_placeholders_docs_available_placeholders[set_application_so]

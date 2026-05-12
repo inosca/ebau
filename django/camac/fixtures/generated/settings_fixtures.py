@@ -3007,6 +3007,23 @@ def sz_placeholders_settings(
 
 
 @pytest.fixture
+def sg_placeholders_settings(
+    request,
+    settings,
+    placeholders_settings,
+):
+    """Module-specific settings for placeholders (canton SG)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=placeholders_settings,
+        module_name="placeholders",
+        canton="kt_sg",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def test_placeholders_settings(
     request,
     settings,

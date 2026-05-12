@@ -2731,3 +2731,19 @@ class AgDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             "nebenbestimmungen",
             "stellungnahme",
         ]
+
+
+class SgDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
+    class Meta:
+        exclude = [
+            # Doesn't match distribution structure
+            "nebenbestimmungen_mapped",
+            "nebenbestimmungen",
+            "stellungnahme",
+            "zirkulation_fachstellen",
+            "zirkulation_rueckmeldungen",
+            # No such data in the main form
+            "ort",
+            # TODO: Remove when project modification is enabled
+            "description_modification",
+        ]

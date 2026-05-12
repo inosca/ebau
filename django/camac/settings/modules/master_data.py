@@ -116,9 +116,9 @@ SO_PERSONAL_DATA_MAPPING = {
 }
 
 SG_PERSONAL_DATA_MAPPING = {
-    "last_name": "nachname",
+    "last_name": "name",
     "first_name": "vorname",
-    "street_and_number": "strasse-und-nr",
+    "street": "strasse-und-nr",
     "zip": "plz",
     "town": "ort",
     "country": "land",
@@ -3438,6 +3438,15 @@ MASTER_DATA = {
                 {"value_parser": "dynamic_option", "prop": "slug"},
             ),
             "dossier_number": ("case_meta", "dossier-number"),
+            "submit_date": ("case_meta", "submit-date", {"value_parser": "datetime"}),
+            "decision_date": (
+                "answer",
+                "entscheid-datum",
+                {
+                    "document_from_work_item": "decision",
+                    "value_key": "date",
+                },
+            ),
             "proposal": ("answer", "beschreibung-bauvorhaben"),
             "joined_street_and_number": ("static", True),
             "street": ("answer", "strasse-und-nr"),
@@ -3456,6 +3465,16 @@ MASTER_DATA = {
             "applicants": (
                 "table",
                 "gesuchstellerin",
+                {"column_mapping": SG_PERSONAL_DATA_MAPPING},
+            ),
+            "project_authors": (
+                "table",
+                "projektverfasserin",
+                {"column_mapping": SG_PERSONAL_DATA_MAPPING},
+            ),
+            "landowners": (
+                "table",
+                "grundeigentuemerin",
                 {"column_mapping": SG_PERSONAL_DATA_MAPPING},
             ),
             "publication_required": (
