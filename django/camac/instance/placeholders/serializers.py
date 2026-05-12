@@ -291,11 +291,6 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
         aliases=[_("FORM_NAME")],
         description=_("Type of the instance"),
     )
-    gemeinde_service_content = fields.MasterDataField(
-        "municipality_service_content",
-        aliases=[_("MUNICIPALITY_SERVICE_CONTENT")],
-        description=_("Service content for the municipality"),
-    )
     gemeinde_email = fields.MunicipalityField(
         source="email",
         aliases=[_("MUNICIPALITY_EMAIL")],
@@ -941,6 +936,11 @@ class GrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
     folgeplanung = fields.AliasedMethodField(
         aliases=[_("FOLLOWUP_PLANNING")],
         description=_("Follow-up planning"),
+    )
+    gemeinde_service_content = fields.MasterDataField(
+        "municipality_service_content",
+        aliases=[_("MUNICIPALITY_SERVICE_CONTENT")],
+        description=_("Service content for the municipality"),
     )
     koordinaten = fields.AliasedMethodField(
         aliases=[_("COORDINATES")],

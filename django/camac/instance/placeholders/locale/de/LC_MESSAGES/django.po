@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-06 13:41+0200\n"
+"POT-Creation-Date: 2026-05-12 10:56+0200\n"
 "PO-Revision-Date: 2025-05-09 15:48+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -555,14 +555,6 @@ msgstr "DOSSIER_TYP"
 #: camac/instance/placeholders/serializers.py
 msgid "Type of the instance"
 msgstr "Typ des Dossiers"
-
-#: camac/instance/placeholders/serializers.py
-msgid "MUNICIPALITY_SERVICE_CONTENT"
-msgstr "GEMEINDE_SERVICE_INHALT"
-
-#: camac/instance/placeholders/serializers.py
-msgid "Service content for the municipality"
-msgstr ""
 
 #: camac/instance/placeholders/serializers.py
 msgid "MUNICIPALITY_EMAIL"
@@ -1310,6 +1302,14 @@ msgstr "FOLGEPLANUNG"
 #: camac/instance/placeholders/serializers.py
 msgid "Follow-up planning"
 msgstr "Folgeplanung"
+
+#: camac/instance/placeholders/serializers.py
+msgid "MUNICIPALITY_SERVICE_CONTENT"
+msgstr "GEMEINDE_SERVICE_INHALT"
+
+#: camac/instance/placeholders/serializers.py
+msgid "Service content for the municipality"
+msgstr ""
 
 #: camac/instance/placeholders/serializers.py
 msgid "BUILDING_INSURANCE_NUMBER"
