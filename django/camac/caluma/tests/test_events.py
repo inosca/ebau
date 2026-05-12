@@ -1809,3 +1809,89 @@ def test_post_resume_inquiry_ur(
     ur_instance.refresh_from_db()
 
     assert ur_instance.instance_state.name == "nfd"
+
+
+@pytest.mark.freeze_time("2026-01-01")
+@pytest.mark.parametrize(
+    "service_slug,expected_deadline_before,expected_deadline_after,has_override",
+    [
+        (
+            "service-afb",
+            date(2026, 3, 2),
+            date(2026, 3, 5),
+            True,
+        ),
+        (
+            "amb",
+            date(2026, 1, 31),
+            date(2026, 2, 3),
+            True,
+        ),
+        (
+            "service-afb",
+            date(2026, 1, 15),
+            date(2026, 1, 15),
+            False,
+        ),
+    ],
+)
+def test_recalculate_deadline_by_submission(
+    db,
+    caluma_admin_user,
+    settings,
+    ag_instance,
+    freezer,
+    set_application_ag,
+    ag_distribution_settings,
+    disable_ech0211_settings,
+    service_slug,
+    expected_deadline_before,
+    expected_deadline_after,
+    has_override,
+    service_factory,
+    caluma_work_item_factory,
+):
+    settings.DISTRIBUTION[
+        "NOTIFICATIONS"
+    ] = {}  # this short-circuits the notification logic which we dont want to test here
+
+    settings.DISTRIBUTION["RECALCULATE_DEADLINE_BY_SUBMISSION"] = True
+
+    if not has_override:
+        settings.DISTRIBUTION["DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICES"] = {}
+        settings.DISTRIBUTION["DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICE_GROUPS"] = {}
+
+    inquiry_task = Task.objects.get(slug=settings.DISTRIBUTION["INQUIRY_TASK"])
+    addressed_service = service_factory(
+        slug=service_slug, service_group__name=service_slug
+    )
+    work_item = caluma_work_item_factory(
+        task=inquiry_task,
+        case=ag_instance.case,
+        addressed_groups=[addressed_service.pk],
+        controlling_groups=[addressed_service.pk],
+    )
+
+    distribution.post_create_inquiry(
+        sender=None, work_item=work_item, user=caluma_admin_user
+    )
+
+    work_item.refresh_from_db()
+    deadline_answer = work_item.document.answers.get(
+        question__pk=settings.DISTRIBUTION["QUESTIONS"]["DEADLINE"]
+    )
+
+    assert deadline_answer.date == expected_deadline_before
+    assert work_item.deadline.date() == expected_deadline_before
+
+    freezer.move_to("2026-01-04")
+
+    distribution.post_resume_inquiry(
+        sender=None, work_item=work_item, user=caluma_admin_user
+    )
+
+    work_item.refresh_from_db()
+    deadline_answer.refresh_from_db()
+
+    assert deadline_answer.date == expected_deadline_after
+    assert work_item.deadline.date() == expected_deadline_after

@@ -646,6 +646,7 @@ class InstanceDeadline(models.Model):
         """For inquired services, the end date is set to the inquiry answer date."""
         work_item = (
             Inquiry.objects.for_instance(self.instance)
+            .only_active()
             .addressed_to(str(self.service.pk))
             .order_by("-created_at")
             .first()
@@ -673,6 +674,7 @@ class InstanceDeadline(models.Model):
 
         work_item = (
             Inquiry.objects.for_instance(self.instance)
+            .only_active()
             .addressed_to(str(self.service.pk))
             .order_by("-created_at")
             .first()
@@ -747,15 +749,35 @@ class InstanceDeadline(models.Model):
         )
 
     def _get_startdate_inquired(self) -> Optional[datetime]:
-        """For inquired services, the start date is set to the inquiry date."""
+        """For inquired services, the start date is set to the inquiry date.
+
+        Since an inquiry is originally only a draft, we take the date of the first
+        fill work-item of the inquiry, because that is created when the inquiry
+        is actually sent and the inquired service is involved.
+        """
         inquiry = (
             Inquiry.objects.for_instance(self.instance)
             .addressed_to(self.service)
-            .order_by("-created_at")
+            .only_active()
+            .order_by("created_at")
             .first()
         )
+        inquiry_fill_workitem = (
+            WorkItem.objects.filter(
+                case=inquiry.child_case,
+                task__slug=settings.DISTRIBUTION["INQUIRY_ANSWER_FILL_TASK"],
+            )
+            .order_by("created_at")
+            .first()
+            if inquiry
+            else None
+        )
 
-        return inquiry.created_at.date() if inquiry and inquiry.created_at else None
+        return (
+            inquiry_fill_workitem.created_at.date()
+            if inquiry_fill_workitem and inquiry_fill_workitem.created_at
+            else None
+        )
 
     def _get_target_enddate(self) -> Optional[datetime]:
         suspension_dates = self.get_suspension_dates()
