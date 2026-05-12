@@ -149,9 +149,12 @@
           id="website"
           placeholder={{t "service-permissions.website-placeholder"}}
         />
-        <span class="uk-text-small uk-text-muted">{{t
+        <span class="uk-text-small uk-text-muted">
+          {{t
             "service-permissions.website-hint"
-          }}</span>
+            placeholder=(t "service-permissions.website-placeholder")
+          }}
+        </span>
       </div>
     </div>
     {{#if @showNotification}}

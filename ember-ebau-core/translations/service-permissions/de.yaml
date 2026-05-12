@@ -14,8 +14,8 @@ service-permissions:
     wechseln Sie die Sprache, passen Sie die Bezeichnung an und drücken Sie erneut auf "Speichern".
   phone: "Telefon"
   website: "Webseite"
-  website-placeholder: "https://gr.ch"
-  website-hint: "Die Webseite muss im folgenden Format eingetragen werden: https://gr.ch"
+  website-placeholder: "https://inosca.ch"
+  website-hint: "Die Webseite muss im folgenden Format eingetragen werden: {placeholder}"
   website-validation-error: Das Format der Eingabe im Feld "Webseite" ist ungültig.
   zip: "PLZ"
   notification: "Notifikationen empfangen"

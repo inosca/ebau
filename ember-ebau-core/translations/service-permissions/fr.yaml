@@ -14,8 +14,8 @@ service-permissions:
     également définis dans d'autres langues, changez de langue, adaptez le libellé et appuyez à nouveau sur "Enregistrer".
   phone: "Téléphone"
   website: "Site Internet"
-  website-placeholder: "https://gr.ch"
-  website-hint: "Le site web doit être enregistré au format suivant : https://gr.ch"
+  website-placeholder: "https://inosca.ch"
+  website-hint: "Le site web doit être enregistré au format suivant : {placeholder}"
   website-validation-error: 'Le format de la saisie dans le champ "Site web" n''est pas valable.'
   zip: "Code postal"
   notification: "Recevoir des notifications"

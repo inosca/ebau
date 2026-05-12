@@ -14,8 +14,8 @@ service-permissions:
     cambiare la lingua, adeguare la designazione e cliccare di nuovo su «Salva».
   phone: "Telefono"
   website: "Sito web"
-  website-placeholder: "https://gr.ch"
-  website-hint: "Il sito web deve essere inserito nel formato seguente: https://gr.ch"
+  website-placeholder: "https://inosca.ch"
+  website-hint: "Il sito web deve essere inserito nel formato seguente: {placeholder}"
   website-validation-error: Il formato del testo inserito nel campo «Sito web» non è valido.
   zip: "NPA"
   notification: "Ricevi notifiche"
