@@ -2811,6 +2811,10 @@ msgid "Dossier number"
 msgstr ""
 
 #: camac/instance/placeholders/serializers.py
+msgid "Location"
+msgstr ""
+
+#: camac/instance/placeholders/serializers.py
 msgid "FIELD_BAUHERRSCHAFT"
 msgstr ""
 

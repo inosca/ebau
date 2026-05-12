@@ -2443,6 +2443,12 @@ class SzDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         static_translations=True,
         description=_("Dossier number"),
     )
+    location = fields.MasterDataField(
+        source="municipality_name",
+        aliases=["LOCATION"],
+        static_translations=True,
+        description=_("Location"),
+    )
     field_bauherrschaft = fields.MasterDataPersonObjectField(
         source="applicants",
         aliases=[_("FIELD_BAUHERRSCHAFT")],
