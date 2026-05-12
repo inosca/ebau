@@ -77,6 +77,7 @@ env = [
     "APPLICATION=test",
     "APPLICATION_ENV=ci",
     "TEST_SUITE_RUNNING=true",
+    "COVERAGE_CORE=sysmon",
 ]
 filterwarnings = [
     "error::DeprecationWarning",
