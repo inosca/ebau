@@ -1,3 +1,4 @@
+import time
 from logging import getLogger
 
 from caluma.caluma_user.models import AnonymousUser
@@ -47,6 +48,21 @@ def _should_perform_geometer_change_for_instance(instance, selected_municipality
     return perform_change
 
 
+def _try_get_task(task_id, timeout_seconds=5):
+    # Retry if task is not available yet. This may happen if we startup
+    # too quickly and the API transaction is not yet committed.
+    started_at = time.time()
+    while True:
+        try:
+            return GeometerChangeTask.objects.get(pk=task_id)
+        except GeometerChangeTask.DoesNotExist:
+            if started_at + timeout_seconds < time.time():
+                # Tried for more than 5 seconds, something's not right
+                raise
+            else:
+                time.sleep(0.5)
+
+
 @shared_task
 def change_geometer_task(task_id):
     """
@@ -59,7 +75,8 @@ def change_geometer_task(task_id):
     ACLs to the new geometer as well.
     """
 
-    task = GeometerChangeTask.objects.get(pk=task_id)
+    task = _try_get_task(task_id)
+
     task.status = "running"
     task.save()
 
