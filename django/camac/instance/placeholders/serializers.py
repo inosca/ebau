@@ -2396,6 +2396,12 @@ class SzDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         static_translations=True,
         description=_("Name of the responsible employee"),
     )
+    identifier = fields.MasterDataField(
+        source="dossier_number",
+        aliases=["IDENTIFIER"],
+        static_translations=True,
+        description=_("Dossier number"),
+    )
     field_bauherrschaft = fields.MasterDataPersonObjectField(
         source="applicants",
         aliases=[_("FIELD_BAUHERRSCHAFT")],
