@@ -19,28 +19,10 @@
   },
   {
     "model": "caluma_form.form",
-    "pk": "materielle-pruefung-artikel-31",
-    "fields": {
-      "created_at": "2026-03-18T15:39:44.201Z",
-      "modified_at": "2026-03-19T14:14:09.048Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "name": "{\"de\": \"Art. 31 Abs. 2 LSV\", \"fr\": null, \"it\": null}",
-      "description": "{\"de\": \"Materielle Prüfung > Ausnahmebewilligungen > Art. 31 Abs. 2 LSV\", \"fr\": null, \"it\": null}",
-      "meta": {},
-      "is_published": false,
-      "is_archived": false,
-      "source": "materielle-pruefung-strassenabstand"
-    }
-  },
-  {
-    "model": "caluma_form.form",
     "pk": "materielle-pruefung-ausnahmebewilligungen",
     "fields": {
       "created_at": "2026-03-18T13:47:22.399Z",
-      "modified_at": "2026-03-19T14:14:02.435Z",
+      "modified_at": "2026-05-12T12:53:08.270Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -159,51 +141,6 @@
       "is_published": false,
       "is_archived": false,
       "source": "materielle-pruefung-waldabstand"
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "materielle-pruefung-artikel-31.materielle-pruefung-artikel-31-antrag",
-    "fields": {
-      "created_at": "2026-03-18T15:39:55.727Z",
-      "modified_at": "2026-03-18T15:39:55.727Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "materielle-pruefung-artikel-31",
-      "question": "materielle-pruefung-artikel-31-antrag",
-      "sort": 2
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "materielle-pruefung-artikel-31.materielle-pruefung-artikel-31-begruendung",
-    "fields": {
-      "created_at": "2026-03-18T15:40:07.011Z",
-      "modified_at": "2026-03-18T15:40:07.011Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "materielle-pruefung-artikel-31",
-      "question": "materielle-pruefung-artikel-31-begruendung",
-      "sort": 1
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "materielle-pruefung-ausnahmebewilligungen.materielle-pruefung-art-31",
-    "fields": {
-      "created_at": "2026-03-18T15:42:24.125Z",
-      "modified_at": "2026-03-18T15:42:24.125Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "materielle-pruefung-ausnahmebewilligungen",
-      "question": "materielle-pruefung-art-31",
-      "sort": 2
     }
   },
   {
@@ -628,23 +565,6 @@
   },
   {
     "model": "caluma_form.option",
-    "pk": "materielle-pruefung-ausnahmebewilligungen-notwendig-art-31-abs-2-lsv",
-    "fields": {
-      "created_at": "2026-03-18T15:11:00.112Z",
-      "modified_at": "2026-03-18T15:11:00.112Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Art. 31 Abs. 2 LSV\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
     "pk": "materielle-pruefung-ausnahmebewilligungen-notwendig-gewaesserraum",
     "fields": {
       "created_at": "2026-03-18T15:11:00.095Z",
@@ -922,105 +842,6 @@
         "action": "complete",
         "show_validation": true,
         "validate_on_enter": true
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "materielle-pruefung-art-31",
-    "fields": {
-      "created_at": "2026-03-18T15:42:24.043Z",
-      "modified_at": "2026-03-18T16:00:53.867Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Art. 31 Abs. 2 LSV\", \"fr\": null, \"it\": null}",
-      "type": "form",
-      "is_required": "false",
-      "is_hidden": "!(\"materielle-pruefung-ausnahmebewilligungen-notwendig-art-31-abs-2-lsv\" in \"materielle-pruefung-ausnahmebewilligungen-notwendig\"|answer)",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": "materielle-pruefung-artikel-31",
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "materielle-pruefung-artikel-31-antrag",
-    "fields": {
-      "created_at": "2026-03-18T15:39:55.546Z",
-      "modified_at": "2026-03-18T15:39:55.546Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Antrag\", \"fr\": null, \"it\": null}",
-      "type": "textarea",
-      "is_required": "true",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
-      },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "materielle-pruefung-artikel-31-begruendung",
-    "fields": {
-      "created_at": "2026-03-18T15:40:06.915Z",
-      "modified_at": "2026-03-18T15:40:06.915Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"Begründung\", \"fr\": null, \"it\": null}",
-      "type": "textarea",
-      "is_required": "true",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {
-        "max_length": null,
-        "min_length": null
       },
       "meta": {},
       "data_source": null,
@@ -1911,21 +1732,6 @@
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
-    "pk": "materielle-pruefung-ausnahmebewilligungen-notwendig.materielle-pruefung-ausnahmebewilligungen-notwendig-art-31-abs-2-lsv",
-    "fields": {
-      "created_at": "2026-03-18T15:11:00.202Z",
-      "modified_at": "2026-03-18T15:11:00.202Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "materielle-pruefung-ausnahmebewilligungen-notwendig",
-      "option": "materielle-pruefung-ausnahmebewilligungen-notwendig-art-31-abs-2-lsv",
-      "sort": 2
     }
   },
   {
