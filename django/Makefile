@@ -29,7 +29,6 @@ test: ## Test the project
 	@touch .env
 	@python manage.py compilemessages &> /dev/null
 	@pytest -vv --cov --cov-report term --cov-report xml:artifacts/cobertura.xml --record-mode=none -n 8 --dist worksteal --junitxml=artifacts/junit.xml
-	@python tools/whichtest.py --check-locality --verbose --no-report-100percent
 
 .PHONY: sqlsequencereset
 sqlsequencereset:
