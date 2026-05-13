@@ -1127,13 +1127,14 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             models.Instance.objects.all().select_related(instance_state_expr).distinct()
         )
 
-    def create(self, validated_data):
+    def create(self, validated_data):  # noqa: C901
         group = self.context.get("request").group
         visible_instances = super().get_queryset(group)
 
         copy_source = validated_data.pop("copy_source", None)
         is_modification = self.initial_data.get("is_modification", False)
         copy_attachments_from = self.initial_data.get("copy_attachments_from", [])
+        is_conversion = False
 
         source_instance = None
         if copy_source:
@@ -1150,6 +1151,7 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             ):
                 # Conversion from preliminary clarification to building permit
                 caluma_form = self.initial_data.get("caluma_form")
+                is_conversion = True
 
             is_paper = caluma_api.is_paper(source_instance)
 
@@ -1179,7 +1181,12 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
                         self.context["request"]
                     ).require_all(source_instance, "instance-copy-after-rejection")
 
-                # TODO: add permission check for convertions of preliminary clarifications to building permits.
+                elif is_conversion:
+                    permissions_api.PermissionManager.from_request(
+                        self.context["request"]
+                    ).require_all(
+                        source_instance, "instance-convert-to-building-permit"
+                    )
 
             # If the source instance is a project modification, the new
             # instance must be one as well
