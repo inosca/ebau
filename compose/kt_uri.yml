@@ -152,7 +152,7 @@ services:
         CACHE_LOCATION: cache:11211
         EXTENSIONS_ARGUMENTS: DJANGO_API=http://django
     volumes:
-      - ../document-merge-service/kt_uri/dump.json:/tmp/document-merge-service/dump.json
+      - ../document-merge-service/kt_uri:/tmp/document-merge-service
 
   garage:
     image: acr.run/camac-ng/camac-ng/garage:${CI_COMMIT_TAG:-master}
