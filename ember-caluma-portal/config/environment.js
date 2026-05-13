@@ -86,6 +86,8 @@ module.exports = function (environment) {
     rejected: 3,
     "init-distribution": 4,
     distribution: 5,
+    decision: 6,
+    decided: 7,
   };
   const appConfig = {
     demo: {
@@ -622,8 +624,9 @@ module.exports = function (environment) {
           instanceStatesSg.subm,
           instanceStatesSg["init-distribution"],
           instanceStatesSg.distribution,
+          instanceStatesSg.decision,
         ],
-        decided: [],
+        decided: [instanceStatesSg.decided],
         done: [instanceStatesSg.rejected],
       },
       completePreliminaryClarificationSlugs: [],

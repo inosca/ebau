@@ -833,6 +833,7 @@ def caluma_workflow_config_sg(settings, caluma_forms_sg, caluma_config_sg):
         "loaddata",
         settings.ROOT_DIR("kt_sg/config/caluma_workflow.json"),
         settings.ROOT_DIR("kt_sg/config/caluma_additional_demand.json"),
+        settings.ROOT_DIR("kt_sg/config/caluma_distribution.json"),
     )
 
     main_workflow = caluma_workflow_models.Workflow.objects.get(pk="building-permit")
@@ -1329,6 +1330,7 @@ def caluma_forms_sg(
         "formelle-vorpruefung",
         "materielle-pruefung",
         "publikation",
+        "entscheid",
     ]:
         caluma_form_factory(slug=slug)
 

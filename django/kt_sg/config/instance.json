@@ -79,6 +79,24 @@
     }
   },
   {
+    "model": "instance.instancestate",
+    "pk": 6,
+    "fields": {
+      "name": "decision",
+      "sort": 5,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 7,
+    "fields": {
+      "name": "decided",
+      "sort": 6,
+      "description": null
+    }
+  },
+  {
     "model": "instance.instancestatet",
     "pk": 1,
     "fields": {
@@ -125,6 +143,26 @@
       "instance_state": 5,
       "language": "de",
       "name": "Zirkulation",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 6,
+    "fields": {
+      "instance_state": 6,
+      "language": "de",
+      "name": "Entscheid",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 7,
+    "fields": {
+      "instance_state": 7,
+      "language": "de",
+      "name": "Entschieden",
       "description": null
     }
   }

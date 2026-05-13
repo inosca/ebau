@@ -135,6 +135,11 @@ DECISION = {
         "INSTANCE_STATE_AFTER_NEGATIVE_DECISION": "to-finish",
         "INSTANCE_STATE_AFTER_POSITIVE_DECISION": "decided",
     },
+    "kt_sg": {
+        "ENABLED": True,
+        "INSTANCE_STATE_AFTER_NEGATIVE_DECISION": "decided",
+        "INSTANCE_STATE_AFTER_POSITIVE_DECISION": "decided",
+    },
     "test": {
         "ENABLED": True,
         "ENABLE_STATS": True,
