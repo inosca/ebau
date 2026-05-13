@@ -1189,9 +1189,12 @@ def test_publication_journal_number_override_sz(
     publication_entry,
     admin_client,
     sz_instance,
+    fake_request,
     expected_output,
 ):
-    serializer = SzDMSPlaceholdersSerializer(sz_instance)
+    serializer = SzDMSPlaceholdersSerializer(
+        sz_instance, context={"request": fake_request}
+    )
     assert serializer.data["PUBLICATIONS"][0]["JOURNAL_NUMBER"] == expected_output
 
 
