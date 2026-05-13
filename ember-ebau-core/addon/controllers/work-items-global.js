@@ -195,6 +195,7 @@ export default class WorkItemsGlobalController extends Controller {
 
   @action
   setFilter(filter, value) {
+    this.page = 1;
     this[filter] = value;
   }
 
