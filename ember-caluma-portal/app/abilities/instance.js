@@ -229,9 +229,16 @@ export default class InstanceAbility extends Ability {
 
   async canReadCommunication() {
     if (this.permissions.fullyEnabled) {
-      return await this.permissions.hasAll(
-        this.model?.id,
-        "communications-read",
+      // For canton BE internal users shouldn't see the communications module
+      // in the portal (or embedded in the internal form), even though they
+      // may have the communications-read permissions, which is needed for the
+      // communications module in the internal area.
+      const isVisible =
+        config.APPLICATION.name === "be" ? !this.session.isInternal : true;
+
+      return (
+        isVisible &&
+        (await this.permissions.hasAll(this.model?.id, "communications-read"))
       );
     }
 
