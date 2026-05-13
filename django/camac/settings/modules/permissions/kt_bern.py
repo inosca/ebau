@@ -183,10 +183,9 @@ MODULE_BILLING_WRITE = MODULE_BILLING_READ & ~STATES_AFTER_DECISION
 # a positive decision.
 # TODO: Shown in decided state (finished) for negative decisions and for
 # archived instances without decision as well.
-# TODO: Is the module necessary for internal workflow?
 MODULE_CHANGE_CONSTRUCTION_CONTROL_READ = (
-    IsWorkflow([WORKFLOW_BUILDING_PERMIT, WORKFLOW_INTERNAL])
-    & (STATES_AFTER_DECISION | RequireInstanceState("in_progress_internal"))
+    IsWorkflow([WORKFLOW_BUILDING_PERMIT])
+    & STATES_AFTER_DECISION
     & ROLES_INTERNAL_NO_READONLY
 )
 
