@@ -161,8 +161,6 @@ MODULE_APPEAL_READ = (
 
 MODULE_APPLICANTS_READ = ROLES_INTERNAL
 
-# TODO: Should eBau-Nr. be visible for involved lead authority?
-# TODO: Should be visible on migrated workflow?
 MODULE_ASSIGN_EBAU_NUMBER = (
     RequireWorkItem("ebau-number", WORK_ITEM_STATUS_READY, True)
     & ROLES_INTERNAL_NO_READONLY
@@ -264,7 +262,6 @@ MODULE_INFORMATION_OF_NEIGHBORS_WRITE = (
     & ROLES_INTERNAL_NO_READONLY
 )
 
-# TODO: service-read does not see legal submissions
 MODULE_LEGAL_SUBMISSIONS_READ = (
     RequireWorkItem("legal-submission") & NO_CORRECTION_IN_PROGRESS & ROLES_INTERNAL
 )
@@ -1112,8 +1109,6 @@ BE_PERMISSIONS_SETTINGS = {
             ("audit-log-read", SUPPORT_CONDITION),
             ("case-meta-read", SUPPORT_CONDITION),
             ("case-meta-write", SUPPORT_CONDITION),
-            # TODO: Behavior change, support previously also allowed to
-            # change construction control before decision
             (
                 "change-construction-control-read",
                 MODULE_CHANGE_CONSTRUCTION_CONTROL_READ,
@@ -1153,7 +1148,6 @@ BE_PERMISSIONS_SETTINGS = {
                 "instance-create-modification",
                 PORTAL_INSTANCE_CREATE_MODIFICATION_CONDITION,
             ),
-            # TODO: Are they able to delete instance? Backend seems to prohibit it.
             ("instance-delete", PORTAL_INSTANCE_DELETE_CONDITION),
             ("instance-download-form-as-pdf", ACTION_PORTAL_INSTANCE_DOWNLOAD_AS_PDF),
             ("instance-extend-validity", PORTAL_INSTANCE_EXTEND_VALIDITY_CONDITION),
