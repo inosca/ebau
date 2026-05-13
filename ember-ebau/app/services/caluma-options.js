@@ -483,28 +483,40 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
       if (customServiceGroupDeadline && selectedGroups.length === 1) {
         const customServiceGroupSlugs =
           mainConfig.customDeadlineServiceGroupSlugs ?? [];
-        const selectedServiceGroups = await Promise.all(
-          selectedGroups
-            .map(async (serviceGroup) => {
-              return await this.store.peekRecord("public-service", serviceGroup)
-                ?.serviceGroup;
-            })
-            .filter(Boolean),
+
+        const selectedPublicServices = await this.store.query(
+          "public-service",
+          {
+            filter: {
+              service_id: selectedGroups.join(","),
+            },
+            include: "service_group",
+          },
         );
 
+        const selectedServiceGroups = (
+          await Promise.all(
+            selectedPublicServices.map(
+              (publicService) => publicService?.serviceGroup,
+            ),
+          )
+        )
+          .filter(Boolean)
+          .map((serviceGroup) => serviceGroup.slug);
+
         // find any selected group included in the deadline overrides.
-        const includedSpecialService = selectedServiceGroups.find(
-          (sg) => sg && customServiceGroupSlugs.includes(sg.slug),
+        const includedSpecialServiceGroup = selectedServiceGroups.find((slug) =>
+          customServiceGroupSlugs.includes(slug),
         );
 
         // when found, recalculate the deadline with the override.
         if (
-          includedSpecialService &&
-          customServiceGroupDeadline[includedSpecialService.slug]
+          includedSpecialServiceGroup &&
+          customServiceGroupDeadline[includedSpecialServiceGroup]
         ) {
           return DateTime.now()
             .plus({
-              days: customServiceGroupDeadline[includedSpecialService.slug],
+              days: customServiceGroupDeadline[includedSpecialServiceGroup],
             })
             .toISODate();
         }
