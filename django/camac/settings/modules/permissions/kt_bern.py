@@ -837,7 +837,6 @@ BE_PERMISSIONS_SETTINGS = {
                 "instance-create-modification",
                 ACTION_PORTAL_INSTANCE_CREATE_MODIFICATION,
             ),
-            # TODO: Permission integration instance-convert-to-building-permit
             (
                 "instance-convert-to-building-permit",
                 ACTION_PORTAL_INSTANCE_CONVERT_TO_BUILDING_PERMIT,
@@ -920,7 +919,6 @@ BE_PERMISSIONS_SETTINGS = {
                 "instance-convert-modification",
                 ACTION_INSTANCE_CONVERT_MODIFICATION,
             ),
-            # TODO: Permission integration instance-convert-to-building-permit
             (
                 "instance-convert-to-building-permit",
                 ACTION_PORTAL_PAPER_INSTANCE_CONVERT_TO_BUILDING_PERMIT,
@@ -1003,6 +1001,10 @@ BE_PERMISSIONS_SETTINGS = {
             (
                 "instance-create-modification",
                 ACTION_PORTAL_PAPER_INSTANCE_CREATE_MODIFICATION,
+            ),
+            (
+                "instance-convert-to-building-permit",
+                ACTION_PORTAL_PAPER_INSTANCE_CONVERT_TO_BUILDING_PERMIT,
             ),
             (
                 "instance-copy-after-rejection",

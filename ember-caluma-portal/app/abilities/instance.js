@@ -170,7 +170,13 @@ export default class InstanceAbility extends Ability {
     );
   }
 
-  get canConvertToBuildingPermit() {
+  async canConvertToBuildingPermit() {
+    if (this.permissions.fullyEnabled) {
+      return await this.permissions.hasAll(this.model?.id, [
+        "instance-convert-to-building-permit",
+      ]);
+    }
+
     return config.APPLICATION.completePreliminaryClarificationSlugs.includes(
       this.model?.calumaForm,
     );
