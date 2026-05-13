@@ -517,6 +517,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "flaechenbilanz",
+    "fields": {
+      "created_at": "2026-05-13T08:00:24.306Z",
+      "modified_at": "2026-05-13T08:00:24.306Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Flächenbilanz\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "gebaeude-tabelle-allgemein",
     "fields": {
       "created_at": "2024-11-22T13:42:37.804Z",
@@ -949,6 +967,24 @@
       "is_published": true,
       "is_archived": false,
       "source": "baugesuch-migration"
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "versiegelte-flaechen-tabelle",
+    "fields": {
+      "created_at": "2026-05-13T09:07:24.039Z",
+      "modified_at": "2026-05-13T09:07:24.039Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Versiegelte Flächen\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
     }
   },
   {
@@ -5013,6 +5049,126 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "flaechenbilanz.anzahl-gebaeude-greater-6-m-die-abgebrochen-werden",
+    "fields": {
+      "created_at": "2026-05-13T08:54:30.092Z",
+      "modified_at": "2026-05-13T08:54:30.093Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "flaechenbilanz",
+      "question": "anzahl-gebaeude-greater-6-m-die-abgebrochen-werden",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "flaechenbilanz.anzahl-neue-gebaeude-greater-6m",
+    "fields": {
+      "created_at": "2026-05-13T08:54:10.641Z",
+      "modified_at": "2026-05-13T08:54:10.641Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "flaechenbilanz",
+      "question": "anzahl-neue-gebaeude-greater-6m",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "flaechenbilanz.bemerkungsfeld",
+    "fields": {
+      "created_at": "2026-05-13T08:54:49.281Z",
+      "modified_at": "2026-05-13T08:54:49.281Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "flaechenbilanz",
+      "question": "bemerkungsfeld",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "flaechenbilanz.beschreibung",
+    "fields": {
+      "created_at": "2026-05-13T08:16:43.973Z",
+      "modified_at": "2026-05-13T08:16:43.973Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "flaechenbilanz",
+      "question": "beschreibung-typ-der-baute",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "flaechenbilanz.typ-der-baute",
+    "fields": {
+      "created_at": "2026-05-13T08:10:32.031Z",
+      "modified_at": "2026-05-13T08:10:32.031Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "flaechenbilanz",
+      "question": "typ-der-baute",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "flaechenbilanz.ver-oder-entsiegelten-flaechen-hinweis",
+    "fields": {
+      "created_at": "2026-05-13T08:57:19.140Z",
+      "modified_at": "2026-05-13T08:57:19.140Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "flaechenbilanz",
+      "question": "ver-oder-entsiegelten-flaechen-hinweis",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "flaechenbilanz.versiegelte-entsiegelte-flaechen",
+    "fields": {
+      "created_at": "2026-05-13T13:46:14.788Z",
+      "modified_at": "2026-05-13T13:46:14.788Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "flaechenbilanz",
+      "question": "versiegelte-entsiegelte-flaechen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "flaechenbilanz.werden-flaechen-neu-versiegelt-oder-entsiegelt",
+    "fields": {
+      "created_at": "2026-05-13T08:55:24.943Z",
+      "modified_at": "2026-05-13T08:55:24.943Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "flaechenbilanz",
+      "question": "werden-flaechen-neu-versiegelt-oder-entsiegelt",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "gebaeude-tabelle-allgemein.amtliche-gebaeudenummer",
     "fields": {
       "created_at": "2024-11-22T13:44:00.621Z",
@@ -7408,7 +7564,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "ableitung-von-industrie-und-gewerbeabwasser",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -7423,7 +7579,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "arbeitssicherheit",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -7438,7 +7594,22 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "entsorgung-und-bodenschutz",
-      "sort": 5
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "spezialformulare.flaechenbilanz-form",
+    "fields": {
+      "created_at": "2026-05-13T14:09:15.014Z",
+      "modified_at": "2026-05-13T14:09:15.014Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "spezialformulare",
+      "question": "flaechenbilanz-form",
+      "sort": 1
     }
   },
   {
@@ -7453,7 +7624,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "gebaeudetechnik",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -7468,7 +7639,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "gewerbe",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -7483,7 +7654,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "grundstueckentwaesserung",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -7498,7 +7669,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "landwirtschaft",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -7513,7 +7684,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "reklamen-formular",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -7528,7 +7699,7 @@
       "modified_by_group": null,
       "form": "spezialformulare",
       "question": "wohnen",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -7649,6 +7820,111 @@
       "form": "uvp-migration",
       "question": "weitere-angaben-migration-form",
       "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "versiegelte-flaechen-tabelle.art-der-ver-bzw-entsiegelung",
+    "fields": {
+      "created_at": "2026-05-13T09:08:35.870Z",
+      "modified_at": "2026-05-13T09:08:35.870Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "versiegelte-flaechen-tabelle",
+      "question": "art-der-ver-bzw-entsiegelung",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "versiegelte-flaechen-tabelle.beschreibung-versiegelte-flaeche",
+    "fields": {
+      "created_at": "2026-05-13T09:10:54.566Z",
+      "modified_at": "2026-05-13T09:10:54.566Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "versiegelte-flaechen-tabelle",
+      "question": "beschreibung-versiegelte-flaeche",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "versiegelte-flaechen-tabelle.beschreibung-versiegelte-flaeche-andere",
+    "fields": {
+      "created_at": "2026-05-13T09:13:59.381Z",
+      "modified_at": "2026-05-13T09:13:59.381Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "versiegelte-flaechen-tabelle",
+      "question": "beschreibung-versiegelte-flaeche-andere",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "versiegelte-flaechen-tabelle.flaeche-m-versiegelt",
+    "fields": {
+      "created_at": "2026-05-13T09:14:29.352Z",
+      "modified_at": "2026-05-13T09:14:29.352Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "versiegelte-flaechen-tabelle",
+      "question": "flaeche-m-versiegelt",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "versiegelte-flaechen-tabelle.materialisierung-der-neu-versiegelten-flaechen",
+    "fields": {
+      "created_at": "2026-05-13T09:09:26.688Z",
+      "modified_at": "2026-05-13T09:09:26.688Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "versiegelte-flaechen-tabelle",
+      "question": "materialisierung-der-neu-versiegelten-flaechen",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "versiegelte-flaechen-tabelle.nutzung-der-versiegelten-flaeche",
+    "fields": {
+      "created_at": "2026-05-13T09:12:39.008Z",
+      "modified_at": "2026-05-13T09:12:39.008Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "versiegelte-flaechen-tabelle",
+      "question": "nutzung-der-versiegelten-flaeche",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "versiegelte-flaechen-tabelle.wann-wurde-die-flaeche-versiegelt",
+    "fields": {
+      "created_at": "2026-05-13T09:13:23.338Z",
+      "modified_at": "2026-05-13T09:13:23.338Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "versiegelte-flaechen-tabelle",
+      "question": "wann-wurde-die-flaeche-versiegelt",
+      "sort": 2
     }
   },
   {
@@ -9160,6 +9436,108 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Strassenreklame\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-ver-bzw-entsiegelung-entsiegelte-renaturierte-flaechen-erschliessung",
+    "fields": {
+      "created_at": "2026-05-13T09:08:35.592Z",
+      "modified_at": "2026-05-13T09:08:35.592Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entsiegelte / renaturierte Flächen (Erschliessung)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-ver-bzw-entsiegelung-entsiegelte-renaturierte-flaechen-gebaeude",
+    "fields": {
+      "created_at": "2026-05-13T09:08:35.620Z",
+      "modified_at": "2026-05-13T09:08:35.620Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entsiegelte / renaturierte Flächen (Gebäude)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-ver-bzw-entsiegelung-entsiegelte-renaturierte-flaechen-umgebung",
+    "fields": {
+      "created_at": "2026-05-13T09:08:35.567Z",
+      "modified_at": "2026-05-13T09:08:35.567Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entsiegelte / renaturierte Flächen (Umgebung)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-ver-bzw-entsiegelung-neue-versiegelte-flaechen-erschliessung",
+    "fields": {
+      "created_at": "2026-05-13T09:08:35.594Z",
+      "modified_at": "2026-05-13T09:08:35.594Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Neue versiegelte Flächen (Erschliessung)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-ver-bzw-entsiegelung-neue-versiegelte-flaechen-gebaeude",
+    "fields": {
+      "created_at": "2026-05-13T09:08:35.547Z",
+      "modified_at": "2026-05-13T09:08:35.548Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Neue versiegelte Flächen (Gebäude)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-ver-bzw-entsiegelung-neue-versiegelte-flaechen-umgebung",
+    "fields": {
+      "created_at": "2026-05-13T09:08:35.587Z",
+      "modified_at": "2026-05-13T09:08:35.587Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Neue versiegelte Flächen (Umgebung)\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -13622,6 +14000,74 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "materialisierung-der-neu-versiegelten-flaechen-andere",
+    "fields": {
+      "created_at": "2026-05-13T09:09:26.412Z",
+      "modified_at": "2026-05-13T09:09:26.412Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materialisierung-der-neu-versiegelten-flaechen-belag",
+    "fields": {
+      "created_at": "2026-05-13T09:09:26.418Z",
+      "modified_at": "2026-05-13T09:09:26.418Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Belag\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materialisierung-der-neu-versiegelten-flaechen-beton",
+    "fields": {
+      "created_at": "2026-05-13T09:09:26.381Z",
+      "modified_at": "2026-05-13T09:09:26.381Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beton\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materialisierung-der-neu-versiegelten-flaechen-betonsteine-verbundsteine",
+    "fields": {
+      "created_at": "2026-05-13T09:09:26.426Z",
+      "modified_at": "2026-05-13T09:09:26.426Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Betonsteine (Verbundsteine)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "mehr-als-200-m3-bauabfaelle-ja",
     "fields": {
       "created_at": "2024-11-19T09:43:02.383Z",
@@ -13784,6 +14230,142 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "nutzung-der-versiegelten-flaeche-andere",
+    "fields": {
+      "created_at": "2026-05-13T09:12:38.772Z",
+      "modified_at": "2026-05-13T09:12:38.772Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "nutzung-der-versiegelten-flaeche-ausnahmebewilligung-artikel-24ff-rpg",
+    "fields": {
+      "created_at": "2026-05-13T09:12:38.752Z",
+      "modified_at": "2026-05-13T09:12:38.752Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ausnahmebewilligung Artikel 24ff RPG\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "nutzung-der-versiegelten-flaeche-energie",
+    "fields": {
+      "created_at": "2026-05-13T09:12:38.592Z",
+      "modified_at": "2026-05-13T09:12:38.592Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Energie\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "nutzung-der-versiegelten-flaeche-erschliessung-verkehr-kantonale-und-nationale-projekte",
+    "fields": {
+      "created_at": "2026-05-13T09:12:38.646Z",
+      "modified_at": "2026-05-13T09:12:38.646Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Erschliessung, Verkehr (kantonale und nationale Projekte)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "nutzung-der-versiegelten-flaeche-erschliessung-verkehr-kommunale-und-private-projekte",
+    "fields": {
+      "created_at": "2026-05-13T09:12:38.642Z",
+      "modified_at": "2026-05-13T09:12:38.642Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Erschliessung, Verkehr (kommunale und private Projekte)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "nutzung-der-versiegelten-flaeche-landwirtschaft",
+    "fields": {
+      "created_at": "2026-05-13T09:12:38.697Z",
+      "modified_at": "2026-05-13T09:12:38.697Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Landwirtschaft\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "nutzung-der-versiegelten-flaeche-tourismus",
+    "fields": {
+      "created_at": "2026-05-13T09:12:38.687Z",
+      "modified_at": "2026-05-13T09:12:38.687Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Tourismus\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "nutzung-der-versiegelten-flaeche-wald-projekte-fuer-die-waldbewirtschaftung",
+    "fields": {
+      "created_at": "2026-05-13T09:12:38.660Z",
+      "modified_at": "2026-05-13T09:12:38.660Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wald (Projekte für die Waldbewirtschaftung)\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -14982,6 +15564,142 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "typ-der-baute-andere",
+    "fields": {
+      "created_at": "2026-05-13T08:06:30.062Z",
+      "modified_at": "2026-05-13T08:10:31.706Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "typ-der-baute-betonierte-tiefbauten",
+    "fields": {
+      "created_at": "2026-05-13T08:10:31.742Z",
+      "modified_at": "2026-05-13T08:10:31.742Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"betonierte Tiefbauten\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "typ-der-baute-betonierte-tiefbauten-zb-guellegruben-loeschwasser-und-rueckhaltebecken-swimmingpools-usw",
+    "fields": {
+      "created_at": "2026-05-13T08:06:30.089Z",
+      "modified_at": "2026-05-13T08:07:43.774Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"betonierte Tiefbauten (z.B. Güllegruben, Löschwasser- und Rückhaltebecken, Swimmingpools, usw.)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "typ-der-baute-gebaeude-das-fuer-den-aufenthalt-oder-die-unterbringung-von-personen-bestimmt-ist",
+    "fields": {
+      "created_at": "2026-05-13T08:10:31.740Z",
+      "modified_at": "2026-05-13T08:10:31.740Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gebäude, das für den Aufenthalt oder die Unterbringung von Personen bestimmt ist\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "typ-der-baute-gebaeude-fuer-industrielle-handwerkliche-oder-landwirtschaftliche-zwecke",
+    "fields": {
+      "created_at": "2026-05-13T08:10:31.728Z",
+      "modified_at": "2026-05-13T08:10:31.728Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gebäude für industrielle, handwerkliche oder landwirtschaftliche Zwecke\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "typ-der-baute-gebaeude-fuer-industrielle-handwerkliche-oder-landwirtschaftliche-zwecke-zb-fabrikhallen-werkstaetten-staelle-usw",
+    "fields": {
+      "created_at": "2026-05-13T08:06:30.038Z",
+      "modified_at": "2026-05-13T08:07:43.807Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gebäude für industrielle, handwerkliche oder landwirtschaftliche Zwecke (z.B. Fabrikhallen, Werkstätten, Ställe, usw.)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "typ-der-baute-leichtbauten",
+    "fields": {
+      "created_at": "2026-05-13T08:10:31.754Z",
+      "modified_at": "2026-05-13T08:10:31.754Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Leichtbauten\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "typ-der-baute-leichtbauten-lager-zwischenlagergebaeude-schuppen-scheunen-remisen-depots-silos-treibhaeuser-garagen-usw",
+    "fields": {
+      "created_at": "2026-05-13T08:06:30.050Z",
+      "modified_at": "2026-05-13T08:07:43.793Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Leichtbauten (Lager-/Zwischenlagergebäude, Schuppen, Scheunen, Remisen, Depots, Silos, Treibhäuser, Garagen, usw.)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "typ-der-heizung-andere",
     "fields": {
       "created_at": "2025-01-24T07:30:22.945Z",
@@ -15849,6 +16567,40 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "wann-wurde-die-flaeche-versiegelt-nach-dem-29-sept-2023",
+    "fields": {
+      "created_at": "2026-05-13T09:13:23.088Z",
+      "modified_at": "2026-05-13T09:13:23.088Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nach dem 29. Sept. 2023\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wann-wurde-die-flaeche-versiegelt-vor-dem-29-sept-2023",
+    "fields": {
+      "created_at": "2026-05-13T09:13:23.093Z",
+      "modified_at": "2026-05-13T09:13:23.093Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vor dem 29. Sept. 2023\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "wasseranschluss-bestehend",
     "fields": {
       "created_at": "2024-11-20T16:02:41.404Z",
@@ -16266,6 +17018,40 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Videokameras\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werden-flaechen-neu-versiegelt-oder-entsiegelt-ja",
+    "fields": {
+      "created_at": "2026-05-13T08:55:24.703Z",
+      "modified_at": "2026-05-13T08:55:24.703Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werden-flaechen-neu-versiegelt-oder-entsiegelt-nein",
+    "fields": {
+      "created_at": "2026-05-13T08:55:24.710Z",
+      "modified_at": "2026-05-13T08:55:24.710Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -17272,6 +18058,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "anzahl-gebaeude-greater-6-m-die-abgebrochen-werden",
+    "fields": {
+      "created_at": "2026-05-13T08:54:29.991Z",
+      "modified_at": "2026-05-13T08:58:06.913Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl Gebäude > 6 m² die abgebrochen werden\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "anzahl-lkw-waschungen-pro-jahr",
     "fields": {
       "created_at": "2023-04-19T09:44:47.068Z",
@@ -17294,6 +18114,40 @@
         "min_value": null,
         "max_length": null,
         "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "anzahl-neue-gebaeude-greater-6m",
+    "fields": {
+      "created_at": "2026-05-13T08:54:10.516Z",
+      "modified_at": "2026-05-13T08:58:03.355Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Anzahl neue Gebäude > 6 m²\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
       },
       "meta": {},
       "data_source": null,
@@ -17547,6 +18401,37 @@
       "label": "{\"de\": \"Art der Reklame\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "'is-paper'|answer != 'is-paper-yes'",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "art-der-ver-bzw-entsiegelung",
+    "fields": {
+      "created_at": "2026-05-13T09:08:35.733Z",
+      "modified_at": "2026-05-13T13:47:24.010Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Art der Ver. bzw. Entsiegelung\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -19010,6 +19895,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "bemerkungsfeld",
+    "fields": {
+      "created_at": "2026-05-13T08:54:49.176Z",
+      "modified_at": "2026-05-13T08:54:49.176Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bemerkungsfeld\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "berechnung-der-futterbasis",
     "fields": {
       "created_at": "2024-11-27T15:01:01.241Z",
@@ -19064,6 +19983,40 @@
       "meta": {
         "hideLabel": true
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beschreibung",
+    "fields": {
+      "created_at": "2026-05-13T08:16:43.859Z",
+      "modified_at": "2026-05-13T08:57:59.785Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "!(\"typ-dere-baute\"|answer == \"typ-dere-baute-andere\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -19388,6 +20341,142 @@
       "type": "textarea",
       "is_required": "form in [\"baugesuch\", \"baugesuch-mit-uvp\"] && 'is-paper'|answer != 'is-paper-yes'",
       "is_hidden": "!(\"betroffene-stoffe-medien-andere\" in \"betroffene-stoffe-medien\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beschreibung-typ-der-baute",
+    "fields": {
+      "created_at": "2026-05-13T08:16:43.859Z",
+      "modified_at": "2026-05-13T14:13:02.139Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "!(\"typ-der-baute\"|answer == \"typ-der-baute-andere\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beschreibung-typ-der-baute-flaechenbilanz",
+    "fields": {
+      "created_at": "2026-05-13T13:09:16.185Z",
+      "modified_at": "2026-05-13T13:09:16.185Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\"typ-dere-baute\"|answer == \"typ-dere-baute-andere\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beschreibung-versiegelte-flaeche",
+    "fields": {
+      "created_at": "2026-05-13T09:10:54.467Z",
+      "modified_at": "2026-05-13T13:47:36.671Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "!(\"materialisierung-der-neu-versiegelten-flaechen\"|answer == \"materialisierung-der-neu-versiegelten-flaechen-andere\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "beschreibung-versiegelte-flaeche-andere",
+    "fields": {
+      "created_at": "2026-05-13T09:13:59.260Z",
+      "modified_at": "2026-05-13T14:26:21.369Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beschreibung\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "!('nutzung-der-versiegelten-flaeche'|answer == 'nutzung-der-versiegelten-flaeche-andere')",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -21746,6 +22835,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "flaeche-m-versiegelt",
+    "fields": {
+      "created_at": "2026-05-13T09:14:29.255Z",
+      "modified_at": "2026-05-13T13:48:00.475Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fläche  (m²)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "flaechenberechnung-beilagen",
     "fields": {
       "created_at": "2024-11-27T14:27:11.863Z",
@@ -21803,6 +22926,37 @@
       "data_source": null,
       "row_form": null,
       "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "flaechenbilanz-form",
+    "fields": {
+      "created_at": "2026-05-13T14:09:14.896Z",
+      "modified_at": "2026-05-13T14:09:14.896Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Flächenbilanz\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "!(\"ausserhalb-bauzone\"|answer == \"ausserhalb-bauzone-ja\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "flaechenbilanz",
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -24420,6 +25574,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "materialisierung-der-neu-versiegelten-flaechen",
+    "fields": {
+      "created_at": "2026-05-13T09:09:26.550Z",
+      "modified_at": "2026-05-13T13:47:28.342Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Materialisierung der neu versiegelten Flächen\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "maximale-personenbelegung-bauphase",
     "fields": {
       "created_at": "2024-11-11T17:26:05.061Z",
@@ -24767,6 +25952,37 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "nutzung-bauvorhaben",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "nutzung-der-versiegelten-flaeche",
+    "fields": {
+      "created_at": "2026-05-13T09:12:38.880Z",
+      "modified_at": "2026-05-13T13:47:43.207Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nutzung der versiegelten Fläche\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
@@ -26413,6 +27629,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "typ-der-baute",
+    "fields": {
+      "created_at": "2026-05-13T08:10:31.871Z",
+      "modified_at": "2026-05-13T08:57:56.114Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Typ der Baute\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"## weitere Informationen zu den Optionen\\n- Gebäude, das für den Aufenthalt oder die Unterbringung von Personen bestimmt ist: z. B. Wohnhaus, Beherbergungsbetrieb, Gastronomie, Schule, usw.\\n- Gebäude für industrielle, handwerkliche oder landwirtschaftliche Zwecke: z.B. Fabrikhallen, Werkstätten, Ställe, usw.\\n- Leichtbauten: Lager-/Zwischenlagergebäude, Schuppen, Scheunen, Remisen, Depots, Silos, Treibhäuser, Garagen, usw.\\n- betonierte Tiefbauten: z.B. Güllegruben, Löschwasser- und Rückhaltebecken, Swimmingpools, usw.\\n- Andere\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "typ-der-heizung",
     "fields": {
       "created_at": "2024-11-20T16:08:26.682Z",
@@ -26709,6 +27956,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "ver-oder-entsiegelten-flaechen-hinweis",
+    "fields": {
+      "created_at": "2026-05-13T08:57:19.039Z",
+      "modified_at": "2026-05-13T08:57:19.039Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"ver- oder entsiegelten Flächen Hinweis\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Bitte erfassen Sie die ver- oder entsiegelten Flächen der betroffenen Gebäude.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "versickerung",
     "fields": {
       "created_at": "2024-11-20T12:20:53.765Z",
@@ -26730,6 +28008,43 @@
       "meta": {},
       "data_source": null,
       "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "versiegelte-entsiegelte-flaechen",
+    "fields": {
+      "created_at": "2026-05-13T13:46:14.674Z",
+      "modified_at": "2026-05-13T13:46:47.683Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Versiegelte / entsiegelte Flächen\", \"fr\": null, \"it\": null}",
+      "type": "table",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "columnsToDisplay": [
+          "art-der-ver-bzw-entsiegelung",
+          "nutzung-der-versiegelten-flaeche",
+          "materialisierung-der-neu-versiegelten-flaechen"
+        ]
+      },
+      "data_source": null,
+      "row_form": "versiegelte-flaechen-tabelle",
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
@@ -27211,6 +28526,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "wann-wurde-die-flaeche-versiegelt",
+    "fields": {
+      "created_at": "2026-05-13T09:13:23.209Z",
+      "modified_at": "2026-05-13T14:31:02.586Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wann wurde die Fläche versiegelt?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "!('entsiegelte-' in 'art-der-ver-bzw-entsiegelung'|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "wasseranschluss",
     "fields": {
       "created_at": "2024-11-20T16:02:41.502Z",
@@ -27475,6 +28821,37 @@
       "label": "{\"de\": \"Welche Infrastrukturen sind betroffen?\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "form in [\"baugesuch\", \"baugesuch-mit-uvp\"] && 'is-paper'|answer != 'is-paper-yes'",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werden-flaechen-neu-versiegelt-oder-entsiegelt",
+    "fields": {
+      "created_at": "2026-05-13T08:55:24.826Z",
+      "modified_at": "2026-05-13T08:58:26.105Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Werden Flächen neu versiegelt oder entsiegelt?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -28367,6 +29744,96 @@
       "question": "art-der-reklame",
       "option": "art-der-reklame-strassenreklame",
       "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-ver-bzw-entsiegelung.art-der-ver-bzw-entsiegelung-entsiegelte-renaturierte-flaechen-erschliessung",
+    "fields": {
+      "created_at": "2026-05-13T13:47:24.019Z",
+      "modified_at": "2026-05-13T13:47:24.019Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-der-ver-bzw-entsiegelung",
+      "option": "art-der-ver-bzw-entsiegelung-entsiegelte-renaturierte-flaechen-erschliessung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-ver-bzw-entsiegelung.art-der-ver-bzw-entsiegelung-entsiegelte-renaturierte-flaechen-gebaeude",
+    "fields": {
+      "created_at": "2026-05-13T13:47:24.029Z",
+      "modified_at": "2026-05-13T13:47:24.029Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-der-ver-bzw-entsiegelung",
+      "option": "art-der-ver-bzw-entsiegelung-entsiegelte-renaturierte-flaechen-gebaeude",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-ver-bzw-entsiegelung.art-der-ver-bzw-entsiegelung-entsiegelte-renaturierte-flaechen-umgebung",
+    "fields": {
+      "created_at": "2026-05-13T13:47:24.023Z",
+      "modified_at": "2026-05-13T13:47:24.023Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-der-ver-bzw-entsiegelung",
+      "option": "art-der-ver-bzw-entsiegelung-entsiegelte-renaturierte-flaechen-umgebung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-ver-bzw-entsiegelung.art-der-ver-bzw-entsiegelung-neue-versiegelte-flaechen-erschliessung",
+    "fields": {
+      "created_at": "2026-05-13T13:47:24.033Z",
+      "modified_at": "2026-05-13T13:47:24.033Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-der-ver-bzw-entsiegelung",
+      "option": "art-der-ver-bzw-entsiegelung-neue-versiegelte-flaechen-erschliessung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-ver-bzw-entsiegelung.art-der-ver-bzw-entsiegelung-neue-versiegelte-flaechen-gebaeude",
+    "fields": {
+      "created_at": "2026-05-13T13:47:24.043Z",
+      "modified_at": "2026-05-13T13:47:24.043Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-der-ver-bzw-entsiegelung",
+      "option": "art-der-ver-bzw-entsiegelung-neue-versiegelte-flaechen-gebaeude",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-ver-bzw-entsiegelung.art-der-ver-bzw-entsiegelung-neue-versiegelte-flaechen-umgebung",
+    "fields": {
+      "created_at": "2026-05-13T13:47:24.038Z",
+      "modified_at": "2026-05-13T13:47:24.038Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-der-ver-bzw-entsiegelung",
+      "option": "art-der-ver-bzw-entsiegelung-neue-versiegelte-flaechen-umgebung",
+      "sort": 5
     }
   },
   {
@@ -32301,6 +33768,66 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "materialisierung-der-neu-versiegelten-flaechen.materialisierung-der-neu-versiegelten-flaechen-andere",
+    "fields": {
+      "created_at": "2026-05-13T13:47:28.350Z",
+      "modified_at": "2026-05-13T13:47:28.350Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materialisierung-der-neu-versiegelten-flaechen",
+      "option": "materialisierung-der-neu-versiegelten-flaechen-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materialisierung-der-neu-versiegelten-flaechen.materialisierung-der-neu-versiegelten-flaechen-belag",
+    "fields": {
+      "created_at": "2026-05-13T13:47:28.359Z",
+      "modified_at": "2026-05-13T13:47:28.359Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materialisierung-der-neu-versiegelten-flaechen",
+      "option": "materialisierung-der-neu-versiegelten-flaechen-belag",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materialisierung-der-neu-versiegelten-flaechen.materialisierung-der-neu-versiegelten-flaechen-beton",
+    "fields": {
+      "created_at": "2026-05-13T13:47:28.364Z",
+      "modified_at": "2026-05-13T13:47:28.364Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materialisierung-der-neu-versiegelten-flaechen",
+      "option": "materialisierung-der-neu-versiegelten-flaechen-beton",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materialisierung-der-neu-versiegelten-flaechen.materialisierung-der-neu-versiegelten-flaechen-betonsteine-verbundsteine",
+    "fields": {
+      "created_at": "2026-05-13T13:47:28.355Z",
+      "modified_at": "2026-05-13T13:47:28.355Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materialisierung-der-neu-versiegelten-flaechen",
+      "option": "materialisierung-der-neu-versiegelten-flaechen-betonsteine-verbundsteine",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "mehr-als-200-m3-bauabfaelle.mehr-als-200-m3-bauabfaelle-ja",
     "fields": {
       "created_at": "2025-05-14T13:35:00.451Z",
@@ -32447,6 +33974,126 @@
       "question": "neubau-umbau-wohnflaechenvergroesserung",
       "option": "neubau-umbau-wohnflaechenvergroesserung-nein",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "nutzung-der-versiegelten-flaeche.nutzung-der-versiegelten-flaeche-andere",
+    "fields": {
+      "created_at": "2026-05-13T13:47:43.216Z",
+      "modified_at": "2026-05-13T13:47:43.216Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "nutzung-der-versiegelten-flaeche",
+      "option": "nutzung-der-versiegelten-flaeche-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "nutzung-der-versiegelten-flaeche.nutzung-der-versiegelten-flaeche-ausnahmebewilligung-artikel-24ff-rpg",
+    "fields": {
+      "created_at": "2026-05-13T13:47:43.220Z",
+      "modified_at": "2026-05-13T13:47:43.220Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "nutzung-der-versiegelten-flaeche",
+      "option": "nutzung-der-versiegelten-flaeche-ausnahmebewilligung-artikel-24ff-rpg",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "nutzung-der-versiegelten-flaeche.nutzung-der-versiegelten-flaeche-energie",
+    "fields": {
+      "created_at": "2026-05-13T13:47:43.237Z",
+      "modified_at": "2026-05-13T13:47:43.237Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "nutzung-der-versiegelten-flaeche",
+      "option": "nutzung-der-versiegelten-flaeche-energie",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "nutzung-der-versiegelten-flaeche.nutzung-der-versiegelten-flaeche-erschliessung-verkehr-kantonale-und-nationale-projekte",
+    "fields": {
+      "created_at": "2026-05-13T13:47:43.225Z",
+      "modified_at": "2026-05-13T13:47:43.225Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "nutzung-der-versiegelten-flaeche",
+      "option": "nutzung-der-versiegelten-flaeche-erschliessung-verkehr-kantonale-und-nationale-projekte",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "nutzung-der-versiegelten-flaeche.nutzung-der-versiegelten-flaeche-erschliessung-verkehr-kommunale-und-private-projekte",
+    "fields": {
+      "created_at": "2026-05-13T13:47:43.229Z",
+      "modified_at": "2026-05-13T13:47:43.229Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "nutzung-der-versiegelten-flaeche",
+      "option": "nutzung-der-versiegelten-flaeche-erschliessung-verkehr-kommunale-und-private-projekte",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "nutzung-der-versiegelten-flaeche.nutzung-der-versiegelten-flaeche-landwirtschaft",
+    "fields": {
+      "created_at": "2026-05-13T13:47:43.245Z",
+      "modified_at": "2026-05-13T13:47:43.245Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "nutzung-der-versiegelten-flaeche",
+      "option": "nutzung-der-versiegelten-flaeche-landwirtschaft",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "nutzung-der-versiegelten-flaeche.nutzung-der-versiegelten-flaeche-tourismus",
+    "fields": {
+      "created_at": "2026-05-13T13:47:43.241Z",
+      "modified_at": "2026-05-13T13:47:43.241Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "nutzung-der-versiegelten-flaeche",
+      "option": "nutzung-der-versiegelten-flaeche-tourismus",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "nutzung-der-versiegelten-flaeche.nutzung-der-versiegelten-flaeche-wald-projekte-fuer-die-waldbewirtschaftung",
+    "fields": {
+      "created_at": "2026-05-13T13:47:43.233Z",
+      "modified_at": "2026-05-13T13:47:43.233Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "nutzung-der-versiegelten-flaeche",
+      "option": "nutzung-der-versiegelten-flaeche-wald-projekte-fuer-die-waldbewirtschaftung",
+      "sort": 5
     }
   },
   {
@@ -33501,6 +35148,81 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "typ-der-baute.typ-der-baute-andere",
+    "fields": {
+      "created_at": "2026-05-13T08:57:56.123Z",
+      "modified_at": "2026-05-13T08:57:56.123Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "typ-der-baute",
+      "option": "typ-der-baute-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "typ-der-baute.typ-der-baute-betonierte-tiefbauten",
+    "fields": {
+      "created_at": "2026-05-13T08:57:56.129Z",
+      "modified_at": "2026-05-13T08:57:56.129Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "typ-der-baute",
+      "option": "typ-der-baute-betonierte-tiefbauten",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "typ-der-baute.typ-der-baute-gebaeude-das-fuer-den-aufenthalt-oder-die-unterbringung-von-personen-bestimmt-ist",
+    "fields": {
+      "created_at": "2026-05-13T08:57:56.141Z",
+      "modified_at": "2026-05-13T08:57:56.141Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "typ-der-baute",
+      "option": "typ-der-baute-gebaeude-das-fuer-den-aufenthalt-oder-die-unterbringung-von-personen-bestimmt-ist",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "typ-der-baute.typ-der-baute-gebaeude-fuer-industrielle-handwerkliche-oder-landwirtschaftliche-zwecke",
+    "fields": {
+      "created_at": "2026-05-13T08:57:56.137Z",
+      "modified_at": "2026-05-13T08:57:56.137Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "typ-der-baute",
+      "option": "typ-der-baute-gebaeude-fuer-industrielle-handwerkliche-oder-landwirtschaftliche-zwecke",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "typ-der-baute.typ-der-baute-leichtbauten",
+    "fields": {
+      "created_at": "2026-05-13T08:57:56.133Z",
+      "modified_at": "2026-05-13T08:57:56.133Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "typ-der-baute",
+      "option": "typ-der-baute-leichtbauten",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "typ-der-heizung.typ-der-heizung-andere",
     "fields": {
       "created_at": "2025-05-14T13:51:25.692Z",
@@ -34281,6 +36003,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "wann-wurde-die-flaeche-versiegelt.wann-wurde-die-flaeche-versiegelt-nach-dem-29-sept-2023",
+    "fields": {
+      "created_at": "2026-05-13T14:31:02.596Z",
+      "modified_at": "2026-05-13T14:31:02.596Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "wann-wurde-die-flaeche-versiegelt",
+      "option": "wann-wurde-die-flaeche-versiegelt-nach-dem-29-sept-2023",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wann-wurde-die-flaeche-versiegelt.wann-wurde-die-flaeche-versiegelt-vor-dem-29-sept-2023",
+    "fields": {
+      "created_at": "2026-05-13T14:31:02.602Z",
+      "modified_at": "2026-05-13T14:31:02.602Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "wann-wurde-die-flaeche-versiegelt",
+      "option": "wann-wurde-die-flaeche-versiegelt-vor-dem-29-sept-2023",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "wasseranschluss.wasseranschluss-bestehend",
     "fields": {
       "created_at": "2025-05-14T13:38:28.204Z",
@@ -34652,6 +36404,36 @@
       "question": "welche-infrastrukturen-sind-betroffen",
       "option": "welche-infrastrukturen-sind-betroffen-videokameras",
       "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werden-flaechen-neu-versiegelt-oder-entsiegelt.werden-flaechen-neu-versiegelt-oder-entsiegelt-ja",
+    "fields": {
+      "created_at": "2026-05-13T08:58:26.119Z",
+      "modified_at": "2026-05-13T08:58:26.119Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werden-flaechen-neu-versiegelt-oder-entsiegelt",
+      "option": "werden-flaechen-neu-versiegelt-oder-entsiegelt-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werden-flaechen-neu-versiegelt-oder-entsiegelt.werden-flaechen-neu-versiegelt-oder-entsiegelt-nein",
+    "fields": {
+      "created_at": "2026-05-13T08:58:26.114Z",
+      "modified_at": "2026-05-13T08:58:26.114Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werden-flaechen-neu-versiegelt-oder-entsiegelt",
+      "option": "werden-flaechen-neu-versiegelt-oder-entsiegelt-nein",
+      "sort": 1
     }
   },
   {
