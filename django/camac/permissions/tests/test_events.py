@@ -838,7 +838,7 @@ def test_submitted_so(so_access_levels, so_instance, instance_acl_factory):
     assert not the_acl.is_active()
 
 
-def test_completed_involve_tax_administration_sz(
+def test_decision_involve_tax_administration_sz(
     db,
     sz_permissions_settings,
     sz_access_levels,
@@ -851,15 +851,21 @@ def test_completed_involve_tax_administration_sz(
         slug=set_application_sz["TAX_ADMINISTRATION"]
     )
 
-    events.core.Trigger.instance_completed(None, sz_instance)
-
-    acls = InstanceACL.objects.filter(
+    assert not InstanceACL.objects.filter(
         instance=sz_instance,
         grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
         access_level="read",
         service=tax_administration,
-    )
-    assert acls.exists()
+    ).exists()
+
+    events.core.Trigger.decision_decreed(None, sz_instance)
+
+    assert InstanceACL.objects.filter(
+        instance=sz_instance,
+        grant_type=permissions_api.GRANT_CHOICES.SERVICE.value,
+        access_level="read",
+        service=tax_administration,
+    ).exists()
 
 
 @pytest.mark.parametrize(

@@ -544,7 +544,7 @@ APPLICATIONS = {
                         "event": "completed",
                         "notification": {
                             "template_slug": "complete-make-decision",
-                            "recipient_types": ["geometer"],
+                            "recipient_types": ["geometer", "tax_administration"],
                         },
                     }
                 ],
