@@ -167,5 +167,4 @@ volumes:
   dmsfiles:
   pgdata:
   phpsessions:
-  templatefiles:
   valkey_data:

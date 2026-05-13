@@ -298,5 +298,4 @@ volumes:
     driver: local
   pg16data:
   phpsessions:
-  templatefiles:
   valkey_data:

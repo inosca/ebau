@@ -318,7 +318,6 @@ volumes:
   djangomedia:
   djangotmpmedia:
   phpsessions:
-  templatefiles:
   redis_data:
   garage_meta:
     driver: local

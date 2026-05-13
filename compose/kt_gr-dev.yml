@@ -270,7 +270,6 @@ networks:
   ebau.localhost:
 
 volumes:
-  templatefiles:
   elixir-ebau_build:
   elixir-ebau_dependencies:
   elixir-ebau_language-server:
