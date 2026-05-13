@@ -244,11 +244,12 @@ MODULE_HEADER_WRITE = STATES_ALL_INTERNAL & ROLES_INTERNAL_NO_READONLY
 
 MODULE_HISTORY = STATES_INTERNAL_NO_CORRECTION & ROLES_INTERNAL
 
-# Note: Information of neighbors not available on internal workflow
-# TODO: Instance state and workflow don't match for migrated - when is it visible?
+# Note: Information of neighbors not available on internal workflow.
 MODULE_INFORMATION_OF_NEIGHBORS_READ = (
-    RequireWorkItem("create-information-of-neighbors")
-    & IsWorkflow([WORKFLOW_BUILDING_PERMIT, WORKFLOW_PRELIMINARY_CLARIFICATION])
+    (
+        RequireWorkItem("create-information-of-neighbors")
+        | RequireWorkItem("information-of-neighbors")
+    )
     & NO_CORRECTION_IN_PROGRESS
     & ROLES_INTERNAL
 )
@@ -257,7 +258,6 @@ MODULE_INFORMATION_OF_NEIGHBORS_WRITE = (
         RequireWorkItem("create-information-of-neighbors", WORK_ITEM_STATUS_READY, True)
         | RequireWorkItem("information-of-neighbors", WORK_ITEM_STATUS_READY, True)
     )
-    & IsWorkflow([WORKFLOW_BUILDING_PERMIT, WORKFLOW_PRELIMINARY_CLARIFICATION])
     & NO_CORRECTION_IN_PROGRESS
     & ROLES_INTERNAL_NO_READONLY
 )
@@ -273,10 +273,9 @@ MODULE_LEGAL_SUBMISSIONS_WRITE = (
 
 MODULE_PERMISSIONS = STATES_INTERNAL_NO_CORRECTION & ROLES_INTERNAL_NO_READONLY
 
-# TODO: Instance state and workflow don't match for migrated - when is it visible?
+# Note: Information of neighbors not available on internal workflow
 MODULE_PUBLICATION_READ = (
-    RequireWorkItem("create-publication")
-    & IsWorkflow([WORKFLOW_BUILDING_PERMIT, WORKFLOW_PRELIMINARY_CLARIFICATION])
+    (RequireWorkItem("create-publication") | RequireWorkItem("fill-publication"))
     & NO_CORRECTION_IN_PROGRESS
     & ROLES_INTERNAL
 )
@@ -286,7 +285,6 @@ MODULE_PUBLICATION_WRITE = (
         RequireWorkItem("create-publication", WORK_ITEM_STATUS_READY, True)
         | RequireWorkItem("fill-publication", WORK_ITEM_STATUS_READY, True)
     )
-    & IsWorkflow([WORKFLOW_BUILDING_PERMIT, WORKFLOW_PRELIMINARY_CLARIFICATION])
     & NO_CORRECTION_IN_PROGRESS
     & ROLES_INTERNAL_NO_READONLY
 )
