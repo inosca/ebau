@@ -1778,6 +1778,16 @@
     }
   },
   {
+    "model": "core.instanceresourcet",
+    "pk": 23000002,
+    "fields": {
+      "instance_resource": 12000019,
+      "language": "it",
+      "name": "Accompagnamento dei lavori",
+      "description": null
+    }
+  },
+  {
     "model": "core.irpage",
     "pk": 2000001,
     "fields": {
