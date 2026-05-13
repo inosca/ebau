@@ -268,7 +268,6 @@ services:
     user: "${UID:?Set UID env variable to your user id}"
     volumes:
       - ../document-merge-service/extensions:/app/document_merge_service/extensions
-      - ../document-merge-service/${APPLICATION}/templatefiles:/var/lib/document-merge-service/media
       - ../document-merge-service/${APPLICATION}/dump.json:/tmp/document-merge-service/dump.json
     command: devserver
 
