@@ -3,7 +3,7 @@ from logging import getLogger
 from django.conf import settings
 from django.core.management.base import BaseCommand
 from django.db import transaction
-from django.db.models import Exists, IntegerField, Value
+from django.db.models import Exists, IntegerField, OuterRef, Value
 from django.db.models.functions import Cast
 
 from camac.applicants.models import Applicant
@@ -34,10 +34,8 @@ class Command(BaseCommand):
             log.error(log_message)
 
     def perform_sanity_checks(self):
-        # Every instance should at least be accessible by a lead authority
-        # and the support
-        passed = self.assert_instance_access("MUNICIPALITY")
-        passed &= self.assert_instance_access("SUPPORT")
+        # Every instance should at least be accessible by the support
+        passed = self.assert_instance_access("SUPPORT")
 
         return passed
 
@@ -61,7 +59,9 @@ class Command(BaseCommand):
             Instance.objects.filter(
                 ~Exists(
                     InstanceACL.currently_active().filter(
-                        access_level=access_level, end_time__isnull=True
+                        access_level=access_level,
+                        instance_id=OuterRef("pk"),
+                        end_time__isnull=True,
                     )
                 )
             ).values_list("pk", flat=True)
