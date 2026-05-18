@@ -71,4 +71,33 @@ ALEXANDRIA_MIGRATION = ModuleConfig[AlexandriaMigrationConfig](
             "for_geometer": "geometer",
         },
     ),
+    kt_schwyz=AlexandriaMigrationConfig(
+        enabled=True,
+        category_mapping={
+            1: "dokumente-des-gesuchstellers",
+            2: "interne-ablage-nur-gruppenintern-sichtbar",
+            4: "auflagedokumente",
+            5: "einsprachen",
+            6: "bauentscheid-und-merkblatter",
+            7: "interne-ablage-nur-gruppenintern-sichtbar-1",
+            8: "schriftenverkehr",
+            9: "dokumente-fur-gesuchsteller",
+            10: "rechtsmittel",
+            11: "baukontrolle-und-bauabnahme",
+            12: "dokumente-dateien-und-anhange",
+        },
+        category_suffix_mapping={
+            "dokument-grundstucksangaben": "-grundstucksangaben",
+            "dokument-gutachten-nachweise-begrundungen": "-gutachten-nachweise-begrundungen",
+            "dokument-projektplane-projektbeschrieb": "-projektplane-projektbeschrieb",
+            "dokument-weitere-gesuchsunterlagen": "-weitere-gesuchsunterlagen",
+        },
+        # TODO Validate these
+        context_mark_mapping={
+            "isDecision": "decision",
+            "isPublished": "publication",
+            # SZ Prod currently only has "isReplaced"
+            "isReplaced": "void",
+        },
+    ),
 )
