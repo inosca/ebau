@@ -14,7 +14,6 @@ from camac.core.models import Resource
 @pytest.mark.parametrize("application", settings.APPLICATIONS.keys())
 def test_dump_and_load(
     db,
-    transactional_db,
     application,
     request,
     resource_factory,
