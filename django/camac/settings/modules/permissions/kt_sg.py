@@ -17,6 +17,8 @@ STATES_ALL = RequireInstanceState(
         "rejected",
         "init-distribution",
         "distribution",
+        "decision",
+        "decided",
     ]
 )
 
@@ -36,6 +38,9 @@ ROLES_MUNICIPALITY = HasRole(["municipality-lead"])
 # 4. Other
 MODULE_ADDITIONAL_DEMANDS = RequireWorkItem("init-additional-demand")
 MODULE_COMMUNICATIONS = STATES_ALL
+MODULE_DECISION = (RequireWorkItem("decision") & ROLES_MUNICIPALITY) | RequireWorkItem(
+    "decision", "completed"
+)
 MODULE_DISTRIBUTION = RequireWorkItem("distribution")
 MODULE_DOCUMENTS = STATES_ALL
 MODULE_FORM = STATES_ALL
@@ -111,6 +116,7 @@ SG_PERMISSIONS_SETTINGS = {
         "distribution-service": [
             ("communications-read", MODULE_COMMUNICATIONS),
             ("communications-write", MODULE_COMMUNICATIONS),
+            ("decision-read", MODULE_DECISION),
             ("distribution-read", MODULE_DISTRIBUTION),
             ("documents-read", MODULE_DOCUMENTS),
             ("documents-write", MODULE_DOCUMENTS),
@@ -132,6 +138,7 @@ SG_PERMISSIONS_SETTINGS = {
             ("communications-convert-to-document", MODULE_COMMUNICATIONS),
             ("communications-read", MODULE_COMMUNICATIONS),
             ("communications-write", MODULE_COMMUNICATIONS),
+            ("decision-read", MODULE_DECISION),
             ("distribution-read", MODULE_DISTRIBUTION),
             ("documents-read", MODULE_DOCUMENTS),
             ("documents-write", MODULE_DOCUMENTS),

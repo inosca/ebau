@@ -3160,11 +3160,26 @@ APPLICATIONS = {
                     "next_instance_state": "distribution",
                     "history_text": _("Circulation started"),
                 },
+                "complete-distribution": {
+                    "next_instance_state": "decision",
+                },
             },
             "PRE_COMPLETE": {
                 "fill-publication": {"complete": ["publication"]},
                 "check-inquiry": {"cancel": ["revise-inquiry"]},
                 "revise-inquiry": {"cancel": ["check-inquiry"]},
+                "decision": {
+                    "skip": [
+                        "publication",
+                        "fill-publication",
+                        "material-exam",
+                    ],
+                    "cancel": [
+                        "create-publication",
+                        "init-additional-demand",
+                        "additional-demand",
+                    ],
+                },
             },
             "PUBLIC_STATUS": {
                 "USE_SLUGS": True,

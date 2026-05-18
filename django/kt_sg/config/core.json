@@ -145,7 +145,7 @@
       "template": "/ember-camac-ng/journal.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 13,
+      "sort": 14,
       "form_group": 1,
       "require_permission": "journal-read"
     }
@@ -161,7 +161,7 @@
       "template": null,
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 14,
+      "sort": 15,
       "form_group": 1,
       "require_permission": "history-read"
     }
@@ -177,7 +177,7 @@
       "template": "/ember-camac-ng/permissions.phtml",
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 15,
+      "sort": 16,
       "form_group": 1,
       "require_permission": "permissions-read"
     }
@@ -225,7 +225,7 @@
       "template": "/ember-camac-ng/rejection.phtml",
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
-      "sort": 12,
+      "sort": 13,
       "form_group": 1,
       "require_permission": "rejection-read"
     }
@@ -273,7 +273,7 @@
       "template": "/ember-camac-ng/additional-demand.phtml",
       "class_field": "menu-category-extraordinary",
       "hidden": 0,
-      "sort": 11,
+      "sort": 12,
       "form_group": 1,
       "require_permission": "additional-demands-read"
     }
@@ -308,6 +308,22 @@
       "sort": 10,
       "form_group": 1,
       "require_permission": "distribution-read"
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 16,
+    "fields": {
+      "available_instance_resource": "taskform",
+      "resource": 2,
+      "name": null,
+      "description": null,
+      "template": null,
+      "class_field": "menu-category-process",
+      "hidden": 0,
+      "sort": 11,
+      "form_group": 1,
+      "require_permission": "decision-read"
     }
   },
   {
@@ -461,6 +477,16 @@
     }
   },
   {
+    "model": "core.instanceresourcet",
+    "pk": 16,
+    "fields": {
+      "instance_resource": 16,
+      "language": "de",
+      "name": "Entscheid",
+      "description": null
+    }
+  },
+  {
     "model": "core.irtaskform",
     "pk": 1,
     "fields": {
@@ -475,10 +501,17 @@
     }
   },
   {
+    "model": "core.irtaskform",
+    "pk": 16,
+    "fields": {
+      "task": "decision"
+    }
+  },
+  {
     "model": "core.remberlist",
     "pk": 2,
     "fields": {
-      "instance_states": "1,2,3,4,5"
+      "instance_states": "1,2,3,4,5,6,7"
     }
   },
   {

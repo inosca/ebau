@@ -41,7 +41,7 @@ mutation CreateFlowAfterDistribution {
     input: {
       workflow: "building-permit"
       tasks: ["distribution"]
-      next: "[]|tasks"
+      next: "[\"decision\"]|tasks"
     }
   ) {
     clientMutationId
@@ -66,6 +66,19 @@ mutation CreateFlowAfterCreatePublication {
       workflow: "building-permit"
       tasks: ["create-publication"]
       next: "[\"fill-publication\"]|tasks"
+    }
+  ) {
+    clientMutationId
+  }
+}
+
+mutation CreateFlowAfterDecision {
+  addWorkflowFlow(
+    input: {
+      workflow: "building-permit"
+      tasks: ["decision"]
+      next: "[]|tasks"
+      redoable: "'distribution'|task"
     }
   ) {
     clientMutationId

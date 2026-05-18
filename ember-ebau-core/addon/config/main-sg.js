@@ -1,4 +1,4 @@
-export default {
+const config = {
   name: "sg",
   languages: ["de"],
   fallbackLanguage: "de",
@@ -12,6 +12,8 @@ export default {
     rejected: 3,
     "init-distribution": 4,
     distribution: 5,
+    decision: 6,
+    decided: 7,
   },
   gwr: {
     cantonAbbreviation: "SG",
@@ -64,3 +66,9 @@ export default {
     },
   },
 };
+
+config.submittedStates = Object.entries(config.instanceStates)
+  .filter(([name]) => name !== "new")
+  .map(([, id]) => id);
+
+export default config;

@@ -1336,6 +1336,23 @@ def ag_decision_settings(
 
 
 @pytest.fixture
+def sg_decision_settings(
+    request,
+    settings,
+    decision_settings,
+):
+    """Module-specific settings for decision (canton SG)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=decision_settings,
+        module_name="decision",
+        canton="kt_sg",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def test_decision_settings(
     request,
     settings,
