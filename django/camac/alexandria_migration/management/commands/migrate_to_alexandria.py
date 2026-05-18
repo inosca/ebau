@@ -8,6 +8,7 @@ from django.utils.timezone import now
 from tqdm import tqdm
 
 from camac.alexandria_migration.domain_logic import (
+    AnnotateDocumentsMigrator,
     CommunicationLinksMigrator,
     CreateDocumentsMigrator,
     DuplicateDocumentsMigrator,
@@ -51,6 +52,12 @@ class Command(BaseCommand):
             help="Fix links from communications module attachments (Last stage)",
         )
         fix_communication_links.set_defaults(method=self.fix_communication_links)
+
+        annotate = subparsers.add_parser(
+            "annotate",
+            help="Annotate migrated documents: Create thumbnails, checksums, index for FTS",
+        )
+        annotate.set_defaults(method=self.annotate_documents)
 
     def handle(self, method, *args, **options):
         command = method.__name__
@@ -273,6 +280,65 @@ class Command(BaseCommand):
         with tqdm(total=len(instances)) as bar:
             for batch in itertools.batched(instances, batch_size):
                 CommunicationLinksMigrator(batch, self.run).process()
+
+                bar.update(len(batch))
+
+        self.stdout.write(
+            self.style.SUCCESS(
+                f"Fixing of communications module links on {len(instances)} instances was successful"
+            )
+        )
+
+    def annotate_documents(self, *args, **options):
+        instances = self.filter_instances(
+            # Eligible instances: Are created from the migration, are duplicated,
+            # and not yet annotated. Note we do not care about the communication
+            # link status here - that may happen at the same time, before, or after,
+            # it doesn't matter.
+            Instance.objects.filter(
+                Exists(
+                    MigrationLog.objects.filter(
+                        type=MigrationLog.Type.INSTANCE_DOCUMENTS_CREATED,
+                        instance_id=OuterRef("pk"),
+                    )
+                )
+                & Exists(
+                    MigrationLog.objects.filter(
+                        type=MigrationLog.Type.INSTANCE_DOCUMENTS_DUPLICATED,
+                        instance_id=OuterRef("pk"),
+                    )
+                )
+            ).exclude(
+                Exists(
+                    MigrationLog.objects.filter(
+                        type=MigrationLog.Type.INSTANCE_DOCUMENTS_ANNOTATED,
+                        instance_id=OuterRef("pk"),
+                    )
+                )
+            ),
+            options,
+        )
+
+        if not len(instances):
+            self.stdout.write(
+                self.style.ERROR(
+                    "There are no eligible instances for this command. Please adjust your filters or run the prequisite commands."
+                )
+            )
+            self.run._should_delete = True
+            return
+
+        batch_size = options.get("batch_size")
+
+        self.stdout.write(
+            self.style.SUCCESS(
+                f"Fixing communication module links on {len(instances)} instances chunked into {batch_size} instance batches..."
+            )
+        )
+
+        with tqdm(total=len(instances)) as bar:
+            for batch in itertools.batched(instances, batch_size):
+                AnnotateDocumentsMigrator(batch, self.run).process()
 
                 bar.update(len(batch))
 

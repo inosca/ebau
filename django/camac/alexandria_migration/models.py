@@ -22,6 +22,7 @@ class MigrationRun(models.Model):
         CREATE_DOCUMENTS = "create_documents"
         DUPLICATE_DOCUMENTS = "duplicate_documents"
         COMMUNICATION_LINKS = "communication_links"
+        ANNOTATE_DOCUMENTS = "annotate_documents"
 
     id = models.UUIDField(
         primary_key=True, default=uuid_extensions.uuid7, editable=False
@@ -53,6 +54,22 @@ class MigrationRun(models.Model):
             document_created=Count(
                 "id",
                 filter=Q(type=MigrationLog.Type.DOCUMENT_CREATED),
+            ),
+            instance_documents_annotated=Count(
+                "id",
+                filter=Q(type=MigrationLog.Type.INSTANCE_DOCUMENTS_ANNOTATED),
+            ),
+            annotated_checksum=Count(
+                "id",
+                filter=Q(type=MigrationLog.Type.ANNOTATED_CHECKSUM),
+            ),
+            annotated_thumbnail=Count(
+                "id",
+                filter=Q(type=MigrationLog.Type.ANNOTATED_THUMBNAIL),
+            ),
+            annotated_fulltext_search=Count(
+                "id",
+                filter=Q(type=MigrationLog.Type.ANNOTATED_FULLTEXT_SEARCH),
             ),
             file_created=Count(
                 "id",
@@ -104,6 +121,21 @@ class MigrationRun(models.Model):
                         ("Documents duplicated", counts["document_duplicated"]),
                     ]
                 )
+            case MigrationRun.Command.ANNOTATE_DOCUMENTS:
+                stats.extend(
+                    [
+                        (
+                            "Instances processed",
+                            counts["instance_documents_annotated"],
+                        ),
+                        ("Checksums annotated", counts["annotated_checksum"]),
+                        ("Thumbnails created", counts["annotated_thumbnail"]),
+                        (
+                            "Fulltext indexes annotated",
+                            counts["annotated_fulltext_search"],
+                        ),
+                    ]
+                )
 
         return "\n".join([title, *[f"- {t}: {c}" for t, c in stats]])
 
@@ -114,12 +146,16 @@ class MigrationLog(models.Model):
         INSTANCE_DOCUMENTS_CREATED = "instance_documents_created"
         INSTANCE_DOCUMENTS_DUPLICATED = "instance_documents_duplicated"
         INSTANCE_COMMUNICATION_LINKS_FIXED = "instance_communication_links_fixed"
+        INSTANCE_DOCUMENTS_ANNOTATED = "instance_documents_annotated"
 
         # Per attachment (version) types
         DOCUMENT_CREATED = "document_created"
         FILE_CREATED = "file_created"
         DOCUMENT_DUPLICATED = "document_duplicated"
         COMMUNICATION_LINK_FIXED = "communication_link_fixed"
+        ANNOTATED_THUMBNAIL = "annotated_thumbnail"
+        ANNOTATED_FULLTEXT_SEARCH = "annotated_fulltext_search"
+        ANNOTATED_CHECKSUM = "annotated_checksum"
 
     id = models.UUIDField(
         primary_key=True, default=uuid_extensions.uuid7, editable=False
