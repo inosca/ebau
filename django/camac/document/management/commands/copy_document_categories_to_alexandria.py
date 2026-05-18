@@ -1,5 +1,7 @@
 import json
 import random
+import re
+from pprint import pformat
 
 from alexandria.core import models as alexandria_models
 from django.conf import settings
@@ -20,11 +22,21 @@ class Command(BaseCommand):
     def add_arguments(self, parser):
         parser.add_argument("--clear-before", action="store_true", default=False)
         parser.add_argument("--confirm", action="store_true", default=False)
+        parser.add_argument(
+            "--migration-config",
+            action="store_true",
+            default=False,
+            help="Output migration config",
+        )
 
     @transaction.atomic
     def handle(self, *args, **options):
         savepoint = transaction.savepoint()
         self._warned = set()
+
+        self._cat_mapping = {}
+        self._suffix_mapping = {}
+        # TODO: context mark mapping?
 
         if options["clear_before"]:
             self.clear()
@@ -33,6 +45,9 @@ class Command(BaseCommand):
 
         if not options["confirm"]:
             transaction.savepoint_rollback(savepoint)
+
+        if options["migration_config"]:
+            self.print_migration_config()
 
     def migrate(self):
         for section in document_models.AttachmentSection.objects.all():
@@ -91,6 +106,7 @@ class Command(BaseCommand):
             # - notification_template not used in SZ, UR
             # - recipient_types also not used in SZ, UR
         )
+        self._cat_mapping[section.pk] = slug
 
         self._collect_subcategories(section, category)
 
@@ -188,7 +204,8 @@ class Command(BaseCommand):
         new_cats = []
         for sort, subcat in enumerate(subcats):
             question = self._question_info(subcat)
-            slug = f"{category.slug}-{subcat}"
+            sub_slug = re.sub(r"^dokument-", "", subcat)
+            slug = f"{category.slug}-{sub_slug}"
             self.stdout.write(
                 f"   Creating sub category: {slug} - {question['label']}\n"
             )
@@ -214,6 +231,7 @@ class Command(BaseCommand):
                     },
                 )
             )
+            self._suffix_mapping[subcat] = f"-{sub_slug}"
         return new_cats
 
     def _question_info(self, slug: str) -> dict:
@@ -304,6 +322,14 @@ class Command(BaseCommand):
 
     def clear(self):
         alexandria_models.Category.objects.all().delete()
+
+    def print_migration_config(self):
+        print(
+            "Alexandria migration config data follows. Update migration "
+            "settings as follows:"
+        )
+        print(f"    category_mapping={pformat(self._cat_mapping, indent=8)},")
+        print(f"    category_suffix_mapping={pformat(self._suffix_mapping, indent=8)},")
 
     def _randcolor(self):
         h = random.randint(0, 360)
