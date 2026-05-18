@@ -157,6 +157,10 @@ def copy_instance(
         data={
             "copy_source": instance.pk,
             "is_modification": False,
+            "is_appeal": new_meta.get("is-appeal", False),
+            "is_rejected_appeal": new_meta.get("is-rejected-appeal", False),
+            # copy as part of the support corrections action
+            "is_copy": new_meta.get("is-copy", False),
         },
         context=context,
     )

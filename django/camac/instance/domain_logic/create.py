@@ -322,6 +322,9 @@ class CreateInstanceLogic:
         source_instance,
         case,
         is_modification,
+        is_appeal,
+        is_rejected_appeal,
+        is_copy,
         is_paper,
         group,
         user,
@@ -329,15 +332,27 @@ class CreateInstanceLogic:
     ):
         if source_instance:
             old_document = case.document
+            # Only exclude confirmation answers on regular project modifications.
+            # Copies of project modifications should include the confirmation answers
+            # (appeal, rejected appeal and support copy).
+            exclude_confirmation_answers = (
+                is_modification
+                and not is_appeal
+                and not is_rejected_appeal
+                and not is_copy
+            )
             new_document = caluma_api.copy_document(
                 source_instance.case.document.pk,
+                # These form slugs are BE specific
                 exclude_form_slugs=(
                     [
                         "7-bestaetigung",
                         "7-bestaetigung-vorabklaerung-v4",
                         "8-freigabequittung",
+                        "bestaetigung-v5",
+                        "bestaetigung-v7",
                     ]
-                    if is_modification
+                    if exclude_confirmation_answers
                     else ["8-freigabequittung"]
                 ),
             )
@@ -652,6 +667,9 @@ class CreateInstanceLogic:
         group,
         lead=None,
         is_modification=False,
+        is_appeal=False,
+        is_rejected_appeal=False,
+        is_copy=False,
         is_paper=False,
         caluma_form=None,
         source_instance=None,
@@ -742,6 +760,9 @@ class CreateInstanceLogic:
                 source_instance,
                 case,
                 is_modification,
+                is_appeal,
+                is_rejected_appeal,
+                is_copy,
                 is_paper,
                 group,
                 caluma_user,
