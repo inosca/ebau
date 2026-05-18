@@ -1049,8 +1049,8 @@ BE_PERMISSIONS_SETTINGS = {
             ("documents-write", MODULE_DOCUMENTS_WRITE),
             ("dms-generate-read", MODULE_DMS_GENERATE),
             ("form-read", MODULE_FORM_READ),
-            ("form-sb1-read", MODULE_SB1_READ),
-            ("form-sb2-read", MODULE_SB2_READ),
+            ("form-sb1-read", MODULE_PORTAL_SB1_READ),
+            ("form-sb2-read", MODULE_PORTAL_SB2_READ),
             ("history-read", MODULE_HISTORY),
             (
                 "instance-change-responsible-service",
@@ -1082,8 +1082,8 @@ BE_PERMISSIONS_SETTINGS = {
             ("documents-write", MODULE_DOCUMENTS_WRITE),
             ("dms-generate-read", MODULE_DMS_GENERATE),
             ("form-read", MODULE_FORM_READ),
-            ("form-sb1-read", MODULE_SB1_READ),
-            ("form-sb2-read", MODULE_SB2_READ),
+            ("form-sb1-read", MODULE_PORTAL_SB1_READ),
+            ("form-sb2-read", MODULE_PORTAL_SB2_READ),
             ("history-read", MODULE_HISTORY),
             (
                 "instance-unsubscribe-responsible-service",
