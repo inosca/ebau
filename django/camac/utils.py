@@ -12,6 +12,7 @@ from django.conf import settings
 from django.db import connections
 from django.db.utils import OperationalError
 from django.http import JsonResponse
+from django.utils.module_loading import import_string
 from django.views.decorators.csrf import csrf_exempt
 from docxtpl import DocxTemplate
 from rest_framework import exceptions
@@ -429,3 +430,20 @@ def is_support(request):
     if request.group:
         return get_role_name(request.group) == "support"
     return False
+
+
+def sorl_thumbnail_s3_storage():
+    """Explicitly instantiate the default storage correctly.
+
+    SORL Thumbnail calls the default storage without options, which
+    misconfigures the storage and won't work.
+    This explicitly instantiates the storage correctly
+    """
+    # TODO: use some lookup other than hardcoded "default" here?
+    # We don't currently configure it, so there's no other option
+    # anyway though.
+    conf = settings.STORAGES["default"]
+    storage_cls = import_string(conf["BACKEND"])
+    if options := conf.get("OPTIONS"):
+        return storage_cls(**options)
+    return storage_cls()
