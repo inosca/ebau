@@ -18,6 +18,7 @@ from camac.settings.env import env
 
 WORK_ITEM_STATUS_READY = "ready"
 WORK_ITEM_STATUS_COMPLETED = "completed"
+WORK_ITEM_STATUS_SKIPPED = "skipped"
 WORKFLOW_BUILDING_PERMIT = "building-permit"
 WORKFLOW_PRELIMINARY_CLARIFICATION = "preliminary-clarification"
 WORKFLOW_INTERNAL = "internal"
@@ -210,9 +211,13 @@ MODULE_CORRECTIONS = STATES_ALL_INTERNAL & ROLES_INTERNAL_LEAD
 # (decision module is hidden during distribution).
 # During correction and rejection the decision work-item becomes suspended
 # (the decision module is hidden during correction and rejection).
+# For imported instances, the decision work-item is skipped.
 MODULE_DECISION_READ = RequireWorkItem(
-    "decision", WORK_ITEM_STATUS_READY, True
-) | RequireWorkItem("decision", WORK_ITEM_STATUS_COMPLETED)
+    "decision", WORK_ITEM_STATUS_COMPLETED
+) | RequireWorkItem("decision", WORK_ITEM_STATUS_SKIPPED)
+MODULE_DECISION_READ_LEAD_AUTHORITIES = MODULE_DECISION_READ | RequireWorkItem(
+    "decision", WORK_ITEM_STATUS_READY
+)
 MODULE_DECISION_WRITE = (
     RequireWorkItem("decision", WORK_ITEM_STATUS_READY, True) & ROLES_INTERNAL_LEAD
 )
@@ -876,7 +881,7 @@ BE_PERMISSIONS_SETTINGS = {
             ("communications-write", MODULE_COMMUNICATIONS),
             ("communications-convert-to-document", MODULE_COMMUNICATIONS),
             ("corrections-read", MODULE_CORRECTIONS),
-            ("decision-read", MODULE_DECISION_READ),
+            ("decision-read", MODULE_DECISION_READ_LEAD_AUTHORITIES),
             ("decision-write", MODULE_DECISION_WRITE),
             ("distribution-read", MODULE_DISTRIBUTION_READ),
             (
@@ -975,7 +980,7 @@ BE_PERMISSIONS_SETTINGS = {
             ("communications-read", MODULE_COMMUNICATIONS),
             ("communications-write", MODULE_COMMUNICATIONS),
             ("communications-convert-to-document", MODULE_COMMUNICATIONS),
-            ("decision-read", MODULE_DECISION_READ),
+            ("decision-read", MODULE_DECISION_READ_LEAD_AUTHORITIES),
             ("distribution-read", MODULE_DISTRIBUTION_READ),
             ("documents-read", MODULE_DOCUMENTS_READ),
             (
