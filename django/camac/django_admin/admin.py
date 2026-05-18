@@ -7,6 +7,7 @@ from django_celery_beat import admin as dcb_admin, models as dcb_models
 from localized_fields.admin import LocalizedFieldsAdminMixin
 
 from camac.admin import EbauAdminMixin
+from camac.django_admin.utils import display_color
 from camac.user.models import Service
 
 
@@ -41,7 +42,7 @@ class CategoryAdmin(
 
     @display(description="Color")
     def color_box(self, obj):
-        return format_html(f"<span style='color: {obj.color}'>⯀</span>")
+        return display_color(obj.color)
 
     def get_readonly_fields(self, request, obj=None):
         if obj:

@@ -1,16 +1,49 @@
 <div class="subnav-header">
-  <span class="uk-text-bold">{{@case.dossierNumber}}</span>
-  {{#if @case.dossierNumber}}
-    <UkButton
-      @color="link"
-      @title={{t "cases.copy.title"}}
-      @onClick={{fn this.copyLink @case.dossierNumber}}
-    >
-      <UkIcon @icon="copy" />
-    </UkButton>
-  {{/if}}
-  <br />
+  <div class="uk-flex uk-flex-between">
+    <span class="uk-text-bold">{{@case.dossierNumber}}</span>
+    <div>
+      {{#if @case.dossierNumber}}
+        <UkButton
+          @color="link"
+          @onClick={{fn this.copyLink @case.dossierNumber}}
+          {{uk-tooltip (t "cases.copy.title")}}
+        >
+          <UkIcon @icon="copy" />
+        </UkButton>
+      {{/if}}
+      {{#if
+        (and
+          (has-feature "instanceMarks")
+          (has-all-permissions @case.instanceId "instance-mark-write")
+        )
+      }}
+        <UkButton
+          @color="link"
+          @onClick={{this.toggleEditMode}}
+          {{uk-tooltip
+            (t
+              (concat
+                "cases.instanceMarks.editor." (if this.editMode "save" "edit")
+              )
+            )
+          }}
+        >
+          <UkIcon @icon={{if this.editMode "check" "pencil"}} />
+        </UkButton>
+      {{/if}}
+    </div>
+  </div>
   {{this.name}}
+  <InstanceMarks::Editor
+    @editMode={{this.editMode}}
+    @selectedMarks={{if
+      this.editMode
+      this.selectedMarks
+      @case.instance.instanceMarks
+    }}
+    @onToggle={{this.toggleMark}}
+    @onChange={{fn (mut this.selectedMarks)}}
+  />
   <div>
     {{#if (await (can "access instance on level read for instance"))}}
       <span

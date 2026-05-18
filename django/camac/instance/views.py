@@ -264,8 +264,13 @@ class InstanceView(
             ).exists()
         )
 
-    def _has_instance_update_permission(self, allowed_keys):
-        missing = set(self.request.data.keys()) - {"id", "type"} - allowed_keys
+    def _has_instance_update_permission(self, allowed_keys, instance):
+        request_keys = self.request.data.keys()
+        missing = set(request_keys) - {"id", "type"} - allowed_keys
+        if "instance_marks" in request_keys:
+            return permissions_api.PermissionManager.from_request(self.request).has_all(
+                instance, "instance-mark-write"
+            )
         return len(missing) == 0
 
     @permission_aware
@@ -275,15 +280,17 @@ class InstanceView(
     def has_object_update_permission_for_applicant(self, instance):
         return (
             instance.instance_state.name == "new"
-            and self._has_instance_update_permission({"location"})
+            and self._has_instance_update_permission({"location"}, instance)
         )
 
     def has_object_update_permission_for_municipality(self, instance):
-        return self._has_instance_update_permission({"keywords", "static_keywords"})
+        return self._has_instance_update_permission(
+            {"keywords", "static_keywords", "marks"}, instance
+        )
 
     def has_object_update_permission_for_service(self, instance):
         return self._has_instance_update_permission(
-            {"keywords", "static_keywords"}
+            {"keywords", "static_keywords", "marks"}, instance
         )  # pragma: no cover
 
     def has_base_permission_for_coordination(self, instance):

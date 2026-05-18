@@ -22,3 +22,13 @@ class KeywordFactory(DjangoModelFactory):
 
     class Meta:
         model = models.Keyword
+
+
+class InstanceMarkFactory(DjangoModelFactory):
+    name = Faker("name")
+    icon = Faker("name")
+    background_color = "#67FF12"
+    text_color = "#000000"
+
+    class Meta:
+        model = models.InstanceMark

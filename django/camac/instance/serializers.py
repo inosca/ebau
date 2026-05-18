@@ -71,7 +71,7 @@ from camac.permissions.switcher import (
 from camac.responsible.domain_logic import ResponsibleServiceDomainLogic
 from camac.responsible.models import ResponsibleService
 from camac.settings.modules.deadlines_schema import DeadlinesConfig
-from camac.tags.models import Keyword, StaticKeyword
+from camac.tags.models import InstanceMark, Keyword, StaticKeyword
 from camac.timelines.models import FormTimeline
 from camac.user.models import Group, Location, Service
 from camac.user.permissions import permission_aware
@@ -176,6 +176,10 @@ class InstanceSerializer(
         many=True,
     )
 
+    instance_marks = relations.ResourceRelatedField(
+        many=True, required=False, queryset=InstanceMark.objects.all()
+    )
+
     involved_services = relations.SerializerMethodResourceRelatedField(
         source="get_involved_services", model=Service, read_only=True, many=True
     )
@@ -270,6 +274,7 @@ class InstanceSerializer(
         "active_service": "camac.user.serializers.PublicServiceSerializer",
         "keywords": "camac.tags.serializers.KeywordSerializer",
         "static_keywords": "camac.tags.serializers.StaticKeywordSerializer",
+        "instance_marks": "camac.tags.serializers.InstanceMarkSerializer",
     }
 
     @transaction.atomic
@@ -368,6 +373,7 @@ class InstanceSerializer(
             "parent_instance",
             "keywords",
             "static_keywords",
+            "instance_marks",
         )
         read_only_fields = (
             "creation_date",

@@ -51,3 +51,9 @@ class StaticKeywordView(KeywordView):
     search_fields = ("name",)
     ordering = ("name",)
     queryset = models.StaticKeyword.objects.all()
+
+
+class InstanceMarkView(ReadOnlyModelViewSet):
+    serializer_class = serializers.InstanceMarkSerializer
+    ordering = ("sort",)
+    queryset = models.InstanceMark.objects.all()

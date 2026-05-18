@@ -209,3 +209,11 @@ cases:
   copy:
     title: "Copier le lien dans le presse-papiers"
     success: "Le lien a été copié dans le presse-papiers"
+
+  instanceMarks:
+    save:
+        success: ""
+        error: ""
+    editor:
+      edit: ""
+      save: ""

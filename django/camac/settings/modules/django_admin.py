@@ -124,6 +124,7 @@ DJANGO_ADMIN = {
             "core.Resource",
             "gis.GISDataSource",
             "notification.NotificationTemplate",
+            "tags.InstanceMark",
         ],
     },
 }

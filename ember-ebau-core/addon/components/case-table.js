@@ -10,6 +10,7 @@ import { saveAs } from "file-saver";
 
 import caseTableConfig from "ember-ebau-core/config/case-table";
 import caseInstanceIdsQuery from "ember-ebau-core/gql/queries/case-instance-ids.graphql";
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 import {
   getCalumaFilters,
   getCamacFilters,
@@ -159,6 +160,7 @@ export default class CaseTableComponent extends Component {
         ...(macroCondition(getOwnConfig().application === "sz")
           ? ["form", "user"]
           : []),
+        ...(hasFeature("instanceMarks") ? ["instance_marks"] : []),
       ].join(","),
       ...(macroCondition(getOwnConfig().application === "be")
         ? {

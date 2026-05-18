@@ -1,0 +1,29 @@
+<div class="instance-mark-editor">
+  {{#if @editMode}}
+    {{#each (sort-by "sort" this.allMarks.records) as |mark|}}
+      <button
+        type="button"
+        class="uk-button uk-label subnav-header__label subnav-header__label--instance-mark
+          {{unless
+            (includes mark this.selectedMarks)
+            'subnav-header__label--unselected-mark'
+          }}"
+        style={{mark.style}}
+        {{on "click" (fn this.selectMark mark)}}
+      >
+        <FaIcon @icon={{mark.icon}} />
+        {{mark.name}}
+      </button>
+    {{/each}}
+  {{else}}
+    {{#each @selectedMarks as |mark|}}
+      <span
+        class="uk-label subnav-header__label subnav-header__label--instance-mark"
+        style={{mark.style}}
+      >
+        <FaIcon @icon="{{mark.icon}}" />
+        {{mark.name}}
+      </span>
+    {{/each}}
+  {{/if}}
+</div>

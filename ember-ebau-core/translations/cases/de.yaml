@@ -227,3 +227,11 @@ cases:
   copy:
     title: "Link in Zwischenablage kopieren"
     success: "Der Link wurde in die Zwischenablage kopiert"
+  
+  instanceMarks:
+    save:
+      success: "Das Dossier wurde erfolgreich markiert."
+      error: "Das Dossier konnte nicht markiert werden."
+    editor:
+      edit: "Markierungen editieren"
+      save: "Markierungen speichern"

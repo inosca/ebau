@@ -21,3 +21,15 @@ class StaticKeywordSerializer(VisibilitySerializerMixin, serializers.ModelSerial
         model = models.StaticKeyword
         fields = ("name", "service", "instances", "is_archived")
         resource_name = "static-keywords"
+
+
+class InstanceMarkSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.InstanceMark
+        fields = (
+            "name",
+            "icon",
+            "background_color",
+            "text_color",
+            "sort",
+        )

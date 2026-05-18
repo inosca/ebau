@@ -1,4 +1,8 @@
+from django.core.validators import RegexValidator
 from django.db import models
+from localized_fields.fields import LocalizedTextField
+
+from camac.models import dynamic_default_value
 
 
 class Tags(models.Model):
@@ -45,3 +49,29 @@ class StaticKeyword(BaseKeyword):
     class Meta:
         managed = True
         unique_together = (("name", "service"),)
+
+
+@dynamic_default_value(0)
+def next_instance_mark_sort():
+    last = InstanceMark.objects.order_by("-sort").first()
+    return last.sort + 1 if last else 0
+
+
+class InstanceMark(models.Model):
+    hex_color_validator = RegexValidator(
+        regex=r"^#(?:[0-9a-fA-F]{3}){1,2}$",
+        message="Enter a valid hex color (e.g. #RRGGBB)",
+    )
+
+    name = LocalizedTextField(max_length=50)
+    icon = models.CharField(max_length=50)
+    background_color = models.CharField(max_length=7, validators=[hex_color_validator])
+    text_color = models.CharField(
+        max_length=7,
+        validators=[hex_color_validator],
+        default="#000000",
+    )
+    sort = models.PositiveIntegerField(default=next_instance_mark_sort)
+
+    class Meta:
+        ordering = ["sort"]

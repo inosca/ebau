@@ -1,0 +1,35 @@
+[
+  {
+    "model": "tags.instancemark",
+    "pk": 1,
+    "fields": {
+      "name": "{\"de\": \"Dringend\", \"fr\": \"\", \"it\": \"\"}",
+      "icon": "bell",
+      "background_color": "#ef516d",
+      "text_color": "#ffffff",
+      "sort": 1
+    }
+  },
+  {
+    "model": "tags.instancemark",
+    "pk": 2,
+    "fields": {
+      "name": "{\"de\": \"Spezialkoordination\", \"fr\": \"\", \"it\": \"\"}",
+      "icon": "star",
+      "background_color": "#f49216",
+      "text_color": "#000000",
+      "sort": 2
+    }
+  },
+  {
+    "model": "tags.instancemark",
+    "pk": 3,
+    "fields": {
+      "name": "{\"de\": \"Koordinationspflichtig\", \"fr\": \"\", \"it\": \"\"}",
+      "icon": "globe",
+      "background_color": "#b6dba5",
+      "text_color": "#000000",
+      "sort": 3
+    }
+  }
+]

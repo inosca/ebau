@@ -53,6 +53,8 @@ export default class InstanceModel extends Model {
   @hasMany("keyword", { inverse: "instances", async: true }) keywords;
   @hasMany("static-keyword", { inverse: "instances", async: true })
   staticKeywords;
+  @hasMany("instance-mark", { inverse: "instances", async: true })
+  instanceMarks;
   @hasMany("applicant", { inverse: "instance", async: false })
   involvedApplicants;
 

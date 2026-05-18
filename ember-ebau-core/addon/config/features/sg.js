@@ -31,4 +31,5 @@ export default {
     showAllServices: true,
     fourEyesPrinciple: true,
   },
+  instanceMarks: true,
 };
