@@ -304,3 +304,83 @@ def test_condition_is_created_by_service(
         IsCreatedByService().apply(userinfo, PermissionContext(be_instance))
         == is_created_by_service
     )
+
+
+@pytest.mark.parametrize(
+    "cond, params1, params2, expect_equal",
+    [
+        (
+            RequireWorkItem,
+            {"task_id": "foo"},
+            {"task_id": "foo"},
+            True,
+        ),
+        (
+            RequireWorkItem,
+            {"task_id": "foo", "status": "ready"},
+            {"task_id": "foo", "status": "ready"},
+            True,
+        ),
+        (
+            RequireWorkItem,
+            {"task_id": "foo", "status": "ready"},
+            {"task_id": "foo", "status": "completed"},
+            False,
+        ),
+        (
+            RequireWorkItem,
+            {"task_id": "foo"},
+            {"task_id": "foo", "addressed_to_current_service": True},
+            False,
+        ),
+        (
+            RequireWorkItem,
+            {"task_id": "foo"},
+            {"task_id": "foo", "addressed_to_current_service": False},
+            # addressed_to_current_service is set by default to True, so this
+            # is still equal
+            True,
+        ),
+        (
+            RequireWorkItem,
+            {"task_id": "foo", "condition_name": "hello"},
+            {"task_id": "foo", "condition_name": "world"},
+            # differing name but otherwise equal should be treated as equal
+            True,
+        ),
+        (
+            IsServiceGroup,
+            {"required_service_groups": ["foo", "bar"]},
+            {"required_service_groups": ["foo", "bar"]},
+            True,
+        ),
+        (
+            IsServiceGroup,
+            {"required_service_groups": ["foo", "bar"]},
+            {"required_service_groups": ["bar", "foo"]},
+            # Changed order should not matter
+            True,
+        ),
+        (
+            HasApplicantRole,
+            {"roles": ["foo", "bar"]},
+            {"roles": ["bar", "foo"]},
+            # Changed order should not matter
+            True,
+        ),
+        (
+            IsWorkflow,
+            {"workflows": ["foo", "bar"]},
+            {"workflows": ["bar", "foo"]},
+            # Changed order should not matter
+            True,
+        ),
+    ],
+)
+def test_condition_equality(cond, params1, params2, expect_equal):
+    c1 = cond(**params1)
+    c2 = cond(**params2)
+
+    is_equal = c1 == c2
+
+    assert is_equal == expect_equal

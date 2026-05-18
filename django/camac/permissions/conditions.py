@@ -331,7 +331,7 @@ class IsWorkflow(Check):
     def allow_caching(self):  # pragma: no cover
         return True
 
-    def __eq__(self, other):  # pragma: no cover
+    def __eq__(self, other):
         return isinstance(other, IsWorkflow) and set(other.workflows) == set(
             self.workflows
         )
@@ -360,7 +360,7 @@ class HasApplicantRole(Check):
     def allow_caching(self):  # pragma: no cover
         return True
 
-    def __eq__(self, other):  # pragma: no cover
+    def __eq__(self, other):
         return isinstance(other, HasApplicantRole) and set(other.roles) == set(
             self.roles
         )
@@ -415,8 +415,15 @@ class RequireWorkItem(Check):
     def allow_caching(self):  # pragma: no cover
         return False
 
-    def __eq__(self, other):  # pragma: no cover
-        return isinstance(other, RequireWorkItem) and other.task_id == self.task_id
+    def __eq__(self, other):
+        return (
+            isinstance(other, RequireWorkItem)
+            and other.task_id == self.task_id
+            and other.status == self.status
+            and other.addressed_to_current_service == self.addressed_to_current_service
+            # Not comparing condition_name, that's only for __repr__, but differing
+            # names with equal functionality should still be equal
+        )
 
     def __repr__(self):  # pragma: no cover
         if self.condition_name:
@@ -469,7 +476,7 @@ class IsServiceGroup(Check):
 
         return userinfo.service.service_group.name in self.required_service_groups
 
-    def __eq__(self, other: Check):  # pragma: no cover
+    def __eq__(self, other: Check):
         return isinstance(other, IsServiceGroup) and set(
             other.required_service_groups
         ) == set(self.required_service_groups)
