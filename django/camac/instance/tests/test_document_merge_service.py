@@ -22,8 +22,22 @@ from ..document_merge_service import DMSClient, DMSHandler, DMSVisitor
 
 
 @pytest.fixture
-def caluma_form_fixture(db):
-    kt_bern_path = Path(settings.ROOT_DIR) / "kt_bern"
+def ch_locale():
+    locale.setlocale(locale.LC_ALL, "de_CH.utf8")
+    yield locale.getlocale()
+    locale.setlocale(locale.LC_ALL, "")
+
+
+@pytest.mark.order(1)  # Slow tests should run first
+@pytest.mark.freeze_time("2023-01-06 16:10")
+def test_document_merge_service_snapshot(
+    db,
+    django_assert_num_queries,
+    be_dms_settings,
+    service,
+    snapshot,
+    be_master_data_settings,
+):
     paths = [
         "config/user.json",
         "config/instance.json",
@@ -75,29 +89,10 @@ def caluma_form_fixture(db):
         "data/instance.json",
     ]
 
-    call_command("loaddata", *[kt_bern_path / path for path in paths])
+    call_command(
+        "loaddata", *[Path(settings.ROOT_DIR) / "kt_bern" / path for path in paths]
+    )
 
-
-@pytest.fixture
-def ch_locale():
-    locale.setlocale(locale.LC_ALL, "de_CH.utf8")
-    yield locale.getlocale()
-    locale.setlocale(locale.LC_ALL, "")
-
-
-@pytest.mark.order(1)  # Slow tests should run first
-@pytest.mark.freeze_time("2023-01-06 16:10")
-def test_document_merge_service_snapshot(
-    db,
-    application_settings,
-    caluma_form_fixture,
-    django_assert_num_queries,
-    be_dms_settings,
-    service,
-    snapshot,
-    clear_cache,
-    be_master_data_settings,
-):
     for kwargs, expected_queries in [
         ({"instance_id": 1}, 37),
         ({"instance_id": 3, "form_slug": "sb1"}, 39),
