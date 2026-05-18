@@ -89,7 +89,6 @@ def ch_locale():
 @pytest.mark.freeze_time("2023-01-06 16:10")
 def test_document_merge_service_snapshot(
     db,
-    transactional_db,
     application_settings,
     caluma_form_fixture,
     django_assert_num_queries,

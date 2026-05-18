@@ -8,7 +8,7 @@ from django.db.migrations.executor import MigrationExecutor
 @pytest.mark.skip(
     reason="The migration already happened in all production environments"
 )
-def test_migrate_add_missing_dynamic_options(transactional_db):  # pragma: no cover
+def test_migrate_add_missing_dynamic_options(db):  # pragma: no cover
     executor = MigrationExecutor(connection)
     migrate_from = [
         ("core", "0048_auto_20200123_1053"),
