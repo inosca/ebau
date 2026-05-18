@@ -477,7 +477,7 @@ PERMISSIONS_BY_ACCESSLEVEL = {
             # editable at a certain time (e.g. Nachforderungen only if additional-demands
             # are writeable)
             AdminPermission: (_has_documents_write_permission, [1, 5, 6, 7]),
-            ReadPermission: (_allow_always, [3, 14]),
+            ReadPermission: (_allow_always, [1, 3, 5, 6, 7, 14]),
         },
         "lead-authority": {
             AdminBeforeDecisionPermission: (
@@ -489,7 +489,7 @@ PERMISSIONS_BY_ACCESSLEVEL = {
                 [2],
             ),
             AdminInternalPermission: (_has_documents_write_permission, [4]),
-            ReadPermission: (_allow_always, [1, 5, 6, 7, 8, 10, 11]),
+            ReadPermission: (_allow_always, [1, 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 14]),
             ReadInternalPermission: (_allow_always, [4]),
         },
         "involved-authority": {
@@ -498,7 +498,7 @@ PERMISSIONS_BY_ACCESSLEVEL = {
             AdminInternalPermission: (_has_documents_write_permission, [4]),
         },
         "distribution-service": {
-            ReadPermission: (_allow_always, [1, 2, 3, 5, 6, 7, 8, 10, 11, 13, 12, 14]),
+            ReadPermission: (_allow_always, [1, 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 14]),
             ReadInternalPermission: (_allow_always, [4]),
             AdminServiceRunningInquiryPermission: (
                 _has_documents_write_permission,
@@ -513,6 +513,7 @@ PERMISSIONS_BY_ACCESSLEVEL = {
             AdminPermission: (_has_documents_write_permission, [10, 11]),
             AdminInternalPermission: (_has_documents_write_permission, [4]),
         },
+        # TODO: Should involved construction control behave like involved lead authority?
         "involved-construction-control": {
             ReadPermission: (_allow_always, [1, 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 14]),
             ReadInternalPermission: (_allow_always, [4]),
