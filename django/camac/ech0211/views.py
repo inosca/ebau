@@ -13,7 +13,7 @@ from django.http import FileResponse, HttpResponse
 from django.utils.decorators import decorator_from_middleware
 from drf_yasg import openapi
 from drf_yasg.inspectors import SwaggerAutoSchema
-from drf_yasg.utils import swagger_auto_schema
+from drf_yasg.utils import no_body, swagger_auto_schema
 from generic_permissions.visibilities import VisibilityViewMixin
 from pyxb import IncompleteElementContentError, UnprocessedElementContentError
 from rest_framework import status
@@ -815,6 +815,7 @@ class ECHDocumentView(
         manual_parameters=[group_param],
         operation_summary="Mark a document as void",
         operation_description=get_operation_description(is_preview=True),
+        request_body=no_body,
         responses={
             status.HTTP_204_NO_CONTENT: openapi.Response("File was updated"),
             status.HTTP_400_BAD_REQUEST: openapi.Response("Invalid request"),
@@ -871,6 +872,7 @@ class ECHDocumentView(
         manual_parameters=[group_param],
         operation_summary="Mark a document as decision",
         operation_description=get_operation_description(is_preview=True),
+        request_body=no_body,
         responses={
             status.HTTP_204_NO_CONTENT: openapi.Response("File was updated"),
             status.HTTP_400_BAD_REQUEST: openapi.Response("Invalid request"),
@@ -933,6 +935,7 @@ class ECHDocumentView(
         manual_parameters=[group_param],
         operation_summary="Mark a document as publication",
         operation_description=get_operation_description(is_preview=True),
+        request_body=no_body,
         responses={
             status.HTTP_204_NO_CONTENT: openapi.Response("File was updated"),
             status.HTTP_400_BAD_REQUEST: openapi.Response("Invalid request"),
@@ -997,6 +1000,7 @@ class ECHDocumentView(
         manual_parameters=[group_param],
         operation_summary="Mark a document as sensitive",
         operation_description=get_operation_description(is_preview=True),
+        request_body=no_body,
         responses={
             status.HTTP_204_NO_CONTENT: openapi.Response("File was updated"),
             status.HTTP_400_BAD_REQUEST: openapi.Response("Invalid request"),
