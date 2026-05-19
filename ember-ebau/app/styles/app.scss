@@ -47,7 +47,16 @@ $master-data-heigth: calc($main-nav-height + $master-data-divider-height + $mast
 
   & ~ .master-data-divider {
     margin-left: $sidebar-width;
+    padding-right: $global-margin;
     height: $master-data-divider-height;
+  }
+
+  &:not(.compact) ~ .master-data-divider {
+    margin-top: -$master-data-divider-height;
+  }
+
+  &:not(.compact) {
+    padding-bottom: $master-data-divider-height;
   }
 
   &.compact {
