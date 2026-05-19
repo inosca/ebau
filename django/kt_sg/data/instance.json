@@ -12,11 +12,11 @@
       "previous_instance_state": 1,
       "identifier": null,
       "location": null,
-      "instance_marks": [],
       "case": "069958a6-7311-7350-8000-54dd976cbfb4",
       "instance_group": null,
       "rejection_feedback": null,
-      "copy_source": null
+      "copy_source": null,
+      "instance_marks": []
     }
   },
   {
@@ -32,11 +32,11 @@
       "previous_instance_state": 1,
       "identifier": null,
       "location": null,
-      "instance_marks": [],
       "case": "069958b2-a4d0-731f-8000-db7b1e5ded9e",
       "instance_group": null,
       "rejection_feedback": null,
-      "copy_source": null
+      "copy_source": null,
+      "instance_marks": []
     }
   },
   {

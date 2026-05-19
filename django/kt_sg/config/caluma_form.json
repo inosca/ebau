@@ -42,6 +42,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "bauvorhaben",
+    "fields": {
+      "created_at": "2026-05-19T15:07:41.789Z",
+      "modified_at": "2026-05-19T15:07:41.789Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Bauvorhaben\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Baugesuch > Bauvorhaben\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "bestaetigung",
     "fields": {
       "created_at": "2026-03-24T16:27:23.805Z",
@@ -114,6 +132,42 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "energie",
+    "fields": {
+      "created_at": "2026-05-19T15:07:56.425Z",
+      "modified_at": "2026-05-19T15:07:56.425Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Energie\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Baugesuch > Bauvorhaben > Energie\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "entsorgung",
+    "fields": {
+      "created_at": "2026-05-20T06:57:23.795Z",
+      "modified_at": "2026-05-20T06:57:23.795Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Entsorgung\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Baugesuch > Bauvorhaben > Entsorgung\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "gebaeude-tabelle",
     "fields": {
       "created_at": "2026-04-17T11:26:57.413Z",
@@ -142,6 +196,42 @@
       "modified_by_group": null,
       "name": "{\"de\": \"Lage des Vorhabens\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"Baugesuch > Allgemeine Informationen > Lage des Vorhabens\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "parkierung",
+    "fields": {
+      "created_at": "2026-05-20T07:16:09.593Z",
+      "modified_at": "2026-05-20T07:16:09.593Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Parkierung\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"Baugesuch > Bauvorhaben > Parkierung\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
+    "pk": "parkplaetze-tabelle",
+    "fields": {
+      "created_at": "2026-05-20T07:19:49.673Z",
+      "modified_at": "2026-05-20T07:19:49.673Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Parkplätze Tabelle\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {},
       "is_published": false,
       "is_archived": false,
@@ -267,7 +357,7 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "allgemeine-informationen.vorhaben",
+    "pk": "allgemeine-informationen.vorhaben-formular",
     "fields": {
       "created_at": "2026-02-10T16:35:38.252Z",
       "modified_at": "2026-02-10T16:35:38.252Z",
@@ -276,7 +366,7 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "allgemeine-informationen",
-      "question": "vorhaben",
+      "question": "vorhaben-formular",
       "sort": 1
     }
   },
@@ -292,6 +382,21 @@
       "modified_by_group": null,
       "form": "baugesuch",
       "question": "allgemeine-informationen",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "baugesuch.bauvorhaben-formular",
+    "fields": {
+      "created_at": "2026-05-19T15:08:28.586Z",
+      "modified_at": "2026-05-19T15:08:28.586Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "baugesuch",
+      "question": "bauvorhaben-formular",
       "sort": 3
     }
   },
@@ -322,6 +427,51 @@
       "modified_by_group": null,
       "form": "baugesuch",
       "question": "einreichen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben.energie-formular",
+    "fields": {
+      "created_at": "2026-05-19T15:08:56.907Z",
+      "modified_at": "2026-05-19T15:08:56.907Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben",
+      "question": "energie-formular",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben.entsorgung-formular",
+    "fields": {
+      "created_at": "2026-05-20T06:57:55.618Z",
+      "modified_at": "2026-05-20T06:57:55.618Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben",
+      "question": "entsorgung-formular",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "bauvorhaben.parkierung-formular",
+    "fields": {
+      "created_at": "2026-05-20T07:16:34.194Z",
+      "modified_at": "2026-05-20T07:16:34.194Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "bauvorhaben",
+      "question": "parkierung-formular",
       "sort": 1
     }
   },
@@ -503,6 +653,306 @@
       "form": "einreichen",
       "question": "einreichen-button",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "energie.art-der-lueftung-klima",
+    "fields": {
+      "created_at": "2026-05-19T15:16:44.527Z",
+      "modified_at": "2026-05-19T15:16:44.527Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "energie",
+      "question": "art-der-lueftung-klima",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "energie.art-der-stromerzeugung-oder-windanlage",
+    "fields": {
+      "created_at": "2026-05-19T15:15:31.140Z",
+      "modified_at": "2026-05-19T15:15:31.140Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "energie",
+      "question": "art-der-stromerzeugung-oder-windanlage",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "energie.art-des-heizungssystems",
+    "fields": {
+      "created_at": "2026-05-19T15:13:30.618Z",
+      "modified_at": "2026-05-19T15:13:30.618Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "energie",
+      "question": "art-des-heizungssystems",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "energie.energie-titel",
+    "fields": {
+      "created_at": "2026-05-19T15:10:09.632Z",
+      "modified_at": "2026-05-19T15:10:09.632Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "energie",
+      "question": "energie-titel",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "energie.heizungssystem-erneuert-oder-veraendert",
+    "fields": {
+      "created_at": "2026-05-19T15:12:05.210Z",
+      "modified_at": "2026-05-19T15:12:05.210Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "energie",
+      "question": "heizungssystem-erneuert-oder-veraendert",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "energie.lueftung-klima-installiert-oder-veraendert",
+    "fields": {
+      "created_at": "2026-05-19T15:16:07.308Z",
+      "modified_at": "2026-05-19T15:16:07.308Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "energie",
+      "question": "lueftung-klima-installiert-oder-veraendert",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "energie.stromerzeugung-oder-windanlage-installiert-oder-veraendert",
+    "fields": {
+      "created_at": "2026-05-19T15:14:42.538Z",
+      "modified_at": "2026-05-19T15:14:42.538Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "energie",
+      "question": "stromerzeugung-oder-windanlage-installiert-oder-veraendert",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "energie.wasserkraftanlage-erneruert-oder-veraendert",
+    "fields": {
+      "created_at": "2026-05-19T15:17:10.173Z",
+      "modified_at": "2026-05-19T15:17:10.173Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "energie",
+      "question": "wasserkraftanlage-erneruert-oder-veraendert",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entsorgung.abfall-titel",
+    "fields": {
+      "created_at": "2026-05-20T06:58:34.940Z",
+      "modified_at": "2026-05-20T06:58:34.940Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entsorgung",
+      "question": "abfall-titel",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entsorgung.abwasser-titel",
+    "fields": {
+      "created_at": "2026-05-20T07:01:06.917Z",
+      "modified_at": "2026-05-20T07:01:06.917Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entsorgung",
+      "question": "abwasser-titel",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entsorgung.anschluss-an-oeffentliche-schmutzwasserkanalisation-geplant",
+    "fields": {
+      "created_at": "2026-05-20T07:05:38.642Z",
+      "modified_at": "2026-05-20T07:05:38.642Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entsorgung",
+      "question": "anschluss-an-oeffentliche-schmutzwasserkanalisation-geplant",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entsorgung.anschluss-an-oeffentliche-schmutzwasserkanalisation-vorhanden",
+    "fields": {
+      "created_at": "2026-05-20T07:01:46.880Z",
+      "modified_at": "2026-05-20T07:01:46.880Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entsorgung",
+      "question": "anschluss-an-oeffentliche-schmutzwasserkanalisation-vorhanden",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entsorgung.entsorgung-titel",
+    "fields": {
+      "created_at": "2026-05-20T06:58:23.166Z",
+      "modified_at": "2026-05-20T06:58:23.166Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entsorgung",
+      "question": "entsorgung-titel",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entsorgung.ist-der-standort-im-pruefgebiet-bodenverschiebungen",
+    "fields": {
+      "created_at": "2026-05-20T07:00:06.821Z",
+      "modified_at": "2026-05-20T07:00:06.821Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entsorgung",
+      "question": "ist-der-standort-im-pruefgebiet-bodenverschiebungen",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entsorgung.regenwasser",
+    "fields": {
+      "created_at": "2026-05-20T07:06:59.613Z",
+      "modified_at": "2026-05-20T07:06:59.613Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entsorgung",
+      "question": "regenwasser",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entsorgung.umgang-mit-regenabwasser",
+    "fields": {
+      "created_at": "2026-05-20T07:08:02.921Z",
+      "modified_at": "2026-05-20T07:08:02.921Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entsorgung",
+      "question": "umgang-mit-regenabwasser",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entsorgung.umgang-mit-schmutzabwasser",
+    "fields": {
+      "created_at": "2026-05-20T07:06:37.333Z",
+      "modified_at": "2026-05-20T07:06:37.333Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entsorgung",
+      "question": "umgang-mit-schmutzabwasser",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entsorgung.werden-mehr-als-200-m3-bauabfaelle-oder-aushub-anfallen",
+    "fields": {
+      "created_at": "2026-05-20T06:59:09.618Z",
+      "modified_at": "2026-05-20T06:59:09.618Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entsorgung",
+      "question": "werden-mehr-als-200-m3-bauabfaelle-oder-aushub-anfallen",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entsorgung.wird-boden-ausserhalb-des-standortes-entsorgtverwertet",
+    "fields": {
+      "created_at": "2026-05-20T07:00:37.934Z",
+      "modified_at": "2026-05-20T07:00:37.934Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entsorgung",
+      "question": "wird-boden-ausserhalb-des-standortes-entsorgtverwertet",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "entsorgung.wurde-das-bau-bzw-abbruchobjekt-vor-1990-erstellt",
+    "fields": {
+      "created_at": "2026-05-20T06:59:50.472Z",
+      "modified_at": "2026-05-20T06:59:50.472Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "entsorgung",
+      "question": "wurde-das-bau-bzw-abbruchobjekt-vor-1990-erstellt",
+      "sort": 9
     }
   },
   {
@@ -792,6 +1242,201 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "parkierung.ausgeloester-mehrverkehr-lkw",
+    "fields": {
+      "created_at": "2026-05-20T07:27:13.024Z",
+      "modified_at": "2026-05-20T07:27:13.024Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "parkierung",
+      "question": "ausgeloester-mehrverkehr-lkw",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "parkierung.ausgeloester-mehrverkehr-pkw",
+    "fields": {
+      "created_at": "2026-05-20T07:26:52.397Z",
+      "modified_at": "2026-05-20T07:26:52.397Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "parkierung",
+      "question": "ausgeloester-mehrverkehr-pkw",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "parkierung.belueftung-der-sammel-tiefgarage",
+    "fields": {
+      "created_at": "2026-05-20T07:29:11.363Z",
+      "modified_at": "2026-05-20T07:29:11.363Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "parkierung",
+      "question": "belueftung-der-sammel-tiefgarage",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "parkierung.ist-die-tiefgarage-groesser-als-2000-m2",
+    "fields": {
+      "created_at": "2026-05-20T07:27:58.535Z",
+      "modified_at": "2026-05-20T07:27:58.535Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "parkierung",
+      "question": "ist-die-tiefgarage-groesser-als-2000-m2",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "parkierung.mehrverkehr-titel",
+    "fields": {
+      "created_at": "2026-05-20T07:25:43.917Z",
+      "modified_at": "2026-05-20T07:25:43.917Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "parkierung",
+      "question": "mehrverkehr-titel",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "parkierung.parkierung-titel",
+    "fields": {
+      "created_at": "2026-05-20T07:16:52.727Z",
+      "modified_at": "2026-05-20T07:16:52.727Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "parkierung",
+      "question": "parkierung-titel",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "parkierung.parkplaetze",
+    "fields": {
+      "created_at": "2026-05-20T07:20:06.298Z",
+      "modified_at": "2026-05-20T07:20:06.298Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "parkierung",
+      "question": "parkplaetze",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "parkierung.tiefgarage-titel",
+    "fields": {
+      "created_at": "2026-05-20T07:27:33.467Z",
+      "modified_at": "2026-05-20T07:27:33.467Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "parkierung",
+      "question": "tiefgarage-titel",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "parkierung.zusaetzliche-parkplaetze-oder-mehrverkehr",
+    "fields": {
+      "created_at": "2026-05-20T07:19:12.720Z",
+      "modified_at": "2026-05-20T07:19:12.720Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "parkierung",
+      "question": "zusaetzliche-parkplaetze-oder-mehrverkehr",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "parkplaetze-tabelle.parkplatz-anzahl-bestehend",
+    "fields": {
+      "created_at": "2026-05-20T07:23:22.126Z",
+      "modified_at": "2026-05-20T07:23:22.126Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "parkplaetze-tabelle",
+      "question": "parkplatz-anzahl-bestehend",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "parkplaetze-tabelle.parkplatz-anzahl-neu",
+    "fields": {
+      "created_at": "2026-05-20T07:23:02.498Z",
+      "modified_at": "2026-05-20T07:23:02.498Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "parkplaetze-tabelle",
+      "question": "parkplatz-anzahl-neu",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "parkplaetze-tabelle.parkplatz-anzahl-total",
+    "fields": {
+      "created_at": "2026-05-20T07:24:10.314Z",
+      "modified_at": "2026-05-20T07:24:10.314Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "parkplaetze-tabelle",
+      "question": "parkplatz-anzahl-total",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "parkplaetze-tabelle.parkplatz-art",
+    "fields": {
+      "created_at": "2026-05-20T07:22:06.477Z",
+      "modified_at": "2026-05-20T07:22:06.477Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "parkplaetze-tabelle",
+      "question": "parkplatz-art",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "parzellen-tabelle.baurecht-nummer",
     "fields": {
       "created_at": "2026-03-12T13:19:14.269Z",
@@ -1012,7 +1657,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "e-mail",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -1027,7 +1672,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "benutzer",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -1057,7 +1702,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "juristische-person",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -1072,7 +1717,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "juristische-person-kontaktperson-titel",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -1087,7 +1732,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "juristische-person-name",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -1102,7 +1747,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "land",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -1117,7 +1762,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "name",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -1132,7 +1777,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "ort",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -1147,7 +1792,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "plz",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -1162,7 +1807,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "postfach",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -1177,7 +1822,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "profil-uebernehmen",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -1192,7 +1837,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "strasse-und-nr",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -1207,6 +1852,21 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "telefon",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "personalien-tabelle.verantwortlich-fuer",
+    "fields": {
+      "created_at": "2026-05-19T14:46:50.071Z",
+      "modified_at": "2026-05-19T14:46:50.071Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "personalien-tabelle",
+      "question": "verantwortlich-fuer",
       "sort": 2
     }
   },
@@ -1222,7 +1882,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "vorname",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -1237,7 +1897,7 @@
       "modified_by_group": null,
       "form": "personalien-tabelle",
       "question": "zusatzinformation",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -1267,7 +1927,7 @@
       "modified_by_group": null,
       "form": "vorhaben",
       "question": "art-des-vorhabens",
-      "sort": 13
+      "sort": 15
     }
   },
   {
@@ -1282,7 +1942,7 @@
       "modified_by_group": null,
       "form": "vorhaben",
       "question": "art-des-vorhabens-abbruch",
-      "sort": 10
+      "sort": 12
     }
   },
   {
@@ -1297,7 +1957,7 @@
       "modified_by_group": null,
       "form": "vorhaben",
       "question": "art-des-vorhabens-neubau",
-      "sort": 12
+      "sort": 14
     }
   },
   {
@@ -1312,7 +1972,7 @@
       "modified_by_group": null,
       "form": "vorhaben",
       "question": "art-des-vorhabens-umbau",
-      "sort": 11
+      "sort": 13
     }
   },
   {
@@ -1452,6 +2112,36 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "vorhaben.vorhaben",
+    "fields": {
+      "created_at": "2026-05-19T15:01:52.549Z",
+      "modified_at": "2026-05-19T15:01:52.549Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorhaben",
+      "question": "vorhaben",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "vorhaben.vorhaben-andere-beschreibung",
+    "fields": {
+      "created_at": "2026-05-19T15:03:24.861Z",
+      "modified_at": "2026-05-19T15:03:24.861Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "vorhaben",
+      "question": "vorhaben-andere-beschreibung",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "vorhaben.vorhaben-titel",
     "fields": {
       "created_at": "2026-03-12T13:25:24.981Z",
@@ -1462,7 +2152,7 @@
       "modified_by_group": null,
       "form": "vorhaben",
       "question": "vorhaben-titel",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -1510,6 +2200,329 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Kanton / kantonale Fachstelle\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "anschluss-an-oeffentliche-schmutzwasserkanalisation-geplant-ja",
+    "fields": {
+      "created_at": "2026-05-20T07:05:38.419Z",
+      "modified_at": "2026-05-20T07:05:38.419Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "anschluss-an-oeffentliche-schmutzwasserkanalisation-geplant-nein",
+    "fields": {
+      "created_at": "2026-05-20T07:05:38.421Z",
+      "modified_at": "2026-05-20T07:05:38.421Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "anschluss-an-oeffentliche-schmutzwasserkanalisation-vorhanden-ja",
+    "fields": {
+      "created_at": "2026-05-20T07:01:46.656Z",
+      "modified_at": "2026-05-20T07:01:46.656Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "anschluss-an-oeffentliche-schmutzwasserkanalisation-vorhanden-nein",
+    "fields": {
+      "created_at": "2026-05-20T07:01:46.664Z",
+      "modified_at": "2026-05-20T07:01:46.664Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-lueftung-klima-kuehlung-befeuchtung",
+    "fields": {
+      "created_at": "2026-05-19T15:16:44.304Z",
+      "modified_at": "2026-05-19T15:16:44.304Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kühlung / Befeuchtung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-lueftung-klima-lueftung",
+    "fields": {
+      "created_at": "2026-05-19T15:16:44.306Z",
+      "modified_at": "2026-05-19T15:16:44.306Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Lüftung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-stromerzeugung-oder-windanlage-ersatzabgabe-gestuetzt-auf-pv-ersatzsabgabe-rechner",
+    "fields": {
+      "created_at": "2026-05-19T15:15:30.896Z",
+      "modified_at": "2026-05-19T15:15:30.896Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ersatzabgabe gestützt auf PV-Ersatzsabgabe-Rechner\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-stromerzeugung-oder-windanlage-realisierung-mittels-zusammenschlusses-zum-eigenverbrauch-zev",
+    "fields": {
+      "created_at": "2026-05-19T15:15:30.886Z",
+      "modified_at": "2026-05-19T15:15:30.886Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Realisierung mittels Zusammenschlusses zum Eigenverbrauch (ZEV)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-stromerzeugung-oder-windanlage-reduktion-gewichteter-energiebedarf-um-mind-5-kwhm-ebf-geplant-nachweis-in-en-101b",
+    "fields": {
+      "created_at": "2026-05-19T15:15:30.923Z",
+      "modified_at": "2026-05-19T15:15:30.924Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Reduktion gewichteter Energiebedarf um mind. 5 KWh/m² EBF geplant (Nachweis in EN-101b)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-der-stromerzeugung-oder-windanlage-speicheranlage-vorgesehen",
+    "fields": {
+      "created_at": "2026-05-19T15:15:30.883Z",
+      "modified_at": "2026-05-19T15:15:30.883Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Speicheranlage vorgesehen\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-des-heizungssystems-fernwaermeanschluss",
+    "fields": {
+      "created_at": "2026-05-19T15:13:30.352Z",
+      "modified_at": "2026-05-19T15:13:30.352Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fernwärmeanschluss\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-des-heizungssystems-gasfeuerung",
+    "fields": {
+      "created_at": "2026-05-19T15:13:30.131Z",
+      "modified_at": "2026-05-19T15:13:30.131Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gasfeuerung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-des-heizungssystems-holzfeuerung",
+    "fields": {
+      "created_at": "2026-05-19T15:13:30.180Z",
+      "modified_at": "2026-05-19T15:13:30.180Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Holzfeuerung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-des-heizungssystems-oelfeuerung",
+    "fields": {
+      "created_at": "2026-05-19T15:13:30.122Z",
+      "modified_at": "2026-05-19T15:13:30.122Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ölfeuerung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-des-heizungssystems-solaranlagen-thermisch",
+    "fields": {
+      "created_at": "2026-05-19T15:13:30.354Z",
+      "modified_at": "2026-05-19T15:13:30.354Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Solaranlagen (thermisch)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-des-heizungssystems-waermekraftkoppelung-blockheizkraftwerk",
+    "fields": {
+      "created_at": "2026-05-19T15:13:30.177Z",
+      "modified_at": "2026-05-19T15:13:30.177Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wärmekraftkoppelung / Blockheizkraftwerk\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-des-heizungssystems-waermepumpe-erdreich",
+    "fields": {
+      "created_at": "2026-05-19T15:13:30.321Z",
+      "modified_at": "2026-05-19T15:13:30.321Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wärmepumpe Erdreich\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-des-heizungssystems-waermepumpe-luft",
+    "fields": {
+      "created_at": "2026-05-19T15:13:30.124Z",
+      "modified_at": "2026-05-19T15:13:30.124Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wärmepumpe Luft\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "art-des-heizungssystems-waermepumpe-wasser",
+    "fields": {
+      "created_at": "2026-05-19T15:13:30.168Z",
+      "modified_at": "2026-05-19T15:13:30.168Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wärmepumpe Wasser\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -1892,6 +2905,40 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "belueftung-der-sammel-tiefgarage-mechanisch",
+    "fields": {
+      "created_at": "2026-05-20T07:29:11.147Z",
+      "modified_at": "2026-05-20T07:29:11.147Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"mechanische Belüftung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "belueftung-der-sammel-tiefgarage-natuerlich",
+    "fields": {
+      "created_at": "2026-05-20T07:29:11.143Z",
+      "modified_at": "2026-05-20T07:29:11.143Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"natürliche Belüftung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "bestaetigung-komplett-ja",
     "fields": {
       "created_at": "2026-03-24T16:32:00.178Z",
@@ -1926,6 +2973,40 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "heizungssystem-erneuert-oder-veraendert-ja",
+    "fields": {
+      "created_at": "2026-05-19T15:12:04.991Z",
+      "modified_at": "2026-05-19T15:12:04.991Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "heizungssystem-erneuert-oder-veraendert-nein",
+    "fields": {
+      "created_at": "2026-05-19T15:12:05.016Z",
+      "modified_at": "2026-05-19T15:12:05.016Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "is-paper-no",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -1952,6 +3033,74 @@
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "ist-der-standort-im-pruefgebiet-bodenverschiebungen-ja",
+    "fields": {
+      "created_at": "2026-05-20T07:00:06.611Z",
+      "modified_at": "2026-05-20T07:00:06.611Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "ist-der-standort-im-pruefgebiet-bodenverschiebungen-nein",
+    "fields": {
+      "created_at": "2026-05-20T07:00:06.616Z",
+      "modified_at": "2026-05-20T07:00:06.616Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "ist-die-tiefgarage-groesser-als-2000-m2-ja",
+    "fields": {
+      "created_at": "2026-05-20T07:27:58.326Z",
+      "modified_at": "2026-05-20T07:27:58.326Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "ist-die-tiefgarage-groesser-als-2000-m2-nein",
+    "fields": {
+      "created_at": "2026-05-20T07:27:58.325Z",
+      "modified_at": "2026-05-20T07:27:58.325Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -2015,6 +3164,40 @@
     "fields": {
       "created_at": "2026-04-29T15:06:36.957Z",
       "modified_at": "2026-04-29T15:06:36.957Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "lueftung-klima-installiert-oder-veraendert-ja",
+    "fields": {
+      "created_at": "2026-05-19T15:16:07.102Z",
+      "modified_at": "2026-05-19T15:16:07.102Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "lueftung-klima-installiert-oder-veraendert-nein",
+    "fields": {
+      "created_at": "2026-05-19T15:16:07.103Z",
+      "modified_at": "2026-05-19T15:16:07.103Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
@@ -2113,6 +3296,91 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "parkplatz-art-behindertengerecht",
+    "fields": {
+      "created_at": "2026-05-20T07:22:06.189Z",
+      "modified_at": "2026-05-20T07:22:06.189Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Behindertengerechte Parkplätze\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "parkplatz-art-fahrrad",
+    "fields": {
+      "created_at": "2026-05-20T07:22:06.198Z",
+      "modified_at": "2026-05-20T07:22:06.198Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fahrradparkplätze\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "parkplatz-art-im-freien-lkw",
+    "fields": {
+      "created_at": "2026-05-20T07:22:06.217Z",
+      "modified_at": "2026-05-20T07:22:06.217Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Parkplätze im Freien (LKW)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "parkplatz-art-im-freien-pkw",
+    "fields": {
+      "created_at": "2026-05-20T07:22:06.212Z",
+      "modified_at": "2026-05-20T07:22:06.212Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Parkplätze im Freien (PKW)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "parkplatz-art-in-sammel-tiefgaragen-pkw",
+    "fields": {
+      "created_at": "2026-05-20T07:22:06.218Z",
+      "modified_at": "2026-05-20T07:22:06.218Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Parkplätze in Sammel-/Tiefgaragen (PKW)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "projektaenderung-ja",
     "fields": {
       "created_at": "2026-02-10T16:26:56.834Z",
@@ -2134,6 +3402,312 @@
     "fields": {
       "created_at": "2026-02-10T16:26:56.837Z",
       "modified_at": "2026-02-10T16:26:56.837Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "regenwasser-ja",
+    "fields": {
+      "created_at": "2026-05-20T07:06:59.406Z",
+      "modified_at": "2026-05-20T07:06:59.406Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "regenwasser-nein",
+    "fields": {
+      "created_at": "2026-05-20T07:06:59.398Z",
+      "modified_at": "2026-05-20T07:06:59.398Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "stromerzeugung-oder-windanlage-installiert-oder-veraendert-ja",
+    "fields": {
+      "created_at": "2026-05-19T15:14:42.335Z",
+      "modified_at": "2026-05-19T15:14:42.335Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "stromerzeugung-oder-windanlage-installiert-oder-veraendert-nein",
+    "fields": {
+      "created_at": "2026-05-19T15:14:42.337Z",
+      "modified_at": "2026-05-19T15:14:42.337Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "umgang-mit-regenabwasser-einleitung-gewaesser",
+    "fields": {
+      "created_at": "2026-05-20T07:08:02.648Z",
+      "modified_at": "2026-05-20T07:08:02.648Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Einleitung in ein Gewässer\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "umgang-mit-regenabwasser-einleitung-mischabwasserkanalisation",
+    "fields": {
+      "created_at": "2026-05-20T07:08:02.687Z",
+      "modified_at": "2026-05-20T07:08:02.687Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Einleitung in die Mischabwasserkanalisation der Gemeinde\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "umgang-mit-regenabwasser-einleitung-regenabwasserkanalisation",
+    "fields": {
+      "created_at": "2026-05-20T07:08:02.699Z",
+      "modified_at": "2026-05-20T07:08:02.699Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Einleitung in die Regenabwasserkanalisation der Gemeinde\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "umgang-mit-regenabwasser-versickerung",
+    "fields": {
+      "created_at": "2026-05-20T07:08:02.646Z",
+      "modified_at": "2026-05-20T07:08:02.646Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Versickerung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "umgang-mit-schmutzabwasser-abflusslose-grube",
+    "fields": {
+      "created_at": "2026-05-20T07:06:36.974Z",
+      "modified_at": "2026-05-20T07:06:36.975Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abflusslose Grube\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "umgang-mit-schmutzabwasser-einleitung-schmutz-mischabwasserkanalisation",
+    "fields": {
+      "created_at": "2026-05-20T07:06:37.006Z",
+      "modified_at": "2026-05-20T07:14:24.010Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Einleitung in die Schmutz- / Mischabwasserkanalisation der Gemeinde\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "umgang-mit-schmutzabwasser-kleinklaeranlage",
+    "fields": {
+      "created_at": "2026-05-20T07:06:37.003Z",
+      "modified_at": "2026-05-20T07:06:37.003Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Kleinkläranlage\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "vorhaben-andere",
+    "fields": {
+      "created_at": "2026-05-19T15:01:52.318Z",
+      "modified_at": "2026-05-19T15:01:52.318Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"andere\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "vorhaben-nutzungs-zwecksaenderung",
+    "fields": {
+      "created_at": "2026-05-19T15:01:52.287Z",
+      "modified_at": "2026-05-19T15:01:52.287Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nutzungs- / Zwecksänderung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "vorhaben-projektaenderung",
+    "fields": {
+      "created_at": "2026-05-19T15:01:52.274Z",
+      "modified_at": "2026-05-19T15:01:52.274Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Projektänderung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "vorhaben-terrainveraenderung",
+    "fields": {
+      "created_at": "2026-05-19T15:01:52.320Z",
+      "modified_at": "2026-05-19T15:01:52.320Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Terrainveränderung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "vorhaben-werbeanlage",
+    "fields": {
+      "created_at": "2026-05-19T15:01:52.273Z",
+      "modified_at": "2026-05-19T15:01:52.273Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Werbeanlage\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wasserkraftanlage-erneruert-oder-veraendert-ja",
+    "fields": {
+      "created_at": "2026-05-19T15:17:09.973Z",
+      "modified_at": "2026-05-19T15:17:09.973Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wasserkraftanlage-erneruert-oder-veraendert-nein",
+    "fields": {
+      "created_at": "2026-05-19T15:17:09.978Z",
+      "modified_at": "2026-05-19T15:17:09.978Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
@@ -2198,6 +3772,108 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "werden-mehr-als-200-m3-bauabfaelle-oder-aushub-anfallen-ja",
+    "fields": {
+      "created_at": "2026-05-20T06:59:09.377Z",
+      "modified_at": "2026-05-20T06:59:09.377Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "werden-mehr-als-200-m3-bauabfaelle-oder-aushub-anfallen-nein",
+    "fields": {
+      "created_at": "2026-05-20T06:59:09.390Z",
+      "modified_at": "2026-05-20T06:59:09.390Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wird-boden-ausserhalb-des-standortes-entsorgtverwertet-ja",
+    "fields": {
+      "created_at": "2026-05-20T07:00:37.693Z",
+      "modified_at": "2026-05-20T07:00:37.693Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wird-boden-ausserhalb-des-standortes-entsorgtverwertet-nein",
+    "fields": {
+      "created_at": "2026-05-20T07:00:37.691Z",
+      "modified_at": "2026-05-20T07:00:37.691Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wurde-das-bau-bzw-abbruchobjekt-vor-1990-erstellt-ja",
+    "fields": {
+      "created_at": "2026-05-20T06:59:50.267Z",
+      "modified_at": "2026-05-20T06:59:50.267Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wurde-das-bau-bzw-abbruchobjekt-vor-1990-erstellt-nein",
+    "fields": {
+      "created_at": "2026-05-20T06:59:50.268Z",
+      "modified_at": "2026-05-20T06:59:50.268Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "wurden-voranfragen-durchgefuehrt-ja",
     "fields": {
       "created_at": "2026-03-17T12:34:13.627Z",
@@ -2228,6 +3904,102 @@
       "is_archived": false,
       "meta": {},
       "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zusaetzliche-parkplaetze-oder-mehrverkehr-ja",
+    "fields": {
+      "created_at": "2026-05-20T07:19:12.481Z",
+      "modified_at": "2026-05-20T07:19:12.481Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "zusaetzliche-parkplaetze-oder-mehrverkehr-nein",
+    "fields": {
+      "created_at": "2026-05-20T07:19:12.474Z",
+      "modified_at": "2026-05-20T07:19:12.474Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abfall-titel",
+    "fields": {
+      "created_at": "2026-05-20T06:58:34.845Z",
+      "modified_at": "2026-05-20T06:58:34.845Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abfall Titel\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"#### Abfall\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "abwasser-titel",
+    "fields": {
+      "created_at": "2026-05-20T07:01:06.828Z",
+      "modified_at": "2026-05-20T07:01:06.828Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Abwasser Titel\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"#### Abwasser\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
     }
   },
   {
@@ -2279,6 +4051,161 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "anschluss-an-oeffentliche-schmutzwasserkanalisation-geplant",
+    "fields": {
+      "created_at": "2026-05-20T07:05:38.536Z",
+      "modified_at": "2026-05-20T07:05:38.536Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist ein Anschluss an die öffentliche Schmutzwasserkanalisation geplant?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "\"anschluss-an-oeffentliche-schmutzwasserkanalisation-vorhanden\"|answer != \"anschluss-an-oeffentliche-schmutzwasserkanalisation-vorhanden-nein\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "anschluss-an-oeffentliche-schmutzwasserkanalisation-vorhanden",
+    "fields": {
+      "created_at": "2026-05-20T07:01:46.759Z",
+      "modified_at": "2026-05-20T07:01:46.760Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gibt es bereits einen Anschluss an die öffentliche Schmutzwasserkanalisation?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "art-der-lueftung-klima",
+    "fields": {
+      "created_at": "2026-05-19T15:16:44.423Z",
+      "modified_at": "2026-05-19T15:16:44.423Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Art der Lüftung / Klima\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "\"lueftung-klima-installiert-oder-veraendert\"|answer != \"lueftung-klima-installiert-oder-veraendert-ja\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "art-der-stromerzeugung-oder-windanlage",
+    "fields": {
+      "created_at": "2026-05-19T15:15:31.035Z",
+      "modified_at": "2026-05-19T15:15:31.035Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Art der Stromerzeugung- oder Windanlage\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "\"stromerzeugung-oder-windanlage-installiert-oder-veraendert\"|answer != \"stromerzeugung-oder-windanlage-installiert-oder-veraendert-ja\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "art-des-heizungssystems",
+    "fields": {
+      "created_at": "2026-05-19T15:13:30.475Z",
+      "modified_at": "2026-05-19T15:13:30.475Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Art des Heizungssystems\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "\"heizungssystem-erneuert-oder-veraendert\"|answer != \"heizungssystem-erneuert-oder-veraendert-ja\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -2405,6 +4332,74 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "ausgeloester-mehrverkehr-lkw",
+    "fields": {
+      "created_at": "2026-05-20T07:27:12.936Z",
+      "modified_at": "2026-05-20T07:31:08.906Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Durch Vorhaben ausgelöster Mehrverkehr (LKW pro Tag)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "\"zusaetzliche-parkplaetze-oder-mehrverkehr\"|answer != \"zusaetzliche-parkplaetze-oder-mehrverkehr-ja\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": 0
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "ausgeloester-mehrverkehr-pkw",
+    "fields": {
+      "created_at": "2026-05-20T07:26:52.307Z",
+      "modified_at": "2026-05-20T07:31:05.175Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Durch Vorhaben ausgelöster Mehrverkehr (PKW pro Tag)\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "\"zusaetzliche-parkplaetze-oder-mehrverkehr\"|answer != \"zusaetzliche-parkplaetze-oder-mehrverkehr-ja\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": 0
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -2561,6 +4556,68 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "bauvorhaben-formular",
+    "fields": {
+      "created_at": "2026-05-19T15:08:28.491Z",
+      "modified_at": "2026-05-19T15:08:35.739Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bauvorhaben\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "bauvorhaben",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "belueftung-der-sammel-tiefgarage",
+    "fields": {
+      "created_at": "2026-05-20T07:29:11.257Z",
+      "modified_at": "2026-05-20T07:31:19.821Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Belüftung der Sammel-/Tiefgarage\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "\"zusaetzliche-parkplaetze-oder-mehrverkehr\"|answer != \"zusaetzliche-parkplaetze-oder-mehrverkehr-ja\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -3073,6 +5130,130 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "energie-formular",
+    "fields": {
+      "created_at": "2026-05-19T15:08:56.674Z",
+      "modified_at": "2026-05-20T07:15:43.358Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Energie\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "energie",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "energie-titel",
+    "fields": {
+      "created_at": "2026-05-19T15:10:09.523Z",
+      "modified_at": "2026-05-19T15:10:09.523Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Energie Titel\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"###Energieträger Neuanlagen\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "entsorgung-formular",
+    "fields": {
+      "created_at": "2026-05-20T06:57:55.520Z",
+      "modified_at": "2026-05-20T06:57:55.520Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entsorgung\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "entsorgung",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "entsorgung-titel",
+    "fields": {
+      "created_at": "2026-05-20T06:58:23.070Z",
+      "modified_at": "2026-05-20T06:58:23.070Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Entsorgung Titel\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"###Entsorgung\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "fertigstellung",
     "fields": {
       "created_at": "2026-03-12T12:56:38.242Z",
@@ -3454,6 +5635,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "heizungssystem-erneuert-oder-veraendert",
+    "fields": {
+      "created_at": "2026-05-19T15:12:05.106Z",
+      "modified_at": "2026-05-19T15:12:05.106Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wird ein Heizungssystem erneuert oder verändert?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "hinweis-personalien",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -3507,6 +5719,68 @@
         "hideLabel": true,
         "widgetOverride": "cf-field/input/hidden"
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "ist-der-standort-im-pruefgebiet-bodenverschiebungen",
+    "fields": {
+      "created_at": "2026-05-20T07:00:06.712Z",
+      "modified_at": "2026-05-20T07:00:06.712Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist der Standort im Prüfgebiet Bodenverschiebungen?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "ist-die-tiefgarage-groesser-als-2000-m2",
+    "fields": {
+      "created_at": "2026-05-20T07:27:58.428Z",
+      "modified_at": "2026-05-20T07:31:16.116Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist die Tiefgarage grösser als 2000 m²?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "\"zusaetzliche-parkplaetze-oder-mehrverkehr\"|answer != \"zusaetzliche-parkplaetze-oder-mehrverkehr-ja\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -3916,6 +6190,68 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "lueftung-klima-installiert-oder-veraendert",
+    "fields": {
+      "created_at": "2026-05-19T15:16:07.201Z",
+      "modified_at": "2026-05-19T15:16:07.201Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wird eine Lüftung / Klima installiert oder verändert?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "mehrverkehr-titel",
+    "fields": {
+      "created_at": "2026-05-20T07:25:43.814Z",
+      "modified_at": "2026-05-20T07:31:01.512Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Mehrverkehr Titel\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "\"zusaetzliche-parkplaetze-oder-mehrverkehr\"|answer != \"zusaetzliche-parkplaetze-oder-mehrverkehr-ja\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"#### Mehrverkehr\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "name",
     "fields": {
       "created_at": "2023-07-05T09:47:01.796Z",
@@ -4067,6 +6403,236 @@
         "max_length": null,
         "min_length": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "parkierung-formular",
+    "fields": {
+      "created_at": "2026-05-20T07:16:34.087Z",
+      "modified_at": "2026-05-20T07:16:34.087Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Parkierung\", \"fr\": null, \"it\": null}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "parkierung",
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "parkierung-titel",
+    "fields": {
+      "created_at": "2026-05-20T07:16:52.639Z",
+      "modified_at": "2026-05-20T07:16:52.639Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Parkierung Titel\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"### Parkierung\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "parkplaetze",
+    "fields": {
+      "created_at": "2026-05-20T07:20:06.064Z",
+      "modified_at": "2026-05-20T07:30:56.336Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Parkplätze\", \"fr\": null, \"it\": null}",
+      "type": "table",
+      "is_required": "true",
+      "is_hidden": "\"zusaetzliche-parkplaetze-oder-mehrverkehr\"|answer != \"zusaetzliche-parkplaetze-oder-mehrverkehr-ja\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "columnsToDisplay": [
+          "parkplatz-art",
+          "parkplatz-anzahl-neu",
+          "parkplatz-anzahl-bestehend",
+          "parkplatz-anzahl-total"
+        ]
+      },
+      "data_source": null,
+      "row_form": "parkplaetze-tabelle",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "parkplatz-anzahl-bestehend",
+    "fields": {
+      "created_at": "2026-05-20T07:23:22.036Z",
+      "modified_at": "2026-05-20T07:24:20.649Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Bestehend\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": 0
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[\"parkplatz-anzahl-total\"]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "parkplatz-anzahl-neu",
+    "fields": {
+      "created_at": "2026-05-20T07:23:02.407Z",
+      "modified_at": "2026-05-20T07:24:16.885Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Neu\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": 0
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[\"parkplatz-anzahl-total\"]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "parkplatz-anzahl-total",
+    "fields": {
+      "created_at": "2026-05-20T07:24:10.212Z",
+      "modified_at": "2026-05-20T07:24:24.432Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Total\", \"fr\": null, \"it\": null}",
+      "type": "calculated_float",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": "\"parkplatz-anzahl-neu\"|answer(0) + \"parkplatz-anzahl-bestehend\"|answer(0)",
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "parkplatz-art",
+    "fields": {
+      "created_at": "2026-05-20T07:22:06.364Z",
+      "modified_at": "2026-05-20T07:22:06.364Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Art\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -4455,6 +7021,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "regenwasser",
+    "fields": {
+      "created_at": "2026-05-20T07:06:59.505Z",
+      "modified_at": "2026-05-20T07:06:59.505Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fällt beim Bauvorhaben Regenwasser an?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "sondernutzungsplan",
     "fields": {
       "created_at": "2026-03-12T13:07:09.024Z",
@@ -4544,6 +7141,37 @@
         "max_length": null,
         "min_length": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "stromerzeugung-oder-windanlage-installiert-oder-veraendert",
+    "fields": {
+      "created_at": "2026-05-19T15:14:42.434Z",
+      "modified_at": "2026-05-19T15:19:54.484Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wird eine Stromerzeugung- oder Windanlage installiert oder verändert?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "!(\n\t[\n\t\t\"art-des-vorhabens-neubau\",\n\t\t\"art-des-vorhabens-umbau\"\n\t] intersects \"art-des-vorhabens\"|answer([])\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -4656,6 +7284,133 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "tiefgarage-titel",
+    "fields": {
+      "created_at": "2026-05-20T07:27:33.375Z",
+      "modified_at": "2026-05-20T07:31:12.491Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Tiefgarage Titel\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "\"zusaetzliche-parkplaetze-oder-mehrverkehr\"|answer != \"zusaetzliche-parkplaetze-oder-mehrverkehr-ja\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"#### Tiefgarage\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "umgang-mit-regenabwasser",
+    "fields": {
+      "created_at": "2026-05-20T07:08:02.806Z",
+      "modified_at": "2026-05-20T07:13:09.107Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Umgang mit Regenabwasser\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "\"regenwasser\"|answer != \"regenwasser-ja\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "umgang-mit-schmutzabwasser",
+    "fields": {
+      "created_at": "2026-05-20T07:06:37.228Z",
+      "modified_at": "2026-05-20T07:14:24.119Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Umgang mit Schmutzabwasser\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "\"anschluss-an-oeffentliche-schmutzwasserkanalisation-geplant\"|answer != \"anschluss-an-oeffentliche-schmutzwasserkanalisation-geplant-ja\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "verantwortlich-fuer",
+    "fields": {
+      "created_at": "2026-05-19T14:46:49.903Z",
+      "modified_at": "2026-05-19T14:46:49.903Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Verantwortlich für\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "info.parent.question|debug != \"projektverfasserin\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "versicherungs-nr",
     "fields": {
       "created_at": "2026-03-13T08:37:36.940Z",
@@ -4691,6 +7446,73 @@
   {
     "model": "caluma_form.question",
     "pk": "vorhaben",
+    "fields": {
+      "created_at": "2026-05-19T15:01:52.427Z",
+      "modified_at": "2026-05-19T15:01:52.427Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vorhaben\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "vorhaben-andere-beschreibung",
+    "fields": {
+      "created_at": "2026-05-19T15:03:24.767Z",
+      "modified_at": "2026-05-19T15:05:18.948Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vorhaben Andere Beschreibung\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "!(\"vorhaben-andere\" in \"vorhaben\"|answer)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {
+        "hideLabel": true
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "vorhaben-formular",
     "fields": {
       "created_at": "2026-02-10T16:05:49.646Z",
       "modified_at": "2026-03-12T12:11:43.316Z",
@@ -4786,6 +7608,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "wasserkraftanlage-erneruert-oder-veraendert",
+    "fields": {
+      "created_at": "2026-05-19T15:17:10.075Z",
+      "modified_at": "2026-05-19T15:17:10.075Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wird eine Wasserkraftanlage erneruert oder verändert?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "weitere-personen",
     "fields": {
       "created_at": "2026-02-11T08:59:01.512Z",
@@ -4802,6 +7655,99 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "werden-mehr-als-200-m3-bauabfaelle-oder-aushub-anfallen",
+    "fields": {
+      "created_at": "2026-05-20T06:59:09.510Z",
+      "modified_at": "2026-05-20T06:59:09.510Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Werden mehr als 200 m³ Bauabfälle oder Aushub anfallen?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "wird-boden-ausserhalb-des-standortes-entsorgtverwertet",
+    "fields": {
+      "created_at": "2026-05-20T07:00:37.824Z",
+      "modified_at": "2026-05-20T07:00:37.824Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wird Boden ausserhalb des Standortes entsorgt/verwertet?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "\"ist-der-standort-im-pruefgebiet-bodenverschiebungen\"|answer != \"ist-der-standort-im-pruefgebiet-bodenverschiebungen-ja\"",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "wurde-das-bau-bzw-abbruchobjekt-vor-1990-erstellt",
+    "fields": {
+      "created_at": "2026-05-20T06:59:50.361Z",
+      "modified_at": "2026-05-20T06:59:50.361Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wurde das Bau- bzw. Abbruchobjekt vor 1990 erstellt oder sind umwelt- oder gesundheitsfährdende Stoffe (Asbest, PCB, etc.) zu erwarten?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -4869,6 +7815,37 @@
         "max_length": null,
         "min_length": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "zusaetzliche-parkplaetze-oder-mehrverkehr",
+    "fields": {
+      "created_at": "2026-05-20T07:19:12.605Z",
+      "modified_at": "2026-05-20T07:19:12.605Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Löst das Vorhaben zusätzliche Parkplätze oder einen Mehrverkehr aus?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -4957,6 +7934,291 @@
       "question": "amts-fachstelle",
       "option": "amts-fachstelle-kanton-kantonale-fachstelle",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "anschluss-an-oeffentliche-schmutzwasserkanalisation-geplant.anschluss-an-oeffentliche-schmutzwasserkanalisation-geplant-ja",
+    "fields": {
+      "created_at": "2026-05-20T07:05:38.549Z",
+      "modified_at": "2026-05-20T07:05:38.549Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "anschluss-an-oeffentliche-schmutzwasserkanalisation-geplant",
+      "option": "anschluss-an-oeffentliche-schmutzwasserkanalisation-geplant-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "anschluss-an-oeffentliche-schmutzwasserkanalisation-geplant.anschluss-an-oeffentliche-schmutzwasserkanalisation-geplant-nein",
+    "fields": {
+      "created_at": "2026-05-20T07:05:38.543Z",
+      "modified_at": "2026-05-20T07:05:38.543Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "anschluss-an-oeffentliche-schmutzwasserkanalisation-geplant",
+      "option": "anschluss-an-oeffentliche-schmutzwasserkanalisation-geplant-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "anschluss-an-oeffentliche-schmutzwasserkanalisation-vorhanden.anschluss-an-oeffentliche-schmutzwasserkanalisation-vorhanden-ja",
+    "fields": {
+      "created_at": "2026-05-20T07:01:46.777Z",
+      "modified_at": "2026-05-20T07:01:46.777Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "anschluss-an-oeffentliche-schmutzwasserkanalisation-vorhanden",
+      "option": "anschluss-an-oeffentliche-schmutzwasserkanalisation-vorhanden-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "anschluss-an-oeffentliche-schmutzwasserkanalisation-vorhanden.anschluss-an-oeffentliche-schmutzwasserkanalisation-vorhanden-nein",
+    "fields": {
+      "created_at": "2026-05-20T07:01:46.770Z",
+      "modified_at": "2026-05-20T07:01:46.770Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "anschluss-an-oeffentliche-schmutzwasserkanalisation-vorhanden",
+      "option": "anschluss-an-oeffentliche-schmutzwasserkanalisation-vorhanden-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-lueftung-klima.art-der-lueftung-klima-kuehlung-befeuchtung",
+    "fields": {
+      "created_at": "2026-05-19T15:16:44.428Z",
+      "modified_at": "2026-05-19T15:16:44.428Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-der-lueftung-klima",
+      "option": "art-der-lueftung-klima-kuehlung-befeuchtung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-lueftung-klima.art-der-lueftung-klima-lueftung",
+    "fields": {
+      "created_at": "2026-05-19T15:16:44.432Z",
+      "modified_at": "2026-05-19T15:16:44.432Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-der-lueftung-klima",
+      "option": "art-der-lueftung-klima-lueftung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-stromerzeugung-oder-windanlage.art-der-stromerzeugung-oder-windanlage-ersatzabgabe-gestuetzt-auf-pv-ersatzsabgabe-rechner",
+    "fields": {
+      "created_at": "2026-05-19T15:15:31.048Z",
+      "modified_at": "2026-05-19T15:15:31.048Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-der-stromerzeugung-oder-windanlage",
+      "option": "art-der-stromerzeugung-oder-windanlage-ersatzabgabe-gestuetzt-auf-pv-ersatzsabgabe-rechner",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-stromerzeugung-oder-windanlage.art-der-stromerzeugung-oder-windanlage-realisierung-mittels-zusammenschlusses-zum-eigenverbrauch-zev",
+    "fields": {
+      "created_at": "2026-05-19T15:15:31.051Z",
+      "modified_at": "2026-05-19T15:15:31.051Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-der-stromerzeugung-oder-windanlage",
+      "option": "art-der-stromerzeugung-oder-windanlage-realisierung-mittels-zusammenschlusses-zum-eigenverbrauch-zev",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-stromerzeugung-oder-windanlage.art-der-stromerzeugung-oder-windanlage-reduktion-gewichteter-energiebedarf-um-mind-5-kwhm-ebf-geplant-nachweis-in-en-101b",
+    "fields": {
+      "created_at": "2026-05-19T15:15:31.045Z",
+      "modified_at": "2026-05-19T15:15:31.045Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-der-stromerzeugung-oder-windanlage",
+      "option": "art-der-stromerzeugung-oder-windanlage-reduktion-gewichteter-energiebedarf-um-mind-5-kwhm-ebf-geplant-nachweis-in-en-101b",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-der-stromerzeugung-oder-windanlage.art-der-stromerzeugung-oder-windanlage-speicheranlage-vorgesehen",
+    "fields": {
+      "created_at": "2026-05-19T15:15:31.041Z",
+      "modified_at": "2026-05-19T15:15:31.041Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-der-stromerzeugung-oder-windanlage",
+      "option": "art-der-stromerzeugung-oder-windanlage-speicheranlage-vorgesehen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-des-heizungssystems.art-des-heizungssystems-fernwaermeanschluss",
+    "fields": {
+      "created_at": "2026-05-19T15:13:30.481Z",
+      "modified_at": "2026-05-19T15:13:30.481Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-des-heizungssystems",
+      "option": "art-des-heizungssystems-fernwaermeanschluss",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-des-heizungssystems.art-des-heizungssystems-gasfeuerung",
+    "fields": {
+      "created_at": "2026-05-19T15:13:30.514Z",
+      "modified_at": "2026-05-19T15:13:30.514Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-des-heizungssystems",
+      "option": "art-des-heizungssystems-gasfeuerung",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-des-heizungssystems.art-des-heizungssystems-holzfeuerung",
+    "fields": {
+      "created_at": "2026-05-19T15:13:30.507Z",
+      "modified_at": "2026-05-19T15:13:30.507Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-des-heizungssystems",
+      "option": "art-des-heizungssystems-holzfeuerung",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-des-heizungssystems.art-des-heizungssystems-oelfeuerung",
+    "fields": {
+      "created_at": "2026-05-19T15:13:30.510Z",
+      "modified_at": "2026-05-19T15:13:30.510Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-des-heizungssystems",
+      "option": "art-des-heizungssystems-oelfeuerung",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-des-heizungssystems.art-des-heizungssystems-solaranlagen-thermisch",
+    "fields": {
+      "created_at": "2026-05-19T15:13:30.485Z",
+      "modified_at": "2026-05-19T15:13:30.485Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-des-heizungssystems",
+      "option": "art-des-heizungssystems-solaranlagen-thermisch",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-des-heizungssystems.art-des-heizungssystems-waermekraftkoppelung-blockheizkraftwerk",
+    "fields": {
+      "created_at": "2026-05-19T15:13:30.502Z",
+      "modified_at": "2026-05-19T15:13:30.502Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-des-heizungssystems",
+      "option": "art-des-heizungssystems-waermekraftkoppelung-blockheizkraftwerk",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-des-heizungssystems.art-des-heizungssystems-waermepumpe-erdreich",
+    "fields": {
+      "created_at": "2026-05-19T15:13:30.489Z",
+      "modified_at": "2026-05-19T15:13:30.489Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-des-heizungssystems",
+      "option": "art-des-heizungssystems-waermepumpe-erdreich",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-des-heizungssystems.art-des-heizungssystems-waermepumpe-luft",
+    "fields": {
+      "created_at": "2026-05-19T15:13:30.496Z",
+      "modified_at": "2026-05-19T15:13:30.496Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-des-heizungssystems",
+      "option": "art-des-heizungssystems-waermepumpe-luft",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "art-des-heizungssystems.art-des-heizungssystems-waermepumpe-wasser",
+    "fields": {
+      "created_at": "2026-05-19T15:13:30.492Z",
+      "modified_at": "2026-05-19T15:13:30.492Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "art-des-heizungssystems",
+      "option": "art-des-heizungssystems-waermepumpe-wasser",
+      "sort": 4
     }
   },
   {
@@ -5291,6 +8553,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "belueftung-der-sammel-tiefgarage.belueftung-der-sammel-tiefgarage-mechanisch",
+    "fields": {
+      "created_at": "2026-05-20T07:31:19.828Z",
+      "modified_at": "2026-05-20T07:31:19.828Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "belueftung-der-sammel-tiefgarage",
+      "option": "belueftung-der-sammel-tiefgarage-mechanisch",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "belueftung-der-sammel-tiefgarage.belueftung-der-sammel-tiefgarage-natuerlich",
+    "fields": {
+      "created_at": "2026-05-20T07:31:19.832Z",
+      "modified_at": "2026-05-20T07:31:19.832Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "belueftung-der-sammel-tiefgarage",
+      "option": "belueftung-der-sammel-tiefgarage-natuerlich",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "bestaetigung-komplett.bestaetigung-komplett-ja",
     "fields": {
       "created_at": "2026-03-25T12:23:45.229Z",
@@ -5316,6 +8608,36 @@
       "modified_by_group": null,
       "question": "einreichen-button",
       "option": "einreichen-button-eingereicht",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "heizungssystem-erneuert-oder-veraendert.heizungssystem-erneuert-oder-veraendert-ja",
+    "fields": {
+      "created_at": "2026-05-19T15:12:05.122Z",
+      "modified_at": "2026-05-19T15:12:05.122Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "heizungssystem-erneuert-oder-veraendert",
+      "option": "heizungssystem-erneuert-oder-veraendert-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "heizungssystem-erneuert-oder-veraendert.heizungssystem-erneuert-oder-veraendert-nein",
+    "fields": {
+      "created_at": "2026-05-19T15:12:05.114Z",
+      "modified_at": "2026-05-19T15:12:05.114Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "heizungssystem-erneuert-oder-veraendert",
+      "option": "heizungssystem-erneuert-oder-veraendert-nein",
       "sort": 1
     }
   },
@@ -5347,6 +8669,66 @@
       "question": "is-paper",
       "option": "is-paper-yes",
       "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "ist-der-standort-im-pruefgebiet-bodenverschiebungen.ist-der-standort-im-pruefgebiet-bodenverschiebungen-ja",
+    "fields": {
+      "created_at": "2026-05-20T07:00:06.722Z",
+      "modified_at": "2026-05-20T07:00:06.722Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "ist-der-standort-im-pruefgebiet-bodenverschiebungen",
+      "option": "ist-der-standort-im-pruefgebiet-bodenverschiebungen-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "ist-der-standort-im-pruefgebiet-bodenverschiebungen.ist-der-standort-im-pruefgebiet-bodenverschiebungen-nein",
+    "fields": {
+      "created_at": "2026-05-20T07:00:06.718Z",
+      "modified_at": "2026-05-20T07:00:06.718Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "ist-der-standort-im-pruefgebiet-bodenverschiebungen",
+      "option": "ist-der-standort-im-pruefgebiet-bodenverschiebungen-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "ist-die-tiefgarage-groesser-als-2000-m2.ist-die-tiefgarage-groesser-als-2000-m2-ja",
+    "fields": {
+      "created_at": "2026-05-20T07:31:16.127Z",
+      "modified_at": "2026-05-20T07:31:16.127Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "ist-die-tiefgarage-groesser-als-2000-m2",
+      "option": "ist-die-tiefgarage-groesser-als-2000-m2-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "ist-die-tiefgarage-groesser-als-2000-m2.ist-die-tiefgarage-groesser-als-2000-m2-nein",
+    "fields": {
+      "created_at": "2026-05-20T07:31:16.123Z",
+      "modified_at": "2026-05-20T07:31:16.123Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "ist-die-tiefgarage-groesser-als-2000-m2",
+      "option": "ist-die-tiefgarage-groesser-als-2000-m2-nein",
+      "sort": 1
     }
   },
   {
@@ -5406,6 +8788,36 @@
       "modified_by_group": null,
       "question": "kbs",
       "option": "kbs-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "lueftung-klima-installiert-oder-veraendert.lueftung-klima-installiert-oder-veraendert-ja",
+    "fields": {
+      "created_at": "2026-05-19T15:16:07.212Z",
+      "modified_at": "2026-05-19T15:16:07.212Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "lueftung-klima-installiert-oder-veraendert",
+      "option": "lueftung-klima-installiert-oder-veraendert-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "lueftung-klima-installiert-oder-veraendert.lueftung-klima-installiert-oder-veraendert-nein",
+    "fields": {
+      "created_at": "2026-05-19T15:16:07.208Z",
+      "modified_at": "2026-05-19T15:16:07.208Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "lueftung-klima-installiert-oder-veraendert",
+      "option": "lueftung-klima-installiert-oder-veraendert-nein",
       "sort": 1
     }
   },
@@ -5486,6 +8898,81 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "parkplatz-art.parkplatz-art-behindertengerecht",
+    "fields": {
+      "created_at": "2026-05-20T07:22:06.374Z",
+      "modified_at": "2026-05-20T07:22:06.374Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "parkplatz-art",
+      "option": "parkplatz-art-behindertengerecht",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "parkplatz-art.parkplatz-art-fahrrad",
+    "fields": {
+      "created_at": "2026-05-20T07:22:06.370Z",
+      "modified_at": "2026-05-20T07:22:06.370Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "parkplatz-art",
+      "option": "parkplatz-art-fahrrad",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "parkplatz-art.parkplatz-art-im-freien-lkw",
+    "fields": {
+      "created_at": "2026-05-20T07:22:06.377Z",
+      "modified_at": "2026-05-20T07:22:06.377Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "parkplatz-art",
+      "option": "parkplatz-art-im-freien-lkw",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "parkplatz-art.parkplatz-art-im-freien-pkw",
+    "fields": {
+      "created_at": "2026-05-20T07:22:06.384Z",
+      "modified_at": "2026-05-20T07:22:06.384Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "parkplatz-art",
+      "option": "parkplatz-art-im-freien-pkw",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "parkplatz-art.parkplatz-art-in-sammel-tiefgaragen-pkw",
+    "fields": {
+      "created_at": "2026-05-20T07:22:06.380Z",
+      "modified_at": "2026-05-20T07:22:06.380Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "parkplatz-art",
+      "option": "parkplatz-art-in-sammel-tiefgaragen-pkw",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "projektaenderung.projektaenderung-ja",
     "fields": {
       "created_at": "2026-02-10T16:33:17.436Z",
@@ -5511,6 +8998,276 @@
       "modified_by_group": null,
       "question": "projektaenderung",
       "option": "projektaenderung-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "regenwasser.regenwasser-ja",
+    "fields": {
+      "created_at": "2026-05-20T07:06:59.516Z",
+      "modified_at": "2026-05-20T07:06:59.516Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "regenwasser",
+      "option": "regenwasser-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "regenwasser.regenwasser-nein",
+    "fields": {
+      "created_at": "2026-05-20T07:06:59.512Z",
+      "modified_at": "2026-05-20T07:06:59.512Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "regenwasser",
+      "option": "regenwasser-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "stromerzeugung-oder-windanlage-installiert-oder-veraendert.stromerzeugung-oder-windanlage-installiert-oder-veraendert-ja",
+    "fields": {
+      "created_at": "2026-05-19T15:19:54.496Z",
+      "modified_at": "2026-05-19T15:19:54.496Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "stromerzeugung-oder-windanlage-installiert-oder-veraendert",
+      "option": "stromerzeugung-oder-windanlage-installiert-oder-veraendert-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "stromerzeugung-oder-windanlage-installiert-oder-veraendert.stromerzeugung-oder-windanlage-installiert-oder-veraendert-nein",
+    "fields": {
+      "created_at": "2026-05-19T15:19:54.492Z",
+      "modified_at": "2026-05-19T15:19:54.492Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "stromerzeugung-oder-windanlage-installiert-oder-veraendert",
+      "option": "stromerzeugung-oder-windanlage-installiert-oder-veraendert-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "umgang-mit-regenabwasser.umgang-mit-regenabwasser-einleitung-gewaesser",
+    "fields": {
+      "created_at": "2026-05-20T07:13:09.124Z",
+      "modified_at": "2026-05-20T07:13:09.124Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "umgang-mit-regenabwasser",
+      "option": "umgang-mit-regenabwasser-einleitung-gewaesser",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "umgang-mit-regenabwasser.umgang-mit-regenabwasser-einleitung-mischabwasserkanalisation",
+    "fields": {
+      "created_at": "2026-05-20T07:13:09.118Z",
+      "modified_at": "2026-05-20T07:13:09.118Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "umgang-mit-regenabwasser",
+      "option": "umgang-mit-regenabwasser-einleitung-mischabwasserkanalisation",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "umgang-mit-regenabwasser.umgang-mit-regenabwasser-einleitung-regenabwasserkanalisation",
+    "fields": {
+      "created_at": "2026-05-20T07:13:09.130Z",
+      "modified_at": "2026-05-20T07:13:09.130Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "umgang-mit-regenabwasser",
+      "option": "umgang-mit-regenabwasser-einleitung-regenabwasserkanalisation",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "umgang-mit-regenabwasser.umgang-mit-regenabwasser-versickerung",
+    "fields": {
+      "created_at": "2026-05-20T07:13:09.134Z",
+      "modified_at": "2026-05-20T07:13:09.134Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "umgang-mit-regenabwasser",
+      "option": "umgang-mit-regenabwasser-versickerung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "umgang-mit-schmutzabwasser.umgang-mit-schmutzabwasser-abflusslose-grube",
+    "fields": {
+      "created_at": "2026-05-20T07:14:24.128Z",
+      "modified_at": "2026-05-20T07:14:24.128Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "umgang-mit-schmutzabwasser",
+      "option": "umgang-mit-schmutzabwasser-abflusslose-grube",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "umgang-mit-schmutzabwasser.umgang-mit-schmutzabwasser-einleitung-schmutz-mischabwasserkanalisation",
+    "fields": {
+      "created_at": "2026-05-20T07:14:24.134Z",
+      "modified_at": "2026-05-20T07:14:24.134Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "umgang-mit-schmutzabwasser",
+      "option": "umgang-mit-schmutzabwasser-einleitung-schmutz-mischabwasserkanalisation",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "umgang-mit-schmutzabwasser.umgang-mit-schmutzabwasser-kleinklaeranlage",
+    "fields": {
+      "created_at": "2026-05-20T07:14:24.131Z",
+      "modified_at": "2026-05-20T07:14:24.131Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "umgang-mit-schmutzabwasser",
+      "option": "umgang-mit-schmutzabwasser-kleinklaeranlage",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "vorhaben.vorhaben-andere",
+    "fields": {
+      "created_at": "2026-05-19T15:01:52.434Z",
+      "modified_at": "2026-05-19T15:01:52.434Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "vorhaben",
+      "option": "vorhaben-andere",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "vorhaben.vorhaben-nutzungs-zwecksaenderung",
+    "fields": {
+      "created_at": "2026-05-19T15:01:52.451Z",
+      "modified_at": "2026-05-19T15:01:52.451Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "vorhaben",
+      "option": "vorhaben-nutzungs-zwecksaenderung",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "vorhaben.vorhaben-projektaenderung",
+    "fields": {
+      "created_at": "2026-05-19T15:01:52.439Z",
+      "modified_at": "2026-05-19T15:01:52.439Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "vorhaben",
+      "option": "vorhaben-projektaenderung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "vorhaben.vorhaben-terrainveraenderung",
+    "fields": {
+      "created_at": "2026-05-19T15:01:52.446Z",
+      "modified_at": "2026-05-19T15:01:52.446Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "vorhaben",
+      "option": "vorhaben-terrainveraenderung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "vorhaben.vorhaben-werbeanlage",
+    "fields": {
+      "created_at": "2026-05-19T15:01:52.442Z",
+      "modified_at": "2026-05-19T15:01:52.442Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "vorhaben",
+      "option": "vorhaben-werbeanlage",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wasserkraftanlage-erneruert-oder-veraendert.wasserkraftanlage-erneruert-oder-veraendert-ja",
+    "fields": {
+      "created_at": "2026-05-19T15:17:10.083Z",
+      "modified_at": "2026-05-19T15:17:10.083Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "wasserkraftanlage-erneruert-oder-veraendert",
+      "option": "wasserkraftanlage-erneruert-oder-veraendert-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wasserkraftanlage-erneruert-oder-veraendert.wasserkraftanlage-erneruert-oder-veraendert-nein",
+    "fields": {
+      "created_at": "2026-05-19T15:17:10.080Z",
+      "modified_at": "2026-05-19T15:17:10.080Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "wasserkraftanlage-erneruert-oder-veraendert",
+      "option": "wasserkraftanlage-erneruert-oder-veraendert-nein",
       "sort": 1
     }
   },
@@ -5561,6 +9318,96 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "werden-mehr-als-200-m3-bauabfaelle-oder-aushub-anfallen.werden-mehr-als-200-m3-bauabfaelle-oder-aushub-anfallen-ja",
+    "fields": {
+      "created_at": "2026-05-20T06:59:09.529Z",
+      "modified_at": "2026-05-20T06:59:09.529Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werden-mehr-als-200-m3-bauabfaelle-oder-aushub-anfallen",
+      "option": "werden-mehr-als-200-m3-bauabfaelle-oder-aushub-anfallen-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "werden-mehr-als-200-m3-bauabfaelle-oder-aushub-anfallen.werden-mehr-als-200-m3-bauabfaelle-oder-aushub-anfallen-nein",
+    "fields": {
+      "created_at": "2026-05-20T06:59:09.520Z",
+      "modified_at": "2026-05-20T06:59:09.520Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werden-mehr-als-200-m3-bauabfaelle-oder-aushub-anfallen",
+      "option": "werden-mehr-als-200-m3-bauabfaelle-oder-aushub-anfallen-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wird-boden-ausserhalb-des-standortes-entsorgtverwertet.wird-boden-ausserhalb-des-standortes-entsorgtverwertet-ja",
+    "fields": {
+      "created_at": "2026-05-20T07:00:37.833Z",
+      "modified_at": "2026-05-20T07:00:37.833Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "wird-boden-ausserhalb-des-standortes-entsorgtverwertet",
+      "option": "wird-boden-ausserhalb-des-standortes-entsorgtverwertet-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wird-boden-ausserhalb-des-standortes-entsorgtverwertet.wird-boden-ausserhalb-des-standortes-entsorgtverwertet-nein",
+    "fields": {
+      "created_at": "2026-05-20T07:00:37.829Z",
+      "modified_at": "2026-05-20T07:00:37.829Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "wird-boden-ausserhalb-des-standortes-entsorgtverwertet",
+      "option": "wird-boden-ausserhalb-des-standortes-entsorgtverwertet-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wurde-das-bau-bzw-abbruchobjekt-vor-1990-erstellt.wurde-das-bau-bzw-abbruchobjekt-vor-1990-erstellt-ja",
+    "fields": {
+      "created_at": "2026-05-20T06:59:50.372Z",
+      "modified_at": "2026-05-20T06:59:50.372Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "wurde-das-bau-bzw-abbruchobjekt-vor-1990-erstellt",
+      "option": "wurde-das-bau-bzw-abbruchobjekt-vor-1990-erstellt-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wurde-das-bau-bzw-abbruchobjekt-vor-1990-erstellt.wurde-das-bau-bzw-abbruchobjekt-vor-1990-erstellt-nein",
+    "fields": {
+      "created_at": "2026-05-20T06:59:50.367Z",
+      "modified_at": "2026-05-20T06:59:50.367Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "wurde-das-bau-bzw-abbruchobjekt-vor-1990-erstellt",
+      "option": "wurde-das-bau-bzw-abbruchobjekt-vor-1990-erstellt-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "wurden-voranfragen-durchgefuehrt.wurden-voranfragen-durchgefuehrt-ja",
     "fields": {
       "created_at": "2026-03-17T12:34:13.683Z",
@@ -5586,6 +9433,36 @@
       "modified_by_group": null,
       "question": "wurden-voranfragen-durchgefuehrt",
       "option": "wurden-voranfragen-durchgefuehrt-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zusaetzliche-parkplaetze-oder-mehrverkehr.zusaetzliche-parkplaetze-oder-mehrverkehr-ja",
+    "fields": {
+      "created_at": "2026-05-20T07:19:12.622Z",
+      "modified_at": "2026-05-20T07:19:12.622Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zusaetzliche-parkplaetze-oder-mehrverkehr",
+      "option": "zusaetzliche-parkplaetze-oder-mehrverkehr-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "zusaetzliche-parkplaetze-oder-mehrverkehr.zusaetzliche-parkplaetze-oder-mehrverkehr-nein",
+    "fields": {
+      "created_at": "2026-05-20T07:19:12.616Z",
+      "modified_at": "2026-05-20T07:19:12.616Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zusaetzliche-parkplaetze-oder-mehrverkehr",
+      "option": "zusaetzliche-parkplaetze-oder-mehrverkehr-nein",
       "sort": 1
     }
   }
