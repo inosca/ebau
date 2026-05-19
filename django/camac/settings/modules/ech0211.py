@@ -36,6 +36,7 @@ class DocumentAPIFeature(enum.Enum):
     FILES_DOWNLOAD = "file-download"
     FILES_MULTI_DOWNLOAD = "file-multi-download"
     DOCUMENTS_READ = "documents-read"
+    DOCUMENTS_UPDATE = "documents-update"
     DOCUMENTS_VOID_ADD = "documents-void-add"
     DOCUMENTS_VOID_REMOVE = "documents-void-remove"
     DOCUMENTS_DECISION_ADD = "documents-decision-add"
@@ -456,6 +457,7 @@ ECH0211 = {
             DocumentAPIFeature.FILES_DELETE,
             DocumentAPIFeature.FILES_DOWNLOAD,
             DocumentAPIFeature.DOCUMENTS_READ,
+            DocumentAPIFeature.DOCUMENTS_UPDATE,
             DocumentAPIFeature.DOCUMENTS_DELETE,
             DocumentAPIFeature.DOCUMENTS_VOID_ADD,
             DocumentAPIFeature.DOCUMENTS_VOID_REMOVE,

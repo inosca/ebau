@@ -34,7 +34,7 @@ class ModelSerializerInspector(FieldInspector):
     def generate_relationships(self, obj):
         relationships_properties = []
         for field in obj.fields.values():
-            if self.is_relationship_field(field):
+            if self.is_relationship_field(field) and not field.read_only:
                 relationships_properties.append(self.generate_relationship(field))
         if relationships_properties:
             return openapi.Schema(
@@ -73,7 +73,7 @@ class ModelSerializerInspector(FieldInspector):
 
         if attributes and attributes.get("properties"):
             for field in obj.fields.values():
-                if self.is_relationship_field(field):
+                if self.is_relationship_field(field) or field.read_only:
                     attributes["properties"].pop(field.field_name, None)
 
         return result

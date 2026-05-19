@@ -1,3 +1,4 @@
+from datetime import date
 from functools import singledispatch
 from io import StringIO
 
@@ -156,6 +157,7 @@ def test_document_details(
         "data": _t(dict),
         "data.id": _v(str(expected_pk)),
         "data.attributes": _t(dict),
+        "data.attributes.date": _t(str),
         "data.attributes.title": _t(str),
         "data.attributes.description": _t(str | None),
         "data.attributes.created-at": _t(str),
@@ -763,3 +765,127 @@ def test_delete_camac(
 
     if communications_attachment:
         communications_attachment.delete()
+
+
+@pytest.mark.parametrize("role__name", ["municipality-lead"])
+@pytest.mark.parametrize(
+    ("testcase", "expected_status"),
+    [
+        ("success", status.HTTP_200_OK),
+        ("move-permission-denied", status.HTTP_403_FORBIDDEN),
+        ("feature-disabled", status.HTTP_404_NOT_FOUND),
+        ("disallowed-category", status.HTTP_403_FORBIDDEN),
+    ],
+)
+def test_document_update_alexandria(
+    admin_client,
+    alexandria_document_factory,
+    alexandria_category_factory,
+    instance_acl_factory,
+    be_instance,
+    set_document_backend,
+    be_ech0211_settings,
+    be_permissions_settings,
+    be_access_levels,
+    be_alexandria_settings,
+    role,
+    mocker,
+    testcase,
+    expected_status,
+):
+    set_document_backend("alexandria")
+    be_ech0211_settings["DOCUMENT_API_FEATURES"] = (
+        [] if testcase == "feature-disabled" else [DocumentAPIFeature.DOCUMENTS_UPDATE]
+    )
+    has_move_permission = testcase != "move-permission-denied"
+
+    source_category = alexandria_category_factory(
+        slug="intern",
+        metainfo={
+            "access": {
+                "service": {"visibility": "service"},
+                "municipality": {"visibility": "service"},
+            }
+        },
+    )
+    target_category = alexandria_category_factory(
+        slug="target",
+        metainfo={
+            "access": {
+                "service": {"visibility": "service"},
+                "municipality": {"visibility": "service"},
+            }
+        },
+    )
+    be_ech0211_settings["ALLOWED_CATEGORIES"] = (
+        [] if testcase == "disallowed-category" else [target_category.pk]
+    )
+
+    user_service = admin_client.user.get_default_group().service
+    instance_acl_factory(
+        instance=be_instance,
+        service=user_service,
+        access_level_id="lead-authority",
+        grant_type="SERVICE",
+    )
+
+    old_date = date(2002, 7, 5)
+    alexandria_doc = alexandria_document_factory(
+        category=source_category,
+        metainfo={"camac-instance-id": be_instance.pk},
+        title="Old Title",
+        description="Old Description",
+        date=old_date,
+        created_by_group=user_service.pk,
+    )
+    original_user = alexandria_doc.created_by_user
+    move_permission = mocker.patch(
+        "camac.ech0211.serializers.has_alexandria_move_permission",
+        return_value=has_move_permission,
+    )
+
+    new_date = date(2024, 6, 1)
+    url = reverse("ech-document-detail", args=[alexandria_doc.pk])
+    data = {
+        "data": {
+            "type": "ech0211-documents",
+            "id": str(alexandria_doc.pk),
+            "attributes": {
+                "title": "New Title",
+                "description": "New Description",
+                "date": new_date.isoformat(),
+                "created-by-user": "test",  # should be ignored
+            },
+            "relationships": {
+                "category": {
+                    "data": {
+                        "id": target_category.pk,
+                        "type": "ech0211-document-categories",
+                    }
+                }
+            },
+        }
+    }
+    response = admin_client.patch(url, data, content_type="application/vnd.api+json")
+    assert response.status_code == expected_status
+
+    alexandria_doc.refresh_from_db()
+
+    # verify that invalid field was ignored.
+    assert alexandria_doc.created_by_user == original_user
+
+    if testcase == "success":
+        assert alexandria_doc.title == "New Title"
+        assert alexandria_doc.description == "New Description"
+        assert alexandria_doc.date == new_date
+        assert alexandria_doc.category_id == target_category.pk
+    else:
+        assert alexandria_doc.title == "Old Title"
+        assert alexandria_doc.description == "Old Description"
+        assert alexandria_doc.date == old_date
+        assert alexandria_doc.category_id == source_category.pk
+
+    if testcase in ["success", "move-permission-denied"]:
+        move_permission.assert_called_once()
+    else:
+        move_permission.assert_not_called()

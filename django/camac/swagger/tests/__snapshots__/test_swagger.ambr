@@ -77,6 +77,7 @@
     'get:/ech/v1/documents/{id}',
     'get:/ech/v1/files/{id}',
     'get:/ech/v1/message/',
+    'patch:/ech/v1/documents/{id}',
     'post:/ech/v1/documents/{id}/decision',
     'post:/ech/v1/documents/{id}/publication',
     'post:/ech/v1/documents/{id}/sensitive',

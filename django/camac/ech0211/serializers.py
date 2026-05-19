@@ -10,7 +10,10 @@ from rest_framework.exceptions import PermissionDenied
 from rest_framework.serializers import Serializer
 from rest_framework_json_api import relations, serializers
 
-from camac.alexandria.extensions.common import has_alexandria_create_permission
+from camac.alexandria.extensions.common import (
+    has_alexandria_create_permission,
+    has_alexandria_move_permission,
+)
 from camac.core.serializers import MultilingualField
 from camac.document import models as document_models
 from camac.document.serializers import AttachmentSerializer
@@ -21,6 +24,7 @@ from . import models
 
 DOCUMENT_FIELDS = [
     "instance",
+    "date",
     "category",
     "title",
     "mime_type",
@@ -263,7 +267,7 @@ class ECH0211AlexandriaDocumentSerializer(serializers.ModelSerializer):
     title = serializers.CharField()
     description = serializers.CharField()
     download_url = serializers.SerializerMethodField()
-    created_at = serializers.DateTimeField()
+    created_at = serializers.DateTimeField(read_only=True)
     size = serializers.SerializerMethodField()
     mime_type = serializers.SerializerMethodField()
 
@@ -316,7 +320,23 @@ class ECH0211AlexandriaDocumentSerializer(serializers.ModelSerializer):
     def get_instance(self, doc):
         return doc.instance_document.instance
 
+    def validate_category(self, new_category):
+        new_category = super().validate(new_category)
+        if new_category and self.instance.category.pk != new_category.pk:
+            document = self.instance
+            instance = document.instance_document.instance
+
+            if new_category.pk not in settings.ECH0211.get(
+                "ALLOWED_CATEGORIES", []
+            ) or not has_alexandria_move_permission(
+                self.context["request"], instance, document, new_category
+            ):
+                raise PermissionDenied()
+
+        return new_category
+
     class Meta:
         resource_name = "ech0211-documents"
         fields = DOCUMENT_FIELDS + ["marks"]
+        read_only_fields = ["marks"]
         model = models.ECH0211AlexandriaDocument
