@@ -445,31 +445,316 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "materielle-pruefung-stellungnahme-bau-zivilschutz.materielle-pruefung-stellungnahme-bau-zivilschutz-antrag",
+    "pk": "materielle-pruefung-stellungnahme-bau-zivilschutz.materielle-pruefing-bauvorhaben-im-beurteilungsgebiet",
     "fields": {
-      "created_at": "2026-03-18T15:45:35.913Z",
-      "modified_at": "2026-03-18T15:45:35.913Z",
+      "created_at": "2026-05-19T14:17:30.472Z",
+      "modified_at": "2026-05-19T14:17:30.472Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "materielle-pruefung-stellungnahme-bau-zivilschutz",
-      "question": "materielle-pruefung-stellungnahme-bau-zivilschutz-antrag",
+      "question": "materielle-pruefing-bauvorhaben-im-beurteilungsgebiet",
+      "sort": 20
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-stellungnahme-bau-zivilschutz.materielle-pruefung-antrag-auf-eine-beteiligung-an-einen-schutzram",
+    "fields": {
+      "created_at": "2026-05-19T14:21:52.058Z",
+      "modified_at": "2026-05-19T14:21:52.058Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-stellungnahme-bau-zivilschutz",
+      "question": "materielle-pruefung-antrag-auf-eine-beteiligung-an-einen-schutzram",
+      "sort": 16
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-stellungnahme-bau-zivilschutz.materielle-pruefung-antrag-auf-sicherheitsleistung",
+    "fields": {
+      "created_at": "2026-05-19T14:23:21.641Z",
+      "modified_at": "2026-05-19T14:23:21.641Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-stellungnahme-bau-zivilschutz",
+      "question": "materielle-pruefung-antrag-auf-sicherheitsleistung",
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-stellungnahme-bau-zivilschutz.materielle-pruefung-antrag-fuer-die-aufhebung-eines-schutzraumes",
+    "fields": {
+      "created_at": "2026-05-19T14:28:38.982Z",
+      "modified_at": "2026-05-19T14:28:38.982Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-stellungnahme-bau-zivilschutz",
+      "question": "materielle-pruefung-antrag-fuer-die-aufhebung-eines-schutzraumes",
+      "sort": 7
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-stellungnahme-bau-zivilschutz.materielle-pruefung-fuer-ersatzbeitrag-relevante-sps",
+    "fields": {
+      "created_at": "2026-05-19T14:20:51.450Z",
+      "modified_at": "2026-05-19T14:20:51.450Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-stellungnahme-bau-zivilschutz",
+      "question": "materielle-pruefung-fuer-ersatzbeitrag-relevante-sps",
+      "sort": 17
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-stellungnahme-bau-zivilschutz.materielle-pruefung-ist-der-bearbeiter-extern",
+    "fields": {
+      "created_at": "2026-05-19T14:30:52.426Z",
+      "modified_at": "2026-05-19T14:30:52.426Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-stellungnahme-bau-zivilschutz",
+      "question": "materielle-pruefung-ist-der-bearbeiter-extern",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-stellungnahme-bau-zivilschutz.materielle-pruefung-ist-der-bearbeiter-extern-warnung",
+    "fields": {
+      "created_at": "2026-05-19T14:34:09.587Z",
+      "modified_at": "2026-05-19T14:34:09.587Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-stellungnahme-bau-zivilschutz",
+      "question": "materielle-pruefung-ist-der-bearbeiter-extern-warnung",
       "sort": 2
     }
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "materielle-pruefung-stellungnahme-bau-zivilschutz.materielle-pruefung-stellungnahme-bau-zivilschutz-begruendung",
+    "pk": "materielle-pruefung-stellungnahme-bau-zivilschutz.materielle-pruefung-muss-ueber-einen-ersatzbeitrag-verfuegt-werden",
     "fields": {
-      "created_at": "2026-03-18T15:44:58.080Z",
-      "modified_at": "2026-03-18T15:44:58.080Z",
+      "created_at": "2026-05-19T14:20:25.080Z",
+      "modified_at": "2026-05-19T14:20:25.080Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "form": "materielle-pruefung-stellungnahme-bau-zivilschutz",
-      "question": "materielle-pruefung-stellungnahme-bau-zivilschutz-begruendung",
+      "question": "materielle-pruefung-muss-ueber-einen-ersatzbeitrag-verfuegt-werden",
+      "sort": 18
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-stellungnahme-bau-zivilschutz.materielle-pruefung-oeffentliche-sp-fuer-schutzraum",
+    "fields": {
+      "created_at": "2026-05-19T14:25:03.463Z",
+      "modified_at": "2026-05-19T14:25:03.463Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-stellungnahme-bau-zivilschutz",
+      "question": "materielle-pruefung-oeffentliche-sp-fuer-schutzraum",
+      "sort": 9
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-stellungnahme-bau-zivilschutz.materielle-pruefung-pflicht-sp-fuer-schutzraum",
+    "fields": {
+      "created_at": "2026-05-19T14:24:47.853Z",
+      "modified_at": "2026-05-19T14:24:47.853Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-stellungnahme-bau-zivilschutz",
+      "question": "materielle-pruefung-pflicht-sp-fuer-schutzraum",
+      "sort": 10
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-stellungnahme-bau-zivilschutz.materielle-pruefung-schutzraumbaupflicht-bzw-ersatzbeitragspflicht-abgeklaerung",
+    "fields": {
+      "created_at": "2026-05-19T14:19:22.940Z",
+      "modified_at": "2026-05-19T14:19:22.940Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-stellungnahme-bau-zivilschutz",
+      "question": "materielle-pruefung-schutzraumbaupflicht-bzw-ersatzbeitragspflicht-abgeklaerung",
+      "sort": 19
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-stellungnahme-bau-zivilschutz.materielle-pruefung-schutzraum-sr-ktr-nr",
+    "fields": {
+      "created_at": "2026-05-19T14:22:20.767Z",
+      "modified_at": "2026-05-19T14:22:20.767Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-stellungnahme-bau-zivilschutz",
+      "question": "materielle-pruefung-schutzraum-sr-ktr-nr",
+      "sort": 15
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-stellungnahme-bau-zivilschutz.materielle-pruefung-sonstiger-antrag",
+    "fields": {
+      "created_at": "2026-05-19T14:29:19.657Z",
+      "modified_at": "2026-05-19T14:29:19.657Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-stellungnahme-bau-zivilschutz",
+      "question": "materielle-pruefung-sonstiger-antrag",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-stellungnahme-bau-zivilschutz.materielle-pruefung-sp-fuer-die-sicherheitsleistung",
+    "fields": {
+      "created_at": "2026-05-19T14:23:55.439Z",
+      "modified_at": "2026-05-19T14:23:55.439Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-stellungnahme-bau-zivilschutz",
+      "question": "materielle-pruefung-sp-fuer-die-sicherheitsleistung",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-stellungnahme-bau-zivilschutz.materielle-pruefung-sp-im-schutzraum",
+    "fields": {
+      "created_at": "2026-05-19T14:22:36.083Z",
+      "modified_at": "2026-05-19T14:22:36.083Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-stellungnahme-bau-zivilschutz",
+      "question": "materielle-pruefung-sp-im-schutzraum",
+      "sort": 14
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-stellungnahme-bau-zivilschutz.materielle-pruefung-stellungnahme-der-politischen-gemeinde",
+    "fields": {
+      "created_at": "2026-05-19T14:29:53.236Z",
+      "modified_at": "2026-05-19T14:29:53.236Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-stellungnahme-bau-zivilschutz",
+      "question": "materielle-pruefung-stellungnahme-der-politischen-gemeinde",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-stellungnahme-bau-zivilschutz.materielle-pruefung-total-sp-fuer-schutzraum",
+    "fields": {
+      "created_at": "2026-05-19T14:27:44.259Z",
+      "modified_at": "2026-05-19T14:27:44.260Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-stellungnahme-bau-zivilschutz",
+      "question": "materielle-pruefung-total-sp-fuer-schutzraum",
+      "sort": 8
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-stellungnahme-bau-zivilschutz.materielle-pruefung-vorgeschriebene-anzahl-pflichtschutzplaetze",
+    "fields": {
+      "created_at": "2026-05-19T14:16:34.903Z",
+      "modified_at": "2026-05-19T14:16:34.903Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-stellungnahme-bau-zivilschutz",
+      "question": "materielle-pruefung-vorgeschriebene-anzahl-pflichtschutzplaetze",
+      "sort": 21
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-stellungnahme-bau-zivilschutz.materielle-pruefung-wird-ein-anderer-antrag-gestellt",
+    "fields": {
+      "created_at": "2026-05-19T14:29:04.523Z",
+      "modified_at": "2026-05-19T14:29:04.523Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-stellungnahme-bau-zivilschutz",
+      "question": "materielle-pruefung-wird-ein-anderer-antrag-gestellt",
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-stellungnahme-bau-zivilschutz.materielle-pruefung-wird-ein-schutzraum-erstellt",
+    "fields": {
+      "created_at": "2026-05-19T14:24:28.163Z",
+      "modified_at": "2026-05-19T14:24:28.163Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-stellungnahme-bau-zivilschutz",
+      "question": "materielle-pruefung-wird-ein-schutzraum-erstellt",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "materielle-pruefung-stellungnahme-bau-zivilschutz.materielle-pruefung-zustimmung-der-politischen-gemeinde",
+    "fields": {
+      "created_at": "2026-05-19T14:35:13.112Z",
+      "modified_at": "2026-05-19T14:35:13.112Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "materielle-pruefung-stellungnahme-bau-zivilschutz",
+      "question": "materielle-pruefung-zustimmung-der-politischen-gemeinde",
       "sort": 1
     }
   },
@@ -561,6 +846,108 @@
       "form": "materielle-pruefung-zonenkonformitaet",
       "question": "materielle-pruefung-zonenkonformitaet-begruendung",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materielle-pruefung-antrag-auf-eine-beteiligung-an-einen-schutzram-ja",
+    "fields": {
+      "created_at": "2026-05-19T14:21:51.897Z",
+      "modified_at": "2026-05-19T14:21:51.897Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materielle-pruefung-antrag-auf-eine-beteiligung-an-einen-schutzram-nein",
+    "fields": {
+      "created_at": "2026-05-19T14:21:51.894Z",
+      "modified_at": "2026-05-19T14:21:51.894Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materielle-pruefung-antrag-auf-sicherheitsleistung-ja",
+    "fields": {
+      "created_at": "2026-05-19T14:23:21.388Z",
+      "modified_at": "2026-05-19T14:23:21.388Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materielle-pruefung-antrag-auf-sicherheitsleistung-nein",
+    "fields": {
+      "created_at": "2026-05-19T14:23:21.384Z",
+      "modified_at": "2026-05-19T14:23:21.384Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materielle-pruefung-antrag-fuer-die-aufhebung-eines-schutzraumes-ja",
+    "fields": {
+      "created_at": "2026-05-19T14:28:38.813Z",
+      "modified_at": "2026-05-19T14:28:38.813Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materielle-pruefung-antrag-fuer-die-aufhebung-eines-schutzraumes-nein",
+    "fields": {
+      "created_at": "2026-05-19T14:28:38.809Z",
+      "modified_at": "2026-05-19T14:28:38.809Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
     }
   },
   {
@@ -735,6 +1122,74 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "materielle-pruefung-ist-der-bearbeiter-extern-ja",
+    "fields": {
+      "created_at": "2026-05-19T14:30:52.229Z",
+      "modified_at": "2026-05-19T14:30:52.229Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materielle-pruefung-ist-der-bearbeiter-extern-nein",
+    "fields": {
+      "created_at": "2026-05-19T14:30:52.226Z",
+      "modified_at": "2026-05-19T14:30:52.226Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materielle-pruefung-muss-ueber-einen-ersatzbeitrag-verfuegt-werden-ja",
+    "fields": {
+      "created_at": "2026-05-19T14:20:24.949Z",
+      "modified_at": "2026-05-19T14:20:24.949Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materielle-pruefung-muss-ueber-einen-ersatzbeitrag-verfuegt-werden-nein",
+    "fields": {
+      "created_at": "2026-05-19T14:20:24.951Z",
+      "modified_at": "2026-05-19T14:20:24.951Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "materielle-pruefung-regelbauweise-eingehalten-ja",
     "fields": {
       "created_at": "2026-03-18T15:04:19.759Z",
@@ -756,6 +1211,40 @@
     "fields": {
       "created_at": "2026-03-18T15:04:19.763Z",
       "modified_at": "2026-03-18T15:04:19.763Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materielle-pruefung-schutzraumbaupflicht-bzw-ersatzbeitragspflicht-abgeklaerung-ja",
+    "fields": {
+      "created_at": "2026-05-19T14:19:22.774Z",
+      "modified_at": "2026-05-19T14:19:22.775Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materielle-pruefung-schutzraumbaupflicht-bzw-ersatzbeitragspflicht-abgeklaerung-nein",
+    "fields": {
+      "created_at": "2026-05-19T14:19:22.769Z",
+      "modified_at": "2026-05-19T14:19:22.769Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
@@ -802,6 +1291,142 @@
     }
   },
   {
+    "model": "caluma_form.option",
+    "pk": "materielle-pruefung-wird-ein-anderer-antrag-gestellt-ja",
+    "fields": {
+      "created_at": "2026-05-19T14:29:04.342Z",
+      "modified_at": "2026-05-19T14:29:04.342Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materielle-pruefung-wird-ein-anderer-antrag-gestellt-nein",
+    "fields": {
+      "created_at": "2026-05-19T14:29:04.337Z",
+      "modified_at": "2026-05-19T14:29:04.337Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materielle-pruefung-wird-ein-schutzraum-erstellt-ja",
+    "fields": {
+      "created_at": "2026-05-19T14:24:27.986Z",
+      "modified_at": "2026-05-19T14:24:27.986Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materielle-pruefung-wird-ein-schutzraum-erstellt-nein",
+    "fields": {
+      "created_at": "2026-05-19T14:24:27.990Z",
+      "modified_at": "2026-05-19T14:24:27.990Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materielle-pruefung-zustimmung-der-politischen-gemeinde-keine-zustimmung",
+    "fields": {
+      "created_at": "2026-05-19T14:35:12.933Z",
+      "modified_at": "2026-05-19T14:35:12.933Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Keine Zustimmung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "materielle-pruefung-zustimmung-der-politischen-gemeinde-zustimmung",
+    "fields": {
+      "created_at": "2026-05-19T14:35:12.939Z",
+      "modified_at": "2026-05-19T14:35:12.939Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zustimmung\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefing-bauvorhaben-im-beurteilungsgebiet",
+    "fields": {
+      "created_at": "2026-05-19T14:17:30.383Z",
+      "modified_at": "2026-05-19T14:17:42.091Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Das geplante Bauvorhaben befindet sich im Beurteilungsgebiet\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
     "model": "caluma_form.question",
     "pk": "materielle-pruefung-abschliessen",
     "fields": {
@@ -826,6 +1451,99 @@
         "show_validation": true,
         "validate_on_enter": true
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-antrag-auf-eine-beteiligung-an-einen-schutzram",
+    "fields": {
+      "created_at": "2026-05-19T14:21:51.970Z",
+      "modified_at": "2026-05-19T14:21:51.970Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wird ein Antrag auf eine Beteiligung an einen Schutzram gestellt?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-antrag-auf-sicherheitsleistung",
+    "fields": {
+      "created_at": "2026-05-19T14:23:21.502Z",
+      "modified_at": "2026-05-19T14:23:21.502Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wird ein Antrag auf Sicherheitsleistung gestellt?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-antrag-fuer-die-aufhebung-eines-schutzraumes",
+    "fields": {
+      "created_at": "2026-05-19T14:28:38.895Z",
+      "modified_at": "2026-05-19T14:28:38.895Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wird ein Antrag für die Aufhebung eines Schutzraumes gestellt?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -1159,6 +1877,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "materielle-pruefung-fuer-ersatzbeitrag-relevante-sps",
+    "fields": {
+      "created_at": "2026-05-19T14:20:51.368Z",
+      "modified_at": "2026-05-21T09:33:20.998Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Für Ersatzbeitrag relevante SPs\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "!(\"materielle-pruefung-muss-ueber-einen-ersatzbeitrag-verfuegt-werden\"|answer == \"materielle-pruefung-muss-ueber-einen-ersatzbeitrag-verfuegt-werden-ja\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "materielle-pruefung-gewaesserraum",
     "fields": {
       "created_at": "2026-03-18T15:34:37.498Z",
@@ -1258,6 +2010,167 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "materielle-pruefung-ist-der-bearbeiter-extern",
+    "fields": {
+      "created_at": "2026-05-19T14:30:52.328Z",
+      "modified_at": "2026-05-19T14:30:52.328Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist der Bearbeiter extern? (z.B. Ingenieurbüro mit Mandat zur Bauverwaltungsführung)\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-ist-der-bearbeiter-extern-warnung",
+    "fields": {
+      "created_at": "2026-05-19T14:34:09.500Z",
+      "modified_at": "2026-05-21T09:52:25.387Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ist der Bearbeiter extern - Warnung\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\"materielle-pruefung-ist-der-bearbeiter-extern\"|answer == \"materielle-pruefung-ist-der-bearbeiter-extern-ja\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"<div class=\\\"uk-alert border-highlight uk-margin-remove\\\">Die Zustimmung der politischen Gemeinde für die Verwendung von Ersatzbeiträgen für die Erstellung von öffentlichen SP wird seitens AfMZ-BVS über eine Zirkulation eingeholt. Die Zustimmung darf nicht über einen mandatierten Externen erfolgen.</div>\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-muss-ueber-einen-ersatzbeitrag-verfuegt-werden",
+    "fields": {
+      "created_at": "2026-05-19T14:20:25.011Z",
+      "modified_at": "2026-05-19T14:20:25.011Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Muss über einen Ersatzbeitrag verfügt werden?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-oeffentliche-sp-fuer-schutzraum",
+    "fields": {
+      "created_at": "2026-05-19T14:25:03.373Z",
+      "modified_at": "2026-05-21T09:36:07.598Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"öffentliche SP für Schutzraum\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "!(\"materielle-pruefung-wird-ein-schutzraum-erstellt\"|answer == \"materielle-pruefung-wird-ein-schutzraum-erstellt-ja\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-pflicht-sp-fuer-schutzraum",
+    "fields": {
+      "created_at": "2026-05-19T14:24:47.771Z",
+      "modified_at": "2026-05-21T09:36:03.046Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Pflicht-SP für Schutzraum\", \"fr\": null, \"it\": null}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "!(\"materielle-pruefung-wird-ein-schutzraum-erstellt\"|answer == \"materielle-pruefung-wird-ein-schutzraum-erstellt-ja\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_value": null,
+        "min_value": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "materielle-pruefung-regelbauweise-begruendung-bemerkung",
     "fields": {
       "created_at": "2026-04-07T15:25:09.876Z",
@@ -1323,22 +2236,53 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "materielle-pruefung-stellungnahme-bau-zivilschutz-antrag",
+    "pk": "materielle-pruefung-schutzraumbaupflicht-bzw-ersatzbeitragspflicht-abgeklaerung",
     "fields": {
-      "created_at": "2026-03-18T15:45:35.834Z",
-      "modified_at": "2026-03-18T15:45:35.834Z",
+      "created_at": "2026-05-19T14:19:22.865Z",
+      "modified_at": "2026-05-19T14:19:22.865Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "label": "{\"de\": \"Antrag\", \"fr\": null, \"it\": null}",
-      "type": "textarea",
+      "label": "{\"de\": \"Muss die Schutzraumbaupflicht bzw. Ersatzbeitragspflicht abgeklärt werden?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-schutzraum-sr-ktr-nr",
+    "fields": {
+      "created_at": "2026-05-19T14:22:20.675Z",
+      "modified_at": "2026-05-21T09:34:02.505Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Schutzraum SR-Ktr.-Nr.\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "!(\"materielle-pruefung-antrag-auf-eine-beteiligung-an-einen-schutzram\"|answer == \"materielle-pruefung-antrag-auf-eine-beteiligung-an-einen-schutzram-ja\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -1357,27 +2301,126 @@
   },
   {
     "model": "caluma_form.question",
-    "pk": "materielle-pruefung-stellungnahme-bau-zivilschutz-begruendung",
+    "pk": "materielle-pruefung-sonstiger-antrag",
     "fields": {
-      "created_at": "2026-03-18T15:44:57.993Z",
-      "modified_at": "2026-03-18T15:44:57.993Z",
+      "created_at": "2026-05-19T14:29:19.570Z",
+      "modified_at": "2026-05-21T09:50:32.562Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Begründung\", \"fr\": null, \"it\": null}",
-      "type": "textarea",
-      "is_required": "true",
-      "is_hidden": "false",
+      "label": "{\"de\": \"sonstiger Antrag\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\"materielle-pruefung-wird-ein-anderer-antrag-gestellt\"|answer == \"materielle-pruefung-wird-ein-anderer-antrag-gestellt-ja\")",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
         "min_length": null
       },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-sp-fuer-die-sicherheitsleistung",
+    "fields": {
+      "created_at": "2026-05-19T14:23:55.361Z",
+      "modified_at": "2026-05-21T09:35:15.645Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"SP für die Sicherheitsleistung?\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "!(\"materielle-pruefung-antrag-auf-sicherheitsleistung\"|answer == \"materielle-pruefung-antrag-auf-sicherheitsleistung-ja\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-sp-im-schutzraum",
+    "fields": {
+      "created_at": "2026-05-19T14:22:35.993Z",
+      "modified_at": "2026-05-21T09:34:10.764Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"SP im Schutzraum\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "!(\"materielle-pruefung-antrag-auf-eine-beteiligung-an-einen-schutzram\"|answer == \"materielle-pruefung-antrag-auf-eine-beteiligung-an-einen-schutzram-ja\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-stellungnahme-der-politischen-gemeinde",
+    "fields": {
+      "created_at": "2026-05-19T14:29:53.166Z",
+      "modified_at": "2026-05-19T14:29:53.166Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Stellungnahme der politischen Gemeinde\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"## Stellungnahme der politischen Gemeinde\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -1490,6 +2533,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "materielle-pruefung-total-sp-fuer-schutzraum",
+    "fields": {
+      "created_at": "2026-05-19T14:27:44.200Z",
+      "modified_at": "2026-05-21T11:05:59.584Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Total SP für Schutzraum\", \"fr\": null, \"it\": null}",
+      "type": "calculated_float",
+      "is_required": "false",
+      "is_hidden": "!(\"materielle-pruefung-wird-ein-schutzraum-erstellt\"|answer == \"materielle-pruefung-wird-ein-schutzraum-erstellt-ja\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": "(\"materielle-pruefung-pflicht-sp-fuer-schutzraum|answer\" + \"materielle-pruefung-oeffentliche-sp-fuer-schutzraum|answer\")",
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "materielle-pruefung-umweltrelevante-themen-in-kantonaler-zustaendigkeit",
     "fields": {
       "created_at": "2026-03-18T15:06:28.962Z",
@@ -1508,6 +2582,40 @@
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-vorgeschriebene-anzahl-pflichtschutzplaetze",
+    "fields": {
+      "created_at": "2026-05-19T14:16:34.816Z",
+      "modified_at": "2026-05-19T14:16:34.816Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Vorgeschriebene Anzahl Pflichtschutzplätze\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -1620,6 +2728,68 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "materielle-pruefung-wird-ein-anderer-antrag-gestellt",
+    "fields": {
+      "created_at": "2026-05-19T14:29:04.437Z",
+      "modified_at": "2026-05-19T14:29:04.437Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wird ein anderer Antrag gestellt?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-wird-ein-schutzraum-erstellt",
+    "fields": {
+      "created_at": "2026-05-19T14:24:28.078Z",
+      "modified_at": "2026-05-19T14:24:28.078Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wird ein Schutzraum erstellt?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "materielle-pruefung-zonenkonformitaet",
     "fields": {
       "created_at": "2026-03-18T15:41:36.292Z",
@@ -1715,6 +2885,127 @@
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "materielle-pruefung-zustimmung-der-politischen-gemeinde",
+    "fields": {
+      "created_at": "2026-05-19T14:35:13.028Z",
+      "modified_at": "2026-05-21T09:52:33.221Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Zustimmung der politischen Gemeinde für die Verwendung von Ersatzbeiträgen für öffentliche SP\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "!(\"materielle-pruefung-ist-der-bearbeiter-extern\"|answer == \"materielle-pruefung-ist-der-bearbeiter-extern-nein\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materielle-pruefung-antrag-auf-eine-beteiligung-an-einen-schutzram.materielle-pruefung-antrag-auf-eine-beteiligung-an-einen-schutzram-ja",
+    "fields": {
+      "created_at": "2026-05-19T14:21:51.981Z",
+      "modified_at": "2026-05-19T14:21:51.981Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materielle-pruefung-antrag-auf-eine-beteiligung-an-einen-schutzram",
+      "option": "materielle-pruefung-antrag-auf-eine-beteiligung-an-einen-schutzram-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materielle-pruefung-antrag-auf-eine-beteiligung-an-einen-schutzram.materielle-pruefung-antrag-auf-eine-beteiligung-an-einen-schutzram-nein",
+    "fields": {
+      "created_at": "2026-05-19T14:21:51.978Z",
+      "modified_at": "2026-05-19T14:21:51.978Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materielle-pruefung-antrag-auf-eine-beteiligung-an-einen-schutzram",
+      "option": "materielle-pruefung-antrag-auf-eine-beteiligung-an-einen-schutzram-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materielle-pruefung-antrag-auf-sicherheitsleistung.materielle-pruefung-antrag-auf-sicherheitsleistung-ja",
+    "fields": {
+      "created_at": "2026-05-19T14:23:21.530Z",
+      "modified_at": "2026-05-19T14:23:21.530Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materielle-pruefung-antrag-auf-sicherheitsleistung",
+      "option": "materielle-pruefung-antrag-auf-sicherheitsleistung-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materielle-pruefung-antrag-auf-sicherheitsleistung.materielle-pruefung-antrag-auf-sicherheitsleistung-nein",
+    "fields": {
+      "created_at": "2026-05-19T14:23:21.519Z",
+      "modified_at": "2026-05-19T14:23:21.519Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materielle-pruefung-antrag-auf-sicherheitsleistung",
+      "option": "materielle-pruefung-antrag-auf-sicherheitsleistung-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materielle-pruefung-antrag-fuer-die-aufhebung-eines-schutzraumes.materielle-pruefung-antrag-fuer-die-aufhebung-eines-schutzraumes-ja",
+    "fields": {
+      "created_at": "2026-05-19T14:28:38.907Z",
+      "modified_at": "2026-05-19T14:28:38.907Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materielle-pruefung-antrag-fuer-die-aufhebung-eines-schutzraumes",
+      "option": "materielle-pruefung-antrag-fuer-die-aufhebung-eines-schutzraumes-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materielle-pruefung-antrag-fuer-die-aufhebung-eines-schutzraumes.materielle-pruefung-antrag-fuer-die-aufhebung-eines-schutzraumes-nein",
+    "fields": {
+      "created_at": "2026-05-19T14:28:38.903Z",
+      "modified_at": "2026-05-19T14:28:38.903Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materielle-pruefung-antrag-fuer-die-aufhebung-eines-schutzraumes",
+      "option": "materielle-pruefung-antrag-fuer-die-aufhebung-eines-schutzraumes-nein",
+      "sort": 1
     }
   },
   {
@@ -1869,6 +3160,66 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "materielle-pruefung-ist-der-bearbeiter-extern.materielle-pruefung-ist-der-bearbeiter-extern-ja",
+    "fields": {
+      "created_at": "2026-05-19T14:30:52.337Z",
+      "modified_at": "2026-05-19T14:30:52.337Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materielle-pruefung-ist-der-bearbeiter-extern",
+      "option": "materielle-pruefung-ist-der-bearbeiter-extern-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materielle-pruefung-ist-der-bearbeiter-extern.materielle-pruefung-ist-der-bearbeiter-extern-nein",
+    "fields": {
+      "created_at": "2026-05-19T14:30:52.333Z",
+      "modified_at": "2026-05-19T14:30:52.333Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materielle-pruefung-ist-der-bearbeiter-extern",
+      "option": "materielle-pruefung-ist-der-bearbeiter-extern-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materielle-pruefung-muss-ueber-einen-ersatzbeitrag-verfuegt-werden.materielle-pruefung-muss-ueber-einen-ersatzbeitrag-verfuegt-werden-ja",
+    "fields": {
+      "created_at": "2026-05-19T14:20:25.021Z",
+      "modified_at": "2026-05-19T14:20:25.021Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materielle-pruefung-muss-ueber-einen-ersatzbeitrag-verfuegt-werden",
+      "option": "materielle-pruefung-muss-ueber-einen-ersatzbeitrag-verfuegt-werden-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materielle-pruefung-muss-ueber-einen-ersatzbeitrag-verfuegt-werden.materielle-pruefung-muss-ueber-einen-ersatzbeitrag-verfuegt-werden-nein",
+    "fields": {
+      "created_at": "2026-05-19T14:20:25.018Z",
+      "modified_at": "2026-05-19T14:20:25.018Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materielle-pruefung-muss-ueber-einen-ersatzbeitrag-verfuegt-werden",
+      "option": "materielle-pruefung-muss-ueber-einen-ersatzbeitrag-verfuegt-werden-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "materielle-pruefung-regelbauweise-eingehalten.materielle-pruefung-regelbauweise-eingehalten-ja",
     "fields": {
       "created_at": "2026-03-18T15:04:19.876Z",
@@ -1894,6 +3245,36 @@
       "modified_by_group": null,
       "question": "materielle-pruefung-regelbauweise-eingehalten",
       "option": "materielle-pruefung-regelbauweise-eingehalten-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materielle-pruefung-schutzraumbaupflicht-bzw-ersatzbeitragspflicht-abgeklaerung.materielle-pruefung-schutzraumbaupflicht-bzw-ersatzbeitragspflicht-abgeklaerung-ja",
+    "fields": {
+      "created_at": "2026-05-19T14:19:22.876Z",
+      "modified_at": "2026-05-19T14:19:22.876Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materielle-pruefung-schutzraumbaupflicht-bzw-ersatzbeitragspflicht-abgeklaerung",
+      "option": "materielle-pruefung-schutzraumbaupflicht-bzw-ersatzbeitragspflicht-abgeklaerung-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materielle-pruefung-schutzraumbaupflicht-bzw-ersatzbeitragspflicht-abgeklaerung.materielle-pruefung-schutzraumbaupflicht-bzw-ersatzbeitragspflicht-abgeklaerung-nein",
+    "fields": {
+      "created_at": "2026-05-19T14:19:22.870Z",
+      "modified_at": "2026-05-19T14:19:22.870Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materielle-pruefung-schutzraumbaupflicht-bzw-ersatzbeitragspflicht-abgeklaerung",
+      "option": "materielle-pruefung-schutzraumbaupflicht-bzw-ersatzbeitragspflicht-abgeklaerung-nein",
       "sort": 1
     }
   },
@@ -1925,6 +3306,96 @@
       "question": "materielle-pruefung-umweltrelevante-themen-in-kantonaler-zustaendigkeit",
       "option": "materielle-pruefung-umweltrelevante-themen-in-kantonaler-zustaendigkeit-nein",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materielle-pruefung-wird-ein-anderer-antrag-gestellt.materielle-pruefung-wird-ein-anderer-antrag-gestellt-ja",
+    "fields": {
+      "created_at": "2026-05-19T14:29:04.448Z",
+      "modified_at": "2026-05-19T14:29:04.448Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materielle-pruefung-wird-ein-anderer-antrag-gestellt",
+      "option": "materielle-pruefung-wird-ein-anderer-antrag-gestellt-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materielle-pruefung-wird-ein-anderer-antrag-gestellt.materielle-pruefung-wird-ein-anderer-antrag-gestellt-nein",
+    "fields": {
+      "created_at": "2026-05-19T14:29:04.444Z",
+      "modified_at": "2026-05-19T14:29:04.444Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materielle-pruefung-wird-ein-anderer-antrag-gestellt",
+      "option": "materielle-pruefung-wird-ein-anderer-antrag-gestellt-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materielle-pruefung-wird-ein-schutzraum-erstellt.materielle-pruefung-wird-ein-schutzraum-erstellt-ja",
+    "fields": {
+      "created_at": "2026-05-19T14:24:28.090Z",
+      "modified_at": "2026-05-19T14:24:28.090Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materielle-pruefung-wird-ein-schutzraum-erstellt",
+      "option": "materielle-pruefung-wird-ein-schutzraum-erstellt-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materielle-pruefung-wird-ein-schutzraum-erstellt.materielle-pruefung-wird-ein-schutzraum-erstellt-nein",
+    "fields": {
+      "created_at": "2026-05-19T14:24:28.084Z",
+      "modified_at": "2026-05-19T14:24:28.084Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materielle-pruefung-wird-ein-schutzraum-erstellt",
+      "option": "materielle-pruefung-wird-ein-schutzraum-erstellt-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materielle-pruefung-zustimmung-der-politischen-gemeinde.materielle-pruefung-zustimmung-der-politischen-gemeinde-keine-zustimmung",
+    "fields": {
+      "created_at": "2026-05-21T09:52:33.226Z",
+      "modified_at": "2026-05-21T09:52:33.226Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materielle-pruefung-zustimmung-der-politischen-gemeinde",
+      "option": "materielle-pruefung-zustimmung-der-politischen-gemeinde-keine-zustimmung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "materielle-pruefung-zustimmung-der-politischen-gemeinde.materielle-pruefung-zustimmung-der-politischen-gemeinde-zustimmung",
+    "fields": {
+      "created_at": "2026-05-21T09:52:33.229Z",
+      "modified_at": "2026-05-21T09:52:33.229Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "materielle-pruefung-zustimmung-der-politischen-gemeinde",
+      "option": "materielle-pruefung-zustimmung-der-politischen-gemeinde-zustimmung",
+      "sort": 2
     }
   }
 ]
