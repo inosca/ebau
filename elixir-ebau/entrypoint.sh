@@ -14,4 +14,4 @@ echo "==> Running migrations..."
 mix ecto.migrate
 
 echo "==> Starting Phoenix server..."
-exec mix phx.server
+elixir --sname elixir-ebau -S mix phx.server

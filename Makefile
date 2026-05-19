@@ -268,6 +268,10 @@ debug-django: ## start a api container with service ports for debugging
 	@echo "Run './manage.py runserver 0:80' to start the debugging server"
 	@docker compose run --user root --use-aliases --service-ports django bash
 
+.PHONY: debug-elixir
+debug-elixir: ## start a api container with service ports for debugging
+	@docker compose exec elixir iex --remsh elixir-ebau --sname dev
+
 .PHONY: debug-dms
 debug-dms: ## start a dms container with service ports for debugging
 	@docker compose stop document-merge-service
