@@ -230,7 +230,7 @@
       "modified_by_group": null,
       "form": "materielle-pruefung-form",
       "question": "materielle-pruefung-ausnahmebewilligungen-notwendig",
-      "sort": 4
+      "sort": 9
     }
   },
   {
@@ -245,7 +245,7 @@
       "modified_by_group": null,
       "form": "materielle-pruefung-form",
       "question": "materielle-pruefung-baulicher-zivilschutz-betroffen",
-      "sort": 5
+      "sort": 4
     }
   },
   {
@@ -275,7 +275,7 @@
       "modified_by_group": null,
       "form": "materielle-pruefung-form",
       "question": "materielle-pruefung-brandschutz-in-kantonaler-zustaendigkeit",
-      "sort": 6
+      "sort": 5
     }
   },
   {
@@ -305,7 +305,7 @@
       "modified_by_group": null,
       "form": "materielle-pruefung-form",
       "question": "materielle-pruefung-erschliessung-begruendung-bemerkung",
-      "sort": 8
+      "sort": 7
     }
   },
   {
@@ -320,7 +320,7 @@
       "modified_by_group": null,
       "form": "materielle-pruefung-form",
       "question": "materielle-pruefung-erschliessung-vorhanden-und-ausreichend",
-      "sort": 9
+      "sort": 8
     }
   },
   {
@@ -365,7 +365,7 @@
       "modified_by_group": null,
       "form": "materielle-pruefung-form",
       "question": "materielle-pruefung-umweltrelevante-themen-in-kantonaler-zustaendigkeit",
-      "sort": 7
+      "sort": 6
     }
   },
   {
@@ -574,23 +574,6 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Gewässerraum\", \"fr\": null, \"it\": null}",
-      "is_hidden": "false",
-      "is_archived": false,
-      "meta": {},
-      "source": null
-    }
-  },
-  {
-    "model": "caluma_form.option",
-    "pk": "materielle-pruefung-ausnahmebewilligungen-notwendig-keine",
-    "fields": {
-      "created_at": "2026-03-18T15:11:00.052Z",
-      "modified_at": "2026-03-18T15:11:00.052Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "label": "{\"de\": \"keine\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -890,19 +873,19 @@
     "pk": "materielle-pruefung-ausnahmebewilligungen-notwendig",
     "fields": {
       "created_at": "2026-03-18T15:11:00.194Z",
-      "modified_at": "2026-03-18T15:11:00.194Z",
+      "modified_at": "2026-05-19T13:06:35.029Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Ausnahmebewilligungen notwendig?\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Notwendige kantonale Ausnahmebewilligungen\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -1278,12 +1261,12 @@
     "pk": "materielle-pruefung-regelbauweise-begruendung-bemerkung",
     "fields": {
       "created_at": "2026-04-07T15:25:09.876Z",
-      "modified_at": "2026-04-07T15:26:42.515Z",
+      "modified_at": "2026-05-19T12:22:02.320Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "label": "{\"de\": \"Begründung / Bemerkung\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Notwendige kommunale Ausnahmebewilligungen\", \"fr\": null, \"it\": null}",
       "type": "textarea",
       "is_required": "false",
       "is_hidden": "\"materielle-pruefung-regelbauweise-eingehalten\"|answer != \"materielle-pruefung-regelbauweise-eingehalten-nein\"",
@@ -1738,8 +1721,8 @@
     "model": "caluma_form.questionoption",
     "pk": "materielle-pruefung-ausnahmebewilligungen-notwendig.materielle-pruefung-ausnahmebewilligungen-notwendig-gewaesserraum",
     "fields": {
-      "created_at": "2026-03-18T15:11:00.198Z",
-      "modified_at": "2026-03-18T15:11:00.199Z",
+      "created_at": "2026-05-19T13:06:35.039Z",
+      "modified_at": "2026-05-19T13:06:35.039Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
@@ -1751,62 +1734,47 @@
   },
   {
     "model": "caluma_form.questionoption",
-    "pk": "materielle-pruefung-ausnahmebewilligungen-notwendig.materielle-pruefung-ausnahmebewilligungen-notwendig-keine",
-    "fields": {
-      "created_at": "2026-03-18T15:11:00.211Z",
-      "modified_at": "2026-03-18T15:11:00.211Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "question": "materielle-pruefung-ausnahmebewilligungen-notwendig",
-      "option": "materielle-pruefung-ausnahmebewilligungen-notwendig-keine",
-      "sort": 6
-    }
-  },
-  {
-    "model": "caluma_form.questionoption",
     "pk": "materielle-pruefung-ausnahmebewilligungen-notwendig.materielle-pruefung-ausnahmebewilligungen-notwendig-strassenabstand",
     "fields": {
-      "created_at": "2026-03-18T15:11:00.204Z",
-      "modified_at": "2026-03-18T15:11:00.204Z",
+      "created_at": "2026-05-19T13:06:35.042Z",
+      "modified_at": "2026-05-19T13:06:35.042Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "materielle-pruefung-ausnahmebewilligungen-notwendig",
       "option": "materielle-pruefung-ausnahmebewilligungen-notwendig-strassenabstand",
-      "sort": 3
+      "sort": 2
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "materielle-pruefung-ausnahmebewilligungen-notwendig.materielle-pruefung-ausnahmebewilligungen-notwendig-waldabstand",
     "fields": {
-      "created_at": "2026-03-18T15:11:00.208Z",
-      "modified_at": "2026-03-18T15:11:00.208Z",
+      "created_at": "2026-05-19T13:06:35.046Z",
+      "modified_at": "2026-05-19T13:06:35.046Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "materielle-pruefung-ausnahmebewilligungen-notwendig",
       "option": "materielle-pruefung-ausnahmebewilligungen-notwendig-waldabstand",
-      "sort": 5
+      "sort": 4
     }
   },
   {
     "model": "caluma_form.questionoption",
     "pk": "materielle-pruefung-ausnahmebewilligungen-notwendig.materielle-pruefung-ausnahmebewilligungen-notwendig-zonenkonformitaet",
     "fields": {
-      "created_at": "2026-03-18T15:11:00.206Z",
-      "modified_at": "2026-03-18T15:11:00.206Z",
+      "created_at": "2026-05-19T13:06:35.044Z",
+      "modified_at": "2026-05-19T13:06:35.044Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "materielle-pruefung-ausnahmebewilligungen-notwendig",
       "option": "materielle-pruefung-ausnahmebewilligungen-notwendig-zonenkonformitaet",
-      "sort": 4
+      "sort": 3
     }
   },
   {
