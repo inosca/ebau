@@ -106,6 +106,7 @@ WORK_ITEM_LIST = ModuleConfig[WorkItemListConfig](
                 "formal-exam",
                 "publication",
                 "init-distribution",
+                "check-distribution",
                 "check-inquiries",
                 "decision",
                 "construction-acceptance",
