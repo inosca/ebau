@@ -78,7 +78,8 @@ export default class CaseHeaderComponent extends Component {
     const config = new Set(
       mainConfig.instanceHeader?.showStaticKeywordsFor ?? [],
     );
-    if (!config.size) {
+
+    if (!config.size || !this.session.service) {
       return false;
     }
 
