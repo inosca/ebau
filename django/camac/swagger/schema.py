@@ -25,13 +25,16 @@ class ModelSerializerInspector(FieldInspector):
 
         return result
 
+    def is_relationship_field(self, field):
+        return isinstance(field, serializers.ResourceRelatedField) or (
+            isinstance(field, serializers.ManyRelatedField)
+            and isinstance(field.child_relation, serializers.ResourceRelatedField)
+        )
+
     def generate_relationships(self, obj):
         relationships_properties = []
         for field in obj.fields.values():
-            if isinstance(field, serializers.ResourceRelatedField) or (
-                isinstance(field, serializers.ManyRelatedField)
-                and isinstance(field.child_relation, serializers.ResourceRelatedField)
-            ):
+            if self.is_relationship_field(field):
                 relationships_properties.append(self.generate_relationship(field))
         if relationships_properties:
             return openapi.Schema(
@@ -65,6 +68,16 @@ class ModelSerializerInspector(FieldInspector):
         )
         return field.field_name, self.decorate_with_data(field_schema)
 
+    def generate_attributes(self, result, obj):
+        attributes = openapi.resolve_ref(result, self.components)
+
+        if attributes and attributes.get("properties"):
+            for field in obj.fields.values():
+                if self.is_relationship_field(field):
+                    attributes["properties"].pop(field.field_name, None)
+
+        return result
+
     def formatted_model_result(self, result, obj):
         return openapi.Schema(
             type=openapi.TYPE_OBJECT,
@@ -87,7 +100,7 @@ class ModelSerializerInspector(FieldInspector):
                             read_only=True,
                         ),
                     ),
-                    ("attributes", result),
+                    ("attributes", self.generate_attributes(result, obj)),
                     ("relationships", self.generate_relationships(obj)),
                 )
             ),
