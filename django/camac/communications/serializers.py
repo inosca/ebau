@@ -13,6 +13,10 @@ from django.db import transaction
 from django.utils import timezone
 from django.utils.translation import get_language, gettext
 from django_clamd.validators import validate_file_infection
+from generic_permissions.visibilities import (
+    VisibilityResourceRelatedField,
+    VisibilitySerializerMixin,
+)
 from rest_framework.exceptions import PermissionDenied, ValidationError
 from rest_framework_json_api import relations, serializers
 
@@ -169,7 +173,7 @@ def _qs_from_view(view_cls, request):
     return view.get_queryset()
 
 
-class TopicSerializer(serializers.ModelSerializer):
+class TopicSerializer(VisibilitySerializerMixin, serializers.ModelSerializer):
     initiated_by = serializers.ResourceRelatedField(
         required=False, queryset=user_models.User.objects.all()
     )
@@ -178,7 +182,7 @@ class TopicSerializer(serializers.ModelSerializer):
     dossier_number = serializers.CharField(read_only=True)
     last_message_date = serializers.DateTimeField(read_only=True)
     initiated_by_entity = EntityField(required=False)
-    instance_marks = relations.ResourceRelatedField(
+    instance_marks = VisibilityResourceRelatedField(
         source="instance.instance_marks",
         model=InstanceMark,
         read_only=True,

@@ -53,7 +53,7 @@ class StaticKeywordView(KeywordView):
     queryset = models.StaticKeyword.objects.all()
 
 
-class InstanceMarkView(ReadOnlyModelViewSet):
+class InstanceMarkView(VisibilityViewMixin, ReadOnlyModelViewSet):
     serializer_class = serializers.InstanceMarkSerializer
     ordering = ("sort",)
     queryset = models.InstanceMark.objects.all()

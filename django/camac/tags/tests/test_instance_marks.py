@@ -1,6 +1,9 @@
 import pytest
 from django.urls import reverse
+from pytest_lazy_fixtures import lf
 from rest_framework import status
+
+from ..models import InstanceMark
 
 
 def test_instance_mark_list(admin_client, instance_mark_factory):
@@ -63,3 +66,24 @@ def test_instance_mark_link_to_instance(
     if status_code == status.HTTP_200_OK:
         instance.refresh_from_db()
         assert instance.instance_marks.count() == 1
+
+
+@pytest.mark.parametrize(
+    "app,service_group__name,expected",
+    [
+        (lf("set_application_sg"), "test-service", 3),
+        (lf("set_application_ag"), "service-afb", 3),
+        (lf("set_application_ag"), "test-service", 0),
+    ],
+)
+def test_instance_marks_visibility(
+    app,
+    db,
+    instance_mark_factory,
+    service,
+    expected,
+):
+    instance_mark_factory.create_batch(3)
+
+    qs = InstanceMark.objects.for_service(service=service)
+    assert qs.count() == expected

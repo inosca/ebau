@@ -106,6 +106,7 @@ DJANGO_ADMIN = {
             "django_celery_beat.PeriodicTask",
             "django_celery_beat.CrontabSchedule",
             "alert_message.AlertMessage",
+            "tags.InstanceMark",
         ],
         "CUSTOMER_MANAGED_MODELS": [
             "billing.BillingV2EntryTemplate",

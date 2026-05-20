@@ -1,6 +1,6 @@
 from generic_permissions.visibilities import filter_queryset_for
 
-from camac.tags.models import Keyword, StaticKeyword
+from camac.tags.models import InstanceMark, Keyword, StaticKeyword
 from camac.user.permissions import get_role_name
 
 
@@ -25,3 +25,7 @@ class TagsVisibility:
         return self._filter_by_service(
             queryset, request, service.service_parent or service
         )
+
+    @filter_queryset_for(InstanceMark)
+    def filter_instance_marks(self, queryset, request):
+        return queryset.for_service(request.group.service)

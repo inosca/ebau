@@ -176,8 +176,8 @@ class InstanceSerializer(
         many=True,
     )
 
-    instance_marks = relations.ResourceRelatedField(
-        many=True, required=False, queryset=InstanceMark.objects.all()
+    instance_marks = VisibilityResourceRelatedField(
+        many=True, required=False, queryset=InstanceMark.objects
     )
 
     involved_services = relations.SerializerMethodResourceRelatedField(

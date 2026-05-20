@@ -232,6 +232,8 @@ ACTION_INSTANCE_WITHDRAW = RequireInstanceState(
     ]
 ) & HasApplicantRole(["ADMIN"])
 
+ACTION_INSTANCE_MARK = IsServiceGroup(["service-afb"])
+
 # Actual config
 AG_PERMISSIONS_SETTINGS = {
     "ENABLED": True,
@@ -282,6 +284,7 @@ AG_PERMISSIONS_SETTINGS = {
             ("form-kantonale-pruefung-write", MODULE_CANTONAL_EXAM),
             ("form-read", MODULE_FORM),
             ("history-read", MODULE_HISTORY),
+            ("instance-mark-write", ACTION_INSTANCE_MARK),
             ("journal-read", MODULE_JOURNAL_READ),
             ("journal-write", MODULE_JOURNAL_WRITE),
             ("linked-instances-read", MODULE_LINKED_INSTANCES),
@@ -330,6 +333,7 @@ AG_PERMISSIONS_SETTINGS = {
             ),
             ("history-read", MODULE_HISTORY),
             ("instance-submit", ACTION_INSTANCE_SUBMIT),
+            ("instance-mark-write", ACTION_INSTANCE_MARK),
             ("information-of-neighbors-read", MODULE_INFORMATION_OF_NEIGHBORS),
             ("journal-read", MODULE_JOURNAL_READ),
             ("journal-write", MODULE_JOURNAL_WRITE),

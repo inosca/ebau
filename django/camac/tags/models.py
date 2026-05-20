@@ -2,7 +2,9 @@ from django.core.validators import RegexValidator
 from django.db import models
 from localized_fields.fields import LocalizedTextField
 
+from camac.core.utils import canton_aware
 from camac.models import dynamic_default_value
+from camac.user.models import Service
 
 
 class Tags(models.Model):
@@ -57,6 +59,22 @@ def next_instance_mark_sort():
     return last.sort + 1 if last else 0
 
 
+class InstanceMarkQuerySet(models.QuerySet["InstanceMark"]):
+    @canton_aware
+    def for_service(self, service: Service | None):
+        return self
+
+    def for_service_ag(self, service: Service | None):
+        if service and service.service_group.name in [
+            "service-afb",
+            "service-cantonal",
+            "service-external",
+        ]:
+            return self
+
+        return self.none()
+
+
 class InstanceMark(models.Model):
     hex_color_validator = RegexValidator(
         regex=r"^#(?:[0-9a-fA-F]{3}){1,2}$",
@@ -72,6 +90,8 @@ class InstanceMark(models.Model):
         default="#000000",
     )
     sort = models.PositiveIntegerField(default=next_instance_mark_sort)
+
+    objects: InstanceMarkQuerySet = InstanceMarkQuerySet.as_manager()
 
     class Meta:
         ordering = ["sort"]

@@ -1,5 +1,9 @@
 from caluma.caluma_workflow.models import Task
-from rest_framework_json_api import relations, serializers
+from generic_permissions.visibilities import (
+    VisibilityResourceRelatedField,
+    VisibilitySerializerMixin,
+)
+from rest_framework_json_api import serializers
 
 from camac import request_cache
 from camac.tags.models import InstanceMark
@@ -79,7 +83,7 @@ class WorkItemListFilterPresetSerializer(serializers.ModelSerializer):
         ]
 
 
-class WorkItemListRowSerializer(serializers.ModelSerializer):
+class WorkItemListRowSerializer(VisibilitySerializerMixin, serializers.ModelSerializer):
     applicants = serializers.CharField()
     description = serializers.CharField(source="instance_description")
     has_additional_demand = serializers.BooleanField()
@@ -102,7 +106,7 @@ class WorkItemListRowSerializer(serializers.ModelSerializer):
     addressed_service = CalumaServiceRelatedField()
     assigned_user = CalumaUserRelatedField()
     closed_by_user = CalumaUserRelatedField()
-    instance_marks = relations.ResourceRelatedField(
+    instance_marks = VisibilityResourceRelatedField(
         model=InstanceMark, read_only=True, many=True
     )
 
