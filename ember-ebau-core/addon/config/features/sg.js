@@ -24,8 +24,8 @@ export default {
     showMainForm: true,
   },
   gis: {
-    // TODO: remove this as soon as backend is fixed
     v3: true,
+    showChanges: true,
   },
   distribution: {
     showAllServices: true,

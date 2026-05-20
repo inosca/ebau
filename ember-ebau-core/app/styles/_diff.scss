@@ -1,12 +1,38 @@
-.diff {
-  display: inline-block;
-  padding: 0 5px;
+$gis-changes-diff-old-background: color.adjust(
+  color.mix(white, $global-danger-background, 40%),
+  $lightness: 25%
+) !default;
+$gis-changes-diff-new-background: color.adjust(
+  color.mix(white, $global-success-background, 40%),
+  $lightness: 25%
+) !default;
 
-  &--old {
-    background: $alert-primary-background;
+.gis-changes {
+  &__trigger {
+    cursor: pointer;
+    font-size: $form-label-font-size;
+
+    @extend .uk-text-warning;
+    @extend .uk-flex-inline;
+    @extend .uk-flex-middle;
+    @extend .uk-margin-small-left;
   }
 
-  &--new {
-    background: $alert-success-background;
+  &__dropdown {
+    @extend .uk-text-small;
+    @extend .uk-padding-small;
+
+    &__diff {
+      display: inline-block;
+      padding: 0 5px;
+
+      &--old {
+        background: $gis-changes-diff-old-background;
+      }
+
+      &--new {
+        background: $gis-changes-diff-new-background;
+      }
+    }
   }
 }
