@@ -83,6 +83,9 @@
           "municipality-read": {
             "visibility": "all"
           },
+          "geometer": {
+            "visibility": "all"
+          },
           "cantonal-subservice": {
             "visibility": "all",
             "permissions": [
@@ -222,6 +225,9 @@
             ]
           },
           "municipality-read": {
+            "visibility": "all"
+          },
+          "geometer": {
             "visibility": "all"
           },
           "cantonal-subservice": {
@@ -409,6 +415,9 @@
           "municipality-read": {
             "visibility": "all"
           },
+          "geometer": {
+            "visibility": "all"
+          },
           "cantonal-subservice": {
             "visibility": "all",
             "permissions": [
@@ -590,6 +599,9 @@
             ]
           },
           "municipality-read": {
+            "visibility": "all"
+          },
+          "geometer": {
             "visibility": "all"
           },
           "cantonal-subservice": {
@@ -783,6 +795,9 @@
             ]
           },
           "municipality-read": {
+            "visibility": "all"
+          },
+          "geometer": {
             "visibility": "all"
           },
           "cantonal-subservice": {
@@ -1036,6 +1051,39 @@
           "municipality-read": {
             "visibility": "service"
           },
+          "geometer": {
+            "visibility": "service",
+            "permissions": [
+              {
+                "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "metainfo",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "create"
+              },
+              {
+                "scope": "Service",
+                "fields": [
+                  "title",
+                  "description",
+                  "date",
+                  "category",
+                  "tags",
+                  "files"
+                ],
+                "permission": "update"
+              },
+              {
+                "scope": "Service",
+                "permission": "delete"
+              }
+            ]
+          },
           "cantonal-subservice": {
             "visibility": "service",
             "permissions": [
@@ -1271,6 +1319,9 @@
           "municipality-read": {
             "visibility": "service-and-subservice"
           },
+          "geometer": {
+            "visibility": "all"
+          },
           "cantonal-subservice": {
             "visibility": "service-and-subservice",
             "permissions": [
@@ -1472,6 +1523,9 @@
           "municipality-read": {
             "visibility": "all"
           },
+          "geometer": {
+            "visibility": "all"
+          },
           "cantonal-subservice": {
             "visibility": "all",
             "permissions": [
@@ -1603,6 +1657,9 @@
             ]
           },
           "municipality-read": {
+            "visibility": "all"
+          },
+          "geometer": {
             "visibility": "all"
           },
           "cantonal-subservice": {
