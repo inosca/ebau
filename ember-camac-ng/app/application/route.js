@@ -14,6 +14,8 @@ import InquiryAnswerStatus from "ember-ebau-core/components/inquiry-answer-statu
 import InquiryDeadlineInputComponent from "ember-ebau-core/components/inquiry-deadline-input";
 import LinkAttachmentsComponent from "ember-ebau-core/components/link-attachments";
 import MilestoneValuesComponent from "ember-ebau-core/components/milestone-values";
+import PublicationDateKantonsamtsblattComponent from "ember-ebau-core/components/publication-date-kantonsamtsblatt";
+import PublicationPreviewComponent from "ember-ebau-core/components/publication-preview";
 import QrCodeComponent from "ember-ebau-core/components/qr-code";
 import UrGisComponent from "ember-ebau-core/components/ur-gis";
 import mainConfig from "ember-ebau-core/config/main";
@@ -183,6 +185,18 @@ export default class ApplicationRoute extends Route {
       label: "Dateien für Schnurgerüstabnahme Camac (Kt. UR)",
       component: "camac-schnurgeruestabnahme-files",
       componentClass: CamacSchnurgeruestabnahmeFilesComponent,
+    });
+
+    this.calumaOptions.registerComponentOverride({
+      label: "Vorschau für Publikationstext (Kt. UR)",
+      component: "publication-preview",
+      componentClass: PublicationPreviewComponent,
+    });
+
+    this.calumaOptions.registerComponentOverride({
+      label: "Publikationsbeginn Kanton",
+      component: "publication-date-kantonsamtsblatt",
+      componentClass: PublicationDateKantonsamtsblattComponent,
     });
   }
 }

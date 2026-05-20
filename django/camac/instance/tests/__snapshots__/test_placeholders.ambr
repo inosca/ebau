@@ -15291,6 +15291,30 @@
       'nested_aliases': dict({
       }),
     }),
+    'PUBLICATION_DOCUMENTS_WITHOUT_OBLIGATION': dict({
+      'aliases': list([
+        dict({
+          'de': 'UNVERBINDLICHE_PUBLIKATIONSDOKUMENTE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Unverbindliche Publikationsdokumente',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
+    'PUBLICATION_DOCUMENTS_WITH_OBLIGATION': dict({
+      'aliases': list([
+        dict({
+          'de': 'VERBINDLICHE_PUBLIKATIONSDOKUMENTE',
+        }),
+      ]),
+      'description': dict({
+        'de': 'Verbindliche Publikationsdokumente',
+      }),
+      'nested_aliases': dict({
+      }),
+    }),
     'PUBLIKATION_LINK': dict({
       'aliases': list([
         dict({

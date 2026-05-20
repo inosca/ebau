@@ -19,6 +19,7 @@ from rest_framework import serializers
 from camac.caluma.api import CalumaApi
 from camac.constants import kt_gr as gr_constants
 from camac.core.translations import get_translations_canton_aware
+from camac.document.models import Attachment
 from camac.instance.models import Instance
 from camac.instance.placeholders.utils import (
     format_gis_center_coordinates,
@@ -2530,6 +2531,14 @@ class UrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("CIRCULATION_FEEDBACK")],
         description=_("Opinions and ancillary clauses of the invited services"),
     )
+    publication_documents_with_obligation = fields.AliasedMethodField(
+        aliases=[_("PUBLICATION_DOCUMENTS_WITH_OBLIGATION")],
+        description=_("Publication documents with obligation"),
+    )
+    publication_documents_without_obligation = fields.AliasedMethodField(
+        aliases=[_("PUBLICATION_DOCUMENTS_WITHOUT_OBLIGATION")],
+        description=_("Publication documents without obligation"),
+    )
 
     def get_publication_date(self, instance):
         return human_readable_date(instance.publication_date())
@@ -2547,6 +2556,18 @@ class UrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             instance._master_data.protected,
             separator=", ",
         )
+
+    def get_publication_documents_with_obligation(self, instance):
+        attachments = Attachment.objects.filter(
+            instance_id=instance.pk, context__isPublished=True
+        )
+        return ", ".join([attachment.display_name for attachment in attachments])
+
+    def get_publication_documents_without_obligation(self, instance):
+        attachments = Attachment.objects.filter(
+            instance_id=instance.pk, context__isPublishedWithoutObligation=True
+        )
+        return ", ".join([attachment.display_name for attachment in attachments])
 
     class Meta:
         exclude = "municipality"

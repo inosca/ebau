@@ -38,5 +38,135 @@
       "engine": "docx-template",
       "meta": {}
     }
+  },
+  {
+    "model": "api.template",
+    "pk": "publish-print-bausperre",
+    "fields": {
+      "description": "Publish Print Bausperre",
+      "template": "publish_print_bausperre.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "publish-print-bg",
+    "fields": {
+      "description": "Publish Print Bauplanauflage",
+      "template": "publish_print_bg.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "publish-print-gbl",
+    "fields": {
+      "description": "Publish Print Gemeindliche Baulinie",
+      "template": "publish_print_gbl.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "publish-print-gnp",
+    "fields": {
+      "description": "Publish Print Gemeindliche Nutzungsplanung",
+      "template": "publish_print_gnp.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "publish-print-gpz",
+    "fields": {
+      "description": "Publish Print Grmeindliche Planungszone",
+      "template": "publish_print_gpz.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "publish-print-kbl",
+    "fields": {
+      "description": "Publish Print Kantonale Baulinie",
+      "template": "publish_print_kbl.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "publish-print-knp",
+    "fields": {
+      "description": "Publish Print Kantonale Nutzungsplanung",
+      "template": "publish_print_knp.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "publish-print-kpz",
+    "fields": {
+      "description": "Publish Print Kantonale Planungszone",
+      "template": "publish_print_kpz.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "publish-print-np",
+    "fields": {
+      "description": "Publish Print Nutzungsplanung",
+      "template": "publish_print_np.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "publish-print-pg",
+    "fields": {
+      "description": "Publish Print Planerischer Gewässerschutz",
+      "template": "publish_print_pg.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "publish-print-sm",
+    "fields": {
+      "description": "Publish Print Schutzmassnahmen",
+      "template": "publish_print_sm.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "publish-print-snp",
+    "fields": {
+      "description": "Publish Print Sondernutzungsplanung",
+      "template": "publish_print_snp.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "publish-print-sw",
+    "fields": {
+      "description": "Publish Print Statische Waldgrenzen",
+      "template": "publish_print_sw.docx",
+      "engine": "docx-template",
+      "meta": {}
+    }
   }
 ]

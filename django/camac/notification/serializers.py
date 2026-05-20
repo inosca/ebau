@@ -55,7 +55,7 @@ from camac.instance.utils import (
 from camac.instance.validators import transform_coordinates
 from camac.lookups import Any
 from camac.permissions.models import InstanceACL
-from camac.user.models import Group, Service, User
+from camac.user.models import Group, Location, Service, User
 from camac.user.utils import get_tax_administration, unpack_service_emails
 from camac.utils import (
     build_url,
@@ -254,10 +254,12 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     responsible_person = serializers.SerializerMethodField()
     schlussabnahme_uhrzeit = serializers.SerializerMethodField()
     schlussabnahme_datum = serializers.SerializerMethodField()
+    notes = serializers.SerializerMethodField()
 
     vorhaben = serializers.SerializerMethodField()
     parzelle = serializers.SerializerMethodField()
     street = serializers.SerializerMethodField()
+    street_number = serializers.SerializerMethodField()
     gesuchsteller = fields.MasterDataPersonField(
         source="applicants",
         only_first=True,
@@ -290,6 +292,8 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     public_instance_link = serializers.SerializerMethodField()
     public_instance_link_de = serializers.SerializerMethodField()
     public_instance_link_it = serializers.SerializerMethodField()
+
+    email_to_official_gazette = serializers.SerializerMethodField()
 
     def __init__(
         self,
@@ -375,6 +379,10 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     def get_street(self, instance):
         return CalumaApi().get_answer_value("parcel-street", instance)
 
+    def get_street_number(self, instance):
+        if settings.APPLICATION_NAME == "kt_uri":
+            return instance._master_data.street_number
+
     def get_rejection_feedback(self, instance):
         return instance.rejection_feedback or ""
 
@@ -442,6 +450,13 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         return self.get_municipality(instance, "it")
 
     def get_municipality(self, instance, language):
+        if settings.APPLICATION_NAME == "kt_uri":
+            try:
+                return Location.objects.get(
+                    communal_federal_number=instance._master_data.municipality_slug
+                ).name
+            except Location.DoesNotExist:
+                return ""
         try:
             service = Service.objects.get(pk=CalumaApi().get_municipality(instance))
             name = service.get_name(language)
@@ -1048,6 +1063,28 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
                 question_id="construction-step-schlussabnahme-projekt-planen-datum-der-abnahme"
             ).first():
                 return answer.date.strftime("%d.%m.%Y")
+
+    def get_notes(self, instance):
+        work_item = instance.case.work_items.filter(task_id="fill-publication").last()
+
+        if work_item:
+            answer = work_item.document.answers.filter(
+                question_id="publikation-bemerkungen-ans-amtsblatt"
+            ).first()
+            return answer.value if answer else ""
+
+        return ""
+
+    def get_email_to_official_gazette(self, instance):
+        work_item = instance.case.work_items.filter(task_id="fill-publication").last()
+
+        if not work_item:
+            return ""
+
+        answer = caluma_form_models.Answer.objects.filter(
+            question_id="publikation-mailvorschau", document_id=work_item.document.pk
+        )
+        return answer.first().value if answer else ""
 
     def to_representation(self, instance):
         ret = super().to_representation(instance)
@@ -1903,6 +1940,9 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         if service:
             return [{"to": service.email}]
         return []  # pragma: no cover
+
+    def _get_recipients_amtsblatt_uri(self, instance):
+        return [{"to": "amtsblatt@ur.ch"}]
 
     def _recipient_log(self, recipients):
         return ", ".join(

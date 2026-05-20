@@ -1138,6 +1138,7 @@ def caluma_forms_ur(settings, add_general_questions):
         "update-gwr-status",
         "update-gwr-status-refused",
         "stabilisierungsziel-rpg",
+        "publikation",
     ]:
         caluma_form_models.Form.objects.create(slug=form, name=form)
 

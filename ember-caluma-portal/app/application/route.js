@@ -35,6 +35,7 @@ import KeycloakProfileApplyButtonComponent from "ember-ebau-core/components/keyc
 import LinkAttachmentsComponent from "ember-ebau-core/components/link-attachments";
 import PublicationDateKantonsamtsblattComponent from "ember-ebau-core/components/publication-date-kantonsamtsblatt";
 import PublicationFillEndDateComponent from "ember-ebau-core/components/publication-fill-end-date";
+import PublicationPreviewComponent from "ember-ebau-core/components/publication-preview";
 import PublicationStartDateComponent from "ember-ebau-core/components/publication-start-date";
 import QrCodeComponent from "ember-ebau-core/components/qr-code";
 import ServiceContentComponent from "ember-ebau-core/components/service-content";
@@ -234,7 +235,7 @@ export default class ApplicationRoute extends Route {
       componentClass: CalculatedPublicationDateComponent,
     });
     this.calumaOptions.registerComponentOverride({
-      label: "Publikationsbeginn Kanton (jeweils Donnerstag)",
+      label: "Publikationsbeginn Kanton",
       component: "publication-date-kantonsamtsblatt",
       componentClass: PublicationDateKantonsamtsblattComponent,
     });
@@ -382,6 +383,11 @@ export default class ApplicationRoute extends Route {
       component: "applicant-confirmations/widget",
       componentClass: ApplicantConfirmationsWidgetComponent,
       type: "MultipleChoiceQuestion",
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Vorschau für Publikationstext (Kt. UR)",
+      component: "publication-preview",
+      componentClass: PublicationPreviewComponent,
     });
   }
 }

@@ -167,7 +167,7 @@ class RoleSerializer(MultilingualSerializer, serializers.ModelSerializer):
 class LocationSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Location
-        fields = ("name", "communal_federal_number")
+        fields = ("name", "communal_federal_number", "zip")
 
 
 class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):

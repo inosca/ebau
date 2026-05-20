@@ -1,0 +1,16 @@
+<textarea
+  class="uk-textarea
+    {{if @field.isInvalid 'uk-form-danger'}}
+    {{if @disabled 'uk-disabled'}}"
+  name={{@field.pk}}
+  id={{@field.pk}}
+  placeholder={{@field.question.raw.placeholder}}
+  minlength={{@field.question.raw.textareaMinLength}}
+  maxlength={{@field.question.raw.textareaMaxLength}}
+  readonly={{true}}
+  value={{this.previewText}}
+  {{autoresize this.previewText mode="height"}}
+  {{did-insert this.autoSaveText this.previewText}}
+  {{did-update this.autoSaveText this.previewText}}
+>
+</textarea>

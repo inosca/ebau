@@ -6,6 +6,7 @@ import { queryManager } from "ember-apollo-client";
 import { dropTask } from "ember-concurrency";
 import { confirm } from "ember-uikit";
 import { trackedTask } from "reactiveweb/ember-concurrency";
+import { trackedFunction } from "reactiveweb/function";
 import { dedupeTracked } from "tracked-toolbox";
 
 import mainConfig from "ember-ebau-core/config/main";
@@ -13,15 +14,31 @@ import saveWorkItemMutation from "ember-ebau-core/gql/mutations/save-workitem.gr
 import getPublication from "ember-ebau-core/gql/queries/get-publication.graphql";
 import getPublications from "ember-ebau-core/gql/queries/get-publications.graphql";
 
+const getAnswerString = (edges, slug) =>
+  edges?.find((answer) => answer.node.question.slug === slug)?.node.value;
+
 export default class PublicationEditController extends Controller {
   @service notification;
   @service intl;
   @service ebauModules;
   @service router;
+  @service fetch;
+  @service dms;
 
   @queryManager apollo;
 
   @dedupeTracked documentId;
+
+  placeholders = trackedFunction(this, async () => {
+    const response = await this.fetch.fetch(
+      `/api/v1/instances/${this.model.instanceId}/dms-placeholders`,
+      {
+        headers: { accept: "application/json" },
+      },
+    );
+
+    return await response.json();
+  });
 
   get confirmTextKey() {
     return `publication.submitConfirm.${this.model.type}`;
@@ -95,9 +112,53 @@ export default class PublicationEditController extends Controller {
           },
         },
       });
+
+      yield this.fetch.fetch(`/api/v1/notification-templates/sendmail`, {
+        method: "POST",
+        headers: {
+          accept: "application/vnd.api+json",
+          "content-type": "application/vnd.api+json",
+        },
+        body: JSON.stringify({
+          data: {
+            type: "notification-template-sendmails",
+            attributes: {
+              "template-slug": "9-1-stopp-publikation-an-amtsblatt",
+              "recipient-types": ["amtsblatt_uri"],
+            },
+            relationships: {
+              instance: {
+                data: { type: "instances", id: this.model.instanceId },
+              },
+            },
+          },
+        }),
+      });
     } catch {
       this.notification.danger(this.intl.t("publication.cancelError"));
     }
+  }
+
+  @dropTask
+  *merge(saveToDocuments, event) {
+    event.preventDefault();
+
+    const edges =
+      this.publication.value?.case?.family?.document?.answers?.edges || [];
+    const oerebThemaValue = getAnswerString(edges, "oereb-thema");
+    const publicationType =
+      oerebThemaValue && mainConfig.oerebPublicationMapping[oerebThemaValue]
+        ? mainConfig.oerebPublicationMapping[oerebThemaValue]
+        : "baubewilligung";
+    const templateSlug = mainConfig.publicationTemplateMapping[publicationType];
+
+    yield this.dms.processMerge({
+      placeholders: this.placeholders.value,
+      templateSlug,
+      filenameBase: templateSlug,
+      instanceId: this.model.instanceId,
+      saveToDocuments: saveToDocuments ?? true,
+    });
   }
 
   @action
