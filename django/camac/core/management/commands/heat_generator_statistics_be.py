@@ -2,7 +2,7 @@ import itertools
 from datetime import datetime
 
 import openpyxl
-from caluma.caluma_form.models import Option
+from caluma.caluma_form.models import Option, DynamicOption
 from caluma.caluma_workflow.models import Case
 from django.core.management.base import BaseCommand
 from django.db import transaction
@@ -26,6 +26,7 @@ STREET = "Strasse/Flurname"
 NR = "Nr."
 PLZ = "PLZ"
 LOCATION = "Ort"
+MUNICIPALITY = "Gemeinde"
 GWR_EGID = "GWR-EGID"
 DECISION = "Entscheid"
 BUILDING_CATEGORY = "Gebäudekategorie"
@@ -150,6 +151,8 @@ class Command(BaseCommand):
             entry[LOCATION] = flat_answers.get("ort-grundstueck", "-")
             entry[GWR_EGID] = flat_answers.get("gwr-egid", "-")
 
+            entry[MUNICIPALITY] = DynamicOption.objects.filter(slug=flat_answers["gemeinde"], document_id=case.document.pk).first().label.de
+
             existing_table = (flat_answers.get("heat-generator-existing") or []) + (
                 flat_answers.get("heat-generator-existing-v2") or []
             )
@@ -268,6 +271,7 @@ class Command(BaseCommand):
             NR,
             PLZ,
             LOCATION,
+            MUNICIPALITY,
             GWR_EGID,
             DECISION,
             BUILDING_CATEGORY,
