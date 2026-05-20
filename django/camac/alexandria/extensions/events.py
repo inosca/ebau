@@ -44,7 +44,7 @@ def log_document_mark_mutations(
     except ObjectDoesNotExist:
         checksum = None
 
-    doc_ref = f"{doc_label} {checksum or ''}"
+    doc_ref = f"{doc_label} {checksum}" if checksum else doc_label
 
     marks = Mark.objects.filter(pk__in=pk_set)
 
