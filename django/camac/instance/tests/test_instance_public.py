@@ -546,8 +546,8 @@ def test_public_caluma_instance_municipality_filter_sz(
     caluma_workflow_config_sz,
     publication_settings,
     settings,
+    set_application_sz,
 ):
-    settings.APPLICATION["SHORT_NAME"] = "sz"
     publication_settings["BACKEND"] = "camac-ng"
 
     instance_location = location_factory()

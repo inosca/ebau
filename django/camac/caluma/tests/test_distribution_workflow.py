@@ -829,7 +829,7 @@ def test_send_aborting_distribution_sends_notification(
     caluma_work_item_factory,
     disable_ech0211_settings,
 ):
-    settings.DISTRIBUTION["NOTIFY_ON_CANCELLATION"] = True
+    gr_distribution_settings["NOTIFY_ON_CANCELLATION"] = True
     service = service_factory()
 
     inquiry_workitem = caluma_work_item_factory(

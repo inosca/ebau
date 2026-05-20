@@ -67,12 +67,8 @@ def test_is_weekend(input_date, expected):
         date(2025, 1, 1),  # New Year's Day
     ],
 )
-def test_is_public_holiday_not_implemented(
-    settings,
-    input_date,
-):
+def test_is_public_holiday_not_implemented(settings, input_date, set_application_test):
     """Non-implemented subdivisions should not match any public holidays."""
-    settings.APPLICATION["SHORT_NAME"] = "test"
 
     assert not utils.is_public_holiday(input_date)
 
@@ -154,6 +150,7 @@ def test_delay_next_workingday(
     input_date,
     expected,
     set_application_gr,
+    application_settings,
     enable_delay,
 ):
     """Check if the next working day is calculated correctly when enabled.
@@ -164,7 +161,7 @@ def test_delay_next_workingday(
     If the setting is disabled, the deadline is not postponed.
     """
     if not enable_delay:
-        settings.APPLICATION["DEADLINE_POSTPONE_NEXT_WORKINGDAY"] = False
+        application_settings["DEADLINE_POSTPONE_NEXT_WORKINGDAY"] = False
         expected = input_date
 
     assert utils.delay_next_workingday(input_date) == expected

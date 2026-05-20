@@ -115,7 +115,7 @@ def test_notify_manual_work_item(
     settings,
     celery_fake_worker,
 ):
-    settings.APPLICATION["NOTIFICATIONS"]["PROCESS_DEADLINES_FROM"] = "2020-08-09"
+    application_settings["NOTIFICATIONS"]["PROCESS_DEADLINES_FROM"] = "2020-08-09"
 
     notification_template_expired = notification_template_factory()
     application_settings["NOTIFICATIONS"]["WORKITEM_DEADLINE_OVERDUE"] = {

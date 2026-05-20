@@ -1164,12 +1164,12 @@ def test_get_notification_config_ur(
     is_appeal,
     expected_notification_slug,
     settings,
+    appeal_settings,
     application_settings,
     caluma_work_item_factory,
     caluma_document_factory,
+    set_application_ur,
 ):
-    settings.APPLICATION_NAME = "kt_ur"
-    application_settings["SHORT_NAME"] = "ur"
     application_settings["NOTIFICATIONS"] = {
         "DECISION": [
             {
@@ -1184,7 +1184,7 @@ def test_get_notification_config_ur(
             }
         ],
     }
-    settings.APPEAL["NOTIFICATIONS"] = {
+    appeal_settings["NOTIFICATIONS"] = {
         "APPEAL_DECISION": [
             {
                 "template_slug": "decision-appeal",

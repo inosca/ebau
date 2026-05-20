@@ -1154,9 +1154,10 @@ def test_accompanying_report_send_handler(
     mocker,
     mock_remote_file,
     group_factory,
+    application_settings,
 ):
     notification_template_factory(slug="05-bericht-erstellt")
-    settings.APPLICATION["DOCUMENT_BACKEND"] = document_backend
+    application_settings["DOCUMENT_BACKEND"] = document_backend
     be_ech0211_settings["ACCOMPANYING_REPORT"]["EXTENSION_MAPPING"] = {
         "inquiry-text-answer": {
             "tag": "situation",
