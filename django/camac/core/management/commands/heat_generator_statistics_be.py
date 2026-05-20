@@ -1,8 +1,9 @@
+import argparse
 import itertools
 from datetime import datetime
 
 import openpyxl
-from caluma.caluma_form.models import Option, DynamicOption
+from caluma.caluma_form.models import DynamicOption, Option
 from caluma.caluma_workflow.models import Case
 from django.core.management.base import BaseCommand
 from django.db import transaction
@@ -14,10 +15,6 @@ from tqdm import tqdm
 from camac.caluma.api import CalumaApi
 
 caluma_api = CalumaApi()
-
-DATE_RANGE_FROM = "2023-01-01T00:00:01+0000"
-DATE_RANGE_TO = "2026-05-05T23:59:00+0000"
-
 
 DOSSIER_NUMBER = "Dossier Nummer"
 EBAU_NUMBER = "eBau Nummer"
@@ -50,15 +47,60 @@ EXISTING_REQUIREMENTS_WATER_WARMING = (
 REPLACEMENT_OF = "Ersatz von"
 
 
+def valid_date(date_string):
+    """Validate and convert a string in 'dd.mm.YYYY' format to a date object."""
+
+    try:
+        return datetime.strptime(date_string, "%d.%m.%Y").date()
+    except ValueError:
+        raise argparse.ArgumentTypeError(
+            f"Not a valid date: '{date_string}'. Use the 'dd.mm.YYYY' format."
+        )
+
+
 class Command(BaseCommand):
     help = """Create a xlsx file with heat generator statistics about instances."""
+
+    def add_arguments(self, parser):
+        parser.add_argument(
+            "--date-from",
+            type=valid_date,
+            help="Start date in dd.mm.YYYY format (e.g. 05.06.2026)",
+        )
+        parser.add_argument(
+            "--date-to",
+            type=valid_date,
+            help="End date in dd.mm.YYYY format (e.g. 10.06.2026)",
+        )
 
     def _get_val_with_v2_fallback(self, row, key):
         if not row:
             return None
         return row.get(key) or row.get(f"{key}-v2")
 
-    def _fetch_cases(self):
+    def _get_option_label(self, slug):
+        if not slug:
+            return "-"
+        try:
+            return Option.objects.get(slug=slug).label.de or "-"
+        except Option.DoesNotExist:
+            return "-"
+
+    def _add_multiple_choice_values(self, case, slugs, entry, fieldname):
+        data = []
+        answers = [a for a in case.document.answers.all() if a.question_id in slugs]
+        for answer in answers:
+            for value in answer.value:
+                options = answer.question.options.filter(slug=value)
+                if options:
+                    data.append(options[0].label.de)
+        entry[fieldname] = ", ".join(data)
+
+    def _fetch_cases(self, options):
+        if options.get("date_from"):
+            date_from_str = f"{options['date_from'].strftime('%Y-%m-%d')}T00:00:00+0000"
+        if options.get("date_to"):
+            date_to_str = f"{options['date_to'].strftime('%Y-%m-%d')}T23:59:59+0000"
         self.stdout.write(
             "Fetching cases from the database... (this may take a minute)"
         )
@@ -71,8 +113,8 @@ class Command(BaseCommand):
                 ],
                 **{
                     "meta__submit-date__range": (
-                        DATE_RANGE_FROM,
-                        DATE_RANGE_TO,
+                        date_from_str,
+                        date_to_str,
                     )
                 },
             )
@@ -89,174 +131,170 @@ class Command(BaseCommand):
         )
         return cases_queryset
 
+    def _get_decision(self, case):
+        decision_item = case.work_items.filter(
+            task="decision", status="completed"
+        ).first()
+        if not decision_item:
+            return "-"
+
+        answer = decision_item.document.answers.filter(
+            question_id="decision-decision-assessment"
+        ).first()
+
+        if not answer:
+            return "-"
+
+        option = answer.question.options.filter(slug=answer.value).first()
+        return option.label.de if option and option.label.de else "-"
+
+    def _build_base_entry(self, case, flat_answers):
+        entry = {
+            DOSSIER_NUMBER: case.instance.pk,
+            EBAU_NUMBER: case.meta.get("ebau-number", "-"),
+            SUBMIT_DATE: datetime.strptime(
+                case.meta.get("submit-date"), "%Y-%m-%dT%H:%M:%S%z"
+            ).strftime("%d.%m.%Y"),
+            DECISION: self._get_decision(case),
+        }
+
+        self._add_multiple_choice_values(
+            case, ["heat-generator-category"], entry, "Gebäudekategorie"
+        )
+        self._add_multiple_choice_values(
+            case,
+            [
+                "heat-generator-substituted-type",
+                "heat-generator-substituted-type-v2",
+            ],
+            entry,
+            "Ersatz von",
+        )
+
+        creation_year_answer = case.document.answers.filter(
+            question_id="heat-generator-year"
+        ).first()
+        entry[CREATION_YEAR] = (
+            creation_year_answer.value if creation_year_answer else "-"
+        )
+
+        entry[STREET] = flat_answers.get("strasse-flurname", "-")
+        entry[NR] = flat_answers.get("nr", "-")
+        entry[PLZ] = next(
+            (
+                val
+                for key, val in flat_answers.items()
+                if key.startswith("plz-grundstueck")
+            ),
+            "-",
+        )
+        entry[LOCATION] = flat_answers.get("ort-grundstueck", "-")
+        entry[GWR_EGID] = flat_answers.get("gwr-egid", "-")
+
+        gemeinde_slug = flat_answers.get("gemeinde")
+        if gemeinde_slug:
+            municipality_opt = DynamicOption.objects.filter(
+                slug=gemeinde_slug, document_id=case.document.pk
+            ).first()
+            entry[MUNICIPALITY] = municipality_opt.label.de if municipality_opt else "-"
+        else:
+            entry[MUNICIPALITY] = "-"
+
+        return entry
+
+    def _process_tables(self, flat_answers, base_entry, data):
+        existing_table = (flat_answers.get("heat-generator-existing") or []) + (
+            flat_answers.get("heat-generator-existing-v2") or []
+        )
+        new_table = (flat_answers.get("heat-generator-new") or []) + (
+            flat_answers.get("heat-generator-new-v2") or []
+        )
+        req_table = (flat_answers.get("heat-generator-new-with-requirements") or []) + (
+            flat_answers.get("heat-generator-new-with-requirements-v2") or []
+        )
+
+        if not existing_table and not new_table and not req_table:
+            data.append(base_entry)
+            return
+
+        safe_existing = existing_table or [{}]
+        safe_new = new_table or [{}]
+        safe_req = req_table or [{}]
+
+        for existing_row, new_row, req_row in itertools.product(
+            safe_existing, safe_new, safe_req
+        ):
+            row_entry = base_entry.copy()
+
+            if existing_row:
+                self._apply_existing_row(existing_row, row_entry)
+            if new_row:
+                self._apply_new_row(new_row, row_entry)
+            if req_row:
+                self._apply_req_row(req_row, row_entry)
+
+            data.append(row_entry)
+
+    def _apply_existing_row(self, row, row_entry):
+        raw_source = self._get_val_with_v2_fallback(
+            row, "heat-generator-energy-source-existing"
+        )
+        raw_cap = self._get_val_with_v2_fallback(row, "heat-generator-capacity")
+        raw_water = self._get_val_with_v2_fallback(row, "heat-generator-water-heating")
+        raw_solar = self._get_val_with_v2_fallback(
+            row, "heat-generator-solar-energy-usage"
+        )
+
+        row_entry[EXISING_ENERGY_SOURCE] = self._get_option_label(raw_source)
+        row_entry[EXISTING_HEAT_CAPACITY] = raw_cap or "-"
+        row_entry[EXISTING_WATER_WARMING] = self._get_option_label(raw_water)
+        row_entry[EXISTING_SOLAR_ENERGY] = self._get_option_label(raw_solar)
+
+    def _apply_new_row(self, row, row_entry):
+        raw_source_new = self._get_val_with_v2_fallback(
+            row, "heat-generator-energy-source-new"
+        )
+        raw_cap_new = self._get_val_with_v2_fallback(row, "heat-generator-capacity")
+        raw_water_new = self._get_val_with_v2_fallback(
+            row, "heat-generator-water-heating"
+        )
+
+        row_entry[NEW_ENERGY_SOURCE] = self._get_option_label(raw_source_new)
+        row_entry[NEW_HEAT_CAPACITY] = raw_cap_new or "-"
+        row_entry[NEW_WATER_WARMING] = self._get_option_label(raw_water_new)
+
+    def _apply_req_row(self, row, row_entry):
+        raw_source_req = self._get_val_with_v2_fallback(
+            row, "heat-generator-energy-source-new-with-requirements"
+        )
+        raw_cap_req = self._get_val_with_v2_fallback(row, "heat-generator-capacity")
+        raw_water_req = self._get_val_with_v2_fallback(
+            row, "heat-generator-water-heating"
+        )
+
+        row_entry[EXISTING_REQUIREMENTS_ENERGY_SOURCE] = self._get_option_label(
+            raw_source_req
+        )
+        row_entry[EXISTING_REQUIREMENTS_HEAT_CAPACITY] = raw_cap_req or "-"
+        row_entry[EXISTING_REQUIREMENTS_WATER_WARMING] = self._get_option_label(
+            raw_water_req
+        )
+
     @transaction.atomic
     def handle(self, *args, **options):
 
-        cases_queryset = self._fetch_cases()
+        cases_queryset = self._fetch_cases(options)
 
         data = []
         for case in tqdm(cases_queryset, desc="Processing cases", unit="case"):
-            entry = {
-                DOSSIER_NUMBER: case.instance.pk,
-                EBAU_NUMBER: case.meta.get("ebau-number", "-"),
-                SUBMIT_DATE: datetime.strptime(
-                    case.meta.get("submit-date"), "%Y-%m-%dT%H:%M:%S%z"
-                ).strftime("%d.%m.%Y"),
-            }
-
-            decision_items = case.work_items.filter(task="decision", status="completed")
-            if decision_items:
-                decision = decision_items[0]
-                decision_answers = decision.document.answers.filter(
-                    question_id="decision-decision-assessment"
-                )
-                if decision_answers:
-                    answer = decision_answers[0]
-                    options = answer.question.options.filter(slug=answer.value)
-                    if options:
-                        entry[DECISION] = options[0].label.de or "-"
-
-            self.add_multiple_choice_values(
-                case, ["heat-generator-category"], entry, "Gebäudekategorie"
-            )
-            self.add_multiple_choice_values(
-                case,
-                [
-                    "heat-generator-substituted-type",
-                    "heat-generator-substituted-type-v2",
-                ],
-                entry,
-                "Ersatz von",
-            )
-
-            entry[CREATION_YEAR] = (
-                case.document.answers.filter(question_id="heat-generator-year")
-                .first()
-                .value
-                or "-"
-            )
-
             flat_answers = case.document.flat_answer_map()
-
-            entry[STREET] = flat_answers.get("strasse-flurname", "-")
-            entry[NR] = flat_answers.get("nr", "-")
-            entry[PLZ] = next(
-                (
-                    val
-                    for key, val in flat_answers.items()
-                    if key.startswith("plz-grundstueck-v")
-                ),
-                "-",
-            )
-            entry[LOCATION] = flat_answers.get("ort-grundstueck", "-")
-            entry[GWR_EGID] = flat_answers.get("gwr-egid", "-")
-
-            entry[MUNICIPALITY] = DynamicOption.objects.filter(slug=flat_answers["gemeinde"], document_id=case.document.pk).first().label.de
-
-            existing_table = (flat_answers.get("heat-generator-existing") or []) + (
-                flat_answers.get("heat-generator-existing-v2") or []
-            )
-            new_table = (flat_answers.get("heat-generator-new") or []) + (
-                flat_answers.get("heat-generator-new-v2") or []
-            )
-            req_table = (
-                flat_answers.get("heat-generator-new-with-requirements") or []
-            ) + (flat_answers.get("heat-generator-new-with-requirements-v2") or [])
-
-            if not existing_table and not new_table and not req_table:
-                data.append(entry)
-            else:
-                safe_existing = existing_table if existing_table else [{}]
-                safe_new = new_table if new_table else [{}]
-                safe_req = req_table if req_table else [{}]
-
-                for existing_row, new_row, req_row in itertools.product(
-                    safe_existing, safe_new, safe_req
-                ):
-                    row_entry = entry.copy()
-
-                    if existing_row:
-                        raw_source = self._get_val_with_v2_fallback(
-                            existing_row, "heat-generator-energy-source-existing"
-                        )
-                        raw_cap = self._get_val_with_v2_fallback(
-                            existing_row, "heat-generator-capacity"
-                        )
-                        raw_water = self._get_val_with_v2_fallback(
-                            existing_row, "heat-generator-water-heating"
-                        )
-                        raw_solar = self._get_val_with_v2_fallback(
-                            existing_row, "heat-generator-solar-energy-usage"
-                        )
-
-                        row_entry[EXISING_ENERGY_SOURCE] = (
-                            Option.objects.get(slug=raw_source).label.de or "-"
-                        )
-                        row_entry[EXISTING_HEAT_CAPACITY] = raw_cap or "-"
-                        row_entry[EXISTING_WATER_WARMING] = (
-                            Option.objects.get(slug=raw_water).label.de or "-"
-                        )
-                        row_entry[EXISTING_SOLAR_ENERGY] = (
-                            Option.objects.get(slug=raw_solar).label.de or "-"
-                        )
-
-                    if new_row:
-                        raw_source_new = self._get_val_with_v2_fallback(
-                            new_row, "heat-generator-energy-source-new"
-                        )
-                        raw_cap_new = self._get_val_with_v2_fallback(
-                            new_row, "heat-generator-capacity"
-                        )
-                        raw_water_new = self._get_val_with_v2_fallback(
-                            new_row, "heat-generator-water-heating"
-                        )
-
-                        row_entry[NEW_ENERGY_SOURCE] = (
-                            Option.objects.get(slug=raw_source_new).label.de or "-"
-                        )
-                        row_entry[NEW_HEAT_CAPACITY] = raw_cap_new or "-"
-                        row_entry[NEW_WATER_WARMING] = (
-                            Option.objects.get(slug=raw_water_new).label.de or "-"
-                        )
-
-                    if req_row:
-                        raw_source_req = self._get_val_with_v2_fallback(
-                            req_row,
-                            "heat-generator-energy-source-new-with-requirements",
-                        )
-                        raw_cap_req = self._get_val_with_v2_fallback(
-                            req_row, "heat-generator-capacity"
-                        )
-                        raw_water_req = self._get_val_with_v2_fallback(
-                            req_row, "heat-generator-water-heating"
-                        )
-
-                        row_entry[EXISTING_REQUIREMENTS_ENERGY_SOURCE] = (
-                            Option.objects.get(slug=raw_source_req).label.de or "-"
-                        )
-                        row_entry[EXISTING_REQUIREMENTS_HEAT_CAPACITY] = (
-                            raw_cap_req or "-"
-                        )
-                        row_entry[EXISTING_REQUIREMENTS_WATER_WARMING] = (
-                            Option.objects.get(slug=raw_water_req).label.de or "-"
-                        )
-
-                    data.append(row_entry)
+            base_entry = self._build_base_entry(case, flat_answers)
+            self._process_tables(flat_answers, base_entry, data)
 
         self.generate_excel(data)
         self.stdout.write(
             self.style.SUCCESS(f"Successfully exported {cases_queryset.count()}.")
         )
-
-    def add_multiple_choice_values(self, case, slugs, entry, fieldname):
-        data = []
-        answers = [a for a in case.document.answers.all() if a.question_id in slugs]
-        for answer in answers:
-            for value in answer.value:
-                options = answer.question.options.filter(slug=value)
-                if options:
-                    data.append(options[0].label.de)
-        entry[fieldname] = ", ".join(data)
 
     def generate_excel(self, data):
         wb = openpyxl.Workbook()
