@@ -195,6 +195,15 @@ export default class CustomSession extends Session {
     return decoded.azp === "token-exchange";
   }
 
+  prohibitAuthentication(routeOrCallback) {
+    // Allow the token-exchange flow to proceed even when already authenticated.
+    // The login route will invalidate the existing session before exchanging.
+    if (new URLSearchParams(location.search).has("token")) {
+      return;
+    }
+    return super.prohibitAuthentication(routeOrCallback);
+  }
+
   handleUnauthorized() {
     if (this.isAuthenticated) handleUnauthorized(this);
   }
