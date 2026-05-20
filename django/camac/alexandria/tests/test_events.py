@@ -21,9 +21,14 @@ def test_event_creation(db, instance):
 
 
 def test_event_mark_no_instance_no_history(
-    db, mocker, settings, alexandria_document_factory, alexandria_mark_factory
+    db,
+    mocker,
+    settings,
+    alexandria_settings,
+    alexandria_document_factory,
+    alexandria_mark_factory,
 ):
-    settings.ALEXANDRIA["LOG_MARKS_IN_HISTORY"] = True
+    alexandria_settings["LOG_MARKS_IN_HISTORY"] = True
     create_history_entry = mocker.patch(
         "camac.alexandria.extensions.events.create_history_entry"
     )
@@ -41,12 +46,13 @@ def test_event_mark_journal_history(
     instance,
     mocker,
     settings,
+    alexandria_settings,
     application_settings,
     alexandria_document_factory,
     alexandria_mark_factory,
     alexandria_file_factory,
 ):
-    settings.ALEXANDRIA["LOG_MARKS_IN_HISTORY"] = True
+    alexandria_settings["LOG_MARKS_IN_HISTORY"] = True
 
     document = alexandria_document_factory(metainfo={"camac-instance-id": instance.pk})
     alexandria_file_factory(document=document)

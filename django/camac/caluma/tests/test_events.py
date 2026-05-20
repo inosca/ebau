@@ -1009,7 +1009,7 @@ def test_role_dependent_default_leadtime_service_groups(
     service_group_name,
     expected_deadline,
 ):
-    inquiry_task = Task.objects.get(slug=settings.DISTRIBUTION["INQUIRY_TASK"])
+    inquiry_task = Task.objects.get(slug=be_distribution_settings["INQUIRY_TASK"])
     addressed_group = service_factory(
         service_group__name=service_group_name,
     )
@@ -1018,11 +1018,11 @@ def test_role_dependent_default_leadtime_service_groups(
         addressed_groups=[addressed_group.pk],
     )
 
-    settings.DISTRIBUTION[
+    be_distribution_settings[
         "NOTIFICATIONS"
     ] = {}  # this short-circuits the notification logic which we dont want to test here
-    settings.DISTRIBUTION["DEFAULT_DEADLINE_LEAD_TIME"] = 30
-    settings.DISTRIBUTION["DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICE_GROUPS"] = {
+    be_distribution_settings["DEFAULT_DEADLINE_LEAD_TIME"] = 30
+    be_distribution_settings["DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICE_GROUPS"] = {
         "municipality": 10,
         "service": 7,
     }
@@ -1038,7 +1038,7 @@ def test_role_dependent_default_leadtime_service_groups(
     )
 
     deadline_answer = work_item.document.answers.get(
-        question__pk=settings.DISTRIBUTION["QUESTIONS"]["DEADLINE"]
+        question__pk=be_distribution_settings["QUESTIONS"]["DEADLINE"]
     )
 
     assert deadline_answer.date == expected_deadline
@@ -1063,7 +1063,7 @@ def test_role_dependent_default_leadtime_services(
     service_slug,
     expected_deadline,
 ):
-    inquiry_task = Task.objects.get(slug=settings.DISTRIBUTION["INQUIRY_TASK"])
+    inquiry_task = Task.objects.get(slug=be_distribution_settings["INQUIRY_TASK"])
     addressed_service = service_factory(
         slug=service_slug,
     )
@@ -1072,11 +1072,11 @@ def test_role_dependent_default_leadtime_services(
         addressed_groups=[str(addressed_service.pk)],
     )
 
-    settings.DISTRIBUTION[
+    be_distribution_settings[
         "NOTIFICATIONS"
     ] = {}  # this short-circuits the notification logic which we dont want to test here
-    settings.DISTRIBUTION["DEFAULT_DEADLINE_LEAD_TIME"] = 30
-    settings.DISTRIBUTION["DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICES"] = {
+    be_distribution_settings["DEFAULT_DEADLINE_LEAD_TIME"] = 30
+    be_distribution_settings["DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICES"] = {
         "afb": 30,
         "aew": 10,
     }
@@ -1092,7 +1092,7 @@ def test_role_dependent_default_leadtime_services(
     )
 
     deadline_answer = work_item.document.answers.get(
-        question__pk=settings.DISTRIBUTION["QUESTIONS"]["DEADLINE"]
+        question__pk=be_distribution_settings["QUESTIONS"]["DEADLINE"]
     )
 
     assert deadline_answer.date == expected_deadline
@@ -1851,17 +1851,17 @@ def test_recalculate_deadline_by_submission(
     service_factory,
     caluma_work_item_factory,
 ):
-    settings.DISTRIBUTION[
+    ag_distribution_settings[
         "NOTIFICATIONS"
     ] = {}  # this short-circuits the notification logic which we dont want to test here
 
-    settings.DISTRIBUTION["RECALCULATE_DEADLINE_BY_SUBMISSION"] = True
+    ag_distribution_settings["RECALCULATE_DEADLINE_BY_SUBMISSION"] = True
 
     if not has_override:
-        settings.DISTRIBUTION["DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICES"] = {}
-        settings.DISTRIBUTION["DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICE_GROUPS"] = {}
+        ag_distribution_settings["DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICES"] = {}
+        ag_distribution_settings["DEADLINE_LEAD_TIME_FOR_ADDRESSED_SERVICE_GROUPS"] = {}
 
-    inquiry_task = Task.objects.get(slug=settings.DISTRIBUTION["INQUIRY_TASK"])
+    inquiry_task = Task.objects.get(slug=ag_distribution_settings["INQUIRY_TASK"])
     addressed_service = service_factory(
         slug=service_slug, service_group__name=service_slug
     )
@@ -1878,7 +1878,7 @@ def test_recalculate_deadline_by_submission(
 
     work_item.refresh_from_db()
     deadline_answer = work_item.document.answers.get(
-        question__pk=settings.DISTRIBUTION["QUESTIONS"]["DEADLINE"]
+        question__pk=ag_distribution_settings["QUESTIONS"]["DEADLINE"]
     )
 
     assert deadline_answer.date == expected_deadline_before

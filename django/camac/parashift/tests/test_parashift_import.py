@@ -95,6 +95,7 @@ def test_import_validation_error(requests_mock, capsys):
 def test_command(
     parashift_data,
     parashift_mock,
+    parashift_settings,
     application_settings,
     master_data_is_visible_mock,
     workflow_item_factory,
@@ -106,8 +107,8 @@ def test_command(
 ):
     koor_bg = group_factory()
     gbb_seedorf = group_factory()
-    settings.PARASHIFT["1214"]["CAMAC_GROUP_ID"] = gbb_seedorf.pk
-    settings.PARASHIFT["KOOR_BG"]["CAMAC_GROUP_ID"] = koor_bg.pk
+    parashift_settings["1214"]["CAMAC_GROUP_ID"] = gbb_seedorf.pk
+    parashift_settings["KOOR_BG"]["CAMAC_GROUP_ID"] = koor_bg.pk
 
     workflow_item_factory(pk=uri_constants.WORKFLOW_ITEM_DOSSIER_ERFASST)
 
