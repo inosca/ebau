@@ -8,7 +8,13 @@ import { MIME_TYPE_TO_EXTENSION } from "ember-ebau-core/utils/dms";
 export default class DmsTemplateTableComponent extends Component {
   @service notification;
   @service fetch;
+  @service store;
   @service intl;
+
+  getName = (username) =>
+    this.store
+      .peekAll("public-user")
+      ?.find((user) => user.username === username)?.fullName;
 
   @dropTask
   *downloadTemplate(template, event) {

@@ -12,6 +12,7 @@
       @searchEnabled={{true}}
       @searchField="description"
       @noMatchesMessage={{t "global.empty"}}
+      class="uk-select"
       as |template|
     >
       {{template.description}}
@@ -27,7 +28,7 @@
         this.merge.isRunning
         this.placeholders.isLoading
         (not this.template)
-        (cannot "create dms-template")
+        (cannot "merge dms-template")
       }}
       @loading={{and
         this.merge.isRunning
@@ -44,7 +45,7 @@
       this.merge.isRunning
       this.placeholders.isLoading
       (not this.template)
-      (cannot "create dms-template")
+      (cannot "merge dms-template")
     }}
     @loading={{and
       this.merge.isRunning

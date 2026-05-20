@@ -2,7 +2,7 @@ import Controller from "@ember/controller";
 import { tracked } from "@glimmer/tracking";
 
 export default class DmsAdminNewController extends Controller {
-  queryParams = ["shared"];
+  queryParams = ["type"];
 
-  @tracked shared = false;
+  @tracked type = "own";
 }

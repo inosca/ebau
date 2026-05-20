@@ -1,10 +1,8 @@
-<h2 class="uk-margin-remove-top">
+<h2>
   {{#if @slug}}
     {{t "dms.edit"}}
-  {{else if @shared}}
-    {{t "dms.newShared"}}
   {{else}}
-    {{t "dms.new"}}
+    {{t (concat "dms.new." @type)}}
   {{/if}}
 </h2>
 
@@ -30,23 +28,26 @@
         />
       </div>
     </div>
-    <div class="uk-margin">
-      <label class="uk-form-label uk-text-bold" for="category">
-        {{t "dms.category"}}
-      </label>
-      <div class="uk-form-controls">
-        <Input
-          @type="text"
-          @value={{this.template.value.meta.category}}
-          class="uk-input"
-          name="category"
-          id="category"
-        />
-        <span class="uk-text-small uk-text-muted">{{t
-            "dms.categoryHint"
-          }}</span>
+    {{#if (not-eq this.template.value.type "system")}}
+      {{! System templates can't have categories }}
+      <div class="uk-margin">
+        <label class="uk-form-label uk-text-bold" for="category">
+          {{t "dms.category"}}
+        </label>
+        <div class="uk-form-controls">
+          <Input
+            @type="text"
+            @value={{this.template.value.meta.category}}
+            class="uk-input"
+            name="category"
+            id="category"
+          />
+          <span class="uk-text-small uk-text-muted">{{t
+              "dms.categoryHint"
+            }}</span>
+        </div>
       </div>
-    </div>
+    {{/if}}
     <div class="uk-margin">
       <label class="uk-form-label uk-text-bold">
         {{t "dms.template"}}
@@ -76,25 +77,25 @@
     </div>
     <div class="uk-margin">
       <UkButton
-        @type="submit"
+        @label={{t "global.save"}}
         @color="primary"
+        @type="submit"
         @loading={{this.save.isRunning}}
         @disabled={{this.save.isRunning}}
-      >
-        {{t "global.save"}}
-      </UkButton>
-      <UkButton @onClick={{this.back}} @color="default">{{t
-          "global.back"
-        }}</UkButton>
+      />
+      <UkButton
+        @label={{t "global.back"}}
+        @color="default"
+        @onClick={{this.back}}
+      />
       {{#if @slug}}
         <UkButton
+          @label={{t "global.delete"}}
+          @color="danger"
+          @onClick={{this.delete.perform}}
           @disabled={{this.delete.isRunning}}
           @loading={{this.delete.isRunning}}
-          @onClick={{perform this.delete}}
-          @color="default"
-        >
-          {{t "global.delete"}}
-        </UkButton>
+        />
       {{/if}}
     </div>
   </form>

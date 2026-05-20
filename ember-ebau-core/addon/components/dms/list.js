@@ -1,8 +1,6 @@
 import { service } from "@ember/service";
 import Component from "@glimmer/component";
-import { restartableTask } from "ember-concurrency";
-import { findAll } from "ember-data-resources";
-import { trackedTask } from "reactiveweb/ember-concurrency";
+import { findAll, query } from "ember-data-resources";
 
 import { sortByDescription } from "ember-ebau-core/utils/dms";
 
@@ -11,9 +9,12 @@ export default class DmsListComponent extends Component {
   @service fetch;
   @service intl;
   @service store;
-  @service dms;
 
   templates = findAll(this, "template");
+  users = query(this, "public-user", () => ({
+    username: this.userIds.join(","),
+    service: this.ebauModules.serviceId,
+  }));
 
   get userIds() {
     if (!this.templates.records) return [];
@@ -24,27 +25,6 @@ export default class DmsListComponent extends Component {
           .filter(Boolean),
       ),
     ];
-  }
-
-  userTask = trackedTask(this, this.fetchUsers, () => [this.userIds]);
-
-  @restartableTask
-  *fetchUsers(users) {
-    yield Promise.resolve();
-    if (!users.length) {
-      return [];
-    }
-
-    return [
-      ...(yield this.store.query("public-user", {
-        username: users.join(","),
-        service: this.ebauModules.serviceId,
-      }) ?? []),
-    ];
-  }
-
-  get users() {
-    return this.userTask.value ?? [];
   }
 
   get systemTemplates() {
@@ -82,7 +62,8 @@ export default class DmsListComponent extends Component {
   get sharedTemplates() {
     return this.templates.records
       ?.filter(
-        (template) => template.meta.service_group === this.dms.serviceGroupSlug,
+        (template) =>
+          template.meta.service_group === this.ebauModules.serviceGroupSlug,
       )
       .sort(sortByDescription);
   }

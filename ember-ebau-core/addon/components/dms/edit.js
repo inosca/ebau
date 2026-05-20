@@ -2,7 +2,8 @@ import { action } from "@ember/object";
 import { service } from "@ember/service";
 import AdapterError from "@ember-data/adapter/error";
 import Component from "@glimmer/component";
-import { dropTask } from "ember-concurrency";
+import { task } from "ember-concurrency";
+import { confirm } from "ember-uikit";
 import { trackedFunction } from "reactiveweb/function";
 
 import { MIME_TYPE_TO_ENGINE } from "ember-ebau-core/utils/dms";
@@ -14,20 +15,17 @@ export default class DmsEditComponent extends Component {
   @service intl;
   @service notification;
   @service ebauModules;
-  @service dms;
 
   template = trackedFunction(this, async () => {
     if (!this.args.slug) {
-      if (this.args.shared) {
-        return this.store.createRecord("template", {
-          meta: { service_group: this.dms.serviceGroupSlug },
-        });
-      }
-      return this.store.createRecord("template", {
-        meta: {
-          service: String(this.ebauModules.serviceId),
-        },
-      });
+      const meta =
+        this.args.type === "shared"
+          ? { service_group: this.ebauModules.serviceGroupSlug }
+          : this.args.type === "own"
+            ? { service: String(this.ebauModules.serviceId) }
+            : {};
+
+      return this.store.createRecord("template", { meta });
     }
 
     await Promise.resolve();
@@ -61,12 +59,15 @@ export default class DmsEditComponent extends Component {
     );
   }
 
-  @dropTask
-  *delete(event) {
+  delete = task({ drop: true }, async (event) => {
     event.preventDefault();
 
+    if (!(await confirm(this.intl.t("dms.delete-confirm")))) {
+      return;
+    }
+
     try {
-      yield this.template.value.destroyRecord();
+      await this.template.value.destroyRecord();
 
       this.router.transitionTo(
         this.ebauModules.resolveModuleRoute("dms-admin", "index"),
@@ -74,14 +75,13 @@ export default class DmsEditComponent extends Component {
     } catch {
       this.notification.danger(this.intl.t("dms.delete-error"));
     }
-  }
+  });
 
-  @dropTask
-  *save(event) {
+  save = task({ drop: true }, async (event) => {
     event.preventDefault();
 
     try {
-      const availablePlaceholders = yield this.fetch.fetch(
+      const availablePlaceholders = await this.fetch.fetch(
         "/api/v1/dms-placeholders-docs?available_placeholders=true",
         {
           headers: { accept: "application/json" },
@@ -89,9 +89,9 @@ export default class DmsEditComponent extends Component {
       );
 
       this.template.value.availablePlaceholders =
-        yield availablePlaceholders.json();
+        await availablePlaceholders.json();
 
-      yield this.template.value.save();
+      await this.template.value.save();
 
       this.router.transitionTo(
         this.ebauModules.resolveModuleRoute("dms-admin", "index"),
@@ -136,5 +136,5 @@ export default class DmsEditComponent extends Component {
         this.notification.danger(this.intl.t("dms.save-error"));
       }
     }
-  }
+  });
 }

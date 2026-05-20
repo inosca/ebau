@@ -4,5 +4,8 @@ DMS = {
             # Leitbehörde RSTA: [ Regierungsstatthalteramt Biel/Bienne ]
             "district": ["rsta-biel-bienne"],
         },
-    }
+    },
+    "kt_sg": {
+        "ENABLE_SYSTEM_TEMPLATE_EDITING": True,
+    },
 }
