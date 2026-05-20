@@ -10,6 +10,7 @@ from importlib import import_module, reload
 from pathlib import Path
 from typing import Callable, Literal, Optional
 from uuid import uuid4
+from django.utils import translation
 
 import django.db
 import faker
@@ -262,6 +263,23 @@ class FakeRequest:
     query_params: dict = field(default_factory=dict)
     META: dict = field(default_factory=dict)
     COOKIES: dict = field(default_factory=dict)
+
+
+@pytest.fixture(autouse=True)
+def set_default_language(settings):
+    """Ensure all tests start and finish with the default language active.
+
+    According to the Django and pytest-django documentation, you must restore the default language,
+    since activating a language is done per thread and can therefore leak into other tests if not reset.
+    This happens for example after performing a request with HTTP_ACCEPT_LANGUAGE.
+
+    See:
+    - https://docs.djangoproject.com/en/6.0/topics/testing/tools/#setting-the-language
+    - https://pytest-django.readthedocs.io/en/latest/faq.html#how-can-i-make-sure-that-all-my-tests-run-with-a-specific-locale
+    """
+    translation.activate(settings.LANGUAGE_CODE)
+    yield
+    translation.activate(settings.LANGUAGE_CODE)
 
 
 @pytest.fixture
