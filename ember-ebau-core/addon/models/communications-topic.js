@@ -15,6 +15,8 @@ export default class CommunicationTopicModel extends Model {
   @belongsTo("instance", { inverse: null, async: true }) instance;
   @belongsTo("user", { inverse: null, async: true }) initiatedBy;
   @hasMany("user", { inverse: null, async: true }) responsibleServiceUsers;
+  @hasMany("instance-mark", { inverse: null, async: true, readOnly: true })
+  instanceMarks;
 
   get instanceIdentifier() {
     if (hasFeature("communications.hideInstanceId")) {

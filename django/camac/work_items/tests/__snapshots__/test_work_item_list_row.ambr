@@ -4,7 +4,7 @@
     'data': list([
       dict({
         'attributes': dict({
-          'applicants': 'Watson, Morgan and Vaughan',
+          'applicants': 'Powers, Duran and Rivas',
           'closed-at': None,
           'deadline': '2025-01-01T01:00:00+01:00',
           'description': 'Überbauung "Westfeld"',
@@ -12,7 +12,7 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              'e6a4abad-0eb7-4180-9698-bd4242b2f359',
+              '6f21a59f-a7d2-4106-96f0-621e4b24c339',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
@@ -34,7 +34,7 @@
           'task': 'from-template-and-read',
           'unread': False,
         }),
-        'id': 'e6a4abad-0eb7-4180-9698-bd4242b2f359',
+        'id': '6f21a59f-a7d2-4106-96f0-621e4b24c339',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -48,19 +48,26 @@
           'closed-by-user': dict({
             'data': None,
           }),
+          'instance-marks': dict({
+            'data': list([
+            ]),
+            'meta': dict({
+              'count': 0,
+            }),
+          }),
         }),
         'type': 'work-item-list-rows',
       }),
       dict({
         'attributes': dict({
-          'applicants': 'Watson, Morgan and Vaughan',
+          'applicants': 'Powers, Duran and Rivas',
           'closed-at': None,
           'deadline': '2025-01-02T01:00:00+01:00',
           'description': 'Überbauung "Westfeld"',
           'direct-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              'song-light',
+              'recognize-effort',
               'no-placeholder',
             ]),
             'route': 'foo.bar.baz',
@@ -68,7 +75,7 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              '3903c38c-dd3c-4d2a-8cc9-cf82d40e4696',
+              '137fcc46-4ad7-462a-aadf-3d45dc89641b',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
@@ -90,7 +97,7 @@
           'task': 'from-task',
           'unread': True,
         }),
-        'id': '3903c38c-dd3c-4d2a-8cc9-cf82d40e4696',
+        'id': '137fcc46-4ad7-462a-aadf-3d45dc89641b',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -104,12 +111,19 @@
           'closed-by-user': dict({
             'data': None,
           }),
+          'instance-marks': dict({
+            'data': list([
+            ]),
+            'meta': dict({
+              'count': 0,
+            }),
+          }),
         }),
         'type': 'work-item-list-rows',
       }),
       dict({
         'attributes': dict({
-          'applicants': 'Watson, Morgan and Vaughan',
+          'applicants': 'Powers, Duran and Rivas',
           'closed-at': None,
           'deadline': '2025-01-03T01:00:00+01:00',
           'description': 'Überbauung "Westfeld"',
@@ -117,7 +131,7 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              'f65e2f08-078f-43d6-ad7d-f78f95bd3374',
+              '57cd4d1c-f77f-4ebd-b1fd-f2acc2f1166e',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
@@ -139,7 +153,7 @@
           'task': 'assigned',
           'unread': True,
         }),
-        'id': 'f65e2f08-078f-43d6-ad7d-f78f95bd3374',
+        'id': '57cd4d1c-f77f-4ebd-b1fd-f2acc2f1166e',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -156,6 +170,13 @@
           'closed-by-user': dict({
             'data': None,
           }),
+          'instance-marks': dict({
+            'data': list([
+            ]),
+            'meta': dict({
+              'count': 0,
+            }),
+          }),
         }),
         'type': 'work-item-list-rows',
       }),
@@ -169,13 +190,13 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              'f3af7352-1e91-4dd2-9009-d8c58e64e33b',
+              'd83c4c7b-e6e0-43f4-8263-6c2a208e69a2',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
           'has-additional-demand': None,
           'instance-id': '<INSTANCE_ID>',
-          'instance-name': 'Frieda Weihmann',
+          'instance-name': 'Hannchen Rädel',
           'is-addressed-to-current-service': True,
           'is-assigned-to-current-user': False,
           'is-controlled-by-current-service': False,
@@ -191,7 +212,7 @@
           'task': 'target-deadline-date',
           'unread': True,
         }),
-        'id': 'f3af7352-1e91-4dd2-9009-d8c58e64e33b',
+        'id': 'd83c4c7b-e6e0-43f4-8263-6c2a208e69a2',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -208,12 +229,19 @@
           'closed-by-user': dict({
             'data': None,
           }),
+          'instance-marks': dict({
+            'data': list([
+            ]),
+            'meta': dict({
+              'count': 0,
+            }),
+          }),
         }),
         'type': 'work-item-list-rows',
       }),
       dict({
         'attributes': dict({
-          'applicants': 'Watson, Morgan and Vaughan',
+          'applicants': 'Powers, Duran and Rivas',
           'closed-at': '2025-07-17T16:33:00+02:00',
           'deadline': '2025-01-07T01:00:00+01:00',
           'description': 'Überbauung "Westfeld"',
@@ -221,7 +249,7 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              '4486ac25-6472-44f6-a83b-461f4c919a15',
+              '1f5feb6e-d6b5-436a-ba3d-25f4f67148d1',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
@@ -243,7 +271,7 @@
           'task': 'completed',
           'unread': True,
         }),
-        'id': '4486ac25-6472-44f6-a83b-461f4c919a15',
+        'id': '1f5feb6e-d6b5-436a-ba3d-25f4f67148d1',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -258,6 +286,13 @@
             'data': dict({
               'id': '<USER_ID>',
               'type': 'public-users',
+            }),
+          }),
+          'instance-marks': dict({
+            'data': list([
+            ]),
+            'meta': dict({
+              'count': 0,
             }),
           }),
         }),
@@ -289,7 +324,7 @@
           'deadline': '2025-01-01T01:00:00+01:00',
           'description': 'Grosses Haus',
           'direct-link': None,
-          'edit-link': '/index/redirect-to-instance-resource/instance-id/<INSTANCE_ID>?instance-resource-name=work-items&ember-hash=/work-items/instances/<INSTANCE_ID>/work-items/ad9052e6-9c09-4704-bb93-e3610ec2bb55',
+          'edit-link': '/index/redirect-to-instance-resource/instance-id/<INSTANCE_ID>?instance-resource-name=work-items&ember-hash=/work-items/instances/<INSTANCE_ID>/work-items/2c626500-fa47-4cc1-9ec6-23a31da54290',
           'has-additional-demand': None,
           'instance-id': '<INSTANCE_ID>',
           'instance-name': 'Baugesuch',
@@ -308,7 +343,7 @@
           'task': 'from-template-and-read',
           'unread': False,
         }),
-        'id': 'ad9052e6-9c09-4704-bb93-e3610ec2bb55',
+        'id': '2c626500-fa47-4cc1-9ec6-23a31da54290',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -322,6 +357,13 @@
           'closed-by-user': dict({
             'data': None,
           }),
+          'instance-marks': dict({
+            'data': list([
+            ]),
+            'meta': dict({
+              'count': 0,
+            }),
+          }),
         }),
         'type': 'work-item-list-rows',
       }),
@@ -331,8 +373,8 @@
           'closed-at': None,
           'deadline': '2025-01-02T01:00:00+01:00',
           'description': 'Grosses Haus',
-          'direct-link': '/index/redirect-to-instance-resource/instance-id/<INSTANCE_ID>?instance-resource-name=foobar&ember-hash=/foobar/song-light',
-          'edit-link': '/index/redirect-to-instance-resource/instance-id/<INSTANCE_ID>?instance-resource-name=work-items&ember-hash=/work-items/instances/<INSTANCE_ID>/work-items/b117dcb4-5103-4929-8481-36fc1acd33e6',
+          'direct-link': '/index/redirect-to-instance-resource/instance-id/<INSTANCE_ID>?instance-resource-name=foobar&ember-hash=/foobar/step-lay-its-now',
+          'edit-link': '/index/redirect-to-instance-resource/instance-id/<INSTANCE_ID>?instance-resource-name=work-items&ember-hash=/work-items/instances/<INSTANCE_ID>/work-items/d1ceed20-8f5a-47cb-bee8-c28190d6f755',
           'has-additional-demand': None,
           'instance-id': '<INSTANCE_ID>',
           'instance-name': 'Baugesuch',
@@ -351,7 +393,7 @@
           'task': 'from-task',
           'unread': True,
         }),
-        'id': 'b117dcb4-5103-4929-8481-36fc1acd33e6',
+        'id': 'd1ceed20-8f5a-47cb-bee8-c28190d6f755',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -365,6 +407,13 @@
           'closed-by-user': dict({
             'data': None,
           }),
+          'instance-marks': dict({
+            'data': list([
+            ]),
+            'meta': dict({
+              'count': 0,
+            }),
+          }),
         }),
         'type': 'work-item-list-rows',
       }),
@@ -375,7 +424,7 @@
           'deadline': '2025-01-03T01:00:00+01:00',
           'description': 'Grosses Haus',
           'direct-link': None,
-          'edit-link': '/index/redirect-to-instance-resource/instance-id/<INSTANCE_ID>?instance-resource-name=work-items&ember-hash=/work-items/instances/<INSTANCE_ID>/work-items/1e61ce0a-f36c-4cc7-a224-59cc4614b397',
+          'edit-link': '/index/redirect-to-instance-resource/instance-id/<INSTANCE_ID>?instance-resource-name=work-items&ember-hash=/work-items/instances/<INSTANCE_ID>/work-items/cf6c9342-1e4d-4ae9-a97a-d3c05aa27cfd',
           'has-additional-demand': None,
           'instance-id': '<INSTANCE_ID>',
           'instance-name': 'Baugesuch',
@@ -394,7 +443,7 @@
           'task': 'assigned',
           'unread': True,
         }),
-        'id': '1e61ce0a-f36c-4cc7-a224-59cc4614b397',
+        'id': 'cf6c9342-1e4d-4ae9-a97a-d3c05aa27cfd',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -411,6 +460,13 @@
           'closed-by-user': dict({
             'data': None,
           }),
+          'instance-marks': dict({
+            'data': list([
+            ]),
+            'meta': dict({
+              'count': 0,
+            }),
+          }),
         }),
         'type': 'work-item-list-rows',
       }),
@@ -421,10 +477,10 @@
           'deadline': '2025-01-06T01:00:00+01:00',
           'description': None,
           'direct-link': None,
-          'edit-link': '/index/redirect-to-instance-resource/instance-id/<INSTANCE_ID>?instance-resource-name=work-items&ember-hash=/work-items/instances/<INSTANCE_ID>/work-items/800e8800-ab90-44d9-a78f-b9044499b359',
+          'edit-link': '/index/redirect-to-instance-resource/instance-id/<INSTANCE_ID>?instance-resource-name=work-items&ember-hash=/work-items/instances/<INSTANCE_ID>/work-items/90adfadf-a680-4b56-985d-a251f1e60580',
           'has-additional-demand': None,
           'instance-id': '<INSTANCE_ID>',
-          'instance-name': 'Rotraud Etzler',
+          'instance-name': 'Brian Hörle',
           'is-addressed-to-current-service': True,
           'is-assigned-to-current-user': False,
           'is-controlled-by-current-service': False,
@@ -440,7 +496,7 @@
           'task': 'target-deadline-date',
           'unread': True,
         }),
-        'id': '800e8800-ab90-44d9-a78f-b9044499b359',
+        'id': '90adfadf-a680-4b56-985d-a251f1e60580',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -457,6 +513,13 @@
           'closed-by-user': dict({
             'data': None,
           }),
+          'instance-marks': dict({
+            'data': list([
+            ]),
+            'meta': dict({
+              'count': 0,
+            }),
+          }),
         }),
         'type': 'work-item-list-rows',
       }),
@@ -467,7 +530,7 @@
           'deadline': '2025-01-07T01:00:00+01:00',
           'description': 'Grosses Haus',
           'direct-link': None,
-          'edit-link': '/index/redirect-to-instance-resource/instance-id/<INSTANCE_ID>?instance-resource-name=work-items&ember-hash=/work-items/instances/<INSTANCE_ID>/work-items/f2a3f58f-695e-4791-83b0-3eb36dc9bf25',
+          'edit-link': '/index/redirect-to-instance-resource/instance-id/<INSTANCE_ID>?instance-resource-name=work-items&ember-hash=/work-items/instances/<INSTANCE_ID>/work-items/ffa7f6a7-eff2-4672-8f2d-cb716a720f8c',
           'has-additional-demand': None,
           'instance-id': '<INSTANCE_ID>',
           'instance-name': 'Baugesuch',
@@ -486,7 +549,7 @@
           'task': 'completed',
           'unread': True,
         }),
-        'id': 'f2a3f58f-695e-4791-83b0-3eb36dc9bf25',
+        'id': 'ffa7f6a7-eff2-4672-8f2d-cb716a720f8c',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -501,6 +564,13 @@
             'data': dict({
               'id': '<USER_ID>',
               'type': 'public-users',
+            }),
+          }),
+          'instance-marks': dict({
+            'data': list([
+            ]),
+            'meta': dict({
+              'count': 0,
             }),
           }),
         }),
@@ -571,6 +641,13 @@
           'closed-by-user': dict({
             'data': None,
           }),
+          'instance-marks': dict({
+            'data': list([
+            ]),
+            'meta': dict({
+              'count': 0,
+            }),
+          }),
         }),
         'type': 'work-item-list-rows',
       }),
@@ -583,7 +660,7 @@
           'direct-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              'song-light',
+              'interest-after-half',
               'no-placeholder',
             ]),
             'route': 'foo.bar.baz',
@@ -626,6 +703,13 @@
           }),
           'closed-by-user': dict({
             'data': None,
+          }),
+          'instance-marks': dict({
+            'data': list([
+            ]),
+            'meta': dict({
+              'count': 0,
+            }),
           }),
         }),
         'type': 'work-item-list-rows',
@@ -679,6 +763,13 @@
           'closed-by-user': dict({
             'data': None,
           }),
+          'instance-marks': dict({
+            'data': list([
+            ]),
+            'meta': dict({
+              'count': 0,
+            }),
+          }),
         }),
         'type': 'work-item-list-rows',
       }),
@@ -730,6 +821,13 @@
           }),
           'closed-by-user': dict({
             'data': None,
+          }),
+          'instance-marks': dict({
+            'data': list([
+            ]),
+            'meta': dict({
+              'count': 0,
+            }),
           }),
         }),
         'type': 'work-item-list-rows',
@@ -783,6 +881,344 @@
               'type': 'public-users',
             }),
           }),
+          'instance-marks': dict({
+            'data': list([
+            ]),
+            'meta': dict({
+              'count': 0,
+            }),
+          }),
+        }),
+        'type': 'work-item-list-rows',
+      }),
+    ]),
+    'links': dict({
+      'first': 'http://testserver/api/v1/work-item-list-rows?page%5Bnumber%5D=1&page%5Bsize%5D=20&role=active',
+      'last': 'http://testserver/api/v1/work-item-list-rows?page%5Bnumber%5D=1&page%5Bsize%5D=20&role=active',
+      'next': None,
+      'prev': None,
+    }),
+    'meta': dict({
+      'pagination': dict({
+        'count': 5,
+        'page': 1,
+        'pages': 1,
+      }),
+    }),
+  })
+# ---
+# name: test_work_item_list_row_list[sg]
+  dict({
+    'data': list([
+      dict({
+        'attributes': dict({
+          'applicants': None,
+          'closed-at': None,
+          'deadline': '2025-01-01T01:00:00+01:00',
+          'description': 'Neues EFH',
+          'direct-link': None,
+          'edit-link': dict({
+            'models': list([
+              '<INSTANCE_ID>',
+              'd0d735af-67e9-4025-adbc-ab2d2f93ad71',
+            ]),
+            'route': 'cases.detail.work-items.edit',
+          }),
+          'has-additional-demand': None,
+          'instance-id': '<INSTANCE_ID>',
+          'instance-name': 'Baugesuch',
+          'is-addressed-to-current-service': True,
+          'is-assigned-to-current-user': False,
+          'is-controlled-by-current-service': False,
+          'is-created-by-current-service': False,
+          'is-manually-completable': False,
+          'is-ready': True,
+          'is-suspended': False,
+          'municipality': None,
+          'process-deadline-date': None,
+          'special-id': '2026-99',
+          'status': 'ready',
+          'target-deadline-date': None,
+          'task': 'from-template-and-read',
+          'unread': False,
+        }),
+        'id': 'd0d735af-67e9-4025-adbc-ab2d2f93ad71',
+        'relationships': dict({
+          'addressed-service': dict({
+            'data': dict({
+              'id': '<SERVICE_ID>',
+              'type': 'public-services',
+            }),
+          }),
+          'assigned-user': dict({
+            'data': None,
+          }),
+          'closed-by-user': dict({
+            'data': None,
+          }),
+          'instance-marks': dict({
+            'data': list([
+              dict({
+                'id': '<INSTANCE_MARK_ID>',
+                'type': 'instance-marks',
+              }),
+            ]),
+            'meta': dict({
+              'count': 1,
+            }),
+          }),
+        }),
+        'type': 'work-item-list-rows',
+      }),
+      dict({
+        'attributes': dict({
+          'applicants': None,
+          'closed-at': None,
+          'deadline': '2025-01-02T01:00:00+01:00',
+          'description': 'Neues EFH',
+          'direct-link': dict({
+            'models': list([
+              '<INSTANCE_ID>',
+              'office-white-part',
+              'no-placeholder',
+            ]),
+            'route': 'foo.bar.baz',
+          }),
+          'edit-link': dict({
+            'models': list([
+              '<INSTANCE_ID>',
+              '0fa71b16-2191-44cb-ae69-8b8f19c33245',
+            ]),
+            'route': 'cases.detail.work-items.edit',
+          }),
+          'has-additional-demand': None,
+          'instance-id': '<INSTANCE_ID>',
+          'instance-name': 'Baugesuch',
+          'is-addressed-to-current-service': True,
+          'is-assigned-to-current-user': False,
+          'is-controlled-by-current-service': False,
+          'is-created-by-current-service': False,
+          'is-manually-completable': False,
+          'is-ready': True,
+          'is-suspended': False,
+          'municipality': None,
+          'process-deadline-date': None,
+          'special-id': '2026-99',
+          'status': 'ready',
+          'target-deadline-date': None,
+          'task': 'from-task',
+          'unread': True,
+        }),
+        'id': '0fa71b16-2191-44cb-ae69-8b8f19c33245',
+        'relationships': dict({
+          'addressed-service': dict({
+            'data': dict({
+              'id': '<SERVICE_ID>',
+              'type': 'public-services',
+            }),
+          }),
+          'assigned-user': dict({
+            'data': None,
+          }),
+          'closed-by-user': dict({
+            'data': None,
+          }),
+          'instance-marks': dict({
+            'data': list([
+              dict({
+                'id': '<INSTANCE_MARK_ID>',
+                'type': 'instance-marks',
+              }),
+            ]),
+            'meta': dict({
+              'count': 1,
+            }),
+          }),
+        }),
+        'type': 'work-item-list-rows',
+      }),
+      dict({
+        'attributes': dict({
+          'applicants': None,
+          'closed-at': None,
+          'deadline': '2025-01-03T01:00:00+01:00',
+          'description': 'Neues EFH',
+          'direct-link': None,
+          'edit-link': dict({
+            'models': list([
+              '<INSTANCE_ID>',
+              'bc7beee0-60bc-435d-8bca-9cc104db9a09',
+            ]),
+            'route': 'cases.detail.work-items.edit',
+          }),
+          'has-additional-demand': None,
+          'instance-id': '<INSTANCE_ID>',
+          'instance-name': 'Baugesuch',
+          'is-addressed-to-current-service': True,
+          'is-assigned-to-current-user': False,
+          'is-controlled-by-current-service': False,
+          'is-created-by-current-service': False,
+          'is-manually-completable': False,
+          'is-ready': True,
+          'is-suspended': False,
+          'municipality': None,
+          'process-deadline-date': None,
+          'special-id': '2026-99',
+          'status': 'ready',
+          'target-deadline-date': None,
+          'task': 'assigned',
+          'unread': True,
+        }),
+        'id': 'bc7beee0-60bc-435d-8bca-9cc104db9a09',
+        'relationships': dict({
+          'addressed-service': dict({
+            'data': dict({
+              'id': '<SERVICE_ID>',
+              'type': 'public-services',
+            }),
+          }),
+          'assigned-user': dict({
+            'data': dict({
+              'id': '<USER_ID>',
+              'type': 'public-users',
+            }),
+          }),
+          'closed-by-user': dict({
+            'data': None,
+          }),
+          'instance-marks': dict({
+            'data': list([
+              dict({
+                'id': '<INSTANCE_MARK_ID>',
+                'type': 'instance-marks',
+              }),
+            ]),
+            'meta': dict({
+              'count': 1,
+            }),
+          }),
+        }),
+        'type': 'work-item-list-rows',
+      }),
+      dict({
+        'attributes': dict({
+          'applicants': None,
+          'closed-at': None,
+          'deadline': '2025-01-06T01:00:00+01:00',
+          'description': None,
+          'direct-link': None,
+          'edit-link': dict({
+            'models': list([
+              '<INSTANCE_ID>',
+              '27ecb100-aa9b-4fbf-8b9c-20dfda71fa6d',
+            ]),
+            'route': 'cases.detail.work-items.edit',
+          }),
+          'has-additional-demand': None,
+          'instance-id': '<INSTANCE_ID>',
+          'instance-name': 'Reinhard Rosemann',
+          'is-addressed-to-current-service': True,
+          'is-assigned-to-current-user': False,
+          'is-controlled-by-current-service': False,
+          'is-created-by-current-service': False,
+          'is-manually-completable': False,
+          'is-ready': True,
+          'is-suspended': False,
+          'municipality': None,
+          'process-deadline-date': None,
+          'special-id': None,
+          'status': 'ready',
+          'target-deadline-date': None,
+          'task': 'target-deadline-date',
+          'unread': True,
+        }),
+        'id': '27ecb100-aa9b-4fbf-8b9c-20dfda71fa6d',
+        'relationships': dict({
+          'addressed-service': dict({
+            'data': dict({
+              'id': '<SERVICE_ID>',
+              'type': 'public-services',
+            }),
+          }),
+          'assigned-user': dict({
+            'data': dict({
+              'id': '<USER_ID>',
+              'type': 'public-users',
+            }),
+          }),
+          'closed-by-user': dict({
+            'data': None,
+          }),
+          'instance-marks': dict({
+            'data': list([
+            ]),
+            'meta': dict({
+              'count': 0,
+            }),
+          }),
+        }),
+        'type': 'work-item-list-rows',
+      }),
+      dict({
+        'attributes': dict({
+          'applicants': None,
+          'closed-at': '2025-07-17T16:33:00+02:00',
+          'deadline': '2025-01-07T01:00:00+01:00',
+          'description': 'Neues EFH',
+          'direct-link': None,
+          'edit-link': dict({
+            'models': list([
+              '<INSTANCE_ID>',
+              '4b4cfe27-551c-4dd9-9a7b-5821058465df',
+            ]),
+            'route': 'cases.detail.work-items.edit',
+          }),
+          'has-additional-demand': None,
+          'instance-id': '<INSTANCE_ID>',
+          'instance-name': 'Baugesuch',
+          'is-addressed-to-current-service': True,
+          'is-assigned-to-current-user': False,
+          'is-controlled-by-current-service': False,
+          'is-created-by-current-service': False,
+          'is-manually-completable': False,
+          'is-ready': False,
+          'is-suspended': False,
+          'municipality': None,
+          'process-deadline-date': None,
+          'special-id': '2026-99',
+          'status': 'completed',
+          'target-deadline-date': None,
+          'task': 'completed',
+          'unread': True,
+        }),
+        'id': '4b4cfe27-551c-4dd9-9a7b-5821058465df',
+        'relationships': dict({
+          'addressed-service': dict({
+            'data': dict({
+              'id': '<SERVICE_ID>',
+              'type': 'public-services',
+            }),
+          }),
+          'assigned-user': dict({
+            'data': None,
+          }),
+          'closed-by-user': dict({
+            'data': dict({
+              'id': '<USER_ID>',
+              'type': 'public-users',
+            }),
+          }),
+          'instance-marks': dict({
+            'data': list([
+              dict({
+                'id': '<INSTANCE_MARK_ID>',
+                'type': 'instance-marks',
+              }),
+            ]),
+            'meta': dict({
+              'count': 1,
+            }),
+          }),
         }),
         'type': 'work-item-list-rows',
       }),
@@ -815,7 +1251,7 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              'e259a1ce-513d-4d11-82e0-3f706136b90d',
+              '0747dd9b-7e54-4176-91a8-43ce7e19a708',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
@@ -837,7 +1273,7 @@
           'task': 'from-template-and-read',
           'unread': False,
         }),
-        'id': 'e259a1ce-513d-4d11-82e0-3f706136b90d',
+        'id': '0747dd9b-7e54-4176-91a8-43ce7e19a708',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -851,6 +1287,13 @@
           'closed-by-user': dict({
             'data': None,
           }),
+          'instance-marks': dict({
+            'data': list([
+            ]),
+            'meta': dict({
+              'count': 0,
+            }),
+          }),
         }),
         'type': 'work-item-list-rows',
       }),
@@ -863,7 +1306,7 @@
           'direct-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              'song-light',
+              'film-foot-sea-in-ok',
               'no-placeholder',
             ]),
             'route': 'foo.bar.baz',
@@ -871,7 +1314,7 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              'b2525a05-a6be-41fe-b3f3-9d69182bfc5f',
+              '5fb9447f-5011-481e-a4db-833fde884254',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
@@ -893,7 +1336,7 @@
           'task': 'from-task',
           'unread': True,
         }),
-        'id': 'b2525a05-a6be-41fe-b3f3-9d69182bfc5f',
+        'id': '5fb9447f-5011-481e-a4db-833fde884254',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -906,6 +1349,13 @@
           }),
           'closed-by-user': dict({
             'data': None,
+          }),
+          'instance-marks': dict({
+            'data': list([
+            ]),
+            'meta': dict({
+              'count': 0,
+            }),
           }),
         }),
         'type': 'work-item-list-rows',
@@ -920,7 +1370,7 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              '4f1e9a28-cbf7-43e8-a8c2-e40cc59b9c00',
+              'f1286bb7-b61a-4a61-ab17-8ef53c05d8d6',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
@@ -942,7 +1392,7 @@
           'task': 'assigned',
           'unread': True,
         }),
-        'id': '4f1e9a28-cbf7-43e8-a8c2-e40cc59b9c00',
+        'id': 'f1286bb7-b61a-4a61-ab17-8ef53c05d8d6',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -959,6 +1409,13 @@
           'closed-by-user': dict({
             'data': None,
           }),
+          'instance-marks': dict({
+            'data': list([
+            ]),
+            'meta': dict({
+              'count': 0,
+            }),
+          }),
         }),
         'type': 'work-item-list-rows',
       }),
@@ -972,13 +1429,13 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              'e16767f2-7e17-4238-9d75-06d12ba44b9e',
+              'f3965190-cae7-49dd-a5ff-aad827920ebb',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
           'has-additional-demand': None,
           'instance-id': '<INSTANCE_ID>',
-          'instance-name': 'Hartwig Jähn',
+          'instance-name': 'Anneke Stroh MBA.',
           'is-addressed-to-current-service': True,
           'is-assigned-to-current-user': False,
           'is-controlled-by-current-service': False,
@@ -994,7 +1451,7 @@
           'task': 'target-deadline-date',
           'unread': True,
         }),
-        'id': 'e16767f2-7e17-4238-9d75-06d12ba44b9e',
+        'id': 'f3965190-cae7-49dd-a5ff-aad827920ebb',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -1011,6 +1468,13 @@
           'closed-by-user': dict({
             'data': None,
           }),
+          'instance-marks': dict({
+            'data': list([
+            ]),
+            'meta': dict({
+              'count': 0,
+            }),
+          }),
         }),
         'type': 'work-item-list-rows',
       }),
@@ -1024,7 +1488,7 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              'f7cc257b-5263-4f6e-9e6b-0cc0570622d5',
+              'a7f6b785-e2d2-4abd-bd61-856b4fdc9205',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
@@ -1046,7 +1510,7 @@
           'task': 'completed',
           'unread': True,
         }),
-        'id': 'f7cc257b-5263-4f6e-9e6b-0cc0570622d5',
+        'id': 'a7f6b785-e2d2-4abd-bd61-856b4fdc9205',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -1061,6 +1525,13 @@
             'data': dict({
               'id': '<USER_ID>',
               'type': 'public-users',
+            }),
+          }),
+          'instance-marks': dict({
+            'data': list([
+            ]),
+            'meta': dict({
+              'count': 0,
             }),
           }),
         }),
@@ -1095,7 +1566,7 @@
           'edit-link': '/index/redirect-to-instance-resource/instance-id/<INSTANCE_ID>?instance-resource-name=work-items&ember-hash=/work-items/instances/<INSTANCE_ID>/work-items/1134e1b7-1eb9-4c61-844e-9a372d94446a',
           'has-additional-demand': None,
           'instance-id': '<INSTANCE_ID>',
-          'instance-name': 'Joseph Fisher',
+          'instance-name': 'Peter Alvarez',
           'is-addressed-to-current-service': True,
           'is-assigned-to-current-user': False,
           'is-controlled-by-current-service': False,
@@ -1125,6 +1596,13 @@
           'closed-by-user': dict({
             'data': None,
           }),
+          'instance-marks': dict({
+            'data': list([
+            ]),
+            'meta': dict({
+              'count': 0,
+            }),
+          }),
         }),
         'type': 'work-item-list-rows',
       }),
@@ -1134,11 +1612,11 @@
           'closed-at': None,
           'deadline': '2025-01-02T01:00:00+01:00',
           'description': 'Grosses Haus',
-          'direct-link': '/index/redirect-to-instance-resource/instance-id/<INSTANCE_ID>?instance-resource-name=foobar&ember-hash=/foobar/song-light',
+          'direct-link': '/index/redirect-to-instance-resource/instance-id/<INSTANCE_ID>?instance-resource-name=foobar&ember-hash=/foobar/fight-around',
           'edit-link': '/index/redirect-to-instance-resource/instance-id/<INSTANCE_ID>?instance-resource-name=work-items&ember-hash=/work-items/instances/<INSTANCE_ID>/work-items/5f09ecd4-a91b-434c-bbc9-6d9b97155e5b',
           'has-additional-demand': None,
           'instance-id': '<INSTANCE_ID>',
-          'instance-name': 'Joseph Fisher',
+          'instance-name': 'Peter Alvarez',
           'is-addressed-to-current-service': True,
           'is-assigned-to-current-user': False,
           'is-controlled-by-current-service': False,
@@ -1168,6 +1646,13 @@
           'closed-by-user': dict({
             'data': None,
           }),
+          'instance-marks': dict({
+            'data': list([
+            ]),
+            'meta': dict({
+              'count': 0,
+            }),
+          }),
         }),
         'type': 'work-item-list-rows',
       }),
@@ -1181,7 +1666,7 @@
           'edit-link': '/index/redirect-to-instance-resource/instance-id/<INSTANCE_ID>?instance-resource-name=work-items&ember-hash=/work-items/instances/<INSTANCE_ID>/work-items/b4f7ab09-3ac3-47de-801e-f6d1090527b3',
           'has-additional-demand': None,
           'instance-id': '<INSTANCE_ID>',
-          'instance-name': 'Joseph Fisher',
+          'instance-name': 'Peter Alvarez',
           'is-addressed-to-current-service': True,
           'is-assigned-to-current-user': False,
           'is-controlled-by-current-service': False,
@@ -1213,6 +1698,13 @@
           }),
           'closed-by-user': dict({
             'data': None,
+          }),
+          'instance-marks': dict({
+            'data': list([
+            ]),
+            'meta': dict({
+              'count': 0,
+            }),
           }),
         }),
         'type': 'work-item-list-rows',
@@ -1260,6 +1752,13 @@
           'closed-by-user': dict({
             'data': None,
           }),
+          'instance-marks': dict({
+            'data': list([
+            ]),
+            'meta': dict({
+              'count': 0,
+            }),
+          }),
         }),
         'type': 'work-item-list-rows',
       }),
@@ -1273,7 +1772,7 @@
           'edit-link': '/index/redirect-to-instance-resource/instance-id/<INSTANCE_ID>?instance-resource-name=work-items&ember-hash=/work-items/instances/<INSTANCE_ID>/work-items/add8d762-57eb-4788-863d-9104ae1d97df',
           'has-additional-demand': None,
           'instance-id': '<INSTANCE_ID>',
-          'instance-name': 'Joseph Fisher',
+          'instance-name': 'Peter Alvarez',
           'is-addressed-to-current-service': True,
           'is-assigned-to-current-user': False,
           'is-controlled-by-current-service': False,
@@ -1304,6 +1803,13 @@
             'data': dict({
               'id': '<USER_ID>',
               'type': 'public-users',
+            }),
+          }),
+          'instance-marks': dict({
+            'data': list([
+            ]),
+            'meta': dict({
+              'count': 0,
             }),
           }),
         }),
@@ -1368,6 +1874,13 @@
           'closed-by-user': dict({
             'data': None,
           }),
+          'instance-marks': dict({
+            'data': list([
+            ]),
+            'meta': dict({
+              'count': 0,
+            }),
+          }),
         }),
         'type': 'work-item-list-rows',
       }),
@@ -1377,7 +1890,7 @@
           'closed-at': None,
           'deadline': '2025-01-02T01:00:00+01:00',
           'description': 'Grosses Haus',
-          'direct-link': '/index/redirect-to-instance-resource/instance-id/<INSTANCE_ID>?instance-resource-name=foobar&ember-hash=/foobar/song-light',
+          'direct-link': '/index/redirect-to-instance-resource/instance-id/<INSTANCE_ID>?instance-resource-name=foobar&ember-hash=/foobar/exactly-close',
           'edit-link': '/index/redirect-to-instance-resource/instance-id/<INSTANCE_ID>?instance-resource-name=work-items&ember-hash=/work-items/instances/<INSTANCE_ID>/work-items/6f21a59f-a7d2-4106-96f0-621e4b24c339',
           'has-additional-demand': False,
           'instance-id': '<INSTANCE_ID>',
@@ -1410,6 +1923,13 @@
           }),
           'closed-by-user': dict({
             'data': None,
+          }),
+          'instance-marks': dict({
+            'data': list([
+            ]),
+            'meta': dict({
+              'count': 0,
+            }),
           }),
         }),
         'type': 'work-item-list-rows',
@@ -1457,6 +1977,13 @@
           'closed-by-user': dict({
             'data': None,
           }),
+          'instance-marks': dict({
+            'data': list([
+            ]),
+            'meta': dict({
+              'count': 0,
+            }),
+          }),
         }),
         'type': 'work-item-list-rows',
       }),
@@ -1502,6 +2029,13 @@
           }),
           'closed-by-user': dict({
             'data': None,
+          }),
+          'instance-marks': dict({
+            'data': list([
+            ]),
+            'meta': dict({
+              'count': 0,
+            }),
           }),
         }),
         'type': 'work-item-list-rows',
@@ -1549,6 +2083,13 @@
               'type': 'public-users',
             }),
           }),
+          'instance-marks': dict({
+            'data': list([
+            ]),
+            'meta': dict({
+              'count': 0,
+            }),
+          }),
         }),
         'type': 'work-item-list-rows',
       }),
@@ -1591,6 +2132,13 @@
           }),
           'closed-by-user': dict({
             'data': None,
+          }),
+          'instance-marks': dict({
+            'data': list([
+            ]),
+            'meta': dict({
+              'count': 0,
+            }),
           }),
         }),
         'type': 'work-item-list-rows',

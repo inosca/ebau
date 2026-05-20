@@ -21,6 +21,7 @@ from camac.document import models as document_models, permissions
 from camac.instance.models import Instance
 from camac.instance.views import InstanceView
 from camac.permissions.api import PermissionManager
+from camac.tags.models import InstanceMark
 from camac.user import models as user_models
 from camac.user.permissions import get_role_name
 from camac.user.relations import CurrentUserResourceRelatedField
@@ -177,6 +178,12 @@ class TopicSerializer(serializers.ModelSerializer):
     dossier_number = serializers.CharField(read_only=True)
     last_message_date = serializers.DateTimeField(read_only=True)
     initiated_by_entity = EntityField(required=False)
+    instance_marks = relations.ResourceRelatedField(
+        source="instance.instance_marks",
+        model=InstanceMark,
+        read_only=True,
+        many=True,
+    )
 
     responsible_service_users = relations.SerializerMethodResourceRelatedField(
         source="get_responsible_service_users",
@@ -321,6 +328,7 @@ class TopicSerializer(serializers.ModelSerializer):
         "messages": "camac.communications.serializers.MessageSerializer",
         "initiated_by": UserSerializer,
         "instance": "camac.instance.serializers.InstanceSerializer",
+        "instance_marks": "camac.tags.serializers.InstanceMarkSerializer",
     }
 
     def validate(self, data):
@@ -342,6 +350,7 @@ class TopicSerializer(serializers.ModelSerializer):
         model = models.CommunicationsTopic
         fields = [
             "instance",
+            "instance_marks",
             "initiated_by",
             "subject",
             "created",

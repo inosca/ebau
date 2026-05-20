@@ -17,6 +17,10 @@
           <LinkTo @route={{@row.link.route}} @models={{@row.link.models}}>
             {{@row.task}}
           </LinkTo>
+          <InstanceMarks::Icons
+            @instanceMarks={{@row.instanceMarks}}
+            class="uk-margin-small-left"
+          />
         {{/if}}
       {{else if (eq column "description")}}
         <span

@@ -96,6 +96,10 @@
         {{#unless @instanceId}}
           <td class="uk-text-nowrap" data-test-dossier-number>
             {{topic.instanceIdentifier}}
+            <InstanceMarks::Icons
+              @instanceMarks={{topic.instanceMarks}}
+              class="uk-margin-small-left"
+            />
           </td>
         {{/unless}}
         <td data-test-subject>{{topic.subject}}</td>

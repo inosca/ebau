@@ -175,8 +175,16 @@ export default class WorkItemsGlobalController extends Controller {
         fields: ["assigned_user", "addressed_service"],
         include: ["assigned_user", "addressed_service"],
       },
-      task: { fields: ["task", "direct_link", "edit_link"] },
+      task: {
+        fields: ["task", "direct_link", "edit_link"],
+        include: [],
+      },
     };
+
+    if (hasFeature("instanceMarks")) {
+      columnToField.task.fields.push("instance_marks");
+      columnToField.task.include.push("instance_marks");
+    }
 
     const used = Object.entries(columnToField).filter(
       ([column]) => this.columns.includes(column) || column === "__all__",

@@ -555,3 +555,29 @@ def test_validate_mime_type_alternative_mime_for_zip(
 
     with expectation:
         validate_mime_type(file)
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+def test_display_of_instance_marks(
+    db, admin_client, instance_mark_factory, topic_with_admin_involved
+):
+    instance_mark = instance_mark_factory()
+    topic_with_admin_involved.instance.instance_marks.add(instance_mark)
+
+    resp = admin_client.get(
+        reverse("communications-topic-list"),
+        data={
+            "include": "instance_marks",
+            "page[number]": "1",
+            "page[size]": "20",
+            "sort": "-last_message_date",
+        },
+    )
+    assert resp.status_code == status.HTTP_200_OK
+    data = resp.json()
+    expected_relationship = {
+        "data": [{"id": str(instance_mark.pk), "type": "instance-marks"}],
+        "meta": {"count": 1},
+    }
+    assert data["data"][0]["relationships"]["instance-marks"] == expected_relationship
+    assert data["included"][0]["id"] == str(instance_mark.pk)

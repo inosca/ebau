@@ -242,6 +242,9 @@ class WorkItemListRowManager(models.Manager["WorkItemListRow"]):
 
         queryset = (
             queryset.select_related("task")
+            # Needed for the `instance_marks` property
+            .select_related("case__family__instance")
+            .prefetch_related("case__family__instance__instance_marks")
             .filter(deadline__isnull=False)
             .annotate(
                 instance_id=F("case__family__instance__pk"),
@@ -579,6 +582,10 @@ class WorkItemListRow(WorkItem):
                 },
             }
         )
+
+    @property
+    def instance_marks(self):
+        return self.case.family.instance.instance_marks
 
     def _compose_link(self, config):
         if settings.APPLICATION["INTERNAL_FRONTEND"] == "camac":
