@@ -63,7 +63,9 @@ class TopicView(InvolvedInTopicQuerysetMixin, InstanceQuerysetMixin, ModelViewSe
     search_fields = ["subject"]
     ordering_fields = ["created", "last_message_date"]
     ordering = "-created"
-    queryset = models.CommunicationsTopic.objects
+    queryset = models.CommunicationsTopic.objects.select_related(
+        "instance"
+    ).prefetch_related("instance__instance_marks")
 
     def _annotate_has_unread(self, qs):
         """Annotate the given queryset, so it has a `has_unread` boolean flag.

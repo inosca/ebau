@@ -45,6 +45,10 @@ def normalize_response(response):
             row["relationships"]["assigned-user"]["data"]["id"] = "<USER_ID>"
         if row["relationships"]["closed-by-user"]["data"] is not None:
             row["relationships"]["closed-by-user"]["data"]["id"] = "<USER_ID>"
+        if row["relationships"]["instance-marks"]["data"]:
+            row["relationships"]["instance-marks"]["data"][0]["id"] = (
+                "<INSTANCE_MARK_ID>"
+            )
 
     return response
 
@@ -125,6 +129,7 @@ def setup_work_item_list(
     caluma_task_factory,
     caluma_case_factory,
     instance_factory,
+    instance_mark_factory,
     work_item_template_factory,
     work_item_list_filter_preset,
     instance_deadline_factory,
@@ -136,6 +141,8 @@ def setup_work_item_list(
         request.getfixturevalue(f"set_application_{canton.lower()}")
 
         application_settings = request.getfixturevalue("application_settings")
+
+        master_data_case = request.getfixturevalue(f"{canton.lower()}_master_data_case")
 
         task = caluma_task_factory(
             meta={
@@ -221,6 +228,11 @@ def setup_work_item_list(
                 deadline="2026-01-07",
             )
 
+        if canton == "sg":
+            # add instance mark
+            instance_mark = instance_mark_factory()
+            master_data_case.instance.instance_marks.add(instance_mark)
+
         # because the target deadline date is set on the instance,
         # we need to create a new instance for this work item.
         target_deadline_instance = instance_factory(case=caluma_case_factory())
@@ -235,10 +247,6 @@ def setup_work_item_list(
         )
 
         if settings.DEADLINES.enabled:
-            master_data_case = request.getfixturevalue(
-                f"{canton.lower()}_master_data_case"
-            )
-
             instance_deadline_factory(
                 instance=master_data_case.family.instance,
                 start_date="2025-01-02",
@@ -271,7 +279,7 @@ def test_work_item_list_row_list_no_pagination(
 
 
 @pytest.mark.freeze_time("2025-07-17 14:33")
-@pytest.mark.parametrize("canton", ["ag", "so", "gr", "sz", "ur", "be"])
+@pytest.mark.parametrize("canton", ["sg", "ag", "so", "gr", "sz", "ur", "be"])
 def test_work_item_list_row_list(
     admin_client,
     canton,
@@ -281,7 +289,7 @@ def test_work_item_list_row_list(
 ):
     setup_work_item_list(canton)
 
-    with django_assert_num_queries(6):
+    with django_assert_num_queries(7):
         response = admin_client.get(
             reverse("work-item-list-row-list"),
             {"page[number]": 1, "page[size]": 20, "role": "active"},
@@ -435,7 +443,7 @@ def test_work_item_list_row_list_ordering(
         if sort is not None:
             params["sort"] = sort
 
-        with django_assert_num_queries(6) as captured:
+        with django_assert_num_queries(7) as captured:
             response = admin_client.get(reverse("work-item-list-row-list"), params)
 
         select_query = captured.captured_queries[2]["sql"]

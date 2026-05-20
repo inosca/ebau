@@ -5,6 +5,7 @@ import { tracked } from "@glimmer/tracking";
 import { trackedFunction } from "reactiveweb/function";
 import { dedupeTracked } from "tracked-toolbox";
 
+import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 import paginatedQuery from "ember-ebau-core/resources/paginated";
 
 export default class CommunicationTopicListComponent extends Component {
@@ -79,6 +80,7 @@ export default class CommunicationTopicListComponent extends Component {
       size: 20,
     },
     sort: "-last_message_date",
+    include: hasFeature("instanceMarks") ? "instance_marks" : undefined,
   }));
 
   @action

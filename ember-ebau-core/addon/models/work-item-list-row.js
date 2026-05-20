@@ -1,7 +1,7 @@
 import { action } from "@ember/object";
 import { service } from "@ember/service";
 import { htmlSafe } from "@ember/template";
-import Model, { attr, belongsTo } from "@ember-data/model";
+import Model, { attr, belongsTo, hasMany } from "@ember-data/model";
 
 import mainConfig from "ember-ebau-core/config/main";
 
@@ -39,6 +39,8 @@ export default class WorkItemListRowModel extends Model {
   assignedUser;
   @belongsTo("public-user", { inverse: null, async: true, readOnly: true })
   closedByUser;
+  @hasMany("instance-mark", { inverse: null, async: true, readOnly: true })
+  instanceMarks;
 
   get link() {
     if (!this.isAddressedToCurrentService) {

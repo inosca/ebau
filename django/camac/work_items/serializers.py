@@ -1,7 +1,8 @@
 from caluma.caluma_workflow.models import Task
-from rest_framework_json_api import serializers
+from rest_framework_json_api import relations, serializers
 
 from camac import request_cache
+from camac.tags.models import InstanceMark
 from camac.work_items.models import (
     WorkItemListFilterPreset,
     WorkItemListRow,
@@ -101,11 +102,15 @@ class WorkItemListRowSerializer(serializers.ModelSerializer):
     addressed_service = CalumaServiceRelatedField()
     assigned_user = CalumaUserRelatedField()
     closed_by_user = CalumaUserRelatedField()
+    instance_marks = relations.ResourceRelatedField(
+        model=InstanceMark, read_only=True, many=True
+    )
 
     included_serializers = {
         "addressed_service": "camac.user.serializers.PublicServiceSerializer",
         "assigned_user": "camac.user.serializers.PublicUserSerializer",
         "closed_by_user": "camac.user.serializers.PublicUserSerializer",
+        "instance_marks": "camac.tags.serializers.InstanceMarkSerializer",
     }
 
     class Meta:
@@ -122,6 +127,7 @@ class WorkItemListRowSerializer(serializers.ModelSerializer):
             "edit_link",
             "has_additional_demand",
             "instance_id",
+            "instance_marks",
             "instance_name",
             "is_addressed_to_current_service",
             "is_assigned_to_current_user",
