@@ -100,12 +100,12 @@
     "pk": "069b2c0c-4405-7425-8000-520f67e80f9c",
     "fields": {
       "created_at": "2026-03-12T13:33:56.251Z",
-      "modified_at": "2026-03-12T13:34:20.236Z",
+      "modified_at": "2026-05-20T07:40:28.264Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
-      "family": "069958a6-7204-712c-8000-71d5f39de78c",
+      "family": "069b2c0c-4405-7425-8000-520f67e80f9c",
       "form": "parzellen-tabelle",
       "source": null,
       "meta": {}
@@ -116,10 +116,42 @@
     "pk": "069b2c11-e19f-7184-8000-9814bb96b302",
     "fields": {
       "created_at": "2026-03-12T13:35:26.101Z",
-      "modified_at": "2026-03-12T13:35:34.506Z",
+      "modified_at": "2026-05-20T07:41:16.655Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "family": "069b2c11-e19f-7184-8000-9814bb96b302",
+      "form": "parzellen-tabelle",
+      "source": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "caluma_form.document",
+    "pk": "06a0d656-c319-77c0-8000-ccd0ede75f2f",
+    "fields": {
+      "created_at": "2026-05-20T07:40:28.193Z",
+      "modified_at": "2026-05-20T07:40:28.305Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "family": "069958a6-7204-712c-8000-71d5f39de78c",
+      "form": "parzellen-tabelle",
+      "source": null,
+      "meta": {}
+    }
+  },
+  {
+    "model": "caluma_form.document",
+    "pk": "06a0d659-c93a-71a4-8000-ef2023c68768",
+    "fields": {
+      "created_at": "2026-05-20T07:41:16.576Z",
+      "modified_at": "2026-05-20T07:41:16.704Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "modified_by_user": null,
       "modified_by_group": null,
       "family": "069958b2-a456-7aa9-8000-932e12fc8dc3",
       "form": "parzellen-tabelle",
@@ -404,14 +436,16 @@
     "pk": "069958af-6ebe-7769-8000-8f83e4effae3",
     "fields": {
       "created_at": "2026-02-18T09:48:38.921Z",
-      "modified_at": "2026-02-18T09:48:38.921Z",
+      "modified_at": "2026-05-20T07:40:28.170Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "gemeinde",
       "value": "3",
-      "meta": {},
+      "meta": {
+        "gis-value": "3"
+      },
       "document": "069958a6-7204-712c-8000-71d5f39de78c",
       "date": null
     }
@@ -676,14 +710,16 @@
     "pk": "069958b6-4d62-74ec-8000-b003d701ad28",
     "fields": {
       "created_at": "2026-02-18T09:50:28.836Z",
-      "modified_at": "2026-02-18T09:50:28.836Z",
+      "modified_at": "2026-05-20T07:41:16.546Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "gemeinde",
       "value": "3",
-      "meta": {},
+      "meta": {
+        "gis-value": "3"
+      },
       "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
       "date": null
     }
@@ -829,14 +865,16 @@
     "pk": "069b2c0d-c39e-726f-8000-f956f44574c6",
     "fields": {
       "created_at": "2026-03-12T13:34:20.226Z",
-      "modified_at": "2026-03-12T13:34:20.226Z",
+      "modified_at": "2026-05-20T07:40:28.278Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "parzellen",
       "value": null,
-      "meta": {},
+      "meta": {
+        "gis-value": ["06a0d656-c319-77c0-8000-ccd0ede75f2f"]
+      },
       "document": "069958a6-7204-712c-8000-71d5f39de78c",
       "date": null
     }
@@ -965,14 +1003,16 @@
     "pk": "069b2c12-67fb-7f76-8000-799def719923",
     "fields": {
       "created_at": "2026-03-12T13:35:34.499Z",
-      "modified_at": "2026-03-12T13:35:34.499Z",
+      "modified_at": "2026-05-20T07:41:16.671Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": null,
       "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "modified_by_group": null,
       "question": "parzellen",
       "value": null,
-      "meta": {},
+      "meta": {
+        "gis-value": ["06a0d659-c93a-71a4-8000-ef2023c68768"]
+      },
       "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
       "date": null
     }
@@ -1335,6 +1375,752 @@
     }
   },
   {
+    "model": "caluma_form.answer",
+    "pk": "06a0d647-37d3-7c4c-8000-f5dca7e79a88",
+    "fields": {
+      "created_at": "2026-05-20T07:36:19.489Z",
+      "modified_at": "2026-05-20T07:36:19.489Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "vorhaben",
+      "value": ["vorhaben-nutzungs-zwecksaenderung"],
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d647-a6ae-771f-8000-39ec992c9688",
+    "fields": {
+      "created_at": "2026-05-20T07:36:26.417Z",
+      "modified_at": "2026-05-20T07:36:26.417Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "heizungssystem-erneuert-oder-veraendert",
+      "value": "heizungssystem-erneuert-oder-veraendert-nein",
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d647-b144-76f5-8000-8e6c5ea86056",
+    "fields": {
+      "created_at": "2026-05-20T07:36:27.079Z",
+      "modified_at": "2026-05-20T07:36:27.079Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "stromerzeugung-oder-windanlage-installiert-oder-veraendert",
+      "value": "stromerzeugung-oder-windanlage-installiert-oder-veraendert-nein",
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d647-c13f-7407-8000-d75ffe045a6c",
+    "fields": {
+      "created_at": "2026-05-20T07:36:28.078Z",
+      "modified_at": "2026-05-20T07:36:28.078Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "lueftung-klima-installiert-oder-veraendert",
+      "value": "lueftung-klima-installiert-oder-veraendert-nein",
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d647-cb7c-70eb-8000-a08e11405e34",
+    "fields": {
+      "created_at": "2026-05-20T07:36:28.718Z",
+      "modified_at": "2026-05-20T07:36:28.718Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "wasserkraftanlage-erneruert-oder-veraendert",
+      "value": "wasserkraftanlage-erneruert-oder-veraendert-nein",
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d647-ec61-78c0-8000-b07a4840a656",
+    "fields": {
+      "created_at": "2026-05-20T07:36:30.774Z",
+      "modified_at": "2026-05-20T07:36:30.774Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "wurde-das-bau-bzw-abbruchobjekt-vor-1990-erstellt",
+      "value": "wurde-das-bau-bzw-abbruchobjekt-vor-1990-erstellt-nein",
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d647-f467-7eeb-8000-7dcb525a46b6",
+    "fields": {
+      "created_at": "2026-05-20T07:36:31.275Z",
+      "modified_at": "2026-05-20T07:36:31.275Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werden-mehr-als-200-m3-bauabfaelle-oder-aushub-anfallen",
+      "value": "werden-mehr-als-200-m3-bauabfaelle-oder-aushub-anfallen-nein",
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d648-05b9-7e05-8000-c0576ebed01c",
+    "fields": {
+      "created_at": "2026-05-20T07:36:32.358Z",
+      "modified_at": "2026-05-20T07:36:32.358Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "ist-der-standort-im-pruefgebiet-bodenverschiebungen",
+      "value": "ist-der-standort-im-pruefgebiet-bodenverschiebungen-nein",
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d648-321c-70a8-8000-8366ccd45782",
+    "fields": {
+      "created_at": "2026-05-20T07:36:35.132Z",
+      "modified_at": "2026-05-20T07:36:36.906Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "anschluss-an-oeffentliche-schmutzwasserkanalisation-vorhanden",
+      "value": "anschluss-an-oeffentliche-schmutzwasserkanalisation-vorhanden-ja",
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d648-6af2-7311-8000-66de2635921b",
+    "fields": {
+      "created_at": "2026-05-20T07:36:38.684Z",
+      "modified_at": "2026-05-20T07:36:38.684Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "regenwasser",
+      "value": "regenwasser-nein",
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d648-8f41-70d9-8000-9d197905a19e",
+    "fields": {
+      "created_at": "2026-05-20T07:36:40.953Z",
+      "modified_at": "2026-05-20T07:36:40.953Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zusaetzliche-parkplaetze-oder-mehrverkehr",
+      "value": "zusaetzliche-parkplaetze-oder-mehrverkehr-nein",
+      "meta": {},
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d649-58d6-7e8b-8000-c63be76e20e6",
+    "fields": {
+      "created_at": "2026-05-20T07:36:53.552Z",
+      "modified_at": "2026-05-20T07:36:53.552Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "vorhaben",
+      "value": ["vorhaben-nutzungs-zwecksaenderung"],
+      "meta": {},
+      "document": "069958a6-7204-712c-8000-71d5f39de78c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d649-7e98-76da-8000-f8024ed31226",
+    "fields": {
+      "created_at": "2026-05-20T07:36:55.912Z",
+      "modified_at": "2026-05-20T07:36:55.912Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "heizungssystem-erneuert-oder-veraendert",
+      "value": "heizungssystem-erneuert-oder-veraendert-nein",
+      "meta": {},
+      "document": "069958a6-7204-712c-8000-71d5f39de78c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d649-8812-761e-8000-9d831d98e4cf",
+    "fields": {
+      "created_at": "2026-05-20T07:36:56.504Z",
+      "modified_at": "2026-05-20T07:36:56.504Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "stromerzeugung-oder-windanlage-installiert-oder-veraendert",
+      "value": "stromerzeugung-oder-windanlage-installiert-oder-veraendert-nein",
+      "meta": {},
+      "document": "069958a6-7204-712c-8000-71d5f39de78c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d649-9217-79d6-8000-c53ec54e16d6",
+    "fields": {
+      "created_at": "2026-05-20T07:36:57.131Z",
+      "modified_at": "2026-05-20T07:36:57.131Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "lueftung-klima-installiert-oder-veraendert",
+      "value": "lueftung-klima-installiert-oder-veraendert-nein",
+      "meta": {},
+      "document": "069958a6-7204-712c-8000-71d5f39de78c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d649-9dfb-72cc-8000-60eead2108df",
+    "fields": {
+      "created_at": "2026-05-20T07:36:57.874Z",
+      "modified_at": "2026-05-20T07:36:57.874Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "wasserkraftanlage-erneruert-oder-veraendert",
+      "value": "wasserkraftanlage-erneruert-oder-veraendert-nein",
+      "meta": {},
+      "document": "069958a6-7204-712c-8000-71d5f39de78c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d649-cab1-7f0b-8000-d2803c32c37e",
+    "fields": {
+      "created_at": "2026-05-20T07:37:00.668Z",
+      "modified_at": "2026-05-20T07:37:00.668Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "ist-der-standort-im-pruefgebiet-bodenverschiebungen",
+      "value": "ist-der-standort-im-pruefgebiet-bodenverschiebungen-nein",
+      "meta": {},
+      "document": "069958a6-7204-712c-8000-71d5f39de78c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d649-d325-7d7e-8000-edbffd472ef1",
+    "fields": {
+      "created_at": "2026-05-20T07:37:01.197Z",
+      "modified_at": "2026-05-20T07:37:01.197Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "wurde-das-bau-bzw-abbruchobjekt-vor-1990-erstellt",
+      "value": "wurde-das-bau-bzw-abbruchobjekt-vor-1990-erstellt-nein",
+      "meta": {},
+      "document": "069958a6-7204-712c-8000-71d5f39de78c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d649-db8a-772b-8000-322ddf3b4a1b",
+    "fields": {
+      "created_at": "2026-05-20T07:37:01.721Z",
+      "modified_at": "2026-05-20T07:37:01.721Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "werden-mehr-als-200-m3-bauabfaelle-oder-aushub-anfallen",
+      "value": "werden-mehr-als-200-m3-bauabfaelle-oder-aushub-anfallen-nein",
+      "meta": {},
+      "document": "069958a6-7204-712c-8000-71d5f39de78c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d649-f2c5-70b7-8000-5dca276f6219",
+    "fields": {
+      "created_at": "2026-05-20T07:37:03.173Z",
+      "modified_at": "2026-05-20T07:37:03.173Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "anschluss-an-oeffentliche-schmutzwasserkanalisation-vorhanden",
+      "value": "anschluss-an-oeffentliche-schmutzwasserkanalisation-vorhanden-ja",
+      "meta": {},
+      "document": "069958a6-7204-712c-8000-71d5f39de78c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d649-ffc8-72a3-8000-cbe8151ee0d0",
+    "fields": {
+      "created_at": "2026-05-20T07:37:03.986Z",
+      "modified_at": "2026-05-20T07:37:03.986Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "regenwasser",
+      "value": "regenwasser-nein",
+      "meta": {},
+      "document": "069958a6-7204-712c-8000-71d5f39de78c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d64a-1ef4-7f47-8000-b288e67a262b",
+    "fields": {
+      "created_at": "2026-05-20T07:37:05.935Z",
+      "modified_at": "2026-05-20T07:37:05.935Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zusaetzliche-parkplaetze-oder-mehrverkehr",
+      "value": "zusaetzliche-parkplaetze-oder-mehrverkehr-nein",
+      "meta": {},
+      "document": "069958a6-7204-712c-8000-71d5f39de78c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d656-c33c-7fce-8000-ef8752e7b7aa",
+    "fields": {
+      "created_at": "2026-05-20T07:40:28.202Z",
+      "modified_at": "2026-05-20T07:40:28.202Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "e-grid-nr",
+      "value": "CH527812875944",
+      "meta": {
+        "gis-value": "CH527812875944"
+      },
+      "document": "06a0d656-c319-77c0-8000-ccd0ede75f2f",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d656-c373-7424-8000-6ce89bd48cb8",
+    "fields": {
+      "created_at": "2026-05-20T07:40:28.215Z",
+      "modified_at": "2026-05-20T07:40:28.215Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "parzellennummer",
+      "value": "C0622",
+      "meta": {
+        "gis-value": "C0622"
+      },
+      "document": "06a0d656-c319-77c0-8000-ccd0ede75f2f",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d656-c3ac-79d1-8000-05071aa01a78",
+    "fields": {
+      "created_at": "2026-05-20T07:40:28.229Z",
+      "modified_at": "2026-05-20T07:40:28.229Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "grundbuchkreis",
+      "value": "SG0200320300",
+      "meta": {
+        "gis-value": "SG0200320300"
+      },
+      "document": "06a0d656-c319-77c0-8000-ccd0ede75f2f",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d656-c3e0-70aa-8000-15480594bbe4",
+    "fields": {
+      "created_at": "2026-05-20T07:40:28.242Z",
+      "modified_at": "2026-05-20T07:40:28.242Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "grundstueckflaeche",
+      "value": 43,
+      "meta": {
+        "gis-value": 43
+      },
+      "document": "06a0d656-c319-77c0-8000-ccd0ede75f2f",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d656-c6f9-7335-8000-c5168398a818",
+    "fields": {
+      "created_at": "2026-05-20T07:40:28.436Z",
+      "modified_at": "2026-05-20T07:40:28.436Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zonenplan",
+      "value": "BauG Bestimmte Nutzungsart Art 28oct, BauG Kernzone Altstadt",
+      "meta": {
+        "gis-value": "BauG Bestimmte Nutzungsart Art 28oct, BauG Kernzone Altstadt"
+      },
+      "document": "069958a6-7204-712c-8000-71d5f39de78c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d656-c728-7003-8000-125e217d1e70",
+    "fields": {
+      "created_at": "2026-05-20T07:40:28.447Z",
+      "modified_at": "2026-05-20T07:40:28.447Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "gewaesserschutzbereich",
+      "value": "",
+      "meta": {
+        "gis-value": ""
+      },
+      "document": "069958a6-7204-712c-8000-71d5f39de78c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d656-c75a-7605-8000-8394e4937c20",
+    "fields": {
+      "created_at": "2026-05-20T07:40:28.459Z",
+      "modified_at": "2026-05-20T07:40:28.460Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "sondernutzungsplan",
+      "value": "Sondernutzungsplan vor BauG",
+      "meta": {
+        "gis-value": "Sondernutzungsplan vor BauG"
+      },
+      "document": "069958a6-7204-712c-8000-71d5f39de78c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d656-c7ab-751b-8000-7b6b7d04dcc6",
+    "fields": {
+      "created_at": "2026-05-20T07:40:28.479Z",
+      "modified_at": "2026-05-20T07:40:28.479Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kbs",
+      "value": "kbs-nein",
+      "meta": {
+        "gis-value": "kbs-nein"
+      },
+      "document": "069958a6-7204-712c-8000-71d5f39de78c",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d657-47d7-7810-8000-0c5bd990bfb2",
+    "fields": {
+      "created_at": "2026-05-20T07:40:36.490Z",
+      "modified_at": "2026-05-20T07:40:36.490Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "parzellen-plz",
+      "value": 9000,
+      "meta": {},
+      "document": "06a0d656-c319-77c0-8000-ccd0ede75f2f",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d657-77d4-7775-8000-3f9f0bd3a104",
+    "fields": {
+      "created_at": "2026-05-20T07:40:39.489Z",
+      "modified_at": "2026-05-20T07:40:39.489Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "ort",
+      "value": "St. Gallen",
+      "meta": {},
+      "document": "06a0d656-c319-77c0-8000-ccd0ede75f2f",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d659-c965-71f0-8000-62460fabbf80",
+    "fields": {
+      "created_at": "2026-05-20T07:41:16.587Z",
+      "modified_at": "2026-05-20T07:41:16.587Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "e-grid-nr",
+      "value": "CH215934877838",
+      "meta": {
+        "gis-value": "CH215934877838"
+      },
+      "document": "06a0d659-c93a-71a4-8000-ef2023c68768",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d659-c99a-7a09-8000-d604f309d2dd",
+    "fields": {
+      "created_at": "2026-05-20T07:41:16.600Z",
+      "modified_at": "2026-05-20T07:41:16.600Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "parzellennummer",
+      "value": "C3476",
+      "meta": {
+        "gis-value": "C3476"
+      },
+      "document": "06a0d659-c93a-71a4-8000-ef2023c68768",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d659-c9c6-7dcb-8000-1e57ad5d2a18",
+    "fields": {
+      "created_at": "2026-05-20T07:41:16.611Z",
+      "modified_at": "2026-05-20T07:41:16.611Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "grundbuchkreis",
+      "value": "SG0200320300",
+      "meta": {
+        "gis-value": "SG0200320300"
+      },
+      "document": "06a0d659-c93a-71a4-8000-ef2023c68768",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d659-ca07-7697-8000-1636583b3f10",
+    "fields": {
+      "created_at": "2026-05-20T07:41:16.627Z",
+      "modified_at": "2026-05-20T07:41:16.627Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "grundstueckflaeche",
+      "value": 244,
+      "meta": {
+        "gis-value": 244
+      },
+      "document": "06a0d659-c93a-71a4-8000-ef2023c68768",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d659-cdbc-7d75-8000-4f1fdd128c70",
+    "fields": {
+      "created_at": "2026-05-20T07:41:16.858Z",
+      "modified_at": "2026-05-20T07:41:16.858Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "zonenplan",
+      "value": "BauG Wohnzone W4a",
+      "meta": {
+        "gis-value": "BauG Wohnzone W4a"
+      },
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d659-cdf8-73a1-8000-9ec79fae6073",
+    "fields": {
+      "created_at": "2026-05-20T07:41:16.873Z",
+      "modified_at": "2026-05-20T07:41:16.873Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "gewaesserschutzbereich",
+      "value": "",
+      "meta": {
+        "gis-value": ""
+      },
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d659-ce2b-7567-8000-9d7608af44af",
+    "fields": {
+      "created_at": "2026-05-20T07:41:16.885Z",
+      "modified_at": "2026-05-20T07:41:16.885Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "sondernutzungsplan",
+      "value": "Baulinie (Verkehr) (Bauten und Anlagen), Baulinie (Weitere) (Bauten und Anlagen), Sondernutzungsplan vor BauG",
+      "meta": {
+        "gis-value": "Baulinie (Verkehr) (Bauten und Anlagen), Baulinie (Weitere) (Bauten und Anlagen), Sondernutzungsplan vor BauG"
+      },
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d659-ce88-75dc-8000-1fbe93c597e6",
+    "fields": {
+      "created_at": "2026-05-20T07:41:16.908Z",
+      "modified_at": "2026-05-20T07:41:16.908Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "kbs",
+      "value": "kbs-nein",
+      "meta": {
+        "gis-value": "kbs-nein"
+      },
+      "document": "069958b2-a456-7aa9-8000-932e12fc8dc3",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d65a-2a3b-7ec4-8000-f9b9f0d5544a",
+    "fields": {
+      "created_at": "2026-05-20T07:41:22.639Z",
+      "modified_at": "2026-05-20T07:41:22.639Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "parzellen-plz",
+      "value": 9000,
+      "meta": {},
+      "document": "06a0d659-c93a-71a4-8000-ef2023c68768",
+      "date": null
+    }
+  },
+  {
+    "model": "caluma_form.answer",
+    "pk": "06a0d65a-5ebf-7c47-8000-a39c40fb0755",
+    "fields": {
+      "created_at": "2026-05-20T07:41:25.922Z",
+      "modified_at": "2026-05-20T07:41:25.922Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "modified_by_group": null,
+      "question": "ort",
+      "value": "St. Gallen",
+      "meta": {},
+      "document": "06a0d659-c93a-71a4-8000-ef2023c68768",
+      "date": null
+    }
+  },
+  {
     "model": "caluma_form.answerdocument",
     "pk": "069958ac-ecfc-76ba-8000-59c4790b3758",
     "fields": {
@@ -1366,31 +2152,31 @@
   },
   {
     "model": "caluma_form.answerdocument",
-    "pk": "069b2c0d-c3bc-7f7a-8000-326ebd0633a2",
+    "pk": "06a0d656-c4c6-798c-8000-eab1c1626d37",
     "fields": {
-      "created_at": "2026-03-12T13:34:20.233Z",
-      "modified_at": "2026-03-12T13:34:20.233Z",
+      "created_at": "2026-05-20T07:40:28.298Z",
+      "modified_at": "2026-05-20T07:40:28.298Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "answer": "069b2c0d-c39e-726f-8000-f956f44574c6",
-      "document": "069b2c0c-4405-7425-8000-520f67e80f9c",
+      "document": "06a0d656-c319-77c0-8000-ccd0ede75f2f",
       "sort": 1
     }
   },
   {
     "model": "caluma_form.answerdocument",
-    "pk": "069b2c12-680b-7511-8000-83076146d4d9",
+    "pk": "06a0d659-cb1e-7e09-8000-16acdfc1f2a4",
     "fields": {
-      "created_at": "2026-03-12T13:35:34.502Z",
-      "modified_at": "2026-03-12T13:35:34.502Z",
+      "created_at": "2026-05-20T07:41:16.695Z",
+      "modified_at": "2026-05-20T07:41:16.695Z",
       "created_by_user": null,
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
       "answer": "069b2c12-67fb-7f76-8000-799def719923",
-      "document": "069b2c11-e19f-7184-8000-9814bb96b302",
+      "document": "06a0d659-c93a-71a4-8000-ef2023c68768",
       "sort": 1
     }
   },
