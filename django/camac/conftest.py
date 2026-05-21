@@ -2491,6 +2491,7 @@ def ag_master_data_case(
 @pytest.fixture
 def sg_master_data_case(
     db,
+    caluma_work_item_factory,
     form_utils: FormUtils,
     instance_service_factory,
     master_data_is_visible_mock,
@@ -2524,6 +2525,14 @@ def sg_master_data_case(
     form_utils.add_table_answer(
         document, "gesuchstellerin", [sg_personal_row_factory()]
     )
+    form_utils.add_table_answer(
+        document, "projektverfasserin", [sg_personal_row_factory(True)]
+    )
+    form_utils.add_table_answer(
+        document,
+        "grundeigentuemerin",
+        [sg_personal_row_factory(), sg_personal_row_factory(True)],
+    )
 
     # Municipality
     municipality = service_factory(
@@ -2534,6 +2543,10 @@ def sg_master_data_case(
     )
     form_utils.add_municipality(document, "gemeinde", municipality)
     instance_service_factory(instance=sg_instance, service=municipality, active=1)
+
+    # Decision
+    decision = caluma_work_item_factory(task_id="decision", case=sg_instance.case)
+    form_utils.add_answer(decision.document, "entscheid-datum", date(2026, 5, 18))
 
     return sg_instance.case
 
