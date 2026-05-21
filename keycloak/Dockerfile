@@ -24,6 +24,9 @@ COPY keycloak-2fa-sms-authenticator/src ./src
 
 RUN ["./mvnw", "package"]
 
+# stage 1b: build spi-token (only used in keycloak-v26)
+FROM eclipse-temurin:17-jdk-jammy AS builder-token
+
 WORKDIR /spi-token
 
 COPY themes/.mvn/ .mvn
@@ -56,8 +59,6 @@ ENV KCISPN_HOSTS=localhost[7800]
 COPY themes /tmp/themes
 COPY --from=builder /theme/target/keycloak-themes-inosca-ebau.jar /opt/keycloak/providers/keycloak-themes-inosca-ebau.jar
 COPY --from=builder /spi-sms/target/dasniko.keycloak-2fa-sms-authenticator.jar /opt/keycloak/providers/dasniko.keycloak-2fa-sms-authenticator.jar
-COPY --from=builder /spi-token/target/inosca.ebau-token-exchange.jar /opt/keycloak/providers/inosca.ebau-token-exchange.jar
-
 COPY cache-ispn-tcpstatic.xml /opt/keycloak/conf/cache-ispn-tcpstatic.xml
 
 COPY custom-entrypoint.sh /opt/keycloak/bin/
@@ -80,6 +81,8 @@ CMD ["start", "--optimized"]
 #       target: keycloak-v26
 # ````
 FROM keycloak-builder AS keycloak-v26
+
+COPY --from=builder-token /spi-token/target/inosca.ebau-token-exchange.jar /opt/keycloak/providers/inosca.ebau-token-exchange.jar
 
 # For existing cantons that are not upgraded yet we use the keycloak-v25 build target
 # to still add the ENV variable.
