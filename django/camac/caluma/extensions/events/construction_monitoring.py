@@ -58,20 +58,28 @@ def construction_step_can_continue(work_item):
     ):
         return True  # pragma: no cover
 
-    needs_approval_question = work_item.meta["construction-step"].get("needs-approval")
+    needs_approval_question_slug = work_item.meta["construction-step"].get(
+        "needs-approval"
+    )
 
-    if not needs_approval_question:
+    if not needs_approval_question_slug:
         return True
 
+    needs_approval_question = Question.objects.get(pk=needs_approval_question_slug)
     answer_is_approved = (
-        work_item.document.answers.filter(question_id=needs_approval_question)
+        work_item.document.answers.filter(question_id=needs_approval_question_slug)
         .values_list("value", flat=True)
         .first()
     )
 
-    construction_step_is_approved = f"{needs_approval_question}-yes"
+    approved_answer_slugs = [
+        f"{needs_approval_question_slug}-{approved_answer}"
+        for approved_answer in needs_approval_question.meta.get(
+            "approved-answers", ["yes"]
+        )
+    ]
 
-    return answer_is_approved == construction_step_is_approved
+    return answer_is_approved in approved_answer_slugs
 
 
 def can_perform_construction_monitoring(instance):
