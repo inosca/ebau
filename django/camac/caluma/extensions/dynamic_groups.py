@@ -129,6 +129,17 @@ class CustomDynamicGroups(BaseDynamicGroups):
     def resolve_geometer(self, task, case, user, prev_work_item, context, **kwargs):
         # the geometer in construction monitoring work items can resolve to
         # the responsible service based on a form question answer.
+        geometers = instance_utils.get_municipality_provider_services(
+            case.family.instance, ServiceRelation.FUNCTION_GEOMETER
+        )
+        return [str(geometer.pk) for geometer in geometers]
+
+    @register_dynamic_group("geometer_schnurgeruestabnahme")
+    def resolve_geometer_schnurgeruestabnahme(
+        self, task, case, user, prev_work_item, context, **kwargs
+    ):
+        # the geometer in construction monitoring work items can resolve to
+        # the responsible service based on a form question answer.
         construction_settings = settings.CONSTRUCTION_MONITORING
         if (
             construction_settings
@@ -151,10 +162,9 @@ class CustomDynamicGroups(BaseDynamicGroups):
                     return self._get_responsible_service(case, "municipality", context)
 
         # otherwise resolve geometer normally.
-        geometers = instance_utils.get_municipality_provider_services(
-            case.family.instance, ServiceRelation.FUNCTION_GEOMETER
+        return self.resolve_geometer(
+            task, case, user, prev_work_item, context, **kwargs
         )
-        return [str(geometer.pk) for geometer in geometers]
 
     @register_dynamic_group("gebaudeversicherung")
     def resolve_gebaudeversicherung(

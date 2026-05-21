@@ -1126,7 +1126,7 @@
         "construction-step-id": "construction-step-schnurgeruestabnahme",
         "is-actionable-for-control": false
       },
-      "address_groups": "['geometer', 'municipality']|groups",
+      "address_groups": "['geometer_schnurgeruestabnahme', 'municipality']|groups",
       "control_groups": "['municipality']|groups",
       "is_archived": false,
       "form": "construction-step-schnurgeruest-kontrollieren",
