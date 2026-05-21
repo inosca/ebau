@@ -126,7 +126,10 @@ DOSSIER_IMPORT = {
         "WRITER_CLASS": "camac.dossier_import.config.kt_gr.KtGraubundenDossierWriter",
         "INSTANCE_STATE_MAPPING": {
             "SUBMITTED": "subm",
-            "APPROVED": "construction-acceptance",
+            # Note: while construction monitoring is not active, this will be `construction-acceptance`
+            # instead.
+            # See django/camac/dossier_import/config/kt_gr.py::create_instance
+            "APPROVED": "decided",
             "REJECTED": "rejected",
             "WRITTEN OFF": "withdrawn",
             "DONE": "finished",

@@ -101,7 +101,7 @@
     "pk": 120010,
     "fields": {
       "name": "construction-acceptance",
-      "sort": 6,
+      "sort": 7,
       "description": ""
     }
   },
@@ -110,7 +110,7 @@
     "pk": 120011,
     "fields": {
       "name": "rejected",
-      "sort": 7,
+      "sort": 8,
       "description": ""
     }
   },
@@ -119,7 +119,7 @@
     "pk": 120012,
     "fields": {
       "name": "withdrawn",
-      "sort": 8,
+      "sort": 9,
       "description": null
     }
   },
@@ -128,7 +128,16 @@
     "pk": 120013,
     "fields": {
       "name": "withdrawal",
-      "sort": 9,
+      "sort": 10,
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestate",
+    "pk": 120014,
+    "fields": {
+      "name": "decided",
+      "sort": 6,
       "description": null
     }
   },
@@ -329,6 +338,26 @@
       "instance_state": 120013,
       "language": "it",
       "name": "Per ritirarsi",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120053,
+    "fields": {
+      "instance_state": 120014,
+      "language": "de",
+      "name": "Entschieden",
+      "description": null
+    }
+  },
+  {
+    "model": "instance.instancestatet",
+    "pk": 120054,
+    "fields": {
+      "instance_state": 120014,
+      "language": "it",
+      "name": "Deciso",
       "description": null
     }
   }

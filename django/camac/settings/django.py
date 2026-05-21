@@ -2314,6 +2314,7 @@ APPLICATIONS = {
                     "rejected": "rejected",
                     "withdrawal": "withdrawn",
                     "withdrawn": "withdrawn",
+                    "decided": "decided",
                 },
                 "DEFAULT": "inProcedure",
             },

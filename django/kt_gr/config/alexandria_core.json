@@ -30,6 +30,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -42,6 +43,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -54,6 +56,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -66,6 +69,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -77,6 +81,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -126,6 +131,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -145,6 +151,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -157,6 +164,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -168,6 +176,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -192,6 +201,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -204,6 +214,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -216,6 +227,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -228,6 +240,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -239,6 +252,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -254,6 +268,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -266,6 +281,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -285,6 +301,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -296,6 +313,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -343,6 +361,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -355,6 +374,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -367,6 +387,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -378,6 +399,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -422,6 +444,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -434,6 +457,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -446,6 +470,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -458,6 +483,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -469,6 +495,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -580,7 +607,7 @@
               {
                 "scope": "Service",
                 "condition": {
-                  "InstanceState": ["construction-acceptance"]
+                  "InstanceState": ["decided", "construction-acceptance"]
                 },
                 "permission": "delete"
               }
@@ -616,6 +643,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -639,6 +667,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -651,6 +680,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -671,6 +701,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -684,6 +715,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -695,6 +727,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -712,6 +745,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -784,6 +818,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -799,6 +834,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -812,6 +848,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -824,6 +861,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -836,6 +874,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -847,6 +886,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -862,6 +902,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -882,6 +923,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -894,6 +936,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -914,6 +957,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -927,6 +971,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -938,6 +983,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -949,6 +995,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -1163,6 +1210,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -1175,6 +1223,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -1187,6 +1236,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -1199,6 +1249,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -1210,6 +1261,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -1250,6 +1302,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -1262,6 +1315,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -1274,6 +1328,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -1286,6 +1341,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -1297,6 +1353,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -1321,6 +1378,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -1333,6 +1391,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -1345,6 +1404,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -1357,6 +1417,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -1368,6 +1429,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -1383,6 +1445,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -1403,6 +1466,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -1415,6 +1479,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -1426,6 +1491,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2051,6 +2117,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2062,6 +2129,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2074,6 +2142,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2086,6 +2155,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2106,6 +2176,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2119,6 +2190,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2130,6 +2202,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2147,6 +2220,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2180,6 +2254,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2195,6 +2270,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2208,6 +2284,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2220,6 +2297,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2232,6 +2310,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2243,6 +2322,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2258,6 +2338,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2278,6 +2359,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2290,6 +2372,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2310,6 +2393,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2323,6 +2407,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2334,6 +2419,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2345,6 +2431,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2397,6 +2484,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2418,6 +2506,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2431,6 +2520,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2443,6 +2533,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2454,6 +2545,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2466,6 +2558,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2477,6 +2570,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2494,6 +2588,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2530,6 +2625,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2542,6 +2638,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2559,6 +2656,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2574,6 +2672,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2586,6 +2685,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2597,6 +2697,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2609,6 +2710,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2620,6 +2722,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2635,6 +2738,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2656,6 +2760,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2669,6 +2774,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2681,6 +2787,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2693,6 +2800,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2704,6 +2812,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2715,6 +2824,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2734,6 +2844,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2780,6 +2891,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2792,6 +2904,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2809,6 +2922,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2820,6 +2934,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2845,6 +2960,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2857,6 +2973,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2869,6 +2986,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2881,6 +2999,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2929,6 +3048,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2941,6 +3061,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2953,6 +3074,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -2965,6 +3087,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -3079,6 +3202,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -3098,6 +3222,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -3110,6 +3235,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -3121,6 +3247,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -3138,6 +3265,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },
@@ -3150,6 +3278,7 @@
                   "~InstanceState": [
                     "rejected",
                     "finished",
+                    "decided",
                     "construction-acceptance"
                   ]
                 },

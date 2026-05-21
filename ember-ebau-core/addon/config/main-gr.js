@@ -14,6 +14,7 @@ export default {
     subm: 120004,
     circulation: 120005,
     decision: 120007,
+    decided: 120014,
     correction: 120008,
     "init-distribution": 120009,
     rejected: 120011,
@@ -32,6 +33,7 @@ export default {
     120007, // decision
     120008, // correction
     120009, // init-distribution
+    120014, // decided
     120010, // construction-acceptance
     120011, // rejected
   ],

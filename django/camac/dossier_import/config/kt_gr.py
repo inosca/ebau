@@ -110,10 +110,16 @@ class KtGraubundenDossierWriter(DossierWriter):
     )
 
     def create_instance(self, dossier: Dossier) -> Instance:
+        # Todo: remove this clause when construction monitoring is on production.
+        instance_state_mapping = settings.DOSSIER_IMPORT["INSTANCE_STATE_MAPPING"]
+        if (
+            not settings.CONSTRUCTION_MONITORING
+            or not settings.CONSTRUCTION_MONITORING.get("ENABLED", False)
+        ):  # pragma: no cover
+            instance_state_mapping["APPROVED"] = "construction-acceptance"
+
         instance_state = InstanceState.objects.get(
-            name=settings.DOSSIER_IMPORT["INSTANCE_STATE_MAPPING"].get(
-                dossier._meta.target_state
-            )
+            name=instance_state_mapping.get(dossier._meta.target_state)
         )
 
         creation_data = dict(

@@ -48,6 +48,7 @@ module.exports = function (environment) {
     rejected: 120011,
     withdrawn: 120012,
     withdrawal: 120013,
+    decided: 120014,
   };
   const instanceStatesAg = {
     new: 1,
@@ -453,7 +454,10 @@ module.exports = function (environment) {
           instanceStatesGr.inCorrection,
           instanceStatesGr.decision,
         ],
-        decided: [instanceStatesGr.constructionAcceptance],
+        decided: [
+          instanceStatesGr.decided,
+          instanceStatesGr.constructionAcceptance,
+        ],
         done: [
           instanceStatesGr.finished,
           instanceStatesGr.rejected,
