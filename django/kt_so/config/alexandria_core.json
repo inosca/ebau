@@ -601,9 +601,6 @@
           "municipality-read": {
             "visibility": "all"
           },
-          "geometer": {
-            "visibility": "all"
-          },
           "cantonal-subservice": {
             "visibility": "all",
             "permissions": [
