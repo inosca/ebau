@@ -46,19 +46,19 @@
       // file, run the command and copy the new tokens from the output file into
       // the variables below.
       const userToken =
-        "eyJhbGciOiJkaXIiLCJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2Q0JDLUhTNTEyIiwidHlwIjoiSldUIn0..bDBgGxphjFoZvhaaBcevzQ.1RbT3i-suNsDejTz8DEI6uMw73RQj3zgrw6dnmKGZh4jqL1AlQgcxhDfIxG_-FS_onYEYnxEYgd0LgJo_SgJIcnDDVSwHtW5xKI8Hi5Y_MOoEbP2zQSvyUsu2d_70kou-exV56uF2A9h35yQAJnVqqmiuPaJ7x50XdAhWXA8XGtwCPh50XASsY2EicziFl01_WIBvshvawNctCTF8OQSiWxW5m_Wel7iANMrK_ay7ak2-tYlcBWUuK3JzIjzUcx4M0cM8K5JI6UApivtky5TaaeTCrOsUQayGsEhwt9VHmx9jnFU3IVHOlxm0zOENFfNClm7etfxibUkrUSEXWy_9DH62rGWWJd09cVGhr9WrqUlb82tgGvJhVytWc2_fndCA91l9U1ZsDPizvOo8JxyJxnTVFfK-Tu68ClkqGDujvwlasiGcLz7Dx6VmKJRKjERkxjkouOD0z9XZHDNQTm71w.R-KbhHmkP0TwBmHR3FRYaaP5sB9wbYXxWVHFSLpDUVM";
+        "eyJhbGciOiJkaXIiLCJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2Q0JDLUhTNTEyIiwidHlwIjoiSldUIn0..vK0oKmc3_nXBatwif9cdOA.BSGK33lhDncupa6jKeVykbyR-u6m34QRMLoTWRzqW6e7wjsKDY_RWaE-wN2f0LEKisy7yM3dDOdirqrrtJ-lhi7SKRdLsK7X1-MT1ltY-zD8WnJr9dONY-lFNhao-NOXi87o11Yvt1JIXEqC7vPRIdUxItMqrU8IEpn-jyLUEsfkZqMOP8xZqIaseW-pnjWvkOImO6i38Sm2uwPiJWQt3Sy5a21KKA3tiBoQYnjHqaf7cxGJc_Kfz3LUrdJMfCwe8pXvMtV9Edo071oVLunz5QhN2_43hIIBM6seVFIlIB6w3p8rJXBwMIbw5ho5MgFz1kvbXm5Ha2QK4f_3CFyEeBEUfJmxUeDmp2DVjScd5yiCxSP4CfWovi8AwdHjihtNLjdll8rixEnd3xpFskwaS4Al6NZ3LaGMC4ZSDZpM1cMs5pZzDWBsHfUUOEhIQ8zMmyV9GulPCS1scPc8RbZgzw.Eo3tsq-ZT_aQ_xclvEwImTb8L6FWV89XzCUPhTu8Ya8";
       const companyToken =
-        "eyJhbGciOiJkaXIiLCJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2Q0JDLUhTNTEyIiwidHlwIjoiSldUIn0..MMResun-Z9Yhjgdl_Ad9eQ.9f_-VNbL5DAVZRKaPOqV9HazCRmrDU9tK84y8I5H1f0IL5niuy2X-fq-3aXsQEh8nku2JlX6kjgkfGTp7qNrrSmMq7jYEOLvlRjP4ofmbXj8vbFkMMKAyHIrRX40BW67CQIEl2E0UrfgoMTN4xB6gFi8Pes3A_v9GNHeDNojhOHMaVgznd-8DiKtl11O_zuDWbd-Ri-RDwo6GNebDjKmf6w0z9QGGPRXXfp3f70SkHhAiw_21qS6XC9QgcXTQbmekoX6YA8YdnQhDKhJzRUJ7NpccOYwoVxZrCuX9gDZaLBN87LvN9r5ZviWLVZfP1Cf2ZIrJessfxx0s5EOd3U657E6sZhxEEddj_EQqfKsha4YYQJiqvvIBDJOKKH-uRfpoP7Q24qtj6aeB_-J5CYhFus27hwQA_nAh9kJVuiMhOQA20fYxA08WP-arfL32rQw-o41z4KWjPIuw6qN0zvNwg.20-feFSwZCO8pSDwbyRUw4076vc2dwiIFL4w7LSdbIg";
+        "eyJhbGciOiJkaXIiLCJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2Q0JDLUhTNTEyIiwidHlwIjoiSldUIn0..XR1fWXsNSLovgVzEQpK4iA.JcEt9bPNrJvQjfTS8pgM1ug3EgKDgujSjm-_33UeVZCohA3s3YrkpQVhC-nG4MLtCzfecAJVpUGZGDifrUe1RB0KXK4In0BT384pzSnl1k0tqH0b6JtV7pZEjKHD4yaCHwwNedSKsNdTtjb7Lfa8FJC3Gi5edl0MV9RkDEAMopW9PexHj01B9ZLLAPAmIVPif3zZvvIuYhgxalMsiaLldLA8G2oti0f5Brcn6G5axaipj_g6z308SycG1Pk8GhsrW4-beQfmyf63ppagZmHCQHlk1IvYim-1HwesIbdu1YUnAQuhT56VIHQAxifWF2eyf7v3FXZkmmTCy4yRpxau0xqqJxNJ0mitUmiqdEWPYax8IC-dgENlIuzUL2et-D7lO261CFleAyY4V8GNdV2hx9qDfIrBxPa6dy2KiyHppW3FimLnjAMG-XUnNYlCmxyW4BrnbJJpY2RH8EA1db41zg.NM5EnNxIYwlUAJe2hzNg-F9AF4rfaEcTRZOkC94qsaI";
       const userTokenLoT0 =
-        "eyJhbGciOiJkaXIiLCJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2Q0JDLUhTNTEyIiwidHlwIjoiSldUIn0..C5nAi63rXSJTjBaXNF0GHw.ezcJwePJBRnsRIULwECO8Y0Vj7ROKVGu6gr57XVNCq0qL6qKeXypu2xUNgABTSivMhzDkgSkpw2uns0Ow2xkjwu4PyL66l3l51nZkmpy5NP3gM7sWIpLwq3HdN6jcldxHgOITgrcD_5E5yYLNy1lq13d20t7k84o8bA3xKdUOwWM41cTehOq1aUfMUTdSNdwlTQ3u5ktor6hoAVCAjrMNlxaXszBd6-hOMI6u3Bmrwo87gMNWErnqozrcgrZARXu7vGqigSkIAZ7n0xQ_p_i7AsXNd82XOK3uKvlw5DDJ9J4HFzf84XGj_VHdWwKGqaQclPP3LxshgTycn06JVp3eh9_IL7WYSCSzCb8QuVHhPyKVmrPLhFcN2cpRIqcwrfsvDKPnkCILsQFOuFcIKpz0FTuy4C5_0a2UeVV9yPPUkYTlgzVfAIpJAmFDquS_YkGr2mm0CiPYMl3leaCrMci9Q.vr9nO-V4-HOzZZ46W5d5kbC7EVZlDAq6qBaalC11PzY";
+        "eyJhbGciOiJkaXIiLCJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2Q0JDLUhTNTEyIiwidHlwIjoiSldUIn0..KUpsn4b3bah6SCqwtsdy6g.Q4Qai1-JmBBkdR6f8wxbPAXy5G-XGIkbV0LDt_BrIdnR-dXvCQPmpMR6vwzaByBECW0HR0xAgXvVC0jlGerTIXcR7xK1nploZSHDsLQhuWpxvSMt6fE0usnS7W1FofFz7dhuYHhtGY9n3Ci2Y4c2jmpUPrlx29ogtDr3a79U9AlUbgRsYy9pYQaVmZqVKlO2YsM8vxS3JJi6rDgSEG3oT-J9tYy2UG8X2HDB2vwAwK4e1aXIvG8khPZ7O9rv8RSSzL4A-uVqvNbqkQO5VdlwhlWycn2tlU7mxC-TdK7Ghkg-VFCM7-FbOBzs8QHxiDTvsXeeK5OfXIAa4Kusx2aE_qiy4V2bL6YEc0x5Hutgnwcu4rIFTYWDtyEV5LKrvaGe9bvZ5_ONbbAr_MelAbbrndjkbCbznKMYBNaIz6DArvicS8OV1fci7E4yYLvA1TH8Anm_O_CO90e57zR9fTqlUw._86J4pP8f1xNyC3o1sNDhgB_LaIq4AFzq9R4Dq8GoAk";
 
       const mapping = {
         1: (url) => `${url}?token=${userToken}`,
-        2: (url) => `${url}?nextURL=/public-instances&token=${userToken}`,
+        2: (url) => `${url}?nextUrl=/public-instances&token=${userToken}`,
         3: (url) => `${url}?token=${companyToken}`,
-        4: (url) => `${url}?nextURL=/public-instances&token=${companyToken}`,
+        4: (url) => `${url}?nextUrl=/public-instances&token=${companyToken}`,
         5: (url) => `${url}?token=${userTokenLoT0}`,
-        6: (url) => `${url}?nextURL=/public-instances&token=${userTokenLoT0}`,
+        6: (url) => `${url}?nextUrl=/public-instances&token=${userTokenLoT0}`,
       };
 
       try {
