@@ -1,6 +1,11 @@
 from adminsortable2.admin import SortableAdminMixin
 from caluma.caluma_form.models import Form
-from django.contrib.admin import ModelAdmin, display, register
+from django.contrib.admin import (
+    ModelAdmin,
+    RelatedOnlyFieldListFilter,
+    display,
+    register,
+)
 from django.utils.translation import gettext_lazy as _
 from localized_fields.admin import LocalizedFieldsAdminMixin
 
@@ -106,15 +111,17 @@ class InstanceResourceAdmin(
 
 
 @register(ServiceContent)
-class ServiceContentAdmin(LocalizedFieldsAdminMixin, EbauAdminMixin, ModelAdmin):
+class ServiceContentAdmin(
+    LocalizedFieldsAdminMixin, EbauAdminMixin, MultilingualAdminMixin, ModelAdmin
+):
     form = ServiceContentForm
     ordering = ["service"]
     list_display = ["id", "service", "get_forms", "content"]
     list_per_page = 20
-    search_fields = ["content"]
-    search_fields_ml = ["trans__content"]
+    search_fields = ["content", "service__name"]
+    search_fields_ml = ["content", "service__trans__name"]
     select_related = ["service"]
-    list_filter = ["service"]
+    list_filter = [("service", RelatedOnlyFieldListFilter)]
     filter_horizontal = ["forms"]
 
     autocomplete_fields = ["service"]
