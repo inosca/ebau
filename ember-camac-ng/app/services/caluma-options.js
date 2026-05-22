@@ -85,6 +85,7 @@ export default class CustomCalumaOptionsService extends CalumaOptionsService {
     if (uncachedIdentifiers.length) {
       await this.store.query(modelName, {
         [idFilter]: String(uncachedIdentifiers),
+        ...(idFilter === "service_id" && { show_only_active: false }),
       });
     }
 

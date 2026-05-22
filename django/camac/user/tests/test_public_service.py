@@ -427,3 +427,49 @@ def test_public_service_filter_available_in_ruleset_for_service_value_handling(
 
     data = response.json()["data"]
     assert len(data) == expected_count
+
+
+@pytest.mark.parametrize(
+    "filter_value,expected_count,expected_services",
+    [
+        (True, 2, ["active-1", "active-2"]),  # When filter is applied
+        (
+            False,
+            4,
+            ["active-1", "active-2", "inactive-1", "inactive-2"],
+        ),  # When filter is False - should return all
+        (
+            "",
+            2,
+            ["active-1", "active-2"],
+        ),  # When filter is empty - same as filter is True
+    ],
+)
+def test_public_service_filter_show_only_active(
+    admin_client,
+    service_factory,
+    filter_value,
+    service,
+    expected_count,
+    expected_services,
+):
+    service.name = "active-1"
+    service.save()
+
+    service_factory(name="active-2")
+    service_factory(name="inactive-1", disabled=True)
+    service_factory(name="inactive-2", disabled=True)
+
+    data = {}
+    if filter_value != "":  # Don't add parameter for empty string test
+        data["show_only_active"] = filter_value
+
+    response = admin_client.get(reverse("publicservice-list"), data=data)
+
+    assert response.status_code == status.HTTP_200_OK
+
+    data = response.json()["data"]
+    assert len(data) == expected_count
+    assert expected_services == sorted(
+        [item["attributes"]["name"] for item in response.json()["data"]]
+    )
