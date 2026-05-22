@@ -1,5 +1,5 @@
 import hashlib
-from concurrent.futures import ProcessPoolExecutor
+from concurrent.futures import Executor, Future, ProcessPoolExecutor
 from dataclasses import dataclass, field
 from mimetypes import guess_extension
 from pathlib import Path
@@ -9,7 +9,6 @@ from typing import Optional
 from alexandria.core.models import Document, File
 from alexandria.core.tika import TikaClient
 from alexandria.storages.backends.s3 import S3Storage
-from django import db
 from django.conf import settings
 from django.contrib.postgres.search import SearchVector
 from django.core.files.base import ContentFile
@@ -21,6 +20,33 @@ from preview_generator.manager import PreviewManager
 from camac.alexandria_migration.domain_logic.base import BaseMigrator, disable_auto_now
 from camac.alexandria_migration.models import DocumentMark, MigrationLog
 from camac.instance.models import InstanceAlexandriaDocument
+
+
+class SynchronousExecutor(Executor):
+    """Drop-in for ProcessPoolExecutor for sync operation.
+
+    Used for testing / debugging (check --no-parallel commandline)
+    """
+
+    # TODO: We have ThreadPoolExecutor used in duplicate_documents, which
+    # might benefit from this as well. Also, there's the GIS / OEREB clients
+    # that may use this also
+
+    def submit(self, fn, /, *args, **kwargs):
+        future = Future()
+        try:
+            result = fn(*args, **kwargs)
+            future.set_result(result)
+        except Exception as exc:  # pragma: no cover
+            future.set_exception(exc)
+        return future
+
+    def map(self, fn, *iterables, timeout=None, chunksize=1):  # pragma: no cover
+        # Just for completeness of the API
+        return list(map(fn, *iterables))
+
+    def shutdown(self, wait=True, *, cancel_futures=False):
+        pass
 
 
 @dataclass
@@ -64,25 +90,19 @@ class AnnotateDocumentsMigrator(BaseMigrator):
             # as we're CPU-bound here and it doesn't make sense to use more than
             # we have
 
-            if self.no_parallel:
-                for document in documents:
-                    self._record_task_result(
-                        AnnotateDocumentsMigrator.annotate_document(document)
-                    )
+            executor = (
+                SynchronousExecutor() if self.no_parallel else ProcessPoolExecutor()
+            )
 
-            else:
-                # Parallel mode - this should be default
-                # TODO: refactor so it's not two full loops - if possible. Not
-                # important enough to spend too much time on
-                with ProcessPoolExecutor() as executor:
-                    for document in documents:
-                        future = executor.submit(
-                            AnnotateDocumentsMigrator.annotate_document,
-                            document,
-                        )
-                        # Process Pool executor can't update `self`, as it's in a
-                        # subprocess, so we do it via return values instead
-                        future.add_done_callback(self._record_task_result)
+            with executor as executor:
+                for document in documents:
+                    future = executor.submit(
+                        AnnotateDocumentsMigrator.annotate_document,
+                        document,
+                    )
+                    # Process Pool executor can't update `self`, as it's in a
+                    # subprocess, so we do it via return values instead
+                    future.add_done_callback(self._record_task_result)
 
             self.logs.extend(
                 [

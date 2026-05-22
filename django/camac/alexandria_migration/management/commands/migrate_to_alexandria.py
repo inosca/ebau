@@ -27,6 +27,12 @@ class Command(BaseCommand):
         parser.add_argument("--to", dest="to", type=int, default=None)
         parser.add_argument("--batch-size", dest="batch_size", type=int, default=100)
         parser.add_argument("--limit", dest="limit", type=int, default=None)
+        parser.add_argument(
+            "--no-parallel",
+            dest="no_parallel",
+            action="store_true",
+            default=False,
+        )
 
         subparsers = parser.add_subparsers(title="sub-commands", required=True)
 
@@ -338,8 +344,9 @@ class Command(BaseCommand):
 
         with tqdm(total=len(instances)) as bar:
             for batch in itertools.batched(instances, batch_size):
-                AnnotateDocumentsMigrator(batch, self.run).process()
-
+                AnnotateDocumentsMigrator(
+                    batch, self.run, no_parallel=options["no_parallel"]
+                ).process()
                 bar.update(len(batch))
 
         self.stdout.write(
