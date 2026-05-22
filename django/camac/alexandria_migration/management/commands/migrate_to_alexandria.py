@@ -328,7 +328,7 @@ class Command(BaseCommand):
         if not len(instances):
             self.stdout.write(
                 self.style.ERROR(
-                    "There are no eligible instances for this command. Please adjust your filters or run the prequisite commands."
+                    "There are no eligible instances for annotating. Please adjust your filters or run the prequisite commands."
                 )
             )
             self.run._should_delete = True
@@ -338,7 +338,7 @@ class Command(BaseCommand):
 
         self.stdout.write(
             self.style.SUCCESS(
-                f"Fixing communication module links on {len(instances)} instances chunked into {batch_size} instance batches..."
+                f"Annotating thumbnails, FTS indexes, checksums on {len(instances)} instances chunked into {batch_size} instance batches..."
             )
         )
 
@@ -351,6 +351,6 @@ class Command(BaseCommand):
 
         self.stdout.write(
             self.style.SUCCESS(
-                f"Fixing of communications module links on {len(instances)} instances was successful"
+                f"Annotation of {len(instances)} instances was successful"
             )
         )
