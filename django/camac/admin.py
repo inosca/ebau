@@ -169,3 +169,32 @@ class MultilingualAdminMixin:
                 for search_spec in orm_lookups
             )
         return queryset, may_have_duplicates
+
+
+class ReadOnlyAdminMixin:
+    """Mixin to make a ModelAdmin fully read-only."""
+
+    def has_add_permission(self, *args):
+        return False
+
+    def has_change_permission(self, *args):
+        return True  # Allow viewing, but fields will be readonly
+
+    def has_delete_permission(self, *args):
+        return False
+
+    def get_readonly_fields(self, request, obj=None):
+        # Make all model fields + any extra fields readonly
+        fields = [
+            field.name
+            for field in self.model._meta.get_fields()
+            if not field.is_relation or field.many_to_one or field.one_to_one
+        ]
+        return fields
+
+    def changeform_view(self, request, object_id=None, form_url="", extra_context=None):
+        extra_context = extra_context or {}
+        extra_context["show_save_and_continue"] = False
+        extra_context["show_save"] = False
+        extra_context["show_save_and_add_another"] = False
+        return super().changeform_view(request, object_id, form_url, extra_context)

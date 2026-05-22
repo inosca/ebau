@@ -4,11 +4,95 @@ import uuid_extensions
 from alexandria.core.models import Document
 from django.db import models
 from django.db.models import Count, Q
-from django.db.models.functions import Now
+from django.db.models.functions import Coalesce, Now
 
 from camac.alexandria_migration.utils import humanize_timedelta
+from camac.instance.models import Instance
 
 DocumentMark: TypeAlias = Document.marks.through
+
+
+class InstanceMigrationManager(models.Manager):  # pragma: no cover
+    # coverage skipped - this is purely informational for readonly django admin
+
+    def get_queryset(self):
+        base_qs = (
+            super()
+            .get_queryset()
+            .filter(
+                models.Exists(
+                    MigrationLog.objects.filter(instance=models.OuterRef("pk"))
+                )
+            )
+        )
+
+        run_count_sq = models.Subquery(
+            MigrationRun.objects.filter(logs__instance=models.OuterRef("pk"))
+            .values("pk")
+            .distinct()
+            .annotate(c=models.Count("pk"))
+            .values("c")[:1]  # collapse to single row/value
+        )
+
+        qs = base_qs.annotate(migration_run_count=Coalesce(run_count_sq, 0))
+
+        for log_type in MigrationLog.Type:
+            log_count_sq = models.Subquery(
+                MigrationLog.objects.filter(
+                    instance=models.OuterRef("pk"), type=log_type
+                )
+                .values("instance")  # group by instance to get single row
+                .annotate(c=models.Count("pk"))
+                .values("c")[:1]
+            )
+            qs = qs.annotate(**{f"num_{log_type}_logs": Coalesce(log_count_sq, 0)})
+
+        return qs.prefetch_related("case__document__form")
+
+
+class InstanceMigration(Instance):  # pragma: no cover
+    """Proxy for instance, so we can show it in the Admin."""
+
+    # coverage skipped - this is purely informational for readonly django admin
+
+    objects = InstanceMigrationManager()
+
+    def migration_runs(self):
+        # Needs to be defined this way for django admin to work
+        return self.migration_run_count
+
+    def dossier_type(self):
+        return str(self.case.document.form.name)
+
+    def old_documents(self):
+        if hasattr(self, "num_attachments"):
+            return self.num_attachments
+        else:
+            return self.attachments.count()
+
+    def documents_created(self):
+        return self.num_document_created_logs
+
+    def documents_duplicated(self):
+        return self.num_document_duplicated_logs
+
+    def communication_links_fixed(self):
+        return self.num_communication_link_fixed_logs
+
+    def documents_annotated(self):
+        return self.num_documents_annotated_logs
+
+    def num_annotated_thumbnail(self):
+        return self.num_annotated_thumbnail_logs
+
+    def num_annotated_fulltext_search(self):
+        return self.num_annotated_fulltext_search_logs
+
+    def num_annotated_checksum(self):
+        return self.num_annotated_checksum_logs
+
+    class Meta:
+        proxy = True
 
 
 class MigrationRun(models.Model):
@@ -139,6 +223,10 @@ class MigrationRun(models.Model):
 
         return "\n".join([title, *[f"- {t}: {c}" for t, c in stats]])
 
+    def __str__(self):
+        # For django admin, mainly
+        return f"Run {self.pk} from {self.started_at} ({self.status})"
+
 
 class MigrationLog(models.Model):
     class Type(models.TextChoices):
@@ -191,3 +279,19 @@ class MigrationLog(models.Model):
     target_file = models.ForeignKey(
         "alexandria_core.File", models.CASCADE, null=True, blank=True, related_name="+"
     )
+
+    def __str__(self):
+        # For django admin, mainly
+        fragments = []
+        if self.source_document_id:
+            fragments.append(f"src:{self.source_document_id}")
+        if self.target_document_id:
+            fragments.append(f"dst-d:{self.target_document_id}")
+        if self.target_file_id:
+            fragments.append(f"dst-f:{self.target_file_id}")
+
+        details = ""
+        if fragments:
+            details = f" ({', '.join(fragments)})"
+
+        return f"{self.type}{details}"
