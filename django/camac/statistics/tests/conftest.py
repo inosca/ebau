@@ -5,7 +5,6 @@ from caluma.caluma_workflow.models import WorkItem
 from django.utils.timezone import make_aware
 
 from camac.deadlines.factories import DeadlineTypeFactory, InstanceDeadlineFactory
-from camac.settings.utils import generate_module_settings
 from camac.statistics.filters import get_inquiry_service_id
 from camac.tests.form_utils import FormUtils
 from camac.user.factories import ServiceFactory, ServiceGroupFactory
@@ -19,30 +18,10 @@ def _clear_inquiry_service_cache():
     get_inquiry_service_id.cache_clear()
 
 
-@pytest.fixture
-def statistics_settings(request, settings):
-    """Module-specific settings for statistics (default)."""
-    yield from generate_module_settings(
-        settings=settings,
-        request=request,
-        base_fixture=None,
-        module_name="statistics",
-        canton=None,
-        disable=False,
-    )
-
-
 @pytest.fixture(autouse=True)
-def ag_statistics_settings(request, settings, statistics_settings):
-    """Module-specific settings for statistics (canton AG)."""
-    yield from generate_module_settings(
-        settings=settings,
-        request=request,
-        base_fixture=statistics_settings,
-        module_name="statistics",
-        canton="kt_ag",
-        disable=False,
-    )
+def _autouse_ag_statistics_settings(ag_statistics_settings):
+    """Apply AG statistics settings to every test in this module."""
+    return ag_statistics_settings
 
 
 @pytest.fixture
