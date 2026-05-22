@@ -27,6 +27,7 @@ export default {
   workItems: {
     v2: true,
     showTaskFilter: true,
+    showWorkflowFilter: true,
   },
   noInstanceService: true,
   snippets: {

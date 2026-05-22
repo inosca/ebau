@@ -29,6 +29,7 @@ export default class WorkItemsGlobalController extends Controller {
     "role",
     "task",
     "preset",
+    "workflow",
   ];
 
   // Filters
@@ -39,6 +40,7 @@ export default class WorkItemsGlobalController extends Controller {
   @tracked status = filterDefaults.status;
   @tracked task = filterDefaults.task;
   @tracked preset = filterDefaults.preset;
+  @tracked workflow = filterDefaults.workflow;
 
   // Pagination
   @tracked page = 1;
@@ -121,6 +123,7 @@ export default class WorkItemsGlobalController extends Controller {
       task: this.task !== "all" ? this.task : null,
       preset: this.preset,
       responsible,
+      workflow: this.workflow !== "all" ? this.workflow : null,
     };
 
     if (hasFeature("workItems.hideImportedWorkItems")) {
@@ -212,5 +215,12 @@ export default class WorkItemsGlobalController extends Controller {
     if (isEmpty(this.filters[filter])) return;
 
     this.workItems.retry();
+  }
+
+  get workflowFilterOptions() {
+    return workItemListConfig.workflowFilterOptions.map((option) => ({
+      value: option,
+      label: this.intl.t(`workItems.filters.workflows.option.${option}`),
+    }));
   }
 }

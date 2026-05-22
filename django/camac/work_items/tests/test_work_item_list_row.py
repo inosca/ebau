@@ -695,3 +695,73 @@ def test_work_item_list_row_no_query_explosion(
     ):
         response = admin_client.get(*args)
         assert len(response.json()["data"]) == 3
+
+
+@pytest.mark.parametrize(
+    ("workflow_filter", "expected_work_items"),
+    [
+        (None, {"internal", "building", "building-nested"}),
+        ("internal-document", {"internal"}),
+        ("building-permit", {"building", "building-nested"}),
+    ],
+)
+@pytest.mark.django_db
+def test_work_item_list_row_workflow_filter_sz(
+    # fixtures
+    admin_client,
+    caluma_case_factory,
+    caluma_workflow_factory,
+    caluma_work_item_factory,
+    group,
+    instance_factory,
+    service,
+    work_item_list_row_factory,
+    # parameters
+    expected_work_items,
+    workflow_filter,
+):
+    workflow_internal = caluma_workflow_factory(slug="internal-document")
+    workflow_building = caluma_workflow_factory(slug="building-permit")
+
+    def _work_item_list_row_factory_sz(name, case):
+        work_item_list_row_factory(
+            canton="sz",
+            name=name,
+            status=WorkItem.STATUS_READY,
+            addressed=service,
+            case=case,
+        )
+
+    instance1 = instance_factory(
+        group=group, case=caluma_case_factory(workflow=workflow_internal)
+    )
+    _work_item_list_row_factory_sz("internal", instance1.case)
+
+    instance2 = instance_factory(
+        group=group, case=caluma_case_factory(workflow=workflow_building)
+    )
+    _work_item_list_row_factory_sz("building", instance2.case)
+
+    instance3 = instance_factory(
+        group=group, case=caluma_case_factory(workflow=workflow_building)
+    )
+    child_case = caluma_case_factory(
+        parent_work_item=caluma_work_item_factory(case=instance3.case),
+        family=instance3.case,
+    )
+    _work_item_list_row_factory_sz("building-nested", child_case)
+
+    response = admin_client.get(
+        reverse("work-item-list-row-list"),
+        {
+            "fields[work-item-list-rows]": "task",
+            "page[number]": "1",
+            "page[size]": "20",
+            "role": "active",
+            **({"workflow": workflow_filter} if workflow_filter else {}),
+        },
+    )
+    assert response.status_code == status.HTTP_200_OK
+
+    json_results = response.json()["data"]
+    assert {row["attributes"]["task"] for row in json_results} == expected_work_items

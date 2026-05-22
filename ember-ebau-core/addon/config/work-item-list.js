@@ -38,6 +38,7 @@ export const sharedConfig = {
     status: "READY",
     task: "all",
     preset: null,
+    workflow: "all",
   },
 };
 

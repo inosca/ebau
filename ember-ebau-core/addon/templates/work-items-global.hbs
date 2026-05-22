@@ -72,6 +72,15 @@
           />
         {{/if}}
       {{/if}}
+      {{#if (has-feature "workItems.showWorkflowFilter")}}
+        <Filter.RadioButtons
+          @name="workflow"
+          @label={{t "workItems.filters.workflows.label"}}
+          @selected={{this.workflow}}
+          @options={{this.workflowFilterOptions}}
+          @onChange={{this.setFilter}}
+        />
+      {{/if}}
     </Filters>
 
     <WorkItemListV2
