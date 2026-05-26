@@ -3,6 +3,8 @@ from datetime import date, datetime
 
 import pytest
 from caluma.caluma_workflow.models import Task, WorkItem
+from django.db import connection
+from django.test.utils import CaptureQueriesContext
 from django.urls import reverse
 from django.utils.timezone import make_aware, now
 from faker import Faker
@@ -660,3 +662,35 @@ def test_work_item_list_row_description_coalesce(
     assert (
         response.json()["data"][0]["attributes"]["description"] == expected_description
     )
+
+
+def test_work_item_list_row_no_query_explosion(
+    db, admin_client, django_assert_num_queries, service, work_item_list_row_factory
+):
+    args = [
+        reverse("work-item-list-row-list"),
+        {"page[number]": 1, "page[size]": 20, "role": "active"},
+    ]
+
+    work_item_list_row_factory(addressed=service)
+
+    with CaptureQueriesContext(connection) as ctx:
+        response = admin_client.get(*args)
+        assert len(response.json()["data"]) == 1
+        expected_queries = len(ctx.captured_queries)
+
+    work_item_list_row_factory(addressed=service)
+    work_item_list_row_factory(addressed=service)
+
+    with django_assert_num_queries(
+        expected_queries,
+        info=(
+            "The executed queries depend on how many rows exists - we've got "
+            "ourselves a query explosion. If you ever see this message you may "
+            "need to reconsider the architecture of what you're trying to do. "
+            "The work item list must perform well with lots of data and can "
+            "under no circumstances endure a query explosion."
+        ),
+    ):
+        response = admin_client.get(*args)
+        assert len(response.json()["data"]) == 3
