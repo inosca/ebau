@@ -4,7 +4,7 @@ defmodule EbauWeb.OAuth2 do
 
   This module resolves a bearer token via the configured Keycloak userinfo
   endpoint, extracts the configured email claim, and maps that claim to an
-  existing [`Ebau.User.User`](/home/stephanh/Documents/camac/elixir/elixir-ebau/lib/ebau/user/user.ex)
+  existing [`Ebau.User.User`](./../../lib/ebau/user/user.ex)
   record.
 
   It reads the Keycloak settings from the `:ebau, :keycloak` application

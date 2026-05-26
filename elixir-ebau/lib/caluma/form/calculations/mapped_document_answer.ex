@@ -30,6 +30,7 @@ defmodule Caluma.Form.Calculations.MappedDocumentAnswer do
   @impl true
   def expression(opts, context) do
     mapping = DocumentAnswer.resolve_mapping(opts[:mapping], context)
+    # TODO only supports text questions for now
     answer_expr = DocumentAnswer.answer_expr(opts[:relationship], :value_string)
 
     Enum.reduce(mapping, expr(nil), fn {answer_value, mapped_value}, acc ->

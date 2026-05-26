@@ -12,42 +12,13 @@ defmodule Caluma.Form.Validations.ExistingFormMatchesSpec do
 
   use Ash.Resource.Validation
 
-  alias Ash.Changeset
-  alias Ash.Error.Changes.InvalidAttribute
   alias Caluma.Form.Validations.SpecMatcher
 
   @impl true
-  def init(opts) do
-    case opts[:field] do
-      field when is_atom(field) and not is_nil(field) -> {:ok, opts}
-      _ -> {:error, "field option is required (atom)"}
-    end
-  end
+  def init(opts), do: SpecMatcher.init(opts)
 
   @impl true
   def validate(changeset, opts, _context) do
-    field = opts[:field]
-
-    case Changeset.get_argument(changeset, field) do
-      nil ->
-        :ok
-
-      value ->
-        form = changeset.data
-
-        case SpecMatcher.compare(form, field, value) do
-          :ok ->
-            :ok
-
-          {:mismatch, actual, expected} ->
-            {:error,
-             InvalidAttribute.exception(
-               field: field,
-               value: value,
-               message:
-                 "form #{inspect(form.slug)} already exists with #{field}=#{inspect(actual)}, got #{inspect(expected)}"
-             )}
-        end
-    end
+    SpecMatcher.validate_changeset(changeset, opts, &"form #{inspect(&1.slug)}")
   end
 end

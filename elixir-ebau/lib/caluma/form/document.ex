@@ -25,7 +25,10 @@ defmodule Caluma.Form.Document do
     end
 
     policy action_type(:read) do
-      authorize_if {Ebau.Policies.Checks.HasActiveInstanceACL, via: [:family, :case]}
+      authorize_if {Ebau.Policies.Checks.HasActiveInstanceACL, via: [:family, :case, :family]}
+
+      authorize_if {Ebau.Policies.Checks.HasActiveInstanceACL,
+                    via: [:family, :work_item, :case, :family]}
     end
   end
 

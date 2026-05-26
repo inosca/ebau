@@ -40,10 +40,10 @@ defmodule Caluma.Form.Calculations.MappedListDocumentAnswer do
     answer_expr = DocumentAnswer.answer_expr(opts[:relationship], :value)
 
     case array_item_type(context.type) do
-      Ash.Type.Boolean -> boolean_array_expr(answer_expr, mapping)
-      Ash.Type.Integer -> integer_array_expr(answer_expr, mapping)
-      Ash.Type.Float -> float_array_expr(answer_expr, mapping)
-      _ -> string_array_expr(answer_expr, mapping)
+      # There were already implementations for more types which can be seen in commit
+      # ad19702 but since caluma only supports string list answers lets not bloat the code.
+      Ash.Type.String -> string_array_expr(answer_expr, mapping)
+      _ -> {:error, "mapping only supports strings"}
     end
   end
 
@@ -78,100 +78,6 @@ defmodule Caluma.Form.Calculations.MappedListDocumentAnswer do
             SELECT COALESCE(
               array_agg((?::jsonb ->> elem.value) ORDER BY elem.ord),
               ARRAY[]::text[]
-            )
-            FROM jsonb_array_elements_text(
-              CASE jsonb_typeof(?::jsonb)
-                WHEN 'array' THEN ?::jsonb
-                ELSE jsonb_build_array(?::jsonb)
-              END
-            ) WITH ORDINALITY AS elem(value, ord)
-          )
-          """,
-          ^mapping,
-          ^answer_expr,
-          ^answer_expr,
-          ^answer_expr
-        )
-      end
-    )
-  end
-
-  defp boolean_array_expr(answer_expr, mapping) do
-    expr(
-      if is_nil(^answer_expr) do
-        nil
-      else
-        fragment(
-          """
-          (
-            SELECT COALESCE(
-              array_agg(
-                CASE (?::jsonb ->> elem.value)
-                  WHEN 'true' THEN true
-                  WHEN 'false' THEN false
-                  ELSE NULL
-                END
-                ORDER BY elem.ord
-              ),
-              ARRAY[]::boolean[]
-            )
-            FROM jsonb_array_elements_text(
-              CASE jsonb_typeof(?::jsonb)
-                WHEN 'array' THEN ?::jsonb
-                ELSE jsonb_build_array(?::jsonb)
-              END
-            ) WITH ORDINALITY AS elem(value, ord)
-          )
-          """,
-          ^mapping,
-          ^answer_expr,
-          ^answer_expr,
-          ^answer_expr
-        )
-      end
-    )
-  end
-
-  defp integer_array_expr(answer_expr, mapping) do
-    expr(
-      if is_nil(^answer_expr) do
-        nil
-      else
-        fragment(
-          """
-          (
-            SELECT COALESCE(
-              array_agg(((?::jsonb ->> elem.value))::integer ORDER BY elem.ord),
-              ARRAY[]::integer[]
-            )
-            FROM jsonb_array_elements_text(
-              CASE jsonb_typeof(?::jsonb)
-                WHEN 'array' THEN ?::jsonb
-                ELSE jsonb_build_array(?::jsonb)
-              END
-            ) WITH ORDINALITY AS elem(value, ord)
-          )
-          """,
-          ^mapping,
-          ^answer_expr,
-          ^answer_expr,
-          ^answer_expr
-        )
-      end
-    )
-  end
-
-  defp float_array_expr(answer_expr, mapping) do
-    expr(
-      if is_nil(^answer_expr) do
-        nil
-      else
-        fragment(
-          """
-          (
-            SELECT COALESCE(
-              array_agg(((?::jsonb ->> elem.value))::double precision ORDER BY elem.ord),
-              ARRAY[]::double precision[]
             )
             FROM jsonb_array_elements_text(
               CASE jsonb_typeof(?::jsonb)
