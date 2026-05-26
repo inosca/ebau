@@ -4,6 +4,12 @@ import { DateTime } from "luxon";
 import caseTableConfig from "ember-ebau-core/config/case-table";
 import mainConfig from "ember-ebau-core/config/main";
 
+export function hasFilterValue(value) {
+  return Array.isArray(value)
+    ? value.some((item) => hasFilterValue(item))
+    : ![null, undefined, ""].includes(value);
+}
+
 export function getCalumaFilters(filter, casesBackend) {
   const commonFilters = {
     instanceId: {
@@ -183,7 +189,9 @@ export function getCamacFilters({
   const keywordFilterName = caseTableConfig.useLegacyTags ? "tags" : "keywords";
 
   const commonFilters = {
-    instance_state: filter.instanceState || instanceStates || "",
+    instance_state: hasFilterValue(filter.instanceState)
+      ? filter.instanceState
+      : instanceStates || "",
     service: filter.service || filter.serviceSZ,
     responsible_service_user: filter.responsibleServiceUser,
     responsible_service: filter.responsibleMunicipality,

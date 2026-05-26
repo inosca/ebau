@@ -14,6 +14,7 @@ import { hasFeature } from "ember-ebau-core/helpers/has-feature";
 import {
   getCalumaFilters,
   getCamacFilters,
+  hasFilterValue,
 } from "ember-ebau-core/utils/case-filters";
 
 export default class CaseTableComponent extends Component {
@@ -128,7 +129,7 @@ export default class CaseTableComponent extends Component {
     const filters = getCamacFilters(this.args);
     return {
       "x-camac-filters": Object.entries(filters)
-        .filter(([, value]) => ![null, undefined, ""].includes(value))
+        .filter(([, value]) => hasFilterValue(value))
         .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
         .join("&"),
     };
