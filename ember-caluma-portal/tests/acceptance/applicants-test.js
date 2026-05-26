@@ -21,6 +21,7 @@ module("Acceptance | applicants", function (hooks) {
 
     // caluma data
     this.server.create("case", {
+      meta: { "camac-instance-id": instance.id },
       document: this.server.create("document", {
         form: this.server.create("form", {
           slug: "main-form",

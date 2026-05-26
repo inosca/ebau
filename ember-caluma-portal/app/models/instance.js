@@ -16,6 +16,7 @@ export default class Instance extends Model {
   @attr("string") calumaForm;
   @attr("boolean") isPaper;
   @attr("boolean") isModification;
+  @attr("string") name;
   @attr additionalDemandChanges;
   @belongsTo("instance-state", { inverse: null, async: true }) instanceState;
   @belongsTo("public-service", { inverse: null, async: true }) activeService;

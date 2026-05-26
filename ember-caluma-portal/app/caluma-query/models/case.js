@@ -33,12 +33,13 @@ export default class CustomCaseModel extends CaseModel {
   get type() {
     return (
       getFormTitle(this, this.raw.document, answerSlugs) ||
+      this.instance.name ||
       this.raw.document.form.name
     );
   }
 
   get status() {
-    return this.instance?.status;
+    return this.instance.status;
   }
 
   get isPaper() {
