@@ -485,7 +485,7 @@ def test_dynamic_group_koor_np_ur(db, service_factory, instance):
         ),
     ],
 )
-def test_dynamic_group_geometer_gr(
+def test_dynamic_group_geometer_schnurgeruestabnahme_gr(
     db,
     gr_instance,
     service_factory,
@@ -549,7 +549,7 @@ def test_dynamic_group_geometer_gr(
         if expected_service == "geometer"
         else [str(municipality_service.pk)]
     )
-    resolved = CustomDynamicGroups().resolve("geometer")(
+    resolved = CustomDynamicGroups().resolve("geometer_schnurgeruestabnahme")(
         None, gr_instance.case, None, work_item, None
     )
 
