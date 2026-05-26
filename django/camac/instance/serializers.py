@@ -1080,7 +1080,10 @@ class CalumaInstanceSerializer(InstanceSerializer, InstanceQuerysetMixin):
             _type = api.get_import_type(instance)
             if _type:
                 name = _type
-                parts.append(_("migrated"))
+                if settings.APPLICATION_NAME == "kt_ag":  # pragma: no cover
+                    parts.append(_("imported"))
+                else:
+                    parts.append(_("migrated"))
 
         if not migrated and paper and not ech:
             parts.append(_("paper"))
