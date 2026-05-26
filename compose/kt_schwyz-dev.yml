@@ -132,7 +132,7 @@ services:
       - ebau.localhost
 
   clamav:
-    image: tiredofit/clamav:2.6.99
+    image: acr.run/camac-ng/camac-ng/clamav:2.6.99
     profiles:
       - full
     ports:

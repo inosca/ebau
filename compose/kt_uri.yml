@@ -121,7 +121,7 @@ services:
 
 
   clamav:
-    image: tiredofit/clamav:2.6.8
+    image: acr.run/camac-ng/camac-ng/clamav:2.6.99
     environment:
       - CONCURRENT_DATABASE_RELOAD=false
       - DEFINITIONS_UPDATE_FREQUENCY=1440
