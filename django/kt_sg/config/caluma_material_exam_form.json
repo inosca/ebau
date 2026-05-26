@@ -2132,7 +2132,7 @@
       "format_validators": "[]",
       "default_answer": null,
       "calc_expression": null,
-      "calc_dependents": "[]"
+      "calc_dependents": "[\"materielle-pruefung-total-sp-fuer-schutzraum\"]"
     }
   },
   {
@@ -2166,7 +2166,7 @@
       "format_validators": "[]",
       "default_answer": null,
       "calc_expression": null,
-      "calc_dependents": "[]"
+      "calc_dependents": "[\"materielle-pruefung-total-sp-fuer-schutzraum\"]"
     }
   },
   {
@@ -2419,7 +2419,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"## Stellungnahme der politischen Gemeinde\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"### Stellungnahme der politischen Gemeinde\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -2558,7 +2558,7 @@
       "source": null,
       "format_validators": "[]",
       "default_answer": null,
-      "calc_expression": "(\"materielle-pruefung-pflicht-sp-fuer-schutzraum|answer\" + \"materielle-pruefung-oeffentliche-sp-fuer-schutzraum|answer\")",
+      "calc_expression": "\"materielle-pruefung-pflicht-sp-fuer-schutzraum\"|answer + \"materielle-pruefung-oeffentliche-sp-fuer-schutzraum\"|answer",
       "calc_dependents": "[]"
     }
   },
