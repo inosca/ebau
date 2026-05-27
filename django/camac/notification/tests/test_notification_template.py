@@ -2104,9 +2104,42 @@ def test_notifications_without_receivers_sz(
     application_settings["LOG_NOTIFICATIONS_WITH_NO_RECEIVERS"] = False
     serializer = serializers.NotificationTemplateSendmailSerializer()
     serializer._create_history_entry(
-        sz_instance, "test subject", "test body", [], "applicant", admin_user
+        sz_instance, "test subject", "test body", [], "applicant", admin_user, []
     )
     assert HistoryEntry.objects.all().count() == 0
+
+
+def test_notifications_without_receivers_ag(
+    db,
+    set_application_ag,
+    ag_instance,
+    admin_user,
+    application_settings,
+    active_inquiry_factory,
+    service_factory,
+):
+    application_settings["LOG_NOTIFICATIONS_WITH_NO_RECEIVERS"] = True
+
+    service = service_factory(name="Test User")
+
+    inquiry = active_inquiry_factory(addressed_service=service)
+
+    serializer = serializers.NotificationTemplateSendmailSerializer()
+    serializer._create_history_entry(
+        ag_instance,
+        "test subject",
+        "test body",
+        [],
+        "applicant",
+        admin_user,
+        inquiry.addressed_groups,
+    )
+
+    assert HistoryEntry.objects.all().count() == 1
+    assert (
+        HistoryEntry.objects.first().trans.get(language="de").title
+        == f"Notifikation gesendet an keine Empfänger ({service.__str__()}, Gesuchsteller/in) (test subject)"
+    )
 
 
 def test_get_schlussabnahme_uhrzeit(
