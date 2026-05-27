@@ -53,4 +53,8 @@ defmodule Caluma.Form.AnswerDocument do
       allow_nil? false
     end
   end
+
+  identities do
+    identity :answer_document, [:answer_id, :document_id]
+  end
 end
