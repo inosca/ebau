@@ -83,6 +83,8 @@ defmodule Caluma.Form.FormQuestion do
     attribute :sort, :integer do
       allow_nil? false
       public? true
+      default 0
+      constraints min: 0
     end
   end
 
