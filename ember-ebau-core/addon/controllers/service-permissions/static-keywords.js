@@ -152,4 +152,10 @@ export default class ServicePermissionsStaticKeywordsController extends Controll
       staticKeyword.rollbackAttributes();
     }
   });
+
+  @action
+  setFilter(filter) {
+    this.filter = filter;
+    this.page = 1;
+  }
 }

@@ -32,3 +32,11 @@ class InstanceMarkFactory(DjangoModelFactory):
 
     class Meta:
         model = models.InstanceMark
+
+
+class StaticKeywordFactory(DjangoModelFactory):
+    name = Faker("name")
+    service = SubFactory(ServiceFactory)
+
+    class Meta:
+        model = models.StaticKeyword

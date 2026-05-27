@@ -46,6 +46,7 @@ export default class CaseHeaderStaticKeywordsComponent extends Component {
     await timeout(500);
     this.page = 1;
     return await this.store.query("static-keyword", {
+      is_archived: false,
       search: term,
       page: {
         // Hardcoding this as there is no nice reactive way of updating
