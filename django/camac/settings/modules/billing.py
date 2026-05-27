@@ -26,7 +26,8 @@ BILLING = ModuleConfig[BillingConfig](
         admin=BillingDjangoAdminConfig(hidden_fields=["organization"]),
     ),
     kt_schwyz=BillingConfig(
-        # Keep this config in sync with ember-ebau-core/addon/config/features/sz.js
+        # Keep this config in sync with ember-ebau-core/addon/config/features/sz.js and
+        # ember-ebau-core/addon/config/main-sz.js.
         enabled=True,
         product_numbers=[
             ProductNumberConfig(
