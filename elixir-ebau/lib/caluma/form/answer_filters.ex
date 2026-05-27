@@ -20,6 +20,8 @@ defmodule Caluma.Form.AnswerFilters do
   Filter for a `has_many` relationship to row documents under a table question.
   Selects all row documents in the parent's family for one of `slugs`. Parent
   document is identified by `parent_doc_id_ref` (an `%Ash.Query.Ref{}`).
+  This is split up into two implementations for performance reasons as
+  `question_id ==` is more efficient on big data sets than `question_id in`.
   """
   def table_filter(parent_doc_id_ref, [single_slug]) do
     Ash.Expr.expr(

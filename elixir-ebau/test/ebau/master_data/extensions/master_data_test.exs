@@ -57,9 +57,9 @@ defmodule Caluma.Workflow.Extensions.CaseTest do
           question_id: "tags-q",
           mapping: %{"tag-a" => "A", "tag-b" => "B"}
 
-        mapped_list_answer :code_tags, :integer,
+        mapped_list_answer :code_tags, :float,
           question_id: "code-tags-q",
-          mapping: %{"tag-a" => 1, "tag-b" => 2}
+          mapping: %{"tag-a" => 1.5, "tag-b" => 2.8}
 
         mapped_list_answer :canton_tags, :boolean,
           question_id: {Ebau.Caluma.CantonResolver, %{default: "tags-q", gr: "gr-tags-q"}},
