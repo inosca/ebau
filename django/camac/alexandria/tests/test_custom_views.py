@@ -61,6 +61,7 @@ def test_alexandria_permissions_debugger_view(
     client,
     settings,
     snapshot,
+    permissions_alexandria_settings,
 ):
     settings.DEBUG = True
     reload_urlconf("camac.urls")
@@ -72,7 +73,7 @@ def test_alexandria_permissions_debugger_view(
     alexandria_mark_factory(pk="mark-1")
     alexandria_mark_factory(pk="mark-2")
 
-    settings.PERMISSIONS_ALEXANDRIA["ACCESS_LEVELS"] = {
+    permissions_alexandria_settings["ACCESS_LEVELS"] = {
         "level-1": [
             ("category-1:create", Always()),
             ("category-1:delete", Never()),
