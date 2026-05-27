@@ -14,26 +14,42 @@ defmodule Caluma.Form.Changes.CreateRowDocument do
     %{id: parent_id} = Ash.Changeset.get_argument(changeset, :document)
     action_opts = Ash.Context.to_opts(context)
 
-    {question, next_sort} =
+    question =
       case Caluma.Form.get_answer_by_document_and_question(
              parent_id,
              slug,
-             Keyword.put(action_opts, :load, [:max_sort, question: [:row_form_id, :slug]])
+             Keyword.put(action_opts, :load, question: [:row_form_id, :slug])
            ) do
         {:ok, answer} ->
-          {answer.question, (answer.max_sort || 0) + 1}
+          answer.question
 
         {:error, %Ash.Error.Invalid{errors: [%Ash.Error.Query.NotFound{} | _]}} ->
-          {Caluma.Form.get_question_by_slug!(slug, action_opts), 1}
+          Caluma.Form.get_question_by_slug!(slug, action_opts)
       end
 
     if question.type == :table do
       changeset
       |> Ash.Changeset.force_change_attribute(:family_id, parent_id)
       |> Ash.Changeset.manage_relationship(:form, %{slug: question.row_form_id}, type: :append)
+      |> Ash.Changeset.before_action(fn cs ->
+        # Shift existing rows up in one UPDATE
+        Ebau.Repo.query!(
+          """
+          UPDATE caluma_form_answerdocument
+          SET sort = sort + 1
+          WHERE answer_id = (
+            SELECT id FROM caluma_form_answer
+            WHERE document_id = $1 AND question_id = $2
+          )
+          """,
+          [parent_id, slug]
+        )
+
+        cs
+      end)
       |> Ash.Changeset.manage_relationship(
         :parent_answers,
-        [%{document_id: parent_id, question_id: question.slug, sort: next_sort}],
+        [%{document_id: parent_id, question_id: question.slug, sort: 0}],
         on_lookup: :relate,
         on_no_match: :create,
         join_keys: [:sort],

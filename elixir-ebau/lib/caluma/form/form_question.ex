@@ -35,7 +35,11 @@ defmodule Caluma.Form.FormQuestion do
   end
 
   actions do
-    defaults [:read, :destroy]
+    defaults [:destroy]
+
+    read :read do
+      prepare build(sort: [sort: :desc])
+    end
 
     create :create_form_question do
       description """

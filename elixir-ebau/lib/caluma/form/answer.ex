@@ -51,10 +51,6 @@ defmodule Caluma.Form.Answer do
     calculate :value_boolean, :boolean, expr(fragment("(? #>> '{}')::boolean", value))
   end
 
-  aggregates do
-    max :max_sort, :answer_documents, :sort
-  end
-
   relationships do
     belongs_to :document, Caluma.Form.Document do
       public? true
