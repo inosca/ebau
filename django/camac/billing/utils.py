@@ -251,6 +251,7 @@ def validate_product_number_conditions(
         "not_for_services": product_number_config.not_for_services,
         "only_subsequent_charge": product_number_config.only_subsequent_charge,
         "only_forms": product_number_config.only_forms,
+        "archived": product_number_config.archived,
     }
 
     def test_condition(key, value):
@@ -271,6 +272,8 @@ def validate_product_number_conditions(
                 return service.slug not in services
             case ("only_forms", allowed_form_slugs) if allowed_form_slugs:
                 return form_slug in allowed_form_slugs
+            case ("archived", cond):
+                return not cond
             # In case any of the properties don't match up with the datatype
             # we excpect, we just ignore them instead of failing.
             case _:

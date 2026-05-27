@@ -39,6 +39,11 @@ BILLING = ModuleConfig[BillingConfig](
             ),
             ProductNumberConfig(
                 number=150000,
+                name="AMFZ Brandschutz, kant. Baubewilligung Gebühren (alt)",
+                archived=True,
+            ),
+            ProductNumberConfig(
+                number=160000,
                 name="AMFZ Brandschutz, kant. Baubewilligung Gebühren",
                 only_for_services=["amfz-brandschutz"],
                 only_forms=ALLOWED_FORMS_FOR_PRODUCT_NUMBERS,
@@ -51,6 +56,11 @@ BILLING = ModuleConfig[BillingConfig](
             ),
             ProductNumberConfig(
                 number=300000,
+                name="AMFZ Brandschutz, Baubegleitung und -Abnahme (alt)",
+                archived=True,
+            ),
+            ProductNumberConfig(
+                number=320000,
                 name="AMFZ Brandschutz, Baubegleitung und -Abnahme",
                 only_subsequent_charge=True,
                 only_for_services=["amfz-brandschutz"],
