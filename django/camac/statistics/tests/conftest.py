@@ -5,35 +5,8 @@ from caluma.caluma_workflow.models import WorkItem
 from django.utils.timezone import make_aware
 
 from camac.deadlines.factories import DeadlineTypeFactory, InstanceDeadlineFactory
-from camac.settings.utils import generate_module_settings
 from camac.tests.form_utils import FormUtils
 from camac.user.factories import ServiceFactory, ServiceGroupFactory
-
-
-@pytest.fixture
-def statistics_settings(request, settings):
-    """Module-specific settings for statistics (default)."""
-    yield from generate_module_settings(
-        settings=settings,
-        request=request,
-        base_fixture=None,
-        module_name="statistics",
-        canton=None,
-        disable=False,
-    )
-
-
-@pytest.fixture(autouse=True)
-def ag_statistics_settings(request, settings, statistics_settings):
-    """Module-specific settings for statistics (canton AG)."""
-    yield from generate_module_settings(
-        settings=settings,
-        request=request,
-        base_fixture=statistics_settings,
-        module_name="statistics",
-        canton="kt_ag",
-        disable=False,
-    )
 
 
 @pytest.fixture
@@ -60,6 +33,7 @@ def statistics_ag_instance(
     db,
     ag_distribution_settings,
     ag_decision_settings,
+    ag_statistics_settings,
     ag_master_data_case,
     caluma_document_factory,
     caluma_work_item_factory,
@@ -83,8 +57,6 @@ def statistics_ag_instance(
     - a completed inquiry with known timestamps
     - an InstanceDeadline with deterministic processing-time / on-time values
     """
-    settings.APPLICATION_NAME = "kt_ag"
-
     instance = ag_master_data_case.instance
 
     # Instance state
@@ -152,14 +124,13 @@ def statistics_ag_instance(
 
 
 @pytest.fixture
-def statistics_ag_instance_by_role(statistics_ag_instance, settings):
+def statistics_ag_instance_by_role(statistics_ag_instance, ag_statistics_settings):
     """AG instance that resolves columns via by_role instead of by_service_group."""
-    stats = settings.STATISTICS
-    municipality_config = stats.by_service_group.pop("municipality")
-    stats.by_role["municipality"] = municipality_config
+    municipality_config = ag_statistics_settings.by_service_group.pop("municipality")
+    ag_statistics_settings.by_role["municipality"] = municipality_config
     yield statistics_ag_instance
-    stats.by_service_group["municipality"] = municipality_config
-    del stats.by_role["municipality"]
+    ag_statistics_settings.by_service_group["municipality"] = municipality_config
+    del ag_statistics_settings.by_role["municipality"]
 
 
 @pytest.fixture
