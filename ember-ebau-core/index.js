@@ -23,6 +23,7 @@ module.exports = {
     app.options["ember-validated-form"] = {
       theme: "uikit",
       defaults: {
+        ...app.options["ember-validated-form"]?.defaults,
         error: "ember-ebau-core/components/validated-form/custom-error",
         label: "ember-ebau-core/components/validated-form/custom-label",
       },
