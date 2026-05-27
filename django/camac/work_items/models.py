@@ -197,28 +197,6 @@ class WorkItemListFilterPreset(models.Model):
         ordering = ["sort"]
 
 
-class WorkItemListRowQuerySet(models.QuerySet["WorkItemListRow"]):
-    def count(self) -> int:
-        """Override count method to avoid unnecessary annotations in the query.
-
-        The base queryset is already adding all the necessary annotations for
-        displaying the model properly. However, some of those annotations can be
-        a bit costly and should be avoided if not necessary. For the pagination,
-        we do a count on the base queryset - for this purpose we make sure to
-        only count the PKs and avoid annotations and joins completely.
-        """
-
-        # We explicitly create a new query that completely ignores the proxy
-        # model in order to avoid all annotations and joins.
-
-        # WARNING: If there was ever a use-case where we'd filter by any
-        # annotated properties (don't do this, it would not perform at all) this
-        # method would break.
-        queryset = WorkItem.objects.all()
-        queryset.query.where = self.query.where
-        return queryset.values("pk").count()
-
-
 class WorkItemListRowManager(models.Manager["WorkItemListRow"]):
     def get_queryset(self):
         """Override base queryset for work item list rows to annotate the needed data.
@@ -534,9 +512,7 @@ class WorkItemListRow(WorkItem):
     as quick actions in the work item list.
     """
 
-    objects: WorkItemListRowQuerySet = WorkItemListRowManager.from_queryset(
-        WorkItemListRowQuerySet
-    )()
+    objects = WorkItemListRowManager()
 
     @property
     def is_ready(self) -> bool:
