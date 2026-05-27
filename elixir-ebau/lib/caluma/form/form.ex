@@ -34,7 +34,7 @@ defmodule Caluma.Form.Form do
 
     create :create_form do
       description "Low-level create action for persisted Caluma forms."
-      accept :*
+      accept [:slug, :name, :is_published?, :is_archived?, :meta]
     end
 
     create :create_form_tree do
@@ -124,26 +124,21 @@ defmodule Caluma.Form.Form do
       writable? true
       primary_key? true
       generated? false
-      public? true
     end
 
     attribute :name, Caluma.Form.Types.LocalizedField do
-      public? true
       allow_nil? false
     end
 
     attribute :is_published?, :boolean do
       source :is_published
-      public? true
     end
 
     attribute :is_archived?, :boolean do
       source :is_archived
-      public? true
     end
 
     attribute :meta, :map do
-      public? true
       default %{}
     end
   end

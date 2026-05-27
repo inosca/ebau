@@ -41,6 +41,7 @@ defmodule Caluma.Form.AnswerDocument do
 
     attribute :sort, :integer do
       default 0
+      constraints min: 0
     end
   end
 

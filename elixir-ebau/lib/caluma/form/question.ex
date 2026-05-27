@@ -134,7 +134,6 @@ defmodule Caluma.Form.Question do
 
   attributes do
     attribute :slug, :string do
-      public? true
       writable? true
       primary_key? true
       allow_nil? false

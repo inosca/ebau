@@ -40,7 +40,7 @@ defmodule Ebau.User.Service do
     create :create_service do
       argument :groups, {:array, :map}
       argument :service_group, :map
-      accept :*
+      accept [:name, :service_group_id]
       change manage_relationship(:groups, :groups, type: :append)
       change manage_relationship(:service_group, :service_group, type: :direct_control)
     end
@@ -54,7 +54,6 @@ defmodule Ebau.User.Service do
     attribute :name, :string do
       constraints max_length: 100
       source :NAME
-      public? true
     end
 
     attribute :sort, :integer do
@@ -66,7 +65,6 @@ defmodule Ebau.User.Service do
     attribute :service_group_id, :integer do
       allow_nil? false
       source :SERVICE_GROUP_ID
-      public? true
     end
   end
 

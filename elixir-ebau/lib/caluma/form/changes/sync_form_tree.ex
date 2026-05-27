@@ -79,13 +79,13 @@ defmodule Caluma.Form.Changes.SyncFormTree do
   end
 
   defp nested_form_attrs(type, slug, question_spec) when type in [:form, :table] do
-    form_attrs = Map.get(question_spec, :form, %{})
+    form_attrs = question_spec[:form] || %{}
 
     %{
-      slug: Map.get(form_attrs, :slug, slug),
-      name: Map.get(form_attrs, :name),
-      meta: Map.get(form_attrs, :meta, %{}),
-      questions: Map.get(question_spec, :questions, [])
+      slug: form_attrs[:slug] || slug,
+      name: form_attrs[:name],
+      meta: form_attrs[:meta] || %{},
+      questions: question_spec[:questions] || []
     }
   end
 

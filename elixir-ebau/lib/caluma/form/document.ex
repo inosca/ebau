@@ -66,7 +66,6 @@ defmodule Caluma.Form.Document do
 
     belongs_to :form, Caluma.Form.Form do
       allow_nil? false
-      public? true
       destination_attribute :slug
       source_attribute :form_id
       attribute_type :string

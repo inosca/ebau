@@ -43,7 +43,7 @@ defmodule Caluma.Workflow.Case do
   end
 
   actions do
-    defaults [:read, :destroy, create: :*, update: :*]
+    defaults [:read, :destroy, update: :*]
 
     create :create_case do
       argument :workflow, :map, allow_nil?: false
@@ -57,7 +57,6 @@ defmodule Caluma.Workflow.Case do
 
     belongs_to :workflow, Caluma.Workflow.Workflow do
       allow_nil? false
-      public? true
       attribute_type :string
       destination_attribute :slug
     end

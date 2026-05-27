@@ -35,7 +35,7 @@ defmodule Caluma.Form.FormQuestion do
   end
 
   actions do
-    defaults [:read, :destroy, create: :*, update: :*]
+    defaults [:read, :destroy]
 
     create :create_form_question do
       description """
@@ -77,12 +77,10 @@ defmodule Caluma.Form.FormQuestion do
       allow_nil? false
       writable? true
       primary_key? true
-      public? true
     end
 
     attribute :sort, :integer do
       allow_nil? false
-      public? true
       default 0
       constraints min: 0
     end

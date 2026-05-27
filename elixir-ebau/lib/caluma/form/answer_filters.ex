@@ -8,7 +8,7 @@ defmodule Caluma.Form.AnswerFilters do
   Selects the single answer matching one of `slugs` on the parent document
   identified by `parent_doc_id_ref` (an `%Ash.Query.Ref{}`). This is split
   up into two implementations for performance reasons as `question_id ==`
-  is more efficient on big data sets thatn `question_id in`.
+  is more efficient on big data sets than `question_id in`.
   """
   def answer_filter(parent_doc_id_ref, [single_slug]),
     do: Ash.Expr.expr(document_id == parent(^parent_doc_id_ref) and question_id == ^single_slug)
