@@ -24,7 +24,8 @@ config :ebau, Ebau.Repo,
 config :ebau, EbauWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
   secret_key_base: "T0W1/wc0qchpSGAM3hjpqGkwOPXaKmA4ZWhs6l0/9LRkZ3Bgy6Hc9AnvViaUeHrw",
-  server: false
+  server: false,
+  url: [path: "/"]
 
 config :ebau,
   legacy_fixture_root: Path.expand("../priv/test_fixtures", __DIR__)

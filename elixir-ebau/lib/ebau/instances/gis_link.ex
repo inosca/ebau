@@ -62,12 +62,6 @@ defmodule Ebau.Instances.GisLink do
     read :read_gis_links do
       description "Lists GIS link templates visible to the actor's service."
 
-      pagination do
-        offset? true
-        countable true
-        required? false
-      end
-
       prepare build(sort: :name)
 
       argument :instance_id, :integer do

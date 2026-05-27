@@ -20,7 +20,7 @@ defmodule EbauWeb.Instances.GisLinksTest do
     test "returns gis links for my service", %{conn: conn, gis_link: gis_link} do
       %{"data" => data} =
         conn
-        |> get(~p"/api/v2/gis-links?page[limit]=5")
+        |> get(~p"/api/v2/gis-links")
         |> json_response(200)
 
       assert Enum.map(data, & &1["id"]) == [gis_link.id]
@@ -37,7 +37,7 @@ defmodule EbauWeb.Instances.GisLinksTest do
 
       %{"data" => data} =
         conn
-        |> get(~p"/api/v2/gis-links?page[limit]=5")
+        |> get(~p"/api/v2/gis-links")
         |> json_response(200)
 
       refute Enum.any?(data, &(&1["id"] == other_gis_link.id))
@@ -58,7 +58,7 @@ defmodule EbauWeb.Instances.GisLinksTest do
 
       %{"data" => gis_links} =
         conn
-        |> get(~p"/api/v2/gis-links?page[limit]=5")
+        |> get(~p"/api/v2/gis-links")
         |> json_response(200)
 
       assert Enum.any?(gis_links, &(&1["id"] == data["id"]))
@@ -104,7 +104,7 @@ defmodule EbauWeb.Instances.GisLinksTest do
 
       %{"data" => data} =
         conn
-        |> get(~p"/api/v2/gis-links?page[limit]=5")
+        |> get(~p"/api/v2/gis-links")
         |> json_response(200)
 
       refute Enum.any?(data, &(&1["id"] == gis_link.id))
