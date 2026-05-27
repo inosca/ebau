@@ -52,10 +52,10 @@ def own_document(admin_user, instance):
         title="own document",
         category=CategoryFactory(name="foo"),
         metainfo={"camac-instance-id": str(instance.pk)},
-        created_by_user=admin_user.pk,
-        modified_by_user=admin_user.pk,
-        created_by_group=admin_user.get_default_group().service_id,
-        modified_by_group=admin_user.get_default_group().service_id,
+        created_by_user=str(admin_user.pk),
+        modified_by_user=str(admin_user.pk),
+        created_by_group=str(admin_user.get_default_group().service_id),
+        modified_by_group=str(admin_user.get_default_group().service_id),
     )
 
 

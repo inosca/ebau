@@ -22,7 +22,7 @@ class OwnDocument(Check):
         if not context.document:
             return False
 
-        return userinfo.service.pk == context.document.created_by_group
+        return str(userinfo.service.pk) == str(context.document.created_by_group)
 
 
 class HasAdditionalDemand(Check):
