@@ -17,7 +17,7 @@ from django.utils.translation import get_language, gettext_noop as _
 from rest_framework import serializers
 
 from camac.caluma.api import CalumaApi
-from camac.constants import kt_gr as gr_constants
+from camac.constants import kt_gr as gr_constants, kt_uri as ur_constants
 from camac.core.translations import get_translations_canton_aware
 from camac.document.models import Attachment
 from camac.instance.models import Instance
@@ -25,7 +25,7 @@ from camac.instance.placeholders.utils import (
     format_gis_center_coordinates,
     to_configured_case,
 )
-from camac.user.models import Service
+from camac.user.models import Location, Service
 from camac.utils import build_url, clean_join
 
 from ..master_data import MasterData
@@ -2539,6 +2539,10 @@ class UrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
         aliases=[_("PUBLICATION_DOCUMENTS_WITHOUT_OBLIGATION")],
         description=_("Publication documents without obligation"),
     )
+    name_of_municipal_authority = fields.AliasedMethodField(
+        aliases=[_("NAME_OF_MUNICIPAL_AUTHORITY")],
+        description=_("Name of the municipal authority"),
+    )
 
     def get_publication_date(self, instance):
         return human_readable_date(instance.publication_date())
@@ -2568,6 +2572,16 @@ class UrDMSPlaceholdersSerializer(DMSPlaceholdersSerializer):
             instance_id=instance.pk, context__isPublishedWithoutObligation=True
         )
         return ", ".join([attachment.display_name for attachment in attachments])
+
+    def get_name_of_municipal_authority(self, instance):
+        return ur_constants.MUNICIPAL_AUTHORITY_NAME_MAPPING.get(
+            Location.objects.filter(
+                communal_federal_number=int(instance._master_data.municipality_slug)
+            )
+            .first()
+            .name,
+            None,
+        )
 
     class Meta:
         exclude = "municipality"

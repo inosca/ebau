@@ -289,3 +289,26 @@ CALUMA_SPECIAL_FORM_QUESTION_VALUE_MAP = {
         "value": "gebaeudetechnik-art-des-gesuchs-gebaeudetechnik-baubewilligungspflichtig",
     },
 }
+
+MUNICIPAL_AUTHORITY_NAME_MAPPING = {
+    "Altdorf": "Gemeindebaubehörde Altdorf",
+    "Andermatt": "Gemeindebaubehörde Andermatt",
+    "Attinghausen": "Gemeindebaubehörde Attinghausen",
+    "Seedorf (Ortsteil Bauen)": "Gemeindebaubehörde Seedorf - Ortsteil Bauen",
+    "Bürglen": "Gemeindebaubehörde Bürglen",
+    "Erstfeld": "Gemeindebaubehörde Erstfeld",
+    "Flüelen": "Gemeindebaubehörde Flüelen",
+    "Göschenen": "Gemeindebaubehörde Urner Oberland",
+    "Gurtnellen": "Gemeindebaubehörde Urner Oberland",
+    "Hospental": "Gemeindebaubehörde Hospental",
+    "Isenthal": "Gemeindebaubehörde Isenthal",
+    "Realp": "Gemeindebaubehörde Realp",
+    "Schattdorf": "Gemeindebaubehörde Schattdorf",
+    "Seedorf": "Gemeindebaubehörde Seedorf",
+    "Seelisberg": "Gemeindebaubehörde Seelisberg",
+    "Silenen": "Gemeindebaubehörde Silenen",
+    "Sisikon": "Gemeindebaubehörde Sisikon",
+    "Spiringen": "Gemeindebaubehörde Spiringen",
+    "Unterschächen": "Gemeindebaubehörde Unterschächen",
+    "Wassen": "Gemeindebaubehörde Urner Oberland",
+}
