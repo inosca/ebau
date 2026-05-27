@@ -45,7 +45,7 @@ export default {
     archiveInstance: false,
     copyInstance: false,
     changeDossierNumber: false,
-    changeForm: false,
+    changeForm: true,
     convertModification: false,
     correctForm: true,
     withdrawInstance: true,

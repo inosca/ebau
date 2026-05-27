@@ -95,6 +95,14 @@ MODULE_LEGAL_APPEALS = IsForm(BAUGESUCH_FORMS) & (
     RequireWorkItem("appeals", addressed_to_current_service=True)
     | IsServiceGroup(["authority-bab"])
 )
+ACTION_INSTANCE_CHANGE_FORM = RequireInstanceState(
+    [
+        "subm",
+        "init-distribution",
+        "circulation",
+        "correction",
+    ]
+)
 MODULE_LINKED_INSTANCES = STATES_ALL
 MODULE_PERMISSIONS = STATES_ALL
 MODULE_PUBLICATION = RequireWorkItem("fill-publication")
@@ -284,6 +292,7 @@ GR_PERMISSIONS_SETTINGS = {
             ("documents-read", MODULE_DOCUMENTS),
             ("documents-write", MODULE_DOCUMENTS),
             ("form-read", MODULE_FORM),
+            ("instance-change-form", ACTION_INSTANCE_CHANGE_FORM),
             (
                 "form-write",
                 MODULE_PORTAL_FORM_WRITE
