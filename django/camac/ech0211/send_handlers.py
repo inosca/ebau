@@ -395,6 +395,10 @@ class NoticeRulingSendHandler(
                 workflow_api.suspend_case(case=case, user=self.caluma_user)
 
             if settings.APPLICATION_NAME == "kt_ag":
+                for slug in settings.ECH0211["NOTICE_RULING"].get(
+                    "SKIP_TASKS_ON_DECLINED", []
+                ):
+                    self.skip_work_item(slug)
                 decision_document = self._get_decision_document(case)
                 save_answer(
                     document=decision_document,

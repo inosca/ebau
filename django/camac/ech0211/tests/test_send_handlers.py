@@ -482,6 +482,10 @@ def test_notice_ruling_send_handler_ag_declined(
             user=caluma_admin_user,
         )
 
+    ech_instance_ag.case.work_items.filter(task_id="formal-exam").update(
+        status=WorkItem.STATUS_COMPLETED
+    )
+
     suspend_case_spy = mocker.spy(workflow_api, "suspend_case")
 
     data = CreateFromDocument(xml_data("notice_ruling"))

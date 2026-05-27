@@ -851,6 +851,7 @@ ECH0211 = {
             "ALLOWED_STATES": ["subm", "distribution-init", "circulation", "decision"],
             "ONLY_DECLINE": [],
             "SKIP_TASKS_ON_APPROVAL": ["formal-exam", "distribution"],
+            "SKIP_TASKS_ON_DECLINED": ["formal-exam", "distribution"],
             "ALEXANDRIA_CATEGORY": "alle-beteiligten",
             "ALEXANDRIA_MARK": "decision",
         },
