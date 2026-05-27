@@ -251,7 +251,9 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     my_activations = serializers.SerializerMethodField()
     objections = serializers.SerializerMethodField()
     bauverwaltung = serializers.SerializerMethodField()
-    responsible_person = serializers.SerializerMethodField()
+    responsible_person = (
+        serializers.SerializerMethodField()
+    )  # DEPRECATED: GL-292 | Use SzDMSPlaceholdersSerializer
     schlussabnahme_uhrzeit = serializers.SerializerMethodField()
     schlussabnahme_datum = serializers.SerializerMethodField()
     notes = serializers.SerializerMethodField()
@@ -941,7 +943,9 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
         return answers
 
-    def get_responsible_person(self, instance):
+    def get_responsible_person(
+        self, instance
+    ):  # DEPRECATED: GL-292 | Use SzDMSPlaceholdersSerializer
         responsible_service = instance.responsible_services.filter(
             service=self.service
         ).first()
