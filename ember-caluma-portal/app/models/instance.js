@@ -28,18 +28,4 @@ export default class Instance extends Model {
   get status() {
     return this.intl.t(`instances.status.${this.publicStatus}`);
   }
-
-  get typeDetail() {
-    if (!this.isPaper && !this.isModification) {
-      return "";
-    }
-    const parts = [
-      this.isPaper && this.intl.t("paper.type"),
-      this.isModification && this.intl.t("modification.type"),
-    ]
-      .filter(Boolean)
-      .join(", ");
-
-    return `(${parts})`;
-  }
 }
