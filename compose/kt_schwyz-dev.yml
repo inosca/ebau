@@ -99,8 +99,10 @@ services:
     image: acr.run/camac-ng/camac-ng/django:master
     depends_on:
       - valkey
+    ports:
+      - "6899:6899" # celery rdb
+      - "5679:5679" # debugpy
     command: celerydev
-    ports: []
 
   flower:
     image: mher/flower:2.0

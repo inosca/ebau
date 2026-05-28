@@ -33,6 +33,6 @@ if __name__ == "__main__":
         import debugpy
 
         debugpy.listen(("0.0.0.0", 5678))
-        print("Attached remote debugger for VSCode")
+        print("Attached remote debugger for VSCode (django) on port 5678")
 
     execute_from_command_line(sys.argv)

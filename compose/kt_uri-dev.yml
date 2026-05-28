@@ -116,8 +116,10 @@ services:
     profiles:
       - alexandria
       - full
+    ports:
+      - "6899:6899" # celery rdb
+      - "5679:5679" # debugpy
     command: celerydev
-    ports: []
 
   valkey:
     image: valkey/valkey:9.1

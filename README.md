@@ -286,10 +286,14 @@ The remote debugger settings for VS Code are committed to the repository.
 - The keyboard shortcut to launch the debugger is <kbd>F5</kbd>.
 - [Information on VS Code debugging](https://code.visualstudio.com/docs/editor/debugging)
 
-To enable debugging in the django container the ptvsd server must be started.
-Since this debug server collides with other setups (PyCharm, PyDev) it will
-only be started if the env var `ENABLE_PTVSD_DEBUGGER` is set to `True` in
-[`django/.env`](django/.env).
+To enable debugging in the django and celery containers the debugpy server must
+be started.  Since this debug server collides with other setups (PyCharm, PyDev)
+it will only be started if the env var `ENABLE_PTVSD_DEBUGGER` is set to `True`
+in [`django/.env`](django/.env).
+
+If you're debugging celery, it might also make sense to increase
+`CELERY_TASK_SOFT_TIME_LIMIT` (e.g. to `600` for 10 minutes) as otherwise the
+debugger will be automatically interrupted after 60 seconds.
 
 ### GraphQL
 

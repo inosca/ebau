@@ -159,8 +159,10 @@ services:
         REQUIREMENTS: requirements-dev.txt
     depends_on:
       - redis
+    ports:
+      - "6899:6899" # celery rdb
+      - "5679:5679" # debugpy
     command: celerydev
-    ports: []
 
   flower:
     image: mher/flower:2.0

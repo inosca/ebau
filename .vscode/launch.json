@@ -28,6 +28,22 @@
       ]
     },
     {
+      "name": "Celery",
+      "type": "debugpy",
+      "request": "attach",
+      "connect": {
+        "host": "localhost",
+        "port": 5679
+      },
+      "justMyCode": false,
+      "pathMappings": [
+        {
+          "localRoot": "${workspaceFolder}/django",
+          "remoteRoot": "."
+        }
+      ]
+    },
+    {
       "name": "BE Portal (Chrome)",
       "type": "chrome",
       "request": "launch",
