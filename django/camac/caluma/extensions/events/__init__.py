@@ -21,6 +21,7 @@ from . import (  # noqa: F401
     general,
     publication,
     rejection,
+    rpg2,
     sb,
     simple_workflow,
 )

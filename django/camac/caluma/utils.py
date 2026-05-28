@@ -151,6 +151,17 @@ def get_answer_display_value(
     return answer.value
 
 
+def is_addressed_to_service_slug(work_item, slugs):
+    """Return True if the work item's addressed_groups includes a service pk of a service with (one of) the slug(s)."""
+    if not slugs:
+        return False
+    if isinstance(slugs, str):  # pragma: no cover
+        slugs = [slugs]
+    return Service.objects.filter(
+        slug__in=slugs, pk__in=work_item.addressed_groups
+    ).exists()
+
+
 def sync_inquiry_deadline(
     inquiry: WorkItem, deadline: Optional[date] = None
 ) -> WorkItem:
