@@ -34,6 +34,15 @@ export default {
     valueField: "value",
     labelField: "name",
   },
+  municipalityMultiselect: macroCondition(getOwnConfig().application === "ag")
+    ? {
+        type: "select-multiple",
+        options: "municipalitiesFromCaluma",
+        valueField: "slug",
+        labelField: "label",
+        showWithoutOptions: true,
+      }
+    : {},
   municipality: macroCondition(getOwnConfig().application === "ur")
     ? {
         type: "select-multiple",
@@ -209,6 +218,19 @@ export default {
     type: "select",
     options: "babOptions",
     valueField: "value",
+    labelField: "label",
+    showWithoutOptions: true,
+  },
+  retroactiveBuildingPermit: {
+    type: "select",
+    options: "retroactiveBuildingPermitOptions",
+    valueField: "value",
+    labelField: "label",
+    showWithoutOptions: true,
+  },
+  applicationCodes: {
+    type: "select-multiple",
+    options: "applicationCodesOptions",
     labelField: "label",
     showWithoutOptions: true,
   },

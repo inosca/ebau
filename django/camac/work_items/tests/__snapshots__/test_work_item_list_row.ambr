@@ -4,7 +4,7 @@
     'data': list([
       dict({
         'attributes': dict({
-          'applicants': 'Powers, Duran and Rivas',
+          'applicants': 'Malone-Arias',
           'closed-at': None,
           'deadline': '2025-01-01T01:00:00+01:00',
           'description': 'Überbauung "Westfeld"',
@@ -12,7 +12,7 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              '6f21a59f-a7d2-4106-96f0-621e4b24c339',
+              'b4ed30be-cd3b-46d6-adff-c6ae56097f56',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
@@ -34,7 +34,7 @@
           'task': 'from-template-and-read',
           'unread': False,
         }),
-        'id': '6f21a59f-a7d2-4106-96f0-621e4b24c339',
+        'id': 'b4ed30be-cd3b-46d6-adff-c6ae56097f56',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -60,14 +60,14 @@
       }),
       dict({
         'attributes': dict({
-          'applicants': 'Powers, Duran and Rivas',
+          'applicants': 'Malone-Arias',
           'closed-at': None,
           'deadline': '2025-01-02T01:00:00+01:00',
           'description': 'Überbauung "Westfeld"',
           'direct-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              'recognize-effort',
+              'these-start-scene',
               'no-placeholder',
             ]),
             'route': 'foo.bar.baz',
@@ -75,7 +75,7 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              '137fcc46-4ad7-462a-aadf-3d45dc89641b',
+              '0f44d1f2-775d-4618-a8ad-a6dad9b5a388',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
@@ -97,7 +97,7 @@
           'task': 'from-task',
           'unread': True,
         }),
-        'id': '137fcc46-4ad7-462a-aadf-3d45dc89641b',
+        'id': '0f44d1f2-775d-4618-a8ad-a6dad9b5a388',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -123,7 +123,7 @@
       }),
       dict({
         'attributes': dict({
-          'applicants': 'Powers, Duran and Rivas',
+          'applicants': 'Malone-Arias',
           'closed-at': None,
           'deadline': '2025-01-03T01:00:00+01:00',
           'description': 'Überbauung "Westfeld"',
@@ -131,7 +131,7 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              '57cd4d1c-f77f-4ebd-b1fd-f2acc2f1166e',
+              '4998d52c-1678-4fe8-8c49-e983d75d50e0',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
@@ -153,7 +153,7 @@
           'task': 'assigned',
           'unread': True,
         }),
-        'id': '57cd4d1c-f77f-4ebd-b1fd-f2acc2f1166e',
+        'id': '4998d52c-1678-4fe8-8c49-e983d75d50e0',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -190,13 +190,13 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              'd83c4c7b-e6e0-43f4-8263-6c2a208e69a2',
+              'ff92bded-f387-4695-a9f2-3f9e2a40f993',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
           'has-additional-demand': None,
           'instance-id': '<INSTANCE_ID>',
-          'instance-name': 'Hannchen Rädel',
+          'instance-name': 'Ing. Jennifer Käster MBA.',
           'is-addressed-to-current-service': True,
           'is-assigned-to-current-user': False,
           'is-controlled-by-current-service': False,
@@ -212,7 +212,7 @@
           'task': 'target-deadline-date',
           'unread': True,
         }),
-        'id': 'd83c4c7b-e6e0-43f4-8263-6c2a208e69a2',
+        'id': 'ff92bded-f387-4695-a9f2-3f9e2a40f993',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({
@@ -241,7 +241,7 @@
       }),
       dict({
         'attributes': dict({
-          'applicants': 'Powers, Duran and Rivas',
+          'applicants': 'Malone-Arias',
           'closed-at': '2025-07-17T16:33:00+02:00',
           'deadline': '2025-01-07T01:00:00+01:00',
           'description': 'Überbauung "Westfeld"',
@@ -249,7 +249,7 @@
           'edit-link': dict({
             'models': list([
               '<INSTANCE_ID>',
-              '1f5feb6e-d6b5-436a-ba3d-25f4f67148d1',
+              'c5b3a4c5-09c2-473a-859b-fc68db651f90',
             ]),
             'route': 'cases.detail.work-items.edit',
           }),
@@ -271,7 +271,7 @@
           'task': 'completed',
           'unread': True,
         }),
-        'id': '1f5feb6e-d6b5-436a-ba3d-25f4f67148d1',
+        'id': 'c5b3a4c5-09c2-473a-859b-fc68db651f90',
         'relationships': dict({
           'addressed-service': dict({
             'data': dict({

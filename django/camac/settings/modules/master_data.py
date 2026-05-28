@@ -3428,6 +3428,38 @@ MASTER_DATA = {
                 "zustaendige-behoerde",
                 {"value_parser": "option", "prop": "label"},
             ),
+            # BaB
+            "is_bab": ("case_meta", "is-bab"),
+            "is_bab_location": (
+                "answer",
+                "ausserhalb-bauzone",
+                {
+                    "value_parser": (
+                        "value_mapping",
+                        {
+                            "mapping": {
+                                "ausserhalb-bauzone-ja": True,
+                                "ausserhalb-bauzone-nein": False,
+                            }
+                        },
+                    )
+                },
+            ),
+            "retroactive-building-permit": (
+                "answer",
+                "kantonale-pruefung-nachtraegliches-baugesuch",
+                {
+                    "value_parser": (
+                        "value_mapping",
+                        {
+                            "mapping": {
+                                "kantonale-pruefung-nachtraegliches-baugesuch-ja": True,
+                                "kantonale-pruefung-nachtraegliches-baugesuch-nein": False,
+                            }
+                        },
+                    )
+                },
+            ),
         },
     },
     "kt_sg": {

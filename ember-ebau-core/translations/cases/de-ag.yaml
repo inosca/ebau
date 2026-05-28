@@ -1,3 +1,17 @@
 cases:
   tableHeaders:
     even: "EVEN"
+  filters:
+    bab: "Innerhalb Bauzone"
+    retroactiveBuildingPermit: "Nachträgliche Baugesuche"
+    retroactiveBuildingPermit-placeholder: ""
+    applicationCodes: "Gesuchscodes"
+    applicationCodes-placeholder: ""
+    municipalityMultiselect: "Gemeinde"
+    municipalityMultiselect-placeholder: ""
+  bab:
+    only_bib: "Nur innerhalb Bauzone"
+    only_bab: "Nur ausserhalb Bauzone"
+  retroactiveBuildingPermit:
+    retroactive: "Nur nachträgliche Baugesuche"
+    not-retroactive: "Keine nachträglichen Baugesuche"

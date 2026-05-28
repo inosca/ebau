@@ -638,13 +638,39 @@ class InquiryAnswerFilter(BaseInFilter):
         )
 
 
+class ApplicationCodesFilter(CharFilter):
+    def filter(self, qs, value, *args, **kwargs):
+        if value in EMPTY_VALUES:
+            return qs
+
+        if isinstance(value, list):
+            code_list = value
+        else:
+            code_list = value.split(",")
+
+        code_filters = [
+            Q(
+                case__work_items__task_id="cantonal-exam",
+                case__work_items__document__answers__question_id="kantonale-pruefung-gesuchscodes",
+                case__work_items__document__answers__value__contains=code,
+            )
+            for code in code_list
+        ]
+        combined_filter = reduce(lambda a, b: a | b, code_filters)
+
+        subquery = qs.filter(combined_filter).filter(pk=OuterRef("pk"))
+
+        return qs.filter(Exists(subquery))
+
+
 class CalumaYesNoFilter(BooleanFilter):
-    def __init__(self, question, yes="yes", no="no", *args, **kwargs):
+    def __init__(self, question, yes="yes", no="no", task_id=None, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         self.question = question
         self.yes = yes
         self.no = no
+        self.task_id = task_id
 
     def filter(self, queryset, value):
         if value in EMPTY_VALUES:
@@ -652,12 +678,21 @@ class CalumaYesNoFilter(BooleanFilter):
 
         yes_no_value = "-".join([self.question, self.yes if value else self.no])
 
-        return queryset.filter(
-            **{
-                "case__document__answers__question_id": self.question,
-                "case__document__answers__value": yes_no_value,
-            }
-        )
+        if self.task_id:
+            return queryset.filter(
+                **{
+                    "case__work_items__task_id": self.task_id,
+                    "case__work_items__document__answers__question_id": self.question,
+                    "case__work_items__document__answers__value": yes_no_value,
+                }
+            )
+        else:
+            return queryset.filter(
+                **{
+                    "case__document__answers__question_id": self.question,
+                    "case__document__answers__value": yes_no_value,
+                }
+            )
 
 
 class CaseSuspendedFilter(CharFilter):
@@ -767,6 +802,9 @@ class InstanceFilterSet(FilterSet):
     form_name = FormNameFilter(field_name="form__name")
     form_name_versioned = NumberFilter(field_name="form__family__pk")
     location = NumberMultiValueFilter()
+    municipality_multiselect = CharMultiValueFilter(
+        method="filter_municipality_multiselect"
+    )
     address_sz = CharFilter(method="filter_address_sz")
     construction_zone_location_sz = CharFilter(
         method="filter_construction_zone_location_sz"
@@ -863,6 +901,9 @@ class InstanceFilterSet(FilterSet):
 
         return queryset.exclude(**_filter)
 
+    def filter_municipality_multiselect(self, queryset, name, value):
+        return queryset.filter(case__document__answers__value__in=value)
+
     def filter_pending_sanctions_control_instance(self, queryset, name, value):
         _filter = {
             "sanctions__is_finished": False,
@@ -940,6 +981,7 @@ class InstanceFilterSet(FilterSet):
             "instance_state",
             "instance_group",
             "location",
+            "municipality_multiselect",
             "previous_instance_state",
             "service",
             "user",
@@ -968,8 +1010,16 @@ class CalumaInstanceFilterSet(InstanceFilterSet):
     is_modification = CalumaYesNoFilter(
         question="projektaenderung", yes="ja", no="nein"
     )
+    is_retroactive_building_permit = CalumaYesNoFilter(
+        question="kantonale-pruefung-nachtraegliches-baugesuch",
+        yes="ja",
+        no="nein",
+        task_id="cantonal-exam",
+    )
     is_suspended = CaseSuspendedFilter()
     is_bab = CaseBabFilter()
+
+    application_codes = ApplicationCodesFilter()
 
     sanction_creator = NumberFilter(field_name="sanctions__service")
     sanction_control_instance = NumberFilter(field_name="sanctions__control_instance")
@@ -982,6 +1032,8 @@ class CalumaInstanceFilterSet(InstanceFilterSet):
             "caluma_keyword_search",
             "is_suspended",
             "is_bab",
+            "is_retroactive_building_permit",
+            "application_codes",
         )
 
 

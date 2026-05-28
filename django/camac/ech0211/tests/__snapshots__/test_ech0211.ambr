@@ -75,14 +75,14 @@
   					<ns1:owner>
   						<ns1:ownerAdress>
   							<ns4:person>
-  								<ns4:firstName>Kelly</ns4:firstName>
-  								<ns4:lastName>Johnson</ns4:lastName>
+  								<ns4:firstName>Joseph</ns4:firstName>
+  								<ns4:lastName>Foster</ns4:lastName>
   							</ns4:person>
   							<ns4:addressInformation>
-  								<ns4:street>Potter Street</ns4:street>
-  								<ns4:houseNumber>4009</ns4:houseNumber>
-  								<ns4:town>New Danielburgh</ns4:town>
-  								<ns4:swissZipCode>6334</ns4:swissZipCode>
+  								<ns4:street>Jonathan Lakes</ns4:street>
+  								<ns4:houseNumber>4209</ns4:houseNumber>
+  								<ns4:town>South Austinside</ns4:town>
+  								<ns4:swissZipCode>3994</ns4:swissZipCode>
   								<ns4:country>
   									<ns4:countryNameShort>CH</ns4:countryNameShort>
   								</ns4:country>
@@ -132,16 +132,16 @@
   								<ns8:organisationIdCategory>unknown</ns8:organisationIdCategory>
   								<ns8:organisationId><!-- ORGANISATION_ID --></ns8:organisationId>
   							</ns8:localOrganisationId>
-  							<ns8:organisationName>Glenn and Sons</ns8:organisationName>
-  							<ns8:organisationAdditionalName>Ariana Bell</ns8:organisationAdditionalName>
+  							<ns8:organisationName>Johnston-Jennings</ns8:organisationName>
+  							<ns8:organisationAdditionalName>Christina Hamilton</ns8:organisationAdditionalName>
   							<ns8:legalForm>0223</ns8:legalForm>
   						</ns3:organisationIdentification>
   					</ns3:identification>
   					<ns3:address>
-  						<ns4:street>Tiffany Harbor</ns4:street>
-  						<ns4:houseNumber>81008</ns4:houseNumber>
-  						<ns4:town>Mcbrideville</ns4:town>
-  						<ns4:swissZipCode>9022</ns4:swissZipCode>
+  						<ns4:street>David Lodge</ns4:street>
+  						<ns4:houseNumber>93939</ns4:houseNumber>
+  						<ns4:town>New Whitney</ns4:town>
+  						<ns4:swissZipCode>9367</ns4:swissZipCode>
   						<ns4:country>
   							<ns4:countryNameShort>CH</ns4:countryNameShort>
   						</ns4:country>
@@ -211,15 +211,15 @@
   				<ns1:person>
   					<ns3:identification>
   						<ns3:personIdentification>
-  							<ns9:officialName>Johnson</ns9:officialName>
-  							<ns9:firstName>Kelly</ns9:firstName>
+  							<ns9:officialName>Foster</ns9:officialName>
+  							<ns9:firstName>Joseph</ns9:firstName>
   						</ns3:personIdentification>
   					</ns3:identification>
   					<ns3:address>
-  						<ns4:street>Potter Street</ns4:street>
-  						<ns4:houseNumber>4009</ns4:houseNumber>
-  						<ns4:town>New Danielburgh</ns4:town>
-  						<ns4:swissZipCode>6334</ns4:swissZipCode>
+  						<ns4:street>Jonathan Lakes</ns4:street>
+  						<ns4:houseNumber>4209</ns4:houseNumber>
+  						<ns4:town>South Austinside</ns4:town>
+  						<ns4:swissZipCode>3994</ns4:swissZipCode>
   						<ns4:country>
   							<ns4:countryNameShort>CH</ns4:countryNameShort>
   						</ns4:country>

@@ -2383,6 +2383,7 @@ def ag_master_data_case(
     instance_service_factory,
 ):
     ag_instance.case.meta = {
+        "is-bab": True,
         "dossier-number": "2025-1",
         "submit-date": "2025-02-05T09:18:08+0000",
     }
@@ -2391,6 +2392,7 @@ def ag_master_data_case(
     document = ag_instance.case.document
 
     form_utils.add_answer(document, "is-paper", "is-paper-no")
+    form_utils.add_answer(document, "ausserhalb-bauzone", "ausserhalb-bauzone-ja")
     form_utils.add_answer(document, "beschreibung-bauvorhaben", 'Überbauung "Westfeld"')
     form_utils.add_answer(document, "beschreibung-bauvorhaben-details", "Testdossier 1")
     form_utils.add_answer(document, "zonenplan", "Wohnzone 2")
@@ -2486,6 +2488,16 @@ def ag_master_data_case(
         exam.document,
         "vorlaeufige-pruefung-auswaertige-anstoesser",
         "vorlaeufige-pruefung-auswaertige-anstoesser-ja",
+    )
+
+    # Cantonal exam
+    cantonal_exam = caluma_work_item_factory(
+        task_id="cantonal-exam", case=ag_instance.case
+    )
+    form_utils.add_answer(
+        cantonal_exam.document,
+        "kantonale-pruefung-nachtraegliches-baugesuch",
+        "kantonale-pruefung-nachtraegliches-baugesuch-ja",
     )
 
     # Decision
