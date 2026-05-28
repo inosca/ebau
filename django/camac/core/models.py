@@ -36,14 +36,22 @@ class MultilingualModel:
         # most cases
         trans = self.trans.all()
         match = next(filter(lambda t: t.language == lang, trans), None)
-        if not match and fallback:
-            match = next(
-                filter(lambda t: t.language == settings.LANGUAGE_CODE, trans), None
-            )
+        if match:
+            return match
+
+        if fallback:
+            # No translation for requested language found.
+            # Try to find fallback translation in order of configured
+            # available languages.
+            for fallback_lang in settings.APPLICATION.get("AVAILABLE_LANGUAGES", []):
+                match = next(filter(lambda t: t.language == fallback_lang, trans), None)
+                if match:
+                    return match
+
         return match
 
     def __str__(self):
-        return self.get_name()
+        return self.get_name() or super().__str__()
 
 
 class ACheckquery(models.Model):
