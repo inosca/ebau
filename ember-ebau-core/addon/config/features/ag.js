@@ -83,4 +83,5 @@ export default {
   journal: {
     snippets: true,
   },
+  instanceMarks: true,
 };

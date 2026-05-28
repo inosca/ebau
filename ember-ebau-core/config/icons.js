@@ -25,6 +25,7 @@ module.exports = function () {
       "globe",
       "bell",
       "pen",
+      "balance-scale",
     ],
   };
 };

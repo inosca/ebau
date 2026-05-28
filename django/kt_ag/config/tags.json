@@ -1,0 +1,24 @@
+[
+  {
+    "model": "tags.instancemark",
+    "pk": 1,
+    "fields": {
+      "name": "{\"de\": \"Dringend\", \"fr\": \"\", \"it\": \"\"}",
+      "icon": "bell",
+      "background_color": "#ef516d",
+      "text_color": "#ffffff",
+      "sort": 1
+    }
+  },
+  {
+    "model": "tags.instancemark",
+    "pk": 2,
+    "fields": {
+      "name": "{\"de\": \"In Beschwerde\", \"fr\": \"\", \"it\": \"\"}",
+      "icon": "balance-scale",
+      "background_color": "#f49216",
+      "text_color": "#000000",
+      "sort": 2
+    }
+  }
+]

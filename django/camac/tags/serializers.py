@@ -23,7 +23,7 @@ class StaticKeywordSerializer(VisibilitySerializerMixin, serializers.ModelSerial
         resource_name = "static-keywords"
 
 
-class InstanceMarkSerializer(serializers.ModelSerializer):
+class InstanceMarkSerializer(VisibilitySerializerMixin, serializers.ModelSerializer):
     class Meta:
         model = models.InstanceMark
         fields = (
