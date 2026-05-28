@@ -1895,3 +1895,42 @@ def test_recalculate_deadline_by_submission(
 
     assert deadline_answer.date == expected_deadline_after
     assert work_item.deadline.date() == expected_deadline_after
+
+
+def test_history_entry_when_no_recipient_ag(
+    db,
+    set_application_ag,
+    ag_distribution_settings,
+    disable_ech0211_settings,
+    service,
+    ag_instance,
+    caluma_admin_user,
+    caluma_work_item_factory,
+    notification_template_factory,
+):
+    service.email = ""
+    service.save()
+
+    work_item = caluma_work_item_factory(
+        task_id="inquiry",
+        case=ag_instance.case,
+        addressed_groups=[service.pk],
+        controlling_groups=[service.pk],
+    )
+    work_item.document.answers.create(
+        question_id="inquiry-deadline", date=date(2026, 4, 8)
+    )
+    notification_template_factory(slug="verfahrensablauf-fachstelle")
+
+    distribution.post_resume_inquiry(
+        sender=None, work_item=work_item, user=caluma_admin_user
+    )
+    ag_instance.refresh_from_db()
+
+    history_entry = HistoryEntryT.objects.filter(
+        history_entry__instance=ag_instance, language="de"
+    ).first()
+
+    assert history_entry.title.startswith(
+        f"Notifikation gesendet an keine Empf\xe4nger ({service.__str__()}, Eingeladene Stelle der Stellungnahme)"
+    )
