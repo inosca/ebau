@@ -2034,7 +2034,9 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
                 ).first()
 
             addressed_groups = (
-                validated_data["inquiry"] if "inquiry" in validated_data else []
+                validated_data["inquiry"].addressed_groups
+                if "inquiry" in validated_data
+                else []
             )
 
             self._create_history_entry(
