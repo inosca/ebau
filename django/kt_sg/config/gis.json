@@ -21,7 +21,8 @@
           {
             "cast": "municipality_bfs_to_dynamic_option",
             "property": "MunicipalityCode",
-            "question": "gemeinde"
+            "question": "gemeinde",
+            "use_first": true
           },
           {
             "property": "EGRID",

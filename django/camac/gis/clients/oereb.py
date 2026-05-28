@@ -1,8 +1,10 @@
-from typing import Literal
+from concurrent.futures import ThreadPoolExecutor
+from itertools import chain
+from typing import Any, Literal
 
 import requests
 from django.conf import settings
-from django.utils.translation import get_language, gettext as _
+from django.utils.translation import get_language, gettext as _, override
 
 from camac.gis.clients.base import GISBaseClient
 from camac.user.models import Service
@@ -24,9 +26,25 @@ class OerebGisClient(GISBaseClient):
     """
 
     required_params = ["egrid"]
+    max_concurrent_extracts = 16
 
-    def process_data_source(self, config: dict, _intermediate_data: dict) -> dict:
+    def process_data_source(
+        self,
+        config: dict[str, Any],
+        _intermediate_data: dict[str, Any],
+    ) -> dict[str, Any]:
         """Process ÖREB data source.
+
+        Supports a single EGRID or a comma-separated list. For each config item
+        we first extract the raw value from every EGRID's extract, then
+        aggregate across EGRIDs and write the final value to `data`:
+
+        - Table questions (slug `table.column`): each EGRID contributes one row.
+        - Concerned themes: If any EGRID is concerned, the result is `yes`; only
+          if every EGRID is unconcerned is the result `no`.
+        - Restriction collections (list-valued): ordered, deduplicated union.
+        - Other flat questions: concatenated and deduplicated, or first
+          non-empty wins when `use_first: true` is set on the config item.
 
         Example config:
         ```json
@@ -38,8 +56,9 @@ class OerebGisClient(GISBaseClient):
                 },
                 {
                     "property": "MunicipalityCode",
-                    "question": "parzellen.gemeinde",
-                    "cast": "municipality_bfs_to_dynamic_option"
+                    "question": "gemeinde",
+                    "cast": "municipality_bfs_to_dynamic_option",
+                    "use_first": true
                 }
             ],
             "restriction_on_landownership_collections": [
@@ -69,28 +88,114 @@ class OerebGisClient(GISBaseClient):
         }
         ```
         """
+        egrids = self.params["egrid"].split(",")
+        language = get_language()
 
-        raw_data = self._get_extract(self.params["egrid"])
+        # We can allow a high amount of workers as `_get_extract` is very
+        # CPU-light. We're only really I/O waiting on the response from the
+        # OEREB server.
+        with ThreadPoolExecutor(max_workers=self.max_concurrent_extracts) as executor:
+            extracts = list(
+                executor.map(
+                    lambda egrid: self._get_extract(egrid, language),
+                    egrids,
+                )
+            )
+
         data = {}
 
         for item in config.get("realestate_properties", []):
-            self._handle_realestate_property(raw_data, data, **item)
+            self._write(
+                data,
+                item,
+                [self._extract_realestate_property(raw, **item) for raw in extracts],
+            )
+
         for item in config.get("restriction_on_landownership_collections", []):
-            self._handle_restriction_collection(raw_data, data, **item)
+            self._write(
+                data,
+                item,
+                [self._extract_restriction_collection(raw, **item) for raw in extracts],
+            )
+
         for item in config.get("concerned_themes", []):
-            self._handle_concerned_theme(raw_data, data, **item)
+            self._write(
+                data,
+                item,
+                [self._extract_concerned_theme(raw, **item) for raw in extracts],
+            )
 
         return data
 
-    def _handle_realestate_property(
+    def _write(
         self,
-        raw_data: dict,
-        data: dict,
+        data: dict[str, Any],
+        item: dict[str, Any],
+        values: list[Any],
+    ) -> None:
+        """Write extracted per-EGRID values into the final data object.
+
+        Table questions get one row per EGRID, all other questions questions are
+        aggregated via `_aggregate` before being written.
+        """
+
+        question = item["question"]
+
+        if "." in question:
+            self._write_table_column(data, question, values)
+        else:
+            value = self._aggregate(values, item)
+            self.set_question_value(data, question, value)
+
+    def _write_table_column(
+        self,
+        data: dict[str, Any],
         question: str,
+        values: list[Any],
+    ) -> None:
+        """Write a per-EGRID list of values as column values in a table."""
+
+        table, column = question.split(".")
+        rows = data.get(table, [])
+
+        for i, value in enumerate(values):
+            if i >= len(rows):
+                rows.append({})
+
+            rows[i][column] = value
+
+        data[table] = rows
+
+    def _aggregate(self, values: list[Any], item: dict[str, Any]) -> Any:
+        """Combine per-EGRID values for a single flat question.
+
+        - If `use_first` is given, we ignore all values after the first (e.g.
+          for writing the municipality)
+        - If values are booleans, we return the configured yes/no option
+          strings. If **any** of the values is `True` it will be "yes".
+        - Nested lists are flattened
+        """
+        first = values[0]
+
+        if item.get("use_first"):
+            return first
+
+        if isinstance(first, bool):
+            return item.get("yes", "ja") if any(values) else item.get("no", "nein")
+
+        if isinstance(first, list):
+            return list(chain(*values))
+
+        return values
+
+    def _extract_realestate_property(
+        self,
+        raw_data: dict[str, Any],
         property: str,
         cast: Literal["municipality_bfs_to_dynamic_option"] | None = None,
-    ):
-        """Assign a `RealEstate` property to a question.
+        **kwargs,
+    ) -> Any:
+        """Extract a `RealEstate` property.
 
         Reads `RealEstate.<property>` and optionally casts the raw value to the
         format Caluma expects via `cast`.
@@ -105,22 +210,19 @@ class OerebGisClient(GISBaseClient):
                     .values_list("pk", flat=True)
                     .first()
                 )
-                value = {"key": str(pk)} if pk is not None else None
+                return {"key": str(pk)} if pk is not None else None
             case None:
-                pass
+                return value
             case _:  # pragma: no cover
                 raise NotImplementedError()
 
-        self.set_question_value(data, question, value)
-
-    def _handle_restriction_collection(
+    def _extract_restriction_collection(
         self,
-        raw_data: dict,
-        data: dict,
-        question: str,
+        raw_data: dict[str, Any],
         theme: list[str] | str,
-    ):
-        """Assign matched restriction texts to a question.
+        **kwargs,
+    ) -> list[str]:
+        """Extract matched restriction texts.
 
         Collects every `LegendText.Text` in
         `RealEstate.RestrictionOnLandownership` whose `Code` matches `theme`.
@@ -129,7 +231,7 @@ class OerebGisClient(GISBaseClient):
         theme = [theme] if isinstance(theme, str) else theme
 
         restrictions = get_dict_item(raw_data, "RealEstate.RestrictionOnLandownership")
-        values = [
+        return [
             # `LegendText` is a `MultilingualText` array, but the OEREB service
             # filters it to the single entry matching the `LANG` query parameter
             # (or a default language if it's is omitted), so we can always use
@@ -139,18 +241,13 @@ class OerebGisClient(GISBaseClient):
             if get_dict_item(entry, "Theme.Code") in theme
         ]
 
-        self.set_question_value(data, question, values)
-
-    def _handle_concerned_theme(
+    def _extract_concerned_theme(
         self,
-        raw_data: dict,
-        data: dict,
-        question: str,
+        raw_data: dict[str, Any],
         theme: list[str] | str,
-        yes: str = "ja",
-        no: str = "nein",
-    ):
-        """Assign `yes`/`no` based on theme presence to a question.
+        **kwargs,
+    ) -> bool:
+        """Extract whether the EGRID is concerned by `theme`.
 
         Checks whether any entry in `ConcernedTheme` has a `Code` matching
         `theme`.
@@ -159,36 +256,41 @@ class OerebGisClient(GISBaseClient):
         theme = [theme] if isinstance(theme, str) else theme
 
         entries = raw_data["ConcernedTheme"]
-        is_concerned = any(entry["Code"] in theme for entry in entries)
-        value = yes if is_concerned else no
+        return any(entry["Code"] in theme for entry in entries)
 
-        self.set_question_value(data, question, value)
-
-    def _get_extract(self, egrid: str) -> dict:
+    def _get_extract(
+        self,
+        egrid: str,
+        language: Literal["de", "fr", "it", "rm"],
+    ) -> dict[str, Any]:
         """Fetch the OEREB JSON extract for `egrid` and return its payload."""
 
-        response = requests.get(
-            build_url(settings.OEREB_URL, "/extract/json/"),
-            params={"EGRID": egrid, "LANG": get_language()},
-        )
-
-        try:
-            response.raise_for_status()
-        except requests.HTTPError as exc:
-            raise RuntimeError(
-                _("Error %(code)s while fetching data from the OEREB API")
-                % {"code": response.status_code}
-            ) from exc
-
-        if response.status_code == 204:
-            raise RuntimeError(
-                _(
-                    "No OEREB data for EGRID %(egrid)s. Plot may be outside of the canton."
-                )
-                % {"egrid": egrid}
+        # We need to explicitly override the language to make sure we use the
+        # passed language for error translations. This is necessary because
+        # threads don't inherit the active language.
+        with override(language):
+            response = requests.get(
+                build_url(settings.OEREB_URL, "/extract/json/"),
+                params={"EGRID": egrid, "LANG": language},
             )
 
-        return get_dict_item(response.json(), "GetExtractByIdResponse.extract")
+            try:
+                response.raise_for_status()
+            except requests.HTTPError as exc:
+                raise RuntimeError(
+                    _("Error %(code)s while fetching data from the OEREB API")
+                    % {"code": response.status_code}
+                ) from exc
+
+            if response.status_code == 204:
+                raise RuntimeError(
+                    _(
+                        "No OEREB data for EGRID %(egrid)s. Plot may be outside of the canton."
+                    )
+                    % {"egrid": egrid}
+                )
+
+            return get_dict_item(response.json(), "GetExtractByIdResponse.extract")
 
     class Meta:
         schema = {
@@ -225,6 +327,7 @@ class OerebGisClient(GISBaseClient):
                                 "type": "string",
                                 "enum": ["municipality_bfs_to_dynamic_option"],
                             },
+                            "use_first": {"type": "boolean"},
                         },
                     },
                 },
@@ -237,6 +340,7 @@ class OerebGisClient(GISBaseClient):
                         "properties": {
                             "theme": {"$ref": "#/$defs/themeCodes"},
                             "question": {"$ref": "#/$defs/question"},
+                            "use_first": {"type": "boolean"},
                         },
                     },
                 },

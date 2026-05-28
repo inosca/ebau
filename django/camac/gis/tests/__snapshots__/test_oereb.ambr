@@ -7,21 +7,82 @@
       'label': 'Gemeinde',
       'value': '99',
     }),
+    'grundbuchkreis': dict({
+      'hidden': False,
+      'label': 'Grundbuchkreis',
+      'value': 'BE0200000044',
+    }),
     'kbs': dict({
       'displayValue': 'Nein',
       'hidden': False,
       'label': 'Belasteter Standort?',
       'value': 'kbs-nein',
     }),
-    'parzellennummer': dict({
+    'parzellen': dict({
+      'form': 'parzellen-tabelle',
       'hidden': False,
-      'label': 'Parzellennummer',
-      'value': '637',
+      'label': 'Parzellen',
+      'value': list([
+        dict({
+          'parzellennummer': dict({
+            'hidden': False,
+            'label': 'Parzellennummer',
+            'value': '637',
+          }),
+        }),
+      ]),
     }),
     'zonenplan': dict({
       'hidden': False,
       'label': 'Zonenplan',
       'value': 'Aaretalschutzgebiet, Festlegung der Bebauung mittels spezieller Vorschriften, Strassenbaulinie (ST), UeO Scheuerrain / Sulgenrain, Wohnzone (W), seitliche und rückwärtige Baulinie (SR)',
+    }),
+  })
+# ---
+# name: test_oereb_client[sg_oereb_config-CH538777599655,CH685045037723]
+  dict({
+    'gemeinde': dict({
+      'displayValue': 'St.Gallen',
+      'hidden': False,
+      'label': 'Gemeinde',
+      'value': '99',
+    }),
+    'grundbuchkreis': dict({
+      'hidden': False,
+      'label': 'Grundbuchkreis',
+      'value': 'SG0200320300, SG0200325100',
+    }),
+    'kbs': dict({
+      'displayValue': 'Ja',
+      'hidden': False,
+      'label': 'Belasteter Standort?',
+      'value': 'kbs-ja',
+    }),
+    'parzellen': dict({
+      'form': 'parzellen-tabelle',
+      'hidden': False,
+      'label': 'Parzellen',
+      'value': list([
+        dict({
+          'parzellennummer': dict({
+            'hidden': False,
+            'label': 'Parzellennummer',
+            'value': 'F2180',
+          }),
+        }),
+        dict({
+          'parzellennummer': dict({
+            'hidden': False,
+            'label': 'Parzellennummer',
+            'value': '6121',
+          }),
+        }),
+      ]),
+    }),
+    'zonenplan': dict({
+      'hidden': False,
+      'label': 'Zonenplan',
+      'value': 'BauG Grünzone Erholung, BauG Grünzone Freihaltung, BauG Landwirtschaftszone, BauG Skiabfahrts- und Skiübungsgelände, BauG Wohnzone W2, BauG Wohnzone W3, BauG Zone für öffentliche Bauten und Anlagen, Hinweis Gewaesser, Hinweis Wald',
     }),
   })
 # ---
@@ -33,16 +94,30 @@
       'label': 'Gemeinde',
       'value': '99',
     }),
+    'grundbuchkreis': dict({
+      'hidden': False,
+      'label': 'Grundbuchkreis',
+      'value': 'SG0200320300',
+    }),
     'kbs': dict({
       'displayValue': 'Ja',
       'hidden': False,
       'label': 'Belasteter Standort?',
       'value': 'kbs-ja',
     }),
-    'parzellennummer': dict({
+    'parzellen': dict({
+      'form': 'parzellen-tabelle',
       'hidden': False,
-      'label': 'Parzellennummer',
-      'value': 'F2180',
+      'label': 'Parzellen',
+      'value': list([
+        dict({
+          'parzellennummer': dict({
+            'hidden': False,
+            'label': 'Parzellennummer',
+            'value': 'F2180',
+          }),
+        }),
+      ]),
     }),
     'zonenplan': dict({
       'hidden': False,
