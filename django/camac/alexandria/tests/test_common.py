@@ -246,6 +246,7 @@ def test_has_alexandria_permission_v2(
     permissions_settings,
     service,
     settings,
+    permissions_alexandria_settings,
 ):
     alexandria_settings["USE_V2_PERMISSIONS"] = True
     permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.FULL
@@ -262,7 +263,7 @@ def test_has_alexandria_permission_v2(
         category=disallowed_category,
     )
 
-    settings.PERMISSIONS_ALEXANDRIA["ACCESS_LEVELS"] = {
+    permissions_alexandria_settings["ACCESS_LEVELS"] = {
         access_level.pk: [
             (f"{allowed_category.pk}:create", Always()),
             (f"{allowed_category.pk}:delete", Always()),
@@ -341,7 +342,7 @@ def test_has_alexandria_move_permission_v2(
     expected,
     permissions_settings,
     service,
-    settings,
+    permissions_alexandria_settings,
 ):
     alexandria_settings["USE_V2_PERMISSIONS"] = True
     permissions_settings["PERMISSION_MODE"] = PERMISSION_MODE.FULL
@@ -354,7 +355,7 @@ def test_has_alexandria_move_permission_v2(
         category=from_category,
     )
 
-    settings.PERMISSIONS_ALEXANDRIA["ACCESS_LEVELS"] = {
+    permissions_alexandria_settings["ACCESS_LEVELS"] = {
         access_level.pk: configured_permissions
     }
 

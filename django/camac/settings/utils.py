@@ -8,14 +8,12 @@ from django.utils.module_loading import import_string
 
 from camac.settings.ebau_schema import ModuleApplicationConfig, ModuleConfig
 
-from . import modules as settings_modules
-
 
 class InvalidFixtureUseError(Exception): ...
 
 
 def generate_module_settings(
-    settings, request, module_name, canton, disable, base_fixture
+    settings, request, settings_name, import_path, canton, disable, base_fixture
 ):
     """Generate modular settings fixtures.
 
@@ -24,15 +22,14 @@ def generate_module_settings(
     `[canton_shortname]_distribution_settings`.
     """
 
+    module_name = settings_name.lower()
     # Implementation details: Tests can request `module_settings` and
     # `canton_module_settings`     at the same time. Those two settings must not
     # shadow each other: for example:     if a test uses foo_module_settings, but
     # uses a fixture that implies be_foo_module_settings,     then those two settings
     # objects should be the same (but of course with the be_ config as content).
 
-    original_settings = import_string(
-        f"camac.settings.modules.{module_name.lower()}.{module_name.upper()}"
-    )
+    original_settings = import_string(import_path)
 
     # Validation: There are only ever allowed to be two module fixtures per
     # module in use:
@@ -119,28 +116,26 @@ def generate_module_settings(
         # base settings are responsible for cleanup, so we do the whole set,
         # yield, reset sequence here. Relying on the settings fixture may not be
         # enough (TODO verify / validate assumption)
-        before_settings = getattr(settings, module_name.upper(), {})
-        setattr(settings, module_name.upper(), default_settings)
+        before_settings = getattr(settings, settings_name, {})
+        setattr(settings, settings_name, default_settings)
         yield default_settings
 
-        setattr(settings, module_name.upper(), before_settings)
+        setattr(settings, settings_name, before_settings)
 
 
-def get_all_modules():
-    return [
-        module_name
-        for module_name in dir(settings_modules)
-        if hasattr(settings, module_name.upper())
-    ]
+def get_all_modules() -> dict[str, str]:
+    """Return a dict that maps the settings names to the corresponding import paths."""
+    return {
+        name: settings.MODULE_SETTINGS_REGISTRY[name]
+        # sorted for stable template generation (fixtures generated for module settings)
+        for name in sorted(settings.MODULE_SETTINGS_REGISTRY.keys())
+    }
 
 
 def get_enabled_cantons_for_module(
-    module_name: str, ignore_enabled_value: bool = False
+    import_path: str, ignore_enabled_value: bool = False
 ) -> List[str]:
-
-    cantons_config: dict | ModuleConfig = import_string(
-        f"camac.settings.modules.{module_name}.{module_name.upper()}"
-    )
+    cantons_config: dict | ModuleConfig = import_string(import_path)
 
     is_pydantic = isinstance(cantons_config, ModuleConfig)
 
@@ -153,31 +148,6 @@ def get_enabled_cantons_for_module(
         and (ignore_enabled_value or is_module_enabled(config))
         and canton != "default"
     ]
-
-
-def get_enabled_modules_for_canton(
-    canton: str, ignore_enabled_value: bool = False
-) -> List[str]:
-    enabled_modules = []
-    all_modules = get_all_modules()
-
-    for module_name in all_modules:
-        config: dict | ModuleConfig = import_string(
-            f"camac.settings.modules.{module_name}.{module_name.upper()}"
-        )
-
-        config = import_string(
-            f"camac.settings.modules.{module_name}.{module_name.upper()}"
-        )
-        is_pydantic = isinstance(config, ModuleConfig)
-        canton_config = (
-            getattr(config, canton) if is_pydantic else config.get(canton, {})
-        )
-
-        if canton_config and (ignore_enabled_value or is_module_enabled(canton_config)):
-            enabled_modules.append(module_name)
-
-    return enabled_modules
 
 
 def is_module_enabled(config: dict | ModuleApplicationConfig) -> bool:

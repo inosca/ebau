@@ -16,7 +16,8 @@ def additional_demand_settings(
         settings=settings,
         request=request,
         base_fixture=None,
-        module_name="additional_demand",
+        settings_name="ADDITIONAL_DEMAND",
+        import_path="camac.settings.modules.additional_demand.ADDITIONAL_DEMAND",
         canton=None,
         disable=False,
     )
@@ -33,7 +34,8 @@ def disable_additional_demand_settings(
         settings=settings,
         request=request,
         base_fixture=additional_demand_settings,
-        module_name="additional_demand",
+        settings_name="ADDITIONAL_DEMAND",
+        import_path="camac.settings.modules.additional_demand.ADDITIONAL_DEMAND",
         canton=None,
         disable=True,
     )
@@ -50,7 +52,8 @@ def gr_additional_demand_settings(
         settings=settings,
         request=request,
         base_fixture=additional_demand_settings,
-        module_name="additional_demand",
+        settings_name="ADDITIONAL_DEMAND",
+        import_path="camac.settings.modules.additional_demand.ADDITIONAL_DEMAND",
         canton="kt_gr",
         disable=False,
     )
@@ -67,7 +70,8 @@ def so_additional_demand_settings(
         settings=settings,
         request=request,
         base_fixture=additional_demand_settings,
-        module_name="additional_demand",
+        settings_name="ADDITIONAL_DEMAND",
+        import_path="camac.settings.modules.additional_demand.ADDITIONAL_DEMAND",
         canton="kt_so",
         disable=False,
     )
@@ -84,7 +88,8 @@ def ur_additional_demand_settings(
         settings=settings,
         request=request,
         base_fixture=additional_demand_settings,
-        module_name="additional_demand",
+        settings_name="ADDITIONAL_DEMAND",
+        import_path="camac.settings.modules.additional_demand.ADDITIONAL_DEMAND",
         canton="kt_uri",
         disable=False,
     )
@@ -101,7 +106,8 @@ def ag_additional_demand_settings(
         settings=settings,
         request=request,
         base_fixture=additional_demand_settings,
-        module_name="additional_demand",
+        settings_name="ADDITIONAL_DEMAND",
+        import_path="camac.settings.modules.additional_demand.ADDITIONAL_DEMAND",
         canton="kt_ag",
         disable=False,
     )
@@ -118,7 +124,8 @@ def be_additional_demand_settings(
         settings=settings,
         request=request,
         base_fixture=additional_demand_settings,
-        module_name="additional_demand",
+        settings_name="ADDITIONAL_DEMAND",
+        import_path="camac.settings.modules.additional_demand.ADDITIONAL_DEMAND",
         canton="kt_bern",
         disable=False,
     )
@@ -135,7 +142,8 @@ def sg_additional_demand_settings(
         settings=settings,
         request=request,
         base_fixture=additional_demand_settings,
-        module_name="additional_demand",
+        settings_name="ADDITIONAL_DEMAND",
+        import_path="camac.settings.modules.additional_demand.ADDITIONAL_DEMAND",
         canton="kt_sg",
         disable=False,
     )
@@ -151,7 +159,8 @@ def address_assignment_settings(
         settings=settings,
         request=request,
         base_fixture=None,
-        module_name="address_assignment",
+        settings_name="ADDRESS_ASSIGNMENT",
+        import_path="camac.settings.modules.address_assignment.ADDRESS_ASSIGNMENT",
         canton=None,
         disable=False,
     )
@@ -168,7 +177,8 @@ def disable_address_assignment_settings(
         settings=settings,
         request=request,
         base_fixture=address_assignment_settings,
-        module_name="address_assignment",
+        settings_name="ADDRESS_ASSIGNMENT",
+        import_path="camac.settings.modules.address_assignment.ADDRESS_ASSIGNMENT",
         canton=None,
         disable=True,
     )
@@ -185,7 +195,8 @@ def gr_address_assignment_settings(
         settings=settings,
         request=request,
         base_fixture=address_assignment_settings,
-        module_name="address_assignment",
+        settings_name="ADDRESS_ASSIGNMENT",
+        import_path="camac.settings.modules.address_assignment.ADDRESS_ASSIGNMENT",
         canton="kt_gr",
         disable=False,
     )
@@ -201,7 +212,8 @@ def alexandria_settings(
         settings=settings,
         request=request,
         base_fixture=None,
-        module_name="alexandria",
+        settings_name="ALEXANDRIA",
+        import_path="camac.settings.modules.alexandria.ALEXANDRIA",
         canton=None,
         disable=False,
     )
@@ -218,7 +230,8 @@ def disable_alexandria_settings(
         settings=settings,
         request=request,
         base_fixture=alexandria_settings,
-        module_name="alexandria",
+        settings_name="ALEXANDRIA",
+        import_path="camac.settings.modules.alexandria.ALEXANDRIA",
         canton=None,
         disable=True,
     )
@@ -235,7 +248,8 @@ def ag_alexandria_settings(
         settings=settings,
         request=request,
         base_fixture=alexandria_settings,
-        module_name="alexandria",
+        settings_name="ALEXANDRIA",
+        import_path="camac.settings.modules.alexandria.ALEXANDRIA",
         canton="kt_ag",
         disable=False,
     )
@@ -252,7 +266,8 @@ def gr_alexandria_settings(
         settings=settings,
         request=request,
         base_fixture=alexandria_settings,
-        module_name="alexandria",
+        settings_name="ALEXANDRIA",
+        import_path="camac.settings.modules.alexandria.ALEXANDRIA",
         canton="kt_gr",
         disable=False,
     )
@@ -269,7 +284,8 @@ def so_alexandria_settings(
         settings=settings,
         request=request,
         base_fixture=alexandria_settings,
-        module_name="alexandria",
+        settings_name="ALEXANDRIA",
+        import_path="camac.settings.modules.alexandria.ALEXANDRIA",
         canton="kt_so",
         disable=False,
     )
@@ -286,7 +302,8 @@ def be_alexandria_settings(
         settings=settings,
         request=request,
         base_fixture=alexandria_settings,
-        module_name="alexandria",
+        settings_name="ALEXANDRIA",
+        import_path="camac.settings.modules.alexandria.ALEXANDRIA",
         canton="kt_bern",
         disable=False,
     )
@@ -303,7 +320,8 @@ def ur_alexandria_settings(
         settings=settings,
         request=request,
         base_fixture=alexandria_settings,
-        module_name="alexandria",
+        settings_name="ALEXANDRIA",
+        import_path="camac.settings.modules.alexandria.ALEXANDRIA",
         canton="kt_uri",
         disable=False,
     )
@@ -320,7 +338,8 @@ def sz_alexandria_settings(
         settings=settings,
         request=request,
         base_fixture=alexandria_settings,
-        module_name="alexandria",
+        settings_name="ALEXANDRIA",
+        import_path="camac.settings.modules.alexandria.ALEXANDRIA",
         canton="kt_schwyz",
         disable=False,
     )
@@ -337,7 +356,8 @@ def sg_alexandria_settings(
         settings=settings,
         request=request,
         base_fixture=alexandria_settings,
-        module_name="alexandria",
+        settings_name="ALEXANDRIA",
+        import_path="camac.settings.modules.alexandria.ALEXANDRIA",
         canton="kt_sg",
         disable=False,
     )
@@ -354,7 +374,8 @@ def test_alexandria_settings(
         settings=settings,
         request=request,
         base_fixture=alexandria_settings,
-        module_name="alexandria",
+        settings_name="ALEXANDRIA",
+        import_path="camac.settings.modules.alexandria.ALEXANDRIA",
         canton="test",
         disable=False,
     )
@@ -370,7 +391,8 @@ def alexandria_migration_settings(
         settings=settings,
         request=request,
         base_fixture=None,
-        module_name="alexandria_migration",
+        settings_name="ALEXANDRIA_MIGRATION",
+        import_path="camac.settings.modules.alexandria_migration.ALEXANDRIA_MIGRATION",
         canton=None,
         disable=False,
     )
@@ -387,7 +409,8 @@ def disable_alexandria_migration_settings(
         settings=settings,
         request=request,
         base_fixture=alexandria_migration_settings,
-        module_name="alexandria_migration",
+        settings_name="ALEXANDRIA_MIGRATION",
+        import_path="camac.settings.modules.alexandria_migration.ALEXANDRIA_MIGRATION",
         canton=None,
         disable=True,
     )
@@ -404,7 +427,8 @@ def be_alexandria_migration_settings(
         settings=settings,
         request=request,
         base_fixture=alexandria_migration_settings,
-        module_name="alexandria_migration",
+        settings_name="ALEXANDRIA_MIGRATION",
+        import_path="camac.settings.modules.alexandria_migration.ALEXANDRIA_MIGRATION",
         canton="kt_bern",
         disable=False,
     )
@@ -420,7 +444,8 @@ def appeal_settings(
         settings=settings,
         request=request,
         base_fixture=None,
-        module_name="appeal",
+        settings_name="APPEAL",
+        import_path="camac.settings.modules.appeal.APPEAL",
         canton=None,
         disable=False,
     )
@@ -437,7 +462,8 @@ def disable_appeal_settings(
         settings=settings,
         request=request,
         base_fixture=appeal_settings,
-        module_name="appeal",
+        settings_name="APPEAL",
+        import_path="camac.settings.modules.appeal.APPEAL",
         canton=None,
         disable=True,
     )
@@ -454,7 +480,8 @@ def be_appeal_settings(
         settings=settings,
         request=request,
         base_fixture=appeal_settings,
-        module_name="appeal",
+        settings_name="APPEAL",
+        import_path="camac.settings.modules.appeal.APPEAL",
         canton="kt_bern",
         disable=False,
     )
@@ -471,7 +498,8 @@ def so_appeal_settings(
         settings=settings,
         request=request,
         base_fixture=appeal_settings,
-        module_name="appeal",
+        settings_name="APPEAL",
+        import_path="camac.settings.modules.appeal.APPEAL",
         canton="kt_so",
         disable=False,
     )
@@ -487,7 +515,8 @@ def applicants_settings(
         settings=settings,
         request=request,
         base_fixture=None,
-        module_name="applicants",
+        settings_name="APPLICANTS",
+        import_path="camac.settings.modules.applicants.APPLICANTS",
         canton=None,
         disable=False,
     )
@@ -504,7 +533,8 @@ def disable_applicants_settings(
         settings=settings,
         request=request,
         base_fixture=applicants_settings,
-        module_name="applicants",
+        settings_name="APPLICANTS",
+        import_path="camac.settings.modules.applicants.APPLICANTS",
         canton=None,
         disable=True,
     )
@@ -521,7 +551,8 @@ def sg_applicants_settings(
         settings=settings,
         request=request,
         base_fixture=applicants_settings,
-        module_name="applicants",
+        settings_name="APPLICANTS",
+        import_path="camac.settings.modules.applicants.APPLICANTS",
         canton="kt_sg",
         disable=False,
     )
@@ -537,7 +568,8 @@ def bab_settings(
         settings=settings,
         request=request,
         base_fixture=None,
-        module_name="bab",
+        settings_name="BAB",
+        import_path="camac.settings.modules.bab.BAB",
         canton=None,
         disable=False,
     )
@@ -554,7 +586,8 @@ def disable_bab_settings(
         settings=settings,
         request=request,
         base_fixture=bab_settings,
-        module_name="bab",
+        settings_name="BAB",
+        import_path="camac.settings.modules.bab.BAB",
         canton=None,
         disable=True,
     )
@@ -571,7 +604,8 @@ def gr_bab_settings(
         settings=settings,
         request=request,
         base_fixture=bab_settings,
-        module_name="bab",
+        settings_name="BAB",
+        import_path="camac.settings.modules.bab.BAB",
         canton="kt_gr",
         disable=False,
     )
@@ -588,7 +622,8 @@ def so_bab_settings(
         settings=settings,
         request=request,
         base_fixture=bab_settings,
-        module_name="bab",
+        settings_name="BAB",
+        import_path="camac.settings.modules.bab.BAB",
         canton="kt_so",
         disable=False,
     )
@@ -604,7 +639,8 @@ def billing_settings(
         settings=settings,
         request=request,
         base_fixture=None,
-        module_name="billing",
+        settings_name="BILLING",
+        import_path="camac.settings.modules.billing.BILLING",
         canton=None,
         disable=False,
     )
@@ -621,7 +657,8 @@ def disable_billing_settings(
         settings=settings,
         request=request,
         base_fixture=billing_settings,
-        module_name="billing",
+        settings_name="BILLING",
+        import_path="camac.settings.modules.billing.BILLING",
         canton=None,
         disable=True,
     )
@@ -638,7 +675,8 @@ def sz_billing_settings(
         settings=settings,
         request=request,
         base_fixture=billing_settings,
-        module_name="billing",
+        settings_name="BILLING",
+        import_path="camac.settings.modules.billing.BILLING",
         canton="kt_schwyz",
         disable=False,
     )
@@ -655,7 +693,8 @@ def ag_billing_settings(
         settings=settings,
         request=request,
         base_fixture=billing_settings,
-        module_name="billing",
+        settings_name="BILLING",
+        import_path="camac.settings.modules.billing.BILLING",
         canton="kt_ag",
         disable=False,
     )
@@ -671,7 +710,8 @@ def change_form_settings(
         settings=settings,
         request=request,
         base_fixture=None,
-        module_name="change_form",
+        settings_name="CHANGE_FORM",
+        import_path="camac.settings.modules.change_form.CHANGE_FORM",
         canton=None,
         disable=False,
     )
@@ -688,7 +728,8 @@ def disable_change_form_settings(
         settings=settings,
         request=request,
         base_fixture=change_form_settings,
-        module_name="change_form",
+        settings_name="CHANGE_FORM",
+        import_path="camac.settings.modules.change_form.CHANGE_FORM",
         canton=None,
         disable=True,
     )
@@ -705,7 +746,8 @@ def be_change_form_settings(
         settings=settings,
         request=request,
         base_fixture=change_form_settings,
-        module_name="change_form",
+        settings_name="CHANGE_FORM",
+        import_path="camac.settings.modules.change_form.CHANGE_FORM",
         canton="kt_bern",
         disable=False,
     )
@@ -722,7 +764,8 @@ def sz_change_form_settings(
         settings=settings,
         request=request,
         base_fixture=change_form_settings,
-        module_name="change_form",
+        settings_name="CHANGE_FORM",
+        import_path="camac.settings.modules.change_form.CHANGE_FORM",
         canton="kt_schwyz",
         disable=False,
     )
@@ -739,7 +782,8 @@ def ag_change_form_settings(
         settings=settings,
         request=request,
         base_fixture=change_form_settings,
-        module_name="change_form",
+        settings_name="CHANGE_FORM",
+        import_path="camac.settings.modules.change_form.CHANGE_FORM",
         canton="kt_ag",
         disable=False,
     )
@@ -772,7 +816,8 @@ def communications_settings(
         settings=settings,
         request=request,
         base_fixture=None,
-        module_name="communications",
+        settings_name="COMMUNICATIONS",
+        import_path="camac.settings.modules.communications.COMMUNICATIONS",
         canton=None,
         disable=False,
     )
@@ -789,7 +834,8 @@ def disable_communications_settings(
         settings=settings,
         request=request,
         base_fixture=communications_settings,
-        module_name="communications",
+        settings_name="COMMUNICATIONS",
+        import_path="camac.settings.modules.communications.COMMUNICATIONS",
         canton=None,
         disable=True,
     )
@@ -806,7 +852,8 @@ def be_communications_settings(
         settings=settings,
         request=request,
         base_fixture=communications_settings,
-        module_name="communications",
+        settings_name="COMMUNICATIONS",
+        import_path="camac.settings.modules.communications.COMMUNICATIONS",
         canton="kt_bern",
         disable=False,
     )
@@ -823,7 +870,8 @@ def gr_communications_settings(
         settings=settings,
         request=request,
         base_fixture=communications_settings,
-        module_name="communications",
+        settings_name="COMMUNICATIONS",
+        import_path="camac.settings.modules.communications.COMMUNICATIONS",
         canton="kt_gr",
         disable=False,
     )
@@ -840,7 +888,8 @@ def so_communications_settings(
         settings=settings,
         request=request,
         base_fixture=communications_settings,
-        module_name="communications",
+        settings_name="COMMUNICATIONS",
+        import_path="camac.settings.modules.communications.COMMUNICATIONS",
         canton="kt_so",
         disable=False,
     )
@@ -857,7 +906,8 @@ def sz_communications_settings(
         settings=settings,
         request=request,
         base_fixture=communications_settings,
-        module_name="communications",
+        settings_name="COMMUNICATIONS",
+        import_path="camac.settings.modules.communications.COMMUNICATIONS",
         canton="kt_schwyz",
         disable=False,
     )
@@ -874,7 +924,8 @@ def ag_communications_settings(
         settings=settings,
         request=request,
         base_fixture=communications_settings,
-        module_name="communications",
+        settings_name="COMMUNICATIONS",
+        import_path="camac.settings.modules.communications.COMMUNICATIONS",
         canton="kt_ag",
         disable=False,
     )
@@ -891,7 +942,8 @@ def sg_communications_settings(
         settings=settings,
         request=request,
         base_fixture=communications_settings,
-        module_name="communications",
+        settings_name="COMMUNICATIONS",
+        import_path="camac.settings.modules.communications.COMMUNICATIONS",
         canton="kt_sg",
         disable=False,
     )
@@ -908,7 +960,8 @@ def demo_communications_settings(
         settings=settings,
         request=request,
         base_fixture=communications_settings,
-        module_name="communications",
+        settings_name="COMMUNICATIONS",
+        import_path="camac.settings.modules.communications.COMMUNICATIONS",
         canton="demo",
         disable=False,
     )
@@ -925,7 +978,8 @@ def test_communications_settings(
         settings=settings,
         request=request,
         base_fixture=communications_settings,
-        module_name="communications",
+        settings_name="COMMUNICATIONS",
+        import_path="camac.settings.modules.communications.COMMUNICATIONS",
         canton="test",
         disable=False,
     )
@@ -941,7 +995,8 @@ def construction_monitoring_settings(
         settings=settings,
         request=request,
         base_fixture=None,
-        module_name="construction_monitoring",
+        settings_name="CONSTRUCTION_MONITORING",
+        import_path="camac.settings.modules.construction_monitoring.CONSTRUCTION_MONITORING",
         canton=None,
         disable=False,
     )
@@ -958,7 +1013,8 @@ def disable_construction_monitoring_settings(
         settings=settings,
         request=request,
         base_fixture=construction_monitoring_settings,
-        module_name="construction_monitoring",
+        settings_name="CONSTRUCTION_MONITORING",
+        import_path="camac.settings.modules.construction_monitoring.CONSTRUCTION_MONITORING",
         canton=None,
         disable=True,
     )
@@ -975,7 +1031,8 @@ def sz_construction_monitoring_settings(
         settings=settings,
         request=request,
         base_fixture=construction_monitoring_settings,
-        module_name="construction_monitoring",
+        settings_name="CONSTRUCTION_MONITORING",
+        import_path="camac.settings.modules.construction_monitoring.CONSTRUCTION_MONITORING",
         canton="kt_schwyz",
         disable=False,
     )
@@ -992,7 +1049,8 @@ def ur_construction_monitoring_settings(
         settings=settings,
         request=request,
         base_fixture=construction_monitoring_settings,
-        module_name="construction_monitoring",
+        settings_name="CONSTRUCTION_MONITORING",
+        import_path="camac.settings.modules.construction_monitoring.CONSTRUCTION_MONITORING",
         canton="kt_uri",
         disable=False,
     )
@@ -1009,7 +1067,8 @@ def gr_construction_monitoring_settings(
         settings=settings,
         request=request,
         base_fixture=construction_monitoring_settings,
-        module_name="construction_monitoring",
+        settings_name="CONSTRUCTION_MONITORING",
+        import_path="camac.settings.modules.construction_monitoring.CONSTRUCTION_MONITORING",
         canton="kt_gr",
         disable=False,
     )
@@ -1026,7 +1085,8 @@ def so_construction_monitoring_settings(
         settings=settings,
         request=request,
         base_fixture=construction_monitoring_settings,
-        module_name="construction_monitoring",
+        settings_name="CONSTRUCTION_MONITORING",
+        import_path="camac.settings.modules.construction_monitoring.CONSTRUCTION_MONITORING",
         canton="kt_so",
         disable=False,
     )
@@ -1043,7 +1103,8 @@ def ag_construction_monitoring_settings(
         settings=settings,
         request=request,
         base_fixture=construction_monitoring_settings,
-        module_name="construction_monitoring",
+        settings_name="CONSTRUCTION_MONITORING",
+        import_path="camac.settings.modules.construction_monitoring.CONSTRUCTION_MONITORING",
         canton="kt_ag",
         disable=False,
     )
@@ -1060,7 +1121,8 @@ def demo_construction_monitoring_settings(
         settings=settings,
         request=request,
         base_fixture=construction_monitoring_settings,
-        module_name="construction_monitoring",
+        settings_name="CONSTRUCTION_MONITORING",
+        import_path="camac.settings.modules.construction_monitoring.CONSTRUCTION_MONITORING",
         canton="demo",
         disable=False,
     )
@@ -1076,7 +1138,8 @@ def correction_settings(
         settings=settings,
         request=request,
         base_fixture=None,
-        module_name="correction",
+        settings_name="CORRECTION",
+        import_path="camac.settings.modules.correction.CORRECTION",
         canton=None,
         disable=False,
     )
@@ -1093,7 +1156,8 @@ def disable_correction_settings(
         settings=settings,
         request=request,
         base_fixture=correction_settings,
-        module_name="correction",
+        settings_name="CORRECTION",
+        import_path="camac.settings.modules.correction.CORRECTION",
         canton=None,
         disable=True,
     )
@@ -1110,7 +1174,8 @@ def gr_correction_settings(
         settings=settings,
         request=request,
         base_fixture=correction_settings,
-        module_name="correction",
+        settings_name="CORRECTION",
+        import_path="camac.settings.modules.correction.CORRECTION",
         canton="kt_gr",
         disable=False,
     )
@@ -1127,7 +1192,8 @@ def so_correction_settings(
         settings=settings,
         request=request,
         base_fixture=correction_settings,
-        module_name="correction",
+        settings_name="CORRECTION",
+        import_path="camac.settings.modules.correction.CORRECTION",
         canton="kt_so",
         disable=False,
     )
@@ -1144,7 +1210,8 @@ def ag_correction_settings(
         settings=settings,
         request=request,
         base_fixture=correction_settings,
-        module_name="correction",
+        settings_name="CORRECTION",
+        import_path="camac.settings.modules.correction.CORRECTION",
         canton="kt_ag",
         disable=False,
     )
@@ -1161,7 +1228,8 @@ def be_correction_settings(
         settings=settings,
         request=request,
         base_fixture=correction_settings,
-        module_name="correction",
+        settings_name="CORRECTION",
+        import_path="camac.settings.modules.correction.CORRECTION",
         canton="kt_bern",
         disable=False,
     )
@@ -1178,7 +1246,8 @@ def test_correction_settings(
         settings=settings,
         request=request,
         base_fixture=correction_settings,
-        module_name="correction",
+        settings_name="CORRECTION",
+        import_path="camac.settings.modules.correction.CORRECTION",
         canton="test",
         disable=False,
     )
@@ -1194,7 +1263,8 @@ def deadlines_settings(
         settings=settings,
         request=request,
         base_fixture=None,
-        module_name="deadlines",
+        settings_name="DEADLINES",
+        import_path="camac.settings.modules.deadlines.DEADLINES",
         canton=None,
         disable=False,
     )
@@ -1211,7 +1281,8 @@ def disable_deadlines_settings(
         settings=settings,
         request=request,
         base_fixture=deadlines_settings,
-        module_name="deadlines",
+        settings_name="DEADLINES",
+        import_path="camac.settings.modules.deadlines.DEADLINES",
         canton=None,
         disable=True,
     )
@@ -1228,7 +1299,8 @@ def gr_deadlines_settings(
         settings=settings,
         request=request,
         base_fixture=deadlines_settings,
-        module_name="deadlines",
+        settings_name="DEADLINES",
+        import_path="camac.settings.modules.deadlines.DEADLINES",
         canton="kt_gr",
         disable=False,
     )
@@ -1245,7 +1317,8 @@ def ag_deadlines_settings(
         settings=settings,
         request=request,
         base_fixture=deadlines_settings,
-        module_name="deadlines",
+        settings_name="DEADLINES",
+        import_path="camac.settings.modules.deadlines.DEADLINES",
         canton="kt_ag",
         disable=False,
     )
@@ -1261,7 +1334,8 @@ def decision_settings(
         settings=settings,
         request=request,
         base_fixture=None,
-        module_name="decision",
+        settings_name="DECISION",
+        import_path="camac.settings.modules.decision.DECISION",
         canton=None,
         disable=False,
     )
@@ -1278,7 +1352,8 @@ def disable_decision_settings(
         settings=settings,
         request=request,
         base_fixture=decision_settings,
-        module_name="decision",
+        settings_name="DECISION",
+        import_path="camac.settings.modules.decision.DECISION",
         canton=None,
         disable=True,
     )
@@ -1295,7 +1370,8 @@ def be_decision_settings(
         settings=settings,
         request=request,
         base_fixture=decision_settings,
-        module_name="decision",
+        settings_name="DECISION",
+        import_path="camac.settings.modules.decision.DECISION",
         canton="kt_bern",
         disable=False,
     )
@@ -1312,7 +1388,8 @@ def so_decision_settings(
         settings=settings,
         request=request,
         base_fixture=decision_settings,
-        module_name="decision",
+        settings_name="DECISION",
+        import_path="camac.settings.modules.decision.DECISION",
         canton="kt_so",
         disable=False,
     )
@@ -1329,7 +1406,8 @@ def gr_decision_settings(
         settings=settings,
         request=request,
         base_fixture=decision_settings,
-        module_name="decision",
+        settings_name="DECISION",
+        import_path="camac.settings.modules.decision.DECISION",
         canton="kt_gr",
         disable=False,
     )
@@ -1346,7 +1424,8 @@ def ag_decision_settings(
         settings=settings,
         request=request,
         base_fixture=decision_settings,
-        module_name="decision",
+        settings_name="DECISION",
+        import_path="camac.settings.modules.decision.DECISION",
         canton="kt_ag",
         disable=False,
     )
@@ -1363,7 +1442,8 @@ def sg_decision_settings(
         settings=settings,
         request=request,
         base_fixture=decision_settings,
-        module_name="decision",
+        settings_name="DECISION",
+        import_path="camac.settings.modules.decision.DECISION",
         canton="kt_sg",
         disable=False,
     )
@@ -1380,7 +1460,8 @@ def test_decision_settings(
         settings=settings,
         request=request,
         base_fixture=decision_settings,
-        module_name="decision",
+        settings_name="DECISION",
+        import_path="camac.settings.modules.decision.DECISION",
         canton="test",
         disable=False,
     )
@@ -1396,7 +1477,8 @@ def distribution_settings(
         settings=settings,
         request=request,
         base_fixture=None,
-        module_name="distribution",
+        settings_name="DISTRIBUTION",
+        import_path="camac.settings.modules.distribution.DISTRIBUTION",
         canton=None,
         disable=False,
     )
@@ -1413,7 +1495,8 @@ def disable_distribution_settings(
         settings=settings,
         request=request,
         base_fixture=distribution_settings,
-        module_name="distribution",
+        settings_name="DISTRIBUTION",
+        import_path="camac.settings.modules.distribution.DISTRIBUTION",
         canton=None,
         disable=True,
     )
@@ -1430,7 +1513,8 @@ def be_distribution_settings(
         settings=settings,
         request=request,
         base_fixture=distribution_settings,
-        module_name="distribution",
+        settings_name="DISTRIBUTION",
+        import_path="camac.settings.modules.distribution.DISTRIBUTION",
         canton="kt_bern",
         disable=False,
     )
@@ -1447,7 +1531,8 @@ def sz_distribution_settings(
         settings=settings,
         request=request,
         base_fixture=distribution_settings,
-        module_name="distribution",
+        settings_name="DISTRIBUTION",
+        import_path="camac.settings.modules.distribution.DISTRIBUTION",
         canton="kt_schwyz",
         disable=False,
     )
@@ -1464,7 +1549,8 @@ def gr_distribution_settings(
         settings=settings,
         request=request,
         base_fixture=distribution_settings,
-        module_name="distribution",
+        settings_name="DISTRIBUTION",
+        import_path="camac.settings.modules.distribution.DISTRIBUTION",
         canton="kt_gr",
         disable=False,
     )
@@ -1481,7 +1567,8 @@ def so_distribution_settings(
         settings=settings,
         request=request,
         base_fixture=distribution_settings,
-        module_name="distribution",
+        settings_name="DISTRIBUTION",
+        import_path="camac.settings.modules.distribution.DISTRIBUTION",
         canton="kt_so",
         disable=False,
     )
@@ -1498,7 +1585,8 @@ def ur_distribution_settings(
         settings=settings,
         request=request,
         base_fixture=distribution_settings,
-        module_name="distribution",
+        settings_name="DISTRIBUTION",
+        import_path="camac.settings.modules.distribution.DISTRIBUTION",
         canton="kt_uri",
         disable=False,
     )
@@ -1515,7 +1603,8 @@ def ag_distribution_settings(
         settings=settings,
         request=request,
         base_fixture=distribution_settings,
-        module_name="distribution",
+        settings_name="DISTRIBUTION",
+        import_path="camac.settings.modules.distribution.DISTRIBUTION",
         canton="kt_ag",
         disable=False,
     )
@@ -1532,7 +1621,8 @@ def sg_distribution_settings(
         settings=settings,
         request=request,
         base_fixture=distribution_settings,
-        module_name="distribution",
+        settings_name="DISTRIBUTION",
+        import_path="camac.settings.modules.distribution.DISTRIBUTION",
         canton="kt_sg",
         disable=False,
     )
@@ -1549,7 +1639,8 @@ def demo_distribution_settings(
         settings=settings,
         request=request,
         base_fixture=distribution_settings,
-        module_name="distribution",
+        settings_name="DISTRIBUTION",
+        import_path="camac.settings.modules.distribution.DISTRIBUTION",
         canton="demo",
         disable=False,
     )
@@ -1565,7 +1656,8 @@ def django_admin_settings(
         settings=settings,
         request=request,
         base_fixture=None,
-        module_name="django_admin",
+        settings_name="DJANGO_ADMIN",
+        import_path="camac.settings.modules.django_admin.DJANGO_ADMIN",
         canton=None,
         disable=False,
     )
@@ -1582,7 +1674,8 @@ def disable_django_admin_settings(
         settings=settings,
         request=request,
         base_fixture=django_admin_settings,
-        module_name="django_admin",
+        settings_name="DJANGO_ADMIN",
+        import_path="camac.settings.modules.django_admin.DJANGO_ADMIN",
         canton=None,
         disable=True,
     )
@@ -1599,7 +1692,8 @@ def demo_django_admin_settings(
         settings=settings,
         request=request,
         base_fixture=django_admin_settings,
-        module_name="django_admin",
+        settings_name="DJANGO_ADMIN",
+        import_path="camac.settings.modules.django_admin.DJANGO_ADMIN",
         canton="demo",
         disable=False,
     )
@@ -1616,7 +1710,8 @@ def gr_django_admin_settings(
         settings=settings,
         request=request,
         base_fixture=django_admin_settings,
-        module_name="django_admin",
+        settings_name="DJANGO_ADMIN",
+        import_path="camac.settings.modules.django_admin.DJANGO_ADMIN",
         canton="kt_gr",
         disable=False,
     )
@@ -1633,7 +1728,8 @@ def so_django_admin_settings(
         settings=settings,
         request=request,
         base_fixture=django_admin_settings,
-        module_name="django_admin",
+        settings_name="DJANGO_ADMIN",
+        import_path="camac.settings.modules.django_admin.DJANGO_ADMIN",
         canton="kt_so",
         disable=False,
     )
@@ -1650,7 +1746,8 @@ def be_django_admin_settings(
         settings=settings,
         request=request,
         base_fixture=django_admin_settings,
-        module_name="django_admin",
+        settings_name="DJANGO_ADMIN",
+        import_path="camac.settings.modules.django_admin.DJANGO_ADMIN",
         canton="kt_bern",
         disable=False,
     )
@@ -1667,7 +1764,8 @@ def sz_django_admin_settings(
         settings=settings,
         request=request,
         base_fixture=django_admin_settings,
-        module_name="django_admin",
+        settings_name="DJANGO_ADMIN",
+        import_path="camac.settings.modules.django_admin.DJANGO_ADMIN",
         canton="kt_schwyz",
         disable=False,
     )
@@ -1684,7 +1782,8 @@ def ur_django_admin_settings(
         settings=settings,
         request=request,
         base_fixture=django_admin_settings,
-        module_name="django_admin",
+        settings_name="DJANGO_ADMIN",
+        import_path="camac.settings.modules.django_admin.DJANGO_ADMIN",
         canton="kt_uri",
         disable=False,
     )
@@ -1701,7 +1800,8 @@ def ag_django_admin_settings(
         settings=settings,
         request=request,
         base_fixture=django_admin_settings,
-        module_name="django_admin",
+        settings_name="DJANGO_ADMIN",
+        import_path="camac.settings.modules.django_admin.DJANGO_ADMIN",
         canton="kt_ag",
         disable=False,
     )
@@ -1718,7 +1818,8 @@ def sg_django_admin_settings(
         settings=settings,
         request=request,
         base_fixture=django_admin_settings,
-        module_name="django_admin",
+        settings_name="DJANGO_ADMIN",
+        import_path="camac.settings.modules.django_admin.DJANGO_ADMIN",
         canton="kt_sg",
         disable=False,
     )
@@ -1734,7 +1835,8 @@ def dms_settings(
         settings=settings,
         request=request,
         base_fixture=None,
-        module_name="dms",
+        settings_name="DMS",
+        import_path="camac.settings.modules.dms.DMS",
         canton=None,
         disable=False,
     )
@@ -1751,7 +1853,8 @@ def disable_dms_settings(
         settings=settings,
         request=request,
         base_fixture=dms_settings,
-        module_name="dms",
+        settings_name="DMS",
+        import_path="camac.settings.modules.dms.DMS",
         canton=None,
         disable=True,
     )
@@ -1768,7 +1871,8 @@ def demo_dms_settings(
         settings=settings,
         request=request,
         base_fixture=dms_settings,
-        module_name="dms",
+        settings_name="DMS",
+        import_path="camac.settings.modules.dms.DMS",
         canton="demo",
         disable=False,
     )
@@ -1785,7 +1889,8 @@ def be_dms_settings(
         settings=settings,
         request=request,
         base_fixture=dms_settings,
-        module_name="dms",
+        settings_name="DMS",
+        import_path="camac.settings.modules.dms.DMS",
         canton="kt_bern",
         disable=False,
     )
@@ -1802,7 +1907,8 @@ def gr_dms_settings(
         settings=settings,
         request=request,
         base_fixture=dms_settings,
-        module_name="dms",
+        settings_name="DMS",
+        import_path="camac.settings.modules.dms.DMS",
         canton="kt_gr",
         disable=False,
     )
@@ -1819,7 +1925,8 @@ def so_dms_settings(
         settings=settings,
         request=request,
         base_fixture=dms_settings,
-        module_name="dms",
+        settings_name="DMS",
+        import_path="camac.settings.modules.dms.DMS",
         canton="kt_so",
         disable=False,
     )
@@ -1836,7 +1943,8 @@ def ur_dms_settings(
         settings=settings,
         request=request,
         base_fixture=dms_settings,
-        module_name="dms",
+        settings_name="DMS",
+        import_path="camac.settings.modules.dms.DMS",
         canton="kt_uri",
         disable=False,
     )
@@ -1853,7 +1961,8 @@ def ag_dms_settings(
         settings=settings,
         request=request,
         base_fixture=dms_settings,
-        module_name="dms",
+        settings_name="DMS",
+        import_path="camac.settings.modules.dms.DMS",
         canton="kt_ag",
         disable=False,
     )
@@ -1870,7 +1979,8 @@ def sz_dms_settings(
         settings=settings,
         request=request,
         base_fixture=dms_settings,
-        module_name="dms",
+        settings_name="DMS",
+        import_path="camac.settings.modules.dms.DMS",
         canton="kt_schwyz",
         disable=False,
     )
@@ -1886,7 +1996,8 @@ def dossier_import_settings(
         settings=settings,
         request=request,
         base_fixture=None,
-        module_name="dossier_import",
+        settings_name="DOSSIER_IMPORT",
+        import_path="camac.settings.modules.dossier_import.DOSSIER_IMPORT",
         canton=None,
         disable=False,
     )
@@ -1903,7 +2014,8 @@ def disable_dossier_import_settings(
         settings=settings,
         request=request,
         base_fixture=dossier_import_settings,
-        module_name="dossier_import",
+        settings_name="DOSSIER_IMPORT",
+        import_path="camac.settings.modules.dossier_import.DOSSIER_IMPORT",
         canton=None,
         disable=True,
     )
@@ -1920,7 +2032,8 @@ def sz_dossier_import_settings(
         settings=settings,
         request=request,
         base_fixture=dossier_import_settings,
-        module_name="dossier_import",
+        settings_name="DOSSIER_IMPORT",
+        import_path="camac.settings.modules.dossier_import.DOSSIER_IMPORT",
         canton="kt_schwyz",
         disable=False,
     )
@@ -1937,7 +2050,8 @@ def be_dossier_import_settings(
         settings=settings,
         request=request,
         base_fixture=dossier_import_settings,
-        module_name="dossier_import",
+        settings_name="DOSSIER_IMPORT",
+        import_path="camac.settings.modules.dossier_import.DOSSIER_IMPORT",
         canton="kt_bern",
         disable=False,
     )
@@ -1954,7 +2068,8 @@ def so_dossier_import_settings(
         settings=settings,
         request=request,
         base_fixture=dossier_import_settings,
-        module_name="dossier_import",
+        settings_name="DOSSIER_IMPORT",
+        import_path="camac.settings.modules.dossier_import.DOSSIER_IMPORT",
         canton="kt_so",
         disable=False,
     )
@@ -1971,7 +2086,8 @@ def ag_dossier_import_settings(
         settings=settings,
         request=request,
         base_fixture=dossier_import_settings,
-        module_name="dossier_import",
+        settings_name="DOSSIER_IMPORT",
+        import_path="camac.settings.modules.dossier_import.DOSSIER_IMPORT",
         canton="kt_ag",
         disable=False,
     )
@@ -1988,7 +2104,8 @@ def gr_dossier_import_settings(
         settings=settings,
         request=request,
         base_fixture=dossier_import_settings,
-        module_name="dossier_import",
+        settings_name="DOSSIER_IMPORT",
+        import_path="camac.settings.modules.dossier_import.DOSSIER_IMPORT",
         canton="kt_gr",
         disable=False,
     )
@@ -2004,7 +2121,8 @@ def dump_settings(
         settings=settings,
         request=request,
         base_fixture=None,
-        module_name="dump",
+        settings_name="DUMP",
+        import_path="camac.settings.modules.dump.DUMP",
         canton=None,
         disable=False,
     )
@@ -2021,7 +2139,8 @@ def disable_dump_settings(
         settings=settings,
         request=request,
         base_fixture=dump_settings,
-        module_name="dump",
+        settings_name="DUMP",
+        import_path="camac.settings.modules.dump.DUMP",
         canton=None,
         disable=True,
     )
@@ -2038,7 +2157,8 @@ def be_dump_settings(
         settings=settings,
         request=request,
         base_fixture=dump_settings,
-        module_name="dump",
+        settings_name="DUMP",
+        import_path="camac.settings.modules.dump.DUMP",
         canton="kt_bern",
         disable=False,
     )
@@ -2055,7 +2175,8 @@ def sz_dump_settings(
         settings=settings,
         request=request,
         base_fixture=dump_settings,
-        module_name="dump",
+        settings_name="DUMP",
+        import_path="camac.settings.modules.dump.DUMP",
         canton="kt_schwyz",
         disable=False,
     )
@@ -2072,7 +2193,8 @@ def ur_dump_settings(
         settings=settings,
         request=request,
         base_fixture=dump_settings,
-        module_name="dump",
+        settings_name="DUMP",
+        import_path="camac.settings.modules.dump.DUMP",
         canton="kt_uri",
         disable=False,
     )
@@ -2089,7 +2211,8 @@ def gr_dump_settings(
         settings=settings,
         request=request,
         base_fixture=dump_settings,
-        module_name="dump",
+        settings_name="DUMP",
+        import_path="camac.settings.modules.dump.DUMP",
         canton="kt_gr",
         disable=False,
     )
@@ -2106,7 +2229,8 @@ def so_dump_settings(
         settings=settings,
         request=request,
         base_fixture=dump_settings,
-        module_name="dump",
+        settings_name="DUMP",
+        import_path="camac.settings.modules.dump.DUMP",
         canton="kt_so",
         disable=False,
     )
@@ -2123,7 +2247,8 @@ def ag_dump_settings(
         settings=settings,
         request=request,
         base_fixture=dump_settings,
-        module_name="dump",
+        settings_name="DUMP",
+        import_path="camac.settings.modules.dump.DUMP",
         canton="kt_ag",
         disable=False,
     )
@@ -2140,7 +2265,8 @@ def sg_dump_settings(
         settings=settings,
         request=request,
         base_fixture=dump_settings,
-        module_name="dump",
+        settings_name="DUMP",
+        import_path="camac.settings.modules.dump.DUMP",
         canton="kt_sg",
         disable=False,
     )
@@ -2157,7 +2283,8 @@ def demo_dump_settings(
         settings=settings,
         request=request,
         base_fixture=dump_settings,
-        module_name="dump",
+        settings_name="DUMP",
+        import_path="camac.settings.modules.dump.DUMP",
         canton="demo",
         disable=False,
     )
@@ -2174,7 +2301,8 @@ def test_dump_settings(
         settings=settings,
         request=request,
         base_fixture=dump_settings,
-        module_name="dump",
+        settings_name="DUMP",
+        import_path="camac.settings.modules.dump.DUMP",
         canton="test",
         disable=False,
     )
@@ -2190,7 +2318,8 @@ def ech0211_settings(
         settings=settings,
         request=request,
         base_fixture=None,
-        module_name="ech0211",
+        settings_name="ECH0211",
+        import_path="camac.settings.modules.ech0211.ECH0211",
         canton=None,
         disable=False,
     )
@@ -2207,7 +2336,8 @@ def disable_ech0211_settings(
         settings=settings,
         request=request,
         base_fixture=ech0211_settings,
-        module_name="ech0211",
+        settings_name="ECH0211",
+        import_path="camac.settings.modules.ech0211.ECH0211",
         canton=None,
         disable=True,
     )
@@ -2224,7 +2354,8 @@ def test_ech0211_settings(
         settings=settings,
         request=request,
         base_fixture=ech0211_settings,
-        module_name="ech0211",
+        settings_name="ECH0211",
+        import_path="camac.settings.modules.ech0211.ECH0211",
         canton="test",
         disable=False,
     )
@@ -2241,7 +2372,8 @@ def sz_ech0211_settings(
         settings=settings,
         request=request,
         base_fixture=ech0211_settings,
-        module_name="ech0211",
+        settings_name="ECH0211",
+        import_path="camac.settings.modules.ech0211.ECH0211",
         canton="kt_schwyz",
         disable=False,
     )
@@ -2258,7 +2390,8 @@ def be_ech0211_settings(
         settings=settings,
         request=request,
         base_fixture=ech0211_settings,
-        module_name="ech0211",
+        settings_name="ECH0211",
+        import_path="camac.settings.modules.ech0211.ECH0211",
         canton="kt_bern",
         disable=False,
     )
@@ -2275,7 +2408,8 @@ def gr_ech0211_settings(
         settings=settings,
         request=request,
         base_fixture=ech0211_settings,
-        module_name="ech0211",
+        settings_name="ECH0211",
+        import_path="camac.settings.modules.ech0211.ECH0211",
         canton="kt_gr",
         disable=False,
     )
@@ -2292,7 +2426,8 @@ def so_ech0211_settings(
         settings=settings,
         request=request,
         base_fixture=ech0211_settings,
-        module_name="ech0211",
+        settings_name="ECH0211",
+        import_path="camac.settings.modules.ech0211.ECH0211",
         canton="kt_so",
         disable=False,
     )
@@ -2309,7 +2444,8 @@ def ag_ech0211_settings(
         settings=settings,
         request=request,
         base_fixture=ech0211_settings,
-        module_name="ech0211",
+        settings_name="ECH0211",
+        import_path="camac.settings.modules.ech0211.ECH0211",
         canton="kt_ag",
         disable=False,
     )
@@ -2325,7 +2461,8 @@ def eeba_integration_settings(
         settings=settings,
         request=request,
         base_fixture=None,
-        module_name="eeba_integration",
+        settings_name="EEBA_INTEGRATION",
+        import_path="camac.settings.modules.eeba_integration.EEBA_INTEGRATION",
         canton=None,
         disable=False,
     )
@@ -2342,7 +2479,8 @@ def disable_eeba_integration_settings(
         settings=settings,
         request=request,
         base_fixture=eeba_integration_settings,
-        module_name="eeba_integration",
+        settings_name="EEBA_INTEGRATION",
+        import_path="camac.settings.modules.eeba_integration.EEBA_INTEGRATION",
         canton=None,
         disable=True,
     )
@@ -2359,7 +2497,8 @@ def gr_eeba_integration_settings(
         settings=settings,
         request=request,
         base_fixture=eeba_integration_settings,
-        module_name="eeba_integration",
+        settings_name="EEBA_INTEGRATION",
+        import_path="camac.settings.modules.eeba_integration.EEBA_INTEGRATION",
         canton="kt_gr",
         disable=False,
     )
@@ -2375,7 +2514,8 @@ def linked_instances_settings(
         settings=settings,
         request=request,
         base_fixture=None,
-        module_name="linked_instances",
+        settings_name="LINKED_INSTANCES",
+        import_path="camac.settings.modules.linked_instances.LINKED_INSTANCES",
         canton=None,
         disable=False,
     )
@@ -2392,7 +2532,8 @@ def disable_linked_instances_settings(
         settings=settings,
         request=request,
         base_fixture=linked_instances_settings,
-        module_name="linked_instances",
+        settings_name="LINKED_INSTANCES",
+        import_path="camac.settings.modules.linked_instances.LINKED_INSTANCES",
         canton=None,
         disable=True,
     )
@@ -2409,7 +2550,8 @@ def sz_linked_instances_settings(
         settings=settings,
         request=request,
         base_fixture=linked_instances_settings,
-        module_name="linked_instances",
+        settings_name="LINKED_INSTANCES",
+        import_path="camac.settings.modules.linked_instances.LINKED_INSTANCES",
         canton="kt_schwyz",
         disable=False,
     )
@@ -2426,7 +2568,8 @@ def so_linked_instances_settings(
         settings=settings,
         request=request,
         base_fixture=linked_instances_settings,
-        module_name="linked_instances",
+        settings_name="LINKED_INSTANCES",
+        import_path="camac.settings.modules.linked_instances.LINKED_INSTANCES",
         canton="kt_so",
         disable=False,
     )
@@ -2443,7 +2586,8 @@ def ur_linked_instances_settings(
         settings=settings,
         request=request,
         base_fixture=linked_instances_settings,
-        module_name="linked_instances",
+        settings_name="LINKED_INSTANCES",
+        import_path="camac.settings.modules.linked_instances.LINKED_INSTANCES",
         canton="kt_uri",
         disable=False,
     )
@@ -2460,7 +2604,8 @@ def gr_linked_instances_settings(
         settings=settings,
         request=request,
         base_fixture=linked_instances_settings,
-        module_name="linked_instances",
+        settings_name="LINKED_INSTANCES",
+        import_path="camac.settings.modules.linked_instances.LINKED_INSTANCES",
         canton="kt_gr",
         disable=False,
     )
@@ -2477,7 +2622,8 @@ def ag_linked_instances_settings(
         settings=settings,
         request=request,
         base_fixture=linked_instances_settings,
-        module_name="linked_instances",
+        settings_name="LINKED_INSTANCES",
+        import_path="camac.settings.modules.linked_instances.LINKED_INSTANCES",
         canton="kt_ag",
         disable=False,
     )
@@ -2493,7 +2639,8 @@ def master_data_settings(
         settings=settings,
         request=request,
         base_fixture=None,
-        module_name="master_data",
+        settings_name="MASTER_DATA",
+        import_path="camac.settings.modules.master_data.MASTER_DATA",
         canton=None,
         disable=False,
     )
@@ -2510,7 +2657,8 @@ def disable_master_data_settings(
         settings=settings,
         request=request,
         base_fixture=master_data_settings,
-        module_name="master_data",
+        settings_name="MASTER_DATA",
+        import_path="camac.settings.modules.master_data.MASTER_DATA",
         canton=None,
         disable=True,
     )
@@ -2527,7 +2675,8 @@ def sz_master_data_settings(
         settings=settings,
         request=request,
         base_fixture=master_data_settings,
-        module_name="master_data",
+        settings_name="MASTER_DATA",
+        import_path="camac.settings.modules.master_data.MASTER_DATA",
         canton="kt_schwyz",
         disable=False,
     )
@@ -2544,7 +2693,8 @@ def be_master_data_settings(
         settings=settings,
         request=request,
         base_fixture=master_data_settings,
-        module_name="master_data",
+        settings_name="MASTER_DATA",
+        import_path="camac.settings.modules.master_data.MASTER_DATA",
         canton="kt_bern",
         disable=False,
     )
@@ -2561,7 +2711,8 @@ def ur_master_data_settings(
         settings=settings,
         request=request,
         base_fixture=master_data_settings,
-        module_name="master_data",
+        settings_name="MASTER_DATA",
+        import_path="camac.settings.modules.master_data.MASTER_DATA",
         canton="kt_uri",
         disable=False,
     )
@@ -2578,7 +2729,8 @@ def demo_master_data_settings(
         settings=settings,
         request=request,
         base_fixture=master_data_settings,
-        module_name="master_data",
+        settings_name="MASTER_DATA",
+        import_path="camac.settings.modules.master_data.MASTER_DATA",
         canton="demo",
         disable=False,
     )
@@ -2595,7 +2747,8 @@ def gr_master_data_settings(
         settings=settings,
         request=request,
         base_fixture=master_data_settings,
-        module_name="master_data",
+        settings_name="MASTER_DATA",
+        import_path="camac.settings.modules.master_data.MASTER_DATA",
         canton="kt_gr",
         disable=False,
     )
@@ -2612,7 +2765,8 @@ def so_master_data_settings(
         settings=settings,
         request=request,
         base_fixture=master_data_settings,
-        module_name="master_data",
+        settings_name="MASTER_DATA",
+        import_path="camac.settings.modules.master_data.MASTER_DATA",
         canton="kt_so",
         disable=False,
     )
@@ -2629,7 +2783,8 @@ def ag_master_data_settings(
         settings=settings,
         request=request,
         base_fixture=master_data_settings,
-        module_name="master_data",
+        settings_name="MASTER_DATA",
+        import_path="camac.settings.modules.master_data.MASTER_DATA",
         canton="kt_ag",
         disable=False,
     )
@@ -2646,7 +2801,8 @@ def sg_master_data_settings(
         settings=settings,
         request=request,
         base_fixture=master_data_settings,
-        module_name="master_data",
+        settings_name="MASTER_DATA",
+        import_path="camac.settings.modules.master_data.MASTER_DATA",
         canton="kt_sg",
         disable=False,
     )
@@ -2662,7 +2818,8 @@ def parashift_settings(
         settings=settings,
         request=request,
         base_fixture=None,
-        module_name="parashift",
+        settings_name="PARASHIFT",
+        import_path="camac.settings.modules.parashift.PARASHIFT",
         canton=None,
         disable=False,
     )
@@ -2679,7 +2836,8 @@ def disable_parashift_settings(
         settings=settings,
         request=request,
         base_fixture=parashift_settings,
-        module_name="parashift",
+        settings_name="PARASHIFT",
+        import_path="camac.settings.modules.parashift.PARASHIFT",
         canton=None,
         disable=True,
     )
@@ -2696,7 +2854,8 @@ def test_parashift_settings(
         settings=settings,
         request=request,
         base_fixture=parashift_settings,
-        module_name="parashift",
+        settings_name="PARASHIFT",
+        import_path="camac.settings.modules.parashift.PARASHIFT",
         canton="test",
         disable=False,
     )
@@ -2713,7 +2872,8 @@ def ur_parashift_settings(
         settings=settings,
         request=request,
         base_fixture=parashift_settings,
-        module_name="parashift",
+        settings_name="PARASHIFT",
+        import_path="camac.settings.modules.parashift.PARASHIFT",
         canton="kt_uri",
         disable=False,
     )
@@ -2729,7 +2889,8 @@ def permissions_settings(
         settings=settings,
         request=request,
         base_fixture=None,
-        module_name="permissions",
+        settings_name="PERMISSIONS",
+        import_path="camac.settings.modules.permissions.PERMISSIONS",
         canton=None,
         disable=False,
     )
@@ -2746,7 +2907,8 @@ def disable_permissions_settings(
         settings=settings,
         request=request,
         base_fixture=permissions_settings,
-        module_name="permissions",
+        settings_name="PERMISSIONS",
+        import_path="camac.settings.modules.permissions.PERMISSIONS",
         canton=None,
         disable=True,
     )
@@ -2763,7 +2925,8 @@ def demo_permissions_settings(
         settings=settings,
         request=request,
         base_fixture=permissions_settings,
-        module_name="permissions",
+        settings_name="PERMISSIONS",
+        import_path="camac.settings.modules.permissions.PERMISSIONS",
         canton="demo",
         disable=False,
     )
@@ -2780,7 +2943,8 @@ def be_permissions_settings(
         settings=settings,
         request=request,
         base_fixture=permissions_settings,
-        module_name="permissions",
+        settings_name="PERMISSIONS",
+        import_path="camac.settings.modules.permissions.PERMISSIONS",
         canton="kt_bern",
         disable=False,
     )
@@ -2797,7 +2961,8 @@ def gr_permissions_settings(
         settings=settings,
         request=request,
         base_fixture=permissions_settings,
-        module_name="permissions",
+        settings_name="PERMISSIONS",
+        import_path="camac.settings.modules.permissions.PERMISSIONS",
         canton="kt_gr",
         disable=False,
     )
@@ -2814,7 +2979,8 @@ def so_permissions_settings(
         settings=settings,
         request=request,
         base_fixture=permissions_settings,
-        module_name="permissions",
+        settings_name="PERMISSIONS",
+        import_path="camac.settings.modules.permissions.PERMISSIONS",
         canton="kt_so",
         disable=False,
     )
@@ -2831,7 +2997,8 @@ def sz_permissions_settings(
         settings=settings,
         request=request,
         base_fixture=permissions_settings,
-        module_name="permissions",
+        settings_name="PERMISSIONS",
+        import_path="camac.settings.modules.permissions.PERMISSIONS",
         canton="kt_schwyz",
         disable=False,
     )
@@ -2848,7 +3015,8 @@ def ag_permissions_settings(
         settings=settings,
         request=request,
         base_fixture=permissions_settings,
-        module_name="permissions",
+        settings_name="PERMISSIONS",
+        import_path="camac.settings.modules.permissions.PERMISSIONS",
         canton="kt_ag",
         disable=False,
     )
@@ -2865,7 +3033,8 @@ def ur_permissions_settings(
         settings=settings,
         request=request,
         base_fixture=permissions_settings,
-        module_name="permissions",
+        settings_name="PERMISSIONS",
+        import_path="camac.settings.modules.permissions.PERMISSIONS",
         canton="kt_uri",
         disable=False,
     )
@@ -2882,7 +3051,79 @@ def sg_permissions_settings(
         settings=settings,
         request=request,
         base_fixture=permissions_settings,
-        module_name="permissions",
+        settings_name="PERMISSIONS",
+        import_path="camac.settings.modules.permissions.PERMISSIONS",
+        canton="kt_sg",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def permissions_alexandria_settings(
+    request,
+    settings,
+):
+    """Module-specific settings for permissions alexandria (default)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=None,
+        settings_name="PERMISSIONS_ALEXANDRIA",
+        import_path="camac.settings.modules.permissions.alexandria.PERMISSIONS_ALEXANDRIA",
+        canton=None,
+        disable=False,
+    )
+
+
+@pytest.fixture
+def disable_permissions_alexandria_settings(
+    request,
+    settings,
+    permissions_alexandria_settings,
+):
+    """Disable the permissions alexandria module completely."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=permissions_alexandria_settings,
+        settings_name="PERMISSIONS_ALEXANDRIA",
+        import_path="camac.settings.modules.permissions.alexandria.PERMISSIONS_ALEXANDRIA",
+        canton=None,
+        disable=True,
+    )
+
+
+@pytest.fixture
+def be_permissions_alexandria_settings(
+    request,
+    settings,
+    permissions_alexandria_settings,
+):
+    """Module-specific settings for permissions alexandria (canton BE)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=permissions_alexandria_settings,
+        settings_name="PERMISSIONS_ALEXANDRIA",
+        import_path="camac.settings.modules.permissions.alexandria.PERMISSIONS_ALEXANDRIA",
+        canton="kt_bern",
+        disable=False,
+    )
+
+
+@pytest.fixture
+def sg_permissions_alexandria_settings(
+    request,
+    settings,
+    permissions_alexandria_settings,
+):
+    """Module-specific settings for permissions alexandria (canton SG)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=permissions_alexandria_settings,
+        settings_name="PERMISSIONS_ALEXANDRIA",
+        import_path="camac.settings.modules.permissions.alexandria.PERMISSIONS_ALEXANDRIA",
         canton="kt_sg",
         disable=False,
     )
@@ -2898,7 +3139,8 @@ def placeholders_settings(
         settings=settings,
         request=request,
         base_fixture=None,
-        module_name="placeholders",
+        settings_name="PLACEHOLDERS",
+        import_path="camac.settings.modules.placeholders.PLACEHOLDERS",
         canton=None,
         disable=False,
     )
@@ -2915,7 +3157,8 @@ def disable_placeholders_settings(
         settings=settings,
         request=request,
         base_fixture=placeholders_settings,
-        module_name="placeholders",
+        settings_name="PLACEHOLDERS",
+        import_path="camac.settings.modules.placeholders.PLACEHOLDERS",
         canton=None,
         disable=True,
     )
@@ -2932,7 +3175,8 @@ def so_placeholders_settings(
         settings=settings,
         request=request,
         base_fixture=placeholders_settings,
-        module_name="placeholders",
+        settings_name="PLACEHOLDERS",
+        import_path="camac.settings.modules.placeholders.PLACEHOLDERS",
         canton="kt_so",
         disable=False,
     )
@@ -2949,7 +3193,8 @@ def be_placeholders_settings(
         settings=settings,
         request=request,
         base_fixture=placeholders_settings,
-        module_name="placeholders",
+        settings_name="PLACEHOLDERS",
+        import_path="camac.settings.modules.placeholders.PLACEHOLDERS",
         canton="kt_bern",
         disable=False,
     )
@@ -2966,7 +3211,8 @@ def gr_placeholders_settings(
         settings=settings,
         request=request,
         base_fixture=placeholders_settings,
-        module_name="placeholders",
+        settings_name="PLACEHOLDERS",
+        import_path="camac.settings.modules.placeholders.PLACEHOLDERS",
         canton="kt_gr",
         disable=False,
     )
@@ -2983,7 +3229,8 @@ def ur_placeholders_settings(
         settings=settings,
         request=request,
         base_fixture=placeholders_settings,
-        module_name="placeholders",
+        settings_name="PLACEHOLDERS",
+        import_path="camac.settings.modules.placeholders.PLACEHOLDERS",
         canton="kt_uri",
         disable=False,
     )
@@ -3000,7 +3247,8 @@ def ag_placeholders_settings(
         settings=settings,
         request=request,
         base_fixture=placeholders_settings,
-        module_name="placeholders",
+        settings_name="PLACEHOLDERS",
+        import_path="camac.settings.modules.placeholders.PLACEHOLDERS",
         canton="kt_ag",
         disable=False,
     )
@@ -3017,7 +3265,8 @@ def sz_placeholders_settings(
         settings=settings,
         request=request,
         base_fixture=placeholders_settings,
-        module_name="placeholders",
+        settings_name="PLACEHOLDERS",
+        import_path="camac.settings.modules.placeholders.PLACEHOLDERS",
         canton="kt_schwyz",
         disable=False,
     )
@@ -3034,7 +3283,8 @@ def sg_placeholders_settings(
         settings=settings,
         request=request,
         base_fixture=placeholders_settings,
-        module_name="placeholders",
+        settings_name="PLACEHOLDERS",
+        import_path="camac.settings.modules.placeholders.PLACEHOLDERS",
         canton="kt_sg",
         disable=False,
     )
@@ -3051,7 +3301,8 @@ def test_placeholders_settings(
         settings=settings,
         request=request,
         base_fixture=placeholders_settings,
-        module_name="placeholders",
+        settings_name="PLACEHOLDERS",
+        import_path="camac.settings.modules.placeholders.PLACEHOLDERS",
         canton="test",
         disable=False,
     )
@@ -3067,7 +3318,8 @@ def project_modification_settings(
         settings=settings,
         request=request,
         base_fixture=None,
-        module_name="project_modification",
+        settings_name="PROJECT_MODIFICATION",
+        import_path="camac.settings.modules.project_modification.PROJECT_MODIFICATION",
         canton=None,
         disable=False,
     )
@@ -3084,7 +3336,8 @@ def disable_project_modification_settings(
         settings=settings,
         request=request,
         base_fixture=project_modification_settings,
-        module_name="project_modification",
+        settings_name="PROJECT_MODIFICATION",
+        import_path="camac.settings.modules.project_modification.PROJECT_MODIFICATION",
         canton=None,
         disable=True,
     )
@@ -3101,7 +3354,8 @@ def be_project_modification_settings(
         settings=settings,
         request=request,
         base_fixture=project_modification_settings,
-        module_name="project_modification",
+        settings_name="PROJECT_MODIFICATION",
+        import_path="camac.settings.modules.project_modification.PROJECT_MODIFICATION",
         canton="kt_bern",
         disable=False,
     )
@@ -3118,7 +3372,8 @@ def ur_project_modification_settings(
         settings=settings,
         request=request,
         base_fixture=project_modification_settings,
-        module_name="project_modification",
+        settings_name="PROJECT_MODIFICATION",
+        import_path="camac.settings.modules.project_modification.PROJECT_MODIFICATION",
         canton="kt_uri",
         disable=False,
     )
@@ -3135,7 +3390,8 @@ def gr_project_modification_settings(
         settings=settings,
         request=request,
         base_fixture=project_modification_settings,
-        module_name="project_modification",
+        settings_name="PROJECT_MODIFICATION",
+        import_path="camac.settings.modules.project_modification.PROJECT_MODIFICATION",
         canton="kt_gr",
         disable=False,
     )
@@ -3152,7 +3408,8 @@ def so_project_modification_settings(
         settings=settings,
         request=request,
         base_fixture=project_modification_settings,
-        module_name="project_modification",
+        settings_name="PROJECT_MODIFICATION",
+        import_path="camac.settings.modules.project_modification.PROJECT_MODIFICATION",
         canton="kt_so",
         disable=False,
     )
@@ -3168,7 +3425,8 @@ def publication_settings(
         settings=settings,
         request=request,
         base_fixture=None,
-        module_name="publication",
+        settings_name="PUBLICATION",
+        import_path="camac.settings.modules.publication.PUBLICATION",
         canton=None,
         disable=False,
     )
@@ -3185,7 +3443,8 @@ def disable_publication_settings(
         settings=settings,
         request=request,
         base_fixture=publication_settings,
-        module_name="publication",
+        settings_name="PUBLICATION",
+        import_path="camac.settings.modules.publication.PUBLICATION",
         canton=None,
         disable=True,
     )
@@ -3202,7 +3461,8 @@ def test_publication_settings(
         settings=settings,
         request=request,
         base_fixture=publication_settings,
-        module_name="publication",
+        settings_name="PUBLICATION",
+        import_path="camac.settings.modules.publication.PUBLICATION",
         canton="test",
         disable=False,
     )
@@ -3219,7 +3479,8 @@ def demo_publication_settings(
         settings=settings,
         request=request,
         base_fixture=publication_settings,
-        module_name="publication",
+        settings_name="PUBLICATION",
+        import_path="camac.settings.modules.publication.PUBLICATION",
         canton="demo",
         disable=False,
     )
@@ -3236,7 +3497,8 @@ def be_publication_settings(
         settings=settings,
         request=request,
         base_fixture=publication_settings,
-        module_name="publication",
+        settings_name="PUBLICATION",
+        import_path="camac.settings.modules.publication.PUBLICATION",
         canton="kt_bern",
         disable=False,
     )
@@ -3253,7 +3515,8 @@ def gr_publication_settings(
         settings=settings,
         request=request,
         base_fixture=publication_settings,
-        module_name="publication",
+        settings_name="PUBLICATION",
+        import_path="camac.settings.modules.publication.PUBLICATION",
         canton="kt_gr",
         disable=False,
     )
@@ -3270,7 +3533,8 @@ def so_publication_settings(
         settings=settings,
         request=request,
         base_fixture=publication_settings,
-        module_name="publication",
+        settings_name="PUBLICATION",
+        import_path="camac.settings.modules.publication.PUBLICATION",
         canton="kt_so",
         disable=False,
     )
@@ -3287,7 +3551,8 @@ def sz_publication_settings(
         settings=settings,
         request=request,
         base_fixture=publication_settings,
-        module_name="publication",
+        settings_name="PUBLICATION",
+        import_path="camac.settings.modules.publication.PUBLICATION",
         canton="kt_schwyz",
         disable=False,
     )
@@ -3304,7 +3569,8 @@ def ur_publication_settings(
         settings=settings,
         request=request,
         base_fixture=publication_settings,
-        module_name="publication",
+        settings_name="PUBLICATION",
+        import_path="camac.settings.modules.publication.PUBLICATION",
         canton="kt_uri",
         disable=False,
     )
@@ -3321,7 +3587,8 @@ def ag_publication_settings(
         settings=settings,
         request=request,
         base_fixture=publication_settings,
-        module_name="publication",
+        settings_name="PUBLICATION",
+        import_path="camac.settings.modules.publication.PUBLICATION",
         canton="kt_ag",
         disable=False,
     )
@@ -3338,7 +3605,8 @@ def sg_publication_settings(
         settings=settings,
         request=request,
         base_fixture=publication_settings,
-        module_name="publication",
+        settings_name="PUBLICATION",
+        import_path="camac.settings.modules.publication.PUBLICATION",
         canton="kt_sg",
         disable=False,
     )
@@ -3354,7 +3622,8 @@ def rejection_settings(
         settings=settings,
         request=request,
         base_fixture=None,
-        module_name="rejection",
+        settings_name="REJECTION",
+        import_path="camac.settings.modules.rejection.REJECTION",
         canton=None,
         disable=False,
     )
@@ -3371,7 +3640,8 @@ def disable_rejection_settings(
         settings=settings,
         request=request,
         base_fixture=rejection_settings,
-        module_name="rejection",
+        settings_name="REJECTION",
+        import_path="camac.settings.modules.rejection.REJECTION",
         canton=None,
         disable=True,
     )
@@ -3388,7 +3658,8 @@ def ag_rejection_settings(
         settings=settings,
         request=request,
         base_fixture=rejection_settings,
-        module_name="rejection",
+        settings_name="REJECTION",
+        import_path="camac.settings.modules.rejection.REJECTION",
         canton="kt_ag",
         disable=False,
     )
@@ -3405,7 +3676,8 @@ def be_rejection_settings(
         settings=settings,
         request=request,
         base_fixture=rejection_settings,
-        module_name="rejection",
+        settings_name="REJECTION",
+        import_path="camac.settings.modules.rejection.REJECTION",
         canton="kt_bern",
         disable=False,
     )
@@ -3422,7 +3694,8 @@ def gr_rejection_settings(
         settings=settings,
         request=request,
         base_fixture=rejection_settings,
-        module_name="rejection",
+        settings_name="REJECTION",
+        import_path="camac.settings.modules.rejection.REJECTION",
         canton="kt_gr",
         disable=False,
     )
@@ -3439,7 +3712,8 @@ def so_rejection_settings(
         settings=settings,
         request=request,
         base_fixture=rejection_settings,
-        module_name="rejection",
+        settings_name="REJECTION",
+        import_path="camac.settings.modules.rejection.REJECTION",
         canton="kt_so",
         disable=False,
     )
@@ -3456,7 +3730,8 @@ def ur_rejection_settings(
         settings=settings,
         request=request,
         base_fixture=rejection_settings,
-        module_name="rejection",
+        settings_name="REJECTION",
+        import_path="camac.settings.modules.rejection.REJECTION",
         canton="kt_uri",
         disable=False,
     )
@@ -3473,7 +3748,8 @@ def sg_rejection_settings(
         settings=settings,
         request=request,
         base_fixture=rejection_settings,
-        module_name="rejection",
+        settings_name="REJECTION",
+        import_path="camac.settings.modules.rejection.REJECTION",
         canton="kt_sg",
         disable=False,
     )
@@ -3490,7 +3766,8 @@ def test_rejection_settings(
         settings=settings,
         request=request,
         base_fixture=rejection_settings,
-        module_name="rejection",
+        settings_name="REJECTION",
+        import_path="camac.settings.modules.rejection.REJECTION",
         canton="test",
         disable=False,
     )
@@ -3506,7 +3783,8 @@ def rulesets_settings(
         settings=settings,
         request=request,
         base_fixture=None,
-        module_name="rulesets",
+        settings_name="RULESETS",
+        import_path="camac.settings.modules.rulesets.RULESETS",
         canton=None,
         disable=False,
     )
@@ -3523,7 +3801,8 @@ def disable_rulesets_settings(
         settings=settings,
         request=request,
         base_fixture=rulesets_settings,
-        module_name="rulesets",
+        settings_name="RULESETS",
+        import_path="camac.settings.modules.rulesets.RULESETS",
         canton=None,
         disable=True,
     )
@@ -3540,7 +3819,8 @@ def ag_rulesets_settings(
         settings=settings,
         request=request,
         base_fixture=rulesets_settings,
-        module_name="rulesets",
+        settings_name="RULESETS",
+        import_path="camac.settings.modules.rulesets.RULESETS",
         canton="kt_ag",
         disable=False,
     )
@@ -3556,7 +3836,8 @@ def sanctions_settings(
         settings=settings,
         request=request,
         base_fixture=None,
-        module_name="sanctions",
+        settings_name="SANCTIONS",
+        import_path="camac.settings.modules.sanctions.SANCTIONS",
         canton=None,
         disable=False,
     )
@@ -3573,7 +3854,8 @@ def disable_sanctions_settings(
         settings=settings,
         request=request,
         base_fixture=sanctions_settings,
-        module_name="sanctions",
+        settings_name="SANCTIONS",
+        import_path="camac.settings.modules.sanctions.SANCTIONS",
         canton=None,
         disable=True,
     )
@@ -3590,7 +3872,8 @@ def sz_sanctions_settings(
         settings=settings,
         request=request,
         base_fixture=sanctions_settings,
-        module_name="sanctions",
+        settings_name="SANCTIONS",
+        import_path="camac.settings.modules.sanctions.SANCTIONS",
         canton="kt_schwyz",
         disable=False,
     )
@@ -3607,7 +3890,8 @@ def ur_sanctions_settings(
         settings=settings,
         request=request,
         base_fixture=sanctions_settings,
-        module_name="sanctions",
+        settings_name="SANCTIONS",
+        import_path="camac.settings.modules.sanctions.SANCTIONS",
         canton="kt_uri",
         disable=False,
     )
@@ -3623,7 +3907,8 @@ def service_settings(
         settings=settings,
         request=request,
         base_fixture=None,
-        module_name="service",
+        settings_name="SERVICE",
+        import_path="camac.settings.modules.service.SERVICE",
         canton=None,
         disable=False,
     )
@@ -3640,7 +3925,8 @@ def disable_service_settings(
         settings=settings,
         request=request,
         base_fixture=service_settings,
-        module_name="service",
+        settings_name="SERVICE",
+        import_path="camac.settings.modules.service.SERVICE",
         canton=None,
         disable=True,
     )
@@ -3657,7 +3943,8 @@ def so_service_settings(
         settings=settings,
         request=request,
         base_fixture=service_settings,
-        module_name="service",
+        settings_name="SERVICE",
+        import_path="camac.settings.modules.service.SERVICE",
         canton="kt_so",
         disable=False,
     )
@@ -3674,7 +3961,8 @@ def sg_service_settings(
         settings=settings,
         request=request,
         base_fixture=service_settings,
-        module_name="service",
+        settings_name="SERVICE",
+        import_path="camac.settings.modules.service.SERVICE",
         canton="kt_sg",
         disable=False,
     )
@@ -3690,7 +3978,8 @@ def statistics_settings(
         settings=settings,
         request=request,
         base_fixture=None,
-        module_name="statistics",
+        settings_name="STATISTICS",
+        import_path="camac.settings.modules.statistics.STATISTICS",
         canton=None,
         disable=False,
     )
@@ -3707,7 +3996,8 @@ def disable_statistics_settings(
         settings=settings,
         request=request,
         base_fixture=statistics_settings,
-        module_name="statistics",
+        settings_name="STATISTICS",
+        import_path="camac.settings.modules.statistics.STATISTICS",
         canton=None,
         disable=True,
     )
@@ -3724,7 +4014,8 @@ def ag_statistics_settings(
         settings=settings,
         request=request,
         base_fixture=statistics_settings,
-        module_name="statistics",
+        settings_name="STATISTICS",
+        import_path="camac.settings.modules.statistics.STATISTICS",
         canton="kt_ag",
         disable=False,
     )
@@ -3740,7 +4031,8 @@ def submit_settings(
         settings=settings,
         request=request,
         base_fixture=None,
-        module_name="submit",
+        settings_name="SUBMIT",
+        import_path="camac.settings.modules.submit.SUBMIT",
         canton=None,
         disable=False,
     )
@@ -3757,7 +4049,8 @@ def disable_submit_settings(
         settings=settings,
         request=request,
         base_fixture=submit_settings,
-        module_name="submit",
+        settings_name="SUBMIT",
+        import_path="camac.settings.modules.submit.SUBMIT",
         canton=None,
         disable=True,
     )
@@ -3774,7 +4067,8 @@ def demo_submit_settings(
         settings=settings,
         request=request,
         base_fixture=submit_settings,
-        module_name="submit",
+        settings_name="SUBMIT",
+        import_path="camac.settings.modules.submit.SUBMIT",
         canton="demo",
         disable=False,
     )
@@ -3791,7 +4085,8 @@ def test_submit_settings(
         settings=settings,
         request=request,
         base_fixture=submit_settings,
-        module_name="submit",
+        settings_name="SUBMIT",
+        import_path="camac.settings.modules.submit.SUBMIT",
         canton="test",
         disable=False,
     )
@@ -3808,7 +4103,8 @@ def sz_submit_settings(
         settings=settings,
         request=request,
         base_fixture=submit_settings,
-        module_name="submit",
+        settings_name="SUBMIT",
+        import_path="camac.settings.modules.submit.SUBMIT",
         canton="kt_schwyz",
         disable=False,
     )
@@ -3825,7 +4121,8 @@ def be_submit_settings(
         settings=settings,
         request=request,
         base_fixture=submit_settings,
-        module_name="submit",
+        settings_name="SUBMIT",
+        import_path="camac.settings.modules.submit.SUBMIT",
         canton="kt_bern",
         disable=False,
     )
@@ -3842,7 +4139,8 @@ def so_submit_settings(
         settings=settings,
         request=request,
         base_fixture=submit_settings,
-        module_name="submit",
+        settings_name="SUBMIT",
+        import_path="camac.settings.modules.submit.SUBMIT",
         canton="kt_so",
         disable=False,
     )
@@ -3859,7 +4157,8 @@ def ur_submit_settings(
         settings=settings,
         request=request,
         base_fixture=submit_settings,
-        module_name="submit",
+        settings_name="SUBMIT",
+        import_path="camac.settings.modules.submit.SUBMIT",
         canton="kt_uri",
         disable=False,
     )
@@ -3876,7 +4175,8 @@ def gr_submit_settings(
         settings=settings,
         request=request,
         base_fixture=submit_settings,
-        module_name="submit",
+        settings_name="SUBMIT",
+        import_path="camac.settings.modules.submit.SUBMIT",
         canton="kt_gr",
         disable=False,
     )
@@ -3893,7 +4193,8 @@ def ag_submit_settings(
         settings=settings,
         request=request,
         base_fixture=submit_settings,
-        module_name="submit",
+        settings_name="SUBMIT",
+        import_path="camac.settings.modules.submit.SUBMIT",
         canton="kt_ag",
         disable=False,
     )
@@ -3910,7 +4211,8 @@ def sg_submit_settings(
         settings=settings,
         request=request,
         base_fixture=submit_settings,
-        module_name="submit",
+        settings_name="SUBMIT",
+        import_path="camac.settings.modules.submit.SUBMIT",
         canton="kt_sg",
         disable=False,
     )
@@ -3926,7 +4228,8 @@ def tags_settings(
         settings=settings,
         request=request,
         base_fixture=None,
-        module_name="tags",
+        settings_name="TAGS",
+        import_path="camac.settings.modules.tags.TAGS",
         canton=None,
         disable=False,
     )
@@ -3943,7 +4246,8 @@ def disable_tags_settings(
         settings=settings,
         request=request,
         base_fixture=tags_settings,
-        module_name="tags",
+        settings_name="TAGS",
+        import_path="camac.settings.modules.tags.TAGS",
         canton=None,
         disable=True,
     )
@@ -3960,7 +4264,8 @@ def be_tags_settings(
         settings=settings,
         request=request,
         base_fixture=tags_settings,
-        module_name="tags",
+        settings_name="TAGS",
+        import_path="camac.settings.modules.tags.TAGS",
         canton="kt_bern",
         disable=False,
     )
@@ -3976,7 +4281,8 @@ def timelines_settings(
         settings=settings,
         request=request,
         base_fixture=None,
-        module_name="timelines",
+        settings_name="TIMELINES",
+        import_path="camac.settings.modules.timelines.TIMELINES",
         canton=None,
         disable=False,
     )
@@ -3993,7 +4299,8 @@ def disable_timelines_settings(
         settings=settings,
         request=request,
         base_fixture=timelines_settings,
-        module_name="timelines",
+        settings_name="TIMELINES",
+        import_path="camac.settings.modules.timelines.TIMELINES",
         canton=None,
         disable=True,
     )
@@ -4010,7 +4317,8 @@ def gr_timelines_settings(
         settings=settings,
         request=request,
         base_fixture=timelines_settings,
-        module_name="timelines",
+        settings_name="TIMELINES",
+        import_path="camac.settings.modules.timelines.TIMELINES",
         canton="kt_gr",
         disable=False,
     )
@@ -4026,7 +4334,8 @@ def user_settings(
         settings=settings,
         request=request,
         base_fixture=None,
-        module_name="user",
+        settings_name="USER",
+        import_path="camac.settings.modules.user.USER",
         canton=None,
         disable=False,
     )
@@ -4043,7 +4352,8 @@ def disable_user_settings(
         settings=settings,
         request=request,
         base_fixture=user_settings,
-        module_name="user",
+        settings_name="USER",
+        import_path="camac.settings.modules.user.USER",
         canton=None,
         disable=True,
     )
@@ -4060,7 +4370,8 @@ def so_user_settings(
         settings=settings,
         request=request,
         base_fixture=user_settings,
-        module_name="user",
+        settings_name="USER",
+        import_path="camac.settings.modules.user.USER",
         canton="kt_so",
         disable=False,
     )
@@ -4077,7 +4388,8 @@ def gr_user_settings(
         settings=settings,
         request=request,
         base_fixture=user_settings,
-        module_name="user",
+        settings_name="USER",
+        import_path="camac.settings.modules.user.USER",
         canton="kt_gr",
         disable=False,
     )
@@ -4094,7 +4406,8 @@ def ag_user_settings(
         settings=settings,
         request=request,
         base_fixture=user_settings,
-        module_name="user",
+        settings_name="USER",
+        import_path="camac.settings.modules.user.USER",
         canton="kt_ag",
         disable=False,
     )
@@ -4111,7 +4424,8 @@ def sg_user_settings(
         settings=settings,
         request=request,
         base_fixture=user_settings,
-        module_name="user",
+        settings_name="USER",
+        import_path="camac.settings.modules.user.USER",
         canton="kt_sg",
         disable=False,
     )
@@ -4127,7 +4441,8 @@ def withdrawal_settings(
         settings=settings,
         request=request,
         base_fixture=None,
-        module_name="withdrawal",
+        settings_name="WITHDRAWAL",
+        import_path="camac.settings.modules.withdrawal.WITHDRAWAL",
         canton=None,
         disable=False,
     )
@@ -4144,7 +4459,8 @@ def disable_withdrawal_settings(
         settings=settings,
         request=request,
         base_fixture=withdrawal_settings,
-        module_name="withdrawal",
+        settings_name="WITHDRAWAL",
+        import_path="camac.settings.modules.withdrawal.WITHDRAWAL",
         canton=None,
         disable=True,
     )
@@ -4161,7 +4477,8 @@ def so_withdrawal_settings(
         settings=settings,
         request=request,
         base_fixture=withdrawal_settings,
-        module_name="withdrawal",
+        settings_name="WITHDRAWAL",
+        import_path="camac.settings.modules.withdrawal.WITHDRAWAL",
         canton="kt_so",
         disable=False,
     )
@@ -4178,7 +4495,8 @@ def gr_withdrawal_settings(
         settings=settings,
         request=request,
         base_fixture=withdrawal_settings,
-        module_name="withdrawal",
+        settings_name="WITHDRAWAL",
+        import_path="camac.settings.modules.withdrawal.WITHDRAWAL",
         canton="kt_gr",
         disable=False,
     )
@@ -4195,7 +4513,8 @@ def ag_withdrawal_settings(
         settings=settings,
         request=request,
         base_fixture=withdrawal_settings,
-        module_name="withdrawal",
+        settings_name="WITHDRAWAL",
+        import_path="camac.settings.modules.withdrawal.WITHDRAWAL",
         canton="kt_ag",
         disable=False,
     )
@@ -4212,7 +4531,8 @@ def test_withdrawal_settings(
         settings=settings,
         request=request,
         base_fixture=withdrawal_settings,
-        module_name="withdrawal",
+        settings_name="WITHDRAWAL",
+        import_path="camac.settings.modules.withdrawal.WITHDRAWAL",
         canton="test",
         disable=False,
     )
@@ -4228,7 +4548,8 @@ def work_item_list_settings(
         settings=settings,
         request=request,
         base_fixture=None,
-        module_name="work_item_list",
+        settings_name="WORK_ITEM_LIST",
+        import_path="camac.settings.modules.work_item_list.WORK_ITEM_LIST",
         canton=None,
         disable=False,
     )
@@ -4245,7 +4566,8 @@ def disable_work_item_list_settings(
         settings=settings,
         request=request,
         base_fixture=work_item_list_settings,
-        module_name="work_item_list",
+        settings_name="WORK_ITEM_LIST",
+        import_path="camac.settings.modules.work_item_list.WORK_ITEM_LIST",
         canton=None,
         disable=True,
     )
@@ -4262,7 +4584,8 @@ def sz_work_item_list_settings(
         settings=settings,
         request=request,
         base_fixture=work_item_list_settings,
-        module_name="work_item_list",
+        settings_name="WORK_ITEM_LIST",
+        import_path="camac.settings.modules.work_item_list.WORK_ITEM_LIST",
         canton="kt_schwyz",
         disable=False,
     )
@@ -4279,7 +4602,8 @@ def be_work_item_list_settings(
         settings=settings,
         request=request,
         base_fixture=work_item_list_settings,
-        module_name="work_item_list",
+        settings_name="WORK_ITEM_LIST",
+        import_path="camac.settings.modules.work_item_list.WORK_ITEM_LIST",
         canton="kt_bern",
         disable=False,
     )
@@ -4296,7 +4620,8 @@ def so_work_item_list_settings(
         settings=settings,
         request=request,
         base_fixture=work_item_list_settings,
-        module_name="work_item_list",
+        settings_name="WORK_ITEM_LIST",
+        import_path="camac.settings.modules.work_item_list.WORK_ITEM_LIST",
         canton="kt_so",
         disable=False,
     )
@@ -4313,7 +4638,8 @@ def ur_work_item_list_settings(
         settings=settings,
         request=request,
         base_fixture=work_item_list_settings,
-        module_name="work_item_list",
+        settings_name="WORK_ITEM_LIST",
+        import_path="camac.settings.modules.work_item_list.WORK_ITEM_LIST",
         canton="kt_uri",
         disable=False,
     )
@@ -4330,7 +4656,8 @@ def gr_work_item_list_settings(
         settings=settings,
         request=request,
         base_fixture=work_item_list_settings,
-        module_name="work_item_list",
+        settings_name="WORK_ITEM_LIST",
+        import_path="camac.settings.modules.work_item_list.WORK_ITEM_LIST",
         canton="kt_gr",
         disable=False,
     )
@@ -4347,7 +4674,8 @@ def ag_work_item_list_settings(
         settings=settings,
         request=request,
         base_fixture=work_item_list_settings,
-        module_name="work_item_list",
+        settings_name="WORK_ITEM_LIST",
+        import_path="camac.settings.modules.work_item_list.WORK_ITEM_LIST",
         canton="kt_ag",
         disable=False,
     )
@@ -4364,7 +4692,8 @@ def sg_work_item_list_settings(
         settings=settings,
         request=request,
         base_fixture=work_item_list_settings,
-        module_name="work_item_list",
+        settings_name="WORK_ITEM_LIST",
+        import_path="camac.settings.modules.work_item_list.WORK_ITEM_LIST",
         canton="kt_sg",
         disable=False,
     )

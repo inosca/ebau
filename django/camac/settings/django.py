@@ -3979,13 +3979,16 @@ OIDC_PKCE_CODE_VERIFIER_SIZE = env.int("OIDC_PKCE_CODE_VERIFIER_SIZE", default=6
 
 STATICFILES_DIRS += APPLICATIONS[APPLICATION_NAME].get("INCLUDE_STATIC_FILES", [])
 
+MODULE_SETTINGS_REGISTRY = {}
+
 
 def load_module_settings(module_name, application_name=APPLICATION_NAME):
     settings_name = module_name.upper().replace(".", "_")
+    import_path = f"camac.settings.modules.{module_name.lower()}.{settings_name}"
 
-    module: ModuleConfig | dict = import_string(
-        f"camac.settings.modules.{module_name.lower()}.{settings_name}"
-    )
+    MODULE_SETTINGS_REGISTRY[settings_name] = import_path
+
+    module: ModuleConfig | dict = import_string(import_path)
     is_pydantic = isinstance(module, ModuleConfig)
     if is_pydantic:
         app_config: ModuleApplicationConfig = getattr(module, application_name)

@@ -76,11 +76,9 @@ def test_statistics_export_empty(
     db,
     ag_distribution_settings,
     multilang,
-    settings,
+    ag_statistics_settings,
 ):
     """Without any instance data the export should return only the header row."""
-    settings.APPLICATION_NAME = "kt_ag"
-
     response = admin_client.get(STATISTICS_URL)
 
     assert response.status_code == status.HTTP_200_OK
@@ -100,6 +98,7 @@ def test_work_items_export(
     admin_client,
     statistics_ag_instance_afb,
     snapshot,
+    set_application_ag,
 ):
     """Work-items export returns completed inquiry work items with all columns."""
     response = admin_client.get(WORK_ITEMS_URL)
@@ -162,7 +161,6 @@ def test_copy_template_sheets(
     admin_client,
     statistics_ag_instance,
     tmp_path,
-    settings,
     mocker,
     freezer,
     snapshot,
@@ -220,16 +218,15 @@ def test_copy_template_sheets(
     ],
 )
 def test_resolve_template_priority(
-    settings,
     mocker,
     export_type,
     expected_base,
     available,
     expected_suffix,
+    set_application_ag,
 ):
     """Template resolution prefers service-group > role > type-default."""
 
-    settings.APPLICATION_NAME = "kt_ag"
     base = os.path.join(
         os.path.dirname(os.path.dirname(__file__)),
         "config",
@@ -305,9 +302,8 @@ def test_write_filter_sheet_replaces_existing():
     assert wb["Filter"].cell(row=4, column=1).value == "Param"
 
 
-def test_dossier_annotations_all_columns(db, settings, snapshot):
+def test_dossier_annotations_all_columns(db, ag_statistics_settings, snapshot):
     """Calling _dossier_annotations without requested_columns returns all."""
-    settings.APPLICATION_NAME = "kt_ag"
 
     backend = InstanceFilterBackend()
     annotations = backend._dossier_annotations(service_id=1, requested_columns=None)
@@ -315,10 +311,8 @@ def test_dossier_annotations_all_columns(db, settings, snapshot):
     assert sorted(annotations.keys()) == snapshot
 
 
-def test_work_item_annotations_all_columns(db, settings, snapshot):
+def test_work_item_annotations_all_columns(db, ag_statistics_settings, snapshot):
     """Calling _work_item_annotations without requested_columns returns all."""
-    settings.APPLICATION_NAME = "kt_ag"
-
     backend = WorkItemFilterBackend()
     annotations = backend._work_item_annotations(requested_columns=None)
 

@@ -20,6 +20,7 @@ from alexandria.core import tasks as alexandria_tasks
 from alexandria.storages.backends.s3 import SsecGlobalS3Storage
 from caluma.caluma_core.faker import MultilangProvider
 from caluma.caluma_core.relay import extract_global_id
+from camac.permissions.conditions import Check
 from caluma.caluma_form import (
     factories as caluma_form_factories,
     models as caluma_form_models,
@@ -3591,9 +3592,7 @@ def _validateable_settings():
     """
     from camac.settings.utils import get_all_modules
 
-    settings_modules = [
-        f"camac.settings.modules.{mod}.{mod.upper()}" for mod in get_all_modules()
-    ]
+    settings_modules = list(get_all_modules().values())
 
     return settings_modules + [
         "camac.settings.django.APPLICATIONS",
@@ -3614,6 +3613,28 @@ def _validateable_settings():
 
 
 _before_settings = {}
+
+
+def normalize_leak_check(value):
+    """Normalize a value before doing leak checks on it.
+
+    Recursively transform the value for dict, list and tuples.
+    For Check objects we don't want to use the inner __eq__ method for leak checking,
+    but instead use the repr, which should be stable and not contain any dynamic data.
+    """
+    if isinstance(value, dict):
+        return {key: normalize_leak_check(val) for key, val in value.items()}
+
+    if isinstance(value, list):
+        return [normalize_leak_check(item) for item in value]
+
+    if isinstance(value, tuple):
+        return tuple(normalize_leak_check(item) for item in value)
+
+    if isinstance(value, Check):
+        return repr(value)
+
+    return value
 
 
 @pytest.fixture(autouse=True, scope="function")
@@ -3650,10 +3671,14 @@ def ensure_no_leaks(request):
         if isinstance(after, dict):
             # Canton-wise diffing for reduced output in case of error
             for kt in set(before.keys()) | set(after.keys()):
-                assert before[kt] == after[kt], f"Module {s} leaks. check canton {kt}"
+                assert normalize_leak_check(before[kt]) == normalize_leak_check(
+                    after[kt]
+                ), f"Module {s} leaks. check canton {kt}"
         elif isinstance(after, list | tuple):
             # List setting, most likely some module-local thingy
-            assert before == after, f"Settings object {s} leaks"
+            assert normalize_leak_check(before) == normalize_leak_check(after), (
+                f"Settings object {s} leaks"
+            )
         else:
             # pydantic settings. Again, canton-wise diffing for reduced
             # output in case of issues
@@ -3661,9 +3686,9 @@ def ensure_no_leaks(request):
                 before_cantonal = getattr(before, canton)
                 after_cantonal = getattr(after, canton)
 
-                assert before_cantonal == after_cantonal, (
-                    f"Module settings {s} seem to leak for {canton}"
-                )
+                assert normalize_leak_check(before_cantonal) == normalize_leak_check(
+                    after_cantonal
+                ), f"Module settings {s} seem to leak for {canton}"
 
 
 def parse_xlsx_response(response: FileResponse) -> pyexcel.Book:
