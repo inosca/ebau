@@ -4,6 +4,7 @@ import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { dropTask, lastValue } from "ember-concurrency";
 import { query } from "ember-data-resources";
+import { Duration } from "luxon";
 
 import mainConfig from "ember-ebau-core/config/main";
 
@@ -40,5 +41,11 @@ export default class JournalComponent extends Component {
 
   get showJournalEntryDuration() {
     return mainConfig.journalEntryDuration;
+  }
+
+  get journalTotalDuration() {
+    return Duration.fromMillis(
+      (this.entries.records?.meta["total-duration-seconds"] ?? 0) * 1000,
+    ).toFormat("hh:mm");
   }
 }
