@@ -604,6 +604,17 @@ def test_billing_entry_create_with_ag_processing_fee(
             2,
             status.HTTP_201_CREATED,
         ),
+        (
+            [
+                ProductNumberConfig(
+                    number=1,
+                    name="test",
+                    archived=True,
+                )
+            ],
+            1,
+            status.HTTP_400_BAD_REQUEST,
+        ),
     ],
 )
 def test_billing_entry_create_with_product_number(
@@ -691,6 +702,11 @@ def test_product_numbers(
             only_for_service_groups=["test_sg"],
             only_forms=["form_mrof"],
             only_subsequent_charge=True,
+        ),
+        ProductNumberConfig(
+            number=8,
+            name="test8",
+            archived=True,
         ),
     ]
     url = reverse("product-numbers")

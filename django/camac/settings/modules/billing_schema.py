@@ -42,6 +42,10 @@ class ProductNumberConfig(EBauConfig):
         description="Unversioned form slugs for which this product number should be used.",
         default=[],
     )
+    archived: bool = Field(
+        description="This product number cannot be selected because it has been archived.",
+        default=False,
+    )
 
 
 class WilkenConfig(EBauConfig):

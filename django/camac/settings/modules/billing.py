@@ -26,7 +26,8 @@ BILLING = ModuleConfig[BillingConfig](
         admin=BillingDjangoAdminConfig(hidden_fields=["organization"]),
     ),
     kt_schwyz=BillingConfig(
-        # Keep this config in sync with ember-ebau-core/addon/config/features/sz.js
+        # Keep this config in sync with ember-ebau-core/addon/config/features/sz.js and
+        # ember-ebau-core/addon/config/main-sz.js.
         enabled=True,
         product_numbers=[
             ProductNumberConfig(
@@ -38,6 +39,11 @@ BILLING = ModuleConfig[BillingConfig](
             ),
             ProductNumberConfig(
                 number=150000,
+                name="AMFZ Brandschutz, kant. Baubewilligung Gebühren (alt)",
+                archived=True,
+            ),
+            ProductNumberConfig(
+                number=160000,
                 name="AMFZ Brandschutz, kant. Baubewilligung Gebühren",
                 only_for_services=["amfz-brandschutz"],
                 only_forms=ALLOWED_FORMS_FOR_PRODUCT_NUMBERS,
@@ -50,6 +56,11 @@ BILLING = ModuleConfig[BillingConfig](
             ),
             ProductNumberConfig(
                 number=300000,
+                name="AMFZ Brandschutz, Baubegleitung und -Abnahme (alt)",
+                archived=True,
+            ),
+            ProductNumberConfig(
+                number=320000,
                 name="AMFZ Brandschutz, Baubegleitung und -Abnahme",
                 only_subsequent_charge=True,
                 only_for_services=["amfz-brandschutz"],
