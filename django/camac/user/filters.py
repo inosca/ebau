@@ -62,6 +62,7 @@ class PublicServiceFilterSet(FilterSet):
     is_active_service_for_instance = NumberFilter(
         method="filter_is_active_service_for_instance"
     )
+    show_only_active = BooleanFilter(method="filter_show_only_active")
 
     # ?provider_for=geometer;999111 (service id)
     provider_for = CharFilter(method="filter_provider_for")
@@ -104,6 +105,12 @@ class PublicServiceFilterSet(FilterSet):
             if len(filters) > 0
             else queryset
         )
+
+    def filter_show_only_active(self, queryset, name, value):
+        if not value:
+            return models.Service.objects.all()
+
+        return queryset
 
     @permission_aware
     def _available_in_distribution(self, queryset, name, value):
