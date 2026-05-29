@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.interlis.ch/geometry/1.0"
+  targetNamespace="http://www.interlis.ch/geometry/1.0" elementFormDefault="qualified"
+  attributeFormDefault="unqualified" version="2014-08-15">
+
+  <xsd:element name="extensions">
+    <xsd:annotation>
+      <xsd:documentation>any vendor specifics</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:any minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:attribute name="epsg" type="xsd:string"/>
+
+  <xsd:element name="geometry" type="GeometryType"/>
+  <xsd:complexType name="GeometryType" abstract="true">
+    <xsd:sequence>
+      <xsd:element ref="extensions" minOccurs="0"/>
+    </xsd:sequence>
+    <xsd:attribute ref="epsg" use="optional"/>
+    <xsd:anyAttribute processContents="lax"/>
+  </xsd:complexType>
+
+  <xsd:element name="coord" type="CoordType" substitutionGroup="geometry"/>
+  <xsd:complexType name="CoordType">
+    <xsd:complexContent>
+      <xsd:extension base="GeometryType">
+        <xsd:sequence>
+          <xsd:element name="c1" type="xsd:double" minOccurs="1" maxOccurs="1"/>
+          <xsd:element name="c2" type="xsd:double" minOccurs="1" maxOccurs="1"/>
+          <xsd:element name="c3" type="xsd:double" minOccurs="0" maxOccurs="1"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+  <xsd:element name="multicoord" type="MultiCoordType"/>
+  <xsd:complexType name="MultiCoordType">
+    <xsd:sequence>
+      <xsd:element ref="coord" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:element name="customLineSegment" type="LineSegmentType"/>
+  <xsd:complexType name="LineSegmentType" abstract="true">
+    <xsd:sequence>
+      <xsd:element ref="extensions" minOccurs="0"/>
+      <xsd:element name="c1" type="xsd:double" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="c2" type="xsd:double" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="c3" type="xsd:double" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+    <xsd:anyAttribute processContents="lax"/>
+  </xsd:complexType>
+
+  <xsd:complexType name="StartSegmentType">
+    <xsd:complexContent>
+      <xsd:extension base="LineSegmentType">
+        <xsd:sequence> </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+  <xsd:complexType name="StraightSegmentType">
+    <xsd:complexContent>
+      <xsd:extension base="LineSegmentType">
+        <xsd:sequence> </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+  <xsd:complexType name="ArcSegmentType">
+    <xsd:complexContent>
+      <xsd:extension base="LineSegmentType">
+        <xsd:sequence>
+          <xsd:element name="a1" type="xsd:double" minOccurs="1" maxOccurs="1"/>
+          <xsd:element name="a2" type="xsd:double" minOccurs="1" maxOccurs="1"/>
+          <xsd:element name="r" type="xsd:double" minOccurs="0" maxOccurs="1"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+  <xsd:element name="polyline" type="PolylineType" substitutionGroup="geometry"/>
+  <xsd:complexType name="PolylineType">
+    <xsd:complexContent>
+      <xsd:extension base="GeometryType">
+        <xsd:sequence>
+          <xsd:element ref="coord" minOccurs="1" maxOccurs="1"/>
+          <xsd:choice minOccurs="1" maxOccurs="unbounded">
+            <xsd:element ref="coord" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="arc" type="ArcSegmentType" minOccurs="1" maxOccurs="1"/>
+            <xsd:element ref="customLineSegment" minOccurs="1" maxOccurs="1"/>
+          </xsd:choice>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+  <xsd:element name="multipolyline" type="MultiPolylineType"/>
+  <xsd:complexType name="MultiPolylineType">
+    <xsd:sequence>
+      <xsd:element ref="polyline" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="BoundaryType">
+    <xsd:sequence>
+      <xsd:element ref="polyline" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:element name="surface" type="SurfaceType" substitutionGroup="geometry"/>
+  <xsd:complexType name="SurfaceType">
+    <xsd:complexContent>
+      <xsd:extension base="GeometryType">
+        <xsd:sequence>
+          <xsd:element name="exterior" type="BoundaryType" minOccurs="1" maxOccurs="unbounded"/>
+          <xsd:element name="interior" type="BoundaryType" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+  <xsd:element name="multisurface" type="MultiSurfaceType"/>
+  <xsd:complexType name="MultiSurfaceType">
+    <xsd:sequence>
+      <xsd:element ref="surface" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+</xsd:schema>
+

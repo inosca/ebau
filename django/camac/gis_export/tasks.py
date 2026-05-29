@@ -1,6 +1,6 @@
 from celery import shared_task
 
-from .utils import export_agis
+from .domain_logic import export_agis
 
 
 @shared_task()

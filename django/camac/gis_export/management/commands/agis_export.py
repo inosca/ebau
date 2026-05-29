@@ -4,7 +4,7 @@ from logging import getLogger
 from django.core.management.base import BaseCommand
 from django.db import transaction
 
-from camac.gis_export.utils import export_agis
+from camac.gis_export.domain_logic import export_agis
 
 log = getLogger(__name__)
 
