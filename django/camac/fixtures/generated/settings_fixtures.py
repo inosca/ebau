@@ -800,7 +800,8 @@ def gr_change_form_settings(
         settings=settings,
         request=request,
         base_fixture=change_form_settings,
-        module_name="change_form",
+        settings_name="CHANGE_FORM",
+        import_path="camac.settings.modules.change_form.CHANGE_FORM",
         canton="kt_gr",
         disable=False,
     )
