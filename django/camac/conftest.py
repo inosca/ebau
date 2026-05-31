@@ -813,6 +813,7 @@ def caluma_workflow_config_ag(
         settings.ROOT_DIR("kt_ag/config/caluma_construction_monitoring_workflow.json"),
         settings.ROOT_DIR("kt_ag/config/caluma_construction_monitoring_form.json"),
         settings.ROOT_DIR("kt_ag/config/caluma_cantonal_exam_form.json"),
+        settings.ROOT_DIR("kt_ag/config/caluma_rpg2_form.json"),
     )
 
     workflow = caluma_workflow_models.Workflow.objects.get(pk="building-permit")
@@ -1308,6 +1309,7 @@ def caluma_forms_ag(settings, add_general_questions):
         # Task forms
         "entscheid",
         "kantonale-pruefung",
+        "rpg2",
         "vorlaeufige-pruefung",
         "publikation",
         "nachbarschaftsorientierung",

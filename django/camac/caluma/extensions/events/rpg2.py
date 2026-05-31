@@ -46,6 +46,7 @@ def post_resume_inquiry_for_rpg2(sender, work_item, user, context=None, **kwargs
 
     # Assume task exists (created per canton) when module is enabled.
     task = Task.objects.get(pk=settings.RPG2.task)
+
     # The rpg2 work_item is addressed to all cantonal services configured.
     group_pks = [
         str(pk)

@@ -248,3 +248,16 @@ mutation CreateWithdrawalCheckTask {
     clientMutationId
   }
 }
+
+mutation CreateRpg2Task {
+  saveCompleteTaskFormTask(
+    input: {
+      slug: "rpg2"
+      name: "RPG Datenerfassung"
+      form: "rpg2"
+      addressGroups: "[]"
+    }
+  ) {
+    clientMutationId
+  }
+}

@@ -110,3 +110,63 @@ def test_form_rpg2_permissions_state_be(
         p for p in manager.get_permissions(be_instance) if "rpg2" in p
     }
     assert set(granted_rpg2_permissions) == expected_result
+
+
+@pytest.mark.parametrize(
+    "service__slug,role__name,has_acl,has_work_item,expected_result",
+    [
+        # ROLES_NO_READONLY: read & write
+        (
+            "afb",
+            "trusted-service-lead",
+            True,
+            True,
+            {"form-rpg2-read", "form-rpg2-write"},
+        ),
+        (
+            "afb",
+            "trusted-service-clerk",
+            True,
+            True,
+            {"form-rpg2-read", "form-rpg2-write"},
+        ),
+        # Readonly role: read
+        ("afb", "trusted-service-read", True, True, {"form-rpg2-read"}),
+        # No ACL: inquiry not sent
+        ("afb", "trusted-service-lead", False, True, set()),
+        # No work item
+        ("afb", "trusted-service-lead", True, False, set()),
+        # Wrong service
+        (None, "trusted-service-lead", True, True, set()),
+        ("other-slug", "trusted-service-lead", True, True, set()),
+    ],
+)
+def test_form_rpg2_permissions_ag(
+    db,
+    ag_instance,
+    ag_permissions_settings,
+    ag_access_levels,
+    userinfo,
+    has_acl,
+    has_work_item,
+    expected_result,
+    caluma_work_item_factory,
+):
+    manager = PermissionManager(userinfo)
+    if has_acl:
+        manager.grant(
+            ag_instance,
+            grant_type="SERVICE",
+            access_level="distribution-service",
+            service=userinfo.service,
+            event_name="inquiry-sent",
+        )
+
+    if has_work_item:
+        # Work item status is not relevant
+        caluma_work_item_factory(case=ag_instance.case, task_id="rpg2")
+
+    granted_rpg2_permissions = {
+        p for p in manager.get_permissions(ag_instance) if "rpg2" in p
+    }
+    assert set(granted_rpg2_permissions) == expected_result

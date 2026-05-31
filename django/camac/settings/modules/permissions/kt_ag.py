@@ -5,6 +5,7 @@ from camac.permissions.conditions import (
     HasRole,
     IsForm,
     IsPaper,
+    IsService,
     IsServiceGroup,
     RequireDeadline,
     RequireInstanceState,
@@ -159,6 +160,11 @@ MODULE_PORTAL_ADDITIONAL_DEMANDS_READ = RequireWorkItem("fill-additional-demand"
 MODULE_PORTAL_ADDITIONAL_DEMANDS_WRITE = (
     MODULE_PORTAL_ADDITIONAL_DEMANDS_READ & HasApplicantRole(["ADMIN", "EDITOR"])
 )
+
+MODULE_RPG2_READ = RequireWorkItem("rpg2") & IsService(["afb"])
+
+MODULE_RPG2_WRITE = MODULE_RPG2_READ & ROLES_NO_READONLY
+
 MODULE_PORTAL_APPLICANTS = HasApplicantRole(["ADMIN"])
 MODULE_PORTAL_COMMUNICATIONS_READ = ~RequireInstanceState(["new"])
 MODULE_PORTAL_COMMUNICATIONS_WRITE = (
@@ -282,6 +288,8 @@ AG_PERMISSIONS_SETTINGS = {
             ("documents-read", MODULE_DOCUMENTS),
             ("documents-write", MODULE_DOCUMENTS),
             ("form-kantonale-pruefung-write", MODULE_CANTONAL_EXAM),
+            ("form-rpg2-read", MODULE_RPG2_READ),
+            ("form-rpg2-write", MODULE_RPG2_WRITE),
             ("form-read", MODULE_FORM),
             ("history-read", MODULE_HISTORY),
             ("instance-mark-write", ACTION_INSTANCE_MARK),

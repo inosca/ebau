@@ -8,4 +8,16 @@ RPG2 = ModuleConfig[RPG2Config](
         service_slugs=["agr-bauen", "agr-kantonsplanung"],
         allowed_forms=["baugesuch", "baugesuch-generell", "baugesuch-mit-uvp"],
     ),
+    kt_ag=RPG2Config(
+        enabled=False,  # TODO: Enable
+        service_slugs=["afb"],
+        allowed_forms=[
+            "baugesuch",
+            "baugesuch-mit-uvp",
+            "vorentscheid",
+            "plangenehmigungsverfahren-gas",
+            "plangenehmigungsverfahren-bund",
+            "anfrage-intern",
+        ],
+    ),
 )
