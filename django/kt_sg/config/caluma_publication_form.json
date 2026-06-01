@@ -34,21 +34,6 @@
   },
   {
     "model": "caluma_form.formquestion",
-    "pk": "publikation.publikation-hinweis",
-    "fields": {
-      "created_at": "2026-04-17T12:22:51.481Z",
-      "modified_at": "2026-04-17T12:22:51.481Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "publikation",
-      "question": "publikation-hinweis",
-      "sort": 6
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
     "pk": "publikation.publikation-start",
     "fields": {
       "created_at": "2026-04-17T11:36:58.707Z",
@@ -169,37 +154,6 @@
       "sub_form": null,
       "source": null,
       "format_validators": "[\"date-after\"]",
-      "default_answer": null,
-      "calc_expression": null,
-      "calc_dependents": "[]"
-    }
-  },
-  {
-    "model": "caluma_form.question",
-    "pk": "publikation-hinweis",
-    "fields": {
-      "created_at": "2026-04-17T12:22:51.382Z",
-      "modified_at": "2026-04-17T12:23:53.461Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "label": "{\"de\": \"Hinweis\", \"fr\": null, \"it\": null}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"<div class=\\\"uk-alert uk-alert-primary uk-margin-remove\\\">\\n  <strong>Hinweis:</strong> Die Publikation erfolgt auf der kantonalen Publikationsplattform ....\\n</div>\", \"fr\": \"\", \"it\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]",
       "default_answer": null,
       "calc_expression": null,
       "calc_dependents": "[]"
