@@ -106,7 +106,9 @@ class PublicUserView(ReadOnlyModelViewSet):
 class ServiceView(MultilangMixin, ModelViewSet):
     filterset_class = filters.ServiceFilterSet
     serializer_class = serializers.ServiceSerializer
-    queryset = models.Service.objects.all()
+    # We need distinct here because we need to order by multilingual names (see below).
+    # Without this data would be returned in duplicates due to the translation join.
+    queryset = models.Service.objects.all().distinct()
 
     search_fields = ["email", "trans__name"]
 
