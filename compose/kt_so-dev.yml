@@ -133,7 +133,9 @@ services:
       <<: *django_env
       CELERY_QUEUE: celery
       CELERY_WORKER_CONCURRENCY: 2
-    ports: []
+    ports:
+      - "6899:6899" # celery rdb
+      - "5679:5679" # debugpy
     command: celerydev
 
   celery-import:

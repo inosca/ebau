@@ -12,12 +12,30 @@
     },
     {
       "name": "Django",
-      "type": "python",
+      "type": "debugpy",
       "request": "attach",
-      "port": 5678,
-      "host": "localhost",
+      "connect": {
+        "host": "localhost",
+        "port": 5678
+      },
       "justMyCode": false,
       "django": true,
+      "pathMappings": [
+        {
+          "localRoot": "${workspaceFolder}/django",
+          "remoteRoot": "."
+        }
+      ]
+    },
+    {
+      "name": "Celery",
+      "type": "debugpy",
+      "request": "attach",
+      "connect": {
+        "host": "localhost",
+        "port": 5679
+      },
+      "justMyCode": false,
       "pathMappings": [
         {
           "localRoot": "${workspaceFolder}/django",

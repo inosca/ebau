@@ -121,7 +121,9 @@ services:
         REQUIREMENTS: requirements-dev.txt
     environment:
       <<: *django_env
-    ports: []
+    ports:
+      - "6899:6899" # celery rdb
+      - "5679:5679" # debugpy
     command: celerydev
 
   celery-beat:

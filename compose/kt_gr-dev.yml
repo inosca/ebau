@@ -229,9 +229,10 @@ services:
   celery:
     <<: *django
     image: acr.run/camac-ng/camac-ng/django:master
-    command: celerydev
     ports:
-      - "6900-7000:6900-7000"
+      - "6899:6899" # celery rdb
+      - "5679:5679" # debugpy
+    command: celerydev
 
   celery-beat:
     <<: *django
