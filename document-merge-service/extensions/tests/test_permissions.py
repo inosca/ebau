@@ -64,7 +64,7 @@ def test_custom_create_permission(
         ({"service_group": "district"}, True, status.HTTP_200_OK),
         ({"service_group": "district"}, False, status.HTTP_403_FORBIDDEN),
         ({}, False, status.HTTP_403_FORBIDDEN),
-        ({"service": "10"}, False, status.HTTP_403_FORBIDDEN),
+        ({"service": "10"}, False, status.HTTP_404_NOT_FOUND),
         ({"service_group": "something"}, True, status.HTTP_404_NOT_FOUND),
         ({"service_group": "something"}, False, status.HTTP_404_NOT_FOUND),
     ],
