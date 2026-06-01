@@ -21,8 +21,10 @@ class CustomPermission:
         *args,
         **kwargs,
     ):
-        # skip to object permissions when it's delete, update or merge
-        if action in ["destroy", "partial_update", "merge"]:
+        # Skip to object permissions when it's delete, update or merge
+        # `merge` is a custom action on the template view that is called via
+        # POST on `/api/v1/template/{pk}/merge`
+        if action in ["destroy", "partial_update", "update", "merge"]:
             return True
 
         raw_meta = request.data.get("meta")

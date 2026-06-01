@@ -53,6 +53,7 @@ def test_custom_create_permission(
     assert response.status_code == expected_status
 
 
+@pytest.mark.parametrize("action", ["patch", "put"])
 @pytest.mark.parametrize(
     "template__engine,template__template",
     [(Template.DOCX_TEMPLATE, django_file("docx-template.docx"))],
@@ -67,6 +68,7 @@ def test_custom_create_permission(
     ],
 )
 def test_custom_update_permission(
+    action,
     admin_client,
     is_admin_service,  # only relevant for shared templates (with service_group)
     expected_status,
@@ -78,13 +80,21 @@ def test_custom_update_permission(
         dms_settings["SHARED_TEMPLATE_ADMIN_SERVICES_FOR_SERVICE_GROUP"] = {
             "district": ["rsta-test"]
         }
-    response = admin_client.patch(
+
+    data = {
+        "description": "Test",
+        "template": django_file("docx-template.docx").file,
+        "meta": json.dumps(template.meta),
+    }
+    client_fn = getattr(admin_client, action)
+
+    if action == "put":
+        # For PUT, we need to pass all attributes as it's not a partial update
+        data.update({"slug": template.slug, "engine": template.engine})
+
+    response = client_fn(
         reverse("template-detail", args=[template.pk]),
-        data={
-            "description": "Test",
-            "template": django_file("docx-template.docx").file,
-            "meta": json.dumps(template.meta),
-        },
+        data=data,
         format="multipart",
     )
 
