@@ -2370,7 +2370,7 @@
         }
       },
       "name": "{\"de\": \"Migrierte Dokumente\", \"fr\": \"\", \"it\": \"Documenti migrati\"}",
-      "description": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "description": "{\"de\": \"Diese Kategorie dient der Dateiablage von importierten Baugesuchen. Nur die Gemeinde hat Zugriff auf diese Unterlagen.\", \"fr\": \"\", \"it\": \"Questa categoria serve per l'archiviazione di domande di costruzione importate. Solo il comune ha accesso a questa documentazione.\"}",
       "allowed_mime_types": "[\"application/pdf\", \"image/jpeg\", \"image/png\", \"image/gif\", \"application/msword\", \"application/vnd.openxmlformats-officedocument.wordprocessingml.document\", \"application/vnd.ms-excel\", \"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\", \"application/vnd.ms-powerpoint\", \"application/vnd.openxmlformats-officedocument.presentationml.presentation\", \"application/vnd.ms-outlook\", \".msg\", \"text/plain\"]",
       "color": "#000000",
       "parent": null,
