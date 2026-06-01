@@ -47,7 +47,7 @@
     "@projectcaluma/ember-workflow": "14.10.3",
     "@terraformer/wkt": "2.2.1",
     "dompurify": "3.3.1",
-    "ember-alexandria": "10.13.2",
+    "ember-alexandria": "10.13.3",
     "ember-apollo-client": "5.0.0",
     "ember-auto-import": "2.11.1",
     "ember-can": "7.0.0",
