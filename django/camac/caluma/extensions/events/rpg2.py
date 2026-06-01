@@ -30,10 +30,7 @@ def is_rpg2_relevant_form(work_item):
     lambda work_item: work_item.task_id == settings.DISTRIBUTION["INQUIRY_TASK"]
 )
 @transaction.atomic
-def post_resume_inquiry_for_rpg2(
-    sender, work_item, user, context=None, **kwargs
-):  # pragma: no cover
-    # TODO: Add tests per canton when enabling
+def post_resume_inquiry_for_rpg2(sender, work_item, user, context=None, **kwargs):
 
     if not is_rpg2_service_addressed(work_item):
         return

@@ -513,6 +513,7 @@ DUMP = {
                 ),
                 "caluma_appeal_form": generate_form_dump_config(r"^appeal"),
                 "caluma_geometer_form": generate_form_dump_config(r"^geometer"),
+                "caluma_rpg2_form": generate_form_dump_config(r"^rpg2"),
                 # Distribution
                 **DISTRIBUTION_DUMP_CONFIG,
                 **ADDITIONAL_DEMAND_DUMP_CONFIG,

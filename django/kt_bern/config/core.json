@@ -45910,7 +45910,7 @@
       "template": null,
       "class_field": null,
       "hidden": 0,
-      "sort": 8,
+      "sort": 10,
       "form_group": 40000,
       "require_permission": "history-read"
     }
@@ -46102,7 +46102,7 @@
       "template": null,
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 6,
+      "sort": 7,
       "form_group": 40000,
       "require_permission": "audit-log-read"
     }
@@ -46166,7 +46166,7 @@
       "template": null,
       "class_field": "menu-category-analysis",
       "hidden": 0,
-      "sort": 7,
+      "sort": 9,
       "form_group": 40000,
       "require_permission": "revision-history-read"
     }
@@ -46486,7 +46486,7 @@
       "template": "/ember-camac-ng/legal-submission.phtml",
       "class_field": "menu-category-process",
       "hidden": 0,
-      "sort": 11,
+      "sort": 10,
       "form_group": 40000,
       "require_permission": "legal-submissions-read"
     }
@@ -46681,6 +46681,38 @@
       "sort": 18,
       "form_group": 40000,
       "require_permission": "additional-demands-read"
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 18000007,
+    "fields": {
+      "available_instance_resource": "taskform",
+      "resource": 20007,
+      "name": null,
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 11,
+      "form_group": 20001,
+      "require_permission": "form-rpg2-read"
+    }
+  },
+  {
+    "model": "core.instanceresource",
+    "pk": 18000008,
+    "fields": {
+      "available_instance_resource": "taskform",
+      "resource": 150000,
+      "name": null,
+      "description": null,
+      "template": null,
+      "class_field": null,
+      "hidden": 0,
+      "sort": 6,
+      "form_group": 20001,
+      "require_permission": "form-rpg2-read"
     }
   },
   {
@@ -48226,6 +48258,26 @@
       "instance_resource": 18000006,
       "language": "fr",
       "name": "Demandes de complément d'information",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 18000010,
+    "fields": {
+      "instance_resource": 18000007,
+      "language": "de",
+      "name": "RPG Datenerfassung",
+      "description": null
+    }
+  },
+  {
+    "model": "core.instanceresourcet",
+    "pk": 18000011,
+    "fields": {
+      "instance_resource": 18000008,
+      "language": "de",
+      "name": "RPG Datenerfassung",
       "description": null
     }
   },
@@ -58649,6 +58701,20 @@
     "pk": 18000004,
     "fields": {
       "task": "geometer"
+    }
+  },
+  {
+    "model": "core.irtaskform",
+    "pk": 18000007,
+    "fields": {
+      "task": "rpg2"
+    }
+  },
+  {
+    "model": "core.irtaskform",
+    "pk": 18000008,
+    "fields": {
+      "task": "rpg2"
     }
   },
   {

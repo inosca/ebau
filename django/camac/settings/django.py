@@ -1059,6 +1059,7 @@ APPLICATIONS = {
                 "ebau-number",
                 "decision",
                 "geometer",
+                "rpg2",
             ],
             # Note: legal-submissions, additional-demands, checked through
             # default permission check in caluma permission layer
@@ -1199,6 +1200,7 @@ APPLICATIONS = {
                         "information-of-neighbors",
                         "legal-submission",
                         "appeal",
+                        "rpg2",
                     ],
                     "cancel": [
                         "create-manual-workitems",
@@ -1210,7 +1212,7 @@ APPLICATIONS = {
                     "complete": ["nfd"],
                 },
                 "complete": {
-                    "skip": ["check-sb1", "check-sb2"],
+                    "skip": ["check-sb1", "check-sb2", "rpg2"],
                     "cancel": [
                         "create-manual-workitems",
                         "create-publication",
