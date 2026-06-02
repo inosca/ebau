@@ -9,7 +9,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['formal-exam', 'material-exam', 'init-additional-demand', 'create-manual-workitems']|tasks"
+      "next": "['formal-exam', 'init-additional-demand', 'create-manual-workitems']|tasks"
     }
   },
   {
@@ -35,7 +35,7 @@
       "created_by_group": null,
       "modified_by_user": null,
       "modified_by_group": null,
-      "next": "['maybe-publication', 'distribution']|tasks"
+      "next": "['maybe-publication', 'material-exam', 'distribution']|tasks"
     }
   },
   {

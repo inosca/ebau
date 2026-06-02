@@ -65,22 +65,6 @@
   },
   {
     "model": "caluma_form.document",
-    "pk": "069a8463-02ca-7632-a8f2-64802d6b51d8",
-    "fields": {
-      "created_at": "2026-03-04T14:48:28.459Z",
-      "modified_at": "2026-03-04T14:48:28.465Z",
-      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "created_by_group": null,
-      "modified_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
-      "modified_by_group": null,
-      "family": "069a8463-02ca-7632-a8f2-64802d6b51d8",
-      "form": "materielle-pruefung",
-      "source": null,
-      "meta": {}
-    }
-  },
-  {
-    "model": "caluma_form.document",
     "pk": "069a8463-c757-7e65-8000-572a2eaff996",
     "fields": {
       "created_at": "2026-03-04T14:48:28.459Z",
