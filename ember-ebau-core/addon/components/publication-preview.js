@@ -87,8 +87,8 @@ export default class PublicationPreview extends CfFieldInputTextareaComponent {
       );
 
       const edges = rawCase[0]?.node?.document?.answers?.edges || [];
-      const authority_id = getAnswerString(edges, "leitbehoerde");
-      const authority = yield this.store.findRecord("authority", authority_id);
+      const authorityId = getAnswerString(edges, "leitbehoerde");
+      const authority = yield this.store.findRecord("authority", authorityId);
 
       //TODO: When Alexandria is used in UR, we have to reimplement this for Alexandria
       const attachments = yield this.store.query("attachment", {

@@ -181,20 +181,20 @@ export default class BeGisComponent extends Component {
     }
 
     // Setting up features indexes
-    let parcel_feature_index = 0;
-    let egrid_feature_index = 0;
-    let project_status_index = 0;
+    let parcelFeatureIndex = 0;
+    let egridFeatureIndex = 0;
+    let projectStatusIndex = 0;
 
     features.keyname.forEach((keyname, index) => {
       switch (keyname) {
         case "GSTBEZ":
-          parcel_feature_index = index;
+          parcelFeatureIndex = index;
           break;
         case "EGRID":
-          egrid_feature_index = index;
+          egridFeatureIndex = index;
           break;
         case "PROJSTAT":
-          project_status_index = index;
+          projectStatusIndex = index;
           break;
       }
     });
@@ -204,13 +204,13 @@ export default class BeGisComponent extends Component {
         // Keep the value only if the status is "valid"
         if (
           !["0", "gültig", "valable"].includes(
-            coords.keyvalue[project_status_index],
+            coords.keyvalue[projectStatusIndex],
           )
         ) {
           return null;
         }
 
-        const identifier = coords.keyvalue[parcel_feature_index];
+        const identifier = coords.keyvalue[parcelFeatureIndex];
         // If the value contains the "BR" string, then it is the "Baurecht" number
         const isBR = identifier.includes("BR");
 
@@ -221,7 +221,7 @@ export default class BeGisComponent extends Component {
         return {
           [KEY_TABLE_PARCEL]: isBR ? null : identifier,
           [KEY_TABLE_BAURECHT]: isBR ? identifier : null,
-          [KEY_TABLE_EGRID]: coords.keyvalue[egrid_feature_index],
+          [KEY_TABLE_EGRID]: coords.keyvalue[egridFeatureIndex],
           [KEY_TABLE_COORD_EAST]: parseCoord(coords[xProp]),
           [KEY_TABLE_COORD_NORTH]: parseCoord(coords[yProp]),
         };

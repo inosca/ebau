@@ -14,15 +14,15 @@ export default class CasesDetailRoute extends Route {
   @service router;
   @service permissions;
 
-  async model({ instance_id }) {
-    if (instance_id.includes("-")) {
+  async model({ instance_id: instanceId }) {
+    if (instanceId.includes("-")) {
       // try to find instance by "special" id (dossier number)
       const instanceId = await this.apollo.query(
         {
           query: getCaseBySpecialId,
           variables: {
             key: mainConfig.answerSlugs.specialId,
-            value: instance_id,
+            value: instanceId,
           },
         },
         "allCases.edges.0.node.meta.camac-instance-id",
@@ -32,8 +32,8 @@ export default class CasesDetailRoute extends Route {
         return this.router.replaceWith("cases.detail", instanceId);
       }
     }
-    this.alexandriaConfig.instanceId = parseInt(instance_id);
-    this.ebauModules.instanceId = parseInt(instance_id);
+    this.alexandriaConfig.instanceId = parseInt(instanceId);
+    this.ebauModules.instanceId = parseInt(instanceId);
 
     try {
       // fetch instance to allow reloading after state changes
@@ -51,7 +51,7 @@ export default class CasesDetailRoute extends Route {
       if (hasFeature("cases.showNoApplicantRegisteredWarning")) {
         includes.push("involved_applicants", "involved_applicants.invitee");
       }
-      return await this.store.findRecord("instance", instance_id, {
+      return await this.store.findRecord("instance", instanceId, {
         include: includes.join(","),
       });
     } catch (error) {

@@ -22,19 +22,19 @@ export default class BabStatisticesExportController extends Controller {
   @dropTask
   *generateStatisticsExport() {
     try {
-      const start_date = DateTime.fromJSDate(this.from);
-      const end_date = DateTime.fromJSDate(this.to);
+      const startDate = DateTime.fromJSDate(this.from);
+      const endDate = DateTime.fromJSDate(this.to);
 
       const response = yield this.fetch.fetch(
-        `/api/v1/bab-statistics-export/?from=${start_date}&to=${end_date}`,
+        `/api/v1/bab-statistics-export/?from=${startDate}&to=${endDate}`,
         {
           method: "POST",
           headers: {
             accept: "*/*",
           },
           body: JSON.stringify({
-            from: start_date,
-            to: end_date,
+            from: startDate,
+            to: endDate,
           }),
         },
       );
