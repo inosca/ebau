@@ -1743,6 +1743,10 @@ msgstr ""
 msgid "TEST_BAT_OBJECTS"
 msgstr ""
 
+#: camac/instance/tests/test_placeholders.py
+msgid "TEST_NEST"
+msgstr ""
+
 #: camac/instance/utils.py camac/user/serializers.py
 #, python-format
 msgid "Could not find lead authority for construction control %(id)d"

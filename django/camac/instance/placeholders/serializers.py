@@ -8,10 +8,7 @@ from typing import Literal
 from caluma.caluma_form.models import Answer
 from caluma.caluma_workflow.models import WorkItem
 from django.conf import settings
-from django.db.models import (
-    Exists,
-    OuterRef,
-)
+from django.db.models import Exists, OuterRef
 from django.utils.timezone import now
 from django.utils.translation import get_language, gettext_noop as _
 from rest_framework import serializers
@@ -84,25 +81,35 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
                         self.get_aliased_field(key, sanitize_value(value))
                         for key, value in collection.items()
                     ]
-                )
+                ),
+                # Allow sorting with non-comparable objects like dict
+                key=lambda x: str(x),
             )
         )
 
-    def get_aliased_field(self, key, value):
-        field = self.fields[key]
-        keys = set([to_configured_case(key)])
+    def get_aliased_field(self, field_name, value):
+        field = self.fields[field_name]
+        field_aliases = set([to_configured_case(field_name)])
 
         for alias_config in field.aliases:
             for alias in get_translations_canton_aware(alias_config).values():
-                keys.add(to_configured_case(alias))
+                field_aliases.add(to_configured_case(alias))
 
         if field.nested_aliases:
-            value = self.get_aliased_value(value, field.nested_aliases)
+            nested_aliases = self.get_parsed_aliases(field.nested_aliases)
+            value = (
+                [
+                    self.populate_aliases_with_values(item, nested_aliases)
+                    for item in value
+                ]
+                if field.is_collection
+                else self.populate_aliases_with_values(value, nested_aliases)
+            )
 
-        return [(name, value) for name in keys]
+        return [(name, value) for name in field_aliases]
 
-    def get_aliased_value(self, value, aliases):
-        parsed_aliases = {
+    def get_parsed_aliases(self, aliases):
+        return {
             key: list(
                 itertools.chain(
                     *[
@@ -117,9 +124,7 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
             for key, alias_config in aliases.items()
         }
 
-        return [self.get_aliased_value_item(item, parsed_aliases) for item in value]
-
-    def get_aliased_value_item(self, item, aliases):
+    def populate_aliases_with_values(self, item, aliases):
         """Recursively enrich complex placeholder data.
 
         Enrich one item of a list value based on the available aliases for all
@@ -185,7 +190,8 @@ class DMSPlaceholdersSerializer(serializers.Serializer):
 
             if double_nested_aliases:
                 value = [
-                    self.get_aliased_value_item(v, double_nested_aliases) for v in value
+                    self.populate_aliases_with_values(v, double_nested_aliases)
+                    for v in value
                 ]
 
             value = sanitize_value(value)

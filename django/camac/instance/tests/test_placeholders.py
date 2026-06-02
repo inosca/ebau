@@ -23,7 +23,7 @@ from django.utils.translation import gettext_lazy as _, override
 from pytest_lazy_fixtures import lf
 from rest_framework import status
 
-from camac.instance.placeholders.fields import MasterDataField
+from camac.instance.placeholders.fields import AliasedMethodField
 from camac.instance.placeholders.serializers import (
     DMSPlaceholdersSerializer,
     SzDMSPlaceholdersSerializer,
@@ -1351,63 +1351,107 @@ def test_get_koordinaten(coord_east, coord_north, expected, mocker):
     )
 
 
-@pytest.mark.parametrize(
-    "is_collection",
-    [
-        pytest.param(True, id="is_collection: append [] to placholder name"),
-        pytest.param(
-            False,
-            id="~is_collection: no [] appended to placeholder name",
-        ),
-    ],
-)
 def test_aliased_placeholder_field(
     db,
     fake_request,
     service_group,
     request_mock,
     sz_master_data_case,
-    is_collection,
     snapshot,
 ):
-    testfields = ["test_literal_field", "test_list_field", "test_nested_field"]
+    testfields = [
+        "test_literal_field",
+        "test_list_field",
+        "test_nested_obj_field",
+        "test_nested_collection_field",
+    ]
     testfields = testfields + [field_name + "_untransl" for field_name in testfields]
 
     class PlaceholderTestSerializer(DMSPlaceholdersSerializer):
-        test_literal_field = MasterDataField(
+        test_literal_field = AliasedMethodField(
             aliases=[_("TEST_CAT"), _("TEST_BAT")], static_translations=False
         )
-        test_literal_field_untransl = MasterDataField(
-            aliases=["TEST_CAT", "TEST_BAT"], static_translations=True
+        test_literal_field_untransl = AliasedMethodField(
+            method_name="get_test_literal_field",
+            aliases=["TEST_CAT", "TEST_BAT"],
+            static_translations=True,
         )
-        test_list_field = MasterDataField(
+        test_list_field = AliasedMethodField(
             aliases=[_("TEST_LIST_CATS"), _("TEST_LIST_BATS")],
             static_translations=False,
             is_collection=True,
         )
-        test_list_field_untransl = MasterDataField(
+        test_list_field_untransl = AliasedMethodField(
+            method_name="get_test_literal_field",
             aliases=["TEST_LIST_CATS", "TEST_LIST_BATS"],
             static_translations=True,
             is_collection=True,
         )
-        test_nested_field = MasterDataField(
-            aliases=[
-                _("TEST_CAT_OBJECTS") if is_collection else _("TEST_CAT"),
-                _("TEST_BAT_OBJECTS") if is_collection else _("TEST_BAT"),
-            ],
-            is_collection=is_collection,
+        test_nested_collection_field = AliasedMethodField(
+            aliases=[_("TEST_CAT_OBJECTS"), _("TEST_BAT_OBJECTS")],
+            is_collection=True,
             static_translations=False,
-            nested_aliases={"NAME": ["TEST_CAT"], "NESTED.NAME": ["TEST_BAT"]},
+            nested_aliases={
+                "NAME": [_("TEST_CAT")],
+                "NESTED": [_("TEST_NEST")],
+                "NESTED.NAME": [_("TEST_BAT")],
+            },
         )
-        test_nested_field_untransl = MasterDataField(
-            aliases=[
-                "TEST_CAT_OBJECTS" if is_collection else "TEST_CAT",
-                "TEST_BAT_OBJECTS" if is_collection else "TEST_BAT",
-            ],
-            is_collection=is_collection,
+        test_nested_collection_field_untransl = AliasedMethodField(
+            method_name="get_test_nested_collection_field",
+            aliases=["TEST_CAT_OBJECTS", "TEST_BAT_OBJECTS"],
+            is_collection=True,
             static_translations=True,
-            nested_aliases={"NAME": ["TEST_CAT"], "NESTED.NAME": ["TEST_BAT"]},
+            nested_aliases={
+                "NAME": ["TEST_CAT"],
+                "NESTED": ["TEST_NEST"],
+                "NESTED.NAME": ["TEST_BAT"],
+            },
         )
+        test_nested_obj_field = AliasedMethodField(
+            aliases=[_("TEST_CAT"), _("TEST_BAT")],
+            is_collection=False,
+            static_translations=False,
+            nested_aliases={
+                "NAME": [_("TEST_CAT")],
+                "NESTED": [_("TEST_NEST")],
+                "NESTED.NAME": [_("TEST_BAT")],
+            },
+        )
+        test_nested_obj_field_untransl = AliasedMethodField(
+            method_name="get_test_nested_obj_field",
+            aliases=["TEST_CAT", "TEST_BAT"],
+            is_collection=False,
+            static_translations=True,
+            nested_aliases={
+                "NAME": ["TEST_CAT"],
+                "NESTED": ["TEST_NEST"],
+                "NESTED.NAME": ["TEST_BAT"],
+            },
+        )
+
+        @staticmethod
+        def make_obj():
+            return {
+                "NAME": faker.Faker().name(),
+                "NESTED": [
+                    {"NAME": faker.Faker().name()},
+                    {"NAME": faker.Faker().name()},
+                ],
+            }
+
+        def get_test_literal_field(self, value):
+            return faker.Faker().word()
+
+        def get_test_list_field(self, value):
+            fake = faker.Faker()
+            return [fake.word(), fake.name(), fake.pyint()]
+
+        def get_test_nested_obj_field(self, value):
+            return self.make_obj()
+
+        def get_test_nested_collection_field(self, value):
+            return [self.make_obj() for _ in range(2)]
 
         class Meta:
             # ignore BaseClass' declared fields
@@ -1424,3 +1468,5 @@ def test_aliased_placeholder_field(
         placeholders[field_name] = field.make_placeholders()
     assert docs == snapshot
     assert placeholders == snapshot
+
+    assert serializer.data == snapshot
