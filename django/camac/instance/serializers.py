@@ -1543,7 +1543,11 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             instance.group = Group.objects.get(pk=uri_constants.KOOR_AFE_GROUP_ID)
         elif instance.case.document.form.slug == "pgv-gemeindestrasse":
             instance.group = Group.objects.get(pk=uri_constants.KOOR_BD_GROUP_ID)
-        elif instance.case.document.form.slug == "einfache-anfrage":
+        elif instance.case.document.form.slug in [
+            "einfache-anfrage",
+            "gesuch-um-abbruchpraemie",
+            "antrag-auf-auszahlung",
+        ]:
             instance.group = Group.objects.get(pk=uri_constants.KOOR_NP_GROUP_ID)
         else:
             return
@@ -1713,7 +1717,11 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             return Service.objects.get(pk=uri_constants.KOOR_AFE_SERVICE_ID)
         elif form_slug == "pgv-gemeindestrasse":
             return Service.objects.get(pk=uri_constants.KOOR_BD_SERVICE_ID)
-        elif form_slug == "einfache-anfrage":
+        elif form_slug in [
+            "einfache-anfrage",
+            "gesuch-um-abbruchpraemie",
+            "antrag-auf-auszahlung",
+        ]:
             return Service.objects.get(pk=uri_constants.KOOR_NP_SERVICE_ID)
         elif (
             form_slug
@@ -1856,7 +1864,11 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             return self._get_cantonal_usage_authority(instance)
         if instance.case.document.form.slug == "pgv-gemeindestrasse":
             return str(uri_constants.BAUDIREKTION_AUTHORITY_ID)
-        if instance.case.document.form.slug == "einfache-anfrage":
+        if instance.case.document.form.slug in [
+            "einfache-anfrage",
+            "gesuch-um-abbruchpraemie",
+            "antrag-auf-auszahlung",
+        ]:
             return str(uri_constants.KOOR_NP_AUTHORITY_ID)
         if instance.case.document.form.slug in [
             "konzession-waermeentnahme",

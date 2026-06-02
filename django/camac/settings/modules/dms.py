@@ -433,6 +433,8 @@ DMS = {
                     "pgv-gemeindestrasse",
                     "oereb-verfahren-gemeinde",
                     "einfache-anfrage",
+                    "gesuch-um-abbruchpraemie",
+                    "antrag-auf-auszahlung",
                 ],
                 "people_sources": [
                     "applicant",
