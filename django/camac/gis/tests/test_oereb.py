@@ -7,16 +7,24 @@ from rest_framework import status
 from camac.gis.models import GISDataSource
 
 SG_EGRID = "CH538777599655"
+SG_MULTI_EGRID = f"{SG_EGRID},CH685045037723"
 BE_EGRID = "CH968746351115"
 
 
 @pytest.fixture
 def oereb_config(
     db,
+    caluma_form_factory,
     caluma_question_factory,
     caluma_question_option_factory,
     gis_data_source_factory,
 ):
+    caluma_question_factory(
+        pk="parzellen",
+        label="Parzellen",
+        type=Question.TYPE_TABLE,
+        row_form=caluma_form_factory(pk="parzellen-tabelle"),
+    )
     caluma_question_factory(
         pk="parzellennummer",
         label="Parzellennummer",
@@ -27,6 +35,11 @@ def oereb_config(
         label="Gemeinde",
         type=Question.TYPE_DYNAMIC_CHOICE,
         data_source="Municipalities",
+    )
+    caluma_question_factory(
+        pk="grundbuchkreis",
+        label="Grundbuchkreis",
+        type=Question.TYPE_TEXT,
     )
     caluma_question_factory(
         pk="zonenplan",
@@ -55,12 +68,17 @@ def oereb_config(
             "realestate_properties": [
                 {
                     "property": "Number",
-                    "question": "parzellennummer",
+                    "question": "parzellen.parzellennummer",
                 },
                 {
                     "property": "MunicipalityCode",
                     "question": "gemeinde",
                     "cast": "municipality_bfs_to_dynamic_option",
+                    "use_first": True,
+                },
+                {
+                    "property": "IdentDN",
+                    "question": "grundbuchkreis",
                 },
             ],
             "restriction_on_landownership_collections": [
@@ -81,6 +99,13 @@ def oereb_config(
                 }
             ],
         },
+    )
+
+
+@pytest.fixture(autouse=True)
+def no_concurrency(mocker):
+    yield mocker.patch(
+        "camac.gis.clients.oereb.OerebGisClient.max_concurrent_extracts", 1
     )
 
 
@@ -120,6 +145,7 @@ def sg_oereb_config(mocker, oereb_config, service_factory, settings):
     ("config", "egrid"),
     [
         (lf("sg_oereb_config"), SG_EGRID),
+        (lf("sg_oereb_config"), SG_MULTI_EGRID),
         (lf("be_oereb_config"), BE_EGRID),
     ],
 )

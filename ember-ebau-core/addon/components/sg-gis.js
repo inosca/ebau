@@ -4,7 +4,8 @@ import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { wktToGeoJSON } from "@terraformer/wkt";
 import { task, timeout } from "ember-concurrency";
-import { GeoJSON, LatLng, LatLngBounds, Point } from "leaflet";
+import { GeoJSON, LatLng, LatLngBounds, Point, DomEvent } from "leaflet";
+import { TrackedMap } from "tracked-built-ins";
 
 import { LV95_CRS } from "ember-ebau-core/config/gis";
 
@@ -16,7 +17,7 @@ export default class SgGisMapComponent extends Component {
   @service notification;
 
   @tracked searchResult;
-  @tracked plot;
+  plots = new TrackedMap();
 
   crs = LV95_CRS;
   center = SG_CENTER;
@@ -28,9 +29,7 @@ export default class SgGisMapComponent extends Component {
   #map = null;
 
   get applyParams() {
-    const { geometry, ...params } = this.plot;
-
-    return params;
+    return { egrid: [...this.plots.keys()].toString() };
   }
 
   search = task({ restartable: true }, async (term) => {
@@ -52,20 +51,25 @@ export default class SgGisMapComponent extends Component {
   async initMap({ target }) {
     this.#map = target;
 
-    const plot = this.args.field.document.findAnswer("parzellen")?.[0];
+    const plots = this.args.field.document.findAnswer("parzellen");
 
-    if (plot) {
-      const { parzellennummer: NUMBER, grundbuchkreis: IDENTDN } = plot;
+    if (plots?.length) {
+      await Promise.all(
+        plots.map(async (plot) => {
+          const { parzellennummer: NUMBER, grundbuchkreis: IDENTDN } = plot;
 
-      if (NUMBER && IDENTDN) {
-        const result = await this.#getEgrid({ NUMBER, IDENTDN });
+          if (NUMBER && IDENTDN) {
+            const result = await this.#getEgrid({ NUMBER, IDENTDN });
 
-        if (result) {
-          const { bounds, ...plot } = result;
-          this.plot = plot;
-          this.#map.fitBounds(bounds);
-        }
-      }
+            if (result) {
+              const { egrid, ...plot } = result;
+              this.plots.set(egrid, plot);
+            }
+          }
+        }),
+      );
+
+      this.centerMap();
     }
   }
 
@@ -84,12 +88,50 @@ export default class SgGisMapComponent extends Component {
         return;
       }
 
-      const { bounds, ...plot } = result;
-      this.plot = plot;
-      this.#map.fitBounds(bounds);
-    } catch {
+      const { egrid, ...plot } = result;
+
+      if (this.plots.has(egrid)) {
+        // In theory, it's not possible to reach this point as clicking on an
+        // already selected plot will unselect it (see below). However, if it
+        // does happen we at least want a proper error message for the
+        // investigating developer.
+        throw new Error(`${egrid} has already been selected!`);
+      }
+
+      this.plots.set(egrid, plot);
+      this.centerMap();
+    } catch (e) {
+      console.error(e);
       this.notification.danger(this.intl.t("gis.point-error"));
     }
+  }
+
+  @action
+  centerMap() {
+    if (!this.plots.size) return;
+
+    const bounds = new LatLngBounds([]);
+
+    this.plots.values().forEach((plot) => bounds.extend(plot.bounds));
+    this.#map.fitBounds(bounds);
+  }
+
+  @action
+  registerUnselectPlot(egrid, { target }) {
+    target.__egrid = egrid;
+    DomEvent.on(target, { click: this.unselectPlot }, this);
+  }
+
+  @action
+  unregisterUnselectPlot({ target }) {
+    DomEvent.off(target, "click");
+  }
+
+  @action
+  unselectPlot(event) {
+    DomEvent.stopPropagation(event);
+    this.plots.delete(event.target.__egrid);
+    this.centerMap();
   }
 
   @action

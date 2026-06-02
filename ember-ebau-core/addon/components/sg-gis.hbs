@@ -55,25 +55,27 @@
     />
   {{/if}}
 
-  {{#if this.plot}}
+  {{#each-in this.plots as |egrid plot|}}
     <map.geojson
-      @geoJSON={{this.plot.geometry}}
+      @geoJSON={{plot.geometry}}
       @style={{this.plotStyle}}
+      @onAdd={{fn this.registerUnselectPlot egrid}}
+      @onRemove={{this.unregisterUnselectPlot}}
       as |layer|
     >
-      <layer.tooltip @sticky={{true}}>
-        {{this.plot.number}}
-        <strong>({{this.plot.egrid}})</strong>
+      <layer.tooltip>
+        {{plot.number}}
+        <strong>({{egrid}})</strong>
       </layer.tooltip>
     </map.geojson>
-  {{/if}}
+  {{/each-in}}
 </LeafletMap>
 
 {{#unless @disabled}}
   <div class="uk-margin-top">
     <GisApplyButton
       @document={{@field.document}}
-      @disabled={{not this.plot}}
+      @disabled={{not this.plots.size}}
       @params={{this.applyParams}}
       @instanceId={{@context.instanceId}}
     />
