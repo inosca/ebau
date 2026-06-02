@@ -14,6 +14,11 @@ mutation CreateBuildingPermitWorkflow {
         "vorentscheid"
         "baugesuch-migration"
         "uvp-migration"
+        "baugesuch-v2"
+        "baugesuch-mit-uvp-v2"
+        "plangenehmigungsverfahren-bund-v2"
+        "plangenehmigungsverfahren-gas-v2"
+        "vorentscheid-v2"
       ]
       isPublished: true
     }

@@ -4,7 +4,10 @@ mutation CreateInternalDossierWorkflow {
       slug: "anfrage-intern"
       name: "Anfrage intern"
       startTasks: ["submit"]
-      allowForms: ["anfrage-intern"]
+      allowForms: [
+        "anfrage-intern"
+        "anfrage-intern-v2"
+      ]
       isPublished: true
     }
   ) {

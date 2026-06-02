@@ -24,6 +24,7 @@ from camac.applicants.models import ROLE_CHOICES
 from camac.caluma.api import CalumaApi
 from camac.conftest import CALUMA_FORM_TYPES_SLUGS
 from camac.constants import (
+    kt_ag as ag_constants,
     kt_bern as be_constants,
     kt_uri as uri_constants,
 )
@@ -3778,6 +3779,10 @@ def test_instance_submit_ag_internal(
 
 
 @pytest.mark.parametrize(
+    "pgv_slug",
+    ag_constants.PGV_BUND_FORMS,
+)
+@pytest.mark.parametrize(
     "role__name,instance_state__name,instance__user",
     [("Applicant", "new", lf("admin_user"))],
 )
@@ -3796,6 +3801,7 @@ def test_instance_submit_ag_pgv(
     ag_instance,
     ag_master_data_settings,
     form_utils: FormUtils,
+    pgv_slug,
 ):
     mocker.patch(
         "camac.instance.serializers.CalumaInstanceSubmitSerializer._send_notification"
@@ -3829,7 +3835,7 @@ def test_instance_submit_ag_pgv(
     )
 
     # Set PGV as form
-    ag_instance.case.document.form_id = "plangenehmigungsverfahren-bund"
+    ag_instance.case.document.form_id = pgv_slug
     ag_instance.case.document.save()
 
     response = admin_client.post(reverse("instance-submit", args=[ag_instance.pk]))

@@ -1565,6 +1565,28 @@ def test_dynamic_task_maybe_publication(
                 "withdrawal-request",
             },
         ),
+        # pgv v2
+        (
+            "plangenehmigungsverfahren-bund-v2",
+            {
+                "create-manual-workitems",
+                "distribution",
+                "cantonal-exam",
+                "objections",
+                "withdrawal-request",
+            },
+        ),
+        (
+            "plangenehmigungsverfahren-gas-v2",
+            {
+                "create-manual-workitems",
+                "distribution",
+                "cantonal-exam",
+                "objections",
+                "init-additional-demand",
+                "withdrawal-request",
+            },
+        ),
     ],
 )
 def test_dynamic_task_after_submit_ag(

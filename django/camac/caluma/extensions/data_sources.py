@@ -13,6 +13,7 @@ from django.utils.translation import gettext as _, gettext_noop, override
 from camac.applicants.models import Applicant
 from camac.caluma.models import Inquiry
 from camac.caluma.utils import find_answer
+from camac.constants import kt_ag as ag_constants
 from camac.core.models import Authority
 from camac.core.utils import canton_aware
 from camac.document.models import Attachment
@@ -102,7 +103,7 @@ class Municipalities(BaseDataSource):
         is_pgv_gas = False
         if context and "instanceId" in context:
             case = Case.objects.get(instance__pk=context["instanceId"])
-            is_pgv_gas = case.document.form_id == "plangenehmigungsverfahren-gas"
+            is_pgv_gas = case.document.form_id in ag_constants.PGV_GAS_FORMS
         if not user or is_internal or is_pgv_gas:
             service_groups.append("municipality-light")
             if is_internal:

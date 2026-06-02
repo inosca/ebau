@@ -1,3 +1,4 @@
+from camac.constants import kt_ag as ag_constants
 from camac.permissions.conditions import (
     Always,
     Callback,
@@ -12,6 +13,10 @@ from camac.permissions.conditions import (
     RequireWorkItem,
 )
 from camac.permissions.switcher import PERMISSION_MODE
+
+BAUGESUCH_FORMS = ag_constants.BAUGESUCH_FORMS
+PGV_GAS_FORMS = ag_constants.PGV_GAS_FORMS
+PGV_FORMS = ag_constants.PGV_FORMS
 
 # Instance state rules
 STATES_ALL = RequireInstanceState(
@@ -186,16 +191,14 @@ MODULE_PORTAL_FORM_WRITE = RequireWorkItem("submit", "ready") & (
 
 MODULE_RELATED_GWR_PROJECTS = (
     STATES_ALL
-    & IsForm(["baugesuch", "baugesuch-mit-uvp", "baugesuch-migration"])
+    & IsForm([*BAUGESUCH_FORMS, "baugesuch-migration"])
     & ~IsServiceGroup(["municipality-light"])
 )
 
 ACTION_INSTANCE_CREATE_MODIFICATION = (
     RequireWorkItem("init-construction-monitoring")
     & HasApplicantRole(["ADMIN"])
-    & IsForm(
-        ["baugesuch", "baugesuch-mit-uvp", "plangenehmigungsverfahren-gas", "reklame"]
-    )
+    & IsForm([*BAUGESUCH_FORMS, *PGV_GAS_FORMS, "reklame"])
 )
 ACTION_INSTANCE_COPY_AFTER_REJECTION = RequireInstanceState(
     ["rejected"]
@@ -305,10 +308,7 @@ AG_PERMISSIONS_SETTINGS = {
             ("deadlines-deadlines-write", MODULE_DEADLINES_DEADLINE_WRITE),
             (
                 "deadlines-deadlines-write-custom-enddate",
-                MODULE_DEADLINES_DEADLINE_WRITE
-                & IsForm(
-                    ["plangenehmigungsverfahren-gas", "plangenehmigungsverfahren-bund"],
-                ),
+                MODULE_DEADLINES_DEADLINE_WRITE & IsForm(PGV_FORMS),
             ),
         ],
         "lead-authority": [
@@ -368,10 +368,7 @@ AG_PERMISSIONS_SETTINGS = {
             ("deadlines-deadlines-write", MODULE_DEADLINES_DEADLINE_WRITE),
             (
                 "deadlines-deadlines-write-custom-enddate",
-                MODULE_DEADLINES_DEADLINE_WRITE
-                & IsForm(
-                    ["plangenehmigungsverfahren-gas", "plangenehmigungsverfahren-bund"],
-                ),
+                MODULE_DEADLINES_DEADLINE_WRITE & IsForm(PGV_FORMS),
             ),
             ("related-gwr-projects-read", MODULE_RELATED_GWR_PROJECTS),
             ("instance-delete", ACTION_INSTANCE_DELETE),

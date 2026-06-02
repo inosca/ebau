@@ -1,6 +1,6 @@
 from django.utils.translation import gettext_lazy as _
 
-from camac.constants import kt_gr as gr_constants
+from camac.constants import kt_ag as ag_constants, kt_gr as gr_constants
 
 DMS = {
     "default": {
@@ -509,19 +509,17 @@ DMS = {
             "baugesuch": {
                 "forms": [
                     "anfrage",
-                    "anfrage-intern",
+                    *ag_constants.ANFRAGE_INTERN_FORMS,
                     "anfrage-migration",
-                    "baugesuch",
+                    *ag_constants.BAUGESUCH_FORMS,
                     "baugesuch-migration",
-                    "baugesuch-mit-uvp",
                     "internes-dossier",
                     "pgv-migration",
-                    "plangenehmigungsverfahren-bund",
-                    "plangenehmigungsverfahren-gas",
+                    *ag_constants.PGV_FORMS,
                     "reklame",
                     "reklame-migration",
                     "uvp-migration",
-                    "vorentscheid",
+                    *ag_constants.VORENTSCHEID_FORMS,
                     "vorentscheid-migration",
                 ],
                 "template": "form",

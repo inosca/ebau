@@ -1,4 +1,5 @@
 from camac.caluma.extensions.countries import COUNTRIES
+from camac.constants import kt_ag as ag_constants
 
 
 def text_to_nature_risk(value, *args, **kwargs):
@@ -3466,7 +3467,7 @@ MASTER_DATA = {
             "application_type": ("form_name",),
             "is_pgv": (
                 "is_form",
-                ["plangenehmigungsverfahren-gas", "plangenehmigungsverfahren-bund"],
+                ag_constants.PGV_FORMS,
             ),
             "profile_approval_date": ("static", None),
             "nature_risk": (

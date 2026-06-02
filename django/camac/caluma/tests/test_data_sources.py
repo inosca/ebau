@@ -433,8 +433,11 @@ def test_municipalities_so(db, service_factory, service_t_factory):
         ("applicant", None, ["Full"]),
         ("municipality", None, ["Full", "Light"]),
         ("applicant", "baugesuch", ["Full"]),
+        ("applicant", "baugesuch-v2", ["Full"]),
         ("applicant", "plangenehmigungsverfahren-gas", ["Full", "Light"]),
+        ("applicant", "plangenehmigungsverfahren-gas-v2", ["Full", "Light"]),
         ("municipality", "baugesuch", ["Full", "Light"]),
+        ("municipality", "baugesuch-v2", ["Full", "Light"]),
     ],
 )
 def test_municipalities_with_instance_ag(
