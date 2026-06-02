@@ -16,7 +16,7 @@ class RPG2Config(ModuleApplicationConfig):
         description="Service slugs of the services that trigger the creation of rpg2 work item via inquiry.",
         default_factory=list,
     )
-    workflows: list[str] = Field(
-        description="Workflows for which the rpg2 work item is created via inquiry.",
+    allowed_forms: list[str] = Field(
+        description="Unversioned main form slugs for which the rpg2 work item is created via inquiry.",
         default_factory=list,
     )

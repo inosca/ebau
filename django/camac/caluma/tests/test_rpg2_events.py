@@ -1,8 +1,8 @@
 import pytest
 
 from camac.caluma.extensions.events.rpg2 import (
+    is_rpg2_relevant_form,
     is_rpg2_service_addressed,
-    is_rpg2_workflow,
 )
 
 
@@ -11,25 +11,25 @@ def _rpg2_work_items(case):  # pragma: no cover
 
 
 @pytest.mark.parametrize(
-    "workflows,case_workflow,expected",
+    "allowed_forms,case_form,expected",
     [
-        (["building-permit"], "building-permit", True),
-        (["building-permit"], "internal-dossier", False),
-        ([], "building-permit", False),
-        (None, "building-permit", False),
+        (["baugesuch"], "baugesuch", True),
+        (["baugesuch"], "reklame", False),
+        (["baugesuch"], "baugesuch-v6", True),
+        ([], "baugesuch", False),
     ],
 )
-def test_is_rpg2_workflow(
+def test_is_rpg2_relevant_form(
     db,
     rpg2_settings,
     caluma_work_item_factory,
-    workflows,
-    case_workflow,
+    allowed_forms,
+    case_form,
     expected,
 ):
-    rpg2_settings.workflows = workflows
-    work_item = caluma_work_item_factory(case__workflow__slug=case_workflow)
-    assert is_rpg2_workflow(work_item) == expected
+    rpg2_settings.allowed_forms = allowed_forms
+    work_item = caluma_work_item_factory(case__document__form__slug=case_form)
+    assert is_rpg2_relevant_form(work_item) == expected
 
 
 @pytest.mark.parametrize(
