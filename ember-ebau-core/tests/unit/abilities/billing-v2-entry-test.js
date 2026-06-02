@@ -1,4 +1,3 @@
-import { setupMirage } from "ember-cli-mirage/test-support";
 import { module, test } from "qunit";
 import { stub } from "sinon";
 
@@ -10,7 +9,6 @@ import { setupFeatures } from "ember-ebau-core/test-support";
 
 module("Unit | Ability | billing-v2-entry", function (hooks) {
   setupTest(hooks);
-  setupMirage(hooks);
   setupFeatures(hooks);
   setupPermissions(hooks);
 
