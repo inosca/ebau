@@ -1,15 +1,32 @@
+<div
+  class="uk-flex uk-flex-between uk-flex-middle uk-margin-bottom"
+  ...attributes
+>
+  <h2 class="uk-margin-remove">{{t (concat "dms.title." @type)}}</h2>
+  {{#if (can "edit dms-template" type=@type)}}
+    <LinkTo
+      @route={{module-route "dms-admin" "new"}}
+      @query={{hash type=@type}}
+      class="uk-button uk-button-primary"
+    >
+      {{t (concat "dms.new." @type)}}
+    </LinkTo>
+  {{/if}}
+</div>
+
+{{yield to="before"}}
+
 <table class="uk-table uk-table-striped uk-table-middle">
   <thead>
     <tr>
       <th>{{t "dms.name"}}</th>
-      {{#unless @system}}
+      {{#if (not-eq @type "system")}}
         <th>{{t "dms.category"}}</th>
         <th>{{t "dms.modifiedAt"}}</th>
-        {{#if @own}}
-          <th>{{t "dms.modifiedBy"}}</th>
-        {{/if}}
-      {{/unless}}
-
+      {{/if}}
+      {{#if (eq @type "own")}}
+        <th>{{t "dms.modifiedBy"}}</th>
+      {{/if}}
       <th></th>
     </tr>
   </thead>
@@ -17,24 +34,20 @@
     {{#each @templates as |template|}}
       <tr>
         <td>{{template.description}}</td>
-        {{#unless @system}}
+        {{#if (not-eq @type "system")}}
           <td>{{or template.meta.category "-"}}</td>
-          <td>{{if
+          <td>
+            {{if
               template.modifiedByUser
               (format-date template.modifiedAt format="datetime")
-            }}</td>
-          {{#if @own}}
-            <td>{{or
-                (get
-                  (find-by "username" template.modifiedByUser @users) "fullName"
-                )
-                "-"
-              }}
-            </td>
-          {{/if}}
-        {{/unless}}
+            }}
+          </td>
+        {{/if}}
+        {{#if (eq @type "own")}}
+          <td>{{or (this.getName template.modifiedByUser) "-"}}</td>
+        {{/if}}
         <td class="uk-text-right">
-          {{#if (or @own (and @shared (can "edit shared dms-template")))}}
+          {{#if (can "edit dms-template" type=@type)}}
             <LinkTo
               @route={{module-route "dms-admin" "edit"}}
               @model={{template.id}}
@@ -48,7 +61,7 @@
             type="button"
             class="uk-button uk-button-link"
             {{uk-tooltip (t "dms.download") pos="left"}}
-            {{on "click" (perform this.downloadTemplate template)}}
+            {{on "click" (fn this.downloadTemplate.perform template)}}
           >
             <UkIcon @icon="download" />
           </button>
@@ -56,10 +69,7 @@
       </tr>
     {{else}}
       <tr>
-        <td
-          colspan={{if @system "2" "5"}}
-          class="uk-text-center uk-text-italic"
-        >
+        <td colspan="99" class="uk-text-center uk-text-italic">
           {{t "dms.empty"}}
         </td>
       </tr>

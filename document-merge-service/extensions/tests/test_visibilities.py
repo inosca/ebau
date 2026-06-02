@@ -2,7 +2,7 @@ from django.urls import reverse
 from rest_framework import status
 
 
-def test_custom_visibility(admin_client, mock_services, template_factory):
+def test_custom_visibility(admin_client, mock_service_data, template_factory):
     visible_templates = [
         template_factory(meta={}),
         template_factory(meta={"service": "1"}),

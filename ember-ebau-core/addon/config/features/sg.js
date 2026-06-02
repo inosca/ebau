@@ -32,4 +32,7 @@ export default {
     fourEyesPrinciple: true,
   },
   instanceMarks: true,
+  dms: {
+    enableSystemTemplateEditing: true,
+  },
 };

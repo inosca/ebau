@@ -52,7 +52,7 @@ export default class DmsGenerateComponent extends Component {
         parseInt(t.meta.service) !== parseInt(this.ebauModules.serviceId),
     );
     const systemTemplates = templates.filter(
-      (t) => !t.meta.service && !t.meta.serviceGroup,
+      (t) => !t.meta.service && !t.meta.service_group,
     );
 
     const ownUncategorized = ownTemplates.filter((t) => !t.meta.category);
@@ -61,7 +61,7 @@ export default class DmsGenerateComponent extends Component {
     );
 
     const sharedTemplates = templates.filter(
-      (t) => t.meta.service_group === this.dms.serviceGroupSlug,
+      (t) => t.meta.service_group === this.ebauModules.serviceGroupSlug,
     );
     const sharedUncategorized = sharedTemplates.filter((t) => !t.meta.category);
     const categories = extractCategories(ownTemplates);
@@ -115,7 +115,7 @@ export default class DmsGenerateComponent extends Component {
       ...(systemTemplates.length
         ? [
             {
-              groupName: this.intl.t("dms.system"),
+              groupName: this.intl.t("dms.title.system"),
               options: systemTemplates,
             },
           ]

@@ -1,59 +1,50 @@
-{{#if this.templates.isLoading}}
+{{#if (or this.templates.isLoading this.users.isLoading)}}
   <div class="uk-text-center"><UkSpinner @ratio="2" /></div>
 {{else}}
-  <div class="uk-flex uk-flex-between uk-flex-middle uk-margin-bottom">
-    <h2 class="uk-margin-remove">{{t "dms.own"}}</h2>
-    <LinkTo
-      @route={{module-route "dms-admin" "new"}}
-      class="uk-button uk-button-primary"
-    >
-      {{t "dms.new"}}
-    </LinkTo>
-  </div>
+  {{#if (can "view dms-template" type="own")}}
+    <Dms::TemplateTable @templates={{this.ownTemplates}} @type="own">
+      <:before>
+        <Dms::Docs
+          @title={{t "dms.docs.title-admin"}}
+          @showGeneralInfo={{true}}
+        />
+      </:before>
+    </Dms::TemplateTable>
+  {{/if}}
 
-  <Dms::Docs @title={{t "dms.docs.title-admin"}} @showGeneralInfo={{true}} />
-
-  <Dms::TemplateTable
-    @templates={{this.ownTemplates}}
-    @own={{true}}
-    @users={{this.users}}
-  />
-
-  {{#if (can "view shared dms-template")}}
-    <div class="uk-flex uk-flex-between uk-flex-middle uk-margin-bottom">
-      <h2 class="uk-margin-remove">{{t "dms.sharedTemplates"}}</h2>
-      {{#if (can "edit shared dms-template")}}
-        <LinkTo
-          @route={{module-route "dms-admin" "new"}}
-          @query={{hash shared=true}}
-          class="uk-button uk-button-primary"
-        >
-          {{t "dms.newShared"}}
-        </LinkTo>
-      {{/if}}
-    </div>
-    <p class="uk-text-default">{{t
-        "dms.sharedTemplatesInfo"
-        serviceGroup=this.dms.serviceGroupName
-      }}</p>
-
+  {{#if (can "view dms-template" type="shared")}}
     <Dms::TemplateTable
       @templates={{this.sharedTemplates}}
-      @shared={{true}}
-      @users={{this.users}}
-    />
-
+      @type="shared"
+      class="uk-margin-large-top"
+    >
+      <:before>
+        <p>
+          {{t
+            "dms.sharedTemplatesInfo"
+            serviceGroup=this.ebauModules.serviceGroupName
+            htmlSafe=true
+          }}
+        </p>
+      </:before>
+    </Dms::TemplateTable>
   {{/if}}
-  {{#if this.inheritedTemplates}}
-    <h2>{{t "dms.inheritedTemplates"}}</h2>
+
+  {{#if
+    (and this.inheritedTemplates (can "view dms-template" type="inherited"))
+  }}
     <Dms::TemplateTable
       @templates={{this.inheritedTemplates}}
-      @users={{this.users}}
+      @type="inherited"
+      class="uk-margin-large-top"
     />
-
   {{/if}}
 
-  <h2>{{t "dms.system"}}</h2>
-
-  <Dms::TemplateTable @templates={{this.systemTemplates}} @system={{true}} />
+  {{#if (can "view dms-template" type="system")}}
+    <Dms::TemplateTable
+      @templates={{this.systemTemplates}}
+      @type="system"
+      class={{if (can "view dms-template" type="own") "uk-margin-large-top"}}
+    />
+  {{/if}}
 {{/if}}

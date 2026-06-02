@@ -31,15 +31,12 @@ class CustomPermission:
         meta = json.loads(raw_meta) if raw_meta else {}
         service_data = get_service_data(request)
 
-        # Shared templates
-        if meta_service_group := meta.get("service_group"):
-            # Give create permissions only to admin services of service group for shared templates
-            return self._has_admin_permission_for_shared(
-                service_data,
-                meta_service_group,
-            )
+        if service_group := meta.get("service_group"):
+            return self._has_admin_permission_for_shared(service_data, service_group)
+        elif service := meta.get("service"):
+            return self._has_admin_permission_for_own(service_data, service)
 
-        return meta.get("service") in service_data.get("service_ids", [])
+        return self._has_admin_permission_for_system(service_data)
 
     @object_permission_for(Template)
     def has_object_permission_template(
@@ -55,25 +52,23 @@ class CustomPermission:
             return True
 
         service_data = get_service_data(request)
-        template_service_group = template.meta.get("service_group")
 
-        # Shared templates
-        if template_service_group:
-            # Give delete and update permissions only to admin services of service group for shared templates
-            return self._has_admin_permission_for_shared(
-                service_data,
-                template_service_group,
-            )
+        if service_group := template.meta.get("service_group"):
+            return self._has_admin_permission_for_shared(service_data, service_group)
+        elif service := template.meta.get("service"):
+            return self._has_admin_permission_for_own(service_data, service)
 
-        return template.meta.get("service") in service_data.get("service_ids", [])
+        return self._has_admin_permission_for_system(service_data)
 
     def _has_admin_permission_for_shared(
-        self, service_data, template_service_group_slug, **kwargs
-    ):
+        self, service_data: dict, service_group_slug: str
+    ) -> bool:
+        """Check whether the current service has permission to edit shared templates."""
+
         template_admin_config = DMS_SETTINGS.get(
             "SHARED_TEMPLATE_ADMIN_SERVICES_FOR_SERVICE_GROUP", {}
         )
-        admin_services = set(template_admin_config.get(template_service_group_slug, []))
+        admin_services = set(template_admin_config.get(service_group_slug, []))
         if admin_services:
             return (
                 # Service is an admin service of shared service group templates
@@ -82,10 +77,24 @@ class CustomPermission:
                     for service in service_data.get("service_slugs", [])
                 )
                 # Service group is configured to permit shared templates
-                and (
-                    template_service_group_slug
-                    in service_data.get("service_group_slugs", [])
-                )
+                and (service_group_slug in service_data.get("service_group_slugs", []))
             )
 
         return False
+
+    def _has_admin_permission_for_own(
+        self,
+        service_data: dict,
+        service_id: int,
+    ) -> bool:
+        """Check whether the current service has permission to edit own templates."""
+
+        return service_id in service_data.get("service_ids", [])
+
+    def _has_admin_permission_for_system(self, service_data: dict) -> bool:
+        """Check whether the current service has permission to edit system templates."""
+
+        if not DMS_SETTINGS.get("ENABLE_SYSTEM_TEMPLATE_EDITING"):
+            return False
+
+        return "support" in service_data.get("role_permissions", [])

@@ -22,4 +22,14 @@ export default class TemplateModel extends Model {
       ? this.template.name
       : this.template.split("/").pop();
   }
+
+  get type() {
+    if (this.meta.service) {
+      return "service";
+    } else if (this.meta.service_group) {
+      return "service-group";
+    }
+
+    return "system";
+  }
 }

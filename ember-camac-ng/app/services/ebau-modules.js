@@ -1,8 +1,40 @@
 import { service } from "@ember/service";
 import EbauModulesService from "ember-ebau-core/services/ebau-modules";
+import { trackedFunction } from "reactiveweb/function";
 
 export default class CustomEbauModulesService extends EbauModulesService {
   @service shoebox;
+  @service fetch;
+  @service store;
+
+  #additionalData = trackedFunction(this, async () => {
+    const response = await this.fetch.fetch(
+      "/api/v1/me?include=groups,groups.role,groups.service,groups.service.service_group",
+    );
+    const result = await response.json();
+
+    this.store.pushPayload(result);
+
+    return {
+      service: this.store.peekRecord("service", this.serviceId),
+      serviceGroup: this.store.peekRecord(
+        "public-service-group",
+        this.shoebox.content.serviceGroupId,
+      ),
+    };
+  });
+
+  get serviceSlug() {
+    return this.#additionalData.value?.service?.slug;
+  }
+
+  get serviceGroupSlug() {
+    return this.#additionalData.value?.serviceGroup?.slug;
+  }
+
+  get serviceGroupName() {
+    return this.#additionalData.value?.serviceGroup?.name;
+  }
 
   get userId() {
     return this.shoebox.content.userId;
