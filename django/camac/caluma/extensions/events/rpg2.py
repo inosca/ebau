@@ -7,6 +7,7 @@ from django.db import transaction
 
 from camac.caluma.utils import is_addressed_to_service_slug
 from camac.user.models import Service
+from camac.utils import get_unversioned_slug
 
 
 def is_rpg2_service_addressed(work_item):
@@ -14,13 +15,13 @@ def is_rpg2_service_addressed(work_item):
     return is_addressed_to_service_slug(work_item, settings.RPG2.service_slugs)
 
 
-def is_rpg2_workflow(work_item):
-    """Check that the workflow is from the configured RPG2 WORKFLOWS list."""
-    workflows = settings.RPG2.workflows
-    # WORKFLOWS setting needs to be configured, work item should not be created for non-configured workflows.
-    if not workflows:
+def is_rpg2_relevant_form(work_item):
+    """Check that the case's main form is in the configured RPG2 allowed_forms list."""
+    forms = settings.RPG2.allowed_forms
+    # allowed_forms setting needs to be configured, work item should not be created for non-configured forms.
+    if not forms:
         return False
-    return work_item.case.family.workflow_id in workflows
+    return get_unversioned_slug(work_item.case.family.document.form_id) in forms
 
 
 @on(post_resume_work_item, raise_exception=True)
@@ -37,7 +38,7 @@ def post_resume_inquiry_for_rpg2(
     if not is_rpg2_service_addressed(work_item):
         return
 
-    if not is_rpg2_workflow(work_item):
+    if not is_rpg2_relevant_form(work_item):
         return
 
     # get the main case from the distribution child case
