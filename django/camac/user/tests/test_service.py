@@ -2,6 +2,7 @@ import pytest
 from caluma.caluma_form.models import DynamicOption
 from caluma.caluma_workflow.models import WorkItem
 from django.urls import reverse
+from django.utils import translation
 from rest_framework import status
 
 from camac.core.models import InstanceService
@@ -843,19 +844,32 @@ def test_service_merge_municipality(
 
 @pytest.mark.parametrize("multilingual", [True, False])
 @pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize("request_language", ["de", "fr"])
 def test_service_list_sorted(
-    service_factory, admin_client, multilingual, application_settings
+    service_factory,
+    service_t_factory,
+    request_language,
+    admin_client,
+    multilingual,
+    application_settings,
 ):
     """Ensure the returned list of services is sorted by (translated) name."""
 
     application_settings["IS_MULTILINGUAL"] = multilingual
-    service_factory.create_batch(20)
+    services = service_factory.create_batch(20)
+
+    for service in services:
+        service_t_factory(service=service, language="fr")
 
     url = reverse("service-list")
     displayed_names = []
 
     for page in range(1, 6):
-        response = admin_client.get(url, {"page[size]": 5, "page[number]": page})
+        with translation.override(request_language):
+            response = admin_client.get(
+                url,
+                {"page[size]": 5, "page[number]": page, "language": request_language},
+            )
         assert response.status_code == status.HTTP_200_OK
         data = response.json()
 
