@@ -11,7 +11,7 @@ from caluma.caluma_workflow.models import WorkItem
 
 from camac.caluma.extensions.visibilities import CustomVisibility
 
-from .test_distribution_workflow import _inquiry_factory
+from .conftest import make_inquiry
 
 
 @pytest.fixture
@@ -60,7 +60,7 @@ def inquiry_factory_so(
     def factory(
         to_service=service_factory(), from_service=service, sent=False, direct=False
     ):
-        inquiry = _inquiry_factory(
+        inquiry = make_inquiry(
             to_service=to_service,
             from_service=from_service,
             sent=sent,

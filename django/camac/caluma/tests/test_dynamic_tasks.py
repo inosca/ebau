@@ -7,11 +7,6 @@ from caluma.caluma_workflow.api import complete_work_item, skip_work_item
 from caluma.caluma_workflow.models import Case, WorkItem
 
 from camac.caluma.extensions.dynamic_tasks import CustomDynamicTasks
-from camac.caluma.tests.test_distribution_workflow import (  # noqa: F401
-    distribution_case_be,
-    distribution_child_case_be,
-    inquiry_factory_be,
-)
 from camac.conftest import yes_no
 from camac.instance import domain_logic
 from camac.tests.form_utils import FormUtils

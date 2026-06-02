@@ -3775,6 +3775,41 @@ def test_rejection_settings(
 
 
 @pytest.fixture
+def rpg2_settings(
+    request,
+    settings,
+):
+    """Module-specific settings for rpg2 (default)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=None,
+        settings_name="RPG2",
+        import_path="camac.settings.modules.rpg2.RPG2",
+        canton=None,
+        disable=False,
+    )
+
+
+@pytest.fixture
+def disable_rpg2_settings(
+    request,
+    settings,
+    rpg2_settings,
+):
+    """Disable the rpg2 module completely."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=rpg2_settings,
+        settings_name="RPG2",
+        import_path="camac.settings.modules.rpg2.RPG2",
+        canton=None,
+        disable=True,
+    )
+
+
+@pytest.fixture
 def rulesets_settings(
     request,
     settings,
