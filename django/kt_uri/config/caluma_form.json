@@ -76,15 +76,15 @@
     "pk": "antrag-auf-auszahlung",
     "fields": {
       "created_at": "2026-05-06T16:31:24.389Z",
-      "modified_at": "2026-05-06T16:40:18.549Z",
+      "modified_at": "2026-05-27T13:37:43.437Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
-      "name": "{\"de\": \"Antrag auf Auszahlung\", \"fr\": null, \"it\": null}",
+      "name": "{\"de\": \"Antrag Auszahlung Abbruchprämie\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {
-        "category": "building-permit",
+        "category": "special-procedure",
         "is-creatable": true,
         "is-main-form": true,
         "camac-form-id": 309
@@ -140,10 +140,10 @@
     "pk": "aussenflaechen-angaben-zum-abbruchobjekt",
     "fields": {
       "created_at": "2026-05-06T16:03:11.277Z",
-      "modified_at": "2026-05-06T16:03:11.277Z",
+      "modified_at": "2026-05-18T08:17:34.053Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "name": "{\"de\": \"Aussenflächen und Anlagen: Angaben zum Abbruchobjekt\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -673,6 +673,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "entscheid-abbruchpraemie",
+    "fields": {
+      "created_at": "2026-05-07T00:00:00Z",
+      "modified_at": "2026-05-07T00:00:00Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Entscheid Abbruchprämie\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "entscheid-gemeinde",
     "fields": {
       "created_at": "2024-07-15T12:49:47.159Z",
@@ -766,10 +784,10 @@
     "pk": "gebaeude-angaben-zum-abbruchobjekt",
     "fields": {
       "created_at": "2026-05-06T15:41:22.364Z",
-      "modified_at": "2026-05-06T15:41:22.364Z",
+      "modified_at": "2026-05-18T08:17:56.196Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "name": "{\"de\": \"Gebäude: Angaben zum Abbruchobjekt\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
@@ -874,7 +892,7 @@
     "pk": "gesuch-um-abbruchpraemie",
     "fields": {
       "created_at": "2026-05-06T14:03:24.542Z",
-      "modified_at": "2026-05-06T14:17:36.618Z",
+      "modified_at": "2026-05-27T13:38:04.737Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
@@ -882,7 +900,7 @@
       "name": "{\"de\": \"Gesuch um Abbruchprämie\", \"fr\": null, \"it\": null}",
       "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "meta": {
-        "category": "building-permit",
+        "category": "special-procedure",
         "is-creatable": true,
         "is-main-form": true,
         "camac-form-id": 308
@@ -1659,6 +1677,24 @@
   },
   {
     "model": "caluma_form.form",
+    "pk": "pruefung-gesuch-um-abbruchpraemie",
+    "fields": {
+      "created_at": "2026-05-27T14:05:44.564Z",
+      "modified_at": "2026-05-27T14:05:44.564Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "name": "{\"de\": \"Prüfung Gesuch um Abbruchprämie\", \"fr\": null, \"it\": null}",
+      "description": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "meta": {},
+      "is_published": false,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.form",
     "pk": "publikation",
     "fields": {
       "created_at": "2026-04-10T08:54:43.330Z",
@@ -2191,6 +2227,51 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "abbruchpraemie.andere-finanzhilfen",
+    "fields": {
+      "created_at": "2026-05-12T12:28:36.940Z",
+      "modified_at": "2026-05-12T12:28:36.940Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abbruchpraemie",
+      "question": "andere-finanzhilfen",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abbruchpraemie.andere-finanzhilfen-dokumente",
+    "fields": {
+      "created_at": "2026-05-12T12:32:45.102Z",
+      "modified_at": "2026-05-12T12:32:45.102Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abbruchpraemie",
+      "question": "andere-finanzhilfen-dokumente",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abbruchpraemie.angaben-zu-gebaeuden-und-aussenflaechen",
+    "fields": {
+      "created_at": "2026-05-13T05:26:05.088Z",
+      "modified_at": "2026-05-13T05:26:05.088Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abbruchpraemie",
+      "question": "angaben-zu-gebaeuden-und-aussenflaechen",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "abbruchpraemie.aussenflaechen-und-anlagen",
     "fields": {
       "created_at": "2026-05-06T16:12:09.913Z",
@@ -2202,6 +2283,36 @@
       "form": "abbruchpraemie",
       "question": "aussenflaechen-und-anlagen",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abbruchpraemie.erstellungsjahr",
+    "fields": {
+      "created_at": "2026-05-13T07:28:16.939Z",
+      "modified_at": "2026-05-13T07:28:16.939Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abbruchpraemie",
+      "question": "erstellungsjahr",
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abbruchpraemie.erstellungsjahr-und-bewilligungsdokumente",
+    "fields": {
+      "created_at": "2026-05-13T06:57:44.353Z",
+      "modified_at": "2026-05-13T06:57:44.353Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abbruchpraemie",
+      "question": "erstellungsjahr-und-bewilligungsdokumente",
+      "sort": 9
     }
   },
   {
@@ -2221,6 +2332,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "abbruchpraemie.gesetzliche-grundlage",
+    "fields": {
+      "created_at": "2026-05-13T06:14:14.825Z",
+      "modified_at": "2026-05-13T06:14:14.825Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abbruchpraemie",
+      "question": "gesetzliche-grundlage",
+      "sort": 12
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "abbruchpraemie.gesuchsnummer",
     "fields": {
       "created_at": "2026-05-06T15:33:35.859Z",
@@ -2231,7 +2357,7 @@
       "modified_by_group": null,
       "form": "abbruchpraemie",
       "question": "gesuchsnummer",
-      "sort": 4
+      "sort": 7
     }
   },
   {
@@ -2246,7 +2372,7 @@
       "modified_by_group": null,
       "form": "abbruchpraemie",
       "question": "haben-sie-bereits-ein-baugesuch-fuer-den-abbruch-eingereicht",
-      "sort": 5
+      "sort": 8
     }
   },
   {
@@ -2261,7 +2387,22 @@
       "modified_by_group": null,
       "form": "abbruchpraemie",
       "question": "hinweis-abbruch",
-      "sort": 3
+      "sort": 6
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "abbruchpraemie.rechtmassig-bestehenden-bauten",
+    "fields": {
+      "created_at": "2026-05-13T06:55:13.284Z",
+      "modified_at": "2026-05-13T06:55:13.284Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "abbruchpraemie",
+      "question": "rechtmassig-bestehenden-bauten",
+      "sort": 10
     }
   },
   {
@@ -2356,6 +2497,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "antrag-auf-auszahlung.lokalisierung",
+    "fields": {
+      "created_at": "2026-05-29T13:28:42.278Z",
+      "modified_at": "2026-05-29T13:28:42.278Z",
+      "created_by_user": "admin",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "antrag-auf-auszahlung",
+      "question": "lokalisierung",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "antrag-auf-auszahlung.personalien",
     "fields": {
       "created_at": "2026-05-06T16:31:33.411Z",
@@ -2366,7 +2522,7 @@
       "modified_by_group": null,
       "form": "antrag-auf-auszahlung",
       "question": "personalien",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -3881,7 +4037,7 @@
       "modified_by_group": null,
       "form": "aussenflaechen-angaben-zum-abbruchobjekt",
       "question": "abzubrechende-flaeche-m",
-      "sort": 8
+      "sort": 10
     }
   },
   {
@@ -3896,7 +4052,7 @@
       "modified_by_group": null,
       "form": "aussenflaechen-angaben-zum-abbruchobjekt",
       "question": "abzubrechende-stuetzmauer",
-      "sort": 6
+      "sort": 8
     }
   },
   {
@@ -3911,7 +4067,7 @@
       "modified_by_group": null,
       "form": "aussenflaechen-angaben-zum-abbruchobjekt",
       "question": "beschreibung-aussenflaeche",
-      "sort": 9
+      "sort": 11
     }
   },
   {
@@ -3926,7 +4082,7 @@
       "modified_by_group": null,
       "form": "aussenflaechen-angaben-zum-abbruchobjekt",
       "question": "bezeichnungnutzung-abzubrechende-anlage",
-      "sort": 10
+      "sort": 12
     }
   },
   {
@@ -3941,7 +4097,7 @@
       "modified_by_group": null,
       "form": "aussenflaechen-angaben-zum-abbruchobjekt",
       "question": "breite-m",
-      "sort": 4
+      "sort": 6
     }
   },
   {
@@ -3956,7 +4112,7 @@
       "modified_by_group": null,
       "form": "aussenflaechen-angaben-zum-abbruchobjekt",
       "question": "davon-wird-rekultiviert-m",
-      "sort": 7
+      "sort": 9
     }
   },
   {
@@ -3971,22 +4127,7 @@
       "modified_by_group": null,
       "form": "aussenflaechen-angaben-zum-abbruchobjekt",
       "question": "hoehe-m",
-      "sort": 3
-    }
-  },
-  {
-    "model": "caluma_form.formquestion",
-    "pk": "aussenflaechen-angaben-zum-abbruchobjekt.ist-die-abzubrechende-baute-lediglich-mit-seilbahn-oder-helikopter-zugaenglich",
-    "fields": {
-      "created_at": "2026-05-06T16:10:55.150Z",
-      "modified_at": "2026-05-06T16:10:55.150Z",
-      "created_by_user": "admin",
-      "created_by_group": null,
-      "modified_by_user": null,
-      "modified_by_group": null,
-      "form": "aussenflaechen-angaben-zum-abbruchobjekt",
-      "question": "ist-die-abzubrechende-baute-lediglich-mit-seilbahn-oder-helikopter-zugaenglich",
-      "sort": 1
+      "sort": 5
     }
   },
   {
@@ -4001,7 +4142,7 @@
       "modified_by_group": null,
       "form": "aussenflaechen-angaben-zum-abbruchobjekt",
       "question": "laenge-m",
-      "sort": 5
+      "sort": 7
     }
   },
   {
@@ -4016,7 +4157,22 @@
       "modified_by_group": null,
       "form": "aussenflaechen-angaben-zum-abbruchobjekt",
       "question": "material-stuetzmauer",
-      "sort": 2
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "aussenflaechen-angaben-zum-abbruchobjekt.offerte-erforderlich",
+    "fields": {
+      "created_at": "2026-05-12T12:14:46.038Z",
+      "modified_at": "2026-05-12T12:14:46.038Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "aussenflaechen-angaben-zum-abbruchobjekt",
+      "question": "offerte-erforderlich",
+      "sort": 1
     }
   },
   {
@@ -4031,7 +4187,22 @@
       "modified_by_group": null,
       "form": "aussenflaechen-angaben-zum-abbruchobjekt",
       "question": "parcel-number",
-      "sort": 11
+      "sort": 13
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "aussenflaechen-angaben-zum-abbruchobjekt.wie-zugaenglich",
+    "fields": {
+      "created_at": "2026-05-18T08:16:21.778Z",
+      "modified_at": "2026-05-18T08:16:21.778Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "aussenflaechen-angaben-zum-abbruchobjekt",
+      "question": "wie-zugaenglich",
+      "sort": 3
     }
   },
   {
@@ -4046,7 +4217,7 @@
       "modified_by_group": null,
       "form": "aussenflaechen-angaben-zum-abbruchobjekt",
       "question": "zugehoeriges-gebaeude",
-      "sort": 12
+      "sort": 14
     }
   },
   {
@@ -4092,6 +4263,21 @@
       "form": "auszahlung-abbruchpraemie",
       "question": "hinweis-stockwerkeigentuemerschaft",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "auszahlung-abbruchpraemie.voraussetzung",
+    "fields": {
+      "created_at": "2026-05-12T07:29:38.187Z",
+      "modified_at": "2026-05-12T07:29:38.187Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "auszahlung-abbruchpraemie",
+      "question": "voraussetzung",
+      "sort": 5
     }
   },
   {
@@ -6731,7 +6917,7 @@
       "modified_by_group": null,
       "form": "gebaeude-angaben-zum-abbruchobjekt",
       "question": "bauweise",
-      "sort": 3
+      "sort": 5
     }
   },
   {
@@ -6746,7 +6932,7 @@
       "modified_by_group": null,
       "form": "gebaeude-angaben-zum-abbruchobjekt",
       "question": "beschreibung-abbruch",
-      "sort": 8
+      "sort": 10
     }
   },
   {
@@ -6761,7 +6947,7 @@
       "modified_by_group": null,
       "form": "gebaeude-angaben-zum-abbruchobjekt",
       "question": "davon-unterirdisch-m",
-      "sort": 4
+      "sort": 6
     }
   },
   {
@@ -6776,7 +6962,7 @@
       "modified_by_group": null,
       "form": "gebaeude-angaben-zum-abbruchobjekt",
       "question": "davon-wird-rekultiviert-m",
-      "sort": 6
+      "sort": 8
     }
   },
   {
@@ -6791,7 +6977,7 @@
       "modified_by_group": null,
       "form": "gebaeude-angaben-zum-abbruchobjekt",
       "question": "egid",
-      "sort": 10
+      "sort": 12
     }
   },
   {
@@ -6806,7 +6992,7 @@
       "modified_by_group": null,
       "form": "gebaeude-angaben-zum-abbruchobjekt",
       "question": "gebaeude-bezeichnung",
-      "sort": 12
+      "sort": 14
     }
   },
   {
@@ -6821,7 +7007,7 @@
       "modified_by_group": null,
       "form": "gebaeude-angaben-zum-abbruchobjekt",
       "question": "gebaeudeflaeche-m",
-      "sort": 7
+      "sort": 9
     }
   },
   {
@@ -6836,7 +7022,7 @@
       "modified_by_group": null,
       "form": "gebaeude-angaben-zum-abbruchobjekt",
       "question": "gebaeudevolumen-m",
-      "sort": 5
+      "sort": 7
     }
   },
   {
@@ -6851,6 +7037,21 @@
       "modified_by_group": null,
       "form": "gebaeude-angaben-zum-abbruchobjekt",
       "question": "material",
+      "sort": 4
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gebaeude-angaben-zum-abbruchobjekt.offerte-erforderlich",
+    "fields": {
+      "created_at": "2026-05-12T11:54:08.431Z",
+      "modified_at": "2026-05-12T11:54:08.431Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-angaben-zum-abbruchobjekt",
+      "question": "offerte-erforderlich",
       "sort": 2
     }
   },
@@ -6866,7 +7067,7 @@
       "modified_by_group": null,
       "form": "gebaeude-angaben-zum-abbruchobjekt",
       "question": "parcel-number",
-      "sort": 11
+      "sort": 13
     }
   },
   {
@@ -6881,7 +7082,22 @@
       "modified_by_group": null,
       "form": "gebaeude-angaben-zum-abbruchobjekt",
       "question": "typ-der-baute",
-      "sort": 9
+      "sort": 11
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gebaeude-angaben-zum-abbruchobjekt.wie-zugaenglich",
+    "fields": {
+      "created_at": "2026-05-18T08:13:58.377Z",
+      "modified_at": "2026-05-18T08:13:58.378Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-angaben-zum-abbruchobjekt",
+      "question": "wie-zugaenglich",
+      "sort": 3
     }
   },
   {
@@ -6941,7 +7157,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "anrechenbare-gebaeudeflaeche",
-      "sort": 33
+      "sort": 32
     }
   },
   {
@@ -6986,7 +7202,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "art-der-hochbaute",
-      "sort": 43
+      "sort": 44
     }
   },
   {
@@ -7001,7 +7217,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "art-der-montage",
-      "sort": 41
+      "sort": 42
     }
   },
   {
@@ -7016,7 +7232,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "art-der-reklamebaute",
-      "sort": 42
+      "sort": 43
     }
   },
   {
@@ -7136,7 +7352,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "egid",
-      "sort": 44
+      "sort": 45
     }
   },
   {
@@ -7316,7 +7532,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "gebaeudenummer-bezeichnung",
-      "sort": 45
+      "sort": 46
     }
   },
   {
@@ -7336,6 +7552,21 @@
   },
   {
     "model": "caluma_form.formquestion",
+    "pk": "gebaeude-tabelle.gesuch-abbruchpraemie",
+    "fields": {
+      "created_at": "2026-05-08T06:28:09.171Z",
+      "modified_at": "2026-05-08T06:28:09.171Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-tabelle",
+      "question": "gesuch-abbruchpraemie",
+      "sort": 37
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
     "pk": "gebaeude-tabelle.gleiche-reklamen",
     "fields": {
       "created_at": "2020-10-29T19:05:54.077Z",
@@ -7346,7 +7577,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "gleiche-reklamen",
-      "sort": 38
+      "sort": 39
     }
   },
   {
@@ -7361,7 +7592,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "groesse-der-reklame-cm",
-      "sort": 39
+      "sort": 40
     }
   },
   {
@@ -7376,7 +7607,22 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "hinweis-erfassung-solaranlage",
-      "sort": 34
+      "sort": 33
+    }
+  },
+  {
+    "model": "caluma_form.formquestion",
+    "pk": "gebaeude-tabelle.hinweis-gesuch-abbruchpraemie",
+    "fields": {
+      "created_at": "2026-05-08T06:40:59.860Z",
+      "modified_at": "2026-05-08T06:40:59.861Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "form": "gebaeude-tabelle",
+      "question": "hinweis-gesuch-abbruchpraemie",
+      "sort": 36
     }
   },
   {
@@ -7406,7 +7652,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "proposal",
-      "sort": 37
+      "sort": 38
     }
   },
   {
@@ -7421,7 +7667,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "reklamebeleuchtung",
-      "sort": 40
+      "sort": 41
     }
   },
   {
@@ -7436,7 +7682,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "solaranlagenpflicht",
-      "sort": 36
+      "sort": 35
     }
   },
   {
@@ -7451,7 +7697,7 @@
       "modified_by_group": null,
       "form": "gebaeude-tabelle",
       "question": "solarpflicht",
-      "sort": 35
+      "sort": 34
     }
   },
   {
@@ -17356,6 +17602,40 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "andere-finanzhilfen-ja",
+    "fields": {
+      "created_at": "2026-05-12T12:28:36.761Z",
+      "modified_at": "2026-05-12T12:28:36.761Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "andere-finanzhilfen-nein",
+    "fields": {
+      "created_at": "2026-05-12T12:28:36.759Z",
+      "modified_at": "2026-05-12T12:28:36.759Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "angaben-dieselbetankungsanlagen-andere-entwaesserung",
     "fields": {
       "created_at": "2021-11-25T12:44:40.622Z",
@@ -24040,14 +24320,14 @@
     "pk": "form-type-antrag-auf-auszahlung",
     "fields": {
       "created_at": "2020-10-30T07:24:12.116Z",
-      "modified_at": "2023-02-03T13:52:39.398Z",
+      "modified_at": "2026-05-29T13:26:50.680Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Antrag auf Auszahlung\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
-      "is_archived": true,
+      "is_archived": false,
       "meta": {},
       "source": null
     }
@@ -24353,7 +24633,7 @@
       "modified_by_group": null,
       "label": "{\"de\": \"Gesuch um Abbruchprämie\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
-      "is_archived": true,
+      "is_archived": false,
       "meta": {},
       "source": null
     }
@@ -26052,6 +26332,40 @@
       "modified_by_user": null,
       "modified_by_group": null,
       "label": "{\"de\": \"Zusammenschluss zum Eigenverbrauch ZEV\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gesuch-abbruchpraemie-ja",
+    "fields": {
+      "created_at": "2026-05-08T06:28:08.973Z",
+      "modified_at": "2026-05-08T06:28:08.973Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "gesuch-abbruchpraemie-nein",
+    "fields": {
+      "created_at": "2026-05-08T06:28:08.950Z",
+      "modified_at": "2026-05-08T06:28:08.950Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -30653,12 +30967,12 @@
     "pk": "offerten-fuer-den-abbruch-ja",
     "fields": {
       "created_at": "2026-05-06T16:18:26.201Z",
-      "modified_at": "2026-05-06T16:18:26.201Z",
+      "modified_at": "2026-05-12T10:18:53.191Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Offerte(n) für den Abbruch\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Pflichtdokument falls Baute nur via Seilbahn oder Fussweg erschlossen ist\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -31027,14 +31341,14 @@
     "pk": "proposal-nutzungsaenderung",
     "fields": {
       "created_at": "2020-08-28T15:33:19.390Z",
-      "modified_at": "2021-01-22T18:13:13.962Z",
+      "modified_at": "2026-05-08T06:25:46.272Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Nutzungsänderung\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
-      "is_archived": true,
+      "is_archived": false,
       "meta": {},
       "source": null
     }
@@ -31322,6 +31636,40 @@
       "modified_by_user": "admin",
       "modified_by_group": null,
       "label": "{\"de\": \"Querprofile\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rechtmassig-bestehenden-bauten-ja",
+    "fields": {
+      "created_at": "2026-05-13T06:55:13.071Z",
+      "modified_at": "2026-05-13T06:55:13.071Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Ja\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "rechtmassig-bestehenden-bauten-nein",
+    "fields": {
+      "created_at": "2026-05-13T06:55:13.072Z",
+      "modified_at": "2026-05-13T06:55:13.073Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Nein\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -32132,12 +32480,12 @@
     "pk": "situationsplan-mit-angabe-der-grundflaechen-der-zum-rueckbau-vorgesehenen-gebaeude-undoder-anlage-ja",
     "fields": {
       "created_at": "2026-05-06T16:17:32.790Z",
-      "modified_at": "2026-05-06T16:17:32.790Z",
+      "modified_at": "2026-05-07T11:56:26.606Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Situationsplan mit Angabe der Grundflächen der zum Rückbau vorgesehenen Gebäude und/oder Anlage\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Situationsplan mit Angabe der Grundflächen der zum Rückbau vorgesehenen Gebäude oder Anlagen\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -34104,12 +34452,12 @@
     "pk": "typ-der-baute-betoniert",
     "fields": {
       "created_at": "2026-05-06T15:51:19.205Z",
-      "modified_at": "2026-05-06T15:51:19.205Z",
+      "modified_at": "2026-05-07T13:25:19.231Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"betonierte Tiefbauten (z.B. Güllegruben, Löschwasser- und Rückhaltebecken, Swimmingpools, usw.)\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Massive (z.B. betonierte) Tiefbauten (z.B. Güllegruben, Löschwasser- und Rückhaltebecken, Swimmingpools, usw.)\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -34138,12 +34486,12 @@
     "pk": "typ-der-baute-fabrikhallen",
     "fields": {
       "created_at": "2026-05-06T15:51:19.199Z",
-      "modified_at": "2026-05-06T15:51:19.199Z",
+      "modified_at": "2026-05-07T13:25:19.223Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Gebäude für industrielle, handwerkliche oder landwirtschaftliche Zwecke (z.B. Fabrikhallen, Werkstätten, Ställe, usw.)\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Gebäude für industrielle, handwerkliche oder landwirtschaftliche Zwecke (z.B. Fabrikhallen, Werkstätten, Viehställe, usw.)\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -34155,12 +34503,12 @@
     "pk": "typ-der-baute-gastronomie",
     "fields": {
       "created_at": "2026-05-06T15:51:19.195Z",
-      "modified_at": "2026-05-06T15:51:19.196Z",
+      "modified_at": "2026-05-07T13:25:19.239Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Gebäude, das für den Aufenthalt oder die Unterbringung von Personen bestimmt ist (z. B. Wohnhaus, Beherbergungsbetrieb, Gastronomie, Schule, usw.)\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Gebäude für den Aufenthalt oder die Unterbringung von Personen (z. B. Wohnhaus, Beherbergungsbetrieb, Gastronomie, Schule, usw.)\", \"fr\": null, \"it\": null}",
       "is_hidden": "false",
       "is_archived": false,
       "meta": {},
@@ -37229,6 +37577,91 @@
   },
   {
     "model": "caluma_form.option",
+    "pk": "wie-zugaenglich-fussweg",
+    "fields": {
+      "created_at": "2026-05-18T08:13:58.142Z",
+      "modified_at": "2026-05-19T05:28:07.753Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Fussweg (Kategorie 1)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wie-zugaenglich-lastwagenbefahrbar",
+    "fields": {
+      "created_at": "2026-05-18T08:13:58.136Z",
+      "modified_at": "2026-05-19T05:28:07.741Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Lastwagenbefahrbar (Kategorie 4)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wie-zugaenglich-personen-und-materialseilbahn",
+    "fields": {
+      "created_at": "2026-05-18T08:13:58.136Z",
+      "modified_at": "2026-05-18T08:25:23.860Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Personen- und Materialseilbahn\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": true,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wie-zugaenglich-seilbahn",
+    "fields": {
+      "created_at": "2026-05-18T08:24:57.809Z",
+      "modified_at": "2026-05-19T05:28:08.103Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Personen- und Materialseilbahn (Kategorie 2)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
+    "pk": "wie-zugaenglich-transporter",
+    "fields": {
+      "created_at": "2026-05-18T08:13:58.125Z",
+      "modified_at": "2026-05-19T05:28:07.793Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Befahrbar mit Personenwagen und landwirtschaftlichen Transportern (Kategorie 3)\", \"fr\": null, \"it\": null}",
+      "is_hidden": "false",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "caluma_form.option",
     "pk": "winkel-45-grad-ja",
     "fields": {
       "created_at": "2022-09-15T07:13:45.526Z",
@@ -39708,6 +40141,68 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "andere-finanzhilfen",
+    "fields": {
+      "created_at": "2026-05-12T12:28:36.840Z",
+      "modified_at": "2026-05-12T12:28:36.840Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wurden für den Abbbruch andere Finanzhilfen oder Beiträge ausgerichtet oder in Aussicht gestellt?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "andere-finanzhilfen-dokumente",
+    "fields": {
+      "created_at": "2026-05-12T12:32:44.117Z",
+      "modified_at": "2026-05-12T12:47:23.757Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Andere Finanzhilfen\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\"andere-finanzhilfen\"|answer == \"andere-finanzhilfen-ja\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"*Bitte laden Sie die entsprechenden Dokumente, aus denen die Beitragsgeber/innen und die Höhe des Beitrages ersichtlich sind,  bei den Unterlagen hoch*\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "andere-gebaeude",
     "fields": {
       "created_at": "2021-11-08T20:00:32.155Z",
@@ -39940,20 +40435,51 @@
     "pk": "angaben-ueber-andere-zugesprochene-finanzhilfen-oder-beitraege-im-zusammenhang-mit-dem-vorgesehenen-abbruch",
     "fields": {
       "created_at": "2026-05-06T16:19:09.857Z",
-      "modified_at": "2026-05-06T16:30:38.095Z",
+      "modified_at": "2026-05-29T15:38:26.345Z",
       "created_by_user": "admin",
       "created_by_group": null,
       "modified_by_user": "admin",
       "modified_by_group": null,
-      "label": "{\"de\": \"Angaben über andere zugesprochene Finanzhilfen oder Beiträge im Zusammenhang mit dem vorgesehenen Abbruch\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Andere Finanzhilfen oder Beiträge\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
-      "is_required": "true",
+      "is_required": "(\"andere-finanzhilfen\"|answer == \"andere-finanzhilfen-ja\")",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "angaben-zu-gebaeuden-und-aussenflaechen",
+    "fields": {
+      "created_at": "2026-05-13T05:26:05.007Z",
+      "modified_at": "2026-05-13T06:16:04.078Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Angaben zu Gebäuden und Aussenflächen\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"####Angaben zu Gebäuden und Aussenflächen\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -43256,10 +43782,10 @@
     "pk": "bauweise",
     "fields": {
       "created_at": "2026-05-06T15:59:22.792Z",
-      "modified_at": "2026-05-06T15:59:22.792Z",
+      "modified_at": "2026-05-07T12:49:40.933Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Bauweise\", \"fr\": null, \"it\": null}",
       "type": "choice",
@@ -43267,8 +43793,8 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Beschreibung zur Bauweise\\n\\nBautyp \\\"leicht\\\" - sind in der Regel Bauten ohne Betonfundament, evtl. mit Punkt- oder Streifenfundamenten, die Wände sind als Holzriegel ausgebildet mit einfachen Holzverschalungen und Eindeckungen aus Blech oder anderen eher leichten Materialien wie Bitumenplatten oder Eternit. Bauten dieses Typs sind mehrheitlich einstöckige Bauten ohne Zwischenböden.\\n\\nBautyp \\\"leicht / massiv\\\" - sind in der Regel Bauten, die ein Betonfundament haben (Betonplatte), teilweise einen Feuchtigkeitsriegel aus Beton oder Mauersteinen mit darüberliegendem Holzriegelbau mit Fassaden aus Holz oder Eternitplatten oder ähnlichen Materialien. Die Bedachungen solcher Bauten sind oftmals aus Ziegeln, weshalb auch der Dachstock massiver ausgebaut ist. Bei mehrstöckigen Bauten ist der Zwischenboden mehrheitlich mit einer Balkenlage und einem Holzboden ausgebildet.\\n\\nBautyp \\\"massiv\\\" - sind Bauten mit Betonfundament und massiven Wänden aus Beton oder Mauersteinen. Bei mehrstöckigen Bauten sind die Zwischenböden oftmals betoniert. Massive Bauten haben in der Regel auch einen massiven Dachstock mit entsprechendem Dachaufbau und Ziegeln oder Eternitbedachung.   \\n\\nBautyp \\\"massiv / Stahlbau\\\" - die Materialisierung solche Bauten ist vergleichbar mit dem Bautyp \\\"massiv\\\". Teile der Bauten sind evtl. aus einer Stahlbaukonstruktion, zum Beispiel die Zwischenböden oder die Dachkonstruktion. Bei Bauten mit Stahlbaudachkonstruktion ist die Bedachung oftmals mit isolierten Sandwitchpanelen ausgeführt.\\n\\nBautyp \\\"Stahlbau\\\" -Solche Bauten bestehen in der Regel aus einem Betonfundament (Betonplatte). Die Wände und die Dachkonstruktion bestehen mehrheitlich aus einer Stahlbaukonstruktion. Sowohl die Wände als auch das Dach sind oft mit Blech oder Sandwitchpanelen eingekleidet bzw. überdacht.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Für weitere Informationen zur Bauweise klicken Sie bitte auf den Info Button\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -49686,19 +50212,19 @@
     "pk": "ebau-nr-dossiernummer",
     "fields": {
       "created_at": "2026-05-06T14:40:45.301Z",
-      "modified_at": "2026-05-06T14:40:45.301Z",
+      "modified_at": "2026-05-07T13:41:02.458Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"eBau-Nr. / Dossiernummer\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"URec Dossiernummer oder Dossier ID\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Bitte tragen Sie hier die beim Dossier \\\"Gesuch um Abbruchprämie\\\" zugeteilte URec Dossiernummer ein\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -51226,6 +51752,68 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "erstellungsjahr",
+    "fields": {
+      "created_at": "2026-05-13T07:28:16.868Z",
+      "modified_at": "2026-05-13T07:34:49.930Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Erstellungsjahr\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Bitte beachten Sie, dass der Anspruch auf eine Abbruchprämie nur für rechtmässig erstellte Bauten und Anlagen geltend gemacht werden kann. Bei Abbruchobjekten die nach 1972 erstellt wurden, sind die damaligen Bewilligungsdokumente bei den Dokumenten hochzuladen.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "erstellungsjahr-und-bewilligungsdokumente",
+    "fields": {
+      "created_at": "2026-05-13T06:57:44.252Z",
+      "modified_at": "2026-05-13T07:08:11.702Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Erstellungsjahr und Bewilligungsdokumente\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\"rechtmassig-bestehenden-bauten\"|answer == \"rechtmassig-bestehenden-bauten-nein\")",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"*Bitte laden Sie die  Bewilligungsdokumente hoch*\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "erwartete-stromproduktion",
     "fields": {
       "created_at": "2022-02-24T15:45:33.159Z",
@@ -52430,12 +53018,12 @@
     "pk": "fotodokumentation-rekultivierte-flaechen",
     "fields": {
       "created_at": "2026-05-06T15:15:25.572Z",
-      "modified_at": "2026-05-06T15:22:17.464Z",
+      "modified_at": "2026-05-07T14:06:45.515Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Fotodokumentation rekultivierte Flächen\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Fotodokumentation (Pflichtdokument)\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "true",
       "is_hidden": "false",
@@ -52494,12 +53082,12 @@
     "pk": "fotodokumentation-und-andere-zweckdienliche-unterlagen-zb-abbruchofferte",
     "fields": {
       "created_at": "2026-05-06T16:17:59.973Z",
-      "modified_at": "2026-05-06T16:25:01.308Z",
+      "modified_at": "2026-05-18T08:03:13.935Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Fotodokumentation und andere zweckdienliche Unterlagen (z.B. Abbruchofferte)\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Fotodokumentation des Gebäudes, Innen- und Aussenaufnahmen (Pflichtdokument)\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "true",
       "is_hidden": "false",
@@ -53047,19 +53635,19 @@
     "pk": "gebaeudeflaeche-m",
     "fields": {
       "created_at": "2026-05-06T15:57:52.043Z",
-      "modified_at": "2026-05-06T15:57:52.043Z",
+      "modified_at": "2026-05-07T12:01:37.166Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Gebäudefläche (m²)\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Gebäudegrundfläche (m²)\", \"fr\": null, \"it\": null}",
       "type": "integer",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_value": null,
@@ -54039,6 +54627,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "gesetzliche-grundlage",
+    "fields": {
+      "created_at": "2026-05-13T06:14:14.753Z",
+      "modified_at": "2026-05-13T06:24:27.091Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Gesetzliche Grundlage\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"####Der Anspruch und die Berechnung der Höhe einer Abbruchprämie richtet sich nach Artikel 5c des Raumplanungsgesetzes (RPG) und Artikel 43d der Raumplanungsverordnung (RPV).\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "gesetzliche-vorgaben",
     "fields": {
       "created_at": "2022-02-24T15:15:42.451Z",
@@ -54056,6 +54675,37 @@
       "info_text": "{\"de\": \"Raumplanungsverordnung\\nArt. 32a Bewilligungsfreie Solaranlagen\\n\\n1 Solaranlagen gelten als auf einem Dach genügend angepasst (Art. 18a Abs. 1 RPG), wenn sie:\\n\\na. die Dachfläche im rechten Winkel um höchstens 20 cm überragen;\\nb. von oben gesehen nicht über die Dachfläche hinausragen;\\nc. nach dem Stand der Technik reflexionsarm ausgeführt werden; und\\nd. kompakt angeordnet sind; technisch bedingte Auslassungen oder eine versetzte Anordnung aufgrund der verfügbaren Fläche sind zulässig.\\n\\n1bis Solaranlagen auf einem Flachdach gelten auch dann als genügend angepasst, wenn sie anstelle der Voraussetzungen nach Absatz 1:\\n\\na. die Oberkante des Dachrandes um höchstens einen Meter überragen\\nb. von der Dachkante so weit zurückversetzt sind, dass sie, von unten in einem Winkel von 45 Grad betrachtet, nicht sichtbar sind; und\\nc. nach dem Stand der Technik reflexionsarm ausgeführt werden.\\n\\n2 Konkrete Gestaltungsvorschriften des kantonalen Rechts sind anwendbar, wenn sie zur Wahrung berechtigter Schutzanliegen verhältnismässig sind und die Nutzung der Sonnenenergie nicht stärker einschränken als Absatz 1.\\n\\n3 Bewilligungsfreie Vorhaben sind vor Baubeginn der Baubewilligungsbehörde oder einer anderen vom kantonalen Recht für zuständig erklärten Behörde zu melden. Das kantonale Recht legt die Frist sowie die Pläne und Unterlagen, die der Meldung beizulegen sind, fest.\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"####Bundesrecht - Gesetzliche Vorgaben für voraussichtlich baubewilligungsbefreite Solaranlagen\\n(Art. 18a RPG, Art. 32bis RPV)\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "gesuch-abbruchpraemie",
+    "fields": {
+      "created_at": "2026-05-08T06:28:09.073Z",
+      "modified_at": "2026-05-08T06:33:17.821Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Beabsichtigen Sie, für den Abbruch ein Gesuch um Ausrichtung einer Abbruchprämie einzureichen?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "!(\n  \"proposal-abbruch-rueckbau\" in \"proposal\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -54104,12 +54754,12 @@
     "pk": "gesuchsnummer",
     "fields": {
       "created_at": "2026-05-06T15:33:35.815Z",
-      "modified_at": "2026-05-06T15:33:55.244Z",
+      "modified_at": "2026-05-07T12:00:16.353Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Gesuchsnummer\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"URec Dossiernummer oder ID\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "true",
       "is_hidden": "!(\"haben-sie-bereits-ein-baugesuch-fuer-den-abbruch-eingereicht\"|answer == \"haben-sie-bereits-ein-baugesuch-fuer-den-abbruch-eingereicht-ja\")",
@@ -54460,6 +55110,40 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "grund",
+    "fields": {
+      "created_at": "2026-05-06T11:11:45.807Z",
+      "modified_at": "2026-05-06T11:11:45.807Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Grund des Abbruchs\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "grundbucheintrag-zwg",
     "fields": {
       "created_at": "2024-04-29T12:35:40.072Z",
@@ -54478,6 +55162,40 @@
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "grund-des-abbruchs",
+    "fields": {
+      "created_at": "2026-05-06T11:08:23.487Z",
+      "modified_at": "2026-05-06T11:08:23.487Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": null,
+      "modified_by_group": null,
+      "label": "{\"de\": \"Grund des Abbruchs\", \"fr\": null, \"it\": null}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {
+        "max_length": null,
+        "min_length": null
+      },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -54912,10 +55630,10 @@
     "pk": "haben-sie-bereits-ein-baugesuch-fuer-den-abbruch-eingereicht",
     "fields": {
       "created_at": "2026-05-06T15:33:20.044Z",
-      "modified_at": "2026-05-06T15:33:20.044Z",
+      "modified_at": "2026-05-12T12:44:48.867Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Haben Sie bereits ein Baugesuch für den Abbruch eingereicht?\", \"fr\": null, \"it\": null}",
       "type": "choice",
@@ -54923,8 +55641,8 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -55434,10 +56152,10 @@
     "pk": "hinweis-abbruch",
     "fields": {
       "created_at": "2026-05-06T15:36:12.603Z",
-      "modified_at": "2026-05-06T15:36:32.013Z",
+      "modified_at": "2026-05-13T05:18:08.857Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"hinweis-abbruch\", \"fr\": null, \"it\": null}",
       "type": "static",
@@ -55447,7 +56165,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"Falls Sie den Abbruch ausführen möchten, reichen Sie bitte dafür ein Baugesuch ein. Andernfalls können Sie auf diesem Weg den Anspruch und die allfällige Höhe der Abbruchprämie abklären lassen.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"Der Abbruch von Bauten ist in allen Gemeinden des Kantons Uri baubewillligungspflichtig. Falls Sie den Abbruch ausführen möchten, reichen Sie bitte dafür ein Baugesuch ein. Andernfalls können Sie auf diesem Weg den Anspruch und die allfällige Höhe der Abbruchprämie abklären lassen.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -55901,6 +56619,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "hinweis-gesuch-abbruchpraemie",
+    "fields": {
+      "created_at": "2026-05-08T06:40:59.660Z",
+      "modified_at": "2026-05-08T06:52:19.384Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis Einreichung Gesuch um Abbruchprämie\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!(\n  \"gesuch-abbruchpraemie-ja\" in \"gesuch-abbruchpraemie\"|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"Gesuche um Abbruchprämien müssen beim Amt für Raumentwicklung separat eingreicht werden. Bitte verwenden Sie dazu das Formular \\\"Gesuch um Abbruchprämie\\\" auf dem URec Portal.\\n\\n*Bitte beachten Sie zudem, dass der Abbruch eines Gebäudes erst nach erfolgtem Entscheid in Sachen Abbruchprämie erfolgen darf, ansonsten ein allfälliger Anspruch auf eine Abbruchprämie entfällt.*\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "hinweis-gis",
     "fields": {
       "created_at": "2023-01-20T09:33:41.956Z",
@@ -56180,6 +56929,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "hinweis-nachforderungen",
+    "fields": {
+      "created_at": "2026-01-30T09:11:27.447Z",
+      "modified_at": "2026-01-30T09:42:42.031Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Hinweis betreffend Nachforderungen\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"*Bitte offene Nachforderungen, welche direkt  (evtl. telefonisch) und nicht via URec Meldung erledigt wurden, im Menu \\\"Nachforderung\\\" abbrechen und im entsprechenden Textfeld einen kurzen Hinweis erfassen (z.B. \\\"telefonisch erledigt\\\").*\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "hinweis-parkplaetze-uvp",
     "fields": {
       "created_at": "2020-09-21T07:30:18.511Z",
@@ -56214,10 +56994,10 @@
     "pk": "hinweis-pdf-und-einreichen",
     "fields": {
       "created_at": "2020-11-24T15:04:30.890Z",
-      "modified_at": "2025-11-11T14:34:16.288Z",
+      "modified_at": "2026-05-08T06:14:31.952Z",
       "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "pirmin.scheuber@ur.ch",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Hinweis pdf und Einreichen\", \"fr\": null, \"it\": null}",
       "type": "static",
@@ -56227,7 +57007,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"---\\n\\n####**Unterzeichnung / Einreichung**\\n\\n#####Physische Unterzeichnung des PDF Formulars\\n\\nBitte erstellen Sie das PDF Formular des Dossiers (Formulardownload siehe unten), drucken Sie es aus und schicken Sie es handschriftlich unterzeichnet im Doppel an die verfahrensleitende Behörde. \\n\\nVerfahrensleitende Behörden:\\n- Bei Baugesuchen, Baugesuch - Vorabklärungen, Meldungen geringfügiger Vorhaben, Reklamegesuchen, Meldungen von Solaranlagen und Meldungen von Gebäudetechnik,  ist die jeweils zuständige Gemeindebaubehörde zuständig.\\n- Verfahren zur Benützung von Kantonsgebiet leitet die Baudirektion Uri, Klausenstrasse 2, 6460 Altdorf.\\n- Verfahren für Bohrbewilligungen und Konzessionen zur Wasser- und Wärmeentnahme leitet Die Baudirektion Uri, Amt für Energie, Klausenstrasse 2, 6460 Altdorf\\n\\n\\n#####Elektronische Unterzeichnung des PDF Formulars\\n\\nAlternativ können Sie das PDF Formular downloaden, qualifiziert elektronisch unterzeichnen und bei den Dokumenten hochladen. Qualifiziert elektronisch unterzeichnete PDF Formulare müssen, unter dem Vorbehalt der Einreichung allfälliger physischer Gesamtdossiers (siehe unten) nicht schriftlich eingereicht werden. \\n\\n#####Unterzeichnung von Plänen und weiteren Gesuchsunterlagen\\n\\nDie digitale Unterschrift ist nicht zwingend auf allen Dokumenten erforderlich. Massgebend sind jene Dokumente, welche Sie via diese Plattform einreichen und von der Leitbehörde im Rahmen des Bewilligungsprozesses als Entscheiddokumente markiert werden. Diese Dokumente (Pläne, Fachstellenberichte, Verfügungen, usw.) bleiben im URec rechtsverbindlich und unveränderlich gespeichert. Sie können über einen Link, den die Leitbehörde im Rahmen des Bewilligungsprozesses per E-Mail verschickt, geöffnet werden.  \\n\\n#####Einreichung vollständiger physischer Dossiers (**Betrifft nur die Baubewilligungsverfahren**)\\n\\nDie Gemeinden haben teilweise unterschiedliche gesetzliche Bestimmungen und eine unterschiedliche Arbeitspraxis. Es ist unser Ziel, mittel bis langfristig auf physische Unterlagen gänzlich zu verzichten. Die Vorgaben der jeweiligen Baureglemente der Gemeinden sind jedoch einzuhalten. Je nach Umfang und Art des Dossiers kann die Gemeinde das Einreichen zusätzlicher physischer Dossiers bei der Bauherrschaft anfordern. Bitte klären Sie unaufgefordert und **raschmöglichst nach dem elektronischen Einreichen des Dossiers** bei der zuständigen Gemeinde ab, ob und in welchem Umfang, nebst dem unterzeichneten **PDF Formular**, zusätzliche physische Dossiers eingereicht werden müssen. **Diese Regelung betrifft nur all jene Verfahren, bei denen die Gemeindebaubehörde als verfahrensleitende Behörde zuständig ist (siehe oben)**.\\n\\nMit Klick auf die Schaltfläche \\\"Einreichen\\\"...\\n\\n...bestätigen Sie, dass das Formular vollständig und wahrheitsgetreu ausgefüllt wurde,\\n...wird Ihr Gesuch bei der zuständigen Behörde zur Prüfung eingereicht,\\n...können Sie an den Formulareinträgen keine Veränderungen mehr vornehmen.\\n\\n#####Eröffnung der Entscheiddokumente (**Betrifft nur die Baubewilligungsverfahren**)\\n\\nDie Eröffnung der Entscheiddokumente (z.B. die Baubewilligung, Verfügungen kantonaler Fachstellen oder die genehmigten Pläne usw.) an die Bauherrschaft erfolgt in der Regel vollständig digital via URec Portal. Sie und alle Personen, die Sie im Menu „Berechtigungen“ für den Zugriff auf das Dossier berechtigt haben, erhalten eine Mitteilung, wenn die Leitbehörde den Entscheid im URec hochgeladen hat. Sämtliche Entscheiddokumente werden im Portal angezeigt. Wahlweise kann die Baubehörde die Entscheiddokumente zusätzlich zur digitalen Eröffnung auch noch physisch per Post zustellen.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"---\\n\\n####**Unterzeichnung / Einreichung**\\n\\n#####Physische Unterzeichnung des PDF Formulars\\n\\nBitte erstellen Sie das PDF Formular des Dossiers (Formulardownload siehe unten), drucken Sie es aus und schicken Sie es handschriftlich unterzeichnet im Doppel an die verfahrensleitende Behörde. \\n\\nVerfahrensleitende Behörden:\\n- Bei Baugesuchen, Baugesuch - Vorabklärungen, Meldungen geringfügiger Vorhaben, Reklamegesuchen, Meldungen von Solaranlagen und Meldungen von Gebäudetechnik,  ist die jeweils zuständige Gemeindebaubehörde zuständig.\\n- Verfahren zur Benützung von Kantonsgebiet leitet die Baudirektion Uri, Klausenstrasse 2, 6460 Altdorf.\\n- Verfahren für Bohrbewilligungen und Konzessionen zur Wasser- und Wärmeentnahme leitet Die Baudirektion Uri, Amt für Energie, Klausenstrasse 2, 6460 Altdorf\\n- Verfahren für Gesuche um Ausrichtung einer Abbruchprämie und die entsprechenden Antragsdossier für die Auszahlung solcher Prämien werden vom Amt für Raumentwicklung geleitet.\\n\\n\\n#####Elektronische Unterzeichnung des PDF Formulars\\n\\nAlternativ können Sie das PDF Formular downloaden, qualifiziert elektronisch unterzeichnen und bei den Dokumenten hochladen. Qualifiziert elektronisch unterzeichnete PDF Formulare müssen, unter dem Vorbehalt der Einreichung allfälliger physischer Gesamtdossiers (siehe unten) nicht schriftlich eingereicht werden. \\n\\n#####Unterzeichnung von Plänen und weiteren Gesuchsunterlagen\\n\\nDie digitale Unterschrift ist nicht zwingend auf allen Dokumenten erforderlich. Massgebend sind jene Dokumente, welche Sie via diese Plattform einreichen und von der Leitbehörde im Rahmen des Bewilligungsprozesses als Entscheiddokumente markiert werden. Diese Dokumente (Pläne, Fachstellenberichte, Verfügungen, usw.) bleiben im URec rechtsverbindlich und unveränderlich gespeichert. Sie können über einen Link, den die Leitbehörde im Rahmen des Bewilligungsprozesses per E-Mail verschickt, geöffnet werden.  \\n\\n#####Einreichung vollständiger physischer Dossiers (**Betrifft nur die Baubewilligungsverfahren**)\\n\\nDie Gemeinden haben teilweise unterschiedliche gesetzliche Bestimmungen und eine unterschiedliche Arbeitspraxis. Es ist unser Ziel, mittel bis langfristig auf physische Unterlagen gänzlich zu verzichten. Die Vorgaben der jeweiligen Baureglemente der Gemeinden sind jedoch einzuhalten. Je nach Umfang und Art des Dossiers kann die Gemeinde das Einreichen zusätzlicher physischer Dossiers bei der Bauherrschaft anfordern. Bitte klären Sie unaufgefordert und **raschmöglichst nach dem elektronischen Einreichen des Dossiers** bei der zuständigen Gemeinde ab, ob und in welchem Umfang, nebst dem unterzeichneten **PDF Formular**, zusätzliche physische Dossiers eingereicht werden müssen. **Diese Regelung betrifft nur all jene Verfahren, bei denen die Gemeindebaubehörde als verfahrensleitende Behörde zuständig ist (siehe oben)**.\\n\\nMit Klick auf die Schaltfläche \\\"Einreichen\\\"...\\n\\n...bestätigen Sie, dass das Formular vollständig und wahrheitsgetreu ausgefüllt wurde,\\n...wird Ihr Gesuch bei der zuständigen Behörde zur Prüfung eingereicht,\\n...können Sie an den Formulareinträgen keine Veränderungen mehr vornehmen.\\n\\n#####Eröffnung der Entscheiddokumente (**Betrifft nur die Baubewilligungsverfahren**)\\n\\nDie Eröffnung der Entscheiddokumente (z.B. die Baubewilligung, Verfügungen kantonaler Fachstellen oder die genehmigten Pläne usw.) an die Bauherrschaft erfolgt in der Regel vollständig digital via URec Portal. Sie und alle Personen, die Sie im Menu „Berechtigungen“ für den Zugriff auf das Dossier berechtigt haben, erhalten eine Mitteilung, wenn die Leitbehörde den Entscheid im URec hochgeladen hat. Sämtliche Entscheiddokumente werden im Portal angezeigt. Wahlweise kann die Baubehörde die Entscheiddokumente zusätzlich zur digitalen Eröffnung auch noch physisch per Post zustellen.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -56373,10 +57153,10 @@
     "pk": "hinweis-stockwerkeigentuemerschaft",
     "fields": {
       "created_at": "2026-05-06T14:54:16.135Z",
-      "modified_at": "2026-05-06T15:24:59.755Z",
+      "modified_at": "2026-05-12T10:03:50.393Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"hinweis-stockwerkeigentuemerschaft\", \"fr\": null, \"it\": null}",
       "type": "static",
@@ -56386,7 +57166,7 @@
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "static_content": "{\"de\": \"Von der Eigentümergemeinschaft muss eine Vollmacht beigelegt werden, die das AGR berechtigt, die vollständige Abbruchprämie der oben aufgeführten Person auszuzahlen. Die Aufteilung der Abbruchprämie ist Sache der Eigentümergemeinschaft.\", \"fr\": \"\", \"it\": \"\"}",
+      "static_content": "{\"de\": \"Von der Eigentümergemeinschaft muss eine Vollmacht beigelegt werden, die das Amt für Raumentwicklung berechtigt, die vollständige Abbruchprämie an die oben aufgeführte Person bzw. Zahlungsverbindungauszuzahlen. Eine allfällige  Aufteilung der Abbruchprämie ist Sache der Eigentümergemeinschaft.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -57640,12 +58420,12 @@
     "pk": "ist-die-abzubrechende-baute-lediglich-mit-seilbahn-oder-helikopter-zugaenglich",
     "fields": {
       "created_at": "2026-05-06T16:10:55.099Z",
-      "modified_at": "2026-05-06T16:15:58.646Z",
+      "modified_at": "2026-05-12T11:52:19.190Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Ist die abzubrechende Baute lediglich mit Seilbahn oder Helikopter zugänglich?\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Ist die abzubrechende Baute oder Anlage nur mit einem Fussweg oder mit einer Seilbahn erschlossen?\", \"fr\": null, \"it\": null}",
       "type": "choice",
       "is_required": "false",
       "is_hidden": "false",
@@ -59839,19 +60619,19 @@
     "pk": "material",
     "fields": {
       "created_at": "2026-05-06T15:59:38.438Z",
-      "modified_at": "2026-05-06T15:59:38.438Z",
+      "modified_at": "2026-05-07T12:36:36.908Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Material\", \"fr\": null, \"it\": null}",
       "type": "text",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Beschreiben Sie hier die Bauteile deren Materialisierung aus den Unterlagen (z.B. Fotos, Pläne) nicht eindeutig erkennbar ist (z.B. Verschalungen aus Vollkernplatten, Eternit- oder Kunststoffplatten mit Holzoptik)\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -60971,12 +61751,12 @@
     "pk": "nachvollziehbare-flaechen-und-volumenberechnung-mit-vermassten-plaenen",
     "fields": {
       "created_at": "2026-05-06T16:17:45.317Z",
-      "modified_at": "2026-05-06T16:25:05.471Z",
+      "modified_at": "2026-05-07T14:07:27.149Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Nachvollziehbare Flächen- und Volumenberechnung (mit vermassten Plänen)\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Volumenberechnung (Pflichtdokument)\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "true",
       "is_hidden": "false",
@@ -61847,17 +62627,48 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "offerte-erforderlich",
+    "fields": {
+      "created_at": "2026-05-12T11:54:08.358Z",
+      "modified_at": "2026-05-18T08:40:02.284Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Offerte erforderlich\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "!( [ \"wie-zugaenglich-fussweg\", \"wie-zugaenglich-seilbahn\"] intersects (\"wie-zugaenglich\"|answer || []) )",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"*Bitte holen Sie für den Gebäudeabbruch eine Offerte ein und laden Sie diese bei den Dokumenten hoch*.\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "offerten-fuer-den-abbruch",
     "fields": {
       "created_at": "2026-05-06T16:18:26.249Z",
-      "modified_at": "2026-05-06T16:30:29.680Z",
+      "modified_at": "2026-05-12T10:18:53.272Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Offerte(n) für den Abbruch\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
-      "is_required": "[\"ist-die-abzubrechende-baute-lediglich-mit-seilbahn-oder-helikopter-zugaenglich-ja\"] intersects \"aussenflaechen-und-anlagen\"|answer|mapby(\"ist-die-abzubrechende-baute-lediglich-mit-seilbahn-oder-helikopter-zugaenglich\")|debug",
+      "is_required": "[\"ist-die-abzubrechende-baute-lediglich-mit-seilbahn-oder-helikopter-zugaenglich-ja\"] intersects \"aussenflaechen-und-anlagen\"|answer|mapby(\"ist-die-abzubrechende-baute-lediglich-mit-seilbahn-oder-helikopter-zugaenglich\")",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
@@ -63001,10 +63812,10 @@
     "pk": "proposal",
     "fields": {
       "created_at": "2020-08-28T15:33:19.588Z",
-      "modified_at": "2021-01-22T18:13:14.604Z",
+      "modified_at": "2026-05-08T06:25:46.494Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Art der Arbeiten\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
@@ -63013,7 +63824,7 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"#### INFO\\nDie Auswahl \\\"Art der Arbeiten\\\" nimmt einerseits Bezug auf das gesamte Bauprojekt. Wenn Sie also im Rahmen eines Bauprojekts sowohl Neubauten als auch Umbauten erstellen und wenn allenfalls im gleichen Bauprojekt auch Gebäude abgebrochen werden, können Sie auch mehrere Varianten gleichzeitig auswählen.\\n\\nAndererseits erscheint die gleiche Abfrage auch unter der Rubrik \\\"Hochbau\\\" in der Tabelle \\\"Gebäude und Anlagen\\\". Dies deshalb, weil je nach Bauprojekt den Gebäuden allenfalls unterschiedliche bauliche Massnahmen zugeordnet werden müssen.\", \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -63671,6 +64482,37 @@
       },
       "data_source": null,
       "row_form": "realisierungsphase",
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "rechtmassig-bestehenden-bauten",
+    "fields": {
+      "created_at": "2026-05-13T06:55:13.179Z",
+      "modified_at": "2026-05-13T07:30:25.579Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wurde das Gebäude vor 1972 erstellt?\", \"fr\": null, \"it\": null}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
       "sub_form": null,
       "source": null,
       "format_validators": "[]",
@@ -65484,12 +66326,12 @@
     "pk": "situationsplan-mit-angabe-der-grundflaechen-der-zum-rueckbau-vorgesehenen-gebaeude-undoder-anlage",
     "fields": {
       "created_at": "2026-05-06T16:17:32.832Z",
-      "modified_at": "2026-05-06T16:25:07.983Z",
+      "modified_at": "2026-05-07T14:07:15.452Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Situationsplan mit Angabe der Grundflächen der zum Rückbau vorgesehenen Gebäude und/oder Anlage\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Situationsplan (Pflichtdokument)\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "true",
       "is_hidden": "false",
@@ -68121,10 +68963,10 @@
     "pk": "typ-der-baute",
     "fields": {
       "created_at": "2026-05-06T15:51:19.259Z",
-      "modified_at": "2026-05-06T15:51:19.259Z",
+      "modified_at": "2026-05-07T13:25:19.369Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Typ der Baute\", \"fr\": null, \"it\": null}",
       "type": "choice",
@@ -68132,8 +68974,8 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -69481,20 +70323,51 @@
     "pk": "vollmacht-eigentuemergemeinschaft",
     "fields": {
       "created_at": "2026-05-06T15:13:55.536Z",
-      "modified_at": "2026-05-06T15:14:40.467Z",
+      "modified_at": "2026-05-07T14:06:33.725Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
-      "label": "{\"de\": \"Vollmacht Eigentümergemeinschaft\", \"fr\": null, \"it\": null}",
+      "label": "{\"de\": \"Vollmacht (Pflichtdokument)\", \"fr\": null, \"it\": null}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "!(\"gebaeude-anlageeigentuemerin-eigentuemergemeinschaft-stockwerkeigentum\"|answer|debug == \"gebaeude-anlageeigentuemerin-eigentuemergemeinschaft-stockwerkeigentum-stockwerk-ja\")",
+      "is_hidden": "!(\"gebaeude-anlageeigentuemerin-eigentuemergemeinschaft-stockwerkeigentum\"|answer == \"gebaeude-anlageeigentuemerin-eigentuemergemeinschaft-stockwerkeigentum-stockwerk-ja\")",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
+    "pk": "voraussetzung",
+    "fields": {
+      "created_at": "2026-05-12T07:29:38.062Z",
+      "modified_at": "2026-05-18T08:02:04.397Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Voraussetzung für die Auszahlung\", \"fr\": null, \"it\": null}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"###Auszahlung###\\nDie Auszahlung einer Abbruchprämie setzt voraus, dass der Abbruch vollständig durchgeführt und das Abbruchmaterial fachgerecht  entsorgt wurde.\\nDie korrekte Entsorgung des Abbruchmaterials ist zu dokumentieren.\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -70623,6 +71496,37 @@
   },
   {
     "model": "caluma_form.question",
+    "pk": "wie-zugaenglich",
+    "fields": {
+      "created_at": "2026-05-18T08:13:58.260Z",
+      "modified_at": "2026-05-19T05:29:44.442Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "label": "{\"de\": \"Wie ist das Gebäude bzw. die abzubrechende Anlage zugänglich?\", \"fr\": null, \"it\": null}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"Bei der Beurteilung der Verkehrslage wird abgestützt auf die gesamtschweizerische Anleitung für die Schätzung des landwirtschaftlichen Ertragswertes vom 31. Januar 2018, Anhang zur Verordnung über das bäuerliche Bodenrecht (VBB) vom 4. Oktober 1993, Ziffer 2 Verkehrslage von Böden und Ökonomiegebäuden.\\n\\nDie Anleitung legt für die Verkehrslage von Böden und Ökonomiegebäuden Noten fest anhand der Qualität der Zufahrt (ganzjährige Befahrbarkeit des schlechtesten Stückes):\\n\\n- mit Lastwagen befahrbare Strasse: Note 4\\n- nur mit Traktor oder Transporter befahrbarer Weg: Note 3\\n- Seilbahn: Note 2\\n- Fuss- oder Saumweg: Note 1\\n\\nVorhaben, die der Note 3 und 4 zugerechnet werden, können pauschal berechnet werden. Für Vorhaben mit Verkehrslage Note 1 und 2 ist eine Abbruchofferte erforderlich.\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]",
+      "default_answer": null,
+      "calc_expression": null,
+      "calc_dependents": "[]"
+    }
+  },
+  {
+    "model": "caluma_form.question",
     "pk": "willkommen-bei-urec",
     "fields": {
       "created_at": "2023-11-07T10:40:07.647Z",
@@ -70921,19 +71825,19 @@
     "pk": "zahlungsverbindung",
     "fields": {
       "created_at": "2026-05-06T14:42:58.244Z",
-      "modified_at": "2026-05-06T14:42:58.244Z",
+      "modified_at": "2026-05-07T13:42:45.364Z",
       "created_by_user": "admin",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "label": "{\"de\": \"Zahlungsverbindung\", \"fr\": null, \"it\": null}",
       "type": "textarea",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "info_text": "{\"de\": null, \"fr\": null, \"it\": null}",
-      "hint_text": "{\"de\": null, \"fr\": null, \"it\": null}",
+      "placeholder": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null, \"it\": null}",
+      "hint_text": "{\"de\": \"Bitte um vollständige Angaben: Name der Bank, Name Kontoinhaber und IBAN Nummer\", \"fr\": null, \"it\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\", \"it\": \"\"}",
       "configuration": {
         "max_length": null,
@@ -71801,6 +72705,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "andere-finanzhilfen.andere-finanzhilfen-ja",
+    "fields": {
+      "created_at": "2026-05-12T12:28:36.860Z",
+      "modified_at": "2026-05-12T12:28:36.860Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "andere-finanzhilfen",
+      "option": "andere-finanzhilfen-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "andere-finanzhilfen.andere-finanzhilfen-nein",
+    "fields": {
+      "created_at": "2026-05-12T12:28:36.848Z",
+      "modified_at": "2026-05-12T12:28:36.848Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "andere-finanzhilfen",
+      "option": "andere-finanzhilfen-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "angaben-dieselbetankungsanlagen.angaben-dieselbetankungsanlagen-andere-entwaesserung",
     "fields": {
       "created_at": "2021-11-29T10:58:12.156Z",
@@ -71938,11 +72872,11 @@
     "model": "caluma_form.questionoption",
     "pk": "angaben-ueber-andere-zugesprochene-finanzhilfen-oder-beitraege-im-zusammenhang-mit-dem-vorgesehenen-abbruch.angaben-ueber-andere-zugesprochene-finanzhilfen-oder-beitraege-im-zusammenhang-mit-dem-vorgesehenen-abbruch-ja",
     "fields": {
-      "created_at": "2026-05-06T16:30:38.099Z",
-      "modified_at": "2026-05-06T16:30:38.099Z",
-      "created_by_user": "admin",
+      "created_at": "2026-05-07T14:08:17.205Z",
+      "modified_at": "2026-05-07T14:08:17.205Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "angaben-ueber-andere-zugesprochene-finanzhilfen-oder-beitraege-im-zusammenhang-mit-dem-vorgesehenen-abbruch",
       "option": "angaben-ueber-andere-zugesprochene-finanzhilfen-oder-beitraege-im-zusammenhang-mit-dem-vorgesehenen-abbruch-ja",
@@ -74818,11 +75752,11 @@
     "model": "caluma_form.questionoption",
     "pk": "bauweise.bauweise-leicht",
     "fields": {
-      "created_at": "2026-05-06T15:59:22.812Z",
-      "modified_at": "2026-05-06T15:59:22.812Z",
-      "created_by_user": "admin",
+      "created_at": "2026-05-07T12:49:40.955Z",
+      "modified_at": "2026-05-07T12:49:40.955Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "bauweise",
       "option": "bauweise-leicht",
@@ -74833,11 +75767,11 @@
     "model": "caluma_form.questionoption",
     "pk": "bauweise.bauweise-leicht-massiv",
     "fields": {
-      "created_at": "2026-05-06T15:59:22.810Z",
-      "modified_at": "2026-05-06T15:59:22.810Z",
-      "created_by_user": "admin",
+      "created_at": "2026-05-07T12:49:40.952Z",
+      "modified_at": "2026-05-07T12:49:40.952Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "bauweise",
       "option": "bauweise-leicht-massiv",
@@ -74848,11 +75782,11 @@
     "model": "caluma_form.questionoption",
     "pk": "bauweise.bauweise-massiv",
     "fields": {
-      "created_at": "2026-05-06T15:59:22.807Z",
-      "modified_at": "2026-05-06T15:59:22.807Z",
-      "created_by_user": "admin",
+      "created_at": "2026-05-07T12:49:40.949Z",
+      "modified_at": "2026-05-07T12:49:40.949Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "bauweise",
       "option": "bauweise-massiv",
@@ -74863,11 +75797,11 @@
     "model": "caluma_form.questionoption",
     "pk": "bauweise.bauweise-massiv-stahlbau",
     "fields": {
-      "created_at": "2026-05-06T15:59:22.803Z",
-      "modified_at": "2026-05-06T15:59:22.803Z",
-      "created_by_user": "admin",
+      "created_at": "2026-05-07T12:49:40.945Z",
+      "modified_at": "2026-05-07T12:49:40.945Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "bauweise",
       "option": "bauweise-massiv-stahlbau",
@@ -74878,11 +75812,11 @@
     "model": "caluma_form.questionoption",
     "pk": "bauweise.bauweise-stahlbau",
     "fields": {
-      "created_at": "2026-05-06T15:59:22.798Z",
-      "modified_at": "2026-05-06T15:59:22.798Z",
-      "created_by_user": "admin",
+      "created_at": "2026-05-07T12:49:40.940Z",
+      "modified_at": "2026-05-07T12:49:40.940Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "bauweise",
       "option": "bauweise-stahlbau",
@@ -77706,7 +78640,7 @@
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-antrag-auf-auszahlung",
-      "sort": 67
+      "sort": 68
     }
   },
   {
@@ -77886,7 +78820,7 @@
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-genehmigung-qgp",
-      "sort": 67
+      "sort": 69
     }
   },
   {
@@ -77931,7 +78865,7 @@
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-gesamtrevision-np",
-      "sort": 68
+      "sort": 70
     }
   },
   {
@@ -77946,7 +78880,7 @@
       "modified_by_group": null,
       "question": "form-type",
       "option": "form-type-gesuch-um-abbruchpraemie",
-      "sort": 66
+      "sort": 67
     }
   },
   {
@@ -78778,11 +79712,11 @@
     "model": "caluma_form.questionoption",
     "pk": "fotodokumentation-rekultivierte-flaechen.fotodokumentation-rekultivierte-flaechen-ja",
     "fields": {
-      "created_at": "2026-05-06T15:22:17.466Z",
-      "modified_at": "2026-05-06T15:22:17.466Z",
-      "created_by_user": "admin",
+      "created_at": "2026-05-07T14:06:45.521Z",
+      "modified_at": "2026-05-07T14:06:45.521Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "fotodokumentation-rekultivierte-flaechen",
       "option": "fotodokumentation-rekultivierte-flaechen-ja",
@@ -78808,11 +79742,11 @@
     "model": "caluma_form.questionoption",
     "pk": "fotodokumentation-und-andere-zweckdienliche-unterlagen-zb-abbruchofferte.fotodokumentation-und-andere-zweckdienliche-unterlagen-zb-abbruchofferte-ja",
     "fields": {
-      "created_at": "2026-05-06T16:25:01.312Z",
-      "modified_at": "2026-05-06T16:25:01.312Z",
-      "created_by_user": "admin",
+      "created_at": "2026-05-18T08:03:13.950Z",
+      "modified_at": "2026-05-18T08:03:13.950Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "fotodokumentation-und-andere-zweckdienliche-unterlagen-zb-abbruchofferte",
       "option": "fotodokumentation-und-andere-zweckdienliche-unterlagen-zb-abbruchofferte-ja",
@@ -79406,6 +80340,36 @@
   },
   {
     "model": "caluma_form.questionoption",
+    "pk": "gesuch-abbruchpraemie.gesuch-abbruchpraemie-ja",
+    "fields": {
+      "created_at": "2026-05-08T06:33:17.829Z",
+      "modified_at": "2026-05-08T06:33:17.829Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "gesuch-abbruchpraemie",
+      "option": "gesuch-abbruchpraemie-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "gesuch-abbruchpraemie.gesuch-abbruchpraemie-nein",
+    "fields": {
+      "created_at": "2026-05-08T06:33:17.826Z",
+      "modified_at": "2026-05-08T06:33:17.826Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "gesuch-abbruchpraemie",
+      "option": "gesuch-abbruchpraemie-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
     "pk": "gibt-es-oertliche-absaugungen.gibt-es-oertliche-absaugungen-ja",
     "fields": {
       "created_at": "2020-10-26T16:38:05.538Z",
@@ -79738,11 +80702,11 @@
     "model": "caluma_form.questionoption",
     "pk": "haben-sie-bereits-ein-baugesuch-fuer-den-abbruch-eingereicht.haben-sie-bereits-ein-baugesuch-fuer-den-abbruch-eingereicht-ja",
     "fields": {
-      "created_at": "2026-05-06T15:33:20.051Z",
-      "modified_at": "2026-05-06T15:33:20.051Z",
-      "created_by_user": "admin",
+      "created_at": "2026-05-12T12:44:48.879Z",
+      "modified_at": "2026-05-12T12:44:48.879Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "haben-sie-bereits-ein-baugesuch-fuer-den-abbruch-eingereicht",
       "option": "haben-sie-bereits-ein-baugesuch-fuer-den-abbruch-eingereicht-ja",
@@ -79753,11 +80717,11 @@
     "model": "caluma_form.questionoption",
     "pk": "haben-sie-bereits-ein-baugesuch-fuer-den-abbruch-eingereicht.haben-sie-bereits-ein-baugesuch-fuer-den-abbruch-eingereicht-nein",
     "fields": {
-      "created_at": "2026-05-06T15:33:20.049Z",
-      "modified_at": "2026-05-06T15:33:20.049Z",
-      "created_by_user": "admin",
+      "created_at": "2026-05-12T12:44:48.873Z",
+      "modified_at": "2026-05-12T12:44:48.873Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "haben-sie-bereits-ein-baugesuch-fuer-den-abbruch-eingereicht",
       "option": "haben-sie-bereits-ein-baugesuch-fuer-den-abbruch-eingereicht-nein",
@@ -80953,11 +81917,11 @@
     "model": "caluma_form.questionoption",
     "pk": "ist-die-abzubrechende-baute-lediglich-mit-seilbahn-oder-helikopter-zugaenglich.ist-die-abzubrechende-baute-lediglich-mit-seilbahn-oder-helikopter-zugaenglich-ja",
     "fields": {
-      "created_at": "2026-05-06T16:15:58.650Z",
-      "modified_at": "2026-05-06T16:15:58.650Z",
-      "created_by_user": "admin",
+      "created_at": "2026-05-12T11:52:19.199Z",
+      "modified_at": "2026-05-12T11:52:19.199Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "ist-die-abzubrechende-baute-lediglich-mit-seilbahn-oder-helikopter-zugaenglich",
       "option": "ist-die-abzubrechende-baute-lediglich-mit-seilbahn-oder-helikopter-zugaenglich-ja",
@@ -80968,11 +81932,11 @@
     "model": "caluma_form.questionoption",
     "pk": "ist-die-abzubrechende-baute-lediglich-mit-seilbahn-oder-helikopter-zugaenglich.ist-die-abzubrechende-baute-lediglich-mit-seilbahn-oder-helikopter-zugaenglich-nein",
     "fields": {
-      "created_at": "2026-05-06T16:15:58.649Z",
-      "modified_at": "2026-05-06T16:15:58.649Z",
-      "created_by_user": "admin",
+      "created_at": "2026-05-12T11:52:19.196Z",
+      "modified_at": "2026-05-12T11:52:19.196Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "ist-die-abzubrechende-baute-lediglich-mit-seilbahn-oder-helikopter-zugaenglich",
       "option": "ist-die-abzubrechende-baute-lediglich-mit-seilbahn-oder-helikopter-zugaenglich-nein",
@@ -82603,11 +83567,11 @@
     "model": "caluma_form.questionoption",
     "pk": "nachvollziehbare-flaechen-und-volumenberechnung-mit-vermassten-plaenen.nachvollziehbare-flaechen-und-volumenberechnung-mit-vermassten-plaenen-ja",
     "fields": {
-      "created_at": "2026-05-06T16:25:05.474Z",
-      "modified_at": "2026-05-06T16:25:05.474Z",
-      "created_by_user": "admin",
+      "created_at": "2026-05-07T14:07:27.155Z",
+      "modified_at": "2026-05-07T14:07:27.155Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "nachvollziehbare-flaechen-und-volumenberechnung-mit-vermassten-plaenen",
       "option": "nachvollziehbare-flaechen-und-volumenberechnung-mit-vermassten-plaenen-ja",
@@ -83173,11 +84137,11 @@
     "model": "caluma_form.questionoption",
     "pk": "offerten-fuer-den-abbruch.offerten-fuer-den-abbruch-ja",
     "fields": {
-      "created_at": "2026-05-06T16:30:29.683Z",
-      "modified_at": "2026-05-06T16:30:29.683Z",
-      "created_by_user": "admin",
+      "created_at": "2026-05-12T10:18:53.277Z",
+      "modified_at": "2026-05-12T10:18:53.277Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "offerten-fuer-den-abbruch",
       "option": "offerten-fuer-den-abbruch-ja",
@@ -83443,11 +84407,11 @@
     "model": "caluma_form.questionoption",
     "pk": "proposal.proposal-abbruch-rueckbau",
     "fields": {
-      "created_at": "2021-01-22T18:13:14.623Z",
-      "modified_at": "2021-01-22T18:13:14.623Z",
-      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_at": "2026-05-08T06:25:46.540Z",
+      "modified_at": "2026-05-08T06:25:46.540Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "proposal",
       "option": "proposal-abbruch-rueckbau",
@@ -83458,11 +84422,11 @@
     "model": "caluma_form.questionoption",
     "pk": "proposal.proposal-anbau-erweiterung",
     "fields": {
-      "created_at": "2021-01-22T18:13:14.617Z",
-      "modified_at": "2021-01-22T18:13:14.617Z",
-      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_at": "2026-05-08T06:25:46.526Z",
+      "modified_at": "2026-05-08T06:25:46.526Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "proposal",
       "option": "proposal-anbau-erweiterung",
@@ -83473,11 +84437,11 @@
     "model": "caluma_form.questionoption",
     "pk": "proposal.proposal-andere",
     "fields": {
-      "created_at": "2021-01-22T18:13:14.613Z",
-      "modified_at": "2021-01-22T18:13:14.613Z",
-      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_at": "2026-05-08T06:25:46.503Z",
+      "modified_at": "2026-05-08T06:25:46.503Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "proposal",
       "option": "proposal-andere",
@@ -83488,11 +84452,11 @@
     "model": "caluma_form.questionoption",
     "pk": "proposal.proposal-neubau",
     "fields": {
-      "created_at": "2021-01-22T18:13:14.629Z",
-      "modified_at": "2021-01-22T18:13:14.629Z",
-      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_at": "2026-05-08T06:25:46.548Z",
+      "modified_at": "2026-05-08T06:25:46.548Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "proposal",
       "option": "proposal-neubau",
@@ -83503,11 +84467,11 @@
     "model": "caluma_form.questionoption",
     "pk": "proposal.proposal-nutzungsaenderung",
     "fields": {
-      "created_at": "2021-01-22T18:13:14.620Z",
-      "modified_at": "2021-01-22T18:13:14.620Z",
-      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_at": "2026-05-08T06:25:46.536Z",
+      "modified_at": "2026-05-08T06:25:46.536Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "proposal",
       "option": "proposal-nutzungsaenderung",
@@ -83518,11 +84482,11 @@
     "model": "caluma_form.questionoption",
     "pk": "proposal.proposal-umbau-erneuerung-sanierung",
     "fields": {
-      "created_at": "2021-01-22T18:13:14.626Z",
-      "modified_at": "2021-01-22T18:13:14.626Z",
-      "created_by_user": "jonas.lehmann@adfinis.com",
+      "created_at": "2026-05-08T06:25:46.544Z",
+      "modified_at": "2026-05-08T06:25:46.544Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": null,
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "proposal",
       "option": "proposal-umbau-erneuerung-sanierung",
@@ -83766,6 +84730,36 @@
       "modified_by_group": null,
       "question": "querprofile",
       "option": "querprofile-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rechtmassig-bestehenden-bauten.rechtmassig-bestehenden-bauten-ja",
+    "fields": {
+      "created_at": "2026-05-13T07:30:25.589Z",
+      "modified_at": "2026-05-13T07:30:25.589Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "rechtmassig-bestehenden-bauten",
+      "option": "rechtmassig-bestehenden-bauten-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "rechtmassig-bestehenden-bauten.rechtmassig-bestehenden-bauten-nein",
+    "fields": {
+      "created_at": "2026-05-13T07:30:25.585Z",
+      "modified_at": "2026-05-13T07:30:25.585Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "rechtmassig-bestehenden-bauten",
+      "option": "rechtmassig-bestehenden-bauten-nein",
       "sort": 1
     }
   },
@@ -84538,11 +85532,11 @@
     "model": "caluma_form.questionoption",
     "pk": "situationsplan-mit-angabe-der-grundflaechen-der-zum-rueckbau-vorgesehenen-gebaeude-undoder-anlage.situationsplan-mit-angabe-der-grundflaechen-der-zum-rueckbau-vorgesehenen-gebaeude-undoder-anlage-ja",
     "fields": {
-      "created_at": "2026-05-06T16:25:07.986Z",
-      "modified_at": "2026-05-06T16:25:07.986Z",
-      "created_by_user": "admin",
+      "created_at": "2026-05-07T14:07:15.461Z",
+      "modified_at": "2026-05-07T14:07:15.461Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "situationsplan-mit-angabe-der-grundflaechen-der-zum-rueckbau-vorgesehenen-gebaeude-undoder-anlage",
       "option": "situationsplan-mit-angabe-der-grundflaechen-der-zum-rueckbau-vorgesehenen-gebaeude-undoder-anlage-ja",
@@ -86293,11 +87287,11 @@
     "model": "caluma_form.questionoption",
     "pk": "typ-der-baute.typ-der-baute-andere",
     "fields": {
-      "created_at": "2026-05-06T15:51:19.263Z",
-      "modified_at": "2026-05-06T15:51:19.263Z",
-      "created_by_user": "admin",
+      "created_at": "2026-05-07T13:25:19.376Z",
+      "modified_at": "2026-05-07T13:25:19.376Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "typ-der-baute",
       "option": "typ-der-baute-andere",
@@ -86308,11 +87302,11 @@
     "model": "caluma_form.questionoption",
     "pk": "typ-der-baute.typ-der-baute-betoniert",
     "fields": {
-      "created_at": "2026-05-06T15:51:19.264Z",
-      "modified_at": "2026-05-06T15:51:19.264Z",
-      "created_by_user": "admin",
+      "created_at": "2026-05-07T13:25:19.380Z",
+      "modified_at": "2026-05-07T13:25:19.380Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "typ-der-baute",
       "option": "typ-der-baute-betoniert",
@@ -86323,11 +87317,11 @@
     "model": "caluma_form.questionoption",
     "pk": "typ-der-baute.typ-der-baute-fabrikhallen",
     "fields": {
-      "created_at": "2026-05-06T15:51:19.266Z",
-      "modified_at": "2026-05-06T15:51:19.266Z",
-      "created_by_user": "admin",
+      "created_at": "2026-05-07T13:25:19.387Z",
+      "modified_at": "2026-05-07T13:25:19.387Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "typ-der-baute",
       "option": "typ-der-baute-fabrikhallen",
@@ -86338,11 +87332,11 @@
     "model": "caluma_form.questionoption",
     "pk": "typ-der-baute.typ-der-baute-gastronomie",
     "fields": {
-      "created_at": "2026-05-06T15:51:19.267Z",
-      "modified_at": "2026-05-06T15:51:19.267Z",
-      "created_by_user": "admin",
+      "created_at": "2026-05-07T13:25:19.390Z",
+      "modified_at": "2026-05-07T13:25:19.390Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "typ-der-baute",
       "option": "typ-der-baute-gastronomie",
@@ -86353,11 +87347,11 @@
     "model": "caluma_form.questionoption",
     "pk": "typ-der-baute.typ-der-baute-leichtbauten",
     "fields": {
-      "created_at": "2026-05-06T15:51:19.265Z",
-      "modified_at": "2026-05-06T15:51:19.265Z",
-      "created_by_user": "admin",
+      "created_at": "2026-05-07T13:25:19.384Z",
+      "modified_at": "2026-05-07T13:25:19.384Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "typ-der-baute",
       "option": "typ-der-baute-leichtbauten",
@@ -88303,11 +89297,11 @@
     "model": "caluma_form.questionoption",
     "pk": "vollmacht-eigentuemergemeinschaft.vollmacht-eigentuemergemeinschaft-ja",
     "fields": {
-      "created_at": "2026-05-06T15:14:40.471Z",
-      "modified_at": "2026-05-06T15:14:40.471Z",
-      "created_by_user": "admin",
+      "created_at": "2026-05-07T14:06:33.732Z",
+      "modified_at": "2026-05-07T14:06:33.732Z",
+      "created_by_user": "paul.walker@ur.ch",
       "created_by_group": null,
-      "modified_by_user": "admin",
+      "modified_by_user": "paul.walker@ur.ch",
       "modified_by_group": null,
       "question": "vollmacht-eigentuemergemeinschaft",
       "option": "vollmacht-eigentuemergemeinschaft-ja",
@@ -88987,6 +89981,81 @@
       "question": "werkleitungsplan",
       "option": "werkleitungsplan-ja",
       "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wie-zugaenglich.wie-zugaenglich-fussweg",
+    "fields": {
+      "created_at": "2026-05-19T05:29:44.453Z",
+      "modified_at": "2026-05-19T05:29:44.453Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "wie-zugaenglich",
+      "option": "wie-zugaenglich-fussweg",
+      "sort": 2
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wie-zugaenglich.wie-zugaenglich-lastwagenbefahrbar",
+    "fields": {
+      "created_at": "2026-05-19T05:29:44.464Z",
+      "modified_at": "2026-05-19T05:29:44.464Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "wie-zugaenglich",
+      "option": "wie-zugaenglich-lastwagenbefahrbar",
+      "sort": 5
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wie-zugaenglich.wie-zugaenglich-personen-und-materialseilbahn",
+    "fields": {
+      "created_at": "2026-05-19T05:29:44.457Z",
+      "modified_at": "2026-05-19T05:29:44.457Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "wie-zugaenglich",
+      "option": "wie-zugaenglich-personen-und-materialseilbahn",
+      "sort": 3
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wie-zugaenglich.wie-zugaenglich-seilbahn",
+    "fields": {
+      "created_at": "2026-05-19T05:29:44.449Z",
+      "modified_at": "2026-05-19T05:29:44.449Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "wie-zugaenglich",
+      "option": "wie-zugaenglich-seilbahn",
+      "sort": 1
+    }
+  },
+  {
+    "model": "caluma_form.questionoption",
+    "pk": "wie-zugaenglich.wie-zugaenglich-transporter",
+    "fields": {
+      "created_at": "2026-05-19T05:29:44.461Z",
+      "modified_at": "2026-05-19T05:29:44.461Z",
+      "created_by_user": "paul.walker@ur.ch",
+      "created_by_group": null,
+      "modified_by_user": "paul.walker@ur.ch",
+      "modified_by_group": null,
+      "question": "wie-zugaenglich",
+      "option": "wie-zugaenglich-transporter",
+      "sort": 4
     }
   },
   {
