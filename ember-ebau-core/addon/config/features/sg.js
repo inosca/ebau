@@ -51,4 +51,7 @@ export default {
   form: {
     extraWide: true,
   },
+  withdrawal: {
+    light: true,
+  },
 };

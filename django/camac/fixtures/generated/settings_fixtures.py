@@ -4575,6 +4575,24 @@ def ag_withdrawal_settings(
 
 
 @pytest.fixture
+def sg_withdrawal_settings(
+    request,
+    settings,
+    withdrawal_settings,
+):
+    """Module-specific settings for withdrawal (canton SG)."""
+    yield from generate_module_settings(
+        settings=settings,
+        request=request,
+        base_fixture=withdrawal_settings,
+        settings_name="WITHDRAWAL",
+        import_path="camac.settings.modules.withdrawal.WITHDRAWAL",
+        canton="kt_sg",
+        disable=False,
+    )
+
+
+@pytest.fixture
 def test_withdrawal_settings(
     request,
     settings,

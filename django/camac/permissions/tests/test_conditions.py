@@ -35,6 +35,7 @@ def test_condition_is_paper(db, is_paper, so_instance, userinfo, form_utils: For
         (False, None, False),
         (True, WorkItem.STATUS_COMPLETED, False),
         (True, WorkItem.STATUS_READY, True),
+        (True, [WorkItem.STATUS_READY, WorkItem.STATUS_COMPLETED], True),
     ],
 )
 def test_condition_require_work_item(

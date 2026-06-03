@@ -76,6 +76,14 @@ WITHDRAWAL = {
             "REQUESTED": _("Withdrawal requested"),
         },
     },
+    "kt_sg": {
+        "ENABLED": True,
+        "TYPE": "light",
+        "REQUEST_TASK": "withdrawal-request",
+        "HISTORY_ENTRIES": {
+            "REQUESTED": _("Withdrawal requested"),
+        },
+    },
     "test": {
         "ENABLED": True,
         "ALLOWED_INSTANCE_STATES": ["subm"],

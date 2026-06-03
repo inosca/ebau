@@ -369,10 +369,7 @@
         {{#if this.editController.case.meta.withdrawal-requested}}
           <p class="uk-alert-primary" uk-alert>
             {{t "instances.withdrawalRequestedText"}}
-            <LinkTo
-              @route="instances.edit.communications"
-              @query={{hash instanceId=this.editController.instance.id}}
-            >
+            <LinkTo @route="instances.edit.communications">
               {{t "instances.withdrawalRequestCommunicationText"}}
             </LinkTo>
           </p>

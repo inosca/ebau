@@ -86,12 +86,15 @@ ACTION_APPLICANT_CONFIRMATION_ADMIN = RequireWorkItem(
 ACTION_APPLICANT_CONFIRMATION_CONFIRM = RequireWorkItem("submit", "ready")
 
 ACTION_INSTANCE_DELETE = RequireInstanceState(["new"]) & APPLICANT_ADMIN
+ACTION_INSTANCE_MARK = IsServiceGroup(["coordination"])
 ACTION_INSTANCE_SUBMIT = (
     RequireWorkItem("submit", "ready")
     & APPLICANT_ADMIN
     & HasApplicantConfirmationRound(["completed"])
 )
-ACTION_INSTANCE_MARK = IsServiceGroup(["coordination"])
+ACTION_INSTANCE_WITHDRAW = (
+    RequireWorkItem("withdrawal-request", ["ready", "completed"]) & APPLICANT_ADMIN
+)
 
 # Actual config
 SG_PERMISSIONS_SETTINGS = {
@@ -115,6 +118,7 @@ SG_PERMISSIONS_SETTINGS = {
             ("form-write", MODULE_PORTAL_FORM_WRITE),
             ("instance-delete", ACTION_INSTANCE_DELETE),
             ("instance-submit", ACTION_INSTANCE_SUBMIT),
+            ("instance-withdraw", ACTION_INSTANCE_WITHDRAW),
         ],
         "distribution-service": [
             ("communications-read", MODULE_COMMUNICATIONS),
