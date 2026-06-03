@@ -253,6 +253,7 @@ module.exports = function (environment) {
           "solaranlagen-tabelle-grundriss-ansichtsplan-dokument-begruendung-v2",
           "solaranlagen-tabelle-situationsplan-mit-eingezeichneter-solaranlage-dokument-begruendung-v3",
           "eignung-der-dachflaechen-zur-solarenergienutzung-dokument-begruendung",
+          "situationsplan-mit-rpg2-flaechenangaben-dokument-begruendung-v7",
         ],
       },
       instanceStates: instanceStatesBe,
